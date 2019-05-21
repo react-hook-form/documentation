@@ -105,6 +105,16 @@ const Video = styled.video`
     height: 491px;
     margin: 0 auto 40px;
   }
+  
+  @media (min-width: 1024px) {
+    width: 800px;
+    height: 563px;
+  }
+  
+  @media (min-width: 1280px) {
+    width: 900px;
+    height: 631px;
+  }
 `;
 
 export default function Header({ homeRef, toggleApi, tabIndex }: any) {
