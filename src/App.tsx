@@ -318,6 +318,7 @@ function App() {
             >
               React Simple Img
             </a>
+            <br /><span style={{ fontSize: 12, lineHeight: 2, marginTop: 5, display: 'block'}}>[ Please support the repo by leaving ⭐️. Thank you ❤ ️]</span>
           </Footer>
         </Animate>
       </main>
