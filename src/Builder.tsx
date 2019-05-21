@@ -7,7 +7,7 @@ import SortableContainer from './SortableContainer';
 import { SubHeading, HeadingWithTopMargin, Error, Title } from './styles/typography';
 import { setHomePage } from './ButtonGroup';
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
-import track from "./utils/track";
+import track from './utils/track';
 
 const errorStyle = { border: `1px solid ${colors.secondary}`, background: colors.errorPink };
 
@@ -151,7 +151,7 @@ function Builder({
   HomeRef,
   isMobile,
 }) {
-  const { register, handleSubmit, errors = {}, watch } = useForm();
+  const { register, handleSubmit, errors = {}, watch, setValue } = useForm();
   const [editIndex, setEditIndex] = useState(-1);
   const copyFormData = useRef([]);
   const closeButton = useRef(null);
@@ -170,6 +170,13 @@ function Builder({
   };
   const type = watch('type');
   const tabIndex = showBuilder ? 0 : -1;
+  const shouldToggleOn =
+    editFormData.max ||
+    editFormData.min ||
+    editFormData.pattern ||
+    editFormData.maxLength ||
+    editFormData.minLength ||
+    editFormData.required;
   copyFormData.current = formData;
 
   function validate(value) {
@@ -177,12 +184,19 @@ function Builder({
     return !Object.values(copyFormData.current).find(data => data.name === value) || editIndex !== -1;
   }
 
+  useEffect(
+    () => {
+      if (showBuilder && closeButton.current) {
+        // @ts-ignore
+        closeButton.current.focus();
+      }
+    },
+    [showBuilder],
+  );
+
   useEffect(() => {
-    if (showBuilder && closeButton.current) {
-      // @ts-ignore
-      closeButton.current.focus();
-    }
-  }, [showBuilder]);
+    setValue('toggle', shouldToggleOn)
+  }, [shouldToggleOn]);
 
   return (
     <Animate
@@ -271,7 +285,13 @@ function Builder({
                   </Animate>
 
                   <label>Type: </label>
-                  <select aria-label="Select type" name="type" ref={register} value={editFormData.type} tabIndex={tabIndex}>
+                  <select
+                    aria-label="Select type"
+                    name="type"
+                    ref={register}
+                    value={editFormData.type}
+                    tabIndex={tabIndex}
+                  >
                     <option value="text">Text</option>
                     <option value="select">Select</option>
                     <option value="checkbox">Checkbox</option>
@@ -314,15 +334,16 @@ function Builder({
                   <label>
                     <input
                       type="checkbox"
+                      name="toggle"
+                      ref={register}
                       tabIndex={tabIndex}
-                      defaultChecked={editFormData.checkbox}
                       onClick={() => toggleValidation(!showValidation)}
                     />
                     &nbsp; Toggle Validation Panel
                   </label>
 
                   <Animate
-                    play={showValidation}
+                    play={showValidation || shouldToggleOn}
                     start={{
                       maxHeight: 0,
                       overflow: 'hidden',
@@ -332,14 +353,19 @@ function Builder({
                       overflow: 'hidden',
                     }}
                   >
-                    <label>Validation</label>
                     <fieldset>
                       <label
                         style={{
                           marginTop: 0,
                         }}
                       >
-                        <input tabIndex={showValidation ? 0 : -1} defaultChecked={editFormData.required} type="checkbox" name="required" ref={register} />{' '}
+                        <input
+                          tabIndex={showValidation ? 0 : -1}
+                          defaultChecked={editFormData.required}
+                          type="checkbox"
+                          name="required"
+                          ref={register}
+                        />{' '}
                         Required
                       </label>
                       <label>Max</label>
@@ -398,13 +424,18 @@ function Builder({
                     </fieldset>
                   </Animate>
 
-                  <SubmitButton onClick={() => {
-                    track({
-                      category: 'Builder',
-                      label: editIndex >= 0 ? 'Update' : 'Create',
-                      action: 'Builder Submit'
-                    })
-                  }} tabIndex={tabIndex} type="submit" value={editIndex >= 0 ? 'Update' : 'Create'} />
+                  <SubmitButton
+                    onClick={() => {
+                      track({
+                        category: 'Builder',
+                        label: editIndex >= 0 ? 'Update' : 'Create',
+                        action: 'Builder Submit',
+                      });
+                    }}
+                    tabIndex={tabIndex}
+                    type="submit"
+                    value={editIndex >= 0 ? 'Update' : 'Create'}
+                  />
 
                   <Title
                     style={{
@@ -436,8 +467,8 @@ function Builder({
                           track({
                             category: 'Builder',
                             label: 'Generate form',
-                            action: 'Generate form'
-                          })
+                            action: 'Generate form',
+                          });
                           toggleBuilder(false);
                           builderButton.current.focus();
                           document.body.style.overflow = 'auto';

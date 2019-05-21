@@ -96,7 +96,11 @@ const SettingWords = styled.span`
   }
 `;
 
-const errorStyle = { border: `1px solid ${colors.secondary}`, background: colors.errorPink, borderLeft: `10px solid ${colors.lightPink}` };
+const errorStyle = {
+  border: `1px solid ${colors.secondary}`,
+  background: colors.errorPink,
+  borderLeft: `10px solid ${colors.lightPink}`,
+};
 
 export default function Form({
   tabIndex,
@@ -128,7 +132,18 @@ export default function Form({
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>
             Example{' '}
-            <SettingIcon aria-label="Demo form setting" tabIndex={tabIndex} onClick={() => toggleSetting(!showSetting)}>
+            <SettingIcon
+              aria-label="Demo form setting"
+              tabIndex={tabIndex}
+              onClick={() => {
+                track({
+                  label: 'Open setting from form',
+                  action: 'Open setting from form',
+                  category: 'Home form action',
+                });
+                toggleSetting(!showSetting);
+              }}
+            >
               <Setting />
               <SettingWords>Setting</SettingWords>
             </SettingIcon>
@@ -284,20 +299,21 @@ export default function Form({
           </section>
         )}
 
-        {setting.showWatch && setting.mode === 'onChange' && (
-          <section>
-            <Title>Watch</Title>
-            {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
-            <Animate
-              duration={0.8}
-              play={Object.keys(watch() || {}).length > 0}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <Code>{JSON.stringify(watch(), null, 2)}</Code>
-            </Animate>
-          </section>
-        )}
+        {setting.showWatch &&
+          setting.mode === 'onChange' && (
+            <section>
+              <Title>Watch</Title>
+              {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
+              <Animate
+                duration={0.8}
+                play={Object.keys(watch() || {}).length > 0}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <Code>{JSON.stringify(watch(), null, 2)}</Code>
+              </Animate>
+            </section>
+          )}
 
         {setting.showTouch && (
           <section>
