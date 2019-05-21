@@ -15,4 +15,4 @@ jobs:
 
       - run: sudo npm install --global --unsafe-perm now@13.1.2
 
-      - run: now -t $NOW_TOKEN ./public && now -t $NOW_TOKEN alias
+      - run: now -t $NOW_TOKEN && now -t $NOW_TOKEN alias
