@@ -3,7 +3,7 @@
   "name": "react-hook-form",
   "alias": "react-hook-form",
   "builds": [
-    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "./build" } }
   ],
   "routes": [
     { "src": "/static/(.*)", "headers": { "cache-control": "s-maxage=31536000,immutable" }, "dest": "/static/$1" },
