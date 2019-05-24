@@ -31,24 +31,38 @@ const Faq = ({ location }) => {
 
       <Wrapper>
         <aside>
-          <ApiMenu
-            isStatic
-            links={links}
-            goToSection={goToSection}
-          />
+          <ApiMenu isStatic links={links} goToSection={goToSection} />
         </aside>
 
         <main>
           <h2>Performance of React Hook Form</h2>
           <p>
-            In fact, performance is one of the primary goal for building this custom hook. by using uncontrolled form
-            and input, it allows input to interact te actual form without trigger unnecessary component re-rendering.
+            Performance is one of the primary goals for building this custom hook. It relies on uncontrolled component,
+            hence the reason why the register function occurred at the ref. This approach will reduce the amount of
+            re-rendering which occurred by user typing or value changing. The components mount to the page is much
+            quicker too because they are not controlled. For mounting speed, I have completed a quick comparison test
+            which you can refer to by this repo link.
           </p>
+
+          <hr />
+
+          <h2>Does it work with React class Component?</h2>
+
+          <hr />
 
           <h2>How to easily clear form value?</h2>
           <p>Clear form can be archive multiple ways,</p>
 
-          <h2>How to easily clear form value?</h2>
+          <hr />
+
+          <h2>How to apply validation rules on Custom Inputs?</h2>
+          <hr />
+
+          <h2>How to initialize form values?</h2>
+          <hr />
+
+          <h2>What if ref need to be used by other actions?</h2>
+          <hr />
         </main>
       </Wrapper>
     </Layout>
