@@ -1,11 +1,25 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "gatsby-starter-default",
   "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "gatsby": "^2.6.0",
+    "gatsby-image": "^2.1.0",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.37",
+    "gatsby-plugin-typescript": "^2.0.14",
+    "gatsby-source-filesystem": "^2.0.37",
+    "gatsby-transformer-sharp": "^2.1.19",
+    "little-state-machine": "^2.3.3",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-github-btn": "^1.0.5",
+    "react-helmet": "^5.2.1",
     "react-hook-form": "3.7.1",
     "react-simple-animate": "^3.0.1",
     "react-simple-img": "^2.1.9",
@@ -14,32 +28,26 @@
     "sortablejs": "^1.9.0",
     "styled-components": "^4.2.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "now-build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@types/node": "^11.11.3",
-    "@types/react": "^16.8.8",
-    "@types/react-dom": "^16.8.2",
-    "react-scripts": "^2.1.8",
-    "typescript": "^3.3.3333"
+    "prettier": "^1.17.1"
   },
-  "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-dom": ">= 16.8.0"
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
