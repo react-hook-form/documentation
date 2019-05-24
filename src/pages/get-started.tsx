@@ -238,8 +238,8 @@ const Faq = ({ location }) => {
             Register fields
           </Title>
           <p>
-            One of the key concept for React Hook Form is register your uncontrolled fields into the hook, and enable
-            the hook to validated and gather your fields value on submit.
+            One of the key concepts for React Hook Form is to register your uncontrolled fields into the hook and enable
+            it to validated and gather the value of your field on submit.
           </p>
 
           <p>
@@ -257,7 +257,7 @@ const Faq = ({ location }) => {
           </Title>
 
           <p>
-            React hook form make form validation easy and align with existing{' '}
+            React hook form make form validation easy by aligning with existing{' '}
             <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank">
               HTML standard form validation
             </a>
@@ -288,8 +288,8 @@ const Faq = ({ location }) => {
             Adapting existing form
           </Title>
           <p>
-            Working on existing form should be fairy simple as well. The important step is to pass down{' '}
-            <code>register</code> into existing input or select component, and apply <code>register</code> on the{' '}
+            Working on an existing form is fairly simple as well. The important step is to pass down{' '}
+            <code>register</code> into existing input or select component, and apply it on the{' '}
             <code>ref</code>.
           </p>
 
@@ -303,12 +303,12 @@ const Faq = ({ location }) => {
             Work with UI library
           </Title>
           <p>
-            The following example demonstrate usage with <code>react-select</code> and <code>material-ui</code>.
+            The following example demonstrates usage with <code>react-select</code> and <code>material-ui</code>.
           </p>
           <p>
-            Most of UI library do expose <code>innerRef</code> or <code>ref</code>. For component that are more
+            Most of UI library do expose <code>innerRef</code> or <code>ref</code>. For components that are more
             complicated like <code>react-select</code> or <code>react-datepicker</code>, you can also update value via{' '}
-            <code>setValue</code>.
+            <code>setValue</code> or trigger an error with <code>setError</code>.
           </p>
 
           <SyntaxHighlighterWithCopy rawData={uiLibrary} url="https://codesandbox.io/s/72j69vnk1x" />
@@ -321,8 +321,8 @@ const Faq = ({ location }) => {
             Integrate global state
           </Title>
           <p>
-            Forms are mostly about collecting user data. React Hook Form doesn't required you to have an state
-            management to store your data. However it allows you to easily integrate one like <code>Redux</code> or{' '}
+            Forms are mostly about collecting user data. React Hook Form doesn't require you to have a state
+            management to store your data. However, it allows you to easily integrate one like <code>Redux</code> or{' '}
             <code>MobX</code>
           </p>
 
@@ -336,8 +336,7 @@ const Faq = ({ location }) => {
             Handle errors
           </Title>
           <p>
-            React hook form provide an <code>errors</code> object to display with correct messages and help user with
-            validation.
+            React hook form provide an <code>errors</code> object to show you the errors within the form.
           </p>
 
           <SyntaxHighlighterWithCopy rawData={errors} />

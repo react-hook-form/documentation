@@ -55,7 +55,7 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       >
         Example
       </h2>
-      <p>The following code will demonstrate the basic usage of react-hook-form.</p>
+      <p>The following code will demonstrate the basics.</p>
       <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   );
