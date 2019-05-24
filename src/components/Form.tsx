@@ -8,6 +8,7 @@ import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
 import FormFields from './FormFields'
+import { DarkBlueButton } from './styles/buttons'
 
 const Code = styled.pre`
   text-align: left;
@@ -15,19 +16,6 @@ const Code = styled.pre`
   white-space: pre-wrap;
   font-size: 0.7rem;
   line-height: 1.6;
-`
-
-const Button = styled.button`
-  display: block;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 12px 40px;
-  margin: 40px auto;
-  font-size: 18px;
-  background: ${colors.primary};
-  color: white;
-  border: 1px solid ${colors.lightBlue};
-  transition: 0.3s all;
 `
 
 const Wrapper = styled.div`
@@ -198,21 +186,20 @@ export default function Form({
           </section>
         )}
 
-        {setting.showWatch &&
-          setting.mode === 'onChange' && (
-            <section>
-              <Title>Watch</Title>
-              {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
-              <Animate
-                duration={0.8}
-                play={Object.keys(watch() || {}).length > 0}
-                start={{ opacity: 0 }}
-                end={{ opacity: 1 }}
-              >
-                <Code>{JSON.stringify(watch(), null, 2)}</Code>
-              </Animate>
-            </section>
-          )}
+        {setting.showWatch && setting.mode === 'onChange' && (
+          <section>
+            <Title>Watch</Title>
+            {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
+            <Animate
+              duration={0.8}
+              play={Object.keys(watch() || {}).length > 0}
+              start={{ opacity: 0 }}
+              end={{ opacity: 1 }}
+            >
+              <Code>{JSON.stringify(watch(), null, 2)}</Code>
+            </Animate>
+          </section>
+        )}
 
         {setting.showTouch && (
           <section>
@@ -242,7 +229,7 @@ export default function Form({
       >
         <H1>Find it useful and interesting?</H1>
         <p>Checkout the full API documentation in a single page</p>
-        <Button
+        <DarkBlueButton
           onClick={() => {
             track({
               category: 'CTA',
@@ -253,7 +240,7 @@ export default function Form({
           }}
         >
           Checkout Hook API
-        </Button>
+        </DarkBlueButton>
       </section>
     </>
   )

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Title } from './styles/typography';
 import copyClipBoard from './utils/copyClipBoard';
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
 import code from './codeExamples/defaultExample';

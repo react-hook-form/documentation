@@ -1,14 +1,15 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import { HeadingWithTopMargin, SubHeading, Title } from '../components/styles/typography'
+import { H1, HeadingWithTopMargin, SubHeading, Title } from '../components/styles/typography'
 import GetStarted from '../components/GetStarted'
 import styled from 'styled-components'
 import ApiMenu from '../components/ApiMenu'
 import track from '../components/utils/track'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import colors from '../components/styles/colors'
-import { Link } from '@reach/router'
+import { Link, navigate } from '@reach/router'
+import { DarkBlueButton } from '../components/styles/buttons'
 
 const { useRef } = React
 
@@ -149,7 +150,7 @@ function YourForm() {
       <input type="submit" />
     </form>
   );
-}`;
+}`
 
 const Wrapper = styled.div`
   max-width: 1200px;
@@ -201,7 +202,7 @@ const Faq = ({ location }) => {
       <Seo title="Get Started" />
 
       <HeadingWithTopMargin>Get Started</HeadingWithTopMargin>
-      <SubHeading>React hook form focus on providing the best DX by simplify the API.</SubHeading>
+      <SubHeading>Simple form validation with React hook form.</SubHeading>
 
       <Wrapper>
         <aside>
@@ -340,6 +341,27 @@ const Faq = ({ location }) => {
           </p>
 
           <SyntaxHighlighterWithCopy rawData={errors} />
+
+          <section
+            style={{
+              textAlign: 'center',
+            }}
+          >
+            <H1>Want to learn more?</H1>
+            <p>Checkout the full API documentation</p>
+            <DarkBlueButton
+              onClick={() => {
+                track({
+                  category: 'Get started - CTA',
+                  label: 'Checkout hook API',
+                  action: 'Go to API section',
+                })
+                navigate('/api')
+              }}
+            >
+              Checkout Hook API
+            </DarkBlueButton>
+          </section>
         </main>
       </Wrapper>
     </Layout>
