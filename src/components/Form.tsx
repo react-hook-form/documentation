@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Title, H1 } from './styles/typography'
 import colors from './styles/colors'
 import { Animate } from 'react-simple-animate'
@@ -6,7 +6,8 @@ import styled from 'styled-components'
 import Setting from './svgs/setting'
 import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
-import {navigate} from "@reach/router";
+import { navigate } from '@reach/router'
+import FormFields from './FormFields'
 
 const Code = styled.pre`
   text-align: left;
@@ -37,7 +38,7 @@ const Wrapper = styled.div`
   grid-column-gap: 40px;
 `
 
-const SubmitButton = styled.input`
+const SubmitButton = styled.button`
   background: ${colors.lightPink};
   height: 55px;
   color: white;
@@ -47,15 +48,9 @@ const SubmitButton = styled.input`
   padding: 20px;
   font-size: 16px;
   border: 1px solid transparent;
-`
-
-const RadioGroup = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-
-  & > label:first-child {
-    margin-right: 20px;
-  }
+  -webkit-appearance: none;
+  border-radius: 5px;
+  line-height: 1;
 `
 
 const SettingIcon = styled.button`
@@ -100,12 +95,6 @@ const SettingWords = styled.span`
   }
 `
 
-const errorStyle = {
-  border: `1px solid ${colors.secondary}`,
-  background: colors.errorPink,
-  borderLeft: `10px solid ${colors.lightPink}`,
-}
-
 export default function Form({
   tabIndex,
   handleSubmit,
@@ -123,6 +112,7 @@ export default function Form({
   const {
     state: { formData },
   } = useStateMachine()
+
   return (
     <>
       <div
@@ -140,6 +130,7 @@ export default function Form({
             <SettingIcon
               aria-label="Demo form setting"
               tabIndex={tabIndex}
+              type="button"
               onClick={() => {
                 track({
                   label: 'Open setting from form',
@@ -153,108 +144,10 @@ export default function Form({
               <SettingWords>Setting</SettingWords>
             </SettingIcon>
           </Title>
-          {(formData || []).map(field => {
-            switch (field.type) {
-              case 'select':
-                return (
-                  <select
-                    aria-label={field.name}
-                    tabIndex={tabIndex}
-                    name={field.name}
-                    ref={register({ required: field.required })}
-                    key={field.name}
-                    style={{
-                      marginBottom: 20,
-                      ...(errors[field.name] ? errorStyle : null),
-                    }}
-                  >
-                    <option value="">Select...</option>
-                    {field.options &&
-                      field.options
-                        .split(';')
-                        .filter(Boolean)
-                        .map(option => {
-                          return <option key={option}>{option}</option>
-                        })}
-                  </select>
-                )
-              case 'textarea':
-                return (
-                  <textarea
-                    aria-label={field.name}
-                    tabIndex={tabIndex}
-                    name={field.name}
-                    placeholder={field.name}
-                    ref={register({
-                      required: field.required,
-                      ...(field.maxLength ? { maxLength: field.maxLength } : null),
-                      ...(field.minLength ? { minLength: field.minLength } : null),
-                    })}
-                    key={field.name}
-                    style={{
-                      marginBottom: 20,
-                      ...(errors[field.name] ? errorStyle : null),
-                    }}
-                  />
-                )
-              case 'radio':
-                return (
-                  <RadioGroup key={field.name} style={{ marginBottom: 20 }} aria-label={field.name}>
-                    {field.options &&
-                      field.options
-                        .split(';')
-                        .filter(Boolean)
-                        .map(name => {
-                          return (
-                            <label
-                              key={name}
-                              style={{
-                                ...(errors[field.name] ? { color: colors.lightPink } : null),
-                              }}
-                            >
-                              {name}
-                              &nbsp;
-                              <input
-                                tabIndex={tabIndex}
-                                type="radio"
-                                name={field.name}
-                                value={name}
-                                ref={register({ required: field.required })}
-                              />
-                            </label>
-                          )
-                        })}
-                  </RadioGroup>
-                )
-              default:
-                return (
-                  <input
-                    style={{
-                      marginBottom: 20,
-                      ...(errors[field.name] ? errorStyle : null),
-                    }}
-                    aria-label={field.name}
-                    autoComplete="off"
-                    key={field.name}
-                    type={field.type}
-                    tabIndex={tabIndex}
-                    name={field.name}
-                    placeholder={field.name}
-                    ref={register({
-                      required: field.required,
-                      ...(field.pattern ? { pattern: new RegExp(field.pattern) } : null),
-                      ...(field.max ? { max: field.max } : null),
-                      ...(field.min ? { min: field.min } : null),
-                      ...(field.maxLength ? { maxLength: field.maxLength } : null),
-                      ...(field.minLength ? { minLength: field.minLength } : null),
-                    })}
-                  />
-                )
-            }
-          })}
 
-          <SubmitButton type="submit" value="Submit" className="App-submit" />
+          <FormFields {...{ formData, errors, register, tabIndex }} />
 
+          <SubmitButton>Submit</SubmitButton>
           <Title
             style={{
               fontSize: 14,
@@ -268,7 +161,6 @@ export default function Form({
           <SubmitButton
             type="button"
             tabIndex={tabIndex}
-            value="Edit"
             onClick={() => {
               toggleBuilder(true)
               document.title = 'React hook form - Builder'
@@ -279,7 +171,9 @@ export default function Form({
               marginTop: 20,
               color: 'white',
             }}
-          />
+          >
+            Edit
+          </SubmitButton>
         </form>
 
         {setting.showError && (
@@ -304,20 +198,21 @@ export default function Form({
           </section>
         )}
 
-        {setting.showWatch && setting.mode === 'onChange' && (
-          <section>
-            <Title>Watch</Title>
-            {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
-            <Animate
-              duration={0.8}
-              play={Object.keys(watch() || {}).length > 0}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <Code>{JSON.stringify(watch(), null, 2)}</Code>
-            </Animate>
-          </section>
-        )}
+        {setting.showWatch &&
+          setting.mode === 'onChange' && (
+            <section>
+              <Title>Watch</Title>
+              {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
+              <Animate
+                duration={0.8}
+                play={Object.keys(watch() || {}).length > 0}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <Code>{JSON.stringify(watch(), null, 2)}</Code>
+              </Animate>
+            </section>
+          )}
 
         {setting.showTouch && (
           <section>

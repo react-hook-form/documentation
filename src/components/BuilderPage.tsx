@@ -218,16 +218,22 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     return !Object.values(copyFormData.current).find(data => data.name === value) || editIndex !== -1
   }
 
-  useEffect(() => {
-    if (showBuilder && closeButton.current) {
-      // @ts-ignore
-      closeButton.current.focus()
-    }
-  }, [showBuilder])
+  useEffect(
+    () => {
+      if (showBuilder && closeButton.current) {
+        // @ts-ignore
+        closeButton.current.focus()
+      }
+    },
+    [showBuilder],
+  )
 
-  useEffect(() => {
-    setValue('toggle', shouldToggleOn)
-  }, [shouldToggleOn])
+  useEffect(
+    () => {
+      setValue('toggle', shouldToggleOn)
+    },
+    [shouldToggleOn],
+  )
 
   const child = (
     <>
