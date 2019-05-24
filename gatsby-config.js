@@ -10,7 +10,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     {
       resolve: `gatsby-source-filesystem`,
-      options: {  
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -27,6 +27,12 @@ module.exports = {
         theme_color: `#663399`,
         display: `react-hook-form`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-139961497-1',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
