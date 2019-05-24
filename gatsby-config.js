@@ -6,10 +6,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-typescript',
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
+      options: {  
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -19,12 +20,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `react-hook-form`,
+        short_name: `react-hook-form`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `react-hook-form`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },

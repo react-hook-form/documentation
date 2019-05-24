@@ -9,48 +9,10 @@ import Header from './Header'
 import CodeCompareSection from './CodeCompareSection'
 import CodePerfCompareSection from './CodePerfCompareSection'
 import FooterContent from './Footer'
+import Setting from './Setting'
+import Builder from './BuilderPage'
 
-const { useState, useRef, Suspense, useEffect } = React
-
-const LazyLoadPage = ({
-  settingButton,
-  toggleSetting,
-  setting,
-  showSetting,
-  setConfig,
-  showBuilder,
-  toggleBuilder,
-  builderButton,
-  isMobile,
-  HomeRef,
-}) => {
-  const Setting = React.lazy(() => import('./Setting'))
-  const Builder = React.lazy(() => import('./BuilderPage'))
-
-  return typeof window === 'undefined' ? null : (
-    <>
-      <Suspense fallback={<span />}>
-        <Setting
-          settingButton={settingButton}
-          toggleSetting={toggleSetting}
-          setting={setting}
-          showSetting={showSetting}
-          setConfig={setConfig}
-        />
-      </Suspense>
-
-      <Suspense fallback={<span />}>
-        <Builder
-          showBuilder={showBuilder}
-          toggleBuilder={toggleBuilder}
-          builderButton={builderButton}
-          isMobile={isMobile}
-          HomeRef={HomeRef}
-        />
-      </Suspense>
-    </>
-  )
-}
+const { useState, useRef, useEffect } = React
 
 const Root = styled.div`
   overflow: hidden;
@@ -172,19 +134,20 @@ function App({ location }) {
     <Root>
       {!isMobile && Buttons}
 
-      <LazyLoadPage
-        {...{
-          settingButton,
-          toggleSetting,
-          setting,
-          showSetting,
-          setConfig,
-          showBuilder,
-          toggleBuilder,
-          builderButton,
-          isMobile,
-          HomeRef,
-        }}
+      <Setting
+        settingButton={settingButton}
+        toggleSetting={toggleSetting}
+        setting={setting}
+        showSetting={showSetting}
+        setConfig={setConfig}
+      />
+
+      <Builder
+        showBuilder={showBuilder}
+        toggleBuilder={toggleBuilder}
+        builderButton={builderButton}
+        isMobile={isMobile}
+        HomeRef={HomeRef}
       />
 
       {isMobile && Buttons}
