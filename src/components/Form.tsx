@@ -153,7 +153,7 @@ export default function Form({
               <SettingWords>Setting</SettingWords>
             </SettingIcon>
           </Title>
-          {formData.map(field => {
+          {(formData || []).map(field => {
             switch (field.type) {
               case 'select':
                 return (

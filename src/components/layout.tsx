@@ -6,7 +6,7 @@ import './layout.css'
 const Layout = props => {
   return (
     <>
-      {props.location && props.location.pathname !== '/' && <ButtonGroup />}
+      {props.location && props.location.pathname !== '/' && <ButtonGroup pathname={props.location.pathname} />}
       <main>{props.children}</main>
     </>
   )

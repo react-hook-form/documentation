@@ -74,8 +74,6 @@ const Footer = styled.footer`
   }
 `
 
-const isMobile = window.matchMedia('(max-width: 768px)').matches
-
 function App({ location }) {
   const [submitData, updateSubmitData] = useState({})
   const settingButton = useRef(null)
@@ -106,6 +104,7 @@ function App({ location }) {
     mode: setting.mode,
   })
   const tabIndex = showBuilder ? -1 : 0
+  let isMobile;
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -115,11 +114,14 @@ function App({ location }) {
     if (location.search === '?goToDemo') {
       HomeRef.current.scrollIntoView({ behavior: 'smooth' })
     }
+
+    isMobile = typeof window === 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
   }, [])
 
   const Buttons = (
     <ButtonGroup
       tabIndex={tabIndex}
+      pathname={location.pathname}
       builderButton={builderButton}
       toggleBuilder={toggleBuilder}
       toggleSetting={toggleSetting}

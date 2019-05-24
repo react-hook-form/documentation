@@ -168,8 +168,8 @@ export default function ButtonGroup({
   settingButton,
   builderButton,
   tabIndex,
+                                      pathname,
 }: any) {
-  const pathname = window.location.pathname
 
   return (
     <>

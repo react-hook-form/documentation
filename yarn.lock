@@ -6731,10 +6731,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-little-state-machine@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/little-state-machine/-/little-state-machine-2.3.3.tgz#ea7f92d39046945c42d7d372f9df9b187740da5e"
-  integrity sha512-BHGVM2v1szGSpZESvp6btfd4RdMTRE4VReUxBd3NT0YbsPaeEUyt2hsir6e1qavN5aX+Mz5cph/ey5p+z0PE2A==
+little-state-machine@2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/little-state-machine/-/little-state-machine-2.3.5.tgz#de381838c539cc2433b0f9f9c001ff1fe33417be"
+  integrity sha512-YP2bKeDbdAGudXcjRR1QrtQNx5PixHLyhEh6sFYgit9wiJGRL7/1ETrAEadrlOAGN+v2trE6qk1j4PuFooelKw==
   dependencies:
     lodash.clonedeep "^4.5.0"
 

@@ -75,7 +75,7 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
           );
         }}
       >
-        {formData.map((field, index) => {
+        {(formData || []).map((field, index) => {
           return (
             <Animate
               play
@@ -187,7 +187,7 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
         })}
       </Sortable>
 
-      {formData.length > 0 ? (
+      {(formData || []).length > 0 ? (
         <EditPanel>
           <button
             tabIndex={tabIndex}

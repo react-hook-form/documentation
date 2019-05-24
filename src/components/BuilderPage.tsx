@@ -242,7 +242,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             {...{ updateFormData, tabIndex, formData, editIndex, setEditIndex, setFormData, editFormData }}
           />
 
-          {formData.length === 0 && (
+          {(formData || []).length === 0 && (
             <p
               style={{
                 textAlign: 'center',
@@ -443,7 +443,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           </Title>
 
           <Animate
-            play={formData.length > 0}
+            play={(formData || []).length > 0}
             start={{
               opacity: 0,
               pointerEvents: 'none',
