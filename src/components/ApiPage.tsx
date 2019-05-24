@@ -32,8 +32,8 @@ const Root = styled.main`
   
   & hr {
     border: none;
-    border-top: 1px solid ${colors.lightBlue}
-    margin: 40px 0;
+    border-top: 1px solid ${colors.lightBlue};
+    margin: 40px 0 60px;
     display: block;
   }
 
@@ -95,7 +95,6 @@ const Wrapper = styled.div`
 `
 
 const links = [
-  'Examples',
   'useForm',
   'register',
   'errors',
@@ -105,7 +104,6 @@ const links = [
   'setError',
   'setValue',
   'formState',
-  // 'validationSchema',
 ]
 
 function Builder({ formData, showApi }: any) {

@@ -15,6 +15,7 @@ const Menu = styled.div`
       position: fixed;
       list-style: none;
       padding: 0;
+      margin-top: 0;
 
       & > li:first-child > button {
         font-size: 1.5rem;
@@ -81,7 +82,17 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
   return (
     <Menu>
       <ul>
-        {title && <li>{title}</li>}
+        <li>
+          <Title
+            style={{
+              marginBottom: '10px',
+              fontSize: 16,
+              color: colors.lightBlue,
+            }}
+          >
+            Quick Menu
+          </Title>
+        </li>
         {links.map((link, index) => {
           if (isStatic) {
             return (
@@ -103,46 +114,12 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
             )
           }
 
-          if (link === 'Examples') {
-            return (
-              <React.Fragment key="examples">
-                <li>
-                  <Code>{`</>`}</Code>
-                  <a
-                    onClick={() => {
-                      track({
-                        category: 'API',
-                        label: 'Examples',
-                        action: 'go to examples',
-                      })
-                    }}
-                    href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
-                    target="_blank"
-                    tabIndex={tabIndex}
-                  >
-                    Examples
-                  </a>
-                </li>
-                <li>
-                  <Title
-                    style={{
-                      marginBottom: '10px',
-                      fontSize: 16,
-                      color: colors.lightBlue,
-                    }}
-                  >
-                    API
-                  </Title>
-                </li>
-              </React.Fragment>
-            )
-          }
           return (
             <li
               key={link}
               onClick={() => goToSection(link)}
               style={{
-                ...(index > 1
+                ...(index > 0
                   ? {
                       marginLeft: 10,
                       ...(index !== links.length - 1 ? { borderLeft: '1px solid #ec5990' } : null),
@@ -152,7 +129,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
               }}
             >
               <Arrow last={index === links.length - 1}>
-                {index > 1 && (
+                {index > 0 && (
                   <span
                     style={{
                       left: 1,
@@ -177,6 +154,23 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
             </li>
           )
         })}
+        <li>
+          <Code>{`</>`}</Code>
+          <a
+            onClick={() => {
+              track({
+                category: 'API',
+                label: 'Examples',
+                action: 'go to examples',
+              })
+            }}
+            href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
+            target="_blank"
+            tabIndex={tabIndex}
+          >
+            Code Examples
+          </a>
+        </li>
       </ul>
     </Menu>
   )

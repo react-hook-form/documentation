@@ -35,17 +35,6 @@ const Faq = ({ location }) => {
             isStatic
             links={links}
             goToSection={goToSection}
-            title={
-              <Title
-                style={{
-                  marginBottom: '10px',
-                  fontSize: 16,
-                  color: colors.lightBlue,
-                }}
-              >
-                Quick Menu
-              </Title>
-            }
           />
         </aside>
 
