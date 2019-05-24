@@ -12,8 +12,45 @@ import FooterContent from './Footer'
 
 const { useState, useRef, Suspense, useEffect } = React
 
-const Setting = React.lazy(() => import('./Setting'))
-const Builder = React.lazy(() => import('./BuilderPage'))
+const LazyLoadPage = ({
+  settingButton,
+  toggleSetting,
+  setting,
+  showSetting,
+  setConfig,
+  showBuilder,
+  toggleBuilder,
+  builderButton,
+  isMobile,
+  HomeRef,
+}) => {
+  const Setting = React.lazy(() => import('./Setting'))
+  const Builder = React.lazy(() => import('./BuilderPage'))
+
+  return typeof window === 'undefined' ? null : (
+    <>
+      <Suspense fallback={<span />}>
+        <Setting
+          settingButton={settingButton}
+          toggleSetting={toggleSetting}
+          setting={setting}
+          showSetting={showSetting}
+          setConfig={setConfig}
+        />
+      </Suspense>
+
+      <Suspense fallback={<span />}>
+        <Builder
+          showBuilder={showBuilder}
+          toggleBuilder={toggleBuilder}
+          builderButton={builderButton}
+          isMobile={isMobile}
+          HomeRef={HomeRef}
+        />
+      </Suspense>
+    </>
+  )
+}
 
 const Root = styled.div`
   overflow: hidden;
@@ -104,7 +141,7 @@ function App({ location }) {
     mode: setting.mode,
   })
   const tabIndex = showBuilder ? -1 : 0
-  let isMobile;
+  let isMobile
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -135,25 +172,20 @@ function App({ location }) {
     <Root>
       {!isMobile && Buttons}
 
-      <Suspense fallback={<span />}>
-        <Setting
-          settingButton={settingButton}
-          toggleSetting={toggleSetting}
-          setting={setting}
-          showSetting={showSetting}
-          setConfig={setConfig}
-        />
-      </Suspense>
-
-      <Suspense fallback={<span />}>
-        <Builder
-          showBuilder={showBuilder}
-          toggleBuilder={toggleBuilder}
-          builderButton={builderButton}
-          isMobile={isMobile}
-          HomeRef={HomeRef}
-        />
-      </Suspense>
+      <LazyLoadPage
+        {...{
+          settingButton,
+          toggleSetting,
+          setting,
+          showSetting,
+          setConfig,
+          showBuilder,
+          toggleBuilder,
+          builderButton,
+          isMobile,
+          HomeRef,
+        }}
+      />
 
       {isMobile && Buttons}
 
