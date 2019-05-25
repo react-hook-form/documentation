@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import colors from '../styles/colors'
 import SortableContainer from './SortableContainer'
 import { SubHeading, HeadingWithTopMargin, Error, Title } from '../styles/typography'
-import { setHomePage } from './ButtonGroup'
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
@@ -476,7 +475,6 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                     builderButton.current.focus()
                     document.body.style.overflow = 'auto'
                     HomeRef.current.scrollIntoView({ behavior: 'smooth' })
-                    setHomePage()
                   } else {
                     navigate('/?goToDemo')
                   }
@@ -533,7 +531,6 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                 onClick={() => {
                   toggleBuilder(false)
                   builderButton.current.focus()
-                  setHomePage()
                 }}
               >
                 &#10005;

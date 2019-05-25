@@ -8,6 +8,7 @@ import track from './utils/track'
 import { navigate } from '@reach/router'
 import video from '../images/react-hook-form-demo-video.mp4'
 import { ButtonsGroup } from '../styles/buttons'
+import breakpoints from "../styles/breakpoints";
 
 const Logo = styled.svg`
   height: 80px;
@@ -17,12 +18,20 @@ const Logo = styled.svg`
   background: ${colors.lightPink};
   margin: -50px auto 0;
 
-  @media (min-width: 375px) {
+  @media ${breakpoints.fromSmallScreen} {
     height: 110px;
   }
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     display: none;
+  }
+`
+
+const ButtonsGroupSmall = styled(ButtonsGroup)`
+  min-width: 300px;
+  
+  @media ${breakpoints.fromMediumScreen} {
+    min-width: 400px;
   }
 `
 
@@ -33,14 +42,14 @@ const Head = styled.div`
   height: 100vh;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     height: auto;
   }
 
   & > h1 {
     font-size: 40px;
 
-    @media (min-width: 768px) {
+    @media ${breakpoints.fromMediumScreen} {
       font-size: 65px;
     }
   }
@@ -60,18 +69,18 @@ const Video = styled.video`
   margin-top: -45px;
   background: ${colors.primary};
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     width: 700px;
     height: 491px;
     margin: 0 auto 40px;
   }
 
-  @media (min-width: 1024px) {
+  @media ${breakpoints.fromLargeScreen} {
     width: 800px;
     height: 563px;
   }
 
-  @media (min-width: 1280px) {
+  @media ${breakpoints.fromXlargeScreen} {
     width: 900px;
     height: 631px;
   }
@@ -92,9 +101,7 @@ export default function Header({ homeRef, tabIndex }: any) {
         <Heading>React Hook Form</Heading>
         <SubHeading>Performance, flexible and extensible forms with easy to use for validation.</SubHeading>
 
-        <ButtonsGroup style={{
-            minWidth: 400
-        }}>
+        <ButtonsGroupSmall>
           <button
             tabIndex={tabIndex}
             onClick={() => {
@@ -121,7 +128,7 @@ export default function Header({ homeRef, tabIndex }: any) {
           >
             Get Started
           </button>
-        </ButtonsGroup>
+        </ButtonsGroupSmall>
       </Head>
 
       <Video

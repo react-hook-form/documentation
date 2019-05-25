@@ -115,10 +115,6 @@ function App({ location }) {
       pathname={location.pathname}
       builderButton={builderButton}
       toggleBuilder={toggleBuilder}
-      toggleSetting={toggleSetting}
-      showSetting={showSetting}
-      settingButton={settingButton}
-      showBuilder={showBuilder}
     />
   )
 
