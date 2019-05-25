@@ -1,10 +1,7 @@
-import React, { useRef, useEffect } from 'react'
-import { Animate } from 'react-simple-animate'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import colors from './styles/colors'
-import { SubHeading, HeadingWithTopMargin, Title, H5 } from './styles/typography'
-import { setHomePage } from './ButtonGroup'
-import GetStarted from './GetStarted'
+import { SubHeading, HeadingWithTopMargin, H5 } from './styles/typography'
 import ApiRefTable from './ApiRefTable'
 import validationSchemaCode from './codeExamples/validationSchema'
 import Link from './styles/link'
@@ -30,13 +27,6 @@ const Root = styled.main`
   overflow: hidden;
   color: white;
   
-  & hr {
-    border: none;
-    border-top: 1px solid ${colors.lightBlue};
-    margin: 40px 0 60px;
-    display: block;
-  }
-
   & pre,
   & code {
     font-size: 14px;

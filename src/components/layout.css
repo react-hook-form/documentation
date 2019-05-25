@@ -106,6 +106,10 @@ figure {
 hr {
   box-sizing: content-box;
   overflow: visible;
+  border: none;
+  border-top: 1px solid #516391;
+  margin: 40px 0 60px;
+  display: block;
 }
 button,
 input,
@@ -350,4 +354,10 @@ pre code {
     font-size: 50px;
     margin-bottom: 20px;
   }
+}
+
+blockquote {
+  border-left: 10px solid #516391;
+  padding-left: 20px;
+  margin-left: 20px;
 }

@@ -14,8 +14,9 @@ const Menu = styled.div`
     & > ul {
       position: fixed;
       list-style: none;
-      padding: 0;
       margin-top: 0;
+      max-width: 300px;
+      padding-right: 30px;
 
       & > li:first-child > button {
         font-size: 1.5rem;
@@ -25,6 +26,7 @@ const Menu = styled.div`
         line-height: 22px;
         padding-bottom: 15px;
         font-size: 18px;
+        display: flex;
 
         & > a {
           text-decoration: none;
@@ -41,6 +43,7 @@ const Menu = styled.div`
           border: none;
           cursor: pointer;
           border-bottom: 1px solid transparent;
+          text-align: left;
 
           &:hover {
             border-bottom: 1px solid ${colors.lightPink};
@@ -49,6 +52,10 @@ const Menu = styled.div`
       }
     }
   }
+`
+
+const TitleList = styled.li`
+  display: block !important;
 `
 
 const Arrow = styled.span`
@@ -82,7 +89,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
   return (
     <Menu>
       <ul>
-        <li>
+        <TitleList>
           <Title
             style={{
               marginBottom: '10px',
@@ -92,7 +99,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
           >
             Quick Menu
           </Title>
-        </li>
+        </TitleList>
         {links.map((link, index) => {
           if (isStatic) {
             return (
