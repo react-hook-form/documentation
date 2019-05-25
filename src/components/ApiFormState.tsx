@@ -1,16 +1,16 @@
 // @flow
-import * as React from 'react';
-import { LinkToSandBox } from './SyntaxHighlighterWithCopy';
-import { Table, TableWrapper, Type } from './ApiPage';
+import * as React from 'react'
+import { LinkToSandBox } from './SyntaxHighlighterWithCopy'
+import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
 export default function ApiFormState({ tabIndex }: any) {
   return (
     <>
-      <code>
+      <CodeHeading>
         <h2>
           formState: <Type>Object</Type>
         </h2>
-      </code>
+      </CodeHeading>
       <p>This object contain information about the form state.</p>
 
       <TableWrapper>
@@ -84,5 +84,5 @@ export default function ApiFormState({ tabIndex }: any) {
 
       <hr />
     </>
-  );
+  )
 }

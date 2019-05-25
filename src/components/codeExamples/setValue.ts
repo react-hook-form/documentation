@@ -9,6 +9,5 @@ export default function YourForm() {
       <input name="test" ref={register} />
       <button type="button" onClick={() => setValue('test', 'blll')}>SetValue</button>
     </form>
-  );
-}
-`
+  )
+}`

@@ -18,8 +18,8 @@ const registerCode = `import React from 'react'
 import useForm from 'react-hook-form'
 
 function YourForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data) => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -48,33 +48,33 @@ function Input({ label, register, required }) {
 }
 
 function YourForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data) => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
       <input type="submit" />
     </form>
-  );
+  )
 }`
 
 const uiLibrary = `import React from 'react'
 import useForm from 'react-hook-form'
 import Select from "react-select"
-import Input from "@material-ui/core/Input";
+import Input from "@material-ui/core/Input"
 
 function YourForm() {
   const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => console.log(data)
   const [values, setReactSelect] = useState({
     selectedOption: []
   });
 
   const handleMultiChange = selectedOption => {
-    setValue("reactSelect", selectedOption);
-    setReactSelect({ selectedOption });
-  };
+    setValue("reactSelect", selectedOption)
+    setReactSelect({ selectedOption })
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -90,7 +90,7 @@ function YourForm() {
       
       <input type="submit" />
     </form>
-  );
+  )
 }
 `
 
@@ -140,8 +140,8 @@ const applyValidation = `import React from 'react'
 import useForm from 'react-hook-form'
 
 function YourForm() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data) => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

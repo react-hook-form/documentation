@@ -1,16 +1,16 @@
-import * as React from 'react';
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
-import watchCode from './codeExamples/watchCode';
-import { Table, TableWrapper, Type } from './ApiPage';
+import * as React from 'react'
+import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
+import watchCode from './codeExamples/watchCode'
+import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
 export default function ApiWatch({ tabIndex }: any) {
   return (
     <>
-      <code>
+      <CodeHeading>
         <h2>
           watch: <Type>Function</Type>
         </h2>
-      </code>
+      </CodeHeading>
       <p>
         Watch over input change and return its value. first-time run <code>watch</code> will always return{' '}
         <code>undefined</code> because called before <code>render</code>. You can set the default value as the second
@@ -64,5 +64,5 @@ export default function ApiWatch({ tabIndex }: any) {
 
       <hr />
     </>
-  );
+  )
 }

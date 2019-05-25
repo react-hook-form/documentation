@@ -24,7 +24,7 @@ const Root = styled.div`
 
 function Setting({ settingButton, toggleSetting, showSetting, setting, setConfig }) {
   const buttonRef = useRef(null);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm()
   const onSubmit = data => {
     setConfig(data);
     toggleSetting(false);

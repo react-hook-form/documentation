@@ -2,7 +2,7 @@ export default `import React from "react";
 import useForm from "react-hook-form";
 
 export default function YourForm() {
-  const { register, errors, setError } = useForm();
+  const { register, errors, setError } = useForm()
 
   return (
     <form>
@@ -17,6 +17,5 @@ export default function YourForm() {
       />
       {errors.username && errors.username.message}
     </form>
-  );
-}
-`
+  )
+}`

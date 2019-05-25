@@ -150,7 +150,7 @@ function Builder({ formData, showApi }: any) {
     lastName: 'luo'
   },
   validationSchema: {},
-});`}
+})`}
           />
 
           <H5>
@@ -234,7 +234,7 @@ function Builder({ formData, showApi }: any) {
     lastName: "luo",
     email: "bluebill1049@hotmail.com"
   }
-});`}
+})`}
           />
 
           <H5 style={{ marginTop: 20 }}>

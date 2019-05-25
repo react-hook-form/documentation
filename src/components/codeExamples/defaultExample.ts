@@ -3,7 +3,7 @@ import useForm from 'react-hook-form'
 
 function YourForm() {
   const { register, handleSubmit, watch, errors } = useForm()
-  const onSubmit = data => { console.log(data) };
+  const onSubmit = data => { console.log(data) }
 
   console.log(watch('example')) // watch input by passing the name of it
 
@@ -21,5 +21,4 @@ function YourForm() {
       <input type="submit" />
     </form>
   )
-}
-`;
+}`;
