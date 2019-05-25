@@ -3,22 +3,18 @@ import * as React from 'react'
 import styled from 'styled-components'
 import colors from '../styles/colors'
 import { AnimateGroup } from 'react-simple-animate'
-import video from '../images/react-hook-form-demo-video.mp4'
 import FeaturesList from './FeaturesList'
 import track from './utils/track'
 import { navigate } from '@reach/router'
+import video from '../images/react-hook-form-demo-video.mp4'
+import { ButtonsGroup } from '../styles/buttons'
 
 const Logo = styled.svg`
   height: 80px;
   fill: white;
-  top: 0;
-  left: 0;
-  background: #333;
   padding: 20px;
   border-radius: 15px;
   background: ${colors.lightPink};
-  text-align: center;
-  display: block;
   margin: -50px auto 0;
 
   @media (min-width: 375px) {
@@ -55,46 +51,6 @@ const Head = styled.div`
   }
 `
 
-export const HeadingButtons = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
-  margin-top: 10px;
-
-  @media (min-width: 768px) {
-    grid-column-gap: 40px;
-  }
-
-  & > button {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 4px;
-    padding: 9px 20px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    background: ${colors.primary};
-    color: white;
-    border: 1px solid ${colors.lightBlue};
-    transition: 0.3s all;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      background: ${colors.lightPink};
-    }
-
-    @media (min-width: 768px) {
-      font-size: 20px;
-      padding: 12px 20px;
-      font-weight: 300;
-      margin-bottom: 40px;
-    }
-  }
-`
-
 const Video = styled.video`
   width: 100%;
   border-radius: 10px;
@@ -122,7 +78,6 @@ const Video = styled.video`
 `
 
 export default function Header({ homeRef, tabIndex }: any) {
-  // @ts-ignore
   return (
     <AnimateGroup play>
       <Head>
@@ -133,22 +88,22 @@ export default function Header({ homeRef, tabIndex }: any) {
           <path style={{ transform: 'translateX(-25px)' }} d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
           <path d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
         </Logo>
+
         <Heading>React Hook Form</Heading>
         <SubHeading>Performance, flexible and extensible forms with easy to use for validation.</SubHeading>
 
-        <HeadingButtons>
+        <ButtonsGroup style={{
+            minWidth: 400
+        }}>
           <button
             tabIndex={tabIndex}
             onClick={() => {
               track({
-                category: 'Home CTA',
+                category: 'Button',
                 label: 'Demo',
-                action: 'go to demo',
+                action: 'Click - Demo',
               })
-              if (homeRef.current) {
-                // @ts-ignore
-                homeRef.current.scrollIntoView({ behavior: 'smooth' })
-              }
+              homeRef.current.scrollIntoView({ behavior: 'smooth' })
             }}
           >
             Demo
@@ -157,16 +112,16 @@ export default function Header({ homeRef, tabIndex }: any) {
             tabIndex={tabIndex}
             onClick={() => {
               track({
-                category: 'Home CTA',
-                label: 'API',
-                action: 'go to API',
+                category: 'Button',
+                label: 'Get Started',
+                action: 'Click - Get Started',
               })
               navigate('/get-started')
             }}
           >
             Get Started
           </button>
-        </HeadingButtons>
+        </ButtonsGroup>
       </Head>
 
       <Video
@@ -176,9 +131,9 @@ export default function Header({ homeRef, tabIndex }: any) {
         muted
         onClick={() => {
           track({
-            category: 'video',
+            category: 'Video',
             label: 'video',
-            action: 'play/pause video',
+            action: 'Play/Pause - Demo Video',
           })
         }}
       >

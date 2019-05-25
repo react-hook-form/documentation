@@ -122,7 +122,7 @@ const ActionButtonGroup = styled.div`
     }
 
     @media (min-width: 768px) {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       border: none;
     }
   }

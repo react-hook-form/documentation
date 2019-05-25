@@ -114,7 +114,6 @@ function Builder({ formData, showApi }: any) {
         <main>
           <CodeHeading
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.useFormRef = ref
             }}
           >

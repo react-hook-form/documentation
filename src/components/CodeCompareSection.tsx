@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import formikCode from './codeExamples/formikCode'
 import reactHookFormCode from './codeExamples/reactHookFormCode'
 import reduxFormCode from './codeExamples/reduxFormCode'
+import { DarkBlueButton } from '../styles/buttons'
+import { CenterContent } from '../styles/containers'
 
 const GridView = styled.section`
   @media (min-width: 1100px) {
@@ -30,14 +32,8 @@ const GridView = styled.section`
 
 export default function CodeCompareSection() {
   return (
-    <div>
-      <section
-        style={{
-          textAlign: 'center',
-          maxWidth: 1033,
-          margin: '0 auto 50px',
-        }}
-      >
+    <section>
+      <CenterContent>
         <H1>
           <code>{`</>`}</code> Library Code Comparison
         </H1>
@@ -47,7 +43,7 @@ export default function CodeCompareSection() {
           illustrate that, let's look at a very simple form of validation among some of the most popular form validation
           libraries.
         </p>
-      </section>
+      </CenterContent>
 
       <GridView>
         <section>
@@ -101,6 +97,6 @@ export default function CodeCompareSection() {
           </SyntaxHighlighter>
         </section>
       </GridView>
-    </div>
+    </section>
   )
 }

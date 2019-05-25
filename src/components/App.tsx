@@ -11,6 +11,11 @@ import CodePerfCompareSection from './CodePerfCompareSection'
 import FooterContent from './Footer'
 import Setting from './Setting'
 import Builder from './BuilderPage'
+import { H1 } from '../styles/typography'
+import { ButtonsGroup, DarkBlueButton } from '../styles/buttons'
+import track from './utils/track'
+import { navigate } from '@reach/router'
+import { CenterContent } from '../styles/containers'
 
 const { useState, useRef, useEffect } = React
 
@@ -31,11 +36,7 @@ const Root = styled.div`
     border-radius: 4px;
     padding: 10px 15px;
     margin-bottom: 10px;
-    font-size: 16px;
-  }
-
-  & form > select {
-    width: 100%;
+    font-size: 0.9rem;
   }
 
   & form > select:not([multiple]) {
@@ -53,24 +54,14 @@ const Root = styled.div`
 
 const Footer = styled.footer`
   padding: 40px 0;
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: 200;
   margin-bottom: 60px;
   text-align: center;
 
   @media (min-width: 768px) {
-    font-size: 16px;
+    font-size: 0.9rem;
     text-align: left;
-  }
-
-  & > a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s all;
-
-    &:hover {
-      color: ${colors.lightPink};
-    }
   }
 `
 
@@ -174,6 +165,45 @@ function App({ location }) {
           <CodeCompareSection />
 
           <CodePerfCompareSection />
+
+          <CenterContent>
+            <H1>Find it useful and interesting?</H1>
+            <p>
+              Form validation should be much simpler with React hook form. It will lead you to write less code and
+              having better performance. Checkout the get started or learn more at API documentation page.
+            </p>
+            <ButtonsGroup
+              style={{
+                maxWidth: 500,
+                margin: '0 auto',
+              }}
+            >
+              <DarkBlueButton
+                onClick={() => {
+                  track({
+                    category: 'Button',
+                    label: 'Get Started - Find it useful and interesting',
+                    action: 'Click - Go to Get Started page',
+                  })
+                  navigate('/get-started')
+                }}
+              >
+                Get Started
+              </DarkBlueButton>
+              <DarkBlueButton
+                onClick={() => {
+                  track({
+                    category: 'Button',
+                    label: 'API',
+                    action: 'Click - Go to API page',
+                  })
+                  navigate('/api')
+                }}
+              >
+                API
+              </DarkBlueButton>
+            </ButtonsGroup>
+          </CenterContent>
 
           <Form
             {...{

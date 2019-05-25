@@ -121,9 +121,9 @@ export default function Form({
               type="button"
               onClick={() => {
                 track({
-                  label: 'Open setting from form',
-                  action: 'Open setting from form',
-                  category: 'Home form action',
+                  category: 'Icon Button',
+                  label: 'Setting',
+                  action: 'Click - Open Setting Menu',
                 })
                 toggleSetting(!showSetting)
               }}
@@ -186,20 +186,21 @@ export default function Form({
           </section>
         )}
 
-        {setting.showWatch && setting.mode === 'onChange' && (
-          <section>
-            <Title>Watch</Title>
-            {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
-            <Animate
-              duration={0.8}
-              play={Object.keys(watch() || {}).length > 0}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <Code>{JSON.stringify(watch(), null, 2)}</Code>
-            </Animate>
-          </section>
-        )}
+        {setting.showWatch &&
+          setting.mode === 'onChange' && (
+            <section>
+              <Title>Watch</Title>
+              {!Object.keys(watch() || {}).length && <p>ⓘ Change input value to see watched values.</p>}
+              <Animate
+                duration={0.8}
+                play={Object.keys(watch() || {}).length > 0}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <Code>{JSON.stringify(watch(), null, 2)}</Code>
+              </Animate>
+            </section>
+          )}
 
         {setting.showTouch && (
           <section>
@@ -221,27 +222,6 @@ export default function Form({
           </section>
         )}
       </Wrapper>
-
-      <section
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        <H1>Find it useful and interesting?</H1>
-        <p>Checkout the full API documentation in a single page</p>
-        <DarkBlueButton
-          onClick={() => {
-            track({
-              category: 'CTA',
-              label: 'Checkout hook API',
-              action: 'Go to API section',
-            })
-            navigate('/api')
-          }}
-        >
-          Checkout Hook API
-        </DarkBlueButton>
-      </section>
     </>
   )
 }

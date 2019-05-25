@@ -1,12 +1,13 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import formik from '../images/formik.png';
-import hookFrom from '../images/hookForm.png';
-import reduxForm from '../images/reduxForm.png';
-import { H1, Title } from '../styles/typography';
-import Link from '../styles/link';
-import { SimpleImg } from 'react-simple-img';
-import colors from '../styles/colors';
+import * as React from 'react'
+import styled from 'styled-components'
+import formik from '../images/formik.png'
+import hookFrom from '../images/hookForm.png'
+import reduxForm from '../images/reduxForm.png'
+import { H1, Title } from '../styles/typography'
+import Link from '../styles/link'
+import { SimpleImg } from 'react-simple-img'
+import colors from '../styles/colors'
+import track from './utils/track'
 
 const Wrapper = styled.section`
   text-align: center;
@@ -31,7 +32,7 @@ const Wrapper = styled.section`
     margin-right: auto;
     max-width: 600px;
   }
-`;
+`
 
 const ImgSection = styled.div`
   display: flex;
@@ -66,7 +67,7 @@ const ImgSection = styled.div`
       padding: 2px 0;
     }
   }
-`;
+`
 
 export default function CodePerfCompareSection() {
   return (
@@ -140,11 +141,20 @@ export default function CodePerfCompareSection() {
 
       <p style={{ marginBottom: 40 }}>
         <span style={{ fontSize: 20 }}>⚠</span> Wants to see more intense performance test?{' '}
-        <Link href="https://github.com/bluebill1049/react-hook-form-performance-compare">
+        <Link
+          href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+          onClick={() => {
+            track({
+              category: 'Link',
+              label: 'Check out the result for 1000 fields within a form here',
+              action: 'Click - View Performance Test Repo',
+            })
+          }}
+        >
           Check out the result for 1000 fields within a form here
         </Link>
         .
       </p>
     </Wrapper>
-  );
+  )
 }
