@@ -368,3 +368,17 @@ blockquote {
   padding-left: 20px;
   margin-left: 20px;
 }
+
+th {
+  font-size: 0.8rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.2rem
+}
+
+label,
+table {
+  font-size: 0.9rem;
+}

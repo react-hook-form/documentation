@@ -1,16 +1,16 @@
-import * as React from 'react';
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
-import errorCode from './codeExamples/errorCode';
-import { Table, TableWrapper, Type } from './ApiPage';
+import * as React from 'react'
+import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
+import errorCode from './codeExamples/errorCode'
+import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
 export default function ApiErrors({ tabIndex }: any) {
   return (
     <>
-      <code>
+      <CodeHeading>
         <h2>
           errors: <Type>Object</Type>
         </h2>
-      </code>
+      </CodeHeading>
       <p>Object contain form errors or error messages belong to each input.</p>
 
       <TableWrapper>
@@ -62,5 +62,5 @@ export default function ApiErrors({ tabIndex }: any) {
 
       <hr />
     </>
-  );
+  )
 }

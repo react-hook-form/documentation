@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 250px minmax(0, 1fr);
   }
+
+  @media ${breakpoints.fromLargeScreen} {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
 `
 
 export const Container = styled.div`

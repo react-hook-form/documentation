@@ -3,22 +3,8 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { HeadingWithTopMargin, SubHeading } from '../styles/typography'
 import ApiMenu from '../components/ApiMenu'
-import styled from 'styled-components'
-import { Container } from '../styles/containers'
+import { Container, Wrapper } from '../styles/containers'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
-import breakpoints from "../styles/breakpoints";
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0 20px 100px 20px;
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-  }
-`
 
 const code = `import React from "react";
 import useForm from "react-hook-form";

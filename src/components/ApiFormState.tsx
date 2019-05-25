@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import { LinkToSandBox } from '../SyntaxHighlighterWithCopy';
-import { Table, TableWrapper, Type } from '../ApiPage';
+import { LinkToSandBox } from './SyntaxHighlighterWithCopy';
+import { Table, TableWrapper, Type } from './ApiPage';
 
 export default function ApiFormState({ tabIndex }: any) {
   return (

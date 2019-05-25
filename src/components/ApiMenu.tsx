@@ -1,22 +1,27 @@
-import React from 'react'
+import * as React from 'react'
 import { Title } from '../styles/typography'
 import colors from '../styles/colors'
 import styled from 'styled-components'
 import track from './utils/track'
+import breakpoints from '../styles/breakpoints'
 
 const Menu = styled.div`
   display: none;
   position: relative;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     display: block;
 
     & > ul {
       position: fixed;
       list-style: none;
       margin-top: 0;
-      max-width: 300px;
+      max-width: 250px;
       padding-right: 30px;
+
+      @media ${breakpoints.fromLargeScreen} {
+        max-width: 300px;
+      }
 
       & > li:first-child > button {
         font-size: 1.5rem;
@@ -75,7 +80,7 @@ const Arrow = styled.span`
     border-left: 1px solid #ec5990;
   }
   `
-      : ''}
+      : ''};
 `
 
 const Code = styled.span`

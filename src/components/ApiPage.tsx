@@ -8,7 +8,7 @@ import Link from '../styles/link'
 import code from './codeExamples/defaultExample'
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import ApiMenu from './ApiMenu'
-import ApiFormState from './utils/ApiFormState'
+import ApiFormState from './ApiFormState'
 import resetCode from './codeExamples/resetCode'
 import ApiWatch from './ApiWatch'
 import ApiErrors from './ApiErrors'
@@ -22,6 +22,13 @@ const { useRef } = React;
 
 const CodeAsLink = styled(Link)`
   cursor: pointer;
+`
+
+export const CodeHeading = styled.code`
+  & > h2:before {
+    display: inline-block;
+    content: '</> '
+  }
 `
 
 export const Table = styled.table`
@@ -104,7 +111,7 @@ function Builder({ formData, showApi }: any) {
       <Wrapper>
         <ApiMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />
         <main>
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.useFormRef = ref
@@ -113,7 +120,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               useForm: <Type>Function</Type>
             </h2>
-          </code>
+          </CodeHeading>
           <p>
             By invoking <code>useForm</code>, you will receive methods to{' '}
             <CodeAsLink onClick={() => goToSection('register')}>register</CodeAsLink>,{' '}
@@ -240,7 +247,7 @@ function Builder({ formData, showApi }: any) {
 
           <hr />
 
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.registerRef = ref
@@ -249,7 +256,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               register: <Type>Function</Type>
             </h2>
-          </code>
+          </CodeHeading>
 
           <ApiRefTable tabIndex={tabIndex} />
 
@@ -271,7 +278,7 @@ function Builder({ formData, showApi }: any) {
           >
             <ApiWatch tabIndex={tabIndex} />
           </section>
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
@@ -280,7 +287,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               handleSubmit: <Type>(data: Object, e: Event) => void</Type>
             </h2>
-          </code>
+          </CodeHeading>
           <p>This function will pass you the form data when form validation is successful.</p>
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
@@ -290,7 +297,7 @@ function Builder({ formData, showApi }: any) {
 
           <hr />
 
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.resetRef = ref
@@ -299,7 +306,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               reset: <Type>Function</Type>
             </h2>
-          </code>
+          </CodeHeading>
           <p>This function will reset fields value and errors within the form.</p>
 
           <SyntaxHighlighterWithCopy
@@ -310,7 +317,7 @@ function Builder({ formData, showApi }: any) {
 
           <hr />
 
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
@@ -319,14 +326,14 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setError: <Type>(name: string, type: string, message: string, ref: Ref) => void</Type>
             </h2>
-          </code>
+          </CodeHeading>
           <p>This function allows you to manually set an input error or clear one.</p>
 
           <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={setError} url="https://codesandbox.io/s/o7rxyym3q5" />
 
           <hr />
 
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setValueRef = ref
@@ -335,7 +342,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setValue: <Type>(name: string, value: string | number | boolean) => void</Type>
             </h2>
-          </code>
+          </CodeHeading>
           <p>This function allows you to dynamically set input/select value.</p>
 
           <SyntaxHighlighterWithCopy
@@ -355,7 +362,7 @@ function Builder({ formData, showApi }: any) {
             <ApiFormState tabIndex={tabIndex} />
           </section>
 
-          <code
+          <CodeHeading
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.validationSchemaRef = ref
@@ -364,7 +371,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               validationSchema: <Type>Object</Type>
             </h2>
-          </code>
+          </CodeHeading>
 
           <p>
             If you would like to centralize your validation rules or external validation schema, you can apply{' '}

@@ -10,7 +10,7 @@ import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import colors from '../styles/colors'
 import { Link, navigate } from '@reach/router'
 import { DarkBlueButton } from '../styles/buttons'
-import { Container } from '../styles/containers'
+import { Container, Wrapper } from '../styles/containers'
 
 const { useRef } = React
 
@@ -152,18 +152,6 @@ function YourForm() {
     </form>
   );
 }`
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0 20px 100px 20px;
-
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-  }
-`
 
 const links = [
   'Quick start',
