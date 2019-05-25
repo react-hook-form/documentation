@@ -4,7 +4,11 @@ import Seo from '../components/seo'
 import { HeadingWithTopMargin, SubHeading } from '../styles/typography'
 import ApiMenu from '../components/ApiMenu'
 import { Container, Wrapper } from '../styles/containers'
+import styled from 'styled-components'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
+import track from '../components/utils/track'
+
+const { useRef } = React
 
 const code = `import React from "react";
 import useForm from "react-hook-form";
@@ -54,6 +58,13 @@ function App() {
   );
 }`
 
+const FaqMain = styled.main`
+  & > h2::before {
+    display: inline-block;
+    content: '▎';
+  }
+`
+
 const links = [
   'Performance of React Hook Form',
   'Does it work with Class Component?',
@@ -62,9 +73,26 @@ const links = [
   'How to share ref usage?',
 ]
 
-const goToSection = () => {}
-
 const Faq = ({ location }) => {
+  const sectionsRef = useRef({
+    question1: null,
+    question2: null,
+    question3: null,
+    question4: null,
+    question5: null,
+  })
+
+  const goToSection = (name, index) => {
+    track({
+      category: 'Get Started - go to section',
+      label: `Go to section ${name}`,
+      action: `Go to section ${name}`,
+    })
+    if (sectionsRef.current[`question${index + 1}`]) {
+      sectionsRef.current[`question${index + 1}`].scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <Layout location={location}>
       <Container>
@@ -74,13 +102,11 @@ const Faq = ({ location }) => {
         <SubHeading>frequently asked question.</SubHeading>
 
         <Wrapper>
-          <aside>
-            <ApiMenu isStatic links={links} goToSection={goToSection} />
-          </aside>
+          <ApiMenu isStatic links={links} goToSection={goToSection} />
 
-          <main>
+          <FaqMain>
             <h2>Performance of React Hook Form</h2>
-            <p>
+            <p ref={ref => (sectionsRef.current.question1 = ref)}>
               Performance is one of the primary goals for building this custom hook. It relies on uncontrolled
               component, hence the reason why the register function occurred at the ref. This approach will reduce the
               amount of re-rendering which occurred by user typing or value changing. The components mount to the page
@@ -90,7 +116,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2>Does it work with Class Component?</h2>
+            <h2 ref={ref => (sectionsRef.current.question2 = ref)}>Does it work with Class Component?</h2>
 
             <p>No.</p>
 
@@ -103,7 +129,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2>How to reset the form?</h2>
+            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>How to reset the form?</h2>
             <p>There are two types of form clear.</p>
             <ul>
               <li>
@@ -126,7 +152,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2>How to initialize form values?</h2>
+            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>How to initialize form values?</h2>
 
             <p>
               React hook form relies on uncontrolled component. With an uncontrolled component, you can specify a{' '}
@@ -137,7 +163,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2>How to share ref usage?</h2>
+            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>How to share ref usage?</h2>
 
             <p>
               React hook form need <code>ref</code> to collect input value, however you may want to use <code>ref</code>{' '}
@@ -146,7 +172,7 @@ const Faq = ({ location }) => {
 
             <SyntaxHighlighterWithCopy rawData={shareRef} />
             <hr />
-          </main>
+          </FaqMain>
         </Wrapper>
       </Container>
     </Layout>

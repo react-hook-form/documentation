@@ -40,7 +40,8 @@ const hoverStyle = `
 
     & > span {
       transition: 0.3s all;
-      opacity: 0.6;
+      color: ${colors.secondary};
+      opacity: 0.5;
     }
   }
 
@@ -100,35 +101,28 @@ const ActionButtonGroup = styled.div`
     border: none;
     max-width: 500px;
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 13px 0;
     background: ${colors.buttonBlue};
     box-shadow: 0 0 10px 0 #00000030;
   }
 
   @media (min-width: 1024px) {
     max-width: 600px;
-    padding: 15px 10px;
+    padding: 13px 10px;
   }
 
   & > button {
     flex: 1;
-    padding: 7px 0;
+    padding: 2px 0;
     font-size: 11px;
-
-    @media (min-width: 768px) {
-      font-size: 14px;
-      padding: 0;
-    }
-  }
-
-  & > button {
     border-left: 1px solid ${colors.buttonBlue};
-
+    
     &:first-child {
       border-left: 0;
     }
 
     @media (min-width: 768px) {
+      font-size: 0.7rem;
       border: none;
     }
   }
@@ -140,6 +134,7 @@ const ActionButtonGroup = styled.div`
     @media (min-width: 768px) {
       width: 40px;
       height: 40px;
+      margin-bottom: 3px;
     }
   }
 `

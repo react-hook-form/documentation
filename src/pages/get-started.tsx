@@ -195,24 +195,22 @@ const Faq = ({ location }) => {
         <SubHeading>Simple form validation with React hook form.</SubHeading>
 
         <Wrapper>
-          <aside>
-            <ApiMenu
-              isStatic
-              links={links}
-              goToSection={goToSection}
-              title={
-                <Title
-                  style={{
-                    marginBottom: '10px',
-                    fontSize: 16,
-                    color: colors.lightBlue,
-                  }}
-                >
-                  Quick Menu
-                </Title>
-              }
-            />
-          </aside>
+          <ApiMenu
+            isStatic
+            links={links}
+            goToSection={goToSection}
+            title={
+              <Title
+                style={{
+                  marginBottom: '10px',
+                  fontSize: 16,
+                  color: colors.lightBlue,
+                }}
+              >
+                Quick Menu
+              </Title>
+            }
+          />
           <main>
             <GetStarted
               quickStartRef={ref => {

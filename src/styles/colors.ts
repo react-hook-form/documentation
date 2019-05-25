@@ -5,4 +5,5 @@ export default {
   lightPink: '#ec5990',
   errorPink: '#fbecf2',
   buttonBlue: '#191d3a',
+  link: '#ff7aa8'
 };

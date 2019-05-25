@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import track from './utils/track'
 import breakpoints from '../styles/breakpoints'
 
-const Menu = styled.div`
+const Menu = styled.aside`
   display: none;
   position: relative;
 
@@ -17,14 +17,10 @@ const Menu = styled.div`
       list-style: none;
       margin-top: 0;
       max-width: 250px;
-      padding-right: 30px;
+      padding: 0 40px 0 0;
 
       @media ${breakpoints.fromLargeScreen} {
         max-width: 300px;
-      }
-
-      & > li:first-child > button {
-        font-size: 1.5rem;
       }
 
       & > li {
@@ -40,9 +36,7 @@ const Menu = styled.div`
 
         & > a,
         & > button {
-          font-size: inherit;
           color: white;
-          text-decoration: none;
           transition: 0.3s all;
           background: none;
           border: none;
@@ -64,9 +58,8 @@ const TitleList = styled.li`
 `
 
 const Arrow = styled.span`
-  top: -1px;
   position: relative;
-  color: #ec5990;
+  color: ${colors.lightPink};
 
   ${props =>
     props.last
@@ -86,11 +79,10 @@ const Arrow = styled.span`
 const Code = styled.span`
   color: ${colors.lightPink};
   position: relative;
-  top: -4px;
   font-size: 14px;
 `
 
-export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title }: any) {
+export default function ApiMenu({ links, goToSection, tabIndex, isStatic }: any) {
   return (
     <Menu>
       <ul>
@@ -117,7 +109,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
                       label: 'Examples',
                       action: 'go to examples',
                     })
-                    goToSection(link)
+                    goToSection(link, index)
                   }}
                 >
                   {link}
@@ -129,7 +121,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
           return (
             <li
               key={link}
-              onClick={() => goToSection(link)}
+              onClick={() => goToSection(link, index)}
               style={{
                 ...(index > 0
                   ? {
@@ -145,6 +137,7 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic, title 
                   <span
                     style={{
                       left: 1,
+                      top: 2,
                       position: 'relative',
                     }}
                   >

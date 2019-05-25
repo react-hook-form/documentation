@@ -22,6 +22,7 @@ const { useRef } = React;
 
 const CodeAsLink = styled(Link)`
   cursor: pointer;
+  text-decoration: underline;
 `
 
 export const CodeHeading = styled.code`

@@ -42,11 +42,15 @@ template {
 }
 a {
   background-color: transparent;
-  color: #bf1650;
+  color: #ff7aa8;
+  transition: 0.3s all;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
 a:hover {
+  opacity: 0.7;
+  color: #bf1650;
+  transition: 0.3s all;
   outline-width: 0;
 }
 abbr[title] {
