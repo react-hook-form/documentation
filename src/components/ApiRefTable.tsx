@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 import styled from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai as monokaiSublime } from 'react-syntax-highlighter/dist/styles/prism';
 import { TableWrapper, Table, Type } from './ApiPage';
-import Link from './styles/link';
+import Link from '../styles/link';
 import track from "./utils/track";
 
 const Option = styled.fieldset`

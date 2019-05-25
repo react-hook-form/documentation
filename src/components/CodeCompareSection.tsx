@@ -1,5 +1,5 @@
-import React from 'react'
-import { Title, H1 } from './styles/typography'
+import * as React from 'react'
+import { Title, H1 } from '../styles/typography'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { xonokai } from 'react-syntax-highlighter/dist/styles/prism'
 import styled from 'styled-components'
@@ -43,8 +43,9 @@ export default function CodeCompareSection() {
         </H1>
 
         <p>
-          Reducing the amount of code you have to write is one of the goals for React Hook Form. To illustrate, let's
-          look at a very simple form validation among some of the most popular form validation libraries.
+          Reducing the amount of code that you have to write is one of the primary goals for React hook form. To
+          illustrate that, let's look at a very simple form of validation among some of the most popular form validation
+          libraries.
         </p>
       </section>
 

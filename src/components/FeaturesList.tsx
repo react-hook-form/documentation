@@ -1,12 +1,12 @@
-import { Title } from './styles/typography';
+import { Title } from '../styles/typography';
 import styled from 'styled-components';
 import * as React from 'react';
 import { AnimateGroup, Animate } from 'react-simple-animate';
 
-const FeaturesContent = styled.div`
+const FeaturesContent = styled.section`
   & h3 {
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 20px;
     text-align: center;
     margin-top: 10px;
   }
@@ -28,9 +28,13 @@ const FeaturesContent = styled.div`
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 30px;
-    max-width: 1010px;
+    grid-column-gap: 10px;
+    max-width: 1024px;
     margin: 20px auto 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    grid-column-gap: 30px;
   }
 
   & svg {

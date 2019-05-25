@@ -1,6 +1,6 @@
 import React from 'react'
-import { Title } from './styles/typography'
-import colors from './styles/colors'
+import { Title } from '../styles/typography'
+import colors from '../styles/colors'
 import styled from 'styled-components'
 import track from './utils/track'
 

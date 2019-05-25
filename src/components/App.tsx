@@ -3,7 +3,7 @@ import useForm from 'react-hook-form'
 import { Animate } from 'react-simple-animate'
 import ButtonGroup from './ButtonGroup'
 import styled from 'styled-components'
-import colors from './styles/colors'
+import colors from '../styles/colors'
 import Form from './Form'
 import Header from './Header'
 import CodeCompareSection from './CodeCompareSection'
@@ -16,7 +16,6 @@ const { useState, useRef, useEffect } = React
 
 const Root = styled.div`
   overflow: hidden;
-  color: white;
   padding: 0 20px 50px;
   position: relative;
 
@@ -48,18 +47,20 @@ const Root = styled.div`
   }
 
   & form > input.form-error {
-    border: 1px solid #bf1650;
+    border: 1px solid ${colors.secondary};
   }
 `
 
 const Footer = styled.footer`
   padding: 40px 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 200;
   margin-bottom: 60px;
+  text-align: center;
 
   @media (min-width: 768px) {
     font-size: 16px;
+    text-align: left;
   }
 
   & > a {

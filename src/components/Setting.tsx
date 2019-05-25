@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Animate } from 'react-simple-animate';
 import styled from 'styled-components';
 import useForm from 'react-hook-form';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 
 const Root = styled.div`
   background: ${colors.secondary};

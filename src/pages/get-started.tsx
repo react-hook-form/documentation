@@ -1,15 +1,16 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import { H1, HeadingWithTopMargin, SubHeading, Title } from '../components/styles/typography'
+import { H1, HeadingWithTopMargin, SubHeading, Title } from '../styles/typography'
 import GetStarted from '../components/GetStarted'
 import styled from 'styled-components'
 import ApiMenu from '../components/ApiMenu'
 import track from '../components/utils/track'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
-import colors from '../components/styles/colors'
+import colors from '../styles/colors'
 import { Link, navigate } from '@reach/router'
-import { DarkBlueButton } from '../components/styles/buttons'
+import { DarkBlueButton } from '../styles/buttons'
+import { Container } from '../styles/containers'
 
 const { useRef } = React
 
@@ -199,170 +200,172 @@ const Faq = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <Seo title="Get Started" />
+      <Container>
+        <Seo title="Get Started" />
 
-      <HeadingWithTopMargin>Get Started</HeadingWithTopMargin>
-      <SubHeading>Simple form validation with React hook form.</SubHeading>
+        <HeadingWithTopMargin>Get Started</HeadingWithTopMargin>
+        <SubHeading>Simple form validation with React hook form.</SubHeading>
 
-      <Wrapper>
-        <aside>
-          <ApiMenu
-            isStatic
-            links={links}
-            goToSection={goToSection}
-            title={
-              <Title
-                style={{
-                  marginBottom: '10px',
-                  fontSize: 16,
-                  color: colors.lightBlue,
-                }}
-              >
-                Quick Menu
-              </Title>
-            }
-          />
-        </aside>
-        <main>
-          <GetStarted
-            quickStartRef={ref => {
-              sectionsRef.current.quickstart = ref
-            }}
-          />
+        <Wrapper>
+          <aside>
+            <ApiMenu
+              isStatic
+              links={links}
+              goToSection={goToSection}
+              title={
+                <Title
+                  style={{
+                    marginBottom: '10px',
+                    fontSize: 16,
+                    color: colors.lightBlue,
+                  }}
+                >
+                  Quick Menu
+                </Title>
+              }
+            />
+          </aside>
+          <main>
+            <GetStarted
+              quickStartRef={ref => {
+                sectionsRef.current.quickstart = ref
+              }}
+            />
 
-          <Title
-            ref={ref => {
-              sectionsRef.current.registerfields = ref
-            }}
-          >
-            Register fields
-          </Title>
-          <p>
-            One of the key concepts for React Hook Form is to register your uncontrolled fields into the hook and enable
-            it to validated and gather the value of your field on submit.
-          </p>
-
-          <p>
-            Note: each fields <strong>required</strong> to have a <code>name</code> as key for the registration process.
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={registerCode} />
-
-          <Title
-            ref={ref => {
-              sectionsRef.current.applyvalidation = ref
-            }}
-          >
-            Apply validation
-          </Title>
-
-          <p>
-            React hook form make form validation easy by aligning with existing{' '}
-            <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank">
-              HTML standard form validation
-            </a>
-            .
-          </p>
-
-          <p>List of validation rules supported by:</p>
-          <ul>
-            <li>required</li>
-            <li>min</li>
-            <li>max</li>
-            <li>minLength</li>
-            <li>maxLength</li>
-            <li>pattern</li>
-            <li>validate</li>
-          </ul>
-          <p>
-            You can read more detail on each rule at <Link to="/api">API page</Link>.
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={applyValidation} />
-
-          <Title
-            ref={ref => {
-              sectionsRef.current.adaptingexistingform = ref
-            }}
-          >
-            Adapting existing form
-          </Title>
-          <p>
-            Working on an existing form is fairly simple as well. The important step is to pass down{' '}
-            <code>register</code> into existing input or select component, and apply it on the{' '}
-            <code>ref</code>.
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={migrateCode} />
-
-          <Title
-            ref={ref => {
-              sectionsRef.current.workwithuilibrary = ref
-            }}
-          >
-            Work with UI library
-          </Title>
-          <p>
-            The following example demonstrates usage with <code>react-select</code> and <code>material-ui</code>.
-          </p>
-          <p>
-            Most of UI library do expose <code>innerRef</code> or <code>ref</code>. For components that are more
-            complicated like <code>react-select</code> or <code>react-datepicker</code>, you can also update value via{' '}
-            <code>setValue</code> or trigger an error with <code>setError</code>.
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={uiLibrary} url="https://codesandbox.io/s/72j69vnk1x" />
-
-          <Title
-            ref={ref => {
-              sectionsRef.current.integrateglobalstate = ref
-            }}
-          >
-            Integrate global state
-          </Title>
-          <p>
-            Forms are mostly about collecting user data. React Hook Form doesn't require you to have a state
-            management to store your data. However, it allows you to easily integrate one like <code>Redux</code> or{' '}
-            <code>MobX</code>
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={globalState} />
-
-          <Title
-            ref={ref => {
-              sectionsRef.current.handleerrors = ref
-            }}
-          >
-            Handle errors
-          </Title>
-          <p>
-            React hook form provide an <code>errors</code> object to show you the errors within the form.
-          </p>
-
-          <SyntaxHighlighterWithCopy rawData={errors} />
-
-          <section
-            style={{
-              textAlign: 'center',
-            }}
-          >
-            <H1>Want to learn more?</H1>
-            <p>Checkout the full API documentation</p>
-            <DarkBlueButton
-              onClick={() => {
-                track({
-                  category: 'Get started - CTA',
-                  label: 'Checkout hook API',
-                  action: 'Go to API section',
-                })
-                navigate('/api')
+            <Title
+              ref={ref => {
+                sectionsRef.current.registerfields = ref
               }}
             >
-              Checkout Hook API
-            </DarkBlueButton>
-          </section>
-        </main>
-      </Wrapper>
+              Register fields
+            </Title>
+            <p>
+              One of the key concepts for React Hook Form is to register your uncontrolled fields into the hook and
+              enable it to validated and gather the value of your field on submit.
+            </p>
+
+            <p>
+              Note: each fields <strong>required</strong> to have a <code>name</code> as key for the registration
+              process.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={registerCode} />
+
+            <Title
+              ref={ref => {
+                sectionsRef.current.applyvalidation = ref
+              }}
+            >
+              Apply validation
+            </Title>
+
+            <p>
+              React hook form make form validation easy by aligning with existing{' '}
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank">
+                HTML standard form validation
+              </a>
+              .
+            </p>
+
+            <p>List of validation rules supported by:</p>
+            <ul>
+              <li>required</li>
+              <li>min</li>
+              <li>max</li>
+              <li>minLength</li>
+              <li>maxLength</li>
+              <li>pattern</li>
+              <li>validate</li>
+            </ul>
+            <p>
+              You can read more detail on each rule at <Link to="/api">API page</Link>.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={applyValidation} />
+
+            <Title
+              ref={ref => {
+                sectionsRef.current.adaptingexistingform = ref
+              }}
+            >
+              Adapting existing form
+            </Title>
+            <p>
+              Working on an existing form is fairly simple as well. The important step is to pass down{' '}
+              <code>register</code> into existing input or select component, and apply it on the <code>ref</code>.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={migrateCode} />
+
+            <Title
+              ref={ref => {
+                sectionsRef.current.workwithuilibrary = ref
+              }}
+            >
+              Work with UI library
+            </Title>
+            <p>
+              The following example demonstrates usage with <code>react-select</code> and <code>material-ui</code>.
+            </p>
+            <p>
+              Most of UI library do expose <code>innerRef</code> or <code>ref</code>. For components that are more
+              complicated like <code>react-select</code> or <code>react-datepicker</code>, you can also update value via{' '}
+              <code>setValue</code> or trigger an error with <code>setError</code>.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={uiLibrary} url="https://codesandbox.io/s/72j69vnk1x" />
+
+            <Title
+              ref={ref => {
+                sectionsRef.current.integrateglobalstate = ref
+              }}
+            >
+              Integrate global state
+            </Title>
+            <p>
+              Forms are mostly about collecting user data. React Hook Form doesn't require you to have a state
+              management to store your data. However, it allows you to easily integrate one like <code>Redux</code> or{' '}
+              <code>MobX</code>
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={globalState} />
+
+            <Title
+              ref={ref => {
+                sectionsRef.current.handleerrors = ref
+              }}
+            >
+              Handle errors
+            </Title>
+            <p>
+              React hook form provide an <code>errors</code> object to show you the errors within the form.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={errors} />
+
+            <section
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              <H1>Want to learn more?</H1>
+              <p>Checkout the full API documentation</p>
+              <DarkBlueButton
+                onClick={() => {
+                  track({
+                    category: 'Get started - CTA',
+                    label: 'Checkout hook API',
+                    action: 'Go to API section',
+                  })
+                  navigate('/api')
+                }}
+              >
+                Checkout Hook API
+              </DarkBlueButton>
+            </section>
+          </main>
+        </Wrapper>
+      </Container>
     </Layout>
   )
 }

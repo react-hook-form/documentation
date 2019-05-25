@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import colors from './styles/colors'
+import colors from '../styles/colors'
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,

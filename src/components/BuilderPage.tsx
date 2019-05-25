@@ -2,14 +2,15 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Animate } from 'react-simple-animate'
 import useForm from 'react-hook-form'
 import styled from 'styled-components'
-import colors from './styles/colors'
+import colors from '../styles/colors'
 import SortableContainer from './SortableContainer'
-import { SubHeading, HeadingWithTopMargin, Error, Title } from './styles/typography'
+import { SubHeading, HeadingWithTopMargin, Error, Title } from '../styles/typography'
 import { setHomePage } from './ButtonGroup'
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
+import {Container} from "../styles/containers";
 
 const updateStore = (state, payload) => {
   debugger
@@ -236,7 +237,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
   )
 
   const child = (
-    <>
+    <Container>
       <HeadingWithTopMargin>Builder</HeadingWithTopMargin>
       <SubHeading>Build your own form with code and example.</SubHeading>
 
@@ -498,7 +499,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <SyntaxHighlighterWithCopy tabIndex={tabIndex} data={formData} />
         </div>
       </Wrapper>
-    </>
+    </Container>
   )
 
   if (isStatic) return child

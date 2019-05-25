@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import formik from '../images/formik.png';
 import hookFrom from '../images/hookForm.png';
 import reduxForm from '../images/reduxForm.png';
-import { H1, Title } from './styles/typography';
-import Link from './styles/link';
+import { H1, Title } from '../styles/typography';
+import Link from '../styles/link';
 import { SimpleImg } from 'react-simple-img';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 
 const Wrapper = styled.section`
   text-align: center;

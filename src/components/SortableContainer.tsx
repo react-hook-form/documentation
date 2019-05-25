@@ -2,7 +2,7 @@ import * as React from 'react';
 import Sortable from 'react-sortablejs';
 import { Animate } from 'react-simple-animate';
 import styled from 'styled-components';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 import track from "./utils/track";
 
 const List = styled.li`

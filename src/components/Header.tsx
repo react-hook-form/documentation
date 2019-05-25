@@ -1,12 +1,12 @@
-import { Heading, SubHeading } from './styles/typography';
-import * as React from 'react';
-import styled from 'styled-components';
-import colors from './styles/colors';
-import { AnimateGroup, Animate } from 'react-simple-animate';
-import video from '../images/react-hook-form-demo-video.mp4';
-import FeaturesList from './FeaturesList';
-import track from "./utils/track";
-import {navigate} from "@reach/router";
+import { Heading, SubHeading } from '../styles/typography'
+import * as React from 'react'
+import styled from 'styled-components'
+import colors from '../styles/colors'
+import { AnimateGroup } from 'react-simple-animate'
+import video from '../images/react-hook-form-demo-video.mp4'
+import FeaturesList from './FeaturesList'
+import track from './utils/track'
+import { navigate } from '@reach/router'
 
 const Logo = styled.svg`
   height: 80px;
@@ -21,10 +21,14 @@ const Logo = styled.svg`
   display: block;
   margin: -50px auto 0;
 
+  @media (min-width: 375px) {
+    height: 110px;
+  }
+
   @media (min-width: 768px) {
     display: none;
   }
-`;
+`
 
 const Head = styled.div`
   display: flex;
@@ -39,7 +43,6 @@ const Head = styled.div`
 
   & > h1 {
     font-size: 40px;
-    text-shadow: 2px 2px 4px ${colors.lightBlue};
 
     @media (min-width: 768px) {
       font-size: 65px;
@@ -50,7 +53,7 @@ const Head = styled.div`
     font-size: 16px;
     font-weight: 100;
   }
-`;
+`
 
 export const HeadingButtons = styled.div`
   display: grid;
@@ -90,7 +93,7 @@ export const HeadingButtons = styled.div`
       margin-bottom: 40px;
     }
   }
-`;
+`
 
 const Video = styled.video`
   width: 100%;
@@ -106,17 +109,17 @@ const Video = styled.video`
     height: 491px;
     margin: 0 auto 40px;
   }
-  
+
   @media (min-width: 1024px) {
     width: 800px;
     height: 563px;
   }
-  
+
   @media (min-width: 1280px) {
     width: 900px;
     height: 631px;
   }
-`;
+`
 
 export default function Header({ homeRef, tabIndex }: any) {
   // @ts-ignore
@@ -140,11 +143,11 @@ export default function Header({ homeRef, tabIndex }: any) {
               track({
                 category: 'Home CTA',
                 label: 'Demo',
-                action: 'go to demo'
+                action: 'go to demo',
               })
               if (homeRef.current) {
                 // @ts-ignore
-                homeRef.current.scrollIntoView({ behavior: 'smooth' });
+                homeRef.current.scrollIntoView({ behavior: 'smooth' })
               }
             }}
           >
@@ -156,7 +159,7 @@ export default function Header({ homeRef, tabIndex }: any) {
               track({
                 category: 'Home CTA',
                 label: 'API',
-                action: 'go to API'
+                action: 'go to API',
               })
               navigate('/get-started')
             }}
@@ -166,17 +169,23 @@ export default function Header({ homeRef, tabIndex }: any) {
         </HeadingButtons>
       </Head>
 
-      <Video controls autoPlay playsInline muted onClick={() => {
-        track({
-          category: 'video',
-          label: 'video',
-          action: 'play/pause video'
-        })
-      }}>
+      <Video
+        controls
+        autoPlay
+        playsInline
+        muted
+        onClick={() => {
+          track({
+            category: 'video',
+            label: 'video',
+            action: 'play/pause video',
+          })
+        }}
+      >
         <source src={video} type="video/mp4" />
       </Video>
 
       <FeaturesList />
     </AnimateGroup>
-  );
+  )
 }

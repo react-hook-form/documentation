@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { navigate } from '@reach/router'
 import styled from 'styled-components'
-import colors from './styles/colors'
-import { Animate } from 'react-simple-animate'
+import colors from '../styles/colors'
 import GitHubButton from 'react-github-btn'
 import track from './utils/track'
 
@@ -160,17 +159,7 @@ export const setHomePage = () => {
   )
 }
 
-export default function ButtonGroup({
-  toggleBuilder,
-  toggleSetting,
-  showSetting,
-  showBuilder,
-  settingButton,
-  builderButton,
-  tabIndex,
-                                      pathname,
-}: any) {
-
+export default function ButtonGroup({ toggleBuilder, showBuilder, builderButton, tabIndex, pathname }: any) {
   return (
     <>
       <GithubIcon>
@@ -265,7 +254,7 @@ export default function ButtonGroup({
         </Button>
         <Button
           tabIndex={tabIndex}
-          active={pathname === '/get-started'}
+          active={pathname.includes('/get-started')}
           onClick={() => {
             track({
               category: 'mainNav',
@@ -287,7 +276,7 @@ export default function ButtonGroup({
         </Button>
         <Button
           tabIndex={tabIndex}
-          active={pathname === '/api'}
+          active={pathname.includes('/api')}
           onClick={() => {
             track({
               category: 'mainNav',
@@ -312,7 +301,7 @@ export default function ButtonGroup({
         </Button>
         <Button
           tabIndex={tabIndex}
-          active={pathname === '/faq'}
+          active={pathname.includes('/faq')}
           onClick={() => {
             track({
               category: 'mainNav',
@@ -329,7 +318,7 @@ export default function ButtonGroup({
         </Button>
         <Button
           tabIndex={tabIndex}
-          active={pathname === '/builder'}
+          active={pathname.includes('/builder')}
           onClick={() => {
             track({
               category: 'mainNav',

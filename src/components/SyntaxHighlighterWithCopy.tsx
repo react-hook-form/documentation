@@ -4,8 +4,9 @@ import copyClipBoard from './utils/copyClipBoard';
 import generateCode from './logic/generateCode';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/styles/prism';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 import track from './utils/track';
+import breakpoints from "../styles/breakpoints";
 
 const CopyButton = styled.button`
   background: ${colors.lightBlue};
@@ -21,7 +22,7 @@ const CopyButton = styled.button`
   box-shadow: 0 0 10px #000;
   display: none;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     display: inline-block;
   }
 
@@ -48,7 +49,7 @@ export const LinkToSandBox = styled.a`
   box-shadow: 0 0 10px #000;
   text-decoration: none;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     display: inline-block;
     right: 170px;
   }
@@ -63,12 +64,12 @@ export const LinkToSandBox = styled.a`
 `;
 
 const SyntaxHighlighterWrapper = styled.div`
-  pre {
+  & pre {
     padding-top: 50px !important;
     background: none !important;
     line-height: 1.6 !important;
 
-    @media (min-width: 1024px) {
+    @media ${breakpoints.fromLargeScreen} {
       padding-top: 20px !important;
     }
   }

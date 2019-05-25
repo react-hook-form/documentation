@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Title, H1 } from './styles/typography'
-import colors from './styles/colors'
+import { Title, H1 } from '../styles/typography'
+import colors from '../styles/colors'
 import { Animate } from 'react-simple-animate'
 import styled from 'styled-components'
 import Setting from './svgs/setting'
@@ -8,7 +8,7 @@ import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
 import FormFields from './FormFields'
-import { DarkBlueButton } from './styles/buttons'
+import { DarkBlueButton } from '../styles/buttons'
 
 const Code = styled.pre`
   text-align: left;

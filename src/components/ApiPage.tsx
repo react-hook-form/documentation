@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
-import colors from './styles/colors'
-import { SubHeading, HeadingWithTopMargin, H5 } from './styles/typography'
+import colors from '../styles/colors'
+import { SubHeading, HeadingWithTopMargin, H5 } from '../styles/typography'
 import ApiRefTable from './ApiRefTable'
 import validationSchemaCode from './codeExamples/validationSchema'
-import Link from './styles/link'
+import Link from '../styles/link'
 import code from './codeExamples/defaultExample'
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import ApiMenu from './ApiMenu'
@@ -16,29 +16,12 @@ import handleSubmitCode from './codeExamples/handleSubmitCode'
 import setError from './codeExamples/setError'
 import setValue from './codeExamples/setValue'
 import track from './utils/track'
+import {Container, Wrapper} from '../styles/containers';
+
+const { useRef } = React;
 
 const CodeAsLink = styled(Link)`
   cursor: pointer;
-`
-
-const Root = styled.main`
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-  overflow: hidden;
-  color: white;
-  
-  & pre,
-  & code {
-    font-size: 14px;
-    text-align: left;
-    color: white;
-    overflow-x: auto;
-    overflow-y:hidden;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background: none !important;
-    line-height: 1.3;
-  }
 `
 
 export const Table = styled.table`
@@ -70,18 +53,6 @@ export const Type = styled.span`
   font-size: 15px;
   font-family: monospace;
   color: ${colors.lightPink};
-`
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0 20px 100px 20px;
-
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 250px minmax(0, 1fr);
-  }
 `
 
 const links = [
@@ -126,7 +97,7 @@ function Builder({ formData, showApi }: any) {
   }
 
   return (
-    <Root>
+    <Container>
       <HeadingWithTopMargin>API</HeadingWithTopMargin>
       <SubHeading>React hook form focus on providing the best DX by simplify the API.</SubHeading>
 
@@ -412,7 +383,7 @@ function Builder({ formData, showApi }: any) {
           <hr />
         </main>
       </Wrapper>
-    </Root>
+    </Container>
   )
 }
 

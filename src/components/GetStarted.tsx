@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import copyClipBoard from './utils/copyClipBoard';
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
 import code from './codeExamples/defaultExample';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 import * as React from 'react';
 
 const InstallCode = styled.span`
