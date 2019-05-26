@@ -10,7 +10,7 @@ import { navigate } from '@reach/router'
 import FormFields from './FormFields'
 import { DarkBlueButton, PinkButton } from '../styles/buttons'
 import { CenterContent } from '../styles/containers'
-import goToBuilder from "./utils/goToBuilder";
+import goToBuilder from './utils/goToBuilder'
 
 const Code = styled.pre`
   text-align: left;
@@ -153,12 +153,13 @@ export default function Form({
                 label: 'Edit',
               })
               toggleBuilder(true)
-              goToBuilder();
+              goToBuilder()
             }}
             style={{
               background: 'black',
               marginTop: 20,
               color: 'white',
+              border: `1px solid ${colors.lightPink}`,
             }}
           >
             Edit

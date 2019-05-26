@@ -10,6 +10,7 @@ import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
 import { Container } from '../styles/containers'
+import breakpoints from "../styles/breakpoints";
 
 const { useState, useRef, useEffect } = React
 
@@ -171,7 +172,7 @@ const CloseButton = styled.button`
   display: none;
   background: rgba(14, 16, 28, 0.5294117647058824);
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     font-size: 35px;
     display: block;
     padding: 20px;

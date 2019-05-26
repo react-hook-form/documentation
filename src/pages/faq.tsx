@@ -107,11 +107,25 @@ const Faq = ({ location }) => {
           <FaqMain>
             <h2>Performance of React Hook Form</h2>
             <p ref={ref => (sectionsRef.current.question1 = ref)}>
-              Performance is one of the primary goals for building this custom hook. It relies on uncontrolled
-              component, hence the reason why the register function occurred at the ref. This approach will reduce the
-              amount of re-rendering which occurred by user typing or value changing. The components mount to the page
-              is much quicker too because they are not controlled. For mounting speed, I have completed a quick
-              comparison test which you can refer to by this repo link.
+              Performance is one of the primary goals for building this custom hook. React Hook Form relies on
+              uncontrolled component, hence the reason why the register function occurred at the ref. This approach will
+              reduce the amount of re-rendering which occurred by user typing or value changing. Components mount to the
+              page is much quicker too because they are not controlled. For mounting speed, I have completed a quick
+              comparison test which you can refer to by{' '}
+              <a
+                href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+                target="_blank"
+                onClick={() => {
+                  track({
+                    category: 'Link',
+                    action: 'Click - visit the repo',
+                    label: 'this repo link',
+                  })
+                }}
+              >
+                this repo link
+              </a>
+              .
             </p>
 
             <hr />
@@ -130,13 +144,13 @@ const Faq = ({ location }) => {
             <hr />
 
             <h2 ref={ref => (sectionsRef.current.question3 = ref)}>How to reset the form?</h2>
-            <p>There are two types of form clear.</p>
+            <p>There are two types of methods to clear form.</p>
             <ul>
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
-                  This method does the same thing as clicking the form's reset button, and only clear
-                  input/select/checkbox value.
+                  This method does the same thing as clicking a form's reset button, and only clear
+                  <code>input/select/checkbox</code> value.
                 </p>
               </li>
               <li>
@@ -144,7 +158,7 @@ const Faq = ({ location }) => {
                   React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React Hook Form <code>reset</code> will reset all fields value, but also clear all <code>errors</code>{' '}
+                  React Hook Form's <code>reset</code> method will reset all fields value, and also clear all <code>errors</code>{' '}
                   within the form.
                 </p>
               </li>
@@ -157,7 +171,7 @@ const Faq = ({ location }) => {
             <p>
               React Hook Form relies on uncontrolled component. With an uncontrolled component, you can specify a{' '}
               <code>defaultValue</code> or <code>defaultChecked</code> to individual field. However, the hook itself
-              does provider an easier way to initialise all input values.
+              does provider an easier way to initialise all input values too. Example below:
             </p>
             <SyntaxHighlighterWithCopy rawData={code} />
 
@@ -167,7 +181,7 @@ const Faq = ({ location }) => {
 
             <p>
               React Hook Form need <code>ref</code> to collect input value, however you may want to use <code>ref</code>{' '}
-              for other purpose (eg. scroll into the view). The following example will show you how
+              for other purpose (eg. scroll into the view). The following example will show you how.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={shareRef} />
