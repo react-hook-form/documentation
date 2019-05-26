@@ -39,7 +39,7 @@ export default function CodeCompareSection() {
         </H1>
 
         <p>
-          Reducing the amount of code that you have to write is one of the primary goals for React hook form. To
+          Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To
           illustrate that, let's look at a very simple form of validation among some of the most popular form validation
           libraries.
         </p>

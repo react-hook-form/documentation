@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { H1, HeadingWithTopMargin, SubHeading, Title } from '../styles/typography'
 import GetStarted from '../components/GetStarted'
-import styled from 'styled-components'
 import ApiMenu from '../components/ApiMenu'
 import track from '../components/utils/track'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
@@ -11,147 +10,16 @@ import colors from '../styles/colors'
 import { Link, navigate } from '@reach/router'
 import { DarkBlueButton } from '../styles/buttons'
 import { Container, Wrapper } from '../styles/containers'
+import {
+  registerCode,
+  migrateCode,
+  uiLibrary,
+  globalState,
+  errors,
+  applyValidation,
+} from '../components/codeExamples/getStarted'
 
 const { useRef } = React
-
-const registerCode = `import React from 'react'
-import useForm from 'react-hook-form'
-
-function YourForm() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
-   
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
-      <select name="gender" ref={register}>
-        <option value="male">male</option>
-        <option value="female">female</option>
-      </select>
-      <input type="submit" />
-    </form>
-  );
-}`
-
-const migrateCode = `import React from 'react'
-import useForm from 'react-hook-form'
-
-// The following is an example of your existing Input Component 
-function Input({ label, register, required }) {
-  return (
-    <>
-      <label>label</label>
-      <input name={label} register={register({ required })} />
-    </>
-  );
-}
-
-function YourForm() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
-   
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="First Name" register={register} required />
-      <input type="submit" />
-    </form>
-  )
-}`
-
-const uiLibrary = `import React from 'react'
-import useForm from 'react-hook-form'
-import Select from "react-select"
-import Input from "@material-ui/core/Input"
-
-function YourForm() {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => console.log(data)
-  const [values, setReactSelect] = useState({
-    selectedOption: []
-  });
-
-  const handleMultiChange = selectedOption => {
-    setValue("reactSelect", selectedOption)
-    setReactSelect({ selectedOption })
-  }
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="HelloWorld" inputRef={register} />
-        
-      <Select
-        value={values.selectedOption}
-        options={options}
-        onChange={handleMultiChange}
-        ref={e => register({ name: "reactSelect" })}
-        isMulti
-      />
-      
-      <input type="submit" />
-    </form>
-  )
-}
-`
-
-const globalState = `import React from 'react'
-import useForm from 'react-hook-form'
-import { connect } from 'react-redux'
-import updateAction from './actions'
-
-function YourForm(props) {
-  const { register, handleSubmit, setValue } = useForm()
-  // Submit your data into Redux store
-  const onSubmit = (data) => props.updateAction(data)
-  
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="firstName" defaultValue={props.firstName} ref={register} />
-      <Input name="lastName" defaultValue={props.lastName} ref={register} />
-      <input type="submit" />
-    </form>
-  );
-}
-
-// Connect your component with redux
-connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm)
-`
-
-const errors = `import React from 'react'
-import useForm from 'react-hook-form'
-
-function YourForm(props) {
-  const { register, errors } = useForm()
-  const onSubmit = (data) => props.updateAction(data)
-  
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="firstName" defaultValue={props.firstName} ref={register({ required: true })} />
-      {errors.firstName && 'First name is required'}
-      <Input name="lastName" defaultValue={props.lastName} ref={register({ required: true })} />
-      {errors.lastName && 'Last name is required'}
-      <input type="submit" />
-    </form>
-  );
-}
-`
-
-const applyValidation = `import React from 'react'
-import useForm from 'react-hook-form'
-
-function YourForm() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
-   
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register({ required: true, maxlength: 20 })} />
-      <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
-      <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
-      <input type="submit" />
-    </form>
-  );
-}`
 
 const links = [
   'Quick start',
@@ -176,9 +44,9 @@ const Faq = ({ location }) => {
 
   const goToSection = name => {
     track({
-      category: 'Get Started - go to section',
-      label: `Go to section ${name}`,
-      action: `Go to section ${name}`,
+      category: 'Anchors Link',
+      label: name,
+      action: `Click - Go to section ${name}`,
     })
     const refName = name.replace(/ /g, '').toLowerCase()
     if (sectionsRef.current[refName]) {
@@ -192,7 +60,7 @@ const Faq = ({ location }) => {
         <Seo title="Get Started" />
 
         <HeadingWithTopMargin>Get Started</HeadingWithTopMargin>
-        <SubHeading>Simple form validation with React hook form.</SubHeading>
+        <SubHeading>Simple form validation with React Hook Form.</SubHeading>
 
         <Wrapper>
           <ApiMenu
@@ -226,13 +94,13 @@ const Faq = ({ location }) => {
               Register fields
             </Title>
             <p>
-              One of the key concepts for React Hook Form is to register your uncontrolled fields into the hook and
-              enable it to validated and gather the value of your field on submit.
+              One of the key concepts for React Hook Form is to <strong>register</strong> your uncontrolled fields into
+              the hook, and enable them to be validated and gather the value for submitting.
             </p>
 
             <p>
-              Note: each fields <strong>required</strong> to have a <code>name</code> as key for the registration
-              process.
+              Note: each fields <strong>required</strong> to have an unique <code>name</code> as key for the
+              registration process.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={registerCode} />
@@ -246,8 +114,18 @@ const Faq = ({ location }) => {
             </Title>
 
             <p>
-              React hook form make form validation easy by aligning with existing{' '}
-              <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank">
+              React Hook Form make form validation easy by aligning with existing{' '}
+              <a
+                onClick={() => {
+                  track({
+                    category: 'Link',
+                    action: 'Click - Go to Mozilla website',
+                    label: 'HTML standard form validation',
+                  })
+                }}
+                href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
+                target="_blank"
+              >
                 HTML standard form validation
               </a>
               .
@@ -264,7 +142,20 @@ const Faq = ({ location }) => {
               <li>validate</li>
             </ul>
             <p>
-              You can read more detail on each rule at <Link to="/api">API page</Link>.
+              You can read more detail on each rule at{' '}
+              <Link
+                onClick={() => {
+                  track({
+                    category: 'Link',
+                    label: 'API page',
+                    action: 'Click - Go to API',
+                  })
+                }}
+                to="/api"
+              >
+                API page
+              </Link>
+              .
             </p>
 
             <SyntaxHighlighterWithCopy rawData={applyValidation} />
@@ -277,8 +168,8 @@ const Faq = ({ location }) => {
               Adapting existing form
             </Title>
             <p>
-              Working on an existing form is fairly simple as well. The important step is to pass down{' '}
-              <code>register</code> into existing input or select component, and apply it on the <code>ref</code>.
+              Working on an existing form is fairly simple as well. The important step is to apply <code>register</code>{' '}
+              into existing input or select component's <code>ref</code>.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={migrateCode} />
@@ -291,12 +182,17 @@ const Faq = ({ location }) => {
               Work with UI library
             </Title>
             <p>
-              The following example demonstrates usage with <code>react-select</code> and <code>material-ui</code>.
+              Working with external component library should be easy and simple to integrate, React Hook Form has made
+              it simple.
             </p>
             <p>
-              Most of UI library do expose <code>innerRef</code> or <code>ref</code>. For components that are more
-              complicated like <code>react-select</code> or <code>react-datepicker</code>, you can also update value via{' '}
-              <code>setValue</code> or trigger an error with <code>setError</code>.
+              <span style={{ color: colors.lightPink }}>Note:</span> Most of UI library do expose <code>innerRef</code>{' '}
+              or <code>ref</code> to <code>register</code>. For components that are more complicated like <code>react-select</code> or{' '}
+              <code>react-datepicker</code>, you can update value via <code>setValue</code> or trigger an error with{' '}
+              <code>setError</code>.
+            </p>
+            <p>
+              The following example demonstrates usage with <code>react-select</code> and <code>material-ui</code>.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={uiLibrary} url="https://codesandbox.io/s/72j69vnk1x" />
@@ -324,7 +220,7 @@ const Faq = ({ location }) => {
               Handle errors
             </Title>
             <p>
-              React hook form provide an <code>errors</code> object to show you the errors within the form.
+              React Hook Form provide an <code>errors</code> object to show you the errors within the form.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={errors} />
@@ -339,9 +235,9 @@ const Faq = ({ location }) => {
               <DarkBlueButton
                 onClick={() => {
                   track({
-                    category: 'Get started - CTA',
-                    label: 'Checkout hook API',
-                    action: 'Go to API section',
+                    category: 'Button',
+                    label: 'Checkout hook API (Get started)',
+                    action: 'Click - Go to API',
                   })
                   navigate('/api')
                 }}

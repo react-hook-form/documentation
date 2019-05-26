@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import copyClipBoard from './utils/copyClipBoard';
-import generateCode from './logic/generateCode';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/styles/prism';
+import copyClipBoard from './utils/copyClipBoard';
+import generateCode from './logic/generateCode';
 import colors from '../styles/colors';
 import track from './utils/track';
 import breakpoints from "../styles/breakpoints";
@@ -19,7 +19,7 @@ const CopyButton = styled.button`
   right: 0;
   z-index: 1;
   top: 10px;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px ${colors.black};
   display: none;
 
   @media ${breakpoints.fromMediumScreen} {
@@ -46,7 +46,7 @@ export const LinkToSandBox = styled.a`
   top: 10px;
   right: 0;
   z-index: 1;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px ${colors.black};
   text-decoration: none;
 
   @media ${breakpoints.fromMediumScreen} {
@@ -87,9 +87,9 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
           tabIndex={tabIndex}
           onClick={() => {
             track({
-              label: 'copy',
-              category: 'CodeExample',
-              action: 'copy code',
+              label: 'Copy',
+              category: 'Copy Button',
+              action: 'Click - Copy code',
             });
             rawData || copyClipBoard(generateCode(data));
             alert('Code copied into your clipboard.');
@@ -105,8 +105,8 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
           onClick={() => {
             track({
               label: 'CodeSandbox',
-              category: 'CodeExample',
-              action: `Go to codeSandBox ${url}`,
+              category: 'Button',
+              action: `Click - Go to codeSandBox ${url}`,
             });
           }}
           tabIndex={tabIndex}

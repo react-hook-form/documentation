@@ -4,6 +4,7 @@ import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import code from './codeExamples/defaultExample'
 import colors from '../styles/colors'
 import * as React from 'react'
+import track from './utils/track'
 
 const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -20,10 +21,6 @@ const CopyButton = styled.button`
   border-radius: 4px;
   font-size: 16px;
   float: right;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `
 
 export default function GetStarted({ quickStartRef, tabIndex }: any) {
@@ -33,11 +30,17 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       <p>
         Installing <code>react-hook-form</code> only takes a single command and you're ready to roll.
       </p>
+
       <InstallCode>
         npm install react-hook-form
         <CopyButton
           tabIndex={tabIndex}
           onClick={() => {
+            track({
+              category: 'Button',
+              label: 'Copy',
+              action: 'Copy - copy installation',
+            })
             copyClipBoard('npm install react-hook-form')
             alert('Code copied into your clipboard.')
           }}
@@ -53,7 +56,7 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       >
         Example
       </h2>
-      <p>The following code will demonstrate the basics.</p>
+      <p>The following code will demonstrate the basics, from register a field with validation and to submit.</p>
       <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )

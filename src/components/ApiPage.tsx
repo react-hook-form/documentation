@@ -107,7 +107,7 @@ function Builder({ formData, showApi }: any) {
   return (
     <Container>
       <HeadingWithTopMargin>API</HeadingWithTopMargin>
-      <SubHeading>React hook form focus on providing the best DX by simplify the API.</SubHeading>
+      <SubHeading>React Hook Form focus on providing the best DX by simplify the API.</SubHeading>
 
       <Wrapper>
         <ApiMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />

@@ -156,6 +156,9 @@ button:-moz-focusring {
 button:active {
  transform: translateY(2px);
 }
+button:hover {
+  opacity: 0.8;
+}
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;

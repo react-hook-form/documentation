@@ -141,10 +141,10 @@ const Faq = ({ location }) => {
               </li>
               <li>
                 <b>
-                  React hook form API: <code>reset()</code>
+                  React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React hook form <code>reset</code> will reset all fields value, but also clear all <code>errors</code>{' '}
+                  React Hook Form <code>reset</code> will reset all fields value, but also clear all <code>errors</code>{' '}
                   within the form.
                 </p>
               </li>
@@ -155,7 +155,7 @@ const Faq = ({ location }) => {
             <h2 ref={ref => (sectionsRef.current.question4 = ref)}>How to initialize form values?</h2>
 
             <p>
-              React hook form relies on uncontrolled component. With an uncontrolled component, you can specify a{' '}
+              React Hook Form relies on uncontrolled component. With an uncontrolled component, you can specify a{' '}
               <code>defaultValue</code> or <code>defaultChecked</code> to individual field. However, the hook itself
               does provider an easier way to initialise all input values.
             </p>
@@ -166,7 +166,7 @@ const Faq = ({ location }) => {
             <h2 ref={ref => (sectionsRef.current.question5 = ref)}>How to share ref usage?</h2>
 
             <p>
-              React hook form need <code>ref</code> to collect input value, however you may want to use <code>ref</code>{' '}
+              React Hook Form need <code>ref</code> to collect input value, however you may want to use <code>ref</code>{' '}
               for other purpose (eg. scroll into the view). The following example will show you how
             </p>
 
