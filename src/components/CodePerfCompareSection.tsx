@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import formik from '../images/formik.png'
 import hookFrom from '../images/hookForm.png'
 import reduxForm from '../images/reduxForm.png'
+import reactHookFormVideo from '../images/react-hook-form-test.mp4'
+import formikVideo from '../images/formik-test.mp4'
+import reduxFormVideo from '../images/redux-form-test.mp4'
 import { H1, Title } from '../styles/typography'
 import Link from '../styles/link'
 import { SimpleImg } from 'react-simple-img'
 import colors from '../styles/colors'
 import track from './utils/track'
+import breakpoints from '../styles/breakpoints'
 
 const Wrapper = styled.section`
   text-align: center;
@@ -69,13 +73,106 @@ const ImgSection = styled.div`
   }
 `
 
+const VideoWrapper = styled.section`
+  width: 100%;
+  height: 450px;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  margin: 20px 0 40px;
+
+  & > section {
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    overflow-y: hidden;
+
+    & > video {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  @media ${breakpoints.fromMediumScreen} {
+    display: grid;
+    transition: 1s all;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-column-gap: 40px;
+    height: 450px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-right: auto;
+    overflow-y: hidden;
+
+    & > section {
+      & > video {
+        height: 400px;
+        border-radius: 10px;
+      }
+
+      & > p {
+        margin: 10px 0;
+        
+        & > strong {
+          color: ${colors.lightPink}
+        }
+      }
+    }
+  }
+`
+
+const MobileText = styled.p`
+  display: block;
+
+  @media ${breakpoints.fromMediumScreen} {
+    display: none !important;
+  }
+`
+
 export default function CodePerfCompareSection() {
   return (
     <Wrapper>
       <H1>Performance Comparison</H1>
+
+      <p>Do you ever wondering how many component re-render has been triggered by user?</p>
+
+      <MobileText>You can swipe through the following videos to see how they works.</MobileText>
+
+      <VideoWrapper>
+        <section>
+          <video controls autoPlay playsInline muted loop>
+            <source src={reactHookFormVideo} type="video/mp4" />
+          </video>
+          <p>
+            Total re-render: <strong>3</strong>
+          </p>
+        </section>
+        <section>
+          <video controls autoPlay playsInline muted loop>
+            <source src={formikVideo} type="video/mp4" />
+          </video>
+          <p>
+            Total re-render: <strong>30+</strong>
+          </p>
+        </section>
+        <section>
+          <video controls autoPlay playsInline muted loop>
+            <source src={reduxFormVideo} type="video/mp4" />
+          </video>
+          <p>
+            Total re-render: <strong>30+</strong>
+          </p>
+        </section>
+      </VideoWrapper>
+
       <p>
-        The following results are captured under 6x CPU slow down on App start with Chrome devtool's performance tab,
-        and code is from section above 'Library Code Comparison'.
+        The following results demonstrate: how long it took to render the components. Results are captured under 6x CPU slow
+        down on App start with Chrome dev tools' performance tab, and code is from the section above 'Library Code
+        Comparison'.
       </p>
       <Title
         style={{
