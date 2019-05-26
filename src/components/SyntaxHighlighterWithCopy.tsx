@@ -1,15 +1,14 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { xonokai } from 'react-syntax-highlighter/dist/styles/prism';
-import copyClipBoard from './utils/copyClipBoard';
-import generateCode from './logic/generateCode';
-import colors from '../styles/colors';
-import track from './utils/track';
-import breakpoints from "../styles/breakpoints";
+import * as React from 'react'
+import styled from 'styled-components'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { xonokai } from 'react-syntax-highlighter/dist/styles/prism'
+import copyClipBoard from './utils/copyClipBoard'
+import generateCode from './logic/generateCode'
+import colors from '../styles/colors'
+import track from './utils/track'
+import breakpoints from '../styles/breakpoints'
 
-const CopyButton = styled.button`
-  background: ${colors.lightBlue};
+const commonStyle = `
   border: none;
   color: white;
   border-radius: 4px;
@@ -35,15 +34,21 @@ const CopyButton = styled.button`
   &:active {
     transform: translateY(2px);
   }
-`;
+`
 
-export const LinkToSandBox = styled(CopyButton)`
+const CopyButton = styled.button`
+  background: ${colors.lightBlue};
+  ${commonStyle};
+`
+
+export const LinkToSandBox = styled.a`
+  ${commonStyle};
   background: ${colors.lightPink};
 
   @media ${breakpoints.fromMediumScreen} {
     right: 180px;
   }
-`;
+`
 
 const SyntaxHighlighterWrapper = styled.div`
   & pre {
@@ -54,7 +59,7 @@ const SyntaxHighlighterWrapper = styled.div`
       padding-top: 20px !important;
     }
   }
-`;
+`
 
 export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex, withOutCopy }: any) {
   return (
@@ -71,9 +76,9 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
               label: 'Copy',
               category: 'Copy Button',
               action: 'Click - Copy code',
-            });
-            rawData || copyClipBoard(generateCode(data));
-            alert('Code copied into your clipboard.');
+            })
+            rawData || copyClipBoard(generateCode(data))
+            alert('Code copied into your clipboard.')
           }}
           aria-label="Copy code into your clipboard"
         >
@@ -88,7 +93,7 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
               label: 'CodeSandbox',
               category: 'Button',
               action: `Click - Go to codeSandBox ${url}`,
-            });
+            })
           }}
           tabIndex={tabIndex}
           href={url}
@@ -109,5 +114,5 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
         </SyntaxHighlighter>
       </SyntaxHighlighterWrapper>
     </div>
-  );
+  )
 }
