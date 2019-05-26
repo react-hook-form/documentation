@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { H1, HeadingWithTopMargin, SubHeading, Title } from '../styles/typography'
 import GetStarted from '../components/GetStarted'
-import ApiMenu from '../components/ApiMenu'
+import SideMenu from '../components/SideMenu'
 import track from '../components/utils/track'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import colors from '../styles/colors'
@@ -63,7 +63,7 @@ const Faq = ({ location }) => {
         <SubHeading>Simple form validation with React Hook Form.</SubHeading>
 
         <Wrapper>
-          <ApiMenu
+          <SideMenu
             isStatic
             links={links}
             goToSection={goToSection}

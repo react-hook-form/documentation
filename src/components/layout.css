@@ -305,7 +305,7 @@ code {
   overflow-y:hidden;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: none !important;
+  background: #0f111b !important;
   line-height: 1.3;
 }
 
@@ -381,6 +381,11 @@ blockquote {
 
 th {
   font-size: 0.8rem;
+  text-align: left;
+}
+
+td {
+  vertical-align: top;
 }
 
 h2 {

@@ -28,7 +28,7 @@ export default function ApiFormState({ tabIndex }: any) {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>Set to true after user interacted with any of the inputs.</td>
+              <td>Set to true after a user interacted with any of the inputs.</td>
             </tr>
             <tr>
               <td>
@@ -37,7 +37,7 @@ export default function ApiFormState({ tabIndex }: any) {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>Set true after user submitted the form.</td>
+              <td>Set true after a user submitted the form.</td>
             </tr>
             <tr>
               <td>
@@ -55,7 +55,7 @@ export default function ApiFormState({ tabIndex }: any) {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>During form submitting will set to true and after submitting set to false.</td>
+              <td>During form submitting will set to <code>true</code> and after submitting set to <code>false</code>.</td>
             </tr>
             <tr>
               <td>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { HeadingWithTopMargin, SubHeading } from '../styles/typography'
-import ApiMenu from '../components/ApiMenu'
+import SideMenu from '../components/SideMenu'
 import { Container, Wrapper } from '../styles/containers'
 import styled from 'styled-components'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
@@ -102,7 +102,7 @@ const Faq = ({ location }) => {
         <SubHeading>frequently asked question.</SubHeading>
 
         <Wrapper>
-          <ApiMenu isStatic links={links} goToSection={goToSection} />
+          <SideMenu isStatic links={links} goToSection={goToSection} />
 
           <FaqMain>
             <h2>Performance of React Hook Form</h2>

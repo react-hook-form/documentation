@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import colors from '../styles/colors';
-import styled from 'styled-components';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { xonokai as monokaiSublime } from 'react-syntax-highlighter/dist/styles/prism';
-import { TableWrapper, Table, Type } from './ApiPage';
-import Link from '../styles/link';
-import track from "./utils/track";
+import React, { useState } from 'react'
+import colors from '../styles/colors'
+import styled from 'styled-components'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { xonokai as monokaiSublime } from 'react-syntax-highlighter/dist/styles/prism'
+import { TableWrapper, Table, Type } from './ApiPage'
+import Link from '../styles/link'
+import track from './utils/track'
 
 const Option = styled.fieldset`
   padding: 10px 15px;
@@ -28,22 +28,19 @@ const Option = styled.fieldset`
       margin-right: 10px;
     }
   }
-`;
+`
 
 export default function ApiRefTable({ tabIndex }: any) {
-  const [isStandard, toggleOption] = useState(true);
+  const [isStandard, toggleOption] = useState(true)
   return (
     <>
       <p>
-        Register <code>Ref</code> and validation rules into <code>react-hook-form</code>. Validation rules are all based
-        on html standard. In addition, <code>react-hook-form</code> do allow custom validation too.
+        This method allows you to register input/select <code>Ref</code> and validation rules into{' '}
+        <code>react-hook-form</code>.
       </p>
+      <p>Validation rules are all based on HTML standard and also allow custom validation.</p>
       <p>
-        <b>Important:</b> input <code>name</code> is <b>required</b> and <b>unique</b> for <code>react-hook-form</code>{' '}
-        to register them uniquely.
-      </p>
-      <p>
-        If you working on <code>arrays/array fields</code> (inject additional form section by action), you can assign
+        If you working on <code>arrays/array fields</code>, you can assign
         input name as <code>name[index]</code>.{' '}
         <Link
           tabIndex={tabIndex}
@@ -53,13 +50,16 @@ export default function ApiRefTable({ tabIndex }: any) {
             track({
               category: 'API',
               label: 'check out array field example',
-              action: 'go to array field example'
+              action: 'go to array field example',
             })
           }}
         >
           Check out the array fields example
         </Link>
         .
+      </p>
+      <p>
+        <b style={{ color: colors.lightPink }}>Important:</b> <code>name</code> is <b>required</b> and <b>unique</b>.
       </p>
 
       <Option>
@@ -381,11 +381,7 @@ export default function ApiRefTable({ tabIndex }: any) {
   name="single"
   ref={
     register({
-      validate: ${
-        isStandard
-          ? `(value) => value === '1'`
-          : `(value) => value === '1' || 'error message';`
-      }
+      validate: ${isStandard ? `(value) => value === '1'` : `(value) => value === '1' || 'error message';`}
     })
   }
 />
@@ -396,5 +392,5 @@ export default function ApiRefTable({ tabIndex }: any) {
         </Table>
       </TableWrapper>
     </>
-  );
+  )
 }

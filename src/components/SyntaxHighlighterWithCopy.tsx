@@ -16,11 +16,12 @@ const CopyButton = styled.button`
   font-size: 16px;
   padding: 5px 10px;
   position: absolute;
-  right: 0;
+  right: 20px;
   z-index: 1;
   top: 10px;
   box-shadow: 0 0 10px ${colors.black};
   display: none;
+  cursor: pointer;
 
   @media ${breakpoints.fromMediumScreen} {
     display: inline-block;
@@ -28,6 +29,7 @@ const CopyButton = styled.button`
 
   &:hover {
     opacity: 0.8;
+    color: white;
   }
 
   &:active {
@@ -35,38 +37,17 @@ const CopyButton = styled.button`
   }
 `;
 
-export const LinkToSandBox = styled.a`
+export const LinkToSandBox = styled(CopyButton)`
   background: ${colors.lightPink};
-  border: none;
-  color: white;
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 5px 10px;
-  position: absolute;
-  top: 10px;
-  right: 0;
-  z-index: 1;
-  box-shadow: 0 0 10px ${colors.black};
-  text-decoration: none;
 
   @media ${breakpoints.fromMediumScreen} {
-    display: inline-block;
-    right: 170px;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    transform: translateY(2px);
+    right: 180px;
   }
 `;
 
 const SyntaxHighlighterWrapper = styled.div`
   & pre {
     padding-top: 50px !important;
-    background: none !important;
     line-height: 1.6 !important;
 
     @media ${breakpoints.fromLargeScreen} {

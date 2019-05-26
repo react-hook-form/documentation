@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import formikCode from './codeExamples/formikCode'
 import reactHookFormCode from './codeExamples/reactHookFormCode'
 import reduxFormCode from './codeExamples/reduxFormCode'
-import { DarkBlueButton } from '../styles/buttons'
 import { CenterContent } from '../styles/containers'
 
 const GridView = styled.section`
@@ -14,19 +13,6 @@ const GridView = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 40px;
-  }
-
-  & > section {
-    scroll-snap-align: start;
-  }
-
-  & pre {
-    background: none !important;
-    line-height: 1.5;
-  }
-
-  & h4 {
-    text-align: center;
   }
 `
 

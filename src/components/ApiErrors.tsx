@@ -11,7 +11,7 @@ export default function ApiErrors({ tabIndex }: any) {
           errors: <Type>Object</Type>
         </h2>
       </CodeHeading>
-      <p>Object contain form errors or error messages belong to each input.</p>
+      <p>Object contain form errors or error messages which belong to each input.</p>
 
       <TableWrapper>
         <Table>
@@ -34,7 +34,7 @@ export default function ApiErrors({ tabIndex }: any) {
               <td>
                 <Type>string</Type>
               </td>
-              <td>Error type which according to your validation rules. eg: required, min, max</td>
+              <td>Error types. eg: required, min, max, minLength</td>
             </tr>
             <tr>
               <td>
@@ -43,7 +43,7 @@ export default function ApiErrors({ tabIndex }: any) {
               <td>
                 <Type>string</Type>
               </td>
-              <td>Register with validation and error message, then error message will return in this .</td>
+              <td>Message is empty string by default. However, if you register validation with error message, then it will be returned.</td>
             </tr>
             <tr>
               <td>
@@ -52,7 +52,7 @@ export default function ApiErrors({ tabIndex }: any) {
               <td>
                 <Type>React.RefObject</Type>
               </td>
-              <td>Reference fo your error input element.</td>
+              <td>Reference fo your input element.</td>
             </tr>
           </tbody>
         </Table>

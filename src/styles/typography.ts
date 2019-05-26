@@ -40,11 +40,11 @@ export const H1 = styled.h1`
 
 export const H5 = styled.h5`
   font-size: 18px;
-  text-align: center;
+  text-align: left;
   font-weight: 500;
   border-bottom: 1px solid ${colors.lightPink};
-  margin: 0;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
+  margin: 40px 0 10px;
   
   & > code {
     font-size: 18px !important;

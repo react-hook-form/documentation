@@ -1,13 +1,13 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import colors from '../styles/colors'
-import { SubHeading, HeadingWithTopMargin, H5 } from '../styles/typography'
+import { SubHeading, HeadingWithTopMargin, H5, H1 } from '../styles/typography'
 import ApiRefTable from './ApiRefTable'
 import validationSchemaCode from './codeExamples/validationSchema'
 import Link from '../styles/link'
 import code from './codeExamples/defaultExample'
 import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
-import ApiMenu from './ApiMenu'
+import SideMenu from './SideMenu'
 import ApiFormState from './ApiFormState'
 import resetCode from './codeExamples/resetCode'
 import ApiWatch from './ApiWatch'
@@ -16,9 +16,11 @@ import handleSubmitCode from './codeExamples/handleSubmitCode'
 import setError from './codeExamples/setError'
 import setValue from './codeExamples/setValue'
 import track from './utils/track'
-import {Container, Wrapper} from '../styles/containers';
+import { Container, Wrapper } from '../styles/containers'
+import { DarkBlueButton } from '../styles/buttons'
+import { navigate } from '@reach/router'
 
-const { useRef } = React;
+const { useRef } = React
 
 const CodeAsLink = styled(Link)`
   cursor: pointer;
@@ -28,19 +30,14 @@ const CodeAsLink = styled(Link)`
 export const CodeHeading = styled.code`
   & > h2:before {
     display: inline-block;
-    content: '</> '
+    content: '</> ';
   }
 `
 
 export const Table = styled.table`
   margin-top: 20px;
 
-  th {
-    text-align: left;
-  }
-
   td {
-    vertical-align: top;
     padding: 10px 20px 10px 0;
     line-height: 1.4;
 
@@ -63,17 +60,7 @@ export const Type = styled.span`
   color: ${colors.lightPink};
 `
 
-const links = [
-  'useForm',
-  'register',
-  'errors',
-  'watch',
-  'handleSubmit',
-  'reset',
-  'setError',
-  'setValue',
-  'formState',
-]
+const links = ['useForm', 'register', 'errors', 'watch', 'handleSubmit', 'reset', 'setError', 'setValue', 'formState']
 
 function Builder({ formData, showApi }: any) {
   const copyFormData = useRef([])
@@ -95,9 +82,9 @@ function Builder({ formData, showApi }: any) {
   const goToSection = name => {
     const refName = `${name}Ref`
     track({
-      category: 'GoToSection',
-      label: `Go to section ${refName}`,
-      action: `Go to section ${refName}`,
+      category: 'Link',
+      label: name,
+      action: `Click - Go to ${name} section`,
     })
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: 'smooth' })
@@ -110,7 +97,7 @@ function Builder({ formData, showApi }: any) {
       <SubHeading>React Hook Form focus on providing the best DX by simplify the API.</SubHeading>
 
       <Wrapper>
-        <ApiMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />
+        <SideMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />
         <main>
           <CodeHeading
             ref={ref => {
@@ -122,7 +109,7 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            By invoking <code>useForm</code>, you will receive methods to{' '}
+            By invoking <code>useForm</code>, you will receive the following methods{' '}
             <CodeAsLink onClick={() => goToSection('register')}>register</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('errors')}>errors</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('handleSubmit')}>handleSubmit</CodeAsLink>,{' '}
@@ -135,7 +122,7 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <p>
-            <code>useForm</code> also has <b>optional</b> argument, which are <code>mode</code>,{' '}
+            <code>useForm</code> also has <b>optional</b> arguments, which are <code>mode</code>,{' '}
             <code>defaultValues</code> and <code>validationSchema</code>.
           </p>
 
@@ -195,8 +182,8 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger <code>onChange</code> with each inputs, and lead to multiple re-render. Not
-                    recommended: Consider this as a bad performance practice.
+                    Validation will trigger on <code>onChange</code> with each inputs, and lead to multiple re-render.
+                    Not recommended: Consider this as a bad performance practice.
                   </td>
                 </tr>
               </tbody>
@@ -208,7 +195,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            You can set set input default value with <code>defaultValue/defaultChecked</code>{' '}
+            You can set input default value with <code>defaultValue/defaultChecked</code>{' '}
             <Link
               href="https://reactjs.org/docs/uncontrolled-components.html"
               onClick={() => {
@@ -221,7 +208,7 @@ function Builder({ formData, showApi }: any) {
             >
               (read more at React doc for uncontrolled input default value)
             </Link>{' '}
-            or invoke <code>useForm</code> and pass `defaultValues` for the entire form.
+            or pass <code>defaultValues</code> as an optional argument to pre-fill default values for the entire form.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -241,7 +228,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            Apply form validation rules at the schema level, please refer the{' '}
+            Apply form validation rules with <code>Yup</code> at the schema level, please refer the{' '}
             <CodeAsLink onClick={() => goToSection('validationSchema')}>validationSchema</CodeAsLink> section.
           </p>
 
@@ -375,11 +362,11 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             If you would like to centralize your validation rules or external validation schema, you can apply{' '}
-            <code>validationSchema</code> when you invoke <code>useForm</code>. we use{' '}
+            <code>validationSchema</code> when you invoke <code>useForm</code>. Currently support{' '}
             <Link href="https://github.com/jquense/yup" target="_blank" tabIndex={tabIndex}>
               Yup
             </Link>{' '}
-            for object schema validation and the example below demonstrate the usage.
+            for object schema validation.
           </p>
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
@@ -388,6 +375,27 @@ function Builder({ formData, showApi }: any) {
           />
 
           <hr />
+
+          <section
+            style={{
+              textAlign: 'center',
+            }}
+          >
+            <H1>Need your support</H1>
+            <p>If you find React Hook Form is useful, please star the repo to support 🙏🏻</p>
+            <DarkBlueButton
+              onClick={() => {
+                track({
+                  category: 'Button',
+                  label: 'Star',
+                  action: 'Click - Go to Github star',
+                })
+                navigate('https://github.com/bluebill1049/react-hook-form')
+              }}
+            >
+              Star React Hook Form
+            </DarkBlueButton>
+          </section>
         </main>
       </Wrapper>
     </Container>

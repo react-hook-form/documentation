@@ -12,8 +12,8 @@ export default function ApiWatch({ tabIndex }: any) {
         </h2>
       </CodeHeading>
       <p>
-        Watch over input change and return its value. first-time run <code>watch</code> will always return{' '}
-        <code>undefined</code> because called before <code>render</code>. You can set the default value as the second
+        This will watch specified input and return its value. first-time run <code>watch</code> will always return{' '}
+        <code>undefined</code> because called before <code>render</code>, but you can set the default value as the second
         argument.
       </p>
       <TableWrapper>
@@ -34,7 +34,7 @@ export default function ApiWatch({ tabIndex }: any) {
               <td>
                 <Type>string</Type>
               </td>
-              <td>Target on individual input</td>
+              <td>Watch on individual input</td>
               <td>
                 <code>const value = watch('inputName');</code>
               </td>

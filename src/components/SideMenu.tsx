@@ -82,7 +82,7 @@ const Code = styled.span`
   font-size: 14px;
 `
 
-export default function ApiMenu({ links, goToSection, tabIndex, isStatic }: any) {
+export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any) {
   return (
     <Menu>
       <ul>
@@ -164,9 +164,9 @@ export default function ApiMenu({ links, goToSection, tabIndex, isStatic }: any)
           <a
             onClick={() => {
               track({
-                category: 'API',
+                category: 'Button',
                 label: 'Examples',
-                action: 'go to examples',
+                action: 'Click - Go to Examples',
               })
             }}
             href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
