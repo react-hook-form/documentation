@@ -1,17 +1,17 @@
-import styled from 'styled-components';
-import copyClipBoard from './utils/copyClipBoard';
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy';
-import code from './codeExamples/defaultExample';
-import colors from '../styles/colors';
-import * as React from 'react';
+import styled from 'styled-components'
+import copyClipBoard from './utils/copyClipBoard'
+import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
+import code from './codeExamples/defaultExample'
+import colors from '../styles/colors'
+import * as React from 'react'
 
 const InstallCode = styled.span`
-  background: #191d3a !important;
+  background: ${colors.buttonBlue} !important;
   padding: 13px 20px;
   border-radius: 4px;
   margin-top: 20px;
   display: block;
-`;
+`
 
 const CopyButton = styled.button`
   background: ${colors.lightBlue};
@@ -24,24 +24,22 @@ const CopyButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
-
-  &:active {
-    transform: translateY(2px);
-  }
-`;
+`
 
 export default function GetStarted({ quickStartRef, tabIndex }: any) {
   return (
     <>
       <h2 ref={quickStartRef}>Installation</h2>
-      <p>Installing react-hook-form only takes a single command and you're ready to roll.</p>
+      <p>
+        Installing <code>react-hook-form</code> only takes a single command and you're ready to roll.
+      </p>
       <InstallCode>
         npm install react-hook-form
         <CopyButton
           tabIndex={tabIndex}
           onClick={() => {
-            copyClipBoard('npm install react-hook-form');
-            alert('Code copied into your clipboard.');
+            copyClipBoard('npm install react-hook-form')
+            alert('Code copied into your clipboard.')
           }}
         >
           Copy
@@ -58,5 +56,5 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       <p>The following code will demonstrate the basics.</p>
       <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
-  );
+  )
 }

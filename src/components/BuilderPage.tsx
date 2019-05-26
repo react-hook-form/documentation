@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import * as React from 'react'
 import { Animate } from 'react-simple-animate'
 import useForm from 'react-hook-form'
 import styled from 'styled-components'
@@ -9,7 +9,9 @@ import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
-import {Container} from "../styles/containers";
+import { Container } from '../styles/containers'
+
+const { useState, useRef, useEffect } = React
 
 const updateStore = (state, payload) => {
   debugger
@@ -178,12 +180,25 @@ const CloseButton = styled.button`
   }
 `
 
+const defaultValue = {
+  max: undefined,
+  min: undefined,
+  pattern: undefined,
+  maxLength: undefined,
+  minLength: undefined,
+  required: undefined,
+  name: '',
+  type: '',
+  options: [],
+};
+
 function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMobile, isStatic }) {
   const {
+    // @ts-ignore
     state: { formData },
     action: updateFormData,
   } = useStateMachine(updateStore)
-  const [editFormData, setFormData] = useState({})
+  const [editFormData, setFormData] = useState(defaultValue)
   const { register, handleSubmit, errors = {}, watch, setValue } = useForm()
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef([])
@@ -193,15 +208,14 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     if (editIndex >= 0) {
       formData[editIndex] = data
       updateFormData([...formData])
-      setFormData({})
+      setFormData(defaultValue)
       setEditIndex(-1)
     } else {
-      // @ts-ignore
       updateFormData([...formData, ...[data]])
     }
     event.target.reset()
   }
-  const form = useRef()
+  const form = useRef(null)
   const type = watch('type')
   const tabIndex = showBuilder ? 0 : -1
   const shouldToggleOn =

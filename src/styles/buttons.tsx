@@ -14,6 +14,21 @@ export const DarkBlueButton = styled.button`
   transition: 0.3s all;
 `
 
+export const PinkButton = styled.button`
+  background: ${colors.lightPink};
+  height: 55px;
+  color: white;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  line-height: 1;
+`
+
 export const ButtonsGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -106,6 +106,7 @@ function App({ location }) {
       HomeRef.current.scrollIntoView({ behavior: 'smooth' })
     }
 
+    // @ts-ignore
     isMobile = typeof window === 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
   }, [])
 
@@ -114,6 +115,7 @@ function App({ location }) {
       tabIndex={tabIndex}
       pathname={location.pathname}
       builderButton={builderButton}
+      showBuilder={showBuilder}
       toggleBuilder={toggleBuilder}
     />
   )
@@ -166,7 +168,7 @@ function App({ location }) {
             <H1>Find it useful and interesting?</H1>
             <p>
               Form validation should be much simpler with React hook form. It will lead you to write less code and
-              having better performance. Checkout the get started or learn more at API documentation page.
+              having better performance. Checkout the get started section and learn more at API documentation page.
             </p>
             <ButtonsGroup
               style={{

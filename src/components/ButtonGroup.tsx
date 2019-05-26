@@ -5,6 +5,7 @@ import GitHubButton from 'react-github-btn'
 import colors from '../styles/colors'
 import track from './utils/track'
 import breakpoints from '../styles/breakpoints'
+import goToBuilder from './utils/goToBuilder'
 
 const GithubIcon = styled.span`
   position: absolute;
@@ -148,7 +149,7 @@ const GitHubButtonWrap = styled.span`
   top: 26px;
 `
 
-export default function ButtonGroup({ toggleBuilder, builderButton, tabIndex, pathname }: any) {
+export default function ButtonGroup({ toggleBuilder, builderButton, tabIndex, pathname, showBuilder }: any) {
   return (
     <>
       <GithubIcon>
@@ -299,9 +300,8 @@ export default function ButtonGroup({ toggleBuilder, builderButton, tabIndex, pa
             })
 
             if (toggleBuilder) {
-              toggleBuilder(!toggleBuilder)
-              document.title = 'React hook form - Builder'
-              window.history.pushState({ page: 'React hook form - Builder' }, 'React hook form - Builder', '/builder')
+              toggleBuilder(!showBuilder)
+              goToBuilder()
               document.getElementById('builder').scrollTop = 0
             } else {
               navigate('/builder?gotoDemo')

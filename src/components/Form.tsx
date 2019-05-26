@@ -8,7 +8,9 @@ import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
 import FormFields from './FormFields'
-import { DarkBlueButton } from '../styles/buttons'
+import { DarkBlueButton, PinkButton } from '../styles/buttons'
+import { CenterContent } from '../styles/containers'
+import goToBuilder from "./utils/goToBuilder";
 
 const Code = styled.pre`
   text-align: left;
@@ -24,21 +26,6 @@ const Wrapper = styled.div`
   transition: 1s all;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-column-gap: 40px;
-`
-
-const SubmitButton = styled.button`
-  background: ${colors.lightPink};
-  height: 55px;
-  color: white;
-  letter-spacing: 0.5rem;
-  text-transform: uppercase;
-  width: 100%;
-  padding: 20px;
-  font-size: 16px;
-  border: 1px solid transparent;
-  -webkit-appearance: none;
-  border-radius: 5px;
-  line-height: 1;
 `
 
 const SettingIcon = styled.button`
@@ -103,14 +90,14 @@ export default function Form({
 
   return (
     <>
-      <div
-        style={{
-          textAlign: 'center',
-        }}
-      >
+      <CenterContent>
         <H1>Live Demo</H1>
-        <p>The following form demonstrate React Hook Form in action, and changing validation mode from setting.</p>
-      </div>
+        <p>
+          The following form demonstrates form validation in action. Each columns represent what's been captured in the
+          custom Hook. You can also change fields in the form by clicking the <strong>EDIT</strong> button, changing
+          validation mode can be done by clicking the setting icon.
+        </p>
+      </CenterContent>
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>
@@ -135,7 +122,17 @@ export default function Form({
 
           <FormFields {...{ formData, errors, register, tabIndex }} />
 
-          <SubmitButton>Submit</SubmitButton>
+          <PinkButton
+            onClick={() => {
+              track({
+                category: 'Submit',
+                action: 'Submit - Form data',
+                label: 'Submit',
+              })
+            }}
+          >
+            Submit
+          </PinkButton>
           <Title
             style={{
               fontSize: 14,
@@ -146,13 +143,17 @@ export default function Form({
             or
           </Title>
 
-          <SubmitButton
+          <PinkButton
             type="button"
             tabIndex={tabIndex}
             onClick={() => {
+              track({
+                category: 'Button',
+                action: 'Edit - Form data',
+                label: 'Edit',
+              })
               toggleBuilder(true)
-              document.title = 'React hook form - Builder'
-              window.history.pushState({ page: 'React hook form - Builder' }, 'React hook form - Builder', '/builder')
+              goToBuilder();
             }}
             style={{
               background: 'black',
@@ -161,7 +162,7 @@ export default function Form({
             }}
           >
             Edit
-          </SubmitButton>
+          </PinkButton>
         </form>
 
         {setting.showError && (

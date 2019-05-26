@@ -153,6 +153,9 @@ button::-moz-focus-inner {
 button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
+button:active {
+ transform: translateY(2px);
+}
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
