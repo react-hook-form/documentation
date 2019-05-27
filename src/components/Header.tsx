@@ -18,8 +18,8 @@ const Logo = styled.svg`
   background: ${colors.lightPink};
   margin: -50px auto 0;
 
-  @media ${breakpoints.fromSmallScreen} {
-    height: 110px;
+  @media ${breakpoints.fromXsmallScreen} {
+    height: 120px;
   }
 
   @media ${breakpoints.fromMediumScreen} {

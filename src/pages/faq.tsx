@@ -7,6 +7,8 @@ import { Container, Wrapper } from '../styles/containers'
 import styled from 'styled-components'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import track from '../components/utils/track'
+import breakpoints from "../styles/breakpoints";
+import colors from "../styles/colors";
 
 const { useRef } = React
 
@@ -59,9 +61,12 @@ function App() {
 }`
 
 const FaqMain = styled.main`
-  & > h2::before {
-    display: inline-block;
-    content: '▎';
+  @media ${breakpoints.fromMediumScreen} {
+    & > h2 {
+      padding-left: 10px;
+      border-left: 5px solid ${colors.lightPink};
+      line-height: 1;
+    }
   }
 `
 
