@@ -1,15 +1,12 @@
 {
   "version": 2,
   "name": "react-hook-form",
-  "alias": "react-hook-form",
+  "alias": "react-hook-form.com",
   "builds": [
     {
       "src": "package.json",
       "use": "@now/static-build",
       "config": { "distDir": "public" }
     }
-  ],
-  "routes": [
-    { "src": "/(.*)", "status": 301, "headers": { "Location": "https://react-hook-form.com/$1" }}
   ]
 }
