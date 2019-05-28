@@ -37,7 +37,7 @@ export default function ApiWatch({ tabIndex }: any) {
               <td>Watch on individual input</td>
               <td>
                 <code>watch('inputName');</code><br />
-                <code>watch('inputName', 'value');</code>
+                <code>watch('inputName', 'value'); // with default value</code>
               </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@ export default function ApiWatch({ tabIndex }: any) {
               <td>Watch multiple inputs over the form</td>
               <td>
                 <code>watch(['inputName1', 'inputName2']);</code><br />
-                <code>{`watch(['field1', 'field2'], { field1: '1', field2: '2'});`}</code>
+                <code>{`watch(['field1', 'field2'], { field1: '1', field2: '2'}); // with default value`}</code>
               </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@ export default function ApiWatch({ tabIndex }: any) {
               <td>Watch every input fields in the form</td>
               <td>
                 <code>watch();</code><br />
-                <code>{`watch(undefined, { field: 'value1' });`}</code>
+                <code>{`watch(undefined, { field: 'value1' }); // with default value`}</code>
               </td>
             </tr>
           </tbody>
