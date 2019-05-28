@@ -8,5 +8,8 @@
       "use": "@now/static-build",
       "config": { "distDir": "public" }
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "status": 301, "headers": { "Location": "https://react-hook-form.com/$1" }}
   ]
 }
