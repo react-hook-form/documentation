@@ -44,6 +44,7 @@ const CopyButton = styled.button`
 export const LinkToSandBox = styled.a`
   ${commonStyle};
   background: ${colors.lightPink};
+  text-decoration: none;
 
   @media ${breakpoints.fromMediumScreen} {
     right: 180px;

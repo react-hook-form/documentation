@@ -8,10 +8,12 @@ export default function YourForm() {
     <form>
       <input
         name="username"
-        onChange={async e => {
-          const value = e.target.value;
-          if (value === "bill") return setError("username");
-          setError("username", "notMatch", "please choose a different username");
+        onChange={e => {
+          const value = e.target.value
+          // this will clear error by only pass the name of field
+          if (value === "bill") return setError("username")
+          // set an error message with type and message
+          setError("username", "notMatch", "please choose a different username")
         }}
         ref={register}
       />
