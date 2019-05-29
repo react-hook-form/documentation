@@ -12,7 +12,7 @@ export default function YourForm() {
           const value = e.target.value
           // this will clear error by only pass the name of field
           if (value === "bill") return setError("username")
-          // set an error message with type and message
+          // set an error with type and message
           setError("username", "notMatch", "please choose a different username")
         }}
         ref={register}
