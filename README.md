@@ -9,6 +9,6 @@
 #### Thanks to 
 
 * WebStorm for IDE licence
-* ZIET for free hosting 
+* ZEIT for free hosting 
 * React ❤️
 
