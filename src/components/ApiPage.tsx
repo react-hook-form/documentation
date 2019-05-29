@@ -200,9 +200,9 @@ function Builder({ formData, showApi }: any) {
               href="https://reactjs.org/docs/uncontrolled-components.html"
               onClick={() => {
                 track({
-                  category: 'API',
+                  category: 'Button',
                   label: 'read more at React doc',
-                  action: 'go to React Doc',
+                  action: 'Click - go to React Doc',
                 })
               }}
             >

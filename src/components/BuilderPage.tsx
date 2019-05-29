@@ -442,9 +442,9 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <SubmitButton
             onClick={() => {
               track({
-                category: 'Builder',
+                category: 'Button',
                 label: editIndex >= 0 ? 'Update' : 'Create',
-                action: 'Builder Submit',
+                action: `Click - Builder ${editIndex >= 0 ? 'Update' : 'Create'}`,
               })
               form.current.scrollIntoView({ behavior: 'smooth' })
             }}
@@ -481,9 +481,9 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                 color="white"
                 onClick={() => {
                   track({
-                    category: 'Builder',
+                    category: 'Button',
                     label: 'Generate form',
-                    action: 'Generate form',
+                    action: 'Click - Generate form',
                   })
                   if (toggleBuilder) {
                     toggleBuilder(false)

@@ -74,8 +74,8 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
           tabIndex={tabIndex}
           onClick={() => {
             track({
+              category: 'Button',
               label: 'Copy',
-              category: 'Copy Button',
               action: 'Click - Copy code',
             })
             rawData || copyClipBoard(generateCode(data))

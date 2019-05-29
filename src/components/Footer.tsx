@@ -8,9 +8,9 @@ export default ({ tabIndex }: any) => (
       href="https://twitter.com/bluebill1049"
       onClick={() => {
         track({
-          category: 'Home Footer CTA',
+          category: 'Link',
           label: 'Twitter',
-          action: 'go to Twitter',
+          action: 'Click - go to Twitter',
         })
       }}
       target="_blank"
@@ -23,9 +23,9 @@ export default ({ tabIndex }: any) => (
     <a
       onClick={() => {
         track({
-          category: 'Home Footer CTA',
+          category: 'Link',
           label: 'RSA',
-          action: 'go to RSA',
+          action: 'Click - go to RSA',
         })
       }}
       href="https://github.com/bluebill1049/react-simple-animate"
@@ -39,9 +39,9 @@ export default ({ tabIndex }: any) => (
     <a
       onClick={() => {
         track({
-          category: 'Home Footer CTA',
+          category: 'Link',
           label: 'RSI',
-          action: 'go to RSI',
+          action: 'Click - go to RSI',
         })
       }}
       href="https://github.com/bluebill1049/react-simple-img"
@@ -54,9 +54,9 @@ export default ({ tabIndex }: any) => (
     <a
       onClick={() => {
         track({
-          category: 'Home Footer CTA',
+          category: 'Link',
           label: 'little-state-machine',
-          action: 'go to LSM',
+          action: 'Click - go to LSM',
         })
       }}
       href="https://github.com/bluebill1049/little-state-machine"

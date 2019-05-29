@@ -89,9 +89,9 @@ const Faq = ({ location }) => {
 
   const goToSection = (name, index) => {
     track({
-      category: 'Get Started - go to section',
-      label: `Go to section ${name}`,
-      action: `Go to section ${name}`,
+      category: 'Button',
+      label: name,
+      action: `Click - Go to section ${name}`,
     })
     if (sectionsRef.current[`question${index + 1}`]) {
       sectionsRef.current[`question${index + 1}`].scrollIntoView({ behavior: 'smooth' })

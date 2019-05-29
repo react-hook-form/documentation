@@ -125,7 +125,7 @@ export default function Form({
           <PinkButton
             onClick={() => {
               track({
-                category: 'Submit',
+                category: 'Button',
                 action: 'Submit - Form data',
                 label: 'Submit',
               })

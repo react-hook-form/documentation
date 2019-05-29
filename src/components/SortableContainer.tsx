@@ -139,9 +139,9 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                       }}
                       onClick={() => {
                         track({
-                          category: 'Builder',
-                          label: 'Edit',
-                          action: 'edit field'
+                          category: 'Button',
+                          label: 'edit field',
+                          action: 'Click - edit field'
                         })
                         if (editIndex === index) {
                           setEditIndex(-1);
@@ -161,9 +161,9 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                         if (window.confirm('Are you sure to delete?')) {
                           const index = formData.findIndex(data => field.name === data.name);
                           track({
-                            category: 'Builder',
-                            label: 'Delete',
-                            action: 'delete field'
+                            category: 'Button',
+                            label: 'delete field',
+                            action: 'Click - Delete Field'
                           })
 
                           if (index >= 0) {
@@ -196,9 +196,9 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                 updateFormData([]);
               }
               track({
-                category: 'Builder',
+                category: 'Button',
                 label: 'Clear all fields',
-                action: 'clear all'
+                action: 'Click - clear all'
               })
             }}
           >

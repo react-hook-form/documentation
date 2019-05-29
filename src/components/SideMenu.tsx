@@ -105,9 +105,9 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
                 <button
                   onClick={() => {
                     track({
-                      category: 'API',
+                      category: 'Link',
                       label: 'Examples',
-                      action: 'go to examples',
+                      action: 'Click - go to examples',
                     })
                     goToSection(link, index)
                   }}

@@ -48,9 +48,9 @@ export default function ApiRefTable({ tabIndex }: any) {
           title="example for array fields"
           onClick={() => {
             track({
-              category: 'API',
+              category: 'Link',
               label: 'check out array field example',
-              action: 'go to array field example',
+              action: 'Click - Go to array field example',
             })
           }}
         >
