@@ -5,3 +5,10 @@
 ## Install
 
     $ npm i && npm start
+    
+####Thanks to 
+
+* WebStorm for IDE licence
+* ZIET for free hosting 
+* React ❤️
+
