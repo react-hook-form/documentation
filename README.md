@@ -6,7 +6,7 @@
 
     $ npm i && npm start
     
-####Thanks to 
+#### Thanks to 
 
 * WebStorm for IDE licence
 * ZIET for free hosting 
