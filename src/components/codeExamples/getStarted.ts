@@ -49,11 +49,11 @@ import Input from "@material-ui/core/Input"
 function YourForm() {
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = (data) => console.log(data)
-  const [values, setReactSelect] = useState({ selectedOption: [] })
+  const [values, setReactSelectValue] = useState({ selectedOption: [] })
 
   const handleMultiChange = selectedOption => {
     setValue("reactSelect", selectedOption)
-    setReactSelect({ selectedOption })
+    setReactSelectValue({ selectedOption })
   }
   
   React.useEffect(() => {
