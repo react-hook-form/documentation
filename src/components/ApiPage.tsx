@@ -19,6 +19,7 @@ import track from './utils/track'
 import { Container, Wrapper } from '../styles/containers'
 import { DarkBlueButton } from '../styles/buttons'
 import { navigate } from '@reach/router'
+import getValues from './codeExamples/getValues'
 
 const { useRef } = React
 
@@ -60,7 +61,18 @@ export const Type = styled.span`
   color: ${colors.lightPink};
 `
 
-const links = ['useForm', 'register', 'errors', 'watch', 'handleSubmit', 'reset', 'setError', 'setValue', 'formState']
+const links = [
+  'useForm',
+  'register',
+  'errors',
+  'watch',
+  'handleSubmit',
+  'reset',
+  'setError',
+  'setValue',
+  'getValues',
+  'formState',
+]
 
 function Builder({ formData, showApi }: any) {
   const copyFormData = useRef([])
@@ -75,6 +87,7 @@ function Builder({ formData, showApi }: any) {
     setErrorRef: null,
     validationSchemaRef: null,
     handleSubmitRef: null,
+    getValuesRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -336,6 +349,26 @@ function Builder({ formData, showApi }: any) {
             tabIndex={tabIndex}
             rawData={setValue}
             url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
+          />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.getValuesRef = ref
+            }}
+          >
+            <h2>
+              getValues: <Type>() => Object</Type>
+            </h2>
+          </CodeHeading>
+          <p>This function will return the entire form data.</p>
+
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={getValues}
+            url="https://codesandbox.io/s/get-form-values-xjepz"
           />
 
           <hr />

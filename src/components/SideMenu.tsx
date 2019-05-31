@@ -25,7 +25,7 @@ const Menu = styled.aside`
 
       & > li {
         line-height: 22px;
-        padding-bottom: 10px;
+        padding-bottom: 14px;
         font-size: 18px;
         display: flex;
 
