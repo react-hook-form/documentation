@@ -55,6 +55,10 @@ function YourForm() {
     setValue("reactSelect", selectedOption)
     setReactSelect({ selectedOption })
   }
+  
+  React.useEffect(() => {
+    register({ name: "reactSelect" })
+  }, [])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +68,6 @@ function YourForm() {
         value={values.selectedOption}
         options={options}
         onChange={handleMultiChange}
-        ref={e => register({ name: "reactSelect" })}
         isMulti
       />
       
