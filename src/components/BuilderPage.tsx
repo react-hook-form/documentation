@@ -39,7 +39,7 @@ const Root = styled.main`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-column-gap: 60px;
   overflow: hidden;
   margin-bottom: 100px;
@@ -305,7 +305,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           </Animate>
 
           <label>Type: </label>
-          <select aria-label="Select type" name="type" ref={register} value={editFormData.type} tabIndex={tabIndex}>
+          <select aria-label="Select type" name="type" ref={register} defaultValue={editFormData.type} tabIndex={tabIndex}>
             <option value="text">Text</option>
             <option value="select">Select</option>
             <option value="checkbox">Checkbox</option>

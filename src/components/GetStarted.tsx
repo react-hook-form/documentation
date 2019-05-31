@@ -5,6 +5,7 @@ import code from './codeExamples/defaultExample'
 import colors from '../styles/colors'
 import * as React from 'react'
 import track from './utils/track'
+import breakpoints from "../styles/breakpoints";
 
 const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -15,12 +16,17 @@ const InstallCode = styled.span`
 `
 
 const CopyButton = styled.button`
+  display: none;
   background: ${colors.lightBlue};
   border: none;
   color: white;
   border-radius: 4px;
   font-size: 16px;
   float: right;
+  
+  @media ${breakpoints.fromMediumScreen} {
+    display: inline-block;
+  }
 `
 
 export default function GetStarted({ quickStartRef, tabIndex }: any) {

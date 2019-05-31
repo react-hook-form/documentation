@@ -29,6 +29,17 @@ const Input => ({ label, register, required }) = (
   </>
 )
 
+// you can use React.forwardRef to pass the ref too
+const Select => React.forwardRef(({ label, register }, ref) = ( 
+  <>
+    <label>label</label>
+    <Select name={label} ref={ref}>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </Select>
+  </>
+))
+
 function YourForm() {
   const { register, handleSubmit } = useForm()
   const onSubmit = (data) => console.log(data)
@@ -36,6 +47,7 @@ function YourForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
+      <Select label="Age" ref={register} />
       <input type="submit" />
     </form>
   )
