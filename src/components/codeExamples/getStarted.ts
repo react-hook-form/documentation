@@ -25,7 +25,7 @@ import useForm from 'react-hook-form'
 const Input => ({ label, register, required }) = ( 
   <>
     <label>label</label>
-    <input name={label} register={register({ required })} />
+    <input name={label} ref={register({ required })} />
   </>
 )
 
