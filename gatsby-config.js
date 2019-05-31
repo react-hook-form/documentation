@@ -35,6 +35,14 @@ module.exports = {
         trackingId: 'UA-139961497-1',
       },
     },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: 'UA-139961497-1',
+        head: false,
+        anonymize: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
