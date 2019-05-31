@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useForm from 'react-hook-form'
 import { Animate } from 'react-simple-animate'
-import ButtonGroup from './ButtonGroup'
+import Nav from './Nav'
 import styled from 'styled-components'
 import colors from '../styles/colors'
 import Form from './Form'
@@ -111,7 +111,7 @@ function App({ location }) {
   }, [])
 
   const Buttons = (
-    <ButtonGroup
+    <Nav
       tabIndex={tabIndex}
       pathname={location.pathname}
       builderButton={builderButton}

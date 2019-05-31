@@ -1,12 +1,12 @@
 import * as React from 'react'
-import ButtonGroup from './ButtonGroup'
+import Nav from './Nav'
 
 import './layout.css'
 
 const Layout = props => {
   return (
     <>
-      {props.location && props.location.pathname !== '/' && <ButtonGroup pathname={props.location.pathname} />}
+      {props.location && props.location.pathname !== '/' && <Nav pathname={props.location.pathname} />}
       {props.children}
     </>
   )
