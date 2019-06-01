@@ -11,4 +11,3 @@
 * WebStorm for IDE licence
 * ZEIT for free hosting 
 * React ❤️
-
