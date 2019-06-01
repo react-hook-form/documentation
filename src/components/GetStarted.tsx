@@ -45,7 +45,7 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
             track({
               category: 'Button',
               label: 'Copy',
-              action: 'Copy - copy installation',
+              action: 'Click - copy installation',
             })
             copyClipBoard('npm install react-hook-form')
             alert('Code copied into your clipboard.')

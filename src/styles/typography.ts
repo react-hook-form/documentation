@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import colors from './colors';
+import styled from 'styled-components'
+import colors from './colors'
 
 export const SubHeading = styled.p`
   font-size: 13px;
@@ -12,7 +12,7 @@ export const SubHeading = styled.p`
     font-size: 16px;
     margin-bottom: 20px;
   }
-`;
+`
 
 export const Heading = styled.h1`
   font-weight: 100;
@@ -23,7 +23,7 @@ export const Heading = styled.h1`
     font-size: 55px !important;
     margin-bottom: 10px;
   }
-`;
+`
 
 export const H1 = styled.h1`
   font-size: 24px;
@@ -36,7 +36,7 @@ export const H1 = styled.h1`
   @media (min-width: 768px) {
     font-size: 36px;
   }
-`;
+`
 
 export const H5 = styled.h5`
   font-size: 18px;
@@ -45,17 +45,17 @@ export const H5 = styled.h5`
   border-bottom: 1px solid ${colors.lightPink};
   padding-bottom: 5px;
   margin: 40px 0 10px;
-  
+
   & > code {
     font-size: 18px !important;
   }
-`;
+`
 
 export const HeadingWithTopMargin = styled(Heading)`
   @media (min-width: 768px) {
     margin-top: 30px;
   }
-`;
+`
 
 export const Title = styled.h2`
   text-align: center;
@@ -93,9 +93,13 @@ export const Title = styled.h2`
     left: 0.5em;
     margin-right: -50%;
   }
-`;
+`
 
 export const Error = styled.p`
   font-size: 12px;
   color: ${colors.lightPink};
-`;
+`
+
+export const Note = styled.b`
+  color: ${colors.lightPink};
+`

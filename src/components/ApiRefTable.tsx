@@ -6,6 +6,7 @@ import { xonokai as monokaiSublime } from 'react-syntax-highlighter/dist/styles/
 import { TableWrapper, Table, Type } from './ApiPage'
 import Link from '../styles/link'
 import track from './utils/track'
+import { Note } from '../styles/typography'
 
 const Option = styled.fieldset`
   padding: 10px 15px;
@@ -40,8 +41,7 @@ export default function ApiRefTable({ tabIndex }: any) {
       </p>
       <p>Validation rules are all based on HTML standard and also allow custom validation.</p>
       <p>
-        If you working on <code>arrays/array fields</code>, you can assign
-        input name as <code>name[index]</code>.{' '}
+        If you working on <code>arrays/array fields</code>, you can assign input name as <code>name[index]</code>.{' '}
         <Link
           tabIndex={tabIndex}
           href="https://github.com/bluebill1049/react-hook-form/blob/master/examples/arrayFields.tsx"
@@ -59,7 +59,7 @@ export default function ApiRefTable({ tabIndex }: any) {
         .
       </p>
       <p>
-        <b style={{ color: colors.lightPink }}>Important:</b> <code>name</code> is <b>required</b> and <b>unique</b>.
+        <Note>Important:</Note> <code>name</code> is <b>required</b> and <b>unique</b>.
       </p>
 
       <Option>

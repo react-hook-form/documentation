@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import colors from '../styles/colors'
-import { SubHeading, HeadingWithTopMargin, H5, H1 } from '../styles/typography'
+import { SubHeading, HeadingWithTopMargin, H5, H1, Note } from '../styles/typography'
 import ApiRefTable from './ApiRefTable'
 import validationSchemaCode from './codeExamples/validationSchema'
 import Link from '../styles/link'
@@ -308,6 +308,11 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>This function will reset fields value and errors within the form.</p>
+          <p>
+            <Note>Note:</Note> for controlled component like <code>React-Select</code> which doesn't expose{' '}
+            <code>innerRef</code> or <code>ref</code>, you will have to reset the input value manually through input{' '}
+            <code>onChange</code>.
+          </p>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
