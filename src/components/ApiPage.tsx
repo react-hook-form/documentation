@@ -353,6 +353,10 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>This function allows you to dynamically set input/select value.</p>
+          <p>
+            <Note>Note: </Note> by invoking this method <code>formState</code> will include the <code>name</code> into{' '}
+            <code>touched</code> .
+          </p>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
