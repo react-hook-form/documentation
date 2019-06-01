@@ -289,6 +289,10 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>This function will pass you the form data when form validation is successful.</p>
+          <p>
+            <Note>Note:</Note> you can pass <code>async</code> function for asynchronous validation. eg:{' '}
+            <code>handleSubmit(async (data) => await fetchAPI(data))</code>
+          </p>
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
             rawData={handleSubmitCode}
