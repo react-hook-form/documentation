@@ -81,8 +81,6 @@ export default function ApiFormState({ tabIndex }: any) {
       >
         CodeSandbox
       </LinkToSandBox>
-
-      <hr />
     </>
   )
 }

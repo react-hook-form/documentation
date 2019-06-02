@@ -20,6 +20,7 @@ import { Container, Wrapper } from '../styles/containers'
 import { DarkBlueButton } from '../styles/buttons'
 import { navigate } from '@reach/router'
 import getValues from './codeExamples/getValues'
+import typeScript from './codeExamples/typeScript'
 
 const { useRef } = React
 
@@ -72,6 +73,7 @@ const links = [
   'setValue',
   'getValues',
   'formState',
+  'Typescript',
 ]
 
 function Builder({ formData, showApi }: any) {
@@ -88,6 +90,7 @@ function Builder({ formData, showApi }: any) {
     validationSchemaRef: null,
     handleSubmitRef: null,
     getValuesRef: null,
+    TypescriptRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -125,12 +128,12 @@ function Builder({ formData, showApi }: any) {
             By invoking <code>useForm</code>, you will receive the following methods{' '}
             <CodeAsLink onClick={() => goToSection('register')}>register</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('errors')}>errors</CodeAsLink>,{' '}
+            <CodeAsLink onClick={() => goToSection('watch')}>watch</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('handleSubmit')}>handleSubmit</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('reset')}>reset</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('setError')}>setError</CodeAsLink>,{' '}
             <CodeAsLink onClick={() => goToSection('setValue')}>setValue</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('formState')}>formState</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('watch')}>watch</CodeAsLink> and{' '}
+            <CodeAsLink onClick={() => goToSection('getValues')}>getValues</CodeAsLink> and{' '}
             <CodeAsLink onClick={() => goToSection('formState')}>formState</CodeAsLink>.
           </p>
 
@@ -395,6 +398,8 @@ function Builder({ formData, showApi }: any) {
             <ApiFormState tabIndex={tabIndex} />
           </section>
 
+          <hr />
+
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -418,6 +423,26 @@ function Builder({ formData, showApi }: any) {
             tabIndex={tabIndex}
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
+          />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.TypescriptRef = ref
+            }}
+          >
+            <h2>TypeScript</h2>
+          </CodeHeading>
+          <p>
+            React Hook Form is built and Loving Typescript, you can defined <code>Type</code> to support form value.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={typeScript}
+            url="https://codesandbox.io/s/get-form-values-xjepz"
           />
 
           <hr />

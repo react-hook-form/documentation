@@ -80,6 +80,7 @@ const Code = styled.span`
   color: ${colors.lightPink};
   position: relative;
   font-size: 14px;
+  top: -2px;
 `
 
 export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any) {
@@ -118,6 +119,24 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
             )
           }
 
+          if (link.toLowerCase() === 'typescript') {
+            return (
+              <li key={link} onClick={() => goToSection(link, index)}>
+                <Code>{`</>`}</Code>{' '}
+                <button
+                  tabIndex={tabIndex}
+                  style={{
+                    top: '-3px',
+                    position: 'relative',
+                    ...(link === 'Quick Start' ? { paddingLeft: 0 } : null),
+                  }}
+                >
+                  {link}
+                </button>
+              </li>
+            )
+          }
+
           return (
             <li
               key={link}
@@ -126,13 +145,13 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
                 ...(index > 0
                   ? {
                       marginLeft: 10,
-                      ...(index !== links.length - 1 ? { borderLeft: '1px solid #ec5990' } : null),
+                      ...(index !== links.length - 2 ? { borderLeft: '1px solid #ec5990' } : null),
                       ...(index === 3 ? { paddingTop: 10, marginTop: -15 } : null),
                     }
                   : null),
               }}
             >
-              <Arrow last={index === links.length - 1}>
+              <Arrow last={index === links.length - 2}>
                 {index > 0 && (
                   <span
                     style={{
