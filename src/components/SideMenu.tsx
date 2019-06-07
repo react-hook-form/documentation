@@ -25,7 +25,7 @@ const Menu = styled.aside`
 
       & > li {
         line-height: 22px;
-        padding-bottom: 14px;
+        padding-bottom: 15px;
         font-size: 18px;
         display: flex;
 
@@ -93,6 +93,7 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
               marginBottom: '10px',
               fontSize: 16,
               color: colors.lightBlue,
+                marginTop: -44,
             }}
           >
             Quick Menu

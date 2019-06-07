@@ -6,7 +6,7 @@ import ApiRefTable from './ApiRefTable'
 import validationSchemaCode from './codeExamples/validationSchema'
 import Link from '../styles/link'
 import code from './codeExamples/defaultExample'
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
+import SyntaxHighlighterWithCopy, { LinkToSandBox } from './SyntaxHighlighterWithCopy'
 import SideMenu from './SideMenu'
 import ApiFormState from './ApiFormState'
 import resetCode from './codeExamples/resetCode'
@@ -21,6 +21,7 @@ import { DarkBlueButton } from '../styles/buttons'
 import { navigate } from '@reach/router'
 import getValues from './codeExamples/getValues'
 import typeScript from './codeExamples/typeScript'
+import trigger from "./codeExamples/trigger";
 
 const { useRef } = React
 
@@ -72,6 +73,7 @@ const links = [
   'setError',
   'setValue',
   'getValues',
+  'trigger',
   'formState',
   'Typescript',
 ]
@@ -91,6 +93,7 @@ function Builder({ formData, showApi }: any) {
     handleSubmitRef: null,
     getValuesRef: null,
     TypescriptRef: null,
+    triggerRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -139,7 +142,7 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             <code>useForm</code> also has <b>optional</b> arguments, which are <code>mode</code>,{' '}
-            <code>defaultValues</code> and <code>validationSchema</code>.
+            <code>defaultValues</code>, <code>validationFields</code> and <code>validationSchema</code>.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -151,6 +154,7 @@ function Builder({ formData, showApi }: any) {
     firstName: 'bill',
     lastName: 'luo'
   },
+  validationFields: ['firstName', lastName'],
   validationSchema: {},
 })`}
           />
@@ -238,6 +242,27 @@ function Builder({ formData, showApi }: any) {
   }
 })`}
           />
+
+          <H5 style={{ marginTop: 20 }}>
+            <code>validationFields</code>
+          </H5>
+
+          <p>
+            You can include name of the fields in an <code>Array</code> when you want to apply validation rules only to
+            specific fields.
+          </p>
+          <LinkToSandBox
+            tabIndex={tabIndex}
+            style={{
+              position: 'relative',
+              left: 0,
+              marginBottom: 20,
+            }}
+            href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
+            target="_blank"
+          >
+            CodeSandbox
+          </LinkToSandBox>
 
           <H5 style={{ marginTop: 20 }}>
             <code>validationSchema</code>
@@ -385,6 +410,27 @@ function Builder({ formData, showApi }: any) {
             tabIndex={tabIndex}
             rawData={getValues}
             url="https://codesandbox.io/s/get-form-values-xjepz"
+          />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.triggerRef = ref
+            }}
+          >
+            <h2>
+              trigger: <Type>async (name: string) => boolean</Type>
+            </h2>
+          </CodeHeading>
+          <p>To manually trigger an input/select validation in the form.</p>
+          <p><Note>Note:</Note> When validation failed then <code>errors</code> object will be updated with associated error.</p>
+
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={trigger}
+            url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
           />
 
           <hr />
