@@ -421,7 +421,7 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              triggerValidation: <Type>async {`({ name: string; value?: any; forceValidation?: boolean; })`} => boolean</Type>
+              triggerValidation: <Type style={{ fontSize: 14}}>async {`({ name: string; value?: any; forceValidation?: boolean; })`} => boolean</Type>
             </h2>
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
