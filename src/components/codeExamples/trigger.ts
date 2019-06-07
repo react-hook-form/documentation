@@ -2,7 +2,7 @@ export default `import React from "react"
 import useForm from "react-hook-form"
 
 export default function YourForm() {
-  const { register, trigger, errors } = useForm()
+  const { register, triggerValidation, errors } = useForm()
   console.log(errors)
   
   return (
@@ -12,7 +12,7 @@ export default function YourForm() {
       <button
         type="button"
         onClick={async () => {
-          console.log("firstName", await trigger("firstName"));
+          console.log("firstName", await triggerValidation({ name: 'firstName' }));
         }}
       >
         Trigger

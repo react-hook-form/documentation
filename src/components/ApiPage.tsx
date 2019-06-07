@@ -73,7 +73,7 @@ const links = [
   'setError',
   'setValue',
   'getValues',
-  'trigger',
+  'triggerValidation',
   'formState',
   'Typescript',
 ]
@@ -93,7 +93,7 @@ function Builder({ formData, showApi }: any) {
     handleSubmitRef: null,
     getValuesRef: null,
     TypescriptRef: null,
-    triggerRef: null,
+    triggerValidationRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -417,11 +417,11 @@ function Builder({ formData, showApi }: any) {
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.triggerRef = ref
+              apiSectionsRef.current.triggerValidationRef = ref
             }}
           >
             <h2>
-              trigger: <Type>async (name: string) => boolean</Type>
+              triggerValidation: <Type>async {`({ name: string; value?: any; forceValidation?: boolean; })`} => boolean</Type>
             </h2>
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
