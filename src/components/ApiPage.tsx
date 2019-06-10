@@ -248,8 +248,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            You can include name of the fields in an <code>Array</code> when you want to apply validation rules only to
-            specific fields.
+            By providing an array of fields, which means only included fields will be validated.
           </p>
           <LinkToSandBox
             tabIndex={tabIndex}
