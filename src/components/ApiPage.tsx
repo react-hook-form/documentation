@@ -99,6 +99,14 @@ function Builder({ formData, showApi }: any) {
   copyFormData.current = formData
 
   const goToSection = name => {
+    const url = window.location.href;
+    const hashIndex = url.indexOf('#');
+    if (hashIndex < 0) {
+      history.pushState({}, null, `${url}#${name}`);
+    } else {
+      history.pushState({}, null, `${url.substr(0, hashIndex)}#${name}`);
+    }
+
     const refName = `${name}Ref`
     track({
       category: 'Link',
@@ -111,7 +119,7 @@ function Builder({ formData, showApi }: any) {
   }
 
   useEffect(() => {
-    goToSection(location.hash.substr(1));
+    if (location.hash) goToSection(location.hash.substr(1));
   }, [])
 
   return (
