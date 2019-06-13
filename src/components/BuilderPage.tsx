@@ -10,7 +10,8 @@ import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import { navigate } from '@reach/router'
 import { Container } from '../styles/containers'
-import breakpoints from "../styles/breakpoints";
+import breakpoints from '../styles/breakpoints'
+import Footer from './Footer'
 
 const { useState, useRef, useEffect } = React
 
@@ -191,7 +192,7 @@ const defaultValue = {
   name: '',
   type: '',
   options: [],
-};
+}
 
 function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMobile, isStatic }) {
   const {
@@ -233,22 +234,16 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     return !Object.values(copyFormData.current).find(data => data.name === value) || editIndex !== -1
   }
 
-  useEffect(
-    () => {
-      if (showBuilder && closeButton.current) {
-        // @ts-ignore
-        closeButton.current.focus()
-      }
-    },
-    [showBuilder],
-  )
+  useEffect(() => {
+    if (showBuilder && closeButton.current) {
+      // @ts-ignore
+      closeButton.current.focus()
+    }
+  }, [showBuilder])
 
-  useEffect(
-    () => {
-      setValue('toggle', shouldToggleOn)
-    },
-    [shouldToggleOn],
-  )
+  useEffect(() => {
+    setValue('toggle', shouldToggleOn)
+  }, [shouldToggleOn])
 
   const child = (
     <Container>
@@ -305,7 +300,13 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           </Animate>
 
           <label>Type: </label>
-          <select aria-label="Select type" name="type" ref={register} defaultValue={editFormData.type} tabIndex={tabIndex}>
+          <select
+            aria-label="Select type"
+            name="type"
+            ref={register}
+            defaultValue={editFormData.type}
+            tabIndex={tabIndex}
+          >
             <option value="text">Text</option>
             <option value="select">Select</option>
             <option value="checkbox">Checkbox</option>
@@ -512,6 +513,15 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <SyntaxHighlighterWithCopy tabIndex={tabIndex} data={formData} />
         </div>
       </Wrapper>
+
+      <div
+        style={{
+          margin: '0 20px',
+          maxWidth: 1350,
+        }}
+      >
+        <Footer />
+      </div>
     </Container>
   )
 

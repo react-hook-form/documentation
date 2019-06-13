@@ -9,6 +9,7 @@ import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import track from '../components/utils/track'
 import breakpoints from "../styles/breakpoints";
 import colors from "../styles/colors";
+import Footer from "../components/Footer";
 
 const { useRef } = React
 
@@ -191,6 +192,8 @@ const Faq = ({ location }) => {
 
             <SyntaxHighlighterWithCopy rawData={shareRef} />
             <hr />
+
+            <Footer />
           </FaqMain>
         </Wrapper>
       </Container>

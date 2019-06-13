@@ -1,8 +1,22 @@
 import track from './utils/track'
 import * as React from 'react'
+import styled from 'styled-components'
+
+const Footer = styled.footer`
+  padding: 40px 0;
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin-bottom: 60px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+`
 
 export default ({ tabIndex }: any) => (
-  <>
+  <Footer>
     Build with ♡ by{' '}
     <a
       href="https://twitter.com/bluebill1049"
@@ -70,5 +84,5 @@ export default ({ tabIndex }: any) => (
     <span style={{ fontSize: 12, lineHeight: 2, marginTop: 5, display: 'block' }}>
       [ Please support the repo by leaving ⭐️. Thank you ❤ ️]
     </span>
-  </>
+  </Footer>
 )

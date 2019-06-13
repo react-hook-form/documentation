@@ -52,19 +52,6 @@ const Root = styled.div`
   }
 `
 
-const Footer = styled.footer`
-  padding: 40px 0;
-  font-size: 0.8rem;
-  font-weight: 200;
-  margin-bottom: 60px;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-    text-align: left;
-  }
-`
-
 function App({ location }) {
   const [submitData, updateSubmitData] = useState({})
   const settingButton = useRef(null)
@@ -220,9 +207,9 @@ function App({ location }) {
             }}
           />
 
-          <Footer ref={HomeRef}>
+          <div ref={HomeRef}>
             <FooterContent />
-          </Footer>
+          </div>
         </Animate>
       </div>
     </Root>

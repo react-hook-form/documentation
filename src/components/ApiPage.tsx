@@ -22,6 +22,7 @@ import { navigate } from '@reach/router'
 import getValues from './codeExamples/getValues'
 import typeScript from './codeExamples/typeScript'
 import trigger from "./codeExamples/trigger";
+import Footer from "./Footer";
 
 const { useRef, useEffect } = React
 
@@ -524,6 +525,7 @@ function Builder({ formData, showApi }: any) {
               Star React Hook Form
             </DarkBlueButton>
           </section>
+          <Footer />
         </main>
       </Wrapper>
     </Container>

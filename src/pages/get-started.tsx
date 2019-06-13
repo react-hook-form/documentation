@@ -23,6 +23,7 @@ import {
   errors,
   applyValidation,
 } from '../components/codeExamples/getStarted'
+import Footer from "../components/Footer";
 
 const { useRef } = React
 
@@ -261,6 +262,8 @@ const Faq = ({ location }) => {
               >
                 Checkout Hook API
               </DarkBlueButton>
+
+              <Footer />
             </section>
           </main>
         </Wrapper>
