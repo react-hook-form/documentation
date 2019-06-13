@@ -23,7 +23,7 @@ import getValues from './codeExamples/getValues'
 import typeScript from './codeExamples/typeScript'
 import trigger from "./codeExamples/trigger";
 
-const { useRef } = React
+const { useRef, useEffect } = React
 
 const CodeAsLink = styled(Link)`
   cursor: pointer;
@@ -109,6 +109,10 @@ function Builder({ formData, showApi }: any) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: 'smooth' })
     }
   }
+
+  useEffect(() => {
+    goToSection(location.hash.substr(1));
+  }, [])
 
   return (
     <Container>
