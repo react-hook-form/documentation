@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import colors from '../styles/colors'
 import styled from 'styled-components'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -7,6 +7,8 @@ import { TableWrapper, Table, Type } from './ApiPage'
 import Link from '../styles/link'
 import track from './utils/track'
 import { Note } from '../styles/typography'
+
+const { useState } = React
 
 const Option = styled.fieldset`
   padding: 10px 15px;
@@ -36,12 +38,71 @@ export default function ApiRefTable({ tabIndex }: any) {
   return (
     <>
       <p>
-        This method allows you to register input/select <code>Ref</code> and validation rules into{' '}
-        <code>react-hook-form</code>.
+        This method allows you to register input/select <code>Ref</code> and
+        validation rules into <code>react-hook-form</code>.
       </p>
-      <p>Validation rules are all based on HTML standard and also allow custom validation.</p>
       <p>
-        If you working on <code>arrays/array fields</code>, you can assign input name as <code>name[index]</code>.{' '}
+        Validation rules are all based on HTML standard and also allow custom
+        validation.
+      </p>
+      <p>
+        <Note>Important:</Note> <code>name</code> is <b>required</b> and{' '}
+        <b>unique</b>. Input name also support dot and bracket syntax, which
+        allow you to easily create nested or array fields. Example table is
+        below:
+      </p>
+
+      <TableWrapper>
+        <Table>
+          <tr>
+            <th>
+              Input <code>name</code>
+            </th>
+            <th>Submit Result</th>
+          </tr>
+          <tr>
+            <td>
+              <code>name="firstName"</code>
+            </td>
+            <td>
+              <code>{`{ firstName: 'value'}`}</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>name="firstName[0]"</code>
+            </td>
+            <td>
+              <code>{`{ firstName: [ 'value' ] }`}</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>name="name.firstName"</code>
+            </td>
+            <td>
+              <code>{`{ firstName: { firstName: 'value' } }`}</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>name="name.firstName[0]"</code>
+            </td>
+            <td>
+              <code>{`{ firstName: { firstName: [ 'value' ] } }`}</code>
+            </td>
+          </tr>
+        </Table>
+      </TableWrapper>
+      <p
+        style={{
+          fontSize: 14,
+          paddingLeft: 10,
+          borderLeft: `4px solid ${colors.lightPink}`,
+        }}
+      >
+        If you working on <code>arrays/array fields</code>, you can assign input
+        name as <code>name[index]</code>.{' '}
         <Link
           tabIndex={tabIndex}
           href="https://github.com/bluebill1049/react-hook-form/blob/master/examples/arrayFields.tsx"
@@ -58,9 +119,8 @@ export default function ApiRefTable({ tabIndex }: any) {
         </Link>
         .
       </p>
-      <p>
-        <Note>Important:</Note> <code>name</code> is <b>required</b> and <b>unique</b>.
-      </p>
+
+      <br />
 
       <Option>
         <legend>Register options</legend>
@@ -75,7 +135,12 @@ export default function ApiRefTable({ tabIndex }: any) {
           Register with validation
         </label>
         <label>
-          <input tabIndex={tabIndex} onChange={() => toggleOption(false)} type="radio" name="errorMessage" />
+          <input
+            tabIndex={tabIndex}
+            onChange={() => toggleOption(false)}
+            type="radio"
+            name="errorMessage"
+          />
           Register with validation and error message
         </label>
       </Option>
@@ -139,8 +204,9 @@ export default function ApiRefTable({ tabIndex }: any) {
                 </code>
               </td>
               <td>
-                A Boolean which, if true, indicates that the input must have a value before the form can be submitted.
-                you can assign as string to return error message in the <code>errors</code> object.
+                A Boolean which, if true, indicates that the input must have a
+                value before the form can be submitted. you can assign as string
+                to return error message in the <code>errors</code> object.
               </td>
               <td>
                 <SyntaxHighlighter
@@ -368,8 +434,9 @@ export default function ApiRefTable({ tabIndex }: any) {
                 </code>
               </td>
               <td>
-                You can pass a callback function as the argument to validate, or you can pass an object of callback
-                functions to validate all of them. (refer to the examples)
+                You can pass a callback function as the argument to validate, or
+                you can pass an object of callback functions to validate all of
+                them. (refer to the examples)
               </td>
               <td>
                 <SyntaxHighlighter
@@ -381,7 +448,11 @@ export default function ApiRefTable({ tabIndex }: any) {
   name="single"
   ref={
     register({
-      validate: ${isStandard ? `(value) => value === '1'` : `(value) => value === '1' || 'error message';`}
+      validate: ${
+        isStandard
+          ? `(value) => value === '1'`
+          : `(value) => value === '1' || 'error message';`
+      }
     })
   }
 />
