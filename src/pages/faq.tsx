@@ -7,9 +7,10 @@ import { Container, Wrapper } from '../styles/containers'
 import styled from 'styled-components'
 import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
 import track from '../components/utils/track'
-import breakpoints from "../styles/breakpoints";
-import colors from "../styles/colors";
-import Footer from "../components/Footer";
+import breakpoints from '../styles/breakpoints'
+import colors from '../styles/colors'
+import Footer from '../components/Footer'
+import manualValidation from '../components/codeExamples/manualValidation'
 
 const { useRef } = React
 
@@ -77,6 +78,7 @@ const links = [
   'How to reset the form?',
   'How to initialize form values?',
   'How to share ref usage?',
+  "What if you don't have access to ref?",
 ]
 
 const Faq = ({ location }) => {
@@ -86,6 +88,7 @@ const Faq = ({ location }) => {
     question3: null,
     question4: null,
     question5: null,
+    question6: null,
   })
 
   const goToSection = (name, index) => {
@@ -95,7 +98,9 @@ const Faq = ({ location }) => {
       action: `Click - Go to section ${name}`,
     })
     if (sectionsRef.current[`question${index + 1}`]) {
-      sectionsRef.current[`question${index + 1}`].scrollIntoView({ behavior: 'smooth' })
+      sectionsRef.current[`question${index + 1}`].scrollIntoView({
+        behavior: 'smooth',
+      })
     }
   }
 
@@ -113,11 +118,14 @@ const Faq = ({ location }) => {
           <FaqMain>
             <h2>Performance of React Hook Form</h2>
             <p ref={ref => (sectionsRef.current.question1 = ref)}>
-              Performance is one of the primary goals for building this custom hook. React Hook Form relies on
-              uncontrolled component, hence the reason why the register function occurred at the ref. This approach will
-              reduce the amount of re-rendering which occurred by user typing or value changing. Components mount to the
-              page is much quicker too because they are not controlled. For mounting speed, I have completed a quick
-              comparison test which you can refer to by{' '}
+              Performance is one of the primary goals for building this custom
+              hook. React Hook Form relies on uncontrolled component, hence the
+              reason why the register function occurred at the ref. This
+              approach will reduce the amount of re-rendering which occurred by
+              user typing or value changing. Components mount to the page is
+              much quicker too because they are not controlled. For mounting
+              speed, I have completed a quick comparison test which you can
+              refer to by{' '}
               <a
                 href="https://github.com/bluebill1049/react-hook-form-performance-compare"
                 target="_blank"
@@ -136,26 +144,33 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question2 = ref)}>Does it work with Class Component?</h2>
+            <h2 ref={ref => (sectionsRef.current.question2 = ref)}>
+              Does it work with Class Component?
+            </h2>
 
             <p>No.</p>
 
             <blockquote>
-              You can’t use Hooks inside of a class component, but you can definitely mix classes and function
-              components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is an
-              implementation detail of that component. In the longer term, we expect Hooks to be the primary way people
-              write React components.
+              You can’t use Hooks inside of a class component, but you can
+              definitely mix classes and function components with Hooks in a
+              single tree. Whether a component is a class or a function that
+              uses Hooks is an implementation detail of that component. In the
+              longer term, we expect Hooks to be the primary way people write
+              React components.
             </blockquote>
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>How to reset the form?</h2>
+            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>
+              How to reset the form?
+            </h2>
             <p>There are two types of methods to clear form.</p>
             <ul>
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
-                  This method does the same thing as clicking a form's reset button, and only clear
+                  This method does the same thing as clicking a form's reset
+                  button, and only clear
                   <code>input/select/checkbox</code> value.
                 </p>
               </li>
@@ -164,33 +179,55 @@ const Faq = ({ location }) => {
                   React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React Hook Form's <code>reset</code> method will reset all fields value, and also clear all <code>errors</code>{' '}
-                  within the form.
+                  React Hook Form's <code>reset</code> method will reset all
+                  fields value, and also clear all <code>errors</code> within
+                  the form.
                 </p>
               </li>
             </ul>
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>How to initialize form values?</h2>
+            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>
+              How to initialize form values?
+            </h2>
 
             <p>
-              React Hook Form relies on uncontrolled component. With an uncontrolled component, you can specify a{' '}
-              <code>defaultValue</code> or <code>defaultChecked</code> to individual field. However, the hook itself
-              does provider an easier way to initialise all input values too. Example below:
+              React Hook Form relies on uncontrolled component. With an
+              uncontrolled component, you can specify a{' '}
+              <code>defaultValue</code> or <code>defaultChecked</code> to
+              individual field. However, the hook itself does provider an easier
+              way to initialise all input values too. Example below:
             </p>
             <SyntaxHighlighterWithCopy rawData={code} />
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>How to share ref usage?</h2>
+            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>
+              How to share ref usage?
+            </h2>
 
             <p>
-              React Hook Form need <code>ref</code> to collect input value, however you may want to use <code>ref</code>{' '}
-              for other purpose (eg. scroll into the view). The following example will show you how.
+              React Hook Form need <code>ref</code> to collect input value,
+              however you may want to use <code>ref</code> for other purpose
+              (eg. scroll into the view). The following example will show you
+              how.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={shareRef} />
+            <hr />
+
+            <h2 ref={ref => (sectionsRef.current.question6 = ref)}>
+              What if you don't have access to <code>ref</code>?
+            </h2>
+
+            <p>
+              You can actually <code>register</code> an input without ref. In fact, you can
+              manually <code>setValue</code>, <code>setError</code> and{' '}
+              <code>triggerValidation</code>.
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={manualValidation} />
             <hr />
 
             <Footer />
