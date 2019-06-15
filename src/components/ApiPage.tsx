@@ -294,7 +294,7 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              register: <Type>Function</Type>
+              register: <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
             </h2>
           </CodeHeading>
 

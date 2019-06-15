@@ -51,6 +51,10 @@ export default function ApiRefTable({ tabIndex }: any) {
         allow you to easily create nested or array fields. Example table is
         below:
       </p>
+      <p>
+        <Note>Note: </Note>You can register field manually. eg:{' '}
+        <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+      </p>
 
       <TableWrapper>
         <Table>
