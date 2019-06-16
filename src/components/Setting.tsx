@@ -46,7 +46,7 @@ function Setting({ settingButton, toggleSetting, showSetting, setting, setConfig
       }}
       start={{
         pointerEvents: 'none',
-        transform: 'translateX(-600px)',
+        transform: 'translateX(-110%)',
       }}
       render={({ style }) => (
         <Root style={style}>
