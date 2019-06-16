@@ -73,7 +73,7 @@ export default function ApiFormState({ tabIndex }: any) {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>Set true if doesn't have an errors.</td>
+              <td>Set true if doesn't have any error.</td>
             </tr>
           </tbody>
         </Table>
