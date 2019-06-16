@@ -66,6 +66,15 @@ export default function ApiFormState({ tabIndex }: any) {
               </td>
               <td>Number of forms submit.</td>
             </tr>
+            <tr>
+              <td>
+                <code>isValid</code>
+              </td>
+              <td>
+                <Type>boolean</Type>
+              </td>
+              <td>Set true if doesn't have an errors.</td>
+            </tr>
           </tbody>
         </Table>
       </TableWrapper>
