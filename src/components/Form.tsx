@@ -105,8 +105,8 @@ export default function Form({
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>
-            Example{' '}
-            {/*<SettingIcon*/}
+            Example
+            {/*{' '}<SettingIcon*/}
             {/*  aria-label="Demo form setting"*/}
             {/*  tabIndex={tabIndex}*/}
             {/*  type="button"*/}
