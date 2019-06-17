@@ -52,24 +52,9 @@ const Root = styled.div`
 
 function App({ location }) {
   const [submitData, updateSubmitData] = useState({})
-  const settingButton = useRef(null)
   const builderButton = useRef(null)
   const HomeRef = useRef(null)
-  const [showSetting, toggleSetting] = useState(false)
   const [showBuilder, toggleBuilder] = useState(false)
-  const [setting, setConfig] = useState<{
-    mode: 'onSubmit' | 'onBlur' | 'onChange'
-    showError: boolean
-    showWatch: boolean
-    showTouch: boolean
-    showSubmit: boolean
-  }>({
-    mode: 'onChange',
-    showError: true,
-    showWatch: true,
-    showTouch: true,
-    showSubmit: true,
-  })
   const tabIndex = showBuilder ? -1 : 0
   let isMobile
 
@@ -112,8 +97,7 @@ function App({ location }) {
 
       <div
         onClick={() => {
-          if (showSetting || showBuilder) {
-            toggleSetting(false)
+          if (showBuilder) {
             toggleBuilder(false)
           }
         }}
@@ -122,7 +106,7 @@ function App({ location }) {
         }}
       >
         <Animate
-          play={showBuilder || showSetting}
+          play={showBuilder}
           start={{ minHeight: '100vh', filter: 'blur(0)', transform: 'scale(1)' }}
           end={{ minHeight: '100vh', filter: 'blur(3px)', transform: 'scale(0.9) rotateX(5deg)' }}
         >
@@ -174,12 +158,9 @@ function App({ location }) {
           <Form
             {...{
               tabIndex,
-              showSetting,
-              toggleSetting,
               onSubmit,
               submitData,
               toggleBuilder,
-              setting,
             }}
           />
 
