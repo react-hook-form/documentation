@@ -10,6 +10,7 @@ import FormFields from './FormFields'
 import { PinkButton } from '../styles/buttons'
 import { CenterContent } from '../styles/containers'
 import goToBuilder from './utils/goToBuilder'
+import useForm from "react-hook-form";
 
 const Code = styled.pre`
   text-align: left;
@@ -71,18 +72,22 @@ const SettingWords = styled.span`
 
 export default function Form({
   tabIndex,
-  handleSubmit,
   onSubmit,
   submitData,
-  register,
-  errors,
-  watch,
   toggleBuilder,
   setting,
   showSetting,
   toggleSetting,
-  touched,
 }) {
+  const {
+    register,
+    errors,
+    handleSubmit,
+    watch,
+    formState: { touched },
+  } = useForm({
+    mode: setting.mode,
+  })
   const {
     state: { formData },
   } = useStateMachine()

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import useForm from 'react-hook-form'
 import { Animate } from 'react-simple-animate'
 import Nav from './Nav'
 import styled from 'styled-components'
@@ -71,15 +70,6 @@ function App({ location }) {
     showWatch: true,
     showTouch: true,
     showSubmit: true,
-  })
-  const {
-    register,
-    errors,
-    handleSubmit,
-    watch,
-    formState: { touched },
-  } = useForm({
-    mode: setting.mode,
   })
   const tabIndex = showBuilder ? -1 : 0
   let isMobile
@@ -195,13 +185,8 @@ function App({ location }) {
               tabIndex,
               showSetting,
               toggleSetting,
-              handleSubmit,
               onSubmit,
               submitData,
-              register,
-              errors,
-              watch,
-              touched,
               toggleBuilder,
               setting,
             }}
