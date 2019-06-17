@@ -106,22 +106,22 @@ export default function Form({
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>
             Example{' '}
-            <SettingIcon
-              aria-label="Demo form setting"
-              tabIndex={tabIndex}
-              type="button"
-              onClick={() => {
-                track({
-                  category: 'Icon Button',
-                  label: 'Setting',
-                  action: 'Click - Open Setting Menu',
-                })
-                toggleSetting(!showSetting)
-              }}
-            >
-              <Setting />
-              <SettingWords>Setting</SettingWords>
-            </SettingIcon>
+            {/*<SettingIcon*/}
+            {/*  aria-label="Demo form setting"*/}
+            {/*  tabIndex={tabIndex}*/}
+            {/*  type="button"*/}
+            {/*  onClick={() => {*/}
+            {/*    track({*/}
+            {/*      category: 'Icon Button',*/}
+            {/*      label: 'Setting',*/}
+            {/*      action: 'Click - Open Setting Menu',*/}
+            {/*    })*/}
+            {/*    toggleSetting(!showSetting)*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  <Setting />*/}
+            {/*  <SettingWords>Setting</SettingWords>*/}
+            {/*</SettingIcon>*/}
           </Title>
 
           <FormFields {...{ formData, errors, register, tabIndex }} />
