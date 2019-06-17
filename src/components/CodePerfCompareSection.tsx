@@ -44,6 +44,8 @@ const ImgSection = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   & > img {
