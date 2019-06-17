@@ -8,7 +8,6 @@ import Header from './Header'
 import CodeCompareSection from './CodeCompareSection'
 import CodePerfCompareSection from './CodePerfCompareSection'
 import FooterContent from './Footer'
-import Setting from './Setting'
 import Builder from './BuilderPage'
 import { H1 } from '../styles/typography'
 import { ButtonsGroup, DarkBlueButton } from '../styles/buttons'
@@ -100,14 +99,6 @@ function App({ location }) {
   return (
     <Root>
       {!isMobile && Buttons}
-
-      <Setting
-        settingButton={settingButton}
-        toggleSetting={toggleSetting}
-        setting={setting}
-        showSetting={showSetting}
-        setConfig={setConfig}
-      />
 
       <Builder
         showBuilder={showBuilder}

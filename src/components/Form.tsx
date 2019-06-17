@@ -3,7 +3,6 @@ import { Title, H1 } from '../styles/typography'
 import colors from '../styles/colors'
 import { Animate } from 'react-simple-animate'
 import styled from 'styled-components'
-import Setting from './svgs/setting'
 import track from './utils/track'
 import { useStateMachine } from 'little-state-machine'
 import FormFields from './FormFields'
@@ -28,56 +27,12 @@ const Wrapper = styled.div`
   grid-column-gap: 40px;
 `
 
-const SettingIcon = styled.button`
-  -webkit-appearance: none;
-  border: none;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  font-size: 14px;
-  right: -2px;
-  top: 0;
-  z-index: 1;
-  padding-left: 10px;
-  background: #04102e;
-  border-radius: 2px;
-  cursor: pointer;
-
-  @media (min-width: 768px) {
-    top: 5px;
-  }
-
-  &:hover {
-    transition: 0.3s all;
-    color: ${colors.lightPink};
-  }
-
-  & > svg {
-    fill: white;
-    width: 20px;
-    margin-right: 5px;
-    display: inline-block;
-  }
-`
-
-const SettingWords = styled.span`
-  display: none;
-
-  @media (min-width: 1500px) {
-    display: inline-block;
-  }
-`
-
 export default function Form({
   tabIndex,
   onSubmit,
   submitData,
   toggleBuilder,
   setting,
-  showSetting,
-  toggleSetting,
 }) {
   const {
     register,
@@ -106,22 +61,6 @@ export default function Form({
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>
             Example
-            {/*{' '}<SettingIcon*/}
-            {/*  aria-label="Demo form setting"*/}
-            {/*  tabIndex={tabIndex}*/}
-            {/*  type="button"*/}
-            {/*  onClick={() => {*/}
-            {/*    track({*/}
-            {/*      category: 'Icon Button',*/}
-            {/*      label: 'Setting',*/}
-            {/*      action: 'Click - Open Setting Menu',*/}
-            {/*    })*/}
-            {/*    toggleSetting(!showSetting)*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  <Setting />*/}
-            {/*  <SettingWords>Setting</SettingWords>*/}
-            {/*</SettingIcon>*/}
           </Title>
 
           <FormFields {...{ formData, errors, register, tabIndex }} />
