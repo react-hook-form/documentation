@@ -158,7 +158,6 @@ export default function Header({ homeRef, tabIndex }: any) {
 
       <Video
         controls
-        autoPlay
         playsInline
         muted
         onClick={() => {
