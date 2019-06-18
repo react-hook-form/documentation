@@ -1,16 +1,17 @@
-import * as React from 'react'
-import Layout from '../components/layout'
-import Seo from '../components/seo'
-import { HeadingWithTopMargin, SubHeading } from '../styles/typography'
-import SideMenu from '../components/SideMenu'
-import { Container, Wrapper } from '../styles/containers'
-import styled from 'styled-components'
-import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
-import track from '../components/utils/track'
-import breakpoints from '../styles/breakpoints'
-import colors from '../styles/colors'
-import Footer from '../components/Footer'
-import manualValidation from '../components/codeExamples/manualValidation'
+import * as React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import { HeadingWithTopMargin, SubHeading } from "../styles/typography"
+import SideMenu from "../components/SideMenu"
+import { Container, Wrapper } from "../styles/containers"
+import styled from "styled-components"
+import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
+import track from "../components/utils/track"
+import breakpoints from "../styles/breakpoints"
+import colors from "../styles/colors"
+import Footer from "../components/Footer"
+import manualValidation from "../components/codeExamples/manualValidation"
+import accessibleCode from "../components/codeExamples/accessibleCode";
 
 const { useRef } = React
 
@@ -73,11 +74,12 @@ const FaqMain = styled.main`
 `
 
 const links = [
-  'Performance of React Hook Form',
-  'Does it work with Class Component?',
-  'How to reset the form?',
-  'How to initialize form values?',
-  'How to share ref usage?',
+  "Performance of React Hook Form",
+  "How to creat accessible input error and message?",
+  "Does it work with Class Component?",
+  "How to reset the form?",
+  "How to initialize form values?",
+  "How to share ref usage?",
   "What if you don't have access to ref?",
 ]
 
@@ -89,17 +91,18 @@ const Faq = ({ location }) => {
     question4: null,
     question5: null,
     question6: null,
+    question7: null,
   })
 
   const goToSection = (name, index) => {
     track({
-      category: 'Button',
+      category: "Button",
       label: name,
       action: `Click - Go to section ${name}`,
     })
     if (sectionsRef.current[`question${index + 1}`]) {
       sectionsRef.current[`question${index + 1}`].scrollIntoView({
-        behavior: 'smooth',
+        behavior: "smooth",
       })
     }
   }
@@ -116,8 +119,10 @@ const Faq = ({ location }) => {
           <SideMenu isStatic links={links} goToSection={goToSection} />
 
           <FaqMain>
-            <h2>Performance of React Hook Form</h2>
-            <p ref={ref => (sectionsRef.current.question1 = ref)}>
+            <h2 ref={ref => (sectionsRef.current.question1 = ref)}>
+              Performance of React Hook Form
+            </h2>
+            <p>
               Performance is one of the primary goals for building this custom
               hook. React Hook Form relies on uncontrolled component, hence the
               reason why the register function occurred at the ref. This
@@ -125,15 +130,15 @@ const Faq = ({ location }) => {
               user typing or value changing. Components mount to the page is
               much quicker too because they are not controlled. For mounting
               speed, I have completed a quick comparison test which you can
-              refer to by{' '}
+              refer to by{" "}
               <a
                 href="https://github.com/bluebill1049/react-hook-form-performance-compare"
                 target="_blank"
                 onClick={() => {
                   track({
-                    category: 'Link',
-                    action: 'Click - visit the repo',
-                    label: 'this repo link',
+                    category: "Link",
+                    action: "Click - visit the repo",
+                    label: "this repo link",
                   })
                 }}
               >
@@ -145,6 +150,24 @@ const Faq = ({ location }) => {
             <hr />
 
             <h2 ref={ref => (sectionsRef.current.question2 = ref)}>
+              How to creat accessible input error and message?
+            </h2>
+            <p>
+              React hook form is based on{" "}
+              <a
+                href="https://reactjs.org/docs/uncontrolled-components.html"
+                target="_blank"
+              >
+                Uncontrolled Component
+              </a>
+              , which give you the ability to building accessible custom form
+              easily. Hope you will find the following example useful.
+            </p>
+            <SyntaxHighlighterWithCopy rawData={accessibleCode} />
+
+            <hr />
+
+            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>
               Does it work with Class Component?
             </h2>
 
@@ -161,7 +184,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>
+            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>
               How to reset the form?
             </h2>
             <p>There are two types of methods to clear form.</p>
@@ -188,13 +211,13 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>
+            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>
               How to initialize form values?
             </h2>
 
             <p>
               React Hook Form relies on uncontrolled component. With an
-              uncontrolled component, you can specify a{' '}
+              uncontrolled component, you can specify a{" "}
               <code>defaultValue</code> or <code>defaultChecked</code> to
               individual field. However, the hook itself does provider an easier
               way to initialise all input values too. Example below:
@@ -203,7 +226,7 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>
+            <h2 ref={ref => (sectionsRef.current.question6 = ref)}>
               How to share ref usage?
             </h2>
 
@@ -217,14 +240,14 @@ const Faq = ({ location }) => {
             <SyntaxHighlighterWithCopy rawData={shareRef} />
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question6 = ref)}>
+            <h2 ref={ref => (sectionsRef.current.question7 = ref)}>
               What if you don't have access to <code>ref</code>?
             </h2>
 
             <p>
-              You can actually <code>register</code> an input without ref. In fact, you can
-              manually <code>setValue</code>, <code>setError</code> and{' '}
-              <code>triggerValidation</code>.
+              You can actually <code>register</code> an input without ref. In
+              fact, you can manually <code>setValue</code>,{" "}
+              <code>setError</code> and <code>triggerValidation</code>.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={manualValidation} />
