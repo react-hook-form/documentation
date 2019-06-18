@@ -85,7 +85,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <code>name="name.firstName"</code>
             </td>
             <td>
-              <code>{`{ firstName: { firstName: 'value' } }`}</code>
+              <code>{`{ name: { firstName: 'value' } }`}</code>
             </td>
           </tr>
           <tr>
@@ -93,7 +93,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <code>name="name.firstName[0]"</code>
             </td>
             <td>
-              <code>{`{ firstName: { firstName: [ 'value' ] } }`}</code>
+              <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
             </td>
           </tr>
         </Table>
