@@ -23,6 +23,7 @@ import getValues from './codeExamples/getValues'
 import typeScript from './codeExamples/typeScript'
 import trigger from "./codeExamples/trigger";
 import Footer from "./Footer";
+import FormContext from "./FormContext";
 
 const { useRef, useEffect } = React
 
@@ -76,6 +77,7 @@ const links = [
   'getValues',
   'triggerValidation',
   'formState',
+  'FormContext',
   'Typescript',
 ]
 
@@ -95,6 +97,7 @@ function Builder({ formData, showApi }: any) {
     getValuesRef: null,
     TypescriptRef: null,
     triggerValidationRef: null,
+    FormContextRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -457,6 +460,13 @@ function Builder({ formData, showApi }: any) {
           </section>
 
           <hr />
+
+          <section ref={ref => apiSectionsRef.current.FormContextRef = ref}>
+            <FormContext />
+          </section>
+
+          <hr />
+
 
           <CodeHeading
             ref={ref => {
