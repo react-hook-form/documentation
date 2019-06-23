@@ -2,6 +2,7 @@ import * as React from 'react';
 import {CodeHeading, Table, TableWrapper, Type} from "./ApiPage";
 import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy";
 import formContext from "./codeExamples/formContext";
+import {Note} from "../styles/typography";
 
 export default function FormContext({tabIndex}: any) {
   return <>
@@ -35,6 +36,7 @@ export default function FormContext({tabIndex}: any) {
     </TableWrapper>
 
     <p>Once your form is wrapped with <code>FormContext</code>, <code>useFormContext</code>: <Type>Function</Type> can be invoked in its child component to retrieve all <code>useForm</code> functions.</p>
+    <p><Note>Note:</Note> invoke <code>useFormContext</code> will give you all the hook functions.<br /><code style={{ fontSize: 14 }}>{`const methods = useFormContext() // methods contain all useForm functions`}</code></p>
 
     <SyntaxHighlighterWithCopy
       tabIndex={tabIndex}
