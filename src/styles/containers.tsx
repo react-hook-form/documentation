@@ -30,4 +30,9 @@ export const CenterContent = styled.section`
   margin: 0 auto;
   text-align: center;
   max-width: ${props => props.maxWidth ? `${props.maxWidth}px` : `1024px`};
+  
+  & p {
+    max-width: 768px;
+    margin: 0 auto;
+  }
 `

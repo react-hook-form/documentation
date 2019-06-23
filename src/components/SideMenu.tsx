@@ -31,7 +31,7 @@ const Menu = styled.aside`
 
         & > a {
           text-decoration: none;
-          padding-left: 10px;
+          padding-left: 5px;
         }
 
         & > a,
@@ -194,9 +194,7 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
             href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
             target="_blank"
             tabIndex={tabIndex}
-          >
-            Code Examples
-          </a>
+          >Code Examples</a>
         </li>
       </ul>
     </Menu>
