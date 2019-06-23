@@ -100,15 +100,12 @@ const Faq = ({ location }) => {
               Register fields
             </Title>
             <p>
-              One of the key concepts for React Hook Form is to{' '}
-              <strong>register</strong> your uncontrolled fields into the hook,
-              and enable them to be validated and gather the value for
-              submitting.
+              One of the key concepts for React Hook Form is to <strong><code>register</code></strong> your uncontrolled component into the Hook and hence enabling its value to be validated and gathered for submitting.
             </p>
 
             <p>
-              <Note>Note</Note>: each fields <strong>required</strong> to have
-              an unique <code>name</code> as key for the registration process.
+              <Note>Note</Note>: each field <strong>requires</strong> to have
+              a unique <code>name</code> as key for the registration process.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={registerCode} />
@@ -177,9 +174,7 @@ const Faq = ({ location }) => {
               Adapting existing form
             </Title>
             <p>
-              Working on an existing form is fairly simple as well. The
-              important step is to apply <code>register</code> into existing
-              input or select component's <code>ref</code>.
+              Working on an existing form is simple. The important step is to apply <code>register</code> into existing component's <code>ref</code>.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={migrateCode} />
@@ -192,20 +187,15 @@ const Faq = ({ location }) => {
               Work with UI library
             </Title>
             <p>
-              Working with external component library should be easy and simple
-              to integrate, React Hook Form has made it simple.
+              React Hook Form has made it easy to integrate with external UI components library.
             </p>
             <p>
               <span style={{ color: colors.lightPink }}>Note:</span> Most of UI
               library do expose <code>innerRef</code> or <code>ref</code> to{' '}
               <code>register</code>. For components that are more complicated
               like <code>react-select</code> or <code>react-datepicker</code>,
-              you can update value via <code>setValue</code> or trigger an error
+              you can manually update value via <code>setValue</code> or trigger an error
               with <code>setError</code>.
-            </p>
-            <p>
-              The following example demonstrates usage with{' '}
-              <code>react-select</code> and <code>material-ui</code>.
             </p>
 
             <SyntaxHighlighterWithCopy
@@ -221,10 +211,7 @@ const Faq = ({ location }) => {
               Integrate global state
             </Title>
             <p>
-              Forms are mostly about collecting user data. React Hook Form
-              doesn't require you to have a state management to store your data.
-              However, it allows you to easily integrate one like{' '}
-              <code>Redux</code> or <code>MobX</code>
+              React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={globalState} />

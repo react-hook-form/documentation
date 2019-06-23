@@ -3,12 +3,11 @@ import useForm from 'react-hook-form'
 
 function YourForm() {
   const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = data => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
       <select name="gender" ref={register}>
         <option value="male">male</option>
         <option value="female">female</option>
@@ -24,7 +23,7 @@ import useForm from 'react-hook-form'
 // The following component is an example of your existing Input Component 
 const Input => ({ label, register, required }) = ( 
   <>
-    <label>label</label>
+    <label>{label}</label>
     <input name={label} ref={register({ required })} />
   </>
 )
@@ -32,7 +31,7 @@ const Input => ({ label, register, required }) = (
 // you can use React.forwardRef to pass the ref too
 const Select => React.forwardRef(({ label, register }, ref) = ( 
   <>
-    <label>label</label>
+    <label>{label}</label>
     <Select name={label} ref={ref}>
       <option value="20">20</option>
       <option value="30">30</option>
@@ -42,7 +41,7 @@ const Select => React.forwardRef(({ label, register }, ref) = (
 
 function YourForm() {
   const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = data => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +59,7 @@ import Input from "@material-ui/core/Input"
 
 function YourForm() {
   const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = data => console.log(data)
   const [values, setReactSelectValue] = useState({ selectedOption: [] })
 
   const handleMultiChange = selectedOption => {
@@ -75,14 +74,12 @@ function YourForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="HelloWorld" inputRef={register} />
-        
       <Select
         value={values.selectedOption}
         options={options}
         onChange={handleMultiChange}
         isMulti
       />
-      
       <input type="submit" />
     </form>
   )
@@ -135,7 +132,7 @@ import useForm from 'react-hook-form'
 
 function YourForm() {
   const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = data => console.log(data)
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

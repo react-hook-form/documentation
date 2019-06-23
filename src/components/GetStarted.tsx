@@ -62,7 +62,7 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       >
         Example
       </h2>
-      <p>The following code will demonstrate the basics, from register a field with validation and to submit.</p>
+      <p>The following code will demonstrate the basics usage.</p>
       <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )
