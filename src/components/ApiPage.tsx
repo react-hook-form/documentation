@@ -1,29 +1,37 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import colors from '../styles/colors'
-import { SubHeading, HeadingWithTopMargin, H5, H1, Note } from '../styles/typography'
-import ApiRefTable from './ApiRefTable'
-import validationSchemaCode from './codeExamples/validationSchema'
-import Link from '../styles/link'
-import code from './codeExamples/defaultExample'
-import SyntaxHighlighterWithCopy, { LinkToSandBox } from './SyntaxHighlighterWithCopy'
-import SideMenu from './SideMenu'
-import ApiFormState from './ApiFormState'
-import resetCode from './codeExamples/resetCode'
-import ApiWatch from './ApiWatch'
-import ApiErrors from './ApiErrors'
-import handleSubmitCode from './codeExamples/handleSubmitCode'
-import setError from './codeExamples/setError'
-import setValue from './codeExamples/setValue'
-import track from './utils/track'
-import { Container, Wrapper } from '../styles/containers'
-import { DarkBlueButton } from '../styles/buttons'
-import { navigate } from '@reach/router'
-import getValues from './codeExamples/getValues'
-import typeScript from './codeExamples/typeScript'
-import trigger from "./codeExamples/trigger";
-import Footer from "./Footer";
-import FormContext from "./FormContext";
+import * as React from "react"
+import styled from "styled-components"
+import colors from "../styles/colors"
+import {
+  SubHeading,
+  HeadingWithTopMargin,
+  H5,
+  H1,
+  Note,
+} from "../styles/typography"
+import ApiRefTable from "./ApiRefTable"
+import validationSchemaCode from "./codeExamples/validationSchema"
+import Link from "../styles/link"
+import code from "./codeExamples/defaultExample"
+import SyntaxHighlighterWithCopy, {
+  LinkToSandBox,
+} from "./SyntaxHighlighterWithCopy"
+import SideMenu from "./SideMenu"
+import ApiFormState from "./ApiFormState"
+import resetCode from "./codeExamples/resetCode"
+import ApiWatch from "./ApiWatch"
+import ApiErrors from "./ApiErrors"
+import handleSubmitCode from "./codeExamples/handleSubmitCode"
+import setError from "./codeExamples/setError"
+import setValue from "./codeExamples/setValue"
+import track from "./utils/track"
+import { Container, Wrapper } from "../styles/containers"
+import { DarkBlueButton } from "../styles/buttons"
+import { navigate } from "@reach/router"
+import getValues from "./codeExamples/getValues"
+import typeScript from "./codeExamples/typeScript"
+import trigger from "./codeExamples/trigger"
+import Footer from "./Footer"
+import FormContext from "./FormContext"
 
 const { useRef, useEffect } = React
 
@@ -35,7 +43,7 @@ const CodeAsLink = styled(Link)`
 export const CodeHeading = styled.code`
   & > h2:before {
     display: inline-block;
-    content: '</> ';
+    content: "</> ";
   }
 `
 
@@ -66,19 +74,19 @@ export const Type = styled.span`
 `
 
 const links = [
-  'useForm',
-  'register',
-  'errors',
-  'watch',
-  'handleSubmit',
-  'reset',
-  'setError',
-  'setValue',
-  'getValues',
-  'triggerValidation',
-  'formState',
-  'FormContext',
-  'Typescript',
+  "useForm",
+  "register",
+  "errors",
+  "watch",
+  "handleSubmit",
+  "reset",
+  "setError",
+  "setValue",
+  "getValues",
+  "triggerValidation",
+  "formState",
+  "FormContext",
+  "Typescript",
 ]
 
 function Builder({ formData, showApi }: any) {
@@ -103,33 +111,35 @@ function Builder({ formData, showApi }: any) {
   copyFormData.current = formData
 
   const goToSection = name => {
-    const url = window.location.href;
-    const hashIndex = url.indexOf('#');
+    const url = window.location.href
+    const hashIndex = url.indexOf("#")
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${name}`);
+      history.pushState({}, null, `${url}#${name}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${name}`);
+      history.pushState({}, null, `${url.substr(0, hashIndex)}#${name}`)
     }
 
     const refName = `${name}Ref`
     track({
-      category: 'Link',
+      category: "Link",
       label: name,
       action: `Click - Go to ${name} section`,
     })
     if (apiSectionsRef.current[refName]) {
-      apiSectionsRef.current[refName].scrollIntoView({ behavior: 'smooth' })
+      apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
 
   useEffect(() => {
-    if (location.hash) goToSection(location.hash.substr(1));
+    if (location.hash) goToSection(location.hash.substr(1))
   }, [])
 
   return (
     <Container>
       <HeadingWithTopMargin>API</HeadingWithTopMargin>
-      <SubHeading>React Hook Form focus on providing the best DX by simplify the API.</SubHeading>
+      <SubHeading>
+        React Hook Form focus on providing the best DX by simplify the API.
+      </SubHeading>
 
       <Wrapper>
         <SideMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />
@@ -144,21 +154,42 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            By invoking <code>useForm</code>, you will receive the following methods{' '}
-            <CodeAsLink onClick={() => goToSection('register')}>register</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('errors')}>errors</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('watch')}>watch</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('handleSubmit')}>handleSubmit</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('reset')}>reset</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('setError')}>setError</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('setValue')}>setValue</CodeAsLink>,{' '}
-            <CodeAsLink onClick={() => goToSection('getValues')}>getValues</CodeAsLink> and{' '}
-            <CodeAsLink onClick={() => goToSection('formState')}>formState</CodeAsLink>.
+            By invoking <code>useForm</code>, you will receive the following
+            methods{" "}
+            <CodeAsLink onClick={() => goToSection("register")}>
+              register
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("errors")}>
+              errors
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>,{" "}
+            <CodeAsLink onClick={() => goToSection("handleSubmit")}>
+              handleSubmit
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("reset")}>reset</CodeAsLink>,{" "}
+            <CodeAsLink onClick={() => goToSection("setError")}>
+              setError
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("getValues")}>
+              getValues
+            </CodeAsLink>{" "}
+            and{" "}
+            <CodeAsLink onClick={() => goToSection("formState")}>
+              formState
+            </CodeAsLink>
+            .
           </p>
 
           <p>
-            <code>useForm</code> also has <b>optional</b> arguments, which are <code>mode</code>,{' '}
-            <code>defaultValues</code>, <code>validationFields</code> and <code>validationSchema</code>.
+            <code>useForm</code> also has <b>optional</b> arguments.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -176,7 +207,9 @@ function Builder({ formData, showApi }: any) {
           />
 
           <H5>
-            <code>mode</code>
+            <code>
+              mode: <Type>string</Type> = 'onSubmit'
+            </code>
           </H5>
 
           <TableWrapper>
@@ -199,8 +232,9 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on submit, invalid inputs will attach <code>onChange</code> event listeners
-                    to re-validate them.
+                    Validation will trigger on submit, invalid inputs will
+                    attach <code>onChange</code> event listeners to re-validate
+                    them.
                   </td>
                 </tr>
                 <tr>
@@ -218,8 +252,9 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on <code>onChange</code> with each inputs, and lead to multiple re-render.
-                    Not recommended: Consider this as a bad performance practice.
+                    Validation will trigger on <code>onChange</code> with each
+                    inputs, and lead to multiple re-render. Not recommended:
+                    Consider this as a bad performance practice.
                   </td>
                 </tr>
               </tbody>
@@ -227,24 +262,31 @@ function Builder({ formData, showApi }: any) {
           </TableWrapper>
 
           <H5 style={{ marginTop: 20 }}>
-            <code>defaultValues</code>
+            <code>
+              defaultValues:{" "}
+              <Type>
+                {`{[key:string]: string}`} = {}
+              </Type>
+            </code>
           </H5>
 
           <p>
-            You can set input default value with <code>defaultValue/defaultChecked</code>{' '}
+            You can set input default value with{" "}
+            <code>defaultValue/defaultChecked</code>{" "}
             <Link
               href="https://reactjs.org/docs/uncontrolled-components.html"
               onClick={() => {
                 track({
-                  category: 'Button',
-                  label: 'read more at React doc',
-                  action: 'Click - go to React Doc',
+                  category: "Button",
+                  label: "read more at React doc",
+                  action: "Click - go to React Doc",
                 })
               }}
             >
               (read more at React doc for uncontrolled input default value)
-            </Link>{' '}
-            or pass <code>defaultValues</code> as an optional argument to pre-fill default values for the entire form.
+            </Link>{" "}
+            or pass <code>defaultValues</code> as an optional argument to
+            pre-fill default values for the entire form.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -260,16 +302,19 @@ function Builder({ formData, showApi }: any) {
           />
 
           <H5 style={{ marginTop: 20 }}>
-            <code>validationFields</code>
+            <code>
+              validationFields: <Type>string[]</Type> = true
+            </code>
           </H5>
 
           <p>
-            By providing an array of fields, which means only included fields will be validated.
+            By providing an array of fields, which means only included fields
+            will be validated.
           </p>
           <LinkToSandBox
             tabIndex={tabIndex}
             style={{
-              position: 'relative',
+              position: "relative",
               left: 0,
               marginBottom: 20,
             }}
@@ -280,15 +325,35 @@ function Builder({ formData, showApi }: any) {
           </LinkToSandBox>
 
           <H5 style={{ marginTop: 20 }}>
+            <code>
+              submitFocusError: <Type>boolean</Type> = true
+            </code>
+          </H5>
+
+          <p>
+            By default when user submit a form with error, the field will be
+            focused.
+          </p>
+          <p>
+            <Note>Note:</Note> only registered field with <code>ref</code>{" "}
+            works, not with custom register. eg:{" "}
+            <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          </p>
+
+          <H5 style={{ marginTop: 20 }}>
             <code>validationSchema</code>
           </H5>
 
           <p>
-            Apply form validation rules with <code>Yup</code> at the schema level, please refer the{' '}
-            <CodeAsLink onClick={() => goToSection('validationSchema')}>validationSchema</CodeAsLink> section.
+            Apply form validation rules with <code>Yup</code> at the schema
+            level, please refer the{" "}
+            <CodeAsLink onClick={() => goToSection("validationSchema")}>
+              validationSchema
+            </CodeAsLink>{" "}
+            section.
           </p>
 
-          <hr />
+          <br />
 
           <CodeHeading
             ref={ref => {
@@ -297,7 +362,8 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              register: <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
+              register:{" "}
+              <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
             </h2>
           </CodeHeading>
 
@@ -331,9 +397,13 @@ function Builder({ formData, showApi }: any) {
               handleSubmit: <Type>(data: Object, e: Event) => void</Type>
             </h2>
           </CodeHeading>
-          <p>This function will pass you the form data when form validation is successful.</p>
           <p>
-            <Note>Note:</Note> you can pass <code>async</code> function for asynchronous validation. eg:{' '}
+            This function will pass you the form data when form validation is
+            successful.
+          </p>
+          <p>
+            <Note>Note:</Note> you can pass <code>async</code> function for
+            asynchronous validation. eg:{" "}
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
           <SyntaxHighlighterWithCopy
@@ -354,11 +424,14 @@ function Builder({ formData, showApi }: any) {
               reset: <Type>Function</Type>
             </h2>
           </CodeHeading>
-          <p>This function will reset fields value and errors within the form.</p>
           <p>
-            <Note>Note:</Note> for controlled component like <code>React-Select</code> which doesn't expose{' '}
-            <code>innerRef</code> or <code>ref</code>, you will have to reset the input value manually through input{' '}
-            <code>onChange</code>.
+            This function will reset fields value and errors within the form.
+          </p>
+          <p>
+            <Note>Note:</Note> for controlled component like{" "}
+            <code>React-Select</code> which doesn't expose <code>innerRef</code>{" "}
+            or <code>ref</code>, you will have to reset the input value manually
+            through input <code>onChange</code>.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -376,12 +449,22 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              setError: <Type>(name: string, type: string, message: string, ref: Ref) => void</Type>
+              setError:{" "}
+              <Type>
+                (name: string, type: string, message: string, ref: Ref) => void
+              </Type>
             </h2>
           </CodeHeading>
-          <p>This function allows you to manually set an input error or clear one.</p>
+          <p>
+            This function allows you to manually set an input error or clear
+            one.
+          </p>
 
-          <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={setError} url="https://codesandbox.io/s/o7rxyym3q5" />
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={setError}
+            url="https://codesandbox.io/s/o7rxyym3q5"
+          />
 
           <hr />
 
@@ -392,13 +475,16 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              setValue: <Type>(name: string, value: string | number | boolean) => void</Type>
+              setValue:{" "}
+              <Type>
+                (name: string, value: string | number | boolean) => void
+              </Type>
             </h2>
           </CodeHeading>
           <p>This function allows you to dynamically set input/select value.</p>
           <p>
-            <Note>Note: </Note> by invoking this method <code>formState</code> will include the <code>name</code> into{' '}
-            <code>touched</code> .
+            <Note>Note: </Note> by invoking this method <code>formState</code>{" "}
+            will include the <code>name</code> into <code>touched</code> .
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -436,11 +522,19 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              triggerValidation: <Type style={{ fontSize: 14}}>async {`({ name: string; value?: any; forceValidation?: boolean; })`} => boolean</Type>
+              triggerValidation:{" "}
+              <Type style={{ fontSize: 14 }}>
+                async{" "}
+                {`({ name: string; value?: any; forceValidation?: boolean; })`}{" "}
+                => boolean
+              </Type>
             </h2>
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
-          <p><Note>Note:</Note> When validation failed then <code>errors</code> object will be updated with associated error.</p>
+          <p>
+            <Note>Note:</Note> When validation failed then <code>errors</code>{" "}
+            object will be updated with associated error.
+          </p>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
@@ -461,12 +555,11 @@ function Builder({ formData, showApi }: any) {
 
           <hr />
 
-          <section ref={ref => apiSectionsRef.current.FormContextRef = ref}>
+          <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
             <FormContext />
           </section>
 
           <hr />
-
 
           <CodeHeading
             ref={ref => {
@@ -480,11 +573,16 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            If you would like to centralize your validation rules or external validation schema, you can apply{' '}
-            <code>validationSchema</code> when you invoke <code>useForm</code>. Currently support{' '}
-            <Link href="https://github.com/jquense/yup" target="_blank" tabIndex={tabIndex}>
+            If you would like to centralize your validation rules or external
+            validation schema, you can apply <code>validationSchema</code> when
+            you invoke <code>useForm</code>. Currently support{" "}
+            <Link
+              href="https://github.com/jquense/yup"
+              target="_blank"
+              tabIndex={tabIndex}
+            >
               Yup
-            </Link>{' '}
+            </Link>{" "}
             for object schema validation.
           </p>
           <SyntaxHighlighterWithCopy
@@ -504,7 +602,8 @@ function Builder({ formData, showApi }: any) {
             <h2>TypeScript</h2>
           </CodeHeading>
           <p>
-            React Hook Form is built and Loving Typescript, you can defined <code>Type</code> to support form value.
+            React Hook Form is built and Loving Typescript, you can defined{" "}
+            <code>Type</code> to support form value.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -517,19 +616,22 @@ function Builder({ formData, showApi }: any) {
 
           <section
             style={{
-              textAlign: 'center',
+              textAlign: "center",
             }}
           >
             <H1>Need your support</H1>
-            <p>If you find React Hook Form is useful, please star the repo to support 🙏🏻</p>
+            <p>
+              If you find React Hook Form is useful, please star the repo to
+              support 🙏🏻
+            </p>
             <DarkBlueButton
               onClick={() => {
                 track({
-                  category: 'Button',
-                  label: 'Star',
-                  action: 'Click - Go to Github star',
+                  category: "Button",
+                  label: "Star",
+                  action: "Click - Go to Github star",
                 })
-                navigate('https://github.com/bluebill1049/react-hook-form')
+                navigate("https://github.com/bluebill1049/react-hook-form")
               }}
             >
               Star React Hook Form
