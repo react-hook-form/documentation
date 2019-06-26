@@ -208,7 +208,7 @@ function Builder({ formData, showApi }: any) {
 
           <H5>
             <code>
-              mode: <Type>string</Type> = 'onSubmit'
+              mode: <Type>string = 'onSubmit'</Type>
             </code>
           </H5>
 
@@ -265,7 +265,7 @@ function Builder({ formData, showApi }: any) {
             <code>
               defaultValues:{" "}
               <Type>
-                {`{[key:string]: string}`} = {}
+                {`{[key:string]: string}`} = {`{}`}
               </Type>
             </code>
           </H5>
@@ -303,7 +303,7 @@ function Builder({ formData, showApi }: any) {
 
           <H5 style={{ marginTop: 20 }}>
             <code>
-              validationFields: <Type>string[]</Type> = true
+              validationFields: <Type>string[] = true</Type>
             </code>
           </H5>
 
@@ -326,7 +326,7 @@ function Builder({ formData, showApi }: any) {
 
           <H5 style={{ marginTop: 20 }}>
             <code>
-              submitFocusError: <Type>boolean</Type> = true
+              submitFocusError: <Type>boolean = true</Type>
             </code>
           </H5>
 
