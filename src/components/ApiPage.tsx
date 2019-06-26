@@ -322,7 +322,7 @@ function Builder({ formData, showApi }: any) {
 
           <H5 style={{ marginTop: 20 }}>
             <code>
-              validationFields: <Type>string[] = true</Type>
+              validationFields: <Type>string[] = []</Type>
             </code>
           </H5>
 
