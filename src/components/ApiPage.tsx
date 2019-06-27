@@ -311,7 +311,8 @@ function Builder({ formData, showApi }: any) {
 })
 
 <input name="firstName" ref={register} /> // ✅ works version
-<input name="lastName" ref={() => register({ name: 'lastName' })} /> // ❌ not populated with default value
+<input name="lastName" ref={() => register({ name: 'lastName' })} /> 
+// ❌ above example does not populated with default value due to ref not provided
 `}
           />
 
