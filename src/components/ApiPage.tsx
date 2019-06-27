@@ -308,7 +308,11 @@ function Builder({ formData, showApi }: any) {
     lastName: "luo",
     email: "bluebill1049@hotmail.com"
   }
-})`}
+})
+
+<input name="firstName" ref={register} /> // ✅ works version
+<input name="lastName" ref={() => register({ name: 'lastName' })} /> // ❌ not populated with default value
+`}
           />
 
           <H5 style={{ marginTop: 20 }}>
