@@ -291,6 +291,14 @@ function Builder({ formData, showApi }: any) {
             pre-fill default values for the entire form.
           </p>
 
+          <p>
+            <Note>Note: </Note> <code>defaultValues</code> doesn't work with
+            manually registered input. eg: {" "}
+            <code>{`register({ name: 'test' })`}</code>. Because manual{" "}
+            <code>register</code> filed is not providing <code>ref</code> to
+            React Hook Form.
+          </p>
+
           <SyntaxHighlighterWithCopy
             url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
             tabIndex={tabIndex}
@@ -365,8 +373,8 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             Set this option to <code>true</code> will enable browser's native
-            validation.{" "}
-            You can <a
+            validation. You can{" "}
+            <a
               target="_blank"
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
             >
