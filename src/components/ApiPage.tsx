@@ -32,6 +32,7 @@ import typeScript from "./codeExamples/typeScript"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
+import nativeValidation from "./codeExamples/nativeValidation"
 
 const { useRef, useEffect } = React
 
@@ -106,6 +107,7 @@ function Builder({ formData, showApi }: any) {
     TypescriptRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
+    nativeValidationRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -189,20 +191,20 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <p>
-            <code>useForm</code> also has <b>optional</b> arguments.
+            <code>useForm</code> also has <b>optional</b> arguments. The
+            following example demonstrate all options' default value.
           </p>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
             withOutCopy
             rawData={`const { register } = useForm({
-  mode: 'onBlur',
-  defaultValues: {
-    firstName: 'bill',
-    lastName: 'luo'
-  },
-  validationFields: ['firstName', lastName'],
+  mode: 'onSubmit',
+  defaultValues: {},
+  validationFields: [],
   validationSchema: {},
+  submitFocusError: true,
+  nativeValidation: false,
 })`}
           />
 
@@ -341,7 +343,9 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <H5 style={{ marginTop: 20 }}>
-            <code>validationSchema</code>
+            <code>
+              validationSchema: <Type>Object</Type>
+            </code>
           </H5>
 
           <p>
@@ -351,6 +355,28 @@ function Builder({ formData, showApi }: any) {
               validationSchema
             </CodeAsLink>{" "}
             section.
+          </p>
+
+          <H5 style={{ marginTop: 20 }}>
+            <code>
+              nativeValidation: <Type>boolean = false</Type>
+            </code>
+          </H5>
+
+          <p>
+            Set this option to <code>true</code> will enable browser's native
+            validation.{" "}
+            You can <a
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
+            >
+              find out more about browser built-in validation
+            </a>
+            , and refer to{" "}
+            <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+              nativeValidation
+            </CodeAsLink>{" "}
+            section for more detail and example.
           </p>
 
           <br />
@@ -589,6 +615,31 @@ function Builder({ formData, showApi }: any) {
             tabIndex={tabIndex}
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
+          />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.nativeValidationRef = ref
+            }}
+          >
+            <h2>NativeValidation</h2>
+          </CodeHeading>
+
+          <p>
+            Because native validation is triggering before <code>onSubmit</code>
+            phase, we will have to move <code>handleSubmit</code> at
+            button/input <code>onClick</code> and use{" "}
+            <code>e.preventDefault()</code> at <code>onSubmit</code> callback to
+            prevent page refresh.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={nativeValidation}
+            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
 
           <hr />

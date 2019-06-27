@@ -1,7 +1,7 @@
-import { Title } from '../styles/typography';
-import styled from 'styled-components';
-import * as React from 'react';
-import { AnimateGroup, Animate } from 'react-simple-animate';
+import { Title } from "../styles/typography"
+import styled from "styled-components"
+import * as React from "react"
+import { Animate } from "react-simple-animate"
 
 const FeaturesContent = styled.section`
   & h3 {
@@ -32,7 +32,7 @@ const FeaturesContent = styled.section`
     max-width: 1024px;
     margin: 20px auto 30px;
   }
-  
+
   @media (min-width: 1024px) {
     grid-column-gap: 30px;
   }
@@ -43,7 +43,7 @@ const FeaturesContent = styled.section`
     display: block;
     margin: 0 auto;
   }
-`;
+`
 
 const Features = styled.div`
   margin-top: -60px;
@@ -61,17 +61,29 @@ const Features = styled.div`
       margin-bottom: 20px;
     }
   }
-`;
+`
 
 export default function FeaturesList() {
   return (
     <Features>
       <Title>Features</Title>
       <FeaturesContent>
-        <Animate delay={0.5} start={{ opacity: 0 }} end={{ opacity: 1 }} sequenceIndex={0}>
+        <Animate
+          delay={0.5}
+          start={{ opacity: 0 }}
+          end={{ opacity: 1 }}
+          sequenceIndex={0}
+        >
           <svg version="1.1" x="0px" y="0px" viewBox="0 0 64 80">
             <g display="none">
-              <rect x="63.988" y="-188.006" display="inline" fill="#000000" width="20" height="430" />
+              <rect
+                x="63.988"
+                y="-188.006"
+                display="inline"
+                fill="#000000"
+                width="20"
+                height="430"
+              />
               <rect
                 x="374.488"
                 y="-437.506"
@@ -81,7 +93,14 @@ export default function FeaturesList() {
                 width="20"
                 height="1023"
               />
-              <rect x="-54.031" y="-205.674" display="inline" fill="#000000" width="947.424" height="496.184" />
+              <rect
+                x="-54.031"
+                y="-205.674"
+                display="inline"
+                fill="#000000"
+                width="947.424"
+                height="496.184"
+              />
             </g>
             <g display="none">
               <g display="inline">
@@ -105,8 +124,22 @@ export default function FeaturesList() {
                   </g>
                 </g>
                 <g>
-                  <line fill="none" stroke="#000000" x1="22.153" y1="0.707" x2="7.817" y2="15.046" />
-                  <line fill="none" stroke="#000000" x1="56.183" y1="48.954" x2="41.847" y2="63.293" />
+                  <line
+                    fill="none"
+                    stroke="#000000"
+                    x1="22.153"
+                    y1="0.707"
+                    x2="7.817"
+                    y2="15.046"
+                  />
+                  <line
+                    fill="none"
+                    stroke="#000000"
+                    x1="56.183"
+                    y1="48.954"
+                    x2="41.847"
+                    y2="63.293"
+                  />
                 </g>
               </g>
             </g>
@@ -128,7 +161,10 @@ export default function FeaturesList() {
             </g>
           </svg>
           <h3>HTML standard</h3>
-          <p>Leverage your existing HTML markup, and start validating your forms with standard validation.</p>
+          <p>
+            Leverage your existing HTML markup, and start validating your forms
+            with custom or browser built-in validation.
+          </p>
         </Animate>
 
         <Animate start={{ opacity: 0 }} end={{ opacity: 1 }} sequenceIndex={1}>
@@ -136,7 +172,10 @@ export default function FeaturesList() {
             <path d="M5,92.196c0,0,9.342-8.233,12.888-11.816c0.097-0.1,0.2-0.208,0.297-0.312c10.855,4.003,32.667-5.268,52.239-22.641  c0.577-0.497,0.479-0.28,1.024-0.795l-20.956-4.658l27.153-1.737l0.293-0.246C98.634,30.786,94.702,7.803,94.702,7.803  s-25.642,0.3-46.966,12.71l-1.578,20.272l-5.047-15.733c-1.352,1-1.791,1.295-3.083,2.421c-4.546,4.005-7.771,7.382-11.265,11.511  l2.401,15.721l-7.488-9.461c-9.515,13.243-12.903,25.574-7.898,31.79c-0.565,0.749-1.129,1.548-1.689,2.392  C7.368,86.518,5,92.196,5,92.196z M17.442,76.457c0,0,26.146-40.739,70.729-58.628C88.171,17.829,47.99,39.296,17.442,76.457z" />
           </svg>
           <h3>Super Light</h3>
-          <p>Performance is important and packages size matters. it is tiny and without any dependencies.</p>
+          <p>
+            Performance is important and packages size matters. it is a tiny library and
+            without any dependencies.
+          </p>
         </Animate>
 
         <Animate start={{ opacity: 0 }} end={{ opacity: 1 }} sequenceIndex={2}>
@@ -147,7 +186,8 @@ export default function FeaturesList() {
 
           <h3>Performance</h3>
           <p>
-            Minimizes the volume that is triggered re-rendering, try to provide your users with the best experience.
+            Minimizes the volume that is triggered re-rendering, try to provide
+            your users with the best experience.
           </p>
         </Animate>
 
@@ -158,9 +198,12 @@ export default function FeaturesList() {
             <path d="M79.011,48.388c-0.709-0.917-1.587-1.476-2.632-1.672  c-9.572,0.235-14.992-1.101-16.261-4.009c-2.406-5.798-6.397-9.499-11.974-11.102c-5.577-1.592-11.648-0.93-18.213,1.986  c2.893,4.613,5.287,9.132,7.18,13.56c3.509,7.878,5.072,14.617,4.688,20.218c0,1.022-0.389,1.992-1.167,2.91  c-0.686,0.93-1.511,1.546-2.475,1.849c-3.01,1.01-7.129,1.301-12.357,0.871c-5.24-0.442-10.904-3.167-16.993-8.175  c-1.385,6.83-2.799,11.271-4.244,13.324c14.306,8.29,28.217,12.767,41.733,13.429c2.091-7.355,3.184-11.137,3.277-11.346  c0.523-1.36,0.837-2.133,0.941-2.318c0.244-0.406,0.546-0.784,0.906-1.133c0.789-0.778,1.69-1.243,2.702-1.395  c5.959-0.813,11.095-2.66,15.406-5.542c6.519-4.321,9.997-10.521,10.439-18.597C80.063,50.224,79.742,49.271,79.011,48.388z   M53.181,50.445c-0.686,0.674-1.51,1.01-2.475,1.01c-0.988,0-1.818-0.336-2.493-1.01c-0.685-0.674-1.028-1.505-1.028-2.492  c0-0.977,0.343-1.802,1.028-2.475c0.674-0.674,1.504-1.012,2.493-1.012c0.965,0,1.789,0.337,2.475,1.012  c0.675,0.673,1.012,1.498,1.012,2.475C54.192,48.939,53.855,49.771,53.181,50.445z" />
           </svg>
           <h3>Adoptable</h3>
-          <p>Since form state is inherently local, it can be easily adopted without other dependencies.</p>
+          <p>
+            Since form state is inherently local, it can be easily adopted
+            without other dependencies.
+          </p>
         </Animate>
       </FeaturesContent>
     </Features>
-  );
+  )
 }
