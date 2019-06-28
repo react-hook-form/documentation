@@ -147,7 +147,7 @@ const GitHubButtonWrap = styled.span`
   position: absolute;
   right: 20px;
   top: 26px;
-  z-index: 5;
+  z-index: 1;
 `
 
 export default function Nav({ toggleBuilder, builderButton, tabIndex, pathname, showBuilder }: any) {
