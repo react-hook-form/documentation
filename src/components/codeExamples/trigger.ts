@@ -12,7 +12,10 @@ export default function YourForm() {
       <button
         type="button"
         onClick={async () => {
-          console.log("firstName", await triggerValidation({ name: 'firstName' }));
+          console.log("firstName validation result: ", await triggerValidation({ name: 'firstName' }))
+         
+          // you can trigger validation with value. It is useful for custom input when ref is not registered
+          await triggerValidation({ name: 'lastName', value: 'test' })
         }}
       >
         Trigger
