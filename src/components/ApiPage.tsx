@@ -82,6 +82,7 @@ const links = [
   "handleSubmit",
   "reset",
   "setError",
+  "clearError",
   "setValue",
   "getValues",
   "triggerValidation",
@@ -105,6 +106,7 @@ function Builder({ formData, showApi }: any) {
     handleSubmitRef: null,
     getValuesRef: null,
     TypescriptRef: null,
+    clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
     nativeValidationRef: null,
@@ -501,6 +503,19 @@ function Builder({ formData, showApi }: any) {
               setError:{" "}
               <Type>
                 (name: string, type: string, message: string, ref: Ref) => void
+              </Type>
+            </h2>
+          </CodeHeading>
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.clearErrorRef = ref
+            }}
+          >
+            <h2>
+              clearError:{" "}
+              <Type>
+                (name: string) => void
               </Type>
             </h2>
           </CodeHeading>
