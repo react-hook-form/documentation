@@ -263,6 +263,8 @@ function Builder({ formData, showApi }: any) {
             </Table>
           </TableWrapper>
 
+          <p style={{ textAlign: "center" }}>♦</p>
+
           <H5 style={{ marginTop: 20 }}>
             <code>
               defaultValues:{" "}
@@ -293,7 +295,7 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             <Note>Note: </Note> <code>defaultValues</code> doesn't work with
-            manually registered input. eg: {" "}
+            manually registered input. eg:{" "}
             <code>{`register({ name: 'test' })`}</code>. Because manual{" "}
             <code>register</code> filed is not providing <code>ref</code> to
             React Hook Form.
@@ -315,6 +317,8 @@ function Builder({ formData, showApi }: any) {
 // ❌ above example does not populated with default value due to ref not provided
 `}
           />
+
+          <p style={{ textAlign: "center" }}>♦</p>
 
           <H5 style={{ marginTop: 20 }}>
             <code>
@@ -339,6 +343,8 @@ function Builder({ formData, showApi }: any) {
             CodeSandbox
           </LinkToSandBox>
 
+          <p style={{ textAlign: "center" }}>♦</p>
+
           <H5 style={{ marginTop: 20 }}>
             <code>
               submitFocusError: <Type>boolean = true</Type>
@@ -355,6 +361,8 @@ function Builder({ formData, showApi }: any) {
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
 
+          <p style={{ textAlign: "center" }}>♦</p>
+
           <H5 style={{ marginTop: 20 }}>
             <code>
               validationSchema: <Type>Object</Type>
@@ -369,6 +377,8 @@ function Builder({ formData, showApi }: any) {
             </CodeAsLink>{" "}
             section.
           </p>
+
+          <p style={{ textAlign: "center" }}>♦</p>
 
           <H5 style={{ marginTop: 20 }}>
             <code>
