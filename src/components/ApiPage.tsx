@@ -589,7 +589,7 @@ function Builder({ formData, showApi }: any) {
               triggerValidation:{" "}
               <Type style={{ fontSize: 14 }}>
                 async{" "}
-                {`({ name: string; value?: any; forceValidation?: boolean; })`}{" "}
+                {`({ name: string; value?: any; })`}{" "}
                 => boolean
               </Type>
             </h2>
@@ -599,8 +599,6 @@ function Builder({ formData, showApi }: any) {
             <Note>Note:</Note> When validation failed then <code>errors</code>{" "}
             object will be updated with associated error.
           </p>
-          <p><Note>Note:</Note> <code>forceValidation</code> is set to <code>true</code> by default, which means you can trigger validation on any mode.
-            However, if you don't want to trigger an error before submit under <code>onSubmit</code> mode, then you can set it to false.</p>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
