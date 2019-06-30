@@ -8,7 +8,7 @@ export default function ApiWatch({ tabIndex }: any) {
     <>
       <CodeHeading>
         <h2>
-          watch: <Type>Function</Type>
+          watch: <Type>(string | string[] | undefined) => any</Type>
         </h2>
       </CodeHeading>
       <p>

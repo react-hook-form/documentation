@@ -16,6 +16,9 @@ export default function YourForm() {
          
           // you can trigger validation with value. It is useful for custom input when ref is not registered
           await triggerValidation({ name: 'lastName', value: 'test' })
+          
+          // you can trigger multiple fields validation
+          await triggerValidation([{ name: 'lastName' }, { name: 'firstName' }])
         }}
       >
         Trigger

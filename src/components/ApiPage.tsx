@@ -472,7 +472,7 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              reset: <Type>Function</Type>
+              reset: <Type>() => void</Type>
             </h2>
           </CodeHeading>
           <p>
@@ -502,7 +502,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setError:{" "}
               <Type>
-                (name: string, type: string, message: string, ref: Ref) => void
+                (name: string, type: string, message?: string, ref?: Ref) => void
               </Type>
             </h2>
           </CodeHeading>
@@ -587,9 +587,9 @@ function Builder({ formData, showApi }: any) {
           >
             <h2>
               triggerValidation:{" "}
-              <Type style={{ fontSize: 14 }}>
+              <Type style={{ fontSize: 12 }}>
                 async{" "}
-                {`({ name: string; value?: any; })`}{" "}
+                {`({ name: string; value?: any; } | { name: string; value?: any; }[])`}{" "}
                 => boolean
               </Type>
             </h2>
