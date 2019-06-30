@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { HeadingWithTopMargin, SubHeading } from "../styles/typography"
+import { HeadingWithTopMargin, SubHeading, Note } from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
 import styled from "styled-components"
@@ -11,7 +11,7 @@ import breakpoints from "../styles/breakpoints"
 import colors from "../styles/colors"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
-import accessibleCode from "../components/codeExamples/accessibleCode";
+import accessibleCode from "../components/codeExamples/accessibleCode"
 
 const { useRef } = React
 
@@ -248,6 +248,13 @@ const Faq = ({ location }) => {
               You can actually <code>register</code> an input without ref. In
               fact, you can manually <code>setValue</code>,{" "}
               <code>setError</code> and <code>triggerValidation</code>.
+            </p>
+
+            <p>
+              <Note>Note: </Note>because <code>ref</code> is not been
+              registered, React Hook Form wouldn't be able to register event
+              listeners to the inputs. so you will have to manually update value
+              and error. 
             </p>
 
             <SyntaxHighlighterWithCopy rawData={manualValidation} />
