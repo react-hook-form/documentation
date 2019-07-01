@@ -372,7 +372,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            Apply form validation rules with <code>Yup</code> at the schema
+            Apply form validation rules with <code>Yup</code> or <code>Nope</code> at the schema
             level, please refer the{" "}
             <CodeAsLink onClick={() => goToSection("validationSchema")}>
               validationSchema
@@ -502,7 +502,8 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setError:{" "}
               <Type>
-                (name: string, type: string, message?: string, ref?: Ref) => void
+                (name: string, type: string, message?: string, ref?: Ref) =>
+                void
               </Type>
             </h2>
           </CodeHeading>
@@ -513,10 +514,7 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              clearError:{" "}
-              <Type>
-                (name: string) => void
-              </Type>
+              clearError: <Type>(name: string) => void</Type>
             </h2>
           </CodeHeading>
           <p>
@@ -646,6 +644,14 @@ function Builder({ formData, showApi }: any) {
               tabIndex={tabIndex}
             >
               Yup
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="https://github.com/bvego/nope-validator"
+              target="_blank"
+              tabIndex={tabIndex}
+            >
+              Nope
             </Link>{" "}
             for object schema validation.
           </p>
