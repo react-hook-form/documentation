@@ -539,19 +539,19 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setValue:{" "}
               <Type>
-                (name: string, value: string | number | boolean,
-                shouldValidate?: boolean) => void
+                (name: string, value: any, shouldValidate?: boolean) => void
               </Type>
             </h2>
           </CodeHeading>
           <p>This function allows you to dynamically set input/select value.</p>
           <p>
             <Note>Note: </Note> by invoking this method <code>formState</code>{" "}
-            will include the <code>name</code> into <code>touched</code> .
+            will push <code>name</code> into <code>touched</code> .
           </p>
           <p>
-            You can also set `shouldValidate` to true, to trigger validation
-            after value update. eg: <code>setValue('name', 'value', true)</code>
+            You can also set <code>shouldValidate</code> to true, to trigger
+            validation after value update. eg:{" "}
+            <code>setValue('name', 'value', true)</code>
           </p>
 
           <SyntaxHighlighterWithCopy
