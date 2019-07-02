@@ -372,8 +372,8 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            Apply form validation rules with <code>Yup</code> or <code>Nope</code> at the schema
-            level, please refer the{" "}
+            Apply form validation rules with <code>Yup</code> or{" "}
+            <code>Nope</code> at the schema level, please refer the{" "}
             <CodeAsLink onClick={() => goToSection("validationSchema")}>
               validationSchema
             </CodeAsLink>{" "}
@@ -539,7 +539,8 @@ function Builder({ formData, showApi }: any) {
             <h2>
               setValue:{" "}
               <Type>
-                (name: string, value: string | number | boolean) => void
+                (name: string, value: string | number | boolean,
+                shouldValidate?: boolean) => void
               </Type>
             </h2>
           </CodeHeading>
@@ -547,6 +548,10 @@ function Builder({ formData, showApi }: any) {
           <p>
             <Note>Note: </Note> by invoking this method <code>formState</code>{" "}
             will include the <code>name</code> into <code>touched</code> .
+          </p>
+          <p>
+            You can also set `shouldValidate` to true, to trigger validation
+            after value update. eg: <code>setValue('name', 'value', true)</code>
           </p>
 
           <SyntaxHighlighterWithCopy
