@@ -81,6 +81,7 @@ const links = [
   "How to initialize form values?",
   "How to share ref usage?",
   "What if you don't have access to ref?",
+  "Browser support?",
 ]
 
 const Faq = ({ location }) => {
@@ -92,6 +93,7 @@ const Faq = ({ location }) => {
     question5: null,
     question6: null,
     question7: null,
+    question8: null,
   })
 
   const goToSection = (name, index) => {
@@ -254,10 +256,28 @@ const Faq = ({ location }) => {
               <Note>Note: </Note>because <code>ref</code> is not been
               registered, React Hook Form wouldn't be able to register event
               listeners to the inputs. so you will have to manually update value
-              and error. 
+              and error.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={manualValidation} />
+            <hr />
+
+            <h2 ref={ref => (sectionsRef.current.question8 = ref)}>
+              Browser Support?
+            </h2>
+
+            <p>Pose and React Pose support all major browsers.</p>
+
+            <p>
+              For legacy IE11 support, the following polyfills are required:
+            </p>
+
+            <ul>
+              <li><code>Array.prototype.includes</code></li>
+              <li><code>Object.prototype.values</code></li>
+              <li><code>Promise</code></li>
+            </ul>
+
             <hr />
 
             <Footer />
