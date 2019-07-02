@@ -17,7 +17,7 @@ ${Array.isArray(formData) ? formData.reduce((previous, { type, name, required, m
     if (type === 'select') {
       const select = `      <select name="${name}"${ref}>\n${options.split(';').filter(Boolean).reduce((temp, option) => {
         return temp + `        <option value="${option}">${option}</option>\n`;
-      }, '')}      </select>\n`;
+      }, '')}      </select>`;
 
       return previous + select;
     }
@@ -37,7 +37,7 @@ ${Array.isArray(formData) ? formData.reduce((previous, { type, name, required, m
       }${pattern ? `, pattern: /${pattern}/i` : ''}${min ? `, min: ${min}` : ''} })`: '';
 
     if (type === 'textarea') {
-      const select = `      <textarea name="${name}" ref={register${attributes}} />\n`;
+      const select = `      <textarea name="${name}" ref={register${attributes}} />`;
       return previous + select;
     }
 
