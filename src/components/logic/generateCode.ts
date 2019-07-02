@@ -25,7 +25,7 @@ ${Array.isArray(formData) ? formData.reduce((previous, { type, name, required, m
     if (type === 'radio') {
       const select = `\n${options.split(';').filter(Boolean).reduce((temp, option) => {
         return temp + `      <input name="${name}" type="${type}" value="${option}"${ref}/>\n`;
-      }, '')}\n`;
+      }, '')}`;
 
       return previous + select;
     }
