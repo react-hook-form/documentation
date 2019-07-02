@@ -266,7 +266,7 @@ const Faq = ({ location }) => {
               Browser Support?
             </h2>
 
-            <p>Pose and React Pose support all major browsers.</p>
+            <p>React Hook Form support all major browsers.</p>
 
             <p>
               For legacy IE11 support, the following polyfills are required:
