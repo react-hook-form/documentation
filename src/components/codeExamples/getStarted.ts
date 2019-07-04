@@ -21,7 +21,7 @@ export const migrateCode = `import React from 'react'
 import useForm from 'react-hook-form'
 
 // The following component is an example of your existing Input Component 
-const Input => ({ label, register, required }) = ( 
+const Input = ({ label, register, required }) => ( 
   <>
     <label>{label}</label>
     <input name={label} ref={register({ required })} />
@@ -29,7 +29,7 @@ const Input => ({ label, register, required }) = (
 )
 
 // you can use React.forwardRef to pass the ref too
-const Select => React.forwardRef(({ label, register }, ref) = ( 
+const Select = React.forwardRef(({ label, register }, ref) => ( 
   <>
     <label>{label}</label>
     <Select name={label} ref={ref}>
