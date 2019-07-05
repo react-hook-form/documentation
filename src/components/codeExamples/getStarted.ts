@@ -32,10 +32,10 @@ const Input = ({ label, register, required }) => (
 const Select = React.forwardRef(({ label, register }, ref) => ( 
   <>
     <label>{label}</label>
-    <Select name={label} ref={ref}>
+    <select name={label} ref={ref}>
       <option value="20">20</option>
       <option value="30">30</option>
-    </Select>
+    </select>
   </>
 ))
 
