@@ -591,8 +591,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               triggerValidation:{" "}
               <Type style={{ fontSize: 12 }}>
-                async{" "}
-                {`({ name: string; value?: any; } | { name: string; value?: any; }[])`}{" "}
+                {`(payload?: { name: string; value?: any; } | { name: string; value?: any; }[])`}{" "}
                 => boolean
               </Type>
             </h2>

@@ -19,6 +19,9 @@ export default function YourForm() {
           
           // you can trigger multiple fields validation
           await triggerValidation([{ name: 'lastName' }, { name: 'firstName' }])
+          
+          // you can trigger the entire form validation by supply empty argument
+          await triggerValidation()
         }}
       >
         Trigger
