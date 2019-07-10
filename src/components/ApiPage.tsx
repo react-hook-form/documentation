@@ -83,7 +83,6 @@ const links = [
   "handleSubmit",
   "reset",
   "setError",
-  "clearError",
   "setValue",
   "getValues",
   "triggerValidation",
