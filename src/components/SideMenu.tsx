@@ -69,7 +69,7 @@ const Arrow = styled.span`
     position: absolute;
     top: 0;
     left: 0;
-    height: 50%;
+    height: 43%;
     border-left: 1px solid #ec5990;
   }
   `
@@ -158,7 +158,7 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
                   <span
                     style={{
                       left: 1,
-                      top: 2,
+                      top: -1,
                       position: 'relative',
                     }}
                   >

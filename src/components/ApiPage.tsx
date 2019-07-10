@@ -33,6 +33,7 @@ import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import nativeValidation from "./codeExamples/nativeValidation"
+import unregisterCode from "./codeExamples/unregisterCode";
 
 const { useRef, useEffect } = React
 
@@ -98,6 +99,7 @@ function Builder({ formData, showApi }: any) {
     formStateRef: null,
     useFormRef: null,
     registerRef: null,
+    unregisterRef: null,
     resetRef: null,
     errorsRef: null,
     watchRef: null,
@@ -162,6 +164,10 @@ function Builder({ formData, showApi }: any) {
             methods{" "}
             <CodeAsLink onClick={() => goToSection("register")}>
               register
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("unregister")}>
+              unregister
             </CodeAsLink>
             ,{" "}
             <CodeAsLink onClick={() => goToSection("errors")}>
@@ -421,6 +427,29 @@ function Builder({ formData, showApi }: any) {
           <ApiRefTable tabIndex={tabIndex} />
 
           <hr />
+
+          <CodeHeading
+              ref={ref => {
+                // @ts-ignore
+                apiSectionsRef.current.unregisterRef = ref
+              }}
+          >
+            <h2>
+              unregister:{" "}
+              <Type>{`(name: string | string[]) => void`}</Type>
+            </h2>
+          </CodeHeading>
+
+          <p>This method will allow you to <code>unregister</code> an input or array of inputs.</p>
+
+          <SyntaxHighlighterWithCopy
+              url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
+              tabIndex={tabIndex}
+              rawData={unregisterCode}
+          />
+
+          <hr/>
+
           <section
             ref={ref => {
               // @ts-ignore
