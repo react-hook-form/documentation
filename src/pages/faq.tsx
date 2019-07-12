@@ -82,6 +82,7 @@ const links = [
   "How to share ref usage?",
   "What if you don't have access to ref?",
   "Browser support?",
+  "Why first keystroke is not working?",
 ]
 
 const Faq = ({ location }) => {
@@ -94,6 +95,7 @@ const Faq = ({ location }) => {
     question6: null,
     question7: null,
     question8: null,
+    question9: null,
   })
 
   const goToSection = (name, index) => {
@@ -273,10 +275,35 @@ const Faq = ({ location }) => {
             </p>
 
             <ul>
-              <li><code>Array.prototype.includes</code></li>
-              <li><code>Object.prototype.values</code></li>
-              <li><code>Promise</code></li>
+              <li>
+                <code>Array.prototype.includes</code>
+              </li>
+              <li>
+                <code>Object.prototype.values</code>
+              </li>
+              <li>
+                <code>Promise</code>
+              </li>
             </ul>
+
+            <hr />
+
+            <h2 ref={ref => (sectionsRef.current.question9 = ref)}>
+              Why first keystroke is not working?
+            </h2>
+
+            <p>
+              Double check if you are using <code>value</code>
+              instead of <code>defaultValue</code>.
+            </p>
+
+            <p>
+              React Hook Form is built based on uncontrolled input, which means
+              you don't need to change input <code>value</code> via{" "}
+              <code>state</code> by <code>onChange</code>. Hence you don't need{" "}
+              <code>value</code> at all, in fact, you only need{" "}
+              <code>defaultValue</code> for initial input value.
+            </p>
 
             <hr />
 
