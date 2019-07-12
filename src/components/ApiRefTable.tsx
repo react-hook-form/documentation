@@ -1,12 +1,12 @@
-import * as React from 'react'
-import colors from '../styles/colors'
-import styled from 'styled-components'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { xonokai as monokaiSublime } from 'react-syntax-highlighter/dist/styles/prism'
-import { TableWrapper, Table, Type } from './ApiPage'
-import Link from '../styles/link'
-import track from './utils/track'
-import { Note } from '../styles/typography'
+import * as React from "react"
+import colors from "../styles/colors"
+import styled from "styled-components"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { xonokai as monokaiSublime } from "react-syntax-highlighter/dist/styles/prism"
+import { TableWrapper, Table, Type } from "./ApiPage"
+import Link from "../styles/link"
+import track from "./utils/track"
+import { Note } from "../styles/typography"
 
 const { useState } = React
 
@@ -46,14 +46,10 @@ export default function ApiRefTable({ tabIndex }: any) {
         validation.
       </p>
       <p>
-        <Note>Important:</Note> <code>name</code> is <b>required</b> and{' '}
+        <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
         <b>unique</b>. Input name also support dot and bracket syntax, which
         allow you to easily create nested or array fields. Example table is
         below:
-      </p>
-      <p>
-        <Note>Note: </Note>You can register field manually. eg:{' '}
-        <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
       </p>
 
       <TableWrapper>
@@ -106,16 +102,16 @@ export default function ApiRefTable({ tabIndex }: any) {
         }}
       >
         If you working on <code>arrays/array fields</code>, you can assign input
-        name as <code>name[index]</code>.{' '}
+        name as <code>name[index]</code>.{" "}
         <Link
           tabIndex={tabIndex}
           href="https://github.com/bluebill1049/react-hook-form/blob/master/examples/arrayFields.tsx"
           title="example for array fields"
           onClick={() => {
             track({
-              category: 'Link',
-              label: 'check out array field example',
-              action: 'Click - Go to array field example',
+              category: "Link",
+              label: "check out array field example",
+              action: "Click - Go to array field example",
             })
           }}
         >
@@ -189,7 +185,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -204,7 +200,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               </td>
               <td>
                 <code>
-                  <Type>{isStandard ? 'boolean' : 'string'}</Type>
+                  <Type>{isStandard ? "boolean" : "string"}</Type>
                 </code>
               </td>
               <td>
@@ -215,14 +211,14 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
   name="test"
   ref={
     register({
-      ${isStandard ? 'required: true' : `required: 'error message'`}
+      ${isStandard ? "required: true" : `required: 'error message'`}
     })
   }
 />`}</SyntaxHighlighter>
@@ -236,7 +232,7 @@ export default function ApiRefTable({ tabIndex }: any) {
                 <code>
                   <Type>
                     {isStandard
-                      ? 'number'
+                      ? "number"
                       : `{
   value: number,
   message: string
@@ -248,7 +244,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -257,7 +253,7 @@ export default function ApiRefTable({ tabIndex }: any) {
     register({
       ${
         isStandard
-          ? 'maxLength: 2'
+          ? "maxLength: 2"
           : `maxLength : {
         value: 2,
         message: 'error message'
@@ -276,7 +272,7 @@ export default function ApiRefTable({ tabIndex }: any) {
                 <code>
                   <Type>
                     {isStandard
-                      ? 'number'
+                      ? "number"
                       : `{
   value: number,
   message: string
@@ -288,7 +284,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -316,7 +312,7 @@ export default function ApiRefTable({ tabIndex }: any) {
                 <code>
                   <Type>
                     {isStandard
-                      ? 'number'
+                      ? "number"
                       : `{
   value: number,
   message: string
@@ -328,7 +324,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -356,7 +352,7 @@ export default function ApiRefTable({ tabIndex }: any) {
                 <code>
                   <Type>
                     {isStandard
-                      ? 'number'
+                      ? "number"
                       : `{
   value: number,
   message: string
@@ -368,7 +364,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -396,7 +392,7 @@ export default function ApiRefTable({ tabIndex }: any) {
                 <code>
                   <Type>
                     {isStandard
-                      ? 'RegExp'
+                      ? "RegExp"
                       : `{
   value: RegExp,
   message: string
@@ -408,7 +404,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -417,7 +413,7 @@ export default function ApiRefTable({ tabIndex }: any) {
     register({
       pattern: ${
         isStandard
-          ? '\\[A-Za-z]{3}\\'
+          ? "\\[A-Za-z]{3}\\"
           : `{
         value: \\[A-Za-z]{3}\\,
         message: 'error message'
@@ -445,7 +441,7 @@ export default function ApiRefTable({ tabIndex }: any) {
               <td>
                 <SyntaxHighlighter
                   customStyle={{
-                    border: 'none',
+                    border: "none",
                   }}
                   style={monokaiSublime}
                 >{`<input
@@ -466,6 +462,14 @@ export default function ApiRefTable({ tabIndex }: any) {
           </tbody>
         </Table>
       </TableWrapper>
+
+      <br />
+
+      <p>
+        <Note>Note: </Note>You can also register input manually, which is useful{" "}
+        when working with custom components and <code>Ref</code> is not accessible. eg:{" "}
+        <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+      </p>
     </>
   )
 }
