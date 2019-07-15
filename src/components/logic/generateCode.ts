@@ -30,11 +30,32 @@ ${Array.isArray(formData) ? formData.reduce((previous, { type, name, required, m
       return previous + select;
     }
     
-    const attributes = anyAttribute ? `({ ${
-      required ? 'required: true' : ''
-      }${max ? `, max: ${max}` : ''}${minLength ? `, minLength: ${minLength}` : ''}${
-      maxLength ? `, maxLength: ${maxLength}` : ''
-      }${pattern ? `, pattern: /${pattern}/i` : ''}${min ? `, min: ${min}` : ''} })`: '';
+    let attributes = '';
+    
+    if (anyAttribute) {
+      attributes += '({';
+      
+      if (required) {
+        attributes += 'required: true'
+      }
+      if (max) {
+        attributes += `${attributes === '({' ? '' : ', '}max: ${max}`;
+      }
+      if (min) {
+        attributes += `${attributes === '({' ? '' : ', '}min: ${min}`;
+      }
+      if (minLength) {
+        attributes += `${attributes === '({' ? '' : ', '}minLength: ${minLength}`;
+      }
+      if (maxLength) {
+        attributes += `${attributes === '({' ? '' : ', '}maxLength: ${maxLength}`;        
+      }
+      if (pattern) {
+        attributes += `${attributes === '({' ? '' : ', '}pattern: /${pattern}/i`;        
+      }
+
+      attributes += '})';
+    }
 
     if (type === 'textarea') {
       const select = `      <textarea name="${name}" ref={register${attributes}} />`;
