@@ -201,7 +201,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     action: updateFormData,
   } = useStateMachine(updateStore)
   const [editFormData, setFormData] = useState(defaultValue)
-  const { register, handleSubmit, errors = {}, watch, setValue } = useForm()
+  const { register, handleSubmit, errors = {}, watch, setValue, reset } = useForm()
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef([])
   const closeButton = useRef(null)
@@ -228,10 +228,12 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     editFormData.minLength ||
     editFormData.required
   copyFormData.current = formData
+  const editIndexRef = useRef(null);
+  editIndexRef.current = editIndex;
 
-  function validate(value) {
+  const validate = (value) => {
     // @ts-ignore
-    return !Object.values(copyFormData.current).find(data => data.name === value) || editIndex !== -1
+    return !Object.values(copyFormData.current).find(data => data.name === value) || editIndexRef.current !== -1
   }
 
   useEffect(() => {
@@ -255,7 +257,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <Title>Form</Title>
 
           <SortableContainer
-            {...{ updateFormData, tabIndex, formData, editIndex, setEditIndex, setFormData, editFormData }}
+            {...{ updateFormData, tabIndex, formData, editIndex, setEditIndex, setFormData, editFormData, reset }}
           />
 
           {(formData || []).length === 0 && (

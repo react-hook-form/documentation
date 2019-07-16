@@ -62,7 +62,7 @@ const SortableWrapper = styled.div`
   }
 `;
 
-export default function SortableContainer({ updateFormData, formData, editIndex, setEditIndex, setFormData, tabIndex }) {
+export default function SortableContainer({ updateFormData, formData, editIndex, setEditIndex, setFormData, tabIndex, reset }) {
   return (
     <SortableWrapper>
       <Sortable
@@ -146,6 +146,7 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                         if (editIndex === index) {
                           setEditIndex(-1);
                           setFormData({});
+                          reset();
                         } else {
                           const index = formData.findIndex(data => field.name === data.name);
                           setFormData(formData[index]);
