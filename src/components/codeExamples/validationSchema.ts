@@ -17,7 +17,7 @@ export default function YourForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" name="name" ref={register} />
+      <input name="name" ref={register} />
       <input type="number" name="age" ref={register} />
       <input type="submit" />
     </form>

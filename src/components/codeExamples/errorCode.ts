@@ -7,11 +7,11 @@ function YourForm() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" name="singleErrorInput" ref={register({ required: true })} />
+      <input name="singleErrorInput" ref={register({ required: true })} />
       {errors.textInput && 'Your input is required'}
     
       {/* refer to the type of error to display message accordingly */}
-      <input type="text" name="multipleErrorInput" ref={register({ required: true, maxLength: 50 })} />
+      <input name="multipleErrorInput" ref={register({ required: true, maxLength: 50 })} />
       {errors.textInput && errors.textInput.type === 'required' && 'Your input is required'}
       {errors.textInput && errors.textInput.type === 'maxLength' && 'Your input exceed maxLength'}
       
@@ -20,7 +20,7 @@ function YourForm() {
       {errors.numberInput && 'Your input required to be more than 50'}
       
       {/* register with validation and error message */}
-      <input type="text" name="errorMessage" ref={register({ required: 'This is required' })} />
+      <input name="errorMessage" ref={register({ required: 'This is required' })} />
       {errors.errorMessage && errors.errorMessage.message} 
       <input type="submit" /> 
     </form>

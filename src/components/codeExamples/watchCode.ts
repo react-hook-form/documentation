@@ -9,7 +9,7 @@ export default function YourForm(props) {
   
   return (
     <form>
-      <input type="text" name="textInput" ref={register({ required: true, maxLength: 50 })} />
+      <input name="textInput" ref={register({ required: true, maxLength: 50 })} />
       <input type="checkbox" name="yes" ref={register} />
       
       {watchYes && <input type="number" name="numberInput" ref={register({ min: 50 })} />}

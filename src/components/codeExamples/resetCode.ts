@@ -9,8 +9,8 @@ export default function YourForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" name="First name" ref={register({ required: true })} />
-      <input type="text" name="Last name" ref={register} />
+      <input name="First name" ref={register({ required: true })} />
+      <input name="Last name" ref={register} />
 
       <input type="submit" />
       <input style={{ display: "block", marginTop: 20 }} type="reset" />
