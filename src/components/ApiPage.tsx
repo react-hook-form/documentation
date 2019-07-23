@@ -33,7 +33,7 @@ import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import nativeValidation from "./codeExamples/nativeValidation"
-import unregisterCode from "./codeExamples/unregisterCode";
+import unregisterCode from "./codeExamples/unregisterCode"
 
 const { useRef, useEffect } = React
 
@@ -294,17 +294,17 @@ function Builder({ formData, showApi }: any) {
                 })
               }}
             >
-              (read more at React doc for uncontrolled input default value)
+              (read more at React doc for Default Values)
             </Link>{" "}
             or pass <code>defaultValues</code> as an optional argument to
-            pre-fill default values for the entire form.
+            populate default values for the entire form.
           </p>
 
           <p>
             <Note>Note: </Note> <code>defaultValues</code> doesn't work with
             manually registered input. eg:{" "}
             <code>{`register({ name: 'test' })`}</code>. Because manual{" "}
-            <code>register</code> filed is not providing <code>ref</code> to
+            <code>register</code> field is not providing <code>ref</code> to
             React Hook Form.
           </p>
 
@@ -428,26 +428,28 @@ function Builder({ formData, showApi }: any) {
           <hr />
 
           <CodeHeading
-              ref={ref => {
-                // @ts-ignore
-                apiSectionsRef.current.unregisterRef = ref
-              }}
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.unregisterRef = ref
+            }}
           >
             <h2>
-              unregister:{" "}
-              <Type>{`(name: string | string[]) => void`}</Type>
+              unregister: <Type>{`(name: string | string[]) => void`}</Type>
             </h2>
           </CodeHeading>
 
-          <p>This method will allow you to <code>unregister</code> an input or array of inputs.</p>
+          <p>
+            This method will allow you to <code>unregister</code> an input or
+            array of inputs.
+          </p>
 
           <SyntaxHighlighterWithCopy
-              url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
-              tabIndex={tabIndex}
-              rawData={unregisterCode}
+            url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
+            tabIndex={tabIndex}
+            rawData={unregisterCode}
           />
 
-          <hr/>
+          <hr />
 
           <section
             ref={ref => {
