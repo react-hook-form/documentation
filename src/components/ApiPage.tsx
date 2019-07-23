@@ -321,7 +321,7 @@ function Builder({ formData, showApi }: any) {
 
 <input name="firstName" ref={register} /> // ✅ works version
 <input name="lastName" ref={() => register({ name: 'lastName' })} /> 
-// ❌ above example does not populated with default value due to ref not provided
+// ❌ above example does not work with defaultValues due to its ref is not provided
 `}
           />
 
@@ -335,7 +335,8 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             By providing an array of fields, which means only included fields
-            will be validated.
+            will be validated. This option is useful when you want to toggle
+            which fields are required to validate.
           </p>
           <LinkToSandBox
             tabIndex={tabIndex}
@@ -359,12 +360,12 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            By default when user submit a form with error, the field will be
-            focused.
+            By default when user submit a form and contains error, the first
+            error field will be focused.
           </p>
           <p>
-            <Note>Note:</Note> only registered field with <code>ref</code>{" "}
-            works, not with custom register. eg:{" "}
+            <Note>Note:</Note> only registered field with <code>ref</code> will
+            works, not with manual register input. eg:{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
 
@@ -439,7 +440,7 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            This method will allow you to <code>unregister</code> an input or
+            This method will allow you to <code>unregister</code> a single or
             array of inputs.
           </p>
 
@@ -483,7 +484,7 @@ function Builder({ formData, showApi }: any) {
             successful.
           </p>
           <p>
-            <Note>Note:</Note> you can pass <code>async</code> function for
+            <Note>Note:</Note> you can pass an <code>async</code> function for
             asynchronous validation. eg:{" "}
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
@@ -510,9 +511,9 @@ function Builder({ formData, showApi }: any) {
           </p>
           <p>
             <Note>Note:</Note> for controlled component like{" "}
-            <code>React-Select</code> which doesn't expose <code>innerRef</code>{" "}
-            or <code>ref</code>, you will have to reset the input value manually
-            through input <code>onChange</code>.
+            <code>React-Select</code> which doesn't expose <code>ref</code>, you
+            will have to reset the input value manually through{" "}
+            <code onClick={() => goToSection("setValue")}>setValue</code>.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -576,11 +577,11 @@ function Builder({ formData, showApi }: any) {
           <p>This function allows you to dynamically set input/select value.</p>
           <p>
             <Note>Note: </Note> by invoking this method <code>formState</code>{" "}
-            will push <code>name</code> into <code>touched</code> .
+            will push input's <code>name</code> into <code>touched</code>.
           </p>
           <p>
-            You can also set <code>shouldValidate</code> to true, to trigger
-            validation after value update. eg:{" "}
+            You can also set <code>shouldValidate</code> to true and it will
+            trigger field validation. eg:{" "}
             <code>setValue('name', 'value', true)</code>
           </p>
 
@@ -628,8 +629,8 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
           <p>
-            <Note>Note:</Note> When validation failed then <code>errors</code>{" "}
-            object will be updated with associated error.
+            <Note>Note:</Note> when validation failed, then <code>errors</code>{" "}
+            object will be updated.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -669,9 +670,9 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            If you would like to centralize your validation rules or external
-            validation schema, you can apply <code>validationSchema</code> when
-            you invoke <code>useForm</code>. Currently support{" "}
+            If you would like to centralize your validation rules with external
+            validation schema, you can apply <code>validationSchema</code> at{" "}
+            <code>useForm</code> as an optional argument. Currently support{" "}
             <Link
               href="https://github.com/jquense/yup"
               target="_blank"
@@ -711,7 +712,7 @@ function Builder({ formData, showApi }: any) {
             phase, we will have to move <code>handleSubmit</code> at
             button/input <code>onClick</code> and use{" "}
             <code>e.preventDefault()</code> at <code>onSubmit</code> callback to
-            prevent page refresh.
+            prevent page from refreshing.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -731,8 +732,8 @@ function Builder({ formData, showApi }: any) {
             <h2>TypeScript</h2>
           </CodeHeading>
           <p>
-            React Hook Form is built and Loving Typescript, you can defined{" "}
-            <code>Type</code> to support form value.
+            React Hook Form is built with <code>Typescript</code>, you can defined{" "}
+            <code>Type</code> to support form values.
           </p>
 
           <SyntaxHighlighterWithCopy
