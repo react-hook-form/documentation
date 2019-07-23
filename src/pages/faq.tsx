@@ -165,7 +165,7 @@ const Faq = ({ location }) => {
                 Uncontrolled Component
               </a>
               , which give you the ability to building accessible custom form
-              easily. Hope you will find the following example useful.
+              easily.
             </p>
             <SyntaxHighlighterWithCopy rawData={accessibleCode} />
 
@@ -175,7 +175,10 @@ const Faq = ({ location }) => {
               Does it work with Class Component?
             </h2>
 
-            <p>No.</p>
+            <p>
+              No, not out of box. but you can build a wrapper around it and use
+              in your Class Component.
+            </p>
 
             <blockquote>
               You can’t use Hooks inside of a class component, but you can
