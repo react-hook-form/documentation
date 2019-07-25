@@ -39,6 +39,7 @@ export default function Form({
     handleSubmit,
     watch,
     formState: { touched },
+    reset,
   } = useForm({
     mode: "onChange",
   })
@@ -88,6 +89,7 @@ export default function Form({
             type="button"
             tabIndex={tabIndex}
             onClick={() => {
+              reset();
               track({
                 category: "Button",
                 action: "Edit - Form data",
