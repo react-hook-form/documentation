@@ -301,8 +301,15 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <p>
-            <Note>Note: </Note> <code>defaultValues</code> doesn't work with
-            manually registered input. eg:{" "}
+            Values defined in <code>defaultValues</code> will be individually
+            injected into{" "}
+            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
+            as <code>defaultValue</code>.
+          </p>
+
+          <p>
+            <Note>Note: </Note> <code>defaultValues</code> doesn't auto populate
+            with manually registered input. eg:{" "}
             <code>{`register({ name: 'test' })`}</code>. Because manual{" "}
             <code>register</code> field is not providing <code>ref</code> to
             React Hook Form.
@@ -315,7 +322,8 @@ function Builder({ formData, showApi }: any) {
   defaultValues: {
     firstName: "bill",
     lastName: "luo",
-    email: "bluebill1049@hotmail.com"
+    email: "bluebill1049@hotmail.com",
+    pets: [ 'dog', 'cat' ]
   }
 })
 
@@ -378,7 +386,8 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            Apply form validation rules with <code>Yup</code> at the schema level, please refer the{" "}
+            Apply form validation rules with <code>Yup</code> at the schema
+            level, please refer the{" "}
             <CodeAsLink onClick={() => goToSection("validationSchema")}>
               validationSchema
             </CodeAsLink>{" "}
@@ -548,8 +557,10 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            This function allows you to manually set an input error or clear
-            one.
+            <code>setError</code>: allows you to manually set an input error.
+          </p>
+          <p>
+            <code>clearError</code>: will remove an input error.
           </p>
 
           <SyntaxHighlighterWithCopy
@@ -599,10 +610,25 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              getValues: <Type>() => Object</Type>
+              getValues:{" "}
+              <Type>{`(payload?: { nest: boolean }) => Object`}</Type>
             </h2>
           </CodeHeading>
           <p>This function will return the entire form data.</p>
+
+          <ul>
+            <li>
+              By default <code>getValues()</code> will return form data in a
+              flat structure. eg:{" "}
+              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            </li>
+            <li>
+              Working on array fields form,{" "}
+              <code>getValues({`{ nest: true }`})</code> will return data in a
+              nested structure according to input <code>name</code>. eg:{" "}
+              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            </li>
+          </ul>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
@@ -678,7 +704,8 @@ function Builder({ formData, showApi }: any) {
               tabIndex={tabIndex}
             >
               Yup
-            </Link> for object schema validation.
+            </Link>{" "}
+            for object schema validation.
           </p>
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
@@ -722,8 +749,8 @@ function Builder({ formData, showApi }: any) {
             <h2>TypeScript</h2>
           </CodeHeading>
           <p>
-            React Hook Form is built with <code>Typescript</code>, you can defined{" "}
-            <code>Type</code> to support form values.
+            React Hook Form is built with <code>Typescript</code>, you can
+            defined <code>Type</code> to support form values.
           </p>
 
           <SyntaxHighlighterWithCopy
