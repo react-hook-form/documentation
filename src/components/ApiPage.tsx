@@ -301,8 +301,8 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <p>
-            Values defined in <code>defaultValues</code> will be individually
-            injected into{" "}
+            <Note>Note: </Note>Values defined in <code>defaultValues</code> will
+            be injected into{" "}
             <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
             as <code>defaultValue</code>.
           </p>
