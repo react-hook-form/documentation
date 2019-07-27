@@ -34,6 +34,7 @@ import Footer from "./Footer"
 import FormContext from "./FormContext"
 import nativeValidation from "./codeExamples/nativeValidation"
 import unregisterCode from "./codeExamples/unregisterCode"
+import breakpoints from "../styles/breakpoints"
 
 const { useRef, useEffect } = React
 
@@ -73,6 +74,64 @@ export const Type = styled.span`
   font-size: 15px;
   font-family: monospace;
   color: ${colors.lightPink};
+`
+
+const HiddenMenu = styled.div`
+  & > h1 {
+    display: none;
+
+    @media ${breakpoints.fromMediumScreen} {
+      display: block;
+    }
+  }
+
+  & > div {
+    @media ${breakpoints.fromMediumScreen} {
+      display: none;
+    }
+  }
+`
+
+const QuickSelect = styled.div`
+  position: relative;
+
+  &:after {
+    content: "▼";
+    font-size: 20px;
+    right: 22%;
+    top: 12px;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  & > select {
+    border: 1px solid white;
+    appearance: none;
+    background: none;
+    color: white;
+    margin: 0.67em auto 20px;
+    display: block;
+    text-align: center;
+    text-align-last: center;
+    font-size: 2rem;
+    font-weight: lighter;
+    padding: 10px;
+    position: relative;
+
+    :after {
+      position: absolute;
+      bottom: 0.15em;
+      top: 0.15em;
+      right: 0.5rem;
+      content: "\\2193";
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+      border: none;
+    }
+  }
 `
 
 const links = [
@@ -141,7 +200,23 @@ function Builder({ formData, showApi }: any) {
 
   return (
     <Container>
-      <HeadingWithTopMargin>API</HeadingWithTopMargin>
+      <HiddenMenu>
+        <HeadingWithTopMargin>API</HeadingWithTopMargin>
+        <QuickSelect>
+          <select
+            onChange={e => {
+              goToSection(e.target.value)
+            }}
+          >
+            <option>API</option>
+            {links.map(option => (
+              <option value={option} key={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </QuickSelect>
+      </HiddenMenu>
       <SubHeading>
         React Hook Form focus on providing the best DX by simplify the API.
       </SubHeading>

@@ -54,44 +54,46 @@ export default function ApiRefTable({ tabIndex }: any) {
 
       <TableWrapper>
         <Table>
-          <tr>
-            <th>
-              Input <code>name</code>
-            </th>
-            <th>Submit Result</th>
-          </tr>
-          <tr>
-            <td>
-              <code>name="firstName"</code>
-            </td>
-            <td>
-              <code>{`{ firstName: 'value'}`}</code>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>name="firstName[0]"</code>
-            </td>
-            <td>
-              <code>{`{ firstName: [ 'value' ] }`}</code>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>name="name.firstName"</code>
-            </td>
-            <td>
-              <code>{`{ name: { firstName: 'value' } }`}</code>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>name="name.firstName[0]"</code>
-            </td>
-            <td>
-              <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>
+                Input <code>name</code>
+              </th>
+              <th>Submit Result</th>
+            </tr>
+            <tr>
+              <td>
+                <code>name="firstName"</code>
+              </td>
+              <td>
+                <code>{`{ firstName: 'value'}`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>name="firstName[0]"</code>
+              </td>
+              <td>
+                <code>{`{ firstName: [ 'value' ] }`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>name="name.firstName"</code>
+              </td>
+              <td>
+                <code>{`{ name: { firstName: 'value' } }`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>name="name.firstName[0]"</code>
+              </td>
+              <td>
+                <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
+              </td>
+            </tr>
+          </tbody>
         </Table>
       </TableWrapper>
       <p
@@ -467,7 +469,8 @@ export default function ApiRefTable({ tabIndex }: any) {
 
       <p>
         <Note>Note: </Note>You can also register input manually, which is useful{" "}
-        when working with custom components and <code>Ref</code> is not accessible. eg:{" "}
+        when working with custom components and <code>Ref</code> is not
+        accessible. eg:{" "}
         <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
       </p>
     </>
