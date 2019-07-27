@@ -98,13 +98,14 @@ const QuickSelect = styled.div`
   &:after {
     content: "▼";
     font-size: 20px;
-    right: 22%;
+    right: 17%;
     top: 12px;
     position: absolute;
     pointer-events: none;
   }
 
   & > select {
+    border-radius: 4px;
     border: 1px solid white;
     appearance: none;
     background: none;
@@ -115,8 +116,8 @@ const QuickSelect = styled.div`
     text-align-last: center;
     font-size: 2rem;
     font-weight: lighter;
-    padding: 10px;
     position: relative;
+    padding: 10px 30px;
 
     :after {
       position: absolute;
@@ -125,11 +126,6 @@ const QuickSelect = styled.div`
       right: 0.5rem;
       content: "\\2193";
       pointer-events: none;
-    }
-
-    &:hover,
-    &:focus {
-      border: none;
     }
   }
 `
@@ -208,7 +204,7 @@ function Builder({ formData, showApi }: any) {
               goToSection(e.target.value)
             }}
           >
-            <option>API</option>
+            <option>Select API</option>
             {links.map(option => (
               <option value={option} key={option}>
                 {option}
