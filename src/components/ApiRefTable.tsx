@@ -415,9 +415,9 @@ export default function ApiRefTable({ tabIndex }: any) {
     register({
       pattern: ${
         isStandard
-          ? "\\[A-Za-z]{3}\\"
+          ? "/[A-Za-z]{3}/"
           : `{
-        value: \\[A-Za-z]{3}\\,
+        value: /[A-Za-z]{3}/,
         message: 'error message'
       }`
       }
