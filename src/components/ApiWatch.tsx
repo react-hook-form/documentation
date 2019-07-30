@@ -8,7 +8,7 @@ export default function ApiWatch({ tabIndex }: any) {
     <>
       <CodeHeading>
         <h2>
-          watch: <Type>(string | string[] | undefined) => any</Type>
+          watch: <Type>(string | string[] | undefined) => {`{ [key:string] : any }`}</Type>
         </h2>
       </CodeHeading>
       <p>This will watch specified input/inputs and return its value.</p>
