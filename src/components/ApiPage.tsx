@@ -582,11 +582,13 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              reset: <Type>() => void</Type>
+              reset: <Type>{`(values?: Record<string, any>) => void`}</Type>
             </h2>
           </CodeHeading>
           <p>
             This function will reset fields value and errors within the form.
+            You can pass <code>values</code> as an optional argument to reset
+            your form into assigned default values.
           </p>
           <p>
             <Note>Note:</Note> for controlled component like{" "}
@@ -617,6 +619,9 @@ function Builder({ formData, showApi }: any) {
               </Type>
             </h2>
           </CodeHeading>
+          <p>
+            allows you to manually set an input error.
+          </p>
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -624,15 +629,14 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              clearError: <Type>(name: string) => void</Type>
+              clearError: <Type>(name?: string | string[]) => void</Type>
             </h2>
           </CodeHeading>
-          <p>
-            <code>setError</code>: allows you to manually set an input error.
-          </p>
-          <p>
-            <code>clearError</code>: will remove an input error.
-          </p>
+          <ul>
+            <li><p><code>undefined</code>: reset all errors</p></li>
+            <li><p><code>string</code>: reset single error</p></li>
+            <li><p><code>string[]</code>: reset multiple errors</p></li>
+          </ul>
 
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
