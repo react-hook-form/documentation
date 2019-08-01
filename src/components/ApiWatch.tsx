@@ -8,7 +8,10 @@ export default function ApiWatch({ tabIndex }: any) {
     <>
       <CodeHeading>
         <h2>
-          watch: <Type>(string | string[] | undefined) => {`{ [key:string] : any }`}</Type>
+          watch:{" "}
+          <Type>
+            (string | string[] | undefined) => {`{ [key:string] : any }`}
+          </Type>
         </h2>
       </CodeHeading>
       <p>This will watch specified input/inputs and return its value.</p>
@@ -36,47 +39,63 @@ export default function ApiWatch({ tabIndex }: any) {
               <th>Type</th>
               <th
                 style={{
-                  minWidth: 300,
+                  minWidth: 200,
                 }}
               >
                 Description
               </th>
               <th>Example</th>
+              <th
+                style={{
+                  minWidth: 250,
+                }}
+              >
+                Return
+              </th>
             </tr>
             <tr>
               <td>
                 <Type>string</Type>
               </td>
-              <td>Watch on individual input</td>
               <td>
-                <code>
-                  watch('inputName') // watch individual field or array fields
-                  via name as index
-                </code>
+                Watch input value by name (similar to lodash{" "}
+                <a href="https://lodash.com/docs/4.17.15#get">get</a> function)
+              </td>
+              <td>
+                <code>watch('inputName')</code>
                 <br />
-                <code>watch('inputName', 'value') // with default value</code>
+                <code>watch('inputName', 'value')</code>
+              </td>
+              <td>
+                <Type>{`string | string[] | { [key:string] : any }`}</Type>
               </td>
             </tr>
             <tr>
               <td>
                 <Type>{`string[]`}</Type>
               </td>
-              <td>Watch multiple inputs over the form</td>
+              <td>Watch multiple inputs</td>
               <td>
-                <code>watch(['inputName1', 'inputName2'])</code>
+                <code>watch(['inputName1'])</code>
                 <br />
-                <code>{`watch(['field1', 'field2'], { field1: '1', field2: '2'}); // with default value`}</code>
+                <code>{`watch(['field1'], { field1: '1' })`}</code>
+              </td>
+              <td>
+                <Type>{`{ [key:string] : any }`}</Type>
               </td>
             </tr>
             <tr>
               <td>
                 <Type>undefined</Type>
               </td>
-              <td>Watch every input fields in the form</td>
+              <td>Watch all inputs</td>
               <td>
                 <code>watch()</code>
                 <br />
-                <code>{`watch(undefined, { field: 'value1' }); // with default value`}</code>
+                <code>{`watch(undefined, { field: 'value1' })`}</code>
+              </td>
+              <td>
+                <Type>{`{ [key:string] : any }`}</Type>
               </td>
             </tr>
           </tbody>
