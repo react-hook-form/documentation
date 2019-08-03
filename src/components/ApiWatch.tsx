@@ -7,12 +7,7 @@ export default function ApiWatch({ tabIndex }: any) {
   return (
     <>
       <CodeHeading>
-        <h2>
-          watch:{" "}
-          <Type>
-            (string | string[] | undefined) => {`{ [key:string] : any }`}
-          </Type>
-        </h2>
+        <h2>watch</h2>
       </CodeHeading>
       <p>This will watch specified input/inputs and return its value.</p>
       <ul>
@@ -67,7 +62,7 @@ export default function ApiWatch({ tabIndex }: any) {
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <Type>{`string | string[] | { [key:string] : any }`}</Type>
+                <Type>{`string | string[] | { [key:string] : any } | undefined`}</Type>
               </td>
             </tr>
             <tr>
