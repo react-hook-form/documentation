@@ -6,13 +6,13 @@ function App() {
   const onSubmit = async data => { alert(JSON.stringify(data)); };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input
         name="firstName"
         ref={register({ required: "Please enter your first name." })} // custom message
       />
       <input name="lastName" ref={register({ required: true })} />
-      <input type="submit" onClick={handleSubmit(onSubmit)} />
+      <input type="submit" />
     </form>
   );
 }

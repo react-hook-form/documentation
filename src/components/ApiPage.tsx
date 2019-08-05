@@ -619,9 +619,7 @@ function Builder({ formData, showApi }: any) {
               </Type>
             </h2>
           </CodeHeading>
-          <p>
-            allows you to manually set an input error.
-          </p>
+          <p>allows you to manually set an input error.</p>
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -633,9 +631,21 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <ul>
-            <li><p><code>undefined</code>: reset all errors</p></li>
-            <li><p><code>string</code>: reset single error</p></li>
-            <li><p><code>string[]</code>: reset multiple errors</p></li>
+            <li>
+              <p>
+                <code>undefined</code>: reset all errors
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>string</code>: reset single error
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>string[]</code>: reset multiple errors
+              </p>
+            </li>
           </ul>
 
           <SyntaxHighlighterWithCopy
@@ -800,11 +810,10 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            Because native validation is triggering before <code>onSubmit</code>
-            phase, we will have to move <code>handleSubmit</code> at
-            button/input <code>onClick</code> and use{" "}
-            <code>e.preventDefault()</code> at <code>onSubmit</code> callback to
-            prevent page from refreshing.
+            The following example demonstrate how you can leverage browser's
+            level validation, you only need to set <code>nativeValidation</code>{" "}
+            to <code>true</code> and rest of the syntax is the same as standard
+            validation.
           </p>
 
           <SyntaxHighlighterWithCopy
