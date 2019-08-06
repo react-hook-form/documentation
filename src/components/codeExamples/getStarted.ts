@@ -69,7 +69,7 @@ function YourForm() {
   
   React.useEffect(() => {
     register({ name: "reactSelect" })
-  }, [])
+  }, [register])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
