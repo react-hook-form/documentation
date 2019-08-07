@@ -18,6 +18,7 @@
 Thanks goes to these wonderful people:
 
 <p float="left">
+    <a href="https://github.com/tknickman"><img src="https://avatars0.githubusercontent.com/u/2933988?s=460&v=4" width="50" height="50">
     <a href="https://github.com/chrisparton1991"><img src="https://avatars0.githubusercontent.com/u/13063119?s=460&amp;v=4" width="50" height="50">
     </a>
     <a href="https://github.com/robindrost"><img src="https://avatars0.githubusercontent.com/u/588012?s=460&v=4" width="50" height="50" />
