@@ -16,7 +16,7 @@ function YourForm() {
       {/* include validation with required or other standard HTML validation rules */}
       <input name="exampleRequired" ref={register({ required: true })} />
       {/* errors will return when field validation fails  */}
-      {errors.example && '<span>This field is required</span>'}
+      {errors.exampleRequired && <span>This field is required</span>}
       
       <input type="submit" />
     </form>
