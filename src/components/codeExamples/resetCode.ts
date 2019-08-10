@@ -1,20 +1,29 @@
-export default `import React from "react"
-import useForm from "react-hook-form"
+export default `import React from "react";
+import useForm from "react-hook-form";
 
 export default function YourForm() {
-  const { register, handleSubmit, reset } = useForm()
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data, e) => {
-    e.target.reset() // standard reset after form submit
-  }
+    e.target.reset(); // standard reset after form submit
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="First name" ref={register({ required: true })} />
-      <input name="Last name" ref={register} />
-
+      <input name="firstName" ref={register({ required: true })} />
+      <input name="lastName" ref={register} />
       <input type="submit" />
-      <input style={{ display: "block", marginTop: 20 }} type="reset" />
-      <input style={{ display: "block", marginTop: 20 }} type="button" onClick={reset} />
+      <input type="reset" /> // standard reset button
+      <input type="button" onClick={reset} />
+      <input
+        type="button"
+        onClick={() => {
+          reset({
+            firstName: "bill",
+            lastName: "luo"
+          });
+        }}
+      /> // reset form with values
     </form>
-  )
-}`
+  );
+}
+`
