@@ -1,12 +1,12 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { xonokai } from 'react-syntax-highlighter/dist/styles/prism'
-import copyClipBoard from './utils/copyClipBoard'
-import generateCode from './logic/generateCode'
-import colors from '../styles/colors'
-import track from './utils/track'
-import breakpoints from '../styles/breakpoints'
+import * as React from "react"
+import styled from "styled-components"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { xonokai } from "react-syntax-highlighter/dist/styles/prism"
+import copyClipBoard from "./utils/copyClipBoard"
+import generateCode from "./logic/generateCode"
+import colors from "../styles/colors"
+import track from "./utils/track"
+import breakpoints from "../styles/breakpoints"
 
 const commonStyle = `
   border: none;
@@ -53,20 +53,29 @@ export const LinkToSandBox = styled.a`
 
 const SyntaxHighlighterWrapper = styled.div`
   & pre {
-    padding-top: 50px !important;
     line-height: 1.6 !important;
 
     @media ${breakpoints.fromLargeScreen} {
       padding-top: 20px !important;
     }
+
+    @media ${breakpoints.fromXlargeScreen} {
+      padding-top: 50px !important;
+    }
   }
 `
 
-export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex, withOutCopy }: any) {
+export default function SyntaxHighlighterWithCopy({
+  rawData,
+  data,
+  url,
+  tabIndex,
+  withOutCopy,
+}: any) {
   return (
     <div
       style={{
-        position: 'relative',
+        position: "relative",
       }}
     >
       {!withOutCopy && (
@@ -74,12 +83,12 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
           tabIndex={tabIndex}
           onClick={() => {
             track({
-              category: 'Button',
-              label: 'Copy',
-              action: 'Click - Copy code',
+              category: "Button",
+              label: "Copy",
+              action: "Click - Copy code",
             })
             rawData || copyClipBoard(generateCode(data))
-            alert('Code copied into your clipboard.')
+            alert("Code copied into your clipboard.")
           }}
           aria-label="Copy code into your clipboard"
         >
@@ -91,8 +100,8 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
         <LinkToSandBox
           onClick={() => {
             track({
-              label: 'CodeSandbox',
-              category: 'Button',
+              label: "CodeSandbox",
+              category: "Button",
               action: `Click - Go to codeSandBox ${url}`,
             })
           }}
@@ -106,10 +115,10 @@ export default function SyntaxHighlighterWithCopy({ rawData, data, url, tabIndex
       <SyntaxHighlighterWrapper>
         <SyntaxHighlighter
           customStyle={{
-            border: 'none',
+            border: "none",
           }}
           style={xonokai}
-          language={'jsx'}
+          language={"jsx"}
         >
           {rawData || generateCode(data)}
         </SyntaxHighlighter>

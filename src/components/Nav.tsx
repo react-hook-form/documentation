@@ -214,8 +214,8 @@ export default function Nav({
           title="React Hook Form Spectrum"
         >
           <svg
-            stroke-linejoin="round"
-            stroke-miterlimit="1.414"
+            strokeLinejoin="round"
+            strokeMiterlimit="1.414"
             aria-labelledby="Spectrum logo"
             viewBox="0 0 32 32"
           >
