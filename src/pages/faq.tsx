@@ -296,8 +296,8 @@ const Faq = ({ location }) => {
             </h2>
 
             <p>
-              Double check if you are using <code>value</code>
-              instead of <code>defaultValue</code>.
+              Double check if you are using <code>value</code> instead of{" "}
+              <code>defaultValue</code>.
             </p>
 
             <p>
