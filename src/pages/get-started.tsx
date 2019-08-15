@@ -153,13 +153,13 @@ const Faq = ({ location }) => {
                 onClick={() => {
                   track({
                     category: 'Link',
-                    label: 'API page',
-                    action: 'Click - Go to API',
+                    label: 'API page #register',
+                    action: 'Click - Go to API register section',
                   })
                 }}
-                to="/api"
+                to="api#register"
               >
-                API page
+                register section
               </Link>
               .
             </p>

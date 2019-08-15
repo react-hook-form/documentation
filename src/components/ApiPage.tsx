@@ -191,7 +191,7 @@ function Builder({ formData, showApi }: any) {
   }
 
   useEffect(() => {
-    if (location.hash) goToSection(location.hash.substr(1))
+    if (location.hash) setTimeout(() => goToSection(location.hash.substr(1)), 10)
   }, [])
 
   return (
