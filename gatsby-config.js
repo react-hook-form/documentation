@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `React Hook Form - Simple React form validation`,
-    description: `Performance, flexible and extensible forms with easy to use for validation.`,
+    description: `Performant, flexible and extensible forms with easy to use for validation.`,
     author: `@bluebill1049`,
   },
   plugins: [

@@ -104,8 +104,8 @@ const Faq = ({ location }) => {
             </p>
 
             <p>
-              <Note>Note</Note>: each field <strong>requires</strong> to have
-              a unique <code>name</code> as key for the registration process.
+              <Note>Note</Note>: Each field is <strong>required</strong> to have
+              a unique <code>name</code> as a key for the registration process.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={registerCode} />
@@ -148,7 +148,7 @@ const Faq = ({ location }) => {
               <li>validate</li>
             </ul>
             <p>
-              You can read more detail on each rule at{' '}
+              You can read more detail on each rule at the{' '}
               <Link
                 onClick={() => {
                   track({
@@ -187,14 +187,14 @@ const Faq = ({ location }) => {
               Work with UI library
             </Title>
             <p>
-              React Hook Form has made it easy to integrate with external UI components library.
+              React Hook Form has made it easy to integrate with external UI component libraries.
             </p>
             <p>
-              <span style={{ color: colors.lightPink }}>Note:</span> Most of UI
-              library do expose <code>innerRef</code> or <code>ref</code> to{' '}
+              <span style={{ color: colors.lightPink }}>Note:</span> Most UI
+              libraries do expose <code>innerRef</code> or <code>ref</code> to{' '}
               <code>register</code>. For components that are more complicated
               like <code>react-select</code> or <code>react-datepicker</code>,
-              you can manually update value via <code>setValue</code> or trigger an error
+              you can manually update the value via <code>setValue</code> or trigger an error
               with <code>setError</code>.
             </p>
 
@@ -224,7 +224,7 @@ const Faq = ({ location }) => {
               Handle errors
             </Title>
             <p>
-              React Hook Form provide an <code>errors</code> object to show you
+              React Hook Form provides an <code>errors</code> object to show you
               the errors within the form.
             </p>
 

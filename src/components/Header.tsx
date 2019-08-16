@@ -124,7 +124,7 @@ export default function Header({ homeRef, tabIndex }: any) {
           </DesktopLogo>{' '}
           React Hook Form
         </Heading>
-        <SubHeading>Performance, flexible and extensible forms with easy to use for validation.</SubHeading>
+        <SubHeading>Performant, flexible and extensible forms with easy to use for validation.</SubHeading>
 
         <ButtonsGroupSmall>
           <button
