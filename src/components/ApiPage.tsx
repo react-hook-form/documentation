@@ -214,7 +214,7 @@ function Builder({ formData, showApi }: any) {
         </QuickSelect>
       </HiddenMenu>
       <SubHeading>
-        React Hook Form focus on providing the best DX by simplify the API.
+        React Hook Form focuses on providing the best DX by simplifying the API.
       </SubHeading>
 
       <Wrapper>
@@ -312,7 +312,7 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on submit, invalid inputs will
+                    Validation will trigger on the <code>submit</code> event and invalid inputs will
                     attach <code>onChange</code> event listeners to re-validate
                     them.
                   </td>
@@ -323,7 +323,7 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on <code>blur</code> event.
+                    Validation will trigger on the <code>blur</code> event.
                   </td>
                 </tr>
                 <tr>
@@ -332,8 +332,8 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on <code>onChange</code> with each
-                    inputs, and lead to multiple re-render. Not recommended:
+                    Validation will trigger on the <code>change</code> event with each
+                    input, and lead to multiple re-renders. Not recommended:
                     Consider this as a bad performance practice.
                   </td>
                 </tr>
@@ -353,7 +353,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            You can set input default value with{" "}
+            You can set input's default value with{" "}
             <code>defaultValue/defaultChecked</code>{" "}
             <Link
               href="https://reactjs.org/docs/uncontrolled-components.html"
@@ -380,8 +380,8 @@ function Builder({ formData, showApi }: any) {
 
           <p>
             <Note>Note: </Note> <code>defaultValues</code> doesn't auto populate
-            with manually registered input. eg:{" "}
-            <code>{`register({ name: 'test' })`}</code>. Because manual{" "}
+            with manually registered input (eg:
+            <code>{`register({ name: 'test' })`}</code>) because manual{" "}
             <code>register</code> field is not providing <code>ref</code> to
             React Hook Form.
           </p>
@@ -398,9 +398,9 @@ function Builder({ formData, showApi }: any) {
   }
 })
 
-<input name="firstName" ref={register} /> // ✅ works version
+<input name="firstName" ref={register} /> // ✅ working version
 <input name="lastName" ref={() => register({ name: 'lastName' })} /> 
-// ❌ above example does not work with defaultValues due to its ref is not provided
+// ❌ above example does not work with defaultValues due to its `ref` not being provided
 `}
           />
 
@@ -413,9 +413,7 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            By providing an array of fields, which means only included fields
-            will be validated. This option is useful when you want to toggle
-            which fields are required to validate.
+            Providing an array of fields means only included fields will be validated. This option is useful when you want to toggle which fields are required to validate.
           </p>
           <LinkToSandBox
             tabIndex={tabIndex}
@@ -439,12 +437,12 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            By default when user submit a form and contains error, the first
-            error field will be focused.
+            By default when the user submits a form and that contains an error, the first
+            field with an error will be focused.
           </p>
           <p>
-            <Note>Note:</Note> only registered field with <code>ref</code> will
-            works, not with manual register input. eg:{" "}
+            <Note>Note:</Note> Only registered fields with <code>ref</code> will
+            work. Manually registered inputs won't work. eg:{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
 
@@ -474,15 +472,15 @@ function Builder({ formData, showApi }: any) {
           </H5>
 
           <p>
-            Set this option to <code>true</code> will enable browser's native
+            Setting this option to <code>true</code> will enable browser's native
             validation. You can{" "}
             <a
               target="_blank"
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
             >
-              find out more about browser built-in validation
+              find out more about the built-in browser validation
             </a>
-            , and refer to{" "}
+            , and refer to the{" "}
             <CodeAsLink onClick={() => goToSection("nativeValidation")}>
               nativeValidation
             </CodeAsLink>{" "}
@@ -559,11 +557,11 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            This function will pass you the form data when form validation is
+            This function will pass the form data when form validation is
             successful.
           </p>
           <p>
-            <Note>Note:</Note> you can pass an <code>async</code> function for
+            <Note>Note:</Note> You can pass an <code>async</code> function for
             asynchronous validation. eg:{" "}
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
@@ -586,13 +584,13 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            This function will reset fields value and errors within the form.
+            This function will reset the fields' values and errors within the form.
             You can pass <code>values</code> as an optional argument to reset
             your form into assigned default values.
           </p>
           <p>
-            <Note>Note:</Note> for controlled component like{" "}
-            <code>React-Select</code> which doesn't expose <code>ref</code>, you
+            <Note>Note:</Note> For controlled components like{" "}
+            <code>React-Select</code> which don't expose <code>ref</code>, you
             will have to reset the input value manually through{" "}
             <code onClick={() => goToSection("setValue")}>setValue</code>.
           </p>
@@ -619,7 +617,7 @@ function Builder({ formData, showApi }: any) {
               </Type>
             </h2>
           </CodeHeading>
-          <p>allows you to manually set an input error.</p>
+          <p>Allows you to manually set an input error.</p>
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -671,11 +669,11 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
           <p>This function allows you to dynamically set input/select value.</p>
           <p>
-            <Note>Note: </Note> by invoking this method <code>formState</code>{" "}
+            <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
             will push input's <code>name</code> into <code>touched</code>.
           </p>
           <p>
-            You can also set <code>shouldValidate</code> to true and it will
+            You can also set <code>shouldValidate</code> to <code>true</code> and it will
             trigger field validation. eg:{" "}
             <code>setValue('name', 'value', true)</code>
           </p>
@@ -739,7 +737,7 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
           <p>
-            <Note>Note:</Note> when validation failed, then <code>errors</code>{" "}
+            <Note>Note:</Note> When validation fails, the <code>errors</code>{" "}
             object will be updated.
           </p>
 
@@ -782,7 +780,7 @@ function Builder({ formData, showApi }: any) {
           <p>
             If you would like to centralize your validation rules with external
             validation schema, you can apply <code>validationSchema</code> at{" "}
-            <code>useForm</code> as an optional argument. Currently support{" "}
+            <code>useForm</code> as an optional argument. React Hook Form currently supports{" "}
             <Link
               href="https://github.com/jquense/yup"
               target="_blank"
@@ -810,8 +808,8 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            The following example demonstrate how you can leverage browser's
-            level validation, you only need to set <code>nativeValidation</code>{" "}
+            The following example demonstrates how you can leverage the browser's
+             validation. You only need to set <code>nativeValidation</code>{" "}
             to <code>true</code> and rest of the syntax is the same as standard
             validation.
           </p>
@@ -833,8 +831,8 @@ function Builder({ formData, showApi }: any) {
             <h2>TypeScript</h2>
           </CodeHeading>
           <p>
-            React Hook Form is built with <code>Typescript</code>, you can
-            defined <code>Type</code> to support form values.
+            React Hook Form is built with <code>Typescript</code>, so you can
+            define <code>FormData</code> type to support form values.
           </p>
 
           <SyntaxHighlighterWithCopy
