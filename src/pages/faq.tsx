@@ -129,10 +129,10 @@ const Faq = ({ location }) => {
             <p>
               Performance is one of the primary goals for building this custom
               hook. React Hook Form relies on uncontrolled component, hence the
-              reason why the register function occurred at the ref. This
-              approach will reduce the amount of re-rendering which occurred by
+              reason why the register function occurs at the ref. This
+              approach will reduce the amount of re-rendering occurring due to
               user typing or value changing. Components mount to the page is
-              much quicker too because they are not controlled. For mounting
+              much quicker as well because they are not controlled. For mounting
               speed, I have completed a quick comparison test which you can
               refer to by{" "}
               <a
@@ -154,17 +154,17 @@ const Faq = ({ location }) => {
             <hr />
 
             <h2 ref={ref => (sectionsRef.current.question2 = ref)}>
-              How to creat accessible input error and message?
+              How to create an accessible input error and message?
             </h2>
             <p>
-              React hook form is based on{" "}
+              React Hook Form is based on{" "}
               <a
                 href="https://reactjs.org/docs/uncontrolled-components.html"
                 target="_blank"
               >
                 Uncontrolled Component
               </a>
-              , which give you the ability to building accessible custom form
+              , which gives you the ability to build an accessible custom form
               easily.
             </p>
             <SyntaxHighlighterWithCopy rawData={accessibleCode} />
@@ -172,7 +172,7 @@ const Faq = ({ location }) => {
             <hr />
 
             <h2 ref={ref => (sectionsRef.current.question3 = ref)}>
-              Does it work with Class Component?
+              Does it work with Class Components?
             </h2>
 
             <p>
@@ -194,14 +194,14 @@ const Faq = ({ location }) => {
             <h2 ref={ref => (sectionsRef.current.question4 = ref)}>
               How to reset the form?
             </h2>
-            <p>There are two types of methods to clear form.</p>
+            <p>There are two methods to clear the form.</p>
             <ul>
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
                   This method does the same thing as clicking a form's reset
-                  button, and only clear
-                  <code>input/select/checkbox</code> value.
+                  button, and only clears
+                  <code>input/select/checkbox</code> values.
                 </p>
               </li>
               <li>
@@ -210,7 +210,7 @@ const Faq = ({ location }) => {
                 </b>
                 <p>
                   React Hook Form's <code>reset</code> method will reset all
-                  fields value, and also clear all <code>errors</code> within
+                  fields value, and also will clear all <code>errors</code> within
                   the form.
                 </p>
               </li>
@@ -225,8 +225,8 @@ const Faq = ({ location }) => {
             <p>
               React Hook Form relies on uncontrolled component. With an
               uncontrolled component, you can specify a{" "}
-              <code>defaultValue</code> or <code>defaultChecked</code> to
-              individual field. However, the hook itself does provider an easier
+              <code>defaultValue</code> or <code>defaultChecked</code> to an{" "}
+              individual field. However, the hook itself does provide an easier
               way to initialise all input values too. Example below:
             </p>
             <SyntaxHighlighterWithCopy rawData={code} />
@@ -238,8 +238,8 @@ const Faq = ({ location }) => {
             </h2>
 
             <p>
-              React Hook Form need <code>ref</code> to collect input value,
-              however you may want to use <code>ref</code> for other purpose
+              React Hook Form needs <code>ref</code> to collect the input value,
+              however, you may want to use <code>ref</code> for other purposes
               (eg. scroll into the view). The following example will show you
               how.
             </p>
@@ -252,15 +252,15 @@ const Faq = ({ location }) => {
             </h2>
 
             <p>
-              You can actually <code>register</code> an input without ref. In
+              You can actually <code>register</code> an input without a <code>ref</code>. In
               fact, you can manually <code>setValue</code>,{" "}
               <code>setError</code> and <code>triggerValidation</code>.
             </p>
 
             <p>
-              <Note>Note: </Note>because <code>ref</code> is not been
-              registered, React Hook Form wouldn't be able to register event
-              listeners to the inputs. so you will have to manually update value
+              <Note>Note:</Note> Because <code>ref</code> has not been
+              registered, React Hook Form won't be able to register event
+              listeners to the inputs. This means you will have to manually update value
               and error.
             </p>
 
@@ -292,7 +292,7 @@ const Faq = ({ location }) => {
             <hr />
 
             <h2 ref={ref => (sectionsRef.current.question9 = ref)}>
-              Why first keystroke is not working?
+              Why is first keystroke is not working?
             </h2>
 
             <p>
