@@ -400,7 +400,7 @@ function Builder({ formData, showApi }: any) {
 
 <input name="firstName" ref={register} /> // ✅ working version
 <input name="lastName" ref={() => register({ name: 'lastName' })} /> 
-// ❌ above example does not work with defaultValues due to its `ref` not being provided
+// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
 `}
           />
 
