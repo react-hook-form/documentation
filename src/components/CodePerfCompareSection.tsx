@@ -140,9 +140,9 @@ export default function CodePerfCompareSection() {
     <Wrapper>
       <H1>Performance Comparison</H1>
 
-      <p>Do you ever wondering how many component re-render has been triggered by user?</p>
+      <p>Do you ever wonder how many component re-renders have been triggered by the user?</p>
 
-      <MobileText>You can swipe through the following videos to see how they works.</MobileText>
+      <MobileText>You can swipe through the following videos to see how they work.</MobileText>
 
       <VideoWrapper>
         <section>
@@ -150,7 +150,7 @@ export default function CodePerfCompareSection() {
             <source src={reactHookFormVideo} type="video/mp4" />
           </video>
           <p>
-            Total re-render: <strong>3</strong>
+            Total re-renders: <strong>3</strong>
           </p>
         </section>
         <section>
@@ -158,7 +158,7 @@ export default function CodePerfCompareSection() {
             <source src={formikVideo} type="video/mp4" />
           </video>
           <p>
-            Total re-render: <strong>30+</strong>
+            Total re-renders: <strong>30+</strong>
           </p>
         </section>
         <section>
@@ -166,7 +166,7 @@ export default function CodePerfCompareSection() {
             <source src={reduxFormVideo} type="video/mp4" />
           </video>
           <p>
-            Total re-render: <strong>30+</strong>
+            Total re-renders: <strong>30+</strong>
           </p>
         </section>
       </VideoWrapper>
@@ -185,8 +185,8 @@ export default function CodePerfCompareSection() {
       </Title>
       <ImgSection>
         <ul>
-          <li>No. of mount: 1</li>
-          <li>No. of committing change: 1</li>
+          <li>No. of mount(s): 1</li>
+          <li>No. of committing change(s): 1</li>
           <li style={{ fontWeight: 'bold' }}>
             Total time:{' '}
             <span
@@ -203,8 +203,8 @@ export default function CodePerfCompareSection() {
       <Title>Formik</Title>
       <ImgSection>
         <ul>
-          <li>No. of mount: 6</li>
-          <li>No. of committing change: 1</li>
+          <li>No. of mount(s): 6</li>
+          <li>No. of committing change(s): 1</li>
           <li style={{ fontWeight: 'bold' }}>
             Total time:{' '}
             <span
@@ -221,9 +221,9 @@ export default function CodePerfCompareSection() {
       <Title>Redux Form</Title>
       <ImgSection>
         <ul>
-          <li>No. of mount: 17</li>
-          <li>No. of committing change: 2</li>
-          <li>No. of update: 2</li>
+          <li>No. of mount(s): 17</li>
+          <li>No. of committing change(s): 2</li>
+          <li>No. of update(s): 2</li>
           <li style={{ fontWeight: 'bold' }}>
             Total time:{' '}
             <span
@@ -239,7 +239,7 @@ export default function CodePerfCompareSection() {
       </ImgSection>
 
       <p style={{ marginBottom: 40 }}>
-        <span style={{ fontSize: 20 }}>⚠</span> Wants to see more intense performance test?{' '}
+        <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense performance tests?{' '}
         <Link
           href="https://github.com/bluebill1049/react-hook-form-performance-compare"
           onClick={() => {
@@ -250,7 +250,7 @@ export default function CodePerfCompareSection() {
             })
           }}
         >
-          Check out the result for 1000 fields within a form here
+          Check out the result of 1000 fields within a form here
         </Link>
         .
       </p>
