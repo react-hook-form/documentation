@@ -186,8 +186,7 @@ export default function FeaturesList() {
 
           <h3>Performance</h3>
           <p>
-            Minimizes the volume that is triggered re-rendering, try to provide
-            your users with the best experience.
+            Minimizes the number of re-renders, striving to provide your users with the best experience.
           </p>
         </Animate>
 
