@@ -52,8 +52,7 @@ export default function Form({
       <CenterContent>
         <H1>Live Demo</H1>
         <p>
-          The following form demonstrates form validation in action. Each
-          columns represent what's been captured in the custom Hook. You can
+          The following form demonstrates form validation in action. Each column represents what has been captured in the custom hook. You can
           also change fields in the form by clicking the <strong>EDIT</strong>{" "}
           button.
         </p>
