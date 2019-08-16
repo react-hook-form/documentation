@@ -67,6 +67,7 @@ const ImgSection = styled.div`
     min-width: 250px;
     padding-left: 0;
     margin: 0;
+    margin-right: 16px;
 
     & > li {
       text-align: left;
