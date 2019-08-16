@@ -10,7 +10,7 @@ function YourForm() {
   return (
 {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the `register` function */}
+{/* register your input into the hook by invoking the "register" function */}
       <input name="example" defaultValue="test" ref={register} />
       
       {/* include validation with required or other standard HTML validation rules */}
