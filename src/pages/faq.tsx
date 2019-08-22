@@ -274,20 +274,10 @@ const Faq = ({ location }) => {
             <p>React Hook Form support all major browsers.</p>
 
             <p>
-              For legacy IE11 support, the following polyfills are required:
+              For legacy IE11 support, you can import react-hook-form IE 11 version.
             </p>
 
-            <ul>
-              <li>
-                <code>Array.prototype.includes</code>
-              </li>
-              <li>
-                <code>Object.prototype.values</code>
-              </li>
-              <li>
-                <code>Promise</code>
-              </li>
-            </ul>
+            <SyntaxHighlighterWithCopy rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`} withOutCopy />
 
             <hr />
 

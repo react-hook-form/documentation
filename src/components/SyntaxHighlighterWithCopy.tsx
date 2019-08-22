@@ -56,11 +56,11 @@ const SyntaxHighlighterWrapper = styled.div`
     line-height: 1.6 !important;
 
     @media ${breakpoints.fromLargeScreen} {
-      padding-top: 20px !important;
+      ${props => (props.withOutCopy ? "" : "padding-top: 20px !important;")}
     }
 
     @media ${breakpoints.fromXlargeScreen} {
-      padding-top: 50px !important;
+      ${props => (props.withOutCopy ? "" : "padding-top: 50px !important;")}
     }
   }
 `
@@ -112,7 +112,7 @@ export default function SyntaxHighlighterWithCopy({
           CodeSandbox
         </LinkToSandBox>
       )}
-      <SyntaxHighlighterWrapper>
+      <SyntaxHighlighterWrapper withOutCopy={withOutCopy}>
         <SyntaxHighlighter
           customStyle={{
             border: "none",
