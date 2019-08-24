@@ -191,7 +191,8 @@ function Builder({ formData, showApi }: any) {
   }
 
   useEffect(() => {
-    if (location.hash) setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    if (location.hash)
+      setTimeout(() => goToSection(location.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -312,9 +313,9 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on the <code>submit</code> event and invalid inputs will
-                    attach <code>onChange</code> event listeners to re-validate
-                    them.
+                    Validation will trigger on the <code>submit</code> event and
+                    invalid inputs will attach <code>onChange</code> event
+                    listeners to re-validate them.
                   </td>
                 </tr>
                 <tr>
@@ -332,16 +333,14 @@ function Builder({ formData, showApi }: any) {
                     <Type>string</Type>
                   </td>
                   <td>
-                    Validation will trigger on the <code>change</code> event with each
-                    input, and lead to multiple re-renders. Not recommended:
-                    Consider this as a bad performance practice.
+                    Validation will trigger on the <code>change</code> event
+                    with each input, and lead to multiple re-renders. Not
+                    recommended: Consider this as a bad performance practice.
                   </td>
                 </tr>
               </tbody>
             </Table>
           </TableWrapper>
-
-          <p style={{ textAlign: "center" }}>♦</p>
 
           <H5 style={{ marginTop: 20 }}>
             <code>
@@ -404,90 +403,113 @@ function Builder({ formData, showApi }: any) {
 `}
           />
 
+          <TableWrapper>
+            <Table>
+              <tbody>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
+                        validationFields: <Type>string[] = []</Type>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      Providing an array of fields means only included fields
+                      will be validated. This option is useful when you want to
+                      toggle which fields are required to validate.
+                    </p>
+                    <LinkToSandBox
+                      tabIndex={tabIndex}
+                      style={{
+                        position: "relative",
+                        left: 0,
+                        marginBottom: 20,
+                      }}
+                      href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
+                      target="_blank"
+                    >
+                      CodeSandbox
+                    </LinkToSandBox>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
+                        submitFocusError: <Type>boolean = true</Type>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      By default when the user submits a form and that contains
+                      an error, the first field with an error will be focused.
+                    </p>
+
+                    <p>
+                      <Note>Note:</Note> Only registered fields with{" "}
+                      <code>ref</code> will work. Manually registered inputs
+                      won't work. eg:{" "}
+                      <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
+                        validationSchema: <Type>Object</Type>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      Apply form validation rules with <code>Yup</code> at the
+                      schema level, please refer the{" "}
+                      <CodeAsLink
+                        onClick={() => goToSection("validationSchema")}
+                      >
+                        validationSchema
+                      </CodeAsLink>{" "}
+                      section.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
+                        nativeValidation: <Type>boolean = false</Type>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      Setting this option to <code>true</code> will enable
+                      browser's native validation. You can{" "}
+                      <a
+                        target="_blank"
+                        href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
+                      >
+                        find out more about the built-in browser validation
+                      </a>
+                      , and refer to the{" "}
+                      <CodeAsLink
+                        onClick={() => goToSection("nativeValidation")}
+                      >
+                        nativeValidation
+                      </CodeAsLink>{" "}
+                      section for more detail and example.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </TableWrapper>
+
           <p style={{ textAlign: "center" }}>♦</p>
-
-          <H5 style={{ marginTop: 20 }}>
-            <code>
-              validationFields: <Type>string[] = []</Type>
-            </code>
-          </H5>
-
-          <p>
-            Providing an array of fields means only included fields will be validated. This option is useful when you want to toggle which fields are required to validate.
-          </p>
-          <LinkToSandBox
-            tabIndex={tabIndex}
-            style={{
-              position: "relative",
-              left: 0,
-              marginBottom: 20,
-            }}
-            href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
-            target="_blank"
-          >
-            CodeSandbox
-          </LinkToSandBox>
-
-          <p style={{ textAlign: "center" }}>♦</p>
-
-          <H5 style={{ marginTop: 20 }}>
-            <code>
-              submitFocusError: <Type>boolean = true</Type>
-            </code>
-          </H5>
-
-          <p>
-            By default when the user submits a form and that contains an error, the first
-            field with an error will be focused.
-          </p>
-          <p>
-            <Note>Note:</Note> Only registered fields with <code>ref</code> will
-            work. Manually registered inputs won't work. eg:{" "}
-            <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
-          </p>
-
-          <p style={{ textAlign: "center" }}>♦</p>
-
-          <H5 style={{ marginTop: 20 }}>
-            <code>
-              validationSchema: <Type>Object</Type>
-            </code>
-          </H5>
-
-          <p>
-            Apply form validation rules with <code>Yup</code> at the schema
-            level, please refer the{" "}
-            <CodeAsLink onClick={() => goToSection("validationSchema")}>
-              validationSchema
-            </CodeAsLink>{" "}
-            section.
-          </p>
-
-          <p style={{ textAlign: "center" }}>♦</p>
-
-          <H5 style={{ marginTop: 20 }}>
-            <code>
-              nativeValidation: <Type>boolean = false</Type>
-            </code>
-          </H5>
-
-          <p>
-            Setting this option to <code>true</code> will enable browser's native
-            validation. You can{" "}
-            <a
-              target="_blank"
-              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-            >
-              find out more about the built-in browser validation
-            </a>
-            , and refer to the{" "}
-            <CodeAsLink onClick={() => goToSection("nativeValidation")}>
-              nativeValidation
-            </CodeAsLink>{" "}
-            section for more detail and example.
-          </p>
-
-          <br />
 
           <CodeHeading
             ref={ref => {
@@ -584,9 +606,9 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
           <p>
-            This function will reset the fields' values and errors within the form.
-            You can pass <code>values</code> as an optional argument to reset
-            your form into assigned default values.
+            This function will reset the fields' values and errors within the
+            form. You can pass <code>values</code> as an optional argument to
+            reset your form into assigned default values.
           </p>
           <p>
             <Note>Note:</Note> For controlled components like{" "}
@@ -673,8 +695,8 @@ function Builder({ formData, showApi }: any) {
             will push input's <code>name</code> into <code>touched</code>.
           </p>
           <p>
-            You can also set <code>shouldValidate</code> to <code>true</code> and it will
-            trigger field validation. eg:{" "}
+            You can also set <code>shouldValidate</code> to <code>true</code>{" "}
+            and it will trigger field validation. eg:{" "}
             <code>setValue('name', 'value', true)</code>
           </p>
 
@@ -780,7 +802,8 @@ function Builder({ formData, showApi }: any) {
           <p>
             If you would like to centralize your validation rules with external
             validation schema, you can apply <code>validationSchema</code> at{" "}
-            <code>useForm</code> as an optional argument. React Hook Form currently supports{" "}
+            <code>useForm</code> as an optional argument. React Hook Form
+            currently supports{" "}
             <Link
               href="https://github.com/jquense/yup"
               target="_blank"
@@ -808,10 +831,10 @@ function Builder({ formData, showApi }: any) {
           </CodeHeading>
 
           <p>
-            The following example demonstrates how you can leverage the browser's
-             validation. You only need to set <code>nativeValidation</code>{" "}
-            to <code>true</code> and rest of the syntax is the same as standard
-            validation.
+            The following example demonstrates how you can leverage the
+            browser's validation. You only need to set{" "}
+            <code>nativeValidation</code> to <code>true</code> and rest of the
+            syntax is the same as standard validation.
           </p>
 
           <SyntaxHighlighterWithCopy
