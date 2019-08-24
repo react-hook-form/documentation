@@ -307,6 +307,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             name="type"
             ref={register}
             defaultValue={editFormData.type}
+            value={editFormData.type}
             tabIndex={tabIndex}
           >
             <option value="text">Text</option>
