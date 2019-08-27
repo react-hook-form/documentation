@@ -76,6 +76,16 @@ export const Type = styled.span`
   color: ${colors.lightPink};
 `
 
+export const MobileType = styled(Type)`
+  margin-top: 10px;
+  display: block;
+  
+  @media ${breakpoints.fromMediumScreen} {
+    margin-top: 0px;
+    display: inline;
+  }
+`
+
 const HiddenMenu = styled.div`
   & > h1 {
     display: none;
@@ -410,7 +420,7 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        validationFields: <Type>string[] = []</Type>
+                        validationFields: <MobileType>string[] = []</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -438,7 +448,7 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        submitFocusError: <Type>boolean = true</Type>
+                        submitFocusError: <MobileType>boolean = true</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -460,7 +470,7 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        validationSchema: <Type>Object</Type>
+                        validationSchema: <MobileType>Object</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -481,7 +491,7 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        nativeValidation: <Type>boolean = false</Type>
+                        nativeValidation: <MobileType>boolean = false</MobileType>
                       </code>
                     </H5>
                   </td>
