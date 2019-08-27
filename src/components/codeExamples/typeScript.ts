@@ -11,7 +11,7 @@ export default function YourForm() {
   const onSubmit = handleSubmit(({ name, email }) => {}) // firstName and lastName will have correct type
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={onSubmit}>
       <input name="firstName" ref={register} />
       <input name="lastName" ref={register} />
       <button
