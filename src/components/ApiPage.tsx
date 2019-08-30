@@ -79,7 +79,7 @@ export const Type = styled.span`
 export const MobileType = styled(Type)`
   margin-top: 10px;
   display: block;
-  
+
   @media ${breakpoints.fromMediumScreen} {
     margin-top: 0px;
     display: inline;
@@ -436,6 +436,7 @@ function Builder({ formData, showApi }: any) {
                         position: "relative",
                         left: 0,
                         marginBottom: 20,
+                        float: 'right',
                       }}
                       href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
                       target="_blank"
@@ -448,7 +449,8 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        submitFocusError: <MobileType>boolean = true</MobileType>
+                        submitFocusError:{" "}
+                        <MobileType>boolean = true</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -485,13 +487,27 @@ function Builder({ formData, showApi }: any) {
                       </CodeAsLink>{" "}
                       section.
                     </p>
+                    <LinkToSandBox
+                      tabIndex={tabIndex}
+                      style={{
+                        position: "relative",
+                        left: 0,
+                        marginBottom: 20,
+                        float: "right",
+                      }}
+                      href="https://codesandbox.io/s/928po918qr"
+                      target="_blank"
+                    >
+                      CodeSandbox
+                    </LinkToSandBox>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        nativeValidation: <MobileType>boolean = false</MobileType>
+                        nativeValidation:{" "}
+                        <MobileType>boolean = false</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -513,6 +529,19 @@ function Builder({ formData, showApi }: any) {
                       </CodeAsLink>{" "}
                       section for more detail and example.
                     </p>
+                    <LinkToSandBox
+                      tabIndex={tabIndex}
+                      style={{
+                        position: "relative",
+                        left: 0,
+                        marginBottom: 20,
+                        float: "right",
+                      }}
+                      href="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
+                      target="_blank"
+                    >
+                      CodeSandbox
+                    </LinkToSandBox>
                   </td>
                 </tr>
               </tbody>

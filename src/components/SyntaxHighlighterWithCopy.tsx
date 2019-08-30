@@ -45,6 +45,7 @@ export const LinkToSandBox = styled.a`
   ${commonStyle};
   background: ${colors.lightPink};
   text-decoration: none;
+  line-height: 1.5;
 
   @media ${breakpoints.fromMediumScreen} {
     right: 180px;
