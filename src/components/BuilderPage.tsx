@@ -1,17 +1,22 @@
-import * as React from 'react'
-import { Animate } from 'react-simple-animate'
-import useForm from 'react-hook-form'
-import styled from 'styled-components'
-import colors from '../styles/colors'
-import SortableContainer from './SortableContainer'
-import { SubHeading, HeadingWithTopMargin, Error, Title } from '../styles/typography'
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
-import track from './utils/track'
-import { useStateMachine } from 'little-state-machine'
-import { navigate } from '@reach/router'
-import { Container } from '../styles/containers'
-import breakpoints from '../styles/breakpoints'
-import Footer from './Footer'
+import * as React from "react"
+import { Animate } from "react-simple-animate"
+import useForm from "react-hook-form"
+import styled from "styled-components"
+import colors from "../styles/colors"
+import SortableContainer from "./SortableContainer"
+import {
+  SubHeading,
+  HeadingWithTopMargin,
+  Error,
+  Title,
+} from "../styles/typography"
+import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import track from "./utils/track"
+import { useStateMachine } from "little-state-machine"
+import { navigate } from "@reach/router"
+import { Container } from "../styles/containers"
+import breakpoints from "../styles/breakpoints"
+import Footer from "./Footer"
 
 const { useState, useRef, useEffect } = React
 
@@ -23,7 +28,10 @@ const updateStore = (state, payload) => {
   }
 }
 
-const errorStyle = { border: `1px solid ${colors.secondary}`, background: colors.errorPink }
+const errorStyle = {
+  border: `1px solid ${colors.secondary}`,
+  background: colors.errorPink,
+}
 
 const Root = styled.main`
   position: fixed;
@@ -95,8 +103,9 @@ const SubmitButton = styled.input`
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   background: ${props => props.background || colors.lightPink};
-  color: ${props => props.color || 'white'};
-  border: 1px solid ${props => (props.color === 'white' ? colors.secondary : 'transparent')};
+  color: ${props => props.color || "white"};
+  border: 1px solid
+    ${props => (props.color === "white" ? colors.secondary : "transparent")};
 `
 
 const Form = styled.form`
@@ -189,19 +198,33 @@ const defaultValue = {
   maxLength: undefined,
   minLength: undefined,
   required: undefined,
-  name: '',
-  type: '',
+  name: "",
+  type: "",
   options: [],
 }
 
-function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMobile, isStatic }) {
+function BuilderPage({
+  showBuilder,
+  toggleBuilder,
+  builderButton,
+  HomeRef,
+  isMobile,
+  isStatic,
+}) {
   const {
     // @ts-ignore
     state: { formData },
     action: updateFormData,
   } = useStateMachine(updateStore)
   const [editFormData, setFormData] = useState(defaultValue)
-  const { register, handleSubmit, errors = {}, watch, setValue, reset } = useForm()
+  const {
+    register,
+    handleSubmit,
+    errors = {},
+    watch,
+    setValue,
+    reset,
+  } = useForm()
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef([])
   const closeButton = useRef(null)
@@ -218,7 +241,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     event.target.reset()
   }
   const form = useRef(null)
-  const type = watch('type')
+  const type = watch("type")
   const tabIndex = showBuilder ? 0 : -1
   const shouldToggleOn =
     editFormData.max ||
@@ -228,12 +251,15 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
     editFormData.minLength ||
     editFormData.required
   copyFormData.current = formData
-  const editIndexRef = useRef(null);
-  editIndexRef.current = editIndex;
+  const editIndexRef = useRef(null)
+  editIndexRef.current = editIndex
 
-  const validate = (value) => {
+  const validate = value => {
     // @ts-ignore
-    return !Object.values(copyFormData.current).find(data => data.name === value) || editIndexRef.current !== -1
+    return (
+      !Object.values(copyFormData.current).find(data => data.name === value) ||
+      editIndexRef.current !== -1
+    )
   }
 
   useEffect(() => {
@@ -244,8 +270,12 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
   }, [showBuilder])
 
   useEffect(() => {
-    setValue('toggle', shouldToggleOn)
+    setValue("toggle", shouldToggleOn)
   }, [shouldToggleOn])
+
+  useEffect(() => {
+    if (editFormData.type) setValue("type", editFormData.type)
+  }, [editFormData.type])
 
   const child = (
     <Container>
@@ -257,13 +287,22 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <Title>Form</Title>
 
           <SortableContainer
-            {...{ updateFormData, tabIndex, formData, editIndex, setEditIndex, setFormData, editFormData, reset }}
+            {...{
+              updateFormData,
+              tabIndex,
+              formData,
+              editIndex,
+              setEditIndex,
+              setFormData,
+              editFormData,
+              reset,
+            }}
           />
 
           {(formData || []).length === 0 && (
             <p
               style={{
-                textAlign: 'center',
+                textAlign: "center",
               }}
             >
               You can start adding fields with Fields Creator ▸
@@ -282,7 +321,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             name="name"
             tabIndex={tabIndex}
             style={{
-              ...(errors['name'] ? errorStyle : null),
+              ...(errors["name"] ? errorStyle : null),
             }}
             ref={register({
               required: true,
@@ -290,15 +329,19 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             })}
           />
           <Animate
-            play={!!errors['name']}
+            play={!!errors["name"]}
             duration={0.6}
             start={{
               maxHeight: 0,
             }}
             end={{ maxHeight: 20 }}
           >
-            {errors.name && errors.name['type'] === 'required' && <Error>This is required.</Error>}
-            {errors.name && errors.name['type'] === 'validate' && <Error>Name required to be unique.</Error>}
+            {errors.name && errors.name["type"] === "required" && (
+              <Error>This is required.</Error>
+            )}
+            {errors.name && errors.name["type"] === "validate" && (
+              <Error>Name required to be unique.</Error>
+            )}
           </Animate>
 
           <label>Type: </label>
@@ -307,7 +350,6 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             name="type"
             ref={register}
             defaultValue={editFormData.type}
-            value={editFormData.type}
             tabIndex={tabIndex}
           >
             <option value="text">Text</option>
@@ -331,10 +373,10 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             </option>
           </select>
 
-          {(type === 'select' ||
-            type === 'radio' ||
-            editFormData.type === 'select' ||
-            editFormData.type === 'radio') && (
+          {(type === "select" ||
+            type === "radio" ||
+            editFormData.type === "select" ||
+            editFormData.type === "radio") && (
             <>
               <label>Options:</label>
               <input
@@ -364,11 +406,11 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             play={showValidation || shouldToggleOn}
             start={{
               maxHeight: 0,
-              overflow: 'hidden',
+              overflow: "hidden",
             }}
             end={{
               maxHeight: 800,
-              overflow: 'hidden',
+              overflow: "hidden",
               marginBottom: 20,
             }}
           >
@@ -384,7 +426,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                   type="checkbox"
                   name="required"
                   ref={register}
-                />{' '}
+                />{" "}
                 Required
               </label>
               <label>Max</label>
@@ -433,7 +475,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                 autoComplete="false"
                 defaultValue={editFormData.pattern}
                 style={{
-                  marginBottom: '20px',
+                  marginBottom: "20px",
                 }}
                 aria-label="pattern"
                 name="pattern"
@@ -446,22 +488,24 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
           <SubmitButton
             onClick={() => {
               track({
-                category: 'Button',
-                label: editIndex >= 0 ? 'Update' : 'Create',
-                action: `Click - Builder ${editIndex >= 0 ? 'Update' : 'Create'}`,
+                category: "Button",
+                label: editIndex >= 0 ? "Update" : "Create",
+                action: `Click - Builder ${
+                  editIndex >= 0 ? "Update" : "Create"
+                }`,
               })
-              form.current.scrollIntoView({ behavior: 'smooth' })
+              form.current.scrollIntoView({ behavior: "smooth" })
             }}
             tabIndex={tabIndex}
             type="submit"
-            value={editIndex >= 0 ? 'Update' : 'Create'}
+            value={editIndex >= 0 ? "Update" : "Create"}
           />
 
           <Title
             style={{
               fontSize: 14,
-              maxWidth: '80%',
-              margin: '10px auto 0',
+              maxWidth: "80%",
+              margin: "10px auto 0",
             }}
           >
             ▼
@@ -471,11 +515,11 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             play={(formData || []).length > 0}
             start={{
               opacity: 0,
-              pointerEvents: 'none',
+              pointerEvents: "none",
             }}
             end={{
               opacity: 1,
-              pointerEvents: 'auto',
+              pointerEvents: "auto",
             }}
             render={({ style }) => (
               <SubmitButton
@@ -485,17 +529,17 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
                 color="white"
                 onClick={() => {
                   track({
-                    category: 'Button',
-                    label: 'Generate form',
-                    action: 'Click - Generate form',
+                    category: "Button",
+                    label: "Generate form",
+                    action: "Click - Generate form",
                   })
                   if (toggleBuilder) {
                     toggleBuilder(false)
                     builderButton.current.focus()
-                    document.body.style.overflow = 'auto'
-                    HomeRef.current.scrollIntoView({ behavior: 'smooth' })
+                    document.body.style.overflow = "auto"
+                    HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate('/?goToDemo')
+                    navigate("/?goToDemo")
                   }
                 }}
                 background="black"
@@ -507,8 +551,8 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
 
         <div
           style={{
-            paddingRight: '20px',
-            position: 'relative',
+            paddingRight: "20px",
+            position: "relative",
           }}
         >
           <Title>Code</Title>
@@ -519,7 +563,7 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
 
       <div
         style={{
-          margin: '0 20px',
+          margin: "0 20px",
           maxWidth: 1350,
         }}
       >
@@ -536,10 +580,10 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
       easeType="ease-in"
       duration={isMobile ? 0.3 : 0.5}
       start={{
-        transform: 'translateY(100vh)',
+        transform: "translateY(100vh)",
       }}
       end={{
-        transform: 'translateY(0)',
+        transform: "translateY(0)",
       }}
       render={({ style }) => {
         return (
@@ -547,8 +591,8 @@ function BuilderPage({ showBuilder, toggleBuilder, builderButton, HomeRef, isMob
             <div
               id="builder"
               style={{
-                overflow: 'auto',
-                height: '100vh',
+                overflow: "auto",
+                height: "100vh",
                 background: colors.primary,
               }}
             >
