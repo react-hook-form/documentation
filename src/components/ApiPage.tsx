@@ -430,13 +430,16 @@ function Builder({ formData, showApi }: any) {
                       will be validated. This option is useful when you want to
                       toggle which fields are required to validate.
                     </p>
+                  </td>
+                  <td>
                     <LinkToSandBox
                       tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
+                        marginTop: 10,
                         marginBottom: 20,
-                        float: 'right',
+                        float: "right",
                       }}
                       href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
                       target="_blank"
@@ -487,12 +490,15 @@ function Builder({ formData, showApi }: any) {
                       </CodeAsLink>{" "}
                       section.
                     </p>
+                  </td>
+                  <td>
                     <LinkToSandBox
                       tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
                         marginBottom: 20,
+                        marginTop: 10,
                         float: "right",
                       }}
                       href="https://codesandbox.io/s/928po918qr"
@@ -529,11 +535,14 @@ function Builder({ formData, showApi }: any) {
                       </CodeAsLink>{" "}
                       section for more detail and example.
                     </p>
+                  </td>
+                  <td>
                     <LinkToSandBox
                       tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
+                        marginTop: 10,
                         marginBottom: 20,
                         float: "right",
                       }}
