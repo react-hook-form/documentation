@@ -9617,10 +9617,10 @@ react-helmet@^5.2.1:
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
 
-react-hook-form@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.7.1.tgz#b6ff83cf7a1379de342e1e33b1700ded9ced062b"
-  integrity sha512-wWI5GR7NpANEvb0jUI8AVUTpjvEz5uQKjV8lwawGPVN1yhS28xRxx8CNBXJvrRRixAGRhSX1KwUHV5Am1S4t0g==
+react-hook-form@3.23.3-beta.1:
+  version "3.23.3-beta.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.23.3-beta.1.tgz#ab0a2aa4e6659b0c0a389c639966da321174935a"
+  integrity sha512-ovQXkTDe5XxHIUT6KiwpflkWROQnwussWqp+GzSCsgIq1ESNMOJUPlRAgDUAOxLS7LZAmr9sNHPTUJSlPNMzWA==
 
 react-hot-loader@^4.12.11:
   version "4.12.11"

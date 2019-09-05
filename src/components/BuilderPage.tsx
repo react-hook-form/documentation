@@ -229,7 +229,7 @@ function BuilderPage({
   const copyFormData = useRef([])
   const closeButton = useRef(null)
   const [showValidation, toggleValidation] = useState(false)
-  const onSubmit = (data, event) => {
+  const onSubmit = (data) => {
     if (editIndex >= 0) {
       formData[editIndex] = data
       updateFormData([...formData])
@@ -238,7 +238,7 @@ function BuilderPage({
     } else {
       updateFormData([...formData, ...[data]])
     }
-    event.target.reset()
+    reset()
   }
   const form = useRef(null)
   const type = watch("type")
@@ -403,7 +403,7 @@ function BuilderPage({
           </label>
 
           <Animate
-            play={showValidation || shouldToggleOn}
+            play={shouldToggleOn || showValidation}
             start={{
               maxHeight: 0,
               overflow: "hidden",
@@ -422,7 +422,7 @@ function BuilderPage({
               >
                 <input
                   tabIndex={showValidation ? 0 : -1}
-                  defaultChecked={editFormData.required}
+                  // defaultChecked={editFormData.required}
                   type="checkbox"
                   name="required"
                   ref={register}
