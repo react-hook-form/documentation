@@ -229,7 +229,7 @@ function BuilderPage({
   const copyFormData = useRef([])
   const closeButton = useRef(null)
   const [showValidation, toggleValidation] = useState(false)
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     if (editIndex >= 0) {
       formData[editIndex] = data
       updateFormData([...formData])
@@ -276,6 +276,10 @@ function BuilderPage({
   useEffect(() => {
     if (editFormData.type) setValue("type", editFormData.type)
   }, [editFormData.type])
+
+  useEffect(() => {
+    setValue("required", editFormData.required)
+  }, [editIndex])
 
   const child = (
     <Container>
@@ -422,7 +426,6 @@ function BuilderPage({
               >
                 <input
                   tabIndex={showValidation ? 0 : -1}
-                  // defaultChecked={editFormData.required}
                   type="checkbox"
                   name="required"
                   ref={register}
