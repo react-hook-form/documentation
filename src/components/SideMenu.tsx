@@ -121,7 +121,7 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
             )
           }
 
-          if (link.toLowerCase() === 'formcontext' || link.toLowerCase() === 'typescript') {
+          if (link.toLowerCase() === 'formcontext' || link.toLowerCase() === 'typescript' || link.toLowerCase() === 'react native') {
             return (
               <li key={link} onClick={() => goToSection(link, index)}>
                 <Code>{`</>`}</Code>{' '}
@@ -147,13 +147,13 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
                 ...(index > 0
                   ? {
                       marginLeft: 10,
-                      ...(index !== links.length - 3 ? { borderLeft: '1px solid #ec5990' } : null),
+                      ...(index !== links.length - 4 ? { borderLeft: '1px solid #ec5990' } : null),
                       ...(index === 3 ? { paddingTop: 10, marginTop: -15 } : null),
                     }
                   : null),
               }}
             >
-              <Arrow last={index === links.length - 3}>
+              <Arrow last={index === links.length - 4}>
                 {index > 0 && (
                   <span
                     style={{

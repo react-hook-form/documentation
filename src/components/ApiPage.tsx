@@ -33,6 +33,7 @@ import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import nativeValidation from "./codeExamples/nativeValidation"
+import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 
@@ -153,6 +154,7 @@ const links = [
   "triggerValidation",
   "formState",
   "FormContext",
+  "React Native",
   "Typescript",
 ]
 
@@ -176,6 +178,7 @@ function Builder({ formData, showApi }: any) {
     triggerValidationRef: null,
     FormContextRef: null,
     nativeValidationRef: null,
+    ReactNativeRef: null,
   })
   const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
@@ -183,17 +186,18 @@ function Builder({ formData, showApi }: any) {
   const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
+    const filterName = name.replace(/ /, '');
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${name}`)
+      history.pushState({}, null, `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${name}`)
+      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
-    const refName = `${name}Ref`
+    const refName = `${filterName}Ref`
     track({
       category: "Link",
-      label: name,
-      action: `Click - Go to ${name} section`,
+      label: filterName,
+      action: `Click - Go to ${filterName} section`,
     })
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
@@ -833,6 +837,28 @@ function Builder({ formData, showApi }: any) {
           <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
             <FormContext />
           </section>
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.ReactNativeRef = ref
+            }}
+          >
+            <h2>React Native</h2>
+          </CodeHeading>
+
+          <p>
+            You will get the same performance enhancement from Uncontrolled
+            Component. However, there are certain API which isn't compatible
+            with React Native (duo to the API difference from web and native).
+            We will use custom register in the following example.
+          </p>
+          <SyntaxHighlighterWithCopy
+            tabIndex={tabIndex}
+            rawData={reactNative}
+          />
 
           <hr />
 
