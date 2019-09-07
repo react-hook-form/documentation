@@ -365,7 +365,7 @@ function Builder({ formData, showApi }: any) {
                 {`{[key:string]: string}`} = {`{}`}
               </Type>
             </code>
-            <Popup top={3} message="React Native: Need to combine the use of watch API" />
+            <Popup top={3} message="React Native: Need to combine the use of watch API or simply use defaultValue" />
           </H5>
 
           <p>

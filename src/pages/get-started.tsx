@@ -1,20 +1,21 @@
-import * as React from 'react'
-import Layout from '../components/layout'
-import Seo from '../components/seo'
+import * as React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 import {
   H1,
-  HeadingWithTopMargin, Note,
+  HeadingWithTopMargin,
+  Note,
   SubHeading,
   Title,
-} from '../styles/typography'
-import GetStarted from '../components/GetStarted'
-import SideMenu from '../components/SideMenu'
-import track from '../components/utils/track'
-import SyntaxHighlighterWithCopy from '../components/SyntaxHighlighterWithCopy'
-import colors from '../styles/colors'
-import { Link, navigate } from '@reach/router'
-import { DarkBlueButton } from '../styles/buttons'
-import { Container, Wrapper } from '../styles/containers'
+} from "../styles/typography"
+import GetStarted from "../components/GetStarted"
+import SideMenu from "../components/SideMenu"
+import track from "../components/utils/track"
+import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
+import colors from "../styles/colors"
+import { Link, navigate } from "@reach/router"
+import { DarkBlueButton } from "../styles/buttons"
+import { Container, Wrapper } from "../styles/containers"
 import {
   registerCode,
   migrateCode,
@@ -22,19 +23,20 @@ import {
   globalState,
   errors,
   applyValidation,
-} from '../components/codeExamples/getStarted'
-import Footer from "../components/Footer";
+} from "../components/codeExamples/getStarted"
+import Footer from "../components/Footer"
+import code from "../components/codeExamples/defaultExample"
 
 const { useRef } = React
 
 const links = [
-  'Quick start',
-  'Register fields',
-  'Apply validation',
-  'Adapting existing form',
-  'Work with UI library',
-  'Integrate global state',
-  'Handle errors',
+  "Quick start",
+  "Register fields",
+  "Apply validation",
+  "Adapting existing form",
+  "Work with UI library",
+  "Integrate global state",
+  "Handle errors",
 ]
 
 const Faq = ({ location }) => {
@@ -50,13 +52,13 @@ const Faq = ({ location }) => {
 
   const goToSection = name => {
     track({
-      category: 'Anchors Link',
+      category: "Anchors Link",
       label: name,
       action: `Click - Go to section ${name}`,
     })
-    const refName = name.replace(/ /g, '').toLowerCase()
+    const refName = name.replace(/ /g, "").toLowerCase()
     if (sectionsRef.current[refName]) {
-      sectionsRef.current[refName].scrollIntoView({ behavior: 'smooth' })
+      sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
 
@@ -76,7 +78,7 @@ const Faq = ({ location }) => {
             title={
               <Title
                 style={{
-                  marginBottom: '10px',
+                  marginBottom: "10px",
                   fontSize: 16,
                   color: colors.lightBlue,
                 }}
@@ -100,12 +102,23 @@ const Faq = ({ location }) => {
               Register fields
             </Title>
             <p>
-              One of the key concepts for React Hook Form is to <strong><code>register</code></strong> your uncontrolled component into the Hook and hence enabling its value to be validated and gathered for submitting.
+              One of the key concepts for React Hook Form is to{" "}
+              <strong>
+                <code>register</code>
+              </strong>{" "}
+              your uncontrolled component into the Hook and hence enabling its
+              value to be validated and gathered for submitting.
             </p>
 
             <p>
               <Note>Note</Note>: Each field is <strong>required</strong> to have
               a unique <code>name</code> as a key for the registration process.
+            </p>
+
+            <p>
+              <Note>React Native Note: </Note>you will need to use custom
+              register eg:{" "}
+              <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
             </p>
 
             <SyntaxHighlighterWithCopy rawData={registerCode} />
@@ -120,13 +133,13 @@ const Faq = ({ location }) => {
 
             <p>
               React Hook Form make form validation easy by aligning with
-              existing{' '}
+              existing{" "}
               <a
                 onClick={() => {
                   track({
-                    category: 'Link',
-                    action: 'Click - Go to Mozilla website',
-                    label: 'HTML standard form validation',
+                    category: "Link",
+                    action: "Click - Go to Mozilla website",
+                    label: "HTML standard form validation",
                   })
                 }}
                 href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
@@ -148,13 +161,13 @@ const Faq = ({ location }) => {
               <li>validate</li>
             </ul>
             <p>
-              You can read more detail on each rule at the{' '}
+              You can read more detail on each rule at the{" "}
               <Link
                 onClick={() => {
                   track({
-                    category: 'Link',
-                    label: 'API page #register',
-                    action: 'Click - Go to API register section',
+                    category: "Link",
+                    label: "API page #register",
+                    action: "Click - Go to API register section",
                   })
                 }}
                 to="api#register"
@@ -174,7 +187,9 @@ const Faq = ({ location }) => {
               Adapting existing form
             </Title>
             <p>
-              Working on an existing form is simple. The important step is to apply <code>register</code> into existing component's <code>ref</code>.
+              Working on an existing form is simple. The important step is to
+              apply <code>register</code> into existing component's{" "}
+              <code>ref</code>.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={migrateCode} />
@@ -187,15 +202,16 @@ const Faq = ({ location }) => {
               Work with UI library
             </Title>
             <p>
-              React Hook Form has made it easy to integrate with external UI component libraries.
+              React Hook Form has made it easy to integrate with external UI
+              component libraries.
             </p>
             <p>
               <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-              libraries do expose <code>innerRef</code> or <code>ref</code> to{' '}
+              libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
               <code>register</code>. For components that are more complicated
               like <code>react-select</code> or <code>react-datepicker</code>,
-              you can manually update the value via <code>setValue</code> or trigger an error
-              with <code>setError</code>.
+              you can manually update the value via <code>setValue</code> or
+              trigger an error with <code>setError</code>.
             </p>
 
             <SyntaxHighlighterWithCopy
@@ -211,7 +227,8 @@ const Faq = ({ location }) => {
               Integrate global state
             </Title>
             <p>
-              React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.
+              React Hook Form doesn't require you to have a state management to
+              store your data, but you can easily integrate with one.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={globalState} />
@@ -232,7 +249,7 @@ const Faq = ({ location }) => {
 
             <section
               style={{
-                textAlign: 'center',
+                textAlign: "center",
               }}
             >
               <H1>Want to learn more?</H1>
@@ -240,11 +257,11 @@ const Faq = ({ location }) => {
               <DarkBlueButton
                 onClick={() => {
                   track({
-                    category: 'Button',
-                    label: 'Checkout hook API (Get started)',
-                    action: 'Click - Go to API',
+                    category: "Button",
+                    label: "Checkout hook API (Get started)",
+                    action: "Click - Go to API",
                   })
-                  navigate('/api')
+                  navigate("/api")
                 }}
               >
                 Checkout Hook API

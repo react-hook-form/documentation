@@ -470,7 +470,7 @@ export default function ApiRefTable({ tabIndex }: any) {
       <p>
         <Note>Note: </Note>You can also register input manually, which is useful{" "}
         when working with custom components and <code>Ref</code> is not
-        accessible. eg:{" "}
+        accessible. This is actually the case when you using React Native. eg:{" "}
         <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
       </p>
     </>
