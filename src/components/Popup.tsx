@@ -36,7 +36,7 @@ const Root = styled.span`
   }
 `
 
-function Popup({ message, top }: { message?: string; top: number }) {
+function Popup({ message, top }: { message?: string; top?: number }) {
   const [tipShow, setTipShow] = React.useState(false)
   return (
     <Root>
@@ -53,7 +53,7 @@ function Popup({ message, top }: { message?: string; top: number }) {
           }}
           render={({ style }) => (
             <span style={{ ...style, top }}>
-              {message || <>Not compatible with React Native (DOM API only)</>}
+              {message || <>React Native: not compatible (DOM API only)</>}
             </span>
           )}
         />

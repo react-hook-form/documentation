@@ -365,7 +365,7 @@ function Builder({ formData, showApi }: any) {
                 {`{[key:string]: string}`} = {`{}`}
               </Type>
             </code>
-            <Popup top={3} message="Need to combine the use of watch API" />
+            <Popup top={3} message="React Native: Need to combine the use of watch API" />
           </H5>
 
           <p>
@@ -575,7 +575,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               register:{" "}
               <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
-              <Popup message="Custom register only for React Native" />
+              <Popup message="React Native: custom register only" />
             </h2>
           </CodeHeading>
 
