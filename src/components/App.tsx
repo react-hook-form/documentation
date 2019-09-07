@@ -110,7 +110,7 @@ function App({ location }) {
           start={{ minHeight: '100vh', filter: 'blur(0)', transform: 'scale(1)' }}
           end={{ minHeight: '100vh', filter: 'blur(3px)', transform: 'scale(0.9) rotateX(5deg)' }}
         >
-          <Header tabIndex={tabIndex} homeRef={HomeRef} />
+          <Header tabIndex={tabIndex} homeRef={HomeRef} isMobile={isMobile} />
 
           <CodeCompareSection />
 

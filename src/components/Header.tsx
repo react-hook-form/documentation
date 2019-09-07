@@ -1,14 +1,15 @@
-import { Heading, SubHeading } from '../styles/typography'
-import * as React from 'react'
-import styled from 'styled-components'
-import colors from '../styles/colors'
-import { AnimateGroup } from 'react-simple-animate'
-import FeaturesList from './FeaturesList'
-import track from './utils/track'
-import { navigate } from '@reach/router'
-import video from '../images/react-hook-form-demo-video.mp4'
-import { ButtonsGroup } from '../styles/buttons'
-import breakpoints from '../styles/breakpoints'
+import { Heading, SubHeading } from "../styles/typography"
+import * as React from "react"
+import styled, { css } from "styled-components"
+import colors from "../styles/colors"
+import { AnimateGroup } from "react-simple-animate"
+import FeaturesList from "./FeaturesList"
+import track from "./utils/track"
+import { navigate } from "@reach/router"
+import video from "../images/react-hook-form-demo-video.mp4"
+import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
+import { ButtonsGroup } from "../styles/buttons"
+import breakpoints from "../styles/breakpoints"
 
 const Logo = styled.svg`
   height: 80px;
@@ -35,11 +36,11 @@ const DesktopLogo = styled.svg`
     fill: white;
     padding: 10px;
     border-radius: 10px;
-    position: relative  ;
+    position: relative;
     background: ${colors.lightPink};
     display: inline-block;
     top: 10px;
-    margin-right:10px;
+    margin-right: 10px;
   }
 `
 
@@ -81,14 +82,17 @@ const Video = styled.video`
   border-radius: 10px;
   display: block;
   box-shadow: 0px 0 9px 0px #010817;
-  margin-bottom: 100px;
-  margin-top: -45px;
   background: ${colors.primary};
+  ${props =>
+    props.isLast &&
+    css`
+      margin-bottom: 100px;
+    `}
 
   @media ${breakpoints.fromMediumScreen} {
     width: 700px;
     height: 491px;
-    margin: 0 auto 40px;
+    margin: 0 auto 20px;
   }
 
   @media ${breakpoints.fromLargeScreen} {
@@ -102,40 +106,110 @@ const Video = styled.video`
   }
 `
 
-export default function Header({ homeRef, tabIndex }: any) {
+const VideoHeading = styled.h4`
+  text-align: center;
+  font-weight: normal;
+  line-height: 2;
+  border-bottom: 2px solid ${colors.secondary};
+  display: block;
+  margin-bottom: 0;
+
+  @media ${breakpoints.fromMediumScreen} {
+    display: none;
+  }
+`
+
+const ToggleGroup = styled.div`
+  text-align: center;
+  display: none;
+
+  @media ${breakpoints.fromMediumScreen} {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  & > button {
+    font-size: 15px;
+    background: none;
+    color: white;
+    border: 1px solid ${colors.lightBlue};
+    padding: 5px 20px;
+  }
+
+  & > button:first-child {
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  & > button:nth-child(2) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+`
+
+const VideoWrapper = styled.div`
+  @media ${breakpoints.fromMediumScreen} {
+    ${props =>
+      props.show
+        ? css`
+            display: block;
+          `
+        : `display: none`}
+  }
+`
+
+export default function Header({ homeRef, tabIndex, isMobile }: any) {
+  const [isWeb, setIsWeb] = React.useState(true)
+
   return (
     <AnimateGroup play>
       <Head>
         <Logo viewBox="0 0 100 100">
           <path d="M73.56,13.32H58.14a8.54,8.54,0,0,0-16.27,0H26.44a11,11,0,0,0-11,11V81.63a11,11,0,0,0,11,11H73.56a11,11,0,0,0,11-11V24.32A11,11,0,0,0,73.56,13.32Zm-30.92,2a1,1,0,0,0,1-.79,6.54,6.54,0,0,1,12.78,0,1,1,0,0,0,1,.79h5.38v6.55a3,3,0,0,1-3,3H40.25a3,3,0,0,1-3-3V15.32ZM82.56,81.63a9,9,0,0,1-9,9H26.44a9,9,0,0,1-9-9V24.32a9,9,0,0,1,9-9h8.81v6.55a5,5,0,0,0,5,5h19.5a5,5,0,0,0,5-5V15.32h8.81a9,9,0,0,1,9,9Z" />
-          <path style={{ transform: 'translateX(-25px)' }} d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z" />
+          <path
+            style={{ transform: "translateX(-25px)" }}
+            d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z"
+          />
           <path d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z" />
-          <path style={{ transform: 'translateX(-25px)' }} d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
+          <path
+            style={{ transform: "translateX(-25px)" }}
+            d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z"
+          />
           <path d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
         </Logo>
 
         <Heading>
           <DesktopLogo viewBox="0 0 100 100">
             <path d="M73.56,13.32H58.14a8.54,8.54,0,0,0-16.27,0H26.44a11,11,0,0,0-11,11V81.63a11,11,0,0,0,11,11H73.56a11,11,0,0,0,11-11V24.32A11,11,0,0,0,73.56,13.32Zm-30.92,2a1,1,0,0,0,1-.79,6.54,6.54,0,0,1,12.78,0,1,1,0,0,0,1,.79h5.38v6.55a3,3,0,0,1-3,3H40.25a3,3,0,0,1-3-3V15.32ZM82.56,81.63a9,9,0,0,1-9,9H26.44a9,9,0,0,1-9-9V24.32a9,9,0,0,1,9-9h8.81v6.55a5,5,0,0,0,5,5h19.5a5,5,0,0,0,5-5V15.32h8.81a9,9,0,0,1,9,9Z" />
-            <path style={{ transform: 'translateX(-25px)' }} d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z" />
+            <path
+              style={{ transform: "translateX(-25px)" }}
+              d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z"
+            />
             <path d="M71.6,45.92H54a1,1,0,0,0,0,2H71.6a1,1,0,0,0,0-2Z" />
-            <path style={{ transform: 'translateX(-25px)' }} d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
+            <path
+              style={{ transform: "translateX(-25px)" }}
+              d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z"
+            />
             <path d="M71.1,69.49H53.45a1,1,0,1,0,0,2H71.1a1,1,0,0,0,0-2Z" />
-          </DesktopLogo>{' '}
+          </DesktopLogo>{" "}
           React Hook Form
         </Heading>
-        <SubHeading>Performant, flexible and extensible forms with easy to use for validation.</SubHeading>
+        <SubHeading>
+          Performant, flexible and extensible forms with easy to use for
+          validation.
+        </SubHeading>
 
         <ButtonsGroupSmall>
           <button
             tabIndex={tabIndex}
             onClick={() => {
               track({
-                category: 'Button',
-                label: 'Demo',
-                action: 'Click - Demo',
+                category: "Button",
+                label: "Demo",
+                action: "Click - Demo",
               })
-              homeRef.current.scrollIntoView({ behavior: 'smooth' })
+              homeRef.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
             Demo
@@ -144,11 +218,11 @@ export default function Header({ homeRef, tabIndex }: any) {
             tabIndex={tabIndex}
             onClick={() => {
               track({
-                category: 'Button',
-                label: 'Get Started',
-                action: 'Click - Get Started',
+                category: "Button",
+                label: "Get Started",
+                action: "Click - Get Started",
               })
-              navigate('/get-started')
+              navigate("/get-started")
             }}
           >
             Get Started
@@ -156,20 +230,87 @@ export default function Header({ homeRef, tabIndex }: any) {
         </ButtonsGroupSmall>
       </Head>
 
-      <Video
-        controls
-        playsInline
-        muted
-        onClick={() => {
-          track({
-            category: 'Video',
-            label: 'video',
-            action: 'Play/Pause - Demo Video',
-          })
-        }}
-      >
-        <source src={video} type="video/mp4" />
-      </Video>
+      <VideoHeading>React Web</VideoHeading>
+      <VideoWrapper show={isWeb}>
+        <Video
+          role="tabpanel"
+          aria-labelledby="tabpanel-1"
+          controls
+          playsInline
+          muted
+          onClick={() => {
+            track({
+              category: "Video",
+              label: "video",
+              action: "Play/Pause - Demo Video",
+            })
+          }}
+        >
+          <source src={video} type="video/mp4" />
+        </Video>
+      </VideoWrapper>
+
+      <VideoWrapper show={!isWeb}>
+        <VideoHeading>React Native</VideoHeading>
+        <Video
+          role="tabpanel"
+          aria-labelledby="tabpanel-2"
+          controls
+          playsInline
+          isLast
+          muted
+          onClick={() => {
+            track({
+              category: "Video",
+              label: "video",
+              action: "Play/Pause - Demo Video",
+            })
+          }}
+        >
+          <source src={nativeVideo} type="video/mp4" />
+        </Video>
+      </VideoWrapper>
+
+      <ToggleGroup>
+        <button
+          style={{
+            background: isWeb ? colors.lightPink : "none",
+          }}
+          aria-label="show web video"
+          aria-selected={isWeb}
+          aria-controls="tabpanel-1"
+          role="tab"
+          onClick={() => {
+            setIsWeb(true)
+            track({
+              category: "Button",
+              label: "React Web",
+              action: "Click - watch",
+            })
+          }}
+        >
+          React Web
+        </button>
+        <button
+          style={{
+            background: !isWeb ? colors.lightPink : "none",
+          }}
+          role="tab"
+          aria-label="show react native video"
+          aria-selected={!isWeb}
+          aria-controls="tabpanel-2"
+          onClick={() => {
+            setIsWeb(false)
+            track({
+              category: "Button",
+              label: "React Native",
+              action: "Click - watch",
+            })
+          }}
+        >
+          React Native
+        </button>
+      </ToggleGroup>
 
       <FeaturesList />
     </AnimateGroup>
