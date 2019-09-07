@@ -36,6 +36,7 @@ import nativeValidation from "./codeExamples/nativeValidation"
 import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
+import Popup from "./Popup"
 
 const { useRef, useEffect } = React
 
@@ -186,7 +187,7 @@ function Builder({ formData, showApi }: any) {
   const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
-    const filterName = name.replace(/ /, '');
+    const filterName = name.replace(/ /, "")
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
     } else {
@@ -305,6 +306,7 @@ function Builder({ formData, showApi }: any) {
             <code>
               mode: <Type>string = 'onSubmit'</Type>
             </code>
+            <Popup top={3} />
           </H5>
 
           <TableWrapper>
@@ -363,6 +365,7 @@ function Builder({ formData, showApi }: any) {
                 {`{[key:string]: string}`} = {`{}`}
               </Type>
             </code>
+            <Popup top={3} message="Need to combine the use of watch API" />
           </H5>
 
           <p>
@@ -572,6 +575,7 @@ function Builder({ formData, showApi }: any) {
             <h2>
               register:{" "}
               <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
+              <Popup message="Custom register only for React Native" />
             </h2>
           </CodeHeading>
 
@@ -654,7 +658,8 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              reset: <Type>{`(values?: Record<string, any>) => void`}</Type>
+              <code>reset: <Type>{`(values?: Record<string, any>) => void`}</Type></code>
+              <Popup />
             </h2>
           </CodeHeading>
           <p>
@@ -853,7 +858,7 @@ function Builder({ formData, showApi }: any) {
             You will get the same performance enhancement from Uncontrolled
             Component. However, there are certain API which isn't compatible
             with React Native (duo to the API difference from web and native).
-            We will use custom register in the following example.
+            We will have to use <b>custom register</b> in the following example.
           </p>
           <SyntaxHighlighterWithCopy
             tabIndex={tabIndex}
