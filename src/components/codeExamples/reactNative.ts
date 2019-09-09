@@ -3,7 +3,7 @@ import { Text, View, TextInput, Button, Alert } from "react-native"
 import useForm from 'react-hook-form'
 
 export default function App() {
-  const { register, setValue, handleSubmit} = useForm()
+  const { register, setValue, handleSubmit, errors } = useForm()
   const onSubmit = data => Alert.alert('Form Data', data)
 
   return (
@@ -11,8 +11,9 @@ export default function App() {
       <Text>First name</Text>
       <TextInput
         ref={register({ name: 'firstName'}, { required: true })}
-        onChangeText={text => setValue('firstName', text)}
+        onChangeText={text => setValue('firstName', text, true)}
       />
+      {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
       <TextInput
