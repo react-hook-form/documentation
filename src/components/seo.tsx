@@ -43,6 +43,11 @@ function SEO({ description, lang, meta, title }: any) {
           content: title,
         },
         {
+          property: `og:image`,
+          content:
+            "https://repository-images.githubusercontent.com/174038031/01768c80-a4f5-11e9-8007-1dc851d42b5d",
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
@@ -52,7 +57,12 @@ function SEO({ description, lang, meta, title }: any) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          property: `twitter:image`,
+          content:
+            "https://repository-images.githubusercontent.com/174038031/01768c80-a4f5-11e9-8007-1dc851d42b5d",
         },
         {
           name: `twitter:creator`,

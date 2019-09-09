@@ -2,9 +2,8 @@ import * as React from "react"
 import styled from "styled-components"
 import { Animate } from "react-simple-animate"
 import Nav from "./Nav"
-
-import "./layout.css"
 import colors from "../styles/colors"
+import "./layout.css"
 
 const ScrollTop = styled.button`
   display: none;
