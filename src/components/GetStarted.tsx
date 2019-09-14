@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import copyClipBoard from './utils/copyClipBoard'
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
-import code from './codeExamples/defaultExample'
-import colors from '../styles/colors'
-import * as React from 'react'
-import track from './utils/track'
-import breakpoints from "../styles/breakpoints";
-import {Note} from "../styles/typography";
+import styled from "styled-components"
+import copyClipBoard from "./utils/copyClipBoard"
+import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import code from "./codeExamples/defaultExample"
+import colors from "../styles/colors"
+import * as React from "react"
+import track from "./utils/track"
+import breakpoints from "../styles/breakpoints"
+import { Note } from "../styles/typography"
 
 const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -24,7 +24,7 @@ const CopyButton = styled.button`
   border-radius: 4px;
   font-size: 16px;
   float: right;
-  
+
   @media ${breakpoints.fromMediumScreen} {
     display: inline-block;
   }
@@ -35,7 +35,8 @@ export default function GetStarted({ quickStartRef }: any) {
     <>
       <h2 ref={quickStartRef}>Installation</h2>
       <p>
-        Installing <code>react-hook-form</code> only takes a single command and you're ready to roll.
+        Installing <code>react-hook-form</code> only takes a single command and
+        you're ready to roll.
       </p>
 
       <InstallCode>
@@ -43,12 +44,12 @@ export default function GetStarted({ quickStartRef }: any) {
         <CopyButton
           onClick={() => {
             track({
-              category: 'Button',
-              label: 'Copy',
-              action: 'Click - copy installation',
+              category: "Button",
+              label: "Copy",
+              action: "Click - copy installation",
             })
-            copyClipBoard('npm install react-hook-form')
-            alert('Code copied into your clipboard.')
+            copyClipBoard("npm install react-hook-form")
+            alert("Code copied into your clipboard.")
           }}
         >
           Copy
@@ -63,7 +64,33 @@ export default function GetStarted({ quickStartRef }: any) {
         Example
       </h2>
       <p>The following code will demonstrate the basics usage.</p>
-      <SyntaxHighlighterWithCopy rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
+      <SyntaxHighlighterWithCopy
+        rawData={code}
+        url="https://codesandbox.io/s/kw7z2q2n15"
+      />
+
+      <p
+        style={{
+          textAlign: "center",
+        }}
+      >
+        ♦
+      </p>
+
+      <h2 ref={quickStartRef}>Video Tutorial</h2>
+      <p>
+        In this video tutorial, i have demonstrated the basic usage and concept
+        of using <code>react-hook-form</code>.
+      </p>
+
+      <iframe
+        width="100%"
+        height="528"
+        src="https://www.youtube.com/embed/-mFXqOaqgZk"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </>
   )
 }
