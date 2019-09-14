@@ -847,7 +847,6 @@ function Builder({ formData, showApi }: any) {
             We will have to use <b>custom register</b> in the following example.
           </p>
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={reactNative}
           />
 

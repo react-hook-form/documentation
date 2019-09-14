@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Heading, SubHeading } from '../styles/typography'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import colors from '../styles/colors'
 import { AnimateGroup } from 'react-simple-animate'
 import FeaturesList from './FeaturesList'
@@ -10,6 +10,8 @@ import { ButtonsGroup } from '../styles/buttons'
 import breakpoints from '../styles/breakpoints'
 // @ts-ignore
 import video from '../images/react-hook-form-demo-video.mp4'
+// @ts-ignore
+import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 
 const Logo = styled.svg`
   height: 80px;
