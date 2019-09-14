@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "react-hook-form",
-  "alias": "react-hook-form.com",
+  "alias": ["react-hook-form.com", "www.react-hook-form.com"],
   "builds": [
     {
       "src": "package.json",
