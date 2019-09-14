@@ -18,7 +18,7 @@
     "gatsby-plugin-typescript": "^2.0.14",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-sharp": "^2.1.19",
-    "little-state-machine": "^2.9.6",
+    "little-state-machine": "2.3.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-github-btn": "^1.0.5",
