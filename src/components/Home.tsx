@@ -1,19 +1,19 @@
-import * as React from 'react'
-import { Animate } from 'react-simple-animate'
-import { navigate } from '@reach/router'
-import Nav from './Nav'
-import styled from 'styled-components'
-import colors from '../styles/colors'
-import Form from './Form'
-import Header from './Header'
-import CodeCompareSection from './CodeCompareSection'
-import CodePerfCompareSection from './CodePerfCompareSection'
-import FooterContent from './Footer'
-import Builder from './BuilderPage'
-import { H1 } from '../styles/typography'
-import { ButtonsGroup, DarkBlueButton } from '../styles/buttons'
-import track from './utils/track'
-import { CenterContent } from '../styles/containers'
+import * as React from "react"
+import { Animate } from "react-simple-animate"
+import { navigate } from "@reach/router"
+import Nav from "./Nav"
+import styled from "styled-components"
+import colors from "../styles/colors"
+import Form from "./Form"
+import Header from "./Header"
+import CodeCompareSection from "./CodeCompareSection"
+import CodePerfCompareSection from "./CodePerfCompareSection"
+import FooterContent from "./Footer"
+import Builder from "./BuilderPage"
+import { H1 } from "../styles/typography"
+import { ButtonsGroup, DarkBlueButton } from "../styles/buttons"
+import track from "./utils/track"
+import { CenterContent } from "../styles/containers"
 
 const { useState, useRef, useEffect } = React
 
@@ -62,12 +62,15 @@ function Home({ location }) {
   }
 
   useEffect(() => {
-    if (location.search === '?goToDemo') {
-      HomeRef.current.scrollIntoView({ behavior: 'smooth' })
+    if (location.search === "?goToDemo") {
+      HomeRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
     // @ts-ignore
-    isMobile = typeof window === 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
+    isMobile =
+      typeof window === "undefined"
+        ? false
+        : window.matchMedia("(max-width: 768px)").matches
   }, [])
 
   const Buttons = (
@@ -100,13 +103,21 @@ function Home({ location }) {
           }
         }}
         style={{
-          perspective: '2000px',
+          perspective: "2000px",
         }}
       >
         <Animate
           play={showBuilder}
-          start={{ minHeight: '100vh', filter: 'blur(0)', transform: 'scale(1)' }}
-          end={{ minHeight: '100vh', filter: 'blur(3px)', transform: 'scale(0.9) rotateX(5deg)' }}
+          start={{
+            minHeight: "100vh",
+            filter: "blur(0)",
+            transform: "scale(1)",
+          }}
+          end={{
+            minHeight: "100vh",
+            filter: "blur(3px)",
+            transform: "scale(0.9) rotateX(5deg)",
+          }}
         >
           <Header homeRef={HomeRef} isMobile={isMobile} />
 
@@ -117,22 +128,25 @@ function Home({ location }) {
           <CenterContent>
             <H1>Find it useful and interesting?</H1>
             <p>
-              Form validation should be much simpler with React Hook Form. It will lead you to write less code and have better performance. Check out the get started section and learn more on the API documentation page.
+              Form validation should be much simpler with React Hook Form. It
+              will lead you to write less code and have better performance.
+              Check out the get started section and learn more on the API
+              documentation page.
             </p>
             <ButtonsGroup
               style={{
                 maxWidth: 500,
-                margin: '0 auto',
+                margin: "0 auto",
               }}
             >
               <DarkBlueButton
                 onClick={() => {
                   track({
-                    category: 'Button',
-                    label: 'Get Started - Find it useful and interesting',
-                    action: 'Click - Go to Get Started page',
+                    category: "Button",
+                    label: "Get Started - Find it useful and interesting",
+                    action: "Click - Go to Get Started page",
                   })
-                  navigate('/get-started')
+                  navigate("/get-started")
                 }}
               >
                 Get Started
@@ -140,11 +154,11 @@ function Home({ location }) {
               <DarkBlueButton
                 onClick={() => {
                   track({
-                    category: 'Button',
-                    label: 'API',
-                    action: 'Click - Go to API page',
+                    category: "Button",
+                    label: "API",
+                    action: "Click - Go to API page",
                   })
-                  navigate('/api')
+                  navigate("/api")
                 }}
               >
                 API
