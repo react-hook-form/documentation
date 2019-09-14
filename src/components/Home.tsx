@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Animate } from 'react-simple-animate'
+import { navigate } from '@reach/router'
 import Nav from './Nav'
 import styled from 'styled-components'
 import colors from '../styles/colors'
@@ -12,7 +13,6 @@ import Builder from './BuilderPage'
 import { H1 } from '../styles/typography'
 import { ButtonsGroup, DarkBlueButton } from '../styles/buttons'
 import track from './utils/track'
-import { navigate } from '@reach/router'
 import { CenterContent } from '../styles/containers'
 
 const { useState, useRef, useEffect } = React
@@ -50,12 +50,11 @@ const Root = styled.div`
   }
 `
 
-function App({ location }) {
+function Home({ location }) {
   const [submitData, updateSubmitData] = useState({})
   const builderButton = useRef(null)
   const HomeRef = useRef(null)
   const [showBuilder, toggleBuilder] = useState(false)
-  const tabIndex = showBuilder ? -1 : 0
   let isMobile
 
   const onSubmit = data => {
@@ -73,7 +72,6 @@ function App({ location }) {
 
   const Buttons = (
     <Nav
-      tabIndex={tabIndex}
       pathname={location.pathname}
       builderButton={builderButton}
       showBuilder={showBuilder}
@@ -110,7 +108,7 @@ function App({ location }) {
           start={{ minHeight: '100vh', filter: 'blur(0)', transform: 'scale(1)' }}
           end={{ minHeight: '100vh', filter: 'blur(3px)', transform: 'scale(0.9) rotateX(5deg)' }}
         >
-          <Header tabIndex={tabIndex} homeRef={HomeRef} isMobile={isMobile} />
+          <Header homeRef={HomeRef} isMobile={isMobile} />
 
           <CodeCompareSection />
 
@@ -156,7 +154,6 @@ function App({ location }) {
 
           <Form
             {...{
-              tabIndex,
               onSubmit,
               submitData,
               toggleBuilder,
@@ -172,4 +169,4 @@ function App({ location }) {
   )
 }
 
-export default React.memo(App)
+export default React.memo(Home)

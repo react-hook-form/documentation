@@ -3,7 +3,7 @@ import * as React from 'react'
 import { LinkToSandBox } from './SyntaxHighlighterWithCopy'
 import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
-export default function ApiFormState({ tabIndex }: any) {
+export default function ApiFormState() {
   return (
     <>
       <CodeHeading>
@@ -80,7 +80,6 @@ export default function ApiFormState({ tabIndex }: any) {
       </TableWrapper>
 
       <LinkToSandBox
-        tabIndex={tabIndex}
         style={{
           position: 'relative',
           left: 0,

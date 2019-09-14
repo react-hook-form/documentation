@@ -4,7 +4,7 @@ import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy";
 import formContext from "./codeExamples/formContext";
 import {Note} from "../styles/typography";
 
-export default function FormContext({tabIndex}: any) {
+export default function FormContext() {
   return <>
     <CodeHeading>
       <h2>
@@ -40,7 +40,6 @@ export default function FormContext({tabIndex}: any) {
     <p><code style={{ fontSize: 14 }}>{`const methods = useFormContext() // methods contain all useForm functions`}</code></p>
 
     <SyntaxHighlighterWithCopy
-      tabIndex={tabIndex}
       rawData={formContext}
       url="https://codesandbox.io/s/sad-sutherland-zvfok"
     />

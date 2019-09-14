@@ -3,7 +3,7 @@ import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
 import watchCode from "./codeExamples/watchCode"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
-export default function ApiWatch({ tabIndex }: any) {
+export default function ApiWatch() {
   return (
     <>
       <CodeHeading>
@@ -97,7 +97,6 @@ export default function ApiWatch({ tabIndex }: any) {
         </Table>
       </TableWrapper>
       <SyntaxHighlighterWithCopy
-        tabIndex={tabIndex}
         rawData={watchCode}
         url="https://codesandbox.io/s/pp1l40q7wx"
       />

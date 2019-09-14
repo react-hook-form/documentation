@@ -15,7 +15,7 @@ const Footer = styled.footer`
   }
 `
 
-export default ({ tabIndex }: any) => (
+export default () => (
   <Footer>
     Build with ♡ by{' '}
     <a
@@ -28,7 +28,6 @@ export default ({ tabIndex }: any) => (
         })
       }}
       target="_blank"
-      tabIndex={tabIndex}
       title="Bill Luo Twitter"
     >
       @Bill Luo
@@ -44,7 +43,6 @@ export default ({ tabIndex }: any) => (
       }}
       href="https://github.com/bluebill1049/react-simple-animate"
       target="_blank"
-      tabIndex={tabIndex}
       title="React Simple Animate Github"
     >
       React Simple Animate
@@ -60,7 +58,6 @@ export default ({ tabIndex }: any) => (
       }}
       href="https://github.com/bluebill1049/react-simple-img"
       target="_blank"
-      tabIndex={tabIndex}
       title="React Simple Img Github"
     >
       React Simple Img
@@ -75,7 +72,6 @@ export default ({ tabIndex }: any) => (
       }}
       href="https://github.com/bluebill1049/little-state-machine"
       target="_blank"
-      tabIndex={tabIndex}
       title="Little state machine"
     >
       Little State Machine

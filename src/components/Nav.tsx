@@ -157,7 +157,6 @@ const GitHubButtonWrap = styled.span`
 export default function Nav({
   toggleBuilder,
   builderButton,
-  tabIndex,
   pathname,
   showBuilder,
 }: any) {
@@ -237,7 +236,7 @@ export default function Nav({
           }}
           href="https://github.com/bluebill1049/react-hook-form"
           data-size="large"
-          data-show-count="true"
+          data-show-count
           aria-label="Star bluebill1049/react-hook-form on GitHub"
         >
           Star
@@ -246,7 +245,6 @@ export default function Nav({
 
       <ActionButtonGroup>
         <Button
-          tabIndex={tabIndex}
           active={pathname === "/"}
           onClick={() => {
             track({
@@ -273,7 +271,6 @@ export default function Nav({
           <span>Home</span>
         </Button>
         <Button
-          tabIndex={tabIndex}
           active={pathname.includes("/get-started")}
           onClick={() => {
             track({
@@ -299,7 +296,6 @@ export default function Nav({
           <span>Get Started</span>
         </Button>
         <Button
-          tabIndex={tabIndex}
           active={pathname.includes("/api")}
           onClick={() => {
             track({
@@ -322,7 +318,6 @@ export default function Nav({
           <span>API</span>
         </Button>
         <Button
-          tabIndex={tabIndex}
           active={pathname.includes("/builder")}
           onClick={() => {
             track({
@@ -347,7 +342,6 @@ export default function Nav({
           <span>Build Form</span>
         </Button>
         <Button
-          tabIndex={tabIndex}
           active={pathname.includes("/faq")}
           onClick={() => {
             track({

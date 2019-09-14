@@ -30,7 +30,7 @@ const CopyButton = styled.button`
   }
 `
 
-export default function GetStarted({ quickStartRef, tabIndex }: any) {
+export default function GetStarted({ quickStartRef }: any) {
   return (
     <>
       <h2 ref={quickStartRef}>Installation</h2>
@@ -41,7 +41,6 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
       <InstallCode>
         npm install react-hook-form
         <CopyButton
-          tabIndex={tabIndex}
           onClick={() => {
             track({
               category: 'Button',
@@ -64,7 +63,7 @@ export default function GetStarted({ quickStartRef, tabIndex }: any) {
         Example
       </h2>
       <p>The following code will demonstrate the basics usage.</p>
-      <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
+      <SyntaxHighlighterWithCopy rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )
 }

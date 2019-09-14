@@ -210,6 +210,13 @@ function BuilderPage({
   HomeRef,
   isMobile,
   isStatic,
+}: {
+  showBuilder?: boolean
+  toggleBuilder?: Function
+  builderButton?: any
+  HomeRef?: any
+  isMobile: boolean
+  isStatic?: boolean
 }) {
   const {
     // @ts-ignore
@@ -242,7 +249,6 @@ function BuilderPage({
   }
   const form = useRef(null)
   const type = watch("type")
-  const tabIndex = showBuilder ? 0 : -1
   const shouldToggleOn =
     editFormData.max ||
     editFormData.min ||
@@ -293,7 +299,6 @@ function BuilderPage({
           <SortableContainer
             {...{
               updateFormData,
-              tabIndex,
               formData,
               editIndex,
               setEditIndex,
@@ -323,7 +328,6 @@ function BuilderPage({
             defaultValue={editFormData.name}
             aria-label="name"
             name="name"
-            tabIndex={tabIndex}
             style={{
               ...(errors["name"] ? errorStyle : null),
             }}
@@ -354,7 +358,6 @@ function BuilderPage({
             name="type"
             ref={register}
             defaultValue={editFormData.type}
-            tabIndex={tabIndex}
           >
             <option value="text">Text</option>
             <option value="select">Select</option>
@@ -384,7 +387,6 @@ function BuilderPage({
             <>
               <label>Options:</label>
               <input
-                tabIndex={tabIndex}
                 key={editFormData.name}
                 defaultValue={editFormData.options}
                 type="text"
@@ -400,7 +402,6 @@ function BuilderPage({
               type="checkbox"
               name="toggle"
               ref={register}
-              tabIndex={tabIndex}
               onClick={() => toggleValidation(!showValidation)}
             />
             &nbsp; Toggle Validation Panel
@@ -424,17 +425,11 @@ function BuilderPage({
                   marginTop: 0,
                 }}
               >
-                <input
-                  tabIndex={showValidation ? 0 : -1}
-                  type="checkbox"
-                  name="required"
-                  ref={register}
-                />{" "}
+                <input type="checkbox" name="required" ref={register} />{" "}
                 Required
               </label>
               <label>Max</label>
               <input
-                tabIndex={showValidation ? 0 : -1}
                 defaultValue={editFormData.max}
                 aria-label="max"
                 autoComplete="false"
@@ -448,7 +443,6 @@ function BuilderPage({
                 autoComplete="false"
                 aria-label="min"
                 name="min"
-                tabIndex={showValidation ? 0 : -1}
                 type="number"
                 ref={register}
               />
@@ -459,22 +453,10 @@ function BuilderPage({
                 aria-label="max length"
                 name="maxLength"
                 type="number"
-                tabIndex={showValidation ? 0 : -1}
-                ref={register}
-              />
-              <label>MinLength</label>
-              <input
-                tabIndex={showValidation ? 0 : -1}
-                defaultValue={editFormData.minLength}
-                aria-label="min length"
-                autoComplete="false"
-                name="minLength"
-                type="number"
                 ref={register}
               />
               <label>Pattern</label>
               <input
-                tabIndex={showValidation ? 0 : -1}
                 autoComplete="false"
                 defaultValue={editFormData.pattern}
                 style={{
@@ -499,7 +481,6 @@ function BuilderPage({
               })
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
-            tabIndex={tabIndex}
             type="submit"
             value={editIndex >= 0 ? "Update" : "Create"}
           />
@@ -526,7 +507,6 @@ function BuilderPage({
             }}
             render={({ style }) => (
               <SubmitButton
-                tabIndex={tabIndex}
                 style={style}
                 type="button"
                 color="white"
@@ -560,16 +540,11 @@ function BuilderPage({
         >
           <Title>Code</Title>
 
-          <SyntaxHighlighterWithCopy tabIndex={tabIndex} data={formData} />
+          <SyntaxHighlighterWithCopy data={formData} />
         </div>
       </Wrapper>
 
-      <div
-        style={{
-          margin: "0 20px",
-          maxWidth: 1350,
-        }}
-      >
+      <div style={{ margin: "0 20px", maxWidth: 1350 }}>
         <Footer />
       </div>
     </Container>
@@ -602,7 +577,6 @@ function BuilderPage({
               <CloseButton
                 aria-label="close builder"
                 ref={closeButton}
-                tabIndex={tabIndex}
                 onClick={() => {
                   toggleBuilder(false)
                   builderButton.current.focus()

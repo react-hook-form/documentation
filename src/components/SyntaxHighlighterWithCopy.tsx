@@ -70,7 +70,6 @@ export default function SyntaxHighlighterWithCopy({
   rawData,
   data,
   url,
-  tabIndex,
   withOutCopy,
 }: any) {
   return (
@@ -81,7 +80,6 @@ export default function SyntaxHighlighterWithCopy({
     >
       {!withOutCopy && (
         <CopyButton
-          tabIndex={tabIndex}
           onClick={() => {
             track({
               category: "Button",
@@ -106,7 +104,6 @@ export default function SyntaxHighlighterWithCopy({
               action: `Click - Go to codeSandBox ${url}`,
             })
           }}
-          tabIndex={tabIndex}
           href={url}
           target="_blank"
         >

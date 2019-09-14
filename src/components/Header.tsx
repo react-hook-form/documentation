@@ -1,15 +1,15 @@
-import { Heading, SubHeading } from "../styles/typography"
-import * as React from "react"
-import styled, { css } from "styled-components"
-import colors from "../styles/colors"
-import { AnimateGroup } from "react-simple-animate"
-import FeaturesList from "./FeaturesList"
-import track from "./utils/track"
-import { navigate } from "@reach/router"
-import video from "../images/react-hook-form-demo-video.mp4"
-import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
-import { ButtonsGroup } from "../styles/buttons"
-import breakpoints from "../styles/breakpoints"
+import * as React from 'react'
+import { Heading, SubHeading } from '../styles/typography'
+import styled from 'styled-components'
+import colors from '../styles/colors'
+import { AnimateGroup } from 'react-simple-animate'
+import FeaturesList from './FeaturesList'
+import track from './utils/track'
+import { navigate } from '@reach/router'
+import { ButtonsGroup } from '../styles/buttons'
+import breakpoints from '../styles/breakpoints'
+// @ts-ignore
+import video from '../images/react-hook-form-demo-video.mp4'
 
 const Logo = styled.svg`
   height: 80px;
@@ -159,7 +159,7 @@ const VideoWrapper = styled.div`
   }
 `
 
-export default function Header({ homeRef, tabIndex, isMobile }: any) {
+export default function Header({ homeRef }: any) {
   const [isWeb, setIsWeb] = React.useState(true)
 
   return (
@@ -202,7 +202,6 @@ export default function Header({ homeRef, tabIndex, isMobile }: any) {
 
         <ButtonsGroupSmall>
           <button
-            tabIndex={tabIndex}
             onClick={() => {
               track({
                 category: "Button",
@@ -215,7 +214,6 @@ export default function Header({ homeRef, tabIndex, isMobile }: any) {
             Demo
           </button>
           <button
-            tabIndex={tabIndex}
             onClick={() => {
               track({
                 category: "Button",

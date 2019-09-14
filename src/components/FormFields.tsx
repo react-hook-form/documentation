@@ -17,14 +17,13 @@ const RadioGroup = styled.div`
   }
 `
 
-export default ({ formData, errors, register, tabIndex }) => {
+export default ({ formData, errors, register }) => {
   return (formData || []).map(field => {
     switch (field.type) {
       case 'select':
         return (
           <select
             aria-label={field.name}
-            tabIndex={tabIndex}
             name={field.name}
             ref={register({ required: field.required })}
             key={field.name}
@@ -47,7 +46,6 @@ export default ({ formData, errors, register, tabIndex }) => {
         return (
           <textarea
             aria-label={field.name}
-            tabIndex={tabIndex}
             name={field.name}
             placeholder={field.name}
             ref={register({
@@ -80,7 +78,6 @@ export default ({ formData, errors, register, tabIndex }) => {
                       {name}
                       &nbsp;
                       <input
-                        tabIndex={tabIndex}
                         type="radio"
                         name={field.name}
                         value={name}
@@ -102,7 +99,6 @@ export default ({ formData, errors, register, tabIndex }) => {
             autoComplete="off"
             key={field.name}
             type={field.type}
-            tabIndex={tabIndex}
             name={field.name}
             placeholder={field.name}
             ref={register({

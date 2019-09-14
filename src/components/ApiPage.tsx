@@ -181,7 +181,6 @@ function Builder({ formData, showApi }: any) {
     nativeValidationRef: null,
     ReactNativeRef: null,
   })
-  const tabIndex = showApi ? 0 : -1
   copyFormData.current = formData
 
   const goToSection = name => {
@@ -234,7 +233,7 @@ function Builder({ formData, showApi }: any) {
       </SubHeading>
 
       <Wrapper>
-        <SideMenu tabIndex={tabIndex} links={links} goToSection={goToSection} />
+        <SideMenu links={links} goToSection={goToSection} />
         <main>
           <CodeHeading
             ref={ref => {
@@ -290,7 +289,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             withOutCopy
             rawData={`const { register } = useForm({
   mode: 'onSubmit',
@@ -404,7 +402,6 @@ function Builder({ formData, showApi }: any) {
 
           <SyntaxHighlighterWithCopy
             url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
-            tabIndex={tabIndex}
             rawData={`const { register } = useForm({
   defaultValues: {
     firstName: "bill",
@@ -440,7 +437,6 @@ function Builder({ formData, showApi }: any) {
                   </td>
                   <td>
                     <LinkToSandBox
-                      tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
@@ -500,7 +496,6 @@ function Builder({ formData, showApi }: any) {
                   </td>
                   <td>
                     <LinkToSandBox
-                      tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
@@ -545,7 +540,6 @@ function Builder({ formData, showApi }: any) {
                   </td>
                   <td>
                     <LinkToSandBox
-                      tabIndex={tabIndex}
                       style={{
                         position: "relative",
                         left: 0,
@@ -579,7 +573,7 @@ function Builder({ formData, showApi }: any) {
             </h2>
           </CodeHeading>
 
-          <ApiRefTable tabIndex={tabIndex} />
+          <ApiRefTable />
 
           <hr />
 
@@ -601,7 +595,6 @@ function Builder({ formData, showApi }: any) {
 
           <SyntaxHighlighterWithCopy
             url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
-            tabIndex={tabIndex}
             rawData={unregisterCode}
           />
 
@@ -613,7 +606,7 @@ function Builder({ formData, showApi }: any) {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
-            <ApiErrors tabIndex={tabIndex} />
+            <ApiErrors />
           </section>
 
           <section
@@ -622,7 +615,7 @@ function Builder({ formData, showApi }: any) {
               apiSectionsRef.current.watchRef = ref
             }}
           >
-            <ApiWatch tabIndex={tabIndex} />
+            <ApiWatch />
           </section>
           <CodeHeading
             ref={ref => {
@@ -644,7 +637,6 @@ function Builder({ formData, showApi }: any) {
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={handleSubmitCode}
             url="https://codesandbox.io/s/yj07z1639"
           />
@@ -675,7 +667,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={resetCode}
             url="https://codesandbox.io/s/jjm3wyqmjy"
           />
@@ -726,7 +717,6 @@ function Builder({ formData, showApi }: any) {
           </ul>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={setError}
             url="https://codesandbox.io/s/o7rxyym3q5"
           />
@@ -758,7 +748,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={setValue}
             url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
           />
@@ -793,7 +782,6 @@ function Builder({ formData, showApi }: any) {
           </ul>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={getValues}
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />
@@ -821,7 +809,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={trigger}
             url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
           />
@@ -834,7 +821,6 @@ function Builder({ formData, showApi }: any) {
               apiSectionsRef.current.formStateRef = ref
             }}
           >
-            <ApiFormState tabIndex={tabIndex} />
           </section>
 
           <hr />
@@ -886,14 +872,12 @@ function Builder({ formData, showApi }: any) {
             <Link
               href="https://github.com/jquense/yup"
               target="_blank"
-              tabIndex={tabIndex}
             >
               Yup
             </Link>{" "}
             for object schema validation.
           </p>
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
           />
@@ -917,7 +901,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={nativeValidation}
             url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
@@ -938,7 +921,6 @@ function Builder({ formData, showApi }: any) {
           </p>
 
           <SyntaxHighlighterWithCopy
-            tabIndex={tabIndex}
             rawData={typeScript}
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />

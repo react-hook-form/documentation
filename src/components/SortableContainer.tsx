@@ -62,7 +62,7 @@ const SortableWrapper = styled.div`
   }
 `;
 
-export default function SortableContainer({ updateFormData, formData, editIndex, setEditIndex, setFormData, tabIndex, reset }) {
+export default function SortableContainer({ updateFormData, formData, editIndex, setEditIndex, setFormData, reset }) {
   return (
     <SortableWrapper>
       <Sortable
@@ -132,7 +132,6 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
 
                   <EditPanel>
                     <button
-                      tabIndex={tabIndex}
                       style={{
                         transition: '0.5s all',
                         ...(editIndex === index ? { background: colors.lightPink } : null),
@@ -157,7 +156,6 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                       {editIndex === index ? 'Cancel Editing' : 'Edit'}
                     </button>
                     <button
-                      tabIndex={tabIndex}
                       onClick={() => {
                         if (window.confirm('Are you sure to delete?')) {
                           const index = formData.findIndex(data => field.name === data.name);
@@ -191,7 +189,6 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
       {(formData || []).length > 0 ? (
         <EditPanel>
           <button
-            tabIndex={tabIndex}
             onClick={() => {
               if (window.confirm('Are you sure to delete all fields?')) {
                 updateFormData([]);

@@ -3,7 +3,7 @@ import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
 import errorCode from './codeExamples/errorCode'
 import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
-export default function ApiErrors({ tabIndex }: any) {
+export default function ApiErrors() {
   return (
     <>
       <CodeHeading>
@@ -58,7 +58,7 @@ export default function ApiErrors({ tabIndex }: any) {
         </Table>
       </TableWrapper>
 
-      <SyntaxHighlighterWithCopy tabIndex={tabIndex} rawData={errorCode} url="https://codesandbox.io/s/nrr4n9p8n4" />
+      <SyntaxHighlighterWithCopy rawData={errorCode} url="https://codesandbox.io/s/nrr4n9p8n4" />
 
       <hr />
     </>

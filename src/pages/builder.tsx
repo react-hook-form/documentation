@@ -1,21 +1,27 @@
-import * as React from 'react'
-import Layout from '../components/layout'
-import Seo from '../components/seo'
-import BuilderPage from '../components/BuilderPage'
-import formData from '../components/constants/formData'
-import { useEffect } from 'react'
+import * as React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import BuilderPage from "../components/BuilderPage"
+import { useEffect, useState } from "react"
 
 const Api = ({ location }) => {
-  let isMobile
+  const [isMobile, setMobile] = useState(false)
 
   useEffect(() => {
-    isMobile = typeof window === 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
+    setMobile(
+      typeof window === "undefined"
+        ? false
+        : window.matchMedia("(max-width: 768px)").matches
+    )
   }, [])
 
   return (
     <Layout location={location}>
-      <Seo title="Builder" description="Simple GUI for build forms with validation" />
-      <BuilderPage isStatic formData={formData} isMobile={isMobile} />
+      <Seo
+        title="Builder"
+        description="Simple GUI for build forms with validation"
+      />
+      <BuilderPage isStatic isMobile={isMobile} />
     </Layout>
   )
 }

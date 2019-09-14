@@ -28,7 +28,6 @@ const Wrapper = styled.div`
 `
 
 export default function Form({
-  tabIndex,
   onSubmit,
   submitData,
   toggleBuilder,
@@ -61,7 +60,7 @@ export default function Form({
         <form onSubmit={handleSubmit(onSubmit)}>
           <Title>Example</Title>
 
-          <FormFields {...{ formData, errors, register, tabIndex }} />
+          <FormFields {...{ formData, errors, register }} />
 
           <PinkButton
             onClick={() => {
@@ -86,7 +85,6 @@ export default function Form({
 
           <PinkButton
             type="button"
-            tabIndex={tabIndex}
             onClick={() => {
               reset();
               track({

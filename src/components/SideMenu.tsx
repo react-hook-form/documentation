@@ -83,7 +83,7 @@ const Code = styled.span`
   top: -2px;
 `
 
-export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any) {
+export default function SideMenu({ links, goToSection, isStatic }: any) {
   return (
     <Menu>
       <ul>
@@ -126,7 +126,6 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
               <li key={link} onClick={() => goToSection(link, index)}>
                 <Code>{`</>`}</Code>{' '}
                 <button
-                  tabIndex={tabIndex}
                   style={{
                     top: '-3px',
                     position: 'relative',
@@ -168,7 +167,6 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
               </Arrow>
               {link !== 'Quick Start' && <Code>{`</>`}</Code>}{' '}
               <button
-                tabIndex={tabIndex}
                 style={{
                   top: '-3px',
                   position: 'relative',
@@ -193,7 +191,6 @@ export default function SideMenu({ links, goToSection, tabIndex, isStatic }: any
             }}
             href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
             target="_blank"
-            tabIndex={tabIndex}
           >Code Examples</a>
         </li>
       </ul>
