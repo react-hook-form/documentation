@@ -3,9 +3,11 @@ module.exports = {
     title: `React Hook Form - Simple React form validation`,
     description: `Performant, flexible and extensible forms with easy to use for validation.`,
     author: `@bluebill1049`,
+    siteUrl: 'https://www.react-hook-form.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-typescript',
     {
