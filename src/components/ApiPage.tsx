@@ -821,6 +821,7 @@ function Builder({ formData, showApi }: any) {
               apiSectionsRef.current.formStateRef = ref
             }}
           >
+            <ApiFormState />
           </section>
 
           <hr />
