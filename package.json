@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "react-hook-form-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "React hooks for form validation without the hassle.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "beier luo",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.6.0",
