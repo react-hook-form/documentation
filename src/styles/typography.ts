@@ -28,7 +28,7 @@ export const Heading = styled.h1`
 export const H1 = styled.h1`
   font-size: 24px;
   display: inline-block;
-  margin: 40px auto 30px;
+  margin: 40px auto 40px;
   font-weight: 300;
   padding-bottom: 5px;
   border-bottom: 2px solid ${colors.secondary};
