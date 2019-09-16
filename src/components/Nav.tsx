@@ -85,6 +85,10 @@ const Button = styled.button`
   @media ${breakpoints.fromMediumScreen} {
     background: none;
     color: ${props => (props.active ? colors.lightPink : "white")};
+    
+    & > svg {
+      display: none;
+    }
   }
 
   ${hoverStyle};
