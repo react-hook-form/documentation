@@ -314,14 +314,20 @@ const Faq = ({ location }) => {
             <p>
               If you have difficulty during testing and the issue was caused by{" "}
               <code>MutationObserver</code>. Make sure you install{" "}
-              <code>mutationobserver</code>
+              <code>mutationobserver</code> and import this package in your test{" "}
+              <a
+                href="https://jestjs.io/docs/en/configuration"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                setup.js file
+              </a>
+              .
             </p>
 
             <p>
               <code>npm i mutationobserver-shim</code>
             </p>
-
-            <SyntaxHighlighterWithCopy rawData={testing} withOutCopy />
 
             <hr />
 
