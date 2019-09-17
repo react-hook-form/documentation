@@ -12,6 +12,7 @@ import colors from "../styles/colors"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
+import testing from "../components/codeExamples/testing"
 
 const { useRef } = React
 
@@ -83,6 +84,7 @@ const links = [
   "What if you don't have access to ref?",
   "Browser support?",
   "Why first keystroke is not working?",
+  "Testing failed due to MutationObserver?",
 ]
 
 const Faq = ({ location }) => {
@@ -96,6 +98,7 @@ const Faq = ({ location }) => {
     question7: null,
     question8: null,
     question9: null,
+    question10: null,
   })
 
   const goToSection = (name, index) => {
@@ -129,10 +132,10 @@ const Faq = ({ location }) => {
             <p>
               Performance is one of the primary goals for building this custom
               hook. React Hook Form relies on uncontrolled component, hence the
-              reason why the register function occurs at the ref. This
-              approach will reduce the amount of re-rendering occurring due to
-              user typing or value changing. Components mount to the page is
-              much quicker as well because they are not controlled. For mounting
+              reason why the register function occurs at the ref. This approach
+              will reduce the amount of re-rendering occurring due to user
+              typing or value changing. Components mount to the page is much
+              quicker as well because they are not controlled. For mounting
               speed, I have completed a quick comparison test which you can
               refer to by{" "}
               <a
@@ -210,8 +213,8 @@ const Faq = ({ location }) => {
                 </b>
                 <p>
                   React Hook Form's <code>reset</code> method will reset all
-                  fields value, and also will clear all <code>errors</code> within
-                  the form.
+                  fields value, and also will clear all <code>errors</code>{" "}
+                  within the form.
                 </p>
               </li>
             </ul>
@@ -252,16 +255,16 @@ const Faq = ({ location }) => {
             </h2>
 
             <p>
-              You can actually <code>register</code> an input without a <code>ref</code>. In
-              fact, you can manually <code>setValue</code>,{" "}
+              You can actually <code>register</code> an input without a{" "}
+              <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
               <code>setError</code> and <code>triggerValidation</code>.
             </p>
 
             <p>
               <Note>Note:</Note> Because <code>ref</code> has not been
               registered, React Hook Form won't be able to register event
-              listeners to the inputs. This means you will have to manually update value
-              and error.
+              listeners to the inputs. This means you will have to manually
+              update value and error.
             </p>
 
             <SyntaxHighlighterWithCopy rawData={manualValidation} />
@@ -274,10 +277,14 @@ const Faq = ({ location }) => {
             <p>React Hook Form support all major browsers.</p>
 
             <p>
-              For legacy IE11 support, you can import react-hook-form IE 11 version.
+              For legacy IE11 support, you can import react-hook-form IE 11
+              version.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`} withOutCopy />
+            <SyntaxHighlighterWithCopy
+              rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`}
+              withOutCopy
+            />
 
             <hr />
 
@@ -297,6 +304,24 @@ const Faq = ({ location }) => {
               <code>value</code> at all, in fact, you only need{" "}
               <code>defaultValue</code> for initial input value.
             </p>
+
+            <hr />
+
+            <h2 ref={ref => (sectionsRef.current.question10 = ref)}>
+              Testing failed due to MutationObserver?
+            </h2>
+
+            <p>
+              If you have difficulty during testing and the issue was caused by{" "}
+              <code>MutationObserver</code>. Make sure you install{" "}
+              <code>mutationobserver</code>
+            </p>
+
+            <p>
+              <code>npm i mutationobserver-shim</code>
+            </p>
+
+            <SyntaxHighlighterWithCopy rawData={testing} withOutCopy />
 
             <hr />
 
