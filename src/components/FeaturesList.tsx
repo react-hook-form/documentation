@@ -173,8 +173,8 @@ export default function FeaturesList() {
           </svg>
           <h3>Super Light</h3>
           <p>
-            Performance is important and packages size matters. it is a tiny library and
-            without any dependencies.
+            Performance is important and packages size matters. it is a tiny
+            library and without any dependencies.
           </p>
         </Animate>
 
@@ -186,7 +186,8 @@ export default function FeaturesList() {
 
           <h3>Performance</h3>
           <p>
-            Minimizes the number of re-renders, striving to provide your users with the best experience.
+            Minimizes the number of re-renders and faster components mount,
+            striving to provide your users with the best experience.
           </p>
         </Animate>
 

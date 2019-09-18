@@ -128,10 +128,9 @@ function Home({ location }) {
           <CenterContent>
             <H1>Find it useful and interesting?</H1>
             <p>
-              Form validation should be much simpler with React Hook Form. It
-              will lead you to write less code and have better performance.
-              Check out the get started section and learn more on the API
-              documentation page.
+              Form validation should be much simpler. React Hook Form will lead
+              you to write less code and have better performance. Check out the
+              get started section and learn more on the API documentation page.
             </p>
             <ButtonsGroup
               style={{
