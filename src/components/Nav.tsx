@@ -48,7 +48,6 @@ const hoverStyle = `
     & > span {
       transition: 0.3s all;
       color: ${colors.secondary};
-      opacity: 0.5;
     }
   }
 
@@ -74,6 +73,11 @@ const Button = styled.button`
   margin: 0;
   transition: 0.3s all;
 
+  &:active,
+  &:focus {
+    outline: 1px dashed ${colors.lightPink};
+  }
+
   & > svg {
     fill: white;
   }
@@ -85,7 +89,7 @@ const Button = styled.button`
   @media ${breakpoints.fromMediumScreen} {
     background: none;
     color: ${props => (props.active ? colors.lightPink : "white")};
-    
+
     & > svg {
       display: none;
     }
