@@ -31,6 +31,9 @@
     "sortablejs": "1.9.0",
     "styled-components": "4.2.0"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "devDependencies": {
     "prettier": "1.17.1"
   },
