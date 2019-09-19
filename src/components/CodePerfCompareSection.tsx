@@ -148,18 +148,18 @@ export default function CodePerfCompareSection() {
       <VideoWrapper>
         <section>
           <video controls autoPlay playsInline muted loop>
-            <source src={reactHookFormVideo} type="video/mp4" />
-          </video>
-          <p>
-            Total re-renders: <strong>3</strong>
-          </p>
-        </section>
-        <section>
-          <video controls autoPlay playsInline muted loop>
             <source src={formikVideo} type="video/mp4" />
           </video>
           <p>
             Total re-renders: <strong>30+</strong>
+          </p>
+        </section>
+        <section>
+          <video controls autoPlay playsinline muted loop>
+            <source src={reactHookFormVideo} type="video/mp4"/>
+          </video>
+          <p>
+            Total re-renders: <strong>3</strong>
           </p>
         </section>
         <section>
