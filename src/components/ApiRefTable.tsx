@@ -154,14 +154,18 @@ export default function ApiRefTable() {
         </a>
       </p>
 
-      <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+      <p>
+        <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+      </p>
 
       <p>
         If you want custom register input to trigger re-render during value
         update, then you should give a type to your registered input.
       </p>
 
-      <code>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+      <p>
+        <code>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+      </p>
 
       <TableWrapper>
         <Table>
