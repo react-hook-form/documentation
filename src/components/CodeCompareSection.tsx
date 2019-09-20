@@ -39,7 +39,6 @@ export default function CodeCompareSection() {
         <section>
           <Title>Formik</Title>
           <SyntaxHighlighter
-            className="customScrollBar"
             customStyle={{
               border: 'none',
             }}
@@ -55,7 +54,6 @@ export default function CodeCompareSection() {
             React Hook Form
           </Title>
           <SyntaxHighlighter
-            className="customScrollBar"
             customStyle={{
               border: 'none',
             }}
@@ -69,7 +67,6 @@ export default function CodeCompareSection() {
         <section>
           <Title>Redux Form</Title>
           <SyntaxHighlighter
-            className="customScrollBar"
             customStyle={{
               border: 'none',
             }}

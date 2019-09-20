@@ -398,19 +398,19 @@ table {
   font-size: 0.9rem;
 }
 
-::-webkit-scrollbar {
+pre::-webkit-scrollbar {
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
+pre::-webkit-scrollbar-track {
   background: #191d3a;
 }
 
-::-webkit-scrollbar-thumb {
+pre::-webkit-scrollbar-thumb {
   background: #4f6294;
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+pre::-webkit-scrollbar-thumb:hover {
   background: #ec5990;
 }
