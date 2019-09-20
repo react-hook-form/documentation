@@ -55,14 +55,6 @@ export const LinkToSandBox = styled.a`
 const SyntaxHighlighterWrapper = styled.div`
   & pre {
     line-height: 1.6 !important;
-
-    @media ${breakpoints.fromLargeScreen} {
-      ${props => (props.withOutCopy ? "" : "padding-top: 20px !important;")}
-    }
-
-    @media ${breakpoints.fromXlargeScreen} {
-      ${props => (props.withOutCopy ? "" : "padding-top: 50px !important;")}
-    }
   }
 `
 
