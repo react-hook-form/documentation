@@ -133,27 +133,27 @@ button,
 select {
   text-transform: none;
 }
-[type='reset'],
-[type='submit'],
+[type="reset"],
+[type="submit"],
 button,
-html [type='button'] {
+html [type="button"] {
   -webkit-appearance: button;
 }
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
 button::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring,
 button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 button:active {
- transform: translateY(2px);
+  transform: translateY(2px);
 }
 button:hover {
   opacity: 0.8;
@@ -174,21 +174,21 @@ legend {
 textarea {
   overflow: auto;
 }
-[type='checkbox'],
-[type='radio'] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
-[type='search']::-webkit-search-cancel-button,
-[type='search']::-webkit-search-decoration {
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 ::-webkit-input-placeholder {
@@ -218,17 +218,18 @@ body {
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
-  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 body {
   margin: 0;
   padding: 0;
   background-color: #081229;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -276,24 +277,24 @@ input:hover {
   border: 1px solid #ec5990;
 }
 
-input[type='submit']:hover {
+input[type="submit"]:hover {
   background: #bf1650;
 }
 
-input[type='button']:active,
-input[type='submit']:active {
+input[type="button"]:active,
+input[type="submit"]:active {
   transition: 0.3s all;
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
 }
 
-input[type='button']:hover {
+input[type="button"]:hover {
   transition: 0.3s all;
 }
 
-input[type='button'],
-input[type='submit'] {
+input[type="button"],
+input[type="submit"] {
   -webkit-appearance: none;
 }
 
@@ -301,7 +302,7 @@ pre,
 code {
   color: white !important;
   overflow-x: auto;
-  overflow-y:hidden;
+  overflow-y: hidden;
   white-space: pre-wrap;
   word-wrap: break-word;
   background: #0f111b !important;
@@ -389,10 +390,27 @@ td {
 
 h2 {
   font-weight: 500;
-  font-size: 1.2rem
+  font-size: 1.2rem;
 }
 
 label,
 table {
   font-size: 0.9rem;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #191d3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f6294;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ec5990;
 }
