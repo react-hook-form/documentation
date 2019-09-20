@@ -48,7 +48,7 @@ export const LinkToSandBox = styled.a`
   line-height: 1.5;
 
   @media ${breakpoints.fromMediumScreen} {
-    right: 180px;
+    right: 90px;
   }
 `
 
@@ -91,7 +91,7 @@ export default function SyntaxHighlighterWithCopy({
           }}
           aria-label="Copy code into your clipboard"
         >
-          Copy to clipboard
+          Copy
         </CopyButton>
       )}
 
