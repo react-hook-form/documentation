@@ -69,6 +69,23 @@ export const TableWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
   overflow-x: auto;
+  
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #191d3a;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4f6294;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #ec5990;
+  }
 `
 
 export const Type = styled.span`
