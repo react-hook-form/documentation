@@ -69,22 +69,24 @@ export const TableWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
   overflow-x: auto;
-  
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
 
-  &::-webkit-scrollbar-track {
-    background: #191d3a;
-  }
+  @media ${breakpoints.fromMediumScreen} {
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background: #4f6294;
-    border-radius: 10px;
-  }
+    &::-webkit-scrollbar-track {
+      background: #191d3a;
+    }
 
-  &::-webkit-scrollbar-thumb:hover {
-    background: #ec5990;
+    &::-webkit-scrollbar-thumb {
+      background: #4f6294;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #ec5990;
+    }
   }
 `
 
@@ -380,7 +382,10 @@ function Builder({ formData, showApi }: any) {
                 {`{[key:string]: string}`} = {`{}`}
               </Type>
             </code>
-            <Popup top={3} message="React Native: Need to combine the use of watch API or simply use defaultValue" />
+            <Popup
+              top={3}
+              message="React Native: Need to combine the use of watch API or simply use defaultValue"
+            />
           </H5>
 
           <p>
@@ -667,7 +672,9 @@ function Builder({ formData, showApi }: any) {
             }}
           >
             <h2>
-              <code>reset: <Type>{`(values?: Record<string, any>) => void`}</Type></code>
+              <code>
+                reset: <Type>{`(values?: Record<string, any>) => void`}</Type>
+              </code>
               <Popup />
             </h2>
           </CodeHeading>
@@ -864,9 +871,7 @@ function Builder({ formData, showApi }: any) {
             with React Native (duo to the API difference from web and native).
             We will have to use <b>custom register</b> in the following example.
           </p>
-          <SyntaxHighlighterWithCopy
-            rawData={reactNative}
-          />
+          <SyntaxHighlighterWithCopy rawData={reactNative} />
 
           <hr />
 
@@ -886,10 +891,7 @@ function Builder({ formData, showApi }: any) {
             validation schema, you can apply <code>validationSchema</code> at{" "}
             <code>useForm</code> as an optional argument. React Hook Form
             currently supports{" "}
-            <Link
-              href="https://github.com/jquense/yup"
-              target="_blank"
-            >
+            <Link href="https://github.com/jquense/yup" target="_blank">
               Yup
             </Link>{" "}
             for object schema validation.
@@ -941,8 +943,6 @@ function Builder({ formData, showApi }: any) {
             rawData={typeScript}
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />
-
-          <hr />
 
           <section
             style={{
