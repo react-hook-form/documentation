@@ -398,19 +398,25 @@ table {
   font-size: 0.9rem;
 }
 
-pre::-webkit-scrollbar {
-  height: 8px;
-}
+@media (min-width: 768px) {
+  pre {
+    -webkit-overflow-scrolling: touch;
+  }
 
-pre::-webkit-scrollbar-track {
-  background: #191d3a;
-}
+  pre::-webkit-scrollbar {
+    height: 8px;
+  }
 
-pre::-webkit-scrollbar-thumb {
-  background: #4f6294;
-  border-radius: 10px;
-}
+  pre::-webkit-scrollbar-track {
+    background: #191d3a;
+  }
 
-pre::-webkit-scrollbar-thumb:hover {
-  background: #ec5990;
+  pre::-webkit-scrollbar-thumb {
+    background: #4f6294;
+    border-radius: 10px;
+  }
+
+  pre::-webkit-scrollbar-thumb:hover {
+    background: #ec5990;
+  }
 }

@@ -144,6 +144,25 @@ export default function ApiRefTable() {
         </label>
       </Option>
 
+      <p>
+        <Note>Note: </Note>You can also register input manually, which is useful{" "}
+        when working with custom components and <code>Ref</code> is not
+        accessible. This is actually the case when you are working with React
+        Native or custom component like{" "}
+        <a href="https://github.com/JedWatson/react-select" target="_blank">
+          react-select
+        </a>
+      </p>
+
+      <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+
+      <p>
+        If you want custom register input to trigger re-render during value
+        update, then you should give a type to your registered input.
+      </p>
+
+      <code>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+
       <TableWrapper>
         <Table>
           <tbody>
@@ -461,15 +480,6 @@ export default function ApiRefTable() {
           </tbody>
         </Table>
       </TableWrapper>
-
-      <br />
-
-      <p>
-        <Note>Note: </Note>You can also register input manually, which is useful{" "}
-        when working with custom components and <code>Ref</code> is not
-        accessible. This is actually the case when you using React Native. eg:{" "}
-        <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
-      </p>
     </>
   )
 }
