@@ -31,6 +31,7 @@ const { useRef } = React
 
 const links = [
   "Quick start",
+  "Video tutorial",
   "Register fields",
   "Apply validation",
   "Adapting existing form",
@@ -42,6 +43,7 @@ const links = [
 const Faq = ({ location }) => {
   const sectionsRef = useRef({
     quickstart: null,
+    videotutorial: null,
     adaptingexistingform: null,
     workwithuilibrary: null,
     integrateglobalstate: null,
@@ -57,7 +59,9 @@ const Faq = ({ location }) => {
       action: `Click - Go to section ${name}`,
     })
     const refName = name.replace(/ /g, "").toLowerCase()
+    console.log(refName)
     if (sectionsRef.current[refName]) {
+      console.log("wf")
       sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
@@ -92,6 +96,31 @@ const Faq = ({ location }) => {
               quickStartRef={ref => {
                 sectionsRef.current.quickstart = ref
               }}
+            />
+
+            <p
+              style={{
+                textAlign: "center",
+              }}
+            >
+              ♦
+            </p>
+
+            <h2 ref={ref => (sectionsRef.current.videotutorial = ref)}>
+              Video Tutorial
+            </h2>
+            <p>
+              In this video tutorial, i have demonstrated the basic usage and
+              concept of using <code>react-hook-form</code>.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              src="https://www.youtube.com/embed/-mFXqOaqgZk"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
 
             <Title

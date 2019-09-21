@@ -68,29 +68,6 @@ export default function GetStarted({ quickStartRef }: any) {
         rawData={code}
         url="https://codesandbox.io/s/kw7z2q2n15"
       />
-
-      <p
-        style={{
-          textAlign: "center",
-        }}
-      >
-        ♦
-      </p>
-
-      <h2 ref={quickStartRef}>Video Tutorial</h2>
-      <p>
-        In this video tutorial, i have demonstrated the basic usage and concept
-        of using <code>react-hook-form</code>.
-      </p>
-
-      <iframe
-        width="100%"
-        height="528"
-        src="https://www.youtube.com/embed/-mFXqOaqgZk"
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
     </>
   )
 }
