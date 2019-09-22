@@ -1,49 +1,18 @@
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
-import {
-  SubHeading,
-  HeadingWithTopMargin,
-  H5,
-  H1,
-  Note,
-} from "../styles/typography"
-import ApiRefTable from "./ApiRefTable"
-import validationSchemaCode from "./codeExamples/validationSchema"
+import { SubHeading, HeadingWithTopMargin } from "../styles/typography"
 import Link from "../styles/link"
 import code from "./codeExamples/defaultExample"
-import SyntaxHighlighterWithCopy, {
-  LinkToSandBox,
-} from "./SyntaxHighlighterWithCopy"
+import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
 import SideMenu from "./SideMenu"
-import ApiFormState from "./ApiFormState"
-import resetCode from "./codeExamples/resetCode"
-import ApiWatch from "./ApiWatch"
-import ApiErrors from "./ApiErrors"
-import handleSubmitCode from "./codeExamples/handleSubmitCode"
-import setError from "./codeExamples/setError"
-import setValue from "./codeExamples/setValue"
 import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
-import { DarkBlueButton } from "../styles/buttons"
-import { navigate } from "@reach/router"
-import getValues from "./codeExamples/getValues"
-import typeScript from "./codeExamples/typeScript"
-import trigger from "./codeExamples/trigger"
-import Footer from "./Footer"
-import FormContext from "./FormContext"
-import nativeValidation from "./codeExamples/nativeValidation"
-import reactNative from "./codeExamples/reactNative"
-import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
-import Popup from "./Popup"
+import accessibleCodeBase from "./codeExamples/accessibleCodeBase"
+import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
 
 const { useRef, useEffect } = React
-
-const CodeAsLink = styled(Link)`
-  cursor: pointer;
-  text-decoration: underline;
-`
 
 export const CodeHeading = styled.code`
   & > h2:before {
@@ -161,9 +130,7 @@ const QuickSelect = styled.div`
   }
 `
 
-const links = [
-  "Accessibility",
-]
+const links = ["Accessibility"]
 
 function Advanced() {
   const apiSectionsRef = useRef({
@@ -193,31 +160,39 @@ function Advanced() {
 
   return (
     <Container>
-      <HiddenMenu>
-        <HeadingWithTopMargin>Advanced</HeadingWithTopMargin>
-        <QuickSelect>
-          <select
-            onChange={e => {
-              goToSection(e.target.value)
-            }}
-          >
-            <option>Select API</option>
-            {links.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </QuickSelect>
-      </HiddenMenu>
+      <HeadingWithTopMargin>Advanced</HeadingWithTopMargin>
       <SubHeading>
         Build complex and accessible forms with React Hook Form.
       </SubHeading>
 
       <Wrapper>
         <SideMenu links={links} goToSection={goToSection} />
+
         <main>
-          <h2>Accessibility</h2>
+          <h2>Accessibility (A11y)</h2>
+          <p>
+            React Hook Form have support on native form validation, which let
+            the borrow validate inputs with your rules, however, as most of us
+            would have to build forms in a custom design and layout and it's our
+            responsibility to make sure our forms are accessible (A11y).
+          </p>
+
+          <p>
+            The following code example works as intended for validation, however
+            it can be improved for accessibility.
+          </p>
+
+          <SyntaxHighlighterWithCopy rawData={accessibleCodeBase} />
+
+          <p>
+            The following code example is improved version by leveraging ARIA.
+          </p>
+          <SyntaxHighlighterWithCopy rawData={accessibleCodeFinal} />
+
+          <p>
+            After the improvement, the screen reader will say:{" "}
+            <i>“Name, edit, invalid entry, This is required.”</i>
+          </p>
         </main>
       </Wrapper>
     </Container>

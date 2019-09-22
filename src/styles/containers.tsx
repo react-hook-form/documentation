@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled.div`
-  padding-top: 60px;
+  padding-top: 45px;
 
   @media (min-width: 768px) {
     padding-top: 0;
