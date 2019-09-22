@@ -14,7 +14,7 @@ function YourForm() {
         type="text"
         id="name"
         {/* use aria-invalid to indicate field contain error */}
-        aria-invalid={errors.name}
+        aria-invalid={errors.name ? 'true' : 'false'}
         {/* use aria-describedby to associate with error messages */}
         aria-describedby="error-name-required error-name-maxLength"
         ref={register({ required: true, maxLength: 30 })}

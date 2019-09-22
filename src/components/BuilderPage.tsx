@@ -245,7 +245,6 @@ function BuilderPage({
   editIndexRef.current = editIndex
 
   const validate = value => {
-    // @ts-ignore
     return (
       !Object.values(copyFormData.current).find(data => data.name === value) ||
       editIndexRef.current !== -1
@@ -291,14 +290,8 @@ function BuilderPage({
             }}
           />
 
-          {(formData || []).length === 0 && (
-            <p
-              style={{
-                textAlign: "center",
-              }}
-            >
-              You can start adding fields with Fields Creator ▸
-            </p>
+          {!formData.length && (
+            <p>You can start adding fields with Fields Creator ▸</p>
           )}
         </div>
 
@@ -310,6 +303,7 @@ function BuilderPage({
             autoComplete="off"
             defaultValue={editFormData.name}
             aria-label="name"
+            aria-invalid={errors["name"] ? "true" : "false"}
             name="name"
             style={{
               ...(errors["name"] ? errorStyle : null),
@@ -527,9 +521,7 @@ function BuilderPage({
         </div>
       </Wrapper>
 
-      <div style={{ margin: "0 20px", maxWidth: 1350 }}>
-        <Footer />
-      </div>
+      <Footer />
     </Container>
   )
 

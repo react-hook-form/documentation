@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Sortable from 'react-sortablejs';
-import { Animate } from 'react-simple-animate';
-import styled from 'styled-components';
-import colors from '../styles/colors';
-import track from "./utils/track";
+import * as React from "react"
+import Sortable from "react-sortablejs"
+import { Animate } from "react-simple-animate"
+import styled from "styled-components"
+import colors from "../styles/colors"
+import track from "./utils/track"
 
 const List = styled.li`
   border: 1px solid #4e6294;
@@ -23,7 +23,7 @@ const List = styled.li`
     left: 15px;
     top: 17px;
   }
-`;
+`
 
 const EditPanel = styled.div`
   float: right;
@@ -51,7 +51,7 @@ const EditPanel = styled.div`
   & > button:first-child {
     margin-right: 10px;
   }
-`;
+`
 
 const SortableWrapper = styled.div`
   margin-top: 30px;
@@ -60,9 +60,16 @@ const SortableWrapper = styled.div`
     margin-left: 0;
     padding-left: 0;
   }
-`;
+`
 
-export default function SortableContainer({ updateFormData, formData, editIndex, setEditIndex, setFormData, reset }) {
+export default function SortableContainer({
+  updateFormData,
+  formData,
+  editIndex,
+  setEditIndex,
+  setFormData,
+  reset,
+}) {
   return (
     <SortableWrapper>
       <Sortable
@@ -70,12 +77,15 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
         onChange={data => {
           updateFormData(
             data.reduce((previous, current) => {
-              return [...previous, formData[formData.findIndex(data => current === data.name)]];
-            }, []),
-          );
+              return [
+                ...previous,
+                formData[formData.findIndex(data => current === data.name)],
+              ]
+            }, [])
+          )
         }}
       >
-        {(formData || []).map((field, index) => {
+        {formData.map((field, index) => {
           return (
             <Animate
               play
@@ -133,44 +143,53 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                   <EditPanel>
                     <button
                       style={{
-                        transition: '0.5s all',
-                        ...(editIndex === index ? { background: colors.lightPink } : null),
+                        transition: "0.5s all",
+                        ...(editIndex === index
+                          ? { background: colors.lightPink }
+                          : null),
                       }}
                       onClick={() => {
                         track({
-                          category: 'Button',
-                          label: 'edit field',
-                          action: 'Click - edit field'
+                          category: "Button",
+                          label: "edit field",
+                          action: "Click - edit field",
                         })
                         if (editIndex === index) {
-                          setEditIndex(-1);
-                          setFormData({});
-                          reset();
+                          setEditIndex(-1)
+                          setFormData({})
+                          reset()
                         } else {
-                          const index = formData.findIndex(data => field.name === data.name);
-                          setFormData(formData[index]);
-                          setEditIndex(index);
+                          const index = formData.findIndex(
+                            data => field.name === data.name
+                          )
+                          setFormData(formData[index])
+                          setEditIndex(index)
                         }
                       }}
                     >
-                      {editIndex === index ? 'Cancel Editing' : 'Edit'}
+                      {editIndex === index ? "Cancel Editing" : "Edit"}
                     </button>
                     <button
                       onClick={() => {
-                        if (window.confirm('Are you sure to delete?')) {
-                          const index = formData.findIndex(data => field.name === data.name);
+                        if (window.confirm("Are you sure to delete?")) {
+                          const index = formData.findIndex(
+                            data => field.name === data.name
+                          )
                           track({
-                            category: 'Button',
-                            label: 'delete field',
-                            action: 'Click - Delete Field'
+                            category: "Button",
+                            label: "delete field",
+                            action: "Click - Delete Field",
                           })
 
                           if (index >= 0) {
-                            updateFormData([...formData.slice(0, index), ...formData.slice(index + 1)]);
-                            setEditIndex(-1);
+                            updateFormData([
+                              ...formData.slice(0, index),
+                              ...formData.slice(index + 1),
+                            ])
+                            setEditIndex(-1)
 
                             if (editIndex === index) {
-                              setFormData({});
+                              setFormData({})
                             }
                           }
                         }
@@ -182,7 +201,7 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
                 </List>
               )}
             />
-          );
+          )
         })}
       </Sortable>
 
@@ -190,13 +209,13 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
         <EditPanel>
           <button
             onClick={() => {
-              if (window.confirm('Are you sure to delete all fields?')) {
-                updateFormData([]);
+              if (window.confirm("Are you sure to delete all fields?")) {
+                updateFormData([])
               }
               track({
-                category: 'Button',
-                label: 'Clear all fields',
-                action: 'Click - clear all'
+                category: "Button",
+                label: "Clear all fields",
+                action: "Click - clear all",
               })
             }}
           >
@@ -205,5 +224,5 @@ export default function SortableContainer({ updateFormData, formData, editIndex,
         </EditPanel>
       ) : null}
     </SortableWrapper>
-  );
+  )
 }
