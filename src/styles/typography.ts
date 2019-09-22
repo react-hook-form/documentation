@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from './colors'
+import breakpoints from "./breakpoints";
 
 export const SubHeading = styled.p`
   font-size: 13px;
@@ -19,9 +20,14 @@ export const Heading = styled.h1`
   text-align: center;
   margin-bottom: 10px;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     font-size: 55px !important;
     margin-bottom: 10px;
+    margin-top: 80px;
+  }
+  
+  @media ${breakpoints.fromLargeScreen} {
+    margin-top: 20px;
   }
 `
 

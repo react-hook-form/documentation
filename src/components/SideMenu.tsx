@@ -55,6 +55,11 @@ const Menu = styled.aside`
 
 const TitleList = styled.li`
   display: block !important;
+  margin-top: 50px;
+  
+  @media ${breakpoints.fromLargeScreen} {
+    margin-top: 0;
+  }
 `
 
 const Arrow = styled.span`

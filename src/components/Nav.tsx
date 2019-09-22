@@ -88,9 +88,13 @@ const Button = styled.button`
     @media (min-width: 414px) {
       font-size: 11px;
     }
+
+    @media ${breakpoints.fromMediumScreen} {
+      font-size: 14px;
+    }
   }
 
-  @media ${breakpoints.fromMediumScreen} {
+  @media ${breakpoints.fromLargeScreen} {
     background: none;
     color: ${props => (props.active ? colors.lightPink : "white")};
 
@@ -112,7 +116,7 @@ const ActionButtonGroup = styled.div`
   width: 100%;
   position: fixed;
 
-  @media ${breakpoints.fromMediumScreen} {
+  @media ${breakpoints.fromLargeScreen} {
     z-index: 1;
     position: inherit;
     background: none;
@@ -124,7 +128,7 @@ const ActionButtonGroup = styled.div`
     box-shadow: 0 0 10px 0 #00000030;
   }
 
-  @media (min-width: 1024px) {
+  @media ${breakpoints.fromLargeScreen} {
     max-width: 600px;
     padding: 13px 10px;
   }
@@ -139,7 +143,7 @@ const ActionButtonGroup = styled.div`
       border-left: 0;
     }
 
-    @media ${breakpoints.fromMediumScreen} {
+    @media ${breakpoints.fromLargeScreen} {
       font-size: 0.8rem;
       border: none;
       padding: 2px 0;
@@ -150,7 +154,7 @@ const ActionButtonGroup = styled.div`
     width: 20px;
     height: 20px;
 
-    @media ${breakpoints.fromMediumScreen} {
+    @media ${breakpoints.fromLargeScreen} {
       width: 40px;
       height: 40px;
       margin-bottom: 3px;
@@ -353,8 +357,8 @@ export default function Nav({
               transform="matrix(0.7071 -0.7071 0.7071 0.7071 -17.9599 43.3584)"
               fill="none"
               stroke="#fff"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               cx="43.359"
               cy="43.359"
               rx="35.643"
