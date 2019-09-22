@@ -72,68 +72,62 @@ function Home({
         toggleBuilder={toggleBuilder}
       />
 
-      <div
-        style={{
-          perspective: "2000px",
+      <Header homeRef={HomeRef} />
+
+      <CodeCompareSection />
+
+      <CodePerfCompareSection />
+
+      <Form
+        {...{
+          onSubmit,
+          submitData,
+          toggleBuilder,
         }}
-      >
-        <Header homeRef={HomeRef} />
+      />
 
-        <CodeCompareSection />
-
-        <CodePerfCompareSection />
-
-        <CenterContent>
-          <H1>Find it useful and interesting?</H1>
-          <p>
-            Form validation should be much simpler. React Hook Form will lead
-            you to write less code and have better performance. Check out the
-            get started section and learn more on the API documentation page.
-          </p>
-          <ButtonsGroup
-            style={{
-              maxWidth: 500,
-              margin: "0 auto",
+      <CenterContent>
+        <H1>Find it useful and interesting?</H1>
+        <p>
+          Form validation should be much simpler. React Hook Form will lead you
+          to write less code and have better performance. Check out the get
+          started section and learn more on the API documentation page.
+        </p>
+        <ButtonsGroup
+          style={{
+            maxWidth: 500,
+            margin: "0 auto",
+          }}
+        >
+          <DarkBlueButton
+            onClick={() => {
+              track({
+                category: "Button",
+                label: "Get Started - Find it useful and interesting",
+                action: "Click - Go to Get Started page",
+              })
+              navigate("/get-started")
             }}
           >
-            <DarkBlueButton
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Get Started - Find it useful and interesting",
-                  action: "Click - Go to Get Started page",
-                })
-                navigate("/get-started")
-              }}
-            >
-              Get Started
-            </DarkBlueButton>
-            <DarkBlueButton
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "API",
-                  action: "Click - Go to API page",
-                })
-                navigate("/api")
-              }}
-            >
-              API
-            </DarkBlueButton>
-          </ButtonsGroup>
-        </CenterContent>
+            Get Started
+          </DarkBlueButton>
+          <DarkBlueButton
+            onClick={() => {
+              track({
+                category: "Button",
+                label: "API",
+                action: "Click - Go to API page",
+              })
+              navigate("/api")
+            }}
+          >
+            API
+          </DarkBlueButton>
+        </ButtonsGroup>
+      </CenterContent>
 
-        <Form
-          {...{
-            onSubmit,
-            submitData,
-            toggleBuilder,
-          }}
-        />
-
-        <div ref={HomeRef}>
-          <FooterContent />
-        </div>
+      <div ref={HomeRef}>
+        <FooterContent />
       </div>
     </Root>
   )

@@ -1,23 +1,29 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import formik from '../images/formik.png'
-import hookFrom from '../images/hookForm.png'
-import reduxForm from '../images/reduxForm.png'
-import reactHookFormVideo from '../images/react-hook-form-test.mp4'
-import formikVideo from '../images/formik-test.mp4'
-import reduxFormVideo from '../images/redux-form-test.mp4'
-import { H1, Title } from '../styles/typography'
-import Link from '../styles/link'
-import { SimpleImg } from 'react-simple-img'
-import colors from '../styles/colors'
-import track from './utils/track'
-import breakpoints from '../styles/breakpoints'
+import * as React from "react"
+import styled from "styled-components"
+import { H1, Title } from "../styles/typography"
+import Link from "../styles/link"
+import { SimpleImg } from "react-simple-img"
+import colors from "../styles/colors"
+import track from "./utils/track"
+import breakpoints from "../styles/breakpoints"
+// @ts-ignore
+import formik from "../images/formik.png"
+// @ts-ignore
+import hookFrom from "../images/hookForm.png"
+// @ts-ignore
+import reduxForm from "../images/reduxForm.png"
+// @ts-ignore
+import reactHookFormVideo from "../images/react-hook-form-test.mp4"
+// @ts-ignore
+import formikVideo from "../images/formik-test.mp4"
+// @ts-ignore
+import reduxFormVideo from "../images/redux-form-test.mp4"
 
 const Wrapper = styled.section`
   text-align: center;
 
   & > p {
-    max-width: 1033px;
+    max-width: 1024px;
     display: block;
     margin: 0 auto;
   }
@@ -66,12 +72,16 @@ const ImgSection = styled.div`
     list-style: none;
     min-width: 250px;
     padding-left: 0;
-    margin: 0;
-    margin-right: 16px;
+    margin: 0 15px 0 0;
 
     & > li {
       text-align: left;
       padding: 2px 0;
+      font-size: 16px;
+
+      & > strong {
+        color: ${colors.lightPink};
+      }
     }
   }
 `
@@ -119,9 +129,9 @@ const VideoWrapper = styled.section`
 
       & > p {
         margin: 10px 0;
-        
+
         & > strong {
-          color: ${colors.lightPink}
+          color: ${colors.lightPink};
         }
       }
     }
@@ -141,9 +151,14 @@ export default function CodePerfCompareSection() {
     <Wrapper>
       <H1>Performance Comparison</H1>
 
-      <p>Do you ever wonder how many component re-renders have been triggered by the user?</p>
+      <p>
+        Do you ever wonder how many component re-renders have been triggered by
+        the user?
+      </p>
 
-      <MobileText>You can swipe through the following videos to see how they work.</MobileText>
+      <MobileText>
+        You can swipe through the following videos to see how they work.
+      </MobileText>
 
       <VideoWrapper>
         <section>
@@ -156,7 +171,7 @@ export default function CodePerfCompareSection() {
         </section>
         <section>
           <video controls autoPlay playsInline muted loop>
-            <source src={reactHookFormVideo} type="video/mp4"/>
+            <source src={reactHookFormVideo} type="video/mp4" />
           </video>
           <p>
             Total re-renders: <strong>3</strong>
@@ -173,9 +188,10 @@ export default function CodePerfCompareSection() {
       </VideoWrapper>
 
       <p>
-        The following results demonstrate: how long it took to render the components. Results are captured under 6x CPU slow
-        down on App start with Chrome dev tools' performance tab, and code is from the section above 'Library Code
-        Comparison'.
+        The following results demonstrate: how long it took to render the
+        components. Results are captured under 6x CPU slow down on App start
+        with Chrome dev tools' performance tab, and code is from the section
+        above 'Library Code Comparison'.
       </p>
       <Title
         style={{
@@ -188,33 +204,23 @@ export default function CodePerfCompareSection() {
         <ul>
           <li>No. of mount(s): 1</li>
           <li>No. of committing change(s): 1</li>
-          <li style={{ fontWeight: 'bold' }}>
-            Total time:{' '}
-            <span
-              style={{
-                color: colors.lightPink,
-              }}
-            >
-              1800ms
-            </span>
+          <li>
+            Total time: <strong>1800ms</strong>
           </li>
         </ul>
-        <SimpleImg src={hookFrom} placeholder={false} alt="React Hook Form performance" />
+        <SimpleImg
+          src={hookFrom}
+          placeholder={false}
+          alt="React Hook Form performance"
+        />
       </ImgSection>
       <Title>Formik</Title>
       <ImgSection>
         <ul>
           <li>No. of mount(s): 6</li>
           <li>No. of committing change(s): 1</li>
-          <li style={{ fontWeight: 'bold' }}>
-            Total time:{' '}
-            <span
-              style={{
-                color: colors.lightPink,
-              }}
-            >
-              2070ms
-            </span>
+          <li>
+            Total time: <strong>2070ms</strong>
           </li>
         </ul>
         <SimpleImg src={formik} placeholder={false} alt="Formik performance" />
@@ -225,29 +231,28 @@ export default function CodePerfCompareSection() {
           <li>No. of mount(s): 17</li>
           <li>No. of committing change(s): 2</li>
           <li>No. of update(s): 2</li>
-          <li style={{ fontWeight: 'bold' }}>
-            Total time:{' '}
-            <span
-              style={{
-                color: colors.lightPink,
-              }}
-            >
-              2380ms
-            </span>
+          <li>
+            Total time: <strong>2380ms</strong>
           </li>
         </ul>
-        <SimpleImg src={reduxForm} placeholder={false} alt="Redux Form performance" />
+        <SimpleImg
+          src={reduxForm}
+          placeholder={false}
+          alt="Redux Form performance"
+        />
       </ImgSection>
 
       <p style={{ marginBottom: 40 }}>
-        <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense performance tests?{' '}
+        <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
+        performance tests?{" "}
         <Link
           href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+          rel="noopener noreferrer"
           onClick={() => {
             track({
-              category: 'Link',
-              label: 'Check out the result for 1000 fields within a form here',
-              action: 'Click - View Performance Test Repo',
+              category: "Link",
+              label: "Check out the result for 1000 fields within a form here",
+              action: "Click - View Performance Test Repo",
             })
           }}
         >

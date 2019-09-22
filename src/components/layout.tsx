@@ -21,7 +21,13 @@ const ScrollTop = styled.button`
   }
 `
 
-const Layout = props => {
+const Layout = (props: {
+  children: any
+  location: {
+    search: string
+    pathname: string
+  }
+}) => {
   const [show, setShow] = React.useState(false)
 
   React.useEffect(() => {
@@ -40,7 +46,7 @@ const Layout = props => {
         <Nav pathname={props.location.pathname} />
       )}
       {props.children}
-      <Animate play={show} start={{ opacity: 0  }} end={{ opacity: 1 }}>
+      <Animate play={show} start={{ opacity: 0 }} end={{ opacity: 1 }}>
         <ScrollTop
           aria-label="Scroll back to top"
           onClick={() => window.scrollTo(0, 0)}

@@ -1,15 +1,15 @@
-import * as React from 'react'
-import { Heading, SubHeading } from '../styles/typography'
-import styled, { css } from 'styled-components'
-import colors from '../styles/colors'
-import { AnimateGroup } from 'react-simple-animate'
-import FeaturesList from './FeaturesList'
-import track from './utils/track'
-import { navigate } from '@reach/router'
-import { ButtonsGroup } from '../styles/buttons'
-import breakpoints from '../styles/breakpoints'
+import * as React from "react"
+import { Heading, SubHeading } from "../styles/typography"
+import styled, { css } from "styled-components"
+import colors from "../styles/colors"
+import { AnimateGroup } from "react-simple-animate"
+import FeaturesList from "./FeaturesList"
+import track from "./utils/track"
+import { navigate } from "@reach/router"
+import { ButtonsGroup } from "../styles/buttons"
+import breakpoints from "../styles/breakpoints"
 // @ts-ignore
-import video from '../images/react-hook-form-demo-video.mp4'
+import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 
@@ -161,7 +161,11 @@ const VideoWrapper = styled.div`
   }
 `
 
-export default function Header({ homeRef }: any) {
+export default function Header({
+  homeRef,
+}: {
+  homeRef: React.Ref<HTMLDivElement>
+}) {
   const [isWeb, setIsWeb] = React.useState(true)
 
   return (
@@ -210,6 +214,7 @@ export default function Header({ homeRef }: any) {
                 label: "Demo",
                 action: "Click - Demo",
               })
+              // @ts-ignore
               homeRef.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
@@ -233,8 +238,8 @@ export default function Header({ homeRef }: any) {
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
         <Video
-          role="tabpanel"
-          aria-labelledby="tabpanel-1"
+          role="tabPanel"
+          aria-labelledby="tabPanel-1"
           controls
           playsInline
           muted
@@ -253,8 +258,8 @@ export default function Header({ homeRef }: any) {
       <VideoWrapper show={!isWeb}>
         <VideoHeading>React Native</VideoHeading>
         <Video
-          role="tabpanel"
-          aria-labelledby="tabpanel-2"
+          role="tabPanel"
+          aria-labelledby="tabPanel-2"
           controls
           playsInline
           isLast
@@ -278,7 +283,7 @@ export default function Header({ homeRef }: any) {
           }}
           aria-label="show web video"
           aria-selected={isWeb}
-          aria-controls="tabpanel-1"
+          aria-controls="tabPanel-1"
           role="tab"
           onClick={() => {
             setIsWeb(true)
@@ -298,7 +303,7 @@ export default function Header({ homeRef }: any) {
           role="tab"
           aria-label="show react native video"
           aria-selected={!isWeb}
-          aria-controls="tabpanel-2"
+          aria-controls="tabPanel-2"
           onClick={() => {
             setIsWeb(false)
             track({

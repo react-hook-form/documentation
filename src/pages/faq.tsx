@@ -1,78 +1,23 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { HeadingWithTopMargin, SubHeading, Note } from "../styles/typography"
+import {
+  HeadingWithTopMargin,
+  SubHeading,
+  Note,
+  QuestionTitle,
+} from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
-import styled from "styled-components"
 import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
 import track from "../components/utils/track"
-import breakpoints from "../styles/breakpoints"
-import colors from "../styles/colors"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
-import testing from "../components/codeExamples/testing"
+import shareRef from "../components/codeExamples/shareRef"
+import initialValue from "../components/codeExamples/initialValue"
 
 const { useRef } = React
-
-const code = `import React from "react";
-import useForm from "react-hook-form";
-
-function App() {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      firstName: "bill",
-      lastName: "luo",
-      email: "bluebill1049@hotmail.com"
-    }
-  });
-  const onSubmit = data => alert(JSON.stringify(data));
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
-      <input name="email" ref={register} />
-
-      <button type="submit">Submit</button>
-    </form>
-  );
-}`
-
-const shareRef = `import React, { useRef } from "react"
-import useForm from "react-hook-form"
-
-function App() {
-  const { register, handleSubmit } = useForm()
-  const firstNameRef = useRef()
-  const onSubmit = data => alert(JSON.stringify(data))
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={(e) => {
-        register(e)
-        firstNameRef.current = e // you can still assign to your own ref
-      }} />
-      <input name="lastName" ref={(e) => {
-        // register's first argument is ref, and second is validation rules
-        register(e, { required: true })
-      }} />
-
-      <button>Submit</button>
-    </form>
-  );
-}`
-
-const FaqMain = styled.main`
-  @media ${breakpoints.fromMediumScreen} {
-    & > h2 {
-      padding-left: 10px;
-      border-left: 5px solid ${colors.lightPink};
-      line-height: 1;
-    }
-  }
-`
 
 const links = [
   "Performance of React Hook Form",
@@ -87,7 +32,14 @@ const links = [
   "Testing failed due to MutationObserver?",
 ]
 
-const Faq = ({ location }) => {
+const Faq = ({
+  location,
+}: {
+  location: {
+    search: string
+    pathname: string
+  }
+}) => {
   const sectionsRef = useRef({
     question1: null,
     question2: null,
@@ -125,10 +77,10 @@ const Faq = ({ location }) => {
         <Wrapper>
           <SideMenu isStatic links={links} goToSection={goToSection} />
 
-          <FaqMain>
-            <h2 ref={ref => (sectionsRef.current.question1 = ref)}>
+          <main>
+            <QuestionTitle ref={ref => (sectionsRef.current.question1 = ref)}>
               Performance of React Hook Form
-            </h2>
+            </QuestionTitle>
             <p>
               Performance is one of the primary goals for building this custom
               hook. React Hook Form relies on uncontrolled component, hence the
@@ -141,6 +93,7 @@ const Faq = ({ location }) => {
               <a
                 href="https://github.com/bluebill1049/react-hook-form-performance-compare"
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   track({
                     category: "Link",
@@ -156,9 +109,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question2 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question2 = ref)}>
               How to create an accessible input error and message?
-            </h2>
+            </QuestionTitle>
             <p>
               React Hook Form is based on{" "}
               <a
@@ -174,9 +127,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question3 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question3 = ref)}>
               Does it work with Class Components?
-            </h2>
+            </QuestionTitle>
 
             <p>
               No, not out of box. but you can build a wrapper around it and use
@@ -194,9 +147,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question4 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question4 = ref)}>
               How to reset the form?
-            </h2>
+            </QuestionTitle>
             <p>There are two methods to clear the form.</p>
             <ul>
               <li>
@@ -221,9 +174,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question5 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question5 = ref)}>
               How to initialize form values?
-            </h2>
+            </QuestionTitle>
 
             <p>
               React Hook Form relies on uncontrolled component. With an
@@ -232,13 +185,13 @@ const Faq = ({ location }) => {
               individual field. However, the hook itself does provide an easier
               way to initialise all input values too. Example below:
             </p>
-            <SyntaxHighlighterWithCopy rawData={code} />
+            <SyntaxHighlighterWithCopy rawData={initialValue} />
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question6 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question6 = ref)}>
               How to share ref usage?
-            </h2>
+            </QuestionTitle>
 
             <p>
               React Hook Form needs <code>ref</code> to collect the input value,
@@ -250,9 +203,9 @@ const Faq = ({ location }) => {
             <SyntaxHighlighterWithCopy rawData={shareRef} />
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question7 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
               What if you don't have access to <code>ref</code>?
-            </h2>
+            </QuestionTitle>
 
             <p>
               You can actually <code>register</code> an input without a{" "}
@@ -270,9 +223,9 @@ const Faq = ({ location }) => {
             <SyntaxHighlighterWithCopy rawData={manualValidation} />
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question8 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question8 = ref)}>
               Browser Support?
-            </h2>
+            </QuestionTitle>
 
             <p>React Hook Form support all major browsers.</p>
 
@@ -288,9 +241,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question9 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question9 = ref)}>
               Why is first keystroke is not working?
-            </h2>
+            </QuestionTitle>
 
             <p>
               Double check if you are using <code>value</code> instead of{" "}
@@ -307,9 +260,9 @@ const Faq = ({ location }) => {
 
             <hr />
 
-            <h2 ref={ref => (sectionsRef.current.question10 = ref)}>
+            <QuestionTitle ref={ref => (sectionsRef.current.question10 = ref)}>
               Testing failed due to MutationObserver?
-            </h2>
+            </QuestionTitle>
 
             <p>
               If you have difficulty during testing and the issue was caused by{" "}
@@ -332,10 +285,11 @@ const Faq = ({ location }) => {
             <hr />
 
             <Footer />
-          </FaqMain>
+          </main>
         </Wrapper>
       </Container>
     </Layout>
   )
 }
+
 export default Faq

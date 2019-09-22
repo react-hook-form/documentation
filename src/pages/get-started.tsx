@@ -1,8 +1,9 @@
 import * as React from "react"
+import { Link, navigate } from "@reach/router"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import {
-  H1,
+  H2,
   HeadingWithTopMargin,
   Note,
   SubHeading,
@@ -13,7 +14,6 @@ import SideMenu from "../components/SideMenu"
 import track from "../components/utils/track"
 import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
 import colors from "../styles/colors"
-import { Link, navigate } from "@reach/router"
 import { DarkBlueButton } from "../styles/buttons"
 import { Container, Wrapper } from "../styles/containers"
 import {
@@ -40,7 +40,14 @@ const links = [
   "Handle errors",
 ]
 
-const Faq = ({ location }) => {
+const Faq = ({
+  location,
+}: {
+  location: {
+    search: string
+    pathname: string
+  }
+}) => {
   const sectionsRef = useRef({
     quickstart: null,
     videotutorial: null,
@@ -61,7 +68,6 @@ const Faq = ({ location }) => {
     const refName = name.replace(/ /g, "").toLowerCase()
     console.log(refName)
     if (sectionsRef.current[refName]) {
-      console.log("wf")
       sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
@@ -75,22 +81,7 @@ const Faq = ({ location }) => {
         <SubHeading>Simple form validation with React Hook Form.</SubHeading>
 
         <Wrapper>
-          <SideMenu
-            isStatic
-            links={links}
-            goToSection={goToSection}
-            title={
-              <Title
-                style={{
-                  marginBottom: "10px",
-                  fontSize: 16,
-                  color: colors.lightBlue,
-                }}
-              >
-                Quick Menu
-              </Title>
-            }
-          />
+          <SideMenu isStatic links={links} goToSection={goToSection} />
           <main>
             <GetStarted
               quickStartRef={ref => {
@@ -281,8 +272,11 @@ const Faq = ({ location }) => {
                 textAlign: "center",
               }}
             >
-              <H1>Want to learn more?</H1>
-              <p>Checkout the full API documentation</p>
+              <H2>Want to learn more?</H2>
+              <p>
+                Checkout the React Hook Form documentation and learn all the
+                API.
+              </p>
               <DarkBlueButton
                 onClick={() => {
                   track({
@@ -304,4 +298,5 @@ const Faq = ({ location }) => {
     </Layout>
   )
 }
+
 export default Faq

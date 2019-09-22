@@ -1,7 +1,11 @@
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
-import { SubHeading, HeadingWithTopMargin } from "../styles/typography"
+import {
+  SubHeading,
+  HeadingWithTopMargin,
+  QuestionTitle,
+} from "../styles/typography"
 import Link from "../styles/link"
 import code from "./codeExamples/defaultExample"
 import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
@@ -169,7 +173,7 @@ function Advanced() {
         <SideMenu links={links} goToSection={goToSection} />
 
         <main>
-          <h2>Accessibility (A11y)</h2>
+          <QuestionTitle>Accessibility (A11y)</QuestionTitle>
           <p>
             React Hook Form have support on native form validation, which let
             the borrow validate inputs with your rules, however, as most of us

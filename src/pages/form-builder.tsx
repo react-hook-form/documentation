@@ -4,7 +4,14 @@ import Seo from "../components/seo"
 import BuilderPage from "../components/BuilderPage"
 import { useEffect, useState } from "react"
 
-const Api = ({ location }) => {
+const Api = ({
+  location,
+}: {
+  location: {
+    search: string
+    pathname: string
+  }
+}) => {
   const [isMobile, setMobile] = useState(false)
 
   useEffect(() => {
