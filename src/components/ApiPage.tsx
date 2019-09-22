@@ -446,6 +446,42 @@ function Builder({ formData, showApi }: any) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
+                        validationSchema: <MobileType>Object</MobileType>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      Apply form validation rules with <code>Yup</code> at the
+                      schema level, please refer the{" "}
+                      <CodeAsLink
+                        onClick={() => goToSection("validationSchema")}
+                      >
+                        validationSchema
+                      </CodeAsLink>{" "}
+                      section.
+                    </p>
+                  </td>
+                  <td>
+                    <LinkToSandBox
+                      style={{
+                        position: "relative",
+                        left: 0,
+                        marginBottom: 20,
+                        marginTop: 10,
+                        float: "right",
+                      }}
+                      href="https://codesandbox.io/s/928po918qr"
+                      target="_blank"
+                    >
+                      CodeSandbox
+                    </LinkToSandBox>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
                         validationFields: <MobileType>string[] = []</MobileType>
                       </code>
                     </H5>
@@ -494,42 +530,6 @@ function Builder({ formData, showApi }: any) {
                       won't work. eg:{" "}
                       <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
                     </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <H5 style={{ marginTop: 20 }}>
-                      <code>
-                        validationSchema: <MobileType>Object</MobileType>
-                      </code>
-                    </H5>
-                  </td>
-                  <td>
-                    <p>
-                      Apply form validation rules with <code>Yup</code> at the
-                      schema level, please refer the{" "}
-                      <CodeAsLink
-                        onClick={() => goToSection("validationSchema")}
-                      >
-                        validationSchema
-                      </CodeAsLink>{" "}
-                      section.
-                    </p>
-                  </td>
-                  <td>
-                    <LinkToSandBox
-                      style={{
-                        position: "relative",
-                        left: 0,
-                        marginBottom: 20,
-                        marginTop: 10,
-                        float: "right",
-                      }}
-                      href="https://codesandbox.io/s/928po918qr"
-                      target="_blank"
-                    >
-                      CodeSandbox
-                    </LinkToSandBox>
                   </td>
                 </tr>
                 <tr>
