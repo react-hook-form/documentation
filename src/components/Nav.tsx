@@ -100,8 +100,6 @@ const Button = styled.button`
 
 const ActionButtonGroup = styled.div`
   display: flex;
-  justify-content: center;
-  position: fixed;
   bottom: 0;
   z-index: 5;
   left: 0;
@@ -325,8 +323,32 @@ export default function Nav({
           </svg>
           <span>API</span>
         </Button>
+
+        {/*<Button*/}
+        {/*  active={pathname.includes("/advanced-usage")}*/}
+        {/*  onClick={() => {*/}
+        {/*    track({*/}
+        {/*      category: "Button",*/}
+        {/*      label: "Advanced usage",*/}
+        {/*      action: "Click - Go to Advanced usage",*/}
+        {/*    })*/}
+        {/*    navigate("/advanced-usage")*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <svg viewBox="0 10 100 100">*/}
+        {/*    <path d="M15.6,84.8h68.8c5.5,0,10-4.5,10-10V32.6v-7.4c0-5.5-4.5-10-10-10H15.6c-5.5,0-10,4.5-10,10v7.4v42.2   C5.6,80.3,10.1,84.8,15.6,84.8z M7.6,25.2c0-4.4,3.6-8,8-8h68.8c4.4,0,8,3.6,8,8v5.4H7.6V25.2z M7.6,32.6h84.8v42.2   c0,4.4-3.6,8-8,8H15.6c-4.4,0-8-3.6-8-8V32.6z" />*/}
+        {/*    <path d="M14.7,19.6c-2.4,0-4.4,2-4.4,4.4s2,4.4,4.4,4.4s4.4-2,4.4-4.4S17.1,19.6,14.7,19.6z M14.7,26.4c-1.3,0-2.4-1.1-2.4-2.4   s1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4S16,26.4,14.7,26.4z" />*/}
+        {/*    <path d="M25,19.6c-2.4,0-4.4,2-4.4,4.4s2,4.4,4.4,4.4c2.4,0,4.4-2,4.4-4.4S27.5,19.6,25,19.6z M25,26.4c-1.3,0-2.4-1.1-2.4-2.4   s1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4S26.4,26.4,25,26.4z" />*/}
+        {/*    <path d="M35.4,19.6c-2.4,0-4.4,2-4.4,4.4s2,4.4,4.4,4.4c2.4,0,4.4-2,4.4-4.4S37.8,19.6,35.4,19.6z M35.4,26.4   c-1.3,0-2.4-1.1-2.4-2.4s1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4S36.7,26.4,35.4,26.4z" />*/}
+        {/*    <path d="M63.9,70.8c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l12.8-12.8c0.4-0.4,0.4-1,0-1.4L65.3,43.9c-0.4-0.4-1-0.4-1.4,0   s-0.4,1,0,1.4L76,57.3L63.9,69.4C63.5,69.8,63.5,70.5,63.9,70.8z" />*/}
+        {/*    <path d="M34.7,70.8c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L24,57.3l12.1-12.1c0.4-0.4,0.4-1,0-1.4   s-1-0.4-1.4,0L21.9,56.6c-0.4,0.4-0.4,1,0,1.4L34.7,70.8z" />*/}
+        {/*    <path d="M41.4,71.1c0.3,0,0.6-0.2,0.8-0.4l17.2-25.6c0.3-0.5,0.2-1.1-0.3-1.4c-0.5-0.3-1.1-0.2-1.4,0.3L40.6,69.6   c-0.3,0.5-0.2,1.1,0.3,1.4C41,71.1,41.2,71.1,41.4,71.1z" />*/}
+        {/*  </svg>*/}
+        {/*  <span>Advanced</span>*/}
+        {/*</Button>*/}
+
         <Button
-          active={pathname.includes("/builder")}
+          active={pathname.includes("/form-builder")}
           onClick={() => {
             track({
               category: "Button",
@@ -339,7 +361,7 @@ export default function Nav({
               goToBuilder()
               document.getElementById("builder").scrollTop = 0
             } else {
-              navigate("/builder?gotoDemo")
+              navigate("/form-builder?gotoDemo")
             }
           }}
           ref={builderButton}

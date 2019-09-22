@@ -155,7 +155,7 @@ export default function CodePerfCompareSection() {
           </p>
         </section>
         <section>
-          <video controls autoPlay playsinline muted loop>
+          <video controls autoPlay playsInline muted loop>
             <source src={reactHookFormVideo} type="video/mp4"/>
           </video>
           <p>

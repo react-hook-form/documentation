@@ -222,8 +222,6 @@ function BuilderPage({
     state: { formData },
     action: updateFormData,
   } = useStateMachine(updateStore)
-
-  console.log('wtf', formData);
   const [editFormData, setFormData] = useState(defaultValue)
   const {
     register,
