@@ -162,45 +162,13 @@ const QuickSelect = styled.div`
 `
 
 const links = [
-  "useForm",
-  "register",
-  "errors",
-  "watch",
-  "handleSubmit",
-  "reset",
-  "setError",
-  "setValue",
-  "getValues",
-  "triggerValidation",
-  "formState",
-  "FormContext",
-  "React Native",
-  "Typescript",
+  "Accessibility",
 ]
 
-function Builder({ formData, showApi }: any) {
-  const copyFormData = useRef([])
+function Advanced() {
   const apiSectionsRef = useRef({
-    quickStartRef: null,
-    formStateRef: null,
-    useFormRef: null,
-    registerRef: null,
-    unregisterRef: null,
-    resetRef: null,
-    errorsRef: null,
-    watchRef: null,
-    setErrorRef: null,
-    validationSchemaRef: null,
-    handleSubmitRef: null,
-    getValuesRef: null,
-    TypescriptRef: null,
-    clearErrorRef: null,
-    triggerValidationRef: null,
-    FormContextRef: null,
-    nativeValidationRef: null,
-    ReactNativeRef: null,
+    AccessibilityRef: null,
   })
-  copyFormData.current = formData
 
   const goToSection = name => {
     const url = window.location.href
@@ -222,11 +190,6 @@ function Builder({ formData, showApi }: any) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
-
-  useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
-  }, [])
 
   return (
     <Container>
@@ -261,4 +224,4 @@ function Builder({ formData, showApi }: any) {
   )
 }
 
-export default React.memo(Builder)
+export default React.memo(Advanced)
