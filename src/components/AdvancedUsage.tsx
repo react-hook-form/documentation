@@ -15,7 +15,7 @@ import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
 
 const { useRef } = React
 
-const links = ["Accessibility", "Form Wizard"]
+const links = ["Accessibility"]
 
 function Advanced() {
   const apiSectionsRef = useRef({
@@ -81,24 +81,24 @@ function Advanced() {
 
           <hr />
 
-          <QuestionTitle>Form Wizard / Funnel</QuestionTitle>
-          <p>
-            It's pretty common to collect user information through different
-            pages and sections. We recommend to use state management library to
-            store user input through different pages/section. In this example,
-            we are going to use{" "}
-            <Link
-              href="https://github.com/bluebill1049/little-state-machine"
-              target="_blank"
-            >
-              little state machine
-            </Link>{" "}
-            as our state management library (you can replace it with{" "}
-            <Link href="https://github.com/reduxjs/redux" target="_blank">
-              redux
-            </Link>
-            , if you are more familiar).
-          </p>
+          {/*<QuestionTitle>Form Wizard / Funnel</QuestionTitle>*/}
+          {/*<p>*/}
+          {/*  It's pretty common to collect user information through different*/}
+          {/*  pages and sections. We recommend to use state management library to*/}
+          {/*  store user input through different pages/section. In this example,*/}
+          {/*  we are going to use{" "}*/}
+          {/*  <Link*/}
+          {/*    href="https://github.com/bluebill1049/little-state-machine"*/}
+          {/*    target="_blank"*/}
+          {/*  >*/}
+          {/*    little state machine*/}
+          {/*  </Link>{" "}*/}
+          {/*  as our state management library (you can replace it with{" "}*/}
+          {/*  <Link href="https://github.com/reduxjs/redux" target="_blank">*/}
+          {/*    redux*/}
+          {/*  </Link>*/}
+          {/*  , if you are more familiar).*/}
+          {/*</p>*/}
         </main>
       </Wrapper>
     </Container>
