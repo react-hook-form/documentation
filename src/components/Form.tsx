@@ -27,11 +27,30 @@ const Wrapper = styled.div`
   grid-column-gap: 40px;
 `
 
-export default function Form({
-  onSubmit,
-  submitData,
-  toggleBuilder,
-}) {
+const DemoForm = styled.form`
+  flex: 1;
+
+  & > select,
+  & > input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+
+  & > select:not([multiple]) {
+    height: 43px;
+  }
+
+  & > input.form-error {
+    border: 1px solid ${colors.secondary};
+  }
+`
+
+export default function Form({ onSubmit, submitData, toggleBuilder }) {
   const {
     register,
     errors,
@@ -51,13 +70,14 @@ export default function Form({
       <CenterContent>
         <H1>Live Demo</H1>
         <p>
-          The following form demonstrates form validation in action. Each column represents what has been captured in the custom hook. You can
-          also change fields in the form by clicking the <strong>EDIT</strong>{" "}
+          The following form demonstrates form validation in action. Each column
+          represents what has been captured in the custom hook. You can also
+          change fields in the form by clicking the <strong>EDIT</strong>{" "}
           button.
         </p>
       </CenterContent>
       <Wrapper>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <DemoForm onSubmit={handleSubmit(onSubmit)}>
           <Title>Example</Title>
 
           <FormFields {...{ formData, errors, register }} />
@@ -86,7 +106,7 @@ export default function Form({
           <PinkButton
             type="button"
             onClick={() => {
-              reset();
+              reset()
               track({
                 category: "Button",
                 action: "Edit - Form data",
@@ -104,7 +124,7 @@ export default function Form({
           >
             Edit
           </PinkButton>
-        </form>
+        </DemoForm>
 
         <section>
           <Title>Errors</Title>

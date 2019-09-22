@@ -2,8 +2,10 @@ import * as React from "react"
 import { Animate } from "react-simple-animate"
 import useForm from "react-hook-form"
 import styled from "styled-components"
-import colors from "../styles/colors"
 import SortableContainer from "./SortableContainer"
+import { useStateMachine } from "little-state-machine"
+import { navigate } from "@reach/router"
+import colors from "../styles/colors"
 import {
   SubHeading,
   HeadingWithTopMargin,
@@ -12,8 +14,6 @@ import {
 } from "../styles/typography"
 import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
 import track from "./utils/track"
-import { useStateMachine } from "little-state-machine"
-import { navigate } from "@reach/router"
 import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
@@ -21,7 +21,6 @@ import Footer from "./Footer"
 const { useState, useRef, useEffect } = React
 
 const updateStore = (state, payload) => {
-  debugger
   return {
     ...state,
     formData: [...payload],
@@ -39,7 +38,6 @@ const Root = styled.main`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #0e101c;
   z-index: 4;
   color: white;
   box-sizing: border-box;
@@ -54,19 +52,6 @@ const Wrapper = styled.div`
   margin-bottom: 100px;
   padding: 0 20px 100px 20px;
   color: white;
-
-  & pre,
-  & code {
-    font-size: 14px;
-    text-align: left;
-    color: white;
-    overflow-x: auto;
-    overflow-y: hidden;
-    line-height: 1.3;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background: none !important;
-  }
 
   & > div:first-child {
     margin-top: 50px;
@@ -269,7 +254,6 @@ function BuilderPage({
 
   useEffect(() => {
     if (showBuilder && closeButton.current) {
-      // @ts-ignore
       closeButton.current.focus()
     }
   }, [showBuilder])

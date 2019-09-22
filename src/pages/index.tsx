@@ -3,7 +3,14 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Home from "../components/Home"
 
-const IndexPage = ({ location }: { location: string }) => (
+const IndexPage = ({
+  location,
+}: {
+  location: {
+    search: string
+    pathname: string
+  }
+}) => (
   <Layout location={location}>
     <Seo
       title="Home"

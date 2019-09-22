@@ -1,12 +1,11 @@
-import * as React from 'react'
-import { Title, H1 } from '../styles/typography'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { xonokai } from 'react-syntax-highlighter/dist/styles/prism'
-import styled from 'styled-components'
-import formikCode from './codeExamples/formikCode'
-import reactHookFormCode from './codeExamples/reactHookFormCode'
-import reduxFormCode from './codeExamples/reduxFormCode'
-import { CenterContent } from '../styles/containers'
+import * as React from "react"
+import styled from "styled-components"
+import { Title, H1 } from "../styles/typography"
+import formikCode from "./codeExamples/formikCode"
+import reactHookFormCode from "./codeExamples/reactHookFormCode"
+import reduxFormCode from "./codeExamples/reduxFormCode"
+import { CenterContent } from "../styles/containers"
+import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
 
 const GridView = styled.section`
   @media (min-width: 1100px) {
@@ -16,67 +15,42 @@ const GridView = styled.section`
   }
 `
 
-const Root = styled.div`
-  margin-bottom: 40px;
-`;
-
 export default function CodeCompareSection() {
   return (
-    <Root>
+    <div
+      style={{
+        marginBottom: 40,
+      }}
+    >
       <CenterContent>
         <H1>
           <code>{`</>`}</code> Library Code Comparison
         </H1>
 
         <p>
-          Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To
-          illustrate that, let's look at a very simple form of validation among some of the most popular form validation
-          libraries.
+          Reducing the amount of code that you have to write is one of the
+          primary goals for React Hook Form. To illustrate that, let's look at a
+          very simple form of validation among some of the most popular form
+          validation libraries.
         </p>
       </CenterContent>
 
       <GridView>
         <section>
           <Title>Formik</Title>
-          <SyntaxHighlighter
-            customStyle={{
-              border: 'none',
-            }}
-            style={xonokai}
-            language={'jsx'}
-          >
-            {formikCode}
-          </SyntaxHighlighter>
+          <SyntaxHighlighterWithCopy rawData={formikCode} withOutCopy />
         </section>
 
         <section>
-          <Title>
-            React Hook Form
-          </Title>
-          <SyntaxHighlighter
-            customStyle={{
-              border: 'none',
-            }}
-            style={xonokai}
-            language={'jsx'}
-          >
-            {reactHookFormCode}
-          </SyntaxHighlighter>
+          <Title>React Hook Form</Title>
+          <SyntaxHighlighterWithCopy rawData={reactHookFormCode} withOutCopy />
         </section>
 
         <section>
           <Title>Redux Form</Title>
-          <SyntaxHighlighter
-            customStyle={{
-              border: 'none',
-            }}
-            style={xonokai}
-            language={'jsx'}
-          >
-            {reduxFormCode}
-          </SyntaxHighlighter>
+          <SyntaxHighlighterWithCopy rawData={reduxFormCode} withOutCopy />
         </section>
       </GridView>
-    </Root>
+    </div>
   )
 }
