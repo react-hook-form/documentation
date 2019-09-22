@@ -1,140 +1,21 @@
 import * as React from "react"
 import styled from "styled-components"
-import colors from "../styles/colors"
 import {
   SubHeading,
   HeadingWithTopMargin,
   QuestionTitle,
 } from "../styles/typography"
 import Link from "../styles/link"
-import code from "./codeExamples/defaultExample"
 import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
 import SideMenu from "./SideMenu"
 import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
-import breakpoints from "../styles/breakpoints"
 import accessibleCodeBase from "./codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
 
-const { useRef, useEffect } = React
+const { useRef } = React
 
-export const CodeHeading = styled.code`
-  & > h2:before {
-    display: inline-block;
-    content: "</> ";
-  }
-`
-
-export const Table = styled.table`
-  margin-top: 20px;
-
-  td {
-    padding: 10px 20px 10px 0;
-    line-height: 1.4;
-
-    & > pre {
-      margin: 0;
-    }
-  }
-`
-
-export const TableWrapper = styled.div`
-  -webkit-overflow-scrolling: touch;
-  overflow-y: hidden;
-  overflow-x: auto;
-
-  @media ${breakpoints.fromMediumScreen} {
-    &::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #191d3a;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #4f6294;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #ec5990;
-    }
-  }
-`
-
-export const Type = styled.span`
-  font-weight: 100;
-  font-size: 15px;
-  font-family: monospace;
-  color: ${colors.lightPink};
-`
-
-export const MobileType = styled(Type)`
-  margin-top: 10px;
-  display: block;
-
-  @media ${breakpoints.fromMediumScreen} {
-    margin-top: 0px;
-    display: inline;
-  }
-`
-
-const HiddenMenu = styled.div`
-  & > h1 {
-    display: none;
-
-    @media ${breakpoints.fromMediumScreen} {
-      display: block;
-    }
-  }
-
-  & > div {
-    @media ${breakpoints.fromMediumScreen} {
-      display: none;
-    }
-  }
-`
-
-const QuickSelect = styled.div`
-  position: relative;
-
-  &:after {
-    content: "▼";
-    font-size: 20px;
-    right: 17%;
-    top: 12px;
-    position: absolute;
-    pointer-events: none;
-  }
-
-  & > select {
-    border-radius: 4px;
-    border: 1px solid white;
-    appearance: none;
-    background: none;
-    color: white;
-    margin: 0.67em auto 20px;
-    display: block;
-    text-align: center;
-    text-align-last: center;
-    font-size: 2rem;
-    font-weight: lighter;
-    position: relative;
-    padding: 10px 30px;
-
-    :after {
-      position: absolute;
-      bottom: 0.15em;
-      top: 0.15em;
-      right: 0.5rem;
-      content: "\\2193";
-      pointer-events: none;
-    }
-  }
-`
-
-const links = ["Accessibility"]
+const links = ["Accessibility", "Form Wizard"]
 
 function Advanced() {
   const apiSectionsRef = useRef({
@@ -170,7 +51,7 @@ function Advanced() {
       </SubHeading>
 
       <Wrapper>
-        <SideMenu links={links} goToSection={goToSection} />
+        <SideMenu isStatic links={links} goToSection={goToSection} />
 
         <main>
           <QuestionTitle>Accessibility (A11y)</QuestionTitle>
@@ -196,6 +77,27 @@ function Advanced() {
           <p>
             After the improvement, the screen reader will say:{" "}
             <i>“Name, edit, invalid entry, This is required.”</i>
+          </p>
+
+          <hr />
+
+          <QuestionTitle>Form Wizard / Funnel</QuestionTitle>
+          <p>
+            It's pretty common to collect user information through different
+            pages and sections. We recommend to use state management library to
+            store user input through different pages/section. In this example,
+            we are going to use{" "}
+            <Link
+              href="https://github.com/bluebill1049/little-state-machine"
+              target="_blank"
+            >
+              little state machine
+            </Link>{" "}
+            as our state management library (you can replace it with{" "}
+            <Link href="https://github.com/reduxjs/redux" target="_blank">
+              redux
+            </Link>
+            , if you are more familiar).
           </p>
         </main>
       </Wrapper>

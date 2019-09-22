@@ -204,7 +204,7 @@ function BuilderPage({
   isStatic?: boolean
 }) {
   const {
-    state: { formData },
+    state: { formData = [] },
     action: updateFormData,
   } = useStateMachine(updateStore)
   const [editFormData, setFormData] = useState(defaultValue)
