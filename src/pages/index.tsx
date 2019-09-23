@@ -13,7 +13,7 @@ const IndexPage = ({
 }) => (
   <Layout location={location}>
     <Seo
-      title="React Hook Form"
+      title="Home"
       description="React hook for form validation without the hassle"
     />
     <Home location={location} />
