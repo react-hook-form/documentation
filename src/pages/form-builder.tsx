@@ -25,7 +25,7 @@ const Api = ({
   return (
     <Layout location={location}>
       <Seo
-        title="Builder"
+        title="Form Builder"
         description="Simple GUI for build forms with validation"
       />
       <BuilderPage isStatic isMobile={isMobile} />

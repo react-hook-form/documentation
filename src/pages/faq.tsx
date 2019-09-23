@@ -69,7 +69,7 @@ const Faq = ({
   return (
     <Layout location={location}>
       <Container>
-        <Seo title="FAQ" />
+        <Seo title="FAQs" />
 
         <HeadingWithTopMargin>FAQs</HeadingWithTopMargin>
         <SubHeading>frequently asked question.</SubHeading>

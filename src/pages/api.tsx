@@ -12,7 +12,7 @@ const Api = ({
   }
 }) => (
   <Layout location={location}>
-    <Seo title="API" />
+    <Seo title="API Reference" />
     <ApiPage />
   </Layout>
 )
