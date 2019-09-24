@@ -78,6 +78,8 @@ function Home({
 
       <CodePerfCompareSection />
 
+      <div ref={HomeRef} />
+
       <Form
         {...{
           onSubmit,
@@ -126,9 +128,7 @@ function Home({
         </ButtonsGroup>
       </CenterContent>
 
-      <div ref={HomeRef}>
-        <FooterContent />
-      </div>
+      <FooterContent />
     </Root>
   )
 }
