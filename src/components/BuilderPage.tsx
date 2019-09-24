@@ -132,7 +132,7 @@ const Form = styled.form`
   }
 
   & > select:not([multiple]) {
-    height: 37px;
+    height: 43px;
   }
 
   & {

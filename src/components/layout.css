@@ -402,6 +402,7 @@ table {
 @media (min-width: 768px) {
   pre {
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
   }
 
   pre::-webkit-scrollbar {
