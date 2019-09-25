@@ -237,52 +237,60 @@ export default function Header({
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
-        <Video
-          role="tabPanel"
+        <div
+          id="tabPanel-1"
           aria-labelledby="tabPanel-1"
-          controls
-          playsInline
-          muted
-          onClick={() => {
-            track({
-              category: "Video",
-              label: "video",
-              action: "Play/Pause - Demo Video",
-            })
-          }}
+          hidden={!isWeb}
         >
-          <source src={video} type="video/mp4" />
-        </Video>
+          <Video
+            controls
+            playsInline
+            muted
+            onClick={() => {
+              track({
+                category: "Video",
+                label: "video",
+                action: "Play/Pause - Demo Video",
+              })
+            }}
+          >
+            <source src={video} type="video/mp4" />
+          </Video>
+        </div>
       </VideoWrapper>
 
       <VideoWrapper show={!isWeb}>
         <VideoHeading>React Native</VideoHeading>
-        <Video
-          role="tabPanel"
+        <div
+          id="tabPanel-2"
           aria-labelledby="tabPanel-2"
-          controls
-          playsInline
-          isLast
-          muted
-          onClick={() => {
-            track({
-              category: "Video",
-              label: "video",
-              action: "Play/Pause - Demo Video",
-            })
-          }}
+          hidden={isWeb}
         >
-          <source src={nativeVideo} type="video/mp4" />
-        </Video>
+          <Video
+            controls
+            playsInline
+            isLast
+            muted
+            onClick={() => {
+              track({
+                category: "Video",
+                label: "video",
+                action: "Play/Pause - Demo Video",
+              })
+            }}
+          >
+            <source src={nativeVideo} type="video/mp4" />
+          </Video>
+        </div>
       </VideoWrapper>
 
-      <ToggleGroup>
+      <ToggleGroup role="tablist" aria-label="Select video">
         <button
           style={{
             background: isWeb ? colors.lightPink : "none",
           }}
           aria-label="show web video"
-          aria-selected={isWeb}
+          aria-selected={isWeb ? "true" : "false"}
           aria-controls="tabPanel-1"
           role="tab"
           onClick={() => {

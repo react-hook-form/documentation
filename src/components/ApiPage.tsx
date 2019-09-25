@@ -234,6 +234,7 @@ function Builder({ formData, showApi }: any) {
         <HeadingWithTopMargin>API</HeadingWithTopMargin>
         <QuickSelect>
           <select
+            aria-label="select API"
             onChange={e => {
               goToSection(e.target.value)
             }}
