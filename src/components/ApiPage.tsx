@@ -295,6 +295,10 @@ function Builder({ formData, showApi }: any) {
             ,{" "}
             <CodeAsLink onClick={() => goToSection("getValues")}>
               getValues
+            </CodeAsLink>
+            ,{" "}
+            <CodeAsLink onClick={() => goToSection("triggerValidation")}>
+              triggerValidation
             </CodeAsLink>{" "}
             and{" "}
             <CodeAsLink onClick={() => goToSection("formState")}>
