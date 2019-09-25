@@ -46,7 +46,7 @@ ${
                   temp +
                   `        <option value="${option}">${option}</option>\n`
                 )
-              }, "")}      </select>`
+              }, "")}      </select>\n`
 
             return previous + select
           }
@@ -99,7 +99,7 @@ ${
           }
 
           if (type === "textarea") {
-            const select = `      <textarea name="${name}" ref={register${attributes}} />`
+            const select = `      <textarea name="${name}" ref={register${attributes}} />\n`
             return previous + select
           }
 
