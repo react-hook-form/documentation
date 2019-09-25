@@ -183,7 +183,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   
-  @media ${breakpoints.fromMediumScreen} {
+  @media ${breakpoints.fromLargeScreen} {
     display: none;
   }
 `
