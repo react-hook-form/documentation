@@ -82,6 +82,7 @@ export default () => (
           })
         }}
         target="_blank"
+        rel="noopener noreferrer"
         title="Bill Luo Twitter"
       >
         @Bill Luo
@@ -97,6 +98,7 @@ export default () => (
         }}
         href="https://github.com/bluebill1049/react-simple-animate"
         target="_blank"
+        rel="noopener noreferrer"
         title="React Simple Animate Github"
       >
         React Simple Animate
@@ -112,6 +114,7 @@ export default () => (
         }}
         href="https://github.com/bluebill1049/react-simple-img"
         target="_blank"
+        rel="noopener noreferrer"
         title="React Simple Img Github"
       >
         React Simple Img
@@ -125,6 +128,7 @@ export default () => (
             action: "Click - go to LSM",
           })
         }}
+        rel="noopener noreferrer"
         href="https://github.com/bluebill1049/little-state-machine"
         target="_blank"
         title="Little state machine"

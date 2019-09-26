@@ -165,6 +165,7 @@ const Faq = ({
                 }}
                 href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 HTML standard form validation
               </a>

@@ -98,6 +98,7 @@ export default function SyntaxHighlighterWithCopy({
           }}
           href={url}
           target="_blank"
+          rel="noopener noreferrer"
         >
           CodeSandbox
         </LinkToSandBox>

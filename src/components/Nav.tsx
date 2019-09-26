@@ -207,6 +207,7 @@ export default function Nav({
           }}
           href="https://github.com/bluebill1049/react-hook-form"
           target="_blank"
+          rel="noopener noreferrer"
           title="React Hook Form Github"
         >
           <svg viewBox="0 0 496 512" aria-label="Github logo">
@@ -225,6 +226,7 @@ export default function Nav({
           }}
           href="https://medium.com/@bruce1049/form-validation-with-hook-in-3kb-c5414edf7d64"
           target="_blank"
+          rel="noopener noreferrer"
           title="React Form validation under 3K"
         >
           <svg viewBox="0 0 512 512" aria-label="Medium logo">
@@ -244,6 +246,7 @@ export default function Nav({
           }}
           href="https://spectrum.chat/react-hook-form"
           target="_blank"
+          rel="noopener noreferrer"
           title="React Hook Form Spectrum"
         >
           <svg

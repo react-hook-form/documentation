@@ -194,6 +194,7 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                 action: 'Click - Go to Examples',
               })
             }}
+            rel="noopener noreferrer"
             href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
             target="_blank"
           >Code Examples</a>

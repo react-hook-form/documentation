@@ -85,6 +85,7 @@ export default function ApiFormState() {
           left: 0,
         }}
         href="https://codesandbox.io/s/7o2wrp86k6"
+        rel="noopener noreferrer"
         target="_blank"
       >
         CodeSandbox

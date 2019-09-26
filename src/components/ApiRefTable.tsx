@@ -149,7 +149,7 @@ export default function ApiRefTable() {
         when working with custom components and <code>Ref</code> is not
         accessible. This is actually the case when you are working with React
         Native or custom component like{" "}
-        <a href="https://github.com/JedWatson/react-select" target="_blank">
+        <a href="https://github.com/JedWatson/react-select" target="_blank" rel="noopener noreferrer">
           react-select
         </a>
       </p>

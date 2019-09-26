@@ -116,6 +116,7 @@ const Faq = ({
               React Hook Form is based on{" "}
               <a
                 href="https://reactjs.org/docs/uncontrolled-components.html"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Uncontrolled Component

@@ -478,6 +478,7 @@ function Builder({ formData, showApi }: any) {
                       }}
                       href="https://codesandbox.io/s/928po918qr"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       CodeSandbox
                     </LinkToSandBox>
@@ -509,6 +510,7 @@ function Builder({ formData, showApi }: any) {
                       }}
                       href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       CodeSandbox
                     </LinkToSandBox>
@@ -552,6 +554,7 @@ function Builder({ formData, showApi }: any) {
                       browser's native validation. You can{" "}
                       <a
                         target="_blank"
+                        rel="noopener noreferrer"
                         href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
                       >
                         find out more about the built-in browser validation
@@ -576,6 +579,7 @@ function Builder({ formData, showApi }: any) {
                       }}
                       href="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       CodeSandbox
                     </LinkToSandBox>
@@ -896,7 +900,7 @@ function Builder({ formData, showApi }: any) {
             validation schema, you can apply <code>validationSchema</code> at{" "}
             <code>useForm</code> as an optional argument. React Hook Form
             currently supports{" "}
-            <Link href="https://github.com/jquense/yup" target="_blank">
+            <Link href="https://github.com/jquense/yup" target="_blank" rel="noopener noreferrer">
               Yup
             </Link>{" "}
             for object schema validation.
