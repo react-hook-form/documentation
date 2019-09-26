@@ -228,7 +228,7 @@ export default function Header({
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
-        <div id="tabPanel-1" aria-labelledby="tabPanel-1" hidden={!isWeb}>
+        <div id="tabPanel-1" aria-labelledby="tabPanel-1">
           <Video
             controls
             playsInline
@@ -248,7 +248,7 @@ export default function Header({
 
       <VideoWrapper show={!isWeb}>
         <VideoHeading>React Native</VideoHeading>
-        <div id="tabPanel-2" aria-labelledby="tabPanel-2" hidden={isWeb}>
+        <div id="tabPanel-2" aria-labelledby="tabPanel-2">
           <Video
             controls
             playsInline
