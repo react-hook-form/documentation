@@ -38,11 +38,7 @@ const Links = styled.ul`
 
   & > li {
     display: inline-block;
-    padding: 0 5px;
-
-    @media (min-width: 768px) {
-      padding: 0 20px;
-    }
+    padding: 0 10px;
 
     & > a {
       text-decoration: none;
@@ -62,6 +58,9 @@ export default () => (
       </li>
       <li>
         <a href="/api">API</a>
+      </li>
+      <li>
+        <a href="/advanced-usage">Advanced</a>
       </li>
       <li>
         <a href="/form-builder">Form Builder</a>

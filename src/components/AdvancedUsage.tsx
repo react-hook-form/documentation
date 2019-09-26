@@ -13,21 +13,27 @@ import { Container, Wrapper } from "../styles/containers"
 import accessibleCodeBase from "./codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "./codeExamples/formWizard"
+import smartForm from "./codeExamples/smartForm"
+import { CodeHeading, Type } from "./ApiPage"
+import form from "./codeExamples/form"
+import input from "./codeExamples/input"
+import Footer from "./Footer"
 
 const { useRef } = React
 
-const links = ["Accessibility", "Form Wizard"]
+const links = ["Accessibility", "Form Wizard", "Smart Form Component"]
 
 function Advanced() {
   const pageContentRef = useRef({
     Accessibility: null,
     FormWizard: null,
+    SmartFormComponent: null,
   })
 
   const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
-    const filterName = name.replace(/ /, "")
+    const filterName = name.replace(/ /g, "")
 
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
@@ -141,6 +147,63 @@ function Advanced() {
             Follow the above pattern you should be able to build a form
             wizard/funnel to collect user input data from multiple pages.
           </p>
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.SmartFormComponent = ref)}
+          >
+            Smart Form Component
+          </QuestionTitle>
+
+          <p>
+            This idea is that you can easily compose your form with inputs. we
+            going to create a <code>Form</code> component to automatically
+            collecting form data. In fact, this is what we using at work, and i
+            would like to share such pattern here.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            rawData={smartForm}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
+
+          <p>Let's have a look what's in each of those components.</p>
+
+          <CodeHeading>
+            <h2>Form</h2>
+          </CodeHeading>
+
+          <p>
+            <code>Form</code> component's responsibility is to inject all{" "}
+            <code>react-hook-form</code> methods into the child component.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            rawData={form}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
+
+          <CodeHeading>
+            <h2>Input / Select</h2>
+          </CodeHeading>
+
+          <p>
+            Those input components' responsibility is to register into{" "}
+            <code>react-hook-form</code>
+          </p>
+          <SyntaxHighlighterWithCopy
+            rawData={input}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
+
+          <p>
+            With <code>Form</code> component inject <code>react-hook-form</code>
+            's <code>props</code> into the child component, you can easily
+            create and compose forms in your app.
+          </p>
+
+          <Footer />
         </main>
       </Wrapper>
     </Container>
