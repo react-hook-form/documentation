@@ -90,7 +90,15 @@ function Advanced() {
           <SyntaxHighlighterWithCopy rawData={accessibleCodeBase} />
 
           <p>
-            The following code example is improved version by leveraging ARIA.
+            The following code example is improved version by leveraging{" "}
+            <a
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+              target="_blank"
+            >
+              ARIA
+            </a>
+            .
           </p>
           <SyntaxHighlighterWithCopy rawData={accessibleCodeFinal} />
 
@@ -229,8 +237,8 @@ function Advanced() {
           </p>
 
           <p>
-            The following example demonstrate how you can create Field Array
-            by just manipulating the input <code>name</code> attribute.
+            The following example demonstrate how you can create Field Array by
+            just manipulating the input <code>name</code> attribute.
           </p>
 
           <SyntaxHighlighterWithCopy
