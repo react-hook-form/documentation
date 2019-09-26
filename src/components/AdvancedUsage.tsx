@@ -159,14 +159,16 @@ function Advanced() {
           <p>
             This idea is that you can easily compose your form with inputs. we
             going to create a <code>Form</code> component to automatically
-            collecting form data. In fact, this is what we using at work, and i
-            would like to share such pattern here.
+            collecting form data. In fact, this is part of what we implemented
+            forms at work.
           </p>
 
           <SyntaxHighlighterWithCopy
             rawData={smartForm}
             url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
           />
+
+          <p style={{ textAlign: "center" }}>♦</p>
 
           <p>Let's have a look what's in each of those components.</p>
 
@@ -189,8 +191,8 @@ function Advanced() {
           </CodeHeading>
 
           <p>
-            Those input components' responsibility is to register into{" "}
-            <code>react-hook-form</code>
+            Those input components' responsibility is to registering them into{" "}
+            <code>react-hook-form</code>.
           </p>
           <SyntaxHighlighterWithCopy
             rawData={input}
