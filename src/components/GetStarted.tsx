@@ -35,7 +35,7 @@ export default function GetStarted({ quickStartRef }: any) {
     <>
       <h2 ref={quickStartRef}>Installation</h2>
       <p>
-        Installing <code>react-hook-form</code> only takes a single command and
+        Installing React Hook Form only takes a single command and
         you're ready to roll.
       </p>
 

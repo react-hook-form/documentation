@@ -102,7 +102,7 @@ const Faq = ({
             </h2>
             <p>
               In this video tutorial, i have demonstrated the basic usage and
-              concept of using <code>react-hook-form</code>.
+              concept of using React Hook Form.
             </p>
 
             <iframe

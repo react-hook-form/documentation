@@ -39,7 +39,7 @@ export default function ApiRefTable() {
     <>
       <p>
         This method allows you to register input/select <code>Ref</code> and
-        validation rules into <code>react-hook-form</code>.
+        validation rules into React Hook Form.
       </p>
       <p>
         Validation rules are all based on HTML standard and also allow custom

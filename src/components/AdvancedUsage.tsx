@@ -18,16 +18,23 @@ import { CodeHeading, Type } from "./ApiPage"
 import form from "./codeExamples/form"
 import input from "./codeExamples/input"
 import Footer from "./Footer"
+import fieldArray from "./codeExamples/fieldArray"
 
 const { useRef } = React
 
-const links = ["Accessibility", "Form Wizard", "Smart Form Component"]
+const links = [
+  "Accessibility",
+  "Form Wizard",
+  "Smart Form Component",
+  "Field Arrays",
+]
 
 function Advanced() {
   const pageContentRef = useRef({
     Accessibility: null,
     FormWizard: null,
     SmartFormComponent: null,
+    FieldArrays: null,
   })
 
   const goToSection = name => {
@@ -204,6 +211,32 @@ function Advanced() {
             's <code>props</code> into the child component, you can easily
             create and compose forms in your app.
           </p>
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.FieldArrays = ref)}
+          >
+            Field Arrays
+          </QuestionTitle>
+
+          <p>
+            This is one of cool features about React Hook Form, instead import
+            components like other libraries to achieve the functionality. You
+            can leverage your existing HTML markup. The key is within the{" "}
+            <code>name</code> attribute. In React Hook Form, the{" "}
+            <code>name</code> attribute represent the data structure.
+          </p>
+
+          <p>
+            The following example demonstrate how you can create Field Array
+            by just manipulating the input <code>name</code> attribute.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            rawData={fieldArray}
+            url="https://codesandbox.io/s/6j1760jkjk"
+          />
 
           <Footer />
         </main>
