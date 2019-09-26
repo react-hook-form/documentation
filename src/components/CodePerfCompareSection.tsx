@@ -149,7 +149,7 @@ const MobileText = styled.p`
 export default function CodePerfCompareSection() {
   return (
     <Wrapper>
-      <H1>Rendering Comparison</H1>
+      <H1>Reduce Rendering</H1>
 
       <p>
         Do you ever wonder how many component re-renders have been triggered by
@@ -187,7 +187,7 @@ export default function CodePerfCompareSection() {
         </section>
       </VideoWrapper>
 
-      <H1>Mounting Comparison</H1>
+      <H1>Faster Mounting</H1>
 
       <p>
         The following results demonstrate: how long it took to render the
