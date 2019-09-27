@@ -19,6 +19,9 @@ import form from "./codeExamples/form"
 import input from "./codeExamples/input"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
+import copyClipBoard from "./utils/copyClipBoard"
+import { CopyButton, InstallCode } from "./GetStarted"
+import schemaValidation from "./codeExamples/schemaValidation"
 
 const { useRef } = React
 
@@ -27,6 +30,7 @@ const links = [
   "Wizard Form",
   "Smart Form Component",
   "Field Arrays",
+  "Schema Validation",
 ]
 
 function Advanced() {
@@ -35,6 +39,7 @@ function Advanced() {
     WizardForm: null,
     SmartFormComponent: null,
     FieldArrays: null,
+    SchemaValidation: null,
   })
 
   const goToSection = name => {
@@ -243,6 +248,56 @@ function Advanced() {
 
           <SyntaxHighlighterWithCopy
             rawData={fieldArray}
+            url="https://codesandbox.io/s/6j1760jkjk"
+          />
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.SchemaValidation = ref)}
+          >
+            Schema Validation
+          </QuestionTitle>
+
+          <p>
+            React Hook Form supports schema-based form validation with{" "}
+            <a href="https://github.com/jquense/yup" target="_blank">
+              Yup
+            </a>
+            , you can pass your <code>validationSchema</code> to{" "}
+            <a href="/api#useForm">useForm</a> as an optional config, React Hook
+            Form will validate your input data against the schema and return you
+            with <a href="/api#errors">errors</a> or valid result.
+          </p>
+
+          <p>
+            <Note>Step 1:</Note> install <code>Yup</code> into your project.
+          </p>
+
+          <InstallCode>
+            npm install yup
+            <CopyButton
+              onClick={() => {
+                track({
+                  category: "Button",
+                  label: "Copy",
+                  action: "Click - copy installation",
+                })
+                copyClipBoard("npm install yup")
+                alert("Code copied into your clipboard.")
+              }}
+            >
+              Copy
+            </CopyButton>
+          </InstallCode>
+
+          <p>
+            <Note>Step 2:</Note> prepare your schema for validation and register
+            inputs with React Hook Form.
+          </p>
+
+          <SyntaxHighlighterWithCopy
+            rawData={schemaValidation}
             url="https://codesandbox.io/s/6j1760jkjk"
           />
 

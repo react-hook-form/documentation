@@ -6,9 +6,8 @@ import colors from "../styles/colors"
 import * as React from "react"
 import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
-import { Note } from "../styles/typography"
 
-const InstallCode = styled.span`
+export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
   padding: 13px 20px;
   border-radius: 4px;
@@ -16,7 +15,7 @@ const InstallCode = styled.span`
   display: block;
 `
 
-const CopyButton = styled.button`
+export const CopyButton = styled.button`
   display: none;
   background: ${colors.lightBlue};
   border: none;
