@@ -24,7 +24,7 @@ const { useRef } = React
 
 const links = [
   "Accessibility",
-  "Form Wizard",
+  "Wizard Form",
   "Smart Form Component",
   "Field Arrays",
 ]
@@ -32,7 +32,7 @@ const links = [
 function Advanced() {
   const pageContentRef = useRef({
     Accessibility: null,
-    FormWizard: null,
+    WizardForm: null,
     SmartFormComponent: null,
     FieldArrays: null,
   })
@@ -109,8 +109,8 @@ function Advanced() {
 
           <hr />
 
-          <QuestionTitle ref={ref => (pageContentRef.current.FormWizard = ref)}>
-            Form Wizard / Funnel
+          <QuestionTitle ref={ref => (pageContentRef.current.WizardForm = ref)}>
+            Wizard Form / Funnel
           </QuestionTitle>
           <p>
             It's pretty common to collect user information through different
@@ -159,8 +159,8 @@ function Advanced() {
           />
 
           <p>
-            Follow the above pattern you should be able to build a form
-            wizard/funnel to collect user input data from multiple pages.
+            Follow the above pattern you should be able to build a wizard
+            form/funnel to collect user input data from multiple pages.
           </p>
 
           <hr />
