@@ -298,7 +298,7 @@ function Advanced() {
 
           <SyntaxHighlighterWithCopy
             rawData={schemaValidation}
-            url="https://codesandbox.io/s/6j1760jkjk"
+            url="https://codesandbox.io/s/928po918qr"
           />
 
           <Footer />
