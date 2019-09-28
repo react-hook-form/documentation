@@ -14,7 +14,7 @@ import accessibleCodeBase from "./codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "./codeExamples/formWizard"
 import smartForm from "./codeExamples/smartForm"
-import { CodeHeading, Type } from "./ApiPage"
+import { CodeHeading } from "./ApiPage"
 import form from "./codeExamples/form"
 import input from "./codeExamples/input"
 import Footer from "./Footer"
@@ -22,6 +22,7 @@ import fieldArray from "./codeExamples/fieldArray"
 import copyClipBoard from "./utils/copyClipBoard"
 import { CopyButton, InstallCode } from "./GetStarted"
 import schemaValidation from "./codeExamples/schemaValidation"
+import connectForm from "./codeExamples/connectForm"
 
 const { useRef } = React
 
@@ -31,6 +32,7 @@ const links = [
   "Smart Form Component",
   "Field Arrays",
   "Schema Validation",
+  "Connect Form",
 ]
 
 function Advanced() {
@@ -40,6 +42,7 @@ function Advanced() {
     SmartFormComponent: null,
     FieldArrays: null,
     SchemaValidation: null,
+    ConnectForm: null,
   })
 
   const goToSection = name => {
@@ -300,6 +303,27 @@ function Advanced() {
             rawData={schemaValidation}
             url="https://codesandbox.io/s/928po918qr"
           />
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.ConnectForm = ref)}
+          >
+            Connect Form
+          </QuestionTitle>
+
+          <p>
+            When we building forms, there are times when our input lives inside
+            of deep nested components tree, and that's when{" "}
+            <a href="/api#FormContext">FormContext</a> comes in handy. However,
+            we can future improve the DX by creating a <code>ConnectForm</code>{" "}
+            component by leveraging React's{" "}
+            <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
+            . The benefit of such component is you can connect your input with
+            React Hook Form anywhere.
+          </p>
+
+          <SyntaxHighlighterWithCopy rawData={connectForm} />
 
           <Footer />
         </main>
