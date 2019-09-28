@@ -21,7 +21,7 @@ export const CopyButton = styled.button`
   border: none;
   color: white;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 13px;
   float: right;
 
   @media ${breakpoints.fromMediumScreen} {

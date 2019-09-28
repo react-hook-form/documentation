@@ -12,8 +12,8 @@ const commonStyle = `
   border: none;
   color: white;
   border-radius: 4px;
-  font-size: 16px;
-  padding: 5px 10px;
+  font-size: 13px;
+  padding: 3px 10px;
   position: absolute;
   right: 20px;
   z-index: 1;
@@ -45,10 +45,10 @@ export const LinkToSandBox = styled.a`
   ${commonStyle};
   background: ${colors.lightPink};
   text-decoration: none;
-  line-height: 1.5;
+  line-height: 2;
 
   @media ${breakpoints.fromMediumScreen} {
-    right: 90px;
+    right: 85px;
   }
 `
 
