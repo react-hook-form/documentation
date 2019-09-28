@@ -316,7 +316,7 @@ function Advanced() {
             When we building forms, there are times when our input lives inside
             of deep nested components tree, and that's when{" "}
             <a href="/api#FormContext">FormContext</a> comes in handy. However,
-            we can future improve the DX by creating a <code>ConnectForm</code>{" "}
+            we can further improve the DX by creating a <code>ConnectForm</code>{" "}
             component by leveraging React's{" "}
             <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
             . The benefit of such component is you can connect your input with
