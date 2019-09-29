@@ -50,7 +50,15 @@ const DemoForm = styled.form`
   }
 `
 
-export default function Form({ onSubmit, submitData, toggleBuilder }) {
+export default function Form({
+  onSubmit,
+  submitData,
+  toggleBuilder,
+}: {
+  onSubmit: any
+  submitData: any
+  toggleBuilder: (state: boolean) => void
+}) {
   const {
     register,
     errors,

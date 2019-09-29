@@ -19,10 +19,8 @@ const Footer = styled.footer`
     }
   }
 
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-    margin-top: 100px;
-    text-align: center;
+  & > p {
+    font-size: 13px;
   }
 `
 
@@ -31,9 +29,7 @@ const Links = styled.ul`
   border-bottom: 1px solid ${colors.lightPink};
   max-width: 800px;
   margin: 0 auto 20px;
-  padding: 0;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding: 0 0 10px 0;
   display: block;
 
   & > li {
@@ -54,7 +50,7 @@ export default () => (
         <a href="/">Home</a>
       </li>
       <li>
-        <a href="/get-started">Get started</a>
+        <a href="/get-started">Get Started</a>
       </li>
       <li>
         <a href="/api">API</a>
@@ -69,7 +65,7 @@ export default () => (
         <a href="/faqs">FAQs</a>
       </li>
     </Links>
-    <div>
+    <p>
       Build with ♡ by{" "}
       <a
         href="https://twitter.com/bluebill1049"
@@ -134,12 +130,7 @@ export default () => (
       >
         Little State Machine
       </a>
-      <br />
-      <span
-        style={{ fontSize: 12, lineHeight: 2, marginTop: 5, display: "block" }}
-      >
-        [ Please support the repo by leaving ⭐️. Thank you ❤ ️]
-      </span>
-    </div>
+    </p>
+    <p>[ Please support the repo by leaving ⭐️. Thank you ❤ ️]</p>
   </Footer>
 )
