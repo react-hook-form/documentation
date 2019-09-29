@@ -44,10 +44,6 @@ const DemoForm = styled.form`
   & > select:not([multiple]) {
     height: 43px;
   }
-
-  & > input.form-error {
-    border: 1px solid ${colors.secondary};
-  }
 `
 
 export default function Form({
@@ -148,7 +144,6 @@ export default function Form({
             <Code>
               {Object.keys(errors).length
                 ? JSON.stringify(
-                    // @ts-ignore
                     Object.entries(errors).reduce(
                       (previous, [key, { ref, ...rest }]) => {
                         previous[key] = rest

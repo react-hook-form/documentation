@@ -178,7 +178,7 @@ const links = [
   "Typescript",
 ]
 
-function Builder({ formData, showApi }: any) {
+function Builder({ formData }: { formData: any }) {
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,
@@ -206,11 +206,14 @@ function Builder({ formData, showApi }: any) {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ /, "")
-    if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
-    } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
-    }
+
+    history.pushState(
+      {},
+      null,
+      hashIndex < 0
+        ? `${url}#${filterName}`
+        : `${url.substr(0, hashIndex)}#${filterName}`
+    )
 
     const refName = `${filterName}Ref`
     track({
@@ -218,6 +221,7 @@ function Builder({ formData, showApi }: any) {
       label: filterName,
       action: `Click - Go to ${filterName} section`,
     })
+
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
@@ -900,7 +904,11 @@ function Builder({ formData, showApi }: any) {
             validation schema, you can apply <code>validationSchema</code> at{" "}
             <code>useForm</code> as an optional argument. React Hook Form
             currently supports{" "}
-            <Link href="https://github.com/jquense/yup" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com/jquense/yup"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Yup
             </Link>{" "}
             for object schema validation.

@@ -23,6 +23,7 @@ export const CopyButton = styled.button`
   border-radius: 4px;
   font-size: 13px;
   float: right;
+  text-transform: uppercase;
 
   @media ${breakpoints.fromMediumScreen} {
     display: inline-block;
