@@ -13,7 +13,7 @@ const commonStyle = `
   color: white;
   border-radius: 4px;
   font-size: 13px;
-  padding: 3px 10px;
+  padding: 0 10px;
   position: absolute;
   right: 20px;
   z-index: 1;
@@ -22,6 +22,8 @@ const commonStyle = `
   display: none;
   cursor: pointer;
   text-transform: uppercase;
+  height: 34px;
+  align-items: center;
 
   &:hover {
     opacity: 0.8;
@@ -33,7 +35,7 @@ const commonStyle = `
   }
 
   @media ${breakpoints.fromMediumScreen} {
-    display: inline-block;
+    display: flex;
   }
 `
 
@@ -53,8 +55,7 @@ export const LinkToSandBox = styled.a`
     display: inline-block;
     height: 20px;
     position: relative;
-    margin-right: 2px;
-    top: 4px;
+    margin-right: 8px;
   }
 `
 
@@ -70,10 +71,10 @@ export default function SyntaxHighlighterWithCopy({
   url,
   withOutCopy,
 }: {
-  rawData: string
-  data: string
-  url: string
-  withOutCopy: boolean
+  rawData?: string
+  data?: string
+  url?: string
+  withOutCopy?: boolean
 }) {
   return (
     <div
