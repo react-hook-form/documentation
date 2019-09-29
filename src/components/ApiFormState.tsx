@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { LinkToSandBox } from './SyntaxHighlighterWithCopy'
 import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'

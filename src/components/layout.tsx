@@ -23,7 +23,7 @@ const ScrollTop = styled.button`
 
 const Layout = (props: {
   children: any
-  location: {
+  location?: {
     search: string
     pathname: string
   }
