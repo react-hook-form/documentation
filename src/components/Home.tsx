@@ -13,6 +13,7 @@ import { ButtonsGroup, DarkBlueButton } from "../styles/buttons"
 import track from "./utils/track"
 import { CenterContent } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
+import FeaturesList from "./FeaturesList";
 
 const { useState, useRef, useEffect } = React
 
@@ -73,6 +74,8 @@ function Home({
       />
 
       <Header homeRef={HomeRef} />
+
+      <FeaturesList />
 
       <CodeCompareSection />
 

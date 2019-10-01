@@ -2,7 +2,6 @@ import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
 import colors from "../styles/colors"
-import FeaturesList from "./FeaturesList"
 import track from "./utils/track"
 import { navigate } from "@reach/router"
 import { ButtonsGroup } from "../styles/buttons"
@@ -313,8 +312,6 @@ export default function Header({
           React Native
         </button>
       </ToggleGroup>
-
-      <FeaturesList />
     </>
   )
 }

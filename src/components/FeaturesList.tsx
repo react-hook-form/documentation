@@ -35,14 +35,16 @@ const FeaturesContent = styled.section`
     }
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
     max-width: 1024px;
     margin: 20px auto 30px;
   }
 
-  @media ${breakpoints.fromLargeScreen} {
-    grid-column-gap: 30px;
+  @media ${breakpoints.fromXlargeScreen} {
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 40px;
+    max-width: 1200px;
   }
 `
 
@@ -69,6 +71,17 @@ export default function FeaturesList() {
       <Title>Features</Title>
       <FeaturesContent>
         <div>
+          <svg viewBox="0 0 100 125">
+            <path d="M89,16.5C78.7,4.9,61,8,50.1,18.7c-0.1,0.1-0.1,0.1-0.2,0C39.1,8,21.3,4.9,11,16.5c-9.5,10.7-7,26.1,1.9,37.4   c11.6,14.8,35.4,35.4,37,37c0.1,0.1,0.1,0.1,0.2,0c1.6-1.6,25.2-21.4,37-37C95.8,42.4,98.5,27.2,89,16.5z" />
+          </svg>
+          <h3>DX</h3>
+          <p>
+            Aimed to provide API so it provides a seamless experience to
+            developers when buidling forms.
+          </p>
+        </div>
+
+        <div>
           <svg viewBox="0 0 512 512">
             <title>HTML5</title>
             <path d="M108.4 0h23v22.8h21.2V0h23v69h-23V46h-21v23h-23.2M206 23h-20.3V0h63.7v23H229v46h-23M259.5 0h24.1l14.8 24.3L313.2 0h24.1v69h-23V34.8l-16.1 24.8l-16.1-24.8v34.2h-22.6M348.7 0h23v46.2h32.6V69h-55.6" />
@@ -89,7 +102,7 @@ export default function FeaturesList() {
           <h3>HTML standard</h3>
           <p>
             Leverage your existing HTML markup, and start validating your forms
-            with custom or browser built-in validation.
+            with constraint validation API .
           </p>
         </div>
 
@@ -113,8 +126,8 @@ export default function FeaturesList() {
 
           <h3>Performance</h3>
           <p>
-            Minimizes the number of re-renders and faster components mount,
-            striving to provide your users with the best experience.
+            Minimizes the number of re-renders and faster mount,
+            striving to provide the best user experience.
           </p>
         </div>
 
