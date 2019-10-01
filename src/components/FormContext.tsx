@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {CodeHeading, Table, TableWrapper, Type} from "./ApiPage";
-import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy";
+import CodeArea from "./CodeArea";
 import formContext from "./codeExamples/formContext";
 import {Note} from "../styles/typography";
 
@@ -39,7 +39,7 @@ export default function FormContext() {
     <p><Note>Note:</Note> invoke <code>useFormContext</code> will give you all the <code>useForm</code> hook functions.</p>
     <p><code style={{ fontSize: 14 }}>{`const methods = useFormContext() // methods contain all useForm functions`}</code></p>
 
-    <SyntaxHighlighterWithCopy
+    <CodeArea
       rawData={formContext}
       url="https://codesandbox.io/s/sad-sutherland-zvfok"
     />

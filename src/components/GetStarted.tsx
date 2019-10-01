@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import copyClipBoard from "./utils/copyClipBoard"
-import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import CodeArea from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import colors from "../styles/colors"
 import * as React from "react"
@@ -64,7 +64,7 @@ export default function GetStarted({ quickStartRef }: any) {
         Example
       </h2>
       <p>The following code will demonstrate the basics usage.</p>
-      <SyntaxHighlighterWithCopy
+      <CodeArea
         rawData={code}
         url="https://codesandbox.io/s/kw7z2q2n15"
       />

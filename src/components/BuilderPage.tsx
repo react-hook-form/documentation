@@ -12,7 +12,7 @@ import {
   Error,
   Title,
 } from "../styles/typography"
-import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import CodeArea from "./CodeArea"
 import track from "./utils/track"
 import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
@@ -517,7 +517,7 @@ function BuilderPage({
         >
           <Title>Code</Title>
 
-          <SyntaxHighlighterWithCopy data={formData} />
+          <CodeArea data={formData} />
         </div>
       </Wrapper>
 

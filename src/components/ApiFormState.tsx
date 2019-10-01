@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { LinkToSandBox } from './SyntaxHighlighterWithCopy'
-import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
+import * as React from "react"
+import { LinkToSandBox } from "./CodeArea"
+import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
-export default function ApiFormState() {
+export default React.memo(() => {
   return (
     <>
       <CodeHeading>
@@ -27,7 +27,9 @@ export default function ApiFormState() {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>Set to true after a user interacted with any of the inputs.</td>
+              <td>
+                Set to true after a user interacted with any of the inputs.
+              </td>
             </tr>
             <tr>
               <td>
@@ -54,7 +56,10 @@ export default function ApiFormState() {
               <td>
                 <Type>boolean</Type>
               </td>
-              <td>During form submitting will set to <code>true</code> and after submitting set to <code>false</code>.</td>
+              <td>
+                During form submitting will set to <code>true</code> and after
+                submitting set to <code>false</code>.
+              </td>
             </tr>
             <tr>
               <td>
@@ -80,7 +85,7 @@ export default function ApiFormState() {
 
       <LinkToSandBox
         style={{
-          position: 'relative',
+          position: "relative",
           left: 0,
         }}
         href="https://codesandbox.io/s/7o2wrp86k6"
@@ -91,4 +96,4 @@ export default function ApiFormState() {
       </LinkToSandBox>
     </>
   )
-}
+})

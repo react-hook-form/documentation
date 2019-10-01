@@ -12,9 +12,9 @@ import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
 import Link from "../styles/link"
 import code from "./codeExamples/defaultExample"
-import SyntaxHighlighterWithCopy, {
+import CodeArea, {
   LinkToSandBox,
-} from "./SyntaxHighlighterWithCopy"
+} from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
 import resetCode from "./codeExamples/resetCode"
@@ -316,7 +316,7 @@ function Builder({ formData }: { formData: any }) {
             following example demonstrate all options' default value.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             withOutCopy
             rawData={`const { register } = useForm({
   mode: 'onSubmit',
@@ -431,7 +431,7 @@ function Builder({ formData }: { formData: any }) {
             React Hook Form.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
             rawData={`const { register } = useForm({
   defaultValues: {
@@ -628,7 +628,7 @@ function Builder({ formData }: { formData: any }) {
             array of inputs.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
             rawData={unregisterCode}
           />
@@ -671,7 +671,7 @@ function Builder({ formData }: { formData: any }) {
             asynchronous validation. eg:{" "}
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={handleSubmitCode}
             url="https://codesandbox.io/s/yj07z1639"
           />
@@ -703,7 +703,7 @@ function Builder({ formData }: { formData: any }) {
             <code onClick={() => goToSection("setValue")}>setValue</code>.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={resetCode}
             url="https://codesandbox.io/s/jjm3wyqmjy"
           />
@@ -753,7 +753,7 @@ function Builder({ formData }: { formData: any }) {
             </li>
           </ul>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={setError}
             url="https://codesandbox.io/s/o7rxyym3q5"
           />
@@ -784,7 +784,7 @@ function Builder({ formData }: { formData: any }) {
             <code>setValue('name', 'value', true)</code>
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={setValue}
             url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
           />
@@ -818,7 +818,7 @@ function Builder({ formData }: { formData: any }) {
             </li>
           </ul>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={getValues}
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />
@@ -845,7 +845,7 @@ function Builder({ formData }: { formData: any }) {
             object will be updated.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={trigger}
             url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
           />
@@ -884,7 +884,7 @@ function Builder({ formData }: { formData: any }) {
             with React Native (duo to the API difference from web and native).
             We will have to use <b>custom register</b> in the following example.
           </p>
-          <SyntaxHighlighterWithCopy rawData={reactNative} />
+          <CodeArea rawData={reactNative} />
 
           <hr />
 
@@ -913,7 +913,7 @@ function Builder({ formData }: { formData: any }) {
             </Link>{" "}
             for object schema validation.
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
           />
@@ -936,7 +936,7 @@ function Builder({ formData }: { formData: any }) {
             syntax is the same as standard validation.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={nativeValidation}
             url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
@@ -956,7 +956,7 @@ function Builder({ formData }: { formData: any }) {
             define <code>FormData</code> type to support form values.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={typeScript}
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />

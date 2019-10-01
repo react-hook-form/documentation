@@ -9,7 +9,7 @@ import {
 } from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
-import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
+import CodeArea from "../components/CodeArea"
 import track from "../components/utils/track"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
@@ -124,7 +124,7 @@ const Faq = ({
               , which gives you the ability to build an accessible custom form
               easily.
             </p>
-            <SyntaxHighlighterWithCopy rawData={accessibleCode} />
+            <CodeArea rawData={accessibleCode} />
 
             <hr />
 
@@ -186,7 +186,7 @@ const Faq = ({
               individual field. However, the hook itself does provide an easier
               way to initialise all input values too. Example below:
             </p>
-            <SyntaxHighlighterWithCopy rawData={initialValue} />
+            <CodeArea rawData={initialValue} />
 
             <hr />
 
@@ -201,7 +201,7 @@ const Faq = ({
               how.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={shareRef} />
+            <CodeArea rawData={shareRef} />
             <hr />
 
             <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
@@ -221,7 +221,7 @@ const Faq = ({
               update value and error.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={manualValidation} />
+            <CodeArea rawData={manualValidation} />
             <hr />
 
             <QuestionTitle ref={ref => (sectionsRef.current.question8 = ref)}>
@@ -235,7 +235,7 @@ const Faq = ({
               version.
             </p>
 
-            <SyntaxHighlighterWithCopy
+            <CodeArea
               rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`}
               withOutCopy
             />

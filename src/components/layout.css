@@ -52,6 +52,9 @@ a:hover {
   transition: 0.3s all;
   outline-width: 0;
 }
+a:active {
+ transform: translateY(2px);
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;

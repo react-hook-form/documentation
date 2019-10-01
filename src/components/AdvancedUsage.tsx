@@ -6,7 +6,7 @@ import {
   Note,
 } from "../styles/typography"
 import Link from "../styles/link"
-import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import CodeArea from "./CodeArea"
 import SideMenu from "./SideMenu"
 import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
@@ -95,7 +95,7 @@ function Advanced() {
             it can be improved for accessibility.
           </p>
 
-          <SyntaxHighlighterWithCopy rawData={accessibleCodeBase} />
+          <CodeArea rawData={accessibleCodeBase} />
 
           <p>
             The following code example is improved version by leveraging{" "}
@@ -108,7 +108,7 @@ function Advanced() {
             </a>
             .
           </p>
-          <SyntaxHighlighterWithCopy rawData={accessibleCodeFinal} />
+          <CodeArea rawData={accessibleCodeFinal} />
 
           <p>
             After the improvement, the screen reader will say:{" "}
@@ -143,7 +143,7 @@ function Advanced() {
           <p>
             <Note>Step 1</Note>: set up your routes and store.
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={step1}
             url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
           />
@@ -152,7 +152,7 @@ function Advanced() {
             <Note>Step 2</Note>: create your pages and make them collecting
             data, submit to store and push to the next page of your form.
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={step2}
             url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
           />
@@ -161,7 +161,7 @@ function Advanced() {
             <Note>Step 3</Note>: make your final submission with all your data
             in store or display the result data.
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={step3}
             url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
           />
@@ -186,7 +186,7 @@ function Advanced() {
             forms at work.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={smartForm}
             url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
           />
@@ -204,7 +204,7 @@ function Advanced() {
             <code>react-hook-form</code> methods into the child component.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={form}
             url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
           />
@@ -217,7 +217,7 @@ function Advanced() {
             Those input components' responsibility is to registering them into{" "}
             <code>react-hook-form</code>.
           </p>
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={input}
             url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
           />
@@ -249,7 +249,7 @@ function Advanced() {
             just manipulating the input <code>name</code> attribute.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={fieldArray}
             url="https://codesandbox.io/s/6j1760jkjk"
           />
@@ -299,7 +299,7 @@ function Advanced() {
             inputs with React Hook Form.
           </p>
 
-          <SyntaxHighlighterWithCopy
+          <CodeArea
             rawData={schemaValidation}
             url="https://codesandbox.io/s/928po918qr"
           />
@@ -323,7 +323,7 @@ function Advanced() {
             React Hook Form anywhere.
           </p>
 
-          <SyntaxHighlighterWithCopy rawData={connectForm} />
+          <CodeArea rawData={connectForm} />
 
           <Footer />
         </main>

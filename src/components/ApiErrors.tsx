@@ -1,5 +1,5 @@
 import * as React from 'react'
-import SyntaxHighlighterWithCopy from './SyntaxHighlighterWithCopy'
+import CodeArea from './CodeArea'
 import errorCode from './codeExamples/errorCode'
 import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
 
@@ -58,7 +58,7 @@ export default function ApiErrors() {
         </Table>
       </TableWrapper>
 
-      <SyntaxHighlighterWithCopy rawData={errorCode} url="https://codesandbox.io/s/nrr4n9p8n4" />
+      <CodeArea rawData={errorCode} url="https://codesandbox.io/s/nrr4n9p8n4" />
 
       <hr />
     </>

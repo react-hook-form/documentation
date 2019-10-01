@@ -131,6 +131,8 @@ export default () => (
         Little State Machine
       </a>
     </p>
-    <p>[ Please support the repo by leaving ⭐️. Thank you ❤ ️]</p>
+    <p style={{ fontSize: 12 }}>
+      [ Please support us by leaving a ⭐️. Thank you ❤ ️]
+    </p>
   </Footer>
 )

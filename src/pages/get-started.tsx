@@ -12,7 +12,7 @@ import {
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
 import track from "../components/utils/track"
-import SyntaxHighlighterWithCopy from "../components/SyntaxHighlighterWithCopy"
+import CodeArea from "../components/CodeArea"
 import colors from "../styles/colors"
 import { DarkBlueButton } from "../styles/buttons"
 import { Container, Wrapper } from "../styles/containers"
@@ -142,7 +142,7 @@ const Faq = ({
               <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={registerCode} />
+            <CodeArea rawData={registerCode} />
 
             <Title
               ref={ref => {
@@ -199,7 +199,7 @@ const Faq = ({
               .
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={applyValidation} />
+            <CodeArea rawData={applyValidation} />
 
             <Title
               ref={ref => {
@@ -214,7 +214,7 @@ const Faq = ({
               <code>ref</code>.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={migrateCode} />
+            <CodeArea rawData={migrateCode} />
 
             <Title
               ref={ref => {
@@ -236,7 +236,7 @@ const Faq = ({
               trigger an error with <code>setError</code>.
             </p>
 
-            <SyntaxHighlighterWithCopy
+            <CodeArea
               rawData={uiLibrary}
               url="https://codesandbox.io/s/72j69vnk1x"
             />
@@ -253,7 +253,7 @@ const Faq = ({
               store your data, but you can easily integrate with one.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={globalState} />
+            <CodeArea rawData={globalState} />
 
             <Title
               ref={ref => {
@@ -267,7 +267,7 @@ const Faq = ({
               the errors within the form.
             </p>
 
-            <SyntaxHighlighterWithCopy rawData={errors} />
+            <CodeArea rawData={errors} />
 
             <section
               style={{

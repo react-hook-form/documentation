@@ -1,5 +1,5 @@
 import * as React from "react"
-import SyntaxHighlighterWithCopy from "./SyntaxHighlighterWithCopy"
+import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
@@ -96,7 +96,7 @@ export default function ApiWatch() {
           </tbody>
         </Table>
       </TableWrapper>
-      <SyntaxHighlighterWithCopy
+      <CodeArea
         rawData={watchCode}
         url="https://codesandbox.io/s/pp1l40q7wx"
       />
