@@ -133,6 +133,10 @@ const ActionButtonGroup = styled.div`
     padding: 13px 10px;
   }
 
+  @media ${breakpoints.fromXlargeScreen} {
+    max-width: 800px;
+  }
+
   & > button {
     flex: 1;
     font-size: 0.6rem;
@@ -182,7 +186,7 @@ const IconWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  
+
   @media ${breakpoints.fromLargeScreen} {
     display: none;
   }
