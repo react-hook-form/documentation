@@ -132,7 +132,7 @@ export default () => (
       </a>
     </p>
     <p style={{ fontSize: 12 }}>
-      [ Please support us by leaving a ⭐️. Thank you ❤ ️]
+      [ Please support us by leaving a ⭐️. Thank you ❤ ]
     </p>
   </Footer>
 )

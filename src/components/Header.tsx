@@ -2,7 +2,6 @@ import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
 import colors from "../styles/colors"
-import { AnimateGroup } from "react-simple-animate"
 import FeaturesList from "./FeaturesList"
 import track from "./utils/track"
 import { navigate } from "@reach/router"
@@ -85,11 +84,17 @@ const Video = styled.video`
   display: block;
   box-shadow: 0px 0 9px 0px #010817;
   background: ${colors.primary};
+  border: 1px solid transparent;
+  cursor: pointer;
   ${props =>
     props.isLast &&
     css`
       margin-bottom: 100px;
     `}
+
+  &:hover {
+    border: 1px solid ${colors.secondary};
+  }
 
   @media ${breakpoints.fromMediumScreen} {
     width: 700px;
@@ -184,7 +189,7 @@ export default function Header({
   )
 
   return (
-    <AnimateGroup play>
+    <>
       <Head>
         <Logo viewBox="0 0 100 100">{LogoSvg}</Logo>
 
@@ -192,6 +197,7 @@ export default function Header({
           <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React Hook
           Form
         </Heading>
+
         <SubHeading>
           Performant, flexible and extensible forms with easy to use for
           validation.
@@ -228,43 +234,43 @@ export default function Header({
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
-        <div id="tabPanel-1" aria-labelledby="tabPanel-1">
-          <Video
-            controls
-            playsInline
-            muted
-            onClick={() => {
-              track({
-                category: "Video",
-                label: "video",
-                action: "Play/Pause - Demo Video",
-              })
-            }}
-          >
-            <source src={video} type="video/mp4" />
-          </Video>
-        </div>
+        <Video
+          id="tabPanel-1"
+          aria-labelledby="tabPanel-1"
+          controls
+          playsInline
+          muted
+          onClick={() => {
+            track({
+              category: "Video",
+              label: "video",
+              action: "Play/Pause - Demo Video",
+            })
+          }}
+        >
+          <source src={video} type="video/mp4" />
+        </Video>
       </VideoWrapper>
 
       <VideoWrapper show={!isWeb}>
         <VideoHeading>React Native</VideoHeading>
-        <div id="tabPanel-2" aria-labelledby="tabPanel-2">
-          <Video
-            controls
-            playsInline
-            isLast
-            muted
-            onClick={() => {
-              track({
-                category: "Video",
-                label: "video",
-                action: "Play/Pause - Demo Video",
-              })
-            }}
-          >
-            <source src={nativeVideo} type="video/mp4" />
-          </Video>
-        </div>
+        <Video
+          id="tabPanel-2"
+          aria-labelledby="tabPanel-2"
+          controls
+          playsInline
+          isLast
+          muted
+          onClick={() => {
+            track({
+              category: "Video",
+              label: "video",
+              action: "Play/Pause - Demo Video",
+            })
+          }}
+        >
+          <source src={nativeVideo} type="video/mp4" />
+        </Video>
       </VideoWrapper>
 
       <ToggleGroup role="tablist" aria-label="Select video">
@@ -309,6 +315,6 @@ export default function Header({
       </ToggleGroup>
 
       <FeaturesList />
-    </AnimateGroup>
+    </>
   )
 }
