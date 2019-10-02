@@ -2,7 +2,7 @@ import styled from "styled-components"
 import * as React from "react"
 import { Title } from "../styles/typography"
 import breakpoints from "../styles/breakpoints"
-import { AnimateGroup, AnimateKeyframes, Animate } from "react-simple-animate/dist"
+import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 
 const FeaturesContent = styled.section`
   & h3 {
@@ -23,6 +23,10 @@ const FeaturesContent = styled.section`
     display: block;
     margin: 0 auto;
     height: 60px;
+  }
+  
+  & > div > div{
+    transform: scale(0);
   }
 
   @media ${breakpoints.fromMediumScreen} {
@@ -68,12 +72,13 @@ const Features = styled.div`
 
 const props = {
   keyframes: [
-    { 0: "opacity: 1" }, // 0%
-    // { 50: "opacity: 1" }, // 50%
-    { 100: "opacity: 0" },
+    { 0: "opacity: 0; transform: scale(0)" },
+    { 50: "opacity: 0.3; transform: scale(1.3)" },
+    { 70: "transform: scale(0.8)" },
+    { 100: "transform: scale(1)" },
   ],
-  fillMode: "forwards" as any,
-  duration: 1,
+  fillMode: "forwards",
+  duration: 0.3,
 }
 
 export default function FeaturesList({
@@ -81,69 +86,8 @@ export default function FeaturesList({
 }: {
   isPlayFeature: boolean
 }) {
-  console.log(isPlayFeature)
-  const [play, setPlay] = React.useState(false);
   return (
     <Features id="featureLast">
-      <button onClick={() => setPlay(!play)}>test</button>
-      <AnimateKeyframes
-        play={play}
-        delay={1}
-        duration={10}
-        iterationCount={3}
-        keyframes={[
-          'transform: translateY(0)',
-          'transform: translateY(10px)',
-        ]}
-      >
-        <div>WTF!!!!</div>
-      </AnimateKeyframes>
-      <Animate
-        play={play}
-        duration={1}
-        start={{ transform: 'translate(0, 0)' }}
-        end={{ transform: 'translate(10px, 10px)' }}
-      >
-        <h1>Hello CodeSandbox</h1>
-      </Animate>
-      <AnimateKeyframes
-        duration={1}
-        play={play}
-        fillMode="forwards"
-        sequenceIndex={0}
-        keyframes={[
-          { 0: "opacity: 1" }, // 0%
-          { 100: "opacity: 0" } // 100%
-        ]}
-      >
-        <h1>Hello CodeSandbox</h1>
-      </AnimateKeyframes>
-      <AnimateGroup play={play}>
-        <AnimateKeyframes
-          duration={1}
-          fillMode="forwards"
-          sequenceIndex={0}
-          keyframes={[
-            { 0: "opacity: 1" }, // 0%
-            // { 50: "opacity: 1" }, // 50%
-            { 100: "opacity: 0" } // 100%
-          ]}
-        >
-          <h1>Hello CodeSandbox</h1>
-        </AnimateKeyframes>
-        <AnimateKeyframes
-          duration={1}
-          fillMode="forwards"
-          sequenceIndex={1}
-          keyframes={[
-            { 0: "opacity: 1" }, // 0%
-            // { 50: "opacity: 1" }, // 50%
-            { 100: "opacity: 0" } // 100%
-          ]}
-        >
-          <h2>Start editing to see some magic happen!</h2>
-        </AnimateKeyframes>
-      </AnimateGroup>
       <AnimateGroup play={isPlayFeature}>
         <Title>Features</Title>
         <FeaturesContent>
