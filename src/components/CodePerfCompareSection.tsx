@@ -195,6 +195,7 @@ export default function CodePerfCompareSection() {
         with Chrome dev tools' performance tab, and code is from the section
         above 'Library Code Comparison'.
       </p>
+
       <Title
         style={{
           marginTop: 40,
@@ -216,6 +217,7 @@ export default function CodePerfCompareSection() {
           alt="React Hook Form performance"
         />
       </ImgSection>
+
       <Title>Formik</Title>
       <ImgSection>
         <ul>
@@ -227,6 +229,7 @@ export default function CodePerfCompareSection() {
         </ul>
         <SimpleImg src={formik} placeholder={false} alt="Formik performance" />
       </ImgSection>
+
       <Title>Redux Form</Title>
       <ImgSection>
         <ul>

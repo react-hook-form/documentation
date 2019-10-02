@@ -57,7 +57,7 @@ const Features = styled.div`
   margin-top: -60px;
 
   @media ${breakpoints.fromMediumScreen} {
-    margin-top: 0;
+    margin-top: 60px;
   }
 
   & > h2 {

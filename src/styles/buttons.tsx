@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import colors from "./colors"
 import breakpoints from "./breakpoints"
 
@@ -16,6 +16,16 @@ const commonStyle = `
   padding: 15px 10px;
 `
 
+const rotate = keyframes`
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(5px);
+  }
+`
+
 export const PrimaryButton = styled.button`
   box-sizing: border-box;
   background: ${colors.primary};
@@ -24,10 +34,16 @@ export const PrimaryButton = styled.button`
 
   &:hover {
     border: 1px solid ${colors.secondary};
+
+    & > span {
+      display: inline-block;
+      animation: ${rotate} 0.4s linear infinite;
+      animation-direction: alternate;
+    }
   }
 
   &:active {
-    background: ${colors.lightPink};
+    background: black;
   }
 
   @media ${breakpoints.fromMediumScreen} {
@@ -35,7 +51,7 @@ export const PrimaryButton = styled.button`
     padding: 12px 20px;
     font-weight: 300;
     margin: 40px 0;
-    padding: 20px 40px;
+    padding: 15px 30px;
   }
 `
 
@@ -59,6 +75,6 @@ export const ButtonsGroup = styled.div`
   margin: 0 auto;
 
   @media (min-width: 768px) {
-    grid-column-gap: 40px;
+    grid-column-gap: 30px;
   }
 `

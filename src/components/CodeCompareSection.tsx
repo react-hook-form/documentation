@@ -6,6 +6,7 @@ import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import reduxFormCode from "./codeExamples/reduxFormCode"
 import { CenterContent } from "../styles/containers"
 import CodeArea from "./CodeArea"
+import { AnimateGroup, Animate } from "react-simple-animate"
 
 const GridView = styled.section`
   @media (min-width: 1100px) {
@@ -15,46 +16,58 @@ const GridView = styled.section`
   }
 `
 
-export default function CodeCompareSection() {
+const props = {
+  start: { transform: "translateY(100px)" },
+  end: { transform: "translateY(0)" },
+  easeType: 'ease-in'
+}
+
+export default function CodeCompareSection({
+  isPlayCodeCompare,
+}: {
+  isPlayCodeCompare: boolean
+}) {
   return (
-    <div
-      style={{
-        marginBottom: 40,
-      }}
-    >
-      <CenterContent>
-        <H1>
-          <code>{`</>`}</code> Library Code Comparison
-        </H1>
-
-        <p>
-          Reducing the amount of code that you have to write is one of the
-          primary goals for React Hook Form. To illustrate that, let's look at a
-          very simple form of validation among some of the most popular form
-          validation libraries.
-        </p>
-      </CenterContent>
-
-      <GridView
+    <AnimateGroup play={isPlayCodeCompare}>
+      <div
         style={{
-          marginTop: 20,
+          marginBottom: 40,
         }}
       >
-        <section>
-          <Title>Formik</Title>
-          <CodeArea rawData={formikCode} withOutCopy />
-        </section>
+        <CenterContent>
+          <H1>
+            <code>{`</>`}</code> Library Code Comparison
+          </H1>
 
-        <section>
-          <Title>React Hook Form</Title>
-          <CodeArea rawData={reactHookFormCode} withOutCopy />
-        </section>
+          <p id="codeComparison">
+            Reducing the amount of code that you have to write is one of the
+            primary goals for React Hook Form. To illustrate that, let's look at
+            a very simple form of validation among some of the most popular form
+            validation libraries.
+          </p>
+        </CenterContent>
 
-        <section>
-          <Title>Redux Form</Title>
-          <CodeArea rawData={reduxFormCode} withOutCopy />
-        </section>
-      </GridView>
-    </div>
+        <GridView
+          style={{
+            marginTop: 20,
+          }}
+        >
+          <Animate {...props} sequenceIndex={0}>
+            <Title>Formik</Title>
+            <CodeArea rawData={formikCode} withOutCopy />
+          </Animate>
+
+          <Animate {...props} sequenceIndex={1}>
+            <Title>React Hook Form</Title>
+            <CodeArea rawData={reactHookFormCode} withOutCopy />
+          </Animate>
+
+          <Animate {...props} sequenceIndex={2}>
+            <Title>Redux Form</Title>
+            <CodeArea rawData={reduxFormCode} withOutCopy />
+          </Animate>
+        </GridView>
+      </div>
+    </AnimateGroup>
   )
 }

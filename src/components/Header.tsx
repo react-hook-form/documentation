@@ -137,6 +137,7 @@ const ToggleGroup = styled.div`
 
   & > button {
     font-size: 18px;
+    width: 155px;
     background: none;
     color: white;
     border: 1px solid ${colors.lightBlue};
@@ -232,7 +233,7 @@ export default function Header({
               navigate("/get-started")
             }}
           >
-            Get Started &nbsp;▶
+            Get Started &nbsp;<span>▶</span>
           </PrimaryButton>
         </ButtonsGroupSmall>
       </Head>

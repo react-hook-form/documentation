@@ -40,6 +40,7 @@ function Home({
   const builderButton = useRef(null)
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
+  const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -57,19 +58,33 @@ function Home({
     )
 
     let options = {
-      rootMargin: "0px",
-      threshold: 1.0,
+      rootMargin: "0px 0px",
+      threshold: [1],
     }
+
+    if (!IntersectionObserver) {
+      setFeaturePlay(true)
+      setCodeComparePlay(true)
+    }
+
+    const featureList = document.querySelector("#featureLast")
+    const codeComparison = document.querySelector("#codeComparison")
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setFeaturePlay(true)
+          if (entry.target === featureList && !isPlayFeature) {
+            setFeaturePlay(true)
+          }
+          if (entry.target === codeComparison && !isPlayCodeCompare) {
+            setCodeComparePlay(true)
+          }
         }
       })
     }, options)
 
-    observer.observe(document.querySelector("#featureLast"))
+    observer.observe(featureList)
+    observer.observe(codeComparison)
 
     return () => {
       observer.disconnect()
@@ -78,13 +93,15 @@ function Home({
 
   return (
     <Root>
-      <Builder
-        showBuilder={showBuilder}
-        toggleBuilder={toggleBuilder}
-        builderButton={builderButton}
-        isMobile={isMobile}
-        HomeRef={HomeRef}
-      />
+      {isPlayCodeCompare && (
+        <Builder
+          showBuilder={showBuilder}
+          toggleBuilder={toggleBuilder}
+          builderButton={builderButton}
+          isMobile={isMobile}
+          HomeRef={HomeRef}
+        />
+      )}
 
       <Nav
         pathname={location.pathname}
@@ -97,7 +114,7 @@ function Home({
 
       <FeaturesList isPlayFeature={isPlayFeature} />
 
-      <CodeCompareSection />
+      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
 
       <CodePerfCompareSection />
 
