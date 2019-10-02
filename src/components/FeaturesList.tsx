@@ -24,8 +24,8 @@ const FeaturesContent = styled.section`
     margin: 0 auto;
     height: 60px;
   }
-  
-  & > div > div{
+
+  & > div > div {
     transform: scale(0);
   }
 
@@ -77,7 +77,7 @@ const props = {
     { 70: "transform: scale(0.8)" },
     { 100: "transform: scale(1)" },
   ],
-  fillMode: "forwards",
+  fillMode: "forwards" as "forwards",
   duration: 0.3,
 }
 
