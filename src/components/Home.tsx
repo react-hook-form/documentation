@@ -39,6 +39,7 @@ function Home({
   const [isMobile, setIsMobile] = useState(false)
   const builderButton = useRef(null)
   const HomeRef = useRef(null)
+  const [isPlayFeature, setFeaturePlay] = useState(false)
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -54,6 +55,25 @@ function Home({
         ? false
         : window.matchMedia("(max-width: 768px)").matches
     )
+
+    let options = {
+      rootMargin: "0px",
+      threshold: 1.0,
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setFeaturePlay(true)
+        }
+      })
+    }, options)
+
+    observer.observe(document.querySelector("#featureLast"))
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -75,7 +95,7 @@ function Home({
 
       <Header homeRef={HomeRef} />
 
-      <FeaturesList />
+      <FeaturesList isPlayFeature={isPlayFeature} />
 
       <CodeCompareSection />
 
