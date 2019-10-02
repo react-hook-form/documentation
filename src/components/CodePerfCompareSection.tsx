@@ -197,7 +197,7 @@ export default function CodePerfCompareSection() {
       </p>
       <Title
         style={{
-          marginTop: 50,
+          marginTop: 40,
         }}
       >
         React Hook Form

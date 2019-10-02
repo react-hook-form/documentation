@@ -2,18 +2,25 @@ import styled from "styled-components"
 import colors from "./colors"
 import breakpoints from "./breakpoints"
 
-export const PrimaryButton = styled.button`
-  font-size: 14px;
-  display: block;
-  box-sizing: border-box;
+const commonStyle = `
   border-radius: 4px;
-  padding: 12px 40px;
-  background: ${colors.primary};
-  color: white;
-  border: 1px solid ${colors.lightBlue};
-  cursor: pointer;
   transition: 0.3s all;
-  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 20px 0;
+  width: 100%;
+  padding: 20px 40px;
+  -webkit-appearance: none;
+  line-height: 1;
+`
+
+export const PrimaryButton = styled.button`
+  box-sizing: border-box;
+  background: ${colors.primary};
+  border: 1px solid ${colors.lightBlue};
+  ${commonStyle}
 
   &:hover {
     border: 1px solid ${colors.secondary};
@@ -27,26 +34,16 @@ export const PrimaryButton = styled.button`
     font-size: 20px;
     padding: 12px 20px;
     font-weight: 300;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin: 40px 0;
   }
 `
 
 export const PinkButton = styled.button`
   background: ${colors.lightPink};
-  height: 55px;
-  color: white;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
-  width: 100%;
-  padding: 20px;
-  font-size: 16px;
-  border: 1px solid transparent;
-  -webkit-appearance: none;
-  border-radius: 5px;
-  line-height: 1;
-  transition: 0.3s all;
-  cursor: pointer;
+  border: 1px solid ${colors.lightPink};
+  ${commonStyle}
 
   &:hover {
     background: ${colors.secondary};

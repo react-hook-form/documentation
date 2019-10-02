@@ -6,7 +6,7 @@ import styled from "styled-components"
 import track from "./utils/track"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
-import { PinkButton, PrimaryButton } from "../styles/buttons"
+import { PinkButton } from "../styles/buttons"
 import { CenterContent } from "../styles/containers"
 import goToBuilder from "./utils/goToBuilder"
 import useForm from "react-hook-form"
@@ -102,7 +102,7 @@ export default function Form({
             style={{
               fontSize: 14,
               maxWidth: "80%",
-              margin: "20px auto 0",
+              margin: "0 auto 0",
             }}
           >
             or

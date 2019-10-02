@@ -198,7 +198,7 @@ export default function Header({
           Form
         </Heading>
 
-        <SubHeading>
+        <SubHeading style={{ marginBottom: 0 }}>
           Performant, flexible and extensible forms with easy to use for
           validation.
         </SubHeading>

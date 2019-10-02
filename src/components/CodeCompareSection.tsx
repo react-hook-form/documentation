@@ -35,7 +35,11 @@ export default function CodeCompareSection() {
         </p>
       </CenterContent>
 
-      <GridView>
+      <GridView
+        style={{
+          marginTop: 20,
+        }}
+      >
         <section>
           <Title>Formik</Title>
           <CodeArea rawData={formikCode} withOutCopy />
