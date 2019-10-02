@@ -3,11 +3,11 @@ import colors from "./colors"
 import breakpoints from "./breakpoints"
 
 export const PrimaryButton = styled.button`
+  font-size: 14px;
   display: block;
   box-sizing: border-box;
   border-radius: 4px;
   padding: 12px 40px;
-  font-size: 18px;
   background: ${colors.primary};
   color: white;
   border: 1px solid ${colors.lightBlue};
