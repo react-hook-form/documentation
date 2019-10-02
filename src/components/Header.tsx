@@ -136,22 +136,27 @@ const ToggleGroup = styled.div`
   }
 
   & > button {
-    font-size: 15px;
+    font-size: 18px;
     background: none;
     color: white;
     border: 1px solid ${colors.lightBlue};
-    padding: 5px 20px;
-  }
+    padding: 10px 25px;
+    cursor: pointer;
 
-  & > button:first-child {
-    border-right: 0;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
+    &:first-child {
+      border-right: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
 
-  & > button:nth-child(2) {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    &:nth-child(2) {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    
+    &:active {
+      background: ${colors.secondary} !important;
+    }
   }
 `
 
