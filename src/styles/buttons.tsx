@@ -10,10 +10,10 @@ const commonStyle = `
   font-size: 16px;
   font-weight: 300;
   margin: 20px 0;
-  padding: 20px 40px;
   -webkit-appearance: none;
   line-height: 1;
   display: inline-block;
+  padding: 15px 10px;
 `
 
 export const PrimaryButton = styled.button`
@@ -35,6 +35,7 @@ export const PrimaryButton = styled.button`
     padding: 12px 20px;
     font-weight: 300;
     margin: 40px 0;
+    padding: 20px 40px;
   }
 `
 
