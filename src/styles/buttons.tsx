@@ -10,10 +10,10 @@ const commonStyle = `
   font-size: 16px;
   font-weight: 300;
   margin: 20px 0;
-  width: 100%;
   padding: 20px 40px;
   -webkit-appearance: none;
   line-height: 1;
+  display: inline-block;
 `
 
 export const PrimaryButton = styled.button`
@@ -43,6 +43,7 @@ export const PinkButton = styled.button`
   letter-spacing: 0.5rem;
   text-transform: uppercase;
   border: 1px solid ${colors.lightPink};
+  width: 100%;
   ${commonStyle}
 
   &:hover {

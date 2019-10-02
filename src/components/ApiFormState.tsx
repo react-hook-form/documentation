@@ -79,21 +79,24 @@ export default React.memo(() => {
               </td>
               <td>Set true if doesn't have any error.</td>
             </tr>
+            <tr>
+              <td>
+                <LinkToSandBox
+                  style={{
+                    position: "relative",
+                    left: 0,
+                  }}
+                  href="https://codesandbox.io/s/7o2wrp86k6"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  CodeSandbox
+                </LinkToSandBox>
+              </td>
+            </tr>
           </tbody>
         </Table>
       </TableWrapper>
-
-      <LinkToSandBox
-        style={{
-          position: "relative",
-          left: 0,
-        }}
-        href="https://codesandbox.io/s/7o2wrp86k6"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        CodeSandbox
-      </LinkToSandBox>
     </>
   )
 })
