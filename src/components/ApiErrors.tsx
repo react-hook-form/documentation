@@ -3,14 +3,15 @@ import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
-export default function ApiErrors() {
+export default React.memo(() => {
   return (
     <>
       <CodeHeading>
         <h2>
-          errors: <Type>Object</Type>
+          errors: <Type>{`Record<string, boolean>`}</Type>
         </h2>
       </CodeHeading>
+
       <p>
         Object contain form errors or error messages which belong to each input.
       </p>
@@ -68,4 +69,4 @@ export default function ApiErrors() {
       <hr />
     </>
   )
-}
+})

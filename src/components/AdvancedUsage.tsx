@@ -332,4 +332,4 @@ function Advanced() {
   )
 }
 
-export default React.memo(Advanced)
+export default Advanced

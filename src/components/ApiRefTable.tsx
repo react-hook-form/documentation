@@ -1,12 +1,11 @@
 import * as React from "react"
-import colors from "../styles/colors"
 import styled from "styled-components"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai as monokaiSublime } from "react-syntax-highlighter/dist/styles/prism"
+import colors from "../styles/colors"
 import { TableWrapper, Table, Type } from "./ApiPage"
 import Link from "../styles/link"
 import track from "./utils/track"
 import { Note } from "../styles/typography"
+import CodeArea from "./CodeArea"
 
 const { useState } = React
 
@@ -209,15 +208,13 @@ export default function ApiRefTable() {
               </td>
               <td>React element ref</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={register}
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -235,19 +232,17 @@ export default function ApiRefTable() {
                 to return error message in the <code>errors</code> object.
               </td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
       ${isStandard ? "required: true" : `required: 'error message'`}
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -268,12 +263,9 @@ export default function ApiRefTable() {
               </td>
               <td>The maximum length of the value to accept for this input.</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -287,7 +279,8 @@ export default function ApiRefTable() {
       }
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -308,12 +301,9 @@ export default function ApiRefTable() {
               </td>
               <td>The minimum length of the value to accept for this input.</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -327,7 +317,8 @@ export default function ApiRefTable() {
       }
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -348,12 +339,9 @@ export default function ApiRefTable() {
               </td>
               <td>The maximum value to accept for this input.</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -367,7 +355,8 @@ export default function ApiRefTable() {
       }
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -388,12 +377,9 @@ export default function ApiRefTable() {
               </td>
               <td>The minimum value to accept for this input.</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -407,7 +393,8 @@ export default function ApiRefTable() {
       }
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -428,12 +415,9 @@ export default function ApiRefTable() {
               </td>
               <td>The regex pattern for the input.</td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -447,7 +431,8 @@ export default function ApiRefTable() {
       }
     })
   }
-/>`}</SyntaxHighlighter>
+/>`}
+                />
               </td>
             </tr>
             <tr>
@@ -465,12 +450,9 @@ export default function ApiRefTable() {
                 them. (refer to the examples)
               </td>
               <td>
-                <SyntaxHighlighter
-                  customStyle={{
-                    border: "none",
-                  }}
-                  style={monokaiSublime}
-                >{`<input
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input
   name="single"
   ref={
     register({
@@ -482,7 +464,8 @@ export default function ApiRefTable() {
     })
   }
 />
-`}</SyntaxHighlighter>
+`}
+                />
               </td>
             </tr>
           </tbody>
