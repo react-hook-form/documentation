@@ -31,7 +31,7 @@ export const PrimaryButton = styled.button`
   }
 
   @media ${breakpoints.fromMediumScreen} {
-    font-size: 20px;
+    font-size: 18px;
     padding: 12px 20px;
     font-weight: 300;
     margin: 40px 0;

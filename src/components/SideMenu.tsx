@@ -7,7 +7,6 @@ import breakpoints from "../styles/breakpoints"
 
 const Menu = styled.aside`
   display: none;
-  position: relative;
 
   @media ${breakpoints.fromMediumScreen} {
     display: block;
@@ -31,7 +30,8 @@ const Menu = styled.aside`
 
         & > a {
           text-decoration: none;
-          padding-left: 5px;
+          padding-left: 6px;
+          line-height: 20px;
         }
 
         & > a,
@@ -106,43 +106,43 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
         </TitleList>
 
         {links.map((link, index) => {
-          if (isStatic) {
-            return (
-              <li key={link}>
-                <Code>{`</>`}</Code>
-                <button
-                  onClick={() => {
-                    track({
-                      category: "Link",
-                      label: "Examples",
-                      action: "Click - go to examples",
-                    })
-                    goToSection(link, index)
-                  }}
-                >
-                  {link}
-                </button>
-              </li>
-            )
-          }
-
           if (
-            link.toLowerCase() === "formcontext" ||
-            link.toLowerCase() === "typescript" ||
-            link.toLowerCase() === "react native"
+            ["formcontext", "typescript", "react native"].includes(
+              link.toLowerCase()
+            ) ||
+            isStatic
           ) {
             return (
               <li key={link} onClick={() => goToSection(link, index)}>
-                <Code>{`</>`}</Code>{" "}
-                <button
-                  style={{
-                    top: "-3px",
-                    position: "relative",
-                    ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
-                  }}
-                >
-                  {link}
-                </button>
+                <Code>{`</>`}</Code>
+                {isStatic ? (
+                  <button
+                    onClick={() => {
+                      track({
+                        category: "Link",
+                        label: "Examples",
+                        action: "Click - go to examples",
+                      })
+                      goToSection(link, index)
+                    }}
+                    style={{
+                      top: "-3px",
+                      position: "relative",
+                    }}
+                  >
+                    {link}
+                  </button>
+                ) : (
+                  <button
+                    style={{
+                      top: "-3px",
+                      position: "relative",
+                      ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
+                    }}
+                  >
+                    {link}
+                  </button>
+                )}
               </li>
             )
           }
@@ -156,7 +156,7 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                   ? {
                       marginLeft: 10,
                       ...(index !== links.length - 4
-                        ? { borderLeft: "1px solid #ec5990" }
+                        ? { borderLeft: `1px solid ${colors.lightPink}` }
                         : null),
                       ...(index === 3
                         ? { paddingTop: 10, marginTop: -15 }

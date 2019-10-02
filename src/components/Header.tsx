@@ -227,7 +227,7 @@ export default function Header({
               navigate("/get-started")
             }}
           >
-            Get Started
+            Get Started &nbsp;▶
           </PrimaryButton>
         </ButtonsGroupSmall>
       </Head>
