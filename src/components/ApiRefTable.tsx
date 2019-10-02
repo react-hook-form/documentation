@@ -210,6 +210,7 @@ export default function ApiRefTable() {
               <td>
                 <CodeArea
                   withOutCopy
+                  style={{ marginTop: -10 }}
                   rawData={`<input
   name="test"
   ref={register}
@@ -233,6 +234,7 @@ export default function ApiRefTable() {
               </td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -264,6 +266,7 @@ export default function ApiRefTable() {
               <td>The maximum length of the value to accept for this input.</td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -302,6 +305,7 @@ export default function ApiRefTable() {
               <td>The minimum length of the value to accept for this input.</td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -340,6 +344,7 @@ export default function ApiRefTable() {
               <td>The maximum value to accept for this input.</td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -378,6 +383,7 @@ export default function ApiRefTable() {
               <td>The minimum value to accept for this input.</td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -416,6 +422,7 @@ export default function ApiRefTable() {
               <td>The regex pattern for the input.</td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="test"
@@ -451,6 +458,7 @@ export default function ApiRefTable() {
               </td>
               <td>
                 <CodeArea
+                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   name="single"

@@ -114,11 +114,13 @@ export default function CodeArea({
   data,
   url,
   withOutCopy,
+  style,
 }: {
   rawData?: string
   data?: string
   url?: string
-  withOutCopy?: boolean
+  withOutCopy?: boolean,
+  style?: any,
 }) {
   return (
     <div
@@ -152,6 +154,7 @@ export default function CodeArea({
         <SyntaxHighlighter
           customStyle={{
             border: "none",
+            ...style,
           }}
           style={xonokai}
           language={"jsx"}
