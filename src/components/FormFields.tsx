@@ -1,6 +1,6 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import colors from '../styles/colors'
+import * as React from "react"
+import styled from "styled-components"
+import colors from "../styles/colors"
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,
@@ -20,7 +20,7 @@ const RadioGroup = styled.div`
 export default ({ formData, errors, register }) => {
   return (formData || []).map(field => {
     switch (field.type) {
-      case 'select':
+      case "select":
         return (
           <select
             aria-label={field.name}
@@ -35,14 +35,14 @@ export default ({ formData, errors, register }) => {
             <option value="">Select...</option>
             {field.options &&
               field.options
-                .split(';')
+                .split(";")
                 .filter(Boolean)
                 .map(option => {
                   return <option key={option}>{option}</option>
                 })}
           </select>
         )
-      case 'textarea':
+      case "textarea":
         return (
           <textarea
             aria-label={field.name}
@@ -60,19 +60,25 @@ export default ({ formData, errors, register }) => {
             }}
           />
         )
-      case 'radio':
+      case "radio":
         return (
-          <RadioGroup key={field.name} style={{ marginBottom: 20 }} aria-label={field.name}>
+          <RadioGroup
+            key={field.name}
+            style={{ marginBottom: 20 }}
+            aria-label={field.name}
+          >
             {field.options &&
               field.options
-                .split(';')
+                .split(";")
                 .filter(Boolean)
                 .map(name => {
                   return (
                     <label
                       key={name}
                       style={{
-                        ...(errors[field.name] ? { color: colors.lightPink } : null),
+                        ...(errors[field.name]
+                          ? { color: colors.lightPink }
+                          : null),
                       }}
                     >
                       {name}
@@ -103,7 +109,9 @@ export default ({ formData, errors, register }) => {
             placeholder={field.name}
             ref={register({
               required: field.required,
-              ...(field.pattern ? { pattern: new RegExp(field.pattern) } : null),
+              ...(field.pattern
+                ? { pattern: new RegExp(field.pattern) }
+                : null),
               ...(field.max ? { max: field.max } : null),
               ...(field.min ? { min: field.min } : null),
               ...(field.maxLength ? { maxLength: field.maxLength } : null),

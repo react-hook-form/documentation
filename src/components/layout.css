@@ -1,3 +1,8 @@
+:root {
+  --secondary-color: #bf1650;
+  --light-pink: #ec5990;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -48,12 +53,12 @@ a {
 }
 a:active,
 a:hover {
-  color: #bf1650;
+  color: var(--secondary-color);
   transition: 0.3s all;
   outline-width: 0;
 }
 a:active {
- transform: translateY(2px);
+  transform: translateY(2px);
 }
 abbr[title] {
   border-bottom: none;
@@ -157,9 +162,6 @@ button:-moz-focusring {
 }
 button:active {
   transform: translateY(2px);
-}
-button:hover {
-  opacity: 0.8;
 }
 fieldset {
   border: 1px solid silver;
@@ -277,11 +279,11 @@ textarea {
 select:hover,
 textarea:hover,
 input:hover {
-  border: 1px solid #ec5990;
+  border: 1px solid var(--light-pink);
 }
 
 input[type="submit"]:hover {
-  background: #bf1650;
+  background: var(--secondary-color);
 }
 
 input[type="button"]:active,
@@ -310,70 +312,6 @@ code {
   word-wrap: break-word;
   background: #0f111b !important;
   line-height: 1.3;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.logo {
-  margin: -142px auto 0;
-  display: block;
-  animation: 1s alternate infinite fade;
-  height: 80px;
-  fill: white;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  border-radius: 15px;
-  background: #ec5990;
-  text-align: center;
-}
-
-.logo-h2 {
-  color: white;
-  text-align: center;
-  font-weight: 100;
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.logo-p {
-  font-size: 16px;
-  padding: 0 20px;
-  text-align: center;
-  color: #ec5990;
-  max-width: 330px;
-  margin: 0 auto;
-  font-weight: 100;
-}
-
-.logo-wrap {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .logo {
-    height: 100px;
-    padding: 30px;
-  }
-
-  .logo-h2 {
-    font-size: 50px;
-    margin-bottom: 20px;
-  }
 }
 
 blockquote {
@@ -422,7 +360,7 @@ table {
   }
 
   pre::-webkit-scrollbar-thumb:hover {
-    background: #ec5990;
+    background: var(--light-pink);
   }
 }
 
@@ -565,7 +503,7 @@ table {
 }
 
 .eye.icon:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 2px;
   top: 2px;

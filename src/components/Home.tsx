@@ -9,11 +9,11 @@ import CodePerfCompareSection from "./CodePerfCompareSection"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import { H1 } from "../styles/typography"
-import { ButtonsGroup, DarkBlueButton } from "../styles/buttons"
+import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
 import track from "./utils/track"
 import { CenterContent } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
-import FeaturesList from "./FeaturesList";
+import FeaturesList from "./FeaturesList"
 
 const { useState, useRef, useEffect } = React
 
@@ -101,10 +101,9 @@ function Home({
         <ButtonsGroup
           style={{
             maxWidth: 500,
-            margin: "0 auto",
           }}
         >
-          <DarkBlueButton
+          <PrimaryButton
             onClick={() => {
               track({
                 category: "Button",
@@ -115,8 +114,8 @@ function Home({
             }}
           >
             Get Started
-          </DarkBlueButton>
-          <DarkBlueButton
+          </PrimaryButton>
+          <PrimaryButton
             onClick={() => {
               track({
                 category: "Button",
@@ -127,7 +126,7 @@ function Home({
             }}
           >
             API
-          </DarkBlueButton>
+          </PrimaryButton>
         </ButtonsGroup>
       </CenterContent>
 

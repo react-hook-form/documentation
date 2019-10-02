@@ -1,7 +1,7 @@
 export default `import React, { useEffect } from "react";
 import useForm from "react-hook-form";
 
-function App() {
+export default function App() {
   const { register, handleSubmit, setValue, setError } = useForm();
   const onSubmit = data => alert(JSON.stringify(data));
 

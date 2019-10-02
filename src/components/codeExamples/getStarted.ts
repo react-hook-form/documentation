@@ -1,7 +1,7 @@
 export const registerCode = `import React from 'react'
 import useForm from 'react-hook-form'
 
-function YourForm() {
+export default function App() {
   const { register, handleSubmit } = useForm()
   const onSubmit = data => console.log(data)
    
@@ -39,7 +39,7 @@ const Select = React.forwardRef(({ label, register }, ref) => (
   </>
 ))
 
-function YourForm() {
+export default function App() {
   const { register, handleSubmit } = useForm()
   const onSubmit = data => console.log(data)
    
@@ -57,7 +57,7 @@ import useForm from 'react-hook-form'
 import Select from "react-select"
 import Input from "@material-ui/core/Input"
 
-function YourForm() {
+export default function App() {
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = data => console.log(data)
   const [values, setReactSelectValue] = useState({ selectedOption: [] })
@@ -91,7 +91,7 @@ import useForm from 'react-hook-form'
 import { connect } from 'react-redux'
 import updateAction from './actions'
 
-function YourForm(props) {
+export default function App(props) {
   const { register, handleSubmit, setValue } = useForm()
   // Submit your data into Redux store
   const onSubmit = (data) => props.updateAction(data)
@@ -112,7 +112,7 @@ connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(Yo
 export const errors = `import React from 'react'
 import useForm from 'react-hook-form'
 
-function YourForm(props) {
+export default function App() {
   const { register, errors } = useForm()
   
   return (
@@ -130,7 +130,7 @@ function YourForm(props) {
 export const applyValidation = `import React from 'react'
 import useForm from 'react-hook-form'
 
-function YourForm() {
+export default function App() {
   const { register, handleSubmit } = useForm()
   const onSubmit = data => console.log(data)
    

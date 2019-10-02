@@ -12,7 +12,7 @@ createStore({
   data: {}
 });
 
-function App() {
+export default function App() {
   return (
     <StateMachineProvider>
       <h1>Page Form Wizzard</h1>

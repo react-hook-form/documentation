@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 import colors from "../styles/colors"
 import track from "./utils/track"
 import { navigate } from "@reach/router"
-import { ButtonsGroup } from "../styles/buttons"
+import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
 import breakpoints from "../styles/breakpoints"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
@@ -85,6 +85,7 @@ const Video = styled.video`
   background: ${colors.primary};
   border: 1px solid transparent;
   cursor: pointer;
+  transition: 0.3s all;
   ${props =>
     props.isLast &&
     css`
@@ -203,7 +204,7 @@ export default function Header({
         </SubHeading>
 
         <ButtonsGroupSmall>
-          <button
+          <PrimaryButton
             onClick={() => {
               track({
                 category: "Button",
@@ -215,8 +216,8 @@ export default function Header({
             }}
           >
             Demo
-          </button>
-          <button
+          </PrimaryButton>
+          <PrimaryButton
             onClick={() => {
               track({
                 category: "Button",
@@ -227,7 +228,7 @@ export default function Header({
             }}
           >
             Get Started
-          </button>
+          </PrimaryButton>
         </ButtonsGroupSmall>
       </Head>
 

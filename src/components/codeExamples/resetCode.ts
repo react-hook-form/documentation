@@ -1,7 +1,7 @@
 export default `import React from "react";
 import useForm from "react-hook-form";
 
-export default function YourForm() {
+export default function App() {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data, e) => {
     e.target.reset(); // standard reset after form submit

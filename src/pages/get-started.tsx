@@ -14,7 +14,7 @@ import SideMenu from "../components/SideMenu"
 import track from "../components/utils/track"
 import CodeArea from "../components/CodeArea"
 import colors from "../styles/colors"
-import { DarkBlueButton } from "../styles/buttons"
+import { PrimaryButton } from "../styles/buttons"
 import { Container, Wrapper } from "../styles/containers"
 import {
   registerCode,
@@ -279,7 +279,7 @@ const Faq = ({
                 Checkout the React Hook Form documentation and learn all the
                 API.
               </p>
-              <DarkBlueButton
+              <PrimaryButton
                 onClick={() => {
                   track({
                     category: "Button",
@@ -288,9 +288,10 @@ const Faq = ({
                   })
                   navigate("/api")
                 }}
+                style={{ margin: "40px auto" }}
               >
                 Checkout Hook API
-              </DarkBlueButton>
+              </PrimaryButton>
 
               <Footer />
             </section>

@@ -6,7 +6,7 @@ type FormData = {
   lastName: string
 }
 
-export default function YourForm() {
+export default function App() {
   const { register, setValue, handleSubmit } = useForm<FormData>()
   const onSubmit = handleSubmit(({ name, email }) => {}) // firstName and lastName will have correct type
 

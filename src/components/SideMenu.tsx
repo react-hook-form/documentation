@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Title } from '../styles/typography'
-import colors from '../styles/colors'
-import styled from 'styled-components'
-import track from './utils/track'
-import breakpoints from '../styles/breakpoints'
+import * as React from "react"
+import { Title } from "../styles/typography"
+import colors from "../styles/colors"
+import styled from "styled-components"
+import track from "./utils/track"
+import breakpoints from "../styles/breakpoints"
 
 const Menu = styled.aside`
   display: none;
@@ -56,7 +56,7 @@ const Menu = styled.aside`
 const TitleList = styled.li`
   display: block !important;
   margin-top: 50px;
-  
+
   @media ${breakpoints.fromLargeScreen} {
     margin-top: 0;
   }
@@ -78,7 +78,7 @@ const Arrow = styled.span`
     border-left: 1px solid #ec5990;
   }
   `
-      : ''};
+      : ""};
 `
 
 const Code = styled.span`
@@ -95,10 +95,10 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
         <TitleList>
           <Title
             style={{
-              marginBottom: '10px',
+              marginBottom: "10px",
               fontSize: 16,
               color: colors.lightBlue,
-                marginTop: -44,
+              marginTop: -44,
             }}
           >
             Quick Menu
@@ -113,9 +113,9 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                 <button
                   onClick={() => {
                     track({
-                      category: 'Link',
-                      label: 'Examples',
-                      action: 'Click - go to examples',
+                      category: "Link",
+                      label: "Examples",
+                      action: "Click - go to examples",
                     })
                     goToSection(link, index)
                   }}
@@ -126,15 +126,19 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
             )
           }
 
-          if (link.toLowerCase() === 'formcontext' || link.toLowerCase() === 'typescript' || link.toLowerCase() === 'react native') {
+          if (
+            link.toLowerCase() === "formcontext" ||
+            link.toLowerCase() === "typescript" ||
+            link.toLowerCase() === "react native"
+          ) {
             return (
               <li key={link} onClick={() => goToSection(link, index)}>
-                <Code>{`</>`}</Code>{' '}
+                <Code>{`</>`}</Code>{" "}
                 <button
                   style={{
-                    top: '-3px',
-                    position: 'relative',
-                    ...(link === 'Quick Start' ? { paddingLeft: 0 } : null),
+                    top: "-3px",
+                    position: "relative",
+                    ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                   }}
                 >
                   {link}
@@ -151,8 +155,12 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                 ...(index > 0
                   ? {
                       marginLeft: 10,
-                      ...(index !== links.length - 4 ? { borderLeft: '1px solid #ec5990' } : null),
-                      ...(index === 3 ? { paddingTop: 10, marginTop: -15 } : null),
+                      ...(index !== links.length - 4
+                        ? { borderLeft: "1px solid #ec5990" }
+                        : null),
+                      ...(index === 3
+                        ? { paddingTop: 10, marginTop: -15 }
+                        : null),
                     }
                   : null),
               }}
@@ -163,19 +171,19 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                     style={{
                       left: 1,
                       top: -1,
-                      position: 'relative',
+                      position: "relative",
                     }}
                   >
                     ╴
                   </span>
                 )}
               </Arrow>
-              {link !== 'Quick Start' && <Code>{`</>`}</Code>}{' '}
+              {link !== "Quick Start" && <Code>{`</>`}</Code>}{" "}
               <button
                 style={{
-                  top: '-3px',
-                  position: 'relative',
-                  ...(link === 'Quick Start' ? { paddingLeft: 0 } : null),
+                  top: "-3px",
+                  position: "relative",
+                  ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                 }}
               >
                 {link}
@@ -189,15 +197,17 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
           <a
             onClick={() => {
               track({
-                category: 'Button',
-                label: 'Examples',
-                action: 'Click - Go to Examples',
+                category: "Button",
+                label: "Examples",
+                action: "Click - Go to Examples",
               })
             }}
             rel="noopener noreferrer"
             href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
             target="_blank"
-          >Code Examples</a>
+          >
+            Code Examples
+          </a>
         </li>
       </ul>
     </Menu>

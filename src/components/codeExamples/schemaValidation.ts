@@ -2,7 +2,7 @@ export default `import React from "react";
 import useForm from "react-hook-form";
 import * as yup from "yup";
 
-const SignupSchema = yup.object().shape({
+const schema = yup.object().shape({
   firstName: yup.string().required(),
   age: yup
     .number()
@@ -11,9 +11,9 @@ const SignupSchema = yup.object().shape({
     .integer(),
 });
 
-function Form() {
+export default function App() {
   const { register, handleSubmit, errors } = useForm({
-    validationSchema: SignupSchema
+    validationSchema: schema
   });
   const onSubmit = data => {
     console.log(data);

@@ -12,9 +12,7 @@ import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
 import Link from "../styles/link"
 import code from "./codeExamples/defaultExample"
-import CodeArea, {
-  LinkToSandBox,
-} from "./CodeArea"
+import CodeArea, { LinkToSandBox } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
 import resetCode from "./codeExamples/resetCode"
@@ -25,7 +23,7 @@ import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
 import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
-import { DarkBlueButton } from "../styles/buttons"
+import { PrimaryButton } from "../styles/buttons"
 import { navigate } from "@reach/router"
 import getValues from "./codeExamples/getValues"
 import typeScript from "./codeExamples/typeScript"
@@ -178,7 +176,7 @@ const links = [
   "Typescript",
 ]
 
-function Builder({ formData }: { formData: any }) {
+function ApiPage({ formData }: { formData?: any }) {
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,
@@ -971,7 +969,7 @@ function Builder({ formData }: { formData: any }) {
               If you find React Hook Form is useful, please star the repo to
               support 🙏🏻
             </p>
-            <DarkBlueButton
+            <PrimaryButton
               onClick={() => {
                 track({
                   category: "Button",
@@ -980,9 +978,10 @@ function Builder({ formData }: { formData: any }) {
                 })
                 navigate("https://github.com/bluebill1049/react-hook-form")
               }}
+              style={{ margin: "40px auto" }}
             >
               Star React Hook Form
-            </DarkBlueButton>
+            </PrimaryButton>
           </section>
           <Footer />
         </main>
@@ -991,4 +990,4 @@ function Builder({ formData }: { formData: any }) {
   )
 }
 
-export default React.memo(Builder)
+export default React.memo(ApiPage)

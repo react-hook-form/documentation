@@ -96,10 +96,7 @@ export default function ApiWatch() {
           </tbody>
         </Table>
       </TableWrapper>
-      <CodeArea
-        rawData={watchCode}
-        url="https://codesandbox.io/s/pp1l40q7wx"
-      />
+      <CodeArea rawData={watchCode} url="https://codesandbox.io/s/pp1l40q7wx" />
 
       <hr />
     </>

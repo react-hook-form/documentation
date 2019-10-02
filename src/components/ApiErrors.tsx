@@ -1,7 +1,7 @@
-import * as React from 'react'
-import CodeArea from './CodeArea'
-import errorCode from './codeExamples/errorCode'
-import { CodeHeading, Table, TableWrapper, Type } from './ApiPage'
+import * as React from "react"
+import CodeArea from "./CodeArea"
+import errorCode from "./codeExamples/errorCode"
+import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
 export default function ApiErrors() {
   return (
@@ -11,7 +11,9 @@ export default function ApiErrors() {
           errors: <Type>Object</Type>
         </h2>
       </CodeHeading>
-      <p>Object contain form errors or error messages which belong to each input.</p>
+      <p>
+        Object contain form errors or error messages which belong to each input.
+      </p>
 
       <TableWrapper>
         <Table>
@@ -43,7 +45,10 @@ export default function ApiErrors() {
               <td>
                 <Type>string</Type>
               </td>
-              <td>Message is empty string by default. However, if you register validation with error message, then it will be returned.</td>
+              <td>
+                Message is empty string by default. However, if you register
+                validation with error message, then it will be returned.
+              </td>
             </tr>
             <tr>
               <td>

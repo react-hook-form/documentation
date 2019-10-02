@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import breakpoints from './breakpoints'
+import styled from "styled-components"
+import breakpoints from "./breakpoints"
 
 export const Wrapper = styled.div`
   max-width: 1280px;
@@ -29,8 +29,8 @@ export const Container = styled.div`
 export const CenterContent = styled.section`
   margin: 0 auto;
   text-align: center;
-  max-width: ${props => props.maxWidth ? `${props.maxWidth}px` : `1024px`};
-  
+  max-width: ${props => (props.maxWidth ? `${props.maxWidth}px` : `1024px`)};
+
   & p {
     max-width: 768px;
     margin: 0 auto;

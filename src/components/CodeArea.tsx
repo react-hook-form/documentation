@@ -70,7 +70,7 @@ const CopyIcon = styled.span`
   position: relative;
   margin-right: 10px;
   margin-top: -2px;
-  
+
   & > span {
     border: 1px solid #fff;
     position: absolute;
@@ -80,7 +80,7 @@ const CopyIcon = styled.span`
     border-radius: 2px;
     width: 14px;
     height: 14px;
-    display: inline-block;  
+    display: inline-block;
   }
 `
 
@@ -140,7 +140,7 @@ export default function CodeArea({
           aria-label="Copy code into your clipboard"
         >
           <CopyIcon>
-            <span></span>
+            <span />
           </CopyIcon>{" "}
           Copy
         </CopyButton>

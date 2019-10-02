@@ -35,8 +35,8 @@ export default function GetStarted({ quickStartRef }: any) {
     <>
       <h2 ref={quickStartRef}>Installation</h2>
       <p>
-        Installing React Hook Form only takes a single command and
-        you're ready to roll.
+        Installing React Hook Form only takes a single command and you're ready
+        to roll.
       </p>
 
       <InstallCode>
@@ -64,10 +64,7 @@ export default function GetStarted({ quickStartRef }: any) {
         Example
       </h2>
       <p>The following code will demonstrate the basics usage.</p>
-      <CodeArea
-        rawData={code}
-        url="https://codesandbox.io/s/kw7z2q2n15"
-      />
+      <CodeArea rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )
 }

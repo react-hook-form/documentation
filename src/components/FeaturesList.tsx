@@ -71,9 +71,22 @@ export default function FeaturesList() {
       <Title>Features</Title>
       <FeaturesContent>
         <div>
-          <svg viewBox="0 0 100 125">
-            <path d="M89,16.5C78.7,4.9,61,8,50.1,18.7c-0.1,0.1-0.1,0.1-0.2,0C39.1,8,21.3,4.9,11,16.5c-9.5,10.7-7,26.1,1.9,37.4   c11.6,14.8,35.4,35.4,37,37c0.1,0.1,0.1,0.1,0.2,0c1.6-1.6,25.2-21.4,37-37C95.8,42.4,98.5,27.2,89,16.5z" />
-          </svg>
+          <div
+            style={{
+              margin: "0 auto",
+              display: "flex",
+              width: 45,
+              height: 45,
+              border: "2px solid white",
+              borderRadius: "50%",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: 21,
+              marginTop: 4,
+            }}
+          >
+            <code style={{ lineHeight: '19px', fontSize: '15px' }}>{`</>`}</code>
+          </div>
           <h3>DX</h3>
           <p>
             Aimed to provide API so it provides a seamless experience to
@@ -126,8 +139,8 @@ export default function FeaturesList() {
 
           <h3>Performance</h3>
           <p>
-            Minimizes the number of re-renders and faster mount,
-            striving to provide the best user experience.
+            Minimizes the number of re-renders and faster mount, striving to
+            provide the best user experience.
           </p>
         </div>
 
