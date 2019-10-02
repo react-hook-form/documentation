@@ -18,6 +18,7 @@ import reactHookFormVideo from "../images/react-hook-form-test.mp4"
 import formikVideo from "../images/formik-test.mp4"
 // @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.mp4"
+import { CenterContent } from "../styles/containers"
 
 const Wrapper = styled.section`
   text-align: center;
@@ -149,12 +150,15 @@ const MobileText = styled.p`
 export default function CodePerfCompareSection() {
   return (
     <Wrapper>
-      <H1>Reduce Rendering</H1>
+      <CenterContent>
+        <H1>Reduce Rendering</H1>
 
-      <p>
-        Do you ever wonder how many component re-renders have been triggered by
-        the user?
-      </p>
+        <p>
+          Do you ever wonder how many component re-renders have been triggered
+          by the user? React Hook Form embraces uncontrolled form validation to
+          reduce unnecessary performance impact.
+        </p>
+      </CenterContent>
 
       <MobileText>
         You can swipe through the following videos to see how they work.
