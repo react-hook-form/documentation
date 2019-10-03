@@ -17,6 +17,7 @@ import track from "./utils/track"
 import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
+import goToBuilder from "./utils/goToBuilder";
 
 const { useState, useRef, useEffect } = React
 
@@ -500,6 +501,7 @@ function BuilderPage({
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
                     navigate("/?goToDemo")
+                    goToBuilder()
                   }
                 }}
                 background="black"
