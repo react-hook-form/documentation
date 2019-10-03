@@ -8,6 +8,10 @@ import "./layout.css"
 const ScrollTop = styled.button`
   display: none;
 
+  &:hover {
+    border-color: ${colors.secondary};
+  }
+
   @media (min-width: 768px) {
     display: block;
     background: ${colors.primary};

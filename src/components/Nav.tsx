@@ -359,7 +359,16 @@ export default function Nav({
               label: "Build Form",
               action: "Click - Go to build form",
             })
-            navigate("/form-builder?gotoDemo")
+
+            if (toggleBuilder) {
+              toggleBuilder(!showBuilder)
+              goToBuilder()
+              if (document.getElementById("builder"))
+                document.getElementById("builder").scrollTop = 0
+            } else {
+              navigate("/form-builder?gotoDemo")
+              goToBuilder()
+            }
           }}
           ref={builderButton}
         >

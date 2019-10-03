@@ -34,11 +34,11 @@ const Links = styled.ul`
 
   & > li {
     display: inline-block;
-    padding: 0 10px;
 
     & > a {
       text-decoration: none;
       color: white;
+      padding: 5px 10px;
     }
   }
 `
