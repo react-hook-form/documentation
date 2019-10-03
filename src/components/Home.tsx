@@ -48,7 +48,9 @@ function Home({
 
   useEffect(() => {
     if (location.search === "?goToDemo") {
-      HomeRef.current.scrollIntoView({ behavior: "smooth" })
+      setTimeout(() => {
+        HomeRef.current.scrollIntoView({ behavior: "smooth" })
+      }, 100)
     }
 
     setIsMobile(
