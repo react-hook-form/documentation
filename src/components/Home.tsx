@@ -93,15 +93,13 @@ function Home({
 
   return (
     <Root>
-      {isPlayCodeCompare && (
-        <Builder
-          showBuilder={showBuilder}
-          toggleBuilder={toggleBuilder}
-          builderButton={builderButton}
-          isMobile={isMobile}
-          HomeRef={HomeRef}
-        />
-      )}
+      <Builder
+        showBuilder={showBuilder}
+        toggleBuilder={toggleBuilder}
+        builderButton={builderButton}
+        isMobile={isMobile}
+        HomeRef={HomeRef}
+      />
 
       <Nav
         pathname={location.pathname}
