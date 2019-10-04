@@ -64,7 +64,7 @@ function Home({
       threshold: [1],
     }
 
-    if (!IntersectionObserver || window.matchMedia("(max-width: 768px)").matches) {
+    if (!IntersectionObserver) {
       setFeaturePlay(true)
       setCodeComparePlay(true)
     }

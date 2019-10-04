@@ -87,11 +87,11 @@ export default function FeaturesList({
   isPlayFeature: boolean
 }) {
   return (
-    <Features id="featureLast">
+    <Features>
       <AnimateGroup play={isPlayFeature}>
         <Title>Features</Title>
         <FeaturesContent>
-          <div>
+          <div  id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <div
                 style={{
