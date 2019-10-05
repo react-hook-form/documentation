@@ -84,7 +84,7 @@ const CopyIcon = styled.span`
   }
 `
 
-const CodeSandBoxLink = url => (
+const CodeSandBoxLink = ({ url }: { url: string }) => (
   <LinkToSandBox
     onClick={() => {
       track({
@@ -119,8 +119,8 @@ export default function CodeArea({
   rawData?: string
   data?: string
   url?: string
-  withOutCopy?: boolean,
-  style?: any,
+  withOutCopy?: boolean
+  style?: any
 }) {
   return (
     <div
