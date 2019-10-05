@@ -38,7 +38,7 @@ const Links = styled.ul`
     & > a {
       text-decoration: none;
       color: white;
-      padding: 5px 10px;
+      padding: 10px 12px;
     }
   }
 `

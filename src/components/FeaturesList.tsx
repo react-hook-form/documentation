@@ -5,16 +5,12 @@ import breakpoints from "../styles/breakpoints"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 
 const FeaturesContent = styled.section`
+  text-align: center;
+    
   & h3 {
     font-weight: 300;
     font-size: 20px;
-    text-align: center;
     margin-top: 10px;
-  }
-
-  & p {
-    font-size: 14px;
-    margin-bottom: 30px;
   }
 
   & svg {
@@ -32,11 +28,6 @@ const FeaturesContent = styled.section`
   @media ${breakpoints.fromMediumScreen} {
     & h3 {
       font-size: 22px;
-    }
-
-    & p {
-      text-align: center;
-      font-size: 16px;
     }
 
     display: grid;
@@ -91,7 +82,7 @@ export default function FeaturesList({
       <AnimateGroup play={isPlayFeature}>
         <Title>Features</Title>
         <FeaturesContent>
-          <div  id="featureLast">
+          <div id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <div
                 style={{

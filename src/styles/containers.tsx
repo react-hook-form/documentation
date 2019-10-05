@@ -26,6 +26,10 @@ export const Container = styled.div`
   }
 `
 
+export const Section = styled.div`
+  margin-bottom: 40px;
+`
+
 export const CenterContent = styled.section`
   margin: 0 auto;
   text-align: center;

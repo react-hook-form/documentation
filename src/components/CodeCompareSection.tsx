@@ -4,7 +4,7 @@ import { Title, H1 } from "../styles/typography"
 import formikCode from "./codeExamples/formikCode"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import reduxFormCode from "./codeExamples/reduxFormCode"
-import { CenterContent } from "../styles/containers"
+import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 
@@ -19,7 +19,7 @@ const GridView = styled.section`
 const props = {
   start: { transform: "translateY(100px)" },
   end: { transform: "translateY(0)" },
-  easeType: 'ease-in'
+  easeType: "ease-in",
 }
 
 export default function CodeCompareSection({
@@ -29,11 +29,7 @@ export default function CodeCompareSection({
 }) {
   return (
     <AnimateGroup play={isPlayCodeCompare}>
-      <div
-        style={{
-          marginBottom: 40,
-        }}
-      >
+      <Section>
         <CenterContent>
           <H1>
             <code>{`</>`}</code> Library Code Comparison
@@ -67,7 +63,7 @@ export default function CodeCompareSection({
             <CodeArea rawData={reduxFormCode} withOutCopy />
           </Animate>
         </GridView>
-      </div>
+      </Section>
     </AnimateGroup>
   )
 }

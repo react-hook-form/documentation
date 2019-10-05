@@ -41,6 +41,7 @@ function Home({
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
+  const [isPlayRender, setRenderPlay] = useState(false)
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -71,6 +72,7 @@ function Home({
 
     const featureList = document.querySelector("#featureLast")
     const codeComparison = document.querySelector("#codeComparison")
+    const rendering = document.querySelector("#rendering")
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -81,12 +83,16 @@ function Home({
           if (entry.target === codeComparison && !isPlayCodeCompare) {
             setCodeComparePlay(true)
           }
+          if (entry.target === rendering && !isPlayRender) {
+            setRenderPlay(true)
+          }
         }
       })
     }, options)
 
     observer.observe(featureList)
     observer.observe(codeComparison)
+    observer.observe(rendering)
 
     return () => {
       observer.disconnect()
@@ -116,7 +122,7 @@ function Home({
 
       <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
 
-      <CodePerfCompareSection />
+      <CodePerfCompareSection isPlayRender={isPlayRender} />
 
       <div ref={HomeRef} />
 

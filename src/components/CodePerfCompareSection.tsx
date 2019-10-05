@@ -5,6 +5,7 @@ import Link from "../styles/link"
 import { SimpleImg } from "react-simple-img"
 import colors from "../styles/colors"
 import track from "./utils/track"
+import { AnimateGroup, Animate } from "react-simple-animate"
 import breakpoints from "../styles/breakpoints"
 // @ts-ignore
 import formik from "../images/formik.png"
@@ -147,128 +148,167 @@ const MobileText = styled.p`
   }
 `
 
-export default function CodePerfCompareSection() {
+const props = {
+  start: { transform: "translateY(100px)" },
+  end: { transform: "translateY(0)" },
+  easeType: "ease-in",
+}
+
+export default function CodePerfCompareSection({
+  isPlayRender,
+}: {
+  isPlayRender: boolean
+}) {
   return (
-    <Wrapper>
-      <CenterContent>
-        <H1>Reduce Rendering</H1>
+    <AnimateGroup play={isPlayRender}>
+      <Wrapper>
+        <CenterContent>
+          <H1 id="rendering">Reduce Rendering</H1>
 
-        <p>
-          Do you ever wonder how many component re-renders have been triggered
-          by the user? React Hook Form embraces uncontrolled form validation to
-          reduce unnecessary performance impact.
-        </p>
-      </CenterContent>
-
-      <MobileText>
-        You can swipe through the following videos to see how they work.
-      </MobileText>
-
-      <VideoWrapper>
-        <section>
-          <video controls autoPlay playsInline muted loop>
-            <source src={formikVideo} type="video/mp4" />
-          </video>
           <p>
-            Total re-renders: <strong>30+</strong>
+            Do you ever wonder how many component re-renders have been triggered
+            by the user? React Hook Form embraces uncontrolled form validation
+            to reduce unnecessary performance impact.
           </p>
-        </section>
-        <section>
-          <video controls autoPlay playsInline muted loop>
-            <source src={reactHookFormVideo} type="video/mp4" />
-          </video>
+        </CenterContent>
+
+        <MobileText>
+          You can swipe through the following videos to see how they work.
+        </MobileText>
+
+        <VideoWrapper>
+          <Animate
+            {...props}
+            sequenceIndex={0}
+            render={({ style }) => (
+              <section style={style}>
+                <video controls autoPlay playsinline muted loop>
+                  <source src={formikVideo} type="video/mp4" />
+                </video>
+                <p>
+                  Total re-renders: <strong>30+</strong>
+                </p>
+              </section>
+            )}
+          />
+
+          <Animate
+            {...props}
+            sequenceIndex={1}
+            render={({ style }) => (
+              <section style={style}>
+                <video controls autoPlay playsinline muted loop>
+                  <source src={reactHookFormVideo} type="video/mp4" />
+                </video>
+                <p>
+                  Total re-renders: <strong>3</strong>
+                </p>
+              </section>
+            )}
+          />
+
+          <Animate
+            {...props}
+            sequenceIndex={2}
+            render={({ style }) => (
+              <section style={style}>
+                <video controls autoPlay playsinline muted loop>
+                  <source src={reduxFormVideo} type="video/mp4" />
+                </video>
+                <p>
+                  Total re-renders: <strong>30+</strong>
+                </p>
+              </section>
+            )}
+          />
+        </VideoWrapper>
+
+        <CenterContent>
+          <H1>Faster Mounting</H1>
+
           <p>
-            Total re-renders: <strong>3</strong>
+            The following results demonstrate: how long it took to render the
+            components. Results are captured under 6x CPU slow down on App start
+            with Chrome dev tools' performance tab, and code is from the section
+            above 'Library Code Comparison'.
           </p>
-        </section>
-        <section>
-          <video controls autoPlay playsInline muted loop>
-            <source src={reduxFormVideo} type="video/mp4" />
-          </video>
-          <p>
-            Total re-renders: <strong>30+</strong>
-          </p>
-        </section>
-      </VideoWrapper>
+        </CenterContent>
 
-      <H1>Faster Mounting</H1>
-
-      <p>
-        The following results demonstrate: how long it took to render the
-        components. Results are captured under 6x CPU slow down on App start
-        with Chrome dev tools' performance tab, and code is from the section
-        above 'Library Code Comparison'.
-      </p>
-
-      <Title
-        style={{
-          marginTop: 40,
-        }}
-      >
-        React Hook Form
-      </Title>
-      <ImgSection>
-        <ul>
-          <li>No. of mount(s): 1</li>
-          <li>No. of committing change(s): 1</li>
-          <li>
-            Total time: <strong>1800ms</strong>
-          </li>
-        </ul>
-        <SimpleImg
-          src={hookFrom}
-          placeholder={false}
-          alt="React Hook Form performance"
-        />
-      </ImgSection>
-
-      <Title>Formik</Title>
-      <ImgSection>
-        <ul>
-          <li>No. of mount(s): 6</li>
-          <li>No. of committing change(s): 1</li>
-          <li>
-            Total time: <strong>2070ms</strong>
-          </li>
-        </ul>
-        <SimpleImg src={formik} placeholder={false} alt="Formik performance" />
-      </ImgSection>
-
-      <Title>Redux Form</Title>
-      <ImgSection>
-        <ul>
-          <li>No. of mount(s): 17</li>
-          <li>No. of committing change(s): 2</li>
-          <li>No. of update(s): 2</li>
-          <li>
-            Total time: <strong>2380ms</strong>
-          </li>
-        </ul>
-        <SimpleImg
-          src={reduxForm}
-          placeholder={false}
-          alt="Redux Form performance"
-        />
-      </ImgSection>
-
-      <p style={{ marginBottom: 40 }}>
-        <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-        performance tests?{" "}
-        <Link
-          href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-          rel="noopener noreferrer"
-          onClick={() => {
-            track({
-              category: "Link",
-              label: "Check out the result for 1000 fields within a form here",
-              action: "Click - View Performance Test Repo",
-            })
+        <Title
+          style={{
+            marginTop: 40,
           }}
         >
-          Check out the result of 1000 fields within a form here
-        </Link>
-        .
-      </p>
-    </Wrapper>
+          React Hook Form
+        </Title>
+        <ImgSection>
+          <ul>
+            <li>No. of mount(s): 1</li>
+            <li>No. of committing change(s): 1</li>
+            <li>
+              Total time: <strong>1800ms</strong>
+            </li>
+          </ul>
+          <SimpleImg
+            src={hookFrom}
+            placeholder={false}
+            alt="React Hook Form performance"
+          />
+        </ImgSection>
+
+        <Title>Formik</Title>
+        <ImgSection>
+          <ul>
+            <li>No. of mount(s): 6</li>
+            <li>No. of committing change(s): 1</li>
+            <li>
+              Total time: <strong>2070ms</strong>
+            </li>
+          </ul>
+          <SimpleImg
+            src={formik}
+            placeholder={false}
+            alt="Formik performance"
+          />
+        </ImgSection>
+
+        <Title>Redux Form</Title>
+        <ImgSection>
+          <ul>
+            <li>No. of mount(s): 17</li>
+            <li>No. of committing change(s): 2</li>
+            <li>No. of update(s): 2</li>
+            <li>
+              Total time: <strong>2380ms</strong>
+            </li>
+          </ul>
+          <SimpleImg
+            src={reduxForm}
+            placeholder={false}
+            alt="Redux Form performance"
+          />
+        </ImgSection>
+
+        <p style={{ marginBottom: 40 }}>
+          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
+          performance tests?{" "}
+          <Link
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            rel="noopener noreferrer"
+            onClick={() => {
+              track({
+                category: "Link",
+                label:
+                  "Check out the result for 1000 fields within a form here",
+                action: "Click - View Performance Test Repo",
+              })
+            }}
+          >
+            Check out the result of 1000 fields within a form here
+          </Link>
+          .
+        </p>
+      </Wrapper>
+    </AnimateGroup>
   )
 }

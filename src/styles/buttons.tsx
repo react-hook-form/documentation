@@ -13,7 +13,7 @@ const commonStyle = `
   -webkit-appearance: none;
   line-height: 1;
   display: inline-block;
-  padding: 15px 10px;
+  padding: 16px 10px;
 `
 
 const rotate = keyframes`
@@ -65,6 +65,21 @@ export const PinkButton = styled.button`
 
   &:hover {
     background: ${colors.secondary};
+  }
+`
+
+export const DarkButton = styled(PinkButton)`
+  background: black;
+  color: white;
+  border: 1px solid ${colors.lightPink};
+
+  &:hover {
+    background: ${colors.primary};
+    border: 1px solid ${colors.secondary};
+  }
+  
+  &:active {
+    background: black;
   }
 `
 

@@ -6,7 +6,7 @@ import styled from "styled-components"
 import track from "./utils/track"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
-import { PinkButton } from "../styles/buttons"
+import { DarkButton, PinkButton } from "../styles/buttons"
 import { CenterContent } from "../styles/containers"
 import goToBuilder from "./utils/goToBuilder"
 import useForm from "react-hook-form"
@@ -108,7 +108,7 @@ export default function Form({
             or
           </Title>
 
-          <PinkButton
+          <DarkButton
             type="button"
             onClick={() => {
               reset()
@@ -120,15 +120,9 @@ export default function Form({
               toggleBuilder(true)
               goToBuilder()
             }}
-            style={{
-              background: "black",
-              marginTop: 20,
-              color: "white",
-              border: `1px solid ${colors.lightPink}`,
-            }}
           >
             Edit
-          </PinkButton>
+          </DarkButton>
         </DemoForm>
 
         <section>

@@ -5,13 +5,15 @@ import breakpoints from "./breakpoints"
 export const SubHeading = styled.p`
   font-size: 13px;
   padding: 0 20px;
-  margin-top: 0;
   text-align: center;
   color: ${colors.lightPink};
+  max-width: 330px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     font-size: 16px;
     margin-bottom: 20px;
+    max-width: none;
   }
 `
 

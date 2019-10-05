@@ -17,7 +17,7 @@ import track from "./utils/track"
 import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
-import goToBuilder from "./utils/goToBuilder"
+import { PinkButton, DarkButton } from "../styles/buttons"
 
 const { useState, useRef, useEffect } = React
 
@@ -83,40 +83,7 @@ const Wrapper = styled.div`
   }
 `
 
-const SubmitButton = styled.input`
-  margin-top: 10px;
-  height: 55px;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  background: ${props => props.background || colors.lightPink};
-  color: ${props => props.color || "white"};
-  border: 1px solid
-    ${props => (props.color === "white" ? colors.secondary : "transparent")};
-`
-
 const Form = styled.form`
-  & fieldset {
-    border-radius: 4px;
-    border: 1px solid #6a6b7f;
-    display: flex;
-    padding: 10px 20px;
-  }
-
-  & fieldset > input {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid white;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    font-size: 14px;
-
-    &:hover {
-      border: 1px solid ${colors.lightPink};
-    }
-  }
-
   & > select,
   & > input {
     display: block;
@@ -126,18 +93,14 @@ const Form = styled.form`
     padding: 10px 15px;
     margin-bottom: 10px;
     font-size: 16px;
-  }
 
-  & > select {
-    width: 100%;
+    &:hover {
+      border: 1px solid ${colors.lightPink};
+    }
   }
 
   & > select:not([multiple]) {
     height: 43px;
-  }
-
-  & {
-    flex: 1;
   }
 
   & > input.form-error {
@@ -154,26 +117,28 @@ const Form = styled.form`
 `
 
 const CloseButton = styled.button`
-  font-size: 30px;
-  top: 0;
-  right: 0;
-  padding: 20px;
+  font-size: 25px;
   position: absolute;
   cursor: pointer;
-  border: none;
-  font-weight: 200;
   z-index: 5;
-  border-radius: 10px;
+  border-radius: 8px;
   color: white;
   display: none;
-  background: rgba(14, 16, 28, 0.5294117647058824);
+  top: 20px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: ${colors.primary};
+  border: 1px solid white;
+  
+  &:hover {
+    border: 1px solid ${colors.secondary};
+  }
 
   @media ${breakpoints.fromMediumScreen} {
-    font-size: 35px;
-    display: block;
-    padding: 20px;
-    top: 15px;
-    right: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }
 `
 
@@ -448,7 +413,7 @@ function BuilderPage({
             </fieldset>
           </Animate>
 
-          <SubmitButton
+          <PinkButton
             onClick={() => {
               track({
                 category: "Button",
@@ -459,15 +424,16 @@ function BuilderPage({
               })
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
-            type="submit"
             value={editIndex >= 0 ? "Update" : "Create"}
-          />
+          >
+            Submit
+          </PinkButton>
 
           <Title
             style={{
               fontSize: 14,
               maxWidth: "80%",
-              margin: "10px auto 0",
+              margin: "0 auto 0",
             }}
           >
             ▼
@@ -484,16 +450,16 @@ function BuilderPage({
               pointerEvents: "auto",
             }}
             render={({ style }) => (
-              <SubmitButton
+              <DarkButton
                 style={style}
                 type="button"
-                color="white"
                 onClick={() => {
                   track({
                     category: "Button",
                     label: "Generate form",
                     action: "Click - Generate form",
                   })
+
                   if (toggleBuilder) {
                     toggleBuilder(false)
                     builderButton.current.focus()
@@ -503,9 +469,9 @@ function BuilderPage({
                     navigate("/?goToDemo")
                   }
                 }}
-                background="black"
-                value="Generate Form"
-              />
+              >
+                Generate Form
+              </DarkButton>
             )}
           />
         </Form>
