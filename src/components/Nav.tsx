@@ -1,12 +1,10 @@
 import * as React from "react"
-import { navigate } from "@reach/router"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import GitHubButton from "react-github-btn"
 import colors from "../styles/colors"
 import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
-import goToBuilder from "./utils/goToBuilder"
 
 const GithubIcon = styled.span`
   position: absolute;
@@ -60,57 +58,6 @@ const hoverStyle = `
   }
 `
 
-const Button = styled.button`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  background: ${props => (props.active ? "black" : "none")};
-  color: white;
-  border: none;
-  margin: 0;
-  transition: 0.3s all;
-
-  &:active,
-  &:focus {
-    outline: 1px dashed ${colors.lightPink};
-  }
-  
-  &.active {
-    border-bottom: 1px solid ${colors.secondary};
-  }
-
-  & > svg {
-    fill: white;
-  }
-
-  & > span {
-    line-height: 1.2;
-    font-size: 9px;
-
-    @media (min-width: 414px) {
-      font-size: 11px;
-    }
-
-    @media ${breakpoints.fromMediumScreen} {
-      font-size: 14px;
-    }
-  }
-
-  @media ${breakpoints.fromLargeScreen} {
-    background: none;
-    color: ${props => (props.active ? colors.lightPink : "white")};
-
-    & > svg {
-      display: none;
-    }
-  }
-
-  ${hoverStyle};
-`
-
 const ActionButtonGroup = styled.div`
   display: flex;
   bottom: 0;
@@ -120,6 +67,7 @@ const ActionButtonGroup = styled.div`
   box-shadow: 0 0 4px 0 #000;
   width: 100%;
   position: fixed;
+  height: 43px;
 
   @media ${breakpoints.fromLargeScreen} {
     z-index: 1;
@@ -132,6 +80,7 @@ const ActionButtonGroup = styled.div`
     padding: 13px 0;
     background: ${colors.buttonBlue};
     box-shadow: 0 0 10px 0 #00000030;
+    height: auto;
   }
 
   @media ${breakpoints.fromLargeScreen} {
@@ -143,9 +92,9 @@ const ActionButtonGroup = styled.div`
     max-width: 700px;
   }
 
-  & > button,
   & > a {
-    font-size: 0.6rem;
+    flex: 1;
+    font-size: 0.5rem;
     border-left: 1px solid ${colors.buttonBlue};
     padding: 5px 0;
     text-align: center;
@@ -156,22 +105,17 @@ const ActionButtonGroup = styled.div`
     &:first-child {
       border-left: 0;
     }
+    
+    & > span {
+      display: block;
+      height: 20px;
+    }
 
     @media ${breakpoints.fromLargeScreen} {
       font-size: 0.8rem;
+      flex: none;
       border: none;
       padding: 2px 0;
-    }
-  }
-
-  & > button > svg {
-    width: 20px;
-    height: 20px;
-
-    @media ${breakpoints.fromLargeScreen} {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 3px;
     }
   }
 `
@@ -192,7 +136,7 @@ const HideMobile = styled.span`
 `
 
 const IconWrapper = styled.div`
-  height: 20px;
+  height: 15px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -361,26 +305,17 @@ export default function Nav({
           <span>Advanced</span>
         </Link>
 
-        <Button
-          className={pathname.includes("/form-builder") ? 'active' : ''}
+        <Link
+          activeClassName="active"
           onClick={() => {
             track({
               category: "Button",
               label: "Build Form",
               action: "Click - Go to build form",
             })
-
-            if (toggleBuilder) {
-              toggleBuilder(!showBuilder)
-              goToBuilder()
-              if (document.getElementById("builder"))
-                document.getElementById("builder").scrollTop = 0
-            } else {
-              navigate("/form-builder?gotoDemo")
-              goToBuilder()
-            }
           }}
           ref={builderButton}
+          to="/form-builder"
         >
           <IconWrapper>
             <div className="edit icon" />
@@ -388,7 +323,7 @@ export default function Nav({
           <span>
             <HideMobile>Form&nbsp;</HideMobile>Builder
           </span>
-        </Button>
+        </Link>
         <Link
           activeClassName="active"
           onClick={() => {

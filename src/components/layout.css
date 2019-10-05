@@ -365,12 +365,12 @@ table {
 }
 
 .desktopOnly {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 1024px) {
   .desktopOnly {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -429,7 +429,7 @@ a.active {
   content: "";
   position: absolute;
   bottom: 1px;
-  left: 4px;
+  left: 3px;
   width: 9px;
   height: 1px;
   background-color: currentColor;
@@ -500,8 +500,8 @@ a.active {
   height: 0px;
   border-left: solid 5px transparent;
   border-right: solid 5px currentColor;
-  border-top: solid 2px transparent;
-  border-bottom: solid 2px transparent;
+  border-top: solid 1px transparent;
+  border-bottom: solid 1px transparent;
 }
 
 .eye.icon {

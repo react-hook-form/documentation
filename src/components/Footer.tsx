@@ -66,7 +66,7 @@ export default () => (
       </li>
     </Links>
     <p>
-      Build with ♡ by{" "}
+      Build with ❤ by{" "}
       <a
         href="https://twitter.com/bluebill1049"
         onClick={() => {
@@ -132,7 +132,7 @@ export default () => (
       </a>
     </p>
     <p style={{ fontSize: 12 }}>
-      [ Please support us by leaving a ⭐️. Thank you ❤ ]
+      [ Please support us by leaving a ★ @github️ ]
     </p>
   </Footer>
 )

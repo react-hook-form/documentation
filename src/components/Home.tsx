@@ -101,13 +101,15 @@ function Home({
 
   return (
     <Root>
-      <Builder
-        showBuilder={showBuilder}
-        toggleBuilder={toggleBuilder}
-        builderButton={builderButton}
-        isMobile={isMobile}
-        HomeRef={HomeRef}
-      />
+      {isPlayFeature && (
+        <Builder
+          showBuilder={showBuilder}
+          toggleBuilder={toggleBuilder}
+          builderButton={builderButton}
+          isMobile={isMobile}
+          HomeRef={HomeRef}
+        />
+      )}
 
       <Nav
         pathname={location.pathname}
