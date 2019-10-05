@@ -182,7 +182,7 @@ export default function Header({
       <Head>
         <Animate
           play
-          start={{ filter: "blur(3px)" }}
+          start={{ opacity: "0" }}
           end={{}}
           render={({ style }) => (
             <Logo style={style} viewBox="0 0 100 100">
@@ -232,7 +232,12 @@ export default function Header({
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
-        <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }} duration={0.6}>
+        <Animate
+          play
+          start={{ opacity: 0 }}
+          end={{ opacity: 1 }}
+          duration={0.6}
+        >
           <Video
             id="tabPanel-1"
             aria-labelledby="tabPanel-1"
