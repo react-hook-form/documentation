@@ -16,7 +16,7 @@ const commonStyle = `
   padding: 16px 10px;
 `
 
-const rotate = keyframes`
+const moving = keyframes`
   from {
     transform: translateX(0px);
   }
@@ -37,7 +37,7 @@ export const PrimaryButton = styled.button`
 
     & > span {
       display: inline-block;
-      animation: ${rotate} 0.4s linear infinite;
+      animation: ${moving} 0.4s linear infinite;
       animation-direction: alternate;
     }
   }
