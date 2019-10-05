@@ -233,7 +233,7 @@ function ApiPage({ formData }: { formData?: any }) {
   return (
     <Container>
       <HiddenMenu>
-        <HeadingWithTopMargin>API</HeadingWithTopMargin>
+        <HeadingWithTopMargin id="main">API</HeadingWithTopMargin>
         <QuickSelect>
           <select
             aria-label="select API"

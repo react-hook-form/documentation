@@ -378,6 +378,24 @@ a.active {
   border-bottom: 1px solid var(--secondary-color) !important;
 }
 
+a.skip-main {
+  left:-999px;
+  position:absolute;
+  top:auto;
+  width:110px;
+  overflow:hidden;
+  z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+  top: 20px;
+  width: 110px;
+  left: 160px;
+  height: auto;
+  overflow:auto;
+  font-size: 15px;
+  z-index:999;
+}
+
 .flag.icon {
   color: #fff;
   position: absolute;

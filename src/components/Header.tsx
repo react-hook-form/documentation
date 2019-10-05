@@ -179,7 +179,7 @@ export default function Header({
 
   return (
     <>
-      <Head>
+      <Head id="main">
         <Animate
           play
           start={{ opacity: "0" }}

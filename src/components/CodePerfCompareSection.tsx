@@ -203,7 +203,7 @@ export default function CodePerfCompareSection({
           The following results demonstrate: how long it took to render the
           components. Results are captured under 6x CPU slow down on App start
           with Chrome dev tools' performance tab, and code is from the section
-          above 'Library Code Comparison'.
+          above <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       </CenterContent>
 

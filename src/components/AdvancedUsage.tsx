@@ -69,7 +69,7 @@ function Advanced() {
 
   return (
     <Container>
-      <HeadingWithTopMargin>Advanced</HeadingWithTopMargin>
+      <HeadingWithTopMargin id="main">Advanced</HeadingWithTopMargin>
       <SubHeading>
         Build complex and accessible forms with React Hook Form.
       </SubHeading>

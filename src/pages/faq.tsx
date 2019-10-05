@@ -71,7 +71,7 @@ const Faq = ({
       <Container>
         <Seo title="FAQs" />
 
-        <HeadingWithTopMargin>FAQs</HeadingWithTopMargin>
+        <HeadingWithTopMargin id="main">FAQs</HeadingWithTopMargin>
         <SubHeading>frequently asked question.</SubHeading>
 
         <Wrapper>

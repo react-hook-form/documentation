@@ -237,7 +237,7 @@ function BuilderPage({
 
   const child = (
     <Container>
-      <HeadingWithTopMargin>Builder</HeadingWithTopMargin>
+      <HeadingWithTopMargin id="main">Builder</HeadingWithTopMargin>
       <SubHeading>Build your own form with code and example.</SubHeading>
 
       <Wrapper>

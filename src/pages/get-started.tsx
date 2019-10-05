@@ -77,7 +77,7 @@ const Faq = ({
       <Container>
         <Seo title="Get Started" />
 
-        <HeadingWithTopMargin>Get Started</HeadingWithTopMargin>
+        <HeadingWithTopMargin id="main">Get Started</HeadingWithTopMargin>
         <SubHeading>Simple form validation with React Hook Form.</SubHeading>
 
         <Wrapper>
