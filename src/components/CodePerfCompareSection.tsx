@@ -20,7 +20,6 @@ import formikVideo from "../images/formik-test.mp4"
 // @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.mp4"
 import { CenterContent } from "../styles/containers"
-import CodeArea from "./CodeArea"
 
 const Wrapper = styled.section`
   text-align: center;
