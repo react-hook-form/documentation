@@ -115,6 +115,7 @@ const ActionButtonGroup = styled.div`
   box-shadow: 0 0 4px 0 #000;
   width: 100%;
   position: fixed;
+  justify-content: space-around;
 
   @media ${breakpoints.fromLargeScreen} {
     z-index: 1;
@@ -134,14 +135,18 @@ const ActionButtonGroup = styled.div`
   }
 
   @media ${breakpoints.fromXlargeScreen} {
-    max-width: 800px;
+    max-width: 700px;
   }
 
-  & > button {
-    flex: 1;
+  & > button,
+  & > a {
     font-size: 0.6rem;
     border-left: 1px solid ${colors.buttonBlue};
     padding: 5px 0;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    position: relative;
 
     &:first-child {
       border-left: 0;
@@ -395,6 +400,13 @@ export default function Nav({
           </IconWrapper>
           <span>FAQs</span>
         </Button>
+        <a
+          href="https://github.com/react-hook-form/react-hook-form/releases"
+          target="_blank"
+          className="desktopOnly"
+        >
+          Releases
+        </a>
       </ActionButtonGroup>
     </>
   )

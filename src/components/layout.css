@@ -364,6 +364,17 @@ table {
   }
 }
 
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopOnly {
+    display: block;
+  }
+}
+
+
 .flag.icon {
   color: #fff;
   position: absolute;
