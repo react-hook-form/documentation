@@ -1,5 +1,6 @@
 import * as React from "react"
 import { navigate } from "@reach/router"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import GitHubButton from "react-github-btn"
 import colors from "../styles/colors"
@@ -76,6 +77,10 @@ const Button = styled.button`
   &:focus {
     outline: 1px dashed ${colors.lightPink};
   }
+  
+  &.active {
+    border-bottom: 1px solid ${colors.secondary};
+  }
 
   & > svg {
     fill: white;
@@ -115,10 +120,10 @@ const ActionButtonGroup = styled.div`
   box-shadow: 0 0 4px 0 #000;
   width: 100%;
   position: fixed;
-  justify-content: space-around;
 
   @media ${breakpoints.fromLargeScreen} {
     z-index: 1;
+    justify-content: space-around;
     position: inherit;
     background: none;
     border: none;
@@ -290,74 +295,74 @@ export default function Nav({
       </GitHubButtonWrap>
 
       <ActionButtonGroup>
-        <Button
-          active={pathname === "/"}
+        <Link
+          activeClassName="active"
           onClick={() => {
             track({
               category: "Button",
               label: "Home",
               action: "Click - Go to Home",
             })
-            navigate("/")
           }}
+          to="/"
         >
           <IconWrapper>
             <div className="flag icon" />
           </IconWrapper>
           <span>Home</span>
-        </Button>
-        <Button
-          active={pathname.includes("/get-started")}
+        </Link>
+        <Link
+          activeClassName="active"
           onClick={() => {
             track({
               category: "Button",
               label: "get started",
               action: "Click - Go to get started",
             })
-            navigate("/get-started")
           }}
+          to="/get-started"
         >
           <IconWrapper>
             <div className="shutdown icon" />
           </IconWrapper>
           <span>Get Started</span>
-        </Button>
-        <Button
-          active={pathname.includes("/api")}
+        </Link>
+        <Link
+          activeClassName="active"
           onClick={() => {
             track({
               category: "Button",
               label: "API",
               action: "Click - Go to Api",
             })
-            navigate("/api")
           }}
+          to="/api"
         >
           <IconWrapper>
             <div className="keyboard icon" />
           </IconWrapper>
           <span>API</span>
-        </Button>
+        </Link>
 
-        <Button
-          active={pathname.includes("/advanced-usage")}
+        <Link
+          activeClassName="active"
+          to="/advanced-usage"
           onClick={() => {
             track({
               category: "Button",
               label: "Advanced usage",
               action: "Click - Go to Advanced usage",
             })
-            navigate("/advanced-usage")
           }}
         >
           <IconWrapper>
             <div className="search icon" />
           </IconWrapper>
           <span>Advanced</span>
-        </Button>
+        </Link>
 
         <Button
-          active={pathname.includes("/form-builder")}
+          className={pathname.includes("/form-builder") ? 'active' : ''}
           onClick={() => {
             track({
               category: "Button",
@@ -384,22 +389,22 @@ export default function Nav({
             <HideMobile>Form&nbsp;</HideMobile>Builder
           </span>
         </Button>
-        <Button
-          active={pathname.includes("/faq")}
+        <Link
+          activeClassName="active"
           onClick={() => {
             track({
               category: "Button",
               label: "FAQ",
               action: "Click - go to FAQ",
             })
-            navigate("/faq")
           }}
+          to="/faq"
         >
           <IconWrapper>
             <div className="eye icon" />
           </IconWrapper>
           <span>FAQs</span>
-        </Button>
+        </Link>
         <a
           href="https://github.com/react-hook-form/react-hook-form/releases"
           target="_blank"

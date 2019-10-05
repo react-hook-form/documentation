@@ -374,6 +374,9 @@ table {
   }
 }
 
+a.active {
+  border-bottom: 1px solid var(--secondary-color);
+}
 
 .flag.icon {
   color: #fff;
