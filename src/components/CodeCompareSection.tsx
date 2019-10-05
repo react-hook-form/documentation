@@ -7,6 +7,7 @@ import reduxFormCode from "./codeExamples/reduxFormCode"
 import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
+import colors from "../styles/colors"
 
 const GridView = styled.section`
   @media (min-width: 1100px) {
@@ -55,7 +56,13 @@ export default function CodeCompareSection({
 
           <Animate {...props} sequenceIndex={1}>
             <Title>React Hook Form</Title>
-            <CodeArea rawData={reactHookFormCode} withOutCopy />
+            <CodeArea
+              style={{
+                border: `1px solid ${colors.secondary}`,
+              }}
+              rawData={reactHookFormCode}
+              withOutCopy
+            />
           </Animate>
 
           <Animate {...props} sequenceIndex={2}>

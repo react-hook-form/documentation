@@ -101,7 +101,7 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
               marginTop: -44,
             }}
           >
-            Quick Menu
+            Menu
           </Title>
         </TitleList>
 

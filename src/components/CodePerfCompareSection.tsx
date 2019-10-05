@@ -20,6 +20,7 @@ import formikVideo from "../images/formik-test.mp4"
 // @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.mp4"
 import { CenterContent } from "../styles/containers"
+import CodeArea from "./CodeArea"
 
 const Wrapper = styled.section`
   text-align: center;
@@ -127,6 +128,10 @@ const VideoWrapper = styled.section`
       & > video {
         height: 400px;
         border-radius: 10px;
+        
+        @media ${breakpoints.fromLargeScreen} {
+          height: 450px;
+        }
       }
 
       & > p {
@@ -197,7 +202,13 @@ export default function CodePerfCompareSection({
             sequenceIndex={1}
             render={({ style }) => (
               <section style={style}>
-                <video controls autoPlay playsinline muted loop>
+                <video
+                  controls
+                  autoPlay
+                  playsinline
+                  muted
+                  loop
+                >
                   <source src={reactHookFormVideo} type="video/mp4" />
                 </video>
                 <p>
