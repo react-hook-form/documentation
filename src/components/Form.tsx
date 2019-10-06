@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Title, H1 } from "../styles/typography"
-import colors from "../styles/colors"
+import { Title, H1, Note } from "../styles/typography"
 import { Animate } from "react-simple-animate"
 import styled from "styled-components"
 import track from "./utils/track"
@@ -51,10 +50,12 @@ export default function Form({
   onSubmit,
   submitData,
   toggleBuilder,
+  formUpdated,
 }: {
   onSubmit: any
   submitData: any
   toggleBuilder: (state: boolean) => void
+  formUpdated: boolean
 }) {
   const {
     register,
@@ -74,6 +75,19 @@ export default function Form({
     <>
       <CenterContent>
         <H1>Live Demo</H1>
+        {formUpdated && (
+          <Animate
+            play={formUpdated}
+            start={{ opacity: 0, transform: 'translateY(20px)' }}
+            end={{ opacity: 1 }}
+            delay={1.3}
+            render={({ style }) => (
+              <p style={{ marginBottom: 20, ...style }}>
+                <Note>Note:</Note> your form have been updated.
+              </p>
+            )}
+          />
+        )}
         <p>
           The following form demonstrates form validation in action. Each column
           represents what has been captured in the custom hook. You can also

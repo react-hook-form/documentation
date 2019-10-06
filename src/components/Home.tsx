@@ -42,15 +42,20 @@ function Home({
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
+  const [formUpdated, setFormUpdated] = useState(false);
 
   const onSubmit = data => {
     updateSubmitData(data)
   }
 
   useEffect(() => {
-    if (location.search === "?goToDemo") {
+    if (location.search.startsWith('?goToDemo')) {
       setTimeout(() => {
         HomeRef.current.scrollIntoView({ behavior: "smooth" })
+
+        if (location.search.startsWith('?goToDemo&updated=true')) {
+          setFormUpdated(true);
+        }
       }, 100)
     }
 
@@ -101,15 +106,13 @@ function Home({
 
   return (
     <Root>
-      {isPlayFeature && (
-        <Builder
-          showBuilder={showBuilder}
-          toggleBuilder={toggleBuilder}
-          builderButton={builderButton}
-          isMobile={isMobile}
-          HomeRef={HomeRef}
-        />
-      )}
+      <Builder
+        showBuilder={showBuilder}
+        toggleBuilder={toggleBuilder}
+        builderButton={builderButton}
+        isMobile={isMobile}
+        HomeRef={HomeRef}
+      />
 
       <Nav
         pathname={location.pathname}
@@ -133,6 +136,7 @@ function Home({
           onSubmit,
           submitData,
           toggleBuilder,
+          formUpdated,
         }}
       />
 

@@ -36,6 +36,7 @@ const ImgSection = styled.div`
     max-width: 100%;
     margin: 20px 0;
     box-shadow: 0 0 8px #000000;
+    object-fit: cover;
 
     @media ${breakpoints.fromMediumScreen} {
       max-width: 80%;
@@ -69,10 +70,10 @@ const VideoWrapper = styled.section`
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   margin: 20px 0 40px;
-  
+
   & > section:first-child {
     order: 1;
-    
+
     @media ${breakpoints.fromLargeScreen} {
       order: 0;
     }
@@ -233,6 +234,7 @@ export default function CodePerfCompareSection({
         <SimpleImg
           src={hookFrom}
           placeholder={false}
+          height={163}
           alt="React Hook Form performance"
         />
       </ImgSection>
@@ -246,7 +248,12 @@ export default function CodePerfCompareSection({
             Total time: <strong>2070ms</strong>
           </li>
         </ul>
-        <SimpleImg src={formik} placeholder={false} alt="Formik performance" />
+        <SimpleImg
+          height={230}
+          src={formik}
+          placeholder={false}
+          alt="Formik performance"
+        />
       </ImgSection>
 
       <Title>Redux Form</Title>
@@ -260,6 +267,7 @@ export default function CodePerfCompareSection({
           </li>
         </ul>
         <SimpleImg
+          height={365}
           src={reduxForm}
           placeholder={false}
           alt="Redux Form performance"

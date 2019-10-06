@@ -268,7 +268,7 @@ function BuilderPage({
           />
 
           {!formData.length && (
-            <p>You can start adding fields with Fields Creator ▸</p>
+            <p>You can start adding fields with Input Creator.</p>
           )}
         </div>
 
@@ -445,7 +445,7 @@ function BuilderPage({
               margin: "0 auto 0",
             }}
           >
-            ▼
+            or
           </Title>
 
           <Animate
@@ -475,7 +475,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate("/?goToDemo")
+                    navigate("/?goToDemo&updated=true")
                   }
                 }}
               >
