@@ -1,6 +1,7 @@
 :root {
   --secondary-color: #bf1650;
   --light-pink: #ec5990;
+  --primary-color: #0e101c;
 }
 
 html {
@@ -51,7 +52,6 @@ a {
   transition: 0.3s all;
   -webkit-text-decoration-skip: objects;
 }
-a:active,
 a:hover {
   color: var(--secondary-color);
   transition: 0.3s all;
@@ -375,7 +375,14 @@ table {
 }
 
 a.active {
+  background: var(--primary-color);
   border-bottom: 1px solid var(--secondary-color) !important;
+}
+
+@media (min-width: 1024px) {
+  a.active {
+    background: none;
+  }
 }
 
 a.skip-main {
