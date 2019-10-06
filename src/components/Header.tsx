@@ -232,13 +232,13 @@ export default function Header({
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
-        <Animate
-          play
-          start={{ opacity: 0 }}
-          end={{ opacity: 1 }}
-          duration={0.4}
-        >
-          <div style={{ position: "relative" }}>
+        <div style={{ position: "relative" }}>
+          <Animate
+            play
+            start={{ opacity: 0 }}
+            end={{ opacity: 1 }}
+            duration={0.4}
+          >
             <Video
               id="tabPanel-1"
               aria-labelledby="tabPanel-1"
@@ -255,51 +255,51 @@ export default function Header({
             >
               <source src={video} type="video/mp4" />
             </Video>
+          </Animate>
 
-            <AnimateKeyframes
-              play
-              pause={false}
-              iterationCount="infinite"
-              direction="alternate"
-              duration={0.7}
-              keyframes={[
-                "transform: translateX(-150px)",
-                "transform: translateX(150px)",
-              ]}
-              render={({ style }) => (
+          <AnimateKeyframes
+            play
+            pause={false}
+            iterationCount="infinite"
+            direction="alternate"
+            duration={0.7}
+            keyframes={[
+              "transform: translateX(-150px)",
+              "transform: translateX(150px)",
+            ]}
+            render={({ style }) => (
+              <div
+                style={{
+                  textAlign: "center",
+                  width: 150,
+                  margin: "0 auto",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  position: "absolute",
+                  top: "50%",
+                  left: "calc(50% - 75px)",
+                  zIndex: -1,
+                }}
+              >
                 <div
                   style={{
-                    textAlign: "center",
-                    width: 150,
-                    margin: "0 auto",
-                    display: "flex",
-                    flexDirection: "column",
-                    overflow: "hidden",
-                    position: "absolute",
-                    top: "50%",
-                    left: "calc(50% - 75px)",
-                    zIndex: -1,
+                    ...style,
+                    height: 2,
+                    background: colors.secondary,
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: 13,
                   }}
                 >
-                  <div
-                    style={{
-                      ...style,
-                      height: 2,
-                      background: colors.secondary,
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontSize: 13,
-                    }}
-                  >
-                    Loading...
-                  </span>
-                </div>
-              )}
-            />
-          </div>
-        </Animate>
+                  Loading...
+                </span>
+              </div>
+            )}
+          />
+        </div>
       </VideoWrapper>
 
       <VideoWrapper show={!isWeb}>
