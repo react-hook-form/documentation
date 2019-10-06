@@ -2,6 +2,7 @@ import track from "./utils/track"
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
+import {Link} from "gatsby";
 
 const Footer = styled.footer`
   padding: 40px 0;
@@ -47,22 +48,22 @@ export default () => (
   <Footer>
     <Links>
       <li>
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a href="/get-started">Get Started</a>
+        <Link to="/get-started">Get Started</Link>
       </li>
       <li>
-        <a href="/api">API</a>
+        <Link to="/api">API</Link>
       </li>
       <li>
-        <a href="/advanced-usage">Advanced</a>
+        <Link to="/advanced-usage">Advanced</Link>
       </li>
       <li>
-        <a href="/form-builder">Form Builder</a>
+        <Link to="/form-builder">Form Builder</Link>
       </li>
       <li>
-        <a href="/faqs">FAQs</a>
+        <Link to="/faqs">FAQs</Link>
       </li>
     </Links>
     <p>
