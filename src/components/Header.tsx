@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
-import { Animate } from "react-simple-animate"
+import { Animate, AnimateKeyframes } from "react-simple-animate"
 import colors from "../styles/colors"
 import track from "./utils/track"
 import { navigate } from "@reach/router"
@@ -238,22 +238,67 @@ export default function Header({
           end={{ opacity: 1 }}
           duration={0.4}
         >
-          <Video
-            id="tabPanel-1"
-            aria-labelledby="tabPanel-1"
-            controls
-            playsInline
-            muted
-            onClick={() => {
-              track({
-                category: "Video",
-                label: "video",
-                action: "Play/Pause - Demo Video",
-              })
-            }}
-          >
-            <source src={video} type="video/mp4" />
-          </Video>
+          <div style={{ position: "relative" }}>
+            <Video
+              id="tabPanel-1"
+              aria-labelledby="tabPanel-1"
+              controls
+              playsInline
+              muted
+              onClick={() => {
+                track({
+                  category: "Video",
+                  label: "video",
+                  action: "Play/Pause - Demo Video",
+                })
+              }}
+            >
+              <source src={video} type="video/mp4" />
+            </Video>
+
+            <AnimateKeyframes
+              play
+              pause={false}
+              iterationCount="infinite"
+              direction="alternate"
+              duration={0.7}
+              keyframes={[
+                "transform: translateX(-150px)",
+                "transform: translateX(150px)",
+              ]}
+              render={({ style }) => (
+                <div
+                  style={{
+                    textAlign: "center",
+                    width: 150,
+                    margin: "0 auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    position: "absolute",
+                    top: "50%",
+                    left: "calc(50% - 75px)",
+                    zIndex: -1,
+                  }}
+                >
+                  <div
+                    style={{
+                      ...style,
+                      height: 2,
+                      background: colors.secondary,
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: 13,
+                    }}
+                  >
+                    Loading...
+                  </span>
+                </div>
+              )}
+            />
+          </div>
         </Animate>
       </VideoWrapper>
 
