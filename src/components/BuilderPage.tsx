@@ -84,13 +84,13 @@ const Wrapper = styled.div`
 `
 
 const Form = styled.form`
-  & > select,
-  & > input {
+  & select,
+  & input {
     display: block;
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 6px 10px;
     margin-bottom: 10px;
     font-size: 16px;
 
@@ -99,12 +99,18 @@ const Form = styled.form`
     }
   }
 
-  & > select:not([multiple]) {
-    height: 43px;
+  & select:not([multiple]) {
+    height: 40px;
   }
 
-  & > input.form-error {
+  & input.form-error {
     border: 1px solid #bf1650;
+  }
+  
+  & input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
   }
 
   & label {
@@ -113,6 +119,11 @@ const Form = styled.form`
     display: block;
     margin-bottom: 13px;
     margin-top: 20px;
+  }
+  
+  & fieldset {
+    border: 1px solid ${colors.lightBlue};
+    border-radius: 4px;
   }
 `
 
@@ -346,8 +357,7 @@ function BuilderPage({
               name="toggle"
               ref={register}
               onClick={() => toggleValidation(!showValidation)}
-            />
-            &nbsp; Toggle Validation Panel
+            />Show validation
           </label>
 
           <Animate
@@ -368,8 +378,7 @@ function BuilderPage({
                   marginTop: 0,
                 }}
               >
-                <input type="checkbox" name="required" ref={register} />{" "}
-                Required
+                <input type="checkbox" name="required" ref={register} />Required
               </label>
               <label>Max</label>
               <input

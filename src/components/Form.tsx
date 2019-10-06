@@ -37,7 +37,7 @@ const DemoForm = styled.form`
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 6px 10px;
     margin-bottom: 10px;
     font-size: 0.9rem;
   }
