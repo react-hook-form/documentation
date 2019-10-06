@@ -236,7 +236,7 @@ export default function Header({
           play
           start={{ opacity: 0 }}
           end={{ opacity: 1 }}
-          duration={0.6}
+          duration={0.4}
         >
           <Video
             id="tabPanel-1"
