@@ -10,10 +10,21 @@ import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 
 const GridView = styled.section`
+  display: flex;
+  flex-direction: column;
+  
+  & > div:first-child {
+    order: 1;
+  }
+  
   @media (min-width: 1100px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 40px;
+    
+    & > div:first-child {
+      order: 0;
+    }
   }
 `
 
