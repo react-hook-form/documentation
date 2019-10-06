@@ -2,21 +2,32 @@ import * as React from "react"
 import { Animate } from "react-simple-animate"
 import styled from "styled-components"
 
+const iconStyle = `
+  border-radius: 50%;
+  border: none;
+  height: 18px;
+  width: 18px;
+  font-size: 15px;
+  display: inline-flex;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+`;
+
+const Icon = styled.span`
+  ${iconStyle};
+  border: 1px solid white;
+  margin-left: 0;
+  margin-right: 10px;
+`;
+
 const Root = styled.span`
   font-weight: bold;
   position: relative;
 
   & > button {
-    border-radius: 50%;
-    border: none;
-    height: 18px;
-    width: 18px;
-    font-size: 15px;
-    display: inline-flex;
-    margin-left: 10px;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
+    ${iconStyle}
   }
 
   & > span {
@@ -36,8 +47,19 @@ const Root = styled.span`
   }
 `
 
-function Popup({ message, top }: { message?: string; top?: number }) {
+function Popup({
+  message,
+  top,
+  iconOnly,
+}: {
+  iconOnly?: boolean
+  message?: string
+  top?: number
+}) {
   const [tipShow, setTipShow] = React.useState(false)
+
+  if (iconOnly) return <Icon>!</Icon>;
+
   return (
     <Root>
       <button onClick={() => setTipShow(!tipShow)}>!</button>

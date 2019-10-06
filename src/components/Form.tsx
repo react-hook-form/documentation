@@ -80,7 +80,7 @@ export default function Form({
             play={formUpdated}
             start={{ opacity: 0, transform: 'translateY(20px)' }}
             end={{ opacity: 1 }}
-            delay={1.3}
+            delay={1.5}
             render={({ style }) => (
               <p style={{ marginBottom: 20, ...style }}>
                 <Note>Note:</Note> your form have been updated.

@@ -18,6 +18,7 @@ import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
 import { PinkButton, DarkButton } from "../styles/buttons"
+import Popup from "./Popup"
 
 const { useState, useRef, useEffect } = React
 
@@ -106,7 +107,7 @@ const Form = styled.form`
   & input.form-error {
     border: 1px solid #bf1650;
   }
-  
+
   & input[type="checkbox"] {
     display: inline-block;
     width: auto;
@@ -120,7 +121,7 @@ const Form = styled.form`
     margin-bottom: 13px;
     margin-top: 20px;
   }
-  
+
   & fieldset {
     border: 1px solid ${colors.lightBlue};
     border-radius: 4px;
@@ -141,7 +142,7 @@ const CloseButton = styled.button`
   height: 50px;
   background: ${colors.primary};
   border: 1px solid white;
-  
+
   &:hover {
     border: 1px solid ${colors.secondary};
   }
@@ -253,7 +254,13 @@ function BuilderPage({
 
       <Wrapper>
         <div>
-          <Title>Form</Title>
+          <Title>Form Layout</Title>
+
+          <p style={{ fontSize: 14 }}>
+            <Popup iconOnly />
+            You can re-arrange by drag and drop, delete and edit each field in this
+            section.
+          </p>
 
           <SortableContainer
             {...{
@@ -274,6 +281,12 @@ function BuilderPage({
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Title ref={form}>Input Creator</Title>
+
+          <p style={{ fontSize: 14 }}>
+            <Popup iconOnly />
+            This form allow you to create and update input. Generate form button
+            will create a new form with the updates.
+          </p>
 
           <label>Name: </label>
           <input
@@ -357,7 +370,8 @@ function BuilderPage({
               name="toggle"
               ref={register}
               onClick={() => toggleValidation(!showValidation)}
-            />Show validation
+            />
+            Show validation
           </label>
 
           <Animate
@@ -378,7 +392,8 @@ function BuilderPage({
                   marginTop: 0,
                 }}
               >
-                <input type="checkbox" name="required" ref={register} />Required
+                <input type="checkbox" name="required" ref={register} />
+                Required
               </label>
               <label>Max</label>
               <input
@@ -433,9 +448,8 @@ function BuilderPage({
               })
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
-            value={editIndex >= 0 ? "Update" : "Create"}
           >
-            Submit
+            {editIndex >= 0 ? "Update" : "Create"}
           </PinkButton>
 
           <Title
@@ -492,6 +506,12 @@ function BuilderPage({
           }}
         >
           <Title>Code</Title>
+
+          <p style={{ fontSize: 14 }}>
+            <Popup iconOnly />
+            As you making changes over the form, the code section will be
+            updated and you can copy the code as well.
+          </p>
 
           <CodeArea data={formData} />
         </div>
