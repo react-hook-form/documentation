@@ -18,14 +18,12 @@ export const SubHeading = styled.p`
 `
 
 export const Heading = styled.h1`
-  font-weight: 100;
   text-align: center;
   margin-bottom: 10px;
 
   @media ${breakpoints.fromMediumScreen} {
     font-size: 55px !important;
-    margin-bottom: 10px;
-    margin-top: 80px;
+    margin: 80px auto 10px;
   }
 
   @media ${breakpoints.fromLargeScreen} {
@@ -36,7 +34,7 @@ export const Heading = styled.h1`
 const commonStyle = `
   font-size: 24px;
   display: inline-block;
-  margin: 40px auto 40px;
+  margin: 40px auto;
   font-weight: 300;
   padding-bottom: 5px;
   border-bottom: 2px solid ${colors.secondary};
@@ -47,10 +45,6 @@ const commonStyle = `
 `
 
 export const H1 = styled.h1`
-  ${commonStyle}
-`
-
-export const H2 = styled.h2`
   ${commonStyle}
 `
 
@@ -84,12 +78,12 @@ export const HeadingWithTopMargin = styled(Heading)`
 export const Title = styled.h2`
   text-align: center;
   font-weight: 200;
-  margin-top: 10px;
   font-size: 1.1rem;
   overflow: hidden;
-  margin-bottom: 30px;
   position: relative;
   line-height: 2;
+  margin: 10px auto 20px;
+  max-width: 600px;
 
   @media ${breakpoints.fromMediumScreen} {
     margin-top: 20px;
@@ -99,7 +93,7 @@ export const Title = styled.h2`
 
   &:before,
   &:after {
-    background-color: #4f6294;
+    background-color: ${colors.lightBlue};
     content: "";
     display: inline-block;
     height: 1px;

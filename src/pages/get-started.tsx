@@ -3,7 +3,7 @@ import { Link, navigate } from "@reach/router"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import {
-  H2,
+  H1,
   HeadingWithTopMargin,
   Note,
   SubHeading,
@@ -274,7 +274,7 @@ const Faq = ({
                 textAlign: "center",
               }}
             >
-              <H2>Want to learn more?</H2>
+              <H1>Want to learn more?</H1>
               <p>
                 Checkout the React Hook Form documentation and learn all the
                 API.
