@@ -10,7 +10,7 @@ export const SubHeading = styled.p`
   max-width: 330px;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     font-size: 16px;
     margin-bottom: 20px;
     max-width: none;
@@ -41,7 +41,7 @@ const commonStyle = `
   padding-bottom: 5px;
   border-bottom: 2px solid ${colors.secondary};
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     font-size: 36px;
   }
 `
@@ -76,7 +76,7 @@ export const H5 = styled.h5`
 `
 
 export const HeadingWithTopMargin = styled(Heading)`
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     margin-top: 30px;
   }
 `
@@ -91,7 +91,7 @@ export const Title = styled.h2`
   position: relative;
   line-height: 2;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     margin-top: 20px;
     font-size: 1.3rem;
     line-height: 1.5;

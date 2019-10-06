@@ -25,7 +25,7 @@ const ImgSection = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     flex-direction: row;
     max-width: 1440px;
     margin: 0 auto;
@@ -37,7 +37,7 @@ const ImgSection = styled.div`
     margin: 20px 0;
     box-shadow: 0 0 8px #000000;
 
-    @media (min-width: 768px) {
+    @media ${breakpoints.fromMediumScreen} {
       max-width: 80%;
       margin: 0 0 40px;
     }
@@ -69,6 +69,14 @@ const VideoWrapper = styled.section`
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   margin: 20px 0 40px;
+  
+  & > section:first-child {
+    order: 1;
+    
+    @media ${breakpoints.fromLargeScreen} {
+      order: 0;
+    }
+  }
 
   & > section {
     width: 100%;

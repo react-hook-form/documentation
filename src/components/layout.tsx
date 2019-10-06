@@ -4,6 +4,7 @@ import { Animate } from "react-simple-animate"
 import Nav from "./Nav"
 import colors from "../styles/colors"
 import "./layout.css"
+import breakpoints from "../styles/breakpoints"
 
 const ScrollTop = styled.button`
   display: none;
@@ -12,7 +13,7 @@ const ScrollTop = styled.button`
     border-color: ${colors.secondary};
   }
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     display: block;
     background: ${colors.primary};
     position: fixed;

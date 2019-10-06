@@ -67,7 +67,7 @@ const Wrapper = styled.div`
     order: 2;
   }
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     & > div:first-child {
       margin-top: 0;
       order: 1;

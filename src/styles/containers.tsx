@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   padding-top: 45px;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.fromMediumScreen} {
     padding-top: 0;
   }
 `
