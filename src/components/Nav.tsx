@@ -36,28 +36,6 @@ const MediumIcon = styled(GithubIcon)`
   left: 65px;
 `
 
-const hoverStyle = `
-  &:hover {
-    > svg {
-      transition: 0.3s all;
-      fill: ${colors.secondary};
-    }
-
-    & > span {
-      transition: 0.3s all;
-      color: ${colors.secondary};
-    }
-  }
-
-  & svg {
-    height: 40px;
-
-    @media screen and (min-width: 1024px) {
-      height: 50px;
-    }
-  }
-`
-
 const ActionButtonGroup = styled.div`
   display: flex;
   bottom: 0;
@@ -105,7 +83,7 @@ const ActionButtonGroup = styled.div`
     &:first-child {
       border-left: 0;
     }
-    
+
     & > span {
       display: block;
       height: 20px;
@@ -123,7 +101,7 @@ const ActionButtonGroup = styled.div`
 const GitHubButtonWrap = styled.span`
   position: absolute;
   right: 20px;
-  top: 17px;
+  top: 15px;
   z-index: 1;
 `
 
@@ -146,12 +124,7 @@ const IconWrapper = styled.div`
   }
 `
 
-export default function Nav({
-  toggleBuilder,
-  builderButton,
-  pathname,
-  showBuilder,
-}: any) {
+export default function Nav({ builderButton }: any) {
   return (
     <>
       <GithubIcon>
