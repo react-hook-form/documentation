@@ -24,7 +24,7 @@ const Menu = styled.aside`
         list-style: none;
         margin-top: 0;
         max-width: 200px;
-        padding: 0 40px 0 0;
+        padding: 0;
         overflow-y: auto;
         height: calc(100vh - 236px);
         overflow-y: auto;
