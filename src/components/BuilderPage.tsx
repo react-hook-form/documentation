@@ -169,14 +169,12 @@ const defaultValue = {
 function BuilderPage({
   showBuilder,
   toggleBuilder,
-  builderButton,
   HomeRef,
   isMobile,
   isStatic,
 }: {
   showBuilder?: boolean
   toggleBuilder?: Function
-  builderButton?: any
   HomeRef?: any
   isMobile: boolean
   isStatic?: boolean
@@ -487,7 +485,6 @@ function BuilderPage({
 
                   if (toggleBuilder) {
                     toggleBuilder(false)
-                    builderButton.current.focus()
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
@@ -552,7 +549,6 @@ function BuilderPage({
                 ref={closeButton}
                 onClick={() => {
                   toggleBuilder(false)
-                  builderButton.current.focus()
                 }}
               >
                 &#10005;

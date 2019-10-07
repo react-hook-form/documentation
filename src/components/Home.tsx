@@ -37,24 +37,23 @@ function Home({
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
-  const builderButton = useRef(null)
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
-  const [formUpdated, setFormUpdated] = useState(false);
+  const [formUpdated, setFormUpdated] = useState(false)
 
   const onSubmit = data => {
     updateSubmitData(data)
   }
 
   useEffect(() => {
-    if (location.search.startsWith('?goToDemo')) {
+    if (location.search.startsWith("?goToDemo")) {
       setTimeout(() => {
         HomeRef.current.scrollIntoView({ behavior: "smooth" })
 
-        if (location.search.startsWith('?goToDemo&updated=true')) {
-          setFormUpdated(true);
+        if (location.search.startsWith("?goToDemo&updated=true")) {
+          setFormUpdated(true)
         }
       }, 100)
     }
@@ -106,20 +105,16 @@ function Home({
 
   return (
     <Root>
-      <Builder
-        showBuilder={showBuilder}
-        toggleBuilder={toggleBuilder}
-        builderButton={builderButton}
-        isMobile={isMobile}
-        HomeRef={HomeRef}
-      />
+      {showBuilder && (
+        <Builder
+          showBuilder
+          toggleBuilder={toggleBuilder}
+          isMobile={isMobile}
+          HomeRef={HomeRef}
+        />
+      )}
 
-      <Nav
-        pathname={location.pathname}
-        builderButton={builderButton}
-        showBuilder={showBuilder}
-        toggleBuilder={toggleBuilder}
-      />
+      <Nav />
 
       <Header homeRef={HomeRef} />
 

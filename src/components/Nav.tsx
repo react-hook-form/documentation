@@ -124,7 +124,7 @@ const IconWrapper = styled.div`
   }
 `
 
-export default function Nav({ builderButton }: any) {
+export default function Nav() {
   return (
     <>
       <GithubIcon>
@@ -287,7 +287,6 @@ export default function Nav({ builderButton }: any) {
               action: "Click - Go to build form",
             })
           }}
-          ref={builderButton}
           to="/form-builder"
         >
           <IconWrapper>
