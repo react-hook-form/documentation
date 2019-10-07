@@ -24,7 +24,8 @@ import { CopyButton, InstallCode } from "./GetStarted"
 import schemaValidation from "./codeExamples/schemaValidation"
 import connectForm from "./codeExamples/connectForm"
 import { Link as PageLink } from "gatsby"
-import formContextPerformance from "./codeExamples/formContextPerformance";
+import formContextPerformance from "./codeExamples/formContextPerformance"
+import StarRepo from "./StarRepo"
 
 const { useRef } = React
 
@@ -355,14 +356,16 @@ function Advanced() {
             </a>{" "}
             API, it solve the problem where pass data through the component tree
             without having to pass props down manually at every level. This also
-            causing the component tree to trigger re-render when React Hook
-            Form trigger a state update, but we still can optimise our App if
+            causing the component tree to trigger re-render when React Hook Form
+            trigger a state update, but we still can optimise our App if
             requires and example blow.
           </p>
 
-          <CodeArea
-            rawData={formContextPerformance}
-          />
+          <CodeArea rawData={formContextPerformance} />
+
+          <hr />
+
+          <StarRepo />
 
           <Footer />
         </main>

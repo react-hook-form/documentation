@@ -5,8 +5,7 @@ import {
   SubHeading,
   HeadingWithTopMargin,
   H5,
-  H1,
-  Note,
+  Note, H1,
 } from "../styles/typography"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
@@ -23,8 +22,6 @@ import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
 import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
-import { PrimaryButton } from "../styles/buttons"
-import { navigate } from "@reach/router"
 import getValues from "./codeExamples/getValues"
 import typeScript from "./codeExamples/typeScript"
 import trigger from "./codeExamples/trigger"
@@ -35,6 +32,9 @@ import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
+import StarRepo from "./StarRepo"
+import {PrimaryButton} from "../styles/buttons";
+import {navigate} from "@reach/router";
 
 const { useRef, useEffect } = React
 
@@ -942,10 +942,9 @@ function ApiPage({ formData }: { formData?: any }) {
               textAlign: "center",
             }}
           >
-            <H1>Need your support</H1>
+            <H1>Advance Usage</H1>
             <p>
-              If you find React Hook Form is useful, please star the repo to
-              support 🙏🏻
+              Learn how to build complex and accessible forms with React Hook Form.
             </p>
             <PrimaryButton
               onClick={() => {
@@ -954,11 +953,11 @@ function ApiPage({ formData }: { formData?: any }) {
                   label: "Star",
                   action: "Click - Go to Github star",
                 })
-                navigate("https://github.com/bluebill1049/react-hook-form")
+                navigate("/advanced-usage")
               }}
               style={{ margin: "40px auto" }}
             >
-              Star React Hook Form
+              Learn Advance Usage
             </PrimaryButton>
           </section>
           <Footer />

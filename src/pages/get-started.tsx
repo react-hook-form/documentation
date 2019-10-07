@@ -1,9 +1,8 @@
 import * as React from "react"
-import { Link, navigate } from "@reach/router"
+import { Link } from "@reach/router"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import {
-  H1,
   HeadingWithTopMargin,
   Note,
   SubHeading,
@@ -14,7 +13,6 @@ import SideMenu from "../components/SideMenu"
 import track from "../components/utils/track"
 import CodeArea from "../components/CodeArea"
 import colors from "../styles/colors"
-import { PrimaryButton } from "../styles/buttons"
 import { Container, Wrapper } from "../styles/containers"
 import {
   registerCode,
@@ -24,8 +22,9 @@ import {
   errors,
   applyValidation,
 } from "../components/codeExamples/getStarted"
-import Footer from "../components/Footer"
 import code from "../components/codeExamples/defaultExample"
+import LearnMore from "../components/learnMore"
+import Footer from "../components/Footer"
 
 const { useRef } = React
 
@@ -286,32 +285,9 @@ const Faq = ({
 
             <CodeArea rawData={errors} />
 
-            <section
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <H1>Want to learn more?</H1>
-              <p>
-                Checkout the React Hook Form documentation and learn all the
-                API.
-              </p>
-              <PrimaryButton
-                onClick={() => {
-                  track({
-                    category: "Button",
-                    label: "Checkout hook API (Get started)",
-                    action: "Click - Go to API",
-                  })
-                  navigate("/api")
-                }}
-                style={{ margin: "40px auto" }}
-              >
-                Checkout Hook API
-              </PrimaryButton>
+            <LearnMore />
 
-              <Footer />
-            </section>
+            <Footer />
           </main>
         </Wrapper>
       </Container>

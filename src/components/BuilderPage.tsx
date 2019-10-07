@@ -19,6 +19,7 @@ import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
 import { PinkButton, DarkButton } from "../styles/buttons"
 import Popup from "./Popup"
+import LearnMore from "./learnMore";
 
 const { useState, useRef, useEffect } = React
 
@@ -515,6 +516,8 @@ function BuilderPage({
           <CodeArea data={formData} />
         </div>
       </Wrapper>
+
+      <LearnMore/>
 
       <Footer />
     </Container>

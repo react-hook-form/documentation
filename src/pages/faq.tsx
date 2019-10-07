@@ -6,6 +6,7 @@ import {
   SubHeading,
   Note,
   QuestionTitle,
+  H1,
 } from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
@@ -18,6 +19,9 @@ import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
 import { CopyButton, InstallCode } from "../components/GetStarted"
+import { PrimaryButton } from "../styles/buttons"
+import { navigate } from "@reach/router"
+import StarRepo from "../components/StarRepo";
 
 const { useRef } = React
 
@@ -296,7 +300,9 @@ const Faq = ({
               </CopyButton>
             </InstallCode>
 
-            <hr />
+            <hr/>
+
+            <StarRepo/>
 
             <Footer />
           </main>
