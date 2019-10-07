@@ -84,7 +84,7 @@ export const CopyIcon = styled.span`
   }
 `
 
-const CodeSandBoxLink = ({ url }: { url: string }) => (
+export const CodeSandBoxLink = ({ url, style }: { url: string, style?: any }) => (
   <LinkToSandBox
     onClick={() => {
       track({
@@ -93,6 +93,7 @@ const CodeSandBoxLink = ({ url }: { url: string }) => (
         action: `Click - Go to codeSandBox ${url}`,
       })
     }}
+    style={style}
     href={url}
     target="_blank"
     rel="noopener noreferrer"

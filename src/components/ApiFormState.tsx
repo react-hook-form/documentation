@@ -1,5 +1,5 @@
 import * as React from "react"
-import { LinkToSandBox } from "./CodeArea"
+import {CodeSandBoxLink, LinkToSandBox} from "./CodeArea"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
 export default React.memo(() => {
@@ -81,17 +81,13 @@ export default React.memo(() => {
             </tr>
             <tr>
               <td>
-                <LinkToSandBox
+                <CodeSandBoxLink
                   style={{
                     position: "relative",
                     left: 0,
                   }}
-                  href="https://codesandbox.io/s/7o2wrp86k6"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  CodeSandbox
-                </LinkToSandBox>
+                  url="https://codesandbox.io/s/7o2wrp86k6"
+                />
               </td>
             </tr>
           </tbody>

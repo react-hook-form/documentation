@@ -12,7 +12,7 @@ import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
 import Link from "../styles/link"
 import code from "./codeExamples/defaultExample"
-import CodeArea, { LinkToSandBox } from "./CodeArea"
+import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
 import resetCode from "./codeExamples/resetCode"
@@ -175,6 +175,14 @@ const links = [
   "React Native",
   "Typescript",
 ]
+
+const codeSandBoxStyle = {
+  position: "relative",
+  left: 0,
+  marginBottom: 20,
+  marginTop: 10,
+  float: "right",
+}
 
 function ApiPage({ formData }: { formData?: any }) {
   const copyFormData = useRef([])
@@ -470,20 +478,10 @@ function ApiPage({ formData }: { formData?: any }) {
                     </p>
                   </td>
                   <td>
-                    <LinkToSandBox
-                      style={{
-                        position: "relative",
-                        left: 0,
-                        marginBottom: 20,
-                        marginTop: 10,
-                        float: "right",
-                      }}
-                      href="https://codesandbox.io/s/928po918qr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      CodeSandbox
-                    </LinkToSandBox>
+                    <CodeSandBoxLink
+                      style={codeSandBoxStyle}
+                      url="https://codesandbox.io/s/928po918qr"
+                    />
                   </td>
                 </tr>
                 <tr>
@@ -502,20 +500,10 @@ function ApiPage({ formData }: { formData?: any }) {
                     </p>
                   </td>
                   <td>
-                    <LinkToSandBox
-                      style={{
-                        position: "relative",
-                        left: 0,
-                        marginTop: 10,
-                        marginBottom: 20,
-                        float: "right",
-                      }}
-                      href="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      CodeSandbox
-                    </LinkToSandBox>
+                    <CodeSandBoxLink
+                      style={codeSandBoxStyle}
+                      url="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
+                    />
                   </td>
                 </tr>
                 <tr>
@@ -571,20 +559,10 @@ function ApiPage({ formData }: { formData?: any }) {
                     </p>
                   </td>
                   <td>
-                    <LinkToSandBox
-                      style={{
-                        position: "relative",
-                        left: 0,
-                        marginTop: 10,
-                        marginBottom: 20,
-                        float: "right",
-                      }}
-                      href="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      CodeSandbox
-                    </LinkToSandBox>
+                    <CodeSandBoxLink
+                      style={codeSandBoxStyle}
+                      url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
+                    />˚
                   </td>
                 </tr>
               </tbody>
