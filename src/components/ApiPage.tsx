@@ -562,7 +562,7 @@ function ApiPage({ formData }: { formData?: any }) {
                     <CodeSandBoxLink
                       style={codeSandBoxStyle}
                       url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-                    />˚
+                    />
                   </td>
                 </tr>
               </tbody>
