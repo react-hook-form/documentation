@@ -12,19 +12,36 @@ import colors from "../styles/colors"
 const GridView = styled.section`
   display: flex;
   flex-direction: column;
-  
+
   & > div:first-child {
     order: 1;
   }
-  
+
   @media (min-width: 1100px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 40px;
-    
+
     & > div:first-child {
       order: 0;
     }
+  }
+`
+
+const FullScreen = styled.button`
+  background: none;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  font-size: 12px;
+  border-top: none;
+  border-right: none;
+  border-color: ${colors.secondary};
+  border-bottom-left-radius: 4px;
+
+  &:hover {
+    background: ${colors.lightPink};
   }
 `
 
@@ -39,6 +56,7 @@ export default function CodeCompareSection({
 }: {
   isPlayCodeCompare: boolean
 }) {
+  const [showFullScreen, setFullScreen] = React.useState(false)
   return (
     <AnimateGroup play={isPlayCodeCompare}>
       <Section>
@@ -60,13 +78,16 @@ export default function CodeCompareSection({
             marginTop: 20,
           }}
         >
-          <Animate {...props} sequenceIndex={0}>
+          {!showFullScreen && <Animate {...props} sequenceIndex={0}>
             <Title>Formik</Title>
             <CodeArea rawData={formikCode} withOutCopy />
-          </Animate>
+          </Animate>}
 
           <Animate {...props} sequenceIndex={1}>
             <Title>React Hook Form</Title>
+            <FullScreen onClick={() => setFullScreen(!showFullScreen)}>
+              {showFullScreen ? 'Show Comparison' : 'Full Screen'}
+            </FullScreen>
             <CodeArea
               style={{
                 border: `1px solid ${colors.secondary}`,
@@ -76,10 +97,10 @@ export default function CodeCompareSection({
             />
           </Animate>
 
-          <Animate {...props} sequenceIndex={2}>
+          {!showFullScreen && <Animate {...props} sequenceIndex={2}>
             <Title>Redux Form</Title>
             <CodeArea rawData={reduxFormCode} withOutCopy />
-          </Animate>
+          </Animate>}
         </GridView>
       </Section>
     </AnimateGroup>
