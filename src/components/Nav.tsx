@@ -316,6 +316,7 @@ export default function Nav() {
           href="https://github.com/react-hook-form/react-hook-form/releases"
           target="_blank"
           className="desktopOnly"
+          rel="noreferrer noopener"
         >
           Releases
         </a>

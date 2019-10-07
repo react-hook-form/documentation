@@ -18,12 +18,24 @@ export const InstallCode = styled.span`
 export const CopyButton = styled.button`
   display: none;
   background: ${colors.lightBlue};
-  border: none;
   color: white;
   border-radius: 4px;
   font-size: 13px;
   float: right;
   text-transform: uppercase;
+  border: 1px solid transparent;
+  margin-top: -2px;
+  cursor: pointer;
+  
+  &:hover {
+    background: none;
+    border: 1px solid ${colors.secondary};
+    color: white;
+    
+    & span {
+      background: ${colors.primary};
+    }
+  }
 
   @media ${breakpoints.fromMediumScreen} {
     display: inline-block;

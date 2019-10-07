@@ -26,7 +26,7 @@ const commonStyle = `
   align-items: center;
 
   &:hover {
-    opacity: 0.8;
+    background: ${colors.secondary};
     color: white;
   }
 
@@ -38,6 +38,17 @@ const commonStyle = `
 const CopyButton = styled.button`
   ${commonStyle};
   background: ${colors.lightBlue};
+  border: 1px solid transparent;
+  
+  &:hover {
+    background: none;
+    border: 1px solid ${colors.secondary};
+    color: white;
+    
+    & span {
+      background: ${colors.primary};
+    }
+  }
 `
 
 export const LinkToSandBox = styled.a`
