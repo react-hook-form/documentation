@@ -46,6 +46,7 @@ const Faq = ({
   location: {
     search: string
     pathname: string
+    hash: string
   }
 }) => {
   const sectionsRef = useRef({

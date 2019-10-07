@@ -258,8 +258,8 @@ function BuilderPage({
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            You can re-arrange by drag and drop, delete and edit each field in this
-            section.
+            You can re-arrange by drag and drop, delete and edit each field in
+            this section.
           </p>
 
           <SortableContainer
@@ -452,15 +452,17 @@ function BuilderPage({
             {editIndex >= 0 ? "Update" : "Create"}
           </PinkButton>
 
-          <Title
-            style={{
-              fontSize: 14,
-              maxWidth: "80%",
-              margin: "0 auto 0",
-            }}
-          >
-            or
-          </Title>
+          {formData.length > 0 && (
+            <Title
+              style={{
+                fontSize: 14,
+                maxWidth: "80%",
+                margin: "0 auto 0",
+              }}
+            >
+              or
+            </Title>
+          )}
 
           <Animate
             play={(formData || []).length > 0}
