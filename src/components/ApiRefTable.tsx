@@ -32,7 +32,7 @@ const Option = styled.fieldset`
   }
 `
 
-export default function ApiRefTable() {
+export default function ApiRefTable({ goToSection }) {
   const [isStandard, toggleOption] = useState(true)
   return (
     <>
@@ -155,6 +155,13 @@ export default function ApiRefTable() {
         >
           react-select
         </a>
+        .
+      </p>
+
+      <p>
+        By using custom register, you will need to update the input value with{" "}
+        <code onClick={() => goToSection("setValue")}>setValue</code>, because
+        input is no longer registered with its ref.
       </p>
 
       <p>
@@ -162,7 +169,7 @@ export default function ApiRefTable() {
       </p>
 
       <p>
-        If you want custom register input to trigger re-render during value
+        <Note>Note: </Note>If you want custom register input to trigger re-render during value
         update, then you should give a type to your registered input.
       </p>
 

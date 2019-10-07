@@ -584,7 +584,7 @@ function ApiPage({ formData }: { formData?: any }) {
             </h2>
           </CodeHeading>
 
-          <ApiRefTable />
+          <ApiRefTable goToSection={goToSection} />
 
           <hr />
 
