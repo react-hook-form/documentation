@@ -114,8 +114,6 @@ function Home({
         />
       )}
 
-      <Nav />
-
       <Header homeRef={HomeRef} />
 
       <FeaturesList isPlayFeature={isPlayFeature} />

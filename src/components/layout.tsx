@@ -50,9 +50,7 @@ const Layout = (props: {
       <a className="skip-main" href="#main">
         Skip to content
       </a>
-      {props.location && props.location.pathname !== "/" && (
-        <Nav pathname={props.location.pathname} />
-      )}
+      <Nav />
       {props.children}
       <Animate play={show} start={{ opacity: 0 }} end={{ opacity: 1 }}>
         <ScrollTop
