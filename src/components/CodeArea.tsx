@@ -61,7 +61,7 @@ const Wrapper = styled.div`
   }
 `
 
-const CopyIcon = styled.span`
+export const CopyIcon = styled.span`
   border: 1px solid #fff;
   border-radius: 2px;
   width: 14px;

@@ -23,6 +23,8 @@ import copyClipBoard from "./utils/copyClipBoard"
 import { CopyButton, InstallCode } from "./GetStarted"
 import schemaValidation from "./codeExamples/schemaValidation"
 import connectForm from "./codeExamples/connectForm"
+import { Link as PageLink } from "gatsby"
+import formContextPerformance from "./codeExamples/formContextPerformance";
 
 const { useRef } = React
 
@@ -33,6 +35,7 @@ const links = [
   "Field Arrays",
   "Schema Validation",
   "Connect Form",
+  "FormContext Performance",
 ]
 
 function Advanced() {
@@ -43,6 +46,7 @@ function Advanced() {
     FieldArrays: null,
     SchemaValidation: null,
     ConnectForm: null,
+    FormContextPerformance: null,
   })
 
   const goToSection = name => {
@@ -66,6 +70,11 @@ function Advanced() {
       pageContentRef.current[filterName].scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  React.useEffect(() => {
+    if (location.hash)
+      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  }, [])
 
   return (
     <Container>
@@ -324,6 +333,36 @@ function Advanced() {
           </p>
 
           <CodeArea rawData={connectForm} />
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.FormContextPerformance = ref)}
+          >
+            FormContext Performance
+          </QuestionTitle>
+
+          <p>
+            React Hook Form's{" "}
+            <PageLink to="/api/#FormContext">FormContext</PageLink> is build
+            upon{" "}
+            <a
+              href="https://reactjs.org/docs/context.html"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React's Context
+            </a>{" "}
+            API, it solve the problem where pass data through the component tree
+            without having to pass props down manually at every level. This also
+            causing the component tree to trigger re-render when React Hook
+            Form trigger a state update, but we still can optimise our App if
+            requires and example blow.
+          </p>
+
+          <CodeArea
+            rawData={formContextPerformance}
+          />
 
           <Footer />
         </main>

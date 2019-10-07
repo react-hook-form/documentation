@@ -9,13 +9,15 @@ import {
 } from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
-import CodeArea from "../components/CodeArea"
+import CodeArea, { CopyIcon } from "../components/CodeArea"
 import track from "../components/utils/track"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
 import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
+import copyClipBoard from "../components/utils/copyClipBoard"
+import { CopyButton, InstallCode } from "../components/GetStarted"
 
 const { useRef } = React
 
@@ -279,9 +281,20 @@ const Faq = ({
               .
             </p>
 
-            <p>
-              <code>npm i mutationobserver-shim</code>
-            </p>
+            <InstallCode>
+              npm i mutationobserver-shim
+              <CopyButton
+                onClick={() => {
+                  copyClipBoard("npm i mutationobserver-shim")
+                  alert("Code copied into your clipboard.")
+                }}
+              >
+                <CopyIcon>
+                  <span />
+                </CopyIcon>{" "}
+                Copy
+              </CopyButton>
+            </InstallCode>
 
             <hr />
 

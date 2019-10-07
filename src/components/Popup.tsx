@@ -19,7 +19,7 @@ const Icon = styled.span`
   ${iconStyle};
   border: 1px solid white;
   margin-left: 0;
-  margin-right: 10px;
+  margin-right: 5px;
 `;
 
 const Root = styled.span`

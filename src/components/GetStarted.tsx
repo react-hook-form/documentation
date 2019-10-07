@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import copyClipBoard from "./utils/copyClipBoard"
-import CodeArea from "./CodeArea"
+import CodeArea, { CopyIcon } from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import colors from "../styles/colors"
 import * as React from "react"
@@ -52,6 +52,9 @@ export default function GetStarted({ quickStartRef }: any) {
             alert("Code copied into your clipboard.")
           }}
         >
+          <CopyIcon>
+            <span />
+          </CopyIcon>{" "}
           Copy
         </CopyButton>
       </InstallCode>

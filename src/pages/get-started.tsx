@@ -65,12 +65,28 @@ const Faq = ({
       label: name,
       action: `Click - Go to section ${name}`,
     })
+
+    const url = window.location.href
+    const hashIndex = url.indexOf("#")
+    const filterName = name.replace(/ /g, "")
+
+    if (hashIndex < 0) {
+      history.pushState({}, null, `${url}#${filterName}`)
+    } else {
+      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+    }
+
     const refName = name.replace(/ /g, "").toLowerCase()
     console.log(refName)
     if (sectionsRef.current[refName]) {
       sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  React.useEffect(() => {
+    if (location.hash)
+      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  }, [])
 
   return (
     <Layout location={location}>
