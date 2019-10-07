@@ -14,9 +14,10 @@ const Menu = styled.aside`
 
     & > div {
       position: fixed;
+      margin-top: -10px;
 
       @media ${breakpoints.fromLargeScreen} {
-        margin-top: -40px;
+        margin-top: -65px;
       }
 
       & > ul {
@@ -25,7 +26,7 @@ const Menu = styled.aside`
         max-width: 200px;
         padding: 0 40px 0 0;
         overflow-y: auto;
-        height: calc(100vh - 246px);
+        height: calc(100vh - 236px);
         overflow-y: auto;
 
         @media ${breakpoints.fromLargeScreen} {
@@ -119,7 +120,7 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
           </Title>
         </TitleList>
 
-        <ul>
+        <ul className="scrollArea">
           {links.map((link, index) => {
             if (
               ["formcontext", "typescript", "react native"].includes(
