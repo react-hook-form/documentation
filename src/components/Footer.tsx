@@ -2,7 +2,7 @@ import track from "./utils/track"
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
-import {Link} from "gatsby";
+import { Link } from "gatsby"
 
 const Footer = styled.footer`
   padding: 40px 0;
@@ -133,7 +133,15 @@ export default () => (
       </a>
     </p>
     <p style={{ fontSize: 12 }}>
-      [ Please support us by leaving a ★ @github️ ]
+      [ Please support us by leaving a ★{" "}
+      <a
+        href="https://github.com/react-hook-form/react-hook-form"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        @github
+      </a>
+      ️ ]
     </p>
   </Footer>
 )
