@@ -47,7 +47,7 @@ export default function ApiRefTable({ goToSection }) {
       <p>
         <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
         <b>unique</b>. Input name also support dot and bracket syntax, which
-        allow you to easily create nested or array fields. Example table is
+        allow you to easily create nested or fields. Example table is
         below:
       </p>
 
@@ -106,16 +106,9 @@ export default function ApiRefTable({ goToSection }) {
         name as <code>name[index]</code>.{" "}
         <Link
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
-          title="example for array fields"
-          onClick={() => {
-            track({
-              category: "Link",
-              label: "check out array field example",
-              action: "Click - Go to array field example",
-            })
-          }}
+          title="example for Field Array"
         >
-          Check out the array fields example
+          Check out the Field Array example
         </Link>
         .
       </p>
