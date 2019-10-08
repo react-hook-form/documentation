@@ -105,7 +105,7 @@ export default function ApiRefTable({ goToSection }) {
         If you working on <code>arrays/array fields</code>, you can assign input
         name as <code>name[index]</code>.{" "}
         <Link
-          href="https://github.com/bluebill1049/react-hook-form/blob/master/examples/arrayFields.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="example for array fields"
           onClick={() => {
             track({
