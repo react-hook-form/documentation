@@ -32,7 +32,6 @@ import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
-import StarRepo from "./StarRepo"
 import {PrimaryButton} from "../styles/buttons";
 import {navigate} from "@reach/router";
 

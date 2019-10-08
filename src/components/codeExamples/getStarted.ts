@@ -52,28 +52,35 @@ export default function App() {
   )
 }`
 
-export const uiLibrary = `import React from 'react'
-import useForm from 'react-hook-form'
-import Select from "react-select"
-import Input from "@material-ui/core/Input"
+export const uiLibrary = `import React from 'react';
+import useForm from 'react-hook-form';
+import Select from "react-select";
+import Input from "@material-ui/core/Input";
+import { Input as InputField } from 'antd';
 
 export default function App() {
   const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = data => console.log(data)
-  const [values, setReactSelectValue] = useState({ selectedOption: [] })
+  const onSubmit = data => console.log(data);
+  const [values, setReactSelectValue] = useState({ selectedOption: [] });
 
   const handleMultiChange = selectedOption => {
-    setValue("reactSelect", selectedOption)
-    setReactSelectValue({ selectedOption })
+    setValue("reactSelect", selectedOption);
+    setReactSelectValue({ selectedOption });
+  }
+  
+  const handleChange = () => {
+    register({ name: "AntdInput" });
   }
   
   React.useEffect(() => {
-    register({ name: "reactSelect" })
+    register({ name: "reactSelect" }); // custom register react-select 
+    register({ name: "AntdInput" }); // custom register antd input
   }, [register])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="HelloWorld" inputRef={register} />
+      <InputField name="AntdInput" onChange={handleChange} />
       <Select
         value={values.selectedOption}
         options={options}
@@ -82,7 +89,7 @@ export default function App() {
       />
       <input type="submit" />
     </form>
-  )
+  );
 }
 `
 
