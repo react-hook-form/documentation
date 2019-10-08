@@ -68,8 +68,8 @@ export default function App() {
     setReactSelectValue({ selectedOption });
   }
   
-  const handleChange = () => {
-    register({ name: "AntdInput" });
+  const handleChange = (e) => {
+    register({ name: "AntdInput" }, e.target.value);
   }
   
   React.useEffect(() => {
