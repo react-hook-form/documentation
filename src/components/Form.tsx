@@ -78,7 +78,7 @@ export default function Form({
         {formUpdated && (
           <Animate
             play={formUpdated}
-            start={{ opacity: 0, transform: 'translateY(20px)' }}
+            start={{ opacity: 0, transform: "translateY(20px)" }}
             end={{ opacity: 1 }}
             delay={1.5}
             render={({ style }) => (
@@ -140,9 +140,24 @@ export default function Form({
         </DemoForm>
 
         <section>
+          <Title>Watch</Title>
+          {!Object.keys(watch()).length && (
+            <p>ⓘ Change input value to see watched values.</p>
+          )}
+          <Animate
+            duration={0.8}
+            play={Object.keys(watch() || {}).length > 0}
+            start={{ opacity: 0 }}
+            end={{ opacity: 1 }}
+          >
+            <Code>{JSON.stringify(watch(), null, 2)}</Code>
+          </Animate>
+        </section>
+
+        <section>
           <Title>Errors</Title>
           {!Object.keys(errors).length && (
-            <p>ⓘ Press submit to trigger validation error.</p>
+            <p>ⓘ Validation errors will appear here.</p>
           )}
           <Animate
             duration={0.8}
@@ -169,23 +184,8 @@ export default function Form({
         </section>
 
         <section>
-          <Title>Watch</Title>
-          {!Object.keys(watch() || {}).length && (
-            <p>ⓘ Change input value to see watched values.</p>
-          )}
-          <Animate
-            duration={0.8}
-            play={Object.keys(watch() || {}).length > 0}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-          >
-            <Code>{JSON.stringify(watch(), null, 2)}</Code>
-          </Animate>
-        </section>
-
-        <section>
           <Title>Touched</Title>
-          {!Object.keys(touched).length && (
+          {!touched.length && (
             <p>ⓘ Touched fields will display here.</p>
           )}
           <Animate
@@ -198,24 +198,23 @@ export default function Form({
           </Animate>
         </section>
 
-        <section>
-          <Title>Submit</Title>
-          {!Object.keys(submitData).length && (
-            <p>ⓘ Successful submit values will display here.</p>
-          )}
-          <Animate
-            duration={0.8}
-            play={!!Object.keys(submitData).length}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-          >
-            <Code>
-              {Object.keys(submitData).length
-                ? JSON.stringify(submitData, null, 2)
-                : ""}
-            </Code>
-          </Animate>
-        </section>
+        {!!Object.keys(submitData).length && (
+          <section>
+            <Title>Submit</Title>
+            <Animate
+              duration={0.8}
+              play={!!Object.keys(submitData).length}
+              start={{ opacity: 0 }}
+              end={{ opacity: 1 }}
+            >
+              <Code>
+                {Object.keys(submitData).length
+                  ? JSON.stringify(submitData, null, 2)
+                  : ""}
+              </Code>
+            </Animate>
+          </section>
+        )}
       </Wrapper>
     </>
   )

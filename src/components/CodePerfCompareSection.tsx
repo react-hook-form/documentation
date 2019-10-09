@@ -164,7 +164,7 @@ export default function CodePerfCompareSection({
           sequenceIndex={0}
           render={({ style }) => (
             <section style={style}>
-              <video controls autoPlay playsinline muted loop>
+              <video controls autoPlay playsInline muted loop>
                 <source src={formikVideo} type="video/mp4" />
               </video>
               <p>
@@ -179,7 +179,7 @@ export default function CodePerfCompareSection({
           sequenceIndex={1}
           render={({ style }) => (
             <section style={style}>
-              <video controls autoPlay playsinline muted loop>
+              <video controls autoPlay playsInline muted loop>
                 <source src={reactHookFormVideo} type="video/mp4" />
               </video>
               <p>
@@ -194,7 +194,7 @@ export default function CodePerfCompareSection({
           sequenceIndex={2}
           render={({ style }) => (
             <section style={style}>
-              <video controls autoPlay playsinline muted loop>
+              <video controls autoPlay playsInline muted loop>
                 <source src={reduxFormVideo} type="video/mp4" />
               </video>
               <p>

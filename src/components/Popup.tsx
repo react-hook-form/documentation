@@ -27,6 +27,7 @@ const Root = styled.span`
   position: relative;
 
   & > button {
+    cursor: pointer;
     ${iconStyle}
   }
 
