@@ -180,7 +180,7 @@ export default function Header({
   return (
     <>
       <Head id="main">
-        <Logo style={style} viewBox="0 0 100 100">
+        <Logo viewBox="0 0 100 100">
           {LogoSvg}
         </Logo>
 
