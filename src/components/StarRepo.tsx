@@ -22,7 +22,7 @@ export default function StarRepo() {
             label: "Star",
             action: "Click - Go to Github star",
           })
-          window.open("https://github.com/bluebill1049/react-hook-form")
+          window.open("https://github.com/react-hook-form/react-hook-form")
         }}
         style={{ margin: "40px auto" }}
       >
