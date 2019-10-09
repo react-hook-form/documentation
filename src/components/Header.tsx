@@ -180,16 +180,9 @@ export default function Header({
   return (
     <>
       <Head id="main">
-        <Animate
-          play
-          start={{ opacity: "0" }}
-          end={{}}
-          render={({ style }) => (
-            <Logo style={style} viewBox="0 0 100 100">
-              {LogoSvg}
-            </Logo>
-          )}
-        />
+        <Logo style={style} viewBox="0 0 100 100">
+          {LogoSvg}
+        </Logo>
 
         <Heading>
           <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React Hook
