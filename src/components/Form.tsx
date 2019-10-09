@@ -24,7 +24,8 @@ const Wrapper = styled.div`
   transition: 1s all;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-column-gap: 40px;
-  margin-top: 20px;
+  max-width: 1440px;
+  margin: 20px auto 0;
 `
 
 const DemoForm = styled.form`
