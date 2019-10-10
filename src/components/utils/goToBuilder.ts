@@ -1,4 +1,15 @@
-export default function goToBuilder() {
-  document.title = 'React hook form - Builder'
-  window.history.pushState({ page: 'React hook form - Form Builder' }, 'React hook form - Form Builder', '/form-builder')
+export default function goToBuilder(toggle: boolean = true) {
+  const title = " | React hook form - Simple React form validation"
+
+  if (toggle) {
+    document.title = `Form Builder${title}`
+    window.history.pushState(
+      { page: `Form Builder${title}` },
+      `Form Builder${title}`,
+      `/form-builder`
+    )
+  } else {
+    document.title = `Home${title}`
+    window.history.pushState({ page: `Home${title}` }, `Home${title}`, `/`)
+  }
 }

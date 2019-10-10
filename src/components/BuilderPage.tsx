@@ -19,7 +19,8 @@ import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
 import { PinkButton, DarkButton } from "../styles/buttons"
 import Popup from "./Popup"
-import LearnMore from "./learnMore";
+import LearnMore from "./learnMore"
+import goToBuilder from "./utils/goToBuilder"
 
 const { useState, useRef, useEffect } = React
 
@@ -136,7 +137,6 @@ const CloseButton = styled.button`
   z-index: 5;
   border-radius: 8px;
   color: white;
-  display: none;
   top: 20px;
   right: 30px;
   width: 50px;
@@ -171,13 +171,11 @@ function BuilderPage({
   showBuilder,
   toggleBuilder,
   HomeRef,
-  isMobile,
   isStatic,
 }: {
   showBuilder?: boolean
   toggleBuilder?: Function
   HomeRef?: any
-  isMobile: boolean
   isStatic?: boolean
 }) {
   const {
@@ -517,7 +515,7 @@ function BuilderPage({
         </div>
       </Wrapper>
 
-      <LearnMore/>
+      <LearnMore />
 
       <Footer />
     </Container>
@@ -529,7 +527,7 @@ function BuilderPage({
     <Animate
       play={showBuilder || isStatic}
       easeType="ease-in"
-      duration={isMobile ? 0.3 : 0.5}
+      duration={0.5}
       start={{
         transform: "translateY(100vh)",
       }}
@@ -552,6 +550,7 @@ function BuilderPage({
                 ref={closeButton}
                 onClick={() => {
                   toggleBuilder(false)
+                  goToBuilder(false)
                 }}
               >
                 &#10005;

@@ -36,7 +36,6 @@ function Home({
 }) {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
@@ -57,12 +56,6 @@ function Home({
         }
       }, 100)
     }
-
-    setIsMobile(
-      typeof window === "undefined"
-        ? false
-        : window.matchMedia("(max-width: 768px)").matches
-    )
 
     let options = {
       rootMargin: "0px 0px",
@@ -109,7 +102,6 @@ function Home({
         <Builder
           showBuilder
           toggleBuilder={toggleBuilder}
-          isMobile={isMobile}
           HomeRef={HomeRef}
         />
       )}
