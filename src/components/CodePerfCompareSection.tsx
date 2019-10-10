@@ -99,7 +99,7 @@ const VideoWrapper = styled.section`
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-column-gap: 40px;
     max-width: 1100px;
-    margin: 40px auto 0;
+    margin: 40px auto;
     overflow-y: hidden;
     text-align: center;
 
