@@ -58,7 +58,7 @@ export default React.memo(() => {
               <td>
                 <Type>React.RefObject</Type>
               </td>
-              <td>Reference fo your input element.</td>
+              <td>Reference for your input element.</td>
             </tr>
           </tbody>
         </Table>
