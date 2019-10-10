@@ -78,29 +78,44 @@ export default function CodeCompareSection({
             marginTop: 20,
           }}
         >
-          {!showFullScreen && <Animate {...props} sequenceIndex={0}>
-            <Title>Formik</Title>
-            <CodeArea rawData={formikCode} withOutCopy />
-          </Animate>}
+          {!showFullScreen && (
+            <Animate {...props} sequenceIndex={0}>
+              <Title>Formik</Title>
+              <CodeArea rawData={formikCode} withOutCopy />
+            </Animate>
+          )}
 
-          <Animate {...props} sequenceIndex={1}>
-            <Title>React Hook Form</Title>
-            <FullScreen onClick={() => setFullScreen(!showFullScreen)}>
-              {showFullScreen ? 'Show Comparison' : 'Full Screen'}
-            </FullScreen>
-            <CodeArea
-              style={{
-                border: `1px solid ${colors.secondary}`,
-              }}
-              rawData={reactHookFormCode}
-              withOutCopy
-            />
-          </Animate>
+          <Animate
+            {...props}
+            sequenceIndex={1}
+            render={({ style }) => (
+              <div
+                style={{
+                  ...style,
+                  ...(showFullScreen ? { margin: "0 auto", minWidth: 750 } : null),
+                }}
+              >
+                <Title>React Hook Form</Title>
+                <FullScreen onClick={() => setFullScreen(!showFullScreen)}>
+                  {showFullScreen ? "Show Comparison" : "Full Screen"}
+                </FullScreen>
+                <CodeArea
+                  style={{
+                    border: `1px solid ${colors.secondary}`,
+                  }}
+                  rawData={reactHookFormCode}
+                  withOutCopy
+                />
+              </div>
+            )}
+          />
 
-          {!showFullScreen && <Animate {...props} sequenceIndex={2}>
-            <Title>Redux Form</Title>
-            <CodeArea rawData={reduxFormCode} withOutCopy />
-          </Animate>}
+          {!showFullScreen && (
+            <Animate {...props} sequenceIndex={2}>
+              <Title>Redux Form</Title>
+              <CodeArea rawData={reduxFormCode} withOutCopy />
+            </Animate>
+          )}
         </GridView>
       </Section>
     </AnimateGroup>
