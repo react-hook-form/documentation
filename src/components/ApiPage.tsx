@@ -599,8 +599,8 @@ function ApiPage({ formData }: { formData?: any }) {
           </CodeHeading>
 
           <p>
-            This method will allow you to <code>unregister</code> a single or
-            array of inputs.
+            This method will allow you to <code>unregister</code> a single
+            input or an array of inputs.
           </p>
 
           <CodeArea
