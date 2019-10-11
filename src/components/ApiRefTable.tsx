@@ -47,7 +47,7 @@ export default function ApiRefTable({ goToSection }) {
       <p>
         <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
         <b>unique</b>. Input name also support dot and bracket syntax, which
-        allow you to easily create nested or fields. Example table is
+        allow you to easily create nested form fields. Example table is
         below:
       </p>
 
