@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
 import styled from "styled-components"
+import colors from "../styles/colors"
 
 const iconStyle = `
   border-radius: 50%;
@@ -29,6 +30,11 @@ const Root = styled.span`
   & > button {
     cursor: pointer;
     ${iconStyle}
+
+    &:hover {
+      background: ${colors.lightPink};
+      color: white;
+    }
   }
 
   & > span {
