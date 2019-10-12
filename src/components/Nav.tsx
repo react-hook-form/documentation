@@ -42,7 +42,7 @@ const ActionButtonGroup = styled.div`
   z-index: 5;
   left: 0;
   background: ${colors.blue};
-  box-shadow: 0 0 4px 0 #000;
+  box-shadow: 0 0 5px 0 #000;
   width: 100%;
   position: fixed;
   height: 43px;
@@ -55,13 +55,8 @@ const ActionButtonGroup = styled.div`
     border: none;
     max-width: 500px;
     margin: 0 auto;
-    padding: 13px 0;
     background: ${colors.buttonBlue};
-    box-shadow: 0 0 10px 0 #00000030;
     height: auto;
-  }
-
-  @media ${breakpoints.fromLargeScreen} {
     max-width: 600px;
     padding: 13px 10px;
   }
