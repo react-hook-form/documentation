@@ -21,7 +21,7 @@ import copyClipBoard from "../components/utils/copyClipBoard"
 import { CopyButton, InstallCode } from "../components/GetStarted"
 import { PrimaryButton } from "../styles/buttons"
 import { navigate } from "@reach/router"
-import StarRepo from "../components/StarRepo";
+import StarRepo from "../components/StarRepo"
 
 const { useRef } = React
 
@@ -300,9 +300,9 @@ const Faq = ({
               </CopyButton>
             </InstallCode>
 
-            <hr/>
+            <hr />
 
-            <StarRepo/>
+            <StarRepo />
 
             <Footer />
           </main>

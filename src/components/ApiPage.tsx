@@ -5,7 +5,8 @@ import {
   SubHeading,
   HeadingWithTopMargin,
   H5,
-  Note, H1,
+  Note,
+  H1,
 } from "../styles/typography"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
@@ -32,8 +33,8 @@ import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
-import {PrimaryButton} from "../styles/buttons";
-import {navigate} from "@reach/router";
+import { PrimaryButton } from "../styles/buttons"
+import { navigate } from "@reach/router"
 
 const { useRef, useEffect } = React
 
@@ -599,8 +600,8 @@ function ApiPage({ formData }: { formData?: any }) {
           </CodeHeading>
 
           <p>
-            This method will allow you to <code>unregister</code> a single
-            input or an array of inputs.
+            This method will allow you to <code>unregister</code> a single input
+            or an array of inputs.
           </p>
 
           <CodeArea
@@ -943,7 +944,8 @@ function ApiPage({ formData }: { formData?: any }) {
           >
             <H1>Advance Usage</H1>
             <p>
-              Learn how to build complex and accessible forms with React Hook Form.
+              Learn how to build complex and accessible forms with React Hook
+              Form.
             </p>
             <PrimaryButton
               onClick={() => {

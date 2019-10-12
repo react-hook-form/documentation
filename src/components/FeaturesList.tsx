@@ -6,7 +6,7 @@ import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 
 const FeaturesContent = styled.section`
   text-align: center;
-    
+
   & h3 {
     font-weight: 300;
     font-size: 20px;

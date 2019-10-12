@@ -39,12 +39,12 @@ const CopyButton = styled.button`
   ${commonStyle};
   background: ${colors.lightBlue};
   border: 1px solid transparent;
-  
+
   &:hover {
     background: none;
     border: 1px solid ${colors.secondary};
     color: white;
-    
+
     & span {
       background: ${colors.primary};
     }
@@ -95,7 +95,13 @@ export const CopyIcon = styled.span`
   }
 `
 
-export const CodeSandBoxLink = ({ url, style }: { url: string, style?: any }) => (
+export const CodeSandBoxLink = ({
+  url,
+  style,
+}: {
+  url: string
+  style?: any
+}) => (
   <LinkToSandBox
     onClick={() => {
       track({

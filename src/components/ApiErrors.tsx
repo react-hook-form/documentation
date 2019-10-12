@@ -13,7 +13,8 @@ export default React.memo(() => {
       </CodeHeading>
 
       <p>
-        Object contains form errors or error messages which belong to each input.
+        Object contains form errors or error messages which belong to each
+        input.
       </p>
 
       <TableWrapper>

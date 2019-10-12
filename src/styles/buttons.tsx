@@ -77,7 +77,7 @@ export const DarkButton = styled(PinkButton)`
     background: ${colors.primary};
     border: 1px solid ${colors.secondary};
   }
-  
+
   &:active {
     background: black;
   }

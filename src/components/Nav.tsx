@@ -206,9 +206,7 @@ export default function Nav() {
           data-size="large"
           data-show-count
           aria-label="Star bluebill1049/react-hook-form on GitHub"
-        >
-          Star
-        </GitHubButton>
+        />
       </GitHubButtonWrap>
 
       <ActionButtonGroup>

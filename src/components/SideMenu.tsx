@@ -30,7 +30,7 @@ const Menu = styled.aside`
         overflow-y: auto;
 
         @media ${breakpoints.fromLargeScreen} {
-          max-width: 250px; 
+          max-width: 250px;
           height: calc(100vh - 200px);
         }
 
@@ -68,7 +68,7 @@ const Menu = styled.aside`
 
 const TitleList = styled.div`
   width: 200px;
-  
+
   @media ${breakpoints.fromLargeScreen} {
     width: 250px;
     margin-bottom: 20px;

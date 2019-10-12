@@ -1,5 +1,5 @@
 import * as React from "react"
-import {CodeSandBoxLink, LinkToSandBox} from "./CodeArea"
+import { CodeSandBoxLink, LinkToSandBox } from "./CodeArea"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 
 export default React.memo(() => {

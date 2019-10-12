@@ -186,9 +186,7 @@ export default function Form({
 
         <section>
           <Title>Touched</Title>
-          {!touched.length && (
-            <p>ⓘ Touched fields will display here.</p>
-          )}
+          {!touched.length && <p>ⓘ Touched fields will display here.</p>}
           <Animate
             duration={0.8}
             play={!!touched.length}

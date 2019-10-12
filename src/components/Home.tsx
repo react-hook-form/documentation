@@ -1,7 +1,6 @@
 import * as React from "react"
 import { navigate } from "@reach/router"
 import styled from "styled-components"
-import Nav from "./Nav"
 import Form from "./Form"
 import Header from "./Header"
 import CodeCompareSection from "./CodeCompareSection"
@@ -99,11 +98,7 @@ function Home({
   return (
     <Root>
       {showBuilder && (
-        <Builder
-          showBuilder
-          toggleBuilder={toggleBuilder}
-          HomeRef={HomeRef}
-        />
+        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
       )}
 
       <Header homeRef={HomeRef} />

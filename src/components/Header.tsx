@@ -180,9 +180,7 @@ export default function Header({
   return (
     <>
       <Head id="main">
-        <Logo viewBox="0 0 100 100">
-          {LogoSvg}
-        </Logo>
+        <Logo viewBox="0 0 100 100">{LogoSvg}</Logo>
 
         <Heading>
           <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React Hook

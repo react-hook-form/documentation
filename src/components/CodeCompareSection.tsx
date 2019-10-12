@@ -8,7 +8,7 @@ import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
-import breakpoints from "../styles/breakpoints";
+import breakpoints from "../styles/breakpoints"
 
 const GridView = styled.section`
   display: flex;
@@ -45,7 +45,7 @@ const FullScreen = styled.button`
   &:hover {
     background: ${colors.lightPink};
   }
-  
+
   @media (min-width: 1000px) {
     display: block;
   }
@@ -98,7 +98,9 @@ export default function CodeCompareSection({
               <div
                 style={{
                   ...style,
-                  ...(showFullScreen ? { margin: "0 auto", maxWidth: 750 } : null),
+                  ...(showFullScreen
+                    ? { margin: "0 auto", maxWidth: 750 }
+                    : null),
                 }}
               >
                 <Title>React Hook Form</Title>

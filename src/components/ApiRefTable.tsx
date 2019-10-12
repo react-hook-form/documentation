@@ -47,8 +47,7 @@ export default function ApiRefTable({ goToSection }) {
       <p>
         <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
         <b>unique</b>. Input name also support dot and bracket syntax, which
-        allow you to easily create nested form fields. Example table is
-        below:
+        allow you to easily create nested form fields. Example table is below:
       </p>
 
       <TableWrapper>
@@ -162,8 +161,9 @@ export default function ApiRefTable({ goToSection }) {
       </p>
 
       <p>
-        <Note>Note: </Note>If you want custom register input to trigger re-render during value
-        update, then you should give a type to your registered input.
+        <Note>Note: </Note>If you want custom register input to trigger
+        re-render during value update, then you should give a type to your
+        registered input.
       </p>
 
       <p>

@@ -26,12 +26,12 @@ export const CopyButton = styled.button`
   border: 1px solid transparent;
   margin-top: -2px;
   cursor: pointer;
-  
+
   &:hover {
     background: none;
     border: 1px solid ${colors.secondary};
     color: white;
-    
+
     & span {
       background: ${colors.primary};
     }
