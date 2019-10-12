@@ -141,6 +141,8 @@ const CloseButton = styled.button`
   right: 30px;
   width: 50px;
   height: 50px;
+  display: flex;
+  justify-content: center;
   background: ${colors.primary};
   border: 1px solid white;
 
