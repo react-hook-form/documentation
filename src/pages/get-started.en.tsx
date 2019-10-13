@@ -91,7 +91,7 @@ const Faq = ({
   return (
     <Layout location={location}>
       <Container>
-        <Seo title="Get Started" />
+        <Seo title="Get Started" location={location} />
 
         <HeadingWithTopMargin id="main">Get Started</HeadingWithTopMargin>
         <SubHeading>Simple form validation with React Hook Form.</SubHeading>

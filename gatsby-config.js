@@ -6,6 +6,7 @@ module.exports = {
     description: `Performant, flexible and extensible forms with easy to use for validation.`,
     author: `@bluebill1049`,
     siteUrl: "https://www.react-hook-form.com",
+    languages,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

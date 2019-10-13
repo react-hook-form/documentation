@@ -19,8 +19,6 @@ import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
 import { CopyButton, InstallCode } from "../components/GetStarted"
-import { PrimaryButton } from "../styles/buttons"
-import { navigate } from "@reach/router"
 import StarRepo from "../components/StarRepo"
 
 const { useRef } = React
@@ -75,7 +73,7 @@ const FaqZh = ({
   return (
     <Layout location={location}>
       <Container>
-        <Seo title="FAQs" />
+        <Seo title="FAQs" location={location} />
 
         <HeadingWithTopMargin id="main">FAQs</HeadingWithTopMargin>
         <SubHeading>frequently asked question.</SubHeading>

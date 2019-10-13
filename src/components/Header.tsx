@@ -11,6 +11,9 @@ import breakpoints from "../styles/breakpoints"
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
+import home from "../data/home"
+import { useStateMachine } from "little-state-machine"
+import { updateCurrentLanguage } from "../actions/languageActions"
 
 const Logo = styled.svg`
   height: 80px;
@@ -176,6 +179,11 @@ export default function Header({
   homeRef: React.Ref<HTMLDivElement>
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
+  const {
+    state: {
+      language: { currentLanguage },
+    },
+  } = useStateMachine()
 
   return (
     <>
@@ -188,8 +196,7 @@ export default function Header({
         </Heading>
 
         <SubHeading style={{ marginBottom: 0 }}>
-          Performant, flexible and extensible forms with easy to use for
-          validation.
+          {home.slogan[currentLanguage]}
         </SubHeading>
 
         <ButtonsGroupSmall>
