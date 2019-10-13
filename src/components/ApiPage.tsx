@@ -326,6 +326,7 @@ function ApiPage({ formData }: { formData?: any }) {
             withOutCopy
             rawData={`const { register } = useForm({
   mode: 'onSubmit',
+  reValidateMode: 'onChange',
   defaultValues: {},
   validationFields: [],
   validationSchema: {},
@@ -461,7 +462,8 @@ function ApiPage({ formData }: { formData?: any }) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        validationSchema: <MobileType>Object</MobileType>
+                        validationSchema: <br />
+                        <MobileType>Object</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -488,7 +490,28 @@ function ApiPage({ formData }: { formData?: any }) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        validationFields: <MobileType>string[] = []</MobileType>
+                        reValidateMode: <br />
+                        <MobileType>
+                          onChange | onBlur | onSubmit = onChange
+                        </MobileType>
+                      </code>
+                    </H5>
+                  </td>
+                  <td>
+                    <p>
+                      This option allow you to config when input with errors
+                      gets re-validate, by default it's triggered during input
+                      change.
+                    </p>
+                  </td>
+                  <td />
+                </tr>
+                <tr>
+                  <td>
+                    <H5 style={{ marginTop: 20 }}>
+                      <code>
+                        validationFields: <br />
+                        <MobileType>string[] = []</MobileType>
                       </code>
                     </H5>
                   </td>
@@ -510,7 +533,7 @@ function ApiPage({ formData }: { formData?: any }) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        submitFocusError:{" "}
+                        submitFocusError: <br />
                         <MobileType>boolean = true</MobileType>
                       </code>
                     </H5>
@@ -533,7 +556,7 @@ function ApiPage({ formData }: { formData?: any }) {
                   <td>
                     <H5 style={{ marginTop: 20 }}>
                       <code>
-                        nativeValidation:{" "}
+                        nativeValidation: <br />
                         <MobileType>boolean = false</MobileType>
                       </code>
                     </H5>
