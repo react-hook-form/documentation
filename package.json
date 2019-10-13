@@ -11,6 +11,7 @@
     "gatsby-plugin-fullstory": "^2.1.10",
     "gatsby-plugin-google-analytics": "2.1.16",
     "gatsby-plugin-gtag": "1.0.11",
+    "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "2.2.16",
     "gatsby-plugin-react-helmet": "3.1.7",
     "gatsby-plugin-sharp": "2.2.23",
@@ -33,7 +34,7 @@
     "styled-components": "4.2.0"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "devDependencies": {
     "prettier": "1.17.1"

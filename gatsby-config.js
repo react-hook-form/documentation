@@ -1,3 +1,5 @@
+const languages = require('./src/data/languages');
+
 module.exports = {
   siteMetadata: {
     title: `React Hook Form - Simple React form validation`,
@@ -16,6 +18,15 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: true,
+        prefixDefault: false,
+      }
     },
     // {
     //   resolve: `gatsby-plugin-fullstory`,
