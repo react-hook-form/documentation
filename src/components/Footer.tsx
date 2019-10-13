@@ -67,7 +67,7 @@ export default () => (
       </li>
     </Links>
     <p>
-      Build with ❤ by{" "}
+      Design and Build by{" "}
       <a
         href="https://twitter.com/bluebill1049"
         onClick={() => {
