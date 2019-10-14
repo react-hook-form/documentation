@@ -370,7 +370,7 @@ table {
 
 @media (min-width: 1024px) {
   .desktopOnly {
-    display: block !important;
+    display: inline-block !important;
   }
 }
 

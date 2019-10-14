@@ -424,14 +424,14 @@ function ApiPage({ formData }: { formData?: any }) {
           </p>
 
           <p>
-            <Note>Note: </Note>Values defined in <code>defaultValues</code> will
+            <Note>Note:</Note> Values defined in <code>defaultValues</code> will
             be injected into{" "}
             <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
             as <code>defaultValue</code>.
           </p>
 
           <p>
-            <Note>Note: </Note> <code>defaultValues</code> doesn't auto populate
+            <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
             with manually registered input (eg:
             <code>{`register({ name: 'test' })`}</code>) because manual{" "}
             <code>register</code> field is not providing <code>ref</code> to

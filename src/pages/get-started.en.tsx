@@ -148,12 +148,12 @@ const Faq = ({
             </p>
 
             <p>
-              <Note>Note</Note>: Each field is <strong>required</strong> to have
+              <Note>Note:</Note> Each field is <strong>required</strong> to have
               a unique <code>name</code> as a key for the registration process.
             </p>
 
             <p>
-              <Note>React Native Note: </Note>you will need to use custom
+              <Note>Note: </Note>React Native will need to use custom
               register eg:{" "}
               <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
             </p>

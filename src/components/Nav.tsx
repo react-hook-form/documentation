@@ -3,8 +3,9 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import GitHubButton from "react-github-btn"
 import colors from "../styles/colors"
-import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
+import { useStateMachine } from "little-state-machine"
+import nav from "../data/nav";
 
 const GithubIcon = styled.span`
   position: absolute;
@@ -100,7 +101,7 @@ const GitHubButtonWrap = styled.span`
   z-index: 1;
 `
 
-const HideMobile = styled.span`
+export const HideMobile = styled.span`
   display: none;
 
   @media ${breakpoints.fromMediumScreen} {
@@ -120,17 +121,16 @@ const IconWrapper = styled.div`
 `
 
 export default function Nav() {
+  const {
+    state: {
+      language: { currentLanguage },
+    },
+  } = useStateMachine()
+
   return (
     <>
       <GithubIcon>
         <a
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Github Icon",
-              action: "Click - Go to Github",
-            })
-          }}
           href="https://github.com/bluebill1049/react-hook-form"
           target="_blank"
           rel="noopener noreferrer"
@@ -143,13 +143,6 @@ export default function Nav() {
       </GithubIcon>
       <MediumIcon>
         <a
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Medium Icon",
-              action: "Click - Go to Medium",
-            })
-          }}
           href="https://medium.com/@bruce1049/form-validation-with-hook-in-3kb-c5414edf7d64"
           target="_blank"
           rel="noopener noreferrer"
@@ -163,13 +156,6 @@ export default function Nav() {
 
       <SpecIcon>
         <a
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Spectrum Icon",
-              action: "Click - Go to Spectrum",
-            })
-          }}
           href="https://spectrum.chat/react-hook-form"
           target="_blank"
           rel="noopener noreferrer"
@@ -190,13 +176,6 @@ export default function Nav() {
 
       <GitHubButtonWrap>
         <GitHubButton
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Github Start",
-              action: "Click - Go to Github Star",
-            })
-          }}
           href="https://github.com/bluebill1049/react-hook-form"
           data-size="large"
           data-show-count
@@ -207,45 +186,24 @@ export default function Nav() {
       <ActionButtonGroup>
         <Link
           activeClassName="active"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Home",
-              action: "Click - Go to Home",
-            })
-          }}
           to="/"
         >
           <IconWrapper>
             <div className="flag icon" />
           </IconWrapper>
-          <span>Home</span>
+          <span>{nav[currentLanguage].home}</span>
         </Link>
         <Link
           activeClassName="active"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "get started",
-              action: "Click - Go to get started",
-            })
-          }}
           to="/get-started"
         >
           <IconWrapper>
             <div className="shutdown icon" />
           </IconWrapper>
-          <span>Get Started</span>
+          <span>{nav[currentLanguage].getStarted}</span>
         </Link>
         <Link
           activeClassName="active"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "API",
-              action: "Click - Go to Api",
-            })
-          }}
           to="/api"
         >
           <IconWrapper>
@@ -257,47 +215,26 @@ export default function Nav() {
         <Link
           activeClassName="active"
           to="/advanced-usage"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Advanced usage",
-              action: "Click - Go to Advanced usage",
-            })
-          }}
         >
           <IconWrapper>
             <div className="search icon" />
           </IconWrapper>
-          <span>Advanced</span>
+          <span>{nav[currentLanguage].advanced}</span>
         </Link>
 
         <Link
           activeClassName="active"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "Build Form",
-              action: "Click - Go to build form",
-            })
-          }}
           to="/form-builder"
         >
           <IconWrapper>
             <div className="edit icon" />
           </IconWrapper>
           <span>
-            <HideMobile>Form&nbsp;</HideMobile>Builder
+            {nav[currentLanguage].builder}
           </span>
         </Link>
         <Link
           activeClassName="active"
-          onClick={() => {
-            track({
-              category: "Button",
-              label: "FAQ",
-              action: "Click - go to FAQ",
-            })
-          }}
           to="/faq"
         >
           <IconWrapper>
@@ -311,7 +248,7 @@ export default function Nav() {
           className="desktopOnly"
           rel="noreferrer noopener"
         >
-          Releases
+          {nav[currentLanguage].releases}
         </a>
       </ActionButtonGroup>
     </>

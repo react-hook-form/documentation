@@ -9,6 +9,7 @@ import { DarkButton, PinkButton } from "../styles/buttons"
 import { CenterContent } from "../styles/containers"
 import goToBuilder from "./utils/goToBuilder"
 import useForm from "react-hook-form"
+import home from "../data/home"
 
 const Code = styled.pre`
   text-align: left;
@@ -52,11 +53,13 @@ export default function Form({
   submitData,
   toggleBuilder,
   formUpdated,
+  currentLanguage,
 }: {
   onSubmit: any
   submitData: any
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
+  currentLanguage: string
 }) {
   const {
     register,
@@ -75,7 +78,7 @@ export default function Form({
   return (
     <>
       <CenterContent>
-        <H1>Live Demo</H1>
+        <H1>{home.liveDemo[currentLanguage].title}</H1>
         {formUpdated && (
           <Animate
             play={formUpdated}
@@ -89,16 +92,11 @@ export default function Form({
             )}
           />
         )}
-        <p>
-          The following form demonstrates form validation in action. Each column
-          represents what has been captured in the custom hook. You can also
-          change fields in the form by clicking the <strong>EDIT</strong>{" "}
-          button.
-        </p>
+        <p>{home.liveDemo[currentLanguage].description}</p>
       </CenterContent>
       <Wrapper>
         <DemoForm onSubmit={handleSubmit(onSubmit)}>
-          <Title>Example</Title>
+          <Title>{home.liveDemo[currentLanguage].example}</Title>
 
           <FormFields {...{ formData, errors, register }} />
 
@@ -111,7 +109,7 @@ export default function Form({
               })
             }}
           >
-            Submit
+            {home.liveDemo[currentLanguage].submit}
           </PinkButton>
           <Title
             style={{
@@ -136,14 +134,14 @@ export default function Form({
               goToBuilder()
             }}
           >
-            Edit
+            {home.liveDemo[currentLanguage].edit}
           </DarkButton>
         </DemoForm>
 
         <section>
           <Title>Watch</Title>
           {!Object.keys(watch()).length && (
-            <p>ⓘ Change input value to see watched values.</p>
+            <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
           )}
           <Animate
             duration={0.8}
@@ -158,7 +156,7 @@ export default function Form({
         <section>
           <Title>Errors</Title>
           {!Object.keys(errors).length && (
-            <p>ⓘ Validation errors will appear here.</p>
+            <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
           )}
           <Animate
             duration={0.8}
@@ -186,7 +184,7 @@ export default function Form({
 
         <section>
           <Title>Touched</Title>
-          {!touched.length && <p>ⓘ Touched fields will display here.</p>}
+          {!touched.length && <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>}
           <Animate
             duration={0.8}
             play={!!touched.length}

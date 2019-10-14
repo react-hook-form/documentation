@@ -110,11 +110,11 @@ function Home({
 
       <Header homeRef={HomeRef} />
 
-      <FeaturesList isPlayFeature={isPlayFeature} />
+      <FeaturesList isPlayFeature={isPlayFeature} currentLanguage={currentLanguage} />
 
-      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
+      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} currentLanguage={currentLanguage} />
 
-      <CodePerfCompareSection isPlayRender={isPlayRender} />
+      <CodePerfCompareSection isPlayRender={isPlayRender} currentLanguage={currentLanguage} />
 
       <div ref={HomeRef} />
 
@@ -124,6 +124,7 @@ function Home({
           submitData,
           toggleBuilder,
           formUpdated,
+          currentLanguage
         }}
       />
 
@@ -140,7 +141,6 @@ function Home({
               navigate("/get-started")
             }}
           >
-            Get Started
             {home.getStarted[currentLanguage]}
           </PrimaryButton>
           <PrimaryButton

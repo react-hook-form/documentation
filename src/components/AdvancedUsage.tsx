@@ -151,7 +151,7 @@ function Advanced() {
           <p style={{ textAlign: "center" }}>♦</p>
 
           <p>
-            <Note>Step 1</Note>: set up your routes and store.
+            <Note>Step 1:</Note> set up your routes and store.
           </p>
           <CodeArea
             rawData={step1}
@@ -159,7 +159,7 @@ function Advanced() {
           />
 
           <p>
-            <Note>Step 2</Note>: create your pages and make them collecting
+            <Note>Step 2:</Note> create your pages and make them collecting
             data, submit to store and push to the next page of your form.
           </p>
           <CodeArea
@@ -168,7 +168,7 @@ function Advanced() {
           />
 
           <p>
-            <Note>Step 3</Note>: make your final submission with all your data
+            <Note>Step 3:</Note> make your final submission with all your data
             in store or display the result data.
           </p>
           <CodeArea
