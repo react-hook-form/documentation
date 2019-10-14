@@ -106,7 +106,7 @@ export default function FeaturesList({
             <h3>DX</h3>
             <p>
               Aimed to provide API so it provides a seamless experience to
-              developers when buidling forms.
+              developers when building forms.
             </p>
           </div>
 
