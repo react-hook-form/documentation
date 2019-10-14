@@ -13,7 +13,6 @@ import video from "../images/react-hook-form-demo-video.mp4"
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
-import { updateCurrentLanguage } from "../actions/languageActions"
 
 const Logo = styled.svg`
   height: 80px;
@@ -211,7 +210,7 @@ export default function Header({
               homeRef.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            Demo
+            {home.demo[currentLanguage]}
           </PrimaryButton>
           <PrimaryButton
             onClick={() => {
@@ -223,7 +222,7 @@ export default function Header({
               navigate("/get-started")
             }}
           >
-            Get Started &nbsp;<span>▶</span>
+            {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
           </PrimaryButton>
         </ButtonsGroupSmall>
       </Head>

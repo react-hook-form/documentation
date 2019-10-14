@@ -13,6 +13,8 @@ import track from "./utils/track"
 import { CenterContent } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
+import {useStateMachine} from "little-state-machine";
+import home from "../data/home";
 
 const { useState, useRef, useEffect } = React
 
@@ -40,6 +42,11 @@ function Home({
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
+  const {
+    state: {
+      language: { currentLanguage },
+    },
+  } = useStateMachine()
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -121,12 +128,8 @@ function Home({
       />
 
       <CenterContent>
-        <H1>Find it useful and interesting?</H1>
-        <p>
-          Form validation should be much simpler. React Hook Form will lead you
-          to write less code and have better performance. Check out the get
-          started section and learn more on the API documentation page.
-        </p>
+        <H1>{home.findInteresting[currentLanguage].heading}</H1>
+        <p>{home.findInteresting[currentLanguage].description}</p>
         <ButtonsGroup
           style={{
             maxWidth: 500,
@@ -134,23 +137,14 @@ function Home({
         >
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "Get Started - Find it useful and interesting",
-                action: "Click - Go to Get Started page",
-              })
               navigate("/get-started")
             }}
           >
             Get Started
+            {home.getStarted[currentLanguage]}
           </PrimaryButton>
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "API",
-                action: "Click - Go to API page",
-              })
               navigate("/api")
             }}
           >
