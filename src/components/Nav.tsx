@@ -5,7 +5,7 @@ import GitHubButton from "react-github-btn"
 import colors from "../styles/colors"
 import breakpoints from "../styles/breakpoints"
 import { useStateMachine } from "little-state-machine"
-import nav from "../data/nav";
+import nav from "../data/nav"
 
 const GithubIcon = styled.span`
   position: absolute;
@@ -122,10 +122,9 @@ const IconWrapper = styled.div`
 
 export default function Nav() {
   const {
-    state: {
-      language: { currentLanguage },
-    },
+    state: { language },
   } = useStateMachine()
+  const { currentLanguage } = language || { currentLanguage: "en" }
 
   return (
     <>
@@ -184,59 +183,39 @@ export default function Nav() {
       </GitHubButtonWrap>
 
       <ActionButtonGroup>
-        <Link
-          activeClassName="active"
-          to="/"
-        >
+        <Link activeClassName="active" to="/">
           <IconWrapper>
             <div className="flag icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].home}</span>
         </Link>
-        <Link
-          activeClassName="active"
-          to="/get-started"
-        >
+        <Link activeClassName="active" to="/get-started">
           <IconWrapper>
             <div className="shutdown icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].getStarted}</span>
         </Link>
-        <Link
-          activeClassName="active"
-          to="/api"
-        >
+        <Link activeClassName="active" to="/api">
           <IconWrapper>
             <div className="keyboard icon" />
           </IconWrapper>
           <span>API</span>
         </Link>
 
-        <Link
-          activeClassName="active"
-          to="/advanced-usage"
-        >
+        <Link activeClassName="active" to="/advanced-usage">
           <IconWrapper>
             <div className="search icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].advanced}</span>
         </Link>
 
-        <Link
-          activeClassName="active"
-          to="/form-builder"
-        >
+        <Link activeClassName="active" to="/form-builder">
           <IconWrapper>
             <div className="edit icon" />
           </IconWrapper>
-          <span>
-            {nav[currentLanguage].builder}
-          </span>
+          <span>{nav[currentLanguage].builder}</span>
         </Link>
-        <Link
-          activeClassName="active"
-          to="/faq"
-        >
+        <Link activeClassName="active" to="/faq">
           <IconWrapper>
             <div className="eye icon" />
           </IconWrapper>

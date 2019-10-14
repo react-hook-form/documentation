@@ -43,10 +43,9 @@ function Home({
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const {
-    state: {
-      language: { currentLanguage },
-    },
+    state: { language },
   } = useStateMachine()
+  const { currentLanguage } = language || { currentLanguage: "en" }
 
   const onSubmit = data => {
     updateSubmitData(data)

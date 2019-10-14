@@ -179,10 +179,9 @@ export default function Header({
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
-    state: {
-      language: { currentLanguage },
-    },
+    state: { language },
   } = useStateMachine()
+  const { currentLanguage } = language || { currentLanguage: "en" }
 
   return (
     <>
