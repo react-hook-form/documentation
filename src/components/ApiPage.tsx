@@ -167,6 +167,7 @@ const links = [
   "handleSubmit",
   "reset",
   "setError",
+  "clearError",
   "setValue",
   "getValues",
   "triggerValidation",
@@ -299,6 +300,10 @@ function ApiPage({ formData }: { formData?: any }) {
               setError
             </CodeAsLink>
             ,{" "}
+            <CodeAsLink onClick={() => goToSection("clearError")}>
+              clearError
+            </CodeAsLink>
+            ,{" "}
             <CodeAsLink onClick={() => goToSection("setValue")}>
               setValue
             </CodeAsLink>
@@ -330,6 +335,7 @@ function ApiPage({ formData }: { formData?: any }) {
   defaultValues: {},
   validationFields: [],
   validationSchema: {},
+  validationSchemaOption: { abortEarly: false },
   submitFocusError: true,
   nativeValidation: false,
 })`}
