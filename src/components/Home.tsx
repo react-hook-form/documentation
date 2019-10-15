@@ -162,7 +162,7 @@ function Home({
         </ButtonsGroup>
       </CenterContent>
 
-      <FooterContent />
+      <FooterContent currentLanguage={currentLanguage} />
     </Root>
   )
 }

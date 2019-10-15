@@ -266,9 +266,9 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <StarRepo />
+          <StarRepo currentLanguage={currentLanguage} />
 
-          <Footer />
+          <Footer currentLanguage={currentLanguage} />
         </main>
       </Wrapper>
     </Container>

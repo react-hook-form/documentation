@@ -113,7 +113,7 @@ export default function SideMenu({
 }: {
   links: string[]
   goToSection: Function
-  isStatic: boolean
+  isStatic?: boolean
   currentLanguage: string
 }) {
   return (

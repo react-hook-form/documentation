@@ -195,7 +195,7 @@ const Faq = ({
 
           <LearnMore />
 
-          <Footer />
+          <Footer currentLanguage={currentLanguage} />
         </main>
       </Wrapper>
     </Container>

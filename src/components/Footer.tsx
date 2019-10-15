@@ -2,6 +2,8 @@ import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
 import { Link } from "gatsby"
+import nav from "../data/nav"
+import generic from "../data/generic"
 
 const Footer = styled.footer`
   padding: 40px 0;
@@ -43,26 +45,26 @@ const Links = styled.ul`
   }
 `
 
-export default () => (
+export default ({ currentLanguage }: { currentLanguage: string }) => (
   <Footer>
     <Links>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">{nav[currentLanguage].home}</Link>
       </li>
       <li>
-        <Link to="/get-started">Get Started</Link>
+        <Link to="/get-started">{nav[currentLanguage].getStarted}</Link>
       </li>
       <li>
         <Link to="/api">API</Link>
       </li>
       <li>
-        <Link to="/advanced-usage">Advanced</Link>
+        <Link to="/advanced-usage">{nav[currentLanguage].advanced}</Link>
       </li>
       <li>
-        <Link to="/form-builder">Form Builder</Link>
+        <Link to="/form-builder">{nav[currentLanguage].builder}</Link>
       </li>
       <li>
-        <Link to="/faqs">FAQs</Link>
+        <Link to="/faqs">{nav[currentLanguage].faqs}</Link>
       </li>
     </Links>
     <p>
@@ -104,7 +106,7 @@ export default () => (
       </a>
     </p>
     <p style={{ fontSize: 12 }}>
-      [ Please support us by leaving a ★{" "}
+      [ {generic.support[currentLanguage]}{" "}
       <a
         href="https://github.com/react-hook-form/react-hook-form"
         target="_blank"

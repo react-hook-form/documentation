@@ -184,7 +184,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <StarRepo currentLanguage={currentLanguage} />
 
-          <Footer />
+          <Footer currentLanguage={currentLanguage} />
         </main>
       </Wrapper>
     </Container>

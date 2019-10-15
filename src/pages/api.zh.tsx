@@ -13,7 +13,7 @@ const ApiZh = ({
 }) => (
   <Layout location={location} defaultLang={"zh"}>
     <Seo title="API Documentation" location={location} />
-    <ApiPage />
+    <ApiPage defaultLang="zh" />
   </Layout>
 )
 

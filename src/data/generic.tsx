@@ -14,6 +14,15 @@ export default {
     jp: {},
     zh: {},
   },
+  advanceUsage: {
+    en: {
+      title: "Advance Usage",
+      description: `Learn how to build complex and accessible forms with React Hook Form.`,
+      buttonText: `Learn Advance Usage`,
+    },
+    jp: {},
+    zh: {},
+  },
   needYourSupport: {
     en: {
       title: "Need Your Support",
@@ -30,6 +39,31 @@ export default {
   },
   menu: {
     en: "Menu",
+    jp: "",
+    zh: "",
+  },
+  support: {
+    en: "Please support us by leaving a ★",
+    jp: "",
+    zh: "",
+  },
+  select: {
+    en: "Select",
+    jp: "",
+    zh: "",
+  },
+  name: {
+    en: "Name",
+    jp: "",
+    zh: "",
+  },
+  type: {
+    en: "Type",
+    jp: "",
+    zh: "",
+  },
+  description: {
+    en: "Description",
     jp: "",
     zh: "",
   },

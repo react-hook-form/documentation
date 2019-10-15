@@ -510,7 +510,7 @@ function BuilderPage({
 
       <LearnMore />
 
-      <Footer />
+      <Footer currentLanguage={currentLanguage} />
     </Container>
   )
 
