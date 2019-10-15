@@ -1,6 +1,6 @@
 import * as React from "react"
 import code from "../components/codeExamples/defaultExample"
-import { Note, Title } from "../styles/typography"
+import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import colors from "../styles/colors"
 
@@ -8,7 +8,7 @@ export default {
   header: {
     en: {
       title: "Get Started",
-      subHeading: "Simple form validation with React Hook Form.",
+      description: "Simple form validation with React Hook Form.",
     },
     jp: {},
     zh: {},
@@ -16,7 +16,7 @@ export default {
   video: {
     en: {
       title: "Video Tutorial",
-      subHeading: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     jp: {},
     zh: {},

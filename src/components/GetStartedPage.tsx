@@ -1,16 +1,9 @@
 import * as React from "react"
-import { Link } from "@reach/router"
-import {
-  HeadingWithTopMargin,
-  Note,
-  SubHeading,
-  Title,
-} from "../styles/typography"
+import { HeadingWithTopMargin, SubHeading, Title } from "../styles/typography"
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
 import track from "../components/utils/track"
 import CodeArea from "../components/CodeArea"
-import colors from "../styles/colors"
 import { Container, Wrapper } from "../styles/containers"
 import {
   registerCode,
@@ -20,9 +13,10 @@ import {
   errors,
   applyValidation,
 } from "./codeExamples/getStarted"
-import code from "../components/codeExamples/defaultExample"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
+import { useStateMachine } from "little-state-machine"
+import getStarted from "../data/getStarted"
 
 const { useRef } = React
 
@@ -46,6 +40,10 @@ const Faq = ({
     hash: string
   }
 }) => {
+  const {
+    state: { language },
+  } = useStateMachine()
+  const { currentLanguage } = language || { currentLanguage: "en" }
   const sectionsRef = useRef({
     quickstart: null,
     videotutorial: null,
@@ -88,8 +86,10 @@ const Faq = ({
 
   return (
     <Container>
-      <HeadingWithTopMargin id="main">Get Started</HeadingWithTopMargin>
-      <SubHeading>Simple form validation with React Hook Form.</SubHeading>
+      <HeadingWithTopMargin id="main">
+        {getStarted.header[currentLanguage].title}
+      </HeadingWithTopMargin>
+      <SubHeading>{getStarted.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
         <SideMenu isStatic links={links} goToSection={goToSection} />
@@ -109,12 +109,9 @@ const Faq = ({
           </p>
 
           <h2 ref={ref => (sectionsRef.current.videotutorial = ref)}>
-            Video Tutorial
+            {getStarted.video[currentLanguage].title}
           </h2>
-          <p>
-            In this video tutorial, i have demonstrated the basic usage and
-            concept of using React Hook Form.
-          </p>
+          <p>{getStarted.header[currentLanguage].description}</p>
 
           <iframe
             width="100%"
@@ -131,26 +128,10 @@ const Faq = ({
               sectionsRef.current.registerfields = ref
             }}
           >
-            Register fields
+            {getStarted.register[currentLanguage].title}
           </Title>
-          <p>
-            One of the key concepts for React Hook Form is to{" "}
-            <strong>
-              <code>register</code>
-            </strong>{" "}
-            your uncontrolled component into the Hook and hence enabling its
-            value to be validated and gathered for submitting.
-          </p>
 
-          <p>
-            <Note>Note:</Note> Each field is <strong>required</strong> to have a
-            unique <code>name</code> as a key for the registration process.
-          </p>
-
-          <p>
-            <Note>Note: </Note>React Native will need to use custom register eg:{" "}
-            <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
-          </p>
+          {getStarted.header[currentLanguage].description}
 
           <CodeArea rawData={registerCode} />
 
@@ -159,35 +140,10 @@ const Faq = ({
               sectionsRef.current.applyvalidation = ref
             }}
           >
-            Apply validation
+            {getStarted.applyValidation[currentLanguage].title}
           </Title>
 
-          <p>
-            React Hook Form make form validation easy by aligning with existing{" "}
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              HTML standard form validation
-            </a>
-            .
-          </p>
-
-          <p>List of validation rules supported by:</p>
-          <ul>
-            <li>required</li>
-            <li>min</li>
-            <li>max</li>
-            <li>minLength</li>
-            <li>maxLength</li>
-            <li>pattern</li>
-            <li>validate</li>
-          </ul>
-          <p>
-            You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
-          </p>
+          {getStarted.applyValidation[currentLanguage].description}
 
           <CodeArea rawData={applyValidation} />
 
@@ -196,13 +152,10 @@ const Faq = ({
               sectionsRef.current.adaptingexistingform = ref
             }}
           >
-            Adapting existing form
+            {getStarted.adapting[currentLanguage].title}
           </Title>
-          <p>
-            Working on an existing form is simple. The important step is to
-            apply <code>register</code> into existing component's{" "}
-            <code>ref</code>.
-          </p>
+
+          {getStarted.adapting[currentLanguage].description}
 
           <CodeArea rawData={migrateCode} />
 
@@ -211,20 +164,10 @@ const Faq = ({
               sectionsRef.current.workwithuilibrary = ref
             }}
           >
-            Work with UI library
+            {getStarted.workWithUI[currentLanguage].title}
           </Title>
-          <p>
-            React Hook Form has made it easy to integrate with external UI
-            component libraries.
-          </p>
-          <p>
-            <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-            libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
-            <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
-          </p>
+
+          {getStarted.workWithUI[currentLanguage].description}
 
           <CodeArea
             rawData={uiLibrary}
@@ -236,12 +179,10 @@ const Faq = ({
               sectionsRef.current.integrateglobalstate = ref
             }}
           >
-            Integrate global state
+            {getStarted.globalState[currentLanguage].title}
           </Title>
-          <p>
-            React Hook Form doesn't require you to have a state management to
-            store your data, but you can easily integrate with one.
-          </p>
+
+          {getStarted.globalState[currentLanguage].description}
 
           <CodeArea rawData={globalState} />
 
@@ -250,12 +191,10 @@ const Faq = ({
               sectionsRef.current.handleerrors = ref
             }}
           >
-            Handle errors
+            {getStarted.globalState[currentLanguage].errors}
           </Title>
-          <p>
-            React Hook Form provides an <code>errors</code> object to show you
-            the errors within the form.
-          </p>
+
+          {getStarted.globalState[currentLanguage].description}
 
           <CodeArea rawData={errors} />
 
