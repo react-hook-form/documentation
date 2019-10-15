@@ -2,7 +2,7 @@ export default {
   copy: {
     en: "Copy",
     jp: "",
-    zh: "",
+    zh: "拷贝",
   },
   learnMore: {
     en: {
@@ -12,7 +12,9 @@ export default {
       buttonText: "Checkout Hook API",
     },
     jp: {},
-    zh: {},
+    zh: {
+      title: "想学更多吗？",
+    },
   },
   advanceUsage: {
     en: {
@@ -35,35 +37,60 @@ export default {
   codeExample: {
     en: "Code Examples",
     jp: "",
-    zh: "",
+    zh: "代码样本",
   },
   menu: {
     en: "Menu",
-    jp: "",
-    zh: "",
+    jp: "メニュー",
+    zh: "菜单",
   },
   support: {
     en: "Please support us by leaving a ★",
     jp: "",
-    zh: "",
+    zh: "请给我们加颗星",
   },
   select: {
     en: "Select",
-    jp: "",
-    zh: "",
+    jp: "選択する",
+    zh: "选择",
   },
   name: {
     en: "Name",
-    jp: "",
-    zh: "",
+    jp: "名前",
+    zh: "名字",
   },
   type: {
     en: "Type",
-    jp: "",
-    zh: "",
+    jp: "タイプ",
+    zh: "类型",
   },
   description: {
     en: "Description",
+    jp: "説明",
+    zh: "説明",
+  },
+  features: {
+    en: "Features",
+    jp: "特徴",
+    zh: "特征",
+  },
+  delete: {
+    en: "Delete",
+    jp: "",
+    zh: "",
+  },
+  edit: {
+    en: "Edit",
+    jp: "",
+    zh: "",
+  },
+  cancelEdit: {
+    en: "Cancel Edit",
+    jp: "",
+    zh: "",
+  },
+  deleteAll: {
+    en: "Delete All",
     jp: "",
     zh: "",
   },

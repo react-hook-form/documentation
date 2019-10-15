@@ -3,7 +3,8 @@ import * as React from "react"
 import { Title } from "../styles/typography"
 import breakpoints from "../styles/breakpoints"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
-import home from "../data/home";
+import home from "../data/home"
+import generic from "../data/generic"
 
 const FeaturesContent = styled.section`
   text-align: center;
@@ -83,7 +84,7 @@ export default function FeaturesList({
   return (
     <Features>
       <AnimateGroup play={isPlayFeature}>
-        <Title>Features</Title>
+        <Title>{generic.features[currentLanguage]}</Title>
         <FeaturesContent>
           <div id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>

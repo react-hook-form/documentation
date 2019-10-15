@@ -3,6 +3,7 @@ import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
 import styled from "styled-components"
 import colors from "../styles/colors"
+import generic from "../data/generic"
 
 const List = styled.li`
   border: 1px solid ${colors.lightBlue};
@@ -67,6 +68,15 @@ export default function SortableContainer({
   setEditIndex,
   setFormData,
   reset,
+  currentLanguage,
+}: {
+  updateFormData: Function
+  formData: any
+  editIndex: number
+  setEditIndex: Function
+  setFormData: Function
+  reset: Function
+  currentLanguage: string
 }) {
   return (
     <SortableWrapper>
@@ -133,7 +143,9 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      {editIndex === index ? "Cancel Editing" : "Edit"}
+                      {editIndex === index
+                        ? generic.cancelEdit[currentLanguage]
+                        : generic.edit[currentLanguage]}
                     </button>
                     <button
                       onClick={() => {
@@ -156,7 +168,7 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      Delete
+                      {generic.delete[currentLanguage]}
                     </button>
                   </EditPanel>
                 </List>
@@ -173,7 +185,7 @@ export default function SortableContainer({
               marginRight: 15,
             }}
           >
-            Delete All
+            {generic.deleteAll[currentLanguage]}
           </button>
         </EditPanel>
       )}

@@ -274,6 +274,7 @@ function BuilderPage({
               setFormData,
               editFormData,
               reset,
+              currentLanguage,
             }}
           />
 

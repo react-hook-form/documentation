@@ -141,59 +141,61 @@ export default {
     },
   },
   smartForm: {
-    title: "Smart Form Component",
-    description: (
-      <>
-        <p>
-          This idea is that you can easily compose your form with inputs. we
-          going to create a <code>Form</code> component to automatically
-          collecting form data. In fact, this is part of what we implemented
-          forms at work.
-        </p>
+    en: {
+      title: "Smart Form Component",
+      description: (
+        <>
+          <p>
+            This idea is that you can easily compose your form with inputs. we
+            going to create a <code>Form</code> component to automatically
+            collecting form data. In fact, this is part of what we implemented
+            forms at work.
+          </p>
 
-        <CodeArea
-          rawData={smartForm}
-          url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
-        />
+          <CodeArea
+            rawData={smartForm}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
 
-        <p style={{ textAlign: "center" }}>♦</p>
+          <p style={{ textAlign: "center" }}>♦</p>
 
-        <p>Let's have a look what's in each of those components.</p>
+          <p>Let's have a look what's in each of those components.</p>
 
-        <CodeHeading>
-          <h2>Form</h2>
-        </CodeHeading>
+          <CodeHeading>
+            <h2>Form</h2>
+          </CodeHeading>
 
-        <p>
-          <code>Form</code> component's responsibility is to inject all{" "}
-          <code>react-hook-form</code> methods into the child component.
-        </p>
+          <p>
+            <code>Form</code> component's responsibility is to inject all{" "}
+            <code>react-hook-form</code> methods into the child component.
+          </p>
 
-        <CodeArea
-          rawData={form}
-          url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
-        />
+          <CodeArea
+            rawData={form}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
 
-        <CodeHeading>
-          <h2>Input / Select</h2>
-        </CodeHeading>
+          <CodeHeading>
+            <h2>Input / Select</h2>
+          </CodeHeading>
 
-        <p>
-          Those input components' responsibility is to registering them into{" "}
-          <code>react-hook-form</code>.
-        </p>
-        <CodeArea
-          rawData={input}
-          url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
-        />
+          <p>
+            Those input components' responsibility is to registering them into{" "}
+            <code>react-hook-form</code>.
+          </p>
+          <CodeArea
+            rawData={input}
+            url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          />
 
-        <p>
-          With <code>Form</code> component inject <code>react-hook-form</code>
-          's <code>props</code> into the child component, you can easily create
-          and compose forms in your app.
-        </p>
-      </>
-    ),
+          <p>
+            With <code>Form</code> component inject <code>react-hook-form</code>
+            's <code>props</code> into the child component, you can easily
+            create and compose forms in your app.
+          </p>
+        </>
+      ),
+    },
     jp: {
       title: "",
       description: "",

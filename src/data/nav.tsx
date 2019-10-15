@@ -27,14 +27,14 @@ export default {
   },
   zh: {
     home: "首页",
-    getStarted: "Get Started",
-    advanced: "Advanced",
+    getStarted: "起步",
+    advanced: "高级使用",
     builder: (
       <>
         <span className="desktopOnly">Form&nbsp;</span>Builder
       </>
     ),
-    faqs: "FAQs",
+    faqs: "常见问题",
     releases: "Releases",
   },
 }

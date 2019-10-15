@@ -19,17 +19,6 @@ import getStarted from "../data/getStarted"
 
 const { useRef } = React
 
-const links = [
-  "Quick start",
-  "Video tutorial",
-  "Register fields",
-  "Apply validation",
-  "Adapting existing form",
-  "Work with UI library",
-  "Integrate global state",
-  "Handle errors",
-]
-
 const Faq = ({
   location,
   defaultLang,
@@ -45,6 +34,18 @@ const Faq = ({
     state: { language },
   } = useStateMachine()
   const { currentLanguage } = language || { currentLanguage: defaultLang }
+
+  const links = [
+    getStarted.install[currentLanguage].linkTitle,
+    getStarted.video[currentLanguage].title,
+    getStarted.register[currentLanguage].title,
+    getStarted.applyValidation[currentLanguage].title,
+    getStarted.adapting[currentLanguage].title,
+    getStarted.workWithUI[currentLanguage].title,
+    getStarted.globalState[currentLanguage].title,
+    getStarted.errors[currentLanguage].title,
+  ]
+
   const sectionsRef = useRef({
     quickstart: null,
     videotutorial: null,
@@ -93,6 +94,7 @@ const Faq = ({
             quickStartRef={ref => {
               sectionsRef.current.quickstart = ref
             }}
+            currentLanguage={currentLanguage}
           />
 
           <p

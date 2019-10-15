@@ -19,12 +19,12 @@ export default {
   },
   getStarted: {
     en: "Get Started",
-    jp: "",
+    jp: "始めましょう",
     zh: "起步",
   },
   demo: {
     en: "Demo",
-    jp: "",
+    jp: "デモ",
     zh: "演示",
   },
   findInteresting: {
@@ -198,9 +198,12 @@ export default {
       example: "Example",
       submit: "Submit",
       edit: "Edit",
-      watch: 'Change input value to see watched values.',
-      error: 'Validation errors will appear here.',
-      touched: 'Touched fields will display here.',
+      watchTitle: "Watch",
+      errorTitle: "Errors",
+      touchedTitle: 'Touched',
+      watch: "Change input value to see watched values.",
+      error: "Validation errors will appear here.",
+      touched: "Touched fields will display here.",
     },
     jp: {
       title: "现场演示",

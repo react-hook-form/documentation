@@ -8,39 +8,58 @@ export default {
   title: {
     en: "Get Started",
     jp: "",
-    zh: "",
+    zh: "起步",
   },
   header: {
     en: {
       title: "Get Started",
       description: "Simple form validation with React Hook Form.",
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: {
+      title: "起步",
+    },
   },
   video: {
     en: {
       title: "Video Tutorial",
       description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: {
+      title: "视频教程",
+    },
   },
   install: {
     en: {
+      linkTitle: "Quick start",
       title: "Installation",
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      linkTitle: "Quick start",
+      title: "",
+    },
+    zh: {
+      linkTitle: "Quick start",
+      title: "安装",
+    },
   },
   example: {
     en: {
       title: "Example",
       description: `The following code will demonstrate the basics usage.`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: {
+      title: "例子",
+    },
   },
   register: {
     en: {
@@ -68,8 +87,10 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
   applyValidation: {
     en: {
@@ -105,8 +126,10 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
   adapting: {
     en: {
@@ -118,8 +141,10 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
   workWithUI: {
     en: {
@@ -141,16 +166,20 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
   globalState: {
     en: {
       title: "Integrate global state",
       description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
   errors: {
     en: {
@@ -162,5 +191,9 @@ export default {
         </>
       ),
     },
+    jp: {
+      title: "",
+    },
+    zh: { title: "" },
   },
 }

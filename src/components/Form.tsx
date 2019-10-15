@@ -126,7 +126,7 @@ export default function Form({
         </DemoForm>
 
         <section>
-          <Title>Watch</Title>
+          <Title>{home.liveDemo[currentLanguage].watchTitle}</Title>
           {!Object.keys(watch()).length && (
             <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
           )}
@@ -141,7 +141,7 @@ export default function Form({
         </section>
 
         <section>
-          <Title>Errors</Title>
+          <Title>{home.liveDemo[currentLanguage].errorTitle}</Title>
           {!Object.keys(errors).length && (
             <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
           )}
@@ -170,7 +170,7 @@ export default function Form({
         </section>
 
         <section>
-          <Title>Touched</Title>
+          <Title>{home.liveDemo[currentLanguage].touchedTitle}</Title>
           {!touched.length && <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>}
           <Animate
             duration={0.8}

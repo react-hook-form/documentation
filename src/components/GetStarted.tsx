@@ -4,6 +4,7 @@ import code from "./codeExamples/defaultExample"
 import colors from "../styles/colors"
 import * as React from "react"
 import breakpoints from "../styles/breakpoints"
+import getStarted from "../data/getStarted"
 
 export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -40,14 +41,17 @@ export const CopyButton = styled.button`
   }
 `
 
-export default function GetStarted({ quickStartRef }: any) {
+export default function GetStarted({
+  quickStartRef,
+  currentLanguage,
+}: {
+  quickStartRef: any
+  currentLanguage: string
+}) {
   return (
     <>
-      <h2 ref={quickStartRef}>Installation</h2>
-      <p>
-        Installing React Hook Form only takes a single command and you're ready
-        to roll.
-      </p>
+      <h2 ref={quickStartRef}>{getStarted.install[currentLanguage].title}</h2>
+      <p>{getStarted.install[currentLanguage].description}</p>
 
       <InstallCode>
         npm install react-hook-form
@@ -64,9 +68,9 @@ export default function GetStarted({ quickStartRef }: any) {
           marginTop: 50,
         }}
       >
-        Example
+        {getStarted.example[currentLanguage].title}
       </h2>
-      <p>The following code will demonstrate the basics usage.</p>
+      <p>{getStarted.example[currentLanguage].description}</p>
       <CodeArea rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )
