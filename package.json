@@ -21,7 +21,7 @@
     "gatsby-source-filesystem": "2.1.23",
     "gatsby-transformer-sharp": "2.2.14",
     "intl": "^1.2.5",
-    "little-state-machine": "^2.9.9",
+    "little-state-machine": "^2.9.23",
     "ptz-i18n": "^1.0.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",

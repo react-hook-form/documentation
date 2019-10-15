@@ -6,6 +6,7 @@ import colors from "../styles/colors"
 import breakpoints from "../styles/breakpoints"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
+import translateLink from "./logic/translateLink"
 
 const GithubIcon = styled.span`
   position: absolute;
@@ -183,39 +184,54 @@ export default function Nav() {
       </GitHubButtonWrap>
 
       <ActionButtonGroup>
-        <Link activeClassName="active" to="/">
+        <Link activeClassName="active" to={translateLink("/", currentLanguage)}>
           <IconWrapper>
             <div className="flag icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].home}</span>
         </Link>
-        <Link activeClassName="active" to="/get-started">
+        <Link
+          activeClassName="active"
+          to={translateLink("/get-started", currentLanguage)}
+        >
           <IconWrapper>
             <div className="shutdown icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].getStarted}</span>
         </Link>
-        <Link activeClassName="active" to="/api">
+        <Link
+          activeClassName="active"
+          to={translateLink("/api", currentLanguage)}
+        >
           <IconWrapper>
             <div className="keyboard icon" />
           </IconWrapper>
           <span>API</span>
         </Link>
 
-        <Link activeClassName="active" to="/advanced-usage">
+        <Link
+          activeClassName="active"
+          to={translateLink("/advanced-usage", currentLanguage)}
+        >
           <IconWrapper>
             <div className="search icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].advanced}</span>
         </Link>
 
-        <Link activeClassName="active" to="/form-builder">
+        <Link
+          activeClassName="active"
+          to={translateLink("/form-builder", currentLanguage)}
+        >
           <IconWrapper>
             <div className="edit icon" />
           </IconWrapper>
           <span>{nav[currentLanguage].builder}</span>
         </Link>
-        <Link activeClassName="active" to="/faq">
+        <Link
+          activeClassName="active"
+          to={translateLink("/faq", currentLanguage)}
+        >
           <IconWrapper>
             <div className="eye icon" />
           </IconWrapper>

@@ -1,9 +1,9 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import FaqMain from "../components/FaqMain"
+import ApiPage from "../components/ApiPage"
 
-const Faq = ({
+const ApiZh = ({
   location,
 }: {
   location: {
@@ -12,9 +12,9 @@ const Faq = ({
   }
 }) => (
   <Layout location={location}>
-    <Seo title="FAQs" location={location} />
-    <FaqMain location={location} />
+    <Seo title="API Documentation" location={location} />
+    <ApiPage />
   </Layout>
 )
 
-export default Faq
+export default ApiZh

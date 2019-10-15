@@ -1,9 +1,9 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import FaqMain from "../components/FaqMain"
+import AdvancedUsage from "../components/AdvancedUsage"
 
-const Faq = ({
+const Api = ({
   location,
 }: {
   location: {
@@ -12,9 +12,9 @@ const Faq = ({
   }
 }) => (
   <Layout location={location}>
-    <Seo title="FAQs" location={location} />
-    <FaqMain location={location} />
+    <Seo title="Advanced Usage" location={location} />
+    <AdvancedUsage />
   </Layout>
 )
 
-export default Faq
+export default Api

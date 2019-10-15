@@ -3,29 +3,38 @@ import * as React from "react"
 export default {
   title: {
     en: "Home",
+    jp: "",
     zh: "首页",
   },
   description: {
     en: "React hook for form validation without the hassle",
+    jp: "",
     zh: "",
   },
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy to use for validation.",
+    jp: "",
     zh: "",
   },
   getStarted: {
     en: "Get Started",
+    jp: "",
     zh: "起步",
   },
   demo: {
     en: "Demo",
+    jp: "",
     zh: "演示",
   },
   findInteresting: {
     en: {
       heading: "Find it useful and interesting?",
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the get started section and learn more on the API documentation page.`,
+    },
+    jp: {
+      heading: "",
+      description: ``,
     },
     zh: {
       heading: "",
@@ -53,6 +62,28 @@ export default {
       {
         title: "Adoptable",
         description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+      },
+    ],
+    jp: [
+      {
+        title: "",
+        description: "",
+      },
+      {
+        title: "",
+        description: "",
+      },
+      {
+        title: "",
+        description: "",
+      },
+      {
+        title: "",
+        description: "",
+      },
+      {
+        title: "",
+        description: "",
       },
     ],
     zh: [
@@ -83,6 +114,10 @@ export default {
       title: "Library Code Comparison",
       description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
     },
+    jp: {
+      title: "",
+      description: "",
+    },
     zh: {
       title: "",
       description: "",
@@ -93,6 +128,10 @@ export default {
       title: "Reduce Rendering",
       description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
       totalReRender: "Total re-renders:",
+    },
+    jp: {
+      title: "",
+      description: "",
     },
     zh: {
       title: "",
@@ -128,6 +167,14 @@ export default {
         </>
       ),
     },
+    jp: {
+      title: "",
+      description: "",
+      totalMount: "",
+      totalChange: "",
+      totalTime: "",
+      performanceTests: "",
+    },
     zh: {
       title: "",
       description: "",
@@ -154,6 +201,13 @@ export default {
       watch: 'Change input value to see watched values.',
       error: 'Validation errors will appear here.',
       touched: 'Touched fields will display here.',
+    },
+    jp: {
+      title: "现场演示",
+      description: "",
+      example: "",
+      submit: "",
+      edit: "",
     },
     zh: {
       title: "现场演示",
