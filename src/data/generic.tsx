@@ -23,4 +23,14 @@ export default {
     jp: {},
     zh: {},
   },
+  codeExample: {
+    en: "Code Examples",
+    jp: "",
+    zh: "",
+  },
+  menu: {
+    en: "Menu",
+    jp: "",
+    zh: "",
+  },
 }

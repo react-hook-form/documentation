@@ -87,7 +87,7 @@ const Faq = ({
       <SubHeading>{getStarted.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
-        <SideMenu isStatic links={links} goToSection={goToSection} />
+        <SideMenu isStatic links={links} goToSection={goToSection} currentLanguage={currentLanguage} />
         <main>
           <GetStarted
             quickStartRef={ref => {

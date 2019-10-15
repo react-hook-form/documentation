@@ -64,8 +64,14 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   wizard: {
     en: {
@@ -125,8 +131,14 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   smartForm: {
     title: "Smart Form Component",
@@ -182,8 +194,14 @@ export default {
         </p>
       </>
     ),
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   fieldArrays: {
     en: {
@@ -205,8 +223,14 @@ export default {
         </>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   schema: {
     en: {
@@ -239,8 +263,14 @@ export default {
         </p>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   connectForm: {
     en: {
@@ -258,8 +288,14 @@ export default {
         </p>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
   formContext: {
     en: {
@@ -283,7 +319,13 @@ export default {
         </p>
       ),
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "",
+      description: "",
+    },
+    zh: {
+      title: "",
+      description: "",
+    },
   },
 }

@@ -55,7 +55,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
       <SubHeading>frequently asked question.</SubHeading>
 
       <Wrapper>
-        <SideMenu isStatic links={links} goToSection={goToSection} />
+        <SideMenu isStatic links={links} goToSection={goToSection} currentLanguage={currentLanguage} />
 
         <main>
           <QuestionTitle ref={ref => (sectionsRef.current.question1 = ref)}>

@@ -185,6 +185,7 @@ const codeSandBoxStyle = {
 }
 
 function ApiPage({ formData }: { formData?: any }) {
+  const currentLanguage = "en"
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,
@@ -258,7 +259,11 @@ function ApiPage({ formData }: { formData?: any }) {
       </SubHeading>
 
       <Wrapper>
-        <SideMenu links={links} goToSection={goToSection} />
+        <SideMenu
+          links={links}
+          goToSection={goToSection}
+          currentLanguage={currentLanguage}
+        />
         <main>
           <CodeHeading
             ref={ref => {

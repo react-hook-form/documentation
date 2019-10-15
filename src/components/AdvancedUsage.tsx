@@ -76,7 +76,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
       <SubHeading>{advanced.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
-        <SideMenu isStatic links={links} goToSection={goToSection} />
+        <SideMenu
+          isStatic
+          links={links}
+          goToSection={goToSection}
+          currentLanguage={currentLanguage}
+        />
 
         <main>
           <QuestionTitle
