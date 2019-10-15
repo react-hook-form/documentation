@@ -12,7 +12,7 @@ const GetStarted = ({
     hash: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang="en">
     <Seo title="Get Started" location={location} />
     <GetStartedPage location={location} />
   </Layout>

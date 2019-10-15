@@ -11,7 +11,7 @@ const ApiZh = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang={"zh"}>
     <Seo title="API Documentation" location={location} />
     <ApiPage />
   </Layout>

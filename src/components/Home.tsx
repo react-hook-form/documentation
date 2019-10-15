@@ -13,8 +13,8 @@ import track from "./utils/track"
 import { CenterContent } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
-import {useStateMachine} from "little-state-machine";
-import home from "../data/home";
+import { useStateMachine } from "little-state-machine"
+import home from "../data/home"
 
 const { useState, useRef, useEffect } = React
 
@@ -29,11 +29,13 @@ const Root = styled.div`
 
 function Home({
   location,
+  defaultLang,
 }: {
   location: {
     search: string
     pathname: string
   }
+  defaultLang: string
 }) {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
@@ -45,7 +47,7 @@ function Home({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: "en" }
+  const { currentLanguage } = language || { currentLanguage: defaultLang }
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -109,11 +111,20 @@ function Home({
 
       <Header homeRef={HomeRef} />
 
-      <FeaturesList isPlayFeature={isPlayFeature} currentLanguage={currentLanguage} />
+      <FeaturesList
+        isPlayFeature={isPlayFeature}
+        currentLanguage={currentLanguage}
+      />
 
-      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} currentLanguage={currentLanguage} />
+      <CodeCompareSection
+        isPlayCodeCompare={isPlayCodeCompare}
+        currentLanguage={currentLanguage}
+      />
 
-      <CodePerfCompareSection isPlayRender={isPlayRender} currentLanguage={currentLanguage} />
+      <CodePerfCompareSection
+        isPlayRender={isPlayRender}
+        currentLanguage={currentLanguage}
+      />
 
       <div ref={HomeRef} />
 
@@ -123,7 +134,7 @@ function Home({
           submitData,
           toggleBuilder,
           formUpdated,
-          currentLanguage
+          currentLanguage,
         }}
       />
 

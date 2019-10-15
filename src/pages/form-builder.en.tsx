@@ -12,7 +12,7 @@ const Api = ({
   }
 }) => {
   return (
-    <Layout location={location}>
+    <Layout location={location} defaultLang="en">
       <Seo
         title="Form Builder"
         description="GUI for building forms with validation"

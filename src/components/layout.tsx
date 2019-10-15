@@ -32,6 +32,7 @@ const Layout = (props: {
     search: string
     pathname: string
   }
+  defaultLang: string
 }) => {
   const [show, setShow] = React.useState(false)
 
@@ -50,7 +51,7 @@ const Layout = (props: {
       <a className="skip-main" href="#main">
         Skip to content
       </a>
-      <Nav />
+      <Nav defaultLang={props.defaultLang} />
       {props.children}
       <Animate play={show} start={{ opacity: 0 }} end={{ opacity: 1 }}>
         <ScrollTop

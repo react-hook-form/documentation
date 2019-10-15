@@ -12,13 +12,13 @@ const IndexPage = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang="en">
     <Seo
       title={home.title.en}
       description={home.description.en}
       location={location}
     />
-    <Home location={location} />
+    <Home location={location} defaultLang="en" />
   </Layout>
 )
 

@@ -121,11 +121,11 @@ const IconWrapper = styled.div`
   }
 `
 
-export default function Nav() {
+export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: "en" }
+  const { currentLanguage } = language || { currentLanguage: defaultLang }
 
   return (
     <>

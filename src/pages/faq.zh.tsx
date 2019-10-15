@@ -11,7 +11,7 @@ const Faq = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang={"zh"}>
     <Seo title="FAQs" location={location} />
     <FaqMain location={location} />
   </Layout>

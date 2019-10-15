@@ -11,7 +11,7 @@ const Api = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang="en">
     <Seo title="Advanced Usage" location={location} />
     <AdvancedUsage />
   </Layout>
