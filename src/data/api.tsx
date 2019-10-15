@@ -183,6 +183,112 @@ export default {
     jp: {},
     zh: {},
   },
+  register: {
+    description: {
+      en: (
+        <>
+          <p>
+            This method allows you to register input/select <code>Ref</code> and
+            validation rules into React Hook Form.
+          </p>
+          <p>
+            Validation rules are all based on HTML standard and also allow
+            custom validation.
+          </p>
+          <p>
+            <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
+            <b>unique</b>. Input name also support dot and bracket syntax, which
+            allow you to easily create nested form fields. Example table is
+            below:
+          </p>
+        </>
+      ),
+      jp: {},
+      zh: {},
+    },
+    example: {
+      en: "Submit Result",
+      jp: "",
+      zh: "",
+    },
+    options: {
+      en: {
+        title: "Register options",
+        registerWithValidation: "Register with validation",
+        registerWithValidationMessage:
+          "Register with validation and error message",
+        note: goToSection => (
+          <>
+            <p>
+              <Note>Note:</Note> You can also register input manually, which is
+              useful when working with custom components and <code>Ref</code> is
+              not accessible. This is actually the case when you are working
+              with React Native or custom component like{" "}
+              <a
+                href="https://github.com/JedWatson/react-select"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                react-select
+              </a>
+              .
+            </p>
+
+            <p>
+              By using custom register, you will need to update the input value
+              with <code onClick={() => goToSection("setValue")}>setValue</code>
+              , because input is no longer registered with its ref.
+            </p>
+
+            <p>
+              <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+            </p>
+
+            <p>
+              <Note>Note:</Note> If you want custom register input to trigger
+              re-render during value update, then you should give a type to your
+              registered input.
+            </p>
+          </>
+        ),
+      },
+    },
+    validation: {
+      en: {
+        required: (
+          <>
+            A Boolean which, if true, indicates that the input must have a value
+            before the form can be submitted. you can assign as string to return
+            error message in the <code>errors</code> object.
+          </>
+        ),
+        maxLength: "The maximum length of the value to accept for this input.",
+        minLength: "The minimum length of the value to accept for this input.",
+        max: "The maximum value to accept for this input.",
+        min: "The minimum value to accept for this input.",
+        regex: "The regex pattern for the input.",
+        validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+      },
+      jp: {
+        required: "",
+        maxLength: "",
+        minLength: "",
+        max: "",
+        min: "",
+        regex: "",
+        validate: "",
+      },
+      zh: {
+        required: "",
+        maxLength: "",
+        minLength: "",
+        max: "",
+        min: "",
+        regex: "",
+        validate: "",
+      },
+    },
+  },
   handleSubmit: {
     en: (
       <>

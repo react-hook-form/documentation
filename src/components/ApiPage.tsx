@@ -526,7 +526,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          <ApiRefTable goToSection={goToSection} />
+          <ApiRefTable goToSection={goToSection} currentLanguage={currentLanguage} />
 
           <hr />
 
