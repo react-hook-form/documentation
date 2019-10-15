@@ -2,7 +2,6 @@ import * as React from "react"
 import { Title } from "../styles/typography"
 import colors from "../styles/colors"
 import styled from "styled-components"
-import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
 
 const Menu = styled.aside`
@@ -134,11 +133,6 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                   {isStatic ? (
                     <button
                       onClick={() => {
-                        track({
-                          category: "Link",
-                          label: "Examples",
-                          action: "Click - go to examples",
-                        })
                         goToSection(link, index)
                       }}
                       style={{
@@ -211,13 +205,6 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
           <li>
             <Code>{`</>`}</Code>
             <a
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Examples",
-                  action: "Click - Go to Examples",
-                })
-              }}
               rel="noopener noreferrer"
               href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
               target="_blank"

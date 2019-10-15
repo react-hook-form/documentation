@@ -9,7 +9,6 @@ import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import { H1 } from "../styles/typography"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
-import track from "./utils/track"
 import { CenterContent } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
@@ -106,7 +105,7 @@ function Home({
   return (
     <Root>
       {showBuilder && (
-        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
+        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} defaultLang={defaultLang} />
       )}
 
       <Header homeRef={HomeRef} defaultLang={defaultLang} />

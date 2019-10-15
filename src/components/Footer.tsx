@@ -1,4 +1,3 @@
-import track from "./utils/track"
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
@@ -70,13 +69,6 @@ export default () => (
       Design and Build by{" "}
       <a
         href="https://twitter.com/bluebill1049"
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "Twitter",
-            action: "Click - go to Twitter",
-          })
-        }}
         target="_blank"
         rel="noopener noreferrer"
         title="Bill Luo Twitter"
@@ -85,13 +77,6 @@ export default () => (
       </a>{" "}
       with{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "RSA",
-            action: "Click - go to RSA",
-          })
-        }}
         href="https://github.com/bluebill1049/react-simple-animate"
         target="_blank"
         rel="noopener noreferrer"
@@ -101,13 +86,6 @@ export default () => (
       </a>{" "}
       +{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "RSI",
-            action: "Click - go to RSI",
-          })
-        }}
         href="https://github.com/bluebill1049/react-simple-img"
         target="_blank"
         rel="noopener noreferrer"
@@ -117,13 +95,6 @@ export default () => (
       </a>{" "}
       +{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "little-state-machine",
-            action: "Click - go to LSM",
-          })
-        }}
         rel="noopener noreferrer"
         href="https://github.com/bluebill1049/little-state-machine"
         target="_blank"

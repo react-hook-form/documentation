@@ -1,10 +1,8 @@
 import styled from "styled-components"
-import copyClipBoard from "./utils/copyClipBoard"
 import CodeArea, { CopyIcon } from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import colors from "../styles/colors"
 import * as React from "react"
-import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
 
 export const InstallCode = styled.span`

@@ -21,7 +21,6 @@ import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
-import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
 import typeScript from "./codeExamples/typeScript"
@@ -223,11 +222,6 @@ function ApiPage({ formData }: { formData?: any }) {
     )
 
     const refName = `${filterName}Ref`
-    track({
-      category: "Link",
-      label: filterName,
-      action: `Click - Go to ${filterName} section`,
-    })
 
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
@@ -413,16 +407,7 @@ function ApiPage({ formData }: { formData?: any }) {
           <p>
             You can set input's default value with{" "}
             <code>defaultValue/defaultChecked</code>{" "}
-            <Link
-              href="https://reactjs.org/docs/uncontrolled-components.html"
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "read more at React doc",
-                  action: "Click - go to React Doc",
-                })
-              }}
-            >
+            <Link href="https://reactjs.org/docs/uncontrolled-components.html">
               (read more at React doc for Default Values)
             </Link>{" "}
             or pass <code>defaultValues</code> as an optional argument to
@@ -978,11 +963,6 @@ function ApiPage({ formData }: { formData?: any }) {
             </p>
             <PrimaryButton
               onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Star",
-                  action: "Click - Go to Github star",
-                })
                 navigate("/advanced-usage")
               }}
               style={{ margin: "40px auto" }}

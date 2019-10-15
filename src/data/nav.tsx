@@ -14,7 +14,7 @@ export default {
     releases: "Releases",
   },
   jp: {
-    home: "",
+    home: "ホーム",
     getStarted: "Get Started",
     advanced: "Advanced",
     builder: (

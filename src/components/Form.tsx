@@ -2,7 +2,6 @@ import * as React from "react"
 import { Title, H1, Note } from "../styles/typography"
 import { Animate } from "react-simple-animate"
 import styled from "styled-components"
-import track from "./utils/track"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
 import { DarkButton, PinkButton } from "../styles/buttons"
@@ -101,13 +100,6 @@ export default function Form({
           <FormFields {...{ formData, errors, register }} />
 
           <PinkButton
-            onClick={() => {
-              track({
-                category: "Button",
-                action: "Submit - Form data",
-                label: "Submit",
-              })
-            }}
           >
             {home.liveDemo[currentLanguage].submit}
           </PinkButton>
@@ -125,11 +117,6 @@ export default function Form({
             type="button"
             onClick={() => {
               reset()
-              track({
-                category: "Button",
-                action: "Edit - Form data",
-                label: "Edit",
-              })
               toggleBuilder(true)
               goToBuilder()
             }}

@@ -258,7 +258,7 @@ function BuilderPage({
 
       <Wrapper>
         <div>
-          <Title>Form Layout</Title>
+          <Title>{builder.layout[currentLanguage].title}</Title>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
@@ -277,13 +277,13 @@ function BuilderPage({
             }}
           />
 
-          {!formData.length && (
-            <p>{builder.layout[currentLanguage].message}</p>
-          )}
+          {!formData.length && <p>{builder.layout[currentLanguage].message}</p>}
         </div>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Title ref={form}>{builder.inputCreator[currentLanguage].title}</Title>
+          <Title ref={form}>
+            {builder.inputCreator[currentLanguage].title}
+          </Title>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
@@ -444,7 +444,9 @@ function BuilderPage({
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            {editIndex >= 0 ? "Update" : "Create"}
+            {editIndex >= 0
+              ? builder.inputCreator[currentLanguage].update
+              : builder.inputCreator[currentLanguage].create}
           </PinkButton>
 
           {formData.length > 0 && (

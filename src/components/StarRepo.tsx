@@ -1,7 +1,6 @@
 import * as React from "react"
 import { H1 } from "../styles/typography"
 import { PrimaryButton } from "../styles/buttons"
-import track from "./utils/track"
 
 export default function StarRepo() {
   return (
@@ -17,11 +16,6 @@ export default function StarRepo() {
       </p>
       <PrimaryButton
         onClick={() => {
-          track({
-            category: "Button",
-            label: "Star",
-            action: "Click - Go to Github star",
-          })
           window.open("https://github.com/react-hook-form/react-hook-form")
         }}
         style={{ margin: "40px auto" }}

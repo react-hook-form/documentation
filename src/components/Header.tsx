@@ -3,7 +3,6 @@ import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
 import { Animate, AnimateKeyframes } from "react-simple-animate"
 import colors from "../styles/colors"
-import track from "./utils/track"
 import { navigate } from "@reach/router"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
 import breakpoints from "../styles/breakpoints"
@@ -202,11 +201,6 @@ export default function Header({
         <ButtonsGroupSmall>
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "Demo",
-                action: "Click - Demo",
-              })
               // @ts-ignore
               homeRef.current.scrollIntoView({ behavior: "smooth" })
             }}
@@ -215,11 +209,6 @@ export default function Header({
           </PrimaryButton>
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "Get Started",
-                action: "Click - Get Started",
-              })
               navigate("/get-started")
             }}
           >
@@ -243,13 +232,6 @@ export default function Header({
               controls
               playsInline
               muted
-              onClick={() => {
-                track({
-                  category: "Video",
-                  label: "video",
-                  action: "Play/Pause - Demo Video",
-                })
-              }}
             >
               <source src={video} type="video/mp4" />
             </Video>
@@ -309,13 +291,6 @@ export default function Header({
           playsInline
           isLast
           muted
-          onClick={() => {
-            track({
-              category: "Video",
-              label: "video",
-              action: "Play/Pause - Demo Video",
-            })
-          }}
         >
           <source src={nativeVideo} type="video/mp4" />
         </Video>
@@ -332,11 +307,6 @@ export default function Header({
           role="tab"
           onClick={() => {
             setIsWeb(true)
-            track({
-              category: "Button",
-              label: "React Web",
-              action: "Click - watch",
-            })
           }}
         >
           React Web
@@ -351,11 +321,6 @@ export default function Header({
           aria-controls="tabPanel-2"
           onClick={() => {
             setIsWeb(false)
-            track({
-              category: "Button",
-              label: "React Native",
-              action: "Click - watch",
-            })
           }}
         >
           React Native

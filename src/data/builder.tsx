@@ -39,6 +39,8 @@ export default {
       options: 'Options',
       validation: "Show validation",
       generate: "Generate Form",
+      create: 'Create',
+      update: 'Update',
     },
     jp: {},
     zh: {},

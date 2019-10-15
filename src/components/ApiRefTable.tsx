@@ -3,7 +3,6 @@ import styled from "styled-components"
 import colors from "../styles/colors"
 import { TableWrapper, Table, Type } from "./ApiPage"
 import Link from "../styles/link"
-import track from "./utils/track"
 import { Note } from "../styles/typography"
 import CodeArea from "./CodeArea"
 

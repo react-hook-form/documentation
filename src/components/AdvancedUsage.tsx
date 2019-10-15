@@ -8,7 +8,6 @@ import {
 import Link from "../styles/link"
 import CodeArea from "./CodeArea"
 import SideMenu from "./SideMenu"
-import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
 import accessibleCodeBase from "./codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "./codeExamples/accessibleCodeFinal"
@@ -60,12 +59,6 @@ function Advanced() {
     } else {
       history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
     }
-
-    track({
-      category: "Link",
-      label: filterName,
-      action: `Click - Go to ${filterName} section`,
-    })
 
     if (pageContentRef.current[filterName]) {
       pageContentRef.current[filterName].scrollIntoView({ behavior: "smooth" })
@@ -291,11 +284,6 @@ function Advanced() {
             npm install yup
             <CopyButton
               onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Copy",
-                  action: "Click - copy installation",
-                })
                 copyClipBoard("npm install yup")
                 alert("Code copied into your clipboard.")
               }}
