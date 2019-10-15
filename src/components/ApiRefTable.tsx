@@ -460,13 +460,26 @@ export default function ApiRefTable({ goToSection }) {
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  name="single"
+  name="test"
   ref={
     register({
       validate: ${
         isStandard
-          ? `(value) => value === '1'`
-          : `(value) => value === '1' || 'error message';`
+          ? `value => value === '1'`
+          : `value => value === '1' || 'error message';`
+      }
+    })
+  }
+/>
+// you can do asynchronous validation as well
+<input
+  name="test1"
+  ref={
+    register({
+      validate: ${
+        isStandard
+          ? `async value => await fetch(url)`
+          : `async value => await fetch(url) || 'error message';`
       }
     })
   }
