@@ -14,4 +14,13 @@ export default {
     jp: {},
     zh: {},
   },
+  needYourSupport: {
+    en: {
+      title: "Need Your Support",
+      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      buttonText: `Star React Hook Form`,
+    },
+    jp: {},
+    zh: {},
+  },
 }

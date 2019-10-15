@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import AdvancedUsage from "../components/AdvancedUsage"
+import advanced from "../data/advanced";
 
 const Api = ({
   location,
@@ -12,8 +13,8 @@ const Api = ({
   }
 }) => (
   <Layout location={location} defaultLang="en">
-    <Seo title="Advanced Usage" location={location} />
-    <AdvancedUsage />
+    <Seo title={advanced.title.en} location={location} />
+    <AdvancedUsage defaultLang="en" />
   </Layout>
 )
 
