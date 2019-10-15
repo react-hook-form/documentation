@@ -2,7 +2,6 @@ import * as React from "react"
 import { HeadingWithTopMargin, SubHeading, Title } from "../styles/typography"
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
-import track from "../components/utils/track"
 import CodeArea from "../components/CodeArea"
 import { Container, Wrapper } from "../styles/containers"
 import {
@@ -33,17 +32,19 @@ const links = [
 
 const Faq = ({
   location,
+  defaultLang,
 }: {
   location: {
     search: string
     pathname: string
     hash: string
   }
+  defaultLang: string
 }) => {
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: "en" }
+  const { currentLanguage } = language || { currentLanguage: defaultLang }
   const sectionsRef = useRef({
     quickstart: null,
     videotutorial: null,
@@ -56,12 +57,6 @@ const Faq = ({
   })
 
   const goToSection = name => {
-    track({
-      category: "Anchors Link",
-      label: name,
-      action: `Click - Go to section ${name}`,
-    })
-
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ /g, "")

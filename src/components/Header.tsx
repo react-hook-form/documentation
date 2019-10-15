@@ -174,14 +174,16 @@ const LogoSvg = (
 
 export default function Header({
   homeRef,
+  defaultLang,
 }: {
   homeRef: React.Ref<HTMLDivElement>
+  defaultLang: string
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: "en" }
+  const { currentLanguage } = language || { currentLanguage: defaultLang }
 
   return (
     <>

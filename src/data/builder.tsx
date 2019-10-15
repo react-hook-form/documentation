@@ -11,15 +11,13 @@ export default {
     jp: "",
     zh: "",
   },
-  page: {
-    builder: {
-      en: {
-        title: "Builder",
-        description: "Build your own form with code and example.",
-      },
-      jp: {},
-      zh: {},
+  builder: {
+    en: {
+      title: "Builder",
+      description: "Build your own form with code and example.",
     },
+    jp: {},
+    zh: {},
   },
   layout: {
     en: {
@@ -38,6 +36,7 @@ export default {
       message: "You can start adding fields with Input Creator.",
       name: "Name",
       type: "Type",
+      options: 'Options',
       validation: "Show validation",
       generate: "Generate Form",
     },

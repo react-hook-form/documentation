@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import GetStartedMain from "../components/GetStartedPage"
+import getStarted from "../data/getStarted";
 
 const GetStarted = ({
   location,
@@ -13,8 +14,8 @@ const GetStarted = ({
   }
 }) => (
   <Layout location={location} defaultLang={"zh"}>
-    <Seo title="Get Started" location={location} />
-    <GetStartedMain location={location} />
+    <Seo title={getStarted.title.zh} location={location} />
+    <GetStartedMain location={location} defaultLang="zh" />
   </Layout>
 )
 

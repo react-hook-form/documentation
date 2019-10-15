@@ -8,7 +8,6 @@ import {
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
 import CodeArea, { CopyIcon } from "../components/CodeArea"
-import track from "../components/utils/track"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
@@ -17,30 +16,18 @@ import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
 import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
+import faq from "../data/faq"
+import { useStateMachine } from "little-state-machine"
 
 const { useRef } = React
 
-const links = [
-  "Performance of React Hook Form",
-  "How to creat accessible input error and message?",
-  "Does it work with Class Component?",
-  "How to reset the form?",
-  "How to initialize form values?",
-  "How to share ref usage?",
-  "What if you don't have access to ref?",
-  "Browser support?",
-  "Why first keystroke is not working?",
-  "Testing failed due to MutationObserver?",
-]
+const Faq = ({ defaultLang }: { defaultLang: string }) => {
+  const {
+    state: { language },
+  } = useStateMachine()
+  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const links = faq.questions[currentLanguage].map(({ title }) => title)
 
-const Faq = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
   const sectionsRef = useRef({
     question1: null,
     question2: null,
@@ -55,11 +42,6 @@ const Faq = ({
   })
 
   const goToSection = (name, index) => {
-    track({
-      category: "Button",
-      label: name,
-      action: `Click - Go to section ${name}`,
-    })
     if (sectionsRef.current[`question${index + 1}`]) {
       sectionsRef.current[`question${index + 1}`].scrollIntoView({
         behavior: "smooth",
@@ -91,13 +73,6 @@ const Faq = ({
               href="https://github.com/bluebill1049/react-hook-form-performance-compare"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => {
-                track({
-                  category: "Link",
-                  action: "Click - visit the repo",
-                  label: "this repo link",
-                })
-              }}
             >
               this repo link
             </a>
@@ -201,7 +176,7 @@ const Faq = ({
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
-            What if you don't have access to <code>ref</code>?
+            What if you don't have access to ref?
           </QuestionTitle>
 
           <p>

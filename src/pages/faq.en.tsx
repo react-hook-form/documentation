@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import FaqMain from "../components/FaqPage"
+import FaqPage from "../components/FaqPage"
 
 const Faq = ({
   location,
@@ -13,7 +13,7 @@ const Faq = ({
 }) => (
   <Layout location={location} defaultLang="en">
     <Seo title="FAQs" location={location} />
-    <FaqMain location={location} />
+    <FaqPage defaultLang="en"/>
   </Layout>
 )
 

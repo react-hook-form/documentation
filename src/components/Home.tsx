@@ -109,7 +109,7 @@ function Home({
         <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
       )}
 
-      <Header homeRef={HomeRef} />
+      <Header homeRef={HomeRef} defaultLang={defaultLang} />
 
       <FeaturesList
         isPlayFeature={isPlayFeature}

@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BuilderPage from "../components/BuilderPage"
+import builder from "../data/builder";
 
 const Api = ({
   location,
@@ -12,13 +13,13 @@ const Api = ({
   }
 }) => {
   return (
-    <Layout location={location} defaultLang={"zh"}>
+    <Layout location={location} defaultLang="zh">
       <Seo
-        title="Form Builder"
-        description="GUI for building forms with validation"
+        title={builder.title.zh}
+        description={builder.description.zh}
         location={location}
       />
-      <BuilderPage isStatic />
+      <BuilderPage isStatic defaultLang="zh" />
     </Layout>
   )
 }

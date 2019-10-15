@@ -5,6 +5,11 @@ import { Link } from "@reach/router"
 import colors from "../styles/colors"
 
 export default {
+  title: {
+    en: "Get Started",
+    jp: "",
+    zh: "",
+  },
   header: {
     en: {
       title: "Get Started",
