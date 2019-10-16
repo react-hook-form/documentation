@@ -127,6 +127,7 @@ const LangsSelect = styled.div`
   z-index: 5;
   top: 0;
   min-width: 90px;
+  display: none;
 
   @media ${breakpoints.fromMediumScreen} {
     right: 10px;
