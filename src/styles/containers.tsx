@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 20px 100px 20px;
+  padding: 0 15px 100px 20px;
 
   @media ${breakpoints.fromMediumScreen} {
     display: grid;
