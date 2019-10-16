@@ -125,10 +125,12 @@ const HiddenMenu = styled.div`
 
 const QuickSelect = styled.div`
   position: relative;
+  max-width: 320px;
+  margin: 0 auto;
 
   &:after {
     content: "▼";
-    font-size: 20px;
+    font-size: 15px;
     right: 17%;
     top: 12px;
     position: absolute;
@@ -137,7 +139,7 @@ const QuickSelect = styled.div`
 
   & > select {
     border-radius: 4px;
-    border: 1px solid white;
+    border: 1px solid ${colors.lightBlue};
     appearance: none;
     background: none;
     color: white;
@@ -149,15 +151,7 @@ const QuickSelect = styled.div`
     font-weight: lighter;
     position: relative;
     padding: 10px 30px;
-
-    :after {
-      position: absolute;
-      bottom: 0.15em;
-      top: 0.15em;
-      right: 0.5rem;
-      content: "\\2193";
-      pointer-events: none;
-    }
+    max-width: 240px;
   }
 `
 
@@ -197,7 +191,10 @@ function ApiPage({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,
@@ -526,7 +523,10 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          <ApiRefTable goToSection={goToSection} currentLanguage={currentLanguage} />
+          <ApiRefTable
+            goToSection={goToSection}
+            currentLanguage={currentLanguage}
+          />
 
           <hr />
 

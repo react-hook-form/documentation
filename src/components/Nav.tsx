@@ -21,7 +21,7 @@ const GithubIcon = styled.span`
   }
 
   & svg {
-    height: 30px;
+    height: 28px;
     fill: white;
   }
 
@@ -100,6 +100,10 @@ const GitHubButtonWrap = styled.span`
   right: 20px;
   top: 15px;
   z-index: 1;
+
+  @media ${breakpoints.fromMediumScreen} {
+    right: 160px;
+  }
 `
 
 export const HideMobile = styled.span`
@@ -121,13 +125,57 @@ const IconWrapper = styled.div`
   }
 `
 
+const LangsSelect = styled.div`
+  position: absolute;
+  right: calc(100% - 50% - 45px);
+  z-index: 5;
+  min-width: 90px;
+
+  @media ${breakpoints.fromMediumScreen} {
+    right: 20px;
+    min-width: 120px;
+  }
+  
+  > select {
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    line-height: 20px;
+    padding: 0;
+    min-height: 28px;
+    font-size: 14px;
+    display: block;
+    background: none;
+    appearance: none;
+    color: white;
+    border: 1px solid ${colors.lightBlue};
+    text-align: center;
+    text-align-last: center;
+    border-radius: 3px;
+  }
+
+  &:after {
+    content: "▼";
+    font-size: 10px;
+    right: 5px;
+    top: 16px;
+    position: absolute;
+    pointer-events: none;
+    
+    @media ${breakpoints.fromMediumScreen} {
+      right: 10px;
+    }
+  }
+`
+
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language && language.currentLanguage
-    ? language
-    : { currentLanguage: defaultLang }
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
 
   return (
     <>
@@ -184,6 +232,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           aria-label="Star bluebill1049/react-hook-form on GitHub"
         />
       </GitHubButtonWrap>
+
+      <LangsSelect>
+        <select>
+          <option>English</option>
+          <option>简体中文</option>
+          <option>日本语</option>
+        </select>
+      </LangsSelect>
 
       <ActionButtonGroup>
         <Link activeClassName="active" to={translateLink("/", currentLanguage)}>
