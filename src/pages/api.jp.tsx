@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ApiPage from "../components/ApiPage"
 
-const Api = ({
+const ApiZh = ({
   location,
 }: {
   location: {
@@ -11,10 +11,10 @@ const Api = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
-    <Seo title="API Documentation" />
-    <ApiPage />
+  <Layout location={location} defaultLang="jp">
+    <Seo title="API ドキュメンテーション" location={location} />
+    <ApiPage defaultLang="jp" />
   </Layout>
 )
 
-export default Api
+export default ApiZh

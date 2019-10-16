@@ -1,8 +1,10 @@
-import track from "./utils/track"
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
 import { Link } from "gatsby"
+import nav from "../data/nav"
+import generic from "../data/generic"
+import translateLink from "./logic/translateLink"
 
 const Footer = styled.footer`
   padding: 40px 0;
@@ -44,39 +46,42 @@ const Links = styled.ul`
   }
 `
 
-export default () => (
+export default ({ currentLanguage }: { currentLanguage: string }) => (
   <Footer>
     <Links>
       <li>
-        <Link to="/">Home</Link>
+        <Link to={translateLink("/", currentLanguage)}>
+          {nav[currentLanguage].home}
+        </Link>
       </li>
       <li>
-        <Link to="/get-started">Get Started</Link>
+        <Link to={translateLink("/get-started", currentLanguage)}>
+          {nav[currentLanguage].getStarted}
+        </Link>
       </li>
       <li>
-        <Link to="/api">API</Link>
+        <Link to={translateLink("/api", currentLanguage)}>API</Link>
       </li>
       <li>
-        <Link to="/advanced-usage">Advanced</Link>
+        <Link to={translateLink("/advanced-usage", currentLanguage)}>
+          {nav[currentLanguage].advanced}
+        </Link>
       </li>
       <li>
-        <Link to="/form-builder">Form Builder</Link>
+        <Link to={translateLink("/form-builder", currentLanguage)}>
+          {nav[currentLanguage].builder}
+        </Link>
       </li>
       <li>
-        <Link to="/faqs">FAQs</Link>
+        <Link to={translateLink("/faqs", currentLanguage)}>
+          {nav[currentLanguage].faqs}
+        </Link>
       </li>
     </Links>
     <p>
       Design and Build by{" "}
       <a
         href="https://twitter.com/bluebill1049"
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "Twitter",
-            action: "Click - go to Twitter",
-          })
-        }}
         target="_blank"
         rel="noopener noreferrer"
         title="Bill Luo Twitter"
@@ -85,13 +90,6 @@ export default () => (
       </a>{" "}
       with{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "RSA",
-            action: "Click - go to RSA",
-          })
-        }}
         href="https://github.com/bluebill1049/react-simple-animate"
         target="_blank"
         rel="noopener noreferrer"
@@ -101,13 +99,6 @@ export default () => (
       </a>{" "}
       +{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "RSI",
-            action: "Click - go to RSI",
-          })
-        }}
         href="https://github.com/bluebill1049/react-simple-img"
         target="_blank"
         rel="noopener noreferrer"
@@ -117,13 +108,6 @@ export default () => (
       </a>{" "}
       +{" "}
       <a
-        onClick={() => {
-          track({
-            category: "Link",
-            label: "little-state-machine",
-            action: "Click - go to LSM",
-          })
-        }}
         rel="noopener noreferrer"
         href="https://github.com/bluebill1049/little-state-machine"
         target="_blank"
@@ -133,7 +117,7 @@ export default () => (
       </a>
     </p>
     <p style={{ fontSize: 12 }}>
-      [ Please support us by leaving a ★{" "}
+      [ {generic.support[currentLanguage]}{" "}
       <a
         href="https://github.com/react-hook-form/react-hook-form"
         target="_blank"

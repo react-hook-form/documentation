@@ -9,6 +9,7 @@ import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import breakpoints from "../styles/breakpoints"
+import home from "../data/home";
 
 const GridView = styled.section`
   display: flex;
@@ -59,8 +60,10 @@ const props = {
 
 export default function CodeCompareSection({
   isPlayCodeCompare,
+  currentLanguage,
 }: {
   isPlayCodeCompare: boolean
+  currentLanguage: string
 }) {
   const [showFullScreen, setFullScreen] = React.useState(false)
   return (
@@ -68,15 +71,10 @@ export default function CodeCompareSection({
       <Section>
         <CenterContent>
           <H1>
-            <code>{`</>`}</code> Library Code Comparison
+            <code>{`</>`}</code> {home.codeComparison[currentLanguage].title}
           </H1>
 
-          <p id="codeComparison">
-            Reducing the amount of code that you have to write is one of the
-            primary goals for React Hook Form. To illustrate that, let's look at
-            a very simple form of validation among some of the most popular form
-            validation libraries.
-          </p>
+          <p id="codeComparison">{home.codeComparison[currentLanguage].description}</p>
         </CenterContent>
 
         <GridView

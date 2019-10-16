@@ -2,8 +2,8 @@ import * as React from "react"
 import { Title } from "../styles/typography"
 import colors from "../styles/colors"
 import styled from "styled-components"
-import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
+import generic from "../data/generic"
 
 const Menu = styled.aside`
   display: none;
@@ -105,7 +105,17 @@ const Code = styled.span`
   top: -2px;
 `
 
-export default function SideMenu({ links, goToSection, isStatic }: any) {
+export default function SideMenu({
+  links,
+  goToSection,
+  isStatic,
+  currentLanguage,
+}: {
+  links: string[]
+  goToSection: Function
+  isStatic?: boolean
+  currentLanguage: string
+}) {
   return (
     <Menu>
       <div>
@@ -116,7 +126,7 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
               color: colors.lightBlue,
             }}
           >
-            Menu
+            {generic.menu[currentLanguage]}
           </Title>
         </TitleList>
 
@@ -134,11 +144,6 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
                   {isStatic ? (
                     <button
                       onClick={() => {
-                        track({
-                          category: "Link",
-                          label: "Examples",
-                          action: "Click - go to examples",
-                        })
                         goToSection(link, index)
                       }}
                       style={{
@@ -211,18 +216,11 @@ export default function SideMenu({ links, goToSection, isStatic }: any) {
           <li>
             <Code>{`</>`}</Code>
             <a
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Examples",
-                  action: "Click - Go to Examples",
-                })
-              }}
               rel="noopener noreferrer"
               href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
               target="_blank"
             >
-              Code Examples
+              {generic.codeExample[currentLanguage]}
             </a>
           </li>
         </ul>

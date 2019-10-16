@@ -21,7 +21,6 @@ import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
-import track from "./utils/track"
 import { Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
 import typeScript from "./codeExamples/typeScript"
@@ -35,10 +34,13 @@ import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
 import { PrimaryButton } from "../styles/buttons"
 import { navigate } from "@reach/router"
+import { useStateMachine } from "little-state-machine"
+import generic from "../data/generic"
+import api from "../data/api"
 
 const { useRef, useEffect } = React
 
-const CodeAsLink = styled(Link)`
+export const CodeAsLink = styled(Link)`
   cursor: pointer;
   text-decoration: underline;
 `
@@ -185,7 +187,17 @@ const codeSandBoxStyle = {
   float: "right",
 }
 
-function ApiPage({ formData }: { formData?: any }) {
+function ApiPage({
+  formData,
+  defaultLang,
+}: {
+  formData?: any
+  defaultLang: string
+}) {
+  const {
+    state: { language },
+  } = useStateMachine()
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,
@@ -223,11 +235,6 @@ function ApiPage({ formData }: { formData?: any }) {
     )
 
     const refName = `${filterName}Ref`
-    track({
-      category: "Link",
-      label: filterName,
-      action: `Click - Go to ${filterName} section`,
-    })
 
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
@@ -245,12 +252,12 @@ function ApiPage({ formData }: { formData?: any }) {
         <HeadingWithTopMargin id="main">API</HeadingWithTopMargin>
         <QuickSelect>
           <select
-            aria-label="select API"
+            aria-label={`${generic.select[currentLanguage]} API`}
             onChange={e => {
               goToSection(e.target.value)
             }}
           >
-            <option>Select API</option>
+            <option>{generic.select[currentLanguage]} API</option>
             {links.map(option => (
               <option value={option} key={option}>
                 {option}
@@ -259,12 +266,14 @@ function ApiPage({ formData }: { formData?: any }) {
           </select>
         </QuickSelect>
       </HiddenMenu>
-      <SubHeading>
-        React Hook Form focuses on providing the best DX by simplifying the API.
-      </SubHeading>
+      <SubHeading>{api.header.description[currentLanguage]}</SubHeading>
 
       <Wrapper>
-        <SideMenu links={links} goToSection={goToSection} />
+        <SideMenu
+          links={links}
+          goToSection={goToSection}
+          currentLanguage={currentLanguage}
+        />
         <main>
           <CodeHeading
             ref={ref => {
@@ -276,8 +285,7 @@ function ApiPage({ formData }: { formData?: any }) {
             </h2>
           </CodeHeading>
           <p>
-            By invoking <code>useForm</code>, you will receive the following
-            methods{" "}
+            {/*{api.useForm.intro[currentLanguage]}*/}
             <CodeAsLink onClick={() => goToSection("register")}>
               register
             </CodeAsLink>
@@ -322,10 +330,7 @@ function ApiPage({ formData }: { formData?: any }) {
             .
           </p>
 
-          <p>
-            <code>useForm</code> also has <b>optional</b> arguments. The
-            following example demonstrate all options' default value.
-          </p>
+          {api.useForm.description[currentLanguage]}
 
           <CodeArea
             withOutCopy
@@ -352,14 +357,14 @@ function ApiPage({ formData }: { formData?: any }) {
             <Table>
               <tbody>
                 <tr>
-                  <th>Name</th>
-                  <th>Type</th>
+                  <th>{generic.name[currentLanguage]}</th>
+                  <th>{generic.type[currentLanguage]}</th>
                   <th
                     style={{
                       minWidth: 300,
                     }}
                   >
-                    Description
+                    {generic.description[currentLanguage]}
                   </th>
                 </tr>
                 <tr>
@@ -367,31 +372,21 @@ function ApiPage({ formData }: { formData?: any }) {
                   <td>
                     <Type>string</Type>
                   </td>
-                  <td>
-                    Validation will trigger on the <code>submit</code> event and
-                    invalid inputs will attach <code>onChange</code> event
-                    listeners to re-validate them.
-                  </td>
+                  <td>{api.useForm.validateOnSubmit[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>onBlur</td>
                   <td>
                     <Type>string</Type>
                   </td>
-                  <td>
-                    Validation will trigger on the <code>blur</code> event.
-                  </td>
+                  <td>{api.useForm.validateOnBlur[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>onChange</td>
                   <td>
                     <Type>string</Type>
                   </td>
-                  <td>
-                    Validation will trigger on the <code>change</code> event
-                    with each input, and lead to multiple re-renders. Not
-                    recommended: Consider this as a bad performance practice.
-                  </td>
+                  <td>{api.useForm.validateOnChange[currentLanguage]}</td>
                 </tr>
               </tbody>
             </Table>
@@ -410,39 +405,7 @@ function ApiPage({ formData }: { formData?: any }) {
             />
           </H5>
 
-          <p>
-            You can set input's default value with{" "}
-            <code>defaultValue/defaultChecked</code>{" "}
-            <Link
-              href="https://reactjs.org/docs/uncontrolled-components.html"
-              onClick={() => {
-                track({
-                  category: "Button",
-                  label: "read more at React doc",
-                  action: "Click - go to React Doc",
-                })
-              }}
-            >
-              (read more at React doc for Default Values)
-            </Link>{" "}
-            or pass <code>defaultValues</code> as an optional argument to
-            populate default values for the entire form.
-          </p>
-
-          <p>
-            <Note>Note: </Note>Values defined in <code>defaultValues</code> will
-            be injected into{" "}
-            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
-            as <code>defaultValue</code>.
-          </p>
-
-          <p>
-            <Note>Note: </Note> <code>defaultValues</code> doesn't auto populate
-            with manually registered input (eg:
-            <code>{`register({ name: 'test' })`}</code>) because manual{" "}
-            <code>register</code> field is not providing <code>ref</code> to
-            React Hook Form.
-          </p>
+          {api.useForm.defaultValues(goToSection)[currentLanguage]}
 
           <CodeArea
             url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
@@ -474,16 +437,7 @@ function ApiPage({ formData }: { formData?: any }) {
                     </H5>
                   </td>
                   <td>
-                    <p>
-                      Apply form validation rules with <code>Yup</code> at the
-                      schema level, please refer the{" "}
-                      <CodeAsLink
-                        onClick={() => goToSection("validationSchema")}
-                      >
-                        validationSchema
-                      </CodeAsLink>{" "}
-                      section.
-                    </p>
+                    {api.useForm.validationSchema(goToSection)[currentLanguage]}
                   </td>
                   <td>
                     <CodeSandBoxLink
@@ -503,13 +457,7 @@ function ApiPage({ formData }: { formData?: any }) {
                       </code>
                     </H5>
                   </td>
-                  <td>
-                    <p>
-                      This option allow you to config when input with errors
-                      gets re-validate, by default it's triggered during input
-                      change.
-                    </p>
-                  </td>
+                  <td>{api.useForm.reValidateMode[currentLanguage]}</td>
                   <td />
                 </tr>
                 <tr>
@@ -521,13 +469,7 @@ function ApiPage({ formData }: { formData?: any }) {
                       </code>
                     </H5>
                   </td>
-                  <td>
-                    <p>
-                      Providing an array of fields means only included fields
-                      will be validated. This option is useful when you want to
-                      toggle which fields are required to validate.
-                    </p>
-                  </td>
+                  <td>{api.useForm.validationFields[currentLanguage]}</td>
                   <td>
                     <CodeSandBoxLink
                       style={codeSandBoxStyle}
@@ -544,19 +486,7 @@ function ApiPage({ formData }: { formData?: any }) {
                       </code>
                     </H5>
                   </td>
-                  <td>
-                    <p>
-                      By default when the user submits a form and that contains
-                      an error, the first field with an error will be focused.
-                    </p>
-
-                    <p>
-                      <Note>Note:</Note> Only registered fields with{" "}
-                      <code>ref</code> will work. Manually registered inputs
-                      won't work. eg:{" "}
-                      <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
-                    </p>
-                  </td>
+                  <td>{api.useForm.submitFocusError[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>
@@ -568,24 +498,7 @@ function ApiPage({ formData }: { formData?: any }) {
                     </H5>
                   </td>
                   <td>
-                    <p>
-                      Setting this option to <code>true</code> will enable
-                      browser's native validation. You can{" "}
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-                      >
-                        find out more about the built-in browser validation
-                      </a>
-                      , and refer to the{" "}
-                      <CodeAsLink
-                        onClick={() => goToSection("nativeValidation")}
-                      >
-                        nativeValidation
-                      </CodeAsLink>{" "}
-                      section for more detail and example.
-                    </p>
+                    {api.useForm.nativeValidation(goToSection)[currentLanguage]}
                   </td>
                   <td>
                     <CodeSandBoxLink
@@ -613,7 +526,7 @@ function ApiPage({ formData }: { formData?: any }) {
             </h2>
           </CodeHeading>
 
-          <ApiRefTable goToSection={goToSection} />
+          <ApiRefTable goToSection={goToSection} currentLanguage={currentLanguage} />
 
           <hr />
 
@@ -628,10 +541,7 @@ function ApiPage({ formData }: { formData?: any }) {
             </h2>
           </CodeHeading>
 
-          <p>
-            This method will allow you to <code>unregister</code> a single input
-            or an array of inputs.
-          </p>
+          {api.unregister[currentLanguage]}
 
           <CodeArea
             url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
@@ -667,15 +577,7 @@ function ApiPage({ formData }: { formData?: any }) {
               handleSubmit: <Type>(data: Object, e: Event) => void</Type>
             </h2>
           </CodeHeading>
-          <p>
-            This function will pass the form data when form validation is
-            successful.
-          </p>
-          <p>
-            <Note>Note:</Note> You can pass an <code>async</code> function for
-            asynchronous validation. eg:{" "}
-            <code>handleSubmit(async (data) => await fetchAPI(data))</code>
-          </p>
+          {api.handleSubmit[currentLanguage]}
           <CodeArea
             rawData={handleSubmitCode}
             url="https://codesandbox.io/s/yj07z1639"
@@ -696,17 +598,8 @@ function ApiPage({ formData }: { formData?: any }) {
               <Popup />
             </h2>
           </CodeHeading>
-          <p>
-            This function will reset the fields' values and errors within the
-            form. You can pass <code>values</code> as an optional argument to
-            reset your form into assigned default values.
-          </p>
-          <p>
-            <Note>Note:</Note> For controlled components like{" "}
-            <code>React-Select</code> which don't expose <code>ref</code>, you
-            will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>.
-          </p>
+
+          {api.reset(goToSection)[currentLanguage]}
 
           <CodeArea
             rawData={resetCode}
@@ -729,7 +622,7 @@ function ApiPage({ formData }: { formData?: any }) {
               </Type>
             </h2>
           </CodeHeading>
-          <p>Allows you to manually set an input error.</p>
+          {api.setError[currentLanguage]}
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -740,23 +633,7 @@ function ApiPage({ formData }: { formData?: any }) {
               clearError: <Type>(name?: string | string[]) => void</Type>
             </h2>
           </CodeHeading>
-          <ul>
-            <li>
-              <p>
-                <code>undefined</code>: reset all errors
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>string</code>: reset single error
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>string[]</code>: reset multiple errors
-              </p>
-            </li>
-          </ul>
+          {api.clearError[currentLanguage]}
 
           <CodeArea
             rawData={setError}
@@ -778,16 +655,8 @@ function ApiPage({ formData }: { formData?: any }) {
               </Type>
             </h2>
           </CodeHeading>
-          <p>This function allows you to dynamically set input/select value.</p>
-          <p>
-            <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-            will push input's <code>name</code> into <code>touched</code>.
-          </p>
-          <p>
-            You can also set <code>shouldValidate</code> to <code>true</code>{" "}
-            and it will trigger field validation. eg:{" "}
-            <code>setValue('name', 'value', true)</code>
-          </p>
+
+          {api.setValue[currentLanguage]}
 
           <CodeArea
             rawData={setValue}
@@ -807,21 +676,8 @@ function ApiPage({ formData }: { formData?: any }) {
               <Type>{`(payload?: { nest: boolean }) => Object`}</Type>
             </h2>
           </CodeHeading>
-          <p>This function will return the entire form data.</p>
 
-          <ul>
-            <li>
-              By default <code>getValues()</code> will return form data in a
-              flat structure. eg:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </li>
-            <li>
-              Working on array fields form,{" "}
-              <code>getValues({`{ nest: true }`})</code> will return data in a
-              nested structure according to input <code>name</code>. eg:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </li>
-          </ul>
+          {api.getValues[currentLanguage]}
 
           <CodeArea
             rawData={getValues}
@@ -883,12 +739,8 @@ function ApiPage({ formData }: { formData?: any }) {
             <h2>React Native</h2>
           </CodeHeading>
 
-          <p>
-            You will get the same performance enhancement from Uncontrolled
-            Component. However, there are certain API which isn't compatible
-            with React Native (duo to the API difference from web and native).
-            We will have to use <b>custom register</b> in the following example.
-          </p>
+          {api.reactNative[currentLanguage]}
+
           <CodeArea rawData={reactNative} />
 
           <hr />
@@ -904,20 +756,8 @@ function ApiPage({ formData }: { formData?: any }) {
             </h2>
           </CodeHeading>
 
-          <p>
-            If you would like to centralize your validation rules with external
-            validation schema, you can apply <code>validationSchema</code> at{" "}
-            <code>useForm</code> as an optional argument. React Hook Form
-            currently supports{" "}
-            <Link
-              href="https://github.com/jquense/yup"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Yup
-            </Link>{" "}
-            for object schema validation.
-          </p>
+          {api.validationSchema[currentLanguage]}
+
           <CodeArea
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
@@ -978,11 +818,6 @@ function ApiPage({ formData }: { formData?: any }) {
             </p>
             <PrimaryButton
               onClick={() => {
-                track({
-                  category: "Button",
-                  label: "Star",
-                  action: "Click - Go to Github star",
-                })
                 navigate("/advanced-usage")
               }}
               style={{ margin: "40px auto" }}
@@ -990,7 +825,7 @@ function ApiPage({ formData }: { formData?: any }) {
               Learn Advance Usage
             </PrimaryButton>
           </section>
-          <Footer />
+          <Footer currentLanguage={currentLanguage} />
         </main>
       </Wrapper>
     </Container>

@@ -13,7 +13,6 @@ import {
   Title,
 } from "../styles/typography"
 import CodeArea from "./CodeArea"
-import track from "./utils/track"
 import { Container } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
@@ -21,6 +20,8 @@ import { PinkButton, DarkButton } from "../styles/buttons"
 import Popup from "./Popup"
 import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
+import builder from "../data/builder"
+import generic from "../data/generic";
 
 const { useState, useRef, useEffect } = React
 
@@ -174,16 +175,19 @@ function BuilderPage({
   toggleBuilder,
   HomeRef,
   isStatic,
+  defaultLang,
 }: {
   showBuilder?: boolean
   toggleBuilder?: Function
   HomeRef?: any
   isStatic?: boolean
+  defaultLang: string
 }) {
   const {
-    state: { formData = [] },
+    state: { formData = [], language },
     action: updateFormData,
   } = useStateMachine(updateStore)
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
   const [editFormData, setFormData] = useState(defaultValue)
   const {
     register,
@@ -248,17 +252,18 @@ function BuilderPage({
 
   const child = (
     <Container>
-      <HeadingWithTopMargin id="main">Builder</HeadingWithTopMargin>
-      <SubHeading>Build your own form with code and example.</SubHeading>
+      <HeadingWithTopMargin id="main">
+        {builder.builder[currentLanguage].title}
+      </HeadingWithTopMargin>
+      <SubHeading>{builder.builder[currentLanguage].description}</SubHeading>
 
       <Wrapper>
         <div>
-          <Title>Form Layout</Title>
+          <Title>{builder.layout[currentLanguage].title}</Title>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            You can re-arrange by drag and drop, delete and edit each field in
-            this section.
+            {builder.layout[currentLanguage].message}
           </p>
 
           <SortableContainer
@@ -270,24 +275,24 @@ function BuilderPage({
               setFormData,
               editFormData,
               reset,
+              currentLanguage,
             }}
           />
 
-          {!formData.length && (
-            <p>You can start adding fields with Input Creator.</p>
-          )}
+          {!formData.length && <p>{builder.layout[currentLanguage].message}</p>}
         </div>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Title ref={form}>Input Creator</Title>
+          <Title ref={form}>
+            {builder.inputCreator[currentLanguage].title}
+          </Title>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            This form allow you to create and update input. Generate form button
-            will create a new form with the updates.
+            {builder.inputCreator[currentLanguage].description}
           </p>
 
-          <label>Name: </label>
+          <label>{generic.name[currentLanguage]}: </label>
           <input
             autoComplete="off"
             defaultValue={editFormData.name}
@@ -318,7 +323,7 @@ function BuilderPage({
             )}
           </Animate>
 
-          <label>Type: </label>
+          <label>{generic.type[currentLanguage]}: </label>
           <select
             aria-label="Select type"
             name="type"
@@ -351,7 +356,7 @@ function BuilderPage({
             editFormData.type === "select" ||
             editFormData.type === "radio") && (
             <>
-              <label>Options:</label>
+              <label>{builder.inputCreator[currentLanguage].options}:</label>
               <input
                 key={editFormData.name}
                 defaultValue={editFormData.options}
@@ -370,7 +375,7 @@ function BuilderPage({
               ref={register}
               onClick={() => toggleValidation(!showValidation)}
             />
-            Show validation
+            {builder.inputCreator[currentLanguage].validation}
           </label>
 
           <Animate
@@ -438,17 +443,12 @@ function BuilderPage({
 
           <PinkButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: editIndex >= 0 ? "Update" : "Create",
-                action: `Click - Builder ${
-                  editIndex >= 0 ? "Update" : "Create"
-                }`,
-              })
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            {editIndex >= 0 ? "Update" : "Create"}
+            {editIndex >= 0
+              ? generic.update[currentLanguage]
+              : generic.create[currentLanguage]}
           </PinkButton>
 
           {formData.length > 0 && (
@@ -478,12 +478,6 @@ function BuilderPage({
                 style={style}
                 type="button"
                 onClick={() => {
-                  track({
-                    category: "Button",
-                    label: "Generate form",
-                    action: "Click - Generate form",
-                  })
-
                   if (toggleBuilder) {
                     toggleBuilder(false)
                     document.body.style.overflow = "auto"
@@ -493,7 +487,7 @@ function BuilderPage({
                   }
                 }}
               >
-                Generate Form
+                {builder.inputCreator[currentLanguage].generate}
               </DarkButton>
             )}
           />
@@ -505,12 +499,11 @@ function BuilderPage({
             position: "relative",
           }}
         >
-          <Title>Code</Title>
+          <Title>{builder.code[currentLanguage].title}</Title>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            As you making changes over the form, the code section will be
-            updated and you can copy the code as well.
+            {builder.code[currentLanguage].description}
           </p>
 
           <CodeArea data={formData} />
@@ -519,7 +512,7 @@ function BuilderPage({
 
       <LearnMore />
 
-      <Footer />
+      <Footer currentLanguage={currentLanguage} />
     </Container>
   )
 

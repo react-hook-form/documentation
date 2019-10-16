@@ -1,8 +1,21 @@
 import * as React from "react"
 import Helmet from "react-helmet"
+import { getCurrentLangKey, getLangs, getUrlForLang } from "ptz-i18n"
+import { useStateMachine } from "little-state-machine"
+import { updateCurrentLanguage } from "../actions/languageActions"
+import "intl"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ title, description }: { title: string; description?: string }) {
+function SEO({
+  title,
+  description,
+  location,
+}: {
+  title: string
+  description?: string
+  location: { pathname: string }
+}) {
+  const { action } = useStateMachine(updateCurrentLanguage)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -11,6 +24,10 @@ function SEO({ title, description }: { title: string; description?: string }) {
             title
             description
             author
+            languages {
+              defaultLangKey
+              langs
+            }
           }
         }
       }
@@ -18,11 +35,23 @@ function SEO({ title, description }: { title: string; description?: string }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const { langs, defaultLangKey } = site.siteMetadata.languages
+  const url = location.pathname
+  const langKey = getCurrentLangKey(langs, defaultLangKey, url)
+  const homeLink = `/${langKey}`.replace(`/${defaultLangKey}/`, "/")
+
+  React.useEffect(() => {
+    action(
+      getLangs(langs, langKey, getUrlForLang(homeLink, url)).filter(
+        ({ selected }) => selected
+      )[0].langKey
+    )
+  }, [])
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: langKey,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

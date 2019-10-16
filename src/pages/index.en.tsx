@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Home from "../components/Home"
+import home from "../data/home";
 
 const IndexPage = ({
   location,
@@ -11,12 +12,13 @@ const IndexPage = ({
     pathname: string
   }
 }) => (
-  <Layout location={location}>
+  <Layout location={location} defaultLang="en">
     <Seo
-      title="Home"
-      description="React hook for form validation without the hassle"
+      title={home.title.en}
+      description={home.description.en}
+      location={location}
     />
-    <Home location={location} />
+    <Home location={location} defaultLang="en" />
   </Layout>
 )
 

@@ -3,7 +3,6 @@ import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
 import { Animate, AnimateKeyframes } from "react-simple-animate"
 import colors from "../styles/colors"
-import track from "./utils/track"
 import { navigate } from "@reach/router"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
 import breakpoints from "../styles/breakpoints"
@@ -11,6 +10,8 @@ import breakpoints from "../styles/breakpoints"
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
+import home from "../data/home"
+import { useStateMachine } from "little-state-machine"
 
 const Logo = styled.svg`
   height: 80px;
@@ -172,10 +173,16 @@ const LogoSvg = (
 
 export default function Header({
   homeRef,
+  defaultLang,
 }: {
   homeRef: React.Ref<HTMLDivElement>
+  defaultLang: string
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
+  const {
+    state: { language },
+  } = useStateMachine()
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
 
   return (
     <>
@@ -188,35 +195,24 @@ export default function Header({
         </Heading>
 
         <SubHeading style={{ marginBottom: 0 }}>
-          Performant, flexible and extensible forms with easy to use for
-          validation.
+          {home.slogan[currentLanguage]}
         </SubHeading>
 
         <ButtonsGroupSmall>
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "Demo",
-                action: "Click - Demo",
-              })
               // @ts-ignore
               homeRef.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            Demo
+            {home.demo[currentLanguage]}
           </PrimaryButton>
           <PrimaryButton
             onClick={() => {
-              track({
-                category: "Button",
-                label: "Get Started",
-                action: "Click - Get Started",
-              })
               navigate("/get-started")
             }}
           >
-            Get Started &nbsp;<span>▶</span>
+            {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
           </PrimaryButton>
         </ButtonsGroupSmall>
       </Head>
@@ -236,13 +232,6 @@ export default function Header({
               controls
               playsInline
               muted
-              onClick={() => {
-                track({
-                  category: "Video",
-                  label: "video",
-                  action: "Play/Pause - Demo Video",
-                })
-              }}
             >
               <source src={video} type="video/mp4" />
             </Video>
@@ -302,13 +291,6 @@ export default function Header({
           playsInline
           isLast
           muted
-          onClick={() => {
-            track({
-              category: "Video",
-              label: "video",
-              action: "Play/Pause - Demo Video",
-            })
-          }}
         >
           <source src={nativeVideo} type="video/mp4" />
         </Video>
@@ -325,11 +307,6 @@ export default function Header({
           role="tab"
           onClick={() => {
             setIsWeb(true)
-            track({
-              category: "Button",
-              label: "React Web",
-              action: "Click - watch",
-            })
           }}
         >
           React Web
@@ -344,11 +321,6 @@ export default function Header({
           aria-controls="tabPanel-2"
           onClick={() => {
             setIsWeb(false)
-            track({
-              category: "Button",
-              label: "React Native",
-              action: "Click - watch",
-            })
           }}
         >
           React Native

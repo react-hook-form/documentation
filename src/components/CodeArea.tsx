@@ -5,7 +5,6 @@ import { xonokai } from "react-syntax-highlighter/dist/styles/prism"
 import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
 import colors from "../styles/colors"
-import track from "./utils/track"
 import breakpoints from "../styles/breakpoints"
 
 const commonStyle = `
@@ -103,13 +102,6 @@ export const CodeSandBoxLink = ({
   style?: any
 }) => (
   <LinkToSandBox
-    onClick={() => {
-      track({
-        label: "CodeSandbox",
-        category: "Button",
-        action: `Click - Go to codeSandBox ${url}`,
-      })
-    }}
     style={style}
     href={url}
     target="_blank"
@@ -149,11 +141,6 @@ export default function CodeArea({
       {!withOutCopy && (
         <CopyButton
           onClick={() => {
-            track({
-              category: "Button",
-              label: "Copy",
-              action: "Click - Copy code",
-            })
             copyClipBoard(rawData || generateCode(data))
             alert("Code copied into your clipboard.")
           }}

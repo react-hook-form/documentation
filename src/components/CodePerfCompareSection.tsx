@@ -1,10 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
-import { H1, Title, Note } from "../styles/typography"
-import Link from "../styles/link"
+import { H1, Title } from "../styles/typography"
 import { SimpleImg } from "react-simple-img"
 import colors from "../styles/colors"
-import track from "./utils/track"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import breakpoints from "../styles/breakpoints"
 // @ts-ignore
@@ -20,6 +18,7 @@ import formikVideo from "../images/formik-test.mp4"
 // @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.mp4"
 import { CenterContent } from "../styles/containers"
+import home from "../data/home"
 
 const ImgSection = styled.div`
   display: flex;
@@ -138,24 +137,17 @@ const props = {
 
 export default function CodePerfCompareSection({
   isPlayRender,
+  currentLanguage,
 }: {
   isPlayRender: boolean
+  currentLanguage: string
 }) {
   return (
     <AnimateGroup play={isPlayRender}>
       <CenterContent>
-        <H1 id="rendering">Reduce Rendering</H1>
+        <H1 id="rendering">{home.rendering[currentLanguage].title}</H1>
 
-        <p>
-          Do you ever wonder how many component re-renders have been triggered
-          by the user? React Hook Form embraces uncontrolled form validation to
-          reduce unnecessary performance impact.
-        </p>
-
-        <MobileText>
-          <Note>Note: </Note> You can swipe through the following videos to see
-          how they work.
-        </MobileText>
+        <p>{home.rendering[currentLanguage].description}</p>
       </CenterContent>
 
       <VideoWrapper>
@@ -168,7 +160,8 @@ export default function CodePerfCompareSection({
                 <source src={formikVideo} type="video/mp4" />
               </video>
               <p>
-                Total re-renders: <strong>30+</strong>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <strong>30+</strong>
               </p>
             </section>
           )}
@@ -183,7 +176,8 @@ export default function CodePerfCompareSection({
                 <source src={reactHookFormVideo} type="video/mp4" />
               </video>
               <p>
-                Total re-renders: <strong>3</strong>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <strong>3</strong>
               </p>
             </section>
           )}
@@ -198,7 +192,8 @@ export default function CodePerfCompareSection({
                 <source src={reduxFormVideo} type="video/mp4" />
               </video>
               <p>
-                Total re-renders: <strong>30+</strong>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <strong>30+</strong>
               </p>
             </section>
           )}
@@ -206,14 +201,9 @@ export default function CodePerfCompareSection({
       </VideoWrapper>
 
       <CenterContent>
-        <H1>Faster Mounting</H1>
+        <H1>{home.mount[currentLanguage].title}</H1>
 
-        <p>
-          The following results demonstrate: how long it took to render the
-          components. Results are captured under 6x CPU slow down on App start
-          with Chrome dev tools' performance tab, and code is from the section
-          above <a href="#codeComparison">Library Code Comparison</a>.
-        </p>
+        {home.mount[currentLanguage].description}
       </CenterContent>
 
       <Title
@@ -225,10 +215,10 @@ export default function CodePerfCompareSection({
       </Title>
       <ImgSection>
         <ul>
-          <li>No. of mount(s): 1</li>
-          <li>No. of committing change(s): 1</li>
+          <li>{home.mount[currentLanguage].totalMount}: 1</li>
+          <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            Total time: <strong>1800ms</strong>
+            {home.mount[currentLanguage].totalTime}: <strong>1800ms</strong>
           </li>
         </ul>
         <SimpleImg
@@ -242,10 +232,10 @@ export default function CodePerfCompareSection({
       <Title>Formik</Title>
       <ImgSection>
         <ul>
-          <li>No. of mount(s): 6</li>
-          <li>No. of committing change(s): 1</li>
+          <li>{home.mount[currentLanguage].totalMount}: 6</li>
+          <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            Total time: <strong>2070ms</strong>
+            {home.mount[currentLanguage].totalTime}: <strong>2070ms</strong>
           </li>
         </ul>
         <SimpleImg
@@ -259,11 +249,10 @@ export default function CodePerfCompareSection({
       <Title>Redux Form</Title>
       <ImgSection>
         <ul>
-          <li>No. of mount(s): 17</li>
-          <li>No. of committing change(s): 2</li>
-          <li>No. of update(s): 2</li>
+          <li>{home.mount[currentLanguage].totalMount}: 17</li>
+          <li>{home.mount[currentLanguage].totalChange}: 2</li>
           <li>
-            Total time: <strong>2380ms</strong>
+            {home.mount[currentLanguage].totalTime}: <strong>2380ms</strong>
           </li>
         </ul>
         <SimpleImg
@@ -275,22 +264,7 @@ export default function CodePerfCompareSection({
       </ImgSection>
 
       <p style={{ marginBottom: 40, textAlign: "center" }}>
-        <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-        performance tests?{" "}
-        <Link
-          href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-          rel="noopener noreferrer"
-          onClick={() => {
-            track({
-              category: "Link",
-              label: "Check out the result for 1000 fields within a form here",
-              action: "Click - View Performance Test Repo",
-            })
-          }}
-        >
-          Check out the result of 1000 fields within a form here
-        </Link>
-        .
+        {home.mount[currentLanguage].performanceTests}
       </p>
     </AnimateGroup>
   )
