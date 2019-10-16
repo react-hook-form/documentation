@@ -243,6 +243,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           onChange={e => {
             action(e.target.value)
           }}
+          disabled
           defaultValue={currentLanguage}
         >
           <option value="en">English</option>
