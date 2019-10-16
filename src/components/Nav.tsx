@@ -127,7 +127,7 @@ const LangsSelect = styled.div`
   z-index: 5;
   top: 0;
   min-width: 90px;
-  display: none;
+  opacity: 0.5;
 
   @media ${breakpoints.fromMediumScreen} {
     right: 10px;
@@ -139,7 +139,7 @@ const LangsSelect = styled.div`
   }
 
   > select {
-    cursor: pointer;
+    cursor: not-allowed;
     width: 100%;
     margin-top: 15px;
     line-height: 20px;
