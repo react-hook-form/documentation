@@ -71,7 +71,7 @@ export const H5 = styled.h5`
 
 export const HeadingWithTopMargin = styled(Heading)`
   @media ${breakpoints.fromMediumScreen} {
-    margin-top: 30px;
+    margin-top: 70px;
   }
 `
 
