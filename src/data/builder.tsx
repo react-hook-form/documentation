@@ -17,7 +17,7 @@ export default {
       description: "Build your own form with code and example.",
     },
     jp: {
-      title: "Builder",
+      title: "ビルダー",
       description: "Build your own form with code and example.",
     },
     zh: {
@@ -89,7 +89,7 @@ export default {
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
     },
     jp: {
-      title: "Code",
+      title: "コード",
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
     },
     zh: {

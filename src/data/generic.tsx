@@ -103,6 +103,11 @@ export default {
     jp: "削除",
     zh: "删除",
   },
+  example: {
+    en: "Example",
+    jp: "例",
+    zh: "例子",
+  },
   edit: {
     en: "Edit",
     jp: "編集",

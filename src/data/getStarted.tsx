@@ -30,7 +30,7 @@ export default {
       description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     jp: {
-      title: "Video Tutorial",
+      title: "ビデオチュートリアル",
       description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     zh: {
@@ -45,7 +45,7 @@ export default {
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     jp: {
-      linkTitle: "Quick start",
+      linkTitle: "クイックスタート",
       title: "Installation",
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
@@ -61,7 +61,7 @@ export default {
       description: `The following code will demonstrate the basics usage.`,
     },
     jp: {
-      title: "",
+      title: "例",
       description: `The following code will demonstrate the basics usage.`,
     },
     zh: {
@@ -181,7 +181,7 @@ export default {
       ),
     },
     jp: {
-      title: "Apply validation",
+      title: "検証を適用する",
       description: (
         <>
           <p>
@@ -360,7 +360,7 @@ export default {
       ),
     },
     jp: {
-      title: "Handle errors",
+      title: "エラーを処理する",
       description: (
         <>
           React Hook Form provides an <code>errors</code> object to show you the

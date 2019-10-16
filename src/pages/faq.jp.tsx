@@ -12,7 +12,7 @@ const Faq = ({
   }
 }) => (
   <Layout location={location} defaultLang="jp">
-    <Seo title="FAQs" location={location} />
+    <Seo title="よくある質問" location={location} />
     <FaqPage defaultLang="jp"/>
   </Layout>
 )

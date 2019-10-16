@@ -14,7 +14,7 @@ import { Link as PageLink } from "gatsby"
 export default {
   title: {
     en: "Advanced Usage",
-    jp: "Advanced Usage",
+    jp: "高度な使用法",
     zh: "Advanced Usage",
   },
   header: {
@@ -23,7 +23,7 @@ export default {
       description: "Build complex and accessible forms with React Hook Form.",
     },
     jp: {
-      title: "Advanced",
+      title: "高度な",
       description: "Build complex and accessible forms with React Hook Form.",
     },
     zh: {
@@ -34,7 +34,7 @@ export default {
   accessibility: {
     en: {
       title: "Accessibility (A11y)",
-      introduction: (
+      description: (
         <>
           <p>
             React Hook Form have support on native form validation, which let
@@ -71,8 +71,8 @@ export default {
       ),
     },
     jp: {
-      title: "Accessibility (A11y)",
-      introduction: (
+      title: "アクセシビリティ (A11y)",
+      description: (
         <>
           <p>
             React Hook Form have support on native form validation, which let
@@ -110,7 +110,7 @@ export default {
     },
     zh: {
       title: "Accessibility (A11y)",
-      introduction: (
+      description: (
         <>
           <p>
             React Hook Form have support on native form validation, which let

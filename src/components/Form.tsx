@@ -9,6 +9,7 @@ import { CenterContent } from "../styles/containers"
 import goToBuilder from "./utils/goToBuilder"
 import useForm from "react-hook-form"
 import home from "../data/home"
+import generic from "../data/generic"
 
 const Code = styled.pre`
   text-align: left;
@@ -95,14 +96,11 @@ export default function Form({
       </CenterContent>
       <Wrapper>
         <DemoForm onSubmit={handleSubmit(onSubmit)}>
-          <Title>{home.liveDemo[currentLanguage].example}</Title>
+          <Title>{generic.example[currentLanguage]}</Title>
 
           <FormFields {...{ formData, errors, register }} />
 
-          <PinkButton
-          >
-            {home.liveDemo[currentLanguage].submit}
-          </PinkButton>
+          <PinkButton>{home.liveDemo[currentLanguage].submit}</PinkButton>
           <Title
             style={{
               fontSize: 14,
@@ -121,7 +119,7 @@ export default function Form({
               goToBuilder()
             }}
           >
-            {home.liveDemo[currentLanguage].edit}
+            {generic.edit[currentLanguage]}
           </DarkButton>
         </DemoForm>
 
