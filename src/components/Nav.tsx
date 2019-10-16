@@ -106,7 +106,7 @@ const GitHubButtonWrap = styled.span`
   }
 
   @media ${breakpoints.fromXlargeScreen} {
-    right: 130px;
+    right: 140px;
   }
 `
 
@@ -134,6 +134,7 @@ const LangsSelect = styled.div`
 
   @media ${breakpoints.fromXlargeScreen} {
     right: 20px;
+    min-width: 100px;
   }
 
   > select {
