@@ -1,7 +1,7 @@
 export default {
   copy: {
     en: "Copy",
-    jp: "",
+    jp: "コピー",
     zh: "拷贝",
   },
   learnMore: {
@@ -11,9 +11,17 @@ export default {
         "Checkout the React Hook Form documentation and learn all the API.",
       buttonText: "Checkout Hook API",
     },
-    jp: {},
+    jp: {
+      title: "Want to learn more?",
+      description:
+        "Checkout the React Hook Form documentation and learn all the API.",
+      buttonText: "Checkout Hook API",
+    },
     zh: {
       title: "想学更多吗？",
+      description:
+        "Checkout the React Hook Form documentation and learn all the API.",
+      buttonText: "Checkout Hook API",
     },
   },
   advanceUsage: {
@@ -22,8 +30,16 @@ export default {
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
       buttonText: `Learn Advance Usage`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "Advance Usage",
+      description: `Learn how to build complex and accessible forms with React Hook Form.`,
+      buttonText: `Learn Advance Usage`,
+    },
+    zh: {
+      title: "Advance Usage",
+      description: `Learn how to build complex and accessible forms with React Hook Form.`,
+      buttonText: `Learn Advance Usage`,
+    },
   },
   needYourSupport: {
     en: {
@@ -31,13 +47,21 @@ export default {
       description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
       buttonText: `Star React Hook Form`,
     },
-    jp: {},
-    zh: {},
+    jp: {
+      title: "Need Your Support",
+      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      buttonText: `Star React Hook Form`,
+    },
+    zh: {
+      title: "Need Your Support",
+      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      buttonText: `Star React Hook Form`,
+    },
   },
   codeExample: {
     en: "Code Examples",
-    jp: "",
-    zh: "代码样本",
+    jp: "コード例",
+    zh: "程式码范例",
   },
   menu: {
     en: "Menu",
@@ -76,22 +100,22 @@ export default {
   },
   delete: {
     en: "Delete",
-    jp: "",
-    zh: "",
+    jp: "削除",
+    zh: "删除",
   },
   edit: {
     en: "Edit",
-    jp: "",
-    zh: "",
+    jp: "編集",
+    zh: "编辑",
   },
   cancelEdit: {
     en: "Cancel Edit",
-    jp: "",
-    zh: "",
+    jp: "編集をキャンセル",
+    zh: "取消编辑",
   },
   deleteAll: {
     en: "Delete All",
-    jp: "",
-    zh: "",
+    jp: "すべて削除",
+    zh: "删除所有",
   },
 }
