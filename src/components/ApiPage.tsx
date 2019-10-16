@@ -197,7 +197,7 @@ function ApiPage({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     quickStartRef: null,

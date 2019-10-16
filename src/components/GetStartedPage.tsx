@@ -33,7 +33,7 @@ const Faq = ({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
 
   const links = [
     getStarted.install[currentLanguage].linkTitle,

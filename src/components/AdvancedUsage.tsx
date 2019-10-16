@@ -35,7 +35,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
 
   const links = [
     advanced.accessibility[currentLanguage].title,

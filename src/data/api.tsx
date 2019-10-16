@@ -721,8 +721,8 @@ export default {
   }),
   setError: {
     en: <p>Allows you to manually set an input error.</p>,
-    jp: "",
-    zh: "",
+    jp: <p>Allows you to manually set an input error.</p>,
+    zh: <p>Allows you to manually set an input error.</p>,
   },
   clearError: {
     en: (

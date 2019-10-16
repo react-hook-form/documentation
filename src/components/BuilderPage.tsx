@@ -21,6 +21,7 @@ import Popup from "./Popup"
 import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
+import generic from "../data/generic";
 
 const { useState, useRef, useEffect } = React
 
@@ -186,7 +187,7 @@ function BuilderPage({
     state: { formData = [], language },
     action: updateFormData,
   } = useStateMachine(updateStore)
-  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
   const [editFormData, setFormData] = useState(defaultValue)
   const {
     register,
@@ -291,7 +292,7 @@ function BuilderPage({
             {builder.inputCreator[currentLanguage].description}
           </p>
 
-          <label>{builder.inputCreator[currentLanguage].name}: </label>
+          <label>{generic.name[currentLanguage]}: </label>
           <input
             autoComplete="off"
             defaultValue={editFormData.name}
@@ -322,7 +323,7 @@ function BuilderPage({
             )}
           </Animate>
 
-          <label>{builder.inputCreator[currentLanguage].type}: </label>
+          <label>{generic.type[currentLanguage]}: </label>
           <select
             aria-label="Select type"
             name="type"
@@ -446,8 +447,8 @@ function BuilderPage({
             }}
           >
             {editIndex >= 0
-              ? builder.inputCreator[currentLanguage].update
-              : builder.inputCreator[currentLanguage].create}
+              ? generic.update[currentLanguage]
+              : generic.create[currentLanguage]}
           </PinkButton>
 
           {formData.length > 0 && (

@@ -182,7 +182,7 @@ export default function Header({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language || { currentLanguage: defaultLang }
+  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
 
   return (
     <>

@@ -123,4 +123,14 @@ export default {
     jp: "すべて削除",
     zh: "删除所有",
   },
+  create: {
+    en: "Create",
+    jp: "作成する",
+    zh: "创造",
+  },
+  update: {
+    en: "Update",
+    jp: "更新",
+    zh: "更新",
+  },
 }

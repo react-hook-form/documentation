@@ -27,7 +27,7 @@ export default {
       description: "Build complex and accessible forms with React Hook Form.",
     },
     zh: {
-      title: "Advanced",
+      title: "高级",
       description: "Build complex and accessible forms with React Hook Form.",
     },
   },
@@ -109,7 +109,7 @@ export default {
       ),
     },
     zh: {
-      title: "Accessibility (A11y)",
+      title: "辅助功能 (A11y)",
       description: (
         <>
           <p>
