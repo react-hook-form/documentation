@@ -164,7 +164,7 @@ const LangsSelect = styled.div`
     pointer-events: none;
 
     @media ${breakpoints.fromMediumScreen} {
-      right: 10px;
+      right: 8px;
     }
   }
 `
