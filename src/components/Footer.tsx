@@ -4,6 +4,7 @@ import colors from "../styles/colors"
 import { Link } from "gatsby"
 import nav from "../data/nav"
 import generic from "../data/generic"
+import translateLink from "./logic/translateLink"
 
 const Footer = styled.footer`
   padding: 40px 0;
@@ -49,22 +50,32 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
   <Footer>
     <Links>
       <li>
-        <Link to="/">{nav[currentLanguage].home}</Link>
+        <Link to={translateLink("/", currentLanguage)}>
+          {nav[currentLanguage].home}
+        </Link>
       </li>
       <li>
-        <Link to="/get-started">{nav[currentLanguage].getStarted}</Link>
+        <Link to={translateLink("/get-started", currentLanguage)}>
+          {nav[currentLanguage].getStarted}
+        </Link>
       </li>
       <li>
-        <Link to="/api">API</Link>
+        <Link to={translateLink("/api", currentLanguage)}>API</Link>
       </li>
       <li>
-        <Link to="/advanced-usage">{nav[currentLanguage].advanced}</Link>
+        <Link to={translateLink("/advanced-usage", currentLanguage)}>
+          {nav[currentLanguage].advanced}
+        </Link>
       </li>
       <li>
-        <Link to="/form-builder">{nav[currentLanguage].builder}</Link>
+        <Link to={translateLink("/form-builder", currentLanguage)}>
+          {nav[currentLanguage].builder}
+        </Link>
       </li>
       <li>
-        <Link to="/faqs">{nav[currentLanguage].faqs}</Link>
+        <Link to={translateLink("/faqs", currentLanguage)}>
+          {nav[currentLanguage].faqs}
+        </Link>
       </li>
     </Links>
     <p>
