@@ -101,6 +101,10 @@ const GitHubButtonWrap = styled.div`
   top: 15px;
   z-index: 1;
 
+  & > span > span {
+    display: flex;
+  }
+
   @media ${breakpoints.fromMediumScreen} {
     right: 110px;
   }
