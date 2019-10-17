@@ -304,7 +304,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <IconWrapper>
             <div className="eye icon" />
           </IconWrapper>
-          <span>FAQs</span>
+          <span>{nav[currentLanguage].faqs}</span>
         </Link>
         <a
           href="https://github.com/react-hook-form/react-hook-form/releases"

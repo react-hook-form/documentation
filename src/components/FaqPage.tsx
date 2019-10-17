@@ -53,8 +53,8 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
   return (
     <Container>
-      <HeadingWithTopMargin id="main">FAQs</HeadingWithTopMargin>
-      <SubHeading>frequently asked question.</SubHeading>
+      <HeadingWithTopMargin id="main">{faq.header[currentLanguage].title}</HeadingWithTopMargin>
+      <SubHeading>{faq.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
         <SideMenu
