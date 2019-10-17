@@ -2,6 +2,25 @@ import * as React from "react"
 import { Note } from "../styles/typography"
 
 export default {
+  title: {
+    en: "FAQs",
+    jp: "よくある質問",
+    zh: "常见问题",
+  },
+  header: {
+    en: {
+      title: "FAQs",
+      description: "frequently asked question.",
+    },
+    jp: {
+      title: "よくある質問",
+      description: "frequently asked question.",
+    },
+    zh: {
+      title: "常见问题",
+      description: "frequently asked question.",
+    },
+  },
   questions: {
     en: [
       {
