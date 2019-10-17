@@ -23,6 +23,14 @@ const FeaturesContent = styled.section`
     height: 60px;
   }
 
+  & > div {
+    padding-bottom: 30px;
+
+    @media ${breakpoints.fromXlargeScreen} {
+      padding-bottom: 0;
+    }
+  }
+
   & > div > div {
     transform: scale(0);
   }
