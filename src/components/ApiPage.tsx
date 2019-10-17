@@ -725,7 +725,7 @@ function ApiPage({
           <hr />
 
           <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
-            <FormContext />
+            <FormContext currentLanguage={currentLanguage} />
           </section>
 
           <hr />

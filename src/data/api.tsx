@@ -2,7 +2,7 @@ import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
 import { Note } from "../styles/typography"
-import { CodeAsLink, CodeHeading } from "../components/ApiPage"
+import { CodeAsLink, CodeHeading, Type } from "../components/ApiPage"
 
 export default {
   header: {
@@ -1033,5 +1033,73 @@ export default {
         <code>FormData</code> type to support form values.
       </p>
     ),
+  },
+  FormContext: {
+    en: {
+      introduction: (
+        <p>
+          Form context is aim to solve problem when there are deep nested inputs
+          in your components tree, and pass methods deep down as{" "}
+          <code>prop</code> becoming painful.
+        </p>
+      ),
+      description: (
+        <>
+          <p>
+            Once your form is wrapped with <code>FormContext</code>,{" "}
+            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
+            its child component.
+          </p>
+          <p>
+            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
+            all the <code>useForm</code> hook functions.
+          </p>
+        </>
+      ),
+    },
+    jp: {
+      introduction: (
+        <p>
+          Form context is aim to solve problem when there are deep nested inputs
+          in your components tree, and pass methods deep down as{" "}
+          <code>prop</code> becoming painful.
+        </p>
+      ),
+      description: (
+        <>
+          <p>
+            Once your form is wrapped with <code>FormContext</code>,{" "}
+            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
+            its child component.
+          </p>
+          <p>
+            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
+            all the <code>useForm</code> hook functions.
+          </p>
+        </>
+      ),
+    },
+    zh: {
+      introduction: (
+        <p>
+          Form context is aim to solve problem when there are deep nested inputs
+          in your components tree, and pass methods deep down as{" "}
+          <code>prop</code> becoming painful.
+        </p>
+      ),
+      description: (
+        <>
+          <p>
+            Once your form is wrapped with <code>FormContext</code>,{" "}
+            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
+            its child component.
+          </p>
+          <p>
+            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
+            all the <code>useForm</code> hook functions.
+          </p>
+        </>
+      ),
+    },
   },
 }

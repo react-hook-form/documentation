@@ -2,9 +2,10 @@ import * as React from "react"
 import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
-import { Note } from "../styles/typography"
+import generic from "../data/generic"
+import api from "../data/api"
 
-export default function FormContext() {
+export default function FormContext({ currentLanguage }: { currentLanguage }) {
   return (
     <>
       <CodeHeading>
@@ -12,19 +13,16 @@ export default function FormContext() {
           FormContext: <Type>Component</Type>
         </h2>
       </CodeHeading>
-      <p>
-        Form context is aim to solve problem when there are deep nested inputs
-        in your components tree, and pass methods deep down as <code>prop</code>{" "}
-        becoming painful.
-      </p>
+
+      {api.FormContext[currentLanguage].introduction}
 
       <TableWrapper>
         <Table>
           <tbody>
             <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Description</th>
+              <th>{generic.name[currentLanguage]}</th>
+              <th>{generic.type[currentLanguage]}</th>
+              <th>{generic.description[currentLanguage]}</th>
             </tr>
             <tr>
               <td>
@@ -41,15 +39,8 @@ export default function FormContext() {
         </Table>
       </TableWrapper>
 
-      <p>
-        Once your form is wrapped with <code>FormContext</code>,{" "}
-        <code>useFormContext</code>: <Type>Function</Type> can be invoked in its
-        child component.
-      </p>
-      <p>
-        <Note>Note:</Note> invoke <code>useFormContext</code> will give you all
-        the <code>useForm</code> hook functions.
-      </p>
+      {api.FormContext[currentLanguage].description}
+
       <p>
         <code
           style={{ fontSize: 14 }}
