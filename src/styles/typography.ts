@@ -2,6 +2,13 @@ import styled from "styled-components"
 import colors from "./colors"
 import breakpoints from "./breakpoints"
 
+export const TypeText = styled.span`
+  font-weight: 100;
+  font-size: 15px;
+  font-family: monospace;
+  color: ${colors.lightPink};
+`
+
 export const SubHeading = styled.p`
   font-size: 13px;
   padding: 0 20px;

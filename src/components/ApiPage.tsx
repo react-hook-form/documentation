@@ -7,6 +7,7 @@ import {
   H5,
   Note,
   H1,
+  TypeText,
 } from "../styles/typography"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
@@ -90,14 +91,7 @@ export const TableWrapper = styled.div`
   }
 `
 
-export const Type = styled.span`
-  font-weight: 100;
-  font-size: 15px;
-  font-family: monospace;
-  color: ${colors.lightPink};
-`
-
-export const MobileType = styled(Type)`
+export const MobileType = styled(TypeText)`
   margin-top: 10px;
   display: block;
 
@@ -278,7 +272,7 @@ function ApiPage({
             }}
           >
             <h2>
-              useForm: <Type>Function</Type>
+              useForm: <TypeText>Function</TypeText>
             </h2>
           </CodeHeading>
           <p>
@@ -345,7 +339,7 @@ function ApiPage({
 
           <H5>
             <code>
-              mode: <Type>string = 'onSubmit'</Type>
+              mode: <TypeText>string = 'onSubmit'</TypeText>
             </code>
             <Popup top={3} />
           </H5>
@@ -367,21 +361,21 @@ function ApiPage({
                 <tr>
                   <td>onSubmit (Default)</td>
                   <td>
-                    <Type>string</Type>
+                    <TypeText>string</TypeText>
                   </td>
                   <td>{api.useForm.validateOnSubmit[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>onBlur</td>
                   <td>
-                    <Type>string</Type>
+                    <TypeText>string</TypeText>
                   </td>
                   <td>{api.useForm.validateOnBlur[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>onChange</td>
                   <td>
-                    <Type>string</Type>
+                    <TypeText>string</TypeText>
                   </td>
                   <td>{api.useForm.validateOnChange[currentLanguage]}</td>
                 </tr>
@@ -392,9 +386,9 @@ function ApiPage({
           <H5 style={{ marginTop: 20 }}>
             <code>
               defaultValues:{" "}
-              <Type>
+              <TypeText>
                 {`{[key:string]: string}`} = {`{}`}
-              </Type>
+              </TypeText>
             </code>
             <Popup
               top={3}
@@ -518,7 +512,7 @@ function ApiPage({
           >
             <h2>
               register:{" "}
-              <Type>{`({ name: string } | Ref, validateRule?) => void`}</Type>
+              <TypeText>{`({ name: string } | Ref, validateRule?) => void`}</TypeText>
               <Popup message="React Native: custom register only" />
             </h2>
           </CodeHeading>
@@ -537,7 +531,8 @@ function ApiPage({
             }}
           >
             <h2>
-              unregister: <Type>{`(name: string | string[]) => void`}</Type>
+              unregister:{" "}
+              <TypeText>{`(name: string | string[]) => void`}</TypeText>
             </h2>
           </CodeHeading>
 
@@ -574,7 +569,8 @@ function ApiPage({
             }}
           >
             <h2>
-              handleSubmit: <Type>(data: Object, e: Event) => void</Type>
+              handleSubmit:{" "}
+              <TypeText>(data: Object, e: Event) => void</TypeText>
             </h2>
           </CodeHeading>
           {api.handleSubmit[currentLanguage]}
@@ -593,7 +589,8 @@ function ApiPage({
           >
             <h2>
               <code>
-                reset: <Type>{`(values?: Record<string, any>) => void`}</Type>
+                reset:{" "}
+                <TypeText>{`(values?: Record<string, any>) => void`}</TypeText>
               </code>
               <Popup />
             </h2>
@@ -616,10 +613,10 @@ function ApiPage({
           >
             <h2>
               setError:{" "}
-              <Type>
+              <TypeText>
                 (name: string, type: string, message?: string, ref?: Ref) =>
                 void
-              </Type>
+              </TypeText>
             </h2>
           </CodeHeading>
           {api.setError[currentLanguage]}
@@ -630,7 +627,8 @@ function ApiPage({
             }}
           >
             <h2>
-              clearError: <Type>(name?: string | string[]) => void</Type>
+              clearError:{" "}
+              <TypeText>(name?: string | string[]) => void</TypeText>
             </h2>
           </CodeHeading>
           {api.clearError[currentLanguage]}
@@ -650,9 +648,9 @@ function ApiPage({
           >
             <h2>
               setValue:{" "}
-              <Type>
+              <TypeText>
                 (name: string, value: any, shouldValidate?: boolean) => void
-              </Type>
+              </TypeText>
             </h2>
           </CodeHeading>
 
@@ -673,7 +671,7 @@ function ApiPage({
           >
             <h2>
               getValues:{" "}
-              <Type>{`(payload?: { nest: boolean }) => Object`}</Type>
+              <TypeText>{`(payload?: { nest: boolean }) => Object`}</TypeText>
             </h2>
           </CodeHeading>
 
@@ -694,10 +692,10 @@ function ApiPage({
           >
             <h2>
               triggerValidation:{" "}
-              <Type style={{ fontSize: 12 }}>
+              <TypeText style={{ fontSize: 12 }}>
                 {`(payload?: { name: string; value?: any; } | { name: string; value?: any; }[])`}{" "}
                 => boolean
-              </Type>
+              </TypeText>
             </h2>
           </CodeHeading>
           <p>To manually trigger an input/select validation in the form.</p>
@@ -752,7 +750,7 @@ function ApiPage({
             }}
           >
             <h2>
-              validationSchema: <Type>Object</Type>
+              validationSchema: <TypeText>Object</TypeText>
             </h2>
           </CodeHeading>
 

@@ -1,7 +1,8 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
-import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
+import { CodeHeading, Table, TableWrapper } from "./ApiPage"
+import { TypeText } from "../styles/typography"
 
 export default function ApiWatch() {
   return (
@@ -50,7 +51,7 @@ export default function ApiWatch() {
             </tr>
             <tr>
               <td>
-                <Type>string</Type>
+                <TypeText>string</TypeText>
               </td>
               <td>
                 Watch input value by name (similar to lodash{" "}
@@ -62,12 +63,12 @@ export default function ApiWatch() {
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <Type>{`string | string[] | { [key:string] : any } | undefined`}</Type>
+                <TypeText>{`string | string[] | { [key:string] : any } | undefined`}</TypeText>
               </td>
             </tr>
             <tr>
               <td>
-                <Type>{`string[]`}</Type>
+                <TypeText>{`string[]`}</TypeText>
               </td>
               <td>Watch multiple inputs</td>
               <td>
@@ -76,12 +77,12 @@ export default function ApiWatch() {
                 <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <Type>{`{ [key:string] : any }`}</Type>
+                <TypeText>{`{ [key:string] : any }`}</TypeText>
               </td>
             </tr>
             <tr>
               <td>
-                <Type>undefined</Type>
+                <TypeText>undefined</TypeText>
               </td>
               <td>Watch all inputs</td>
               <td>
@@ -90,7 +91,7 @@ export default function ApiWatch() {
                 <code>{`watch(undefined, { field: 'value1' })`}</code>
               </td>
               <td>
-                <Type>{`{ [key:string] : any }`}</Type>
+                <TypeText>{`{ [key:string] : any }`}</TypeText>
               </td>
             </tr>
           </tbody>

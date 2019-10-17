@@ -1,8 +1,8 @@
 import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
-import { Note } from "../styles/typography"
-import { CodeAsLink, CodeHeading, Type } from "../components/ApiPage"
+import { Note, TypeText } from "../styles/typography"
+import { CodeAsLink } from "../components/ApiPage"
 
 export default {
   header: {
@@ -1047,8 +1047,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you
@@ -1069,8 +1069,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you
@@ -1091,8 +1091,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you

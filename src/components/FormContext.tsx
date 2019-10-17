@@ -1,16 +1,17 @@
 import * as React from "react"
-import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
+import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
 import api from "../data/api"
+import { TypeText } from "../styles/typography"
 
 export default function FormContext({ currentLanguage }: { currentLanguage }) {
   return (
     <>
       <CodeHeading>
         <h2>
-          FormContext: <Type>Component</Type>
+          FormContext: <TypeText>Component</TypeText>
         </h2>
       </CodeHeading>
 
@@ -29,7 +30,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
                 <code>...props</code>
               </td>
               <td>
-                <Type>Object</Type>
+                <TypeText>Object</TypeText>
               </td>
               <td>
                 Accept all <code>useForm</code> methods.
