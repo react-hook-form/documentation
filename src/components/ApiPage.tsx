@@ -282,7 +282,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
           <p>
-            {/*{api.useForm.intro[currentLanguage]}*/}
+            {api.useForm.intro[currentLanguage]}
             <CodeAsLink onClick={() => goToSection("register")}>
               register
             </CodeAsLink>
