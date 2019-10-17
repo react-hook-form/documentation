@@ -33,7 +33,10 @@ const Faq = ({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
 
   const links = [
     getStarted.install[currentLanguage].linkTitle,
@@ -88,7 +91,12 @@ const Faq = ({
       <SubHeading>{getStarted.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
-        <SideMenu isStatic links={links} goToSection={goToSection} currentLanguage={currentLanguage} />
+        <SideMenu
+          isStatic
+          links={links}
+          goToSection={goToSection}
+          currentLanguage={currentLanguage}
+        />
         <main>
           <GetStarted
             quickStartRef={ref => {

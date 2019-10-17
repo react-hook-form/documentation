@@ -1,14 +1,15 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
-import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
+import { CodeHeading, Table, TableWrapper } from "./ApiPage"
+import { TypeText } from "../styles/typography"
 
 export default React.memo(() => {
   return (
     <>
       <CodeHeading>
         <h2>
-          errors: <Type>{`Record<string, boolean>`}</Type>
+          errors: <TypeText>{`Record<string, boolean>`}</TypeText>
         </h2>
       </CodeHeading>
 
@@ -36,7 +37,7 @@ export default React.memo(() => {
                 <code>type</code>
               </td>
               <td>
-                <Type>string</Type>
+                <TypeText>string</TypeText>
               </td>
               <td>Error types. eg: required, min, max, minLength</td>
             </tr>
@@ -45,7 +46,7 @@ export default React.memo(() => {
                 <code>message</code>
               </td>
               <td>
-                <Type>string</Type>
+                <TypeText>string</TypeText>
               </td>
               <td>
                 Message is empty string by default. However, if you register
@@ -57,7 +58,7 @@ export default React.memo(() => {
                 <code>ref</code>
               </td>
               <td>
-                <Type>React.RefObject</Type>
+                <TypeText>React.RefObject</TypeText>
               </td>
               <td>Reference for your input element.</td>
             </tr>

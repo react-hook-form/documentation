@@ -8,7 +8,7 @@ import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
-import home from "../data/home";
+import home from "../data/home"
 
 const GridView = styled.section`
   display: flex;
@@ -74,7 +74,9 @@ export default function CodeCompareSection({
             <code>{`</>`}</code> {home.codeComparison[currentLanguage].title}
           </H1>
 
-          <p id="codeComparison">{home.codeComparison[currentLanguage].description}</p>
+          <p id="codeComparison">
+            {home.codeComparison[currentLanguage].description}
+          </p>
         </CenterContent>
 
         <GridView
