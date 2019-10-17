@@ -2,6 +2,13 @@ import styled from "styled-components"
 import colors from "./colors"
 import breakpoints from "./breakpoints"
 
+export const TypeText = styled.span`
+  font-weight: 100;
+  font-size: 15px;
+  font-family: monospace;
+  color: ${colors.lightPink};
+`
+
 export const SubHeading = styled.p`
   font-size: 13px;
   padding: 0 20px;
@@ -60,7 +67,6 @@ export const H5 = styled.h5`
   font-size: 18px;
   text-align: left;
   font-weight: 500;
-  border-bottom: 1px solid ${colors.lightBlue};
   padding-bottom: 15px;
   margin: 50px 0 10px;
 
@@ -73,7 +79,7 @@ export const HeadingWithTopMargin = styled(Heading)`
   @media ${breakpoints.fromMediumScreen} {
     margin-top: 70px;
   }
-  
+
   @media ${breakpoints.fromLargeScreen} {
     margin-top: 34px;
   }

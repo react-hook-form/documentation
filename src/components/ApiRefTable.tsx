@@ -1,11 +1,12 @@
 import * as React from "react"
 import styled from "styled-components"
 import colors from "../styles/colors"
-import { TableWrapper, Table, Type } from "./ApiPage"
+import { TableWrapper, Table } from "./ApiPage"
 import Link from "../styles/link"
 import CodeArea from "./CodeArea"
 import api from "../data/api"
 import generic from "../data/generic"
+import { TypeText } from "../styles/typography"
 
 const { useState } = React
 
@@ -169,7 +170,7 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>React.RefObject</Type>
+                  <TypeText>React.RefObject</TypeText>
                 </code>
               </td>
               <td>React element ref</td>
@@ -190,7 +191,7 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>{isStandard ? "boolean" : "string"}</Type>
+                  <TypeText>{isStandard ? "boolean" : "string"}</TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].required}</td>
@@ -215,14 +216,14 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>
+                  <TypeText>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </Type>
+                  </TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].maxLength}</td>
@@ -254,14 +255,14 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>
+                  <TypeText>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </Type>
+                  </TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].minLength}</td>
@@ -293,14 +294,14 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>
+                  <TypeText>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </Type>
+                  </TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].max}</td>
@@ -332,14 +333,14 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>
+                  <TypeText>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </Type>
+                  </TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].min}</td>
@@ -371,14 +372,14 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>
+                  <TypeText>
                     {isStandard
                       ? "RegExp"
                       : `{
   value: RegExp,
   message: string
 }`}
-                  </Type>
+                  </TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].pattern}</td>
@@ -410,7 +411,7 @@ export default function ApiRefTable({
               </td>
               <td>
                 <code>
-                  <Type>Function | Object</Type>
+                  <TypeText>Function | Object</TypeText>
                 </code>
               </td>
               <td>{api.register.validation[currentLanguage].validate}</td>

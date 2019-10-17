@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import AdvancedUsage from "../components/AdvancedUsage"
-import advanced from "../data/advanced";
+import advanced from "../data/advanced"
 
 const Api = ({
   location,

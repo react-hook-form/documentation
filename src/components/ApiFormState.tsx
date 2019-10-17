@@ -1,13 +1,14 @@
 import * as React from "react"
-import { CodeSandBoxLink, LinkToSandBox } from "./CodeArea"
-import { CodeHeading, Table, TableWrapper, Type } from "./ApiPage"
+import { CodeSandBoxLink } from "./CodeArea"
+import { CodeHeading, Table, TableWrapper } from "./ApiPage"
+import { TypeText } from "../styles/typography"
 
 export default React.memo(() => {
   return (
     <>
       <CodeHeading>
         <h2>
-          formState: <Type>Object</Type>
+          formState: <TypeText>Object</TypeText>
         </h2>
       </CodeHeading>
       <p>This object contain information about the form state.</p>
@@ -25,7 +26,7 @@ export default React.memo(() => {
                 <code>dirty</code>
               </td>
               <td>
-                <Type>boolean</Type>
+                <TypeText>boolean</TypeText>
               </td>
               <td>
                 Set to true after a user interacted with any of the inputs.
@@ -36,7 +37,7 @@ export default React.memo(() => {
                 <code>isSubmitted</code>
               </td>
               <td>
-                <Type>boolean</Type>
+                <TypeText>boolean</TypeText>
               </td>
               <td>Set true after a user submitted the form.</td>
             </tr>
@@ -45,7 +46,7 @@ export default React.memo(() => {
                 <code>touched</code>
               </td>
               <td>
-                <Type>{`string[]`}</Type>
+                <TypeText>{`string[]`}</TypeText>
               </td>
               <td>An array of all inputs which have been interacted.</td>
             </tr>
@@ -54,7 +55,7 @@ export default React.memo(() => {
                 <code>isSubmitting</code>
               </td>
               <td>
-                <Type>boolean</Type>
+                <TypeText>boolean</TypeText>
               </td>
               <td>
                 During form submitting will set to <code>true</code> and after
@@ -66,7 +67,7 @@ export default React.memo(() => {
                 <code>submitCount</code>
               </td>
               <td>
-                <Type>number</Type>
+                <TypeText>number</TypeText>
               </td>
               <td>Number of forms submit.</td>
             </tr>
@@ -75,7 +76,7 @@ export default React.memo(() => {
                 <code>isValid</code>
               </td>
               <td>
-                <Type>boolean</Type>
+                <TypeText>boolean</TypeText>
               </td>
               <td>Set true if doesn't have any error.</td>
             </tr>

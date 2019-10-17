@@ -21,7 +21,7 @@ import Popup from "./Popup"
 import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
-import generic from "../data/generic";
+import generic from "../data/generic"
 
 const { useState, useRef, useEffect } = React
 
@@ -187,7 +187,10 @@ function BuilderPage({
     state: { formData = [], language },
     action: updateFormData,
   } = useStateMachine(updateStore)
-  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
   const [editFormData, setFormData] = useState(defaultValue)
   const {
     register,

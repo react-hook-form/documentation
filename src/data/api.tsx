@@ -1,8 +1,8 @@
 import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
-import { Note } from "../styles/typography"
-import { CodeAsLink, CodeHeading, Type } from "../components/ApiPage"
+import { Note, TypeText } from "../styles/typography"
+import { CodeAsLink } from "../components/ApiPage"
 
 export default {
   header: {
@@ -381,22 +381,40 @@ export default {
   },
   unregister: {
     en: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
+        </p>
+      </>
     ),
     jp: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
+        </p>
+      </>
     ),
     zh: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
+        </p>
+      </>
     ),
   },
   register: {
@@ -834,14 +852,19 @@ export default {
 
         <ul>
           <li>
-            By default <code>getValues()</code> will return form data in a flat
-            structure. eg: <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            <p>
+              By default <code>getValues()</code> will return form data in a
+              flat structure. eg:{" "}
+              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            </p>
           </li>
           <li>
-            Working on array fields form,{" "}
-            <code>getValues({`{ nest: true }`})</code> will return data in a
-            nested structure according to input <code>name</code>. eg:{" "}
-            <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            <p>
+              Working on array fields form,{" "}
+              <code>getValues({`{ nest: true }`})</code> will return data in a
+              nested structure according to input <code>name</code>. eg:{" "}
+              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            </p>
           </li>
         </ul>
       </>
@@ -1047,8 +1070,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you
@@ -1069,8 +1092,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you
@@ -1091,8 +1114,8 @@ export default {
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <Type>Function</Type> can be invoked in
-            its child component.
+            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            invoked in its child component.
           </p>
           <p>
             <Note>Note:</Note> invoke <code>useFormContext</code> will give you

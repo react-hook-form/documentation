@@ -13,6 +13,7 @@ const List = styled.li`
   background: ${colors.primary};
   cursor: move;
   position: relative;
+  list-style: none;
 
   & > svg {
     fill: white;

@@ -13,7 +13,7 @@ const Api = ({
 }) => (
   <Layout location={location} defaultLang="en">
     <Seo title="API Documentation" location={location} />
-    <ApiPage defaultLang="en"/>
+    <ApiPage defaultLang="en" />
   </Layout>
 )
 
