@@ -80,7 +80,7 @@ export const HeadingWithTopMargin = styled(Heading)`
   @media ${breakpoints.fromMediumScreen} {
     margin-top: 70px;
   }
-  
+
   @media ${breakpoints.fromLargeScreen} {
     margin-top: 34px;
   }

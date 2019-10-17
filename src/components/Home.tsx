@@ -46,7 +46,10 @@ function Home({
   const {
     state: { language },
   } = useStateMachine()
-  const { currentLanguage } = language && language.currentLanguage ?  language : { currentLanguage: defaultLang }
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
 
   const onSubmit = data => {
     updateSubmitData(data)
@@ -105,7 +108,12 @@ function Home({
   return (
     <Root>
       {showBuilder && (
-        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} defaultLang={defaultLang} />
+        <Builder
+          showBuilder
+          toggleBuilder={toggleBuilder}
+          HomeRef={HomeRef}
+          defaultLang={defaultLang}
+        />
       )}
 
       <Header homeRef={HomeRef} defaultLang={defaultLang} />
