@@ -381,22 +381,40 @@ export default {
   },
   unregister: {
     en: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input or
+          an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no longer
+          be included in the form data that gets submitted.
+        </p>
+      </>
     ),
     jp: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input or
+          an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no longer
+          be included in the form data that gets submitted.
+        </p>
+      </>
     ),
     zh: (
-      <p>
-        This method will allow you to <code>unregister</code> a single input or
-        an array of inputs.
-      </p>
+      <>
+        <p>
+          This method will allow you to <code>unregister</code> a single input or
+          an array of inputs.
+        </p>
+        <p>
+          <Note>Note:</Note> When you unregister an input, its value will no longer
+          be included in the form data that gets submitted.
+        </p>
+      </>
     ),
   },
   register: {
