@@ -28,7 +28,6 @@ const Footer = styled.footer`
 `
 
 const Links = styled.ul`
-  list-style: none;
   border-bottom: 1px solid ${colors.lightPink};
   max-width: 800px;
   margin: 0 auto 20px;

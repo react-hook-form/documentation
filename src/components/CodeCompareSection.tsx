@@ -8,7 +8,6 @@ import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
-import breakpoints from "../styles/breakpoints"
 import home from "../data/home";
 
 const GridView = styled.section`
@@ -66,6 +65,7 @@ export default function CodeCompareSection({
   currentLanguage: string
 }) {
   const [showFullScreen, setFullScreen] = React.useState(false)
+
   return (
     <AnimateGroup play={isPlayCodeCompare}>
       <Section>

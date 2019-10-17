@@ -1,8 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-import { H1, Title } from "../styles/typography"
+import { H1, Note, Title } from "../styles/typography"
 import { SimpleImg } from "react-simple-img"
-import colors from "../styles/colors"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import breakpoints from "../styles/breakpoints"
 // @ts-ignore
@@ -44,19 +43,13 @@ const ImgSection = styled.div`
   }
 
   & ul {
-    list-style: none;
     min-width: 250px;
     padding-left: 0;
     margin: 0 15px 0 0;
 
     & > li {
-      text-align: left;
       padding: 2px 0;
       font-size: 16px;
-
-      & > strong {
-        color: ${colors.lightPink};
-      }
     }
   }
 `
@@ -100,32 +93,15 @@ const VideoWrapper = styled.section`
     max-width: 1100px;
     margin: 40px auto;
     overflow-y: hidden;
-    text-align: center;
 
-    & > section {
-      & video {
-        height: 400px;
-        border-radius: 10px;
+    & > section > video {
+      height: 400px;
+      border-radius: 10px;
 
-        @media ${breakpoints.fromLargeScreen} {
-          height: 450px;
-        }
-      }
-
-      & strong {
-        color: ${colors.lightPink};
+      @media ${breakpoints.fromLargeScreen} {
+        height: 450px;
       }
     }
-  }
-`
-
-const MobileText = styled.p`
-  display: block;
-  font-size: 12px;
-  margin-top: 20px !important;
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: none !important;
   }
 `
 
@@ -160,8 +136,7 @@ export default function CodePerfCompareSection({
                 <source src={formikVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <strong>30+</strong>
+                {home.rendering[currentLanguage].totalReRender} <Note>30+</Note>
               </p>
             </section>
           )}
@@ -176,8 +151,7 @@ export default function CodePerfCompareSection({
                 <source src={reactHookFormVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <strong>3</strong>
+                {home.rendering[currentLanguage].totalReRender} <Note>3</Note>
               </p>
             </section>
           )}
@@ -192,8 +166,7 @@ export default function CodePerfCompareSection({
                 <source src={reduxFormVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <strong>30+</strong>
+                {home.rendering[currentLanguage].totalReRender} <Note>30+</Note>
               </p>
             </section>
           )}
@@ -218,7 +191,7 @@ export default function CodePerfCompareSection({
           <li>{home.mount[currentLanguage].totalMount}: 1</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <strong>1800ms</strong>
+            {home.mount[currentLanguage].totalTime}: <Note>1800ms</Note>
           </li>
         </ul>
         <SimpleImg
@@ -235,7 +208,7 @@ export default function CodePerfCompareSection({
           <li>{home.mount[currentLanguage].totalMount}: 6</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <strong>2070ms</strong>
+            {home.mount[currentLanguage].totalTime}: <Note>2070ms</Note>
           </li>
         </ul>
         <SimpleImg
@@ -252,7 +225,7 @@ export default function CodePerfCompareSection({
           <li>{home.mount[currentLanguage].totalMount}: 17</li>
           <li>{home.mount[currentLanguage].totalChange}: 2</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <strong>2380ms</strong>
+            {home.mount[currentLanguage].totalTime}: <Note>2380ms</Note>
           </li>
         </ul>
         <SimpleImg

@@ -7,7 +7,6 @@ import generic from "../data/generic"
 
 const List = styled.li`
   border: 1px solid ${colors.lightBlue};
-  list-style: none;
   padding: 14px 14px 14px 50px;
   border-radius: 4px;
   margin-bottom: 10px;

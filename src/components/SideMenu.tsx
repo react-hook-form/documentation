@@ -21,7 +21,6 @@ const Menu = styled.aside`
       }
 
       & > ul {
-        list-style: none;
         margin-top: 0;
         max-width: 200px;
         padding: 0;
