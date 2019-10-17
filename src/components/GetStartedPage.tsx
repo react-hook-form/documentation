@@ -116,7 +116,7 @@ const Faq = ({
           <h2 ref={ref => (sectionsRef.current.videotutorial = ref)}>
             {getStarted.video[currentLanguage].title}
           </h2>
-          <p>{getStarted.header[currentLanguage].description}</p>
+          <p>{getStarted.video[currentLanguage].description}</p>
 
           <iframe
             width="100%"
@@ -136,7 +136,7 @@ const Faq = ({
             {getStarted.register[currentLanguage].title}
           </Title>
 
-          {getStarted.header[currentLanguage].description}
+          {getStarted.register[currentLanguage].description}
 
           <CodeArea rawData={registerCode} />
 
@@ -196,10 +196,10 @@ const Faq = ({
               sectionsRef.current.handleerrors = ref
             }}
           >
-            {getStarted.globalState[currentLanguage].errors}
+            {getStarted.errors[currentLanguage].title}
           </Title>
 
-          {getStarted.globalState[currentLanguage].description}
+          {getStarted.errors[currentLanguage].description}
 
           <CodeArea rawData={errors} />
 
