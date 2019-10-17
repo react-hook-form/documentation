@@ -383,36 +383,36 @@ export default {
     en: (
       <>
         <p>
-          This method will allow you to <code>unregister</code> a single input or
-          an array of inputs.
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
         </p>
         <p>
-          <Note>Note:</Note> When you unregister an input, its value will no longer
-          be included in the form data that gets submitted.
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
         </p>
       </>
     ),
     jp: (
       <>
         <p>
-          This method will allow you to <code>unregister</code> a single input or
-          an array of inputs.
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
         </p>
         <p>
-          <Note>Note:</Note> When you unregister an input, its value will no longer
-          be included in the form data that gets submitted.
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
         </p>
       </>
     ),
     zh: (
       <>
         <p>
-          This method will allow you to <code>unregister</code> a single input or
-          an array of inputs.
+          This method will allow you to <code>unregister</code> a single input
+          or an array of inputs.
         </p>
         <p>
-          <Note>Note:</Note> When you unregister an input, its value will no longer
-          be included in the form data that gets submitted.
+          <Note>Note:</Note> When you unregister an input, its value will no
+          longer be included in the form data that gets submitted.
         </p>
       </>
     ),
@@ -852,14 +852,19 @@ export default {
 
         <ul>
           <li>
-            By default <code>getValues()</code> will return form data in a flat
-            structure. eg: <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            <p>
+              By default <code>getValues()</code> will return form data in a
+              flat structure. eg:{" "}
+              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            </p>
           </li>
           <li>
-            Working on array fields form,{" "}
-            <code>getValues({`{ nest: true }`})</code> will return data in a
-            nested structure according to input <code>name</code>. eg:{" "}
-            <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            <p>
+              Working on array fields form,{" "}
+              <code>getValues({`{ nest: true }`})</code> will return data in a
+              nested structure according to input <code>name</code>. eg:{" "}
+              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            </p>
           </li>
         </ul>
       </>
