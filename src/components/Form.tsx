@@ -12,7 +12,6 @@ import home from "../data/home"
 import generic from "../data/generic"
 
 const Code = styled.pre`
-  text-align: left;
   padding: 0 20px;
   white-space: pre-wrap;
   font-size: 0.7rem;
@@ -48,6 +47,16 @@ const DemoForm = styled.form`
   }
 `
 
+const animationProps = {
+  start: {
+    opacity: 0,
+  },
+  end: {
+    opacity: 1,
+  },
+  duration: 0.8,
+}
+
 export default function Form({
   onSubmit,
   submitData,
@@ -56,7 +65,7 @@ export default function Form({
   currentLanguage,
 }: {
   onSubmit: any
-  submitData: any
+  submitData: Object
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
   currentLanguage: string
@@ -105,7 +114,7 @@ export default function Form({
             style={{
               fontSize: 14,
               maxWidth: "80%",
-              margin: "0 auto 0",
+              margin: "0 auto",
             }}
           >
             or
@@ -125,17 +134,16 @@ export default function Form({
 
         <section>
           <Title>{home.liveDemo[currentLanguage].watchTitle}</Title>
-          {!Object.keys(watch()).length && (
+          {Object.keys(watch()).length === 0 && (
             <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
           )}
           <Animate
-            duration={0.8}
-            play={Object.keys(watch() || {}).length > 0}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-          >
-            <Code>{JSON.stringify(watch(), null, 2)}</Code>
-          </Animate>
+            play={Object.keys(watch()).length > 0}
+            {...animationProps}
+            render={({ style }) => (
+              <Code style={style}>{JSON.stringify(watch(), null, 2)}</Code>
+            )}
+          />
         </section>
 
         <section>
@@ -143,26 +151,20 @@ export default function Form({
           {!Object.keys(errors).length && (
             <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
           )}
-          <Animate
-            duration={0.8}
-            play={!!Object.keys(errors).length}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-          >
+          <Animate {...animationProps} play={!!Object.keys(errors).length}>
             <Code>
-              {Object.keys(errors).length
-                ? JSON.stringify(
-                    Object.entries(errors).reduce(
-                      (previous, [key, { ref, ...rest }]) => {
-                        previous[key] = rest
-                        return previous
-                      },
-                      {}
-                    ),
-                    null,
-                    2
-                  )
-                : ""}
+              {Object.keys(errors).length > 0 &&
+                JSON.stringify(
+                  Object.entries(errors).reduce(
+                    (previous, [key, { ref, ...rest }]) => {
+                      previous[key] = rest
+                      return previous
+                    },
+                    {}
+                  ),
+                  null,
+                  2
+                )}
             </Code>
           </Animate>
         </section>
@@ -171,30 +173,27 @@ export default function Form({
           <Title>{home.liveDemo[currentLanguage].touchedTitle}</Title>
           {!touched.length && <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>}
           <Animate
-            duration={0.8}
             play={!!touched.length}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-          >
-            <Code>{JSON.stringify(touched, null, 2)}</Code>
-          </Animate>
+            {...animationProps}
+            render={({ style }) => (
+              <Code style={style}>{JSON.stringify(touched, null, 2)}</Code>
+            )}
+          />
         </section>
 
         {!!Object.keys(submitData).length && (
           <section>
-            <Title>Submit</Title>
+            <Title>{home.liveDemo[currentLanguage].submit}</Title>
             <Animate
-              duration={0.8}
               play={!!Object.keys(submitData).length}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <Code>
-                {Object.keys(submitData).length
-                  ? JSON.stringify(submitData, null, 2)
-                  : ""}
-              </Code>
-            </Animate>
+              {...animationProps}
+              render={({ style }) => (
+                <Code style={style}>
+                  {Object.keys(submitData).length > 0 &&
+                    JSON.stringify(submitData, null, 2)}
+                </Code>
+              )}
+            />
           </section>
         )}
       </Wrapper>
