@@ -95,7 +95,7 @@ const ActionButtonGroup = styled.div`
   }
 `
 
-const GitHubButtonWrap = styled.span`
+const GitHubButtonWrap = styled.div`
   position: absolute;
   right: 10px;
   top: 15px;
@@ -143,7 +143,6 @@ const LangsSelect = styled.div`
     width: 100%;
     margin-top: 15px;
     line-height: 20px;
-    padding: 0;
     min-height: 28px;
     font-size: 14px;
     display: block;
@@ -152,8 +151,8 @@ const LangsSelect = styled.div`
     color: white;
     border: 1px solid ${colors.lightBlue};
     text-align: center;
-    text-align-last: center;
     border-radius: 3px;
+    padding-left: 10px;
   }
 
   &:after {
