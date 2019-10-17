@@ -203,7 +203,7 @@ const Faq = ({
 
           <CodeArea rawData={errors} />
 
-          <LearnMore />
+          <LearnMore currentLanguage={currentLanguage} />
 
           <Footer currentLanguage={currentLanguage} />
         </main>

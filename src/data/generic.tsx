@@ -9,19 +9,19 @@ export default {
       title: "Want to learn more?",
       description:
         "Checkout the React Hook Form documentation and learn all the API.",
-      buttonText: "Checkout Hook API",
+      buttonText: "Checkout API",
     },
     jp: {
       title: "Want to learn more?",
       description:
         "Checkout the React Hook Form documentation and learn all the API.",
-      buttonText: "Checkout Hook API",
+      buttonText: "Checkout API",
     },
     zh: {
       title: "想学更多吗？",
       description:
         "Checkout the React Hook Form documentation and learn all the API.",
-      buttonText: "Checkout Hook API",
+      buttonText: "Checkout API",
     },
   },
   advanceUsage: {
