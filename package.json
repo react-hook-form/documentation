@@ -13,6 +13,7 @@
     "gatsby-plugin-gtag": "1.0.11",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "2.2.16",
+    "gatsby-plugin-nprogress": "^2.1.12",
     "gatsby-plugin-react-helmet": "3.1.7",
     "gatsby-plugin-sharp": "2.2.23",
     "gatsby-plugin-sitemap": "2.2.13",

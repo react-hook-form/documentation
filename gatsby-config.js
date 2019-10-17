@@ -29,6 +29,13 @@ module.exports = {
         prefixDefault: false,
       }
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#bf1650`,
+        showSpinner: false,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-fullstory`,
     //   options: {
