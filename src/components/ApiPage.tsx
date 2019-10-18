@@ -117,6 +117,11 @@ const HiddenMenu = styled.div`
   }
 `
 
+const TableH5 = styled(H5)`
+  border: none;
+  margin-top: 20px;
+`
+
 const QuickSelect = styled.div`
   position: relative;
   max-width: 320px;
@@ -421,12 +426,12 @@ function ApiPage({
               <tbody>
                 <tr>
                   <td>
-                    <H5 style={{ marginTop: 20 }}>
+                    <TableH5>
                       <code>
                         validationSchema: <br />
                         <MobileType>Object</MobileType>
                       </code>
-                    </H5>
+                    </TableH5>
                   </td>
                   <td>
                     {api.useForm.validationSchema(goToSection)[currentLanguage]}
@@ -440,26 +445,26 @@ function ApiPage({
                 </tr>
                 <tr>
                   <td>
-                    <H5 style={{ marginTop: 20 }}>
+                    <TableH5>
                       <code>
                         reValidateMode: <br />
                         <MobileType>
                           onChange | onBlur | onSubmit = onChange
                         </MobileType>
                       </code>
-                    </H5>
+                    </TableH5>
                   </td>
                   <td>{api.useForm.reValidateMode[currentLanguage]}</td>
                   <td />
                 </tr>
                 <tr>
                   <td>
-                    <H5 style={{ marginTop: 20 }}>
+                    <TableH5>
                       <code>
                         validationFields: <br />
                         <MobileType>string[] = []</MobileType>
                       </code>
-                    </H5>
+                    </TableH5>
                   </td>
                   <td>{api.useForm.validationFields[currentLanguage]}</td>
                   <td>
@@ -471,18 +476,18 @@ function ApiPage({
                 </tr>
                 <tr>
                   <td>
-                    <H5 style={{ marginTop: 20 }}>
+                    <TableH5>
                       <code>
                         submitFocusError: <br />
                         <MobileType>boolean = true</MobileType>
                       </code>
-                    </H5>
+                    </TableH5>
                   </td>
                   <td>{api.useForm.submitFocusError[currentLanguage]}</td>
                 </tr>
                 <tr>
                   <td>
-                    <H5 style={{ marginTop: 20 }}>
+                    <H5 style={{ marginTop: 20, border: "none" }}>
                       <code>
                         nativeValidation: <br />
                         <MobileType>boolean = false</MobileType>

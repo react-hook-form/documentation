@@ -69,6 +69,7 @@ export const H5 = styled.h5`
   font-weight: 500;
   padding-bottom: 15px;
   margin: 50px 0 10px;
+  border-bottom: 1px solid ${colors.lightBlue};
 
   & > code {
     font-size: 18px !important;
