@@ -58,7 +58,7 @@ const Wrapper = styled.div`
   padding: 0 20px 100px 20px;
   color: white;
 
-  & > div:first-child {
+  & > section:first-child {
     margin-top: 50px;
     order: 3;
   }
@@ -67,7 +67,7 @@ const Wrapper = styled.div`
     order: 1;
   }
 
-  & > div:nth-child(3) {
+  & > section:nth-child(3) {
     order: 2;
   }
 
@@ -496,7 +496,7 @@ function BuilderPage({
           />
         </Form>
 
-        <div
+        <section
           style={{
             paddingRight: "20px",
             position: "relative",
@@ -510,12 +510,14 @@ function BuilderPage({
           </p>
 
           <CodeArea data={formData} />
-        </div>
+        </section>
       </Wrapper>
 
-      <LearnMore currentLanguage={currentLanguage} />
+      <div style={{ margin: "0 20px" }}>
+        <LearnMore currentLanguage={currentLanguage} />
 
-      <Footer currentLanguage={currentLanguage} />
+        <Footer currentLanguage={currentLanguage} />
+      </div>
     </Container>
   )
 
@@ -554,7 +556,6 @@ function BuilderPage({
             </CloseButton>
 
             {child}
-
           </div>
         </Root>
       )}
