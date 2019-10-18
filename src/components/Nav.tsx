@@ -303,7 +303,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </Link>
         <Link
           activeClassName="active"
-          to={translateLink("/faq", currentLanguage)}
+          to={translateLink("/faqs", currentLanguage)}
         >
           <IconWrapper>
             <div className="eye icon" />
