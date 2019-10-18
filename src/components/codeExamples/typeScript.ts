@@ -7,7 +7,7 @@ type FormData = {
 }
 
 export default function App() {
-  const { register, setValue, handleSubmit } = useForm<FormData>()
+  const { register, setValue, handleSubmit, errors } = useForm<FormData>()
   const onSubmit = handleSubmit(({ name, email }) => {}) // firstName and lastName will have correct type
 
   return (
