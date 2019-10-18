@@ -23,7 +23,7 @@ const FeaturesContent = styled.div`
     height: 60px;
   }
 
-  & > div {
+  & > article {
     padding-bottom: 30px;
 
     @media ${breakpoints.fromXlargeScreen} {
@@ -31,7 +31,7 @@ const FeaturesContent = styled.div`
     }
   }
 
-  & > div > div {
+  & > article > div {
     transform: scale(0);
   }
 

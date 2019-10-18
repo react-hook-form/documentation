@@ -72,7 +72,7 @@ const Wrapper = styled.div`
   }
 
   @media ${breakpoints.fromMediumScreen} {
-    & > div:first-child {
+    & > section:first-child {
       margin-top: 0;
       order: 1;
     }
@@ -81,7 +81,7 @@ const Wrapper = styled.div`
       order: 2;
     }
 
-    & > div:nth-child(3) {
+    & > section:nth-child(3) {
       order: 3;
     }
   }
