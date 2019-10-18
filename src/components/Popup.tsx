@@ -72,7 +72,6 @@ function Popup({
       <button onClick={() => setTipShow(!tipShow)}>!</button>
       <span>
         <Animate
-          duration={0.2}
           play={tipShow}
           start={{
             transform: "translateX(-100%)",

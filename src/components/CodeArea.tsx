@@ -133,7 +133,7 @@ export default function CodeArea({
   style?: any
 }) {
   return (
-    <div
+    <section
       style={{
         position: "relative",
       }}
@@ -167,6 +167,6 @@ export default function CodeArea({
           {rawData || generateCode(data)}
         </SyntaxHighlighter>
       </Wrapper>
-    </div>
+    </section>
   )
 }

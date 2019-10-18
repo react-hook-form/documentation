@@ -38,7 +38,7 @@ const Icon = styled.span`
   }
 `
 
-const ActionButtonGroup = styled.div`
+const ActionButtonGroup = styled.nav`
   display: flex;
   bottom: 0;
   z-index: 5;
@@ -198,6 +198,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </svg>
           </a>
         </Icon>
+
         <Icon>
           <a
             href="https://medium.com/@bruce1049/form-validation-with-hook-in-3kb-c5414edf7d64"

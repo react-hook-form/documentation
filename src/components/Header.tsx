@@ -50,7 +50,7 @@ const ButtonsGroupSmall = styled(ButtonsGroup)`
   min-width: 300px;
 `
 
-const Head = styled.div`
+const Head = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,6 +210,7 @@ export default function Header({
           >
             {home.demo[currentLanguage]}
           </PrimaryButton>
+
           <PrimaryButton
             onClick={() => {
               navigate("/get-started")

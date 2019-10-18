@@ -261,7 +261,7 @@ function BuilderPage({
       <SubHeading>{builder.builder[currentLanguage].description}</SubHeading>
 
       <Wrapper>
-        <div>
+        <section>
           <Title>{builder.layout[currentLanguage].title}</Title>
 
           <p style={{ fontSize: 14 }}>
@@ -283,7 +283,7 @@ function BuilderPage({
           />
 
           {!formData.length && <p>{builder.layout[currentLanguage].message}</p>}
-        </div>
+        </section>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Title ref={form}>
@@ -532,32 +532,32 @@ function BuilderPage({
       end={{
         transform: "translateY(0)",
       }}
-      render={({ style }) => {
-        return (
-          <Root style={style}>
-            <div
-              id="builder"
-              style={{
-                overflow: "auto",
-                height: "100vh",
-                background: colors.primary,
+      render={({ style }) => (
+        <Root style={style}>
+          <div
+            id="builder"
+            style={{
+              overflow: "auto",
+              height: "100vh",
+              background: colors.primary,
+            }}
+          >
+            <CloseButton
+              aria-label="close builder"
+              ref={closeButton}
+              onClick={() => {
+                toggleBuilder(false)
+                goToBuilder(false)
               }}
             >
-              <CloseButton
-                aria-label="close builder"
-                ref={closeButton}
-                onClick={() => {
-                  toggleBuilder(false)
-                  goToBuilder(false)
-                }}
-              >
-                &#10005;
-              </CloseButton>
-              {child}
-            </div>
-          </Root>
-        )
-      }}
+              &#10005;
+            </CloseButton>
+
+            {child}
+
+          </div>
+        </Root>
+      )}
     />
   )
 }

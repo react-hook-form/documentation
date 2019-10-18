@@ -265,6 +265,7 @@ function ApiPage({
           goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
+
         <main>
           <CodeHeading
             ref={ref => {

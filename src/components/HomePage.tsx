@@ -26,7 +26,7 @@ const Root = styled.div`
   }
 `
 
-function Home({
+function HomePage({
   location,
   defaultLang,
 }: {
@@ -175,4 +175,4 @@ function Home({
   )
 }
 
-export default React.memo(Home)
+export default React.memo(HomePage)

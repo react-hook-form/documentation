@@ -2,6 +2,7 @@ import * as React from "react"
 import { H1 } from "../styles/typography"
 import { PrimaryButton } from "../styles/buttons"
 import generic from "../data/generic"
+import { CenterContent } from "../styles/containers"
 
 export default function StarRepo({
   currentLanguage,
@@ -9,11 +10,7 @@ export default function StarRepo({
   currentLanguage: string
 }) {
   return (
-    <section
-      style={{
-        textAlign: "center",
-      }}
-    >
+    <CenterContent>
       <H1>{generic.needYourSupport[currentLanguage].title}</H1>
       <p>{generic.needYourSupport[currentLanguage].description}</p>
       <PrimaryButton
@@ -24,6 +21,6 @@ export default function StarRepo({
       >
         {generic.needYourSupport[currentLanguage].buttonText}
       </PrimaryButton>
-    </section>
+    </CenterContent>
   )
 }

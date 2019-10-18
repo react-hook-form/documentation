@@ -103,6 +103,7 @@ export default function Form({
         )}
         <p>{home.liveDemo[currentLanguage].description}</p>
       </CenterContent>
+
       <Wrapper>
         <DemoForm onSubmit={handleSubmit(onSubmit)}>
           <Title>{generic.example[currentLanguage]}</Title>
@@ -110,6 +111,7 @@ export default function Form({
           <FormFields {...{ formData, errors, register }} />
 
           <PinkButton>{home.liveDemo[currentLanguage].submit}</PinkButton>
+
           <Title
             style={{
               fontSize: 14,

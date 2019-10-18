@@ -14,6 +14,7 @@ export default function LearnMore({
     <CenterContent>
       <H1>{generic.learnMore[currentLanguage].title}</H1>
       <p>{generic.learnMore[currentLanguage].description}</p>
+
       <PrimaryButton
         onClick={() => {
           navigate("/api")

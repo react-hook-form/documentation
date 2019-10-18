@@ -8,9 +8,7 @@ import api from "../data/api"
 import generic from "../data/generic"
 import { TypeText } from "../styles/typography"
 
-const { useState } = React
-
-const Option = styled.fieldset`
+const Group = styled.fieldset`
   padding: 10px 15px;
   border: 1px solid ${colors.lightBlue};
   border-radius: 3px;
@@ -40,7 +38,8 @@ export default function ApiRefTable({
   goToSection: Function
   currentLanguage: string
 }) {
-  const [isStandard, toggleOption] = useState(true)
+  const [isStandard, toggleOption] = React.useState(true)
+
   return (
     <>
       {api.register[currentLanguage]}
@@ -110,7 +109,7 @@ export default function ApiRefTable({
 
       <br />
 
-      <Option>
+      <Group>
         <legend>{api.register.options[currentLanguage].title}</legend>
         <label>
           <input
@@ -129,7 +128,7 @@ export default function ApiRefTable({
           />
           {api.register.options[currentLanguage].registerWithValidationMessage}
         </label>
-      </Option>
+      </Group>
 
       {api.register.options[currentLanguage].note(goToSection)}
 

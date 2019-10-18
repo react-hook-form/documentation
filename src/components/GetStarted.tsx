@@ -5,6 +5,7 @@ import colors from "../styles/colors"
 import * as React from "react"
 import breakpoints from "../styles/breakpoints"
 import getStarted from "../data/getStarted"
+import generic from "../data/generic"
 
 export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -59,7 +60,7 @@ export default function GetStarted({
           <CopyIcon>
             <span />
           </CopyIcon>{" "}
-          Copy
+          {generic.copy[currentLanguage]}
         </CopyButton>
       </InstallCode>
 

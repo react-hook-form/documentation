@@ -6,7 +6,7 @@ import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
 
-const FeaturesContent = styled.section`
+const FeaturesContent = styled.div`
   text-align: center;
 
   & h3 {
@@ -91,10 +91,11 @@ export default function FeaturesList({
 }) {
   return (
     <Features>
+      <Title>{generic.features[currentLanguage]}</Title>
+
       <AnimateGroup play={isPlayFeature}>
-        <Title>{generic.features[currentLanguage]}</Title>
         <FeaturesContent>
-          <div id="featureLast">
+          <article id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <div
                 style={{
@@ -117,9 +118,9 @@ export default function FeaturesList({
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][0].title}</h3>
             <p>{home.features[currentLanguage][0].description}</p>
-          </div>
+          </article>
 
-          <div>
+          <article>
             <AnimateKeyframes {...props} sequenceIndex={1}>
               <svg viewBox="0 0 512 512">
                 <title>{home.features[currentLanguage][1].title}</title>
@@ -141,9 +142,9 @@ export default function FeaturesList({
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][1].title}</h3>
             <p>{home.features[currentLanguage][1].description}</p>
-          </div>
+          </article>
 
-          <div>
+          <article>
             <AnimateKeyframes {...props} sequenceIndex={2}>
               <svg viewBox="0 0 100 125">
                 <title>{home.features[currentLanguage][2].title}</title>
@@ -152,9 +153,9 @@ export default function FeaturesList({
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][2].title}</h3>
             <p>{home.features[currentLanguage][2].description}</p>
-          </div>
+          </article>
 
-          <div>
+          <article>
             <AnimateKeyframes {...props} sequenceIndex={3}>
               <svg viewBox="0 0 24 30" x="0px" y="0px">
                 <title>{home.features[currentLanguage][3].title}</title>
@@ -164,9 +165,9 @@ export default function FeaturesList({
 
             <h3>{home.features[currentLanguage][3].title}</h3>
             <p>{home.features[currentLanguage][3].description}</p>
-          </div>
+          </article>
 
-          <div>
+          <article>
             <AnimateKeyframes {...props} sequenceIndex={4}>
               <svg viewBox="0 0 100 125">
                 <title>{home.features[currentLanguage][4].title}</title>
@@ -177,7 +178,7 @@ export default function FeaturesList({
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][4].title}</h3>
             <p>{home.features[currentLanguage][4].description}</p>
-          </div>
+          </article>
         </FeaturesContent>
       </AnimateGroup>
     </Features>

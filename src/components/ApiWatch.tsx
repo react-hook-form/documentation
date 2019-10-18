@@ -11,6 +11,7 @@ export default function ApiWatch() {
         <h2>watch</h2>
       </CodeHeading>
       <p>This will watch specified input/inputs and return its value.</p>
+
       <ul>
         <li>
           <p>
@@ -28,6 +29,7 @@ export default function ApiWatch() {
           </p>
         </li>
       </ul>
+      
       <TableWrapper>
         <Table>
           <tbody>
