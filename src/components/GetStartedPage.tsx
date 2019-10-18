@@ -72,7 +72,6 @@ const Faq = ({
     }
 
     const refName = name.replace(/ /g, "").toLowerCase()
-    console.log(refName)
     if (sectionsRef.current[refName]) {
       sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }

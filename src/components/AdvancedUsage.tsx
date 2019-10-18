@@ -23,8 +23,8 @@ const { useRef } = React
 
 function Advanced({ defaultLang }: { defaultLang: string }) {
   const pageContentRef = useRef({
-    Accessibility: null,
-    WizardForm: null,
+    AccessibilityA11y: null,
+    WizardFormFunnel: null,
     SmartFormComponent: null,
     FieldArrays: null,
     SchemaValidation: null,
@@ -53,7 +53,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
   const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
-    const filterName = name.replace(/ /g, "")
+    const filterName = name.replace(/[^\w\s]| /g, "")
 
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
@@ -88,7 +88,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
         <main>
           <QuestionTitle
-            ref={ref => (pageContentRef.current.Accessibility = ref)}
+            ref={ref => (pageContentRef.current.AccessibilityA11y = ref)}
           >
             {advanced.accessibility[currentLanguage].title}
           </QuestionTitle>
@@ -97,7 +97,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle ref={ref => (pageContentRef.current.WizardForm = ref)}>
+          <QuestionTitle ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}>
             {advanced.wizard[currentLanguage].title}
           </QuestionTitle>
 
