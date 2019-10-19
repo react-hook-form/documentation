@@ -123,7 +123,7 @@ export default {
       ),
     },
     zh: {
-      title: "Register fields",
+      title: "注册表格",
       description: (
         <>
           <p>
@@ -132,13 +132,12 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note>Each field is <strong>required</strong> to have a
-            unique <code>name</code> as a key for the registration process.
+            <Note>注意：</Note>每个表格都需要有一个<strong>独特</strong>
+            的名称作为注册过程的密钥
           </p>
 
           <p>
-            <Note>注意：</Note>React Native will need to use a manual register
-            command (e.g.:{" "}
+            <Note>注意：</Note>React Native 将需要使用手动注册 (例子如下:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -213,22 +212,22 @@ export default {
       ),
     },
     zh: {
-      title: "Apply validation",
+      title: "应用验证",
       description: (
         <>
           <p>
-            React Hook Form make form validation easy by aligning with existing{" "}
+            React Hook Form 通过与现有的
             <a
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
               target="_blank"
               rel="noopener noreferrer"
             >
-              HTML standard form validation
+              HTML标准表单验证
             </a>
-            .
+            进行对齐，使表单验证变得简单。
           </p>
 
-          <p>List of validation rules supported by:</p>
+          <p>支持的验证规则列表:</p>
           <ul>
             <li>required</li>
             <li>min</li>
@@ -239,8 +238,8 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            您可以在<Link to="api#register">注册部分</Link>
+            阅读每个规则的更多细节。
           </p>
         </>
       ),
@@ -266,11 +265,11 @@ export default {
       ),
     },
     zh: {
-      title: "Adapting existing form",
+      title: "调整现有的表格",
       description: (
         <>
-          Working on an existing form is simple. The important step is to apply{" "}
-          <code>register</code> into existing component's <code>ref</code>.
+          处理现有表单很简单。 重要的步骤是将寄存器应用到现有组件的
+          <code>ref</code>中。
         </>
       ),
     },
@@ -315,20 +314,14 @@ export default {
       ),
     },
     zh: {
-      title: "Work with UI library",
+      title: "使用UI库",
       description: (
         <>
+          <p>React Hook Form 使得它易于与外部UI组件库集成。</p>
           <p>
-            React Hook Form has made it easy to integrate with external UI
-            component libraries.
-          </p>
-          <p>
-            <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-            libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
-            <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            大多数UI库都会将内部<code>innerRef</code>或者<code>Ref</code>
+            公开给注册。 对于像react-selector和
+            react-datepicker这样更复杂的组件，您可以通过setValue手动更新值或通过setError触发错误。
           </p>
         </>
       ),
@@ -344,8 +337,8 @@ export default {
       description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
     },
     zh: {
-      title: "Integrate global state",
-      description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
+      title: "整合表单状态",
+      description: `React Hook Form不要求你有一个状态管理来存储你的数据，但你可以很容易地与任何一个集成。`,
     },
   },
   errors: {
@@ -368,11 +361,10 @@ export default {
       ),
     },
     zh: {
-      title: "Handle errors",
+      title: "处理错误",
       description: (
         <>
-          React Hook Form provides an <code>errors</code> object to show you the
-          errors within the form.
+          React Hook Form提供了一个错误对象，用于显示表单中的错误。
         </>
       ),
     },

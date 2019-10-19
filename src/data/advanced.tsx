@@ -657,17 +657,15 @@ export default {
       ),
     },
     zh: {
-      title: "Connect Form",
+      title: "连接表单",
       description: (
         <p>
-          When we are building forms, there are times when our input lives
-          inside of deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy.
-          However, we can further improve the Developer Experience by creating a{" "}
-          <code>ConnectForm</code> component and leveraging React's{" "}
-          <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with
-          React Hook Form from anywhere.
+          当我们构建表单时，有时候我们的输入会在深度嵌套的组件树中，而这时
+          <a href="/api#FormContext">FormContext</a>让一切变得非常方便。
+          但是，我们可以通过创建连接表单组件并利用React的
+          <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
+          来进一步改善开发人员体验。
+          这样一个组件的好处是你可以从任何地方连接你的输入与React Hook Form。
         </p>
       ),
     },
@@ -716,23 +714,21 @@ export default {
       ),
     },
     zh: {
-      title: "FormContext Performance",
+      title: "FormContext 性能优化",
       description: (
         <p>
-          React Hook Form's{" "}
-          <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+          React Hook Form的
+          <PageLink to="/api/#FormContext">FormContext</PageLink>是建立在React的
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
             rel="noreferrer noopener"
           >
-            React's Context
-          </a>{" "}
-          API. It solves the problem where data is passed through the component
-          tree without having to pass props down manually at every level. This
-          also causes the component tree to trigger a re-render when React Hook
-          Form triggers a state update, but we can still can optimise our App if
-          required via the example blow.
+            Context
+          </a>
+          API上。 它解决了数据通过组件树传递而不必在每个级别手动传递的问题。
+          这也会导致组件树在React Hook
+          Form触发状态更新时触发重新render，但如果需要通过示例，我们仍然可以优化我们的应用程序。
         </p>
       ),
     },

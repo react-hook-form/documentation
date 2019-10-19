@@ -185,8 +185,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <CodeArea rawData={formContextPerformance} />
 
-          <hr />
-
           <StarRepo currentLanguage={currentLanguage} />
 
           <Footer currentLanguage={currentLanguage} />
