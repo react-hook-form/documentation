@@ -167,7 +167,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             {advanced.connectForm[currentLanguage].title}
           </QuestionTitle>
 
-          {advanced.schema[currentLanguage].description}
+          {advanced.connectForm[currentLanguage].description}
 
           <CodeArea rawData={connectForm} />
 
@@ -179,7 +179,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             {advanced.formContext[currentLanguage].title}
           </QuestionTitle>
 
-          {advanced.schema[currentLanguage].description}
+          {advanced.formContext[currentLanguage].description}
 
           <CodeArea rawData={formContextPerformance} />
 

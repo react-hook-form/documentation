@@ -49,7 +49,7 @@ export default React.memo(() => {
                 <TypeText>string</TypeText>
               </td>
               <td>
-                Message is empty string by default. However, if you register
+                Message is an empty string by default. However, if you register
                 validation with error message, then it will be returned.
               </td>
             </tr>

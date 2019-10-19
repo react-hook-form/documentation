@@ -8,53 +8,53 @@ export default {
     en: {
       title: "Want to learn more?",
       description:
-        "Checkout the React Hook Form documentation and learn all the API.",
+        "Check out the React Hook Form documentation and learn all about the API.",
       buttonText: "Checkout API",
     },
     jp: {
       title: "Want to learn more?",
       description:
-        "Checkout the React Hook Form documentation and learn all the API.",
+        "Check out the React Hook Form documentation and learn all about the API.",
       buttonText: "Checkout API",
     },
     zh: {
       title: "想学更多吗？",
       description:
-        "Checkout the React Hook Form documentation and learn all the API.",
+        "Check out the React Hook Form documentation and learn all about the API.",
       buttonText: "Checkout API",
     },
   },
   advanceUsage: {
     en: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
     jp: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
     zh: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
   },
   needYourSupport: {
     en: {
-      title: "Need Your Support",
-      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      title: "We Need Your Support",
+      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
       buttonText: `Star React Hook Form`,
     },
     jp: {
-      title: "Need Your Support",
-      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      title: "We Need Your Support",
+      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
       buttonText: `Star React Hook Form`,
     },
     zh: {
-      title: "Need Your Support",
-      description: `If you find React Hook Form is useful in your React project, please star to support the repo and contributors ❤`,
+      title: "We Need Your Support",
+      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
       buttonText: `Star React Hook Form`,
     },
   },
