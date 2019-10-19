@@ -215,7 +215,7 @@ export default function Header({
 
           <PrimaryButton
             onClick={() => {
-              navigate(translateLink("/get-started", currentLanguage))
+              navigate(translateLink("get-started", currentLanguage))
             }}
           >
             {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>

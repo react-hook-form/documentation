@@ -689,6 +689,23 @@ export default {
           </ul>
         </>
       ),
+      tableTitle: {
+        single: (
+          <>
+            Watch input value by name (similar to lodash{" "}
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://lodash.com/docs/4.17.15#get"
+            >
+              get
+            </a>{" "}
+            function)
+          </>
+        ),
+        multiple: "Watch multiple inputs",
+        all: "Watch all inputs",
+      },
     },
     jp: {
       title: "watch",
@@ -716,6 +733,23 @@ export default {
           </ul>
         </>
       ),
+      tableTitle: {
+        single: (
+          <>
+            Watch input value by name (similar to lodash{" "}
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://lodash.com/docs/4.17.15#get"
+            >
+              get
+            </a>{" "}
+            function)
+          </>
+        ),
+        multiple: "Watch multiple inputs",
+        all: "Watch all inputs",
+      },
     },
     zh: {
       title: "watch",
@@ -743,6 +777,23 @@ export default {
           </ul>
         </>
       ),
+      tableTitle: {
+        single: (
+          <>
+            Watch input value by name (similar to lodash{" "}
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://lodash.com/docs/4.17.15#get"
+            >
+              get
+            </a>{" "}
+            function)
+          </>
+        ),
+        multiple: "Watch multiple inputs",
+        all: "Watch all inputs",
+      },
     },
   },
   handleSubmit: {

@@ -3,62 +3,48 @@ import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import { TypeText } from "../styles/typography"
+import api from "../data/api"
+import generic from "../data/generic"
 
-export default function ApiWatch() {
+export default function ApiWatch({
+  currentLanguage,
+}: {
+  currentLanguage: string
+}) {
   return (
     <>
       <CodeHeading>
         <h2>watch</h2>
       </CodeHeading>
-      <p>This will watch specified input/inputs and return its value.</p>
 
-      <ul>
-        <li>
-          <p>
-            When <code>defaultValue</code> is not defined, the first render of {" "}
-            <code>watch</code> will return <code>undefined</code> because it is called
-            before <code>register</code>, but you can set the{" "}
-            <code>defaultValue</code> as the second argument to return value.
-          </p>
-        </li>
-        <li>
-          <p>
-            However, if <code>defaultValues</code> was initialised in{" "}
-            <code>useForm</code> as argument, then the first render will return
-            what's provided in <code>defaultValues</code>.
-          </p>
-        </li>
-      </ul>
-      
+      {api.watch[currentLanguage].description}
+
       <TableWrapper>
         <Table>
           <tbody>
             <tr>
-              <th>Type</th>
+              <th>{generic.type[currentLanguage]}</th>
               <th
                 style={{
                   minWidth: 200,
                 }}
               >
-                Description
+                {generic.description[currentLanguage]}
               </th>
-              <th>Example</th>
+              <th>{generic.example[currentLanguage]}</th>
               <th
                 style={{
                   minWidth: 250,
                 }}
               >
-                Return
+                {generic.return[currentLanguage]}
               </th>
             </tr>
             <tr>
               <td>
                 <TypeText>string</TypeText>
               </td>
-              <td>
-                Watch input value by name (similar to lodash{" "}
-                <a href="https://lodash.com/docs/4.17.15#get">get</a> function)
-              </td>
+              <td>{api.watch[currentLanguage].tableTitle.single}</td>
               <td>
                 <code>watch('inputName')</code>
                 <br />
@@ -72,7 +58,7 @@ export default function ApiWatch() {
               <td>
                 <TypeText>{`string[]`}</TypeText>
               </td>
-              <td>Watch multiple inputs</td>
+              <td>{api.watch[currentLanguage].tableTitle.multiple}</td>
               <td>
                 <code>watch(['inputName1'])</code>
                 <br />
@@ -86,7 +72,7 @@ export default function ApiWatch() {
               <td>
                 <TypeText>undefined</TypeText>
               </td>
-              <td>Watch all inputs</td>
+              <td>{api.watch[currentLanguage].tableTitle.all}</td>
               <td>
                 <code>watch()</code>
                 <br />

@@ -572,7 +572,7 @@ function ApiPage({
               apiSectionsRef.current.watchRef = ref
             }}
           >
-            <ApiWatch />
+            <ApiWatch currentLanguage={currentLanguage} />
           </section>
           <CodeHeading
             ref={ref => {

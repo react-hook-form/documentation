@@ -136,5 +136,10 @@ export default {
     en: 'Copy code into your clipboard.',
     jp: 'Copy code into your clipboard。',
     zh: '将代码复制到剪贴板。',
+  },
+  return: {
+    en: 'Return',
+    jp: 'Return',
+    zh: 'Return',
   }
 }
