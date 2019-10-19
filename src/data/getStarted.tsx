@@ -35,7 +35,7 @@ export default {
     },
     zh: {
       title: "视频教程",
-      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `在本视频教程中，我已经演示了使用React Hook Form的基本用法和概念。`,
     },
   },
   install: {
@@ -50,9 +50,9 @@ export default {
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     zh: {
-      linkTitle: "Quick start",
+      linkTitle: "快速启动",
       title: "安装",
-      description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
+      description: `安装React Hook Form只需要一个命令，你就可以开始了。`,
     },
   },
   example: {
@@ -66,7 +66,7 @@ export default {
     },
     zh: {
       title: "例子",
-      description: `The following code will demonstrate the basic usage:`,
+      description: `以下代码将演示基本用法:`,
     },
   },
   register: {
@@ -89,7 +89,8 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <Note>Note: </Note>React Native will need to use a manual register
+            command (e.g.:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -114,7 +115,8 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <Note>Note: </Note>React Native will need to use a manual register
+            command (e.g.:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -125,21 +127,18 @@ export default {
       description: (
         <>
           <p>
-            One of the key concepts for React Hook Form is to{" "}
-            <strong>
-              <code>register</code>
-            </strong>{" "}
-            your uncontrolled component into the Hook and hence enabling its
-            value to be validated and gathered for submitting.
+            React Hook Form的一个关键概念是将您不受控制的组件
+            <strong>注册</strong>到Hook中，从而使其价值得到验证并收集以供提交。
           </p>
 
           <p>
-            <Note>Note:</Note> Each field is <strong>required</strong> to have a
+            <Note>注意：</Note>Each field is <strong>required</strong> to have a
             unique <code>name</code> as a key for the registration process.
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <Note>注意：</Note>React Native will need to use a manual register
+            command (e.g.:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>

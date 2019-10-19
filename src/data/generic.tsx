@@ -19,9 +19,8 @@ export default {
     },
     zh: {
       title: "想学更多吗？",
-      description:
-        "Check out the React Hook Form documentation and learn all about the API.",
-      buttonText: "Checkout API",
+      description: "查看React Hook Form文档，了解所有关于API的信息。",
+      buttonText: "看看 API",
     },
   },
   advanceUsage: {
@@ -36,9 +35,9 @@ export default {
       buttonText: `Learn Advanced Usage`,
     },
     zh: {
-      title: "Advanced Usage",
-      description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advanced Usage`,
+      title: "高级用法",
+      description: `了解如何使用React Hook Form构建复杂且易于访问的表单。`,
+      buttonText: `学习高级用法`,
     },
   },
   needYourSupport: {
@@ -53,9 +52,9 @@ export default {
       buttonText: `Star React Hook Form`,
     },
     zh: {
-      title: "We Need Your Support",
-      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
-      buttonText: `Star React Hook Form`,
+      title: "我们需要您的支持",
+      description: `如果您发现React Hook Form在您的研究项目中有用，请支持我们和贡献者❤`,
+      buttonText: `给React Hook Form留颗星`,
     },
   },
   codeExample: {
