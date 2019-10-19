@@ -27,15 +27,15 @@ export default {
   video: {
     en: {
       title: "Video Tutorial",
-      description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     jp: {
       title: "ビデオチュートリアル",
-      description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     zh: {
       title: "视频教程",
-      description: `In this video tutorial, i have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
     },
   },
   install: {
@@ -58,15 +58,15 @@ export default {
   example: {
     en: {
       title: "Example",
-      description: `The following code will demonstrate the basics usage.`,
+      description: `The following code will demonstrate the basic usage:`,
     },
     jp: {
       title: "例",
-      description: `The following code will demonstrate the basics usage.`,
+      description: `The following code will demonstrate the basic usage:`,
     },
     zh: {
       title: "例子",
-      description: `The following code will demonstrate the basics usage.`,
+      description: `The following code will demonstrate the basic usage:`,
     },
   },
   register: {
@@ -89,8 +89,8 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use custom register eg:{" "}
-            <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
+            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
       ),
@@ -114,8 +114,8 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use custom register eg:{" "}
-            <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
+            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
       ),
@@ -139,8 +139,8 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use custom register eg:{" "}
-            <code>{`regsiter({ name: 'test' }, { required: true })`}</code>
+            <Note>Note: </Note>React Native will need to use a manual register command (e.g.:{" "}
+            <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
       ),

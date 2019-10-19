@@ -13,7 +13,7 @@ export default {
   },
   slogan: {
     en:
-      "Performant, flexible and extensible forms with easy to use for validation.",
+      "Performant, flexible and extensible forms with easy-to-use validation.",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
     zh: "高性能、灵活、易拓展、易于使用的表单校验库。",
@@ -31,34 +31,34 @@ export default {
   findInteresting: {
     en: {
       heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the get started section and learn more on the API documentation page.`,
+      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
     jp: {
       heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the get started section and learn more on the API documentation page.`,
+      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
     zh: {
       heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the get started section and learn more on the API documentation page.`,
+      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
   },
   features: {
     en: [
       {
         title: "DX",
-        description: `Aimed to provide API so it provides a seamless experience to developers when building forms.`,
+        description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
       },
       {
         title: "HTML standard",
-        description: `Leverage your existing HTML markup, and start validating your forms with constraint validation API.`,
+        description: `Leverage existing HTML markup and validate your forms with our constraint-based validation API.`,
       },
       {
         title: "Super Light",
-        description: `Performance is important and packages size matters. it is a tiny library and without any dependencies.`,
+        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
       },
       {
         title: "Performance",
-        description: `Minimizes the number of re-renders and faster mount, striving to provide the best user experience.`,
+        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
       },
       {
         title: "Adoptable",
@@ -68,19 +68,19 @@ export default {
     jp: [
       {
         title: "DX",
-        description: `Aimed to provide API so it provides a seamless experience to developers when building forms.`,
+        description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
       },
       {
         title: "HTML 標準",
-        description: `Leverage your existing HTML markup, and start validating your forms with constraint validation API.`,
+        description: `Leverage existing HTML markup and validate your forms with our constraint-based validation API.`,
       },
       {
         title: "スーパーライト",
-        description: `Performance is important and packages size matters. it is a tiny library and without any dependencies.`,
+        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
       },
       {
         title: "性能",
-        description: `Minimizes the number of re-renders and faster mount, striving to provide the best user experience.`,
+        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
       },
       {
         title: "採用可能",
@@ -98,11 +98,11 @@ export default {
       },
       {
         title: "Super Light",
-        description: `Performance is important and packages size matters. it is a tiny library and without any dependencies.`,
+        description: `Performance is important and package size matters. it is a tiny library and without any dependencies.`,
       },
       {
         title: "Performance",
-        description: `Minimizes the number of re-renders and faster mount, striving to provide the best user experience.`,
+        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
       },
       {
         title: "Adoptable",
@@ -146,9 +146,9 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate: how long it took to render the
-          components. Results are captured under 6x CPU slow down on App start
-          with Chrome dev tools' performance tab, and code is from the section
+          The following results demonstrate how long it took to render the
+          components. Results are captured under a 6x CPU slow down on App start
+          with the Chrome Dev Tools' performance tab.  The running code is from the section
           above <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       ),
@@ -173,9 +173,9 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate: how long it took to render the
-          components. Results are captured under 6x CPU slow down on App start
-          with Chrome dev tools' performance tab, and code is from the section
+          The following results demonstrate how long it took to render the
+          components. Results are captured under a 6x CPU slow down on App start
+          with the Chrome Dev Tools' performance tab.  The running code is from the section
           above <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       ),
@@ -200,9 +200,9 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate: how long it took to render the
-          components. Results are captured under 6x CPU slow down on App start
-          with Chrome dev tools' performance tab, and code is from the section
+          The following results demonstrate how long it took to render the
+          components. Results are captured under a 6x CPU slow down on App start
+          with the Chrome Dev Tools' performance tab.  The running code is from the section
           above <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       ),
@@ -239,9 +239,9 @@ export default {
       watchTitle: "Watch",
       errorTitle: "Errors",
       touchedTitle: "Touched",
-      watch: "Change input value to see watched values.",
-      error: "Validation errors will appear here.",
-      touched: "Touched fields will display here.",
+      watch: "Change input value to see watched values",
+      error: "Validation errors will appear here",
+      touched: "Touched fields will display here",
     },
     jp: {
       title: "现场演示",
@@ -257,9 +257,9 @@ export default {
       watchTitle: "見る",
       errorTitle: "エラー",
       touchedTitle: "触れた",
-      watch: "Change input value to see watched values.",
-      error: "Validation errors will appear here.",
-      touched: "Touched fields will display here.",
+      watch: "Change input value to see watched values",
+      error: "Validation errors will appear here",
+      touched: "Touched fields will display here",
     },
     zh: {
       title: "现场演示",
@@ -275,9 +275,9 @@ export default {
       watchTitle: "Watch",
       errorTitle: "Errors",
       touchedTitle: "Touched",
-      watch: "Change input value to see watched values.",
-      error: "Validation errors will appear here.",
-      touched: "Touched fields will display here.",
+      watch: "Change input value to see watched values",
+      error: "Validation errors will appear here",
+      touched: "Touched fields will display here",
     },
   },
 }

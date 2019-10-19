@@ -26,19 +26,19 @@ export default {
   },
   advanceUsage: {
     en: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
     jp: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
     zh: {
-      title: "Advance Usage",
+      title: "Advanced Usage",
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advance Usage`,
+      buttonText: `Learn Advanced Usage`,
     },
   },
   needYourSupport: {

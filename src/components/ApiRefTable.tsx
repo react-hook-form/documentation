@@ -96,7 +96,7 @@ export default function ApiRefTable({
           borderLeft: `4px solid ${colors.lightPink}`,
         }}
       >
-        If you working on <code>arrays/array fields</code>, you can assign input
+        If you working on <code>arrays/array fields</code>, you can assign an input
         name as <code>name[index]</code>.{" "}
         <Link
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"

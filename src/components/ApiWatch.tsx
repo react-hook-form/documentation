@@ -15,8 +15,8 @@ export default function ApiWatch() {
       <ul>
         <li>
           <p>
-            When <code>defaultValue</code> is not defined, first render{" "}
-            <code>watch</code> will return <code>undefined</code> because called
+            When <code>defaultValue</code> is not defined, the first render of {" "}
+            <code>watch</code> will return <code>undefined</code> because it is called
             before <code>register</code>, but you can set the{" "}
             <code>defaultValue</code> as the second argument to return value.
           </p>
@@ -24,7 +24,7 @@ export default function ApiWatch() {
         <li>
           <p>
             However, if <code>defaultValues</code> was initialised in{" "}
-            <code>useForm</code> as argument, then first render will return
+            <code>useForm</code> as argument, then the first render will return
             what's provided in <code>defaultValues</code>.
           </p>
         </li>

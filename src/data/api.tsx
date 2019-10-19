@@ -38,19 +38,19 @@ export default {
       en: (
         <p>
           <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrate all options' default value.
+          example demonstrates all options' default value.
         </p>
       ),
       jp: (
         <p>
           <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrate all options' default value.
+          example demonstrates all options' default value.
         </p>
       ),
       zh: (
         <p>
           <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrate all options' default value.
+          example demonstrates all options' default value.
         </p>
       ),
     },
@@ -121,10 +121,10 @@ export default {
       en: (
         <>
           <p>
-            You can set input's default value with{" "}
+            You can set the input's default value with{" "}
             <code>defaultValue/defaultChecked</code>{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more at React doc for Default Values)
+              (read more from the React doc for Default Values)
             </Link>{" "}
             or pass <code>defaultValues</code> as an optional argument to
             populate default values for the entire form.
@@ -139,9 +139,9 @@ export default {
 
           <p>
             <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with manually registered input (eg:
-            <code>{`register({ name: 'test' })`}</code>) because manual{" "}
-            <code>register</code> field is not providing <code>ref</code> to
+            with the manually registered input (eg:{" "}
+            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
+            <code>register</code> field does not provide the <code>ref</code> to
             React Hook Form.
           </p>
         </>
@@ -149,10 +149,10 @@ export default {
       jp: (
         <>
           <p>
-            You can set input's default value with{" "}
+            You can set the input's default value with{" "}
             <code>defaultValue/defaultChecked</code>{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more at React doc for Default Values)
+              (read more from the React doc for Default Values)
             </Link>{" "}
             or pass <code>defaultValues</code> as an optional argument to
             populate default values for the entire form.
@@ -167,9 +167,9 @@ export default {
 
           <p>
             <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with manually registered input (eg:
-            <code>{`register({ name: 'test' })`}</code>) because manual{" "}
-            <code>register</code> field is not providing <code>ref</code> to
+            with the manually registered input (eg:{" "}
+            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
+            <code>register</code> field does not provide the <code>ref</code> to
             React Hook Form.
           </p>
         </>
@@ -177,10 +177,10 @@ export default {
       zh: (
         <>
           <p>
-            You can set input's default value with{" "}
+            You can set the input's default value with{" "}
             <code>defaultValue/defaultChecked</code>{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more at React doc for Default Values)
+              (read more from the React doc for Default Values)
             </Link>{" "}
             or pass <code>defaultValues</code> as an optional argument to
             populate default values for the entire form.
@@ -195,9 +195,9 @@ export default {
 
           <p>
             <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with manually registered input (eg:
-            <code>{`register({ name: 'test' })`}</code>) because manual{" "}
-            <code>register</code> field is not providing <code>ref</code> to
+            with the manually registered input (eg:{" "}
+            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
+            <code>register</code> field does not provide the <code>ref</code> to
             React Hook Form.
           </p>
         </>
@@ -207,7 +207,7 @@ export default {
       en: (
         <p>
           Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer the{" "}
+          please refer to the{" "}
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
@@ -217,7 +217,7 @@ export default {
       jp: (
         <p>
           Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer the{" "}
+          please refer to the{" "}
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
@@ -227,7 +227,7 @@ export default {
       zh: (
         <p>
           Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer the{" "}
+          please refer to the{" "}
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
@@ -238,20 +238,20 @@ export default {
     reValidateMode: {
       en: (
         <p>
-          This option allow you to config when input with errors gets
-          re-validate, by default it's triggered during input change.
+          This option allows you to configure when inputs with errors getd
+          re-validated (by default, validation is triggered during an input change.)
         </p>
       ),
       jp: (
         <p>
-          This option allow you to config when input with errors gets
-          re-validate, by default it's triggered during input change.
+          This option allows you to configure when inputs with errors getd
+          re-validated (by default, validation is triggered during an input change.)
         </p>
       ),
       zh: (
         <p>
-          This option allow you to config when input with errors gets
-          re-validate, by default it's triggered during input change.
+          This option allows you to configure when inputs with errors getd
+          re-validated (by default, validation is triggered during an input change.)
         </p>
       ),
     },
@@ -287,7 +287,7 @@ export default {
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with <code>ref</code> will
+            <Note>Note:</Note> Only registered fields with a <code>ref</code> will
             work. Manually registered inputs won't work. eg:{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
@@ -301,7 +301,7 @@ export default {
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with <code>ref</code> will
+            <Note>Note:</Note> Only registered fields with a <code>ref</code> will
             work. Manually registered inputs won't work. eg:{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
@@ -315,7 +315,7 @@ export default {
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with <code>ref</code> will
+            <Note>Note:</Note> Only registered fields with a <code>ref</code> will
             work. Manually registered inputs won't work. eg:{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
@@ -325,7 +325,7 @@ export default {
     nativeValidation: goToSection => ({
       en: (
         <p>
-          Setting this option to <code>true</code> will enable browser's native
+          Setting this option to <code>true</code> will enable the browser's native
           validation. You can{" "}
           <a
             target="_blank"
@@ -338,12 +338,12 @@ export default {
           <CodeAsLink onClick={() => goToSection("nativeValidation")}>
             nativeValidation
           </CodeAsLink>{" "}
-          section for more detail and example.
+          section for more details and examples.
         </p>
       ),
       jp: (
         <p>
-          Setting this option to <code>true</code> will enable browser's native
+          Setting this option to <code>true</code> will enable the browser's native
           validation. You can{" "}
           <a
             target="_blank"
@@ -356,12 +356,12 @@ export default {
           <CodeAsLink onClick={() => goToSection("nativeValidation")}>
             nativeValidation
           </CodeAsLink>{" "}
-          section for more detail and example.
+          section for more details and examples.
         </p>
       ),
       zh: (
         <p>
-          Setting this option to <code>true</code> will enable browser's native
+          Setting this option to <code>true</code> will enable the browser's native
           validation. You can{" "}
           <a
             target="_blank"
@@ -374,7 +374,7 @@ export default {
           <CodeAsLink onClick={() => goToSection("nativeValidation")}>
             nativeValidation
           </CodeAsLink>{" "}
-          section for more detail and example.
+          section for more details and examples.
         </p>
       ),
     }),
@@ -431,8 +431,8 @@ export default {
           </p>
           <p>
             <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also support dot and bracket syntax, which
-            allow you to easily create nested form fields. Example table is
+            <b>unique</b>. Input name also supports dot and bracket syntax, which
+            allows you to easily create nested form fields. Example table is
             below:
           </p>
         </>
@@ -449,8 +449,8 @@ export default {
           </p>
           <p>
             <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also support dot and bracket syntax, which
-            allow you to easily create nested form fields. Example table is
+            <b>unique</b>. Input name also supports dot and bracket syntax, which
+            allows you to easily create nested form fields. Example table is
             below:
           </p>
         </>
@@ -467,8 +467,8 @@ export default {
           </p>
           <p>
             <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also support dot and bracket syntax, which
-            allow you to easily create nested form fields. Example table is
+            <b>unique</b>. Input name also supports dot and bracket syntax, which
+            allows you to easily create nested form fields. Example table is
             below:
           </p>
         </>
@@ -488,7 +488,7 @@ export default {
         note: goToSection => (
           <>
             <p>
-              <Note>Note:</Note> You can also register input manually, which is
+              <Note>Note:</Note> You can also register inputs manually, which is
               useful when working with custom components and <code>Ref</code> is
               not accessible. This is actually the case when you are working
               with React Native or custom component like{" "}
@@ -503,7 +503,7 @@ export default {
             </p>
 
             <p>
-              By using custom register, you will need to update the input value
+              By using a custom register call, you will need to update the input value
               with <code onClick={() => goToSection("setValue")}>setValue</code>
               , because input is no longer registered with its ref.
             </p>
@@ -513,8 +513,8 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want custom register input to trigger
-              re-render during value update, then you should give a type to your
+              <Note>Note:</Note> If you want the custom registered input to trigger a
+              re-render during its value update, then you should give a type to your
               registered input.
             </p>
           </>
@@ -527,8 +527,8 @@ export default {
           "Register with validation and error message",
         note: goToSection => (
           <>
-            <p>
-              <Note>Note:</Note> You can also register input manually, which is
+                        <p>
+              <Note>Note:</Note> You can also register inputs manually, which is
               useful when working with custom components and <code>Ref</code> is
               not accessible. This is actually the case when you are working
               with React Native or custom component like{" "}
@@ -543,7 +543,7 @@ export default {
             </p>
 
             <p>
-              By using custom register, you will need to update the input value
+              By using a custom register call, you will need to update the input value
               with <code onClick={() => goToSection("setValue")}>setValue</code>
               , because input is no longer registered with its ref.
             </p>
@@ -553,8 +553,8 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want custom register input to trigger
-              re-render during value update, then you should give a type to your
+              <Note>Note:</Note> If you want the custom registered input to trigger a
+              re-render during its value update, then you should give a type to your
               registered input.
             </p>
           </>
@@ -567,8 +567,8 @@ export default {
           "Register with validation and error message",
         note: goToSection => (
           <>
-            <p>
-              <Note>Note:</Note> You can also register input manually, which is
+                        <p>
+              <Note>Note:</Note> You can also register inputs manually, which is
               useful when working with custom components and <code>Ref</code> is
               not accessible. This is actually the case when you are working
               with React Native or custom component like{" "}
@@ -583,7 +583,7 @@ export default {
             </p>
 
             <p>
-              By using custom register, you will need to update the input value
+              By using a custom register call, you will need to update the input value
               with <code onClick={() => goToSection("setValue")}>setValue</code>
               , because input is no longer registered with its ref.
             </p>
@@ -593,8 +593,8 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want custom register input to trigger
-              re-render during value update, then you should give a type to your
+              <Note>Note:</Note> If you want the custom registered input to trigger a
+              re-render during its value update, then you should give a type to your
               registered input.
             </p>
           </>
@@ -606,7 +606,7 @@ export default {
         required: (
           <>
             A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. you can assign as string to return
+            before the form can be submitted. You can assign a string to return an
             error message in the <code>errors</code> object.
           </>
         ),
@@ -621,7 +621,7 @@ export default {
         required: (
           <>
             A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. you can assign as string to return
+            before the form can be submitted. You can assign a string to return an
             error message in the <code>errors</code> object.
           </>
         ),
@@ -636,7 +636,7 @@ export default {
         required: (
           <>
             A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. you can assign as string to return
+            before the form can be submitted. You can assign a string to return an
             error message in the <code>errors</code> object.
           </>
         ),
@@ -807,7 +807,7 @@ export default {
         <p>This function allows you to dynamically set input/select value.</p>
         <p>
           <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-          will push input's <code>name</code> into <code>touched</code>.
+          will push the input's <code>name</code> into <code>touched</code>.
         </p>
         <p>
           You can also set <code>shouldValidate</code> to <code>true</code> and
@@ -821,7 +821,7 @@ export default {
         <p>This function allows you to dynamically set input/select value.</p>
         <p>
           <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-          will push input's <code>name</code> into <code>touched</code>.
+          will push the input's <code>name</code> into <code>touched</code>.
         </p>
         <p>
           You can also set <code>shouldValidate</code> to <code>true</code> and
@@ -835,7 +835,7 @@ export default {
         <p>This function allows you to dynamically set input/select value.</p>
         <p>
           <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-          will push input's <code>name</code> into <code>touched</code>.
+          will push the input's <code>name</code> into <code>touched</code>.
         </p>
         <p>
           You can also set <code>shouldValidate</code> to <code>true</code> and
@@ -860,7 +860,7 @@ export default {
           </li>
           <li>
             <p>
-              Working on array fields form,{" "}
+              Working on the defined form fields,{" "}
               <code>getValues({`{ nest: true }`})</code> will return data in a
               nested structure according to input <code>name</code>. eg:{" "}
               <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
@@ -875,14 +875,19 @@ export default {
 
         <ul>
           <li>
-            By default <code>getValues()</code> will return form data in a flat
-            structure. eg: <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            <p>
+              By default <code>getValues()</code> will return form data in a
+              flat structure. eg:{" "}
+              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            </p>
           </li>
           <li>
-            Working on array fields form,{" "}
-            <code>getValues({`{ nest: true }`})</code> will return data in a
-            nested structure according to input <code>name</code>. eg:{" "}
-            <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            <p>
+              Working on the defined form fields,{" "}
+              <code>getValues({`{ nest: true }`})</code> will return data in a
+              nested structure according to input <code>name</code>. eg:{" "}
+              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            </p>
           </li>
         </ul>
       </>
@@ -893,14 +898,19 @@ export default {
 
         <ul>
           <li>
-            By default <code>getValues()</code> will return form data in a flat
-            structure. eg: <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            <p>
+              By default <code>getValues()</code> will return form data in a
+              flat structure. eg:{" "}
+              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+            </p>
           </li>
           <li>
-            Working on array fields form,{" "}
-            <code>getValues({`{ nest: true }`})</code> will return data in a
-            nested structure according to input <code>name</code>. eg:{" "}
-            <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            <p>
+              Working on the defined form fields,{" "}
+              <code>getValues({`{ nest: true }`})</code> will return data in a
+              nested structure according to input <code>name</code>. eg:{" "}
+              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+            </p>
           </li>
         </ul>
       </>
@@ -938,26 +948,26 @@ export default {
   reactNative: {
     en: (
       <p>
-        You will get the same performance enhancement from Uncontrolled
-        Component. However, there are certain API which isn't compatible with
-        React Native (duo to the API difference from web and native). We will
-        have to use <b>custom register</b> in the following example.
+        You will get the same performance enhancement from an Uncontrolled
+        Component. However, there are certain APIs which are not compatible with
+        React Native (duo to the API difference from web and native). You will
+        have to use a <b>manual register</b> as shown in the following example.
       </p>
     ),
     jp: (
       <p>
-        You will get the same performance enhancement from Uncontrolled
-        Component. However, there are certain API which isn't compatible with
-        React Native (duo to the API difference from web and native). We will
-        have to use <b>custom register</b> in the following example.
+        You will get the same performance enhancement from an Uncontrolled
+        Component. However, there are certain APIs which are not compatible with
+        React Native (duo to the API difference from web and native). You will
+        have to use a <b>manual register</b> as shown in the following example.
       </p>
     ),
     zh: (
       <p>
-        You will get the same performance enhancement from Uncontrolled
-        Component. However, there are certain API which isn't compatible with
-        React Native (duo to the API difference from web and native). We will
-        have to use <b>custom register</b> in the following example.
+        You will get the same performance enhancement from an Uncontrolled
+        Component. However, there are certain APIs which are not compatible with
+        React Native (duo to the API difference from web and native). You will
+        have to use a <b>manual register</b> as shown in the following example.
       </p>
     ),
   },
@@ -1016,7 +1026,7 @@ export default {
       <p>
         The following example demonstrates how you can leverage the browser's
         validation. You only need to set <code>nativeValidation</code> to{" "}
-        <code>true</code> and rest of the syntax is the same as standard
+        <code>true</code> and the rest of the syntax is the same as standard
         validation.
       </p>
     ),
@@ -1024,7 +1034,7 @@ export default {
       <p>
         The following example demonstrates how you can leverage the browser's
         validation. You only need to set <code>nativeValidation</code> to{" "}
-        <code>true</code> and rest of the syntax is the same as standard
+        <code>true</code> and the rest of the syntax is the same as standard
         validation.
       </p>
     ),
@@ -1032,7 +1042,7 @@ export default {
       <p>
         The following example demonstrates how you can leverage the browser's
         validation. You only need to set <code>nativeValidation</code> to{" "}
-        <code>true</code> and rest of the syntax is the same as standard
+        <code>true</code> and the rest of the syntax is the same as standard
         validation.
       </p>
     ),
@@ -1040,19 +1050,19 @@ export default {
   TypeScript: {
     en: (
       <p>
-        React Hook Form is built with <code>Typescript</code>, so you can define{" "}
+        React Hook Form is built with <code>Typescript</code>, so you can define a {" "}
         <code>FormData</code> type to support form values.
       </p>
     ),
     jp: (
       <p>
-        React Hook Form is built with <code>Typescript</code>, so you can define{" "}
+        React Hook Form is built with <code>Typescript</code>, so you can define a {" "}
         <code>FormData</code> type to support form values.
       </p>
     ),
     zh: (
       <p>
-        React Hook Form is built with <code>Typescript</code>, so you can define{" "}
+        React Hook Form is built with <code>Typescript</code>, so you can define a {" "}
         <code>FormData</code> type to support form values.
       </p>
     ),
@@ -1061,21 +1071,21 @@ export default {
     en: {
       introduction: (
         <p>
-          Form context is aim to solve problem when there are deep nested inputs
-          in your components tree, and pass methods deep down as{" "}
-          <code>prop</code> becoming painful.
+          Form context is intended to solve the problem when there are deep nested inputs
+          in your components tree, and passing methods deep down as{" "}
+          <code>prop</code> becomes painful.
         </p>
       ),
       description: (
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            the <code>useFormContext</code>: <TypeText>function</TypeText> can be
             invoked in its child component.
           </p>
           <p>
-            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
-            all the <code>useForm</code> hook functions.
+            <Note>Note:</Note> invoking <code>useFormContext</code> will give you
+            all of the <code>useForm</code> hook functions.
           </p>
         </>
       ),
@@ -1083,21 +1093,21 @@ export default {
     jp: {
       introduction: (
         <p>
-          Form context is aim to solve problem when there are deep nested inputs
-          in your components tree, and pass methods deep down as{" "}
-          <code>prop</code> becoming painful.
+          Form context is intended to solve the problem when there are deep nested inputs
+          in your components tree, and passing methods deep down as{" "}
+          <code>prop</code> becomes painful.
         </p>
       ),
       description: (
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            the <code>useFormContext</code>: <TypeText>function</TypeText> can be
             invoked in its child component.
           </p>
           <p>
-            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
-            all the <code>useForm</code> hook functions.
+            <Note>Note:</Note> invoking <code>useFormContext</code> will give you
+            all of the <code>useForm</code> hook functions.
           </p>
         </>
       ),
@@ -1105,21 +1115,21 @@ export default {
     zh: {
       introduction: (
         <p>
-          Form context is aim to solve problem when there are deep nested inputs
-          in your components tree, and pass methods deep down as{" "}
-          <code>prop</code> becoming painful.
+          Form context is intended to solve the problem when there are deep nested inputs
+          in your components tree, and passing methods deep down as{" "}
+          <code>prop</code> becomes painful.
         </p>
       ),
       description: (
         <>
           <p>
             Once your form is wrapped with <code>FormContext</code>,{" "}
-            <code>useFormContext</code>: <TypeText>Function</TypeText> can be
+            the <code>useFormContext</code>: <TypeText>function</TypeText> can be
             invoked in its child component.
           </p>
           <p>
-            <Note>Note:</Note> invoke <code>useFormContext</code> will give you
-            all the <code>useForm</code> hook functions.
+            <Note>Note:</Note> invoking <code>useFormContext</code> will give you
+            all of the <code>useForm</code> hook functions.
           </p>
         </>
       ),
