@@ -132,4 +132,9 @@ export default {
     jp: "更新",
     zh: "更新",
   },
+  copied: {
+    en: 'Copy code into your clipboard.',
+    jp: 'Copy code into your clipboard。',
+    zh: '将代码复制到剪贴板。',
+  }
 }

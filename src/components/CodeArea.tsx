@@ -6,6 +6,8 @@ import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
 import colors from "../styles/colors"
 import breakpoints from "../styles/breakpoints"
+import { useStateMachine } from "little-state-machine"
+import generic from "../data/generic"
 
 const commonStyle = `
   border: none;
@@ -132,6 +134,13 @@ export default function CodeArea({
   withOutCopy?: boolean
   style?: any
 }) {
+  const {
+    state: { language },
+  } = useStateMachine()
+
+  const { currentLanguage } =
+    language && language.currentLanguage ? language : { currentLanguage: "en" }
+
   return (
     <section
       style={{
@@ -142,14 +151,14 @@ export default function CodeArea({
         <CopyButton
           onClick={() => {
             copyClipBoard(rawData || generateCode(data))
-            alert("Code copied into your clipboard.")
+            alert(generic.copied[currentLanguage])
           }}
-          aria-label="Copy code into your clipboard"
+          aria-label={generic.copied[currentLanguage]}
         >
           <CopyIcon>
             <span />
           </CopyIcon>{" "}
-          Copy
+          {generic.copy[currentLanguage]}
         </CopyButton>
       )}
 
