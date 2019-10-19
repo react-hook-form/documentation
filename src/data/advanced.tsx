@@ -31,6 +31,74 @@ export default {
       description: "使用 React Hook Form 建复杂且易于访问的表单.",
     },
   },
+  errorMessage: {
+    en: {
+      title: "Error Message",
+      description: (
+        <p>
+          Error messages are visual feedback to our users when there are issues
+          associated with their inputs. In React Hook Form, we provide errors
+          object to let you retrieve errors easily. However, there are several
+          different ways for us to improve render error to the screen.
+        </p>
+      ),
+      register: (
+        <>
+          Embed error message during <code>register</code>, you can easily
+          insert your error message in the <code>value</code> attribute. Eg:
+        </>
+      ),
+      component:
+        "Create a ErrorMessage component to help your print out error.",
+      get: (
+        <p>
+          If your project is using{" "}
+          <a
+            href="https://lodash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            lodash
+          </a>
+          , then you can leverage what lodash{" "}
+          <code>
+            <a
+              href="https://lodash.com/docs/4.17.15#get"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              get
+            </a>
+          </code>{" "}
+          function. Eg:
+          <br />
+          <code>{`get(errors, 'firstName')`}</code>
+        </p>
+      ),
+    },
+    jp: {
+      title: "Error Message",
+      description: (
+        <p>
+          Error messages are visual feedback to our users when there are issues
+          associated with their inputs. In React Hook Form, we provide errors
+          object to let you retrieve errors easily. However, there are several
+          different ways for us to improve render error to the screen.
+        </p>
+      ),
+    },
+    zh: {
+      title: "Error Message",
+      description: (
+        <p>
+          Error messages are visual feedback to our users when there are issues
+          associated with their inputs. In React Hook Form, we provide errors
+          object to let you retrieve errors easily. However, there are several
+          different ways for us to improve render error to the screen.
+        </p>
+      ),
+    },
+  },
   accessibility: {
     en: {
       title: "Accessibility (A11y)",

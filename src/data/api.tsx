@@ -4,6 +4,7 @@ import Link from "../styles/link"
 import { Note, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
+import translateLink from "../components/logic/translateLink"
 
 export default {
   header: {
@@ -691,23 +692,119 @@ export default {
   formState: {
     en: {
       title: "formState",
+      description: "This object contain information about the form state.",
+      dirty: "Set to true after a user interacted with any of the inputs.",
+      isSubmitted: "Set true after a user submitted the form.",
+      touched: "An array of all inputs which have been interacted.",
+      isSubmitting: (
+        <>
+          During form submitting will set to <code>true</code> and after
+          submitting set to <code>false</code>
+        </>
+      ),
+      submitCount: "Number of forms submit.",
+      isValid: "Set true if doesn't have any error.",
     },
     jp: {
       title: "formState",
+      description: "This object contain information about the form state.",
+      dirty: "Set to true after a user interacted with any of the inputs.",
+      isSubmitted: "Set true after a user submitted the form.",
+      touched: "An array of all inputs which have been interacted.",
+      isSubmitting: (
+        <>
+          During form submitting will set to <code>true</code> and after
+          submitting set to <code>false</code>
+        </>
+      ),
+      submitCount: "Number of forms submit.",
+      isValid: "Set true if doesn't have any error.",
     },
     zh: {
       title: "formState",
+      description: "This object contain information about the form state.",
+      dirty: "Set to true after a user interacted with any of the inputs.",
+      isSubmitted: "Set true after a user submitted the form.",
+      touched: "An array of all inputs which have been interacted.",
+      isSubmitting: (
+        <>
+          During form submitting will set to <code>true</code> and after
+          submitting set to <code>false</code>
+        </>
+      ),
+      submitCount: "Number of forms submit.",
+      isValid: "Set true if doesn't have any error.",
     },
   },
   errors: {
     en: {
       title: "errors",
+      description: currentLanguage => (
+        <>
+          <p>
+            Object contains form errors or error messages which belong to each
+            input.
+          </p>
+
+          <p>
+            <Note>Note:</Note> You can also learn recipes on{" "}
+            <Link
+              to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+            >
+              Error Message
+            </Link>{" "}
+            from advanced page .
+          </p>
+        </>
+      ),
+      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
+      ref: `Reference for your input element.`,
     },
     jp: {
       title: "errors",
+      description: currentLanguage => (
+        <>
+          <p>
+            Object contains form errors or error messages which belong to each
+            input.
+          </p>
+
+          <p>
+            <Note>Note:</Note> You can also learn recipes on{" "}
+            <Link
+              to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+            >
+              Error Message
+            </Link>{" "}
+            from advanced page .
+          </p>
+        </>
+      ),
+      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
+      ref: `Reference for your input element.`,
     },
     zh: {
       title: "errors",
+      description: currentLanguage => (
+        <>
+          <p>
+            Object contains form errors or error messages which belong to each
+            input.
+          </p>
+
+          <p>
+            <Note>Note:</Note> You can also learn recipes on{" "}
+            <Link
+              to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+            >
+              Error Message
+            </Link>{" "}
+            from advanced page .
+          </p>
+        </>
+      ),
+      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
+      ref: `Reference for your input element.`,
     },
   },
   watch: {

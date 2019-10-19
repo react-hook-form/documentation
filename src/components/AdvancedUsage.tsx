@@ -18,6 +18,7 @@ import StarRepo from "./StarRepo"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advanced from "../data/advanced"
+import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
 
 const { useRef } = React
 
@@ -30,6 +31,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     SchemaValidation: null,
     ConnectForm: null,
     FormContextPerformance: null,
+    ErrorMessage: null,
   })
 
   const {
@@ -46,6 +48,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.smartForm,
     advanced.fieldArrays,
     advanced.schema,
+    advanced.errorMessage,
     advanced.connectForm,
     advanced.formContext,
   ]
@@ -160,6 +163,42 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             rawData={schemaValidation}
             url="https://codesandbox.io/s/928po918qr"
           />
+
+          <hr />
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.ErrorMessage = ref)}
+          >
+            {advanced.errorMessage[currentLanguage].title}
+          </QuestionTitle>
+
+          {advanced.errorMessage[currentLanguage].description}
+
+          <ul>
+            <li>
+              <h4>Register</h4>
+              <p>
+                {advanced.errorMessage[currentLanguage].register}
+                <br />
+                <code>{`<input name="test" ref={register({ value: 'Min is 8', min: 8 })} />`}</code>
+              </p>
+            </li>
+            <li>
+              <h4>{`<ErrorMessage />`}</h4>
+              <p>
+                {advanced.errorMessage[currentLanguage].component}
+              </p>
+
+              <CodeArea rawData={errorMessageAdvance} />
+            </li>
+            <li>
+              <h4>
+                Lodash <code>get</code>
+              </h4>
+              {advanced.errorMessage[currentLanguage].get}
+              <p />
+            </li>
+          </ul>
 
           <hr />
 

@@ -563,7 +563,7 @@ function ApiPage({
               apiSectionsRef.current.errorsRef = ref
             }}
           >
-            <ApiErrors />
+            <ApiErrors currentLanguage={currentLanguage} />
           </section>
 
           <section
@@ -729,7 +729,7 @@ function ApiPage({
               apiSectionsRef.current.formStateRef = ref
             }}
           >
-            <ApiFormState />
+            <ApiFormState currentLanguage={currentLanguage} />
           </section>
 
           <hr />
