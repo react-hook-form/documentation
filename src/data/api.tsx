@@ -3,6 +3,7 @@ import * as React from "react"
 import Link from "../styles/link"
 import { Note, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
+import colors from "../styles/colors"
 
 export default {
   header: {
@@ -283,85 +284,78 @@ export default {
       defaultValues: goToSection => (
         <>
           <p>
-            You can set the input's default value with{" "}
-            <code>defaultValue/defaultChecked</code>{" "}
+            您可以使用defaultValue/defaultChecked设置输入的默认值
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more from the React doc for Default Values)
-            </Link>{" "}
-            or pass <code>defaultValues</code> as an optional argument to
-            populate default values for the entire form.
+              （从React文档中读取默认值的更多内容）
+            </Link>
+            ，或者将defaultValues作为可选参数来填充整个表单的默认值。
           </p>
 
           <p>
-            <Note>Note:</Note> Values defined in <code>defaultValues</code> will
-            be injected into{" "}
-            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
-            as <code>defaultValue</code>.
+            <Note>注意:</Note> 默认值<code>defaultValues</code>
+            中定义的值将作为默认值<code>defaultValue</code>注入
+            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>
+            。
           </p>
 
           <p>
-            <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with the manually registered input (eg:{" "}
-            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
-            <code>register</code> field does not provide the <code>ref</code> to
-            React Hook Form.
+            React Hook Form. 默认值<code>defaultValues</code>
+            不会使用手动注册的输入（例如：注册
+            <code>{`register({ name: 'test' })`}</code>
+            ）自动填充，因为手动注册<code>register</code>字段不会提供
+            <code>ref</code>到React Hook Form。
           </p>
         </>
       ),
       validationSchema: goToSection => (
         <p>
-          Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer to the{" "}
+          将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
-          </CodeAsLink>{" "}
-          section.
+          </CodeAsLink>
+          部分。
         </p>
       ),
       reValidateMode: (
         <p>
-          This option allows you to configure when inputs with errors getd
-          re-validated (by default, validation is triggered during an input
-          change.)
+          此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。
         </p>
       ),
       validationFields: (
         <p>
-          Providing an array of fields means only included fields will be
-          validated. This option is useful when you want to toggle which fields
-          are required to validate.
+          提供字段数组意味着只包含字段将会被验证。
+          此选项很有用需要验证当您要切换什么表格需要验证。
         </p>
       ),
       submitFocusError: (
         <>
           <p>
-            By default when the user submits a form and that contains an error,
-            the first field with an error will be focused.
+            默认情况下，当用户提交表单并包含错误时,
+            具有错误的第一个字段将被聚焦。
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with a <code>ref</code>{" "}
-            will work. Manually registered inputs won't work. eg:{" "}
-            <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+            <Note>注意:</Note> 只有具有<code>ref</code>的注册字段将工作。
+            手动注册的输入将无法正常工作。 比如:{" "}
+            <code>{`register({ name: 'test' }) // 不会工作`}</code>{" "}
           </p>
         </>
       ),
       nativeValidation: goToSection => (
         <p>
-          Setting this option to <code>true</code> will enable the browser's
-          native validation. You can{" "}
+          将此选项设置为<code>true</code>将启用浏览器的本机验证。{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
           >
-            find out more about the built-in browser validation
+            您可以了解有关内置浏览器验证的更多信息
           </a>
-          , and refer to the{" "}
+          ，并参考本机验证部分
           <CodeAsLink onClick={() => goToSection("nativeValidation")}>
             nativeValidation
-          </CodeAsLink>{" "}
-          section for more details and examples.
+          </CodeAsLink>
+          了解更多详细信息和示例。
         </p>
       ),
     },
@@ -398,7 +392,7 @@ export default {
           or an array of inputs.
         </p>
         <p>
-          <Note>Note:</Note> When you unregister an input, its value will no
+          <Note>注意:</Note> When you unregister an input, its value will no
           longer be included in the form data that gets submitted.
         </p>
       </>
@@ -424,6 +418,25 @@ export default {
             is below:
           </p>
         </>
+      ),
+      fieldArray: (
+        <p
+          style={{
+            fontSize: 14,
+            paddingLeft: 10,
+            borderLeft: `4px solid ${colors.lightPink}`,
+          }}
+        >
+          If you working on <code>arrays/array fields</code>, you can assign an
+          input name as <code>name[index]</code>.{" "}
+          <Link
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+            title="example for Field Array"
+          >
+            Check out the Field Array example
+          </Link>
+          .
+        </p>
       ),
       example: "Submit Result",
       options: {
@@ -503,6 +516,25 @@ export default {
           </p>
         </>
       ),
+      fieldArray: (
+        <p
+          style={{
+            fontSize: 14,
+            paddingLeft: 10,
+            borderLeft: `4px solid ${colors.lightPink}`,
+          }}
+        >
+          If you working on <code>arrays/array fields</code>, you can assign an
+          input name as <code>name[index]</code>.{" "}
+          <Link
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+            title="example for Field Array"
+          >
+            Check out the Field Array example
+          </Link>
+          .
+        </p>
+      ),
       example: "Submit Result",
       options: {
         title: "Register options",
@@ -566,20 +598,36 @@ export default {
       description: (
         <>
           <p>
-            This method allows you to register input/select <code>Ref</code> and
-            validation rules into React Hook Form.
+            此方法允许您将输入/选择<code>Ref</code>和验证规则注册到React Hook
+            Form。
           </p>
+          <p>验证规则都是基于HTML标准，也允许自定义验证。</p>
           <p>
-            Validation rules are all based on HTML standard and also allow
-            custom validation.
-          </p>
-          <p>
-            <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also supports dot and bracket syntax,
-            which allows you to easily create nested form fields. Example table
-            is below:
+            <Note>重要:</Note> 名称<code>name</code>是<strong>必需</strong>的和
+            <strong>唯一</strong>的。
+            输入名称还支持点和括号语法，它允许您轻松创建嵌套表单字段。
+            示例表如下:
           </p>
         </>
+      ),
+      fieldArray: (
+        <p
+          style={{
+            fontSize: 14,
+            paddingLeft: 10,
+            borderLeft: `4px solid ${colors.lightPink}`,
+          }}
+        >
+          If you working on <code>arrays/array fields</code>, you can assign an
+          input name as <code>name[index]</code>.{" "}
+          <Link
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+            title="example for Field Array"
+          >
+            Check out the Field Array example
+          </Link>
+          .
+        </p>
       ),
       example: "Submit Result",
       options: {

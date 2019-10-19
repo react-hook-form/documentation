@@ -89,23 +89,7 @@ export default function ApiRefTable({
         </Table>
       </TableWrapper>
 
-      <p
-        style={{
-          fontSize: 14,
-          paddingLeft: 10,
-          borderLeft: `4px solid ${colors.lightPink}`,
-        }}
-      >
-        If you working on <code>arrays/array fields</code>, you can assign an input
-        name as <code>name[index]</code>.{" "}
-        <Link
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
-          title="example for Field Array"
-        >
-          Check out the Field Array example
-        </Link>
-        .
-      </p>
+      {api.register[currentLanguage].fieldArray}
 
       <br />
 
