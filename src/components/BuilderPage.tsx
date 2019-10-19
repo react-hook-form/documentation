@@ -281,8 +281,6 @@ function BuilderPage({
               currentLanguage,
             }}
           />
-
-          {!formData.length && <p>{builder.layout[currentLanguage].message}</p>}
         </section>
 
         <Form onSubmit={handleSubmit(onSubmit)}>

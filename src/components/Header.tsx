@@ -134,6 +134,7 @@ const ToggleGroup = styled.div`
     }
 
     &:nth-child(2) {
+      border-left: 0;
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
     }
