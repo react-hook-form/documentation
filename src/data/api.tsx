@@ -254,33 +254,30 @@ export default {
       title: "useForm",
       intro: (
         <>
-          By invoking <code>useForm</code>, you will receive the following
-          methods{" "}
+          通过调用使用<code>useForm</code>，您将收到以下方法{" "}
         </>
       ),
       description: (
         <p>
-          <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrates all options' default value.
+          <code>useForm</code>也有<strong>可选</strong>的参数。
+          下面的示例演示了所有选项的默认值。
         </p>
       ),
       validateOnSubmit: (
         <>
-          Validation will trigger on the <code>submit</code> event and invalid
-          inputs will attach <code>onChange</code> event listeners to
-          re-validate them.
+          验证将在<code>提交</code>
+          时触发，无效的输入将附加onChange事件侦听器以重新验证它们。
         </>
       ),
       validateOnBlur: (
         <>
-          Validation will trigger on the <code>blur</code> event.
+          验证将在离开<code>blur</code>表格事件上触发。
         </>
       ),
       validateOnChange: (
         <>
-          Validation will trigger on the <code>change</code> event with each
-          input, and lead to multiple re-renders. Not recommended: Consider this
-          as a bad performance practice.
+          验证将在每个输入<code>change</code>
+          的事件上触发，并导致多个重新renders。 不推荐这个方法的实践性能。
         </>
       ),
       defaultValues: goToSection => (

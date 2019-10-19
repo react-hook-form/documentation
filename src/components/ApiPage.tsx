@@ -404,7 +404,7 @@ function ApiPage({
             </code>
             <Popup
               top={3}
-              message="React Native: Need to combine the use of watch API or simply use defaultValue"
+              message="React Native: Need to combine the use of watch API"
             />
           </H5>
 
