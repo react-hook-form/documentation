@@ -37,21 +37,21 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form have support on native form validation, which let
-            the borrow validate inputs with your rules, however, as most of us
-            would have to build forms in a custom design and layout and it's our
+            React Hook Form has support for native form validation, which let
+            you validate inputs with your own rules, since most of us
+            have to build forms in a custom design and layout, and it's our
             responsibility to make sure our forms are accessible (A11y).
           </p>
 
           <p>
-            The following code example works as intended for validation, however
+            The following code example works as intended for validation; however,
             it can be improved for accessibility.
           </p>
 
           <CodeArea rawData={accessibleCodeBase} />
 
           <p>
-            The following code example is improved version by leveraging{" "}
+            The following code example is an improved version by leveraging{" "}
             <a
               rel="noopener noreferrer"
               href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
@@ -64,7 +64,7 @@ export default {
           <CodeArea rawData={accessibleCodeFinal} />
 
           <p>
-            After the improvement, the screen reader will say:{" "}
+            After this improvement, the screen reader will say:{" "}
             <i>“Name, edit, invalid entry, This is required.”</i>
           </p>
         </>
@@ -154,7 +154,7 @@ export default {
         <>
           <p>
             It's pretty common to collect user information through different
-            pages and sections. We recommend to use state management library to
+            pages and sections. We recommend using a state management library to
             store user input through different pages/section. In this example,
             we are going to use{" "}
             <Link
@@ -167,13 +167,13 @@ export default {
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
             </Link>
-            , if you are more familiar).
+            , if you are more familiar with it).
           </p>
 
           <p style={{ textAlign: "center" }}>♦</p>
 
           <p>
-            <Note>Step 1:</Note> set up your routes and store.
+            <Note>Step 1:</Note> Set up your routes and store.
           </p>
           <CodeArea
             rawData={step1}
@@ -181,8 +181,8 @@ export default {
           />
 
           <p>
-            <Note>Step 2:</Note> create your pages and make them collecting
-            data, submit to store and push to the next page of your form.
+            <Note>Step 2:</Note> Create your pages, make them collect their
+            data, submit that data to the store and push to the next page of your form.
           </p>
           <CodeArea
             rawData={step2}
@@ -190,8 +190,8 @@ export default {
           />
 
           <p>
-            <Note>Step 3:</Note> make your final submission with all your data
-            in store or display the result data.
+            <Note>Step 3:</Note> Make your final submission with all the data
+            in the store or display the resulting data.
           </p>
           <CodeArea
             rawData={step3}
@@ -199,7 +199,7 @@ export default {
           />
 
           <p>
-            Follow the above pattern you should be able to build a wizard
+            Following the above pattern, you should be able to build a wizard
             form/funnel to collect user input data from multiple pages.
           </p>
         </>
@@ -326,10 +326,9 @@ export default {
       description: (
         <>
           <p>
-            This idea is that you can easily compose your form with inputs. we
+            This idea here is that you can easily compose your form with inputs. We are
             going to create a <code>Form</code> component to automatically
-            collecting form data. In fact, this is part of what we implemented
-            forms at work.
+            collecting form data. 
           </p>
 
           <CodeArea
@@ -346,7 +345,7 @@ export default {
           </CodeHeading>
 
           <p>
-            <code>Form</code> component's responsibility is to inject all{" "}
+            The <code>Form</code> component's responsibility is to inject all{" "}
             <code>react-hook-form</code> methods into the child component.
           </p>
 
@@ -369,9 +368,9 @@ export default {
           />
 
           <p>
-            With <code>Form</code> component inject <code>react-hook-form</code>
+            With the <code>Form</code> component injecting <code>react-hook-form</code>
             's <code>props</code> into the child component, you can easily
-            create and compose forms in your app.
+            create and compose complex forms in your app.
           </p>
         </>
       ),
@@ -497,16 +496,16 @@ export default {
       description: (
         <>
           <p>
-            This is one of cool features about React Hook Form, instead import
-            components like other libraries to achieve the functionality. You
+            This is one of the best features about React Hook Form: instead of importing
+            components (like other libraries) to achieve this functionality, you
             can leverage your existing HTML markup. The key is within the{" "}
             <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represent the data structure.
+            <code>name</code> attribute represents the data structure you want to use.
           </p>
 
           <p>
-            The following example demonstrate how you can create Field Array by
-            just manipulating the input <code>name</code> attribute.
+            The following example demonstrates how you can create Field Arrays by
+            manipulating the input <code>name</code> attribute.
           </p>
         </>
       ),
@@ -560,23 +559,23 @@ export default {
             <a href="https://github.com/jquense/yup" target="_blank">
               Yup
             </a>
-            , you can pass your <code>validationSchema</code> to{" "}
-            <a href="/api#useForm">useForm</a> as an optional config, React Hook
-            Form will validate your input data against the schema and return you
-            with <a href="/api#errors">errors</a> or valid result.
+            , where you can pass your <code>validationSchema</code> to{" "}
+            <a href="/api#useForm">useForm</a> as an optional config. React Hook
+            Form will validate your input data against the schema and return
+            with either <a href="/api#errors">errors</a> or a valid result.
           </p>
         </>
       ),
       step1: (
         <>
           <p>
-            <Note>Step 1:</Note> install <code>Yup</code> into your project.
+            <Note>Step 1:</Note> Install <code>Yup</code> into your project.
           </p>
         </>
       ),
       step2: (
         <p>
-          <Note>Step 2:</Note> prepare your schema for validation and register
+          <Note>Step 2:</Note> Prepare your schema for validation and register
           inputs with React Hook Form.
         </p>
       ),
@@ -647,14 +646,14 @@ export default {
       title: "Connect Form",
       description: (
         <p>
-          When we building forms, there are times when our input lives inside of
-          deep nested components tree, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in handy. However, we
-          can further improve the DX by creating a <code>ConnectForm</code>{" "}
+          When we are building forms, there are times when our input lives inside of
+          deeply nested component trees, and that's when{" "}
+          <a href="/api#FormContext">FormContext</a> comes in very handy. However, we
+          can further improve the Developer Experience  by creating a <code>ConnectForm</code>{" "}
           component and leveraging React's{" "}
           <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such component is you can connect your input with React
-          Hook Form anywhere.
+          The benefit of such a component is you can connect your input with React
+          Hook Form from anywhere.
         </p>
       ),
     },
@@ -695,7 +694,7 @@ export default {
       description: (
         <p>
           React Hook Form's{" "}
-          <PageLink to="/api/#FormContext">FormContext</PageLink> is build upon{" "}
+          <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
@@ -703,11 +702,11 @@ export default {
           >
             React's Context
           </a>{" "}
-          API, it solve the problem where pass data through the component tree
+          API.  It solves the problem where data is passed through the component tree
           without having to pass props down manually at every level. This also
-          causing the component tree to trigger re-render when React Hook Form
-          trigger a state update, but we still can optimise our App if requires
-          and example blow.
+          causes the component tree to trigger a re-render when React Hook Form
+          triggers a state update, but we can still can optimise our App if required via 
+          the example blow.
         </p>
       ),
     },
