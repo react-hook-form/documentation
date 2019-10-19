@@ -154,24 +154,6 @@ const QuickSelect = styled.div`
   }
 `
 
-const links = [
-  "useForm",
-  "register",
-  "errors",
-  "watch",
-  "handleSubmit",
-  "reset",
-  "setError",
-  "clearError",
-  "setValue",
-  "getValues",
-  "triggerValidation",
-  "formState",
-  "FormContext",
-  "React Native",
-  "Typescript",
-]
-
 const codeSandBoxStyle = {
   position: "relative",
   left: 0,
@@ -187,6 +169,23 @@ function ApiPage({
   formData?: any
   defaultLang: string
 }) {
+  const links = [
+    api.useForm,
+    api.register,
+    api.errors,
+    api.watch,
+    api.handleSubmit,
+    api.reset,
+    api.setError,
+    api.clearError,
+    api.setValue,
+    api.getValues,
+    api.triggerValidation,
+    api.formState,
+    api.formContext,
+    api.reactNative,
+    api.typeScript,
+  ]
   const {
     state: { language },
   } = useStateMachine()
@@ -208,7 +207,7 @@ function ApiPage({
     validationSchemaRef: null,
     handleSubmitRef: null,
     getValuesRef: null,
-    TypescriptRef: null,
+    TypeScriptRef: null,
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
@@ -254,11 +253,18 @@ function ApiPage({
             }}
           >
             <option>{generic.select[currentLanguage]} API</option>
-            {links.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
+            {links.map(option => {
+              const title =
+                typeof option[currentLanguage] === "function"
+                  ? option[currentLanguage]().title
+                  : option[currentLanguage].title
+
+              return (
+                <option value={title} key={title}>
+                  {title}
+                </option>
+              )
+            })}
           </select>
         </QuickSelect>
       </HiddenMenu>
@@ -282,7 +288,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
           <p>
-            {api.useForm.intro[currentLanguage]}
+            {api.useForm[currentLanguage].intro}
             <CodeAsLink onClick={() => goToSection("register")}>
               register
             </CodeAsLink>
@@ -327,7 +333,7 @@ function ApiPage({
             .
           </p>
 
-          {api.useForm.description[currentLanguage]}
+          {api.useForm[currentLanguage].description}
 
           <CodeArea
             withOutCopy
@@ -369,21 +375,21 @@ function ApiPage({
                   <td>
                     <TypeText>string</TypeText>
                   </td>
-                  <td>{api.useForm.validateOnSubmit[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].validateOnSubmit}</td>
                 </tr>
                 <tr>
                   <td>onBlur</td>
                   <td>
                     <TypeText>string</TypeText>
                   </td>
-                  <td>{api.useForm.validateOnBlur[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].validateOnBlur}</td>
                 </tr>
                 <tr>
                   <td>onChange</td>
                   <td>
                     <TypeText>string</TypeText>
                   </td>
-                  <td>{api.useForm.validateOnChange[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].validateOnChange}</td>
                 </tr>
               </tbody>
             </Table>
@@ -402,7 +408,7 @@ function ApiPage({
             />
           </H5>
 
-          {api.useForm.defaultValues(goToSection)[currentLanguage]}
+          {api.useForm[currentLanguage].defaultValues(goToSection)}
 
           <CodeArea
             url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
@@ -434,7 +440,7 @@ function ApiPage({
                     </TableH5>
                   </td>
                   <td>
-                    {api.useForm.validationSchema(goToSection)[currentLanguage]}
+                    {api.useForm[currentLanguage].validationSchema(goToSection)}
                   </td>
                   <td>
                     <CodeSandBoxLink
@@ -454,7 +460,7 @@ function ApiPage({
                       </code>
                     </TableH5>
                   </td>
-                  <td>{api.useForm.reValidateMode[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].reValidateMode}</td>
                   <td />
                 </tr>
                 <tr>
@@ -466,7 +472,7 @@ function ApiPage({
                       </code>
                     </TableH5>
                   </td>
-                  <td>{api.useForm.validationFields[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].validationFields}</td>
                   <td>
                     <CodeSandBoxLink
                       style={codeSandBoxStyle}
@@ -483,7 +489,7 @@ function ApiPage({
                       </code>
                     </TableH5>
                   </td>
-                  <td>{api.useForm.submitFocusError[currentLanguage]}</td>
+                  <td>{api.useForm[currentLanguage].submitFocusError}</td>
                 </tr>
                 <tr>
                   <td>
@@ -495,7 +501,7 @@ function ApiPage({
                     </H5>
                   </td>
                   <td>
-                    {api.useForm.nativeValidation(goToSection)[currentLanguage]}
+                    {api.useForm[currentLanguage].nativeValidation(goToSection)}
                   </td>
                   <td>
                     <CodeSandBoxLink
@@ -579,7 +585,7 @@ function ApiPage({
               <TypeText>(data: Object, e: Event) => void</TypeText>
             </h2>
           </CodeHeading>
-          {api.handleSubmit[currentLanguage]}
+          {api.handleSubmit[currentLanguage].description}
           <CodeArea
             rawData={handleSubmitCode}
             url="https://codesandbox.io/s/yj07z1639"
@@ -602,7 +608,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          {api.reset(goToSection)[currentLanguage]}
+          {api.reset[currentLanguage](goToSection).description}
 
           <CodeArea
             rawData={resetCode}
@@ -625,7 +631,7 @@ function ApiPage({
               </TypeText>
             </h2>
           </CodeHeading>
-          {api.setError[currentLanguage]}
+          {api.setError[currentLanguage].description}
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -637,7 +643,7 @@ function ApiPage({
               <TypeText>(name?: string | string[]) => void</TypeText>
             </h2>
           </CodeHeading>
-          {api.clearError[currentLanguage]}
+          {api.clearError[currentLanguage].description}
 
           <CodeArea
             rawData={setError}
@@ -660,7 +666,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          {api.setValue[currentLanguage]}
+          {api.setValue[currentLanguage].description}
 
           <CodeArea
             rawData={setValue}
@@ -681,7 +687,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          {api.getValues[currentLanguage]}
+          {api.getValues[currentLanguage].description}
 
           <CodeArea
             rawData={getValues}
@@ -743,7 +749,7 @@ function ApiPage({
             <h2>React Native</h2>
           </CodeHeading>
 
-          {api.reactNative[currentLanguage]}
+          {api.reactNative[currentLanguage].description}
 
           <CodeArea rawData={reactNative} />
 
@@ -760,7 +766,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          {api.validationSchema[currentLanguage]}
+          {api.validationSchema[currentLanguage].description}
 
           <CodeArea
             rawData={validationSchemaCode}
@@ -778,12 +784,7 @@ function ApiPage({
             <h2>NativeValidation</h2>
           </CodeHeading>
 
-          <p>
-            The following example demonstrates how you can leverage the
-            browser's validation. You only need to set{" "}
-            <code>nativeValidation</code> to <code>true</code> and rest of the
-            syntax is the same as standard validation.
-          </p>
+          {api.NativeValidation[currentLanguage].description}
 
           <CodeArea
             rawData={nativeValidation}
@@ -795,15 +796,13 @@ function ApiPage({
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.TypescriptRef = ref
+              apiSectionsRef.current.TypeScriptRef = ref
             }}
           >
             <h2>TypeScript</h2>
           </CodeHeading>
-          <p>
-            React Hook Form is built with <code>Typescript</code>, so you can
-            define <code>FormData</code> type to support form values.
-          </p>
+
+          {api.typeScript[currentLanguage].description}
 
           <CodeArea
             rawData={typeScript}
@@ -815,18 +814,15 @@ function ApiPage({
               textAlign: "center",
             }}
           >
-            <H1>Advanced Usage</H1>
-            <p>
-              Learn how to build complex and accessible forms with React Hook
-              Form.
-            </p>
+            <H1>{generic.advanceUsage[currentLanguage].title}</H1>
+            <p>{generic.advanceUsage[currentLanguage].description}</p>
             <PrimaryButton
               onClick={() => {
                 navigate("/advanced-usage")
               }}
               style={{ margin: "40px auto" }}
             >
-              Learn Advanced Usage
+              {generic.advanceUsage[currentLanguage].buttonText}
             </PrimaryButton>
           </section>
           <Footer currentLanguage={currentLanguage} />

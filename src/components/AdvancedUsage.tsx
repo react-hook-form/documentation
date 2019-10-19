@@ -41,13 +41,13 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
 
   const links = [
-    advanced.accessibility[currentLanguage].title,
-    advanced.wizard[currentLanguage].title,
-    advanced.smartForm[currentLanguage].title,
-    advanced.fieldArrays[currentLanguage].title,
-    advanced.schema[currentLanguage].title,
-    advanced.connectForm[currentLanguage].title,
-    advanced.formContext[currentLanguage].title,
+    advanced.accessibility,
+    advanced.wizard,
+    advanced.smartForm,
+    advanced.fieldArrays,
+    advanced.schema,
+    advanced.connectForm,
+    advanced.formContext,
   ]
 
   const goToSection = name => {
@@ -97,7 +97,9 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}>
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}
+          >
             {advanced.wizard[currentLanguage].title}
           </QuestionTitle>
 

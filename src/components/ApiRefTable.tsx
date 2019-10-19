@@ -42,7 +42,7 @@ export default function ApiRefTable({
 
   return (
     <>
-      {api.register[currentLanguage]}
+      {api.register[currentLanguage].description}
 
       <TableWrapper>
         <Table>
@@ -51,7 +51,7 @@ export default function ApiRefTable({
               <th>
                 Input <code>{generic.name[currentLanguage]}</code>
               </th>
-              <th>{api.register.example[currentLanguage]}</th>
+              <th>{api.register[currentLanguage].example}</th>
             </tr>
             <tr>
               <td>
@@ -110,7 +110,7 @@ export default function ApiRefTable({
       <br />
 
       <Group>
-        <legend>{api.register.options[currentLanguage].title}</legend>
+        <legend>{api.register[currentLanguage].options.title}</legend>
         <label>
           <input
             onChange={() => toggleOption(true)}
@@ -118,7 +118,7 @@ export default function ApiRefTable({
             name="errorMessage"
             defaultChecked
           />
-          {api.register.options[currentLanguage].registerWithValidation}
+          {api.register[currentLanguage].options.registerWithValidation}
         </label>
         <label>
           <input
@@ -126,11 +126,11 @@ export default function ApiRefTable({
             type="radio"
             name="errorMessage"
           />
-          {api.register.options[currentLanguage].registerWithValidationMessage}
+          {api.register[currentLanguage].options.registerWithValidationMessage}
         </label>
       </Group>
 
-      {api.register.options[currentLanguage].note(goToSection)}
+      {api.register[currentLanguage].options.note(goToSection)}
 
       <p>
         <code>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
@@ -193,7 +193,7 @@ export default function ApiRefTable({
                   <TypeText>{isStandard ? "boolean" : "string"}</TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].required}</td>
+              <td>{api.register[currentLanguage].validation.required}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -225,7 +225,7 @@ export default function ApiRefTable({
                   </TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].maxLength}</td>
+              <td>{api.register[currentLanguage].validation.maxLength}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -264,7 +264,7 @@ export default function ApiRefTable({
                   </TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].minLength}</td>
+              <td>{api.register[currentLanguage].validation.minLength}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -303,7 +303,7 @@ export default function ApiRefTable({
                   </TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].max}</td>
+              <td>{api.register[currentLanguage].validation.max}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -342,7 +342,7 @@ export default function ApiRefTable({
                   </TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].min}</td>
+              <td>{api.register[currentLanguage].validation.min}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -381,7 +381,7 @@ export default function ApiRefTable({
                   </TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].pattern}</td>
+              <td>{api.register[currentLanguage].validation.pattern}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}
@@ -413,7 +413,7 @@ export default function ApiRefTable({
                   <TypeText>Function | Object</TypeText>
                 </code>
               </td>
-              <td>{api.register.validation[currentLanguage].validate}</td>
+              <td>{api.register[currentLanguage].validation.validate}</td>
               <td>
                 <CodeArea
                   style={{ marginTop: -10 }}

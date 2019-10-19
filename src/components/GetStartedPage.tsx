@@ -39,18 +39,18 @@ const Faq = ({
       : { currentLanguage: defaultLang }
 
   const links = [
-    getStarted.install[currentLanguage].linkTitle,
-    getStarted.video[currentLanguage].title,
-    getStarted.register[currentLanguage].title,
-    getStarted.applyValidation[currentLanguage].title,
-    getStarted.adapting[currentLanguage].title,
-    getStarted.workWithUI[currentLanguage].title,
-    getStarted.globalState[currentLanguage].title,
-    getStarted.errors[currentLanguage].title,
+    getStarted.install,
+    getStarted.video,
+    getStarted.register,
+    getStarted.applyValidation,
+    getStarted.adapting,
+    getStarted.workWithUI,
+    getStarted.globalState,
+    getStarted.errors,
   ]
 
   const sectionsRef = useRef({
-    quickstart: null,
+    installation: null,
     videotutorial: null,
     adaptingexistingform: null,
     workwithuilibrary: null,
@@ -61,6 +61,7 @@ const Faq = ({
   })
 
   const goToSection = name => {
+    console.log(name)
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ /g, "")
@@ -99,7 +100,7 @@ const Faq = ({
         <main>
           <GetStarted
             quickStartRef={ref => {
-              sectionsRef.current.quickstart = ref
+              sectionsRef.current.installation = ref
             }}
             currentLanguage={currentLanguage}
           />

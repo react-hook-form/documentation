@@ -12,6 +12,7 @@ import video from "../images/react-hook-form-demo-video.mp4"
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
+import translateLink from "./logic/translateLink"
 
 const Logo = styled.svg`
   height: 80px;
@@ -214,7 +215,7 @@ export default function Header({
 
           <PrimaryButton
             onClick={() => {
-              navigate("/get-started")
+              navigate(translateLink("/get-started", currentLanguage))
             }}
           >
             {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>

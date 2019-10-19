@@ -110,7 +110,7 @@ export default function SideMenu({
   isStatic,
   currentLanguage,
 }: {
-  links: string[]
+  links: any
   goToSection: Function
   isStatic?: boolean
   currentLanguage: string
@@ -130,7 +130,16 @@ export default function SideMenu({
         </TitleList>
 
         <ul className="scrollArea">
-          {links.map((link, index) => {
+          {links.map((rawLink, index) => {
+            const link =
+              typeof rawLink[currentLanguage] === "function"
+                ? rawLink[currentLanguage]().title
+                : rawLink[currentLanguage].title
+            const enLink =
+              typeof rawLink.en === "function"
+                ? rawLink.en().title
+                : rawLink.en.title
+
             if (
               ["formcontext", "typescript", "react native"].includes(
                 link.toLowerCase()
@@ -138,12 +147,12 @@ export default function SideMenu({
               isStatic
             ) {
               return (
-                <li key={link} onClick={() => goToSection(link, index)}>
+                <li key={link}>
                   <Code>{`</>`}</Code>
                   {isStatic ? (
                     <button
                       onClick={() => {
-                        goToSection(link, index)
+                        goToSection(enLink, index)
                       }}
                       style={{
                         top: "-3px",
@@ -154,6 +163,9 @@ export default function SideMenu({
                     </button>
                   ) : (
                     <button
+                      onClick={() => {
+                        goToSection(enLink, index)
+                      }}
                       style={{
                         top: "-3px",
                         position: "relative",
@@ -170,7 +182,7 @@ export default function SideMenu({
             return (
               <li
                 key={link}
-                onClick={() => goToSection(link, index)}
+                onClick={() => goToSection(enLink, index)}
                 style={{
                   ...(index > 0
                     ? {

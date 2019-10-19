@@ -21,7 +21,7 @@ export default {
     },
     zh: {
       title: "起步",
-      description: "Simple form validation with React Hook Form.",
+      description: "React Hook Form 让表单验证变得简单.",
     },
   },
   video: {
@@ -40,18 +40,18 @@ export default {
   },
   install: {
     en: {
-      linkTitle: "Quick start",
-      title: "Installation",
+      linkTitle: "Installation",
+      title: "Quick start",
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     jp: {
-      linkTitle: "クイックスタート",
-      title: "Installation",
+      linkTitle: "Installation",
+      title: "クイックスタート",
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     zh: {
-      linkTitle: "快速启动",
-      title: "安装",
+      linkTitle: "安装",
+      title: "快速启动",
       description: `安装React Hook Form只需要一个命令，你就可以开始了。`,
     },
   },

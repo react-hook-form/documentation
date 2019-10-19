@@ -15,7 +15,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
         </h2>
       </CodeHeading>
 
-      {api.FormContext[currentLanguage].introduction}
+      {api.formContext[currentLanguage].introduction}
 
       <TableWrapper>
         <Table>
@@ -40,7 +40,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
         </Table>
       </TableWrapper>
 
-      {api.FormContext[currentLanguage].description}
+      {api.formContext[currentLanguage].description}
 
       <p>
         <code

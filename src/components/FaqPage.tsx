@@ -28,7 +28,11 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const links = faq.questions[currentLanguage].map(({ title }) => title)
+  const links = faq.questions[currentLanguage].map((item, index) => ({
+    en: faq.questions.en[index],
+    jp: item,
+    zh: item,
+  }))
 
   const sectionsRef = useRef({
     question1: null,
@@ -53,7 +57,9 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
   return (
     <Container>
-      <HeadingWithTopMargin id="main">{faq.header[currentLanguage].title}</HeadingWithTopMargin>
+      <HeadingWithTopMargin id="main">
+        {faq.header[currentLanguage].title}
+      </HeadingWithTopMargin>
       <SubHeading>{faq.header[currentLanguage].description}</SubHeading>
 
       <Wrapper>
