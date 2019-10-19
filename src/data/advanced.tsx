@@ -15,7 +15,7 @@ export default {
   title: {
     en: "Advanced Usage",
     jp: "高度な使用法",
-    zh: "Advanced Usage",
+    zh: "高级用法",
   },
   header: {
     en: {
@@ -28,7 +28,7 @@ export default {
     },
     zh: {
       title: "高级",
-      description: "Build complex and accessible forms with React Hook Form.",
+      description: "使用 React Hook Form 建复杂且易于访问的表单.",
     },
   },
   accessibility: {
@@ -38,14 +38,14 @@ export default {
         <>
           <p>
             React Hook Form has support for native form validation, which let
-            you validate inputs with your own rules, since most of us
-            have to build forms in a custom design and layout, and it's our
+            you validate inputs with your own rules, since most of us have to
+            build forms in a custom design and layout, and it's our
             responsibility to make sure our forms are accessible (A11y).
           </p>
 
           <p>
-            The following code example works as intended for validation; however,
-            it can be improved for accessibility.
+            The following code example works as intended for validation;
+            however, it can be improved for accessibility.
           </p>
 
           <CodeArea rawData={accessibleCodeBase} />
@@ -76,14 +76,14 @@ export default {
         <>
           <p>
             React Hook Form has support for native form validation, which let
-            you validate inputs with your own rules, since most of us
-            have to build forms in a custom design and layout, and it's our
+            you validate inputs with your own rules, since most of us have to
+            build forms in a custom design and layout, and it's our
             responsibility to make sure our forms are accessible (A11y).
           </p>
 
           <p>
-            The following code example works as intended for validation; however,
-            it can be improved for accessibility.
+            The following code example works as intended for validation;
+            however, it can be improved for accessibility.
           </p>
 
           <CodeArea rawData={accessibleCodeBase} />
@@ -113,21 +113,16 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form has support for native form validation, which let
-            you validate inputs with your own rules, since most of us
-            have to build forms in a custom design and layout, and it's our
-            responsibility to make sure our forms are accessible (A11y).
+            React Hook Form
+            支持本机表单验证。可是因为我们大多数人都必须在自定义设计和布局中构建表单，同时这也变成我们的责任去确保我们的表单形式是有可访问性的（A11y）。
           </p>
 
-          <p>
-            The following code example works as intended for validation; however,
-            it can be improved for accessibility.
-          </p>
+          <p>下面的代码示例可用于验证；但是, 它可以改善可访问性。</p>
 
           <CodeArea rawData={accessibleCodeBase} />
 
           <p>
-            The following code example is an improved version by leveraging{" "}
+            下面的代码示例是通过利用
             <a
               rel="noopener noreferrer"
               href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
@@ -135,13 +130,12 @@ export default {
             >
               ARIA
             </a>
-            .
+            改进的版本。
           </p>
           <CodeArea rawData={accessibleCodeFinal} />
 
           <p>
-            After this improvement, the screen reader will say:{" "}
-            <i>“Name, edit, invalid entry, This is required.”</i>
+            这种改进后，屏幕阅读器会说: <i>"名称，编辑是必需的。”</i>
           </p>
         </>
       ),
@@ -182,7 +176,8 @@ export default {
 
           <p>
             <Note>Step 2:</Note> Create your pages, make them collect their
-            data, submit that data to the store and push to the next page of your form.
+            data, submit that data to the store and push to the next page of
+            your form.
           </p>
           <CodeArea
             rawData={step2}
@@ -190,8 +185,8 @@ export default {
           />
 
           <p>
-            <Note>Step 3:</Note> Make your final submission with all the data
-            in the store or display the resulting data.
+            <Note>Step 3:</Note> Make your final submission with all the data in
+            the store or display the resulting data.
           </p>
           <CodeArea
             rawData={step3}
@@ -239,7 +234,8 @@ export default {
 
           <p>
             <Note>Step 2:</Note> Create your pages, make them collect their
-            data, submit that data to the store and push to the next page of your form.
+            data, submit that data to the store and push to the next page of
+            your form.
           </p>
           <CodeArea
             rawData={step2}
@@ -247,8 +243,8 @@ export default {
           />
 
           <p>
-            <Note>Step 3:</Note> Make your final submission with all the data
-            in the store or display the resulting data.
+            <Note>Step 3:</Note> Make your final submission with all the data in
+            the store or display the resulting data.
           </p>
           <CodeArea
             rawData={step3}
@@ -263,31 +259,30 @@ export default {
       ),
     },
     zh: {
-      title: "Wizard Form / Funnel",
+      title: "向导形式表格",
       description: (
         <>
           <p>
-            It's pretty common to collect user information through different
-            pages and sections. We recommend using a state management library to
-            store user input through different pages/section. In this example,
-            we are going to use{" "}
+            通过不同的页面和部分收集用户信息是很常见的。
+            我们建议使用状态管理库通过不同的页面/部分去存储用户输入。
+            在这个例子中，我们将使用
             <Link
               href="https://github.com/bluebill1049/little-state-machine"
               target="_blank"
             >
               little state machine
-            </Link>{" "}
-            as our state management library (you can replace it with{" "}
+            </Link>
+            作为我们的状态管理库（如果您更熟悉它，您可以用
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
             </Link>
-            , if you are more familiar with it).
+            替换它）。
           </p>
 
           <p style={{ textAlign: "center" }}>♦</p>
 
           <p>
-            <Note>Step 1:</Note> Set up your routes and store.
+            <Note>步骤1:</Note> 设置你的routes和store。
           </p>
           <CodeArea
             rawData={step1}
@@ -295,8 +290,8 @@ export default {
           />
 
           <p>
-            <Note>Step 2:</Note> Create your pages, make them collect their
-            data, submit that data to the store and push to the next page of your form.
+            <Note>步骤2:</Note>{" "}
+            创建您的网页，让他们收集数据，提交该数据存储并推送到下一页你的表格。
           </p>
           <CodeArea
             rawData={step2}
@@ -304,8 +299,7 @@ export default {
           />
 
           <p>
-            <Note>Step 3:</Note> Make your final submission with all the data
-            in the store or display the resulting data.
+            <Note>步骤3:</Note> 让您的最终提交所有的数据存储并且显示生成的数据。
           </p>
           <CodeArea
             rawData={step3}
@@ -313,8 +307,7 @@ export default {
           />
 
           <p>
-            Following the above pattern, you should be able to build a wizard
-            form/funnel to collect user input data from multiple pages.
+            按照上述模式，您应该能够构建向导表单收集来自多个页面的用户输入数据。
           </p>
         </>
       ),
@@ -326,9 +319,9 @@ export default {
       description: (
         <>
           <p>
-            This idea here is that you can easily compose your form with inputs. We are
-            going to create a <code>Form</code> component to automatically
-            collecting form data. 
+            This idea here is that you can easily compose your form with inputs.
+            We are going to create a <code>Form</code> component to
+            automatically collecting form data.
           </p>
 
           <CodeArea
@@ -368,7 +361,8 @@ export default {
           />
 
           <p>
-            With the <code>Form</code> component injecting <code>react-hook-form</code>
+            With the <code>Form</code> component injecting{" "}
+            <code>react-hook-form</code>
             's <code>props</code> into the child component, you can easily
             create and compose complex forms in your app.
           </p>
@@ -380,9 +374,9 @@ export default {
       description: (
         <>
           <p>
-            This idea here is that you can easily compose your form with inputs. We are
-            going to create a <code>Form</code> component to automatically
-            collecting form data. 
+            This idea here is that you can easily compose your form with inputs.
+            We are going to create a <code>Form</code> component to
+            automatically collecting form data.
           </p>
 
           <CodeArea
@@ -422,7 +416,8 @@ export default {
           />
 
           <p>
-            With the <code>Form</code> component injecting <code>react-hook-form</code>
+            With the <code>Form</code> component injecting{" "}
+            <code>react-hook-form</code>
             's <code>props</code> into the child component, you can easily
             create and compose complex forms in your app.
           </p>
@@ -430,13 +425,12 @@ export default {
       ),
     },
     zh: {
-      title: "Smart Form Component",
+      title: "智能表单组件",
       description: (
         <>
           <p>
-            This idea here is that you can easily compose your form with inputs. We are
-            going to create a <code>Form</code> component to automatically
-            collecting form data. 
+            这里的想法是，你可以很容易地用输入来组合你的表单。
+            我们将创建一个表单组件来自动收集表单数据。
           </p>
 
           <CodeArea
@@ -446,15 +440,14 @@ export default {
 
           <p style={{ textAlign: "center" }}>♦</p>
 
-          <p>Let's have a look what's in each of those components.</p>
+          <p>让我们来看看这些组件中的每个组件。</p>
 
           <CodeHeading>
             <h2>Form</h2>
           </CodeHeading>
 
           <p>
-            The <code>Form</code> component's responsibility is to inject all{" "}
-            <code>react-hook-form</code> methods into the child component.
+            这个组件的责任是将所有<code>react-hook-form</code>方法注入到子组件中
           </p>
 
           <CodeArea
@@ -467,8 +460,7 @@ export default {
           </CodeHeading>
 
           <p>
-            Those input components' responsibility is to registering them into{" "}
-            <code>react-hook-form</code>.
+            这个输入组件的责任是将它们注册到 <code>react-hook-form</code>.
           </p>
           <CodeArea
             rawData={input}
@@ -476,9 +468,8 @@ export default {
           />
 
           <p>
-            With the <code>Form</code> component injecting <code>react-hook-form</code>
-            's <code>props</code> into the child component, you can easily
-            create and compose complex forms in your app.
+            随着<code>Form</code>组件将<code>react-hook-form</code>
+            的功能注入到child组件中，您可以轻松地在应用中创建和撰写复杂的表单。
           </p>
         </>
       ),
@@ -490,16 +481,17 @@ export default {
       description: (
         <>
           <p>
-            This is one of the best features about React Hook Form: instead of importing
-            components (like other libraries) to achieve this functionality, you
-            can leverage your existing HTML markup. The key is within the{" "}
-            <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represents the data structure you want to use.
+            This is one of the best features about React Hook Form: instead of
+            importing components (like other libraries) to achieve this
+            functionality, you can leverage your existing HTML markup. The key
+            is within the <code>name</code> attribute. In React Hook Form, the{" "}
+            <code>name</code> attribute represents the data structure you want
+            to use.
           </p>
 
           <p>
-            The following example demonstrates how you can create Field Arrays by
-            manipulating the input <code>name</code> attribute.
+            The following example demonstrates how you can create Field Arrays
+            by manipulating the input <code>name</code> attribute.
           </p>
         </>
       ),
@@ -509,36 +501,33 @@ export default {
       description: (
         <>
           <p>
-            This is one of the best features about React Hook Form: instead of importing
-            components (like other libraries) to achieve this functionality, you
-            can leverage your existing HTML markup. The key is within the{" "}
-            <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represents the data structure you want to use.
+            This is one of the best features about React Hook Form: instead of
+            importing components (like other libraries) to achieve this
+            functionality, you can leverage your existing HTML markup. The key
+            is within the <code>name</code> attribute. In React Hook Form, the{" "}
+            <code>name</code> attribute represents the data structure you want
+            to use.
           </p>
 
           <p>
-            The following example demonstrates how you can create Field Arrays by
-            manipulating the input <code>name</code> attribute.
+            The following example demonstrates how you can create Field Arrays
+            by manipulating the input <code>name</code> attribute.
           </p>
         </>
       ),
     },
     zh: {
-      title: "Field Arrays",
+      title: "自动生成表单",
       description: (
         <>
           <p>
-            This is one of the best features about React Hook Form: instead of importing
-            components (like other libraries) to achieve this functionality, you
-            can leverage your existing HTML markup. The key is within the{" "}
-            <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represents the data structure you want to use.
+            这是React Hook
+            Form的最佳功能之一：您可以利用现有的HTML，而不需要导入其他的组件来实现此功能。
+            键位于name属性中。 在React Hook
+            Form中，name属性表示要使用的数据结构。
           </p>
 
-          <p>
-            The following example demonstrates how you can create Field Arrays by
-            manipulating the input <code>name</code> attribute.
-          </p>
+          <p>下面的示例演示如何通过操作输入名称属性来创建自动生成表单。</p>
         </>
       ),
     },
@@ -605,32 +594,33 @@ export default {
       ),
     },
     zh: {
-      title: "Schema Validation",
+      title: "架构验证",
       description: (
         <>
           <p>
-            React Hook Form supports schema-based form validation with{" "}
+            React Hook Form支持使用
             <a href="https://github.com/jquense/yup" target="_blank">
               Yup
             </a>
-            , where you can pass your <code>validationSchema</code> to{" "}
-            <a href="/api#useForm">useForm</a> as an optional config. React Hook
-            Form will validate your input data against the schema and return
-            with either <a href="/api#errors">errors</a> or a valid result.
+            进行基于模式的表单验证，您可以在<a href="/api#useForm">useForm</a>
+            其中通过
+            <code>validationSchema</code>将表单用作可选配置。 React Hook
+            Form将根据模式验证您的输入数据，并返回<a href="/api#errors">错误</a>
+            或有效结果。
           </p>
         </>
       ),
       step1: (
         <>
           <p>
-            <Note>Step 1:</Note> Install <code>Yup</code> into your project.
+            <Note>步骤1:</Note> 将<code>Yup</code>安装到您的项目中。
           </p>
         </>
       ),
       step2: (
         <p>
-          <Note>Step 2:</Note> Prepare your schema for validation and register
-          inputs with React Hook Form.
+          <Note>步骤2:</Note> 准备您的架构以进行验证和注册 输入到React Hook
+          Form.
         </p>
       ),
     },
@@ -640,14 +630,14 @@ export default {
       title: "Connect Form",
       description: (
         <p>
-          When we are building forms, there are times when our input lives inside of
-          deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy. However, we
-          can further improve the Developer Experience  by creating a <code>ConnectForm</code>{" "}
-          component and leveraging React's{" "}
+          When we are building forms, there are times when our input lives
+          inside of deeply nested component trees, and that's when{" "}
+          <a href="/api#FormContext">FormContext</a> comes in very handy.
+          However, we can further improve the Developer Experience by creating a{" "}
+          <code>ConnectForm</code> component and leveraging React's{" "}
           <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with React
-          Hook Form from anywhere.
+          The benefit of such a component is you can connect your input with
+          React Hook Form from anywhere.
         </p>
       ),
     },
@@ -655,14 +645,14 @@ export default {
       title: "Connect Form",
       description: (
         <p>
-          When we are building forms, there are times when our input lives inside of
-          deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy. However, we
-          can further improve the Developer Experience  by creating a <code>ConnectForm</code>{" "}
-          component and leveraging React's{" "}
+          When we are building forms, there are times when our input lives
+          inside of deeply nested component trees, and that's when{" "}
+          <a href="/api#FormContext">FormContext</a> comes in very handy.
+          However, we can further improve the Developer Experience by creating a{" "}
+          <code>ConnectForm</code> component and leveraging React's{" "}
           <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with React
-          Hook Form from anywhere.
+          The benefit of such a component is you can connect your input with
+          React Hook Form from anywhere.
         </p>
       ),
     },
@@ -670,14 +660,14 @@ export default {
       title: "Connect Form",
       description: (
         <p>
-          When we are building forms, there are times when our input lives inside of
-          deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy. However, we
-          can further improve the Developer Experience  by creating a <code>ConnectForm</code>{" "}
-          component and leveraging React's{" "}
+          When we are building forms, there are times when our input lives
+          inside of deeply nested component trees, and that's when{" "}
+          <a href="/api#FormContext">FormContext</a> comes in very handy.
+          However, we can further improve the Developer Experience by creating a{" "}
+          <code>ConnectForm</code> component and leveraging React's{" "}
           <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with React
-          Hook Form from anywhere.
+          The benefit of such a component is you can connect your input with
+          React Hook Form from anywhere.
         </p>
       ),
     },
@@ -696,11 +686,11 @@ export default {
           >
             React's Context
           </a>{" "}
-          API.  It solves the problem where data is passed through the component tree
-          without having to pass props down manually at every level. This also
-          causes the component tree to trigger a re-render when React Hook Form
-          triggers a state update, but we can still can optimise our App if required via 
-          the example blow.
+          API. It solves the problem where data is passed through the component
+          tree without having to pass props down manually at every level. This
+          also causes the component tree to trigger a re-render when React Hook
+          Form triggers a state update, but we can still can optimise our App if
+          required via the example blow.
         </p>
       ),
     },
@@ -717,11 +707,11 @@ export default {
           >
             React's Context
           </a>{" "}
-          API.  It solves the problem where data is passed through the component tree
-          without having to pass props down manually at every level. This also
-          causes the component tree to trigger a re-render when React Hook Form
-          triggers a state update, but we can still can optimise our App if required via 
-          the example blow.
+          API. It solves the problem where data is passed through the component
+          tree without having to pass props down manually at every level. This
+          also causes the component tree to trigger a re-render when React Hook
+          Form triggers a state update, but we can still can optimise our App if
+          required via the example blow.
         </p>
       ),
     },
@@ -738,11 +728,11 @@ export default {
           >
             React's Context
           </a>{" "}
-          API.  It solves the problem where data is passed through the component tree
-          without having to pass props down manually at every level. This also
-          causes the component tree to trigger a re-render when React Hook Form
-          triggers a state update, but we can still can optimise our App if required via 
-          the example blow.
+          API. It solves the problem where data is passed through the component
+          tree without having to pass props down manually at every level. This
+          also causes the component tree to trigger a re-render when React Hook
+          Form triggers a state update, but we can still can optimise our App if
+          required via the example blow.
         </p>
       ),
     },

@@ -31,10 +31,10 @@ export default {
     advanced: "高级使用",
     builder: (
       <>
-        <span className="desktopOnly">Form&nbsp;</span>Builder
+        <span className="desktopOnly">表单</span>生成器
       </>
     ),
     faqs: "常见问题",
-    releases: "Releases",
+    releases: "发布",
   },
 }
