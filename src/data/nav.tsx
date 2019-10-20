@@ -15,15 +15,15 @@ export default {
   },
   jp: {
     home: "ホーム",
-    getStarted: "始める",
-    advanced: "高度な",
+    getStarted: "はじめる",
+    advanced: "高度な使用法",
     builder: (
       <>
         <span className="desktopOnly">Form&nbsp;</span>Builder
       </>
     ),
-    faqs: "よくある質問",
-    releases: "リリース",
+    faqs: "FAQ",
+    releases: "リリース"
   },
   zh: {
     home: "首页",
