@@ -179,8 +179,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               <h4>Register</h4>
               <p>
                 {advanced.errorMessage[currentLanguage].register}
-                <br />
-                <code>{`<input name="test" ref={register({ maxLength : { value: 2, message: 'error message' } })} />`}</code>
+                <br /><br />
+                <code>{`<input
+  name="test"
+  ref={register({ maxLength: { value: 2, message: "error message" } })}
+/>
+`}</code>
               </p>
             </li>
             <li>

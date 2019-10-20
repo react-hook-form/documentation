@@ -72,6 +72,7 @@ export default {
           </code>{" "}
           function. Eg:
           <br />
+          <br />
           <code>{`get(errors, 'firstName')`}</code>
         </p>
       ),
@@ -86,6 +87,40 @@ export default {
           different ways for us to improve render error to the screen.
         </p>
       ),
+      register: (
+        <>
+          Embed error message during <code>register</code>, you can easily
+          insert your error message in the <code>value</code> attribute. Eg:
+        </>
+      ),
+      component:
+        "Create a ErrorMessage component to help your print out error.",
+      get: (
+        <p>
+          If your project is using{" "}
+          <a
+            href="https://lodash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            lodash
+          </a>
+          , then you can leverage what lodash{" "}
+          <code>
+            <a
+              href="https://lodash.com/docs/4.17.15#get"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              get
+            </a>
+          </code>{" "}
+          function. Eg:
+          <br />
+          <br />
+          <code>{`get(errors, 'firstName')`}</code>
+        </p>
+      ),
     },
     zh: {
       title: "Error Message",
@@ -95,6 +130,40 @@ export default {
           associated with their inputs. In React Hook Form, we provide errors
           object to let you retrieve errors easily. However, there are several
           different ways for us to improve render error to the screen.
+        </p>
+      ),
+      register: (
+        <>
+          Embed error message during <code>register</code>, you can easily
+          insert your error message in the <code>value</code> attribute. Eg:
+        </>
+      ),
+      component:
+        "Create a ErrorMessage component to help your print out error.",
+      get: (
+        <p>
+          If your project is using{" "}
+          <a
+            href="https://lodash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            lodash
+          </a>
+          , then you can leverage what lodash{" "}
+          <code>
+            <a
+              href="https://lodash.com/docs/4.17.15#get"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              get
+            </a>
+          </code>{" "}
+          function. Eg:
+          <br />
+          <br />
+          <code>{`get(errors, 'firstName')`}</code>
         </p>
       ),
     },
