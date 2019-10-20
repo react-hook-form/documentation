@@ -1,7 +1,7 @@
 import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
-import { Link as NavLink } from 'gatsby';
+import { Link as NavLink } from "gatsby"
 import { Note, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
@@ -494,7 +494,7 @@ export default {
         minLength: "The minimum length of the value to accept for this input.",
         max: "The maximum value to accept for this input.",
         min: "The minimum value to accept for this input.",
-        regex: "The regex pattern for the input.",
+        pattern: "The regex pattern for the input.",
         validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
       },
     },
@@ -591,7 +591,7 @@ export default {
         minLength: "The minimum length of the value to accept for this input.",
         max: "The maximum value to accept for this input.",
         min: "The minimum value to accept for this input.",
-        regex: "The regex pattern for the input.",
+        pattern: "The regex pattern for the input.",
         validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
       },
     },
@@ -620,30 +620,28 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          If you working on <code>arrays/array fields</code>, you can assign an
-          input name as <code>name[index]</code>.{" "}
+          如果您使用数组/数组字段，则可以将输入名称指定为
+          <code>name[index]</code>。{" "}
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
           >
-            Check out the Field Array example
+            查看Field Array数组示例
           </Link>
           .
         </p>
       ),
-      example: "Submit Result",
+      example: "提交结果",
       options: {
-        title: "Register options",
-        registerWithValidation: "Register with validation",
-        registerWithValidationMessage:
-          "Register with validation and error message",
+        title: "注册选项",
+        registerWithValidation: "注册验证",
+        registerWithValidationMessage: "注册验证和错误消息",
         note: goToSection => (
           <>
             <p>
-              <Note>Note:</Note> You can also register inputs manually, which is
-              useful when working with custom components and <code>Ref</code> is
-              not accessible. This is actually the case when you are working
-              with React Native or custom component like{" "}
+              您还可以手动注册输入，这在使用自定义组件无法访问<code>Ref</code>
+              时非常有用，并且无法访问Ref。 实际上，当您使用React
+              Native或自定义组件（如
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
@@ -651,14 +649,13 @@ export default {
               >
                 react-select
               </a>
-              .
+              ）时，情况就是如此。
             </p>
 
             <p>
-              By using a custom register call, you will need to update the input
-              value with{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>,
-              because input is no longer registered with its ref.
+              通过使用自定义寄存器调用，您将需要使用
+              <code onClick={() => goToSection("setValue")}>setValue</code>
+              更新输入值，因为输入注册没有<code>ref</code>。
             </p>
 
             <p>
@@ -666,9 +663,9 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want the custom registered input to
-              trigger a re-render during its value update, then you should give
-              a type to your registered input.
+              <Note>注意:</Note>{" "}
+              如果您希望自定义注册输入在其值更新过程中触发重新render，那么你应该给您注册的输入的类型
+              <code>type</code>。
             </p>
           </>
         ),
@@ -676,17 +673,16 @@ export default {
       validation: {
         required: (
           <>
-            A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. You can assign a string to return
-            an error message in the <code>errors</code> object.
+            如果为true，则表示输入必须具有值，然后才能提交表单。
+            您可以分配一个字符串以在错误对象中<code>errors</code>返回错误消息。
           </>
         ),
-        maxLength: "The maximum length of the value to accept for this input.",
-        minLength: "The minimum length of the value to accept for this input.",
-        max: "The maximum value to accept for this input.",
-        min: "The minimum value to accept for this input.",
-        regex: "The regex pattern for the input.",
-        validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+        maxLength: "文本框能接受的最大字符数。",
+        minLength: "文本框能输入的最小字符数，并且仍然被认为是有效的。",
+        max: "为此输入接受的最大值。",
+        min: "要接受此输入的最小值。",
+        pattern: "验证文本框内容的正则表达式。",
+        validate: `您可以callback调函数作为参数来验证，或者您可以callback调函数的对象来验证所有这些函数。（参考例子)`,
       },
     },
   },
