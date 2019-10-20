@@ -389,13 +389,10 @@ export default {
     ),
     zh: (
       <>
+        <p>此方法将允许您取消注册单个输入或输入的数组。</p>
         <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs.
-        </p>
-        <p>
-          <Note>注意:</Note> When you unregister an input, its value will no
-          longer be included in the form data that gets submitted.
+          <Note>注意:</Note>{" "}
+          取消注册输入时，其值将不再被包含在被提交的表单数据中。
         </p>
       </>
     ),
@@ -784,24 +781,21 @@ export default {
       title: "errors",
       description: currentLanguage => (
         <>
-          <p>
-            Object contains form errors or error messages which belong to each
-            input.
-          </p>
+          <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
           <p>
-            <Note>Note:</Note> You can also learn recipes on{" "}
+            <Note>注意:</Note> 您还可以从
             <Link
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
             >
-              Error Message
-            </Link>{" "}
-            from advanced page .
+              高级页面
+            </Link>
+            了解错误消息的现实方法。
           </p>
         </>
       ),
-      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
-      ref: `Reference for your input element.`,
+      message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
+      ref: `输入元素的参考。`,
     },
   },
   watch: {
@@ -897,23 +891,22 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>This will watch specified input/inputs and return its value.</p>
+          <p>这将监视指定的输入/输入并返回其值。</p>
 
           <ul>
             <li>
               <p>
-                When <code>defaultValue</code> is not defined, the first render
-                of <code>watch</code> will return <code>undefined</code> because
-                it is called before <code>register</code>, but you can set the{" "}
-                <code>defaultValue</code> as the second argument to return
-                value.
+                当未定义<code>defaultValue</code>时，watch的第一个render将返回
+                <code>undefined</code>，因为它在<code>register</code>
+                之前被调用，但是您可以将<code>defaultValue</code>
+                设置为返回值的第二个参数。
               </p>
             </li>
             <li>
               <p>
-                However, if <code>defaultValues</code> was initialised in{" "}
-                <code>useForm</code> as argument, then the first render will
-                return what's provided in <code>defaultValues</code>.
+                但是，如果<code>defaultValues</code>在使用表单
+                <code>useForm</code>作为参数初始化，则第一个render将返回
+                <code>defaultValues</code>中提供的内容。
               </p>
             </li>
           </ul>
@@ -922,19 +915,19 @@ export default {
       tableTitle: {
         single: (
           <>
-            Watch input value by name (similar to lodash{" "}
+            按名称观看输入值（类似于lodash
             <a
               target="_blank"
               rel="noreferrer noopener"
               href="https://lodash.com/docs/4.17.15#get"
             >
               get
-            </a>{" "}
-            function)
+            </a>
+            功能)
           </>
         ),
-        multiple: "Watch multiple inputs",
-        all: "Watch all inputs",
+        multiple: "观看多个输入",
+        all: "观看所有输入",
       },
     },
   },
@@ -975,13 +968,10 @@ export default {
       title: "handleSubmit",
       description: (
         <>
+          <p>当表单验证成功时，此函数将传递表单数据。</p>
           <p>
-            This function will pass the form data when form validation is
-            successful.
-          </p>
-          <p>
-            <Note>Note:</Note> You can pass an <code>async</code> function for
-            asynchronous validation. eg:{" "}
+            <Note>注意:</Note> 您可以传递<code>async</code>验证。例如：
+            <br />
             <code>handleSubmit(async (data) => await fetchAPI(data))</code>
           </p>
         </>
@@ -1030,15 +1020,15 @@ export default {
       description: (
         <>
           <p>
-            This function will reset the fields' values and errors within the
-            form. You can pass <code>values</code> as an optional argument to
-            reset your form into assigned default values.
+            此函数将重置表单中的字段值和错误。 您可以将值<code>values</code>
+            作为可选参数传递，以将表单重置为已分配的默认值。
           </p>
           <p>
-            <Note>Note:</Note> For controlled components like{" "}
-            <code>React-Select</code> which don't expose <code>ref</code>, you
-            will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>.
+            <Note>注意:</Note> 对于像<code>React-Select</code>这样不公开
+            <code>ref</code>
+            的受控组件，您必须通过
+            <code onClick={() => goToSection("setValue")}>setValue</code>
+            手动重置输入值。
           </p>
         </>
       ),
@@ -1055,7 +1045,7 @@ export default {
     },
     zh: {
       title: "setError",
-      description: <p>Allows you to manually set an input error.</p>,
+      description: <p>允许您手动设置输入错误。</p>,
     },
   },
   clearError: {
@@ -1109,17 +1099,17 @@ export default {
         <ul>
           <li>
             <p>
-              <code>undefined</code>: reset all errors
+              <code>undefined</code>: 重置所有错误
             </p>
           </li>
           <li>
             <p>
-              <code>string</code>: reset single error
+              <code>string</code>: 重置单个错误
             </p>
           </li>
           <li>
             <p>
-              <code>string[]</code>: reset multiple errors
+              <code>string[]</code>: 重置多个错误
             </p>
           </li>
         </ul>
@@ -1165,14 +1155,13 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>This function allows you to dynamically set input/select value.</p>
+          <p>此功能允许您动态设置输入/选择值。</p>
           <p>
-            <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-            will push the input's <code>name</code> into <code>touched</code>.
+            <Note>注意:</Note> 通过调用此方法，<code>formState</code>
+            将将输入的名称<code>name</code>推入触摸<code>touched</code>。
           </p>
-          <p>
-            You can also set <code>shouldValidate</code> to <code>true</code>{" "}
-            and it will trigger field validation. eg:{" "}
+          <p>This function will return the entire form data.
+            您还可以将<code>shouldValidate</code>设置为<code>true</code>，并将触发字段验证。例如：<br />
             <code>setValue('name', 'value', true)</code>
           </p>
         </>
@@ -1236,7 +1225,7 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>This function will return the entire form data.</p>
+          <p>此函数将返回整个表单数据。</p>
 
           <ul>
             <li>
