@@ -180,7 +180,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               <p>
                 {advanced.errorMessage[currentLanguage].register}
                 <br />
-                <code>{`<input name="test" ref={register({ value: 'Min is 8', min: 8 })} />`}</code>
+                <code>{`<input name="test" ref={register({ maxLength : { value: 2, message: 'error message' } })} />`}</code>
               </p>
             </li>
             <li>
