@@ -8,7 +8,7 @@ export default {
   },
   description: {
     en: "React hook for form validation without the hassle",
-    jp: "React hook for form validation without the hassle",
+    jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
   },
   slogan: {
@@ -20,7 +20,7 @@ export default {
   },
   getStarted: {
     en: "Get Started",
-    jp: "始めましょう",
+    jp: "はじめる",
     zh: "起步",
   },
   demo: {
@@ -34,8 +34,8 @@ export default {
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
     jp: {
-      heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+      heading: "便利で面白いと思いますか？",
+      description: `フォームバリデーションはより簡単にする必要があります。React Hook Form を使用すると、コードの記述が少なくなり、パフォーマンスが向上します。はじめるセクションを確認し、API ドキュメントページで詳細を確認してください。`,
     },
     zh: {
       heading: "发现它有用和有趣?",
@@ -68,23 +68,23 @@ export default {
     jp: [
       {
         title: "DX",
-        description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
+        description: `直感的で完全な API はフォームを構築する際に開発者に最高のエクスペリエンスの提供します。`,
       },
       {
         title: "HTML 標準",
-        description: `Leverage existing HTML markup and validate your forms with our constraint-based validation API.`,
+        description: `既存の HTML を活用し、Constraint Validation API でフォームバリデーションを開始します。`,
       },
       {
-        title: "スーパーライト",
-        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
+        title: "超軽量",
+        description: `パフォーマンスは重要であり、パッケージのサイズも重要です。依存関係のない小さなライブラリです。`,
       },
       {
-        title: "性能",
-        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
+        title: "パフォーマンス",
+        description: `再レンダリング数を最小限に抑えマウントを高速化し、最高のユーザーエクスペリエンスを提供します。`,
       },
       {
-        title: "採用可能",
-        description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+        title: "適応性",
+        description: `フォームの状態はローカルベースのため、他の依存関係なしで簡単に使用できます。`,
       },
     ],
     zh: [
@@ -117,8 +117,8 @@ export default {
       description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
     },
     jp: {
-      title: "Library Code Comparison",
-      description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
+      title: "ライブラリのコード比較",
+      description: `コードの記述量を減らすことは、React Hook Form の主な目標の1つです。それを説明するために、最も一般的なフォームバリデーションライブラリの非常にシンプルなバリデーションを見てみましょう。`,
     },
     zh: {
       title: "库代码比较",
@@ -132,8 +132,8 @@ export default {
       totalReRender: "Total re-renders:",
     },
     jp: {
-      title: "Reduce Rendering",
-      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
+      title: "レンダリングを削減",
+      description: `ユーザーによってトリガーされたコンポーネントの再レンダリング数を考えたことはありますか？ React Hook Form は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。`,
       totalReRender: "Total re-renders:",
     },
     zh: {
@@ -172,14 +172,12 @@ export default {
       ),
     },
     jp: {
-      title: "Faster Mounting",
+      title: "高速なマウント",
       description: (
         <p>
-          The following results demonstrate how long it took to render the
-          components. Results are captured under a 6x CPU slow down on App start
-          with the Chrome Dev Tools' performance tab. The running code is from
-          the section above{" "}
-          <a href="#codeComparison">Library Code Comparison</a>.
+          次の結果は、コンポーネントのレンダリングにかかった時間を示しています。
+          Chrome DevTools の Performance タブを使用して、CPU が6倍低速化した環境でキャプチャされた結果です。
+          実行コードは上記の<a href="#codeComparison">ライブラリのコード比較</a>セクションのものです。
         </p>
       ),
       totalMount: "No. of mount(s)",
@@ -187,15 +185,14 @@ export default {
       totalTime: "Total time",
       performanceTests: (
         <>
-          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-          performance tests?{" "}
+          <span style={{ fontSize: 20 }}>⚠</span> より強力なパフォーマンステストを見たいですか？
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
           >
-            Check out the result of 1000 fields within a form here
+            こちらから1000フィールドを含むフォームのパフォーマンテスト結果を確認して下さい
           </a>
-          .
+          。
         </>
       ),
     },
@@ -245,22 +242,21 @@ export default {
       touched: "Touched fields will display here",
     },
     jp: {
-      title: "现场演示",
+      title: "ライブデモ",
       description: (
         <>
-          The following form demonstrates form validation in action. Each column
-          represents what has been captured in the custom hook. You can also
-          change fields in the form by clicking the <strong>EDIT</strong>{" "}
-          button.
+          次のフォームは React Hook Form のフォームバリデーションを示しています。
+          各列はカスタムフックにキャプチャされた内容を表します。
+          <strong>編集</strong>{" "}ボタンをクリックしてフォームのフィールドを変更することもできます。
         </>
       ),
-      submit: "提出する",
-      watchTitle: "見る",
+      submit: "Submit",
+      watchTitle: "監視",
       errorTitle: "エラー",
-      touchedTitle: "触れた",
-      watch: "Change input value to see watched values",
-      error: "Validation errors will appear here",
-      touched: "Touched fields will display here",
+      touchedTitle: "タッチ",
+      watch: "監視されている値を表示するためには入力値を変更します。",
+      error: "ここにバリデーションエラーが表示されます。",
+      touched: "タッチされたフィールドがここに表示されます。",
     },
     zh: {
       title: "现场演示",
