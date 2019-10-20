@@ -1,6 +1,7 @@
 import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
+import { Link as NavLink } from 'gatsby';
 import { Note, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
@@ -748,12 +749,12 @@ export default {
 
           <p>
             <Note>Note:</Note> You can also learn recipes on{" "}
-            <Link
+            <NavLink
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
             >
               Error Message
-            </Link>{" "}
-            from advanced page .
+            </NavLink>{" "}
+            from advanced page.
           </p>
         </>
       ),
