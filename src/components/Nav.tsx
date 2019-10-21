@@ -131,7 +131,6 @@ const LangsSelect = styled.div`
   z-index: 5;
   top: 0;
   min-width: 90px;
-  opacity: 0.5;
 
   @media ${breakpoints.fromMediumScreen} {
     right: 10px;
@@ -143,7 +142,6 @@ const LangsSelect = styled.div`
   }
 
   > select {
-    cursor: not-allowed;
     width: 100%;
     margin-top: 15px;
     line-height: 20px;
@@ -247,12 +245,12 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           onChange={e => {
             action(e.target.value)
           }}
-          disabled
           defaultValue={currentLanguage}
         >
           <option value="en">English</option>
           <option value="zh">简体中文</option>
-          <option value="jp">日本语</option>
+          <option value="jp" disabled>日本语</option>
+          <option value="fr" disabled>Français</option>
         </select>
       </LangsSelect>
 
