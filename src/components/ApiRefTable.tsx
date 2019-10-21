@@ -6,7 +6,7 @@ import Link from "../styles/link"
 import CodeArea from "./CodeArea"
 import api from "../data/api"
 import generic from "../data/generic"
-import { TypeText } from "../styles/typography"
+import { CodeBlock, TypeText } from "../styles/typography"
 
 const Group = styled.fieldset`
   padding: 10px 15px;
@@ -117,7 +117,7 @@ export default function ApiRefTable({
       {api.register[currentLanguage].options.note(goToSection)}
 
       <p>
-        <code>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+        <CodeBlock>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</CodeBlock>
       </p>
 
       <TableWrapper>

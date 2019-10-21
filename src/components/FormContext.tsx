@@ -4,7 +4,7 @@ import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
 import api from "../data/api"
-import { TypeText } from "../styles/typography"
+import { CodeBlock, TypeText } from "../styles/typography"
 
 export default function FormContext({ currentLanguage }: { currentLanguage }) {
   return (
@@ -43,9 +43,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
       {api.formContext[currentLanguage].description}
 
       <p>
-        <code
-          style={{ fontSize: 14 }}
-        >{`const methods = useFormContext() // methods contain all useForm functions`}</code>
+        <CodeBlock>{`const methods = useFormContext() // methods contain all useForm functions`}</CodeBlock>
       </p>
 
       <CodeArea

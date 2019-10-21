@@ -132,3 +132,8 @@ export const Error = styled.p`
 export const Note = styled.b`
   color: ${colors.lightPink};
 `
+
+export const CodeBlock = styled.code`
+  display: block;
+  padding: 10px;
+`

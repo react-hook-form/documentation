@@ -2,7 +2,7 @@ import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
 import { Link as NavLink } from "gatsby"
-import { Note, TypeText } from "../styles/typography"
+import { CodeBlock, Note, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
@@ -421,7 +421,6 @@ export default {
       fieldArray: (
         <p
           style={{
-            fontSize: 14,
             paddingLeft: 10,
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
@@ -468,7 +467,7 @@ export default {
             </p>
 
             <p>
-              <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+              <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
             </p>
 
             <p>
@@ -518,7 +517,6 @@ export default {
       fieldArray: (
         <p
           style={{
-            fontSize: 14,
             paddingLeft: 10,
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
@@ -565,7 +563,7 @@ export default {
             </p>
 
             <p>
-              <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+              <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
             </p>
 
             <p>
@@ -612,7 +610,6 @@ export default {
       fieldArray: (
         <p
           style={{
-            fontSize: 14,
             paddingLeft: 10,
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
@@ -656,7 +653,7 @@ export default {
             </p>
 
             <p>
-              <code>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+              <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
             </p>
 
             <p>
@@ -954,7 +951,11 @@ export default {
           <p>
             <Note>Note:</Note> You can pass an <code>async</code> function for
             asynchronous validation. eg:{" "}
-            <code>handleSubmit(async (data) => await fetchAPI(data))</code>
+          </p>
+          <p>
+            <CodeBlock>
+              handleSubmit(async (data) => await fetchAPI(data))
+            </CodeBlock>
           </p>
         </>
       ),
@@ -970,7 +971,11 @@ export default {
           <p>
             <Note>Note:</Note> You can pass an <code>async</code> function for
             asynchronous validation. eg:{" "}
-            <code>handleSubmit(async (data) => await fetchAPI(data))</code>
+          </p>
+          <p>
+            <CodeBlock>
+              handleSubmit(async (data) => await fetchAPI(data))
+            </CodeBlock>
           </p>
         </>
       ),
@@ -982,8 +987,11 @@ export default {
           <p>当表单验证成功时，此函数将传递表单数据。</p>
           <p>
             <Note>注意:</Note> 您可以传递<code>async</code>验证。例如：
-            <br />
-            <code>handleSubmit(async (data) => await fetchAPI(data))</code>
+          </p>
+          <p>
+            <CodeBlock>
+              handleSubmit(async (data) => await fetchAPI(data))
+            </CodeBlock>
           </p>
         </>
       ),
