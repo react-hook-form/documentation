@@ -71,7 +71,7 @@ export default function CodeCompareSection({
       <Section>
         <CenterContent>
           <H1>
-            <code>{`</>`}</code> {home.codeComparison[currentLanguage].title}
+            {home.codeComparison[currentLanguage].title}
           </H1>
 
           <p id="codeComparison">
