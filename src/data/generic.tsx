@@ -14,7 +14,7 @@ export default {
     jp: {
       title: "Want to learn more?",
       description:
-        "Check out the React Hook Form documentation and learn all about the API.",
+        "React Hook Form のドキュメントを確認して、API に関する全ての情報を学んでください。",
       buttonText: "Checkout API",
     },
     zh: {
@@ -30,9 +30,9 @@ export default {
       buttonText: `Learn Advanced Usage`,
     },
     jp: {
-      title: "Advanced Usage",
-      description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advanced Usage`,
+      title: "高度な使用法",
+      description: `React Hook Formを使用して、複雑でアクセス可能なフォームを作成する方法を学びます。`,
+      buttonText: `高度な使用法を学ぶ`,
     },
     zh: {
       title: "高级用法",
@@ -47,9 +47,9 @@ export default {
       buttonText: `Star React Hook Form`,
     },
     jp: {
-      title: "We Need Your Support",
-      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
-      buttonText: `Star React Hook Form`,
+      title: "あなたのサポートが必要です",
+      description: `React プロジェクトで React Hook Form が役立つと思う場合は、リポジトリとコントリビューターをサポートするためにスターを付けてください ❤`,
+      buttonText: `React Hook Form にスターを付ける`,
     },
     zh: {
       title: "我们需要您的支持",
@@ -59,7 +59,7 @@ export default {
   },
   codeExample: {
     en: "Code Examples",
-    jp: "コード例",
+    jp: "コードの例",
     zh: "程式码范例",
   },
   menu: {
@@ -69,12 +69,12 @@ export default {
   },
   support: {
     en: "Please support us by leaving a ★",
-    jp: "",
+    jp: "★ を付けてサポートして下さい",
     zh: "请给我们加颗星",
   },
   select: {
     en: "Select",
-    jp: "選択する",
+    jp: "Select",
     zh: "选择",
   },
   name: {
@@ -134,7 +134,7 @@ export default {
   },
   copied: {
     en: 'Copy code into your clipboard.',
-    jp: 'Copy code into your clipboard。',
+    jp: 'コードをクリップボードにコピーします。',
     zh: '将代码复制到剪贴板。',
   },
   return: {
