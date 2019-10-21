@@ -1,8 +1,16 @@
-<div align="center"><a href="https://react-hook-form.now.sh/" title="React Hook Form - Simple React forms validation"><img src="https://raw.githubusercontent.com/bluebill1049/react-hook-form/master/website/logo.png" alt="React Hook Form Logo - React hook form validation" width="350px" /></a></div>
+<div align="center">
+    <p align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://raw.githubusercontent.com/bluebill1049/react-hook-form/master/website/logo.png" alt="React Hook Form Logo - React hook custom hook for form validation" width="300px" />
+        </a>
+    </p>
+</div>
+
+<p align="center">Performant, flexible and extensible forms with easy to use for validation.</p>
 
 ## Install
 
-    $ npm i && npm start
+    $ yarn && yarn start
     
 #### Thanks to 
 
@@ -10,10 +18,18 @@
 * ZEIT for free hosting 
 * React ❤️
 
+## Contributors
 
+Thanks goes to these wonderful people. [[Become a contributor](CONTRIBUTING.md)].
 
-## Contributors 
-Thanks goes to these wonderful people:
+<a href="https://github.com/react-hook-form/react-hook-form/graphs/contributors">
+    <img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
+</a>
 
-<img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
+## Backers
 
+Thank goes to all our backers! [[Become a backer](https://opencollective.com/react-hook-form#backer)].
+
+<a href="https://opencollective.com/react-hook-form#backers">
+    <img src="https://opencollective.com/react-hook-form/backers.svg?width=950" />
+</a>
