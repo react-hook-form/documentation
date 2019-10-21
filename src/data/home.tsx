@@ -91,15 +91,15 @@ export default {
       {
         title: "开发体验",
         description:
-          "直观的功能和完整的API在构建表单时为开发人员提供最好体验。",
+          "直观的功能和完整的API在构建表单时为开发人员提供最好的体验。",
       },
       {
         title: "HTML标准",
-        description: `利用现有的HTML，并开始使用约束验证API验证您的表单。`,
+        description: `利用现有的HTML，并直接开始使用约束验证API来验证您的表单。`,
       },
       {
         title: "超轻",
-        description: `性能很重要，尺寸很重要。 它是一个很小的库，没有任何依赖关系。`,
+        description: `性能很重要，尺寸也重要。 它是一个很小的库，并且没有任何依赖关系。`,
       },
       {
         title: "高性能",
@@ -107,7 +107,7 @@ export default {
       },
       {
         title: "适应性强",
-        description: `由于form状态是基于本地的，因此可以轻松地在没有其他依赖关系的情况下采用它。`,
+        description: `由于表单的状态是基于本地的，因此可以轻松地在没有其他依赖关系的情况下采用它。`,
       },
     ],
   },
@@ -122,7 +122,7 @@ export default {
     },
     zh: {
       title: "库代码比较",
-      description: `减少您必须编写的代码量是React Hook Form的主要目标之一。 为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式。`,
+      description: `减少您必须编写的代码量是React Hook Form的主要目标之一。 为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式，同时加以对比。`,
     },
   },
   rendering: {
@@ -138,7 +138,7 @@ export default {
     },
     zh: {
       title: "减少Rendering",
-      description: `你有没有想过用户触发了多少组件重新renders？ React Hook Form包含不受控制的窗体验证，以减少不必要的性能影响。`,
+      description: `你有没有想过用户触发了多少组件重新renders？ React Hook Form包含不受控制的表单验证，以减少不必要的性能影响。`,
       totalReRender: "Total re-renders:",
     },
   },
@@ -147,7 +147,7 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate how long it took to render the
+          The following results demonstrate how long it took to render and mount the
           components. Results are captured under a 6x CPU slow down on App start
           with the Chrome Dev Tools' performance tab. The running code is from
           the section above{" "}
@@ -200,9 +200,9 @@ export default {
       title: "更快的安装",
       description: (
         <p>
-          以下结果说明了render组件需要多长时间。 结果在6x
-          CPU下捕获应用程序从Chrome DevTools的性能选项卡开始减速。
-          运行的代码来自上面的<a href="#codeComparison">库代码</a>比较部分。
+          以下结果说明了安装组件需要多长时间。 结果是在6x
+          CPU下捕获应用程序，从Chrome DevTools的性能选项卡开始减速。
+          运行的代码来自上面的<a href="#codeComparison">库代码</a>的比较部分。
         </p>
       ),
       totalMount: "安装的次数(s)",
@@ -215,7 +215,7 @@ export default {
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
           >
-            在这里查看表单中1000个字段的结果
+            在这里查看表单中1000个表格的结果
           </a>
           。
         </>
@@ -262,7 +262,7 @@ export default {
       title: "现场演示",
       description: (
         <>
-          下面的表单演示了表单验证的操作。 每列表示在自定义挂接中捕获的内容。 您也可以通过单击<strong>编辑</strong>按钮来更改窗体中的字段。
+          下面的表单演示了表单验证的操作。 每列表示在自定义挂接中捕获的内容。 您也可以通过单击<strong>编辑</strong>按钮来更改表单中的表格。
         </>
       ),
       submit: "提交",
