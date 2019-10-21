@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
 import styled, { css } from "styled-components"
-import { Animate, AnimateKeyframes } from "react-simple-animate"
+import { Animate, AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import colors from "../styles/colors"
 import { navigate } from "@reach/router"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
@@ -190,99 +190,100 @@ export default function Header({
       : { currentLanguage: defaultLang }
 
   return (
-    <>
+    <AnimateGroup play>
       <Head id="main">
         <Logo viewBox="0 0 100 100">{LogoSvg}</Logo>
 
-        <Heading>
-          <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React Hook
-          Form
-        </Heading>
+        <Animate
+          sequenceIndex={0}
+          duration={0.2}
+          start={{
+            transform: "translateY(20px)",
+            opacity: 0,
+          }}
+          end={{
+            transform: "translateY(0)",
+          }}
+          easeType="ease-in"
+          render={({ style }) => (
+            <Heading style={style}>
+              <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React
+              Hook Form
+            </Heading>
+          )}
+        />
 
-        <SubHeading style={{ marginBottom: 0 }}>
-          {home.slogan[currentLanguage]}
-        </SubHeading>
+        <Animate
+          sequenceIndex={1}
+          start={{
+            transform: "translateY(20px)",
+            opacity: 0,
+          }}
+          end={{
+            transform: "translateY(0)",
+          }}
+          easeType="ease-in"
+          render={({ style }) => (
+            <SubHeading style={{ marginBottom: 0, ...style }}>
+              {home.slogan[currentLanguage]}
+            </SubHeading>
+          )}
+        />
 
-        <ButtonsGroupSmall>
-          <PrimaryButton
-            onClick={() => {
-              // @ts-ignore
-              homeRef.current.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            {home.demo[currentLanguage]}
-          </PrimaryButton>
+        <Animate
+          sequenceIndex={2}
+          start={{
+            transform: "translateY(20px)",
+            opacity: 0,
+          }}
+          end={{
+            transform: "translateY(0)",
+          }}
+          easeType="ease-in"
+          render={({ style }) => (
+            <ButtonsGroupSmall style={style}>
+              <PrimaryButton
+                onClick={() => {
+                  // @ts-ignore
+                  homeRef.current.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                {home.demo[currentLanguage]}
+              </PrimaryButton>
 
-          <PrimaryButton
-            onClick={() => {
-              navigate(translateLink("get-started", currentLanguage))
-            }}
-          >
-            {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
-          </PrimaryButton>
-        </ButtonsGroupSmall>
+              <PrimaryButton
+                onClick={() => {
+                  navigate(translateLink("get-started", currentLanguage))
+                }}
+              >
+                {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
+              </PrimaryButton>
+            </ButtonsGroupSmall>
+          )}
+        />
       </Head>
 
       <VideoHeading>React Web</VideoHeading>
       <VideoWrapper show={isWeb}>
         <div style={{ position: "relative" }}>
           <Animate
-            play
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
+            sequenceIndex={3}
+            delay={0.1}
+            start={{ opacity: 0, transform: "translateY(30px)" }}
+            end={{ opacity: 1, transform: "translateY(0)" }}
             duration={0.4}
-          >
-            <Video
-              id="tabPanel-1"
-              aria-labelledby="tabPanel-1"
-              controls
-              playsInline
-              muted
-            >
-              <source src={video} type="video/mp4" />
-            </Video>
-          </Animate>
-
-          <AnimateKeyframes
-            play
-            pause={false}
-            iterationCount="infinite"
-            direction="alternate"
-            duration={0.7}
-            keyframes={[
-              "transform: translateX(-150px)",
-              "transform: translateX(150px)",
-            ]}
+            easeType="ease-in"
             render={({ style }) => (
-              <div
-                style={{
-                  textAlign: "center",
-                  width: 150,
-                  margin: "0 auto",
-                  display: "flex",
-                  flexDirection: "column",
-                  overflow: "hidden",
-                  position: "absolute",
-                  top: "50%",
-                  left: "calc(50% - 75px)",
-                  zIndex: -1,
-                }}
+              <Video
+                id="tabPanel-1"
+                aria-labelledby="tabPanel-1"
+                controls
+                playsInline
+                muted
+                style={style}
               >
-                <div
-                  style={{
-                    ...style,
-                    height: 2,
-                    background: colors.secondary,
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: 13,
-                  }}
-                >
-                  Loading...
-                </span>
-              </div>
+                <source src={video} type="video/mp4" />
+              </Video>
             )}
           />
         </div>
@@ -332,6 +333,6 @@ export default function Header({
           React Native
         </button>
       </ToggleGroup>
-    </>
+    </AnimateGroup>
   )
 }
