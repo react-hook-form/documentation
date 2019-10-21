@@ -13,7 +13,7 @@ export default {
       en:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       jp: "",
-      zh: "",
+      zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
   useForm: {
@@ -716,18 +716,29 @@ export default {
     },
     zh: {
       title: "formState",
-      description: "This object contain information about the form state.",
-      dirty: "Set to true after a user interacted with any of the inputs.",
-      isSubmitted: "Set true after a user submitted the form.",
-      touched: "An array of all inputs which have been interacted.",
-      isSubmitting: (
+      description: "此对象包含有关表单状态的信息。",
+      dirty: (
         <>
-          During form submitting will set to <code>true</code> and after
-          submitting set to <code>false</code>
+          在用户与任何输入交互后设置为<code>true</code>。
         </>
       ),
-      submitCount: "Number of forms submit.",
-      isValid: "Set true if doesn't have any error.",
+      isSubmitted: (
+        <>
+          在用户提交表单后设置<code>true</code>。
+        </>
+      ),
+      touched: "已被接触过的所有输入的数组。",
+      isSubmitting: (
+        <>
+          在表单提交将设置为<code>true</code>，提交后设置为<code>false</code>
+        </>
+      ),
+      submitCount: "提交表格数量。",
+      isValid: (
+        <>
+          如果没有任何错误，设置为<code>true</code>。
+        </>
+      ),
     },
   },
   errors: {
@@ -1160,8 +1171,11 @@ export default {
             <Note>注意:</Note> 通过调用此方法，<code>formState</code>
             将将输入的名称<code>name</code>推入触摸<code>touched</code>。
           </p>
-          <p>This function will return the entire form data.
-            您还可以将<code>shouldValidate</code>设置为<code>true</code>，并将触发字段验证。例如：<br />
+          <p>
+            This function will return the entire form data. 您还可以将
+            <code>shouldValidate</code>设置为<code>true</code>
+            ，并将触发字段验证。例如：
+            <br />
             <code>setValue('name', 'value', true)</code>
           </p>
         </>
@@ -1230,16 +1244,15 @@ export default {
           <ul>
             <li>
               <p>
-                By default <code>getValues()</code> will return form data in a
-                flat structure. eg:{" "}
+                默认情况下，<code>getValues()</code>
+                将在平坦结构中返回表单数据。例如:{" "}
                 <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
-                Working on the defined form fields,{" "}
-                <code>getValues({`{ nest: true }`})</code> will return data in a
-                nested structure according to input <code>name</code>. eg:{" "}
+                使用定义的表单，<code>getValues({`{ nest: true }`})</code>
+                将根据输入名称返回嵌套结构中的数据。 例如:{" "}
                 <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
@@ -1277,10 +1290,9 @@ export default {
       title: "triggerValidation",
       description: (
         <>
-          <p>To manually trigger an input/select validation in the form.</p>
+          <p>手动触发表单中的输入/选择验证。</p>
           <p>
-            <Note>Note:</Note> When validation fails, the <code>errors</code>{" "}
-            object will be updated.
+            <Note>注意:</Note> 当验证失败时，<code>errors</code>对象将被更新。
           </p>
         </>
       ),
@@ -1315,11 +1327,9 @@ export default {
       title: "React Native",
       description: (
         <p>
-          You will get the same performance enhancement from an Uncontrolled
-          Component. However, there are certain APIs which are not compatible
-          with React Native (duo to the API difference from web and native). You
-          will have to use a <b>manual register</b> as shown in the following
-          example.
+          您将从不受控制的组件中获得相同的性能增强。 但是，有一些与React
+          Native不兼容的Api（与web和native的API差异）。
+          您将不得不使用手动注册，如下面的示例所示。
         </p>
       ),
     },
@@ -1367,18 +1377,17 @@ export default {
       title: "validationSchema",
       description: (
         <p>
-          If you would like to centralize your validation rules with external
-          validation schema, you can apply <code>validationSchema</code> at{" "}
-          <code>useForm</code> as an optional argument. React Hook Form
-          currently supports{" "}
+          如果您希望使用外部验证模式，可以在
+          <code>useForm</code>应用验证模式<code>validationSchema</code>
+          作为可选参数。 React Hook Form当前支持
           <Link
             href="https://github.com/jquense/yup"
             target="_blank"
             rel="noopener noreferrer"
           >
             Yup
-          </Link>{" "}
-          for object schema validation.
+          </Link>
+          进行对象模式验证。
         </p>
       ),
     },
@@ -1410,10 +1419,9 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
+          下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
+          <code>nativeValidation</code>设置为t<code>rue</code>
+          ，其余语法与标准验证相同。
         </p>
       ),
     },
@@ -1441,8 +1449,9 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form is built with <code>Typescript</code>, so you can
-          define a <code>FormData</code> type to support form values.
+          React Hook Form是使用<code>Typescript</code>
+          构建的，因此您可以定义一个表单数据<code>FormData</code>
+          类型来支持表单值。
         </p>
       ),
     },
@@ -1454,7 +1463,7 @@ export default {
         <p>
           Form context is intended to solve the problem when there are deep
           nested inputs in your components tree, and passing methods deep down
-          as <code>prop</code> becomes painful.
+          as <code>props</code> becomes painful.
         </p>
       ),
       description: (
@@ -1477,7 +1486,7 @@ export default {
         <p>
           Form context is intended to solve the problem when there are deep
           nested inputs in your components tree, and passing methods deep down
-          as <code>prop</code> becomes painful.
+          as <code>props</code> becomes painful.
         </p>
       ),
       description: (
@@ -1498,21 +1507,18 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>prop</code> becomes painful.
+          当组件存在深时传递<code>props</code>变得痛苦，这个组件解决这个问题。
         </p>
       ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            一旦你的表单被<code>FormContext</code>包装，
+            <code>useFormContext</code>:函数可以在其子组件中调用。
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            <Note>注意:</Note> 调用使用<code>useFormContext</code>将为您提供所有
+            <code>useForm</code>函数。
           </p>
         </>
       ),

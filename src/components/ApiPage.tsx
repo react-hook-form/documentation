@@ -710,11 +710,7 @@ function ApiPage({
               </TypeText>
             </h2>
           </CodeHeading>
-          <p>To manually trigger an input/select validation in the form.</p>
-          <p>
-            <Note>Note:</Note> When validation fails, the <code>errors</code>{" "}
-            object will be updated.
-          </p>
+          {api.triggerValidation[currentLanguage].description}
 
           <CodeArea
             rawData={trigger}
