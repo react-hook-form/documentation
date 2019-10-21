@@ -283,8 +283,8 @@ export default function Header({
           <Animate
             sequenceIndex={3}
             delay={0.1}
-            start={{ opacity: 0, transform: "translateY(30px)" }}
-            end={{ opacity: 1, transform: "translateY(0)" }}
+            start={{ opacity: 0 }}
+            end={{ opacity: 1 }}
             duration={0.4}
             easeType="ease-in"
             render={({ style }) => (
