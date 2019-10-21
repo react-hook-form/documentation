@@ -79,12 +79,12 @@ export default {
   },
   name: {
     en: "Name",
-    jp: "名前",
+    jp: "Name",
     zh: "名字",
   },
   type: {
     en: "Type",
-    jp: "タイプ",
+    jp: "Type",
     zh: "类型",
   },
   description: {
@@ -119,12 +119,12 @@ export default {
   },
   deleteAll: {
     en: "Delete All",
-    jp: "すべて削除",
+    jp: "全て削除",
     zh: "删除所有",
   },
   create: {
     en: "Create",
-    jp: "作成する",
+    jp: "作成",
     zh: "创造",
   },
   update: {
