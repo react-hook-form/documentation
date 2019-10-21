@@ -45,11 +45,12 @@ const ImgSection = styled.div`
   & ul {
     min-width: 250px;
     padding-left: 0;
-    margin: 0 15px 0 0;
+    margin: 0 15px 0 20px;
 
     & > li {
       padding: 2px 0;
       font-size: 16px;
+      margin-left: 0;
     }
   }
 `
