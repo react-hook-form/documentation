@@ -8,7 +8,7 @@ export default {
   },
   description: {
     en: "GUI for building forms with validation",
-    jp: "GUI for building forms with validation",
+    jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
   },
   builder: {
@@ -17,8 +17,8 @@ export default {
       description: "Build your own form with code and example.",
     },
     jp: {
-      title: "ビルダー",
-      description: "Build your own form with code and example.",
+      title: "Builder",
+      description: "コードとサンプルを使用して独自のフォームを構築します。",
     },
     zh: {
       title: "生成器",
@@ -32,7 +32,7 @@ export default {
     },
     jp: {
       title: "フォームレイアウト",
-      message: "You can start adding fields with Input Creator.",
+      message: "Input クリエーターを使用してフィールドを追加できます。",
     },
     zh: {
       title: "表格布局",
@@ -49,11 +49,11 @@ export default {
       generate: "Generate Form",
     },
     jp: {
-      title: "入力作成者",
-      description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
+      title: "Input クリエーター",
+      description: `このフォームは Input 要素を作成・編集できます。フォームを生成ボタンをクリックすると、更新された新しいフォームが作成されます。`,
       message: "You can start adding fields with Input Creator.",
       options: "オプション",
-      validation: "検証を表示",
+      validation: "バリデーションを表示",
       generate: "フォームを生成",
     },
     zh: {
@@ -72,7 +72,7 @@ export default {
     },
     jp: {
       title: "コード",
-      description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+      description: `フォームに変更を加えると部分的にコードが更新されます。コードをコピーすることもできます。`,
     },
     zh: {
       title: "代码",
