@@ -36,12 +36,12 @@ module.exports = {
         showSpinner: false,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-fullstory`,
-    //   options: {
-    //     fs_org: 'PDC81',
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-fullstory`,
+      options: {
+        fs_org: 'PDC81',
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
