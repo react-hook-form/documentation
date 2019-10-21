@@ -2,7 +2,7 @@ import code from "../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../styles/link"
 import { Link as NavLink } from "gatsby"
-import { CodeBlock, Note, TypeText } from "../styles/typography"
+import { CodeBlock, Note, Title, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
@@ -444,11 +444,12 @@ export default {
           "Register with validation and error message",
         note: goToSection => (
           <>
+            <Title>Custom Register</Title>
             <p>
-              <Note>Note:</Note> You can also register inputs manually, which is
-              useful when working with custom components and <code>Ref</code> is
-              not accessible. This is actually the case when you are working
-              with React Native or custom component like{" "}
+              You can also register inputs manually, which is useful when
+              working with custom components and <code>Ref</code> is not
+              accessible. This is actually the case when you are working with
+              React Native or custom component like{" "}
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
@@ -540,8 +541,9 @@ export default {
           "Register with validation and error message",
         note: goToSection => (
           <>
+            <Title>Custom Register</Title>
             <p>
-              <Note>Note:</Note> You can also register inputs manually, which is
+              You can also register inputs manually, which is
               useful when working with custom components and <code>Ref</code> is
               not accessible. This is actually the case when you are working
               with React Native or custom component like{" "}
@@ -632,6 +634,7 @@ export default {
         registerWithValidationMessage: "注册验证和错误消息",
         note: goToSection => (
           <>
+            <Title>动注册输入</Title>
             <p>
               您还可以手动注册输入，这在使用自定义组件无法访问<code>Ref</code>
               时非常有用，并且无法访问Ref。 实际上，当您使用React

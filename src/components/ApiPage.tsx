@@ -5,7 +5,6 @@ import {
   SubHeading,
   HeadingWithTopMargin,
   H5,
-  Note,
   H1,
   TypeText,
 } from "../styles/typography"

@@ -91,7 +91,11 @@ export default function ApiRefTable({
 
       {api.register[currentLanguage].fieldArray}
 
-      <br />
+      {api.register[currentLanguage].options.note(goToSection)}
+
+      <p>
+        <CodeBlock>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</CodeBlock>
+      </p>
 
       <Group>
         <legend>{api.register[currentLanguage].options.title}</legend>
@@ -113,12 +117,6 @@ export default function ApiRefTable({
           {api.register[currentLanguage].options.registerWithValidationMessage}
         </label>
       </Group>
-
-      {api.register[currentLanguage].options.note(goToSection)}
-
-      <p>
-        <CodeBlock>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</CodeBlock>
-      </p>
 
       <TableWrapper>
         <Table>
