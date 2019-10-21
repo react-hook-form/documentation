@@ -192,7 +192,21 @@ export default function Header({
   return (
     <AnimateGroup play>
       <Head id="main">
-        <Logo viewBox="0 0 100 100">{LogoSvg}</Logo>
+        <Animate
+          sequenceIndex={0}
+          duration={0.2}
+          start={{
+            transform: "translateY(20px)",
+            opacity: 0,
+          }}
+          end={{
+            transform: "translateY(0)",
+          }}
+          easeType="ease-in"
+          render={({ style }) => (
+            <Logo style={style} viewBox="0 0 100 100">{LogoSvg}</Logo>
+          )}
+        />
 
         <Animate
           sequenceIndex={0}
