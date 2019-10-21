@@ -16,8 +16,8 @@ export default {
       description: "Simple form validation with React Hook Form.",
     },
     jp: {
-      title: "始める",
-      description: "Simple form validation with React Hook Form.",
+      title: "はじめる",
+      description: "React Hook Form によるシンプルなフォームバリデーション",
     },
     zh: {
       title: "起步",
@@ -31,7 +31,7 @@ export default {
     },
     jp: {
       title: "ビデオチュートリアル",
-      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
+      description: `このビデオチュートリアルでは、React Hook Form の基本的な使用法とコンセプトを示しました。`,
     },
     zh: {
       title: "视频教程",
@@ -45,9 +45,9 @@ export default {
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     jp: {
-      linkTitle: "Installation",
-      title: "クイックスタート",
-      description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
+      linkTitle: "クイックスタート",
+      title: "インストール",
+      description: "React Hook Form をインストールするためのコマンドは1つだけで、準備が整います。",
     },
     zh: {
       linkTitle: "安装",
@@ -62,7 +62,7 @@ export default {
     },
     jp: {
       title: "例",
-      description: `The following code will demonstrate the basic usage:`,
+      description: `次のコードは基本的な使用法を示します。`,
     },
     zh: {
       title: "例子",
@@ -97,26 +97,23 @@ export default {
       ),
     },
     jp: {
-      title: "Register fields",
+      title: "レジスターフィールド",
       description: (
         <>
           <p>
-            One of the key concepts for React Hook Form is to{" "}
+            React Hook Form の重要なコンセプトの一つは非制御コンポーネントをフックに{" "}
             <strong>
               <code>register</code>
             </strong>{" "}
-            your uncontrolled component into the Hook and hence enabling its
-            value to be validated and gathered for submitting.
+            可能で、その値をフォームの送信用に検証と収集できるようにすることです。
           </p>
 
           <p>
-            <Note>Note:</Note> Each field is <strong>required</strong> to have a
-            unique <code>name</code> as a key for the registration process.
+            <Note>注意：</Note> 各フィールドには登録プロセスのキーとしてユニークな <code>name</code> が<strong>必須</strong>です。
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use a manual register
-            command (e.g.:{" "}
+            <Note>注意：</Note>React Native は manual register を使用する必要があります。 (例：{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -179,22 +176,22 @@ export default {
       ),
     },
     jp: {
-      title: "検証を適用する",
+      title: "バリデーションを適用する",
       description: (
         <>
           <p>
-            React Hook Form make form validation easy by aligning with existing{" "}
+            React Hook Form は既存の
             <a
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
               target="_blank"
               rel="noopener noreferrer"
             >
-              HTML standard form validation
+              HTML 標準のフォームバリデーション
             </a>
-            .
+            合わせることにより、フォームバリデーションを容易にします。
           </p>
 
-          <p>List of validation rules supported by:</p>
+          <p>サポートされているバリデーションルール一覧：</p>
           <ul>
             <li>required</li>
             <li>min</li>
@@ -205,8 +202,7 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            <Link to="api#register">register セクション</Link>で各ルールの詳細を読むことができます。
           </p>
         </>
       ),
@@ -256,11 +252,11 @@ export default {
       ),
     },
     jp: {
-      title: "Adapting existing form",
+      title: "既存のフォームの適用",
       description: (
         <>
-          Working on an existing form is simple. The important step is to apply{" "}
-          <code>register</code> into existing component's <code>ref</code>.
+          既存のフォームの処理はシンプルです。重要なステップは、既存のコンポーネントの{" "}
+          <code>ref</code> に <code>register</code> を適用することです。
         </>
       ),
     },
@@ -295,20 +291,17 @@ export default {
       ),
     },
     jp: {
-      title: "Work with UI library",
+      title: "UI ライブラリを使用する",
       description: (
         <>
           <p>
-            React Hook Form has made it easy to integrate with external UI
-            component libraries.
+            React Hook Formを使用すると、外部の UI コンポーネントライブラリと簡単に統合できます。
           </p>
           <p>
-            <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-            libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
-            <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI ライブラリは{" "}
+            <code>innerRef</code> か <code>ref</code> を <code>register</code> に公開します。
+            <code>react-select</code> や <code>react-datepicker</code> などのより複雑なコンポーネントの場合、{" "}
+            <code>setValue</code> を使用して値を手動で更新したり、<code>setError</code> を使用してエラーをトリガーすることができます。
           </p>
         </>
       ),
@@ -333,8 +326,8 @@ export default {
       description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
     },
     jp: {
-      title: "Integrate global state",
-      description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
+      title: "グローバルな状態に統合する",
+      description: `React Hook Form ではデータを保存するための状態管理ライブラリは必要ありませんが、簡単に統合することができます。`,
     },
     zh: {
       title: "整合表单状态",
@@ -355,8 +348,7 @@ export default {
       title: "エラーを処理する",
       description: (
         <>
-          React Hook Form provides an <code>errors</code> object to show you the
-          errors within the form.
+          React Hook Form はフォーム内のエラーを表す <code>errors</code> オブジェクトを提供しています。
         </>
       ),
     },
