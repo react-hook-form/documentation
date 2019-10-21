@@ -2,7 +2,7 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
-    title: `React Hook Form - Simple React form validation`,
+    title: `React Hook Form - Simple React forms validation`,
     description: `Performant, flexible and extensible forms with easy-to-use validation.`,
     author: `@bluebill1049`,
     siteUrl: "https://www.react-hook-form.com",
