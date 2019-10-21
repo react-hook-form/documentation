@@ -139,10 +139,6 @@ const ToggleGroup = styled.div`
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
     }
-
-    &:active {
-      background: ${colors.secondary} !important;
-    }
   }
 `
 
@@ -204,7 +200,9 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <Logo style={style} viewBox="0 0 100 100">{LogoSvg}</Logo>
+            <Logo style={style} viewBox="0 0 100 100">
+              {LogoSvg}
+            </Logo>
           )}
         />
 
@@ -320,7 +318,7 @@ export default function Header({
       <ToggleGroup role="tablist" aria-label="Select video">
         <button
           style={{
-            background: isWeb ? colors.lightPink : "none",
+            background: isWeb ? colors.lightBlue : "none",
           }}
           aria-label="show web video"
           aria-selected={isWeb ? "true" : "false"}
@@ -334,7 +332,7 @@ export default function Header({
         </button>
         <button
           style={{
-            background: !isWeb ? colors.lightPink : "none",
+            background: !isWeb ? colors.lightBlue : "none",
           }}
           role="tab"
           aria-label="show react native video"
