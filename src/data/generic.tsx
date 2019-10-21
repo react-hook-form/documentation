@@ -12,10 +12,10 @@ export default {
       buttonText: "Checkout API",
     },
     jp: {
-      title: "Want to learn more?",
+      title: "もっと知りたいですか？",
       description:
         "React Hook Form のドキュメントを確認して、API に関する全ての情報を学んでください。",
-      buttonText: "Checkout API",
+      buttonText: "API を確認する",
     },
     zh: {
       title: "想学更多吗？",

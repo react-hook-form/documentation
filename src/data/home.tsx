@@ -250,7 +250,7 @@ export default {
           <strong>編集</strong>{" "}ボタンをクリックしてフォームのフィールドを変更することもできます。
         </>
       ),
-      submit: "Submit",
+      submit: "フォームの送信",
       watchTitle: "監視",
       errorTitle: "エラー",
       touchedTitle: "タッチ",
