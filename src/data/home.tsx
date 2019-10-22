@@ -188,10 +188,10 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate how long it took to render and mount the
-          components. Results are captured under a 6x CPU slow down on App start
-          with the Chrome Dev Tools' performance tab. The running code is from
-          the section above{" "}
+          The following results demonstrate how long it took to render and mount
+          the components. Results are captured under a 6x CPU slow down on App
+          start with the Chrome Dev Tools' performance tab. The running code is
+          from the section above{" "}
           <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       ),
@@ -216,10 +216,10 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate how long it took to render and mount the
-          components. Results are captured under a 6x CPU slow down on App start
-          with the Chrome Dev Tools' performance tab. The running code is from
-          the section above{" "}
+          The following results demonstrate how long it took to render and mount
+          the components. Results are captured under a 6x CPU slow down on App
+          start with the Chrome Dev Tools' performance tab. The running code is
+          from the section above{" "}
           <a href="#codeComparison">Library Code Comparison</a>.
         </p>
       ),
@@ -245,8 +245,10 @@ export default {
       description: (
         <p>
           次の結果は、コンポーネントのレンダリングにかかった時間を示しています。
-          Chrome DevTools の Performance タブを使用して、CPU が6倍低速化した環境でキャプチャされた結果です。
-          実行コードは上記の<a href="#codeComparison">ライブラリのコード比較</a>セクションのものです。
+          Chrome DevTools の Performance タブを使用して、CPU
+          が6倍低速化した環境でキャプチャされた結果です。 実行コードは上記の
+          <a href="#codeComparison">ライブラリのコード比較</a>
+          セクションのものです。
         </p>
       ),
       totalMount: "No. of mount(s)",
@@ -254,7 +256,8 @@ export default {
       totalTime: "Total time",
       performanceTests: (
         <>
-          <span style={{ fontSize: 20 }}>⚠</span> より強力なパフォーマンステストを見たいですか？
+          <span style={{ fontSize: 20 }}>⚠</span>{" "}
+          より強力なパフォーマンステストを見たいですか？
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
@@ -332,9 +335,11 @@ export default {
       title: "ライブデモ",
       description: (
         <>
-          次のフォームは React Hook Form のフォームバリデーションを示しています。
+          次のフォームは React Hook Form
+          のフォームバリデーションを示しています。
           各列はカスタムフックにキャプチャされた内容を表します。
-          <strong>編集</strong>{" "}ボタンをクリックしてフォームのフィールドを変更することもできます。
+          <strong>編集</strong>{" "}
+          ボタンをクリックしてフォームのフィールドを変更することもできます。
         </>
       ),
       submit: "フォームの送信",
@@ -349,7 +354,8 @@ export default {
       title: "现场演示",
       description: (
         <>
-          下面的表单演示了表单验证的操作。 每列表示在自定义挂接中捕获的内容。 您也可以通过单击<strong>编辑</strong>按钮来更改表单中的表格。
+          下面的表单演示了表单验证的操作。 每列表示在自定义挂接中捕获的内容。
+          您也可以通过单击<strong>编辑</strong>按钮来更改表单中的表格。
         </>
       ),
       submit: "提交",

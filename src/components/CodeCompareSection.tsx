@@ -70,9 +70,7 @@ export default function CodeCompareSection({
     <AnimateGroup play={isPlayCodeCompare}>
       <Section>
         <CenterContent>
-          <H1>
-            {home.codeComparison[currentLanguage].title}
-          </H1>
+          <H1>{home.codeComparison[currentLanguage].title}</H1>
 
           <p id="codeComparison">
             {home.codeComparison[currentLanguage].description}

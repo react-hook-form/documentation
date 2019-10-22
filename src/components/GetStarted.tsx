@@ -51,7 +51,9 @@ export default function GetStarted({
 }) {
   return (
     <>
-      <h2 ref={quickStartRef}>{getStarted.install[currentLanguage].linkTitle}</h2>
+      <h2 ref={quickStartRef}>
+        {getStarted.install[currentLanguage].linkTitle}
+      </h2>
       <p>{getStarted.install[currentLanguage].description}</p>
 
       <InstallCode>
