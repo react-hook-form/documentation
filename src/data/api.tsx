@@ -437,6 +437,8 @@ export default {
         </p>
       ),
       example: "Submit Result",
+      selectHelp:
+        "By selecting the register option, the API table below will get updated.",
       options: {
         title: "Register options",
         registerWithValidation: "Register with validation",
@@ -534,6 +536,8 @@ export default {
         </p>
       ),
       example: "Submit Result",
+      selectHelp:
+        "By selecting the register option, the API table below will get updated.",
       options: {
         title: "Register options",
         registerWithValidation: "Register with validation",
@@ -543,10 +547,10 @@ export default {
           <>
             <Title>Custom Register</Title>
             <p>
-              You can also register inputs manually, which is
-              useful when working with custom components and <code>Ref</code> is
-              not accessible. This is actually the case when you are working
-              with React Native or custom component like{" "}
+              You can also register inputs manually, which is useful when
+              working with custom components and <code>Ref</code> is not
+              accessible. This is actually the case when you are working with
+              React Native or custom component like{" "}
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
@@ -628,6 +632,7 @@ export default {
         </p>
       ),
       example: "提交结果",
+      selectHelp: "通过选择该选项，下面的API表将得到更新。",
       options: {
         title: "注册选项",
         registerWithValidation: "注册验证",

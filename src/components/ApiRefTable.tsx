@@ -99,6 +99,7 @@ export default function ApiRefTable({
 
       <Group>
         <legend>{api.register[currentLanguage].options.title}</legend>
+        <p>{api.register[currentLanguage].selectHelp}</p>
         <label>
           <input
             onChange={() => toggleOption(true)}
