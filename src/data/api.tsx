@@ -639,7 +639,7 @@ export default {
         registerWithValidationMessage: "注册验证和错误消息",
         note: goToSection => (
           <>
-            <Title>动注册输入</Title>
+            <Title>手动注册输入</Title>
             <p>
               您还可以手动注册输入，这在使用自定义组件无法访问<code>Ref</code>
               时非常有用，并且无法访问Ref。 实际上，当您使用React
