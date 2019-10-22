@@ -3,16 +3,22 @@ import * as React from "react"
 export default {
   title: {
     en: "Form Builder",
+    kr: "Form Builder",
     jp: "Form Builder",
     zh: "表单生成器",
   },
   description: {
     en: "GUI for building forms with validation",
+    kr: "GUI for building forms with validation",
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
   },
   builder: {
     en: {
+      title: "Builder",
+      description: "Build your own form with code and example.",
+    },
+    kr: {
       title: "Builder",
       description: "Build your own form with code and example.",
     },
@@ -30,6 +36,10 @@ export default {
       title: "Form Layout",
       message: "You can start adding fields with Input Creator.",
     },
+    kr: {
+      title: "Form Layout",
+      message: "You can start adding fields with Input Creator.",
+    },
     jp: {
       title: "フォームレイアウト",
       message: "Input クリエーターを使用してフィールドを追加できます。",
@@ -41,6 +51,14 @@ export default {
   },
   inputCreator: {
     en: {
+      title: "Input Creator",
+      description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
+      message: "You can start adding fields with Input Creator.",
+      options: "Options",
+      validation: "Show validation",
+      generate: "Generate Form",
+    },
+    kr: {
       title: "Input Creator",
       description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
       message: "You can start adding fields with Input Creator.",
@@ -67,6 +85,10 @@ export default {
   },
   code: {
     en: {
+      title: "Code",
+      description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+    },
+    kr: {
       title: "Code",
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
     },

@@ -3,16 +3,20 @@ import * as React from "react"
 export default {
   title: {
     en: "Home",
+    kr: "Home",
     jp: "ホーム",
     zh: "首页",
   },
   description: {
     en: "React hook for form validation without the hassle",
+    kr: "React hook for form validation without the hassle",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
   },
   slogan: {
     en:
+      "Performant, flexible and extensible forms with easy-to-use validation.",
+    kr:
       "Performant, flexible and extensible forms with easy-to-use validation.",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
@@ -20,16 +24,22 @@ export default {
   },
   getStarted: {
     en: "Get Started",
+    kr: "Get Started",
     jp: "はじめる",
     zh: "起步",
   },
   demo: {
     en: "Demo",
+    kr: "Demo",
     jp: "デモ",
     zh: "演示",
   },
   findInteresting: {
     en: {
+      heading: "Find it useful and interesting?",
+      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+    },
+    kr: {
       heading: "Find it useful and interesting?",
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
@@ -44,6 +54,28 @@ export default {
   },
   features: {
     en: [
+      {
+        title: "DX",
+        description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
+      },
+      {
+        title: "HTML standard",
+        description: `Leverage existing HTML markup and validate your forms with our constraint-based validation API.`,
+      },
+      {
+        title: "Super Light",
+        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
+      },
+      {
+        title: "Performance",
+        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
+      },
+      {
+        title: "Adoptable",
+        description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+      },
+    ],
+    kr: [
       {
         title: "DX",
         description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
@@ -116,6 +148,10 @@ export default {
       title: "Library Code Comparison",
       description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
     },
+    kr: {
+      title: "Library Code Comparison",
+      description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
+    },
     jp: {
       title: "ライブラリのコード比較",
       description: `コードの記述量を減らすことは、React Hook Form の主な目標の1つです。それを説明するために、最も一般的なフォームバリデーションライブラリの非常にシンプルなバリデーションを見てみましょう。`,
@@ -127,6 +163,11 @@ export default {
   },
   rendering: {
     en: {
+      title: "Reduce Rendering",
+      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
+      totalReRender: "Total re-renders:",
+    },
+    kr: {
       title: "Reduce Rendering",
       description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
       totalReRender: "Total re-renders:",
@@ -144,6 +185,34 @@ export default {
   },
   mount: {
     en: {
+      title: "Faster Mounting",
+      description: (
+        <p>
+          The following results demonstrate how long it took to render and mount the
+          components. Results are captured under a 6x CPU slow down on App start
+          with the Chrome Dev Tools' performance tab. The running code is from
+          the section above{" "}
+          <a href="#codeComparison">Library Code Comparison</a>.
+        </p>
+      ),
+      totalMount: "No. of mount(s)",
+      totalChange: "No. of committing change(s)",
+      totalTime: "Total time",
+      performanceTests: (
+        <>
+          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
+          performance tests?{" "}
+          <a
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            rel="noopener noreferrer"
+          >
+            Check out the result of 1000 fields within a form here
+          </a>
+          .
+        </>
+      ),
+    },
+    kr: {
       title: "Faster Mounting",
       description: (
         <p>
@@ -224,6 +293,24 @@ export default {
   },
   liveDemo: {
     en: {
+      title: "Live Demo",
+      description: (
+        <>
+          The following form demonstrates form validation in action. Each column
+          represents what has been captured in the custom hook. You can also
+          change fields in the form by clicking the <strong>EDIT</strong>{" "}
+          button.
+        </>
+      ),
+      submit: "Submit",
+      watchTitle: "Watch",
+      errorTitle: "Errors",
+      touchedTitle: "Touched",
+      watch: "Change input value to see watched values",
+      error: "Validation errors will appear here",
+      touched: "Touched fields will display here",
+    },
+    kr: {
       title: "Live Demo",
       description: (
         <>

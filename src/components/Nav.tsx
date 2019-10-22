@@ -251,6 +251,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="zh">简体中文</option>
           <option value="jp" disabled>日本语</option>
           <option value="fr" disabled>Français</option>
+          <option value="kr" disabled>한국어</option>
         </select>
       </LangsSelect>
 

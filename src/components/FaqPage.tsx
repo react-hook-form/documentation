@@ -32,6 +32,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     en: faq.questions.en[index],
     jp: item,
     zh: item,
+    kr: item,
   }))
 
   const sectionsRef = useRef({

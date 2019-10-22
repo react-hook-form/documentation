@@ -13,6 +13,18 @@ export default {
     faqs: "FAQs",
     releases: "Releases",
   },
+  kr: {
+    home: "Home",
+    getStarted: "Get Started",
+    advanced: "Advanced",
+    builder: (
+      <>
+        <span className="desktopOnly">Form&nbsp;</span>Builder
+      </>
+    ),
+    faqs: "FAQs",
+    releases: "Releases",
+  },
   jp: {
     home: "ホーム",
     getStarted: "はじめる",
