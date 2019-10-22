@@ -155,6 +155,15 @@ const LangsSelect = styled.div`
     text-align: center;
     border-radius: 3px;
     padding-left: 10px;
+    cursor: pointer;
+
+    > option {
+      color: black;
+
+      &:disabled {
+        color: grey;
+      }
+    }
   }
 
   &:after {
@@ -249,9 +258,15 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         >
           <option value="en">English</option>
           <option value="zh">简体中文</option>
-          <option value="jp" disabled>日本语</option>
-          <option value="fr" disabled>Français</option>
-          <option value="kr" disabled>한국어</option>
+          <option value="jp" disabled>
+            日本语
+          </option>
+          <option value="fr" disabled>
+            Français
+          </option>
+          <option value="kr" disabled>
+            한국어
+          </option>
         </select>
       </LangsSelect>
 
