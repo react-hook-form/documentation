@@ -29,4 +29,4 @@ export default function App() {
       <input type="submit" /> 
     </form>
   )
-}`;
+}`

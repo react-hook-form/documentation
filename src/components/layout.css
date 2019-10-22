@@ -376,7 +376,7 @@ table {
 
 a.active {
   background: var(--primary-color);
-  border-bottom: 1px solid var(--secondary-color) !important;
+  border-bottom: 1.25px solid var(--secondary-color) !important;
 }
 
 @media (min-width: 1024px) {
@@ -386,21 +386,22 @@ a.active {
 }
 
 a.skip-main {
-  left:-999px;
-  position:absolute;
-  top:auto;
-  width:110px;
-  overflow:hidden;
-  z-index:-999;
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 110px;
+  overflow: hidden;
+  z-index: -999;
 }
-a.skip-main:focus, a.skip-main:active {
+a.skip-main:focus,
+a.skip-main:active {
   top: 20px;
   width: 110px;
   left: 160px;
   height: auto;
-  overflow:auto;
+  overflow: auto;
   font-size: 15px;
-  z-index:999;
+  z-index: 999;
 }
 
 h4 {

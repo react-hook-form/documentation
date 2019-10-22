@@ -61,7 +61,8 @@ export default {
     jp: {
       linkTitle: "クイックスタート",
       title: "インストール",
-      description: "React Hook Form をインストールするためのコマンドは1つだけで、準備が整います。",
+      description:
+        "React Hook Form をインストールするためのコマンドは1つだけで、準備が整います。",
     },
     zh: {
       linkTitle: "安装",
@@ -145,7 +146,8 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form の重要なコンセプトの一つは非制御コンポーネントをフックに{" "}
+            React Hook Form
+            の重要なコンセプトの一つは非制御コンポーネントをフックに{" "}
             <strong>
               <code>register</code>
             </strong>{" "}
@@ -153,11 +155,14 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> 各フィールドには登録プロセスのキーとしてユニークな <code>name</code> が<strong>必須</strong>です。
+            <Note>注意：</Note>{" "}
+            各フィールドには登録プロセスのキーとしてユニークな <code>name</code>{" "}
+            が<strong>必須</strong>です。
           </p>
 
           <p>
-            <Note>注意：</Note>React Native は manual register を使用する必要があります。 (例：{" "}
+            <Note>注意：</Note>React Native は manual register
+            を使用する必要があります。 (例：{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -279,7 +284,8 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            <Link to="api#register">register セクション</Link>で各ルールの詳細を読むことができます。
+            <Link to="api#register">register セクション</Link>
+            で各ルールの詳細を読むことができます。
           </p>
         </>
       ),
@@ -400,13 +406,17 @@ export default {
       description: (
         <>
           <p>
-            React Hook Formを使用すると、外部の UI コンポーネントライブラリと簡単に統合できます。
+            React Hook Formを使用すると、外部の UI
+            コンポーネントライブラリと簡単に統合できます。
           </p>
           <p>
-            <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI ライブラリは{" "}
-            <code>innerRef</code> か <code>ref</code> を <code>register</code> に公開します。
-            <code>react-select</code> や <code>react-datepicker</code> などのより複雑なコンポーネントの場合、{" "}
-            <code>setValue</code> を使用して値を手動で更新したり、<code>setError</code> を使用してエラーをトリガーすることができます。
+            <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
+            ライブラリは <code>innerRef</code> か <code>ref</code> を{" "}
+            <code>register</code> に公開します。
+            <code>react-select</code> や <code>react-datepicker</code>{" "}
+            などのより複雑なコンポーネントの場合、 <code>setValue</code>{" "}
+            を使用して値を手動で更新したり、<code>setError</code>{" "}
+            を使用してエラーをトリガーすることができます。
           </p>
         </>
       ),
@@ -466,16 +476,15 @@ export default {
       title: "エラーを処理する",
       description: (
         <>
-          React Hook Form はフォーム内のエラーを表す <code>errors</code> オブジェクトを提供しています。
+          React Hook Form はフォーム内のエラーを表す <code>errors</code>{" "}
+          オブジェクトを提供しています。
         </>
       ),
     },
     zh: {
       title: "处理错误",
       description: (
-        <>
-          React Hook Form提供了一个错误对象，用于显示表单中的错误。
-        </>
+        <>React Hook Form提供了一个错误对象，用于显示表单中的错误。</>
       ),
     },
   },

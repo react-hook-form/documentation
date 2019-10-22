@@ -20,4 +20,4 @@ function NestedInput() {
   const { register } = useFormContext() // retrieve all hook methods
   return <input name="test" ref={register} />
 }
-`;
+`

@@ -165,15 +165,15 @@ export default {
     zh: "更新",
   },
   copied: {
-    en: 'Copy code into your clipboard.',
-    kr: 'Copy code into your clipboard.',
-    jp: 'コードをクリップボードにコピーします。',
-    zh: '将代码复制到剪贴板。',
+    en: "Copy code into your clipboard.",
+    kr: "Copy code into your clipboard.",
+    jp: "コードをクリップボードにコピーします。",
+    zh: "将代码复制到剪贴板。",
   },
   return: {
-    en: 'Return',
-    kr: 'Return',
-    jp: 'Return',
-    zh: 'Return',
-  }
+    en: "Return",
+    kr: "Return",
+    jp: "Return",
+    zh: "Return",
+  },
 }

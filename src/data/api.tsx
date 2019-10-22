@@ -483,51 +483,63 @@ export default {
     },
   },
   unregister: {
-    en: (
-      <>
-        <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs.
-        </p>
-        <p>
-          <Note>Note:</Note> When you unregister an input, its value will no
-          longer be included in the form data that gets submitted.
-        </p>
-      </>
-    ),
-    kr: (
-      <>
-        <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs.
-        </p>
-        <p>
-          <Note>Note:</Note> When you unregister an input, its value will no
-          longer be included in the form data that gets submitted.
-        </p>
-      </>
-    ),
-    jp: (
-      <>
-        <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs.
-        </p>
-        <p>
-          <Note>Note:</Note> When you unregister an input, its value will no
-          longer be included in the form data that gets submitted.
-        </p>
-      </>
-    ),
-    zh: (
-      <>
-        <p>此方法将允许您取消注册单个输入或输入的数组。</p>
-        <p>
-          <Note>注意:</Note>{" "}
-          取消注册输入时，其值将不再被包含在被提交的表单数据中。
-        </p>
-      </>
-    ),
+    en: {
+      title: "unregister",
+      description: (
+        <>
+          <p>
+            This method will allow you to <code>unregister</code> a single input
+            or an array of inputs.
+          </p>
+          <p>
+            <Note>Note:</Note> When you unregister an input, its value will no
+            longer be included in the form data that gets submitted.
+          </p>
+        </>
+      ),
+    },
+    kr: {
+      title: "unregister",
+      description: (
+        <>
+          <p>
+            This method will allow you to <code>unregister</code> a single input
+            or an array of inputs.
+          </p>
+          <p>
+            <Note>Note:</Note> When you unregister an input, its value will no
+            longer be included in the form data that gets submitted.
+          </p>
+        </>
+      ),
+    },
+    jp: {
+      title: "unregister",
+      description: (
+        <>
+          <p>
+            This method will allow you to <code>unregister</code> a single input
+            or an array of inputs.
+          </p>
+          <p>
+            <Note>Note:</Note> When you unregister an input, its value will no
+            longer be included in the form data that gets submitted.
+          </p>
+        </>
+      ),
+    },
+    zh: {
+      title: "取消注册",
+      description: (
+        <>
+          <p>此方法将允许您取消注册单个输入或输入的数组。</p>
+          <p>
+            <Note>注意:</Note>{" "}
+            取消注册输入时，其值将不再被包含在被提交的表单数据中。
+          </p>
+        </>
+      ),
+    },
   },
   register: {
     en: {

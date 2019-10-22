@@ -171,6 +171,7 @@ function ApiPage({
   const links = [
     api.useForm,
     api.register,
+    api.unregister,
     api.errors,
     api.watch,
     api.handleSubmit,
@@ -183,6 +184,8 @@ function ApiPage({
     api.formState,
     api.formContext,
     api.reactNative,
+    api.validationSchema,
+    api.NativeValidation,
     api.typeScript,
   ]
   const {
@@ -210,7 +213,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    nativeValidationRef: null,
+    NativeValidationRef: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -547,7 +550,7 @@ function ApiPage({
             </h2>
           </CodeHeading>
 
-          {api.unregister[currentLanguage]}
+          {api.unregister[currentLanguage].description}
 
           <CodeArea
             url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
@@ -599,10 +602,8 @@ function ApiPage({
             }}
           >
             <h2>
-              <code>
-                reset:{" "}
-                <TypeText>{`(values?: Record<string, any>) => void`}</TypeText>
-              </code>
+              reset:{" "}
+              <TypeText>{`(values?: Record<string, any>) => void`}</TypeText>
               <Popup />
             </h2>
           </CodeHeading>
@@ -773,7 +774,7 @@ function ApiPage({
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.nativeValidationRef = ref
+              apiSectionsRef.current.NativeValidationRef = ref
             }}
           >
             <h2>NativeValidation</h2>

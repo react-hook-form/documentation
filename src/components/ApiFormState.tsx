@@ -3,7 +3,7 @@ import { CodeSandBoxLink } from "./CodeArea"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import { TypeText } from "../styles/typography"
 import api from "../data/api"
-import generic from "../data/generic";
+import generic from "../data/generic"
 
 export default React.memo(
   ({ currentLanguage }: { currentLanguage: string }) => {
@@ -31,9 +31,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>
-                  {api.formState[currentLanguage].dirty}
-                </td>
+                <td>{api.formState[currentLanguage].dirty}</td>
               </tr>
               <tr>
                 <td>
@@ -60,9 +58,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>
-                  {api.formState[currentLanguage].isSubmitting}
-                </td>
+                <td>{api.formState[currentLanguage].isSubmitting}</td>
               </tr>
               <tr>
                 <td>

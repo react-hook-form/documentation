@@ -35,7 +35,7 @@ export default {
       </>
     ),
     faqs: "FAQ",
-    releases: "リリース"
+    releases: "リリース",
   },
   zh: {
     home: "首页",

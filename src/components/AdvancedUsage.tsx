@@ -179,7 +179,8 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               <h4>Register</h4>
               <p>
                 {advanced.errorMessage[currentLanguage].register}
-                <br /><br />
+                <br />
+                <br />
                 <code>{`<input
   name="test"
   ref={register({ maxLength: { value: 2, message: "error message" } })}
@@ -189,9 +190,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             </li>
             <li>
               <h4>{`<ErrorMessage />`}</h4>
-              <p>
-                {advanced.errorMessage[currentLanguage].component}
-              </p>
+              <p>{advanced.errorMessage[currentLanguage].component}</p>
 
               <CodeArea rawData={errorMessageAdvance} />
             </li>

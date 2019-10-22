@@ -49,4 +49,4 @@ const Example = () => (
     <Example/>
   </Provider>
 );
-`;
+`
