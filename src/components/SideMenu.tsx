@@ -28,18 +28,6 @@ const Menu = styled.aside`
         height: calc(100vh - 236px);
         overflow-y: auto;
 
-        &::-webkit-scrollbar {
-          width: 0.5em;
-        }
-
-        &::-webkit-scrollbar-track {
-          background-color: ${colors.primary};
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background-color: ${colors.blue};
-        }
-
         @media ${breakpoints.fromLargeScreen} {
           max-width: 250px;
           height: calc(100vh - 200px);
