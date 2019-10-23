@@ -1,4 +1,6 @@
 import * as React from "react"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { xonokai } from "react-syntax-highlighter/dist/styles/prism"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
@@ -43,7 +45,16 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
       {api.formContext[currentLanguage].description}
 
       <p>
-        <CodeBlock>{`const methods = useFormContext() // methods contain all useForm functions`}</CodeBlock>
+        <SyntaxHighlighter
+          customStyle={{
+            border: "none",
+          }}
+          style={xonokai}
+          language={"jsx"}
+        >
+          const methods = useFormContext() // methods contain all useForm
+          functions
+        </SyntaxHighlighter>
       </p>
 
       <CodeArea

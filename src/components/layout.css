@@ -2,12 +2,22 @@
   --secondary-color: #bf1650;
   --light-pink: #ec5990;
   --primary-color: #0e101c;
+  --blue: #1e2a4a;
 }
 
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--primary-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
 }
 body {
   margin: 0;
