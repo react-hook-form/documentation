@@ -80,6 +80,10 @@ const ActionButtonGroup = styled.nav`
     &:first-child {
       border-left: 0;
     }
+    
+    &:hover {
+      color: ${colors.lightPink};
+    }
 
     & > span {
       display: block;
