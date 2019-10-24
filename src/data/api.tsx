@@ -1100,7 +1100,10 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>This will watch specified input/inputs and return its value.</p>
+          <p>
+            This will watch specified input/inputs and return its value, and
+            it's useful for determining what to render.
+          </p>
 
           <ul>
             <li>
@@ -1609,7 +1612,10 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>This function will return the entire form data.</p>
+          <p>
+            This function will return the entire form data, and it's useful in a
+            function when you want to retrieve form values.
+          </p>
 
           <ul>
             <li>
