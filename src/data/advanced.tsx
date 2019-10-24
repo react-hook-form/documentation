@@ -1073,6 +1073,125 @@ export default {
       ),
     },
   },
+  conditionalControlledComponent: {
+    en: {
+      title: "Conditional Controlled Component",
+      description: (
+        <>
+          In terms of conditional field, React Hook Form made that really simple
+          for us, because the moment when you removed the input form the
+          component tree, it will get <code>unregister</code> automatically,{" "}
+          <a
+            href="https://codesandbox.io/s/13ykqx4wx7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here is an example
+          </a>{" "}
+          for such behavior. However, that's not the same case for controlled
+          components since <code>ref</code> is not been registered, and we can
+          leverage the use of{" "}
+          <code>
+            <a
+              href="https://reactjs.org/docs/hooks-effect.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              useEffect
+            </a>
+          </code>
+          . Here is an example:
+        </>
+      ),
+    },
+    kr: {
+      title: "Conditional Controlled Component",
+      description: (
+        <>
+          In terms of conditional field, React Hook Form made that really simple
+          for us, because the moment when you removed the input form the
+          component tree, it will get <code>unregister</code> automatically,{" "}
+          <a
+            href="https://codesandbox.io/s/13ykqx4wx7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here is an example
+          </a>{" "}
+          for such behavior. However, that's not the same case for controlled
+          components since <code>ref</code> is not been registered, and we can
+          leverage the use of{" "}
+          <code>
+            <a
+              href="https://reactjs.org/docs/hooks-effect.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              useEffect
+            </a>
+          </code>
+          . Here is an example:
+        </>
+      ),
+    },
+    jp: {
+      title: "Conditional Controlled Component",
+      description: (
+        <>
+          In terms of conditional field, React Hook Form made that really simple
+          for us, because the moment when you removed the input form the
+          component tree, it will get <code>unregister</code> automatically,{" "}
+          <a
+            href="https://codesandbox.io/s/13ykqx4wx7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here is an example
+          </a>{" "}
+          for such behavior. However, that's not the same case for controlled
+          components since <code>ref</code> is not been registered, and we can
+          leverage the use of{" "}
+          <code>
+            <a
+              href="https://reactjs.org/docs/hooks-effect.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              useEffect
+            </a>
+          </code>
+          . Here is an example:
+        </>
+      ),
+    },
+    zh: {
+      title: "条件控制组件",
+      description: (
+        <>
+          在条件显示表格方面，React Hook
+          Form对我们来说非常简单，因为当你删除了组件树的输入时，它会自动取消注册，这里就有一个
+          <a
+            href="https://codesandbox.io/s/13ykqx4wx7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            例子
+          </a>
+          。 但是，由于没有注册ref，因此受控组件不是同一种情况，我们可以利用
+          <code>
+            <a
+              href="https://reactjs.org/docs/hooks-effect.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              useEffect
+            </a>
+          </code>
+          的使用来实现。 这是一个例子:
+        </>
+      ),
+    },
+  },
   formContext: {
     en: {
       title: "FormContext Performance",
