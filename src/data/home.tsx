@@ -3,12 +3,12 @@ import * as React from "react"
 export default {
   title: {
     en: "Home",
-    kr: "Home",
+    kr: "홈",
     jp: "ホーム",
     zh: "首页",
   },
   description: {
-    en: "React hook for form validation without the hassle",
+    en: "번거로움 없이 폼 검증을 위한 React hook",
     kr: "React hook for form validation without the hassle",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
@@ -16,21 +16,20 @@ export default {
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy-to-use validation.",
-    kr:
-      "Performant, flexible and extensible forms with easy-to-use validation.",
+    kr: "뛰어난 성능과 유연성, 확장성을 갖춘 폼을 손쉽게 만들 수 있습니다.",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
     zh: "高性能、灵活、易拓展、易于使用的表单校验库。",
   },
   getStarted: {
     en: "Get Started",
-    kr: "Get Started",
+    kr: "시작하기",
     jp: "はじめる",
     zh: "起步",
   },
   demo: {
     en: "Demo",
-    kr: "Demo",
+    kr: "데모",
     jp: "デモ",
     zh: "演示",
   },
@@ -40,8 +39,8 @@ export default {
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
     },
     kr: {
-      heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+      heading: "유용하고 흥미로운가요?",
+      description: `폼의 유효성을 검사하는 것은 더욱 간단해야 합니다. React Hook Form을 사용하면 코드는 적게 쓰고 성능은 더욱 향상시킬 수 있습니다. 시작하기 섹션을 확인한 다음 API 페이지에서 자세히 알아보세요.`,
     },
     jp: {
       heading: "便利で面白いと思いますか？",
@@ -78,23 +77,23 @@ export default {
     kr: [
       {
         title: "DX",
-        description: `Intuitive, feature-complete API providing a seamless experience to developers when building forms.`,
+        description: `직관적이고 완전히 기능적인 API를 통해 폼을 만드는 개발자들에게 우수한 경험을 제공합니다.`,
       },
       {
-        title: "HTML standard",
-        description: `Leverage existing HTML markup and validate your forms with our constraint-based validation API.`,
+        title: "HTML 표준",
+        description: `기존 HTML 마크업을 그대로 사용하고, 제약 기반의 유효성 검사 API를 사용하여 폼의 유효성을 검사할 수 있습니다.`,
       },
       {
-        title: "Super Light",
-        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
+        title: "가벼움",
+        description: `패키지의 크기도 성능만큼 중요합니다. React Hook Form은 별도의 의존성이 없는 작은 라이브러리입니다.`,
       },
       {
-        title: "Performance",
-        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
+        title: "성능",
+        description: `렌더링 횟수를 최소화하고 마운트 속도를 높여 최고의 사용자 경험을 제공하기 위해 노력하고 있습니다.`,
       },
       {
-        title: "Adoptable",
-        description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+        title: "적응성",
+        description: `폼 상태는 로컬에서 관리되기 때문에 다른 의존성 없이 쉽게 사용할 수 있습니다.`,
       },
     ],
     jp: [
@@ -149,8 +148,8 @@ export default {
       description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
     },
     kr: {
-      title: "Library Code Comparison",
-      description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
+      title: "라이브러리 코드 비교",
+      description: `작성하는 코드 양을 줄이는 것은 React Hook Form의 주요 목표 중 하나입니다. 이를 설명하기 위해 가장 인기있는 폼 유효성 검사 라이브러리들을 사용한 간단한 폼을 살펴보세요.`,
     },
     jp: {
       title: "ライブラリのコード比較",
@@ -168,9 +167,9 @@ export default {
       totalReRender: "Total re-renders:",
     },
     kr: {
-      title: "Reduce Rendering",
-      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
-      totalReRender: "Total re-renders:",
+      title: "렌더링 최소화",
+      description: `사용자에 의해 얼마나 많이 다시 렌더링 되었는지 궁금했던 적이 있습니까? React Hook Form은 제어되지 않는 폼 유효성 검사를 통해 불필요한 성능 저하를 줄입니다.`,
+      totalReRender: "전체 렌더링 횟수:",
     },
     jp: {
       title: "レンダリングを削減",
@@ -213,28 +212,28 @@ export default {
       ),
     },
     kr: {
-      title: "Faster Mounting",
+      title: "빠른 마운트 속도",
       description: (
         <p>
-          The following results demonstrate how long it took to render and mount
-          the components. Results are captured under a 6x CPU slow down on App
-          start with the Chrome Dev Tools' performance tab. The running code is
-          from the section above{" "}
-          <a href="#codeComparison">Library Code Comparison</a>.
+          아래 결과는 컴포넌트를 렌더링하고 마운트하는데 걸린 시간을 보여줍니다.
+          결과는 Chrome Dev Tool의 Performance 탭에서 CPU 성능을 6배 낮춘
+          환경에서 캡쳐하였습니다. 실행한 코드는 상단의{" "}
+          <a href="#codeComparison">라이브러리 코드 비교</a> 섹션에서
+          가져왔습니다.
         </p>
       ),
-      totalMount: "No. of mount(s)",
-      totalChange: "No. of committing change(s)",
-      totalTime: "Total time",
+      totalMount: "마운트 횟수",
+      totalChange: "변경 요청 횟수",
+      totalTime: "전체 소요된 시간",
       performanceTests: (
         <>
-          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-          performance tests?{" "}
+          <span style={{ fontSize: 20 }}>⚠</span> 더 강도 높은 성능 테스트를
+          보고 싶으신가요?{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
           >
-            Check out the result of 1000 fields within a form here
+            여기서 1000개 필드가 있는 폼의 결과를 확인할 수 있습니다
           </a>
           .
         </>
@@ -314,22 +313,22 @@ export default {
       touched: "Touched fields will display here",
     },
     kr: {
-      title: "Live Demo",
+      title: "라이브 데모",
       description: (
         <>
-          The following form demonstrates form validation in action. Each column
-          represents what has been captured in the custom hook. You can also
-          change fields in the form by clicking the <strong>EDIT</strong>{" "}
-          button.
+          아래 폼은 실행중인 폼 검증을 보여줍니다. 각 열은 커스텀 훅에서 캡쳐된
+          내용을 보여줍니다.
+          <br />
+          <strong>수정</strong> 버튼을 클릭하여 폼 필드를 수정할 수 있습니다.
         </>
       ),
-      submit: "Submit",
-      watchTitle: "Watch",
-      errorTitle: "Errors",
-      touchedTitle: "Touched",
-      watch: "Change input value to see watched values",
-      error: "Validation errors will appear here",
-      touched: "Touched fields will display here",
+      submit: "제출",
+      watchTitle: "감시",
+      errorTitle: "오류",
+      touchedTitle: "변경됨",
+      watch: "값을 확인하려면 입력 필드의 값을 변경하세요.",
+      error: "검증 오류가 이곳에 표시됩니다.",
+      touched: "변경된 필드가 이곳에 표시됩니다.",
     },
     jp: {
       title: "ライブデモ",
