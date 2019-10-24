@@ -14,7 +14,7 @@ export default {
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
-      jp: "",
+      jp: "React Hook Form は API を簡素化することにより最高の DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
@@ -1787,11 +1787,9 @@ export default {
       title: "React Native",
       description: (
         <p>
-          You will get the same performance enhancement from an Uncontrolled
-          Component. However, there are certain APIs which are not compatible
-          with React Native (duo to the API difference from web and native). You
-          will have to use a <b>manual register</b> as shown in the following
-          example.
+          非制御コンポーネントでも、同じようにパフォーマンスが向上します。
+          ただし、React Native と互換性のない API がいくつかあります (Web とネイティブとの API の違い)。
+          次の例に示すように、<b>manual register</b> を使用する必要があります。
         </p>
       ),
     },
@@ -1849,10 +1847,9 @@ export default {
       title: "validationSchema",
       description: (
         <p>
-          If you would like to centralize your validation rules with external
-          validation schema, you can apply <code>validationSchema</code> at{" "}
-          <code>useForm</code> as an optional argument. React Hook Form
-          currently supports{" "}
+          外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
+          オプションの引数として <code>useForm</code> に <code>validationSchema</code> を適用できます。
+          React Hook Form は現在、オブジェクトスキーマバリデーションで{" "}
           <Link
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -1860,7 +1857,7 @@ export default {
           >
             Yup
           </Link>{" "}
-          for object schema validation.
+          をサポートしています。
         </p>
       ),
     },
@@ -1910,10 +1907,9 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
+          次の例は、ブラウザバリデーションを活用する方法を示しています。
+          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+          残りの構文は標準のバリデーションと同じになります。
         </p>
       ),
     },
@@ -1951,8 +1947,7 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form is built with <code>Typescript</code>, so you can
-          define a <code>FormData</code> type to support form values.
+          React Hook Form は <code>Typescript</code> を使用して構築されているため、フォームの値をサポートするための <code>FormData</code> 型を定義することができます。
         </p>
       ),
     },
@@ -2018,21 +2013,18 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
+          フォームコンテキストは、コンポーネントツリーに深くネストされたインプット要素があり、
+          メソッドを <code>props</code> として深く渡すことが苦痛になる場合の問題を解決することを目的としています。
         </p>
       ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+          フォームが <code>FormContext</code> でラップされると、{" "}
+            <code>useFormContext</code>： <TypeText>function</TypeText> をその子コンポーネントで呼び出すことができます。
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            <Note>注意：</Note> <code>useFormContext</code> を呼び出すと全ての <code>useForm</code> フック関数が得られます。
           </p>
         </>
       ),
