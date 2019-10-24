@@ -632,6 +632,14 @@ function ApiPage({
             </h2>
           </CodeHeading>
           {api.setError[currentLanguage].description}
+
+          <CodeArea
+            rawData={setError}
+            url="https://codesandbox.io/s/o7rxyym3q5"
+          />
+
+          <hr/>
+
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -644,11 +652,6 @@ function ApiPage({
             </h2>
           </CodeHeading>
           {api.clearError[currentLanguage].description}
-
-          <CodeArea
-            rawData={setError}
-            url="https://codesandbox.io/s/o7rxyym3q5"
-          />
 
           <hr />
 
