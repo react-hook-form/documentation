@@ -32,6 +32,10 @@ const Menu = styled.aside`
           max-width: 250px;
           height: calc(100vh - 200px);
         }
+        
+        @media ${breakpoints.fromXlargeScreen} {
+          max-width: 270px;
+        }
 
         & > li {
           line-height: 22px;

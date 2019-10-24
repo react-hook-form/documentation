@@ -3,6 +3,7 @@ import code from "../components/codeExamples/defaultExample"
 import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import colors from "../styles/colors"
+import translateLink from "../components/logic/translateLink"
 
 export default {
   title: {
@@ -193,7 +194,7 @@ export default {
   applyValidation: {
     en: {
       title: "Apply validation",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form make form validation easy by aligning with existing{" "}
@@ -219,14 +220,17 @@ export default {
           </ul>
           <p>
             You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register section
+            </Link>
+            .
           </p>
         </>
       ),
     },
     kr: {
       title: "Apply validation",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form make form validation easy by aligning with existing{" "}
@@ -252,14 +256,17 @@ export default {
           </ul>
           <p>
             You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register section
+            </Link>
+            .
           </p>
         </>
       ),
     },
     jp: {
       title: "バリデーションを適用する",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form は既存の
@@ -284,7 +291,9 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            <Link to="api#register">register セクション</Link>
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register セクション
+            </Link>
             で各ルールの詳細を読むことができます。
           </p>
         </>
@@ -292,7 +301,7 @@ export default {
     },
     zh: {
       title: "应用验证",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form 通过与现有的
@@ -317,7 +326,10 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            您可以在<Link to="api#register">注册部分</Link>
+            您可以在
+            <Link to={translateLink("api#register", currentLanguage)}>
+              注册部分
+            </Link>
             阅读每个规则的更多细节。
           </p>
         </>
@@ -365,7 +377,7 @@ export default {
   workWithUI: {
     en: {
       title: "Work with UI library",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form has made it easy to integrate with external UI
@@ -374,17 +386,33 @@ export default {
           <p>
             <span style={{ color: colors.lightPink }}>Note:</span> Most UI
             libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            . For components that are more complicated like{" "}
             <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            manually update the value via{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            or trigger an error with{" "}
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            .
           </p>
         </>
       ),
     },
     kr: {
       title: "Work with UI library",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form has made it easy to integrate with external UI
@@ -393,17 +421,33 @@ export default {
           <p>
             <span style={{ color: colors.lightPink }}>Note:</span> Most UI
             libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            . For components that are more complicated like{" "}
             <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            manually update the value via{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            or trigger an error with{" "}
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            .
           </p>
         </>
       ),
     },
     jp: {
       title: "UI ライブラリを使用する",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Formを使用すると、外部の UI
@@ -412,10 +456,25 @@ export default {
           <p>
             <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
             ライブラリは <code>innerRef</code> か <code>ref</code> を{" "}
-            <code>register</code> に公開します。
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>{" "}
+            に公開します。
             <code>react-select</code> や <code>react-datepicker</code>{" "}
-            などのより複雑なコンポーネントの場合、 <code>setValue</code>{" "}
-            を使用して値を手動で更新したり、<code>setError</code>{" "}
+            などのより複雑なコンポーネントの場合、{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            を使用して値を手動で更新したり、
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>{" "}
             を使用してエラーをトリガーすることができます。
           </p>
         </>
@@ -423,13 +482,31 @@ export default {
     },
     zh: {
       title: "使用UI库",
-      description: (
+      description: currentLanguage => (
         <>
           <p>React Hook Form 使得它易于与外部UI组件库集成。</p>
           <p>
             大多数UI库都会将内部<code>innerRef</code>或者<code>Ref</code>
-            公开给注册。 对于像react-selector和
-            react-datepicker这样更复杂的组件，您可以通过setValue手动更新值或通过setError触发错误。
+            公开给注册
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            。 对于像react-selector和
+            react-datepicker这样更复杂的组件，您可以通过
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>
+            手动更新值或通过
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            触发错误。
           </p>
         </>
       ),

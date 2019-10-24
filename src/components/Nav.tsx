@@ -80,7 +80,7 @@ const ActionButtonGroup = styled.nav`
     &:first-child {
       border-left: 0;
     }
-    
+
     &:hover {
       color: ${colors.lightPink};
     }
@@ -160,6 +160,10 @@ const LangsSelect = styled.div`
     border-radius: 3px;
     padding-left: 10px;
     cursor: pointer;
+
+    &:hover {
+      border: 1px solid ${colors.secondary};
+    }
 
     > option {
       color: black;
