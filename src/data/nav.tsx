@@ -14,16 +14,12 @@ export default {
     releases: "Releases",
   },
   kr: {
-    home: "Home",
-    getStarted: "Get Started",
-    advanced: "Advanced",
-    builder: (
-      <>
-        <span className="desktopOnly">Form&nbsp;</span>Builder
-      </>
-    ),
-    faqs: "FAQs",
-    releases: "Releases",
+    home: "홈",
+    getStarted: "시작하기",
+    advanced: "고급",
+    builder: "폼 빌더",
+    faqs: "FAQ",
+    releases: "릴리즈",
   },
   jp: {
     home: "ホーム",
