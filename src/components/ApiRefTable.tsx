@@ -401,7 +401,8 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`<input
+                  rawData={`// callback function
+<input
   name="test"
   ref={
     register({
@@ -413,9 +414,28 @@ export default function ApiRefTable({
     })
   }
 />
-// you can do asynchronous validation as well
+// object of callback functions
 <input
   name="test1"
+  ref={
+    register({
+      validate: ${
+        isStandard
+          ? `{
+        greaterThanZero: value => parseFloat(value) > 0,
+        lessThanOnehundred: value => parseFloat(value) < 100
+      }`
+          : `{
+        greaterThanZero: value => parseFloat(value) > 0 || 'should be greater than 0',
+        lessThanOnehundred: value => parseFloat(value) < 100 || 'should be greater than 100'
+      }`
+      }
+    })
+  }
+/>
+// you can do asynchronous validation as well
+<input
+  name="test2"
   ref={
     register({
       validate: ${
