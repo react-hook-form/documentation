@@ -12,6 +12,7 @@ export default {
     ),
     faqs: "FAQs",
     releases: "Releases",
+    resources: "Resources",
   },
   kr: {
     home: "홈",
@@ -20,6 +21,7 @@ export default {
     builder: "폼 빌더",
     faqs: "FAQ",
     releases: "릴리즈",
+    resources: "자원",
   },
   jp: {
     home: "ホーム",
@@ -32,6 +34,7 @@ export default {
     ),
     faqs: "FAQ",
     releases: "リリース",
+    resources: "資源",
   },
   zh: {
     home: "首页",
@@ -44,5 +47,6 @@ export default {
     ),
     faqs: "常见问题",
     releases: "发布",
+    resources: "资源",
   },
 }

@@ -9,7 +9,7 @@ import translateLink from "./logic/translateLink"
 const Footer = styled.footer`
   padding: 40px 0;
   font-size: 0.8rem;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 60px;
   text-align: center;
 
@@ -74,6 +74,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
       <li>
         <Link to={translateLink("/faqs", currentLanguage)}>
           {nav[currentLanguage].faqs}
+        </Link>
+      </li>
+      <li>
+        <Link to={translateLink("/resources", currentLanguage)}>
+          {nav[currentLanguage].resources}
         </Link>
       </li>
     </Links>
