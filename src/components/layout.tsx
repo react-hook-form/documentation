@@ -22,6 +22,7 @@ const ScrollTop = styled.button`
     bottom: 30px;
     height: 40px;
     width: 40px;
+    z-index: 10;
     border-radius: 5px;
   }
 `
