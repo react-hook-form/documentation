@@ -176,4 +176,22 @@ export default {
     jp: "Return",
     zh: "Return",
   },
+  blog: {
+    en: "Articles/Blog",
+    kr: "기사 / 블로그",
+    jp: "記事/ブログ",
+    zh: "文章/博客",
+  },
+  video: {
+    en: "Videos",
+    kr: "비디오",
+    jp: "ビデオ",
+    zh: "影片",
+  },
+  newsletter: {
+    en: "Newsletter",
+    kr: "뉴스 레터",
+    jp: "ニュースレター",
+    zh: "通讯",
+  }
 }
