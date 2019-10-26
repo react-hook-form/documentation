@@ -3,13 +3,13 @@ import * as React from "react"
 export default {
   title: {
     en: "Form Builder",
-    kr: "Form Builder",
+    kr: "폼 빌더",
     jp: "Form Builder",
     zh: "表单生成器",
   },
   description: {
     en: "GUI for building forms with validation",
-    kr: "GUI for building forms with validation",
+    kr: "유효성 검사와 함께 폼을 구축하기 위한 GUI",
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
   },
@@ -19,8 +19,8 @@ export default {
       description: "Build your own form with code and example.",
     },
     kr: {
-      title: "Builder",
-      description: "Build your own form with code and example.",
+      title: "빌더",
+      description: "코드와 예시를 사용하여 폼을 만들어 보세요.",
     },
     jp: {
       title: "Builder",
@@ -37,8 +37,8 @@ export default {
       message: "You can start adding fields with Input Creator.",
     },
     kr: {
-      title: "Form Layout",
-      message: "You can start adding fields with Input Creator.",
+      title: "폼 레이아웃",
+      message: "Input 생성기를 사용하여 필드를 추가할 수 있습니다.",
     },
     jp: {
       title: "フォームレイアウト",
@@ -59,12 +59,12 @@ export default {
       generate: "Generate Form",
     },
     kr: {
-      title: "Input Creator",
-      description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
-      message: "You can start adding fields with Input Creator.",
-      options: "Options",
-      validation: "Show validation",
-      generate: "Generate Form",
+      title: "Input 생성기",
+      description: `이 폼을 통해서 input을 생성하고 변경할 수 있습니다. 폼 생성 버튼을 클릭하면 변경 사항과 함께 새로운 폼이 생성됩니다.`,
+      message: "Input 생성기를 사용하여 필드를 추가할 수 있습니다.",
+      options: "옵션",
+      validation: "유효성 검사 보기",
+      generate: "폼 생성",
     },
     jp: {
       title: "Input クリエーター",
@@ -89,8 +89,8 @@ export default {
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
     },
     kr: {
-      title: "Code",
-      description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+      title: "코드",
+      description: `폼에 변화를 주면 변경 된 내용이 코드 섹션에 반영됩니다. 코드 섹션 내의 코드는 복사할 수 있습니다.`,
     },
     jp: {
       title: "コード",
