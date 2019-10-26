@@ -15,7 +15,7 @@ createStore({
 export default function App() {
   return (
     <StateMachineProvider>
-      <h1>Page Form Wizzard</h1>
+      <h1>Page Form Wizard</h1>
 
       <Router>
         <Route exact path="/" component={Step1} />
