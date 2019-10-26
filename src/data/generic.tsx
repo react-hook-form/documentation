@@ -37,9 +37,9 @@ export default {
       buttonText: `Learn Advanced Usage`,
     },
     kr: {
-      title: "심화 사용법",
+      title: "고급 사용법",
       description: `React Hook Form 을 사용하여 복잡하고 접근성 있는 폼을 만드는 방법을 배워보세요.`,
-      buttonText: `심화 사용법 배우기`,
+      buttonText: `고급 사용법 배우기`,
     },
     jp: {
       title: "高度な使用法",
