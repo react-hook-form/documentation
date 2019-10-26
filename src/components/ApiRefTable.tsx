@@ -126,13 +126,6 @@ export default function ApiRefTable({
               <th>{generic.name[currentLanguage]}</th>
               <th
                 style={{
-                  minWidth: 200,
-                }}
-              >
-                {generic.type[currentLanguage]}
-              </th>
-              <th
-                style={{
                   minWidth: 300,
                 }}
               >
@@ -149,11 +142,8 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>ref</code>
-              </td>
-              <td>
-                <code>
-                  <TypeText>React.RefObject</TypeText>
-                </code>
+                <br />
+                <TypeText>React.RefObject</TypeText>
               </td>
               <td>React element ref</td>
               <td>
@@ -170,11 +160,8 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>required</code>
-              </td>
-              <td>
-                <code>
-                  <TypeText>{isStandard ? "boolean" : "string"}</TypeText>
-                </code>
+                <br />
+                <TypeText>{isStandard ? "boolean" : "string"}</TypeText>
               </td>
               <td>{api.register[currentLanguage].validation.required}</td>
               <td>
@@ -195,8 +182,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>maxLength</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>
                     {isStandard
@@ -234,8 +220,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>minLength</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>
                     {isStandard
@@ -273,8 +258,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>max</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>
                     {isStandard
@@ -312,8 +296,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>min</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>
                     {isStandard
@@ -351,8 +334,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>pattern</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>
                     {isStandard
@@ -390,8 +372,7 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>validate</code>
-              </td>
-              <td>
+                <br />
                 <code>
                   <TypeText>Function | Object</TypeText>
                 </code>
@@ -422,12 +403,12 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `{
-        greaterThanZero: value => parseFloat(value) > 0,
-        lessThanOnehundred: value => parseFloat(value) < 100
+        positive: value => parseInt(value) > 0,
+        lessThanTen: value => parseInt(value) < 10
       }`
           : `{
-        greaterThanZero: value => parseFloat(value) > 0 || 'should be greater than 0',
-        lessThanOnehundred: value => parseFloat(value) < 100 || 'should be greater than 100'
+        positive: value => parseInt(value) > 0 || 'should be greater than 0',
+        lessThanTen: value => parseInt(value) < 100 || 'should be greater than 10'
       }`
       }
     })

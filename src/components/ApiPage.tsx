@@ -455,6 +455,21 @@ function ApiPage({
                   <td>
                     <TableH5>
                       <code>
+                        validationSchemaOption: <br />
+                        <MobileType>Object</MobileType>
+                      </code>
+                    </TableH5>
+                  </td>
+                  <td>
+                    <p>{api.useForm[currentLanguage].validationSchemaOption}</p>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <TableH5>
+                      <code>
                         reValidateMode: <br />
                         <MobileType>
                           onChange | onBlur | onSubmit = onChange
