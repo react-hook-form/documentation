@@ -60,7 +60,7 @@ export default {
     },
     kr: {
       title: "Input 생성기",
-      description: `이 폼을 통해서 input을 생성하고 변경할 수 있습니다. 폼 생성 버튼을 클릭하면 변경 사항과 함께 새로운 폼이 생성됩니다.`,
+      description: `이 폼을 통해서 Input을 생성하고 변경할 수 있습니다. 폼 생성 버튼을 클릭하면 변경 사항과 함께 새로운 폼이 생성됩니다.`,
       message: "Input 생성기를 사용하여 필드를 추가할 수 있습니다.",
       options: "옵션",
       validation: "유효성 검사 보기",
@@ -90,7 +90,7 @@ export default {
     },
     kr: {
       title: "코드",
-      description: `폼에 변화를 주면 변경 된 내용이 코드 섹션에 반영됩니다. 코드 섹션 내의 코드는 복사할 수 있습니다.`,
+      description: `폼에 변화를 주면 변경된 내용이 코드 섹션에 반영됩니다. 코드 섹션 내의 코드는 복사할 수 있습니다.`,
     },
     jp: {
       title: "コード",
