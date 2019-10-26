@@ -2,7 +2,7 @@ import styled from "styled-components"
 import breakpoints from "./breakpoints"
 
 export const Wrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
   padding: 0 15px 100px 20px;
