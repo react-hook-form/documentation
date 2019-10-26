@@ -120,6 +120,19 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
         Little State Machine
       </a>
     </p>
+    {currentLanguage === "kr" && (
+      <p>
+        Translated by <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
+        <a href="https://github.com/iamchanii">@iamchanii</a> and{" "}
+        <a href="https://github.com/adhrinae">@adhrinae</a>
+      </p>
+    )}
+    {currentLanguage === "jp" && (
+      <p>
+        Translated by{" "}
+        <a href="https://github.com/kotarella1110">@kotarella1110</a>.
+      </p>
+    )}
     <p style={{ fontSize: 12 }}>
       [ {generic.support[currentLanguage]}{" "}
       <a
