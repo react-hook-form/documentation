@@ -122,14 +122,14 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
     </p>
     {currentLanguage === "kr" && (
       <p>
-        Translated by <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
+        에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
         <a href="https://github.com/iamchanii">@iamchanii</a> and{" "}
         <a href="https://github.com/adhrinae">@adhrinae</a>
       </p>
     )}
     {currentLanguage === "jp" && (
       <p>
-        Translated by{" "}
+        によって翻訳されました{" "}
         <a href="https://github.com/kotarella1110">@kotarella1110</a>.
       </p>
     )}
