@@ -19,7 +19,7 @@ export default {
     getStarted: "시작하기",
     advanced: "고급",
     builder: "폼 빌더",
-    faqs: "FAQ",
+    faqs: "FAQs",
     releases: "릴리즈",
     resources: "자원",
   },

@@ -14,8 +14,8 @@ export default {
       description: "frequently asked question.",
     },
     kr: {
-      title: "FAQs",
-      description: "frequently asked question.",
+      title: "자주 묻는 질문",
+      description: "자주 묻는 질문",
     },
     jp: {
       title: "よくある質問",
@@ -209,76 +209,76 @@ export default {
     ],
     kr: [
       {
-        title: "Performance of React Hook Form",
+        title: "React Hook Form 의 퍼포먼스",
         description: (
           <p>
-            Performance is one of the primary goals for building this custom
-            hook. React Hook Form relies on uncontrolled component, hence the
-            reason why the register function occurs at the ref. This approach
-            will reduce the amount of re-rendering occurring due to user typing
-            or value changing. Components mount to the page is much quicker as
-            well because they are not controlled. For mounting speed, I have
-            completed a quick comparison test which you can refer to by{" "}
+            이 커스텀 훅을 만들 때 가장 먼저 고려된 목표 중 하나가
+            퍼포먼스입니다. React Hook Form 은 비제어 컴포넌트를 활용하고 있기
+            때문에 <code>ref</code> 에서 <code>register</code> 함수가
+            실행됩니다. 이러한 접근 방식은 사용자가 타이핑하거나 값을 변경할 때
+            리랜더링이 일어나는 양을 줄여줄 것입니다. 제어 컴포넌트가 아니기
+            때문에 페이지에 컴포넌트가 마운트되는 속도도 훨씬 더 빠릅니다.{" "}
+            마운트되는 속도에 대해 여러분이 참고하실 수 있도록 간단한 속도 비교
+            테스트를{" "}
             <a
               href="https://github.com/bluebill1049/react-hook-form-performance-compare"
               target="_blank"
               rel="noopener noreferrer"
             >
-              this repo link
-            </a>
-            .
+              이 저장소에
+            </a>{" "}
+            올려 두었습니다.
           </p>
         ),
       },
       {
-        title: "How to create an accessible input error and message?",
+        title: "접근성 있는 입력 에러와 메세지를 어떻게 만드나요?",
         description: (
           <p>
-            React Hook Form is based on{" "}
+            React Hook Form 은{" "}
             <a
-              href="https://reactjs.org/docs/uncontrolled-components.html"
+              href="https://ko.reactjs.org/docs/uncontrolled-components.html"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Uncontrolled Component
+              비제어 컴포넌트
             </a>
-            , which gives you the ability to build an accessible custom form
-            easily.
+            를 기반으로 하고 있으므로, 접근성이 높은 커스텀 폼을 쉽게 만들 수
+            있습니다.
           </p>
         ),
       },
       {
-        title: "Does it work with Class Components?",
+        title: "클래스 컴포넌트와 사용할 수 있나요?",
         description: (
           <>
             <p>
-              No, not out of box. but you can build a wrapper around it and use
-              in your Class Component.
+              아니오. 사용할 수 없습니다만, 클래스 컴포넌트를 감싸는 래퍼를 만들
+              수는 있습니다.
             </p>
 
             <blockquote>
-              You can’t use Hooks inside of a class component, but you can
-              definitely mix classes and function components with Hooks in a
-              single tree. Whether a component is a class or a function that
-              uses Hooks is an implementation detail of that component. In the
-              longer term, we expect Hooks to be the primary way people write
-              React components.
+              여러분은 클래스 컴포넌트 안에서 훅을 사용할 수 없습니다. 하지만
+              확실히 클래스 컴포넌트와 훅을 사용하는 함수 컴포넌트를 같은 트리
+              안에서 섞어 사용할 수 있습니다. 컴포넌트가 클래스인지, 훅을
+              사용하는 함수 컴포넌트인지는 개별 컴포넌트의 세부 구현에
+              불과합니다. 긴 안목으로 보아 우리는 사람들이 훅을 우선적으로
+              고려하여 리액트 컴포넌트를 작성하길 기대합니다.
             </blockquote>
           </>
         ),
       },
       {
-        title: "How to reset the form?",
+        title: "폼을 어떻게 리셋하나요?",
         description: (
           <>
-            <p>There are two methods to clear the form.</p>
+            <p>폼을 초기화하는데 두 가지 방법이 있습니다.</p>
             <ul>
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
-                  This method does the same thing as clicking a form's reset
-                  button, and only clears
-                  <code>input/select/checkbox</code> values.
+                  이 메서드는 폼의 리셋 버튼을 누르는 것과 똑같이 동작하지만,
+                  오로지 <code>input/select/checkbox</code> 값들만 초기화합니다.
                 </p>
               </li>
               <li>
@@ -286,9 +286,9 @@ export default {
                   React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React Hook Form's <code>reset</code> method will reset all
-                  fields value, and also will clear all <code>errors</code>{" "}
-                  within the form.
+                  React Hook Form 의 <code>reset</code> 메서드는 모든 필드 값을{" "}
+                  리셋하며, 또한 폼 안의 모든 <code>errors</code> 를{" "}
+                  초기화합니다.
                 </p>
               </li>
             </ul>
@@ -296,93 +296,93 @@ export default {
         ),
       },
       {
-        title: "How to initialize form values?",
+        title: "어떻게 폼의 기본값을 설정하나요?",
         description: (
           <p>
-            React Hook Form relies on uncontrolled component. With an
-            uncontrolled component, you can specify a <code>defaultValue</code>{" "}
-            or <code>defaultChecked</code> to an individual field. However, the
-            hook itself does provide an easier way to initialise all input
-            values too. Example below:
+            React Hook Form 은 비제어 컴포넌트를 활용합니다. 비제어 컴포넌트를
+            사용하면 <code>defaultValue</code> 나 <code>defaultChecked</code>{" "}
+            값을 개별 필드에 넣어 기본값을 설정할 수 있습니다. 하지만 훅에서
+            기본적으로 손쉽게 모든 인풋의 기본값을 설정할 수 있는 방법을
+            제공합니다. 아래의 예제를 보세요.
           </p>
         ),
       },
       {
-        title: "How to share ref usage?",
+        title: "ref 를 공유할 수 있나요?",
         description: (
           <p>
-            React Hook Form needs <code>ref</code> to collect the input value,
-            however, you may want to use <code>ref</code> for other purposes
-            (eg. scroll into the view). The following example will show you how.
+            React Hook Form 은 입력 값을 모으기 위해 <code>ref</code> 를 필요로
+            합니다. 하지만 <code>ref</code> 를 다른 목적으로 (예: 해당 뷰로
+            스크롤하기) 활용하고 싶을 수도 있습니다. 아래의 예제로 그 방법을
+            확인해보세요.
           </p>
         ),
       },
       {
-        title: "What if you don't have access to ref?",
+        title: "만약에 ref 에 접근할 수 없다면 어떻게 하죠?",
         description: (
           <>
             <p>
-              You can actually <code>register</code> an input without a{" "}
-              <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-              <code>setError</code> and <code>triggerValidation</code>.
+              사실 <code>ref</code> 없이 <code>register</code> 를 할 수
+              있습니다. 수동으로 <code>setValue</code>, <code>setError</code>{" "}
+              그리고 <code>triggerValidation</code> 를 사용하면 됩니다.
             </p>
 
             <p>
-              <Note>Note:</Note> Because <code>ref</code> has not been
-              registered, React Hook Form won't be able to register event
-              listeners to the inputs. This means you will have to manually
-              update value and error.
+              <Note>참고:</Note> <code>ref</code> 가 등록되지 않았기 때문에,
+              React Hook Form 은 인풋에 이벤트 리스너를 등록할 수 없을 겁니다.
+              따라서 인풋 값과 에러를 수동으로 업데이트 해 주어야 합니다.
             </p>
           </>
         ),
       },
       {
-        title: "Browser Support?",
+        title: "브라우저 호환성은 어떤가요?",
         description: (
           <>
-            <p>React Hook Form support all major browsers.</p>
+            <p>React Hook Form 은 모든 메이저 브라우저를 지원합니다.</p>
 
             <p>
-              For legacy IE11 support, you can import react-hook-form IE 11
-              version.
+              오래된 IE11 를 지원하려면, react-hook-form IE11 버전을 불러와서
+              사용할 수 있습니다.
             </p>
           </>
         ),
       },
       {
-        title: "Why is first keystroke is not working?",
+        title: "왜 첫 번째 키 입력이 동작하지 않을까요?",
         description: (
           <>
             <p>
-              Double check if you are using <code>value</code> instead of{" "}
-              <code>defaultValue</code>.
+              <code>value</code> 대신에 <code>defaultValue</code> 를 사용하고
+              있는지 다시 확인해주세요.
             </p>
 
             <p>
-              React Hook Form is built based on uncontrolled input, which means
-              you don't need to change input <code>value</code> via{" "}
-              <code>state</code> by <code>onChange</code>. Hence you don't need{" "}
-              <code>value</code> at all, in fact, you only need{" "}
-              <code>defaultValue</code> for initial input value.
+              React Hook Form 은 비제어 컴포넌트를 활용하기 때문에{" "}
+              <code>onChange</code> 를 사용하여 <code>state</code> 를 바꾸고, 그
+              값을 인풋의 <code>value</code> 에 반영해줄 필요가 없습니다. 따라서{" "}
+              <code>value</code> 자체가 필요 없습니다. 사실 초기 값을 지정하고자
+              할 때 <code>defaultValue</code> 만 넣어주면 됩니다.
             </p>
           </>
         ),
       },
       {
-        title: "Testing failed due to MutationObserver?",
+        title: "MutationObserver 때문에 테스트가 실패하는데요?",
         description: (
           <p>
-            If you have difficulty during testing and the issue was caused by{" "}
-            <code>MutationObserver</code>. Make sure you install{" "}
-            <code>mutationobserver</code> and import this package in your test{" "}
+            만약에 테스트하는데 어려움을 겪고 계시다면{" "}
+            <code>MutationObserver</code> 때문입니다.{" "}
+            <code>mutationobserver-shim</code> 패키지를 설치하고{" "}
             <a
               href="https://jestjs.io/docs/en/configuration"
               target="_blank"
               rel="noopener noreferrer"
             >
-              setup.js file
+              setup.js 파일
             </a>
-            .
+            에서 불러오세요.
           </p>
         ),
       },
