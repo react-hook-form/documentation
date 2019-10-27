@@ -13,10 +13,10 @@ export default {
       buttonText: "Checkout API",
     },
     kr: {
-      title: "Want to learn more?",
+      title: "더 알고 싶으신가요?",
       description:
-        "Check out the React Hook Form documentation and learn all about the API.",
-      buttonText: "Checkout API",
+        "React Hook Form 문서를 살펴보고 API 의 모든 정보를 알아보세요.",
+      buttonText: "API 확인하기",
     },
     jp: {
       title: "もっと知りたいですか？",
@@ -37,9 +37,9 @@ export default {
       buttonText: `Learn Advanced Usage`,
     },
     kr: {
-      title: "Advanced Usage",
-      description: `Learn how to build complex and accessible forms with React Hook Form.`,
-      buttonText: `Learn Advanced Usage`,
+      title: "고급 사용법",
+      description: `React Hook Form 을 사용하여 복잡하고 접근성 있는 폼을 만드는 방법을 배워보세요.`,
+      buttonText: `고급 사용법 배우기`,
     },
     jp: {
       title: "高度な使用法",
@@ -59,9 +59,9 @@ export default {
       buttonText: `Star React Hook Form`,
     },
     kr: {
-      title: "We Need Your Support",
-      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
-      buttonText: `Star React Hook Form`,
+      title: "여러분의 도움이 필요합니다",
+      description: `React Hook Form 이 유용한 프로젝트라고 생각하신다면, Star 를 눌러서 저장소와 기여하는 분들을 응원해주세요 ❤`,
+      buttonText: `React Hook Form 에 스타 찍기`,
     },
     jp: {
       title: "あなたのサポートが必要です",
@@ -175,5 +175,23 @@ export default {
     kr: "Return",
     jp: "Return",
     zh: "Return",
+  },
+  blog: {
+    en: "Articles/Blog",
+    kr: "기사 / 블로그",
+    jp: "記事/ブログ",
+    zh: "文章/博客",
+  },
+  video: {
+    en: "Videos",
+    kr: "비디오",
+    jp: "ビデオ",
+    zh: "影片",
+  },
+  newsletter: {
+    en: "Newsletter",
+    kr: "뉴스 레터",
+    jp: "ニュースレター",
+    zh: "通讯",
   },
 }

@@ -33,6 +33,21 @@ export default {
           example demonstrates all options' default value.
         </p>
       ),
+      validationSchemaOption: (
+        <>
+          The <code>options</code> argument is an object hash containing any
+          schema options you may want to override (or specify for the first
+          time). You can read more in the{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
+          >
+            yup documentation
+          </a>
+          .
+        </>
+      ),
       validateOnSubmit: (
         <>
           Validation will trigger on the <code>submit</code> event and invalid
@@ -150,6 +165,21 @@ export default {
           <code>useForm</code> also has <b>optional</b> arguments. The following
           example demonstrates all options' default value.
         </p>
+      ),
+      validationSchemaOption: (
+        <>
+          The <code>options</code> argument is an object hash containing any
+          schema options you may want to override (or specify for the first
+          time). You can read more in the{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
+          >
+            yup documentation
+          </a>
+          .
+        </>
       ),
       validateOnSubmit: (
         <>
@@ -269,6 +299,21 @@ export default {
           example demonstrates all options' default value.
         </p>
       ),
+      validationSchemaOption: (
+        <>
+          The <code>options</code> argument is an object hash containing any
+          schema options you may want to override (or specify for the first
+          time). You can read more in the{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
+          >
+            yup documentation
+          </a>
+          .
+        </>
+      ),
       validateOnSubmit: (
         <>
           Validation will trigger on the <code>submit</code> event and invalid
@@ -385,6 +430,20 @@ export default {
           <code>useForm</code>也有<strong>可选</strong>的参数。
           下面的示例演示了所有选项的默认值。
         </p>
+      ),
+      validationSchemaOption: (
+        <>
+          <code>Options</code>参数是一个<code>Object</code>
+          ，其中包含您可能想要复盖的任何模式选项（或首次指定）。 您可以在
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
+          >
+            yup文档中阅读更多内容
+          </a>
+          。
+        </>
       ),
       validateOnSubmit: (
         <>
@@ -1100,7 +1159,10 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>This will watch specified input/inputs and return its value.</p>
+          <p>
+            This will watch specified input/inputs and return its value, and
+            it's useful for determining what to render.
+          </p>
 
           <ul>
             <li>
@@ -1609,7 +1671,10 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>This function will return the entire form data.</p>
+          <p>
+            This function will return the entire form data, and it's useful in a
+            function when you want to retrieve form values.
+          </p>
 
           <ul>
             <li>

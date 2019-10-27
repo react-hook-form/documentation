@@ -3,11 +3,12 @@ import code from "../components/codeExamples/defaultExample"
 import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import colors from "../styles/colors"
+import translateLink from "../components/logic/translateLink"
 
 export default {
   title: {
     en: "Get Started",
-    kr: "Get Started",
+    kr: "시작하기",
     jp: "始める",
     zh: "起步",
   },
@@ -17,8 +18,8 @@ export default {
       description: "Simple form validation with React Hook Form.",
     },
     kr: {
-      title: "Get Started",
-      description: "Simple form validation with React Hook Form.",
+      title: "시작하기",
+      description: "React Hook Form 으로 간단하게 폼의 유효성을 검사하기",
     },
     jp: {
       title: "はじめる",
@@ -35,8 +36,8 @@ export default {
       description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
     },
     kr: {
-      title: "Video Tutorial",
-      description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
+      title: "비디오 튜토리얼",
+      description: `이 비디오 튜토리얼을 통해 React Hook Form 의 기본 사용법과 컨셉을 설명합니다`,
     },
     jp: {
       title: "ビデオチュートリアル",
@@ -54,9 +55,9 @@ export default {
       description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
     },
     kr: {
-      linkTitle: "Installation",
-      title: "Quick start",
-      description: `Installing React Hook Form only takes a single command and you're ready to roll.`,
+      linkTitle: "설치",
+      title: "빠른 시작",
+      description: `React Hook Form 을 설치하는데 한 줄 짜리 커맨드면 충분합니다.`,
     },
     jp: {
       linkTitle: "クイックスタート",
@@ -76,8 +77,8 @@ export default {
       description: `The following code will demonstrate the basic usage:`,
     },
     kr: {
-      title: "Example",
-      description: `The following code will demonstrate the basic usage:`,
+      title: "예제",
+      description: `다음의 코드는 기본적인 사용법을 보여줍니다.`,
     },
     jp: {
       title: "例",
@@ -116,26 +117,27 @@ export default {
       ),
     },
     kr: {
-      title: "Register fields",
+      title: "필드 등록하기",
       description: (
         <>
           <p>
-            One of the key concepts for React Hook Form is to{" "}
+            React Hook Form 의 중요 컨셉 중 하나는{" "}
             <strong>
               <code>register</code>
             </strong>{" "}
-            your uncontrolled component into the Hook and hence enabling its
-            value to be validated and gathered for submitting.
+            를 통해 여러분의 비제어 컴포넌트(uncontrolled component)를 Hook 과
+            연결하여 값이 검사될 수 있도록 만들고 폼을 제출할 때 한꺼번에
+            모아지도록 하는 것입니다.
           </p>
 
           <p>
-            <Note>Note:</Note> Each field is <strong>required</strong> to have a
-            unique <code>name</code> as a key for the registration process.
+            <Note>참고:</Note> 각각의 필드는 등록 과정의 key 로 사용하기 위해{" "}
+            <code>name</code> 속성이 <strong>반드시</strong> 필요합니다.
           </p>
 
           <p>
-            <Note>Note: </Note>React Native will need to use a manual register
-            command (e.g.:{" "}
+            <Note>참고:</Note> React Native 는 수동으로 register 커맨드를
+            입력해야 합니다. (예:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -193,7 +195,7 @@ export default {
   applyValidation: {
     en: {
       title: "Apply validation",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form make form validation easy by aligning with existing{" "}
@@ -219,28 +221,31 @@ export default {
           </ul>
           <p>
             You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register section
+            </Link>
+            .
           </p>
         </>
       ),
     },
     kr: {
-      title: "Apply validation",
-      description: (
+      title: "유효성 검사 적용하기",
+      description: currentLanguage => (
         <>
           <p>
-            React Hook Form make form validation easy by aligning with existing{" "}
+            React Hook Form 은 기존의{" "}
             <a
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
               target="_blank"
               rel="noopener noreferrer"
             >
-              HTML standard form validation
+              HTML 표준 폼 유효성 검사와
             </a>
-            .
+            과 어우러져 폼 유효성 검사를 쉽게 만들어줍니다.
           </p>
 
-          <p>List of validation rules supported by:</p>
+          <p>지원되는 폼 유효성 검사 방식은 아래와 같습니다.</p>
           <ul>
             <li>required</li>
             <li>min</li>
@@ -251,15 +256,18 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            You can read more detail on each rule at the{" "}
-            <Link to="api#register">register section</Link>.
+            각각의 규칙에 대해 더 자세하게 알아보시려면{" "}
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register 섹션
+            </Link>
+            을 살펴보세요.
           </p>
         </>
       ),
     },
     jp: {
       title: "バリデーションを適用する",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form は既存の
@@ -284,7 +292,9 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            <Link to="api#register">register セクション</Link>
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register セクション
+            </Link>
             で各ルールの詳細を読むことができます。
           </p>
         </>
@@ -292,7 +302,7 @@ export default {
     },
     zh: {
       title: "应用验证",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form 通过与现有的
@@ -317,7 +327,10 @@ export default {
             <li>validate</li>
           </ul>
           <p>
-            您可以在<Link to="api#register">注册部分</Link>
+            您可以在
+            <Link to={translateLink("api#register", currentLanguage)}>
+              注册部分
+            </Link>
             阅读每个规则的更多细节。
           </p>
         </>
@@ -335,11 +348,12 @@ export default {
       ),
     },
     kr: {
-      title: "Adapting existing form",
+      title: "이미 존재하는 폼에 적용하기",
       description: (
         <>
-          Working on an existing form is simple. The important step is to apply{" "}
-          <code>register</code> into existing component's <code>ref</code>.
+          이미 존재하는 폼에 쉽게 적용할 수 있습니다. 중요한 것은 이미 있는
+          컴포넌트의 <code>ref</code> 에 <code>register</code> 를 적용해 주는
+          것입니다.
         </>
       ),
     },
@@ -365,7 +379,7 @@ export default {
   workWithUI: {
     en: {
       title: "Work with UI library",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Form has made it easy to integrate with external UI
@@ -374,36 +388,68 @@ export default {
           <p>
             <span style={{ color: colors.lightPink }}>Note:</span> Most UI
             libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            . For components that are more complicated like{" "}
             <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            manually update the value via{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            or trigger an error with{" "}
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            .
           </p>
         </>
       ),
     },
     kr: {
-      title: "Work with UI library",
-      description: (
+      title: "UI 라이브러리에 적용하기",
+      description: currentLanguage => (
         <>
           <p>
-            React Hook Form has made it easy to integrate with external UI
-            component libraries.
+            React Hook Form 은 외부 UI 컴포넌트 라이브러리와 쉽게 연동할 수
+            있습니다.
           </p>
           <p>
-            <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-            libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
-            <code>register</code>. For components that are more complicated like{" "}
-            <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via <code>setValue</code> or trigger an
-            error with <code>setError</code>.
+            <Note>참고:</Note> 대부분의 UI 라이브러리는 <code>innerRef</code> 나{" "}
+            <code>ref</code> 로{" "}
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            를 할 수 있습니다.
+            <code>react-select</code> 나 <code>react-datepicker</code> 같이 더
+            복잡한 컴포넌트를 다루려면{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>
+            를 사용하여 수동으로 값을 업데이트 하거나{" "}
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            로 에러를 일으켜야 합니다.
           </p>
         </>
       ),
     },
     jp: {
       title: "UI ライブラリを使用する",
-      description: (
+      description: currentLanguage => (
         <>
           <p>
             React Hook Formを使用すると、外部の UI
@@ -412,10 +458,25 @@ export default {
           <p>
             <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
             ライブラリは <code>innerRef</code> か <code>ref</code> を{" "}
-            <code>register</code> に公開します。
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>{" "}
+            に公開します。
             <code>react-select</code> や <code>react-datepicker</code>{" "}
-            などのより複雑なコンポーネントの場合、 <code>setValue</code>{" "}
-            を使用して値を手動で更新したり、<code>setError</code>{" "}
+            などのより複雑なコンポーネントの場合、{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            を使用して値を手動で更新したり、
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>{" "}
             を使用してエラーをトリガーすることができます。
           </p>
         </>
@@ -423,13 +484,31 @@ export default {
     },
     zh: {
       title: "使用UI库",
-      description: (
+      description: currentLanguage => (
         <>
           <p>React Hook Form 使得它易于与外部UI组件库集成。</p>
           <p>
             大多数UI库都会将内部<code>innerRef</code>或者<code>Ref</code>
-            公开给注册。 对于像react-selector和
-            react-datepicker这样更复杂的组件，您可以通过setValue手动更新值或通过setError触发错误。
+            公开给注册
+            <code>
+              <Link to={translateLink("api#register", currentLanguage)}>
+                register
+              </Link>
+            </code>
+            。 对于像react-selector和
+            react-datepicker这样更复杂的组件，您可以通过
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>
+            手动更新值或通过
+            <code>
+              <Link to={translateLink("api#setError", currentLanguage)}>
+                setError
+              </Link>
+            </code>
+            触发错误。
           </p>
         </>
       ),
@@ -441,8 +520,8 @@ export default {
       description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
     },
     kr: {
-      title: "Integrate global state",
-      description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
+      title: "전역 상태와 사용하기",
+      description: `React Hook Form 으로 데이터를 저장하기 위해 반드시 상태 관리 솔루션을 사용할 필요는 없지만, 쉽게 조합할 수는 있습니다.`,
     },
     jp: {
       title: "グローバルな状態に統合する",
@@ -464,11 +543,11 @@ export default {
       ),
     },
     kr: {
-      title: "Handle errors",
+      title: "에러 처리하기",
       description: (
         <>
-          React Hook Form provides an <code>errors</code> object to show you the
-          errors within the form.
+          React Hook Form 은 폼 안의 에러를 보여주는 <code>errors</code> 객체를
+          제공합니다.
         </>
       ),
     },

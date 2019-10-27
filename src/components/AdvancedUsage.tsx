@@ -9,6 +9,7 @@ import SideMenu from "./SideMenu"
 import { Container, Wrapper } from "../styles/containers"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
+import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
 import copyClipBoard from "./utils/copyClipBoard"
 import { CopyButton, InstallCode } from "./GetStarted"
 import schemaValidation from "./codeExamples/schemaValidation"
@@ -32,6 +33,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     ConnectForm: null,
     FormContextPerformance: null,
     ErrorMessage: null,
+    ConditionalControlledComponent: null,
   })
 
   const {
@@ -51,6 +53,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.errorMessage,
     advanced.connectForm,
     advanced.formContext,
+    advanced.conditionalControlledComponent,
   ]
 
   const goToSection = name => {
@@ -226,6 +229,18 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           {advanced.formContext[currentLanguage].description}
 
           <CodeArea rawData={formContextPerformance} />
+
+          <hr/>
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.ConditionalControlledComponent = ref)}
+          >
+            {advanced.conditionalControlledComponent[currentLanguage].title}
+          </QuestionTitle>
+
+          {advanced.conditionalControlledComponent[currentLanguage].description}
+
+          <CodeArea rawData={unregisterControlledComponent} url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990" />
 
           <StarRepo currentLanguage={currentLanguage} />
 

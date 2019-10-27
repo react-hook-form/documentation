@@ -81,6 +81,10 @@ const ActionButtonGroup = styled.nav`
       border-left: 0;
     }
 
+    &:hover {
+      color: ${colors.lightPink};
+    }
+
     & > span {
       display: block;
       height: 20px;
@@ -156,6 +160,10 @@ const LangsSelect = styled.div`
     border-radius: 3px;
     padding-left: 10px;
     cursor: pointer;
+
+    &:hover {
+      border: 1px solid ${colors.secondary};
+    }
 
     > option {
       color: black;
@@ -260,9 +268,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="zh">简体中文</option>
           <option value="jp" disabled>
             日本语
-          </option>
-          <option value="fr" disabled>
-            Français
           </option>
           <option value="kr" disabled>
             한국어

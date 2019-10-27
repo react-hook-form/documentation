@@ -21,7 +21,7 @@ import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
-import { Container, Wrapper } from "../styles/containers"
+import { CenterContent, Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
 import typeScript from "./codeExamples/typeScript"
 import trigger from "./codeExamples/trigger"
@@ -37,6 +37,7 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import api from "../data/api"
+import StarRepo from "./StarRepo"
 
 const { useRef, useEffect } = React
 
@@ -455,6 +456,20 @@ function ApiPage({
                   <td>
                     <TableH5>
                       <code>
+                        validationSchemaOption: <br />
+                        <MobileType>Object</MobileType>
+                      </code>
+                    </TableH5>
+                  </td>
+                  <td>
+                    <p>{api.useForm[currentLanguage].validationSchemaOption}</p>
+                  </td>
+                  <td />
+                </tr>
+                <tr>
+                  <td>
+                    <TableH5>
+                      <code>
                         reValidateMode: <br />
                         <MobileType>
                           onChange | onBlur | onSubmit = onChange
@@ -632,6 +647,14 @@ function ApiPage({
             </h2>
           </CodeHeading>
           {api.setError[currentLanguage].description}
+
+          <CodeArea
+            rawData={setError}
+            url="https://codesandbox.io/s/o7rxyym3q5"
+          />
+
+          <hr />
+
           <CodeHeading
             ref={ref => {
               // @ts-ignore
@@ -644,11 +667,6 @@ function ApiPage({
             </h2>
           </CodeHeading>
           {api.clearError[currentLanguage].description}
-
-          <CodeArea
-            rawData={setError}
-            url="https://codesandbox.io/s/o7rxyym3q5"
-          />
 
           <hr />
 
@@ -805,11 +823,7 @@ function ApiPage({
             url="https://codesandbox.io/s/get-form-values-xjepz"
           />
 
-          <section
-            style={{
-              textAlign: "center",
-            }}
-          >
+          <CenterContent>
             <H1>{generic.advanceUsage[currentLanguage].title}</H1>
             <p>{generic.advanceUsage[currentLanguage].description}</p>
             <PrimaryButton
@@ -820,7 +834,7 @@ function ApiPage({
             >
               {generic.advanceUsage[currentLanguage].buttonText}
             </PrimaryButton>
-          </section>
+          </CenterContent>
           <Footer currentLanguage={currentLanguage} />
         </main>
       </Wrapper>

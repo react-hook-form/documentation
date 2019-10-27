@@ -148,7 +148,7 @@ const Faq = ({
             {getStarted.applyValidation[currentLanguage].title}
           </Title>
 
-          {getStarted.applyValidation[currentLanguage].description}
+          {getStarted.applyValidation[currentLanguage].description(currentLanguage)}
 
           <CodeArea rawData={applyValidation} />
 
@@ -172,7 +172,7 @@ const Faq = ({
             {getStarted.workWithUI[currentLanguage].title}
           </Title>
 
-          {getStarted.workWithUI[currentLanguage].description}
+          {getStarted.workWithUI[currentLanguage].description(currentLanguage)}
 
           <CodeArea
             rawData={uiLibrary}

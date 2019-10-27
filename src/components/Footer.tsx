@@ -9,7 +9,7 @@ import translateLink from "./logic/translateLink"
 const Footer = styled.footer`
   padding: 40px 0;
   font-size: 0.8rem;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 60px;
   text-align: center;
 
@@ -76,6 +76,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
           {nav[currentLanguage].faqs}
         </Link>
       </li>
+      <li>
+        <Link to={translateLink("/resources", currentLanguage)}>
+          {nav[currentLanguage].resources}
+        </Link>
+      </li>
     </Links>
     <p>
       Design and Build by{" "}
@@ -115,6 +120,19 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
         Little State Machine
       </a>
     </p>
+    {currentLanguage === "kr" && (
+      <p>
+        에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
+        <a href="https://github.com/iamchanii">@iamchanii</a> and{" "}
+        <a href="https://github.com/adhrinae">@adhrinae</a>
+      </p>
+    )}
+    {currentLanguage === "jp" && (
+      <p>
+        によって翻訳されました{" "}
+        <a href="https://github.com/kotarella1110">@kotarella1110</a>.
+      </p>
+    )}
     <p style={{ fontSize: 12 }}>
       [ {generic.support[currentLanguage]}{" "}
       <a
