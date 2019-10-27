@@ -16,7 +16,7 @@ export default {
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy-to-use validation.",
-    kr: "뛰어난 성능과 유연성, 확장성을 갖춘 폼을 손쉽게 만들 수 있습니다.",
+    kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
     zh: "高性能、灵活、易拓展、易于使用的表单校验库。",
@@ -77,7 +77,7 @@ export default {
     kr: [
       {
         title: "DX",
-        description: `직관적이고 완전히 기능적인 API를 통해 폼을 만드는 개발자들에게 우수한 경험을 제공합니다.`,
+        description: `직관적이고 완벽한 기능의 API를 통해 폼을 만드는 개발자들에게 우수한 경험을 제공합니다.`,
       },
       {
         title: "HTML 표준",
@@ -92,7 +92,7 @@ export default {
         description: `렌더링 횟수를 최소화하고 마운트 속도를 높여 최고의 사용자 경험을 제공하기 위해 노력하고 있습니다.`,
       },
       {
-        title: "적응성",
+        title: "사용성",
         description: `폼 상태는 로컬에서 관리되기 때문에 다른 의존성 없이 쉽게 사용할 수 있습니다.`,
       },
     ],
@@ -212,12 +212,12 @@ export default {
       ),
     },
     kr: {
-      title: "빠른 마운트 속도",
+      title: "더욱 빠른 마운트 속도",
       description: (
         <p>
           아래 결과는 컴포넌트를 렌더링하고 마운트하는데 걸린 시간을 보여줍니다.
           결과는 Chrome Dev Tool의 Performance 탭에서 CPU 성능을 6배 낮춘
-          환경에서 캡쳐하였습니다. 실행한 코드는 상단의{" "}
+          환경에서 측정하였습니다. 실행한 코드는 상단의{" "}
           <a href="#codeComparison">라이브러리 코드 비교</a> 섹션에서
           가져왔습니다.
         </p>
@@ -316,13 +316,13 @@ export default {
       title: "라이브 데모",
       description: (
         <>
-          아래 폼은 실행중인 폼 검증을 보여줍니다. 각 열은 커스텀 훅에서 캡쳐된
+          아래 폼은 실행중인 폼 검증을 보여줍니다. 각 열은 커스텀 훅에서 측정된
           내용을 보여줍니다.
           <br />
           <strong>수정</strong> 버튼을 클릭하여 폼 필드를 수정할 수 있습니다.
         </>
       ),
-      submit: "제출",
+      submit: "확인",
       watchTitle: "감시",
       errorTitle: "오류",
       touchedTitle: "변경됨",
