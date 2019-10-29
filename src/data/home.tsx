@@ -99,15 +99,15 @@ export default {
     jp: [
       {
         title: "DX",
-        description: `直感的で完全な API はフォームを構築する際に開発者に最高のエクスペリエンスの提供します。`,
+        description: `直感的で完全な API はフォームを構築する際に開発者に優れたエクスペリエンスの提供します。`,
       },
       {
         title: "HTML 標準",
-        description: `既存の HTML を活用し、Constraint Validation API でフォームバリデーションを開始します。`,
+        description: `既存の HTML マークアップを活用し、Constraint Validation API でフォームバリデーションを開始します。`,
       },
       {
         title: "超軽量",
-        description: `パフォーマンスは重要であり、パッケージのサイズも重要です。依存関係のない小さなライブラリです。`,
+        description: `パッケージのサイズもパフォーマンス同様に重要です。依存関係のない小さなライブラリです。`,
       },
       {
         title: "パフォーマンス",
@@ -115,7 +115,7 @@ export default {
       },
       {
         title: "適応性",
-        description: `フォームの状態はローカルベースのため、他の依存関係なしで簡単に使用できます。`,
+        description: `フォームの状態は、ローカルで管理されるため、他に依存せず簡単に使用できます。`,
       },
     ],
     zh: [
@@ -153,7 +153,7 @@ export default {
     },
     jp: {
       title: "ライブラリのコード比較",
-      description: `コードの記述量を減らすことは、React Hook Form の主な目標の1つです。それを説明するために、最も一般的なフォームバリデーションライブラリの非常にシンプルなバリデーションを見てみましょう。`,
+      description: `コードの記述量を減らすことは、React Hook Form の主な目標の1つです。これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にシンプルなバリデーションを見てみましょう。`,
     },
     zh: {
       title: "库代码比较",
@@ -173,8 +173,8 @@ export default {
     },
     jp: {
       title: "レンダリングを削減",
-      description: `ユーザーによってトリガーされたコンポーネントの再レンダリング数を考えたことはありますか？ React Hook Form は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。`,
-      totalReRender: "Total re-renders:",
+      description: `ユーザーによってどのくらいコンポーネントが再レンダリングされたか気になったことはありますか？ React Hook Form は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。`,
+      totalReRender: "全体のレンダリング回数： ",
     },
     zh: {
       title: "减少Rendering",
@@ -244,15 +244,15 @@ export default {
       description: (
         <p>
           次の結果は、コンポーネントのレンダリングにかかった時間を示しています。
-          Chrome DevTools の Performance タブを使用して、CPU
-          が6倍低速化した環境でキャプチャされた結果です。 実行コードは上記の
+          Chrome DevTools の Performance タブを使用して、
+          CPU のパフォーマンスを6倍低速化させた環境での測定結果です。 実行コードは上記の
           <a href="#codeComparison">ライブラリのコード比較</a>
           セクションのものです。
         </p>
       ),
-      totalMount: "No. of mount(s)",
-      totalChange: "No. of committing change(s)",
-      totalTime: "Total time",
+      totalMount: "マウント数",
+      totalChange: "変更コミット数",
+      totalTime: "合計時間",
       performanceTests: (
         <>
           <span style={{ fontSize: 20 }}>⚠</span>{" "}
@@ -345,7 +345,7 @@ export default {
       watchTitle: "監視",
       errorTitle: "エラー",
       touchedTitle: "タッチ",
-      watch: "監視されている値を表示するためには入力値を変更します。",
+      watch: "監視されている値を表示するには入力値を変更します。",
       error: "ここにバリデーションエラーが表示されます。",
       touched: "タッチされたフィールドがここに表示されます。",
     },
