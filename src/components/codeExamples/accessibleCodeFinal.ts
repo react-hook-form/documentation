@@ -21,7 +21,7 @@ export default function App() {
       />
       {errors.name && errors.name.type === "required" && (
         {/* the id field is used to associated with aria-describedby*/}
-        <span role="alert" id="error-field-required">
+        <span role="alert" id="error-name-required">
           This is required
         </span>
       )}
