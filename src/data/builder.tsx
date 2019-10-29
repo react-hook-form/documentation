@@ -68,7 +68,7 @@ export default {
     },
     jp: {
       title: "Input クリエーター",
-      description: `このフォームは Input 要素を作成・編集できます。フォームを生成ボタンをクリックすると、更新された新しいフォームが作成されます。`,
+      description: `このフォームは input を作成・編集できます。フォームを生成ボタンをクリックすると、更新された新しいフォームが作成されます。`,
       message: "You can start adding fields with Input Creator.",
       options: "オプション",
       validation: "バリデーションを表示",
@@ -94,7 +94,7 @@ export default {
     },
     jp: {
       title: "コード",
-      description: `フォームに変更を加えると部分的にコードが更新されます。コードをコピーすることもできます。`,
+      description: `フォームに変更を加えるとコードセクションが更新されます。コードセクション内のコードをコピーすることもできます。`,
     },
     zh: {
       title: "代码",

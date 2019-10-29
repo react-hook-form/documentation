@@ -9,7 +9,7 @@ export default {
   title: {
     en: "Get Started",
     kr: "시작하기",
-    jp: "始める",
+    jp: "はじめる",
     zh: "起步",
   },
   header: {
@@ -41,7 +41,7 @@ export default {
     },
     jp: {
       title: "ビデオチュートリアル",
-      description: `このビデオチュートリアルでは、React Hook Form の基本的な使用法とコンセプトを示しました。`,
+      description: `このビデオチュートリアルでは、React Hook Form の基本的な使用法とコンセプトを説明します。`,
     },
     zh: {
       title: "视频教程",
@@ -63,7 +63,7 @@ export default {
       linkTitle: "クイックスタート",
       title: "インストール",
       description:
-        "React Hook Form をインストールするためのコマンドは1つだけで、準備が整います。",
+        "React Hook Form 1つのインストールコマンドだけで、準備が整います。",
     },
     zh: {
       linkTitle: "安装",
@@ -144,28 +144,34 @@ export default {
       ),
     },
     jp: {
-      title: "レジスターフィールド",
+      title: "フィールドを登録する",
       description: (
         <>
           <p>
-            React Hook Form
-            の重要なコンセプトの一つは非制御コンポーネントをフックに{" "}
+            React Hook Form の重要なコンセプトの一つは、非制御コンポーネント (
+              <a
+              href="https://reactjs.org/docs/uncontrolled-components.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Uncontrolled Components
+            </a>
+            ) を{" "}
             <strong>
               <code>register</code>
             </strong>{" "}
-            可能で、その値をフォームの送信用に検証と収集できるようにすることです。
+            を介してフックに接続して、フォームフィールドの値を検証と収集できるようにすることです。
           </p>
 
           <p>
             <Note>注意：</Note>{" "}
-            各フィールドには登録プロセスのキーとしてユニークな <code>name</code>{" "}
-            が<strong>必須</strong>です。
+            各フィールドには登録プロセスの key で使用するためユニークな <code>name</code>{" "}
+            属性が<strong>必須</strong>です。
           </p>
 
           <p>
-            <Note>注意：</Note>React Native は manual register
-            を使用する必要があります。 (例：{" "}
-            <code>{`register({ name: 'test' }, { required: true })`}</code>
+            <Note>注意：</Note>React Native は手動で register する必要があります。{" "}
+            (例： <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
       ),
@@ -457,13 +463,13 @@ export default {
           </p>
           <p>
             <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
-            ライブラリは <code>innerRef</code> か <code>ref</code> を{" "}
+            ライブラリは <code>innerRef</code> か <code>ref</code> に{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
             </code>{" "}
-            に公開します。
+            を適用することができます。
             <code>react-select</code> や <code>react-datepicker</code>{" "}
             などのより複雑なコンポーネントの場合、{" "}
             <code>
