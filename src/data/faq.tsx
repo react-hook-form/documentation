@@ -216,7 +216,7 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and try to provide your form
+              built with uncontrolled input in mind and tries to provide your form
               with best performance and least re-render if possible. On top of
               that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
@@ -547,7 +547,7 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and try to provide your form
+              built with uncontrolled input in mind and tries to provide your form
               with best performance and least re-render if possible. On top of
               that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
@@ -878,7 +878,7 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and try to provide your form
+              built with uncontrolled input in mind and tries to provide your form
               with best performance and least re-render if possible. On top of
               that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
