@@ -17,6 +17,10 @@ import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
 import faq from "../data/faq"
 import { useStateMachine } from "little-state-machine"
+import { Table, TableWrapper } from "./ApiPage"
+import generic from "../data/generic"
+import api from "../data/api"
+import colors from "../styles/colors"
 
 const { useRef } = React
 
@@ -46,6 +50,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question8: null,
     question9: null,
     question10: null,
+    question11: null,
   })
 
   const goToSection = (name, index) => {
@@ -172,6 +177,12 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           </InstallCode>
 
           <hr />
+
+          <QuestionTitle ref={ref => (sectionsRef.current.question11 = ref)}>
+            {faq.questions[currentLanguage][10].title}
+          </QuestionTitle>
+
+          {faq.questions[currentLanguage][10].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

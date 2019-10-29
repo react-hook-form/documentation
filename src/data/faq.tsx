@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Note } from "../styles/typography"
+import { Table, TableWrapper } from "../components/ApiPage"
+import colors from "../styles/colors"
 
 export default {
   title: {
@@ -206,6 +208,157 @@ export default {
           </p>
         ),
       },
+      {
+        title: "React Hook Form, Formik or Redux Form?",
+        description: (
+          <>
+            <p>
+              First of all, all libs try to solve the same problem which is
+              making form building experience easy and great. However, there are
+              some fundamental differences between the three, react-hook-form is
+              built with uncontrolled input in mind and try to provide your form
+              with best performance and least re-render if possible. On top of
+              that, react-hook-form is built by React Hook and used as hook,
+              which means there is no Component for you to import. Here are some
+              of the detail differences:
+            </p>
+
+            <TableWrapper>
+              <Table>
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                    <th width={200}></th>
+                    <th>
+                      <p>React Hook Form</p>
+                    </th>
+                    <th>
+                      <p>Formik</p>
+                    </th>
+                    <th>
+                      <p>Redux Form</p>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <b>Component</b>
+                    </td>
+                    <td>
+                      <a>
+                        <a
+                          href="https://reactjs.org/docs/uncontrolled-components.html"
+                          target="_blank"
+                        >
+                          uncontrolled
+                        </a>
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Rendering</b>
+                    </td>
+                    <td>minimum re-render</td>
+                    <td>
+                      re-render according to local state changes which means as
+                      you type in the input.
+                    </td>
+                    <td>
+                      re-render according to state management lib (Redux)
+                      changes which means as you type in the input.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>API</b>
+                    </td>
+                    <td>Hooks</td>
+                    <td>Component (RenderProps, Form, Field) + Hooks</td>
+                    <td>Component (RenderProps, Form, Field)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Package Size</b>
+                    </td>
+                    <td>
+                      Small
+                      <br />
+                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                    </td>
+                    <td>
+                      Medium
+                      <br />
+                      <code>formik@2.0.1: 14.4KB</code>
+                    </td>
+                    <td>
+                      Large
+                      <br />
+                      <code>redux-form@8.2.6: 27KB</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Validation</b>
+                    </td>
+                    <td>
+                      Built-in &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>
+                      Build your own &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>Build your own & Plugins</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Learning curve</b>
+                    </td>
+                    <td>Low</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Status</b>
+                    </td>
+                    <td>Small Community: New lib</td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </TableWrapper>
+          </>
+        ),
+      },
     ],
     kr: [
       {
@@ -384,6 +537,157 @@ export default {
             </a>
             에서 불러오세요.
           </p>
+        ),
+      },
+      {
+        title: "React Hook Form, Formik or Redux Form?",
+        description: (
+          <>
+            <p>
+              First of all, all libs try to solve the same problem which is
+              making form building experience easy and great. However, there are
+              some fundamental differences between the three, react-hook-form is
+              built with uncontrolled input in mind and try to provide your form
+              with best performance and least re-render if possible. On top of
+              that, react-hook-form is built by React Hook and used as hook,
+              which means there is no Component for you to import. Here are some
+              of the detail differences:
+            </p>
+
+            <TableWrapper>
+              <Table>
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                    <th width={200}></th>
+                    <th>
+                      <p>React Hook Form</p>
+                    </th>
+                    <th>
+                      <p>Formik</p>
+                    </th>
+                    <th>
+                      <p>Redux Form</p>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <b>Component</b>
+                    </td>
+                    <td>
+                      <a>
+                        <a
+                          href="https://reactjs.org/docs/uncontrolled-components.html"
+                          target="_blank"
+                        >
+                          uncontrolled
+                        </a>
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Rendering</b>
+                    </td>
+                    <td>minimum re-render</td>
+                    <td>
+                      re-render according to local state changes which means as
+                      you type in the input.
+                    </td>
+                    <td>
+                      re-render according to state management lib (Redux)
+                      changes which means as you type in the input.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>API</b>
+                    </td>
+                    <td>Hooks</td>
+                    <td>Component (RenderProps, Form, Field) + Hooks</td>
+                    <td>Component (RenderProps, Form, Field)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Package Size</b>
+                    </td>
+                    <td>
+                      Small
+                      <br />
+                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                    </td>
+                    <td>
+                      Medium
+                      <br />
+                      <code>formik@2.0.1: 14.4KB</code>
+                    </td>
+                    <td>
+                      Large
+                      <br />
+                      <code>redux-form@8.2.6: 27KB</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Validation</b>
+                    </td>
+                    <td>
+                      Built-in &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>
+                      Build your own &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>Build your own & Plugins</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Learning curve</b>
+                    </td>
+                    <td>Low</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Status</b>
+                    </td>
+                    <td>Small Community: New lib</td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </TableWrapper>
+          </>
         ),
       },
     ],
@@ -566,6 +870,157 @@ export default {
           </p>
         ),
       },
+      {
+        title: "React Hook Form, Formik or Redux Form?",
+        description: (
+          <>
+            <p>
+              First of all, all libs try to solve the same problem which is
+              making form building experience easy and great. However, there are
+              some fundamental differences between the three, react-hook-form is
+              built with uncontrolled input in mind and try to provide your form
+              with best performance and least re-render if possible. On top of
+              that, react-hook-form is built by React Hook and used as hook,
+              which means there is no Component for you to import. Here are some
+              of the detail differences:
+            </p>
+
+            <TableWrapper>
+              <Table>
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                    <th width={200}></th>
+                    <th>
+                      <p>React Hook Form</p>
+                    </th>
+                    <th>
+                      <p>Formik</p>
+                    </th>
+                    <th>
+                      <p>Redux Form</p>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <b>Component</b>
+                    </td>
+                    <td>
+                      <a>
+                        <a
+                          href="https://reactjs.org/docs/uncontrolled-components.html"
+                          target="_blank"
+                        >
+                          uncontrolled
+                        </a>
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Rendering</b>
+                    </td>
+                    <td>minimum re-render</td>
+                    <td>
+                      re-render according to local state changes which means as
+                      you type in the input.
+                    </td>
+                    <td>
+                      re-render according to state management lib (Redux)
+                      changes which means as you type in the input.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>API</b>
+                    </td>
+                    <td>Hooks</td>
+                    <td>Component (RenderProps, Form, Field) + Hooks</td>
+                    <td>Component (RenderProps, Form, Field)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Package Size</b>
+                    </td>
+                    <td>
+                      Small
+                      <br />
+                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                    </td>
+                    <td>
+                      Medium
+                      <br />
+                      <code>formik@2.0.1: 14.4KB</code>
+                    </td>
+                    <td>
+                      Large
+                      <br />
+                      <code>redux-form@8.2.6: 27KB</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Validation</b>
+                    </td>
+                    <td>
+                      Built-in &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>
+                      Build your own &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>Build your own & Plugins</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Learning curve</b>
+                    </td>
+                    <td>Low</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Status</b>
+                    </td>
+                    <td>Small Community: New lib</td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                    <td>
+                      Large Community: Well established form lib in the
+                      community
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </TableWrapper>
+          </>
+        ),
+      },
     ],
     zh: [
       {
@@ -729,6 +1184,143 @@ export default {
             </a>
             文件。
           </p>
+        ),
+      },
+      {
+        title: "React Hook Form, Formik 或者 Redux Form?",
+        description: (
+          <>
+            <p>
+              首先，他们都在尝试解决同样的问题，使表单变的简单。
+              然而，三者之间的一些根本性区别，react-hook-form是
+              建立在不受控制的输入，并尝试提供您的表单
+              具有最佳性能和最少重新render。react-hook-form是由React
+              Hook构建并用作hook, 这意味着没有组件供您导入。
+              这里有一些的细节差异:
+            </p>
+
+            <TableWrapper>
+              <Table>
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                    <th width={200}></th>
+                    <th>
+                      <p>React Hook Form</p>
+                    </th>
+                    <th>
+                      <p>Formik</p>
+                    </th>
+                    <th>
+                      <p>Redux Form</p>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <b>Component</b>
+                    </td>
+                    <td>
+                      <a>
+                        <a
+                          href="https://reactjs.org/docs/uncontrolled-components.html"
+                          target="_blank"
+                        >
+                          uncontrolled
+                        </a>
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://reactjs.org/docs/forms.html"
+                        target="_blank"
+                      >
+                        controlled
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Rendering</b>
+                    </td>
+                    <td>最少的re-render</td>
+                    <td>您键入输入将重新启动render。</td>
+                    <td>您键入输入将重新启动render。</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>API</b>
+                    </td>
+                    <td>Hooks</td>
+                    <td>Component (RenderProps, Form, Field) + Hooks</td>
+                    <td>Component (RenderProps, Form, Field)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Package Size</b>
+                    </td>
+                    <td>
+                      小
+                      <br />
+                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                    </td>
+                    <td>
+                      中
+                      <br />
+                      <code>formik@2.0.1: 14.4KB</code>
+                    </td>
+                    <td>
+                      大
+                      <br />
+                      <code>redux-form@8.2.6: 27KB</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>验证</b>
+                    </td>
+                    <td>
+                      自带验证 &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>
+                      自己建立验证 &{" "}
+                      <a href="https://github.com/jquense/yup" target="_blank">
+                        Yup
+                      </a>
+                    </td>
+                    <td>Build your own & Plugins</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Learning curve</b>
+                    </td>
+                    <td>低</td>
+                    <td>中</td>
+                    <td>中</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>状态</b>
+                    </td>
+                    <td>小社区</td>
+                    <td>大社区</td>
+                    <td>大社区</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </TableWrapper>
+          </>
         ),
       },
     ],

@@ -55,6 +55,7 @@ export const CodeHeading = styled.code`
 
 export const Table = styled.table`
   margin-top: 20px;
+  border-collapse: collapse;
 
   td {
     padding: 10px 20px 10px 0;
