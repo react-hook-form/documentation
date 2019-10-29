@@ -14,7 +14,7 @@ export default {
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
-      jp: "",
+      jp: "React Hook Form は API をシンプルにすることにより最高の DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
@@ -289,14 +289,13 @@ export default {
       title: "useForm",
       intro: (
         <>
-          By invoking <code>useForm</code>, you will receive the following
-          methods{" "}
+          <code>useForm</code> を呼び出すことにより、次のメソッドを受け取りことができます。{" "}
         </>
       ),
       description: (
         <p>
-          <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrates all options' default value.
+          <code>useForm</code> は<b>省略可能</b>な引数もあります。
+          次の例は全てのオプションのデフォルト値を示します。
         </p>
       ),
       validationSchemaOption: (
@@ -316,105 +315,92 @@ export default {
       ),
       validateOnSubmit: (
         <>
-          Validation will trigger on the <code>submit</code> event and invalid
-          inputs will attach <code>onChange</code> event listeners to
-          re-validate them.
+          <code>submit</code> イベントからバリデーションがトリガーされ、
+          無効な input を再度バリデーションするには、その input に <code>onChange</code> イベントリスナーをアタッチします。
         </>
       ),
       validateOnBlur: (
         <>
-          Validation will trigger on the <code>blur</code> event.
+          <code>blur</code> イベントからバリデーションがトリガーされます。
         </>
       ),
       validateOnChange: (
         <>
-          Validation will trigger on the <code>change</code> event with each
-          input, and lead to multiple re-renders. Not recommended: Consider this
-          as a bad performance practice.
+          入力の度に <code>change</code> イベントからバリデーションがトリガーされ、複数の再レンダリングが行われます。
+          非推奨: これをパフォーマンスの悪い習慣と考えてください。
         </>
       ),
       defaultValues: goToSection => (
         <>
           <p>
-            You can set the input's default value with{" "}
-            <code>defaultValue/defaultChecked</code>{" "}
+            <code>defaultValue/defaultChecked</code> を使用して input のデフォルト値を設定するか{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more from the React doc for Default Values)
-            </Link>{" "}
-            or pass <code>defaultValues</code> as an optional argument to
-            populate default values for the entire form.
+              (デフォルト値の詳細については React ドキュメントを参照)
+            </Link> 、
+            <code>defaultValues</code> を省略可能な引数として渡してフォーム全体のデフォルト値を設定することができます。
           </p>
 
           <p>
-            <Note>Note:</Note> Values defined in <code>defaultValues</code> will
-            be injected into{" "}
-            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
-            as <code>defaultValue</code>.
+            <Note>注意：</Note> <code>defaultValues</code> で定義された値は <code>defaultValue</code> として <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> に注入されます。
           </p>
 
           <p>
-            <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with the manually registered input (eg:{" "}
-            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
-            <code>register</code> field does not provide the <code>ref</code> to
-            React Hook Form.
+            <Note>注意：</Note> <code>defaultValues</code> はマニュアル register された input (例: <code>{`register({ name: 'test' })`}</code>) に自動でデフォルト値を設定しません。
+            これは、手動 <code>register</code> フィールドが React Hook Form への <code>ref</code> を用意していないためです。
           </p>
         </>
       ),
       validationSchema: goToSection => (
         <p>
-          Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer to the{" "}
+          スキーマレベルで <code>Yup</code> を使用してフォームバリデーションルールを適用します。
+          {" "}
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
-          section.
+          セクションを参照してください。
         </p>
       ),
       reValidateMode: (
         <p>
-          This option allows you to configure when inputs with errors getd
-          re-validated (by default, validation is triggered during an input
-          change.)
+          このオプションを使用すると、エラーのある input が再度バリデーションされるタイミングを設定できます。{" "}
+          (デフォルトでは、入力変更時にバリデーションがトリガーされます。)
         </p>
       ),
       validationFields: (
         <p>
-          Providing an array of fields means only included fields will be
-          validated. This option is useful when you want to toggle which fields
-          are required to validate.
+          フィールドの配列を指定すると、含まれているフィールドのみがバリデーションが行われます。
+          このオプションは、バリデーションが必要なフィールドを切り替えたい時に便利です。
         </p>
       ),
       submitFocusError: (
         <>
           <p>
-            By default when the user submits a form and that contains an error,
-            the first field with an error will be focused.
+            デフォルトでは、ユーザーがフォームを送信してそのフォームにエラーが含まれている時、
+            エラーのある最初のフィールドがフォーカスされます。
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with a <code>ref</code>{" "}
-            will work. Manually registered inputs won't work. eg:{" "}
+            <Note>注意：</Note> <code>ref</code> を持つ register フィールドのみが機能します。
+            マニュアル register された input では機能しません。例：{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
         </>
       ),
       nativeValidation: goToSection => (
         <p>
-          Setting this option to <code>true</code> will enable the browser's
-          native validation. You can{" "}
+          このオプションを <code>true</code> に設定すると、ブラウザーネイティブバリデーションが有効になります。
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
           >
-            find out more about the built-in browser validation
+            ビルトインブラウザーバリデーションの詳細を確認
           </a>
-          , and refer to the{" "}
+          できます。詳細と例については{" "}
           <CodeAsLink onClick={() => goToSection("nativeValidation")}>
             nativeValidation
           </CodeAsLink>{" "}
-          section for more details and examples.
+          セクションを参照してください。
         </p>
       ),
     },
@@ -577,12 +563,11 @@ export default {
       description: (
         <>
           <p>
-            This method will allow you to <code>unregister</code> a single input
-            or an array of inputs.
+            このメソッドでは、単一の input または input の配列の登録を <code>unregister</code> できます。
           </p>
           <p>
-            <Note>Note:</Note> When you unregister an input, its value will no
-            longer be included in the form data that gets submitted.
+            <Note>注意：</Note> input を unregister すると、
+            その値は送信されたフォームデータに含まれなくなります。
           </p>
         </>
       ),
@@ -804,18 +789,15 @@ export default {
       description: (
         <>
           <p>
-            This method allows you to register input/select <code>Ref</code> and
-            validation rules into React Hook Form.
+            このメソッドを使用すると、input/select の <code>Ref</code> とバリデーションルールを React Hook Form に登録できます。
           </p>
           <p>
-            Validation rules are all based on HTML standard and also allow
-            custom validation.
+            バリデーションルールは全て HTML 標準に基づいており、カスタムバリデーションも可能です。
           </p>
           <p>
-            <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also supports dot and bracket syntax,
-            which allows you to easily create nested form fields. Example table
-            is below:
+            <Note>重要：</Note> <code>name</code> は <b>必須</b> かつ <b>ユニーク</b>です。
+            input の name はドット記法およびブラケット記法もサポートしているため、
+            ネストされたフォームフィールドを簡単に作成できます。例は以下の通りです：
           </p>
         </>
       ),
@@ -826,48 +808,46 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          If you working on <code>arrays/array fields</code>, you can assign an
-          input name as <code>name[index]</code>.{" "}
+          <code>arrays/array fields</code> を使用する場合、input の name を <code>name[index]</code> のように割り当てることができます。
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
           >
-            Check out the Field Array example
+            フィールド配列の例を確認してください
           </Link>
-          .
+          。
         </p>
       ),
-      example: "Submit Result",
+      example: "フォームの送信結果",
       selectHelp:
-        "By selecting the register option, the API table below will get updated.",
+        "register オプションを選択すると、以下の API テーブルが更新されます。",
       options: {
-        title: "Register options",
-        registerWithValidation: "Register with validation",
+        title: "register オプション",
+        registerWithValidation: "バリデーションで Register",
         registerWithValidationMessage:
-          "Register with validation and error message",
+          "バリデーションとエラーメッセージで Register",
         note: goToSection => (
           <>
-            <Title>Custom Register</Title>
+            <Title>カスタム register</Title>
             <p>
-              You can also register inputs manually, which is useful when
-              working with custom components and <code>Ref</code> is not
-              accessible. This is actually the case when you are working with
-              React Native or custom component like{" "}
+              また、input を手動で登録することもできます。
+              これは、カスタムコンポーネントを操作していて <code>Ref</code> にアクセスできない場合に便利です。
+              React Native や{" "}
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 react-select
-              </a>
-              .
+              </a>{" "}
+              のようなカスタムコンポーネントを使用している場合がこれに該当します。
             </p>
 
             <p>
-              By using a custom register call, you will need to update the input
-              value with{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>,
-              because input is no longer registered with its ref.
+              カスタム register の呼び出しを使用すると、
+              input は ref に register されなくなるため、
+              <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
+              で入力値を更新する必要があります。
             </p>
 
             <p>
@@ -875,9 +855,8 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want the custom registered input to
-              trigger a re-render during its value update, then you should give
-              a type to your registered input.
+              <Note>注意：</Note> カスタム register された input で値の更新中に再レンダリングをトリガーしたい場合は、
+              register した input に type を指定する必要があります。
             </p>
           </>
         ),
@@ -885,17 +864,16 @@ export default {
       validation: {
         required: (
           <>
-            A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. You can assign a string to return
-            an error message in the <code>errors</code> object.
+            Boolean の値。true の場合、フォームを送信する前に入力値が必須であることを示します。
+            <code>errors</code> オブジェクトにエラーメッセージを返す文字列を割り当てることができます。
           </>
         ),
-        maxLength: "The maximum length of the value to accept for this input.",
-        minLength: "The minimum length of the value to accept for this input.",
-        max: "The maximum value to accept for this input.",
-        min: "The minimum value to accept for this input.",
-        pattern: "The regex pattern for the input.",
-        validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+        maxLength: "input が受け付ける最大文字数。",
+        minLength: "input が取りうる妥当と判断される最小文字数。",
+        max: "input が受け付ける最大数。",
+        min: "input が取りうる妥当と判断される最小数。",
+        pattern: "input の内容が一致する必要がある正規表現。",
+        validate: `引数として、単一のバリデーションを行うためにはコールバック関数を渡すことができ、複数のバリデーションを行うためにはコールバック関数のオブジェクトを渡すことができます。 (例を参照)`,
       },
     },
     zh: {
@@ -1023,18 +1001,22 @@ export default {
     },
     jp: {
       title: "formState",
-      description: "This object contain information about the form state.",
-      dirty: "Set to true after a user interacted with any of the inputs.",
-      isSubmitted: "Set true after a user submitted the form.",
-      touched: "An array of all inputs which have been interacted.",
-      isSubmitting: (
+      description: "このオブジェクトには、フォームの状態に関する情報が含まれています。",
+      dirty: "ユーザが入力操作した後 true に設定します。",
+      isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
+      touched: (
         <>
-          During form submitting will set to <code>true</code> and after
-          submitting set to <code>false</code>
+          操作された全ての input の <code>name</code> の配列。
         </>
       ),
-      submitCount: "Number of forms submit.",
-      isValid: "Set true if doesn't have any error.",
+      isSubmitting: (
+        <>
+          フォームの送信中は <code>true</code> に設定し、
+          フォームの送信後は <code>false</code> に設定します。
+        </>
+      ),
+      submitCount: "フォームの送信回数。",
+      isValid: "エラーがない場合は true に設定します。",
     },
     zh: {
       title: "formState",
@@ -1115,23 +1097,22 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            Object contains form errors or error messages which belong to each
-            input.
+            オブジェクトには、各 input のフォームのエラーまたはエラーメッセージが含まれています。
           </p>
 
           <p>
-            <Note>Note:</Note> You can also learn recipes on{" "}
+            <Note>注意：</Note> 高度な使用法ページから{" "}
             <Link
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
             >
-              Error Message
+              エラーメッセージ
             </Link>{" "}
-            from advanced page .
+            のレシピを学ぶこともできます。
           </p>
         </>
       ),
-      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
-      ref: `Reference for your input element.`,
+      message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで register するとエラーメッセージが返されます。`,
+      ref: `input 要素の参照。`,
     },
     zh: {
       title: "errors",
@@ -1250,23 +1231,21 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>This will watch specified input/inputs and return its value.</p>
+          <p>これは指定された input/inputs を監視し、その値を返します。</p>
 
           <ul>
             <li>
               <p>
-                When <code>defaultValue</code> is not defined, the first render
-                of <code>watch</code> will return <code>undefined</code> because
-                it is called before <code>register</code>, but you can set the{" "}
-                <code>defaultValue</code> as the second argument to return
-                value.
+                <code>defaultValue</code> が定義されていない場合、
+                <code>watch</code> の初回のレンダリングは <code>register</code> の前に呼び出されるため{" "}
+                <code>undefined</code>undefinedを返しますが、
+                戻り値の第2引数として <code>defaultValue</code> を設定できます。
               </p>
             </li>
             <li>
               <p>
-                However, if <code>defaultValues</code> was initialised in{" "}
-                <code>useForm</code> as argument, then the first render will
-                return what's provided in <code>defaultValues</code>.
+                ただし、引数として <code>useForm</code> で <code>defaultValues</code> が初期化された場合、
+                初回のレンダリングは <code>defaultValues</code> で指定された値を返します。
               </p>
             </li>
           </ul>
@@ -1380,12 +1359,10 @@ export default {
       description: (
         <>
           <p>
-            This function will pass the form data when form validation is
-            successful.
+            この関数は、フォームバリデーションに成功するとフォームデータを渡します。
           </p>
           <p>
-            <Note>Note:</Note> You can pass an <code>async</code> function for
-            asynchronous validation. eg:{" "}
+            <Note>注意：</Note> 非同期バリデーションのための <code>async</code> function を渡すことができます。例：{" "}
           </p>
           <p>
             <CodeBlock>
@@ -1454,15 +1431,13 @@ export default {
       description: (
         <>
           <p>
-            This function will reset the fields' values and errors within the
-            form. You can pass <code>values</code> as an optional argument to
-            reset your form into assigned default values.
+            この関数は、フォーム内のフィールドの値とエラーをリセットします。
+            省略可能な引数として <code>values</code> を渡すと、
+            割り当てられたデフォルト値でフォームをリセットできます。
           </p>
           <p>
-            <Note>Note:</Note> For controlled components like{" "}
-            <code>React-Select</code> which don't expose <code>ref</code>, you
-            will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>.
+            <Note>注意：</Note> <code>ref</code> を公開しない <code>React-Select</code> のような制御コンポーネントの場合は、
+            <code onClick={() => goToSection("setValue")}>setValue</code> を使用して入力値を手動でリセットする必要があります。
           </p>
         </>
       ),
@@ -1497,7 +1472,7 @@ export default {
     },
     jp: {
       title: "setError",
-      description: <p>Allows you to manually set an input error.</p>,
+      description: <p>input のエラーを手動で設定できます。</p>,
     },
     zh: {
       title: "setError",
@@ -1555,17 +1530,17 @@ export default {
         <ul>
           <li>
             <p>
-              <code>undefined</code>: reset all errors
+              <code>undefined</code>: 全てのエラーをリセット
             </p>
           </li>
           <li>
             <p>
-              <code>string</code>: reset single error
+              <code>string</code>: 単一のエラーをリセット
             </p>
           </li>
           <li>
             <p>
-              <code>string[]</code>: reset multiple errors
+              <code>string[]</code>: 複数のエラーをリセット
             </p>
           </li>
         </ul>
@@ -1633,15 +1608,15 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>This function allows you to dynamically set input/select value.</p>
+          <p>この関数を使用すると、input/select の値を動的に設定できます。</p>
           <p>
-            <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-            will push the input's <code>name</code> into <code>touched</code>.
+            <Note>注意：</Note> このメソッドを呼び出すことで、
+            <code>formState</code> は input 要素の <code>name</code> を <code>touched</code> にプッシュします。
           </p>
           <p>
-            You can also set <code>shouldValidate</code> to <code>true</code>{" "}
-            and it will trigger field validation. eg:{" "}
-            <code>setValue('name', 'value', true)</code>
+            <code>shouldValidate</code> を <code>true</code> に設定すると、
+            フィールドのバリデーションがトリガーされます。
+            例： <code>setValue('name', 'value', true)</code>
           </p>
         </>
       ),
@@ -1726,22 +1701,21 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>This function will return the entire form data.</p>
+          <p>この関数は、フォーム全体のデータを返します。</p>
 
           <ul>
             <li>
               <p>
-                By default <code>getValues()</code> will return form data in a
-                flat structure. eg:{" "}
-                <code>{`{ test: 'data', test1: 'data1'}`}</code>
+                デフォルトでは、<code>getValues()</code> はフォームデータをフラットな構造で返します。
+                例： <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
-                Working on the defined form fields,{" "}
-                <code>getValues({`{ nest: true }`})</code> will return data in a
-                nested structure according to input <code>name</code>. eg:{" "}
-                <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+                定義されたフォームフィールドで作業を行うと、
+                定義されたフォームを使用して、（どっちが良いか）
+                <code>getValues({`{ nest: true }`})</code> は input 要素の <code>name</code> に基づいてネストされた構造でデータを返します。
+                例： <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
           </ul>
@@ -1803,10 +1777,10 @@ export default {
       title: "triggerValidation",
       description: (
         <>
-          <p>To manually trigger an input/select validation in the form.</p>
+          <p>フォームで input/select バリデーションを手動でトリガーします。</p>
           <p>
-            <Note>Note:</Note> When validation fails, the <code>errors</code>{" "}
-            object will be updated.
+            <Note>注意：</Note> バリデーションが失敗すると、<code>errors</code>{" "}
+            オブジェクトが更新されます。
           </p>
         </>
       ),
@@ -1852,11 +1826,9 @@ export default {
       title: "React Native",
       description: (
         <p>
-          You will get the same performance enhancement from an Uncontrolled
-          Component. However, there are certain APIs which are not compatible
-          with React Native (duo to the API difference from web and native). You
-          will have to use a <b>manual register</b> as shown in the following
-          example.
+          非制御コンポーネントでも、同じようにパフォーマンスが向上します。
+          ただし、React Native と互換性のない API がいくつかあります (Web とネイティブとの API の違い)。
+          次の例に示すように、<b>manual register</b> を使用する必要があります。
         </p>
       ),
     },
@@ -1914,10 +1886,9 @@ export default {
       title: "validationSchema",
       description: (
         <p>
-          If you would like to centralize your validation rules with external
-          validation schema, you can apply <code>validationSchema</code> at{" "}
-          <code>useForm</code> as an optional argument. React Hook Form
-          currently supports{" "}
+          外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
+          省略可能な引数として <code>useForm</code> に <code>validationSchema</code> を適用できます。
+          React Hook Form は現在、オブジェクトスキーマバリデーションで{" "}
           <Link
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -1925,7 +1896,7 @@ export default {
           >
             Yup
           </Link>{" "}
-          for object schema validation.
+          をサポートしています。
         </p>
       ),
     },
@@ -1975,10 +1946,9 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
+          次の例は、ブラウザバリデーションを活用する方法を示しています。
+          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+          残りの構文は標準のバリデーションと同じになります。
         </p>
       ),
     },
@@ -2016,8 +1986,7 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form is built with <code>Typescript</code>, so you can
-          define a <code>FormData</code> type to support form values.
+          React Hook Form は <code>Typescript</code> を使用して構築されているため、フォームの値をサポートするための <code>FormData</code> 型を定義することができます。
         </p>
       ),
     },
@@ -2083,21 +2052,18 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
+          フォームコンテキストは、コンポーネントツリーに深くネストされたインプット要素があり、
+          メソッドを <code>props</code> として深く渡すことが苦痛になる場合の問題を解決することを目的としています。
         </p>
       ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+          フォームが <code>FormContext</code> でラップされると、
+          ラップされた子コンポーネントで <code>useFormContext</code> を使用して <TypeText>function</TypeText> を呼び出すことができます。
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            <Note>注意：</Note> <code>useFormContext</code> を呼び出すと全ての <code>useForm</code> フック関数が得られます。
           </p>
         </>
       ),
