@@ -63,7 +63,7 @@ export default {
       linkTitle: "クイックスタート",
       title: "インストール",
       description:
-        "React Hook Form 1つのインストールコマンドだけで、準備が整います。",
+        "1つのインストールコマンドだけで、React Hook Form を使用する準備が整います。",
     },
     zh: {
       linkTitle: "安装",

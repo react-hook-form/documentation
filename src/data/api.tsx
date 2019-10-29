@@ -793,8 +793,8 @@ export default {
             バリデーションルールは全て HTML 標準に基づいており、カスタムバリデーションも可能です。
           </p>
           <p>
-            <Note>重要：</Note> <code>name</code> は <b>必須</b> かつ <b>ユニーク</b>です。
-            input の name はドット記法およびブラケット記法もサポートしているため、
+            <Note>重要：</Note> <code>name</code> 属性は <b>必須</b> かつ <b>ユニーク</b>です。
+            input の name 属性はドット記法およびブラケット記法もサポートしているため、
             ネストされたフォームフィールドを簡単に作成できます。例は以下の通りです：
           </p>
         </>
@@ -806,7 +806,7 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          <code>arrays/array fields</code> を使用する場合、input の name を <code>name[index]</code> のように割り当てることができます。
+          <code>arrays/array fields</code> を使用する場合、input の name 属性を <code>name[index]</code> のように割り当てることができます。
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
@@ -854,7 +854,7 @@ export default {
 
             <p>
               <Note>注意：</Note> カスタム register された input で値の更新中に再レンダリングをトリガーしたい場合は、
-              register した input に type を指定する必要があります。
+              register した input に type 属性を指定する必要があります。
             </p>
           </>
         ),
@@ -1004,7 +1004,7 @@ export default {
       isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
       touched: (
         <>
-          操作された全ての input の <code>name</code> の配列。
+          操作された全ての input の <code>name</code> 属性値の配列。
         </>
       ),
       isSubmitting: (
@@ -1609,7 +1609,7 @@ export default {
           <p>この関数を使用すると、input/select の値を動的に設定できます。</p>
           <p>
             <Note>注意：</Note> このメソッドを呼び出すことで、
-            <code>formState</code> は input 要素の <code>name</code> を <code>touched</code> にプッシュします。
+            <code>formState</code> は input の <code>name</code> 属性値を <code>touched</code> にプッシュします。
           </p>
           <p>
             <code>shouldValidate</code> を <code>true</code> に設定すると、
@@ -1712,7 +1712,7 @@ export default {
               <p>
                 定義されたフォームフィールドで作業を行うと、
                 定義されたフォームを使用して、（どっちが良いか）
-                <code>getValues({`{ nest: true }`})</code> は input 要素の <code>name</code> に基づいてネストされた構造でデータを返します。
+                <code>getValues({`{ nest: true }`})</code> は input の <code>name</code> 属性に基づいてネストされた構造でデータを返します。
                 例： <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
