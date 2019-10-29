@@ -216,9 +216,9 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and tries to provide your form
-              with best performance and least re-render if possible. On top of
-              that, react-hook-form is built by React Hook and used as hook,
+              built with uncontrolled input in mind and tries to provide your
+              form with best performance and least re-render if possible. On top
+              of that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
               of the detail differences:
             </p>
@@ -227,7 +227,7 @@ export default {
               <Table>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                    <th width={200}></th>
+                    <th width={200} />
                     <th>
                       <p>React Hook Form</p>
                     </th>
@@ -300,17 +300,27 @@ export default {
                     <td>
                       Small
                       <br />
-                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                      <code>
+                        react-hook-form@3.26.2
+                        <br />
+                        <Note>5.3KB</Note>
+                      </code>
                     </td>
                     <td>
                       Medium
                       <br />
-                      <code>formik@2.0.1: 14.4KB</code>
+                      <code>
+                        formik@2.0.1
+                        <br /><Note>14.4KB</Note>
+                      </code>
                     </td>
                     <td>
                       Large
                       <br />
-                      <code>redux-form@8.2.6: 27KB</code>
+                      <code>
+                        redux-form@8.2.6
+                        <br /><Note>27KB</Note>
+                      </code>
                     </td>
                   </tr>
                   <tr>
@@ -343,7 +353,7 @@ export default {
                     <td>
                       <b>Status</b>
                     </td>
-                    <td>Small Community: New lib</td>
+                    <td>Small Community: New lib and growing</td>
                     <td>
                       Large Community: Well established form lib in the
                       community
@@ -547,9 +557,9 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and tries to provide your form
-              with best performance and least re-render if possible. On top of
-              that, react-hook-form is built by React Hook and used as hook,
+              built with uncontrolled input in mind and tries to provide your
+              form with best performance and least re-render if possible. On top
+              of that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
               of the detail differences:
             </p>
@@ -558,7 +568,7 @@ export default {
               <Table>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                    <th width={200}></th>
+                    <th width={200} />
                     <th>
                       <p>React Hook Form</p>
                     </th>
@@ -631,17 +641,27 @@ export default {
                     <td>
                       Small
                       <br />
-                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                      <code>
+                        react-hook-form@3.26.2
+                        <br />
+                        <Note></Note><Note>5.3KB</Note>
+                      </code>
                     </td>
                     <td>
                       Medium
                       <br />
-                      <code>formik@2.0.1: 14.4KB</code>
+                      <code>
+                        formik@2.0.1
+                        <br /><Note>14.4KB</Note>
+                      </code>
                     </td>
                     <td>
                       Large
                       <br />
-                      <code>redux-form@8.2.6: 27KB</code>
+                      <code>
+                        redux-form@8.2.6
+                        <br /><Note>27KB</Note>
+                      </code>
                     </td>
                   </tr>
                   <tr>
@@ -674,7 +694,7 @@ export default {
                     <td>
                       <b>Status</b>
                     </td>
-                    <td>Small Community: New lib</td>
+                    <td>Small Community: New lib and growing</td>
                     <td>
                       Large Community: Well established form lib in the
                       community
@@ -878,9 +898,9 @@ export default {
               First of all, all libs try to solve the same problem which is
               making form building experience easy and great. However, there are
               some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and tries to provide your form
-              with best performance and least re-render if possible. On top of
-              that, react-hook-form is built by React Hook and used as hook,
+              built with uncontrolled input in mind and tries to provide your
+              form with best performance and least re-render if possible. On top
+              of that, react-hook-form is built by React Hook and used as hook,
               which means there is no Component for you to import. Here are some
               of the detail differences:
             </p>
@@ -889,7 +909,7 @@ export default {
               <Table>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                    <th width={200}></th>
+                    <th width={200} />
                     <th>
                       <p>React Hook Form</p>
                     </th>
@@ -962,17 +982,27 @@ export default {
                     <td>
                       Small
                       <br />
-                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                      <code>
+                        react-hook-form@3.26.2
+                        <br />
+                        <Note></Note><Note>5.3KB</Note>
+                      </code>
                     </td>
                     <td>
                       Medium
                       <br />
-                      <code>formik@2.0.1: 14.4KB</code>
+                      <code>
+                        formik@2.0.1
+                        <br /><Note>14.4KB</Note>
+                      </code>
                     </td>
                     <td>
                       Large
                       <br />
-                      <code>redux-form@8.2.6: 27KB</code>
+                      <code>
+                        redux-form@8.2.6
+                        <br /><Note>27KB</Note>
+                      </code>
                     </td>
                   </tr>
                   <tr>
@@ -1005,7 +1035,7 @@ export default {
                     <td>
                       <b>Status</b>
                     </td>
-                    <td>Small Community: New lib</td>
+                    <td>Small Community: New lib and growing</td>
                     <td>
                       Large Community: Well established form lib in the
                       community
@@ -1203,7 +1233,7 @@ export default {
               <Table>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                    <th width={200}></th>
+                    <th width={200} />
                     <th>
                       <p>React Hook Form</p>
                     </th>
@@ -1270,17 +1300,17 @@ export default {
                     <td>
                       小
                       <br />
-                      <code>react-hook-form@3.26.2: 5.3KB</code>
+                      <code>react-hook-form@3.26.2<br/><Note>5.3KB</Note></code>
                     </td>
                     <td>
                       中
                       <br />
-                      <code>formik@2.0.1: 14.4KB</code>
+                      <code>formik@2.0.1<br/><Note>14.4KB</Note></code>
                     </td>
                     <td>
                       大
                       <br />
-                      <code>redux-form@8.2.6: 27KB</code>
+                      <code>redux-form@8.2.6<br/><Note>27KB</Note></code>
                     </td>
                   </tr>
                   <tr>
