@@ -14,7 +14,7 @@ export default {
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
-      jp: "React Hook Form は API をシンプルにすることにより最高の DX を提供することに焦点を当てています。",
+      jp: "React Hook Form は API をシンプルにすることにより最高な DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
@@ -2052,7 +2052,7 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          フォームコンテキストは、コンポーネントツリーに深くネストされたインプット要素があり、
+          フォームコンテキストは、コンポーネントツリーに深くネストされた input があり、
           メソッドを <code>props</code> として深く渡すことが苦痛になる場合の問題を解決することを目的としています。
         </p>
       ),
