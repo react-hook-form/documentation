@@ -300,17 +300,15 @@ export default {
       ),
       validationSchemaOption: (
         <>
-          The <code>options</code> argument is an object hash containing any
-          schema options you may want to override (or specify for the first
-          time). You can read more in the{" "}
+          <code>options</code> 引数はオーバーライド (または初めに指定) したいスキーマオプションを含むオブジェクトハッシュです。{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
           >
-            yup documentation
+            Yup ドキュメント
           </a>
-          .
+          で詳細を読むことができます。
         </>
       ),
       validateOnSubmit: (
@@ -345,8 +343,8 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> <code>defaultValues</code> はマニュアル register された input (例: <code>{`register({ name: 'test' })`}</code>) に自動でデフォルト値を設定しません。
-            これは、手動 <code>register</code> フィールドが React Hook Form への <code>ref</code> を用意していないためです。
+            <Note>注意：</Note> <code>defaultValues</code> は手動で register された input (例: <code>{`register({ name: 'test' })`}</code>) にデフォルト値を自動で設定しません。
+            これは、手動で <code>register</code> されたフィールドは <code>ref</code> をフックに接続できないためです。
           </p>
         </>
       ),
@@ -381,7 +379,7 @@ export default {
 
           <p>
             <Note>注意：</Note> <code>ref</code> を持つ register フィールドのみが機能します。
-            マニュアル register された input では機能しません。例：{" "}
+            手動で register された input では機能しません。例：{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
         </>
@@ -823,9 +821,9 @@ export default {
         "register オプションを選択すると、以下の API テーブルが更新されます。",
       options: {
         title: "register オプション",
-        registerWithValidation: "バリデーションで Register",
+        registerWithValidation: "バリデーションのみを register",
         registerWithValidationMessage:
-          "バリデーションとエラーメッセージで Register",
+          "バリデーションとエラーメッセージを register",
         note: goToSection => (
           <>
             <Title>カスタム register</Title>
@@ -845,7 +843,7 @@ export default {
 
             <p>
               カスタム register の呼び出しを使用すると、
-              input は ref に register されなくなるため、
+              input の ref に register が適用されなくなるため、
               <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
               で入力値を更新する必要があります。
             </p>
