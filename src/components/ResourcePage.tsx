@@ -80,6 +80,30 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://blog.logrocket.com/react-hook-form-vs-formik-a-technical-and-performance-comparison/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  React Hook Form vs. Formik: A technical and performance
+                  comparison
+                </h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://blog.logrocket.com/author/siegfriedgrimbeek/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Siegfried Grimbeek
+                </a>
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://medium.com/better-programming/build-the-next-generation-of-forms-with-react-hooks-forms-b4f2039e51c1"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -90,7 +114,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://medium.com/@riccardogiorato">
+                <a
+                  href="https://medium.com/@riccardogiorato"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Riccardo Giorato
                 </a>
               </p>
@@ -107,7 +135,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://cloud.tencent.com/developer/user/5206638">
+                <a
+                  href="https://cloud.tencent.com/developer/user/5206638"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   我已经洗完澡了
                 </a>
               </p>
@@ -124,7 +156,13 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://velog.io/@iamchanii">이찬희</a>
+                <a
+                  href="https://velog.io/@iamchanii"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  이찬희
+                </a>
               </p>
             </Article>
           </li>
@@ -139,7 +177,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://blog.logrocket.com/author/raphaelugwu/">
+                <a
+                  href="https://blog.logrocket.com/author/raphaelugwu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Raphael Ugwu
                 </a>
               </p>
@@ -156,7 +198,13 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://dev.to/bluebill1049">Bill Luo</a>
+                <a
+                  href="https://dev.to/bluebill1049"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bill Luo
+                </a>
               </p>
             </Article>
           </li>
@@ -171,7 +219,13 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
 
               <p>
-                <a href="https://dev.to/bluebill1049">Bill Luo</a>
+                <a
+                  href="https://dev.to/bluebill1049"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bill Luo
+                </a>
               </p>
             </Article>
           </li>
