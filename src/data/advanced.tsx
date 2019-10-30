@@ -127,26 +127,26 @@ export default {
       ),
     },
     jp: {
-      title: "Error Message",
+      title: "エラーメッセージ",
       description: (
         <p>
-          Error messages are visual feedback to our users when there are issues
-          associated with their inputs. In React Hook Form, we provide errors
-          object to let you retrieve errors easily. However, there are several
-          different ways for us to improve render error to the screen.
+          エラーメッセージは、入力に関連する問題があるときにユーザーに視覚的なフィードバックを与えることです。
+          React Hook Form では、エラーを簡単に取得できるように errors オブジェクトを提供しています。
+          ただし、画面のレンダリングエラーを改善する方法はいくつかあります。
         </p>
       ),
       register: (
         <>
-          Embed error message during <code>register</code>, you can easily
-          insert your error message in the <code>value</code> attribute. Eg:
+          <code>register</code> 時にエラーメッセージを埋め込み、{" "}
+          <code>value</code> 属性にエラーメッセージを簡単に挿入できます。例：
         </>
       ),
       component:
-        "Create a ErrorMessage component to help your print out error.",
+        "エラー出力を支援するために ErrorMessage コンポーネントを作成します。",
       get: (
         <p>
-          If your project is using{" "}
+          もしあなたのプロジェクトがlodashを使用している場合は、
+          プロジェクトで{" "}
           <a
             href="https://lodash.com"
             target="_blank"
@@ -154,7 +154,7 @@ export default {
           >
             lodash
           </a>
-          , then you can leverage what lodash{" "}
+          を使用している場合、lodash の{" "}
           <code>
             <a
               href="https://lodash.com/docs/4.17.15#get"
@@ -164,7 +164,7 @@ export default {
               get
             </a>
           </code>{" "}
-          function. Eg:
+          関数を活用することができます。例：
           <br />
           <br />
           <code>{`get(errors, 'firstName')`}</code>
