@@ -944,32 +944,32 @@ export default {
       ),
     },
     jp: {
-      title: "Schema Validation",
+      title: "スキーマバリデーション",
       description: (
         <>
           <p>
-            React Hook Form supports schema-based form validation with{" "}
+            React Hook Form は、{" "}
             <a href="https://github.com/jquense/yup" target="_blank">
               Yup
-            </a>
-            , where you can pass your <code>validationSchema</code> to{" "}
-            <a href="/api#useForm">useForm</a> as an optional config. React Hook
-            Form will validate your input data against the schema and return
-            with either <a href="/api#errors">errors</a> or a valid result.
+            </a>{" "}
+            を活用してスキーマベースのフォームバリデーションをサポートしています。
+            省略可能な引数として <code>validationSchema</code> を <a href="/api#useForm">useForm</a> に渡すことができます。
+            React Hook Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
+            <a href="/api#errors">errors</a> や妥当な結果を返します。
           </p>
         </>
       ),
       step1: (
         <>
           <p>
-            <Note>Step 1:</Note> Install <code>Yup</code> into your project.
+            <Note>ステップ1：</Note> <code>Yup</code> をプロジェクトにインストールします。
           </p>
         </>
       ),
       step2: (
         <p>
-          <Note>Step 2:</Note> Prepare your schema for validation and register
-          inputs with React Hook Form.
+          <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、
+          React Hook Form を使用して input に register を適用します。
         </p>
       ),
     },
