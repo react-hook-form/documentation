@@ -848,21 +848,19 @@ export default {
       ),
     },
     jp: {
-      title: "Field Arrays",
+      title: "フィールド配列",
       description: (
         <>
           <p>
-            This is one of the best features about React Hook Form: instead of
-            importing components (like other libraries) to achieve this
-            functionality, you can leverage your existing HTML markup. The key
-            is within the <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represents the data structure you want
-            to use.
+            この機能は、React Hook Formが提供する最良の機能の一つです。
+            この機能を実現するために (他のライブラリのように) コンポーネントをインポートする代わりに、
+            既存の HTML マークアップを活用することができます。
+            重要なのは、 <code>name</code> 属性です。
+            React Hook Form において、 <code>name</code> 属性はあなたが使用したいデータ構造を表します。
           </p>
 
           <p>
-            The following example demonstrates how you can create Field Arrays
-            by manipulating the input <code>name</code> attribute.
+            次の例は、input の <code>name</code> 属性を操作してどのようにフィールド配列を作成できるかを示しています。
           </p>
         </>
       ),
