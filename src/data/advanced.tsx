@@ -1036,17 +1036,15 @@ export default {
       ),
     },
     jp: {
-      title: "Connect Form",
+      title: "接続フォーム",
       description: (
         <p>
-          When we are building forms, there are times when our input lives
-          inside of deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy.
-          However, we can further improve the Developer Experience by creating a{" "}
-          <code>ConnectForm</code> component and leveraging React's{" "}
-          <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with
-          React Hook Form from anywhere.
+          フォームを作成するときに、深くネストされたコンポーネントツリーの input が存在することがあり、
+          そのような場合は <a href="/api#FormContext">FormContext</a> が非常に便利です。
+          <code>ConnectForm</code> コンポーネントを作成して{" "}
+          React の<a href="https://reactjs.org/docs/render-props.html">renderProps</a> を活用することで、
+          DX を更に向上することができます。{" "}
+          <code>ConnectForm</code> コンポーネントの利点は、input をどこからでも React Hook Form に接続できることです。
         </p>
       ),
     },
