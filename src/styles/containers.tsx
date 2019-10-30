@@ -37,6 +37,6 @@ export const CenterContent = styled.section`
 
   & p {
     max-width: 768px;
-    margin: 0 auto;
+    margin: 0 auto 10px;
   }
 `

@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled from "styled-components"
-import { Title, H1 } from "../styles/typography"
+import { Title, H1, Note } from "../styles/typography"
 import formikCode from "./codeExamples/formikCode"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import reduxFormCode from "./codeExamples/reduxFormCode"
@@ -72,9 +72,7 @@ export default function CodeCompareSection({
         <CenterContent>
           <H1>{home.codeComparison[currentLanguage].title}</H1>
 
-          <p id="codeComparison">
-            {home.codeComparison[currentLanguage].description}
-          </p>
+          {home.codeComparison[currentLanguage].description}
         </CenterContent>
 
         <GridView

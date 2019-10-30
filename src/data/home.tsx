@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Note } from "../styles/typography"
 
 export default {
   title: {
@@ -145,19 +146,63 @@ export default {
   codeComparison: {
     en: {
       title: "Library Code Comparison",
-      description: `Reducing the amount of code that you have to write is one of the primary goals for React Hook Form. To illustrate that, let's look at a very simple form of validation among some of the most popular form validation libraries.`,
+      description: (
+        <>
+          <p id="codeComparison">
+            Reducing the amount of code that you have to write is one of the
+            primary goals for React Hook Form. To illustrate that, let's look at
+            a very simple form of validation among some of the most popular form
+            validation libraries.
+          </p>
+          <p>
+            <Note>⚠ Note:</Note> Both Formik and Redux-Form code below are
+            copied from official documentation.
+          </p>
+        </>
+      ),
     },
     kr: {
       title: "라이브러리 코드 비교",
-      description: `작성하는 코드 양을 줄이는 것은 React Hook Form의 주요 목표 중 하나입니다. 이를 설명하기 위해 가장 인기있는 폼 유효성 검사 라이브러리들을 사용한 간단한 폼을 살펴보세요.`,
+      description: (
+        <>
+          <p id="codeComparison">
+            작성하는 코드 양을 줄이는 것은 React Hook Form의 주요 목표 중
+            하나입니다. 이를 설명하기 위해 가장 인기있는 폼 유효성 검사
+            라이브러리들을 사용한 간단한 폼을 살펴보세요.
+          </p>
+          <p>
+            <Note>⚠ 참고:</Note>아래의 Formik 및 Redux-Form 코드는 다음과 같습니다.
+            공식 문서에서 복사。
+          </p>
+        </>
+      ),
     },
     jp: {
       title: "ライブラリのコード比較",
-      description: `コードの記述量を減らすことは、React Hook Form の主な目標の1つです。これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にコードを見てみましょう。`,
+      description: (
+        <>
+          <p id="codeComparison">
+            コードの記述量を減らすことは、React Hook Form
+            の主な目標の1つです。これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にコードを見てみましょう。
+          </p>
+          <p>
+            <Note>⚠ 注意:</Note>以下のFormikとRedux-Formの両方のコードは
+            公式文書からコピ。
+          </p>
+        </>
+      ),
     },
     zh: {
       title: "库代码比较",
-      description: `减少您必须编写的代码量是React Hook Form的主要目标之一。 为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式，同时加以对比。`,
+      description: <>
+        <p id="codeComparison">
+          减少您必须编写的代码量是React Hook Form的主要目标之一。 为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式，同时加以对比。
+        </p>
+        <p>
+          <Note>⚠ 注意:</Note>下面的Formik和Redux-Form代码都是
+          从官方文件复制。
+        </p>
+      </>
     },
   },
   rendering: {
@@ -244,8 +289,9 @@ export default {
       description: (
         <p>
           次の結果は、コンポーネントのレンダリングにかかった時間を示しています。
-          Chrome DevTools の Performance タブを使用して、
-          CPU のパフォーマンスを6倍低速化させた環境での測定結果です。 実行コードは上記の
+          Chrome DevTools の Performance タブを使用して、 CPU
+          のパフォーマンスを6倍低速化させた環境での測定結果です。
+          実行コードは上記の
           <a href="#codeComparison">ライブラリのコード比較</a>
           セクションのものです。
         </p>
