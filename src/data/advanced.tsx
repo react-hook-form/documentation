@@ -1123,22 +1123,22 @@ export default {
       ),
     },
     jp: {
-      title: "Conditional Controlled Component",
+      title: "条件付き制御コンポーネント",
       description: (
         <>
-          In terms of conditional field, React Hook Form made that really simple
-          for us, because the moment when you removed the input form the
-          component tree, it will get <code>unregister</code> automatically,{" "}
+          React Hook Form を使用すると、条件付きフィールドを非常にシンプルに扱えます。
+          input がコンポーネントツリーから削除されると、自動的に <code>unregister</code> されるからです。
+          そのような振る舞いの
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            here is an example
+            例をこちらに示します
           </a>{" "}
-          for such behavior. However, that's not the same case for controlled
-          components since <code>ref</code> is not been registered, and we can
-          leverage the use of{" "}
+          。ただし、制御コンポーネントでは <code>ref</code> が登録されていないため、
+          同じように自動的に登録解除されません。
+          このような場合、{" "}
           <code>
             <a
               href="https://reactjs.org/docs/hooks-effect.html"
@@ -1147,8 +1147,8 @@ export default {
             >
               useEffect
             </a>
-          </code>
-          . Here is an example:
+          </code>{" "}
+          を活用することができます。以下に例を示します：
         </>
       ),
     },
