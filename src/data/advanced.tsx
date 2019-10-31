@@ -145,7 +145,6 @@ export default {
         "エラー出力を支援するために ErrorMessage コンポーネントを作成します。",
       get: (
         <p>
-          もしあなたのプロジェクトがlodashを使用している場合は、
           プロジェクトで{" "}
           <a
             href="https://lodash.com"
@@ -153,7 +152,7 @@ export default {
             rel="noopener noreferrer"
           >
             lodash
-          </a>
+          </a>{" "}
           を使用している場合、lodash の{" "}
           <code>
             <a
@@ -300,7 +299,7 @@ export default {
         <>
           <p>
             React Hook Form はネイティブフォームバリデーションをサポートします。
-            これにより、独自のルールで input を検証することができます。
+            これにより、独自のルールで input のバリデーションを行うことができます。
             私たちのほとんどはカスタムデザインとレイアウトを適用してフォームを構築しますが、
             フォームのアクセシビリティ (A11y) を保証することも私たちの責任です。
           </p>
@@ -320,13 +319,13 @@ export default {
               target="_blank"
             >
               ARIA
-            </a>
+            </a>{" "}
             を活用した改良版です。
           </p>
           <CodeArea rawData={accessibleCodeFinal} />
 
           <p>
-            この改良後、スクリーンリーダーは言うでしょう：{" "}
+            この改良後、スクリーンリーダーはこのように話すでしょう：{" "}
             <i>“Name, edit, invalid entry, This is required.”</i>
           </p>
         </>
@@ -482,7 +481,7 @@ export default {
       ),
     },
     jp: {
-      title: "ウィザード Form / Funnel",
+      title: "ウィザードフォーム・ファンネル",
       description: (
         <>
           <p>
@@ -496,11 +495,12 @@ export default {
             >
               little state machine
             </Link>{" "}
-            使用します (より身近なものであれば、{" "}
+            (より身近なものであれば、{" "}
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
-            </Link>
-            として置き換えて読むことができます) 。
+            </Link>{" "}
+            として置き換えることができます)
+            を使用します。
           </p>
 
           <p style={{ textAlign: "center" }}>♦</p>
@@ -533,7 +533,7 @@ export default {
 
           <p>
             上記のパターンに従って、複数のページ間でのユーザーの入力データを収集して、
-            ウィザード form/funnel を構築できるはずです。
+            ウィザードフォーム・ファンネルを構築できるはずです。
           </p>
         </>
       ),
@@ -705,7 +705,7 @@ export default {
       ),
     },
     jp: {
-      title: "Smart Form Component",
+      title: "スマートフォームコンポーネント",
       description: (
         <>
           <p>
@@ -969,7 +969,7 @@ export default {
       step2: (
         <p>
           <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、
-          React Hook Form を使用して input に register を適用します。
+          React Hook Form を使用して input を登録します。
         </p>
       ),
     },
@@ -1039,7 +1039,7 @@ export default {
       title: "接続フォーム",
       description: (
         <p>
-          フォームを作成するときに、深くネストされたコンポーネントツリーの input が存在することがあり、
+          フォームを作成するときに、深くネストされたコンポーネントツリーの中に input が存在することがあり、
           そのような場合は <a href="/api#FormContext">FormContext</a> が非常に便利です。
           <code>ConnectForm</code> コンポーネントを作成して{" "}
           React の<a href="https://reactjs.org/docs/render-props.html">renderProps</a> を活用することで、
