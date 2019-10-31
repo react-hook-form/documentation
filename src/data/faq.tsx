@@ -7,7 +7,7 @@ export default {
   title: {
     en: "FAQs",
     kr: "자주 묻는 질문",
-    jp: "よくある質問",
+    jp: "FAQs",
     zh: "常见问题",
   },
   header: {
@@ -20,8 +20,8 @@ export default {
       description: "자주 묻는 질문",
     },
     jp: {
-      title: "よくある質問",
-      description: "frequently asked question.",
+      title: "FAQs",
+      description: "よくある質問と答え。",
     },
     zh: {
       title: "常见问题",
