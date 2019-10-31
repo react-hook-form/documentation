@@ -32,9 +32,9 @@ export default {
         <span className="desktopOnly">Form&nbsp;</span>Builder
       </>
     ),
-    faqs: "FAQ",
+    faqs: "FAQs",
     releases: "リリース",
-    resources: "資源",
+    resources: "リソース",
   },
   zh: {
     home: "首页",
