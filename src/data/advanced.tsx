@@ -1224,23 +1224,23 @@ export default {
       ),
     },
     jp: {
-      title: "FormContext Performance",
+      title: "FormContext パフォーマンス",
       description: (
         <p>
-          React Hook Form's{" "}
-          <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+          React Hook Form の <PageLink to="/api/#FormContext">FormContext</PageLink> は、{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
             rel="noreferrer noopener"
           >
-            React's Context
+            React の Context API
           </a>{" "}
-          API. It solves the problem where data is passed through the component
-          tree without having to pass props down manually at every level. This
-          also causes the component tree to trigger a re-render when React Hook
-          Form triggers a state update, but we can still can optimise our App if
-          required via the example blow.
+          上に構築されています。
+          これにより、全ての階層で手動で props を渡す必要なく、
+          コンポーネントツリーを介してデータを渡す問題を解決します。
+          これにより、React Hook Form は状態を更新する度に、
+          コンポーネントツリーが再レンダリングされる問題を引き起こしますが、
+          必要に応じて次の例のようにアプリを最適化することができます。
         </p>
       ),
     },
