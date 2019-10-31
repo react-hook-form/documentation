@@ -28,8 +28,8 @@ export default {
       description: "React Hook Form 으로 복잡하고 접근성 있는 폼을 만들기",
     },
     jp: {
-      title: "高度な",
-      description: "Build complex and accessible forms with React Hook Form.",
+      title: "高度な使用法",
+      description: "React Hook Formを使用して、複雑でアクセス可能なフォームを作成する。",
     },
     zh: {
       title: "高级",
@@ -127,34 +127,33 @@ export default {
       ),
     },
     jp: {
-      title: "Error Message",
+      title: "エラーメッセージ",
       description: (
         <p>
-          Error messages are visual feedback to our users when there are issues
-          associated with their inputs. In React Hook Form, we provide errors
-          object to let you retrieve errors easily. However, there are several
-          different ways for us to improve render error to the screen.
+          エラーメッセージは、入力に関連する問題があるときにユーザーに視覚的なフィードバックを与えることです。
+          React Hook Form では、エラーを簡単に取得できるように errors オブジェクトを提供しています。
+          ただし、画面のレンダリングエラーを改善する方法はいくつかあります。
         </p>
       ),
       register: (
         <>
-          Embed error message during <code>register</code>, you can easily
-          insert your error message in the <code>value</code> attribute. Eg:
+          <code>register</code> 時にエラーメッセージを埋め込み、{" "}
+          <code>value</code> 属性にエラーメッセージを簡単に挿入できます。例：
         </>
       ),
       component:
-        "Create a ErrorMessage component to help your print out error.",
+        "エラー出力を支援するために ErrorMessage コンポーネントを作成します。",
       get: (
         <p>
-          If your project is using{" "}
+          プロジェクトで{" "}
           <a
             href="https://lodash.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             lodash
-          </a>
-          , then you can leverage what lodash{" "}
+          </a>{" "}
+          を使用している場合、lodash の{" "}
           <code>
             <a
               href="https://lodash.com/docs/4.17.15#get"
@@ -164,7 +163,7 @@ export default {
               get
             </a>
           </code>{" "}
-          function. Eg:
+          関数を活用することができます。例：
           <br />
           <br />
           <code>{`get(errors, 'firstName')`}</code>
@@ -299,34 +298,34 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form has support for native form validation, which let
-            you validate inputs with your own rules, since most of us have to
-            build forms in a custom design and layout, and it's our
-            responsibility to make sure our forms are accessible (A11y).
+            React Hook Form はネイティブフォームバリデーションをサポートします。
+            これにより、独自のルールで input のバリデーションを行うことができます。
+            私たちのほとんどはカスタムデザインとレイアウトを適用してフォームを構築しますが、
+            フォームのアクセシビリティ (A11y) を保証することも私たちの責任です。
           </p>
 
           <p>
-            The following code example works as intended for validation;
-            however, it can be improved for accessibility.
+            次のコード例は、意図したとおりのバリデーションが動作しますが、
+            アクセシビリティについては改良することができます。
           </p>
 
           <CodeArea rawData={accessibleCodeBase} />
 
           <p>
-            The following code example is an improved version by leveraging{" "}
+            次のコード例は、{" "}
             <a
               rel="noopener noreferrer"
               href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
               target="_blank"
             >
               ARIA
-            </a>
-            .
+            </a>{" "}
+            を活用した改良版です。
           </p>
           <CodeArea rawData={accessibleCodeFinal} />
 
           <p>
-            After this improvement, the screen reader will say:{" "}
+            この改良後、スクリーンリーダーはこのように話すでしょう：{" "}
             <i>“Name, edit, invalid entry, This is required.”</i>
           </p>
         </>
@@ -482,31 +481,32 @@ export default {
       ),
     },
     jp: {
-      title: "Wizard Form / Funnel",
+      title: "ウィザードフォーム・ファンネル",
       description: (
         <>
           <p>
-            It's pretty common to collect user information through different
-            pages and sections. We recommend using a state management library to
-            store user input through different pages/section. In this example,
-            we are going to use{" "}
+            異なるページやセクション間でユーザーの情報を収集することは非常に一般的です。
+            このような場合、異なるページやセクション間でのユーザーの入力値を、
+            状態管理ライブラリを使用して保存しておくことをお勧めします。
+            この例では、状態管理ライブラリとして{" "}
             <Link
               href="https://github.com/bluebill1049/little-state-machine"
               target="_blank"
             >
               little state machine
             </Link>{" "}
-            as our state management library (you can replace it with{" "}
+            (より身近なものであれば、{" "}
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
-            </Link>
-            , if you are more familiar with it).
+            </Link>{" "}
+            として置き換えることができます)
+            を使用します。
           </p>
 
           <p style={{ textAlign: "center" }}>♦</p>
 
           <p>
-            <Note>Step 1:</Note> Set up your routes and store.
+            <Note>ステップ1：</Note> ルーティングとストアを設定します。
           </p>
           <CodeArea
             rawData={step1}
@@ -514,9 +514,8 @@ export default {
           />
 
           <p>
-            <Note>Step 2:</Note> Create your pages, make them collect their
-            data, submit that data to the store and push to the next page of
-            your form.
+            <Note>ステップ2：</Note> ページを作成し、フォームの送信データを収集し、
+            そのデータをストアに送信して次のページに移動するようにします。
           </p>
           <CodeArea
             rawData={step2}
@@ -524,8 +523,8 @@ export default {
           />
 
           <p>
-            <Note>Step 3:</Note> Make your final submission with all the data in
-            the store or display the resulting data.
+            <Note>ステップ3：</Note> 最終的に、ストア内のすべてのフォームデータを使用して、
+            フォームを送信したりフォームデータの結果を表示します。
           </p>
           <CodeArea
             rawData={step3}
@@ -533,8 +532,8 @@ export default {
           />
 
           <p>
-            Following the above pattern, you should be able to build a wizard
-            form/funnel to collect user input data from multiple pages.
+            上記のパターンに従って、複数のページ間でのユーザーの入力データを収集して、
+            ウィザードフォーム・ファンネルを構築できるはずです。
           </p>
         </>
       ),
@@ -706,13 +705,12 @@ export default {
       ),
     },
     jp: {
-      title: "Smart Form Component",
+      title: "スマートフォームコンポーネント",
       description: (
         <>
           <p>
-            This idea here is that you can easily compose your form with inputs.
-            We are going to create a <code>Form</code> component to
-            automatically collecting form data.
+            ここでのアイデアは、input とフォームを簡単に組み合わせることができるということです。
+            <code>Form</code> コンポーネントを作成して、フォームデータを自動的に収集します。
           </p>
 
           <CodeArea
@@ -722,15 +720,14 @@ export default {
 
           <p style={{ textAlign: "center" }}>♦</p>
 
-          <p>Let's have a look what's in each of those components.</p>
+          <p>各コンポーネントがどのように構成されているか見てみましょう。</p>
 
           <CodeHeading>
             <h2>Form</h2>
           </CodeHeading>
 
           <p>
-            The <code>Form</code> component's responsibility is to inject all{" "}
-            <code>react-hook-form</code> methods into the child component.
+            <code>Form</code> コンポーネントの責任は、全ての <code>react-hook-form</code> のメソッドを子コンポーネントに注入することです。
           </p>
 
           <CodeArea
@@ -743,8 +740,7 @@ export default {
           </CodeHeading>
 
           <p>
-            Those input components' responsibility is to registering them into{" "}
-            <code>react-hook-form</code>.
+            <code>Input / Select</code> コンポーネントの責任は、自分自身を <code>react-hook-form</code> に登録することです。
           </p>
           <CodeArea
             rawData={input}
@@ -752,10 +748,9 @@ export default {
           />
 
           <p>
-            With the <code>Form</code> component injecting{" "}
-            <code>react-hook-form</code>
-            's <code>props</code> into the child component, you can easily
-            create and compose complex forms in your app.
+            <code>Form</code> コンポーネントを使用して、
+            <code>react-hook-form</code> の <code>props</code> を子コンポーネントに注入することで、
+            アプリケーションで複雑なフォームを簡単に作成及び組み合わせることができます。
           </p>
         </>
       ),
@@ -853,21 +848,19 @@ export default {
       ),
     },
     jp: {
-      title: "Field Arrays",
+      title: "フィールド配列",
       description: (
         <>
           <p>
-            This is one of the best features about React Hook Form: instead of
-            importing components (like other libraries) to achieve this
-            functionality, you can leverage your existing HTML markup. The key
-            is within the <code>name</code> attribute. In React Hook Form, the{" "}
-            <code>name</code> attribute represents the data structure you want
-            to use.
+            この機能は、React Hook Formが提供する最良の機能の一つです。
+            この機能を実現するために (他のライブラリのように) コンポーネントをインポートする代わりに、
+            既存の HTML マークアップを活用することができます。
+            重要なのは、 <code>name</code> 属性です。
+            React Hook Form において、 <code>name</code> 属性はあなたが使用したいデータ構造を表します。
           </p>
 
           <p>
-            The following example demonstrates how you can create Field Arrays
-            by manipulating the input <code>name</code> attribute.
+            次の例は、input の <code>name</code> 属性を操作してどのようにフィールド配列を作成できるかを示しています。
           </p>
         </>
       ),
@@ -951,32 +944,32 @@ export default {
       ),
     },
     jp: {
-      title: "Schema Validation",
+      title: "スキーマバリデーション",
       description: (
         <>
           <p>
-            React Hook Form supports schema-based form validation with{" "}
+            React Hook Form は、{" "}
             <a href="https://github.com/jquense/yup" target="_blank">
               Yup
-            </a>
-            , where you can pass your <code>validationSchema</code> to{" "}
-            <a href="/api#useForm">useForm</a> as an optional config. React Hook
-            Form will validate your input data against the schema and return
-            with either <a href="/api#errors">errors</a> or a valid result.
+            </a>{" "}
+            を活用してスキーマベースのフォームバリデーションをサポートしています。
+            省略可能な引数として <code>validationSchema</code> を <a href="/api#useForm">useForm</a> に渡すことができます。
+            React Hook Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
+            <a href="/api#errors">errors</a> や妥当な結果を返します。
           </p>
         </>
       ),
       step1: (
         <>
           <p>
-            <Note>Step 1:</Note> Install <code>Yup</code> into your project.
+            <Note>ステップ1：</Note> <code>Yup</code> をプロジェクトにインストールします。
           </p>
         </>
       ),
       step2: (
         <p>
-          <Note>Step 2:</Note> Prepare your schema for validation and register
-          inputs with React Hook Form.
+          <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、
+          React Hook Form を使用して input を登録します。
         </p>
       ),
     },
@@ -1043,17 +1036,15 @@ export default {
       ),
     },
     jp: {
-      title: "Connect Form",
+      title: "接続フォーム",
       description: (
         <p>
-          When we are building forms, there are times when our input lives
-          inside of deeply nested component trees, and that's when{" "}
-          <a href="/api#FormContext">FormContext</a> comes in very handy.
-          However, we can further improve the Developer Experience by creating a{" "}
-          <code>ConnectForm</code> component and leveraging React's{" "}
-          <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          The benefit of such a component is you can connect your input with
-          React Hook Form from anywhere.
+          フォームを作成するときに、深くネストされたコンポーネントツリーの中に input が存在することがあり、
+          そのような場合は <a href="/api#FormContext">FormContext</a> が非常に便利です。
+          <code>ConnectForm</code> コンポーネントを作成して{" "}
+          React の<a href="https://reactjs.org/docs/render-props.html">renderProps</a> を活用することで、
+          DX を更に向上することができます。{" "}
+          <code>ConnectForm</code> コンポーネントの利点は、input をどこからでも React Hook Form に接続できることです。
         </p>
       ),
     },
@@ -1132,22 +1123,22 @@ export default {
       ),
     },
     jp: {
-      title: "Conditional Controlled Component",
+      title: "条件付き制御コンポーネント",
       description: (
         <>
-          In terms of conditional field, React Hook Form made that really simple
-          for us, because the moment when you removed the input form the
-          component tree, it will get <code>unregister</code> automatically,{" "}
+          React Hook Form を使用すると、条件付きフィールドを非常にシンプルに扱えます。
+          input がコンポーネントツリーから削除されると、自動的に <code>unregister</code> されるからです。
+          そのような振る舞いの
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            here is an example
+            例をこちらに示します
           </a>{" "}
-          for such behavior. However, that's not the same case for controlled
-          components since <code>ref</code> is not been registered, and we can
-          leverage the use of{" "}
+          。ただし、制御コンポーネントでは <code>ref</code> が登録されていないため、
+          同じように自動的に登録解除されません。
+          このような場合、{" "}
           <code>
             <a
               href="https://reactjs.org/docs/hooks-effect.html"
@@ -1156,8 +1147,8 @@ export default {
             >
               useEffect
             </a>
-          </code>
-          . Here is an example:
+          </code>{" "}
+          を活用することができます。以下に例を示します：
         </>
       ),
     },
@@ -1233,23 +1224,23 @@ export default {
       ),
     },
     jp: {
-      title: "FormContext Performance",
+      title: "FormContext パフォーマンス",
       description: (
         <p>
-          React Hook Form's{" "}
-          <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+          React Hook Form の <PageLink to="/api/#FormContext">FormContext</PageLink> は、{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
             rel="noreferrer noopener"
           >
-            React's Context
+            React の Context API
           </a>{" "}
-          API. It solves the problem where data is passed through the component
-          tree without having to pass props down manually at every level. This
-          also causes the component tree to trigger a re-render when React Hook
-          Form triggers a state update, but we can still can optimise our App if
-          required via the example blow.
+          上に構築されています。
+          これにより、全ての階層で手動で props を渡す必要なく、
+          コンポーネントツリーを介してデータを渡す問題を解決します。
+          これにより、React Hook Form は状態を更新する度に、
+          コンポーネントツリーが再レンダリングされる問題を引き起こしますが、
+          必要に応じて次の例のようにアプリを最適化することができます。
         </p>
       ),
     },
