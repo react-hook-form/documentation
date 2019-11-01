@@ -149,7 +149,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
         display: "inline-block",
         background: "white",
         color: 'black',
-        padding: "6 px 20px",
+        padding: "6px 20px",
         borderRadius: 4,
       }}
     >
