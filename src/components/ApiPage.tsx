@@ -822,7 +822,7 @@ function ApiPage({
 
           <CodeArea
             rawData={typeScript}
-            url="https://codesandbox.io/s/get-form-values-xjepz"
+            url="https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
           />
 
           <CenterContent>
