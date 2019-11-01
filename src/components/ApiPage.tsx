@@ -79,6 +79,7 @@ export const TableWrapper = styled.div`
 
     &::-webkit-scrollbar-track {
       background: #191d3a;
+      border-radius: 10px;
     }
 
     &::-webkit-scrollbar-thumb {
