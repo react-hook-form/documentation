@@ -144,5 +144,16 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
       </a>
       ️ ]
     </p>
+    <p
+      style={{
+        display: "inline-block",
+        background: "white",
+        color: 'black',
+        padding: "6 px 20px",
+        borderRadius: 4,
+      }}
+    >
+      Hosted on ▲ ZEIT Now
+    </p>
   </Footer>
 )
