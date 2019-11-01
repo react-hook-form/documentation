@@ -237,6 +237,20 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://zerotomastery.io/blog/web-developer-monthly-october-2019/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Zero to Mastery</h3>
+                <p>
+                  Forms with React just got simpler with React Hook Form. Make sure you scroll to the bottom to see code comparison with the alternatives. Really neat!
+                </p>
+              </a>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://react.statuscode.com/issues/159"
                 target="_blank"
                 rel="noopener noreferrer"
