@@ -14,10 +14,15 @@ html {
   width: 0.5em;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--primary-color);
+  background: #191d3a;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--blue);
+  background: #4f6294;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-pink);
 }
 body {
   margin: 0;
@@ -362,6 +367,7 @@ table {
 
   pre::-webkit-scrollbar-track {
     background: #191d3a;
+    border-radius: 10px;
   }
 
   pre::-webkit-scrollbar-thumb {
