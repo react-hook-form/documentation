@@ -311,7 +311,8 @@ export default {
                       <br />
                       <code>
                         formik@2.0.1
-                        <br /><Note>14.4KB</Note>
+                        <br />
+                        <Note>14.4KB</Note>
                       </code>
                     </td>
                     <td>
@@ -319,7 +320,8 @@ export default {
                       <br />
                       <code>
                         redux-form@8.2.6
-                        <br /><Note>27KB</Note>
+                        <br />
+                        <Note>27KB</Note>
                       </code>
                     </td>
                   </tr>
@@ -550,18 +552,18 @@ export default {
         ),
       },
       {
-        title: "React Hook Form, Formik or Redux Form?",
+        title: "React Hook Form 을 Formik, Redux Form 과 비교한다면?",
         description: (
           <>
             <p>
-              First of all, all libs try to solve the same problem which is
-              making form building experience easy and great. However, there are
-              some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and tries to provide your
-              form with best performance and least re-render if possible. On top
-              of that, react-hook-form is built by React Hook and used as hook,
-              which means there is no Component for you to import. Here are some
-              of the detail differences:
+              먼저, 모든 라이브러리들은 폼을 만드는 과정을 쉽고 좋게 만들겠다는
+              공통의 문제를 해결하려고 합니다. 하지만 세 라이브러리는 약간
+              근본적인 차이를 가지고 있고, react-hook-form 은 비제어 입력을
+              기본으로 삼고 있습니다. 그리하여 여러분의 폼이 최대한의 퍼포먼스를
+              내고 최소한의 리랜더링만 발생하도록 합니다. 그 위에
+              react-hook-form 은 리액트 훅을 기반으로 만들어졌으며 훅으로
+              사용됩니다. 따라서 별도의 컴포넌트를 불러올 필요가 없습니다.
+              아래에 더 자세한 차이점을 표기했습니다.
             </p>
 
             <TableWrapper>
@@ -583,125 +585,123 @@ export default {
                 <tbody>
                   <tr>
                     <td>
-                      <b>Component</b>
+                      <b>컴포넌트</b>
                     </td>
                     <td>
                       <a>
                         <a
-                          href="https://reactjs.org/docs/uncontrolled-components.html"
+                          href="https://ko.reactjs.org/docs/uncontrolled-components.html"
                           target="_blank"
                         >
-                          uncontrolled
+                          비제어
                         </a>
                       </a>
                     </td>
                     <td>
                       <a
-                        href="https://reactjs.org/docs/forms.html"
+                        href="https://ko.reactjs.org/docs/forms.html"
                         target="_blank"
                       >
-                        controlled
+                        제어
                       </a>
                     </td>
                     <td>
                       <a
-                        href="https://reactjs.org/docs/forms.html"
+                        href="https://ko.reactjs.org/docs/forms.html"
                         target="_blank"
                       >
-                        controlled
+                        제어
                       </a>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Rendering</b>
+                      <b>랜더링</b>
                     </td>
-                    <td>minimum re-render</td>
+                    <td>최소한의 리랜더링</td>
+                    <td>인풋에 타이핑하면서 지역 상태가 변할떄마다 리랜더링</td>
                     <td>
-                      re-render according to local state changes which means as
-                      you type in the input.
-                    </td>
-                    <td>
-                      re-render according to state management lib (Redux)
-                      changes which means as you type in the input.
+                      인풋에 타이핑하면서 상태 관리 라이브러리(Redux)의 상태가
+                      바뀔 때마다 리랜더링
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <b>API</b>
                     </td>
-                    <td>Hooks</td>
-                    <td>Component (RenderProps, Form, Field) + Hooks</td>
-                    <td>Component (RenderProps, Form, Field)</td>
+                    <td>훅</td>
+                    <td>컴포넌트 (RenderProps, Form, Field) + 훅</td>
+                    <td>컴포넌트 (RenderProps, Form, Field)</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Package Size</b>
+                      <b>패키지 크기</b>
                     </td>
                     <td>
-                      Small
+                      작음
                       <br />
                       <code>
                         react-hook-form@3.26.2
                         <br />
-                        <Note></Note><Note>5.3KB</Note>
+                        <Note />
+                        <Note>5.3KB</Note>
                       </code>
                     </td>
                     <td>
-                      Medium
+                      중간
                       <br />
                       <code>
                         formik@2.0.1
-                        <br /><Note>14.4KB</Note>
+                        <br />
+                        <Note>14.4KB</Note>
                       </code>
                     </td>
                     <td>
-                      Large
+                      큼
                       <br />
                       <code>
                         redux-form@8.2.6
-                        <br /><Note>27KB</Note>
+                        <br />
+                        <Note>27KB</Note>
                       </code>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Validation</b>
+                      <b>유효성 검사</b>
                     </td>
                     <td>
-                      Built-in &{" "}
+                      내장됨 &{" "}
                       <a href="https://github.com/jquense/yup" target="_blank">
                         Yup
                       </a>
                     </td>
                     <td>
-                      Build your own &{" "}
+                      직접 만들어야 함 &{" "}
                       <a href="https://github.com/jquense/yup" target="_blank">
                         Yup
                       </a>
                     </td>
-                    <td>Build your own & Plugins</td>
+                    <td>직접 만들어야 함 & 플러그인</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Learning curve</b>
+                      <b>러닝 커브</b>
                     </td>
-                    <td>Low</td>
-                    <td>Medium</td>
-                    <td>Medium</td>
+                    <td>낮음</td>
+                    <td>중간</td>
+                    <td>중간</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Status</b>
+                      <b>현황</b>
                     </td>
-                    <td>Small Community: New lib and growing</td>
+                    <td>작은 커뮤니티: 새로운 라이브러리이며 성장 중</td>
                     <td>
-                      Large Community: Well established form lib in the
-                      community
+                      큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리
                     </td>
                     <td>
-                      Large Community: Well established form lib in the
-                      community
+                      큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리
                     </td>
                   </tr>
                 </tbody>
@@ -985,7 +985,8 @@ export default {
                       <code>
                         react-hook-form@3.26.2
                         <br />
-                        <Note></Note><Note>5.3KB</Note>
+                        <Note />
+                        <Note>5.3KB</Note>
                       </code>
                     </td>
                     <td>
@@ -993,7 +994,8 @@ export default {
                       <br />
                       <code>
                         formik@2.0.1
-                        <br /><Note>14.4KB</Note>
+                        <br />
+                        <Note>14.4KB</Note>
                       </code>
                     </td>
                     <td>
@@ -1001,7 +1003,8 @@ export default {
                       <br />
                       <code>
                         redux-form@8.2.6
-                        <br /><Note>27KB</Note>
+                        <br />
+                        <Note>27KB</Note>
                       </code>
                     </td>
                   </tr>
@@ -1300,17 +1303,29 @@ export default {
                     <td>
                       小
                       <br />
-                      <code>react-hook-form@3.26.2<br/><Note>5.3KB</Note></code>
+                      <code>
+                        react-hook-form@3.26.2
+                        <br />
+                        <Note>5.3KB</Note>
+                      </code>
                     </td>
                     <td>
                       中
                       <br />
-                      <code>formik@2.0.1<br/><Note>14.4KB</Note></code>
+                      <code>
+                        formik@2.0.1
+                        <br />
+                        <Note>14.4KB</Note>
+                      </code>
                     </td>
                     <td>
                       大
                       <br />
-                      <code>redux-form@8.2.6<br/><Note>27KB</Note></code>
+                      <code>
+                        redux-form@8.2.6
+                        <br />
+                        <Note>27KB</Note>
+                      </code>
                     </td>
                   </tr>
                   <tr>
