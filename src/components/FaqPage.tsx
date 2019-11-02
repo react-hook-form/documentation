@@ -53,24 +53,28 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question11: null,
   })
 
-  const goToSection = (name, index) => {
-    if (sectionsRef.current[`question${index + 1}`]) {
-      sectionsRef.current[`question${index + 1}`].scrollIntoView({
+  const goToSection = name => {
+    const filterName = name.replace(/[^\w\s]| /g, "")
+    const path = links.findIndex(
+      ({ en: { title } }) =>
+        title.replace(/[^\w\s]| /g, "").toLowerCase() ===
+        filterName.toLowerCase()
+    )
+
+    if (sectionsRef.current[`question${path + 1}`]) {
+      sectionsRef.current[`question${path + 1}`].scrollIntoView({
         behavior: "smooth",
       })
     }
 
     const url = window.location.href
     const hashIndex = url.indexOf("#")
-    const filterName = name.replace(/[^\w\s]| /g, "")
 
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
     } else {
       history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
     }
-
-    const path = links.findIndex(({ en: { title } }) => title === name)
 
     if (path > -1) {
       sectionsRef.current[`question${path}`].scrollIntoView({
@@ -79,7 +83,10 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     }
   }
 
-  console.log(links)
+  React.useEffect(() => {
+    if (location.hash)
+      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  }, [])
 
   return (
     <Container>
