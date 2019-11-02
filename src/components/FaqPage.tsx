@@ -59,7 +59,27 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
         behavior: "smooth",
       })
     }
+
+    const url = window.location.href
+    const hashIndex = url.indexOf("#")
+    const filterName = name.replace(/[^\w\s]| /g, "")
+
+    if (hashIndex < 0) {
+      history.pushState({}, null, `${url}#${filterName}`)
+    } else {
+      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+    }
+
+    const path = links.findIndex(({ en: { title } }) => title === name)
+
+    if (path > -1) {
+      sectionsRef.current[`question${path}`].scrollIntoView({
+        behavior: "smooth",
+      })
+    }
   }
+
+  console.log(links)
 
   return (
     <Container>

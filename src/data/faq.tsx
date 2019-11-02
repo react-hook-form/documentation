@@ -245,13 +245,11 @@ export default {
                       <b>Component</b>
                     </td>
                     <td>
-                      <a>
-                        <a
-                          href="https://reactjs.org/docs/uncontrolled-components.html"
-                          target="_blank"
-                        >
-                          uncontrolled
-                        </a>
+                      <a
+                        href="https://reactjs.org/docs/uncontrolled-components.html"
+                        target="_blank"
+                      >
+                        uncontrolled
                       </a>
                     </td>
                     <td>
@@ -295,7 +293,7 @@ export default {
                   </tr>
                   <tr>
                     <td>
-                      <b>Package Size</b>
+                      <b>Package size</b>
                     </td>
                     <td>
                       Small
@@ -927,13 +925,11 @@ export default {
                       <b>Component</b>
                     </td>
                     <td>
-                      <a>
-                        <a
-                          href="https://reactjs.org/docs/uncontrolled-components.html"
-                          target="_blank"
-                        >
-                          uncontrolled
-                        </a>
+                      <a
+                        href="https://reactjs.org/docs/uncontrolled-components.html"
+                        target="_blank"
+                      >
+                        uncontrolled
                       </a>
                     </td>
                     <td>
@@ -977,7 +973,7 @@ export default {
                   </tr>
                   <tr>
                     <td>
-                      <b>Package Size</b>
+                      <b>Package size</b>
                     </td>
                     <td>
                       Small
@@ -1254,13 +1250,11 @@ export default {
                       <b>Component</b>
                     </td>
                     <td>
-                      <a>
-                        <a
-                          href="https://reactjs.org/docs/uncontrolled-components.html"
-                          target="_blank"
-                        >
-                          uncontrolled
-                        </a>
+                      <a
+                        href="https://reactjs.org/docs/uncontrolled-components.html"
+                        target="_blank"
+                      >
+                        uncontrolled
                       </a>
                     </td>
                     <td>
@@ -1298,7 +1292,7 @@ export default {
                   </tr>
                   <tr>
                     <td>
-                      <b>Package Size</b>
+                      <b>Package size</b>
                     </td>
                     <td>
                       小
