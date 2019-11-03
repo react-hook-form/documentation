@@ -13,7 +13,7 @@ export default {
       en:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
-        "React Hook Form는 API 단순화를 통해 최고의 DX제공에 집중합니다.",
+        "React Hook Form은 API 단순화를 통해 최고의 DX를 제공합니다.",
       jp: "React Hook Form は API をシンプルにすることにより最高な DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
@@ -156,7 +156,7 @@ export default {
       title: "useForm",
       intro: (
         <>
-          <code>useForm</code> 호출을 통해, 다음과 같은 메소드들을 제공합니다.{" "}
+          <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
         </>
       ),
       description: (
@@ -166,7 +166,7 @@ export default {
       ),
       validationSchemaOption: (
         <>
-          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이 포함된 개체 해시입니다. 더 자세한 사항은 <a
+          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이 포함된 객체 해시입니다. 더 자세한 사항은 <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror">
@@ -187,7 +187,7 @@ export default {
       validateOnChange: (
         <>
           유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번 다시 렌더링합니다. 
-          이 방법은 성능을 저해함으로 추천하지 않습니다. 
+          이 방법은 랜더링 성능을 떨어뜨리므로 추천하지 않습니다. 
         </>
       ),
       defaultValues: goToSection => (
@@ -225,7 +225,7 @@ export default {
       submitFocusError: (
         <>
           <p>
-            기본적으로 사용자가 폼을 제출하고 에런가 있는 경우, 에러가 있는 첫번째 필드에 포커스 됩니다. 
+            기본적으로 사용자가 폼을 제출하고 에러가 있는 경우, 에러가 있는 첫번째 필드에 포커스 됩니다. 
           </p>
 
           <p>
@@ -1272,7 +1272,7 @@ export default {
             이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다. 
           </p>
           <p>
-            <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를 전달할 수 있습니다 . 예를 들어, {" "}
+            <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를 전달할 수 있습니다 . 예 : {" "}
           </p>
           <p>
             <CodeBlock>
@@ -1520,7 +1520,7 @@ export default {
             <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는 이 입력의 <code>name</code>을 <code>touched</code>로 설정하게 됩니다.
           </p>
           <p>
-            <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드 유효성 검사를 트리거할 수 도 있습니다. 예를 들어, <code>setValue('name', 'value', true)</code>
+            <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드 유효성 검사를 트리거할 수 도 있습니다. 예 : <code>setValue('name', 'value', true)</code>
           </p>
         </>
       ),
@@ -1600,13 +1600,13 @@ export default {
           <ul>
             <li>
               <p>
-                기본적으로, <code>getValues()</code>는 폼 데이터를 flat structure로 반환합니다. 예를 들어, {" "}
+                기본적으로, <code>getValues()</code>는 폼 데이터를 flat structure로 반환합니다. 예 : {" "}
                 <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
-                정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는 <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로 반환됩니다. 예를 들어, {" "}
+                정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는 <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로 반환됩니다. 예 : {" "}
                 <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
