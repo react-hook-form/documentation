@@ -13,7 +13,7 @@ export default {
       en:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
-        "React Hook Form focuses on providing the best DX by simplifying the API.",
+        "React Hook Form는 API 단순화를 통해 최고의 DX제공에 집중합니다.",
       jp: "React Hook Form は API をシンプルにすることにより最高な DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
@@ -156,132 +156,95 @@ export default {
       title: "useForm",
       intro: (
         <>
-          By invoking <code>useForm</code>, you will receive the following
-          methods{" "}
+          <code>useForm</code> 호출을 통해, 다음과 같은 메소드들을 제공합니다.{" "}
         </>
       ),
       description: (
         <p>
-          <code>useForm</code> also has <b>optional</b> arguments. The following
-          example demonstrates all options' default value.
+          <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음 예제는 모든 옵션의 기본값을 보여줍니다.
         </p>
       ),
       validationSchemaOption: (
         <>
-          The <code>options</code> argument is an object hash containing any
-          schema options you may want to override (or specify for the first
-          time). You can read more in the{" "}
-          <a
+          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이 포함된 개체 해시입니다. 더 자세한 사항은 <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            yup documentation
-          </a>
-          .
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror">
+            yup 문서</a>에서 찾아 볼 수 있습니다.
         </>
       ),
       validateOnSubmit: (
         <>
-          Validation will trigger on the <code>submit</code> event and invalid
-          inputs will attach <code>onChange</code> event listeners to
-          re-validate them.
+          유효성 검사는 <code>submit</code> 이벤트에서 트리거되며, 
+          유효하지 않은 입력은 <code>onChange</code> 이벤트 리스너를 연결하여 유효성을 다시 확인합니다.
         </>
       ),
       validateOnBlur: (
         <>
-          Validation will trigger on the <code>blur</code> event.
+          <code>blur</code> 이벤트에서 유효성 검사가 트리거됩니다.
         </>
       ),
       validateOnChange: (
         <>
-          Validation will trigger on the <code>change</code> event with each
-          input, and lead to multiple re-renders. Not recommended: Consider this
-          as a bad performance practice.
+          유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번 다시 렌더링합니다. 
+          이 방법은 성능을 저해함으로 추천하지 않습니다. 
         </>
       ),
       defaultValues: goToSection => (
         <>
           <p>
-            You can set the input's default value with{" "}
-            <code>defaultValue/defaultChecked</code>{" "}
-            <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (read more from the React doc for Default Values)
-            </Link>{" "}
-            or pass <code>defaultValues</code> as an optional argument to
-            populate default values for the entire form.
+            입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정 하거나 <Link href="https://ko.reactjs.org/docs/uncontrolled-components.html">(기본값에 대한 React 문서를 읽어보세요)</Link>
+            , <code>defaultValues</code> 를 옵셔널 인수로 전달 하여 전체 폼의 기본값을 채울 수 있습니다.
           </p>
 
           <p>
-            <Note>Note:</Note> Values defined in <code>defaultValues</code> will
-            be injected into{" "}
-            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
-            as <code>defaultValue</code>.
+            <Note>참고:</Note> <code>defaultValues</code> 내 정의 된 값은 <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> 의 <code>defaultValue</code> 값으로 주입됩니다. 
           </p>
 
           <p>
-            <Note>Note:</Note> <code>defaultValues</code> doesn't auto populate
-            with the manually registered input (eg:{" "}
-            <code>{`register({ name: 'test' })`}</code>) because the manual{" "}
-            <code>register</code> field does not provide the <code>ref</code> to
-            React Hook Form.
+            <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook Form의  <code>ref</code> 를 제공하지 않기에, 
+            수동 입력 필드(예를 들어, <code>{`register({ name: 'test' })`}</code> )의 <code>defaultValues</code> 는 자동 완성 되지 않습니다.
           </p>
         </>
       ),
       validationSchema: goToSection => (
         <p>
-          Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer to the{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
-            validationSchema
-          </CodeAsLink>{" "}
-          section.
+          <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요. <CodeAsLink onClick={() => goToSection("validationSchema")}>validationSchema</CodeAsLink> 섹션을 참고하세요.
         </p>
       ),
       reValidateMode: (
         <p>
-          This option allows you to configure when inputs with errors getd
-          re-validated (by default, validation is triggered during an input
-          change.)
+          이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수 있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
         </p>
       ),
       validationFields: (
         <p>
-          Providing an array of fields means only included fields will be
-          validated. This option is useful when you want to toggle which fields
-          are required to validate.
+          제공되는 필드 배열은 앞으로 검증될 필드만 포함합니다. 이 옵션은 유효성 검사가 필요한 필드에 대해서 토글(toggle)을 원할 경우에 유용합니다. 
         </p>
       ),
       submitFocusError: (
         <>
           <p>
-            By default when the user submits a form and that contains an error,
-            the first field with an error will be focused.
+            기본적으로 사용자가 폼을 제출하고 에런가 있는 경우, 에러가 있는 첫번째 필드에 포커스 됩니다. 
           </p>
 
           <p>
-            <Note>Note:</Note> Only registered fields with a <code>ref</code>{" "}
-            will work. Manually registered inputs won't work. eg:{" "}
-            <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+            <Note>참고:</Note> <code>ref</code> 로 등록된 필드만 작동합니다. 수동으로 등록하면 동작하지 않습니다. 예 :{" "}
+            <code>{`register({ name: 'test' }) // 동작하지 않음`}</code>{" "}
           </p>
         </>
       ),
       nativeValidation: goToSection => (
         <p>
-          Setting this option to <code>true</code> will enable the browser's
-          native validation. You can{" "}
+          이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가 활성화됩니다. 
+           {"  "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-          >
-            find out more about the built-in browser validation
-          </a>
-          , and refer to the{" "}
-          <CodeAsLink onClick={() => goToSection("nativeValidation")}>
-            nativeValidation
-          </CodeAsLink>{" "}
-          section for more details and examples.
+          >브라우저 기본 유효성 검사</a>에 대한 내용을 확인하시고 좀 더 자세한 내용과 예시는 <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+          nativeValidation
+        </CodeAsLink>{" "} 에서 참고하실 수 있습니다. 
         </p>
       ),
     },
@@ -546,12 +509,10 @@ export default {
       description: (
         <>
           <p>
-            This method will allow you to <code>unregister</code> a single input
-            or an array of inputs.
+            이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code> 할 수 있습니다. 
           </p>
           <p>
-            <Note>Note:</Note> When you unregister an input, its value will no
-            longer be included in the form data that gets submitted.
+            <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼 데이터에 해당 값이 더 이상 포함되지 않습니다.
           </p>
         </>
       ),
@@ -688,18 +649,14 @@ export default {
       description: (
         <>
           <p>
-            This method allows you to register input/select <code>Ref</code> and
-            validation rules into React Hook Form.
+            이 함수에서 입력/선택(input/select) <code>Ref</code> 와 유효성 검사 규칙을 등록(register)할 수 있습니다. 
           </p>
           <p>
-            Validation rules are all based on HTML standard and also allow
-            custom validation.
+            유효성 검사 규칙은 모두 HTML 표준을 기반으로 하며, 커스텀 유효성 검사도 가능합니다. 
           </p>
           <p>
-            <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-            <b>unique</b>. Input name also supports dot and bracket syntax,
-            which allows you to easily create nested form fields. Example table
-            is below:
+            <Note>중요:</Note> <code>name</code>은 <b>필수</b>이며 <b>유니크</b>해야합니다. 
+            name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를 쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
           </p>
         </>
       ),
@@ -710,48 +667,40 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          If you working on <code>arrays/array fields</code>, you can assign an
-          input name as <code>name[index]</code>.{" "}
+          <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와 같이 name을 지정할 수 있습니다.{" "} 
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
           >
-            Check out the Field Array example
+            Field Array 예제를 확인하세요.
           </Link>
           .
         </p>
       ),
-      example: "Submit Result",
+      example: "제출 결과",
       selectHelp:
-        "By selecting the register option, the API table below will get updated.",
+        "등록 옵션(register options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
       options: {
         title: "Register options",
-        registerWithValidation: "Register with validation",
+        registerWithValidation: "유효성 검사과 함께 등록",
         registerWithValidationMessage:
-          "Register with validation and error message",
+          "유효성 검사 및 에러 메시지완 등록",
         note: goToSection => (
           <>
             <Title>Custom Register</Title>
             <p>
-              You can also register inputs manually, which is useful when
-              working with custom components and <code>Ref</code> is not
-              accessible. This is actually the case when you are working with
-              React Native or custom component like{" "}
-              <a
+              커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우, 입력을 수동으로 등록 할 수 있습니다. 
+              이는 실제로 React Native 또는 <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 react-select
-              </a>
-              .
+              </a> 와 같은 커스텀 컴포넌트와 작업할 때 사용될 수 있습니다. 
             </p>
 
             <p>
-              By using a custom register call, you will need to update the input
-              value with{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>,
-              because input is no longer registered with its ref.
+              Custome register를 사용하면, 입력은 더이상 ref로 등록되지 않으므로, <code onClick={() => goToSection("setValue")}>setValue</code> 을 통해 입력 값을 업데이트해 주어야 합니다.
             </p>
 
             <p>
@@ -759,9 +708,8 @@ export default {
             </p>
 
             <p>
-              <Note>Note:</Note> If you want the custom registered input to
-              trigger a re-render during its value update, then you should give
-              a type to your registered input.
+              <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을  
+              다시 렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야 합니다.
             </p>
           </>
         ),
@@ -769,17 +717,15 @@ export default {
       validation: {
         required: (
           <>
-            A Boolean which, if true, indicates that the input must have a value
-            before the form can be submitted. You can assign a string to return
-            an error message in the <code>errors</code> object.
+            폼 제출을 위해 반드시 필요한 경우, true로 지정합니다. 에러시 반환할 문자열 메세지는 <code>errors</code> 객체에 지정할수 있습니다. 
           </>
         ),
-        maxLength: "The maximum length of the value to accept for this input.",
-        minLength: "The minimum length of the value to accept for this input.",
-        max: "The maximum value to accept for this input.",
-        min: "The minimum value to accept for this input.",
-        pattern: "The regex pattern for the input.",
-        validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+        maxLength: "입력에 허용되는 최대 길이입니다.",
+        minLength: "입력에 허용되는 최소 길이입니다.",
+        max: "입력에 허용되는 최대 값입니다.",
+        min: "입력에 허용되는 최소 값입니다.",
+        pattern: "입력에 대한 정규식 패턴입니다.",
+        validate: `콜백 함수를 인수로 전달하거나 콜백 함수의 객체를 전달하여 검증할 수 있습니다. (예제 참조)`,
       },
     },
     jp: {
@@ -984,18 +930,17 @@ export default {
     },
     kr: {
       title: "formState",
-      description: "This object contain information about the form state.",
-      dirty: "Set to true after a user interacted with any of the inputs.",
-      isSubmitted: "Set true after a user submitted the form.",
-      touched: "An array of all inputs which have been interacted.",
+      description: "폼 상태(form state)에 대한 정보를 포함합니다",  
+      dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
+      isSubmitted: "사용자가 폼을 제출 한 후 true로 설정하십시오.",
+      touched: "상호 작용된 모든 입력의 배열입니다.",
       isSubmitting: (
         <>
-          During form submitting will set to <code>true</code> and after
-          submitting set to <code>false</code>
+          폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>로 설정합니다.
         </>
       ),
-      submitCount: "Number of forms submit.",
-      isValid: "Set true if doesn't have any error.",
+      submitCount: "제출 한 폼의 수",
+      isValid: "에러가 없다면, true로 설정하세요.",
     },
     jp: {
       title: "formState",
@@ -1072,23 +1017,18 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            Object contains form errors or error messages which belong to each
-            input.
+            각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.
           </p>
 
           <p>
-            <Note>Note:</Note> You can also learn recipes on{" "}
-            <NavLink
+            <Note>참고:</Note> '고급 사용법' 에서 더 자세한 <NavLink
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-            >
-              Error Message
-            </NavLink>{" "}
-            from advanced page.
+            >에러 메시지</NavLink>{" "} 사용 방법을 확인 할 수 있습니다.{" "}
           </p>
         </>
       ),
-      message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
-      ref: `Reference for your input element.`,
+      message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
+      ref: `입력 엘레먼트에 대한 ref`,
     },
     jp: {
       title: "errors",
@@ -1185,23 +1125,17 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>This will watch specified input/inputs and return its value.</p>
-
+          <p>지정된 입력을 확인(watch)하고, 그 값들을 반환하며, 렌더링 할 대상을 결정할 때 유용합니다.</p>
           <ul>
             <li>
               <p>
-                When <code>defaultValue</code> is not defined, the first render
-                of <code>watch</code> will return <code>undefined</code> because
-                it is called before <code>register</code>, but you can set the{" "}
-                <code>defaultValue</code> as the second argument to return
-                value.
+                <code>defaultValue</code>가 정의 안되어 있는 경우, <code>register</code>가 아직 호출이 안되었기 때문에 <code>watch</code>의 첫번째 렌더링에서는 <code>undefined</code> 을 반환합니다. 
+                하지만, 두번째 인수로 <code>defaultValue</code>를 설정하여 값을 반환 할 수 있습니다. 
               </p>
             </li>
             <li>
               <p>
-                However, if <code>defaultValues</code> was initialised in{" "}
-                <code>useForm</code> as argument, then the first render will
-                return what's provided in <code>defaultValues</code>.
+                <code>useForm</code> 에서 <code>defaultValues</code>로 정의가 되어 있다면, 첫번째 렌더링에서 <code>defaultValues</code>에 적용된 내용을 반환합니다.
               </p>
             </li>
           </ul>
@@ -1210,19 +1144,17 @@ export default {
       tableTitle: {
         single: (
           <>
-            Watch input value by name (similar to lodash{" "}
-            <a
+            name으로 입력값 확인 (lodash <a
               target="_blank"
               rel="noreferrer noopener"
               href="https://lodash.com/docs/4.17.15#get"
             >
               get
-            </a>{" "}
-            function)
+            </a> 기능과 유사)	
           </>
         ),
-        multiple: "Watch multiple inputs",
-        all: "Watch all inputs",
+        multiple: "여러 입력을 확인",
+        all: "모든 입력을 확인",
       },
     },
     jp: {
@@ -1337,12 +1269,10 @@ export default {
       description: (
         <>
           <p>
-            This function will pass the form data when form validation is
-            successful.
+            이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다. 
           </p>
           <p>
-            <Note>Note:</Note> You can pass an <code>async</code> function for
-            asynchronous validation. eg:{" "}
+            <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를 전달할 수 있습니다 . 예를 들어, {" "}
           </p>
           <p>
             <CodeBlock>
@@ -1411,15 +1341,11 @@ export default {
       description: (
         <>
           <p>
-            This function will reset the fields' values and errors within the
-            form. You can pass <code>values</code> as an optional argument to
-            reset your form into assigned default values.
+            이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본 값으로 재설정 할 수 있습니다. 
           </p>
           <p>
-            <Note>Note:</Note> For controlled components like{" "}
-            <code>React-Select</code> which don't expose <code>ref</code>, you
-            will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>.
+            <Note>참고:</Note> <code>React-Select</code> 와 같이 <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
+            <code onClick={() => goToSection("setValue")}>setValue</code>를 통해 수동으로 입력값을 재설정해주어야 합니다.
           </p>
         </>
       ),
@@ -1466,7 +1392,7 @@ export default {
     },
     kr: {
       title: "setError",
-      description: <p>Allows you to manually set an input error.</p>,
+      description: <p>입력 에러를 수동으로 설정할 수 있습니다.</p>,
     },
     jp: {
       title: "setError",
@@ -1506,17 +1432,17 @@ export default {
         <ul>
           <li>
             <p>
-              <code>undefined</code>: reset all errors
+              <code>undefined</code>: 모든 에러를 리셋 
             </p>
           </li>
           <li>
             <p>
-              <code>string</code>: reset single error
+              <code>string</code>: 하나의 에러 리셋
             </p>
           </li>
           <li>
             <p>
-              <code>string[]</code>: reset multiple errors
+              <code>string[]</code>: 여러개의 에러 리셋
             </p>
           </li>
         </ul>
@@ -1589,15 +1515,12 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>This function allows you to dynamically set input/select value.</p>
+          <p>이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다.</p>
           <p>
-            <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
-            will push the input's <code>name</code> into <code>touched</code>.
+            <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는 이 입력의 <code>name</code>을 <code>touched</code>로 설정하게 됩니다.
           </p>
           <p>
-            You can also set <code>shouldValidate</code> to <code>true</code>{" "}
-            and it will trigger field validation. eg:{" "}
-            <code>setValue('name', 'value', true)</code>
+            <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드 유효성 검사를 트리거할 수 도 있습니다. 예를 들어, <code>setValue('name', 'value', true)</code>
           </p>
         </>
       ),
@@ -1673,21 +1596,17 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>This function will return the entire form data.</p>
-
+          <p>이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는 경우에 유용합니다.</p>
           <ul>
             <li>
               <p>
-                By default <code>getValues()</code> will return form data in a
-                flat structure. eg:{" "}
+                기본적으로, <code>getValues()</code>는 폼 데이터를 flat structure로 반환합니다. 예를 들어, {" "}
                 <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
-                Working on the defined form fields,{" "}
-                <code>getValues({`{ nest: true }`})</code> will return data in a
-                nested structure according to input <code>name</code>. eg:{" "}
+                정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는 <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로 반환됩니다. 예를 들어, {" "}
                 <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
@@ -1763,10 +1682,9 @@ export default {
       title: "triggerValidation",
       description: (
         <>
-          <p>To manually trigger an input/select validation in the form.</p>
+          <p>폼의 입력/선택 유효성 검사를 수동으로 트리거합니다.</p>
           <p>
-            <Note>Note:</Note> When validation fails, the <code>errors</code>{" "}
-            object will be updated.
+            <Note>참고:</Note> 유효성 검사에 실패하면 <code>errors</code> 객체가 업데이트됩니다.
           </p>
         </>
       ),
@@ -1812,11 +1730,9 @@ export default {
       title: "React Native",
       description: (
         <p>
-          You will get the same performance enhancement from an Uncontrolled
-          Component. However, there are certain APIs which are not compatible
-          with React Native (duo to the API difference from web and native). You
-          will have to use a <b>manual register</b> as shown in the following
-          example.
+          비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 
+          하지만, 웹과 네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정 API도 있습니다.
+          이 경우, 다음 예제와 같이 <b>수동 등록(manual register)</b>을 해주어야 합니다. 
         </p>
       ),
     },
@@ -1865,18 +1781,14 @@ export default {
       title: "validationSchema",
       description: (
         <p>
-          If you would like to centralize your validation rules with external
-          validation schema, you can apply <code>validationSchema</code> at{" "}
-          <code>useForm</code> as an optional argument. React Hook Form
-          currently supports{" "}
-          <Link
+          외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우, <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로 적용 할 수 있습니다. 
+          React Hook Form의 객체 스키마 유효성 검사에서는 <Link
             href="https://github.com/jquense/yup"
             target="_blank"
             rel="noopener noreferrer"
           >
             Yup
-          </Link>{" "}
-          for object schema validation.
+          </Link>{" "} 을 지원합니다. 
         </p>
       ),
     },
@@ -1933,10 +1845,8 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
+          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다. {" "}
+          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지 문법은 표준과 같습니다. 
         </p>
       ),
     },
@@ -1975,8 +1885,7 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form is built with <code>Typescript</code>, so you can
-          define a <code>FormData</code> type to support form values.
+          React Hook Form은 타입스크립트로 만들어져, 폼 내 값 타입을 <code>FormData</code> 로 설정할 수 있습니다. 
         </p>
       ),
     },
@@ -2027,21 +1936,17 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
+          폼 컨텍스트(Form Context)는 입력들이 컴포넌트 트리에서 깊이 중첩되었을 때 생기는 문제를 해결하고,{" "}
+          <code>props</code>를 더 깊이 전달하기 위해 사용합니다. 
         </p>
       ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            <code>FormContext</code>으로 폼을 감싸면, <code>useFormContext</code>:<TypeText>function</TypeText> 이 하위 컴포넌트에서 호출 될 수 있습니다. 
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            <Note>참고:</Note> <code>useFormContext</code> 를 통해 모든 <code>useForm</code> 의 hook function이 제공됩니다.
           </p>
         </>
       ),
