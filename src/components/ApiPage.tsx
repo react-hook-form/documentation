@@ -38,6 +38,7 @@ import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import api from "../data/api"
 import StarRepo from "./StarRepo"
+import translateLink from "./logic/translateLink"
 
 const { useRef, useEffect } = React
 
@@ -830,7 +831,7 @@ function ApiPage({
             <p>{generic.advanceUsage[currentLanguage].description}</p>
             <PrimaryButton
               onClick={() => {
-                navigate("/advanced-usage")
+                navigate(translateLink("advanced-usage", currentLanguage))
               }}
               style={{ margin: "40px auto" }}
             >
