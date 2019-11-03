@@ -123,7 +123,8 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
     {currentLanguage === "kr" && (
       <p>
         에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
-        <a href="https://github.com/iamchanii">@iamchanii</a> and{" "}
+        <a href="https://github.com/iamchanii">@iamchanii</a>,{" "}
+        <a href="https://github.com/purelledhand">@purelledhand</a> and{" "}
         <a href="https://github.com/adhrinae">@adhrinae</a>
       </p>
     )}
