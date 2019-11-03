@@ -269,7 +269,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="jp" disabled>
             日本语
           </option>
-          <option value="kr" disabled>
+          <option value="kr">
             한국어
           </option>
         </select>
