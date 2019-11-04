@@ -23,7 +23,7 @@ export default {
     },
     jp: {
       title: "はじめる",
-      description: "React Hook Form によるシンプルなフォームバリデーション",
+      description: "React Hook Form によるシンプルなフォームバリデーション。",
     },
     zh: {
       title: "起步",
@@ -60,10 +60,10 @@ export default {
       description: `React Hook Form 을 설치하는데 한 줄 짜리 커맨드면 충분합니다.`,
     },
     jp: {
-      linkTitle: "クイックスタート",
-      title: "インストール",
+      linkTitle: "インストール",
+      title: "クイックスタート",
       description:
-        "1つのインストールコマンドだけで、React Hook Form を使用する準備が整います。",
+        "一つのインストールコマンドだけで、React Hook Form を使用する準備が整います。",
     },
     zh: {
       linkTitle: "安装",
@@ -82,7 +82,7 @@ export default {
     },
     jp: {
       title: "例",
-      description: `次のコードは基本的な使用法を示します。`,
+      description: `下記のコードは基本的な使用法を示します。`,
     },
     zh: {
       title: "例子",
@@ -160,17 +160,16 @@ export default {
             <strong>
               <code>register</code>
             </strong>{" "}
-            を介してフックに接続して、フォームフィールドの値を検証と収集できるようにすることです。
+            を適用してフックに登録し、フォームフィールドの値を検証と収集できるようにすることです。
           </p>
 
           <p>
             <Note>注意：</Note>{" "}
-            各フィールドには登録プロセスの key で使用するためユニークな <code>name</code>{" "}
-            属性が<strong>必須</strong>です。
+            各フィールドには登録プロセスの key としてユニークな <code>name</code> 属性が<strong>必須</strong>です。
           </p>
 
           <p>
-            <Note>注意：</Note>React Native は手動で register する必要があります。{" "}
+            <Note>注意：</Note>React Native は手動登録する必要があります。{" "}
             (例： <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
@@ -364,7 +363,7 @@ export default {
       ),
     },
     jp: {
-      title: "既存のフォームの適用",
+      title: "既存のフォームに適用する",
       description: (
         <>
           既存のフォームの処理はシンプルです。重要なステップは、既存のコンポーネントの{" "}
@@ -458,8 +457,7 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            React Hook Formを使用すると、外部の UI
-            コンポーネントライブラリと簡単に統合できます。
+            React Hook Form は、外部 UI コンポーネントライブラリに統合しやすいです。
           </p>
           <p>
             <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
@@ -531,7 +529,7 @@ export default {
     },
     jp: {
       title: "グローバルな状態に統合する",
-      description: `React Hook Form ではデータを保存するための状態管理ライブラリは必要ありませんが、簡単に統合することができます。`,
+      description: `React Hook Form では、データを保存するために状態管理ライブラリを使用する必要はありませんが、簡単に統合することができます。`,
     },
     zh: {
       title: "整合表单状态",
