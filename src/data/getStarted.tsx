@@ -169,7 +169,7 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note>React Native は手動登録する必要があります。{" "}
+            <Note>注意：</Note>React Native は手動登録 (manual <code>register</code>) する必要があります。{" "}
             (例： <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>

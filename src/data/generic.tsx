@@ -21,7 +21,7 @@ export default {
     jp: {
       title: "もっと知りたいですか？",
       description:
-        "React Hook Form のドキュメントを確認して、API に関する全ての情報を学んでください。",
+        "React Hook Form のドキュメントを見て、API に関する全ての情報を確認してください。",
       buttonText: "API を確認する",
     },
     zh: {
@@ -43,7 +43,7 @@ export default {
     },
     jp: {
       title: "高度な使用法",
-      description: `React Hook Formを使用して、複雑でアクセス可能なフォームを作成する方法を学びます。`,
+      description: `React Hook Form を使用して、複雑でアクセス可能なフォームを構築する方法を学びます。`,
       buttonText: `高度な使用法を学ぶ`,
     },
     zh: {
@@ -89,7 +89,7 @@ export default {
   support: {
     en: "Please support us by leaving a ★",
     kr: "★을 눌러서 응원해주세요",
-    jp: "★ を付けてサポートして下さい",
+    jp: "★ を付けてサポートしてください",
     zh: "请给我们加颗星",
   },
   select: {
