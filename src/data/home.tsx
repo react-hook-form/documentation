@@ -221,7 +221,7 @@ export default {
     jp: {
       title: "レンダリングを削減",
       description: `ユーザーによってどのくらいコンポーネントが再レンダリングされたか気になったことはありますか？ React Hook Form は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。`,
-      totalReRender: "合計再レンダリング回数： ",
+      totalReRender: "合計再レンダリング数： ",
     },
     zh: {
       title: "减少Rendering",
