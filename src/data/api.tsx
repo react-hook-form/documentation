@@ -8,6 +8,12 @@ import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
 
 export default {
+  title: {
+    en: "API Documentation",
+    kr: "API 설명서",
+    jp: "API ドキュメント",
+    zh: "API文档",
+  },
   header: {
     description: {
       en:

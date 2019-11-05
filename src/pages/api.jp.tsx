@@ -2,6 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ApiPage from "../components/ApiPage"
+import api from "../data/api"
 
 const ApiZh = ({
   location,
@@ -12,7 +13,7 @@ const ApiZh = ({
   }
 }) => (
   <Layout location={location} defaultLang="jp">
-    <Seo title="API ドキュメンテーション" location={location} />
+    <Seo title={api.title.jp} location={location} />
     <ApiPage defaultLang="jp" />
   </Layout>
 )
