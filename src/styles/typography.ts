@@ -20,7 +20,7 @@ export const SubHeading = styled.p`
   @media ${breakpoints.fromMediumScreen} {
     font-size: 16px;
     margin-bottom: 20px;
-    max-width: 550px;
+    max-width: 575px;
   }
 `
 
