@@ -13,7 +13,7 @@ export default function App({ defaultValues, children, onSubmit }) {
               ? React.createElement(child.type, {
                   ...{
                     ...child.props,
-                    ...methods,
+                    register: methods.register,
                     key: child.props.name
                   }
                 })
