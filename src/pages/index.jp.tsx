@@ -14,8 +14,8 @@ const IndexPage = ({
 }) => (
   <Layout location={location} defaultLang="jp">
     <Seo
-      title={home.title.en}
-      description={home.description.en}
+      title={home.title.jp}
+      description={home.description.jp}
       location={location}
     />
     <Home location={location} defaultLang="jp" />

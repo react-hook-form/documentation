@@ -8,13 +8,19 @@ import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
 
 export default {
+  title: {
+    en: "API Documentation",
+    kr: "API 설명서",
+    jp: "API ドキュメント",
+    zh: "API文档",
+  },
   header: {
     description: {
       en:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
       kr:
         "React Hook Form은 API 단순화를 통해 최고의 DX를 제공합니다.",
-      jp: "React Hook Form は API をシンプルにすることにより最高な DX を提供することに焦点を当てています。",
+      jp: "React Hook Form は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
@@ -252,13 +258,13 @@ export default {
       title: "useForm",
       intro: (
         <>
-          <code>useForm</code> を呼び出すことにより、次のメソッドを受け取りことができます。{" "}
+          <code>useForm</code> を呼び出すことにより、次のメソッドを受け取ることができます。{" "}
         </>
       ),
       description: (
         <p>
           <code>useForm</code> は<b>省略可能</b>な引数もあります。
-          次の例は全てのオプションのデフォルト値を示します。
+          下記の例は、全てのオプションのデフォルト値を示します。
         </p>
       ),
       validationSchemaOption: (
@@ -277,7 +283,7 @@ export default {
       validateOnSubmit: (
         <>
           <code>submit</code> イベントからバリデーションがトリガーされ、
-          無効な input を再度バリデーションするには、その input に <code>onChange</code> イベントリスナーをアタッチします。
+          無効な入力は <code>onChange</code> イベントリスナーをアタッチして再度バリデーションを行います。
         </>
       ),
       validateOnBlur: (
@@ -296,7 +302,7 @@ export default {
           <p>
             <code>defaultValue/defaultChecked</code> を使用して input のデフォルト値を設定するか{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-              (デフォルト値の詳細については React ドキュメントを参照)
+              (詳細については React ドキュメントを参照)
             </Link> 、
             <code>defaultValues</code> を省略可能な引数として渡してフォーム全体のデフォルト値を設定することができます。
           </p>
@@ -306,8 +312,8 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> <code>defaultValues</code> は手動で register された input (例: <code>{`register({ name: 'test' })`}</code>) にデフォルト値を自動で設定しません。
-            これは、手動で <code>register</code> されたフィールドは <code>ref</code> をフックに接続できないためです。
+            <Note>注意：</Note> 手動で <code>register</code> を適用したフィールドでは React Hook Form に <code>ref</code> を提供しないため、
+            手動で登録した input (例: <code>{`register({ name: 'test' })`}</code>) に <code>defaultValues</code> は自動設定されません。
           </p>
         </>
       ),
@@ -323,7 +329,7 @@ export default {
       ),
       reValidateMode: (
         <p>
-          このオプションを使用すると、エラーのある input が再度バリデーションされるタイミングを設定できます。{" "}
+          このオプションを使用すると、エラーのある入力が再度バリデーションされるタイミングを設定することができます。{" "}
           (デフォルトでは、入力変更時にバリデーションがトリガーされます。)
         </p>
       ),
@@ -341,8 +347,8 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> <code>ref</code> を持つ register フィールドのみが機能します。
-            手動で register された input では機能しません。例：{" "}
+            <Note>注意：</Note> <code>ref</code> を持つ登録したフィールドのみが機能します。
+            手動で登録した input では機能しません。例：{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
         </>
@@ -522,10 +528,10 @@ export default {
       description: (
         <>
           <p>
-            このメソッドでは、単一の input または input の配列の登録を <code>unregister</code> できます。
+            このメソッドでは、単一の input または input の配列に <code>unregister</code> を適用することができます。
           </p>
           <p>
-            <Note>注意：</Note> input を unregister すると、
+            <Note>注意：</Note> input を登録解除 (<code>unregister</code>) すると、
             その値は送信されたフォームデータに含まれなくなります。
           </p>
         </>
@@ -733,15 +739,15 @@ export default {
       description: (
         <>
           <p>
-            このメソッドを使用すると、input/select の <code>Ref</code> とバリデーションルールを React Hook Form に登録できます。
+            このメソッドを使用すると、input/select の <code>Ref</code> とバリデーションルールを React Hook Form に登録 (<code>register</code>) することができます。
           </p>
           <p>
             バリデーションルールは全て HTML 標準に基づいており、カスタムバリデーションも可能です。
           </p>
           <p>
-            <Note>重要：</Note> <code>name</code> 属性は <b>必須</b> かつ <b>ユニーク</b>です。
+            <Note>重要：</Note> <code>name</code> 属性は<b>必須</b>かつ<b>ユニーク</b>です。
             input の name 属性はドット記法およびブラケット記法もサポートしているため、
-            ネストされたフォームフィールドを簡単に作成できます。例は以下の通りです：
+            ネストされたフォームフィールドを簡単に作成することができます。例は下記の通りです：
           </p>
         </>
       ),
@@ -752,29 +758,29 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          <code>arrays/array fields</code> を使用する場合、input の name 属性を <code>name[index]</code> のように割り当てることができます。
+          <code>arrays/array</code> フィールドを使用する場合、input の name 属性を <code>name[index]</code> のように割り当てることができます。
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
           >
-            フィールド配列の例を確認してください
+            フィールド配列の例をご覧ください
           </Link>
           。
         </p>
       ),
       example: "フォームの送信結果",
       selectHelp:
-        "register オプションを選択すると、以下の API テーブルが更新されます。",
+        "登録オプションを選択すると、下記の API テーブルが更新されます。",
       options: {
-        title: "register オプション",
-        registerWithValidation: "バリデーションのみを register",
+        title: "登録オプション",
+        registerWithValidation: "バリデーションのみで登録",
         registerWithValidationMessage:
-          "バリデーションとエラーメッセージを register",
+          "バリデーションとエラーメッセージで登録",
         note: goToSection => (
           <>
-            <Title>カスタム register</Title>
+            <Title>カスタム登録</Title>
             <p>
-              また、input を手動で登録することもできます。
+              また、input を手動で登録 (manual <code>register</code>) することもできます。
               これは、カスタムコンポーネントを操作していて <code>Ref</code> にアクセスできない場合に便利です。
               React Native や{" "}
               <a
@@ -788,8 +794,8 @@ export default {
             </p>
 
             <p>
-              カスタム register の呼び出しを使用すると、
-              input の ref に register が適用されなくなるため、
+              カスタム登録を使用すると、
+              input の ref は登録されていないため、{" "}
               <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
               で入力値を更新する必要があります。
             </p>
@@ -799,8 +805,8 @@ export default {
             </p>
 
             <p>
-              <Note>注意：</Note> カスタム register された input で値の更新中に再レンダリングをトリガーしたい場合は、
-              register した input に type 属性を指定する必要があります。
+              <Note>注意：</Note> 値の更新中に、カスタム登録した input で再レンダリングをトリガーしたい場合は、
+              登録した input に type 属性を指定する必要があります。
             </p>
           </>
         ),
@@ -949,7 +955,7 @@ export default {
       isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
       touched: (
         <>
-          操作された全ての input の <code>name</code> 属性値の配列。
+          操作された全ての input の <code>name</code> の配列。
         </>
       ),
       isSubmitting: (
@@ -1049,7 +1055,7 @@ export default {
           </p>
         </>
       ),
-      message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで register するとエラーメッセージが返されます。`,
+      message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで登録するとエラーメッセージが返されます。`,
       ref: `input 要素の参照。`,
     },
     zh: {
@@ -1168,8 +1174,8 @@ export default {
               <p>
                 <code>defaultValue</code> が定義されていない場合、
                 <code>watch</code> の初回のレンダリングは <code>register</code> の前に呼び出されるため{" "}
-                <code>undefined</code>undefinedを返しますが、
-                戻り値の第2引数として <code>defaultValue</code> を設定できます。
+                <code>undefined</code> を返しますが、
+                第2引数として <code>defaultValue</code> を設定して値を返すことができます。
               </p>
             </li>
             <li>
@@ -1184,7 +1190,7 @@ export default {
       tableTitle: {
         single: (
           <>
-            Watch input value by name (similar to lodash{" "}
+            input の値を name から監視します (lodash の{" "}
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -1192,11 +1198,11 @@ export default {
             >
               get
             </a>{" "}
-            function)
+            関数に似ています)
           </>
         ),
-        multiple: "Watch multiple inputs",
-        all: "Watch all inputs",
+        multiple: "複数の input を監視します",
+        all: "全ての input を監視します",
       },
     },
     zh: {
@@ -1290,7 +1296,7 @@ export default {
             この関数は、フォームバリデーションに成功するとフォームデータを渡します。
           </p>
           <p>
-            <Note>注意：</Note> 非同期バリデーションのための <code>async</code> function を渡すことができます。例：{" "}
+            <Note>注意：</Note> 非同期バリデーションのための <code>async</code> 関数を渡すことができます。例：{" "}
           </p>
           <p>
             <CodeBlock>
@@ -1355,7 +1361,7 @@ export default {
       description: (
         <>
           <p>
-            この関数は、フォーム内のフィールドの値とエラーをリセットします。
+            この関数は、フォーム内のフィールドの値とエラーをリセット (<code>reset</code>) します。
             省略可能な引数として <code>values</code> を渡すと、
             割り当てられたデフォルト値でフォームをリセットできます。
           </p>
@@ -1532,7 +1538,7 @@ export default {
           <p>この関数を使用すると、input/select の値を動的に設定できます。</p>
           <p>
             <Note>注意：</Note> このメソッドを呼び出すことで、
-            <code>formState</code> は input の <code>name</code> 属性値を <code>touched</code> にプッシュします。
+            <code>formState</code> は input の <code>name</code> を <code>touched</code> にプッシュします。
           </p>
           <p>
             <code>shouldValidate</code> を <code>true</code> に設定すると、
@@ -1629,8 +1635,7 @@ export default {
             </li>
             <li>
               <p>
-                定義されたフォームフィールドで作業を行うと、
-                定義されたフォームを使用して、（どっちが良いか）
+                定義されたフォームフィールドで、
                 <code>getValues({`{ nest: true }`})</code> は input の <code>name</code> 属性に基づいてネストされた構造でデータを返します。
                 例： <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
@@ -1693,7 +1698,7 @@ export default {
       title: "triggerValidation",
       description: (
         <>
-          <p>フォームで input/select バリデーションを手動でトリガーします。</p>
+          <p>フォームで input/select のバリデーションを手動でトリガーします。</p>
           <p>
             <Note>注意：</Note> バリデーションが失敗すると、<code>errors</code>{" "}
             オブジェクトが更新されます。
@@ -1742,7 +1747,7 @@ export default {
         <p>
           非制御コンポーネントでも、同じようにパフォーマンスが向上します。
           ただし、React Native と互換性のない API がいくつかあります (Web とネイティブとの API の違い)。
-          次の例に示すように、<b>manual register</b> を使用する必要があります。
+          下記の例に示すように、<b>手動登録 (manual <code>register</code>)</b> を使用する必要があります。
         </p>
       ),
     },
@@ -1854,7 +1859,7 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          次の例は、ブラウザバリデーションを活用する方法を示しています。
+          下記の例は、ブラウザバリデーションを活用する方法を示しています。
           <code>nativeValidation</code> を <code>true</code> に設定するだけで、
           残りの構文は標準のバリデーションと同じになります。
         </p>

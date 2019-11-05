@@ -8,6 +8,7 @@ import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import translateLink from "./logic/translateLink"
 import { updateCurrentLanguage } from "../actions/languageActions"
+import { globalHistory, navigate } from "@reach/router"
 
 const IconGroup = styled.div`
   position: absolute;
@@ -197,6 +198,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const location = globalHistory.location
 
   return (
     <>
@@ -260,18 +262,18 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       <LangsSelect>
         <select
           onChange={e => {
-            action(e.target.value)
+            const selectedLanguage = e.target.value
+            action(selectedLanguage)
+            navigate(getNavLink(location.pathname.substr(1), selectedLanguage))
           }}
           defaultValue={currentLanguage}
         >
           <option value="en">English</option>
           <option value="zh">简体中文</option>
           <option value="jp" disabled>
-            日本语
+            日本語
           </option>
-          <option value="kr">
-            한국어
-          </option>
+          <option value="kr">한국어</option>
         </select>
       </LangsSelect>
 
@@ -340,4 +342,29 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       </ActionButtonGroup>
     </>
   )
+}
+
+function getNavLink(path: string, selectedLanguage: string) {
+  const i18nPagePathRegex = /^([a-z]{2})(\/\S+|\?.+)/
+  const i18nHomePageRegex = /^[a-z]{2}$/
+  const i18nPageMatched = path.match(i18nPagePathRegex)
+  const isHomePage = i18nHomePageRegex.test(path)
+
+  if (selectedLanguage === "en") {
+    if (isHomePage) {
+      return '/'
+    }
+    if (i18nPageMatched != null) {
+      return i18nPageMatched[2]
+    }
+    return path
+  }
+
+  const targetPath =
+    i18nPageMatched != null
+      ? i18nPageMatched[2].substr(1)
+      : isHomePage
+      ? ''
+      : path
+  return translateLink(targetPath, selectedLanguage)
 }

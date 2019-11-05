@@ -29,7 +29,7 @@ export default {
     },
     jp: {
       title: "高度な使用法",
-      description: "React Hook Formを使用して、複雑でアクセス可能なフォームを作成する。",
+      description: "React Hook Formを使用して、複雑でアクセス可能なフォームを構築する。",
     },
     zh: {
       title: "高级",
@@ -138,7 +138,7 @@ export default {
       register: (
         <>
           <code>register</code> 時にエラーメッセージを埋め込み、{" "}
-          <code>value</code> 属性にエラーメッセージを簡単に挿入できます。例：
+          <code>value</code> 属性にエラーメッセージを簡単に挿入することができます。例：
         </>
       ),
       component:
@@ -305,14 +305,14 @@ export default {
           </p>
 
           <p>
-            次のコード例は、意図したとおりのバリデーションが動作しますが、
+            下記のコードの例は、意図したとおりのバリデーションが動作しますが、
             アクセシビリティについては改良することができます。
           </p>
 
           <CodeArea rawData={accessibleCodeBase} />
 
           <p>
-            次のコード例は、{" "}
+            下記のコードの例は、{" "}
             <a
               rel="noopener noreferrer"
               href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
@@ -855,12 +855,12 @@ export default {
             この機能は、React Hook Formが提供する最良の機能の一つです。
             この機能を実現するために (他のライブラリのように) コンポーネントをインポートする代わりに、
             既存の HTML マークアップを活用することができます。
-            重要なのは、 <code>name</code> 属性です。
+            key は、 <code>name</code> 属性にあります。
             React Hook Form において、 <code>name</code> 属性はあなたが使用したいデータ構造を表します。
           </p>
 
           <p>
-            次の例は、input の <code>name</code> 属性を操作してどのようにフィールド配列を作成できるかを示しています。
+            下記の例は、input の <code>name</code> 属性を操作してどのようにフィールド配列を作成できるかを示しています。
           </p>
         </>
       ),
@@ -1134,7 +1134,7 @@ export default {
             target="_blank"
             rel="noopener noreferrer"
           >
-            例をこちらに示します
+            こちらに例を示します
           </a>{" "}
           。ただし、制御コンポーネントでは <code>ref</code> が登録されていないため、
           同じように自動的に登録解除されません。
@@ -1148,7 +1148,7 @@ export default {
               useEffect
             </a>
           </code>{" "}
-          を活用することができます。以下に例を示します：
+          を活用することができます。下記に例を示します：
         </>
       ),
     },
@@ -1240,7 +1240,7 @@ export default {
           コンポーネントツリーを介してデータを渡す問題を解決します。
           これにより、React Hook Form は状態を更新する度に、
           コンポーネントツリーが再レンダリングされる問題を引き起こしますが、
-          必要に応じて次の例のようにアプリを最適化することができます。
+          必要に応じて下記の例のようにアプリを最適化することができます。
         </p>
       ),
     },

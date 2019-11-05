@@ -4,6 +4,7 @@ import { H1 } from "../styles/typography"
 import { PrimaryButton } from "../styles/buttons"
 import { CenterContent } from "../styles/containers"
 import generic from "../data/generic"
+import translateLink from "./logic/translateLink"
 
 export default function LearnMore({
   currentLanguage,
@@ -17,7 +18,7 @@ export default function LearnMore({
 
       <PrimaryButton
         onClick={() => {
-          navigate("/api")
+          navigate(translateLink("api", currentLanguage))
         }}
         style={{ margin: "40px auto" }}
       >

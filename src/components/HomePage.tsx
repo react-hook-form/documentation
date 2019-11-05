@@ -14,6 +14,7 @@ import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
+import translateLink from "./logic/translateLink"
 
 const { useState, useRef, useEffect } = React
 
@@ -155,14 +156,14 @@ function HomePage({
         >
           <PrimaryButton
             onClick={() => {
-              navigate("/get-started")
+              navigate(translateLink("get-started", currentLanguage))
             }}
           >
             {home.getStarted[currentLanguage]}
           </PrimaryButton>
           <PrimaryButton
             onClick={() => {
-              navigate("/api")
+              navigate(translateLink("api", currentLanguage))
             }}
           >
             API

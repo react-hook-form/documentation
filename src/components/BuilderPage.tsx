@@ -22,6 +22,7 @@ import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
+import translateLink from "./logic/translateLink"
 
 const { useState, useRef, useEffect } = React
 
@@ -484,7 +485,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate("/?goToDemo&updated=true")
+                    navigate(translateLink("?goToDemo&updated=true", currentLanguage))
                   }
                 }}
               >
