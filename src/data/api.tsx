@@ -1605,7 +1605,7 @@ export default {
               <p>When value updates which triggers an error</p>
             </li>
             <li>
-              <p>When value updates which correct an error</p>
+              <p>When value updates which corrects an error</p>
             </li>
             <li>
               <p>
@@ -1644,7 +1644,7 @@ export default {
               <p>When value updates which triggers an error</p>
             </li>
             <li>
-              <p>When value updates which correct an error</p>
+              <p>When value updates which corrects an error</p>
             </li>
             <li>
               <p>
@@ -1684,7 +1684,7 @@ export default {
               <p>When value updates which triggers an error</p>
             </li>
             <li>
-              <p>When value updates which correct an error</p>
+              <p>When value updates which corrects an error</p>
             </li>
             <li>
               <p>
