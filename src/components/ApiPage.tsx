@@ -644,7 +644,7 @@ function ApiPage({
             <h2>
               setError:{" "}
               <TypeText>
-                (name: string, type: string, message?: string, ref?: Ref) =>
+                (name: string, type: string, message?: string) =>
                 void
               </TypeText>
             </h2>
