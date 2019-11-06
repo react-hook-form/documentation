@@ -644,8 +644,7 @@ function ApiPage({
             <h2>
               setError:{" "}
               <TypeText>
-                (name: string, type: string, message?: string) =>
-                void
+                (name: string, type: string, message?: string) => void
               </TypeText>
             </h2>
           </CodeHeading>
@@ -826,7 +825,7 @@ function ApiPage({
             url="https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
           />
 
-          <CenterContent>
+          <CenterContent style={{ marginTop: 40 }}>
             <H1>{generic.advanceUsage[currentLanguage].title}</H1>
             <p>{generic.advanceUsage[currentLanguage].description}</p>
             <PrimaryButton

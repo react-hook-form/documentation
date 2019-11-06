@@ -10,7 +10,7 @@ export default function StarRepo({
   currentLanguage: string
 }) {
   return (
-    <CenterContent maxWidth={600}>
+    <CenterContent maxWidth={600} style={{ marginTop: 40 }}>
       <H1>{generic.needYourSupport[currentLanguage].title}</H1>
       <p>{generic.needYourSupport[currentLanguage].description}</p>
       <PrimaryButton

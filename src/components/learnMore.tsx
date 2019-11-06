@@ -12,7 +12,7 @@ export default function LearnMore({
   currentLanguage: string
 }) {
   return (
-    <CenterContent>
+    <CenterContent style={{ marginTop: 40 }}>
       <H1>{generic.learnMore[currentLanguage].title}</H1>
       <p>{generic.learnMore[currentLanguage].description}</p>
 
