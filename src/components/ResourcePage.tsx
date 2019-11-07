@@ -243,7 +243,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               >
                 <h3>Zero to Mastery</h3>
                 <p>
-                  Forms with React just got simpler with React Hook Form. Make sure you scroll to the bottom to see code comparison with the alternatives. Really neat!
+                  Forms with React just got simpler with React Hook Form. Make
+                  sure you scroll to the bottom to see code comparison with the
+                  alternatives. Really neat!
                 </p>
               </a>
             </Article>
@@ -291,6 +293,37 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   It’s not just an interesting project, but it has one of the
                   best project homepages I’ve seen too, complete with code
                   comparisons with similar libraries. GitHub repo.
+                </p>
+              </a>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
+                href="https://us15.campaign-archive.com/?u=b015626aa6028495fe77c75ea&id=df27ee2eff"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>FullStack Bulletin Newsletter</h3>
+                <p>
+                  A performant, flexible and extensible React (and React
+                  Native!) forms library with easy to use for validation.
+                </p>
+              </a>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
+                href="https://syndicode.com/2019/10/30/monthly-most-popular-js-repositories-evolve-and-prosper/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Monthly most popular JavaScript repositories</h3>
+                <p>
+                  React Hook Form stands for React hooks for forms validation.
+                  Performant, flexible and extensible forms with easy to use for
+                  validation.
                 </p>
               </a>
             </Article>
