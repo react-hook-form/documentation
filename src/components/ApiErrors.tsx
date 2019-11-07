@@ -14,7 +14,7 @@ export default React.memo(
       <>
         <CodeHeading>
           <h2>
-            errors: <TypeText>{`Record<string, boolean>`}</TypeText>
+            errors: <TypeText>{`Record<string, Object>`}</TypeText>
           </h2>
         </CodeHeading>
 

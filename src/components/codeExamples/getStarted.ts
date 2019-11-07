@@ -69,7 +69,7 @@ export default function App() {
   }
   
   const handleChange = (e) => {
-    register({ name: "AntdInput" }, e.target.value);
+    setValue("AntdInput", e.target.value);
   }
   
   React.useEffect(() => {
