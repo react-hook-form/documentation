@@ -711,76 +711,70 @@ export default {
     ],
     jp: [
       {
-        title: "Performance of React Hook Form",
+        title: "React Hook Formのパフォーマンス",
         description: (
           <p>
-            Performance is one of the primary goals for building this custom
-            hook. React Hook Form relies on uncontrolled component, hence the
-            reason why the register function occurs at the ref. This approach
-            will reduce the amount of re-rendering occurring due to user typing
-            or value changing. Components mount to the page is much quicker as
-            well because they are not controlled. For mounting speed, I have
-            completed a quick comparison test which you can refer to by{" "}
+            パフォーマンスはこのcustom hookを作成する主な目的の一つでした。
+            React Hook Formでは非制御コンポーネントによってregister関数をrefで実行しています。
+            このアプローチにより、ユーザーからの入力や値の変更により発生する再レンダリングの量を削減しています。
+            コンポーネントのページへのマウントも制御されていないことによりはるかに高速になります。
             <a
               href="https://github.com/bluebill1049/react-hook-form-performance-compare"
               target="_blank"
               rel="noopener noreferrer"
             >
-              this repo link
+              こちら
             </a>
-            .
+            の他のライブラリとのマウントスピードの簡単な比較をご覧下さい。
           </p>
         ),
       },
       {
-        title: "How to create an accessible input error and message?",
+        title: "アクセス可能な入力エラーとメッセージを作成するには？",
         description: (
-          <p>
-            React Hook Form is based on{" "}
+          <p>React Hook Formは
             <a
-              href="https://reactjs.org/docs/uncontrolled-components.html"
+              href="https://ja.reactjs.org/docs/uncontrolled-components.html"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Uncontrolled Component
+              非制御コンポーネント
             </a>
-            , which gives you the ability to build an accessible custom form
-            easily.
+            に基づいているため、アクセス可能なカスタムフォームを簡単に構築できます。
           </p>
         ),
       },
       {
-        title: "Does it work with Class Components?",
+        title: "クラスコンポーネントでも使えますか？",
         description: (
           <>
             <p>
-              No, not out of box. but you can build a wrapper around it and use
-              in your Class Component.
+              そのままでは動作しませんが、クラスコンポーネントを包むラッパーを作成して使用することは可能です。
             </p>
 
             <blockquote>
-              You can’t use Hooks inside of a class component, but you can
-              definitely mix classes and function components with Hooks in a
-              single tree. Whether a component is a class or a function that
-              uses Hooks is an implementation detail of that component. In the
-              longer term, we expect Hooks to be the primary way people write
-              React components.
+            クラスコンポーネント内でのHooksの使用は出来ませんが、クラスコンポーネントと
+            Hooksを使用した関数コンポーネントを単一のDOM Tree内で混在させることは可能です。
+            クラスコンポーネントかHooksを使用した関数コンポーネントのどちらを利用するかは、
+            そのコンポーネントの実装の詳細に過ぎません。長い目で見れば、
+            HooksはReactのコンポーネントを書く際の最初の選択肢になっていくだろうと私達は予想しています。
             </blockquote>
           </>
         ),
       },
       {
-        title: "How to reset the form?",
+        title: "フォームをリセットするには？",
         description: (
           <>
-            <p>There are two methods to clear the form.</p>
+            <p>フォームをリセットする方法は2つあります。</p>
             <ul>
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
-                  This method does the same thing as clicking a form's reset
-                  button, and only clears
-                  <code>input/select/checkbox</code> values.
+                フォームのリセットボタンのクリックと同等の効果を持つメソッドです。
+                フォーム内の
+                <code> input/select/checkbox </code>
+                要素の値のみリセットします。
                 </p>
               </li>
               <li>
@@ -788,9 +782,7 @@ export default {
                   React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React Hook Form's <code>reset</code> method will reset all
-                  fields value, and also will clear all <code>errors</code>{" "}
-                  within the form.
+                  React Hook Formの<code>reset</code>メソッドは、フォーム内の全てのフィールドの値をリセットし、フォーム内の全ての<code>errors</code>を消去します。
                 </p>
               </li>
             </ul>
@@ -798,109 +790,98 @@ export default {
         ),
       },
       {
-        title: "How to initialize form values?",
+        title: "フォームの値を初期化するには？",
         description: (
           <p>
-            React Hook Form relies on uncontrolled component. With an
-            uncontrolled component, you can specify a <code>defaultValue</code>{" "}
-            or <code>defaultChecked</code> to an individual field. However, the
-            hook itself does provide an easier way to initialise all input
-            values too. Example below:
+            React Hook Formは非制御コンポーネントによって出来ています。
+            非制御コンポーネントでは、それぞれのfieldに対して<code>defaultValue</code>
+            か<code>defaultChecked</code>を指定出来ます。
+            実はこれよりも更に簡単な全てのインプット値の初期化方法をReact Hook Formは提供しています。
+            下記の例を参考して下さい。
           </p>
         ),
       },
       {
-        title: "How to share ref usage?",
+        title: "refを共有するには？",
         description: (
           <p>
-            React Hook Form needs <code>ref</code> to collect the input value,
-            however, you may want to use <code>ref</code> for other purposes
-            (eg. scroll into the view). The following example will show you how.
+            React Hook Form では入力値を取得するために<code>ref</code>が必要ですが、<code>ref</code>を他の目的（ビューへのスクロールなど）に使用することもできます。下記の例を参考して下さい。
           </p>
         ),
       },
       {
-        title: "What if you don't have access to ref?",
+        title: "refへのアクセスが出来ない場合は？",
         description: (
           <>
             <p>
-              You can actually <code>register</code> an input without a{" "}
-              <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-              <code>setError</code> and <code>triggerValidation</code>.
+              実は<code>ref</code>を使わずとも<code>register</code>は使用出来ます。
+              加えて<code>setValue</code>と<code>setError</code>、<code>triggerValidation</code>
+              の手動での使用も出来ます。
             </p>
 
             <p>
-              <Note>Note:</Note> Because <code>ref</code> has not been
-              registered, React Hook Form won't be able to register event
-              listeners to the inputs. This means you will have to manually
-              update value and error.
+              <Note>注:</Note> ただし<code>ref</code>が登録されていないため,
+              React Hook Formはinputのイベントリスナーへの登録が出来ず、
+              そのため値やエラーの更新を手動で行わなければいけません
             </p>
           </>
         ),
       },
       {
-        title: "Browser Support?",
+        title: "ブラウザのサポートは？",
         description: (
           <>
-            <p>React Hook Form support all major browsers.</p>
+            <p>React Hook Formは全ての主要なブラウザに対応しています。</p>
 
             <p>
-              For legacy IE11 support, you can import react-hook-form IE 11
-              version.
+              IE11をサポートしたい場合は、IE11バージョンのreact-hook-formをインポートして下さい。
             </p>
           </>
         ),
       },
       {
-        title: "Why is first keystroke is not working?",
+        title: "最初のキーストロークが機能しない場合は？",
         description: (
           <>
             <p>
-              Double check if you are using <code>value</code> instead of{" "}
-              <code>defaultValue</code>.
+            <code>defaultValue</code>の代わりに<code>value</code>を使っていないかよく確認して下さい。
             </p>
 
             <p>
-              React Hook Form is built based on uncontrolled input, which means
-              you don't need to change input <code>value</code> via{" "}
-              <code>state</code> by <code>onChange</code>. Hence you don't need{" "}
-              <code>value</code> at all, in fact, you only need{" "}
-              <code>defaultValue</code> for initial input value.
+              React Hook Formは非制御インプットを基にして作られているため、インプットの値を
+              <code>onChange</code>で<code>state</code>を通して変更する必要はありません。
+              <code>value</code>は使わずに、<code>defaultValue</code>でのインプットの初期値
+              の設定のみ行って下さい。
             </p>
           </>
         ),
       },
       {
-        title: "Testing failed due to MutationObserver?",
+        title: "MutationObserverが原因でテストに失敗した場合は？",
         description: (
           <p>
-            If you have difficulty during testing and the issue was caused by{" "}
-            <code>MutationObserver</code>. Make sure you install{" "}
-            <code>mutationobserver</code> and import this package in your test{" "}
-            <a
+            テスト中に<code>MutationObserver</code>が原因の問題が発生した場合は、<code>mutationobserver</code>をインストールしテストの<a
               href="https://jestjs.io/docs/en/configuration"
               target="_blank"
               rel="noopener noreferrer"
             >
-              setup.js file
+              setup.js
             </a>
-            .
+            でインポートしてください。
           </p>
         ),
       },
       {
-        title: "React Hook Form, Formik or Redux Form?",
+        title: "React Hook Form、FormikそれともRedux Form?",
         description: (
           <>
             <p>
-              First of all, all libs try to solve the same problem which is
-              making form building experience easy and great. However, there are
-              some fundamental differences between the three, react-hook-form is
-              built with uncontrolled input in mind and tries to provide your
-              form with best performance and least re-render if possible. On top
-              of that, react-hook-form is built by React Hook and used as hook,
-              which means there is no Component for you to import. Here are some
-              of the detail differences:
+              全てのライブラリはフォーム作成の体験を簡単で素晴らしいものにするという同じ問題を解決しようとしていますが
+              、3つのライブラリーの間にはいくつかの根本的な違いがあります。
+              react-hook-formは非制御入力を念頭に置いて開発されており、
+              ベストパフォーマンスのフォームを提供しようとし、再レンダリング数を出来る限り少なく抑えています。
+              さらに、react-hook-formはReact Hookによって構築され、hookとして使用されます。
+              つまり、コンポーネントをインポートしません。詳細な違いを以下に示します。
             </p>
 
             <TableWrapper>
@@ -926,7 +907,7 @@ export default {
                     </td>
                     <td>
                       <a
-                        href="https://reactjs.org/docs/uncontrolled-components.html"
+                        href="https://ja.reactjs.org/docs/uncontrolled-components.html"
                         target="_blank"
                       >
                         uncontrolled
@@ -934,7 +915,7 @@ export default {
                     </td>
                     <td>
                       <a
-                        href="https://reactjs.org/docs/forms.html"
+                        href="https://ja.reactjs.org/docs/forms.html"
                         target="_blank"
                       >
                         controlled
@@ -942,7 +923,7 @@ export default {
                     </td>
                     <td>
                       <a
-                        href="https://reactjs.org/docs/forms.html"
+                        href="https://ja.reactjs.org/docs/forms.html"
                         target="_blank"
                       >
                         controlled
@@ -953,14 +934,13 @@ export default {
                     <td>
                       <b>Rendering</b>
                     </td>
-                    <td>minimum re-render</td>
+                    <td>最小限の再レンダリング</td>
                     <td>
-                      re-render according to local state changes which means as
-                      you type in the input.
+                      ローカル状態の変化に応じて再レンダリングします。つまり、入力時に変化します。
                     </td>
                     <td>
-                      re-render according to state management lib (Redux)
-                      changes which means as you type in the input.
+                      状態管理ライブラリ（Redux）の変更に応じて再レンダリングします。
+                      これは、入力時に変化することを意味します。
                     </td>
                   </tr>
                   <tr>
@@ -976,7 +956,7 @@ export default {
                       <b>Package size</b>
                     </td>
                     <td>
-                      Small
+                      小
                       <br />
                       <code>
                         react-hook-form@3.26.2
@@ -986,7 +966,7 @@ export default {
                       </code>
                     </td>
                     <td>
-                      Medium
+                      中
                       <br />
                       <code>
                         formik@2.0.1
@@ -995,7 +975,7 @@ export default {
                       </code>
                     </td>
                     <td>
-                      Large
+                      大
                       <br />
                       <code>
                         redux-form@8.2.6
@@ -1024,24 +1004,22 @@ export default {
                   </tr>
                   <tr>
                     <td>
-                      <b>Learning curve</b>
+                      <b>学習曲線</b>
                     </td>
-                    <td>Low</td>
-                    <td>Medium</td>
-                    <td>Medium</td>
+                    <td>低い</td>
+                    <td>中</td>
+                    <td>中</td>
                   </tr>
                   <tr>
                     <td>
-                      <b>Status</b>
+                      <b>状況</b>
                     </td>
-                    <td>Small Community: New lib and growing</td>
+                    <td>小さなコミュニティ: 新しい成長中のライブラリ</td>
                     <td>
-                      Large Community: Well established form lib in the
-                      community
+                      大きなコミュニティ: コミュニティによって十分に確立されたフォームライブラリ
                     </td>
                     <td>
-                      Large Community: Well established form lib in the
-                      community
+                      大きなコミュニティ: コミュニティによって十分に確立されたフォームライブラリ
                     </td>
                   </tr>
                 </tbody>
