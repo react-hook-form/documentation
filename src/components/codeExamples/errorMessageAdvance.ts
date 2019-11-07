@@ -6,7 +6,7 @@ const ErrorMessage = ({ errors, name, messages }) => {
   // const { errors } = useFormContext();
   if (!errors.name) return null;
 
-  return <p>{messages[errors.name][errors.name.type]}</p>;
+  return <p>{messages[errors.name].message}</p>;
 };
 
 const messages = {
@@ -20,7 +20,7 @@ export default () => {
 
   return (
     <form>
-      <inpuput name="test" ref={register({ minLength: 8 })} />
+      <input name="test" ref={register({ required: 'This is required.' })} />
       <ErrorMessage errors={errors} name="test" />
     </form>
   );

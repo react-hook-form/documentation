@@ -8,13 +8,19 @@ import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
 
 export default {
+  title: {
+    en: "API Documentation",
+    kr: "API 설명서",
+    jp: "API ドキュメント",
+    zh: "API文档",
+  },
   header: {
     description: {
       en:
         "React Hook Form focuses on providing the best DX by simplifying the API.",
-      kr:
-        "React Hook Form은 API 단순화를 통해 최고의 DX를 제공합니다.",
-      jp: "React Hook Form は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
+      kr: "React Hook Form은 API 단순화를 통해 최고의 DX를 제공합니다.",
+      jp:
+        "React Hook Form は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
       zh: "React Hook Form专注于通过简化API提供最佳开发者体验",
     },
   },
@@ -156,27 +162,35 @@ export default {
       title: "useForm",
       intro: (
         <>
-          <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
+          <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수
+          있습니다..{" "}
         </>
       ),
       description: (
         <p>
-          <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음 예제는 모든 옵션의 기본값을 보여줍니다.
+          <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음
+          예제는 모든 옵션의 기본값을 보여줍니다.
         </p>
       ),
       validationSchemaOption: (
         <>
-          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이 포함된 객체 해시입니다. 더 자세한 사항은 <a
+          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이
+          포함된 객체 해시입니다. 더 자세한 사항은{" "}
+          <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror">
-            yup 문서</a>에서 찾아 볼 수 있습니다.
+            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
+          >
+            yup 문서
+          </a>
+          에서 찾아 볼 수 있습니다.
         </>
       ),
       validateOnSubmit: (
         <>
-          유효성 검사는 <code>submit</code> 이벤트에서 트리거되며, 
-          유효하지 않은 입력은 <code>onChange</code> 이벤트 리스너를 연결하여 유효성을 다시 확인합니다.
+          유효성 검사는 <code>submit</code> 이벤트에서 트리거되며, 유효하지 않은
+          입력은 <code>onChange</code> 이벤트 리스너를 연결하여 유효성을 다시
+          확인합니다.
         </>
       ),
       validateOnBlur: (
@@ -186,65 +200,89 @@ export default {
       ),
       validateOnChange: (
         <>
-          유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번 다시 렌더링합니다. 
-          이 방법은 랜더링 성능을 떨어뜨리므로 추천하지 않습니다. 
+          유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어,
+          여러번 다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로
+          추천하지 않습니다.
         </>
       ),
       defaultValues: goToSection => (
         <>
           <p>
-            입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정 하거나 <Link href="https://ko.reactjs.org/docs/uncontrolled-components.html">(기본값에 대한 React 문서를 읽어보세요)</Link>
-            , <code>defaultValues</code> 를 옵셔널 인수로 전달 하여 전체 폼의 기본값을 채울 수 있습니다.
+            입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정
+            하거나{" "}
+            <Link href="https://ko.reactjs.org/docs/uncontrolled-components.html">
+              (기본값에 대한 React 문서를 읽어보세요)
+            </Link>
+            , <code>defaultValues</code> 를 옵셔널 인수로 전달 하여 전체 폼의
+            기본값을 채울 수 있습니다.
           </p>
 
           <p>
-            <Note>참고:</Note> <code>defaultValues</code> 내 정의 된 값은 <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> 의 <code>defaultValue</code> 값으로 주입됩니다. 
+            <Note>참고:</Note> <code>defaultValues</code> 내 정의 된 값은{" "}
+            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
+            의 <code>defaultValue</code> 값으로 주입됩니다.
           </p>
 
           <p>
-            <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook Form의  <code>ref</code> 를 제공하지 않기에, 
-            수동 입력 필드(예를 들어, <code>{`register({ name: 'test' })`}</code> )의 <code>defaultValues</code> 는 자동 완성 되지 않습니다.
+            <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook
+            Form의 <code>ref</code> 를 제공하지 않기에, 수동 입력 필드(예를
+            들어, <code>{`register({ name: 'test' })`}</code> )의{" "}
+            <code>defaultValues</code> 는 자동 완성 되지 않습니다.
           </p>
         </>
       ),
       validationSchema: goToSection => (
         <p>
-          <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요. <CodeAsLink onClick={() => goToSection("validationSchema")}>validationSchema</CodeAsLink> 섹션을 참고하세요.
+          <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
+          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+            validationSchema
+          </CodeAsLink>{" "}
+          섹션을 참고하세요.
         </p>
       ),
       reValidateMode: (
         <p>
-          이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수 있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
+          이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수
+          있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
         </p>
       ),
       validationFields: (
         <p>
-          제공되는 필드 배열은 앞으로 검증될 필드만 포함합니다. 이 옵션은 유효성 검사가 필요한 필드에 대해서 토글(toggle)을 원할 경우에 유용합니다. 
+          제공되는 필드 배열은 앞으로 검증될 필드만 포함합니다. 이 옵션은 유효성
+          검사가 필요한 필드에 대해서 토글(toggle)을 원할 경우에 유용합니다.
         </p>
       ),
       submitFocusError: (
         <>
           <p>
-            기본적으로 사용자가 폼을 제출하고 에러가 있는 경우, 에러가 있는 첫번째 필드에 포커스 됩니다. 
+            기본적으로 사용자가 폼을 제출하고 에러가 있는 경우, 에러가 있는
+            첫번째 필드에 포커스 됩니다.
           </p>
 
           <p>
-            <Note>참고:</Note> <code>ref</code> 로 등록된 필드만 작동합니다. 수동으로 등록하면 동작하지 않습니다. 예 :{" "}
+            <Note>참고:</Note> <code>ref</code> 로 등록된 필드만 작동합니다.
+            수동으로 등록하면 동작하지 않습니다. 예 :{" "}
             <code>{`register({ name: 'test' }) // 동작하지 않음`}</code>{" "}
           </p>
         </>
       ),
       nativeValidation: goToSection => (
         <p>
-          이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가 활성화됩니다. 
-           {"  "}
+          이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가
+          활성화됩니다.
+          {"  "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-          >브라우저 기본 유효성 검사</a>에 대한 내용을 확인하시고 좀 더 자세한 내용과 예시는 <CodeAsLink onClick={() => goToSection("nativeValidation")}>
-          nativeValidation
-        </CodeAsLink>{" "} 에서 참고하실 수 있습니다. 
+          >
+            브라우저 기본 유효성 검사
+          </a>
+          에 대한 내용을 확인하시고 좀 더 자세한 내용과 예시는{" "}
+          <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+            nativeValidation
+          </CodeAsLink>{" "}
+          에서 참고하실 수 있습니다.
         </p>
       ),
     },
@@ -252,7 +290,8 @@ export default {
       title: "useForm",
       intro: (
         <>
-          <code>useForm</code> を呼び出すことにより、次のメソッドを受け取ることができます。{" "}
+          <code>useForm</code>{" "}
+          を呼び出すことにより、次のメソッドを受け取ることができます。{" "}
         </>
       ),
       description: (
@@ -263,7 +302,8 @@ export default {
       ),
       validationSchemaOption: (
         <>
-          <code>options</code> 引数はオーバーライド (または初めに指定) したいスキーマオプションを含むオブジェクトハッシュです。{" "}
+          <code>options</code> 引数はオーバーライド (または初めに指定)
+          したいスキーマオプションを含むオブジェクトハッシュです。{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -277,7 +317,8 @@ export default {
       validateOnSubmit: (
         <>
           <code>submit</code> イベントからバリデーションがトリガーされ、
-          無効な入力は <code>onChange</code> イベントリスナーをアタッチして再度バリデーションを行います。
+          無効な入力は <code>onChange</code>{" "}
+          イベントリスナーをアタッチして再度バリデーションを行います。
         </>
       ),
       validateOnBlur: (
@@ -287,34 +328,43 @@ export default {
       ),
       validateOnChange: (
         <>
-          入力の度に <code>change</code> イベントからバリデーションがトリガーされ、複数の再レンダリングが行われます。
+          入力の度に <code>change</code>{" "}
+          イベントからバリデーションがトリガーされ、複数の再レンダリングが行われます。
           非推奨: これをパフォーマンスの悪い習慣と考えてください。
         </>
       ),
       defaultValues: goToSection => (
         <>
           <p>
-            <code>defaultValue/defaultChecked</code> を使用して input のデフォルト値を設定するか{" "}
+            <code>defaultValue/defaultChecked</code> を使用して input
+            のデフォルト値を設定するか{" "}
             <Link href="https://reactjs.org/docs/uncontrolled-components.html">
               (詳細については React ドキュメントを参照)
-            </Link> 、
-            <code>defaultValues</code> を省略可能な引数として渡してフォーム全体のデフォルト値を設定することができます。
+            </Link>{" "}
+            、<code>defaultValues</code>{" "}
+            を省略可能な引数として渡してフォーム全体のデフォルト値を設定することができます。
           </p>
 
           <p>
-            <Note>注意：</Note> <code>defaultValues</code> で定義された値は <code>defaultValue</code> として <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> に注入されます。
+            <Note>注意：</Note> <code>defaultValues</code> で定義された値は{" "}
+            <code>defaultValue</code> として{" "}
+            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
+            に注入されます。
           </p>
 
           <p>
-            <Note>注意：</Note> 手動で <code>register</code> を適用したフィールドでは React Hook Form に <code>ref</code> を提供しないため、
-            手動で登録した input (例: <code>{`register({ name: 'test' })`}</code>) に <code>defaultValues</code> は自動設定されません。
+            <Note>注意：</Note> 手動で <code>register</code>{" "}
+            を適用したフィールドでは React Hook Form に <code>ref</code>{" "}
+            を提供しないため、 手動で登録した input (例:{" "}
+            <code>{`register({ name: 'test' })`}</code>) に{" "}
+            <code>defaultValues</code> は自動設定されません。
           </p>
         </>
       ),
       validationSchema: goToSection => (
         <p>
-          スキーマレベルで <code>Yup</code> を使用してフォームバリデーションルールを適用します。
-          {" "}
+          スキーマレベルで <code>Yup</code>{" "}
+          を使用してフォームバリデーションルールを適用します。{" "}
           <CodeAsLink onClick={() => goToSection("validationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
@@ -341,15 +391,17 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> <code>ref</code> を持つ登録したフィールドのみが機能します。
-            手動で登録した input では機能しません。例：{" "}
+            <Note>注意：</Note> <code>ref</code>{" "}
+            を持つ登録したフィールドのみが機能します。 手動で登録した input
+            では機能しません。例：{" "}
             <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
           </p>
         </>
       ),
       nativeValidation: goToSection => (
         <p>
-          このオプションを <code>true</code> に設定すると、ブラウザーネイティブバリデーションが有効になります。
+          このオプションを <code>true</code>{" "}
+          に設定すると、ブラウザーネイティブバリデーションが有効になります。
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -509,10 +561,12 @@ export default {
       description: (
         <>
           <p>
-            이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code> 할 수 있습니다. 
+            이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code>{" "}
+            할 수 있습니다.
           </p>
           <p>
-            <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼 데이터에 해당 값이 더 이상 포함되지 않습니다.
+            <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼
+            데이터에 해당 값이 더 이상 포함되지 않습니다.
           </p>
         </>
       ),
@@ -522,11 +576,12 @@ export default {
       description: (
         <>
           <p>
-            このメソッドでは、単一の input または input の配列に <code>unregister</code> を適用することができます。
+            このメソッドでは、単一の input または input の配列に{" "}
+            <code>unregister</code> を適用することができます。
           </p>
           <p>
-            <Note>注意：</Note> input を登録解除 (<code>unregister</code>) すると、
-            その値は送信されたフォームデータに含まれなくなります。
+            <Note>注意：</Note> input を登録解除 (<code>unregister</code>)
+            すると、 その値は送信されたフォームデータに含まれなくなります。
           </p>
         </>
       ),
@@ -649,14 +704,17 @@ export default {
       description: (
         <>
           <p>
-            이 함수에서 입력/선택(input/select) <code>Ref</code> 와 유효성 검사 규칙을 등록(register)할 수 있습니다. 
+            이 함수에서 입력/선택(input/select) <code>Ref</code> 와 유효성 검사
+            규칙을 등록(register)할 수 있습니다.
           </p>
           <p>
-            유효성 검사 규칙은 모두 HTML 표준을 기반으로 하며, 커스텀 유효성 검사도 가능합니다. 
+            유효성 검사 규칙은 모두 HTML 표준을 기반으로 하며, 커스텀 유효성
+            검사도 가능합니다.
           </p>
           <p>
-            <Note>중요:</Note> <code>name</code>은 <b>필수</b>이며 <b>유니크</b>해야합니다. 
-            name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를 쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
+            <Note>중요:</Note> <code>name</code>은 <b>필수</b>이며 <b>유니크</b>
+            해야합니다. name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼
+            필드를 쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
           </p>
         </>
       ),
@@ -667,7 +725,8 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와 같이 name을 지정할 수 있습니다.{" "} 
+          <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와
+          같이 name을 지정할 수 있습니다.{" "}
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
@@ -683,24 +742,28 @@ export default {
       options: {
         title: "Register options",
         registerWithValidation: "유효성 검사과 함께 등록",
-        registerWithValidationMessage:
-          "유효성 검사 및 에러 메시지완 등록",
+        registerWithValidationMessage: "유효성 검사 및 에러 메시지완 등록",
         note: goToSection => (
           <>
             <Title>Custom Register</Title>
             <p>
-              커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우, 입력을 수동으로 등록 할 수 있습니다. 
-              이는 실제로 React Native 또는 <a
+              커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우,
+              입력을 수동으로 등록 할 수 있습니다. 이는 실제로 React Native 또는{" "}
+              <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 react-select
-              </a> 와 같은 커스텀 컴포넌트와 작업할 때 사용될 수 있습니다. 
+              </a>{" "}
+              와 같은 커스텀 컴포넌트와 작업할 때 사용될 수 있습니다.
             </p>
 
             <p>
-              Custome register를 사용하면, 입력은 더이상 ref로 등록되지 않으므로, <code onClick={() => goToSection("setValue")}>setValue</code> 을 통해 입력 값을 업데이트해 주어야 합니다.
+              Custome register를 사용하면, 입력은 더이상 ref로 등록되지
+              않으므로,{" "}
+              <code onClick={() => goToSection("setValue")}>setValue</code> 을
+              통해 입력 값을 업데이트해 주어야 합니다.
             </p>
 
             <p>
@@ -708,8 +771,9 @@ export default {
             </p>
 
             <p>
-              <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을  
-              다시 렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야 합니다.
+              <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을
+              다시 렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야
+              합니다.
             </p>
           </>
         ),
@@ -717,7 +781,8 @@ export default {
       validation: {
         required: (
           <>
-            폼 제출을 위해 반드시 필요한 경우, true로 지정합니다. 에러시 반환할 문자열 메세지는 <code>errors</code> 객체에 지정할수 있습니다. 
+            폼 제출을 위해 반드시 필요한 경우, true로 지정합니다. 에러시 반환할
+            문자열 메세지는 <code>errors</code> 객체에 지정할수 있습니다.
           </>
         ),
         maxLength: "입력에 허용되는 최대 길이입니다.",
@@ -733,14 +798,18 @@ export default {
       description: (
         <>
           <p>
-            このメソッドを使用すると、input/select の <code>Ref</code> とバリデーションルールを React Hook Form に登録 (<code>register</code>) することができます。
+            このメソッドを使用すると、input/select の <code>Ref</code>{" "}
+            とバリデーションルールを React Hook Form に登録 (
+            <code>register</code>) することができます。
           </p>
           <p>
-            バリデーションルールは全て HTML 標準に基づいており、カスタムバリデーションも可能です。
+            バリデーションルールは全て HTML
+            標準に基づいており、カスタムバリデーションも可能です。
           </p>
           <p>
-            <Note>重要：</Note> <code>name</code> 属性は<b>必須</b>かつ<b>ユニーク</b>です。
-            input の name 属性はドット記法およびブラケット記法もサポートしているため、
+            <Note>重要：</Note> <code>name</code> 属性は<b>必須</b>かつ
+            <b>ユニーク</b>です。 input の name
+            属性はドット記法およびブラケット記法もサポートしているため、
             ネストされたフォームフィールドを簡単に作成することができます。例は下記の通りです：
           </p>
         </>
@@ -752,7 +821,8 @@ export default {
             borderLeft: `4px solid ${colors.lightPink}`,
           }}
         >
-          <code>arrays/array</code> フィールドを使用する場合、input の name 属性を <code>name[index]</code> のように割り当てることができます。
+          <code>arrays/array</code> フィールドを使用する場合、input の name
+          属性を <code>name[index]</code> のように割り当てることができます。
           <Link
             href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
             title="example for Field Array"
@@ -768,15 +838,15 @@ export default {
       options: {
         title: "登録オプション",
         registerWithValidation: "バリデーションのみで登録",
-        registerWithValidationMessage:
-          "バリデーションとエラーメッセージで登録",
+        registerWithValidationMessage: "バリデーションとエラーメッセージで登録",
         note: goToSection => (
           <>
             <Title>カスタム登録</Title>
             <p>
-              また、input を手動で登録 (manual <code>register</code>) することもできます。
-              これは、カスタムコンポーネントを操作していて <code>Ref</code> にアクセスできない場合に便利です。
-              React Native や{" "}
+              また、input を手動で登録 (manual <code>register</code>)
+              することもできます。 これは、カスタムコンポーネントを操作していて{" "}
+              <code>Ref</code> にアクセスできない場合に便利です。 React Native
+              や{" "}
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
@@ -788,8 +858,7 @@ export default {
             </p>
 
             <p>
-              カスタム登録を使用すると、
-              input の ref は登録されていないため、{" "}
+              カスタム登録を使用すると、 input の ref は登録されていないため、{" "}
               <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
               で入力値を更新する必要があります。
             </p>
@@ -799,8 +868,9 @@ export default {
             </p>
 
             <p>
-              <Note>注意：</Note> 値の更新中に、カスタム登録した input で再レンダリングをトリガーしたい場合は、
-              登録した input に type 属性を指定する必要があります。
+              <Note>注意：</Note> 値の更新中に、カスタム登録した input
+              で再レンダリングをトリガーしたい場合は、 登録した input に type
+              属性を指定する必要があります。
             </p>
           </>
         ),
@@ -808,8 +878,10 @@ export default {
       validation: {
         required: (
           <>
-            Boolean の値。true の場合、フォームを送信する前に入力値が必須であることを示します。
-            <code>errors</code> オブジェクトにエラーメッセージを返す文字列を割り当てることができます。
+            Boolean の値。true
+            の場合、フォームを送信する前に入力値が必須であることを示します。
+            <code>errors</code>{" "}
+            オブジェクトにエラーメッセージを返す文字列を割り当てることができます。
           </>
         ),
         maxLength: "input が受け付ける最大文字数。",
@@ -930,13 +1002,14 @@ export default {
     },
     kr: {
       title: "formState",
-      description: "폼 상태(form state)에 대한 정보를 포함합니다",  
+      description: "폼 상태(form state)에 대한 정보를 포함합니다",
       dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
       isSubmitted: "사용자가 폼을 제출 한 후 true로 설정하십시오.",
       touched: "상호 작용된 모든 입력의 배열입니다.",
       isSubmitting: (
         <>
-          폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>로 설정합니다.
+          폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>
+          로 설정합니다.
         </>
       ),
       submitCount: "제출 한 폼의 수",
@@ -944,7 +1017,8 @@ export default {
     },
     jp: {
       title: "formState",
-      description: "このオブジェクトには、フォームの状態に関する情報が含まれています。",
+      description:
+        "このオブジェクトには、フォームの状態に関する情報が含まれています。",
       dirty: "ユーザが入力操作した後 true に設定します。",
       isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
       touched: (
@@ -954,8 +1028,8 @@ export default {
       ),
       isSubmitting: (
         <>
-          フォームの送信中は <code>true</code> に設定し、
-          フォームの送信後は <code>false</code> に設定します。
+          フォームの送信中は <code>true</code> に設定し、 フォームの送信後は{" "}
+          <code>false</code> に設定します。
         </>
       ),
       submitCount: "フォームの送信回数。",
@@ -1016,14 +1090,16 @@ export default {
       title: "errors",
       description: currentLanguage => (
         <>
-          <p>
-            각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.
-          </p>
+          <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>
 
           <p>
-            <Note>참고:</Note> '고급 사용법' 에서 더 자세한 <NavLink
+            <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
+            <NavLink
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-            >에러 메시지</NavLink>{" "} 사용 방법을 확인 할 수 있습니다.{" "}
+            >
+              에러 메시지
+            </NavLink>{" "}
+            사용 방법을 확인 할 수 있습니다.{" "}
           </p>
         </>
       ),
@@ -1035,7 +1111,8 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            オブジェクトには、各 input のフォームのエラーまたはエラーメッセージが含まれています。
+            オブジェクトには、各 input
+            のフォームのエラーまたはエラーメッセージが含まれています。
           </p>
 
           <p>
@@ -1125,17 +1202,25 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>지정된 입력을 확인(watch)하고, 그 값들을 반환하며, 렌더링 할 대상을 결정할 때 유용합니다.</p>
+          <p>
+            지정된 입력을 확인(watch)하고, 그 값들을 반환하며, 렌더링 할 대상을
+            결정할 때 유용합니다.
+          </p>
           <ul>
             <li>
               <p>
-                <code>defaultValue</code>가 정의 안되어 있는 경우, <code>register</code>가 아직 호출이 안되었기 때문에 <code>watch</code>의 첫번째 렌더링에서는 <code>undefined</code> 을 반환합니다. 
-                하지만, 두번째 인수로 <code>defaultValue</code>를 설정하여 값을 반환 할 수 있습니다. 
+                <code>defaultValue</code>가 정의 안되어 있는 경우,{" "}
+                <code>register</code>가 아직 호출이 안되었기 때문에{" "}
+                <code>watch</code>의 첫번째 렌더링에서는 <code>undefined</code>{" "}
+                을 반환합니다. 하지만, 두번째 인수로 <code>defaultValue</code>를
+                설정하여 값을 반환 할 수 있습니다.
               </p>
             </li>
             <li>
               <p>
-                <code>useForm</code> 에서 <code>defaultValues</code>로 정의가 되어 있다면, 첫번째 렌더링에서 <code>defaultValues</code>에 적용된 내용을 반환합니다.
+                <code>useForm</code> 에서 <code>defaultValues</code>로 정의가
+                되어 있다면, 첫번째 렌더링에서 <code>defaultValues</code>에
+                적용된 내용을 반환합니다.
               </p>
             </li>
           </ul>
@@ -1144,13 +1229,15 @@ export default {
       tableTitle: {
         single: (
           <>
-            name으로 입력값 확인 (lodash <a
+            name으로 입력값 확인 (lodash{" "}
+            <a
               target="_blank"
               rel="noreferrer noopener"
               href="https://lodash.com/docs/4.17.15#get"
             >
               get
-            </a> 기능과 유사)	
+            </a>{" "}
+            기능과 유사)
           </>
         ),
         multiple: "여러 입력을 확인",
@@ -1167,15 +1254,18 @@ export default {
             <li>
               <p>
                 <code>defaultValue</code> が定義されていない場合、
-                <code>watch</code> の初回のレンダリングは <code>register</code> の前に呼び出されるため{" "}
-                <code>undefined</code> を返しますが、
-                第2引数として <code>defaultValue</code> を設定して値を返すことができます。
+                <code>watch</code> の初回のレンダリングは <code>register</code>{" "}
+                の前に呼び出されるため <code>undefined</code> を返しますが、
+                第2引数として <code>defaultValue</code>{" "}
+                を設定して値を返すことができます。
               </p>
             </li>
             <li>
               <p>
-                ただし、引数として <code>useForm</code> で <code>defaultValues</code> が初期化された場合、
-                初回のレンダリングは <code>defaultValues</code> で指定された値を返します。
+                ただし、引数として <code>useForm</code> で{" "}
+                <code>defaultValues</code> が初期化された場合、
+                初回のレンダリングは <code>defaultValues</code>{" "}
+                で指定された値を返します。
               </p>
             </li>
           </ul>
@@ -1268,11 +1358,10 @@ export default {
       title: "handleSubmit",
       description: (
         <>
+          <p>이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다.</p>
           <p>
-            이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다. 
-          </p>
-          <p>
-            <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를 전달할 수 있습니다 . 예 : {" "}
+            <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code>{" "}
+            함수를 전달할 수 있습니다 . 예 :{" "}
           </p>
           <p>
             <CodeBlock>
@@ -1290,7 +1379,8 @@ export default {
             この関数は、フォームバリデーションに成功するとフォームデータを渡します。
           </p>
           <p>
-            <Note>注意：</Note> 非同期バリデーションのための <code>async</code> 関数を渡すことができます。例：{" "}
+            <Note>注意：</Note> 非同期バリデーションのための <code>async</code>{" "}
+            関数を渡すことができます。例：{" "}
           </p>
           <p>
             <CodeBlock>
@@ -1341,11 +1431,15 @@ export default {
       description: (
         <>
           <p>
-            이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본 값으로 재설정 할 수 있습니다. 
+            이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다.{" "}
+            <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본 값으로 재설정
+            할 수 있습니다.
           </p>
           <p>
-            <Note>참고:</Note> <code>React-Select</code> 와 같이 <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>를 통해 수동으로 입력값을 재설정해주어야 합니다.
+            <Note>참고:</Note> <code>React-Select</code> 와 같이{" "}
+            <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
+            <code onClick={() => goToSection("setValue")}>setValue</code>를 통해
+            수동으로 입력값을 재설정해주어야 합니다.
           </p>
         </>
       ),
@@ -1355,13 +1449,16 @@ export default {
       description: (
         <>
           <p>
-            この関数は、フォーム内のフィールドの値とエラーをリセット (<code>reset</code>) します。
-            省略可能な引数として <code>values</code> を渡すと、
+            この関数は、フォーム内のフィールドの値とエラーをリセット (
+            <code>reset</code>) します。 省略可能な引数として{" "}
+            <code>values</code> を渡すと、
             割り当てられたデフォルト値でフォームをリセットできます。
           </p>
           <p>
-            <Note>注意：</Note> <code>ref</code> を公開しない <code>React-Select</code> のような制御コンポーネントの場合は、
-            <code onClick={() => goToSection("setValue")}>setValue</code> を使用して入力値を手動でリセットする必要があります。
+            <Note>注意：</Note> <code>ref</code> を公開しない{" "}
+            <code>React-Select</code> のような制御コンポーネントの場合は、
+            <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
+            を使用して入力値を手動でリセットする必要があります。
           </p>
         </>
       ),
@@ -1432,7 +1529,7 @@ export default {
         <ul>
           <li>
             <p>
-              <code>undefined</code>: 모든 에러를 리셋 
+              <code>undefined</code>: 모든 에러를 리셋
             </p>
           </li>
           <li>
@@ -1498,7 +1595,29 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>This function allows you to dynamically set input/select value.</p>
+          <p>
+            This function allows you to dynamically set input/select value. At
+            the same time, it is try to avoid re-render when it's not necessary
+            and only the following conditions will trigger re-render.
+          </p>
+          <ul>
+            <li>
+              <p>When value updates which triggers an error</p>
+            </li>
+            <li>
+              <p>When value updates which corrects an error</p>
+            </li>
+            <li>
+              <p>
+                First time invoked and trigger form to be <code>dirty</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                Update formState <code>touched</code>
+              </p>
+            </li>
+          </ul>
           <p>
             <Note>Note:</Note> By invoking this method, <code>formState</code>{" "}
             will push the input's <code>name</code> into <code>touched</code>.
@@ -1515,12 +1634,38 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다.</p>
           <p>
-            <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는 이 입력의 <code>name</code>을 <code>touched</code>로 설정하게 됩니다.
+            이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. At the
+            same time, it is try to avoid unnecessary re-render and only the
+            following conditions will trigger re-render.
+          </p>
+          <ul>
+            <li>
+              <p>When value updates which triggers an error</p>
+            </li>
+            <li>
+              <p>When value updates which corrects an error</p>
+            </li>
+            <li>
+              <p>
+                First time invoked and trigger form to be <code>dirty</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                Update formState <code>touched</code>
+              </p>
+            </li>
+          </ul>
+          <p>
+            <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는
+            이 입력의 <code>name</code>을 <code>touched</code>로 설정하게
+            됩니다.
           </p>
           <p>
-            <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드 유효성 검사를 트리거할 수 도 있습니다. 예 : <code>setValue('name', 'value', true)</code>
+            <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
+            유효성 검사를 트리거할 수 도 있습니다. 예 :{" "}
+            <code>setValue('name', 'value', true)</code>
           </p>
         </>
       ),
@@ -1529,15 +1674,38 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>この関数を使用すると、input/select の値を動的に設定できます。</p>
+          <p>
+            この関数を使用すると、input/select の値を動的に設定できます。At the
+            same time, it is try to avoid unnecessary re-render and only the
+            following conditions will trigger re-render.
+          </p>
+          <ul>
+            <li>
+              <p>When value updates which triggers an error</p>
+            </li>
+            <li>
+              <p>When value updates which corrects an error</p>
+            </li>
+            <li>
+              <p>
+                First time invoked and trigger form to be <code>dirty</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                Update formState <code>touched</code>
+              </p>
+            </li>
+          </ul>
           <p>
             <Note>注意：</Note> このメソッドを呼び出すことで、
-            <code>formState</code> は input の <code>name</code> を <code>touched</code> にプッシュします。
+            <code>formState</code> は input の <code>name</code> を{" "}
+            <code>touched</code> にプッシュします。
           </p>
           <p>
             <code>shouldValidate</code> を <code>true</code> に設定すると、
-            フィールドのバリデーションがトリガーされます。
-            例： <code>setValue('name', 'value', true)</code>
+            フィールドのバリデーションがトリガーされます。 例：{" "}
+            <code>setValue('name', 'value', true)</code>
           </p>
         </>
       ),
@@ -1546,7 +1714,28 @@ export default {
       title: "setValue",
       description: (
         <>
-          <p>此功能允许您动态设置输入/选择值。</p>
+          <p>
+            此功能允许您动态设置输入/选择值。
+            在同时，尝试避免不必要的重新渲染，只有 以下情况将触发重新渲染:
+          </p>
+          <ul>
+            <li>
+              <p>值更新时触发错误</p>
+            </li>
+            <li>
+              <p>值更新时纠正错误</p>
+            </li>
+            <li>
+              <p>
+                首次调用并触发表单<code>dirty</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                更新表格状态<code>touched</code>
+              </p>
+            </li>
+          </ul>
           <p>
             <Note>注意:</Note> 通过调用此方法，<code>formState</code>
             将将输入的名称<code>name</code>推入触摸<code>touched</code>。
@@ -1596,17 +1785,23 @@ export default {
       title: "getValues",
       description: (
         <>
-          <p>이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는 경우에 유용합니다.</p>
+          <p>
+            이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는
+            경우에 유용합니다.
+          </p>
           <ul>
             <li>
               <p>
-                기본적으로, <code>getValues()</code>는 폼 데이터를 flat structure로 반환합니다. 예 : {" "}
+                기본적으로, <code>getValues()</code>는 폼 데이터를 flat
+                structure로 반환합니다. 예 :{" "}
                 <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
-                정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는 <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로 반환됩니다. 예 : {" "}
+                정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는{" "}
+                <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로
+                반환됩니다. 예 :{" "}
                 <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
@@ -1623,15 +1818,18 @@ export default {
           <ul>
             <li>
               <p>
-                デフォルトでは、<code>getValues()</code> はフォームデータをフラットな構造で返します。
-                例： <code>{`{ test: 'data', test1: 'data1'}`}</code>
+                デフォルトでは、<code>getValues()</code>{" "}
+                はフォームデータをフラットな構造で返します。 例：{" "}
+                <code>{`{ test: 'data', test1: 'data1'}`}</code>
               </p>
             </li>
             <li>
               <p>
                 定義されたフォームフィールドで、
-                <code>getValues({`{ nest: true }`})</code> は input の <code>name</code> 属性に基づいてネストされた構造でデータを返します。
-                例： <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+                <code>getValues({`{ nest: true }`})</code> は input の{" "}
+                <code>name</code>{" "}
+                属性に基づいてネストされた構造でデータを返します。 例：{" "}
+                <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
               </p>
             </li>
           </ul>
@@ -1683,7 +1881,8 @@ export default {
         <>
           <p>폼의 입력/선택 유효성 검사를 수동으로 트리거합니다.</p>
           <p>
-            <Note>참고:</Note> 유효성 검사에 실패하면 <code>errors</code> 객체가 업데이트됩니다.
+            <Note>참고:</Note> 유효성 검사에 실패하면 <code>errors</code> 객체가
+            업데이트됩니다.
           </p>
         </>
       ),
@@ -1692,7 +1891,9 @@ export default {
       title: "triggerValidation",
       description: (
         <>
-          <p>フォームで input/select のバリデーションを手動でトリガーします。</p>
+          <p>
+            フォームで input/select のバリデーションを手動でトリガーします。
+          </p>
           <p>
             <Note>注意：</Note> バリデーションが失敗すると、<code>errors</code>{" "}
             オブジェクトが更新されます。
@@ -1729,9 +1930,10 @@ export default {
       title: "React Native",
       description: (
         <p>
-          비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 
-          하지만, 웹과 네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정 API도 있습니다.
-          이 경우, 다음 예제와 같이 <b>수동 등록(manual register)</b>을 해주어야 합니다. 
+          비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 하지만,
+          웹과 네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정
+          API도 있습니다. 이 경우, 다음 예제와 같이{" "}
+          <b>수동 등록(manual register)</b>을 해주어야 합니다.
         </p>
       ),
     },
@@ -1740,8 +1942,12 @@ export default {
       description: (
         <p>
           非制御コンポーネントでも、同じようにパフォーマンスが向上します。
-          ただし、React Native と互換性のない API がいくつかあります (Web とネイティブとの API の違い)。
-          下記の例に示すように、<b>手動登録 (manual <code>register</code>)</b> を使用する必要があります。
+          ただし、React Native と互換性のない API がいくつかあります (Web
+          とネイティブとの API の違い)。 下記の例に示すように、
+          <b>
+            手動登録 (manual <code>register</code>)
+          </b>{" "}
+          を使用する必要があります。
         </p>
       ),
     },
@@ -1780,14 +1986,17 @@ export default {
       title: "validationSchema",
       description: (
         <p>
-          외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우, <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로 적용 할 수 있습니다. 
-          React Hook Form의 객체 스키마 유효성 검사에서는 <Link
+          외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
+          <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로
+          적용 할 수 있습니다. React Hook Form의 객체 스키마 유효성 검사에서는{" "}
+          <Link
             href="https://github.com/jquense/yup"
             target="_blank"
             rel="noopener noreferrer"
           >
             Yup
-          </Link>{" "} 을 지원합니다. 
+          </Link>{" "}
+          을 지원합니다.
         </p>
       ),
     },
@@ -1796,8 +2005,9 @@ export default {
       description: (
         <p>
           外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
-          省略可能な引数として <code>useForm</code> に <code>validationSchema</code> を適用できます。
-          React Hook Form は現在、オブジェクトスキーマバリデーションで{" "}
+          省略可能な引数として <code>useForm</code> に{" "}
+          <code>validationSchema</code> を適用できます。 React Hook Form
+          は現在、オブジェクトスキーマバリデーションで{" "}
           <Link
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -1844,8 +2054,9 @@ export default {
       title: "NativeValidation",
       description: (
         <p>
-          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다. {" "}
-          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지 문법은 표준과 같습니다. 
+          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+          문법은 표준과 같습니다.
         </p>
       ),
     },
@@ -1884,7 +2095,8 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form은 타입스크립트로 만들어져, 폼 내 값 타입을 <code>FormData</code> 로 설정할 수 있습니다. 
+          React Hook Form은 타입스크립트로 만들어져, 폼 내 값 타입을{" "}
+          <code>FormData</code> 로 설정할 수 있습니다.
         </p>
       ),
     },
@@ -1892,7 +2104,9 @@ export default {
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form は <code>Typescript</code> を使用して構築されているため、フォームの値をサポートするための <code>FormData</code> 型を定義することができます。
+          React Hook Form は <code>Typescript</code>{" "}
+          を使用して構築されているため、フォームの値をサポートするための{" "}
+          <code>FormData</code> 型を定義することができます。
         </p>
       ),
     },
@@ -1935,17 +2149,21 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          폼 컨텍스트(Form Context)는 입력들이 컴포넌트 트리에서 깊이 중첩되었을 때 생기는 문제를 해결하고,{" "}
-          <code>props</code>를 더 깊이 전달하기 위해 사용합니다. 
+          폼 컨텍스트(Form Context)는 입력들이 컴포넌트 트리에서 깊이 중첩되었을
+          때 생기는 문제를 해결하고, <code>props</code>를 더 깊이 전달하기 위해
+          사용합니다.
         </p>
       ),
       description: (
         <>
           <p>
-            <code>FormContext</code>으로 폼을 감싸면, <code>useFormContext</code>:<TypeText>function</TypeText> 이 하위 컴포넌트에서 호출 될 수 있습니다. 
+            <code>FormContext</code>으로 폼을 감싸면,{" "}
+            <code>useFormContext</code>:<TypeText>function</TypeText> 이 하위
+            컴포넌트에서 호출 될 수 있습니다.
           </p>
           <p>
-            <Note>참고:</Note> <code>useFormContext</code> 를 통해 모든 <code>useForm</code> 의 hook function이 제공됩니다.
+            <Note>참고:</Note> <code>useFormContext</code> 를 통해 모든{" "}
+            <code>useForm</code> 의 hook function이 제공됩니다.
           </p>
         </>
       ),
@@ -1954,18 +2172,21 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          フォームコンテキストは、コンポーネントツリーに深くネストされた input があり、
-          メソッドを <code>props</code> として深く渡すことが苦痛になる場合の問題を解決することを目的としています。
+          フォームコンテキストは、コンポーネントツリーに深くネストされた input
+          があり、 メソッドを <code>props</code>{" "}
+          として深く渡すことが苦痛になる場合の問題を解決することを目的としています。
         </p>
       ),
       description: (
         <>
           <p>
-          フォームが <code>FormContext</code> でラップされると、
-          ラップされた子コンポーネントで <code>useFormContext</code> を使用して <TypeText>function</TypeText> を呼び出すことができます。
+            フォームが <code>FormContext</code> でラップされると、
+            ラップされた子コンポーネントで <code>useFormContext</code>{" "}
+            を使用して <TypeText>function</TypeText> を呼び出すことができます。
           </p>
           <p>
-            <Note>注意：</Note> <code>useFormContext</code> を呼び出すと全ての <code>useForm</code> フック関数が得られます。
+            <Note>注意：</Note> <code>useFormContext</code> を呼び出すと全ての{" "}
+            <code>useForm</code> フック関数が得られます。
           </p>
         </>
       ),

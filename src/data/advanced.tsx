@@ -78,7 +78,7 @@ export default {
           function. Eg:
           <br />
           <br />
-          <code>{`get(errors, 'firstName')`}</code>
+          <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
     },
@@ -122,7 +122,7 @@ export default {
           함수를 활용할 수 있습니다. 예:
           <br />
           <br />
-          <code>{`get(errors, 'firstName')`}</code>
+          <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
     },
@@ -166,7 +166,7 @@ export default {
           関数を活用することができます。例：
           <br />
           <br />
-          <code>{`get(errors, 'firstName')`}</code>
+          <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
     },
@@ -211,7 +211,7 @@ export default {
           function. Eg:
           <br />
           <br />
-          <code>{`get(errors, 'firstName')`}</code>
+          <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
     },

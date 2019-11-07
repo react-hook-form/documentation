@@ -14,7 +14,9 @@ export default function ApiWatch({
   return (
     <>
       <CodeHeading>
-        <h2>watch</h2>
+        <h2>
+          watch: <TypeText>(names?: string | string[]) => any</TypeText>
+        </h2>
       </CodeHeading>
 
       {api.watch[currentLanguage].description}
