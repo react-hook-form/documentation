@@ -1487,7 +1487,7 @@ export default {
       title: "setError",
       description: (
         <p>
-          This function allows you to manually set an or multiple input errors.
+          This function allows you to manually set one or multiple input errors.
         </p>
       ),
     },
