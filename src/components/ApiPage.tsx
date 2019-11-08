@@ -66,6 +66,10 @@ export const Table = styled.table`
       margin: 0;
     }
   }
+  
+  td:last-child {
+    padding-right: 0;
+  }
 `
 
 export const TableWrapper = styled.div`
