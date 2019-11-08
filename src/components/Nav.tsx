@@ -270,9 +270,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         >
           <option value="en">English</option>
           <option value="zh">简体中文</option>
-          <option value="jp" disabled>
-            日本語
-          </option>
+          <option value="jp">日本語</option>
           <option value="kr">한국어</option>
         </select>
       </LangsSelect>
@@ -352,7 +350,7 @@ function getNavLink(path: string, selectedLanguage: string) {
 
   if (selectedLanguage === "en") {
     if (isHomePage) {
-      return '/'
+      return "/"
     }
     if (i18nPageMatched != null) {
       return i18nPageMatched[2]
@@ -364,7 +362,7 @@ function getNavLink(path: string, selectedLanguage: string) {
     i18nPageMatched != null
       ? i18nPageMatched[2].substr(1)
       : isHomePage
-      ? ''
+      ? ""
       : path
   return translateLink(targetPath, selectedLanguage)
 }
