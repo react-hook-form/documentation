@@ -1497,7 +1497,7 @@ export default {
     },
     zh: {
       title: "setError",
-      description: <p>允许您手动设置输入错误。</p>,
+      description: <p>允许您手动设置输入单个和多项错误。</p>,
     },
   },
   clearError: {
