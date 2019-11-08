@@ -1485,7 +1485,11 @@ export default {
   setError: {
     en: {
       title: "setError",
-      description: <p>Allows you to manually set an or multiple input errors.</p>,
+      description: (
+        <p>
+          This function allows you to manually set an or multiple input errors.
+        </p>
+      ),
     },
     kr: {
       title: "setError",
@@ -1690,14 +1694,14 @@ export default {
             </li>
             <li>
               <p>
-                setValue が初めて実行され、
-                formState の <code>dirty</code> が true に設定されたとき
+                setValue が初めて実行され、 formState の <code>dirty</code> が
+                true に設定されたとき
               </p>
             </li>
             <li>
               <p>
-                setValue が実行され、
-                formState の <code>touched</code> が更新されたとき
+                setValue が実行され、 formState の <code>touched</code>{" "}
+                が更新されたとき
               </p>
             </li>
           </ul>
