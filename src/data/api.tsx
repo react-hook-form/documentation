@@ -1605,7 +1605,7 @@ export default {
               <p>When an error is triggered by a value update</p>
             </li>
             <li>
-              <p>When an error is triggered by a value corrects</p>
+              <p>When an error is corrected by a value update</p>
             </li>
             <li>
               <p>
@@ -1677,25 +1677,27 @@ export default {
       description: (
         <>
           <p>
-            この関数を使用すると、input/select の値を動的に設定できます。At the
-            same time, it is try to avoid unnecessary re-render and only the
-            following conditions will trigger re-render.
+            この関数を使用すると、input/select の値を動的に設定できます。
+            setValue は不要な再レンダリングを避けようとしますが、
+            以下の条件でのみ再レンダリングをトリガーします。
           </p>
           <ul>
             <li>
-              <p>When value updates which triggers an error</p>
+              <p>値の更新によってエラーがトリガーされるとき</p>
             </li>
             <li>
-              <p>When value updates which corrects an error</p>
+              <p>値の更新によってエラーが修正されるとき</p>
             </li>
             <li>
               <p>
-                First time invoked and trigger form to be <code>dirty</code>
+                setValue が初めて実行され、
+                formState の <code>dirty</code> が true に設定されたとき
               </p>
             </li>
             <li>
               <p>
-                Update formState <code>touched</code>
+                setValue が実行され、
+                formState の <code>touched</code> が更新されたとき
               </p>
             </li>
           </ul>
