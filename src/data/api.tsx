@@ -1602,19 +1602,21 @@ export default {
           </p>
           <ul>
             <li>
-              <p>When value updates which triggers an error</p>
+              <p>When an error is triggered by a value update</p>
             </li>
             <li>
-              <p>When value updates which corrects an error</p>
+              <p>When an error is triggered by a value corrects</p>
             </li>
             <li>
               <p>
-                First time invoked and trigger form to be <code>dirty</code>
+                When setValue is invoked for the first time and formState{" "}
+                <code>dirty</code> is set to true
               </p>
             </li>
             <li>
               <p>
-                Update formState <code>touched</code>
+                When setValue is invoked and formState <code>touched</code> is
+                updated
               </p>
             </li>
           </ul>
