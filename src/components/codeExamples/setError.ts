@@ -17,6 +17,13 @@ export default function App() {
         }}
         ref={register}
       />
+      <input name="lastName" ref={register} placeholder="lastName" />
+      <button type="button" onClick={() => setError([ 
+        { name: "username", message: "test" }, 
+        { name: "lastName", message: "test1" } 
+      ])}>
+        Trigger Multiple Errors
+      </button>
       {errors.username && errors.username.message}
     </form>
   )

@@ -1485,7 +1485,7 @@ export default {
   setError: {
     en: {
       title: "setError",
-      description: <p>Allows you to manually set an input error.</p>,
+      description: <p>Allows you to manually set an or multiple input errors.</p>,
     },
     kr: {
       title: "setError",

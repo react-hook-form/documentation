@@ -405,7 +405,7 @@ function ApiPage({
             <code>
               defaultValues:{" "}
               <TypeText>
-                {`{[key:string]: string}`} = {`{}`}
+                {`Record<string, any>`} = {`{}`}
               </TypeText>
             </code>
             <Popup
@@ -544,7 +544,7 @@ function ApiPage({
           >
             <h2>
               register:{" "}
-              <TypeText>{`({ name: string } | Ref, validateRule?) => void`}</TypeText>
+              <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
               <Popup message="React Native: custom register only" />
             </h2>
           </CodeHeading>
@@ -644,7 +644,7 @@ function ApiPage({
             <h2>
               setError:{" "}
               <TypeText>
-                (name: string, type: string, message?: string) => void
+                {`(name: string | ManualFieldError[], type?: string, message?: string) => void`}
               </TypeText>
             </h2>
           </CodeHeading>
@@ -724,8 +724,8 @@ function ApiPage({
           >
             <h2>
               triggerValidation:{" "}
-              <TypeText style={{ fontSize: 12 }}>
-                {`(payload?: { name: string; value?: any; } | { name: string; value?: any; }[])`}{" "}
+              <TypeText>
+                {`(payload?: { name: string } | { name: string }[])`}{" "}
                 => boolean
               </TypeText>
             </h2>
