@@ -347,7 +347,6 @@ function ApiPage({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationFields: [],
   validationSchema: {},
   validationSchemaOption: { abortEarly: false },
   submitFocusError: true,
@@ -482,23 +481,6 @@ function ApiPage({
                   </td>
                   <td>{api.useForm[currentLanguage].reValidateMode}</td>
                   <td />
-                </tr>
-                <tr>
-                  <td>
-                    <TableH5>
-                      <code>
-                        validationFields: <br />
-                        <MobileType>string[] = []</MobileType>
-                      </code>
-                    </TableH5>
-                  </td>
-                  <td>{api.useForm[currentLanguage].validationFields}</td>
-                  <td>
-                    <CodeSandBoxLink
-                      style={codeSandBoxStyle}
-                      url="https://codesandbox.io/s/react-hook-form-validationfields-1xb91"
-                    />
-                  </td>
                 </tr>
                 <tr>
                   <td>
