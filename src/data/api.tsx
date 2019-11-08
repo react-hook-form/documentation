@@ -1487,7 +1487,7 @@ export default {
       title: "setError",
       description: (
         <p>
-          This function allows you to manually set one or multiple input errors.
+          The function allows you to manually set one or multiple input errors.
         </p>
       ),
     },
@@ -1497,7 +1497,7 @@ export default {
     },
     jp: {
       title: "setError",
-      description: <p>input のエラーを手動で設定できます。</p>,
+      description: <p>単一または複数の input のエラーを手動で設定できます。</p>,
     },
     zh: {
       title: "setError",
