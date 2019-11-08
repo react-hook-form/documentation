@@ -160,9 +160,7 @@ const QuickSelect = styled.div`
 const codeSandBoxStyle = {
   position: "relative",
   left: 0,
-  marginBottom: 20,
-  marginTop: 10,
-  float: "right",
+  float: 'right',
 }
 
 function ApiPage({
@@ -367,13 +365,7 @@ function ApiPage({
                 <tr>
                   <th>{generic.name[currentLanguage]}</th>
                   <th>{generic.type[currentLanguage]}</th>
-                  <th
-                    style={{
-                      minWidth: 300,
-                    }}
-                  >
-                    {generic.description[currentLanguage]}
-                  </th>
+                  <th>{generic.description[currentLanguage]}</th>
                 </tr>
                 <tr>
                   <td>onSubmit (Default)</td>
@@ -446,8 +438,6 @@ function ApiPage({
                   </td>
                   <td>
                     {api.useForm[currentLanguage].validationSchema(goToSection)}
-                  </td>
-                  <td>
                     <CodeSandBoxLink
                       style={codeSandBoxStyle}
                       url="https://codesandbox.io/s/928po918qr"
@@ -504,8 +494,6 @@ function ApiPage({
                   </td>
                   <td>
                     {api.useForm[currentLanguage].nativeValidation(goToSection)}
-                  </td>
-                  <td>
                     <CodeSandBoxLink
                       style={codeSandBoxStyle}
                       url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
@@ -525,8 +513,7 @@ function ApiPage({
             }}
           >
             <h2>
-              register:{" "}
-              <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
+              register: <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
               <Popup message="React Native: custom register only" />
             </h2>
           </CodeHeading>
@@ -707,8 +694,7 @@ function ApiPage({
             <h2>
               triggerValidation:{" "}
               <TypeText>
-                {`(payload?: { name: string } | { name: string }[])`}{" "}
-                => boolean
+                {`(payload?: { name: string } | { name: string }[])`} => boolean
               </TypeText>
             </h2>
           </CodeHeading>

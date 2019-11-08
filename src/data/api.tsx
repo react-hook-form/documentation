@@ -6,6 +6,7 @@ import { CodeBlock, Note, Title, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
+import Popup from "../components/Popup";
 
 export default {
   title: {
@@ -115,7 +116,7 @@ export default {
         <p>
           This option allows you to configure when inputs with errors getd
           re-validated (by default, validation is triggered during an input
-          change.)
+          change.) <Popup />
         </p>
       ),
       validationFields: (
@@ -243,7 +244,7 @@ export default {
       reValidateMode: (
         <p>
           이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수
-          있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
+          있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )<Popup />
         </p>
       ),
       validationFields: (
@@ -374,7 +375,7 @@ export default {
       reValidateMode: (
         <p>
           このオプションを使用すると、エラーのある入力が再度バリデーションされるタイミングを設定することができます。{" "}
-          (デフォルトでは、入力変更時にバリデーションがトリガーされます。)
+          (デフォルトでは、入力変更時にバリデーションがトリガーされます。) <Popup />
         </p>
       ),
       validationFields: (
@@ -498,7 +499,7 @@ export default {
       ),
       reValidateMode: (
         <p>
-          此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。
+          此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。 <Popup />
         </p>
       ),
       validationFields: (
