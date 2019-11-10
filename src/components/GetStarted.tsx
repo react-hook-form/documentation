@@ -6,6 +6,8 @@ import * as React from "react"
 import breakpoints from "../styles/breakpoints"
 import getStarted from "../data/getStarted"
 import generic from "../data/generic"
+import copyClipBoard from "./utils/copyClipBoard"
+import generateCode from "./logic/generateCode"
 
 export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -58,7 +60,12 @@ export default function GetStarted({
 
       <InstallCode>
         npm install react-hook-form
-        <CopyButton>
+        <CopyButton
+          onClick={() => {
+            copyClipBoard("npm install react-hook-form")
+            alert(generic.copied[currentLanguage])
+          }}
+        >
           <CopyIcon>
             <span />
           </CopyIcon>{" "}
