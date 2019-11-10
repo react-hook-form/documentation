@@ -588,7 +588,7 @@ export default {
       ),
     },
     zh: {
-      title: "取消注册",
+      title: "unregister",
       description: (
         <>
           <p>此方法将允许您取消注册单个输入或输入的数组。</p>
@@ -1973,7 +1973,7 @@ export default {
   },
   validationSchema: {
     en: {
-      title: "validationSchema",
+      title: "ValidationSchema",
       description: (
         <p>
           If you would like to centralize your validation rules with external
@@ -1992,7 +1992,7 @@ export default {
       ),
     },
     kr: {
-      title: "validationSchema",
+      title: "ValidationSchema",
       description: (
         <p>
           외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
@@ -2010,7 +2010,7 @@ export default {
       ),
     },
     jp: {
-      title: "validationSchema",
+      title: "ValidationSchema",
       description: (
         <p>
           外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
@@ -2029,7 +2029,7 @@ export default {
       ),
     },
     zh: {
-      title: "validationSchema",
+      title: "ValidationSchema",
       description: (
         <p>
           如果您希望使用外部验证模式，可以在
