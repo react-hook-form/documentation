@@ -351,6 +351,7 @@ function ApiPage({
   defaultValues: {},
   validationSchema: {},
   validationSchemaOption: { abortEarly: false },
+  validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
   nativeValidation: false,
 })`}
@@ -466,9 +467,23 @@ function ApiPage({
                   <td>
                     <TableH5>
                       <code>
+                        validateCriteriaMode: <br />
+                        <MobileType>'firstErrorDetected' | 'all'</MobileType>
+                      </code>
+                    </TableH5>
+                  </td>
+                  <td>
+                    <p>{api.useForm[currentLanguage].validateCriteriaMode}</p>
+                  </td>
+                  <td />
+                </tr>
+                <tr>
+                  <td>
+                    <TableH5>
+                      <code>
                         reValidateMode: <br />
                         <MobileType>
-                          onChange | onBlur | onSubmit = onChange
+                          onChange | onBlur | onSubmit
                         </MobileType>
                       </code>
                     </TableH5>
