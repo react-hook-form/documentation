@@ -20,7 +20,7 @@ export default function App() {
       {errors.password && errors.password.types.required && (
         <p>password required</p>
       )}
-      {errors.password && errors.password.types.required && (
+      {errors.password && errors.password.types.minLength && (
         <p>password minLength 10</p>
       )}
       {errors.password && errors.password.types.pattern && (

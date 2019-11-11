@@ -8,19 +8,23 @@ const Buttons = styled.div`
     background: ${colors.primary};
     color: white;
     border: none;
-    padding: 8px 20px 10px;
+    padding: 5px 15px 5px;
     font-size: 14px;
     border-top: 2px solid transparent;
     transition: 0.3s all;
-
-    &:active,
+    background: ${colors.lightPink};
+    text-transform: uppercase;
+    
     &:hover {
-      border-top: 2px solid ${colors.secondary};
+      background: ${colors.secondary};
+    }
+
+    &:disabled {
+      background: ${colors.primary};
     }
 
     @media ${breakpoints.fromMediumScreen} {
-      padding: 8px 25px 10px;
-      font-size: 16px;
+      padding: 5px 20px 5px;
     }
   }
 `
@@ -30,13 +34,11 @@ export default ({ children, buttonLabels }) => {
 
   return (
     <div>
-      <Buttons style={{ marginBottom: -14, marginTop: 20 }}>
+      <Buttons style={{ marginBottom: -13, marginTop: 30 }}>
         {buttonLabels.map((label, currentIndex) => (
           <button
             style={{
-              ...(currentIndex === index
-                ? { cursor: "default", borderTop: "2px solid transparent" }
-                : { background: colors.lightBlue }),
+              ...(currentIndex === index ? { cursor: "default" } : {}),
             }}
             disabled={currentIndex === index}
             onClick={() => setIndex(currentIndex)}

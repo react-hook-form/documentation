@@ -124,14 +124,24 @@ const ToggleGroup = styled.div`
   & > button {
     width: 155px;
     color: white;
-    border: 1px solid ${colors.lightBlue};
+    border: 1px solid ${colors.secondary};
     padding: 10px 25px;
     cursor: pointer;
+    background: ${colors.lightPink};
+    
+    &:hover {
+      background: ${colors.secondary};
+    }
 
     &:first-child {
       border-right: 0;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
+    }
+
+    &:disabled {
+      cursor: default;
+    background: black;
     }
 
     &:nth-child(2) {
@@ -317,13 +327,11 @@ export default function Header({
 
       <ToggleGroup role="tablist" aria-label="Select video">
         <button
-          style={{
-            background: isWeb ? colors.lightBlue : "none",
-          }}
           aria-label="show web video"
           aria-selected={isWeb ? "true" : "false"}
           aria-controls="tabPanel-1"
           role="tab"
+          disabled={isWeb}
           onClick={() => {
             setIsWeb(true)
           }}
@@ -331,9 +339,7 @@ export default function Header({
           React Web
         </button>
         <button
-          style={{
-            background: !isWeb ? colors.lightBlue : "none",
-          }}
+          disabled={!isWeb}
           role="tab"
           aria-label="show react native video"
           aria-selected={!isWeb}
