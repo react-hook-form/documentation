@@ -58,7 +58,7 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            The default behaviour <code>firstErrorDetected</code> will validate
+            The default behavior <code>firstErrorDetected</code> will validate
             all fields' validation and gather all the first error encounter.
           </p>
           <p>
@@ -202,7 +202,7 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            The default behaviour <code>firstErrorDetected</code> will validate
+            The default behavior <code>firstErrorDetected</code> will validate
             all fields' validation and gather all the first error encounter.
           </p>
           <p>
@@ -343,7 +343,7 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            The default behaviour <code>firstErrorDetected</code> will validate
+            The default behavior <code>firstErrorDetected</code> will validate
             all fields' validation and gather all the first error encounter.
           </p>
           <p>
