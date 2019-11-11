@@ -236,7 +236,7 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <SubHeading style={{ marginBottom: 0, ...style }}>
+            <SubHeading style={{ marginBottom: 0, maxWidth: 660, ...style }}>
               {home.slogan[currentLanguage]}
             </SubHeading>
           )}
