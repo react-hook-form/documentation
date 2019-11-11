@@ -8,11 +8,18 @@ const Buttons = styled.div`
     background: ${colors.primary};
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 20px 10px;
     font-size: 14px;
+    border-top: 2px solid transparent;
+    transition: 0.3s all;
+
+    &:active,
+    &:hover {
+      border-top: 2px solid ${colors.secondary};
+    }
 
     @media ${breakpoints.fromMediumScreen} {
-      padding: 10px 25px;
+      padding: 8px 25px 10px;
       font-size: 16px;
     }
   }
@@ -28,7 +35,7 @@ export default ({ children, buttonLabels }) => {
           <button
             style={{
               ...(currentIndex === index
-                ? { cursor: "default" }
+                ? { cursor: "default", borderTop: "2px solid transparent" }
                 : { background: colors.lightBlue }),
             }}
             disabled={currentIndex === index}
