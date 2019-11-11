@@ -468,7 +468,7 @@ function ApiPage({
                     <TableH5>
                       <code>
                         validateCriteriaMode: <br />
-                        <MobileType>'firstErrorDetected' | 'all'</MobileType>
+                        <MobileType>firstErrorDetected | all</MobileType>
                       </code>
                     </TableH5>
                   </td>
