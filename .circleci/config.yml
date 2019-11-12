@@ -12,7 +12,3 @@ jobs:
       - run: yarn install && yarn build
 
       - run: cp ./now.json ./public
-
-      - run: sudo npm install --global --unsafe-perm now@13.1.2
-
-      - run: now -t $NOW_TOKEN && now -t $NOW_TOKEN alias
