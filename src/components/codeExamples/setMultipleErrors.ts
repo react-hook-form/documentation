@@ -2,20 +2,21 @@ export default `import React from "react";
 import useForm from "react-hook-form";
 
 export default function App() {
-  const { register, errors, setError } = useForm({
-    validateCriteriaMode: 'all' // you will need to enable validate all criteria mode
-  })
+  const { register, errors, setError } = useForm()
 
   return (
     <form>
       <input name="username" ref={register} />
       {errors.username && errors.username.message}
       
+      <input name="lastName" ref={register} />
+      {errors.lastName && errors.lastName.message}
+      
       <button type="button" onClick={() => setError({
         setError([
           {
             type: 'required',
-            name: 'username',
+            name: 'lastName',
             message: 'This is required.',
           },
           {
