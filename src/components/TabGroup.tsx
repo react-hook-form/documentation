@@ -8,11 +8,11 @@ const Buttons = styled.div`
     background: ${colors.primary};
     color: white;
     border: none;
-    padding: 5px 15px 5px;
-    font-size: 14px;
+    padding: 5px 8px 5px;
+    font-size: 12px;
     border-top: 2px solid transparent;
     transition: 0.3s all;
-    background: ${colors.lightPink};
+    background: ${colors.black};
     text-transform: uppercase;
     
     &:hover {

@@ -39,6 +39,10 @@ import generic from "../data/generic"
 import api from "../data/api"
 import StarRepo from "./StarRepo"
 import translateLink from "./logic/translateLink"
+import errorCode from "./codeExamples/errorCode"
+import multipleErrorCode from "./codeExamples/multipleErrorCode"
+import TabGroup from "./TabGroup"
+import setMultipleErrors from "./codeExamples/setMultipleErrors"
 
 const { useRef, useEffect } = React
 
@@ -66,7 +70,7 @@ export const Table = styled.table`
       margin: 0;
     }
   }
-  
+
   td:last-child {
     padding-right: 0;
   }
@@ -164,7 +168,7 @@ const QuickSelect = styled.div`
 const codeSandBoxStyle = {
   position: "relative",
   left: 0,
-  float: 'right',
+  float: "right",
 }
 
 function ApiPage({
@@ -461,7 +465,6 @@ function ApiPage({
                   <td>
                     <p>{api.useForm[currentLanguage].validationSchemaOption}</p>
                   </td>
-                  <td />
                 </tr>
                 <tr>
                   <td>
@@ -473,23 +476,23 @@ function ApiPage({
                     </TableH5>
                   </td>
                   <td>
-                    <p>{api.useForm[currentLanguage].validateCriteriaMode}</p>
+                    {api.useForm[currentLanguage].validateCriteriaMode}
+                    <CodeSandBoxLink
+                      style={codeSandBoxStyle}
+                      url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+                    />
                   </td>
-                  <td />
                 </tr>
                 <tr>
                   <td>
                     <TableH5>
                       <code>
                         reValidateMode: <br />
-                        <MobileType>
-                          onChange | onBlur | onSubmit
-                        </MobileType>
+                        <MobileType>onChange | onBlur | onSubmit</MobileType>
                       </code>
                     </TableH5>
                   </td>
                   <td>{api.useForm[currentLanguage].reValidateMode}</td>
-                  <td />
                 </tr>
                 <tr>
                   <td>
@@ -638,10 +641,26 @@ function ApiPage({
           </CodeHeading>
           {api.setError[currentLanguage].description}
 
-          <CodeArea
-            rawData={setError}
-            url="https://codesandbox.io/s/o7rxyym3q5"
-          />
+          <TabGroup
+            buttonLabels={[
+              "Single Error",
+              "Multiple Error",
+              "Single Field Errors",
+            ]}
+          >
+            <CodeArea
+              rawData={setError}
+              url="https://codesandbox.io/s/o7rxyym3q5"
+            />
+            <CodeArea
+              rawData={setMultipleErrors}
+              url="https://codesandbox.io/s/o7rxyym3q5"
+            />
+            <CodeArea
+              rawData={setError}
+              url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
+            />
+          </TabGroup>
 
           <hr />
 
