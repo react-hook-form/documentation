@@ -407,12 +407,6 @@ export default {
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
               </Link>
-            </code>{" "}
-            or trigger an error with{" "}
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
-              </Link>
             </code>
             .
           </p>
@@ -511,13 +505,7 @@ export default {
                 setValue
               </Link>
             </code>
-            更新它的值或通过
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
-              </Link>
-            </code>
-            去触发错误。
+            更新它的值。
           </p>
         </>
       ),
