@@ -7,14 +7,14 @@ const Buttons = styled.div`
   & > button {
     background: ${colors.primary};
     color: white;
-    border: none;
     padding: 5px 8px 5px;
     font-size: 12px;
-    border-top: 2px solid transparent;
+    border: none;
+    border-top: 1px solid ${colors.secondary};
     transition: 0.3s all;
     background: ${colors.black};
     text-transform: uppercase;
-    
+
     &:hover {
       background: ${colors.secondary};
     }
@@ -38,7 +38,9 @@ export default ({ children, buttonLabels }) => {
         {buttonLabels.map((label, currentIndex) => (
           <button
             style={{
-              ...(currentIndex === index ? { cursor: "default" } : {}),
+              ...(currentIndex === index
+                ? { cursor: "default", borderTop: "1px solid transparent" }
+                : {}),
             }}
             disabled={currentIndex === index}
             onClick={() => setIndex(currentIndex)}

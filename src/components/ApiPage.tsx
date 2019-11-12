@@ -43,6 +43,7 @@ import errorCode from "./codeExamples/errorCode"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
+import setAllErrors from "./codeExamples/setAllErrors";
 
 const { useRef, useEffect } = React
 
@@ -657,7 +658,7 @@ function ApiPage({
               url="https://codesandbox.io/s/o7rxyym3q5"
             />
             <CodeArea
-              rawData={setError}
+              rawData={setAllErrors}
               url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
             />
           </TabGroup>
