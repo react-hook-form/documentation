@@ -636,7 +636,7 @@ function ApiPage({
             <h2>
               setError: <br />
               <TypeText>
-                {`(name: string | ManualFieldError[], types?: Object, type?: string, message?: string) => void`}
+                {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
               </TypeText>
             </h2>
           </CodeHeading>
