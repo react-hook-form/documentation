@@ -181,6 +181,11 @@ export default function SortableContainer({
       {(formData || []).length > 0 && (
         <EditPanel>
           <button
+            onClick={() => {
+              if (window.confirm("Are you sure to delete all fields?")) {
+                updateFormData([])
+              }
+            }}
             style={{
               marginRight: 15,
             }}
