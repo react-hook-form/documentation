@@ -457,28 +457,22 @@ export default {
             コンポーネントライブラリに統合しやすいです。
           </p>
           <p>
-            <Note>注釈:</Note> ほとんどの UI ライブラリは <code>innerRef</code>{" "}
-            か <code>ref</code> に{" "}
+            <Note>注意:</Note> ほとんどの UI ライブラリは、{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
             </code>{" "}
-            を適用することができます。
-            <code>react-select</code> や <code>react-datepicker</code>{" "}
-            などのより複雑なコンポーネントの場合、{" "}
+            を適用するための <code>innerRef</code> または <code>ref</code> を公開します。
+            ただし、<code>react-select</code> や <code>react-datepicker</code> などの{" "}
+            <code>ref</code> を公開しないライブラリの場合、{" "}
+            <code>useEffect</code> で <code>register</code> を使用し、{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
               </Link>
             </code>{" "}
-            を使用して値を手動で更新したり、
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
-              </Link>
-            </code>{" "}
-            を使用してエラーをトリガーすることができます。
+            を介して値を更新できます。
           </p>
         </>
       ),
