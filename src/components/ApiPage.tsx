@@ -43,7 +43,8 @@ import errorCode from "./codeExamples/errorCode"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
-import setAllErrors from "./codeExamples/setAllErrors";
+import setAllErrors from "./codeExamples/setAllErrors"
+import resetCodeControlled from "./codeExamples/resetCodeControlled";
 
 const { useRef, useEffect } = React
 
@@ -614,16 +615,21 @@ function ApiPage({
             <h2>
               reset:{" "}
               <TypeText>{`(values?: Record<string, any>) => void`}</TypeText>
-              <Popup />
             </h2>
           </CodeHeading>
 
           {api.reset[currentLanguage](goToSection).description}
 
-          <CodeArea
-            rawData={resetCode}
-            url="https://codesandbox.io/s/jjm3wyqmjy"
-          />
+          <TabGroup buttonLabels={["Uncontrolled", "Controlled / React Native"]}>
+            <CodeArea
+              rawData={resetCode}
+              url="https://codesandbox.io/s/jjm3wyqmjy"
+            />
+            <CodeArea
+              rawData={resetCodeControlled}
+              url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
+            />
+          </TabGroup>
 
           <hr />
 
