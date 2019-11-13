@@ -323,7 +323,7 @@ export default {
       ),
     },
     zh: {
-      title: "Error Message",
+      title: "错误信息",
       description: (
         <p>
           Error messages are visual feedback to our users when there are issues
