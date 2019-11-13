@@ -2,11 +2,11 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
-import { Note, TypeText } from "../styles/typography"
-import { Link } from "gatsby"
-import translateLink from "./logic/translateLink"
+import { TypeText } from "../styles/typography"
 import api from "../data/api"
 import generic from "../data/generic"
+import multipleErrorCode from "./codeExamples/multipleErrorCode"
+import TabGroup from "./TabGroup"
 
 export default React.memo(
   ({ currentLanguage }: { currentLanguage: string }) => {
@@ -25,14 +25,14 @@ export default React.memo(
             <tbody>
               <tr>
                 <th>{generic.name[currentLanguage]}</th>
-                <th>{generic.type[currentLanguage]}</th>
                 <th
                   style={{
-                    minWidth: 300,
+                    minWidth: 250,
                   }}
                 >
-                  {generic.description[currentLanguage]}
+                  {generic.type[currentLanguage]}
                 </th>
+                <th>{generic.description[currentLanguage]}</th>
               </tr>
               <tr>
                 <td>
@@ -44,6 +44,20 @@ export default React.memo(
                 <td>
                   Error {generic.type[currentLanguage]}. eg: required, min, max,
                   minLength
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>types</code>
+                </td>
+                <td>
+                  <TypeText>{`Record<{ string, string | boolean }>`}</TypeText>
+                </td>
+                <td>
+                  This is useful for input validation like rules of password,
+                  which multiple errors need to return for a single field. To
+                  enable this feature, make sure you have set{" "}
+                  <code>validateCriteriaMode: 'all'</code>.
                 </td>
               </tr>
               <tr>
@@ -68,10 +82,16 @@ export default React.memo(
           </Table>
         </TableWrapper>
 
-        <CodeArea
-          rawData={errorCode}
-          url="https://codesandbox.io/s/nrr4n9p8n4"
-        />
+        <TabGroup buttonLabels={["First error detected", "Display all errors"]}>
+          <CodeArea
+            rawData={errorCode}
+            url="https://codesandbox.io/s/nrr4n9p8n4"
+          />
+          <CodeArea
+            rawData={multipleErrorCode}
+            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+          />
+        </TabGroup>
 
         <hr />
       </>

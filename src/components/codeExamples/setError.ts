@@ -2,7 +2,7 @@ export default `import React from "react";
 import useForm from "react-hook-form";
 
 export default function App() {
-  const { register, errors, setError, clearError } = useForm()
+  const { register, errors, setError } = useForm()
 
   return (
     <form>
@@ -17,13 +17,6 @@ export default function App() {
         }}
         ref={register}
       />
-      <input name="lastName" ref={register} placeholder="lastName" />
-      <button type="button" onClick={() => setError([ 
-        { name: "username", message: "test" }, 
-        { name: "lastName", message: "test1" } 
-      ])}>
-        Trigger Multiple Errors
-      </button>
       {errors.username && errors.username.message}
     </form>
   )

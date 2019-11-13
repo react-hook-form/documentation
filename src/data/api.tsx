@@ -6,7 +6,7 @@ import { CodeBlock, Note, Title, TypeText } from "../styles/typography"
 import { CodeAsLink } from "../components/ApiPage"
 import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
-import Popup from "../components/Popup";
+import Popup from "../components/Popup"
 
 export default {
   title: {
@@ -53,6 +53,18 @@ export default {
             yup documentation
           </a>
           .
+        </>
+      ),
+      validateCriteriaMode: (
+        <>
+          <p>
+            The default behavior <code>firstErrorDetected</code> will validate
+            all fields' validation and gather all the first error encounter.
+          </p>
+          <p>
+            With config set to <code>all</code>, all fields' validation will be
+            run through and gather all the errors encounter.
+          </p>
         </>
       ),
       validateOnSubmit: (
@@ -187,6 +199,18 @@ export default {
           에서 찾아 볼 수 있습니다.
         </>
       ),
+      validateCriteriaMode: (
+        <>
+          <p>
+            The default behavior <code>firstErrorDetected</code> will validate
+            all fields' validation and gather all the first error encounter.
+          </p>
+          <p>
+            With config set to <code>all</code>, all fields' validation will be
+            run through and gather all the errors encounter.
+          </p>
+        </>
+      ),
       validateOnSubmit: (
         <>
           유효성 검사는 <code>submit</code> 이벤트에서 트리거되며, 유효하지 않은
@@ -244,7 +268,8 @@ export default {
       reValidateMode: (
         <p>
           이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수
-          있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )<Popup />
+          있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
+          <Popup />
         </p>
       ),
       validationFields: (
@@ -315,6 +340,18 @@ export default {
           で詳細を読むことができます。
         </>
       ),
+      validateCriteriaMode: (
+        <>
+          <p>
+            The default behavior <code>firstErrorDetected</code> will validate
+            all fields' validation and gather all the first error encounter.
+          </p>
+          <p>
+            With config set to <code>all</code>, all fields' validation will be
+            run through and gather all the errors encounter.
+          </p>
+        </>
+      ),
       validateOnSubmit: (
         <>
           <code>submit</code> イベントからバリデーションがトリガーされ、
@@ -375,7 +412,8 @@ export default {
       reValidateMode: (
         <p>
           このオプションを使用すると、エラーのある入力が再度バリデーションされるタイミングを設定することができます。{" "}
-          (デフォルトでは、入力変更時にバリデーションがトリガーされます。) <Popup />
+          (デフォルトでは、入力変更時にバリデーションがトリガーされます。){" "}
+          <Popup />
         </p>
       ),
       validationFields: (
@@ -445,6 +483,18 @@ export default {
           。
         </>
       ),
+      validateCriteriaMode: (
+        <>
+          <p>
+            默认行为<code>firstErrorDetected</code>将验证
+            所有字段的验证，并收集所有遇到的第一个错误。
+          </p>
+          <p>
+            设置为<code> all </code>时，所有字段的验证将是
+            运行并收集遇到的所有错误。
+          </p>
+        </>
+      ),
       validateOnSubmit: (
         <>
           验证将在<code>提交</code>
@@ -499,7 +549,8 @@ export default {
       ),
       reValidateMode: (
         <p>
-          此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。 <Popup />
+          此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。{" "}
+          <Popup />
         </p>
       ),
       validationFields: (
@@ -1488,7 +1539,7 @@ export default {
       title: "setError",
       description: (
         <p>
-          The function allows you to manually set one or multiple input errors.
+          The function allows you to manually set one or multiple errors.
         </p>
       ),
     },
