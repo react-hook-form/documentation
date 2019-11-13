@@ -1545,7 +1545,7 @@ export default {
     },
     kr: {
       title: "setError",
-      description: <p>입력 에러를 수동으로 설정할 수 있습니다.</p>,
+      description: <p>이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할 수 있습니다.</p>,
     },
     jp: {
       title: "setError",
