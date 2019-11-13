@@ -430,20 +430,15 @@ export default {
               </Link>
             </code>
             를 할 수 있습니다.
-            <code>react-select</code> 나 <code>react-datepicker</code> 같이 더
-            복잡한 컴포넌트를 다루려면{" "}
+            하지만 <code>react-select</code> 나 <code>react-datepicker</code>{" "}
+            처럼 위와 같은 <code>ref</code> 를 쓸 수 없는 더 복잡한 컴포넌트를 다루려면{" "}
+            <code>useEffect</code> 안에서 <code>register</code> 를 하거나{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
               </Link>
             </code>
-            를 사용하여 수동으로 값을 업데이트 하거나{" "}
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
-              </Link>
-            </code>
-            로 에러를 일으켜야 합니다.
+            를 사용하여 값을 업데이트 할 수 있습니다.
           </p>
         </>
       ),
