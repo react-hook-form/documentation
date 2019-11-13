@@ -1,5 +1,4 @@
 export const step1 = `import React from "react";
-import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { StateMachineProvider, createStore } from "little-state-machine";
 import Step1 from "./Step1";

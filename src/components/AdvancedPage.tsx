@@ -20,6 +20,7 @@ import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advanced from "../data/advanced"
 import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
+import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled";
 
 const { useRef } = React
 
@@ -34,6 +35,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     FormContextPerformance: null,
     ErrorMessage: null,
     ConditionalControlledComponent: null,
+    ControlledmixedwithUncontrolledComponents: null,
   })
 
   const {
@@ -54,6 +56,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.connectForm,
     advanced.formContext,
     advanced.conditionalControlledComponent,
+    advanced.controlledMixedWithUnControlled,
   ]
 
   const goToSection = name => {
@@ -241,6 +244,18 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           {advanced.conditionalControlledComponent[currentLanguage].description}
 
           <CodeArea rawData={unregisterControlledComponent} url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990" />
+
+          <hr/>
+
+          <QuestionTitle
+            ref={ref => (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)}
+          >
+            {advanced.controlledMixedWithUnControlled[currentLanguage].title}
+          </QuestionTitle>
+
+          {advanced.controlledMixedWithUnControlled[currentLanguage].description}
+
+          <CodeArea rawData={controlledMixedUncontrolled} url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c" />
 
           <StarRepo currentLanguage={currentLanguage} />
 

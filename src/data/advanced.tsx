@@ -29,11 +29,161 @@ export default {
     },
     jp: {
       title: "高度な使用法",
-      description: "React Hook Formを使用して、複雑でアクセス可能なフォームを構築する。",
+      description:
+        "React Hook Formを使用して、複雑でアクセス可能なフォームを構築する。",
     },
     zh: {
       title: "高级",
       description: "使用 React Hook Form 建设复杂且易于访问的表单.",
+    },
+  },
+  controlledMixedWithUnControlled: {
+    en: {
+      title: "Controlled mixed with Uncontrolled Components",
+      description: (
+        <p>
+          React Hook Form embraces uncontrolled components and also compatible
+          with controlled component. Most of UI library is built to support only
+          controlled components, such as{" "}
+          <a
+            href="https://github.com/mui-org/material-ui"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Material-UI
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://github.com/ant-design/ant-design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Antd
+          </a>
+          . Good news is Material-UI is already considering to support
+          uncontrolled compoenents (React Hook Form), and you can help to{" "}
+          <a
+            href="https://github.com/mui-org/material-ui/issues/18269"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            up vote this issue
+          </a>
+          . Besides, with React Hook Form controlled component's re-rendering is
+          also been optimized. Here is an example which we combined with
+          controlled and uncontrolled form validation.
+        </p>
+      ),
+    },
+    kr: {
+      title: "Controlled mixed with Uncontrolled",
+      description: (
+        <p>
+          React Hook Form embraces uncontrolled components and also compatible
+          with controlled component. Most of UI library is built to support only
+          controlled components, such as{" "}
+          <a
+            href="https://github.com/mui-org/material-ui"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Material-UI
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://github.com/ant-design/ant-design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Antd
+          </a>
+          . Good news is Material-UI is already considering to support
+          uncontrolled compoenents (React Hook Form), and you can help to{" "}
+          <a
+            href="https://github.com/mui-org/material-ui/issues/18269"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            up vote this issue
+          </a>
+          . Besides, with React Hook Form controlled component's re-rendering is
+          also been optimized. Here is an example which we combined with
+          controlled and uncontrolled form validation.
+        </p>
+      ),
+    },
+    jp: {
+      title: "Controlled mixed with Uncontrolled",
+      description: (
+        <p>
+          React Hook Form embraces uncontrolled components and also compatible
+          with controlled component. Most of UI library is built to support only
+          controlled components, such as{" "}
+          <a
+            href="https://github.com/mui-org/material-ui"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Material-UI
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://github.com/ant-design/ant-design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Antd
+          </a>
+          . Good news is Material-UI is already considering to support
+          uncontrolled compoenents (React Hook Form), and you can help to{" "}
+          <a
+            href="https://github.com/mui-org/material-ui/issues/18269"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            up vote this issue
+          </a>
+          . Besides, with React Hook Form controlled component's re-rendering is
+          also been optimized. Here is an example which we combined with
+          controlled and uncontrolled form validation.
+        </p>
+      ),
+    },
+    zh: {
+      title: "受控制与不受控制的组件同存",
+      description: (
+        <p>
+          React Hook Form
+          拥护你们使用不受控制的组件，与此同时也兼容受控制的组件。
+          大多数UI库的构建仅限于支持受控组件，如
+          <a
+            href="https://github.com/mui-org/material-ui"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Material-UI
+          </a>
+          和
+          <a
+            href="https://github.com/ant-design/ant-design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            And
+          </a>
+          。 好消息是Material-UI已经在考虑支持不受控制的组件（React Hook
+          Form），你可以
+          <a
+            href="https://github.com/mui-org/material-ui/issues/18269"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            帮助投票与这个问题
+          </a>
+          。 此外,我们也优化了受控组件的多次rendering.
+          以下这是一个我们结合受控和不受控制的表单验证的例子。
+        </p>
+      ),
     },
   },
   errorMessage: {
@@ -131,14 +281,16 @@ export default {
       description: (
         <p>
           エラーメッセージは、入力に関連する問題があるときにユーザーに視覚的なフィードバックを与えることです。
-          React Hook Form では、エラーを簡単に取得できるように errors オブジェクトを提供しています。
+          React Hook Form では、エラーを簡単に取得できるように errors
+          オブジェクトを提供しています。
           ただし、画面のレンダリングエラーを改善する方法はいくつかあります。
         </p>
       ),
       register: (
         <>
           <code>register</code> 時にエラーメッセージを埋め込み、{" "}
-          <code>value</code> 属性にエラーメッセージを簡単に挿入することができます。例：
+          <code>value</code>{" "}
+          属性にエラーメッセージを簡単に挿入することができます。例：
         </>
       ),
       component:
@@ -299,7 +451,8 @@ export default {
         <>
           <p>
             React Hook Form はネイティブフォームバリデーションをサポートします。
-            これにより、独自のルールで input のバリデーションを行うことができます。
+            これにより、独自のルールで input
+            のバリデーションを行うことができます。
             私たちのほとんどはカスタムデザインとレイアウトを適用してフォームを構築しますが、
             フォームのアクセシビリティ (A11y) を保証することも私たちの責任です。
           </p>
@@ -499,8 +652,7 @@ export default {
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
             </Link>{" "}
-            として置き換えることができます)
-            を使用します。
+            として置き換えることができます) を使用します。
           </p>
 
           <p style={{ textAlign: "center" }}>♦</p>
@@ -514,7 +666,8 @@ export default {
           />
 
           <p>
-            <Note>ステップ2：</Note> ページを作成し、フォームの送信データを収集し、
+            <Note>ステップ2：</Note>{" "}
+            ページを作成し、フォームの送信データを収集し、
             そのデータをストアに送信して次のページに移動するようにします。
           </p>
           <CodeArea
@@ -523,7 +676,8 @@ export default {
           />
 
           <p>
-            <Note>ステップ3：</Note> 最終的に、ストア内のすべてのフォームデータを使用して、
+            <Note>ステップ3：</Note>{" "}
+            最終的に、ストア内のすべてのフォームデータを使用して、
             フォームを送信したりフォームデータの結果を表示します。
           </p>
           <CodeArea
@@ -709,8 +863,10 @@ export default {
       description: (
         <>
           <p>
-            ここでのアイデアは、input とフォームを簡単に組み合わせることができるということです。
-            <code>Form</code> コンポーネントを作成して、フォームデータを自動的に収集します。
+            ここでのアイデアは、input
+            とフォームを簡単に組み合わせることができるということです。
+            <code>Form</code>{" "}
+            コンポーネントを作成して、フォームデータを自動的に収集します。
           </p>
 
           <CodeArea
@@ -727,7 +883,9 @@ export default {
           </CodeHeading>
 
           <p>
-            <code>Form</code> コンポーネントの責任は、全ての <code>react-hook-form</code> のメソッドを子コンポーネントに注入することです。
+            <code>Form</code> コンポーネントの責任は、全ての{" "}
+            <code>react-hook-form</code>{" "}
+            のメソッドを子コンポーネントに注入することです。
           </p>
 
           <CodeArea
@@ -740,7 +898,8 @@ export default {
           </CodeHeading>
 
           <p>
-            <code>Input / Select</code> コンポーネントの責任は、自分自身を <code>react-hook-form</code> に登録することです。
+            <code>Input / Select</code> コンポーネントの責任は、自分自身を{" "}
+            <code>react-hook-form</code> に登録することです。
           </p>
           <CodeArea
             rawData={input}
@@ -749,7 +908,8 @@ export default {
 
           <p>
             <code>Form</code> コンポーネントを使用して、
-            <code>react-hook-form</code> の <code>props</code> を子コンポーネントに注入することで、
+            <code>react-hook-form</code> の <code>props</code>{" "}
+            を子コンポーネントに注入することで、
             アプリケーションで複雑なフォームを簡単に作成及び組み合わせることができます。
           </p>
         </>
@@ -853,14 +1013,16 @@ export default {
         <>
           <p>
             この機能は、React Hook Formが提供する最良の機能の一つです。
-            この機能を実現するために (他のライブラリのように) コンポーネントをインポートする代わりに、
-            既存の HTML マークアップを活用することができます。
-            key は、 <code>name</code> 属性にあります。
-            React Hook Form において、 <code>name</code> 属性はあなたが使用したいデータ構造を表します。
+            この機能を実現するために (他のライブラリのように)
+            コンポーネントをインポートする代わりに、 既存の HTML
+            マークアップを活用することができます。 key は、 <code>name</code>{" "}
+            属性にあります。 React Hook Form において、 <code>name</code>{" "}
+            属性はあなたが使用したいデータ構造を表します。
           </p>
 
           <p>
-            下記の例は、input の <code>name</code> 属性を操作してどのようにフィールド配列を作成できるかを示しています。
+            下記の例は、input の <code>name</code>{" "}
+            属性を操作してどのようにフィールド配列を作成できるかを示しています。
           </p>
         </>
       ),
@@ -953,8 +1115,9 @@ export default {
               Yup
             </a>{" "}
             を活用してスキーマベースのフォームバリデーションをサポートしています。
-            省略可能な引数として <code>validationSchema</code> を <a href="/api#useForm">useForm</a> に渡すことができます。
-            React Hook Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
+            省略可能な引数として <code>validationSchema</code> を{" "}
+            <a href="/api#useForm">useForm</a> に渡すことができます。 React Hook
+            Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
             <a href="/api#errors">errors</a> や妥当な結果を返します。
           </p>
         </>
@@ -962,14 +1125,15 @@ export default {
       step1: (
         <>
           <p>
-            <Note>ステップ1：</Note> <code>Yup</code> をプロジェクトにインストールします。
+            <Note>ステップ1：</Note> <code>Yup</code>{" "}
+            をプロジェクトにインストールします。
           </p>
         </>
       ),
       step2: (
         <p>
-          <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、
-          React Hook Form を使用して input を登録します。
+          <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、 React
+          Hook Form を使用して input を登録します。
         </p>
       ),
     },
@@ -1039,12 +1203,14 @@ export default {
       title: "接続フォーム",
       description: (
         <p>
-          フォームを作成するときに、深くネストされたコンポーネントツリーの中に input が存在することがあり、
-          そのような場合は <a href="/api#FormContext">FormContext</a> が非常に便利です。
-          <code>ConnectForm</code> コンポーネントを作成して{" "}
-          React の<a href="https://reactjs.org/docs/render-props.html">renderProps</a> を活用することで、
-          DX を更に向上することができます。{" "}
-          <code>ConnectForm</code> コンポーネントの利点は、input をどこからでも React Hook Form に接続できることです。
+          フォームを作成するときに、深くネストされたコンポーネントツリーの中に
+          input が存在することがあり、 そのような場合は{" "}
+          <a href="/api#FormContext">FormContext</a> が非常に便利です。
+          <code>ConnectForm</code> コンポーネントを作成して React の
+          <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
+          を活用することで、 DX を更に向上することができます。{" "}
+          <code>ConnectForm</code> コンポーネントの利点は、input をどこからでも
+          React Hook Form に接続できることです。
         </p>
       ),
     },
@@ -1126,9 +1292,10 @@ export default {
       title: "条件付き制御コンポーネント",
       description: (
         <>
-          React Hook Form を使用すると、条件付きフィールドを非常にシンプルに扱えます。
-          input がコンポーネントツリーから削除されると、自動的に <code>unregister</code> されるからです。
-          そのような振る舞いの
+          React Hook Form
+          を使用すると、条件付きフィールドを非常にシンプルに扱えます。 input
+          がコンポーネントツリーから削除されると、自動的に{" "}
+          <code>unregister</code> されるからです。 そのような振る舞いの
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
@@ -1136,8 +1303,8 @@ export default {
           >
             こちらに例を示します
           </a>{" "}
-          。ただし、制御コンポーネントでは <code>ref</code> が登録されていないため、
-          同じように自動的に登録解除されません。
+          。ただし、制御コンポーネントでは <code>ref</code>{" "}
+          が登録されていないため、 同じように自動的に登録解除されません。
           このような場合、{" "}
           <code>
             <a
@@ -1227,7 +1394,8 @@ export default {
       title: "FormContext パフォーマンス",
       description: (
         <p>
-          React Hook Form の <PageLink to="/api/#FormContext">FormContext</PageLink> は、{" "}
+          React Hook Form の{" "}
+          <PageLink to="/api/#FormContext">FormContext</PageLink> は、{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
@@ -1235,8 +1403,8 @@ export default {
           >
             React の Context API
           </a>{" "}
-          上に構築されています。
-          これにより、全ての階層で手動で props を渡す必要なく、
+          上に構築されています。 これにより、全ての階層で手動で props
+          を渡す必要なく、
           コンポーネントツリーを介してデータを渡す問題を解決します。
           これにより、React Hook Form は状態を更新する度に、
           コンポーネントツリーが再レンダリングされる問題を引き起こしますが、

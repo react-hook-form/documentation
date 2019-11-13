@@ -1,5 +1,5 @@
 export default `import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+import useForm from "react-hook-form";
 
 const CustomInput = React.memo(({ register, unregister, setValue, name }) => {
   useEffect(() => {
