@@ -202,12 +202,12 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            The default behavior <code>firstErrorDetected</code> will validate
-            all fields' validation and gather all the first error encounter.
+            기본값으로 설정 된 <code>firstErrorDetected</code> 는
+            모든 필드 유효성 검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
           </p>
           <p>
-            With config set to <code>all</code>, all fields' validation will be
-            run through and gather all the errors encounter.
+            <code>all</code> 로 설정하면, 모든 필드의 유효성 검사가 실행되면서
+            발생하는 필드의 모든 에러를 모읍니다.
           </p>
         </>
       ),
@@ -1545,7 +1545,7 @@ export default {
     },
     kr: {
       title: "setError",
-      description: <p>입력 에러를 수동으로 설정할 수 있습니다.</p>,
+      description: <p>이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할 수 있습니다.</p>,
     },
     jp: {
       title: "setError",
