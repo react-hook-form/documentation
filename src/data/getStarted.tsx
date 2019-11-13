@@ -149,7 +149,7 @@ export default {
         <>
           <p>
             React Hook Form の重要なコンセプトの一つは、非制御コンポーネント (
-              <a
+            <a
               href="https://reactjs.org/docs/uncontrolled-components.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -164,13 +164,14 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note>{" "}
-            各フィールドには登録プロセスの key としてユニークな <code>name</code> 属性が<strong>必須</strong>です。
+            <Note>注意：</Note> 各フィールドには登録プロセスの key
+            としてユニークな <code>name</code> 属性が<strong>必須</strong>です。
           </p>
 
           <p>
-            <Note>注意：</Note>React Native は手動登録 (manual <code>register</code>) する必要があります。{" "}
-            (例： <code>{`register({ name: 'test' }, { required: true })`}</code>
+            <Note>注意：</Note>React Native は手動登録 (manual{" "}
+            <code>register</code>) する必要があります。 (例：{" "}
+            <code>{`register({ name: 'test' }, { required: true })`}</code>
           </p>
         </>
       ),
@@ -391,25 +392,20 @@ export default {
             component libraries.
           </p>
           <p>
-            <span style={{ color: colors.lightPink }}>Note:</span> Most UI
-            libraries do expose <code>innerRef</code> or <code>ref</code> to{" "}
+            <Note>Note:</Note> Most UI libraries do expose <code>innerRef</code>{" "}
+            or <code>ref</code> to{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
             </code>
-            . For components that are more complicated like{" "}
+            . However, if that's not the case. For example{" "}
             <code>react-select</code> or <code>react-datepicker</code>, you can
-            manually update the value via{" "}
+            use <code>register</code> at <code>useEffect</code> and update the
+            value via{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
-              </Link>
-            </code>{" "}
-            or trigger an error with{" "}
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
               </Link>
             </code>
             .
@@ -457,11 +453,12 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            React Hook Form は、外部 UI コンポーネントライブラリに統合しやすいです。
+            React Hook Form は、外部 UI
+            コンポーネントライブラリに統合しやすいです。
           </p>
           <p>
-            <span style={{ color: colors.lightPink }}>注釈:</span> ほとんどの UI
-            ライブラリは <code>innerRef</code> か <code>ref</code> に{" "}
+            <Note>注釈:</Note> ほとんどの UI ライブラリは <code>innerRef</code>{" "}
+            か <code>ref</code> に{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
@@ -492,27 +489,23 @@ export default {
         <>
           <p>React Hook Form 使得它易于与外部UI组件库集成。</p>
           <p>
-            大多数UI库都会将内部<code>innerRef</code>或者<code>Ref</code>
-            公开给注册
+            大多数UI库都会将内部的<code>innerRef</code>或者<code>Ref</code>
+            公开给与注册
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
             </code>
-            。 对于像react-selector和
-            react-datepicker这样更复杂的组件，您可以通过
+            。但是，对于像react-selector和
+            react-datepicker这样更复杂的组件并且不提供<code>Ref</code>
+            ，您可以通过<code>register</code>在<code>useEffect</code>
+            中实现，再通过运用
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
               </Link>
             </code>
-            手动更新值或通过
-            <code>
-              <Link to={translateLink("api#setError", currentLanguage)}>
-                setError
-              </Link>
-            </code>
-            触发错误。
+            更新它的值。
           </p>
         </>
       ),
