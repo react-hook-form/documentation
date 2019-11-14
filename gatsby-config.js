@@ -1,4 +1,4 @@
-const languages = require('./src/data/languages');
+const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
@@ -21,13 +21,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-i18n',
+      resolve: "gatsby-plugin-i18n",
       options: {
-        langKeyForNull: 'en',
+        langKeyForNull: "en",
         langKeyDefault: languages.defaultLangKey,
         useLangKeyLayout: true,
         prefixDefault: false,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-nprogress`,
@@ -36,12 +36,12 @@ module.exports = {
         showSpinner: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-fullstory`,
-      options: {
-        fs_org: 'PDC81',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-fullstory`,
+    //   options: {
+    //     fs_org: 'PDC81',
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
