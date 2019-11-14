@@ -279,7 +279,22 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           onChange={e => {
             const selectedLanguage = e.target.value
             action(selectedLanguage)
-            navigate(getNavLink(location.pathname.substr(1), selectedLanguage))
+
+            let url = location.pathname.substr(1)
+
+            switch (url) {
+              case "jp/":
+                url = "jp"
+                break
+              case "zh/":
+                url = "zh"
+                break
+              case "kr/":
+                url = "kr"
+                break
+            }
+
+            navigate(getNavLink(url, selectedLanguage))
           }}
           defaultValue={currentLanguage}
         >
