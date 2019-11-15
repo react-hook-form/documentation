@@ -343,12 +343,11 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            The default behavior <code>firstErrorDetected</code> will validate
-            all fields' validation and gather all the first error encounter.
+            デフォルトの設定である <code>firstErrorDetected</code> は、全てのフィールドのバリデーションを行い、最初に発生したエラーを収集します。
           </p>
           <p>
-            With config set to <code>all</code>, all fields' validation will be
-            run through and gather all the errors encounter.
+            このオプションを <code>all</code> に設定すると、全てのフィールドのバリデーションが実行され、
+            発生した全てのエラーが収集されます。
           </p>
         </>
       ),
