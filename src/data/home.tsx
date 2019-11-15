@@ -48,8 +48,8 @@ export default {
       description: `フォームバリデーションはより簡単にする必要があります。React Hook Form を使用すると、コードの記述が少なくなり、パフォーマンスが向上します。はじめるセクションを見て、API ドキュメントページで詳細を確認してください。`,
     },
     zh: {
-      heading: "发现它有用和有趣?",
-      description: `表单验证应该更简单。 React钩子形式将导致您编写更少的代码并具有更好的性能。 查看"入门"部分，并在API文档页面了解更多信息。`,
+      heading: "发现它有用又有趣?",
+      description: `表单验证应该更简单。 React Hook Form将使您编写更少的代码并具有更好的性能。 查看"入门"部分，也可以在API文档页面了解更多信息。`,
     },
   },
   features: {
@@ -127,7 +127,7 @@ export default {
       },
       {
         title: "HTML标准",
-        description: `利用现有的HTML，并直接开始使用约束验证API来验证您的表单。`,
+        description: `利用现有的HTML，并直接开始使用验证API来验证您的表单。`,
       },
       {
         title: "超轻",
@@ -225,7 +225,7 @@ export default {
     },
     zh: {
       title: "减少Rendering",
-      description: `你有没有想过用户触发了多少组件重新renders？ React Hook Form包含不受控制的表单验证，以减少不必要的性能影响。`,
+      description: `你有没有想过用户触发了多少组件的重新render？ React Hook Form注重不受控制的表单验证，以减少不必要的性能影响。`,
       totalReRender: "Total re-renders:",
     },
   },
@@ -407,7 +407,7 @@ export default {
       watchTitle: "观察",
       errorTitle: "错误",
       touchedTitle: "接触过的",
-      watch: "更改输入值以查看观看的值",
+      watch: "更改输入值以查看观看值的变化",
       error: "验证错误将出现在这里",
       touched: "触摸的表格将显示在这里",
     },
