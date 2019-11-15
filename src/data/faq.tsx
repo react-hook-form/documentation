@@ -1034,18 +1034,18 @@ export default {
         title: "React Hook Form的性能",
         description: (
           <p>
-            性能是构建此自定义挂钩(Hook)的主要目标之一。 React Hook
+            性能是构建这个自定义挂钩(Hook)的主要目标之一。 React Hook
             Form依赖于不受控制的组件，因此<code>register</code>函数发生在
             <code>ref</code>的原因。
-            这种方法将减少由于用户输入或值改变而发生的重新rendering数量。
+            这种方法将减少由于用户输入或值改变而发生的重新render数量。
             组件安装到页面也更快，因为它们不受控制。
-            对于安装速度，我已经完成了一个快速比较测试，
+            其次对于安装速度，我已经完成了一个快速比较测试，
             <a
               href="https://github.com/bluebill1049/react-hook-form-performance-compare"
               target="_blank"
               rel="noopener noreferrer"
             >
-              你可以通过这个回购链接参考
+              你可以通过这个链接来参考
             </a>
             。
           </p>
@@ -1063,7 +1063,7 @@ export default {
             >
               (Uncontrolled Component)
             </a>
-            的组件，它使您能够轻松构建可访问的自定义表单。
+            的组件，它使您能够轻松的构建自定义表单。
           </p>
         ),
       },
@@ -1072,12 +1072,6 @@ export default {
         description: (
           <>
             <p>不, 但是你可以在它周围构建一个包装并在你的类组件中使用。</p>
-
-            <blockquote>
-              您不能在类组件内部使用钩子，但您绝对可以在单个树中将类和函数组件与钩子混合。
-              组件是一个类还是一个使用Hook的函数是该组件的实现细节。
-              从长远来看，我们预计钩子是人们编写React组件的主要方式。
-            </blockquote>
           </>
         ),
       },
@@ -1112,19 +1106,19 @@ export default {
         description: (
           <p>
             React Hook Form依赖于不受控制的组件。
-            对于不受控制的组件，可以为单个字段指定默认值
-            <code>defaultValue</code>或默认选中的值<code>defaultChecked</code>。
+            对于不受控制的组件，可以为单个表格加入默认值
+            <code>defaultValue</code>或加入在默认选中的值<code>defaultChecked</code>。
             但是，钩子本身也提供了一种更简单的方法来初始化所有输入值。
             下面的例子:
           </p>
         ),
       },
       {
-        title: "如何分享参考用法?",
+        title: "如何分享ref用法?",
         description: (
           <p>
             React Hook Form需要<code>ref</code>来收集输入值，但是，您可能需要将
-            <code>ref</code>用于其他目的（例如，如果您想要使用它）。
+            <code>ref</code>用于其他目的目的（例如，如果您想要使用它）。
             滚动到视图中）。 以下示例将向您展示如何。
           </p>
         ),
@@ -1141,7 +1135,7 @@ export default {
 
             <p>
               <Note>注意:</Note> 由于<code>ref</code>尚未注册，因此React Hook
-              Form将无法将事件侦听器注册到输入。
+              Form将无法加入侦听器(event listener)。
               这意味着您将不得不手动更新值和错误。
             </p>
           </>
