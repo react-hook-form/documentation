@@ -130,8 +130,8 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
     )}
     {currentLanguage === "jp" && (
       <p>
-        <a href="https://github.com/kotarella1110">@kotarella1110</a> and{" "}
-        <a href="https://github.com/dowdiness">@dowdiness</a>
+        <a href="https://github.com/kotarella1110">@kotarella1110</a> と{" "}
+        <a href="https://github.com/dowdiness">@dowdiness</a>{" "}
         によって翻訳されました。
       </p>
     )}
