@@ -178,9 +178,9 @@ export default {
             target="_blank"
             rel="noopener noreferrer"
           >
-            帮助投票与这个问题
+            帮助投票于这个问题
           </a>
-          。 此外,我们也优化了受控组件的多次rendering.
+          。 此外,我们也优化了受控组件的多次render.
           以下这是一个我们结合受控和不受控制的表单验证的例子。
         </p>
       ),
@@ -326,10 +326,9 @@ export default {
       title: "错误信息",
       description: (
         <p>
-          Error messages are visual feedback to our users when there are issues
-          associated with their inputs. In React Hook Form, we provide errors
-          object to let you retrieve errors easily. However, there are several
-          different ways for us to improve render error to the screen.
+          当有问题时，错误消息是对我们的用户的可视化反馈。 在react hook
+          form，我们提供的错误对象让你轻松地检索错误。 然而，有几个
+          不同的方式ra让我们减少render错误。
         </p>
       ),
       register: (

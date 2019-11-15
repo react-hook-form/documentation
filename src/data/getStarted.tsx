@@ -45,7 +45,7 @@ export default {
     },
     zh: {
       title: "视频教程",
-      description: `在本视频教程中，我已经演示了使用React Hook Form的基本用法和概念。`,
+      description: `在本视频教程中，我演示了使用React Hook Form的基本用法和概念。（不好意思是英文的）`,
     },
   },
   install: {
@@ -182,7 +182,7 @@ export default {
         <>
           <p>
             React Hook Form的一个关键概念是将您不受控制的组件
-            <strong>注册</strong>到Hook中，从而使其价值得到验证并收集以供提交。
+            <strong>注册</strong>到Hook中，从而使其价值得到验证并收集来以供提交。
           </p>
 
           <p>
@@ -335,7 +335,7 @@ export default {
           <p>
             您可以在
             <Link to={translateLink("api#register", currentLanguage)}>
-              注册部分
+              注册部分(register)
             </Link>
             阅读每个规则的更多细节。
           </p>
@@ -373,11 +373,10 @@ export default {
       ),
     },
     zh: {
-      title: "调整现有的表格",
+      title: "调整您现有的表格",
       description: (
         <>
-          处理现有表单很简单。 重要的步骤是将寄存器应用到现有组件的
-          <code>ref</code>中。
+          处理您现有表单很简单。 重要的步骤是将表单组件的<code>ref</code>注册。
         </>
       ),
     },
@@ -476,7 +475,7 @@ export default {
       title: "使用UI库",
       description: currentLanguage => (
         <>
-          <p>React Hook Form 使得它易于与外部UI组件库集成。</p>
+          <p>React Hook Form 让外部UI组件库集成变得简单。</p>
           <p>
             大多数UI库都会将内部的<code>innerRef</code>或者<code>Ref</code>
             公开给与注册
@@ -515,7 +514,7 @@ export default {
     },
     zh: {
       title: "整合表单状态",
-      description: `React Hook Form不要求你有一个状态管理来存储你的数据，但你可以很容易地与任何一个集成。`,
+      description: `React Hook Form不要求你有一个状态(state)管理来存储你的数据，但你可以很容易地与任何一个集成。`,
     },
   },
   errors: {

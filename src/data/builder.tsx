@@ -27,7 +27,7 @@ export default {
       description: "コードとサンプルを使用して独自のフォームを構築します。",
     },
     zh: {
-      title: "生成器",
+      title: "表单生成器",
       description: "使用代码和示例构建自己的表单。",
     },
   },
