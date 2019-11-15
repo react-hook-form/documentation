@@ -202,8 +202,8 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            기본값으로 설정 된 <code>firstErrorDetected</code> 는
-            모든 필드 유효성 검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
+            기본값으로 설정 된 <code>firstErrorDetected</code> 는 모든 필드
+            유효성 검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
           </p>
           <p>
             <code>all</code> 로 설정하면, 모든 필드의 유효성 검사가 실행되면서
@@ -343,10 +343,12 @@ export default {
       validateCriteriaMode: (
         <>
           <p>
-            デフォルトの設定である <code>firstErrorDetected</code> は、全てのフィールドのバリデーションを行い、最初に発生したエラーを収集します。
+            デフォルトの設定である <code>firstErrorDetected</code>{" "}
+            は、全てのフィールドのバリデーションを行い、最初に発生したエラーを収集します。
           </p>
           <p>
-            このオプションを <code>all</code> に設定すると、全てのフィールドのバリデーションが実行され、
+            このオプションを <code>all</code>{" "}
+            に設定すると、全てのフィールドのバリデーションが実行され、
             発生した全てのエラーが収集されます。
           </p>
         </>
@@ -948,15 +950,14 @@ export default {
       description: (
         <>
           <p>
-            此方法允许您将输入/选择<code>Ref</code>和验证规则注册到React Hook
-            Form。
+            此方法允许您将输入/选择中的<code>Ref</code>和验证规则注册到React
+            Hook Form。
           </p>
           <p>验证规则都是基于HTML标准，也允许自定义验证。</p>
           <p>
             <Note>重要:</Note> 名称<code>name</code>是<strong>必需</strong>的和
             <strong>唯一</strong>的。
-            输入名称还支持点和括号语法，它允许您轻松创建嵌套表单字段。
-            示例表如下:
+            输入名称还支持点和括号语法，它允许您轻松创建表单。 示例表如下:
           </p>
         </>
       ),
@@ -988,9 +989,8 @@ export default {
           <>
             <Title>手动注册输入</Title>
             <p>
-              您还可以手动注册输入，这在使用自定义组件无法访问<code>Ref</code>
-              时非常有用，并且无法访问Ref。 实际上，当您使用React
-              Native或自定义组件（如
+              您还可以手动注册输入，这在使用自定义组件和无法访问<code>Ref</code>
+              时情况下非常有用。 实际上，当您使用React Native或自定义组件（如
               <a
                 href="https://github.com/JedWatson/react-select"
                 target="_blank"
@@ -998,13 +998,13 @@ export default {
               >
                 react-select
               </a>
-              ）时，情况就是如此。
+              ）时， 你需要手动注册。
             </p>
 
             <p>
-              通过使用自定义寄存器调用，您将需要使用
+              通过使用自定义注册时，您将需要使用
               <code onClick={() => goToSection("setValue")}>setValue</code>
-              更新输入值，因为输入注册没有<code>ref</code>。
+              来更新输入值，因为输入注册没有<code>ref</code>。
             </p>
 
             <p>
@@ -1013,7 +1013,7 @@ export default {
 
             <p>
               <Note>注意:</Note>{" "}
-              如果您希望自定义注册输入在其值更新过程中触发重新render，那么你应该给您注册的输入的类型
+              如果您希望自定义注册输入在其值更新过程中触发重新render，那么你应该给您注册的输入的类型加以
               <code>type</code>。
             </p>
           </>
@@ -1023,7 +1023,8 @@ export default {
         required: (
           <>
             如果为true，则表示输入必须具有值，然后才能提交表单。
-            您可以分配一个字符串以在错误对象中<code>errors</code>返回错误消息。
+            您可以分配一个字符串以在错误对象中，来让<code>errors</code>
+            返回错误消息。
           </>
         ),
         maxLength: "文本框能接受的最大字符数。",
@@ -1091,7 +1092,7 @@ export default {
       description: "此对象包含有关表单状态的信息。",
       dirty: (
         <>
-          在用户与任何输入交互后设置为<code>true</code>。
+          在用户与任何输入互动后设置为<code>true</code>。
         </>
       ),
       isSubmitted: (
@@ -1344,7 +1345,7 @@ export default {
       title: "watch",
       description: (
         <>
-          <p>这将监视指定的输入/输入并返回其值。</p>
+          <p>这将监视指定的输入并返回其值。</p>
 
           <ul>
             <li>
@@ -1352,7 +1353,7 @@ export default {
                 当未定义<code>defaultValue</code>时，watch的第一个render将返回
                 <code>undefined</code>，因为它在<code>register</code>
                 之前被调用，但是您可以将<code>defaultValue</code>
-                设置为返回值的第二个参数。
+                设置为返回值（第二个参数）。
               </p>
             </li>
             <li>
@@ -1368,7 +1369,7 @@ export default {
       tableTitle: {
         single: (
           <>
-            按名称观看输入值（类似于lodash
+            按名称观看输入值（类似于lodash的
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -1537,14 +1538,17 @@ export default {
     en: {
       title: "setError",
       description: (
-        <p>
-          The function allows you to manually set one or multiple errors.
-        </p>
+        <p>The function allows you to manually set one or multiple errors.</p>
       ),
     },
     kr: {
       title: "setError",
-      description: <p>이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할 수 있습니다.</p>,
+      description: (
+        <p>
+          이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할
+          수 있습니다.
+        </p>
+      ),
     },
     jp: {
       title: "setError",
@@ -1775,7 +1779,7 @@ export default {
         <>
           <p>
             此功能允许您动态设置输入/选择值。
-            在同时，尝试避免不必要的重新渲染，只有 以下情况将触发重新渲染:
+            在同时，尝试避免不必要的重新渲染，与此同时只有以下情况将触发重新渲染:
           </p>
           <ul>
             <li>
@@ -2014,7 +2018,7 @@ export default {
       title: "React Native",
       description: (
         <p>
-          您将从不受控制的组件中获得相同的性能增强。 但是，有一些与React
+          您将从受控制的组件中获得相同的性能增强。 但是，有一些与React
           Native不兼容的Api（与web和native的API差异）。
           您将不得不使用手动注册，如下面的示例所示。
         </p>
@@ -2134,7 +2138,7 @@ export default {
       description: (
         <p>
           下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
-          <code>nativeValidation</code>设置为t<code>rue</code>
+          <code>nativeValidation</code>设置为<code>true</code>
           ，其余语法与标准验证相同。
         </p>
       ),
@@ -2254,7 +2258,7 @@ export default {
       title: "FormContext",
       introduction: (
         <p>
-          当组件存在深时传递<code>props</code>变得痛苦，这个组件解决这个问题。
+          当组件存在深处时传递<code>props</code>变得痛苦，这个组件解决这个问题。
         </p>
       ),
       description: (
