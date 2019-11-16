@@ -218,7 +218,7 @@ function ApiPage({
     errorsRef: null,
     watchRef: null,
     setErrorRef: null,
-    validationSchemaRef: null,
+    ValidationSchemaRef: null,
     handleSubmitRef: null,
     getValuesRef: null,
     TypeScriptRef: null,
@@ -787,7 +787,7 @@ function ApiPage({
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.validationSchemaRef = ref
+              apiSectionsRef.current.ValidationSchemaRef = ref
             }}
           >
             <h2>
