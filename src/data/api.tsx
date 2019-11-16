@@ -600,7 +600,9 @@ export default {
         <>
           <p>
             This method will allow you to <code>unregister</code> a single input
-            or an array of inputs.
+            or an array of inputs. This is useful when you register your input
+            during <code>useEffect</code> as custom register and to unregister
+            it after component unmount.
           </p>
           <p>
             <Note>Note:</Note> When you unregister an input, its value will no
@@ -615,7 +617,9 @@ export default {
         <>
           <p>
             이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code>{" "}
-            할 수 있습니다.
+            할 수 있습니다. This is useful when you register your input during{" "}
+            <code>useEffect</code> as custom register and to unregister it after
+            component unmount.
           </p>
           <p>
             <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼
@@ -630,7 +634,9 @@ export default {
         <>
           <p>
             このメソッドでは、単一の input または input の配列に{" "}
-            <code>unregister</code> を適用することができます。
+            <code>unregister</code> を適用することができます。This is useful
+            when you register your input during <code>useEffect</code> as custom
+            register and to unregister it after component unmount.
           </p>
           <p>
             <Note>注意：</Note> input を登録解除 (<code>unregister</code>)
@@ -646,7 +652,9 @@ export default {
           <p>此方法将允许您取消注册单个输入或输入的数组。</p>
           <p>
             <Note>注意:</Note>{" "}
-            取消注册输入时，其值将不再被包含在被提交的表单数据中。
+            取消注册输入时，其值将不再被包含在被提交的表单数据中。当您手动在
+            <code> useEffect </code>
+            注册输入时会有用，同时当组件卸载时你也可以用它来取消注册。
           </p>
         </>
       ),
