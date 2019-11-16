@@ -1125,6 +1125,21 @@ export default {
           </p>
 
           <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
+
+          <p>
             <Note>Note:</Note> You can also learn recipes on{" "}
             <NavLink
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
@@ -1142,8 +1157,21 @@ export default {
       title: "errors",
       description: currentLanguage => (
         <>
-          <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>
-
+          <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
+          <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
           <p>
             <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
             <NavLink
@@ -1168,6 +1196,21 @@ export default {
           </p>
 
           <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
+
+          <p>
             <Note>注意：</Note> 高度な使用法ページから{" "}
             <Link
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
@@ -1186,6 +1229,22 @@ export default {
       description: currentLanguage => (
         <>
           <p>对象包含属于每个输入的表单错误或错误消息。</p>
+
+          <p>
+            <Note>注意: </Note>
+            这个对象本身的结构是扁平的（不是嵌套），这意味着您可以直接使用输入名称来访问错误。
+            例如:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            我们将考虑一次引入嵌套错误对象直到{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            有更好的浏览器支持.
+          </p>
 
           <p>
             <Note>注意:</Note> 您还可以从
