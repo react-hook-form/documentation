@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai } from "react-syntax-highlighter/dist/styles/prism"
+import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"

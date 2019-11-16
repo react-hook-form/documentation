@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai } from "react-syntax-highlighter/dist/styles/prism"
+import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
 import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
 import colors from "../styles/colors"

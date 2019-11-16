@@ -30,7 +30,7 @@
     "react-simple-animate": "^3.3.4",
     "react-simple-img": "2.3.7",
     "react-sortablejs": "1.5.1",
-    "react-syntax-highlighter": "10.2.1",
+    "react-syntax-highlighter": "11.0.2",
     "sortablejs": "1.10.1",
     "styled-components": "4.4.1"
   },
