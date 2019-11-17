@@ -600,7 +600,9 @@ export default {
         <>
           <p>
             This method will allow you to <code>unregister</code> a single input
-            or an array of inputs.
+            or an array of inputs. This is useful when you register your input
+            during <code>useEffect</code> as custom register and to unregister
+            it after component unmount.
           </p>
           <p>
             <Note>Note:</Note> When you unregister an input, its value will no
@@ -615,7 +617,9 @@ export default {
         <>
           <p>
             이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code>{" "}
-            할 수 있습니다.
+            할 수 있습니다. This is useful when you register your input during{" "}
+            <code>useEffect</code> as custom register and to unregister it after
+            component unmount.
           </p>
           <p>
             <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼
@@ -630,7 +634,9 @@ export default {
         <>
           <p>
             このメソッドでは、単一の input または input の配列に{" "}
-            <code>unregister</code> を適用することができます。
+            <code>unregister</code> を適用することができます。This is useful
+            when you register your input during <code>useEffect</code> as custom
+            register and to unregister it after component unmount.
           </p>
           <p>
             <Note>注意：</Note> input を登録解除 (<code>unregister</code>)
@@ -646,7 +652,9 @@ export default {
           <p>此方法将允许您取消注册单个输入或输入的数组。</p>
           <p>
             <Note>注意:</Note>{" "}
-            取消注册输入时，其值将不再被包含在被提交的表单数据中。
+            取消注册输入时，其值将不再被包含在被提交的表单数据中。当您手动在
+            <code> useEffect </code>
+            注册输入时会有用，同时当组件卸载时你也可以用它来取消注册。
           </p>
         </>
       ),
@@ -1125,6 +1133,21 @@ export default {
           </p>
 
           <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
+
+          <p>
             <Note>Note:</Note> You can also learn recipes on{" "}
             <NavLink
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
@@ -1142,8 +1165,21 @@ export default {
       title: "errors",
       description: currentLanguage => (
         <>
-          <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>
-
+          <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
+          <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
           <p>
             <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
             <NavLink
@@ -1168,6 +1204,21 @@ export default {
           </p>
 
           <p>
+            <Note>Note: </Note>The object itself is structured as flat (not
+            nested) which means you access errors directly with input name. eg:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            we will consider to introduce nested error object once{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            has better browser support.
+          </p>
+
+          <p>
             <Note>注意：</Note> 高度な使用法ページから{" "}
             <Link
               to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
@@ -1186,6 +1237,22 @@ export default {
       description: currentLanguage => (
         <>
           <p>对象包含属于每个输入的表单错误或错误消息。</p>
+
+          <p>
+            <Note>注意: </Note>
+            这个对象本身的结构是扁平的（不是嵌套），这意味着您可以直接使用输入名称来访问错误。
+            例如:{" "}
+          </p>
+          <p>
+            <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
+          </p>
+          <p>
+            我们将考虑一次引入嵌套错误对象直到{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+              Optional chaining
+            </a>{" "}
+            有更好的浏览器支持.
+          </p>
 
           <p>
             <Note>注意:</Note> 您还可以从
@@ -2101,49 +2168,49 @@ export default {
       ),
     },
   },
-  NativeValidation: {
-    en: {
-      title: "NativeValidation",
-      description: (
-        <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
-        </p>
-      ),
-    },
-    kr: {
-      title: "NativeValidation",
-      description: (
-        <p>
-          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
-          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
-          문법은 표준과 같습니다.
-        </p>
-      ),
-    },
-    jp: {
-      title: "NativeValidation",
-      description: (
-        <p>
-          下記の例は、ブラウザバリデーションを活用する方法を示しています。
-          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
-          残りの構文は標準のバリデーションと同じになります。
-        </p>
-      ),
-    },
-    zh: {
-      title: "NativeValidation",
-      description: (
-        <p>
-          下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
-          <code>nativeValidation</code>设置为<code>true</code>
-          ，其余语法与标准验证相同。
-        </p>
-      ),
-    },
-  },
+  // NativeValidation: {
+  //   en: {
+  //     title: "NativeValidation",
+  //     description: (
+  //       <p>
+  //         The following example demonstrates how you can leverage the browser's
+  //         validation. You only need to set <code>nativeValidation</code> to{" "}
+  //         <code>true</code> and the rest of the syntax is the same as standard
+  //         validation.
+  //       </p>
+  //     ),
+  //   },
+  //   kr: {
+  //     title: "NativeValidation",
+  //     description: (
+  //       <p>
+  //         다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+  //         <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+  //         문법은 표준과 같습니다.
+  //       </p>
+  //     ),
+  //   },
+  //   jp: {
+  //     title: "NativeValidation",
+  //     description: (
+  //       <p>
+  //         下記の例は、ブラウザバリデーションを活用する方法を示しています。
+  //         <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+  //         残りの構文は標準のバリデーションと同じになります。
+  //       </p>
+  //     ),
+  //   },
+  //   zh: {
+  //     title: "NativeValidation",
+  //     description: (
+  //       <p>
+  //         下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
+  //         <code>nativeValidation</code>设置为<code>true</code>
+  //         ，其余语法与标准验证相同。
+  //       </p>
+  //     ),
+  //   },
+  // },
   typeScript: {
     en: {
       title: "TypeScript",

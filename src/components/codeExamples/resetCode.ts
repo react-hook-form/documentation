@@ -4,7 +4,8 @@ import useForm from "react-hook-form";
 export default function App() {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data, e) => {
-    e.target.reset(); // standard reset after form submit
+    // e.target.reset(); 
+    // you can use HTML standard reset() function, but it only reset inputs' value
   };
 
   return (

@@ -77,6 +77,7 @@ const ActionButtonGroup = styled.nav`
     color: white;
     text-decoration: none;
     position: relative;
+    min-width: 40px;
 
     &:first-child {
       border-left: 0;

@@ -328,6 +328,22 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </a>
             </Article>
           </li>
+          <li>
+            <Article>
+              <a
+                href="http://ruanyifeng.com/blog/2019/11/weekly-issue-82.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>科技爱好者周刊：第 82 期</h3>
+                <p>
+                  这是一个 React 表单库，基于 React
+                  Hooks，看上去代码相当简洁，star
+                  也很高，也许以后可以摆脱那些笨重的表单组件了。
+                </p>
+              </a>
+            </Article>
+          </li>
         </ContentList>
 
         <Title>{generic.video[currentLanguage]}</Title>
