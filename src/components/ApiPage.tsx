@@ -359,7 +359,6 @@ function ApiPage({
   validationSchemaOption: { abortEarly: false },
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
-  nativeValidation: false,
 })`}
           />
 
