@@ -37,6 +37,7 @@ export default ({ children, buttonLabels }) => {
       <Buttons style={{ marginBottom: -13, marginTop: 30 }}>
         {buttonLabels.map((label, currentIndex) => (
           <button
+            key={label}
             style={{
               ...(currentIndex === index
                 ? { cursor: "default", borderTop: "1px solid transparent" }

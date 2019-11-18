@@ -225,7 +225,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    NativeValidationRef: null,
+    'Browserbuiltinvalidation': null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -233,7 +233,7 @@ function ApiPage({
   const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
-    const filterName = name.replace(/ /, "")
+    const filterName = name.replace(/ |-/g, "")
 
     history.pushState(
       {},
@@ -807,10 +807,10 @@ function ApiPage({
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.NativeValidationRef = ref
+              apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >
-            <h2>NativeValidation</h2>
+            <h2>Browser built-in validation</h2>
           </CodeHeading>
 
           {api.NativeValidation[currentLanguage].description}

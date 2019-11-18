@@ -2170,7 +2170,7 @@ export default {
   },
   NativeValidation: {
     en: {
-      title: "NativeValidation",
+      title: "Browser built-in validation",
       description: (
         <p>
           The following example demonstrates how you can leverage the browser's
@@ -2181,7 +2181,7 @@ export default {
       ),
     },
     kr: {
-      title: "NativeValidation",
+      title: "Browser built-in validation",
       description: (
         <p>
           다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
@@ -2191,7 +2191,7 @@ export default {
       ),
     },
     jp: {
-      title: "NativeValidation",
+      title: "Browser built-in validation",
       description: (
         <p>
           下記の例は、ブラウザバリデーションを活用する方法を示しています。
@@ -2201,7 +2201,7 @@ export default {
       ),
     },
     zh: {
-      title: "NativeValidation",
+      title: "Browser built-in validation",
       description: (
         <p>
           下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证

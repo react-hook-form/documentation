@@ -44,18 +44,16 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
 
       {api.formContext[currentLanguage].description}
 
-      <p>
-        <SyntaxHighlighter
-          customStyle={{
-            border: "none",
-          }}
-          style={xonokai}
-          language={"jsx"}
-        >
-          const methods = useFormContext() // methods contain all useForm
-          functions
-        </SyntaxHighlighter>
-      </p>
+      <SyntaxHighlighter
+        customStyle={{
+          border: "none",
+        }}
+        style={xonokai}
+        language={"jsx"}
+      >
+        const methods = useFormContext() // methods contain all useForm
+        functions
+      </SyntaxHighlighter>
 
       <CodeArea
         rawData={formContext}
