@@ -2168,49 +2168,49 @@ export default {
       ),
     },
   },
-  // NativeValidation: {
-  //   en: {
-  //     title: "NativeValidation",
-  //     description: (
-  //       <p>
-  //         The following example demonstrates how you can leverage the browser's
-  //         validation. You only need to set <code>nativeValidation</code> to{" "}
-  //         <code>true</code> and the rest of the syntax is the same as standard
-  //         validation.
-  //       </p>
-  //     ),
-  //   },
-  //   kr: {
-  //     title: "NativeValidation",
-  //     description: (
-  //       <p>
-  //         다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
-  //         <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
-  //         문법은 표준과 같습니다.
-  //       </p>
-  //     ),
-  //   },
-  //   jp: {
-  //     title: "NativeValidation",
-  //     description: (
-  //       <p>
-  //         下記の例は、ブラウザバリデーションを活用する方法を示しています。
-  //         <code>nativeValidation</code> を <code>true</code> に設定するだけで、
-  //         残りの構文は標準のバリデーションと同じになります。
-  //       </p>
-  //     ),
-  //   },
-  //   zh: {
-  //     title: "NativeValidation",
-  //     description: (
-  //       <p>
-  //         下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
-  //         <code>nativeValidation</code>设置为<code>true</code>
-  //         ，其余语法与标准验证相同。
-  //       </p>
-  //     ),
-  //   },
-  // },
+  NativeValidation: {
+    en: {
+      title: "NativeValidation",
+      description: (
+        <p>
+          The following example demonstrates how you can leverage the browser's
+          validation. You only need to set <code>nativeValidation</code> to{" "}
+          <code>true</code> and the rest of the syntax is the same as standard
+          validation.
+        </p>
+      ),
+    },
+    kr: {
+      title: "NativeValidation",
+      description: (
+        <p>
+          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+          문법은 표준과 같습니다.
+        </p>
+      ),
+    },
+    jp: {
+      title: "NativeValidation",
+      description: (
+        <p>
+          下記の例は、ブラウザバリデーションを活用する方法を示しています。
+          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+          残りの構文は標準のバリデーションと同じになります。
+        </p>
+      ),
+    },
+    zh: {
+      title: "NativeValidation",
+      description: (
+        <p>
+          下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
+          <code>nativeValidation</code>设置为<code>true</code>
+          ，其余语法与标准验证相同。
+        </p>
+      ),
+    },
+  },
   typeScript: {
     en: {
       title: "TypeScript",

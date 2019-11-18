@@ -197,7 +197,7 @@ function ApiPage({
     api.formContext,
     api.reactNative,
     api.validationSchema,
-    // api.NativeValidation,
+    api.NativeValidation,
     api.typeScript,
   ]
   const {
@@ -225,7 +225,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    // NativeValidationRef: null,
+    NativeValidationRef: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -359,6 +359,7 @@ function ApiPage({
   validationSchemaOption: { abortEarly: false },
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
+  nativeValidation: false,
 })`}
           />
 
@@ -803,23 +804,23 @@ function ApiPage({
 
           <hr />
 
-          {/*<CodeHeading*/}
-          {/*  ref={ref => {*/}
-          {/*    // @ts-ignore*/}
-          {/*    apiSectionsRef.current.NativeValidationRef = ref*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <h2>NativeValidation</h2>*/}
-          {/*</CodeHeading>*/}
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.NativeValidationRef = ref
+            }}
+          >
+            <h2>NativeValidation</h2>
+          </CodeHeading>
 
-          {/*{api.NativeValidation[currentLanguage].description}*/}
+          {api.NativeValidation[currentLanguage].description}
 
-          {/*<CodeArea*/}
-          {/*  rawData={nativeValidation}*/}
-          {/*  url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"*/}
-          {/*/>*/}
+          <CodeArea
+            rawData={nativeValidation}
+            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
+          />
 
-          {/*<hr />*/}
+          <hr />
 
           <CodeHeading
             ref={ref => {
