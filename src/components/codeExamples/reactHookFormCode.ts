@@ -24,7 +24,7 @@ const Example = () => {
       <input
         name="username"
         ref={register({
-          validate: value => value === "admin" || "Nice try!"
+          validate: value => !(value === "admin") || "Nice try!"
         })}
       />
       {errors.username && errors.username.message}
