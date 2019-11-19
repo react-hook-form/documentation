@@ -44,7 +44,8 @@ import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
-import resetCodeControlled from "./codeExamples/resetCodeControlled";
+import resetCodeControlled from "./codeExamples/resetCodeControlled"
+import validationSchemaJoi from "./codeExamples/validationSchemaJoi";
 
 const { useRef, useEffect } = React
 
@@ -225,7 +226,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    'Browserbuiltinvalidation': null,
+    Browserbuiltinvalidation: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -443,7 +444,7 @@ function ApiPage({
                     <TableH5>
                       <code>
                         validationSchema: <br />
-                        <MobileType>Object</MobileType>
+                        <MobileType>{`Object | { resolver: Function }`}</MobileType>
                       </code>
                     </TableH5>
                   </td>
@@ -620,7 +621,9 @@ function ApiPage({
 
           {api.reset[currentLanguage](goToSection).description}
 
-          <TabGroup buttonLabels={["Uncontrolled", "Controlled / React Native"]}>
+          <TabGroup
+            buttonLabels={["Uncontrolled", "Controlled / React Native"]}
+          >
             <CodeArea
               rawData={resetCode}
               url="https://codesandbox.io/s/jjm3wyqmjy"
@@ -791,16 +794,22 @@ function ApiPage({
             }}
           >
             <h2>
-              validationSchema: <TypeText>Object</TypeText>
+              validationSchema:{" "}
+              <TypeText>Object | {`{ resolver: Function }`}</TypeText>
             </h2>
           </CodeHeading>
 
           {api.validationSchema[currentLanguage].description}
 
-          <CodeArea
-            rawData={validationSchemaCode}
-            url="https://codesandbox.io/s/928po918qr"
-          />
+          <TabGroup buttonLabels={["Yup Schema", "Joi Schema"]}>
+            <CodeArea
+              rawData={validationSchemaCode}
+              url="https://codesandbox.io/s/928po918qr"
+            />
+            <CodeArea
+              rawData={validationSchemaJoi}
+            />
+          </TabGroup>
 
           <hr />
 

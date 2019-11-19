@@ -116,9 +116,24 @@ export default {
       ),
       validationSchema: goToSection => (
         <p>
-          Apply form validation rules with <code>Yup</code> at the schema level,
-          please refer to the{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          Apply form validation rules with{" "}
+          <Link
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <code>Yup</code>
+          </Link>
+          ,{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <code>Joi</code>
+          </a>{" "}
+          or custom ones at the schema level, please refer to the{" "}
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
           section.
@@ -404,7 +419,7 @@ export default {
         <p>
           スキーマレベルで <code>Yup</code>{" "}
           を使用してフォームバリデーションルールを適用します。{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
           セクションを参照してください。
@@ -542,7 +557,7 @@ export default {
       validationSchema: goToSection => (
         <p>
           将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>
           部分。
@@ -2099,8 +2114,7 @@ export default {
         <p>
           If you would like to centralize your validation rules with external
           validation schema, you can apply <code>validationSchema</code> at{" "}
-          <code>useForm</code> as an optional argument. React Hook Form
-          currently supports{" "}
+          <code>useForm</code> as an optional argument. React Hook Form supports{" "}
           <Link
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -2108,7 +2122,16 @@ export default {
           >
             Yup
           </Link>{" "}
-          for object schema validation.
+          for object schema validation, however you can use other schema
+          validation libraries too, such as{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>{" "}
+          or even custom build one .
         </p>
       ),
     },
