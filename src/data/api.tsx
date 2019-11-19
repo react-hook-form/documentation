@@ -118,7 +118,7 @@ export default {
         <p>
           Apply form validation rules with <code>Yup</code> at the schema level,
           please refer to the{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
           section.
@@ -259,7 +259,7 @@ export default {
       validationSchema: goToSection => (
         <p>
           <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
           섹션을 참고하세요.
@@ -404,7 +404,7 @@ export default {
         <p>
           スキーマレベルで <code>Yup</code>{" "}
           を使用してフォームバリデーションルールを適用します。{" "}
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>{" "}
           セクションを参照してください。
@@ -542,7 +542,7 @@ export default {
       validationSchema: goToSection => (
         <p>
           将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
-          <CodeAsLink onClick={() => goToSection("validationSchema")}>
+          <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
             validationSchema
           </CodeAsLink>
           部分。
