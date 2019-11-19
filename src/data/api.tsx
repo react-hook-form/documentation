@@ -1211,7 +1211,7 @@ export default {
             <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
           </p>
           <p>
-            we will consider to introduce nested error object once{" "}
+            We will consider migrating to a nested error object once{" "}
             <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
               Optional chaining
             </a>{" "}
