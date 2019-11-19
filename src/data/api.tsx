@@ -634,9 +634,9 @@ export default {
         <>
           <p>
             このメソッドでは、単一の input または input の配列に{" "}
-            <code>unregister</code> を適用することができます。This is useful
-            when you register your input during <code>useEffect</code> as custom
-            register and to unregister it after component unmount.
+            <code>unregister</code> を適用することができます。
+            これは、 <code>useEffect</code> でカスタム登録として input を登録 (<code>register</code>) し、
+            コンポーネントのアンマウント後に登録を解除する場合に便利です。
           </p>
           <p>
             <Note>注意：</Note> input を登録解除 (<code>unregister</code>)
