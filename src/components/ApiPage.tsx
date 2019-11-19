@@ -801,7 +801,7 @@ function ApiPage({
 
           {api.validationSchema[currentLanguage].description}
 
-          <TabGroup buttonLabels={["Yup Schema", "Joi Schema"]}>
+          <TabGroup buttonLabels={["Yup", "Joi / custom Schema"]}>
             <CodeArea
               rawData={validationSchemaCode}
               url="https://codesandbox.io/s/928po918qr"
