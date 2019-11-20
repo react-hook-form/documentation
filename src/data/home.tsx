@@ -9,8 +9,8 @@ export default {
     zh: "首页",
   },
   description: {
-    en: "번거로움 없이 폼 검증을 위한 React hook",
-    kr: "React hook for form validation without the hassle",
+    en: "React hook for form validation without the hassle",
+    kr: "번거로움 없이 폼 검증을 위한 React hook",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
   },
