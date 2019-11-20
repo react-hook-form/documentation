@@ -17,10 +17,7 @@ import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
 import faq from "../data/faq"
 import { useStateMachine } from "little-state-machine"
-import { Table, TableWrapper } from "./ApiPage"
-import generic from "../data/generic"
-import api from "../data/api"
-import colors from "../styles/colors"
+import controlled from "./codeExamples/controlled";
 
 const { useRef } = React
 
@@ -40,6 +37,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
   }))
 
   const sectionsRef = useRef({
+    question0: null,
     question1: null,
     question2: null,
     question3: null,
@@ -51,6 +49,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question9: null,
     question10: null,
     question11: null,
+    question12: null,
   })
 
   const goToSection = name => {
@@ -104,14 +103,14 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
         />
 
         <main>
-          <QuestionTitle ref={ref => (sectionsRef.current.question1 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question0 = ref)}>
             {faq.questions[currentLanguage][0].title}
           </QuestionTitle>
           {faq.questions[currentLanguage][0].description}
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question2 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question1 = ref)}>
             {faq.questions[currentLanguage][1].title}
           </QuestionTitle>
           {faq.questions[currentLanguage][1].description}
@@ -119,7 +118,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question3 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question2 = ref)}>
             {faq.questions[currentLanguage][2].title}
           </QuestionTitle>
 
@@ -127,14 +126,14 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question4 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question3 = ref)}>
             {faq.questions[currentLanguage][3].title}
           </QuestionTitle>
           {faq.questions[currentLanguage][3].description}
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question5 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question4 = ref)}>
             {faq.questions[currentLanguage][4].title}
           </QuestionTitle>
 
@@ -143,7 +142,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question6 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question5 = ref)}>
             {faq.questions[currentLanguage][5].title}
           </QuestionTitle>
 
@@ -152,7 +151,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <CodeArea rawData={shareRef} />
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question6 = ref)}>
             {faq.questions[currentLanguage][6].title}
           </QuestionTitle>
 
@@ -161,7 +160,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <CodeArea rawData={manualValidation} />
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question8 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
             {faq.questions[currentLanguage][7].title}
           </QuestionTitle>
 
@@ -174,7 +173,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question9 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question8 = ref)}>
             {faq.questions[currentLanguage][8].title}
           </QuestionTitle>
 
@@ -182,7 +181,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question10 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question9 = ref)}>
             {faq.questions[currentLanguage][9].title}
           </QuestionTitle>
 
@@ -205,11 +204,21 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <hr />
 
-          <QuestionTitle ref={ref => (sectionsRef.current.question11 = ref)}>
+          <QuestionTitle ref={ref => (sectionsRef.current.question10 = ref)}>
             {faq.questions[currentLanguage][10].title}
           </QuestionTitle>
 
           {faq.questions[currentLanguage][10].description}
+
+          <hr />
+
+          <QuestionTitle ref={ref => (sectionsRef.current.question11 = ref)}>
+            {faq.questions[currentLanguage][11].title}
+          </QuestionTitle>
+
+          {faq.questions[currentLanguage][11].description}
+
+          <CodeArea rawData={controlled} url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478" />
 
           <StarRepo currentLanguage={currentLanguage} />
 

@@ -369,6 +369,24 @@ export default {
           </>
         ),
       },
+      {
+        title: "Can it work with Controlled component?",
+        description: (
+          <>
+            <p>
+              Short answer: <b>Yes</b>
+            </p>
+            <p>
+              React-hook-form is not recommending you to build form controlled,
+              however you can still achieve that easily.
+            </p>
+            <p>
+              The trick to using <code>watch</code> API to monitor each input's
+              change and assign to value prop.
+            </p>
+          </>
+        ),
+      },
     ],
     kr: [
       {
@@ -708,6 +726,24 @@ export default {
           </>
         ),
       },
+      {
+        title: "Can it work with Controlled component?",
+        description: (
+          <>
+            <p>
+              Short answer: <b>Yes</b>
+            </p>
+            <p>
+              React-hook-form is not recommending you to build form controlled,
+              however you can still achieve that easily.
+            </p>
+            <p>
+              The trick to using <code>watch</code> API to monitor each input's
+              change and assign to value prop.
+            </p>
+          </>
+        ),
+      },
     ],
     jp: [
       {
@@ -715,7 +751,8 @@ export default {
         description: (
           <p>
             パフォーマンスはこのcustom hookを作成する主な目的の一つでした。
-            React Hook Formでは非制御コンポーネントによってregister関数をrefで実行しています。
+            React Hook
+            Formでは非制御コンポーネントによってregister関数をrefで実行しています。
             このアプローチにより、ユーザーからの入力や値の変更により発生する再レンダリングの量を削減しています。
             コンポーネントのページへのマウントも制御されていないことによりはるかに高速になります。
             <a
@@ -732,7 +769,8 @@ export default {
       {
         title: "アクセス可能な入力エラーとメッセージを作成するには？",
         description: (
-          <p>React Hook Formは
+          <p>
+            React Hook Formは
             <a
               href="https://ja.reactjs.org/docs/uncontrolled-components.html"
               rel="noopener noreferrer"
@@ -753,11 +791,12 @@ export default {
             </p>
 
             <blockquote>
-            クラスコンポーネント内でのHooksの使用は出来ませんが、クラスコンポーネントと
-            Hooksを使用した関数コンポーネントを単一のDOM Tree内で混在させることは可能です。
-            クラスコンポーネントかHooksを使用した関数コンポーネントのどちらを利用するかは、
-            そのコンポーネントの実装の詳細に過ぎません。長い目で見れば、
-            HooksはReactのコンポーネントを書く際の最初の選択肢になっていくだろうと私達は予想しています。
+              クラスコンポーネント内でのHooksの使用は出来ませんが、クラスコンポーネントと
+              Hooksを使用した関数コンポーネントを単一のDOM
+              Tree内で混在させることは可能です。
+              クラスコンポーネントかHooksを使用した関数コンポーネントのどちらを利用するかは、
+              そのコンポーネントの実装の詳細に過ぎません。長い目で見れば、
+              HooksはReactのコンポーネントを書く際の最初の選択肢になっていくだろうと私達は予想しています。
             </blockquote>
           </>
         ),
@@ -771,10 +810,10 @@ export default {
               <li>
                 <b>HTMLFormElement.reset()</b>
                 <p>
-                フォームのリセットボタンのクリックと同等の効果を持つメソッドです。
-                フォーム内の
-                <code> input/select/checkbox </code>
-                要素の値のみリセットします。
+                  フォームのリセットボタンのクリックと同等の効果を持つメソッドです。
+                  フォーム内の
+                  <code> input/select/checkbox </code>
+                  要素の値のみリセットします。
                 </p>
               </li>
               <li>
@@ -782,7 +821,9 @@ export default {
                   React Hook Form API: <code>reset()</code>
                 </b>
                 <p>
-                  React Hook Formの<code>reset</code>メソッドは、フォーム内の全てのフィールドの値をリセットし、フォーム内の全ての<code>errors</code>を消去します。
+                  React Hook Formの<code>reset</code>
+                  メソッドは、フォーム内の全てのフィールドの値をリセットし、フォーム内の全ての
+                  <code>errors</code>を消去します。
                 </p>
               </li>
             </ul>
@@ -794,10 +835,11 @@ export default {
         description: (
           <p>
             React Hook Formは非制御コンポーネントによって出来ています。
-            非制御コンポーネントでは、それぞれのfieldに対して<code>defaultValue</code>
-            か<code>defaultChecked</code>を指定出来ます。
-            実はこれよりも更に簡単な全てのインプット値の初期化方法をReact Hook Formは提供しています。
-            下記の例を参考して下さい。
+            非制御コンポーネントでは、それぞれのfieldに対して
+            <code>defaultValue</code>か<code>defaultChecked</code>
+            を指定出来ます。
+            実はこれよりも更に簡単な全てのインプット値の初期化方法をReact Hook
+            Formは提供しています。 下記の例を参考して下さい。
           </p>
         ),
       },
@@ -805,7 +847,9 @@ export default {
         title: "refを共有するには？",
         description: (
           <p>
-            React Hook Form では入力値を取得するために<code>ref</code>が必要ですが、<code>ref</code>を他の目的（ビューへのスクロールなど）に使用することもできます。下記の例を参考して下さい。
+            React Hook Form では入力値を取得するために<code>ref</code>
+            が必要ですが、<code>ref</code>
+            を他の目的（ビューへのスクロールなど）に使用することもできます。下記の例を参考して下さい。
           </p>
         ),
       },
@@ -814,8 +858,9 @@ export default {
         description: (
           <>
             <p>
-              実は<code>ref</code>を使わずとも<code>register</code>は使用出来ます。
-              加えて<code>setValue</code>と<code>setError</code>、<code>triggerValidation</code>
+              実は<code>ref</code>を使わずとも<code>register</code>
+              は使用出来ます。 加えて<code>setValue</code>と
+              <code>setError</code>、<code>triggerValidation</code>
               の手動での使用も出来ます。
             </p>
 
@@ -844,14 +889,17 @@ export default {
         description: (
           <>
             <p>
-            <code>defaultValue</code>の代わりに<code>value</code>を使っていないかよく確認して下さい。
+              <code>defaultValue</code>の代わりに<code>value</code>
+              を使っていないかよく確認して下さい。
             </p>
 
             <p>
-              React Hook Formは非制御インプットを基にして作られているため、インプットの値を
-              <code>onChange</code>で<code>state</code>を通して変更する必要はありません。
-              <code>value</code>は使わずに、<code>defaultValue</code>でのインプットの初期値
-              の設定のみ行って下さい。
+              React Hook
+              Formは非制御インプットを基にして作られているため、インプットの値を
+              <code>onChange</code>で<code>state</code>
+              を通して変更する必要はありません。
+              <code>value</code>は使わずに、<code>defaultValue</code>
+              でのインプットの初期値 の設定のみ行って下さい。
             </p>
           </>
         ),
@@ -860,7 +908,10 @@ export default {
         title: "MutationObserverが原因でテストに失敗した場合は？",
         description: (
           <p>
-            テスト中に<code>MutationObserver</code>が原因の問題が発生した場合は、<code>mutationobserver</code>をインストールしテストの<a
+            テスト中に<code>MutationObserver</code>
+            が原因の問題が発生した場合は、<code>mutationobserver</code>
+            をインストールしテストの
+            <a
               href="https://jestjs.io/docs/en/configuration"
               target="_blank"
               rel="noopener noreferrer"
@@ -880,7 +931,8 @@ export default {
               、3つのライブラリーの間にはいくつかの根本的な違いがあります。
               react-hook-formは非制御入力を念頭に置いて開発されており、
               ベストパフォーマンスのフォームを提供しようとし、再レンダリング数を出来る限り少なく抑えています。
-              さらに、react-hook-formはReact Hookによって構築され、hookとして使用されます。
+              さらに、react-hook-formはReact
+              Hookによって構築され、hookとして使用されます。
               つまり、コンポーネントをインポートしません。詳細な違いを以下に示します。
             </p>
 
@@ -1016,15 +1068,35 @@ export default {
                     </td>
                     <td>小さなコミュニティ: 新しい成長中のライブラリ</td>
                     <td>
-                      大きなコミュニティ: コミュニティによって十分に確立されたフォームライブラリ
+                      大きなコミュニティ:
+                      コミュニティによって十分に確立されたフォームライブラリ
                     </td>
                     <td>
-                      大きなコミュニティ: コミュニティによって十分に確立されたフォームライブラリ
+                      大きなコミュニティ:
+                      コミュニティによって十分に確立されたフォームライブラリ
                     </td>
                   </tr>
                 </tbody>
               </Table>
             </TableWrapper>
+          </>
+        ),
+      },
+      {
+        title: "Can it work with Controlled component?",
+        description: (
+          <>
+            <p>
+              Short answer: <b>Yes</b>
+            </p>
+            <p>
+              React-hook-form is not recommending you to build form controlled,
+              however you can still achieve that easily.
+            </p>
+            <p>
+              The trick to using <code>watch</code> API to monitor each input's
+              change and assign to value prop.
+            </p>
           </>
         ),
       },
@@ -1107,7 +1179,8 @@ export default {
           <p>
             React Hook Form依赖于不受控制的组件。
             对于不受控制的组件，可以为单个表格加入默认值
-            <code>defaultValue</code>或加入在默认选中的值<code>defaultChecked</code>。
+            <code>defaultValue</code>或加入在默认选中的值
+            <code>defaultChecked</code>。
             但是，钩子本身也提供了一种更简单的方法来初始化所有输入值。
             下面的例子:
           </p>
@@ -1331,6 +1404,22 @@ export default {
                 </tbody>
               </Table>
             </TableWrapper>
+          </>
+        ),
+      },
+      {
+        title: "Can it work with Controlled component?",
+        description: (
+          <>
+            <p>
+              <b>可以的。</b>
+            </p>
+            <p>
+              React-hook-form不建议您建立受控的表单， 但是您仍然可以轻松实现。
+            </p>
+            <p>
+              使用<code> watch </code> API监视每个输入的更改并分配给价值道具。
+            </p>
           </>
         ),
       },
