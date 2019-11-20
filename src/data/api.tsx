@@ -1723,7 +1723,7 @@ export default {
         <>
           <p>
             This function allows you to dynamically set input/select value. At
-            the same time, it is try to avoid re-render when it's not necessary
+            the same time, it tries to avoid re-render when it's not necessary
             and only the following conditions will trigger re-render.
           </p>
           <ul>
@@ -1764,7 +1764,7 @@ export default {
         <>
           <p>
             이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. At the
-            same time, it is try to avoid unnecessary re-render and only the
+            same time, it tries to avoid unnecessary re-render and only the
             following conditions will trigger re-render.
           </p>
           <ul>
