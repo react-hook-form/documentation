@@ -205,6 +205,18 @@ export default {
       ),
       component:
         "Create a ErrorMessage component to help your print out error.",
+      optionalChaining: (
+        <>
+          <p>
+            The optional chaining operator <code>?.</code> permits reading the{" "}
+            <code>errors</code> object without worrying about causing error due
+            to <code>null</code> or <code>undefined</code>.
+          </p>
+          <p>
+            <code>{`errors?.firstName?.message`}</code>
+          </p>
+        </>
+      ),
       get: (
         <p>
           If your project is using{" "}
@@ -275,6 +287,18 @@ export default {
           <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
+      optionalChaining: (
+        <>
+          <p>
+            The optional chaining operator <code>?.</code> permits reading the{" "}
+            <code>errors</code> object without worrying about causing error due
+            to <code>null</code> or <code>undefined</code>.
+          </p>
+          <p>
+            <code>{`errors?.firstName?.message`}</code>
+          </p>
+        </>
+      ),
     },
     jp: {
       title: "エラーメッセージ",
@@ -321,6 +345,18 @@ export default {
           <code>{`get(errors, 'firstName.message')`}</code>
         </p>
       ),
+      optionalChaining: (
+        <>
+          <p>
+            The optional chaining operator <code>?.</code> permits reading the{" "}
+            <code>errors</code> object without worrying about causing error due
+            to <code>null</code> or <code>undefined</code>.
+          </p>
+          <p>
+            <code>{`errors?.firstName?.message`}</code>
+          </p>
+        </>
+      ),
     },
     zh: {
       title: "错误信息",
@@ -364,6 +400,18 @@ export default {
           <br />
           <code>{`get(errors, 'firstName.message')`}</code>
         </p>
+      ),
+      optionalChaining: (
+        <>
+          <p>
+            optional chaining运算符<code>?.</code>
+            。允许您读取错误对象，而不必担心由于<code>null</code>或
+            <code>undefined</code>而导致错误。
+          </p>
+          <p>
+            <code>{`errors?.firstName?.message`}</code>
+          </p>
+        </>
       ),
     },
   },

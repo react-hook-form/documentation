@@ -202,6 +202,13 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             </li>
             <li>
               <h4>
+                Optional Chaining
+              </h4>
+              {advanced.errorMessage[currentLanguage].optionalChaining}
+              <p />
+            </li>
+            <li>
+              <h4>
                 Lodash <code>get</code>
               </h4>
               {advanced.errorMessage[currentLanguage].get}
