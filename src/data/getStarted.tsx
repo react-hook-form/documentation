@@ -412,7 +412,7 @@ export default {
           >
             Material-UI
           </a>
-          , hence we have build a wrapper component:{" "}
+          , hence we have built a wrapper component:{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -455,7 +455,7 @@ export default {
           >
             Material-UI
           </a>
-          , hence we have build a wrapper component:{" "}
+          , hence we have built a wrapper component:{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -539,7 +539,7 @@ export default {
           >
             Material-UI
           </a>
-          , hence we have build a wrapper component:{" "}
+          , hence we have built a wrapper component:{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
