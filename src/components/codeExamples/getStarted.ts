@@ -93,6 +93,49 @@ export default function App() {
 }
 `
 
+export const controlledComponent = `import React from "react";
+import useForm from "react-hook-form";
+import ReactSelect from "react-select";
+import { TextField, Checkbox } from "@material-ui/core";
+import { HookFormInput } from "react-hook-form-input";
+
+function App() {
+  const methods = useForm();
+  const { handleSubmit, register, setValue, reset } = methods;
+  const onSubmit = (data) => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <HookFormInput
+        component={<Checkbox />}
+        name="Checkbox"
+        type="checkbox"
+        value="test"
+        register={register}
+        setValue={setValue}
+      />
+
+      <HookFormInput
+        component={<TextField />}
+        name="TextField"
+        register={register}
+        setValue={setValue}
+      />
+      
+      <HookFormInput
+        component={<ReactSelect />}
+        options={options}
+        name="ReactSelect"
+        register={register}
+        setValue={setValue}
+      />
+
+      <button>Submit</button>
+    </form>
+  );
+}
+`
+
 export const globalState = `import React from 'react'
 import useForm from 'react-hook-form'
 import { connect } from 'react-redux'

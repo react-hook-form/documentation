@@ -10,7 +10,7 @@ import {
   uiLibrary,
   globalState,
   errors,
-  applyValidation,
+  applyValidation, controlledComponent,
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
@@ -45,6 +45,7 @@ const Faq = ({
     getStarted.applyValidation,
     getStarted.adapting,
     getStarted.workWithUI,
+    getStarted.controlledInput,
     getStarted.globalState,
     getStarted.errors,
   ]
@@ -54,6 +55,7 @@ const Faq = ({
     videotutorial: null,
     adaptingexistingform: null,
     workwithuilibrary: null,
+    controlledinput: null,
     integrateglobalstate: null,
     handleerrors: null,
     registerfields: null,
@@ -177,6 +179,21 @@ const Faq = ({
           <CodeArea
             rawData={uiLibrary}
             url="https://codesandbox.io/s/72j69vnk1x"
+          />
+
+          <Title
+            ref={ref => {
+              sectionsRef.current.controlledinput = ref
+            }}
+          >
+            {getStarted.controlledInput[currentLanguage].title}
+          </Title>
+
+          {getStarted.controlledInput[currentLanguage].description}
+
+          <CodeArea
+            rawData={controlledComponent}
+            url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
           />
 
           <Title

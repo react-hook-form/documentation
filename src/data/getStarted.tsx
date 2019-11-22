@@ -2,7 +2,6 @@ import * as React from "react"
 import code from "../components/codeExamples/defaultExample"
 import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
-import colors from "../styles/colors"
 import translateLink from "../components/logic/translateLink"
 
 export default {
@@ -182,7 +181,8 @@ export default {
         <>
           <p>
             React Hook Form的一个关键概念是将您不受控制的组件
-            <strong>注册</strong>到Hook中，从而使其价值得到验证并收集来以供提交。
+            <strong>注册</strong>
+            到Hook中，从而使其价值得到验证并收集来以供提交。
           </p>
 
           <p>
@@ -381,6 +381,178 @@ export default {
       ),
     },
   },
+  controlledInput: {
+    en: {
+      title: "Controlled Input",
+      description: (
+        <p>
+          React Hook Form embrace uncontrolled components and native HTML
+          inputs, however it's hard to avoid working with external controlled
+          component such as{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          , hence we have build a wrapper component:{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form-input"
+          >
+            React Hook Form Input
+          </a>{" "}
+          to streamline the integration process while still giving you the
+          freedom to use custom register with your needs.
+        </p>
+      ),
+    },
+    jp: {
+      title: "Controlled Input",
+      description: (
+        <p>
+          React Hook Form embrace uncontrolled components and native HTML
+          inputs, however it's hard to avoid working with external controlled
+          component such as{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          , hence we have build a wrapper component:{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form-input"
+          >
+            React Hook Form Input
+          </a>{" "}
+          to streamline the integration process while still giving you the
+          freedom to use custom register with your needs.
+        </p>
+      ),
+    },
+    zh: {
+      title: "受控输入",
+      description: (
+        <p>
+          React Hook
+          Form支持和拥护不受控制的组件和HTML输入，但是很难避免使用外部受控组件，比如说
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          和{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          ，因此我们建立了一个包装组件:{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form-input"
+          >
+            React Hook Form Input
+          </a>{" "}
+          来简化集成过程，同时仍然可以自由地使用自定义register满足您的需求。
+        </p>
+      ),
+    },
+    kr: {
+      title: "Controlled Input",
+      description: (
+        <p>
+          React Hook Form embrace uncontrolled components and native HTML
+          inputs, however it's hard to avoid working with external controlled
+          component such as{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          , hence we have build a wrapper component:{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form-input"
+          >
+            React Hook Form Input
+          </a>{" "}
+          to streamline the integration process while still giving you the
+          freedom to use custom register with your needs.
+        </p>
+      ),
+    },
+  },
   workWithUI: {
     en: {
       title: "Work with UI library",
@@ -428,10 +600,10 @@ export default {
                 register
               </Link>
             </code>
-            를 할 수 있습니다.
-            하지만 <code>react-select</code> 나 <code>react-datepicker</code>{" "}
-            처럼 위와 같은 <code>ref</code> 를 쓸 수 없는 더 복잡한 컴포넌트를 다루려면{" "}
-            <code>useEffect</code> 안에서 <code>register</code> 를 하거나{" "}
+            를 할 수 있습니다. 하지만 <code>react-select</code> 나{" "}
+            <code>react-datepicker</code> 처럼 위와 같은 <code>ref</code> 를 쓸
+            수 없는 더 복잡한 컴포넌트를 다루려면 <code>useEffect</code> 안에서{" "}
+            <code>register</code> 를 하거나{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
@@ -457,10 +629,11 @@ export default {
                 register
               </Link>
             </code>{" "}
-            を適用するための <code>innerRef</code> または <code>ref</code> を公開します。
-            ただし、<code>react-select</code> や <code>react-datepicker</code> などの{" "}
-            <code>ref</code> を公開しないライブラリの場合、{" "}
-            <code>useEffect</code> で <code>register</code> を使用し、{" "}
+            を適用するための <code>innerRef</code> または <code>ref</code>{" "}
+            を公開します。 ただし、<code>react-select</code> や{" "}
+            <code>react-datepicker</code> などの <code>ref</code>{" "}
+            を公開しないライブラリの場合、 <code>useEffect</code> で{" "}
+            <code>register</code> を使用し、{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
