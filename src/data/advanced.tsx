@@ -208,9 +208,17 @@ export default {
       optionalChaining: (
         <>
           <p>
-            The optional chaining operator <code>?.</code> permits reading the{" "}
-            <code>errors</code> object without worrying about causing error due
-            to <code>null</code> or <code>undefined</code>.
+            The{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+            >
+              optional chaining
+            </a>{" "}
+            operator <code>?.</code> permits reading the <code>errors</code>{" "}
+            object without worrying about causing error due to <code>null</code>{" "}
+            or <code>undefined</code>.
           </p>
           <p>
             <code>{`errors?.firstName?.message`}</code>
@@ -290,9 +298,17 @@ export default {
       optionalChaining: (
         <>
           <p>
-            The optional chaining operator <code>?.</code> permits reading the{" "}
-            <code>errors</code> object without worrying about causing error due
-            to <code>null</code> or <code>undefined</code>.
+            The{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+            >
+              optional chaining
+            </a>{" "}
+            operator <code>?.</code> permits reading the <code>errors</code>{" "}
+            object without worrying about causing error due to <code>null</code>{" "}
+            or <code>undefined</code>.
           </p>
           <p>
             <code>{`errors?.firstName?.message`}</code>
@@ -348,9 +364,17 @@ export default {
       optionalChaining: (
         <>
           <p>
-            The optional chaining operator <code>?.</code> permits reading the{" "}
-            <code>errors</code> object without worrying about causing error due
-            to <code>null</code> or <code>undefined</code>.
+            The{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+            >
+              optional chaining
+            </a>{" "}
+            operator <code>?.</code> permits reading the <code>errors</code>{" "}
+            object without worrying about causing error due to <code>null</code>{" "}
+            or <code>undefined</code>.
           </p>
           <p>
             <code>{`errors?.firstName?.message`}</code>
@@ -404,7 +428,14 @@ export default {
       optionalChaining: (
         <>
           <p>
-            optional chaining运算符<code>?.</code>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+            >
+              optional chaining
+            </a>
+            运算符<code>?.</code>
             。允许您读取错误对象，而不必担心由于<code>null</code>或
             <code>undefined</code>而导致错误。
           </p>
