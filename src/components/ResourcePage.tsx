@@ -127,6 +127,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://nordschool.com/react-hook-form/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  Pain-Free Forms with React Hook Form
+                </h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://mansour.blog/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ahmed Mansour
+                </a>
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://cloud.tencent.com/developer/article/1520536"
                 target="_blank"
                 rel="noopener noreferrer"
