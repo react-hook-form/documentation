@@ -10,12 +10,15 @@ import {
   uiLibrary,
   globalState,
   errors,
-  applyValidation, controlledComponent,
+  applyValidation,
+  controlledComponent,
+  uiLibraryHookInput,
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
 import getStarted from "../data/getStarted"
+import TabGroup from "./TabGroup"
 
 const { useRef } = React
 
@@ -150,7 +153,9 @@ const Faq = ({
             {getStarted.applyValidation[currentLanguage].title}
           </Title>
 
-          {getStarted.applyValidation[currentLanguage].description(currentLanguage)}
+          {getStarted.applyValidation[currentLanguage].description(
+            currentLanguage
+          )}
 
           <CodeArea rawData={applyValidation} />
 
@@ -176,10 +181,13 @@ const Faq = ({
 
           {getStarted.workWithUI[currentLanguage].description(currentLanguage)}
 
-          <CodeArea
-            rawData={uiLibrary}
-            url="https://codesandbox.io/s/72j69vnk1x"
-          />
+          <TabGroup buttonLabels={["Custom register", "React Hook Form Input"]}>
+            <CodeArea
+              rawData={uiLibrary}
+              url="https://codesandbox.io/s/72j69vnk1x"
+            />
+            <CodeArea rawData={uiLibraryHookInput} />
+          </TabGroup>
 
           <Title
             ref={ref => {

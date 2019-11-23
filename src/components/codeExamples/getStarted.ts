@@ -93,6 +93,46 @@ export default function App() {
 }
 `
 
+export const uiLibraryHookInput = `
+import React from 'react';
+import useForm from 'react-hook-form';
+import HookFormInput from 'react-hook-form-input';
+import Select from "react-select";
+import Input from "@material-ui/core/Input";
+import { Input as InputField } from 'antd';
+
+export default function App() {
+  const { register, handleSubmit, setValue } = useForm();
+  const onSubmit = data => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <HookFormInput 
+        component={<Input />} 
+        register={register} 
+        setValue={setValue} 
+        name="HelloWorld" 
+      />
+        
+      <HookFormInput 
+        component={<InputField />} 
+        register={register} 
+        setValue={setValue} 
+        name="AntdInput" 
+      />
+        
+      <HookFormInput 
+        component={<Select />} 
+        register={register} 
+        setValue={setValue} 
+        name="reactSelect" 
+      />
+      <input type="submit" />
+    </form>
+  );
+}
+`
+
 export const controlledComponent = `import React from "react";
 import useForm from "react-hook-form";
 import ReactSelect from "react-select";
