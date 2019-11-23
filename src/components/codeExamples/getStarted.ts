@@ -93,8 +93,7 @@ export default function App() {
 }
 `
 
-export const uiLibraryHookInput = `
-import React from 'react';
+export const uiLibraryHookInput = `import React from 'react';
 import useForm from 'react-hook-form';
 import HookFormInput from 'react-hook-form-input';
 import Select from "react-select";
