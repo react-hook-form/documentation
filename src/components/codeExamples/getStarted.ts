@@ -95,7 +95,7 @@ export default function App() {
 
 export const uiLibraryHookInput = `import React from 'react';
 import useForm from 'react-hook-form';
-import HookFormInput from 'react-hook-form-input';
+import RHFInput from 'react-hook-form-input';
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from 'antd';
@@ -106,22 +106,22 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <HookFormInput 
-        component={<Input />} 
+      <RHFInput 
+        as={<Input />} 
         register={register} 
         setValue={setValue} 
         name="HelloWorld" 
       />
         
-      <HookFormInput 
-        component={<InputField />} 
+      <RHFInput 
+        as={<InputField />} 
         register={register} 
         setValue={setValue} 
         name="AntdInput" 
       />
         
-      <HookFormInput 
-        component={<Select />} 
+      <RHFInput 
+        as={<Select />} 
         register={register} 
         setValue={setValue} 
         name="reactSelect" 
@@ -136,7 +136,7 @@ export const controlledComponent = `import React from "react";
 import useForm from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
-import { HookFormInput } from "react-hook-form-input";
+import { RHFInput } from "react-hook-form-input";
 
 function App() {
   const methods = useForm();
@@ -145,8 +145,8 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <HookFormInput
-        component={<Checkbox />}
+      <RHFInput
+        as={<Checkbox />}
         name="Checkbox"
         type="checkbox"
         value="test"
@@ -154,15 +154,15 @@ function App() {
         setValue={setValue}
       />
 
-      <HookFormInput
-        component={<TextField />}
+      <RHFInput
+        as={<TextField />}
         name="TextField"
         register={register}
         setValue={setValue}
       />
       
-      <HookFormInput
-        component={<ReactSelect />}
+      <RHFInput
+        as={<ReactSelect />}
         options={options}
         name="ReactSelect"
         register={register}
