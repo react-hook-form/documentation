@@ -20,7 +20,9 @@ import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advanced from "../data/advanced"
 import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
-import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled";
+import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
+import TabGroup from "./TabGroup"
+import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
 
 const { useRef } = React
 
@@ -201,9 +203,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               <CodeArea rawData={errorMessageAdvance} />
             </li>
             <li>
-              <h4>
-                Optional Chaining
-              </h4>
+              <h4>Optional Chaining</h4>
               {advanced.errorMessage[currentLanguage].optionalChaining}
               <p />
             </li>
@@ -240,29 +240,48 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <CodeArea rawData={formContextPerformance} />
 
-          <hr/>
+          <hr />
 
           <QuestionTitle
-            ref={ref => (pageContentRef.current.ConditionalControlledComponent = ref)}
+            ref={ref =>
+              (pageContentRef.current.ConditionalControlledComponent = ref)
+            }
           >
             {advanced.conditionalControlledComponent[currentLanguage].title}
           </QuestionTitle>
 
           {advanced.conditionalControlledComponent[currentLanguage].description}
 
-          <CodeArea rawData={unregisterControlledComponent} url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990" />
+          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+            <CodeArea
+              rawData={unregisterControlledComponent}
+              url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
+            />
+            <CodeArea
+              rawData={unregisterWrapControlledComponent}
+              url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
+            />
+          </TabGroup>
 
-          <hr/>
+          <hr />
 
           <QuestionTitle
-            ref={ref => (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)}
+            ref={ref =>
+              (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
+            }
           >
             {advanced.controlledMixedWithUnControlled[currentLanguage].title}
           </QuestionTitle>
 
-          {advanced.controlledMixedWithUnControlled[currentLanguage].description}
+          {
+            advanced.controlledMixedWithUnControlled[currentLanguage]
+              .description
+          }
 
-          <CodeArea rawData={controlledMixedUncontrolled} url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c" />
+          <CodeArea
+            rawData={controlledMixedUncontrolled}
+            url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
+          />
 
           <StarRepo currentLanguage={currentLanguage} />
 

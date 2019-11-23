@@ -1311,36 +1311,60 @@ export default {
       title: "Conditional Controlled Component",
       description: (
         <>
-          In terms of conditional field, React Hook Form made that really simple
-          for us, because the moment when you removed the input form the
-          component tree, it will get <code>unregister</code> automatically,{" "}
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            here is an example
-          </a>{" "}
-          for such behavior. However, that's not the same case for controlled
-          components since <code>ref</code> is not been registered, and we can
-          leverage the use of{" "}
-          <code>
+          <p>
+            In terms of conditional field, React Hook Form made that really
+            simple for us, because the moment when you removed the input form
+            the component tree, it will get <code>unregister</code>{" "}
+            automatically,{" "}
             <a
-              href="https://reactjs.org/docs/hooks-effect.html"
+              href="https://codesandbox.io/s/13ykqx4wx7"
               target="_blank"
               rel="noopener noreferrer"
             >
-              useEffect
-            </a>
-          </code>
-          . Here is an example:
+              here is an example
+            </a>{" "}
+            for such behavior. However, that's not the same case for controlled
+            components since <code>ref</code> is not been registered, and we can
+            do the following:
+          </p>
+          <ul>
+            <li>
+              <p>
+                Leverage the use of{" "}
+                <code>
+                  <a
+                    href="https://reactjs.org/docs/hooks-effect.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    useEffect
+                  </a>
+                </code>{" "}
+                with custom register
+              </p>
+            </li>
+            <li>
+              <p>
+                Import{" "}
+                <a
+                  href="https://github.com/react-hook-form/react-hook-form-input"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  react-hook-form-input
+                </a>{" "}
+                to wrap your component and let it manage register and unregister
+              </p>
+            </li>
+          </ul>
+          <p> Here are the examples:</p>
         </>
       ),
     },
     kr: {
       title: "조건부 제어 컴포넌트",
       description: (
-        <>
+        <p>
           React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다.
           인풋이 컴포넌트 트리에서 제거되는 순간 자동으로{" "}
           <code>unregister</code> 되기 때문입니다.{" "}
@@ -1363,13 +1387,13 @@ export default {
             </a>
           </code>
           를 활용할 수 있습니다. 여기 활용 예제가 있습니다:
-        </>
+        </p>
       ),
     },
     jp: {
       title: "条件付き制御コンポーネント",
       description: (
-        <>
+        <p>
           React Hook Form
           を使用すると、条件付きフィールドを非常にシンプルに扱えます。 input
           がコンポーネントツリーから削除されると、自動的に{" "}
@@ -1394,33 +1418,56 @@ export default {
             </a>
           </code>{" "}
           を活用することができます。下記に例を示します：
-        </>
+        </p>
       ),
     },
     zh: {
       title: "条件控制组件",
       description: (
         <>
-          在条件显示表格方面，React Hook
-          Form对我们来说非常简单，因为当你删除了组件树的输入时，它会自动取消注册，这里就有一个
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            例子
-          </a>
-          。 但是，由于没有注册ref，因此受控组件不是同一种情况，我们可以利用
-          <code>
+          <p>
+            在条件显示表格方面，React Hook
+            Form对我们来说非常简单，因为当你删除了组件树的输入时，它会自动取消注册，这里就有一个
             <a
-              href="https://reactjs.org/docs/hooks-effect.html"
+              href="https://codesandbox.io/s/13ykqx4wx7"
               target="_blank"
               rel="noopener noreferrer"
             >
-              useEffect
+              例子
             </a>
-          </code>
-          的使用来实现。 这是一个例子:
+            。 但是，由于没有注册ref，因此受控组件不是同一种情况，以下有两个方案
+          </p>
+          <ul>
+            <li>
+              <p>
+                我们可以利用
+                <code>
+                  <a
+                    href="https://reactjs.org/docs/hooks-effect.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    useEffect
+                  </a>
+                </code>
+                的使用来实现。
+              </p>
+            </li>
+            <li>
+              <p>
+                使用
+                <a
+                  href="https://github.com/react-hook-form/react-hook-form-input"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  react-hook-form-input
+                </a>
+                来包裹您的受控组件从而做到自动注册于取消注册功能
+              </p>
+            </li>
+          </ul>
+          <p>例子如下:</p>
         </>
       ),
     },
