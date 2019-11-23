@@ -257,10 +257,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               rawData={unregisterControlledComponent}
               url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
             />
-            <CodeArea
-              rawData={unregisterWrapControlledComponent}
-              url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
-            />
+            <CodeArea rawData={unregisterWrapControlledComponent} />
           </TabGroup>
 
           <hr />
