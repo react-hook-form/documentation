@@ -1,5 +1,5 @@
 export default `import React, { useEffect } from "react";
-import RHFInput from 'react-hook-form-input";
+import { RHFInput } from 'react-hook-form-input";
 import useForm from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
