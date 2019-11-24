@@ -109,8 +109,17 @@ export default {
 
           <p>
             <Note>Note: </Note>React Native will need to use a manual register
-            command (e.g.:{" "}
-            <code>{`register({ name: 'test' }, { required: true })`}</code>
+            command:{" "}
+            <code>{`register({ name: 'test' }, { required: true })`}</code> or
+            using{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to wrap your component.
           </p>
         </>
       ),
@@ -138,6 +147,15 @@ export default {
             <Note>참고:</Note> React Native 는 수동으로 register 커맨드를
             입력해야 합니다. (예:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
+            또는{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>
+            을 사용하여 구성 요소를 래핑합니다.
           </p>
         </>
       ),
@@ -171,6 +189,15 @@ export default {
             <Note>注意：</Note>React Native は手動登録 (manual{" "}
             <code>register</code>) する必要があります。 (例：{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
+            または、
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>
+            を使用してコンポーネントをラップします。
           </p>
         </>
       ),
@@ -193,6 +220,15 @@ export default {
           <p>
             <Note>注意：</Note>React Native 将需要使用手动注册 (例子如下:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
+            或使用
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>
+            来包装您的组件。
           </p>
         </>
       ),
