@@ -95,7 +95,7 @@ export default function App() {
 
 export const uiLibraryHookInput = `import React from 'react';
 import useForm from 'react-hook-form';
-import RHFInput from 'react-hook-form-input';
+import { RHFInput } from 'react-hook-form-input';
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from 'antd';
