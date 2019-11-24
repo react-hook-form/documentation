@@ -384,6 +384,13 @@ export default {
               The trick to using <code>watch</code> API to monitor each input's
               change and assign to value prop.
             </p>
+            <p>
+              Alternatively, you can our wrapper component{" "}
+              <a href="https://github.com/react-hook-form/react-hook-form-input">
+                React Hook Form Input
+              </a>{" "}
+              which take care those custom register for you.
+            </p>
           </>
         ),
       },
@@ -741,6 +748,13 @@ export default {
               The trick to using <code>watch</code> API to monitor each input's
               change and assign to value prop.
             </p>
+            <p>
+              또는 래퍼 구성 요소 인{" "}
+              <a href="https://github.com/react-hook-form/react-hook-form-input">
+                React Hook Form Input
+              </a>
+              을 사용하여 사용자 지정 레지스터를 관리 할 수 ​​있습니다.
+            </p>
           </>
         ),
       },
@@ -1097,6 +1111,13 @@ export default {
               The trick to using <code>watch</code> API to monitor each input's
               change and assign to value prop.
             </p>
+            <p>
+              または、ラッパーコンポーネントの
+              <a href="https://github.com/react-hook-form/react-hook-form-input">
+                React Hook Form Input
+              </a>
+              を使用して、これらのカスタムレジスタを処理できます。
+            </p>
           </>
         ),
       },
@@ -1419,6 +1440,13 @@ export default {
             </p>
             <p>
               使用<code> watch </code> API监视每个输入的更改并分配给价值道具。
+            </p>
+            <p>
+              或者，您可以使用我们的包装器组件
+              <a href="https://github.com/react-hook-form/react-hook-form-input">
+                React Hook Form Input
+              </a>
+              ，它会为您处理那些自定义注册。
             </p>
           </>
         ),

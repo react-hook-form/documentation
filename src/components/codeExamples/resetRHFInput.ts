@@ -4,13 +4,24 @@ import { RHFInput } from "react-hook-form-input";
 import { TextField } from "@material-ui/core";
 
 export default function App() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm();
   const onSubmit = (data) => { console.log(data) };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput as={<TextField />} name="firstName" rules={ required: true } />
-      <RHFInput as={<TextField />} name="lastName" />
+      <RHFInput 
+        as={<TextField />} 
+        name="firstName" 
+        rules={ required: true } 
+        register={register} 
+        setValue={setValue}
+      />
+      <RHFInput 
+        as={<TextField />} 
+        name="lastName" 
+        register={register} 
+        setValue={setValue} 
+      />
       
       <input type="submit" />
       <input type="button" onClick={reset} />

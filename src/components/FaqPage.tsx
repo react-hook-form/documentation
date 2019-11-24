@@ -17,7 +17,9 @@ import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
 import faq from "../data/faq"
 import { useStateMachine } from "little-state-machine"
-import controlled from "./codeExamples/controlled";
+import controlled from "./codeExamples/controlled"
+import TabGroup from "./TabGroup"
+import controlledRHFInput from "./codeExamples/controlledRHFInput"
 
 const { useRef } = React
 
@@ -218,7 +220,13 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[currentLanguage][11].description}
 
-          <CodeArea rawData={controlled} url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478" />
+          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+            <CodeArea
+              rawData={controlled}
+              url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
+            />
+            <CodeArea rawData={controlledRHFInput} />
+          </TabGroup>
 
           <StarRepo currentLanguage={currentLanguage} />
 
