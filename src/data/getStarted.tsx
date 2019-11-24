@@ -581,6 +581,17 @@ export default {
             </code>
             .
           </p>
+          <p>
+            <Note>Note:</Note> We also made a wrapper component{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to take care the custom register process for you.
+          </p>
         </>
       ),
     },
@@ -610,6 +621,18 @@ export default {
               </Link>
             </code>
             를 사용하여 값을 업데이트 할 수 있습니다.
+          </p>
+          <p>
+            <Note>참고:</Note> 또한 사용자 정의 레지스터 프로세스를 처리하기
+            위해 래퍼 구성 요소 인{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>{" "}
+            을 만들었습니다.
           </p>
         </>
       ),
@@ -641,6 +664,17 @@ export default {
             </code>{" "}
             を介して値を更新できます。
           </p>
+          <p>
+            <Note>注意:</Note> ラッパーコンポーネントの
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>
+            も作成し、カスタム登録プロセスを処理します。
+          </p>
         </>
       ),
     },
@@ -650,7 +684,8 @@ export default {
         <>
           <p>React Hook Form 让外部UI组件库集成变得简单。</p>
           <p>
-            大多数UI库都会将内部的<code>innerRef</code>或者<code>Ref</code>
+            <Note>注意:</Note> 大多数UI库都会将内部的<code>innerRef</code>或者
+            <code>Ref</code>
             公开给与注册
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
@@ -667,6 +702,18 @@ export default {
               </Link>
             </code>
             更新它的值。
+          </p>
+          <p>
+            <Note>注意:</Note>
+            我们还制作了一个包装器组件
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/react-hook-form/react-hook-form-input"
+            >
+              React Hook Form Input
+            </a>
+            ，以帮助您的自定义注册表格过程。
           </p>
         </>
       ),

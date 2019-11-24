@@ -386,7 +386,9 @@ export default {
             </p>
             <p>
               Alternatively, you can our wrapper component{" "}
-              <a href="https://github.com/react-hook-form/react-hook-form-input">
+              <a href="https://github.com/react-hook-form/react-hook-form-input"
+                 target="_blank"
+                 rel="noreferrer noopener">
                 React Hook Form Input
               </a>{" "}
               which take care those custom register for you.
@@ -750,7 +752,9 @@ export default {
             </p>
             <p>
               또는 래퍼 구성 요소 인{" "}
-              <a href="https://github.com/react-hook-form/react-hook-form-input">
+              <a href="https://github.com/react-hook-form/react-hook-form-input"
+                 target="_blank"
+                 rel="noreferrer noopener">
                 React Hook Form Input
               </a>
               을 사용하여 사용자 지정 레지스터를 관리 할 수 ​​있습니다.
@@ -1113,7 +1117,9 @@ export default {
             </p>
             <p>
               または、ラッパーコンポーネントの
-              <a href="https://github.com/react-hook-form/react-hook-form-input">
+              <a href="https://github.com/react-hook-form/react-hook-form-input"
+                 target="_blank"
+                 rel="noreferrer noopener">
                 React Hook Form Input
               </a>
               を使用して、これらのカスタムレジスタを処理できます。
@@ -1443,7 +1449,9 @@ export default {
             </p>
             <p>
               或者，您可以使用我们的包装器组件
-              <a href="https://github.com/react-hook-form/react-hook-form-input">
+              <a href="https://github.com/react-hook-form/react-hook-form-input"
+                 target="_blank"
+                 rel="noreferrer noopener">
                 React Hook Form Input
               </a>
               ，它会为您处理那些自定义注册。
