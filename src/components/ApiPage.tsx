@@ -410,7 +410,7 @@ function ApiPage({
             </code>
             <Popup
               top={3}
-              message="React Native: Need to combine the use of watch API"
+              message="React Native: Custom register or using React Hook Form Input"
             />
           </H5>
 
@@ -536,7 +536,7 @@ function ApiPage({
           >
             <h2>
               register: <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
-              <Popup message="React Native: custom register only" />
+              <Popup message="React Native: Custom register or using React Hook Form Input" />
             </h2>
           </CodeHeading>
 
