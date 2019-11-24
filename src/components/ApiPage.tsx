@@ -41,7 +41,8 @@ import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
-import resetCodeControlled from "./codeExamples/resetCodeControlled";
+import resetCodeControlled from "./codeExamples/resetCodeControlled"
+import resetRHFInput from "./codeExamples/resetRHFInput"
 
 const { useRef, useEffect } = React
 
@@ -222,7 +223,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    'Browserbuiltinvalidation': null,
+    Browserbuiltinvalidation: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -617,7 +618,13 @@ function ApiPage({
 
           {api.reset[currentLanguage](goToSection).description}
 
-          <TabGroup buttonLabels={["Uncontrolled", "Controlled / React Native"]}>
+          <TabGroup
+            buttonLabels={[
+              "Uncontrolled",
+              "Controlled / React Native",
+              "React Hook Form Input",
+            ]}
+          >
             <CodeArea
               rawData={resetCode}
               url="https://codesandbox.io/s/jjm3wyqmjy"
@@ -625,6 +632,10 @@ function ApiPage({
             <CodeArea
               rawData={resetCodeControlled}
               url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
+            />
+            <CodeArea
+              rawData={resetRHFInput}
+              url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
             />
           </TabGroup>
 

@@ -634,8 +634,9 @@ export default {
         <>
           <p>
             このメソッドでは、単一の input または input の配列に{" "}
-            <code>unregister</code> を適用することができます。
-            これは、 <code>useEffect</code> でカスタム登録として input を登録 (<code>register</code>) し、
+            <code>unregister</code> を適用することができます。 これは、{" "}
+            <code>useEffect</code> でカスタム登録として input を登録 (
+            <code>register</code>) し、
             コンポーネントのアンマウント後に登録を解除する場合に便利です。
           </p>
           <p>
@@ -1540,7 +1541,16 @@ export default {
             <Note>Note:</Note> For controlled components like{" "}
             <code>React-Select</code> which don't expose <code>ref</code>, you
             will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>.
+            <code onClick={() => goToSection("setValue")}>setValue</code> or
+            using{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to wrap around your controlled component.
           </p>
         </>
       ),
@@ -1558,7 +1568,15 @@ export default {
             <Note>참고:</Note> <code>React-Select</code> 와 같이{" "}
             <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
             <code onClick={() => goToSection("setValue")}>setValue</code>를 통해
-            수동으로 입력값을 재설정해주어야 합니다.
+            수동으로 입력값을 재설정해주어야 합니다또는{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>
+            을 사용하여 제어되는 구성 요소를 감쌀 수 있습니다..
           </p>
         </>
       ),
@@ -1577,7 +1595,15 @@ export default {
             <Note>注意：</Note> <code>ref</code> を公開しない{" "}
             <code>React-Select</code> のような制御コンポーネントの場合は、
             <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
-            を使用して入力値を手動でリセットする必要があります。
+            を使用して入力値を手動でリセットする必要があります または、
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>
+            を使用して、制御対象コンポーネントをラップします。
           </p>
         </>
       ),
@@ -1595,7 +1621,15 @@ export default {
             <code>ref</code>
             的受控组件，您必须通过
             <code onClick={() => goToSection("setValue")}>setValue</code>
-            手动重置输入值。
+            手动重置输入值或使用
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>
+            来包装您的受控组件。
           </p>
         </>
       ),
