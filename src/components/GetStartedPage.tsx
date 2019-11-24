@@ -54,7 +54,7 @@ const Faq = ({
   ]
 
   const sectionsRef = useRef({
-    installation: null,
+    quickstart: null,
     videotutorial: null,
     adaptingexistingform: null,
     workwithuilibrary: null,
@@ -105,7 +105,7 @@ const Faq = ({
         <main>
           <GetStarted
             quickStartRef={ref => {
-              sectionsRef.current.installation = ref
+              sectionsRef.current.quickstart = ref
             }}
             currentLanguage={currentLanguage}
           />
