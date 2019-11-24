@@ -119,7 +119,8 @@ export default {
             >
               React Hook Form Input
             </a>{" "}
-            to wrap your component.
+            to wrap and auto register your component. You can also read more at{" "}
+            <Link to="/api/#ReactNative">React Native</Link> section.
           </p>
         </>
       ),
@@ -156,6 +157,8 @@ export default {
               React Hook Form Input
             </a>
             을 사용하여 구성 요소를 래핑합니다.
+            <Link to="/api/#ReactNative">React Native</Link> 섹션에서 더 많은
+            내용을 읽을 수도 있습니다.
           </p>
         </>
       ),
@@ -198,6 +201,8 @@ export default {
               React Hook Form Input
             </a>
             を使用してコンポーネントをラップします。
+            <Link to="/api/#ReactNative">React Native</Link>
+            セクションで詳細を読むこともできます。
           </p>
         </>
       ),
@@ -228,7 +233,8 @@ export default {
             >
               React Hook Form Input
             </a>
-            来包装您的组件。
+            来包装您的组件。您还可以在
+            <Link to="/api/#ReactNative">React Native</Link>部分阅读更多内容。
           </p>
         </>
       ),

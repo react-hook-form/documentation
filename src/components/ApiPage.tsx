@@ -43,6 +43,7 @@ import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
+import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput";
 
 const { useRef, useEffect } = React
 
@@ -788,7 +789,10 @@ function ApiPage({
 
           {api.reactNative[currentLanguage].description}
 
-          <CodeArea rawData={reactNative} />
+          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+            <CodeArea rawData={reactNative} />
+            <CodeArea rawData={reactNativeRHFInput} />
+          </TabGroup>
 
           <hr />
 
