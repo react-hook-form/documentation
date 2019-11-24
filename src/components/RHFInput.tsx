@@ -1,12 +1,8 @@
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
+import { CodeHeading } from "./ApiPage"
 import CodeArea from "./CodeArea"
-import formContext from "./codeExamples/formContext"
-import generic from "../data/generic"
-import api from "../data/api"
-import { CodeBlock, TypeText } from "../styles/typography"
+import { TypeText } from "../styles/typography"
+import RHFInput from "./codeExamples/RHFInput"
 
 export default function FormContext() {
   return (
@@ -57,6 +53,11 @@ export default function FormContext() {
         </a>
         .
       </p>
+
+      <CodeArea
+        rawData={RHFInput}
+        url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+      />
     </>
   )
 }
