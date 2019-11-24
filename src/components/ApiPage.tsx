@@ -37,13 +37,14 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import api from "../data/api"
+import RHFInput from "./RHFInput"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
-import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput";
+import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
 
 const { useRef, useEffect } = React
 
@@ -194,6 +195,7 @@ function ApiPage({
     api.triggerValidation,
     api.formState,
     api.formContext,
+    api.RHFInput,
     api.reactNative,
     api.validationSchema,
     api.NativeValidation,
@@ -224,7 +226,8 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    Browserbuiltinvalidation: null,
+    RHFInputRef: null,
+    BrowserbuiltinvalidationRef: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -774,6 +777,12 @@ function ApiPage({
 
           <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
             <FormContext currentLanguage={currentLanguage} />
+          </section>
+
+          <hr />
+
+          <section ref={ref => (apiSectionsRef.current.RHFInputRef = ref)}>
+            <RHFInput />
           </section>
 
           <hr />

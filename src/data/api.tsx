@@ -2285,6 +2285,31 @@ export default {
       ),
     },
   },
+  RHFInput: {
+    en: {
+      title: "RHFInput",
+      introduction: (
+        <p>
+          Form context is intended to solve the problem when there are deep
+          nested inputs in your components tree, and passing methods deep down
+          as <code>props</code> becomes painful.
+        </p>
+      ),
+      description: (
+        <>
+          <p>
+            Once your form is wrapped with <code>FormContext</code>, the{" "}
+            <code>useFormContext</code>: <TypeText>function</TypeText> can be
+            invoked in its child component.
+          </p>
+          <p>
+            <Note>Note:</Note> invoking <code>useFormContext</code> will give
+            you all of the <code>useForm</code> hook functions.
+          </p>
+        </>
+      ),
+    },
+  },
   formContext: {
     en: {
       title: "FormContext",
