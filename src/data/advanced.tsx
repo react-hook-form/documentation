@@ -364,17 +364,16 @@ export default {
       optionalChaining: (
         <>
           <p>
-            The{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
             >
-              optional chaining
+              Optional chaining
             </a>{" "}
-            operator <code>?.</code> permits reading the <code>errors</code>{" "}
-            object without worrying about causing error due to <code>null</code>{" "}
-            or <code>undefined</code>.
+            演算子である <code>?.</code> は、{" "}
+            <code>null</code> または <code>undefined</code> によって発生するエラーを気にせずに{" "}
+            <code>errors</code> オブジェクトを読み取ることができます。
           </p>
           <p>
             <code>{`errors?.firstName?.message`}</code>
