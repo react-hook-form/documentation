@@ -385,7 +385,7 @@ export default {
               change and assign to value prop.
             </p>
             <p>
-              Alternatively, you can our wrapper component{" "}
+              Alternatively, you can use our wrapper component{" "}
               <a href="https://github.com/react-hook-form/react-hook-form-input"
                  target="_blank"
                  rel="noreferrer noopener">
