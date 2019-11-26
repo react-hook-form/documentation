@@ -1159,6 +1159,14 @@ export default {
           </p>
         </>
       ),
+      types: (
+        <>
+          This is useful for input validation like rules of password,
+          which multiple errors need to return for a single field. To
+          enable this feature, make sure you have set{" "}
+          <code>validateCriteriaMode: 'all'</code>.
+        </>
+      ),
       message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
       ref: `Reference for your input element.`,
     },
@@ -1192,6 +1200,14 @@ export default {
           </p>
         </>
       ),
+      types: (
+        <>
+          This is useful for input validation like rules of password,
+          which multiple errors need to return for a single field. To
+          enable this feature, make sure you have set{" "}
+          <code>validateCriteriaMode: 'all'</code>.
+        </>
+      ),
       message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
       ref: `입력 엘레먼트에 대한 ref`,
     },
@@ -1205,18 +1221,17 @@ export default {
           </p>
 
           <p>
-            <Note>Note: </Note>The object itself is structured as flat (not
-            nested) which means you access errors directly with input name. eg:{" "}
+            <Note>注意： </Note>オブジェクト自体は (ネストではなく) フラットな構造のため、{" "}
+            input の name を使用して errors に直接アクセスできます。例：{" "}
           </p>
           <p>
             <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
           </p>
           <p>
-            We will consider migrating to a nested error object once{" "}
             <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
               Optional chaining
             </a>{" "}
-            has better browser support.
+            が多くのブラウザでサポートされた場合、私たちはネストされた errors オブジェクトの導入を検討しています。
           </p>
 
           <p>
@@ -1228,6 +1243,14 @@ export default {
             </Link>{" "}
             のレシピを学ぶこともできます。
           </p>
+        </>
+      ),
+      types: (
+        <>
+          これは、単一のフィールドで複数のエラーを返す必要がある、
+          パスワードのルールのような input のバリデーションに役立ちます。
+          この機能を有効にするには、{" "}
+          <code>validateCriteriaMode: 'all'</code> を設定してください。
         </>
       ),
       message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで登録するとエラーメッセージが返されます。`,
@@ -1264,6 +1287,14 @@ export default {
             </Link>
             了解错误消息的现实方法。
           </p>
+        </>
+      ),
+      types: (
+        <>
+          This is useful for input validation like rules of password,
+          which multiple errors need to return for a single field. To
+          enable this feature, make sure you have set{" "}
+          <code>validateCriteriaMode: 'all'</code>.
         </>
       ),
       message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
