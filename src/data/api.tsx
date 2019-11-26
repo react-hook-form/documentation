@@ -2319,92 +2319,188 @@ export default {
   RHFInput: {
     en: {
       title: "RHFInput",
-      introduction: (
-        <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
-        </p>
-      ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            React Hook Form embrace uncontrolled components and native inputs,
+            however it's hard to avoid working with external controlled component
+            such as{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/JedWatson/react-select"
+            >
+              React-Select
+            </a>
+            ,{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/ant-design/ant-design"
+            >
+              AntD
+            </a>{" "}
+            and{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://material-ui.com/"
+            >
+              Material-UI
+            </a>
+            . This wrapper component will make your life easier to work with them.
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            You can read more at{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              react-hook-form-input repo
+            </a>
+            .
           </p>
         </>
       ),
     },
     jp: {
       title: "RHFInput",
-      introduction: (
-        <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
-        </p>
-      ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            React Hook Form embrace uncontrolled components and native inputs,
+            however it's hard to avoid working with external controlled component
+            such as{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/JedWatson/react-select"
+            >
+              React-Select
+            </a>
+            ,{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/ant-design/ant-design"
+            >
+              AntD
+            </a>{" "}
+            and{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://material-ui.com/"
+            >
+              Material-UI
+            </a>
+            . This wrapper component will make your life easier to work with them.
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            You can read more at{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              react-hook-form-input repo
+            </a>
+            .
           </p>
         </>
       ),
     },
     zh: {
       title: "RHFInput",
-      introduction: (
-        <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
-        </p>
-      ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            React Hook Form embrace uncontrolled components and native inputs,
+            however it's hard to avoid working with external controlled component
+            such as{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/JedWatson/react-select"
+            >
+              React-Select
+            </a>
+            ,{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/ant-design/ant-design"
+            >
+              AntD
+            </a>{" "}
+            and{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://material-ui.com/"
+            >
+              Material-UI
+            </a>
+            . This wrapper component will make your life easier to work with them.
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            You can read more at{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              react-hook-form-input repo
+            </a>
+            .
           </p>
         </>
       ),
     },
     kr: {
       title: "RHFInput",
-      introduction: (
-        <p>
-          Form context is intended to solve the problem when there are deep
-          nested inputs in your components tree, and passing methods deep down
-          as <code>props</code> becomes painful.
-        </p>
-      ),
       description: (
         <>
           <p>
-            Once your form is wrapped with <code>FormContext</code>, the{" "}
-            <code>useFormContext</code>: <TypeText>function</TypeText> can be
-            invoked in its child component.
+            React Hook Form embrace uncontrolled components and native inputs,
+            however it's hard to avoid working with external controlled component
+            such as{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/JedWatson/react-select"
+            >
+              React-Select
+            </a>
+            ,{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/ant-design/ant-design"
+            >
+              AntD
+            </a>{" "}
+            and{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://material-ui.com/"
+            >
+              Material-UI
+            </a>
+            . This wrapper component will make your life easier to work with them.
           </p>
           <p>
-            <Note>Note:</Note> invoking <code>useFormContext</code> will give
-            you all of the <code>useForm</code> hook functions.
+            You can read more at{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              react-hook-form-input repo
+            </a>
+            .
           </p>
         </>
       ),
