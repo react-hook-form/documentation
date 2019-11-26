@@ -3,6 +3,7 @@ import code from "../components/codeExamples/defaultExample"
 import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../components/logic/translateLink"
+import CodeArea from "../components/CodeArea"
 
 export default {
   title: {
@@ -605,26 +606,40 @@ export default {
             component libraries.
           </p>
           <p>
-            <Note>Note:</Note> Most UI libraries do expose <code>innerRef</code>{" "}
-            or <code>ref</code> to{" "}
+            <Note>Option 1:</Note> The best way is to check if the component you
+            wish to use exposes an <code>innerRef</code> or <code>ref</code>{" "}
+            that can be used to{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
             </code>
-            . However, if that's not the case. For example{" "}
-            <code>react-select</code> or <code>react-datepicker</code>, you can
-            use <code>register</code> at <code>useEffect</code> and update the
-            value via{" "}
-            <code>
-              <Link to={translateLink("api#setValue", currentLanguage)}>
-                setValue
-              </Link>
-            </code>
-            .
+            . For example: Material-UI's <code>TextField</code> accepts{" "}
+            <code>innerRef</code> as one of it's props. Simply pass{" "}
+            <code>register</code> to it. If you would like better support for
+            your favourite Material-UI component, please consider{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/mui-org/material-ui/issues/18269"
+            >
+              upvoting this issue.
+            </a>
           </p>
           <p>
-            <Note>Note:</Note> We also made a wrapper component{" "}
+            <code>
+              {
+                '<TextField inputRef={register} label="First name" name="FirstName"/>'
+              }
+            </code>
+          </p>
+          <p>
+            <Note>Option 2:</Note> Sometimes components don't expose a prop to
+            register, for example <code>react-select</code> or{" "}
+            <code>react-datepicker</code>.
+          </p>
+          <p>
+            The next easiest way is to use the{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -632,7 +647,48 @@ export default {
             >
               React Hook Form Input
             </a>{" "}
-            to take care the custom register process for you.
+            wrapper component, which will take care of the custom register
+            process for you.
+          </p>
+          <CodeArea
+            rawData={`
+import { RHFInput } from 'react-hook-form-input';
+
+<RHFInput 
+  as={<Select />} 
+  register={register} 
+  setValue={setValue} 
+  name="reactSelect" 
+/>
+`}
+          />
+          <p>
+            <Note>Note:</Note> React Hook Form Input is in beta.{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
+            >
+              Please help test it.
+            </a>
+          </p>
+          <p>
+            <Note>Option 3:</Note> Lastly we can set up a custom register using
+            the{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://reactjs.org/docs/hooks-effect.html"
+            >
+              useEffect
+            </a>{" "}
+            Hook and update the value via{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>
+            .
           </p>
         </>
       ),
