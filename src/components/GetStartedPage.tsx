@@ -181,12 +181,12 @@ const Faq = ({
 
           {getStarted.workWithUI[currentLanguage].description(currentLanguage)}
 
-          <TabGroup buttonLabels={["Custom register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["React Hook Form Input", "Custom register"]}>
+            <CodeArea rawData={uiLibraryHookInput} />
             <CodeArea
               rawData={uiLibrary}
               url="https://codesandbox.io/s/72j69vnk1x"
             />
-            <CodeArea rawData={uiLibraryHookInput} />
           </TabGroup>
 
           <Title
