@@ -616,13 +616,13 @@ export default {
             . For example: Material-UI's <code>TextField</code> accepts{" "}
             <code>innerRef</code> as one of it's props. Simply pass{" "}
             <code>register</code> to it.
-            <pre>
-              <code>
-                {
-                  '<TextField inputRef={register} label="First name" name="FirstName"/>'
-                }
-              </code>
-            </pre>
+          </p>
+          <p>
+            <code>
+              {
+                '<TextField inputRef={register} label="First name" name="FirstName"/>'
+              }
+            </code>
           </p>
           <p>
             <Note>Option 2:</Note> Sometimes components don't expose a prop to
@@ -641,9 +641,10 @@ export default {
             wrapper component, which will take care of the custom register
             process for you.
           </p>
-          <pre>
-            <code>
-              {`
+          <p>
+            <pre>
+              <code>
+                {`
 import { RHFInput } from 'react-hook-form-input';
 ...              
 <RHFInput 
@@ -653,8 +654,9 @@ import { RHFInput } from 'react-hook-form-input';
   name="reactSelect" 
 />
               `}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </p>
           <p>
             <Note>Note:</Note> React Hook Form Input is in beta.{" "}
             <a
@@ -664,7 +666,8 @@ import { RHFInput } from 'react-hook-form-input';
             >
               Please help test it.
             </a>
-            <br />
+          </p>
+          <p>
             <Note>Note:</Note> If you would like better support for your
             favourite Material-UI component, please consider{" "}
             <a
