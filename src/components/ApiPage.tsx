@@ -782,7 +782,7 @@ function ApiPage({
           <hr />
 
           <section ref={ref => (apiSectionsRef.current.RHFInputRef = ref)}>
-            <RHFInput />
+            <RHFInput currentLanguage={currentLanguage} />
           </section>
 
           <hr />
