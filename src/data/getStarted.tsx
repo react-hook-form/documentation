@@ -3,6 +3,7 @@ import code from "../components/codeExamples/defaultExample"
 import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../components/logic/translateLink"
+import CodeArea from "../components/CodeArea"
 
 export default {
   title: {
@@ -615,7 +616,15 @@ export default {
             </code>
             . For example: Material-UI's <code>TextField</code> accepts{" "}
             <code>innerRef</code> as one of it's props. Simply pass{" "}
-            <code>register</code> to it.
+            <code>register</code> to it. If you would like better support for
+            your favourite Material-UI component, please consider{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/mui-org/material-ui/issues/18269"
+            >
+              upvoting this issue.
+            </a>
           </p>
           <p>
             <code>
@@ -641,22 +650,18 @@ export default {
             wrapper component, which will take care of the custom register
             process for you.
           </p>
-          <p>
-            <pre>
-              <code>
-                {`
+          <CodeArea
+            rawData={`
 import { RHFInput } from 'react-hook-form-input';
-...              
+
 <RHFInput 
   as={<Select />} 
   register={register} 
   setValue={setValue} 
   name="reactSelect" 
 />
-              `}
-              </code>
-            </pre>
-          </p>
+`}
+          />
           <p>
             <Note>Note:</Note> React Hook Form Input is in beta.{" "}
             <a
@@ -668,27 +673,16 @@ import { RHFInput } from 'react-hook-form-input';
             </a>
           </p>
           <p>
-            <Note>Note:</Note> If you would like better support for your
-            favourite Material-UI component, please consider{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/mui-org/material-ui/issues/18269"
-            >
-              upvoting this issue.
-            </a>
-          </p>
-          <p>
-            <Note>Step 3:</Note> Lastly we can set up a custom register using
+            <Note>Option 3:</Note> Lastly we can set up a custom register using
             the{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://reactjs.org/docs/hooks-effect.html"
             >
-              Effect Hook
+              useEffect
             </a>{" "}
-            <code>useEffect</code> and update the value via{" "}
+            Hook and update the value via{" "}
             <code>
               <Link to={translateLink("api#setValue", currentLanguage)}>
                 setValue
