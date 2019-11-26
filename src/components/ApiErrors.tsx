@@ -53,12 +53,7 @@ export default React.memo(
                 <td>
                   <TypeText>{`Record<{ string, string | boolean }>`}</TypeText>
                 </td>
-                <td>
-                  This is useful for input validation like rules of password,
-                  which multiple errors need to return for a single field. To
-                  enable this feature, make sure you have set{" "}
-                  <code>validateCriteriaMode: 'all'</code>.
-                </td>
+                <td>{api.errors[currentLanguage].types}</td>
               </tr>
               <tr>
                 <td>
