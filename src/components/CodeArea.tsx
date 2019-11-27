@@ -168,7 +168,7 @@ export default function CodeArea({
         </CopyButton>
       )}
 
-      {url && <CodeSandBoxLink isExpo url={url} />}
+      {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
 
       <Wrapper>
         <SyntaxHighlighter
