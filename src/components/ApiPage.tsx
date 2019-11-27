@@ -799,8 +799,8 @@ function ApiPage({
           {api.reactNative[currentLanguage].description}
 
           <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
-            <CodeArea rawData={reactNative} />
-            <CodeArea rawData={reactNativeRHFInput} />
+            <CodeArea isExpo rawData={reactNative} url="https://snack.expo.io/@bluebill1049/react-hook-form" />
+            <CodeArea isExpo rawData={reactNativeRHFInput} url="https://snack.expo.io/@bluebill1049/react-hook-form-input" />
           </TabGroup>
 
           <hr />
