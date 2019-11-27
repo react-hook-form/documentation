@@ -196,10 +196,8 @@ function ApiPage({
     api.formState,
     api.formContext,
     api.RHFInput,
-    api.reactNative,
     api.validationSchema,
     api.NativeValidation,
-    api.typeScript,
   ]
   const {
     state: { language },
@@ -790,24 +788,6 @@ function ApiPage({
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.ReactNativeRef = ref
-            }}
-          >
-            <h2>React Native</h2>
-          </CodeHeading>
-
-          {api.reactNative[currentLanguage].description}
-
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
-            <CodeArea isExpo rawData={reactNative} url="https://snack.expo.io/@bluebill1049/react-hook-form" />
-            <CodeArea isExpo rawData={reactNativeRHFInput} url="https://snack.expo.io/@bluebill1049/react-hook-form-input" />
-          </TabGroup>
-
-          <hr />
-
-          <CodeHeading
-            ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.ValidationSchemaRef = ref
             }}
           >
@@ -839,24 +819,6 @@ function ApiPage({
           <CodeArea
             rawData={nativeValidation}
             url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-          />
-
-          <hr />
-
-          <CodeHeading
-            ref={ref => {
-              // @ts-ignore
-              apiSectionsRef.current.TypeScriptRef = ref
-            }}
-          >
-            <h2>TypeScript</h2>
-          </CodeHeading>
-
-          {api.typeScript[currentLanguage].description}
-
-          <CodeArea
-            rawData={typeScript}
-            url="https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
           />
 
           <CenterContent style={{ marginTop: 40 }}>

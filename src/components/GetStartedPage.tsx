@@ -19,6 +19,9 @@ import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
 import getStarted from "../data/getStarted"
 import TabGroup from "./TabGroup"
+import reactNative from "./codeExamples/reactNative"
+import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
+import typeScript from "./codeExamples/typeScript"
 
 const { useRef } = React
 
@@ -51,6 +54,8 @@ const Faq = ({
     getStarted.controlledInput,
     getStarted.globalState,
     getStarted.errors,
+    getStarted.reactNative,
+    getStarted.typeScript,
   ]
 
   const sectionsRef = useRef({
@@ -63,6 +68,8 @@ const Faq = ({
     handleerrors: null,
     registerfields: null,
     applyvalidation: null,
+    reactnative: null,
+    typescript: null,
   })
 
   const goToSection = name => {
@@ -227,6 +234,44 @@ const Faq = ({
           {getStarted.errors[currentLanguage].description}
 
           <CodeArea rawData={errors} />
+
+          <Title
+            ref={ref => {
+              sectionsRef.current.reactnative = ref
+            }}
+          >
+            React Native
+          </Title>
+
+          {getStarted.reactNative[currentLanguage].description}
+
+          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+            <CodeArea
+              isExpo
+              rawData={reactNative}
+              url="https://snack.expo.io/@bluebill1049/react-hook-form"
+            />
+            <CodeArea
+              isExpo
+              rawData={reactNativeRHFInput}
+              url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
+            />
+          </TabGroup>
+
+          <Title
+            ref={ref => {
+              sectionsRef.current.typescript = ref
+            }}
+          >
+            TypeScript
+          </Title>
+
+          {getStarted.typeScript[currentLanguage].description}
+
+          <CodeArea
+            rawData={typeScript}
+            url="https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
+          />
 
           <LearnMore currentLanguage={currentLanguage} />
 

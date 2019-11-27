@@ -835,6 +835,95 @@ import { RHFInput } from 'react-hook-form-input';
       description: `React Hook Form不要求你有一个状态(state)管理来存储你的数据，但你可以很容易地与任何一个集成。`,
     },
   },
+  reactNative: {
+    en: {
+      title: "React Native",
+      description: (
+        <p>
+          You will get the same performance enhancement from an Uncontrolled
+          Component. However, there are certain APIs which are not compatible
+          with React Native (duo to the API difference from web and native). You
+          will have to use a <b>manual register</b> as shown in the following
+          example.
+        </p>
+      ),
+    },
+    kr: {
+      title: "React Native",
+      description: (
+        <p>
+          비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 하지만,
+          웹과 네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정
+          API도 있습니다. 이 경우, 다음 예제와 같이{" "}
+          <b>수동 등록(manual register)</b>을 해주어야 합니다.
+        </p>
+      ),
+    },
+    jp: {
+      title: "React Native",
+      description: (
+        <p>
+          非制御コンポーネントでも、同じようにパフォーマンスが向上します。
+          ただし、React Native と互換性のない API がいくつかあります (Web
+          とネイティブとの API の違い)。 下記の例に示すように、
+          <b>
+            手動登録 (manual <code>register</code>)
+          </b>{" "}
+          を使用する必要があります。
+        </p>
+      ),
+    },
+    zh: {
+      title: "React Native",
+      description: (
+        <p>
+          您将从受控制的组件中获得相同的性能增强。 但是，有一些与React
+          Native不兼容的Api（与web和native的API差异）。
+          您将不得不使用手动注册，如下面的示例所示。
+        </p>
+      ),
+    },
+  },
+  typeScript: {
+    en: {
+      title: "TypeScript",
+      description: (
+        <p>
+          React Hook Form is built with <code>Typescript</code>, so you can
+          define a <code>FormData</code> type to support form values.
+        </p>
+      ),
+    },
+    kr: {
+      title: "TypeScript",
+      description: (
+        <p>
+          React Hook Form은 타입스크립트로 만들어져, 폼 내 값 타입을{" "}
+          <code>FormData</code> 로 설정할 수 있습니다.
+        </p>
+      ),
+    },
+    jp: {
+      title: "TypeScript",
+      description: (
+        <p>
+          React Hook Form は <code>Typescript</code>{" "}
+          を使用して構築されているため、フォームの値をサポートするための{" "}
+          <code>FormData</code> 型を定義することができます。
+        </p>
+      ),
+    },
+    zh: {
+      title: "TypeScript",
+      description: (
+        <p>
+          React Hook Form是使用<code>Typescript</code>
+          构建的，因此您可以定义一个表单数据<code>FormData</code>
+          类型来支持表单值。
+        </p>
+      ),
+    },
+  },
   errors: {
     en: {
       title: "Handle errors",

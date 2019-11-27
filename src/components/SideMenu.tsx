@@ -147,9 +147,7 @@ export default function SideMenu({
             if (
               [
                 "formcontext",
-                "typescript",
                 "rhfinput",
-                "react native",
                 "validationschema",
                 "browser built-in validation",
               ].includes(link.toLowerCase()) ||
@@ -196,7 +194,7 @@ export default function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - 7
+                        ...(index !== links.length - 5
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -206,7 +204,7 @@ export default function SideMenu({
                     : null),
                 }}
               >
-                <Arrow last={index === links.length - 7}>
+                <Arrow last={index === links.length - 5}>
                   {index > 0 && (
                     <span
                       style={{
