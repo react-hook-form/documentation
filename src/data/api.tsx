@@ -803,8 +803,8 @@ export default {
         "등록 옵션(register options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
       options: {
         title: "Register options",
-        registerWithValidation: "유효성 검사과 함께 등록",
-        registerWithValidationMessage: "유효성 검사 및 에러 메시지완 등록",
+        registerWithValidation: "유효성 검사와 함께 등록",
+        registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
         note: goToSection => (
           <>
             <Title>Custom Register</Title>
