@@ -371,8 +371,8 @@ export default {
             >
               Optional chaining
             </a>{" "}
-            演算子である <code>?.</code> は、{" "}
-            <code>null</code> または <code>undefined</code> によって発生するエラーを気にせずに{" "}
+            演算子である <code>?.</code> は、 <code>null</code> または{" "}
+            <code>undefined</code> によって発生するエラーを気にせずに{" "}
             <code>errors</code> オブジェクトを読み取ることができます。
           </p>
           <p>
@@ -1061,6 +1061,26 @@ export default {
             The following example demonstrates how you can create Field Arrays
             by manipulating the input <code>name</code> attribute.
           </p>
+
+          <p>
+            <Note>Note:</Note> if your application requires functionality such
+            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to convert uncontrolled inputs into controlled inputs. Here is the{" "}
+            <a
+              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              link for such implementation.
+            </a>
+          </p>
         </>
       ),
     },
@@ -1080,6 +1100,26 @@ export default {
           <p>
             아래의 예시는 인풋의 <code>name</code> 속성을 조작하여 어떻게 필드
             배열을 만들 수 있는지 보여줍니다.
+          </p>
+
+          <p>
+            <Note>Note:</Note> if your application requires functionality such
+            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to convert uncontrolled inputs into controlled inputs. Here is the {" "}
+            <a
+              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              link for such implementation.
+            </a>
           </p>
         </>
       ),
@@ -1101,6 +1141,26 @@ export default {
             下記の例は、input の <code>name</code>{" "}
             属性を操作してどのようにフィールド配列を作成できるかを示しています。
           </p>
+
+          <p>
+            <Note>Note:</Note> if your application requires functionality such
+            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>{" "}
+            to convert uncontrolled inputs into controlled inputs. Here is the{" "}
+            <a
+              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              link for such implementation.
+            </a>
+          </p>
         </>
       ),
     },
@@ -1116,6 +1176,27 @@ export default {
           </p>
 
           <p>下面的示例演示如何通过操作输入名称属性来创建自动生成表单。</p>
+
+          <p>
+            <Note>注意:</Note>
+            如果您的应用程序需要功能，例如：删除，插入，追加，前置，那么您需要使用
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
+            </a>
+            将不受控制的输入转换为受控制的输入。 这里是这种
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              实现的链接
+            </a>
+            。
+          </p>
         </>
       ),
     },
