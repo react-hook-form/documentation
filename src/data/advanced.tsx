@@ -1064,7 +1064,7 @@ export default {
 
           <p>
             <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
+            as: Delete, Insert, Append, Preprend. Here is the{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
@@ -1105,7 +1105,7 @@ export default {
 
           <p>
             <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
+            as: Delete, Insert, Append, Preprend. Here is the{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
@@ -1145,24 +1145,23 @@ export default {
           </p>
 
           <p>
-            <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
-            <a
-              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              link for such implementation.
-            </a>{" "}
-            with{" "}
+            <Note>注意：</Note> アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
               rel="noreferrer noopener"
             >
               React Hook Form Input
+            </a>{" "}
+            を使用した
+            <a
+              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              実装のリンク
             </a>
-            .
+            を参照して下さい。
           </p>
         </>
       ),
