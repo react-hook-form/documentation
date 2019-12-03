@@ -1064,22 +1064,23 @@ export default {
 
           <p>
             <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
-            to convert uncontrolled inputs into controlled inputs. Here is the{" "}
+            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
               rel="noreferrer noopener"
             >
               link for such implementation.
+            </a>{" "}
+            with{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
             </a>
+            .
           </p>
         </>
       ),
@@ -1104,22 +1105,23 @@ export default {
 
           <p>
             <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
-            to convert uncontrolled inputs into controlled inputs. Here is the {" "}
+            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
               rel="noreferrer noopener"
             >
               link for such implementation.
+            </a>{" "}
+            with{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
             </a>
+            .
           </p>
         </>
       ),
@@ -1144,22 +1146,23 @@ export default {
 
           <p>
             <Note>Note:</Note> if your application requires functionality such
-            as: Delete, Insert, Apprend, Preprend, then you would need to use{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
-            to convert uncontrolled inputs into controlled inputs. Here is the{" "}
+            as: Delete, Insert, Apprend, Preprend. Here is the{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
               rel="noreferrer noopener"
             >
               link for such implementation.
+            </a>{" "}
+            with{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
             </a>
+            .
           </p>
         </>
       ),
@@ -1179,21 +1182,21 @@ export default {
 
           <p>
             <Note>注意:</Note>
-            如果您的应用程序需要功能，例如：删除，插入，追加，前置，那么您需要使用
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
-            将不受控制的输入转换为受控制的输入。 这里是这种
+            如果您的应用程序需要功能，例如：删除，插入，追加，前置。 这里是这种
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
               rel="noreferrer noopener"
             >
               实现的链接
+            </a>
+            混合了
+            <a
+              href="https://github.com/react-hook-form/react-hook-form-input"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              React Hook Form Input
             </a>
             。
           </p>
