@@ -177,11 +177,11 @@ export default {
             >
               Uncontrolled Components
             </a>
-            ) を{" "}
+            ) をフックに
             <strong>
-              <code>register</code>
+              登録（<code>register</code>)
             </strong>{" "}
-            を適用してフックに登録し、フォームフィールドの値を検証と収集できるようにすることです。
+            し、フォームフィールドの値を検証と収集できるようにすることです。
           </p>
 
           <p>
