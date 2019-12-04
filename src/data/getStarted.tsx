@@ -469,20 +469,18 @@ export default {
       ),
     },
     jp: {
-      title: "Controlled Input",
+      title: "制御された Input",
       description: (
         <p>
-          React Hook Form embrace uncontrolled components and native HTML
-          inputs, however it's hard to avoid working with external controlled
-          component such as{" "}
+          React Hook Form は、非制御コンポーネントと HTML の input をサポートしますが、{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/JedWatson/react-select"
           >
             React-Select
-          </a>
-          ,{" "}
+          </a>{" "}
+          や{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -490,15 +488,16 @@ export default {
           >
             AntD
           </a>{" "}
-          and{" "}
+          、{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://material-ui.com/"
           >
             Material-UI
-          </a>
-          , hence we have built a wrapper component:{" "}
+          </a>{" "}
+          などの外部の制御されたコンポーネントの使用を避けることは難しいため、
+          ラッパーコンポーネントを作成しました。{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -506,8 +505,7 @@ export default {
           >
             React Hook Form Input
           </a>{" "}
-          to streamline the integration process while still giving you the
-          freedom to use custom register with your needs.
+          は、必要に応じてカスタム登録を自由に使用できると同時に、統合プロセスを簡素化します。
         </p>
       ),
     },
@@ -743,7 +741,7 @@ import { RHFInput } from 'react-hook-form-input';
             React Hook Form は、外部 UI コンポーネントライブラリとの統合が容易です。
           </p>
           <p>
-            <Note>オプション1：</Note> 最適な方法は、あなたが使用したいコンポーネントが{" "}
+            <Note>オプション1：</Note> 最適な方法は、使用したい外部コンポーネントが{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
@@ -771,7 +769,7 @@ import { RHFInput } from 'react-hook-form-input';
           <p>
             <Note>オプション2：</Note> 例えば、{" "}
             <code>react-select</code> や <code>react-datepicker</code> などのように、
-            コンポーネントによっては register のための prop が公開されないことがあります。
+            コンポーネントによっては register のための prop が公開されていないことがあります。
           </p>
           <p>
             次に簡単な方法は、ラッパーコンポーネントである{" "}
