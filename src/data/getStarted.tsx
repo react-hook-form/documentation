@@ -177,11 +177,11 @@ export default {
             >
               Uncontrolled Components
             </a>
-            ) を{" "}
+            ) をフックに
             <strong>
-              <code>register</code>
+              登録（<code>register</code>)
             </strong>{" "}
-            を適用してフックに登録し、フォームフィールドの値を検証と収集できるようにすることです。
+            し、フォームフィールドの値を検証と収集できるようにすることです。
           </p>
 
           <p>
@@ -469,20 +469,18 @@ export default {
       ),
     },
     jp: {
-      title: "Controlled Input",
+      title: "制御された Input",
       description: (
         <p>
-          React Hook Form embrace uncontrolled components and native HTML
-          inputs, however it's hard to avoid working with external controlled
-          component such as{" "}
+          React Hook Form は、非制御コンポーネントと HTML の input をサポートしますが、{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/JedWatson/react-select"
           >
             React-Select
-          </a>
-          ,{" "}
+          </a>{" "}
+          や{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -490,15 +488,16 @@ export default {
           >
             AntD
           </a>{" "}
-          and{" "}
+          、{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://material-ui.com/"
           >
             Material-UI
-          </a>
-          , hence we have built a wrapper component:{" "}
+          </a>{" "}
+          などの外部の制御されたコンポーネントの使用を避けることは難しいため、
+          ラッパーコンポーネントを作成しました。{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -506,8 +505,7 @@ export default {
           >
             React Hook Form Input
           </a>{" "}
-          to streamline the integration process while still giving you the
-          freedom to use custom register with your needs.
+          は、必要に応じてカスタム登録を自由に使用できると同時に、統合プロセスを簡素化します。
         </p>
       ),
     },
@@ -740,38 +738,89 @@ import { RHFInput } from 'react-hook-form-input';
       description: currentLanguage => (
         <>
           <p>
-            React Hook Form は、外部 UI
-            コンポーネントライブラリに統合しやすいです。
+            React Hook Form は、外部 UI コンポーネントライブラリとの統合が容易です。
           </p>
           <p>
-            <Note>注意:</Note> ほとんどの UI ライブラリは、{" "}
+            <Note>オプション1：</Note> 最適な方法は、使用したい外部コンポーネントが{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
-            </code>{" "}
-            を適用するための <code>innerRef</code> または <code>ref</code>{" "}
-            を公開します。 ただし、<code>react-select</code> や{" "}
-            <code>react-datepicker</code> などの <code>ref</code>{" "}
-            を公開しないライブラリの場合、 <code>useEffect</code> で{" "}
-            <code>register</code> を使用し、{" "}
-            <code>
-              <Link to={translateLink("api#setValue", currentLanguage)}>
-                setValue
-              </Link>
-            </code>{" "}
-            を介して値を更新できます。
+            </code> に使用できる <code>innerRef</code> または <code>ref</code> を公開しているかどうかを確認することです。
+            例えば、Material-UI の <code>TextField</code> は、 props の1つとして <code>innerRef</code> を受け付けます。
+            <code>innerRef</code> に <code>register</code> を渡すだけです。
+            あなたのお気に入りの Material-UI コンポーネントのための、より充実したサポートを期待する場合は、
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/mui-org/material-ui/issues/18269"
+            >
+              この Issue の賛成投票
+            </a>
+            を検討してください。
           </p>
           <p>
-            <Note>注意:</Note> ラッパーコンポーネントの
+            <code>
+              {
+                '<TextField inputRef={register} label="First name" name="FirstName"/>'
+              }
+            </code>
+          </p>
+          <p>
+            <Note>オプション2：</Note> 例えば、{" "}
+            <code>react-select</code> や <code>react-datepicker</code> などのように、
+            コンポーネントによっては register のための prop が公開されていないことがあります。
+          </p>
+          <p>
+            次に簡単な方法は、ラッパーコンポーネントである{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/react-hook-form/react-hook-form-input"
             >
               React Hook Form Input
+            </a>{" "}
+            を使用することです。
+            このコンポーネントはカスタム登録処理を行います。
+          </p>
+          <CodeArea
+            rawData={`
+import { RHFInput } from 'react-hook-form-input';
+
+<RHFInput 
+  as={<Select />} 
+  register={register} 
+  setValue={setValue} 
+  name="reactSelect" 
+/>
+`}
+          />
+          <p>
+            <Note>注意：</Note> React Hook Form Input はベータ版です。
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
+            >
+              テストに協力して下さい。
             </a>
-            も作成し、カスタム登録プロセスを処理します。
+          </p>
+          <p>
+            <Note>オプション3：</Note> 最後に{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://reactjs.org/docs/hooks-effect.html"
+            >
+              useEffect
+            </a>{" "}
+            フックを使用してカスタム登録を設定し、{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            を介して値を更新できます。
           </p>
         </>
       ),
