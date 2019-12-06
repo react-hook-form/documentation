@@ -149,19 +149,22 @@ export default {
       description: (
         <>
           <p>
-            Um dos principais conceitos do React Hook Form é {" "}
+            Um dos principais conceitos do React Hook Form é{" "}
             <strong>
               <code>register</code>
             </strong>{" "}
-            seu componente incontrolado no Hook e consequentemente habilitando o valor, para ser validado e coletado para submissão.
+            seu componente incontrolado no Hook e consequentemente habilitando o
+            valor, para ser validado e coletado para submissão.
           </p>
 
           <p>
-            <Note>Nota:</Note> Cada campo <strong>obrigatório</strong> precisa ter um único <code>name</code> como chave do processo de registro.
+            <Note>Nota:</Note> Cada campo <strong>obrigatório</strong> precisa
+            ter um único <code>name</code> como chave do processo de registro.
           </p>
 
           <p>
-            <Note>Nota: </Note>React Native vai precisar do uso manual do comando de registro:{" "}
+            <Note>Nota: </Note>React Native vai precisar do uso manual do
+            comando de registro:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code> or
             usando{" "}
             <a
@@ -171,7 +174,8 @@ export default {
             >
               React Hook Form Input
             </a>{" "}
-            para englobar e registrar automaticamente seu componente. Você também pode ler mais em{" "}
+            para englobar e registrar automaticamente seu componente. Você
+            também pode ler mais em{" "}
             <Link to="/api/#ReactNative">React Native</Link> Seção.
           </p>
         </>
@@ -334,7 +338,8 @@ export default {
       description: currentLanguage => (
         <>
           <p>
-            React Hook Form cria validação de formulário simples, alinhado com os existentes{" "}
+            React Hook Form cria validação de formulário simples, alinhado com
+            os existentes{" "}
             <a
               href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
               target="_blank"
@@ -487,8 +492,9 @@ export default {
       title: "Adaptando um formulário existente",
       description: (
         <>
-          Trabalhar com um formulário existente é simples. Um passo importante a ser feito{" "}
-          <code>register</code> dentro do componente existente com <code>ref</code>.
+          Trabalhar com um formulário existente é simples. Um passo importante a
+          ser feito <code>register</code> dentro do componente existente com{" "}
+          <code>ref</code>.
         </>
       ),
     },
@@ -569,8 +575,8 @@ export default {
       description: (
         <p>
           O React Hook Form adota componentes não controlados e HTML nativo
-          entradas, no entanto, é difícil evitar trabalhar com controladores externos
-          componente como{" "}
+          entradas, no entanto, é difícil evitar trabalhar com controladores
+          externos componente como{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -611,7 +617,8 @@ export default {
       title: "制御された Input",
       description: (
         <p>
-          React Hook Form は、非制御コンポーネントと HTML の input をサポートしますが、{" "}
+          React Hook Form は、非制御コンポーネントと HTML の input
+          をサポートしますが、{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -835,11 +842,13 @@ import { RHFInput } from 'react-hook-form-input';
       description: currentLanguage => (
         <>
           <p>
-            React Hook Form é bem fácil de ser integrado com componentes externos de interface.
+            React Hook Form é bem fácil de ser integrado com componentes
+            externos de interface.
           </p>
           <p>
-            <Note>Opção 1:</Note> A melhor forma é checar se o componente que deseja expõe um <code>innerRef</code> ou <code>ref</code>{" "}
-            isso pode ser utilizado para{" "}
+            <Note>Opção 1:</Note> A melhor forma é checar se o componente que
+            deseja expõe um <code>innerRef</code> ou <code>ref</code> isso pode
+            ser utilizado para{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
@@ -847,7 +856,8 @@ import { RHFInput } from 'react-hook-form-input';
             </code>
             . Por exemplo: Material-UI's <code>TextField</code> aceita{" "}
             <code>innerRef</code> como props. Passando simplesmente{" "}
-            <code>register</code> para ele. Se você preferir o suporte de seu componente favorito do Material-UI, por favor considere{" "}
+            <code>register</code> para ele. Se você preferir o suporte de seu
+            componente favorito do Material-UI, por favor considere{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -864,7 +874,8 @@ import { RHFInput } from 'react-hook-form-input';
             </code>
           </p>
           <p>
-            <Note>Opção 2:</Note> As vezes componentes não expõe uma prop par aregistrar, por exemplo <code>react-select</code> ou {" "}
+            <Note>Opção 2:</Note> As vezes componentes não expõe uma prop par
+            aregistrar, por exemplo <code>react-select</code> ou{" "}
             <code>react-datepicker</code>.
           </p>
           <p>
@@ -876,7 +887,8 @@ import { RHFInput } from 'react-hook-form-input';
             >
               React Hook Form Input
             </a>{" "}
-            utilizar um componente por volta, que irá tomar conta de registrar customizadamente o processo para você.
+            utilizar um componente por volta, que irá tomar conta de registrar
+            customizadamente o processo para você.
           </p>
           <CodeArea
             rawData={`
@@ -901,7 +913,8 @@ import { RHFInput } from 'react-hook-form-input';
             </a>
           </p>
           <p>
-            <Note>Opção 3:</Note> Por último, podemos setar um registro customizado usando{" "}
+            <Note>Opção 3:</Note> Por último, podemos setar um registro
+            customizado usando{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -967,18 +980,24 @@ import { RHFInput } from 'react-hook-form-input';
       description: currentLanguage => (
         <>
           <p>
-            React Hook Form は、外部 UI コンポーネントライブラリとの統合が容易です。
+            React Hook Form は、外部 UI
+            コンポーネントライブラリとの統合が容易です。
           </p>
           <p>
-            <Note>オプション1：</Note> 最適な方法は、使用したい外部コンポーネントが{" "}
+            <Note>オプション1：</Note>{" "}
+            最適な方法は、使用したい外部コンポーネントが{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
-            </code> に使用できる <code>innerRef</code> または <code>ref</code> を公開しているかどうかを確認することです。
-            例えば、Material-UI の <code>TextField</code> は、 props の1つとして <code>innerRef</code> を受け付けます。
+            </code>{" "}
+            に使用できる <code>innerRef</code> または <code>ref</code>{" "}
+            を公開しているかどうかを確認することです。 例えば、Material-UI の{" "}
+            <code>TextField</code> は、 props の1つとして <code>innerRef</code>{" "}
+            を受け付けます。
             <code>innerRef</code> に <code>register</code> を渡すだけです。
-            あなたのお気に入りの Material-UI コンポーネントのための、より充実したサポートを期待する場合は、
+            あなたのお気に入りの Material-UI
+            コンポーネントのための、より充実したサポートを期待する場合は、
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -996,9 +1015,10 @@ import { RHFInput } from 'react-hook-form-input';
             </code>
           </p>
           <p>
-            <Note>オプション2：</Note> 例えば、{" "}
-            <code>react-select</code> や <code>react-datepicker</code> などのように、
-            コンポーネントによっては register のための prop が公開されていないことがあります。
+            <Note>オプション2：</Note> 例えば、 <code>react-select</code> や{" "}
+            <code>react-datepicker</code> などのように、
+            コンポーネントによっては register のための prop
+            が公開されていないことがあります。
           </p>
           <p>
             次に簡単な方法は、ラッパーコンポーネントである{" "}
@@ -1134,10 +1154,11 @@ import { RHFInput } from 'react-hook-form-input';
       title: "React Native",
       description: (
         <p>
-          Você obterá o mesmo aprimoramento de desempenho de um Componente Não Controlado.
-          No entanto, existem certas APIs que não são compatíveis
+          Você obterá o mesmo aprimoramento de desempenho de um Componente Não
+          Controlado. No entanto, existem certas APIs que não são compatíveis
           com React Native (devido a diferença de API da Web e nativa). Você
-          terá que usar um <b>registro manual</b> como mostra o seguinte exemplo.
+          terá que usar um <b>registro manual</b> como mostra o seguinte
+          exemplo.
         </p>
       ),
     },
@@ -1191,7 +1212,9 @@ import { RHFInput } from 'react-hook-form-input';
       title: "TypeScript",
       description: (
         <p>
-          React Hook Form é construído com <code>Typescript</code>, então você pode definir um tipo <code>FormData</code> para suportar os valores do formulário.
+          React Hook Form é construído com <code>Typescript</code>, então você
+          pode definir um tipo <code>FormData</code> para suportar os valores do
+          formulário.
         </p>
       ),
     },
@@ -1239,7 +1262,8 @@ import { RHFInput } from 'react-hook-form-input';
       title: "Lide com erros",
       description: (
         <>
-          React Hook Form provê um objeto de <code>errors</code> para exibir que seu formulário possui erros.
+          React Hook Form provê um objeto de <code>errors</code> para exibir que
+          seu formulário possui erros.
         </>
       ),
     },

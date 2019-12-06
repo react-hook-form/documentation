@@ -19,7 +19,8 @@ export default {
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy-to-use validation.",
-    pt: "Performático, flexível e formulário extensível, com fácil utilização e validação.",
+    pt:
+      "Performático, flexível e formulário extensível, com fácil utilização e validação.",
     kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
@@ -197,10 +198,14 @@ export default {
       description: (
         <>
           <p id="codeComparison">
-            Reduzindo o total de código que você tem que escrever, é um dos objetivos principais do React Hook Form. Para ilustrar isso, vamos ver um formulário simples de validação, entre alguns das principais bibliotecas de validação de formulários.
+            Reduzindo o total de código que você tem que escrever, é um dos
+            objetivos principais do React Hook Form. Para ilustrar isso, vamos
+            ver um formulário simples de validação, entre alguns das principais
+            bibliotecas de validação de formulários.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ Nota:</Note> Ambos, Formik e Redux-Form o código foi copiado com base na documentação oficial.
+            <Note>⚠ Nota:</Note> Ambos, Formik e Redux-Form o código foi copiado
+            com base na documentação oficial.
           </p>
         </>
       ),
@@ -230,7 +235,8 @@ export default {
             これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にシンプルなコードを見てみましょう。
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ 注意：</Note>下記の Formik と Redux-Form のコードは公式ドキュメントからコピーされています。
+            <Note>⚠ 注意：</Note>下記の Formik と Redux-Form
+            のコードは公式ドキュメントからコピーされています。
           </p>
         </>
       ),
@@ -311,9 +317,10 @@ export default {
       title: "Montagem rápida",
       description: (
         <p>
-          Os resultados a seguir demonstram quanto tempo levou para renderizar e montar
-          os componentes. Os resultados são capturados em uma CPU 6x mais lenta no sistema, utilizando o Chrome Dev Tools. O código em execução é
-          da seção acima{" "}
+          Os resultados a seguir demonstram quanto tempo levou para renderizar e
+          montar os componentes. Os resultados são capturados em uma CPU 6x mais
+          lenta no sistema, utilizando o Chrome Dev Tools. O código em execução
+          é da seção acima{" "}
           <a href="#codeComparison">Biblioteca de comparação de código</a>.
         </p>
       ),
@@ -322,7 +329,8 @@ export default {
       totalTime: "Tempo total",
       performanceTests: (
         <>
-          <span style={{ fontSize: 20 }}>⚠</span> Gostaria de ver mais testes de performance intensos?{" "}
+          <span style={{ fontSize: 20 }}>⚠</span> Gostaria de ver mais testes de
+          performance intensos?{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
@@ -366,8 +374,8 @@ export default {
       description: (
         <p>
           下記の結果は、コンポーネントのレンダリングにかかった時間を示しています。
-          Chrome DevTools の Performance タブを使用して、
-          CPU のパフォーマンスを6倍低速化させた環境での測定結果です。
+          Chrome DevTools の Performance タブを使用して、 CPU
+          のパフォーマンスを6倍低速化させた環境での測定結果です。
           実行コードは上記の
           <a href="#codeComparison">ライブラリのコード比較</a>
           セクションのものです。
@@ -439,9 +447,10 @@ export default {
       title: "Demonstração real",
       description: (
         <>
-          O formulário a seguir demonstra a validação do formulário em ação. Cada coluna
-          representa o que foi capturado no hook personalizado. Você também pode
-          alterar os campos no formulário clicando no botão <strong>Editar</strong>.
+          O formulário a seguir demonstra a validação do formulário em ação.
+          Cada coluna representa o que foi capturado no hook personalizado. Você
+          também pode alterar os campos no formulário clicando no botão{" "}
+          <strong>Editar</strong>.
         </>
       ),
       submit: "Enviar",
@@ -476,7 +485,8 @@ export default {
         <>
           下記のフォームは、実行中のフォームバリデーションを示しています。
           各列はカスタムフックに取り込まれた内容を表します。
-          <strong>編集</strong>ボタンをクリックしてフォームのフィールドを変更することもできます。
+          <strong>編集</strong>
+          ボタンをクリックしてフォームのフィールドを変更することもできます。
         </>
       ),
       submit: "フォームの送信",

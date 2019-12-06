@@ -26,7 +26,8 @@ export default {
     },
     pt: {
       title: "Avançado",
-      description: "Construa formulários complexos e acessíveis, utilizando React Hook Form.",
+      description:
+        "Construa formulários complexos e acessíveis, utilizando React Hook Form.",
     },
     kr: {
       title: "고급 사용법",
@@ -298,15 +299,17 @@ export default {
       title: "Mensagem de erro",
       description: (
         <p>
-          Mensagens de erro são feedbacks visuais para os usuários, quando
-          algum problema ocorre associado aos campos. No React Hook Form, nós provemos objetos
-          de erros facilmente. Entretanto, há diferentes formas para nós renderizar-mos o erro em tela.
+          Mensagens de erro são feedbacks visuais para os usuários, quando algum
+          problema ocorre associado aos campos. No React Hook Form, nós provemos
+          objetos de erros facilmente. Entretanto, há diferentes formas para nós
+          renderizar-mos o erro em tela.
         </p>
       ),
       register: (
         <>
-          Mensagem de erro incorporado ao <code>register</code>, você pode facilmente
-          inserir a mensagem de erro no atributo <code>value</code>. Ex:
+          Mensagem de erro incorporado ao <code>register</code>, você pode
+          facilmente inserir a mensagem de erro no atributo <code>value</code>.
+          Ex:
         </>
       ),
       component:
@@ -323,8 +326,8 @@ export default {
               optional chaining
             </a>{" "}
             operador <code>?.</code> permite ler o objeto <code>errors</code>{" "}
-            sem preocupação com a causa do erro devido ao <code>null</code>{" "}
-            ou <code>undefined</code>.
+            sem preocupação com a causa do erro devido ao <code>null</code> ou{" "}
+            <code>undefined</code>.
           </p>
           <p>
             <code>{`errors?.firstName?.message`}</code>
@@ -595,10 +598,11 @@ export default {
       description: (
         <>
           <p>
-            O React Hook Form oferece suporte à validação nativa de formulários, 
-            que permite validar os campos com suas próprias regras, já que a maioria de nós 
-            precisamos criar formulários em um design e layout personalizado, 
-            e é nossa responsabilidade garantir que nossos formulários estejam acessíveis (A11y).
+            O React Hook Form oferece suporte à validação nativa de formulários,
+            que permite validar os campos com suas próprias regras, já que a
+            maioria de nós precisamos criar formulários em um design e layout
+            personalizado, e é nossa responsabilidade garantir que nossos
+            formulários estejam acessíveis (A11y).
           </p>
 
           <p>
@@ -802,17 +806,18 @@ export default {
       description: (
         <>
           <p>
-            É muito comum coletar informações do usuário através de diferentes páginas
-            e seções. Nós recomendamos uma biblioteca de gerencia de estado para armazenar
-            os dados do usuário entre os diferentes campos, páginas / seções.
-            Neste exemplo, nós iremos usar{" "}
+            É muito comum coletar informações do usuário através de diferentes
+            páginas e seções. Nós recomendamos uma biblioteca de gerencia de
+            estado para armazenar os dados do usuário entre os diferentes
+            campos, páginas / seções. Neste exemplo, nós iremos usar{" "}
             <Link
               href="https://github.com/bluebill1049/little-state-machine"
               target="_blank"
             >
               little state machine
             </Link>{" "}
-            como nossa biblioteca de gerencia de estado (você pode substituir por{" "}
+            como nossa biblioteca de gerencia de estado (você pode substituir
+            por{" "}
             <Link href="https://github.com/reduxjs/redux" target="_blank">
               redux
             </Link>
@@ -831,7 +836,8 @@ export default {
 
           <p>
             <Note>Passo 2:</Note> Cirar suas páginas, faça-o coletar seus dados,
-            submeter o dano e armazenar no "store" e passar para próxima página do formulário.
+            submeter o dano e armazenar no "store" e passar para próxima página
+            do formulário.
           </p>
           <CodeArea
             rawData={step2}
@@ -839,8 +845,8 @@ export default {
           />
 
           <p>
-            <Note>Passo 3:</Note> Faça a submissão final com o dano no store
-            ou exiba os dados em tela.
+            <Note>Passo 3:</Note> Faça a submissão final com o dano no store ou
+            exiba os dados em tela.
           </p>
           <CodeArea
             rawData={step3}
@@ -848,8 +854,9 @@ export default {
           />
 
           <p>
-            Seguindo o padrão acima, você deve ser capaz de construir um formulário
-            em etapas e coletar os dados do usuário de diversas páginas.
+            Seguindo o padrão acima, você deve ser capaz de construir um
+            formulário em etapas e coletar os dados do usuário de diversas
+            páginas.
           </p>
         </>
       ),
@@ -1086,8 +1093,9 @@ export default {
       description: (
         <>
           <p>
-            Com esta ideia você pode facilmente compor seu formulário com campos.
-            Nós iremos criar um componente <code>Form</code> para automaticamente capturar os dados do formulário.
+            Com esta ideia você pode facilmente compor seu formulário com
+            campos. Nós iremos criar um componente <code>Form</code> para
+            automaticamente capturar os dados do formulário.
           </p>
 
           <CodeArea
@@ -1104,8 +1112,8 @@ export default {
           </CodeHeading>
 
           <p>
-            O componente <code>Form</code> é responsável por injetar todos os métodos do{" "}
-            <code>react-hook-form</code> dentro do componente filho.
+            O componente <code>Form</code> é responsável por injetar todos os
+            métodos do <code>react-hook-form</code> dentro do componente filho.
           </p>
 
           <CodeArea
@@ -1345,20 +1353,21 @@ export default {
       description: (
         <>
           <p>
-            Essa é uma das melhoras funcionalidades do React Hook Form:
-            ao invés de importar componentes (como outras bibliotecas)
-            para utilizar esta funcionalidade, você pode utilizar o próprio
-            HTML. A chave está dentro do atributo <code>name</code>. 
-            No React Hook Form, o atributo{" "}
+            Essa é uma das melhoras funcionalidades do React Hook Form: ao invés
+            de importar componentes (como outras bibliotecas) para utilizar esta
+            funcionalidade, você pode utilizar o próprio HTML. A chave está
+            dentro do atributo <code>name</code>. No React Hook Form, o atributo{" "}
             <code>name</code> representa a estrutura do dado que quer usar.
           </p>
 
           <p>
-            O exemplo a seguir demonstra como você cria campos de array para manipular o campo de atributo <code>name</code>.
+            O exemplo a seguir demonstra como você cria campos de array para
+            manipular o campo de atributo <code>name</code>.
           </p>
 
           <p>
-            <Note>Nota:</Note> Se sua aplicação necessita de funcionalidades como: Delete, Insert, Append, Preprend. Aqui está{" "}
+            <Note>Nota:</Note> Se sua aplicação necessita de funcionalidades
+            como: Delete, Insert, Append, Preprend. Aqui está{" "}
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
@@ -1439,7 +1448,8 @@ export default {
           </p>
 
           <p>
-            <Note>注意：</Note> アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
+            <Note>注意：</Note>{" "}
+            アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
@@ -1533,13 +1543,15 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form suporta esquema baseado na validação do formulário com{" "}
+            React Hook Form suporta esquema baseado na validação do formulário
+            com{" "}
             <a href="https://github.com/jquense/yup" target="_blank">
               Yup
             </a>
             , aqui você utiliza o <code>validationSchema</code> para{" "}
-            <a href="/api#useForm">useForm</a> como configuração opcional. 
-            React Hook Form irá validar o campo com base no esquema e retornará com <a href="/api#errors">errors</a> ou um valor válido.
+            <a href="/api#useForm">useForm</a> como configuração opcional. React
+            Hook Form irá validar o campo com base no esquema e retornará com{" "}
+            <a href="/api#errors">errors</a> ou um valor válido.
           </p>
         </>
       ),
@@ -1552,8 +1564,8 @@ export default {
       ),
       step2: (
         <p>
-          <Note>Passo 2:</Note> Crie um esquema para validação e registre (register)
-           os campos com React Hook Form.
+          <Note>Passo 2:</Note> Crie um esquema para validação e registre
+          (register) os campos com React Hook Form.
         </p>
       ),
     },
@@ -1674,11 +1686,12 @@ export default {
         <p>
           Quando construimos formulário, as vezes nosso campo está presente
           muitos níveis abaixo da árvore do componente, e isso é quando o{" "}
-          <a href="/api#FormContext">FormContext</a> é muito útil.
-          Entretanto, podemos futuramente melhorar a experiência do desenvolvedor usando o componente{" "}
-          <code>ConnectForm</code> para alavancar o React{" "}
+          <a href="/api#FormContext">FormContext</a> é muito útil. Entretanto,
+          podemos futuramente melhorar a experiência do desenvolvedor usando o
+          componente <code>ConnectForm</code> para alavancar o React{" "}
           <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-          A vantagem desse componente é que você pode conectar seu campo com o React Hook Form de qualquer lugar.
+          A vantagem desse componente é que você pode conectar seu campo com o
+          React Hook Form de qualquer lugar.
         </p>
       ),
     },
@@ -1785,7 +1798,9 @@ export default {
       description: (
         <>
           <p>
-            Em termos de campos condicionais, React Hook Form faz o uso muito simples para nós, porque a partir do momento que você remove um campo a árvore de componente, irá receber o <code>unregister</code>{" "}
+            Em termos de campos condicionais, React Hook Form faz o uso muito
+            simples para nós, porque a partir do momento que você remove um
+            campo a árvore de componente, irá receber o <code>unregister</code>{" "}
             automaticamente,{" "}
             <a
               href="https://codesandbox.io/s/13ykqx4wx7"
@@ -1794,7 +1809,9 @@ export default {
             >
               aqui um exemplo
             </a>{" "}
-            por tal comportamento. Entretanto, este não é o mesmo caso do componente controlado, desde que o <code>ref</code> não foi registrado, e podemos fazer o seguinte:
+            por tal comportamento. Entretanto, este não é o mesmo caso do
+            componente controlado, desde que o <code>ref</code> não foi
+            registrado, e podemos fazer o seguinte:
           </p>
           <ul>
             <li>
@@ -1809,7 +1826,7 @@ export default {
                     useEffect
                   </a>
                 </code>{" "}
-                com um 'register' customizado 
+                com um 'register' customizado
               </p>
             </li>
             <li>
@@ -1822,7 +1839,8 @@ export default {
                 >
                   react-hook-form-input
                 </a>{" "}
-                para englobar seu componente e deixe-o gerenciar o 'register' e 'unregister'
+                para englobar seu componente e deixe-o gerenciar o 'register' e
+                'unregister'
               </p>
             </li>
           </ul>
@@ -1968,7 +1986,8 @@ export default {
       description: (
         <p>
           React Hook Form's{" "}
-          <PageLink to="/api/#FormContext">FormContext</PageLink> é construído sobre{" "}
+          <PageLink to="/api/#FormContext">FormContext</PageLink> é construído
+          sobre{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
@@ -1976,8 +1995,12 @@ export default {
           >
             React's Context API.
           </a>{" "}
-            Que resolve o problema em que os dados são passados pela árvore de componentes sem precisar passar a props manualmente em todos os níveis. 
-            Isso também faz com que a árvore de componentes acione uma nova renderização quando o React Hook Form acionar uma atualização de estado, mas ainda podemos otimizar nosso aplicativo, se necessário, através do exemplo a seguir.
+          Que resolve o problema em que os dados são passados pela árvore de
+          componentes sem precisar passar a props manualmente em todos os
+          níveis. Isso também faz com que a árvore de componentes acione uma
+          nova renderização quando o React Hook Form acionar uma atualização de
+          estado, mas ainda podemos otimizar nosso aplicativo, se necessário,
+          através do exemplo a seguir.
         </p>
       ),
     },
