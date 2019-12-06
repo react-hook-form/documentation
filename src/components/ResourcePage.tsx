@@ -131,9 +131,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3>
-                  Pain-Free Forms with React Hook Form
-                </h3>
+                <h3>Pain-Free Forms with React Hook Form</h3>
               </a>
 
               <p>
@@ -381,8 +379,44 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 <h3>React Hook Form - custom hook for forms validation.</h3>
               </a>
               <p>
+                <a
+                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bill Luo
+                </a>
+              </p>
+              <p>
                 In this video tutorial, I am demonstrating how you can use
                 react-hook-form to easily validate your forms.
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
+                href="https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  The best way to create forms in React
+                </h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/user/satansdeer1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Maksim Ivanov
+                </a>
+              </p>
+              <p>How to create forms in React.</p>
+              <p>
+                Right now the best way to create forms in React is to use React
+                Form Hook library.
               </p>
             </Article>
           </li>
