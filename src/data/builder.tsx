@@ -3,12 +3,14 @@ import * as React from "react"
 export default {
   title: {
     en: "Form Builder",
+    pt: "Construtor de Formulário",
     kr: "폼 빌더",
     jp: "Form Builder",
     zh: "表单生成器",
   },
   description: {
     en: "GUI for building forms with validation",
+    pt: "Interface para construção de formulários com validação",
     kr: "유효성 검사와 함께 폼을 구축하기 위한 GUI",
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
@@ -17,6 +19,10 @@ export default {
     en: {
       title: "Builder",
       description: "Build your own form with code and example.",
+    },
+    pt: {
+      title: "Construtor",
+      description: "Construa seu próprio formulário com código e exemplo.",
     },
     kr: {
       title: "빌더",
@@ -35,6 +41,10 @@ export default {
     en: {
       title: "Form Layout",
       message: "You can start adding fields with Input Creator.",
+    },
+    pt: {
+      title: "Layout do formulário",
+      message: "Você pode adicionar campos com o criador de inputs.",
     },
     kr: {
       title: "폼 레이아웃",
@@ -57,6 +67,14 @@ export default {
       options: "Options",
       validation: "Show validation",
       generate: "Generate Form",
+    },
+    pt: {
+      title: "Criador de Input",
+      description: `Este formulário permite você criar e atualizar o campo. Gerar o botão do formulário vai criar um nnovo formulário com as atualizações.`,
+      message: "Você pode adicionar campos com o criador de entradas.",
+      options: "Opções",
+      validation: "Exibir validação",
+      generate: "Gerar formulário",
     },
     kr: {
       title: "Input 생성기",
@@ -87,6 +105,10 @@ export default {
     en: {
       title: "Code",
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+    },
+    pt: {
+      title: "Código",
+      description: `Conforme você faz alterações no formulário, a seção de código será atualizada e você também poderá copiar o código.`,
     },
     kr: {
       title: "코드",

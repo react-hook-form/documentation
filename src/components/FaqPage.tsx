@@ -33,6 +33,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
       : { currentLanguage: defaultLang }
   const links = faq.questions[currentLanguage].map((item, index) => ({
     en: faq.questions.en[index],
+    pt: item,
     jp: item,
     zh: item,
     kr: item,

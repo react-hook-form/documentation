@@ -4,12 +4,14 @@ import { Note } from "../styles/typography"
 export default {
   title: {
     en: "Home",
+    pt: "Início",
     kr: "홈",
     jp: "ホーム",
     zh: "首页",
   },
   description: {
     en: "React hook for form validation without the hassle",
+    pt: "React hook para validação de formulário sem aborrecimento",
     kr: "번거로움 없이 폼 검증을 위한 React hook",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
@@ -17,6 +19,8 @@ export default {
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy-to-use validation.",
+    pt:
+      "Performático, flexível e formulário extensível, com fácil utilização e validação.",
     kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
@@ -24,12 +28,14 @@ export default {
   },
   getStarted: {
     en: "Get Started",
+    pt: "Comece Agora",
     kr: "시작하기",
     jp: "はじめる",
     zh: "起步",
   },
   demo: {
     en: "Demo",
+    pt: "Demonstração",
     kr: "데모",
     jp: "デモ",
     zh: "演示",
@@ -38,6 +44,10 @@ export default {
     en: {
       heading: "Find it useful and interesting?",
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+    },
+    pt: {
+      heading: "Achou útil e interessante?",
+      description: `Validação de formulário deveria ser simples. React Hook Form vai te guiar a escrever menos código com uma melhor performance. Confira a seção Comece Agora e aprenda mais sobre na página de documentação da API.`,
     },
     kr: {
       heading: "유용하고 흥미로운가요?",
@@ -73,6 +83,28 @@ export default {
       {
         title: "Adoptable",
         description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+      },
+    ],
+    pt: [
+      {
+        title: "Experiência do desenvolvedor",
+        description: `Intuitivo, API Completa de recursos, proporcionando experiência perfeita aos desenvolvedores ao criar formulários.`,
+      },
+      {
+        title: "HTML padrão",
+        description: `Aproveite o próprio HTML e valide seus formulários com nossa API baseada em restrinções.`,
+      },
+      {
+        title: "Super rápida",
+        description: `Performance é importante e tamanho do pacote importa. React Hook Form é uma pequena biblioteca sem nenhuma dependência.`,
+      },
+      {
+        title: "Performance",
+        description: `Minimize o número de renderizações e montagem rápida, se esforce em prover a melhor experiência do usuário.`,
+      },
+      {
+        title: "Adotável",
+        description: `Desde que o estado é inerentemente local, possibilita a fácil adoção, sem utilizar nenhuma outra dependência.`,
       },
     ],
     kr: [
@@ -161,6 +193,23 @@ export default {
         </>
       ),
     },
+    pt: {
+      title: "Comparação de código de bibliotecas",
+      description: (
+        <>
+          <p id="codeComparison">
+            Reduzindo o total de código que você tem que escrever, é um dos
+            objetivos principais do React Hook Form. Para ilustrar isso, vamos
+            ver um formulário simples de validação, entre alguns das principais
+            bibliotecas de validação de formulários.
+          </p>
+          <p style={{ fontSize: 14 }}>
+            <Note>⚠ Nota:</Note> Ambos, Formik e Redux-Form o código foi copiado
+            com base na documentação oficial.
+          </p>
+        </>
+      ),
+    },
     kr: {
       title: "라이브러리 코드 비교",
       description: (
@@ -186,7 +235,8 @@ export default {
             これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にシンプルなコードを見てみましょう。
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ 注意：</Note>下記の Formik と Redux-Form のコードは公式ドキュメントからコピーされています。
+            <Note>⚠ 注意：</Note>下記の Formik と Redux-Form
+            のコードは公式ドキュメントからコピーされています。
           </p>
         </>
       ),
@@ -212,6 +262,11 @@ export default {
       title: "Reduce Rendering",
       description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
       totalReRender: "Total re-renders:",
+    },
+    pt: {
+      title: "Reduza a renderização",
+      description: `Você já se questionou quantas vezes o componente é renderizado pelo usuário? React Hook Form abraça o uso de validação de formulários incontroláveis, para reduzir desnecessários impactos de performance.`,
+      totalReRender: "Total de re-renderizacão:",
     },
     kr: {
       title: "렌더링 최소화",
@@ -258,6 +313,34 @@ export default {
         </>
       ),
     },
+    pt: {
+      title: "Montagem rápida",
+      description: (
+        <p>
+          Os resultados a seguir demonstram quanto tempo levou para renderizar e
+          montar os componentes. Os resultados são capturados em uma CPU 6x mais
+          lenta no sistema, utilizando o Chrome Dev Tools. O código em execução
+          é da seção acima{" "}
+          <a href="#codeComparison">Biblioteca de comparação de código</a>.
+        </p>
+      ),
+      totalMount: "N. de montagem",
+      totalChange: "N. de mudanças commit(s)",
+      totalTime: "Tempo total",
+      performanceTests: (
+        <>
+          <span style={{ fontSize: 20 }}>⚠</span> Gostaria de ver mais testes de
+          performance intensos?{" "}
+          <a
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            rel="noopener noreferrer"
+          >
+            Observe o resultado de 1000 campos dentro de um formulário aqui
+          </a>
+          .
+        </>
+      ),
+    },
     kr: {
       title: "더욱 빠른 마운트 속도",
       description: (
@@ -291,8 +374,8 @@ export default {
       description: (
         <p>
           下記の結果は、コンポーネントのレンダリングにかかった時間を示しています。
-          Chrome DevTools の Performance タブを使用して、
-          CPU のパフォーマンスを6倍低速化させた環境での測定結果です。
+          Chrome DevTools の Performance タブを使用して、 CPU
+          のパフォーマンスを6倍低速化させた環境での測定結果です。
           実行コードは上記の
           <a href="#codeComparison">ライブラリのコード比較</a>
           セクションのものです。
@@ -360,6 +443,24 @@ export default {
       error: "Validation errors will appear here",
       touched: "Touched fields will display here",
     },
+    pt: {
+      title: "Demonstração real",
+      description: (
+        <>
+          O formulário a seguir demonstra a validação do formulário em ação.
+          Cada coluna representa o que foi capturado no hook personalizado. Você
+          também pode alterar os campos no formulário clicando no botão{" "}
+          <strong>Editar</strong>.
+        </>
+      ),
+      submit: "Enviar",
+      watchTitle: "Assistir",
+      errorTitle: "Erros",
+      touchedTitle: "Toques",
+      watch: "Altere o valor do campo para ver valores assistidos",
+      error: "Erros de validações irá aparecer aqui",
+      touched: "Campos tocados serão exibidos aqui",
+    },
     kr: {
       title: "라이브 데모",
       description: (
@@ -384,7 +485,8 @@ export default {
         <>
           下記のフォームは、実行中のフォームバリデーションを示しています。
           各列はカスタムフックに取り込まれた内容を表します。
-          <strong>編集</strong>ボタンをクリックしてフォームのフィールドを変更することもできます。
+          <strong>編集</strong>
+          ボタンをクリックしてフォームのフィールドを変更することもできます。
         </>
       ),
       submit: "フォームの送信",
