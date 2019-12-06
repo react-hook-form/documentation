@@ -14,6 +14,19 @@ export default {
     releases: "Releases",
     resources: "Resources",
   },
+  pt: {
+    home: "Início",
+    getStarted: "Comece agora",
+    advanced: "Avançado",
+    builder: (
+      <>
+        <span className="desktopOnly">Construa um&nbsp;</span>Formulário
+      </>
+    ),
+    faqs: "FAQs",
+    releases: "Lançamentos",
+    resources: "Recursos",
+  },
   kr: {
     home: "홈",
     getStarted: "시작하기",
