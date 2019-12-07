@@ -420,6 +420,28 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </Article>
           </li>
+          <li>
+            <Article>
+              <a
+                href="https://dev.to/bettercodingacademy/i-m-a-professional-react-developer-and-here-s-how-i-build-a-production-ready-react-node-js-app-using-typescript-and-graphql-ga8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  Build a production-ready React/Node.js app using TypeScript and GraphQL (React Hook Form).
+                </h3>
+              </a>
+              <p>
+                <a
+                  href="https://dev.to/bettercodingacademy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lucas Chen
+                </a>
+              </p>
+            </Article>
+          </li>
         </ContentList>
 
         <Footer currentLanguage={currentLanguage} />
