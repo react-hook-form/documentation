@@ -119,12 +119,12 @@ export default {
       ),
     },
     kr: {
-      title: "Controlled mixed with Uncontrolled",
+      title: "제어 폼과 비제어 폼의 조합",
       description: (
         <p>
-          React Hook Form embraces uncontrolled components and also compatible
-          with controlled component. Most of UI library is built to support only
-          controlled components, such as{" "}
+          React Hook Form 은 비제어 컴포넌트를 활용하고 있지만 제어 컴포넌트와도
+          함께 사용할 수 있습니다. 대부분의 UI 라이브러리들은 오로지 제어
+          컴포넌트만 지원하고 있습니다. 예를 들어{" "}
           <a
             href="https://github.com/mui-org/material-ui"
             target="_blank"
@@ -132,26 +132,27 @@ export default {
           >
             Material-UI
           </a>{" "}
-          and{" "}
+          나{" "}
           <a
             href="https://github.com/ant-design/ant-design"
             target="_blank"
             rel="noopener noreferrer"
           >
             Antd
-          </a>
-          . Good news is Material-UI is already considering to support
-          uncontrolled compoenents (React Hook Form), and you can help to{" "}
+          </a>{" "}
+          같은 라이브러리 말이죠. 다행히도 Material-UI 는 이미 비제어
+          컴포넌트(React Hook Form)를 지원하는 것을 고려하고 있으니,{" "}
           <a
             href="https://github.com/mui-org/material-ui/issues/18269"
             target="_blank"
             rel="noopener noreferrer"
           >
-            up vote this issue
-          </a>
-          . Besides, with React Hook Form controlled component's re-rendering is
-          also been optimized. Here is an example which we combined with
-          controlled and uncontrolled form validation.
+            이슈에 투표를 하여
+          </a>{" "}
+          우선순위를 올려 주실 수 있습니다. 게다가 React Hook Form 을 활용하면
+          제어 컴포넌트의 리랜더링 또한 최적화됩니다. 아래에 제어되는 폼과
+          비제어 폼이 결합된 상태에서 폼 유효성 검사흘 하는 예를 보실 수
+          있습니다.
         </p>
       ),
     },
