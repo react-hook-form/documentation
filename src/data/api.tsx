@@ -782,10 +782,9 @@ export default {
       description: (
         <>
           <p>
-            이 함수에서는 단일 입력 혹은 여러 입력들을 <code>unregister</code>{" "}
-            할 수 있습니다. This is useful when you register your input during{" "}
-            <code>useEffect</code> as custom register and to unregister it after
-            component unmount.
+            이 함수로 단일 입력 혹은 여러 입력들을 <code>unregister</code> 할 수
+            있습니다. 이 함수는 <code>useEffect</code> 로 입력을 등록한 뒤,
+            컴포넌트가 언마운트 되면서 등록을 해제하고자 할 때 유용합니다.
           </p>
           <p>
             <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼
@@ -1507,18 +1506,20 @@ export default {
         <>
           <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
           <p>
-            <Note>Note: </Note>The object itself is structured as flat (not
-            nested) which means you access errors directly with input name. eg:{" "}
+            <Note>참고: </Note>이 객체 자체는 평탄하게 구성되어
+            있습니다.(중첩되지 않음) 따라서 입력값의 이름을 바로 사용하여 에러
+            객체의 내용에 접근할 수 있습니다. 예를 들자면 아래와 같습니다.
           </p>
           <p>
             <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
           </p>
           <p>
-            we will consider to introduce nested error object once{" "}
+            우리는{" "}
             <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
               Optional chaining
             </a>{" "}
-            has better browser support.
+            을 지원하는 브라우저가 더 많아지면 중첩된 에러 객체를 제공하는 것을
+            고려할 예정입니다.
           </p>
           <p>
             <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
@@ -2027,7 +2028,7 @@ export default {
             <Note>참고:</Note> <code>React-Select</code> 와 같이{" "}
             <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
             <code onClick={() => goToSection("setValue")}>setValue</code>를 통해
-            수동으로 입력값을 재설정해주어야 합니다또는{" "}
+            수동으로 입력값을 재설정해주어야 합니다. 또는{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
@@ -2035,7 +2036,7 @@ export default {
             >
               React Hook Form Input
             </a>
-            을 사용하여 제어되는 구성 요소를 감쌀 수 있습니다..
+            을 사용하여 제어 컴포넌트를 감싸 처리할 수 있습니다.
           </p>
         </>
       ),
@@ -2326,25 +2327,25 @@ export default {
       description: (
         <>
           <p>
-            이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. At the
-            same time, it tries to avoid unnecessary re-render and only the
-            following conditions will trigger re-render.
+            이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. 그와
+            동시에, 아래의 조건이 충족할 때만 다시 랜더링되어 불필요한
+            리랜더링을 피하려 합니다.
           </p>
           <ul>
             <li>
-              <p>When value updates which triggers an error</p>
+              <p>값이 업데이트 되면서 에러를 일으킬 때</p>
             </li>
             <li>
-              <p>When value updates which corrects an error</p>
+              <p>값이 업데이트 되면서 에러를 바로잡을 때</p>
             </li>
             <li>
               <p>
-                First time invoked and trigger form to be <code>dirty</code>
+                맨 처음 실행되어 폼이 <code>dirty</code> 상태가 되도록 했을 때
               </p>
             </li>
             <li>
               <p>
-                Update formState <code>touched</code>
+                formState 를 <code>touched</code> 로 업데이트 했을 때
               </p>
             </li>
           </ul>
@@ -2998,9 +2999,7 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form embrace uncontrolled components and native inputs,
-            however it's hard to avoid working with external controlled
-            component such as{" "}
+            React Hook Form 은 비제어 컴포넌트와 네이티브 입력을 활용하지만{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -3016,27 +3015,27 @@ export default {
             >
               AntD
             </a>{" "}
-            and{" "}
+            혹은{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://material-ui.com/"
             >
               Material-UI
-            </a>
-            . This wrapper component will make your life easier to work with
-            them.
+            </a>{" "}
+            와 같은 제어 컴포넌트를 사용하는 외부 라이브러리와 조합하여 사용하는
+            것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와
+            쉽게 조합하여 사용할 수 있도록 도와주는 역할을 합니다.
           </p>
           <p>
-            You can read more at{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
               rel="noopener noreferrer"
             >
-              react-hook-form-input repo
-            </a>
-            .
+              react-hook-form-input 저장소
+            </a>{" "}
+            에서 더 자세한 정보를 확인하실 수 있습니다.
           </p>
         </>
       ),
@@ -3103,7 +3102,7 @@ export default {
         <>
           <p>
             <code>FormContext</code>으로 폼을 감싸면,{" "}
-            <code>useFormContext</code>:<TypeText>function</TypeText> 이 하위
+            <code>useFormContext</code>: <TypeText>function</TypeText> 이 하위
             컴포넌트에서 호출 될 수 있습니다.
           </p>
           <p>
