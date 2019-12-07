@@ -697,12 +697,11 @@ export default {
       ),
     },
     kr: {
-      title: "Controlled Input",
+      title: "제어되는 입력 필드",
       description: (
         <p>
-          React Hook Form embrace uncontrolled components and native HTML
-          inputs, however it's hard to avoid working with external controlled
-          component such as{" "}
+          React Hook Form 은 비제어 컴포넌트와 네이티브 HTML input을 활용합니다.
+          하지만{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -718,15 +717,17 @@ export default {
           >
             AntD
           </a>{" "}
-          and{" "}
+          그리고{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://material-ui.com/"
           >
             Material-UI
-          </a>
-          , hence we have built a wrapper component:{" "}
+          </a>{" "}
+          같이 외부 라이브러리에서 제공하는 제어 컴포넌트와 함께 사용해야 할
+          때가 있습니다. 그래서 이럴 때 사용하기 위해 감싸는 컴포넌트를
+          제공합니다.{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -734,8 +735,8 @@ export default {
           >
             React Hook Form Input
           </a>{" "}
-          to streamline the integration process while still giving you the
-          freedom to use custom register with your needs.
+          은 여전히 필요에 따라 인풋 필드를 커스텀 등록하는 방법을 제공하여 위의
+          외부 컴포넌트들과 쉽게 통합할 수 있습니다.
         </p>
       ),
     },
@@ -798,11 +799,11 @@ export default {
             rawData={`
 import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput 
-  as={<Select />} 
-  register={register} 
-  setValue={setValue} 
-  name="reactSelect" 
+<RHFInput
+  as={<Select />}
+  register={register}
+  setValue={setValue}
+  name="reactSelect"
 />
 `}
           />
@@ -894,11 +895,11 @@ import { RHFInput } from 'react-hook-form-input';
             rawData={`
 import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput 
-  as={<Select />} 
-  register={register} 
-  setValue={setValue} 
-  name="reactSelect" 
+<RHFInput
+  as={<Select />}
+  register={register}
+  setValue={setValue}
+  name="reactSelect"
 />
 `}
           />
@@ -1036,11 +1037,11 @@ import { RHFInput } from 'react-hook-form-input';
             rawData={`
 import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput 
-  as={<Select />} 
-  register={register} 
-  setValue={setValue} 
-  name="reactSelect" 
+<RHFInput
+  as={<Select />}
+  register={register}
+  setValue={setValue}
+  name="reactSelect"
 />
 `}
           />
