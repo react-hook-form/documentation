@@ -65,17 +65,7 @@ export default {
             rel="noopener noreferrer"
           >
             Antd
-          </a>
-          . Good news is Material-UI is already considering to support
-          uncontrolled compoenents (React Hook Form), and you can help to{" "}
-          <a
-            href="https://github.com/mui-org/material-ui/issues/18269"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            up vote this issue
-          </a>
-          . Besides, with React Hook Form controlled component's re-rendering is
+          </a> Besides, with React Hook Form controlled component's re-rendering is
           also been optimized. Here is an example which we combined with
           controlled and uncontrolled form validation.
         </p>
@@ -102,15 +92,6 @@ export default {
             rel="noopener noreferrer"
           >
             Antd
-          </a>
-          . Good news is Material-UI is already considering to support
-          uncontrolled compoenents (React Hook Form), and you can help to{" "}
-          <a
-            href="https://github.com/mui-org/material-ui/issues/18269"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            up vote this issue
           </a>
           . Besides, with React Hook Form controlled component's re-rendering is
           also been optimized. Here is an example which we combined with
@@ -178,15 +159,6 @@ export default {
           >
             Antd
           </a>
-          . Good news is Material-UI is already considering to support
-          uncontrolled compoenents (React Hook Form), and you can help to{" "}
-          <a
-            href="https://github.com/mui-org/material-ui/issues/18269"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            up vote this issue
-          </a>
           . Besides, with React Hook Form controlled component's re-rendering is
           also been optimized. Here is an example which we combined with
           controlled and uncontrolled form validation.
@@ -215,16 +187,7 @@ export default {
           >
             And
           </a>
-          。 好消息是Material-UI已经在考虑支持不受控制的组件（React Hook
-          Form），你可以
-          <a
-            href="https://github.com/mui-org/material-ui/issues/18269"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            帮助投票于这个问题
-          </a>
-          。 此外,我们也优化了受控组件的多次render.
+          。此外,我们也优化了受控组件的多次render.
           以下这是一个我们结合受控和不受控制的表单验证的例子。
         </p>
       ),

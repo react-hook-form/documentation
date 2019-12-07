@@ -761,15 +761,7 @@ export default {
             </code>
             . For example: Material-UI's <code>TextField</code> accepts{" "}
             <code>innerRef</code> as one of it's props. Simply pass{" "}
-            <code>register</code> to it. If you would like better support for
-            your favourite Material-UI component, please consider{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/mui-org/material-ui/issues/18269"
-            >
-              upvoting this issue.
-            </a>
+            <code>register</code> to it.
           </p>
           <p>
             <code>
@@ -857,15 +849,7 @@ import { RHFInput } from 'react-hook-form-input';
             </code>
             . Por exemplo: Material-UI's <code>TextField</code> aceita{" "}
             <code>innerRef</code> como props. Passando simplesmente{" "}
-            <code>register</code> para ele. Se você preferir o suporte de seu
-            componente favorito do Material-UI, por favor considere{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/mui-org/material-ui/issues/18269"
-            >
-              Votar nesta questão.
-            </a>
+            <code>register</code> para ele.
           </p>
           <p>
             <code>
@@ -935,6 +919,7 @@ import { RHFInput } from 'react-hook-form-input';
       ),
     },
     kr: {
+      // Todo: @ahn :) missing translation
       title: "UI 라이브러리에 적용하기",
       description: currentLanguage => (
         <>
@@ -996,17 +981,7 @@ import { RHFInput } from 'react-hook-form-input';
             を公開しているかどうかを確認することです。 例えば、Material-UI の{" "}
             <code>TextField</code> は、 props の1つとして <code>innerRef</code>{" "}
             を受け付けます。
-            <code>innerRef</code> に <code>register</code> を渡すだけです。
-            あなたのお気に入りの Material-UI
-            コンポーネントのための、より充実したサポートを期待する場合は、
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/mui-org/material-ui/issues/18269"
-            >
-              この Issue の賛成投票
-            </a>
-            を検討してください。
+            <code>innerRef</code> に <code>register</code> を渡すだけです
           </p>
           <p>
             <code>
