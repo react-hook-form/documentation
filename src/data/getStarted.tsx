@@ -919,7 +919,6 @@ import { RHFInput } from 'react-hook-form-input';
       ),
     },
     kr: {
-      // Todo: @ahn :) missing translation
       title: "UI 라이브러리에 적용하기",
       description: currentLanguage => (
         <>
@@ -928,27 +927,33 @@ import { RHFInput } from 'react-hook-form-input';
             있습니다.
           </p>
           <p>
-            <Note>참고:</Note> 대부분의 UI 라이브러리는 <code>innerRef</code> 나{" "}
-            <code>ref</code> 로{" "}
+            <Note>옵션 1: </Note>제일 좋은 방법은 사용하려는 컴포넌트가{" "}
+            <code>innerRef</code> 혹은 <code>ref</code> 를 드러내는지 확인하여,
+            사용할 수 있다면{" "}
             <code>
               <Link to={translateLink("api#register", currentLanguage)}>
                 register
               </Link>
-            </code>
-            를 할 수 있습니다. 하지만 <code>react-select</code> 나{" "}
-            <code>react-datepicker</code> 처럼 위와 같은 <code>ref</code> 를 쓸
-            수 없는 더 복잡한 컴포넌트를 다루려면 <code>useEffect</code> 안에서{" "}
-            <code>register</code> 를 하거나{" "}
-            <code>
-              <Link to={translateLink("api#setValue", currentLanguage)}>
-                setValue
-              </Link>
-            </code>
-            를 사용하여 값을 업데이트 할 수 있습니다.
+            </code>{" "}
+            로 등록하는 것입니다. 예를 들어 Material-UI 의{" "}
+            <code>TextField</code> 는 prop 중 하나로
+            <code>innerRef</code> 를 받습니다. 간단히 그 prop 에{" "}
+            <code>register</code> 를 전달하면 됩니다.
           </p>
           <p>
-            <Note>참고:</Note> 또한 사용자 정의 레지스터 프로세스를 처리하기
-            위해 래퍼 구성 요소 인{" "}
+            <code>
+              {
+                '<TextField inputRef={register} label="First name" name="FirstName"/>'
+              }
+            </code>
+          </p>
+          <p>
+            <Note>옵션 2: </Note>때때로 외부 컴포넌트는 등록을 위한 prop 을
+            지원하지 않을 수 있습니다. 예를 들어 <code>react-select</code> 나{" "}
+            <code>react-datepicker</code> 같은 라이브러리가 그렇습니다.
+          </p>
+          <p>
+            그 다음으로 쉬운 방법은{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -956,7 +961,47 @@ import { RHFInput } from 'react-hook-form-input';
             >
               React Hook Form Input
             </a>{" "}
-            을 만들었습니다.
+            래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀
+            등록 과정을 대신 처리해 줍니다.
+          </p>
+          <CodeArea
+            rawData={`
+import { RHFInput } from 'react-hook-form-input';
+
+<RHFInput
+  as={<Select />}
+  register={register}
+  setValue={setValue}
+  name="reactSelect"
+/>
+`}
+          />
+          <p>
+            <Note>참고: </Note>React Hook Form Input 은 아직 베타 단계입니다.{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
+            >
+              테스트를 도와주세요.
+            </a>
+          </p>
+          <p>
+            <Note>옵션 3:</Note>마지막으로 the{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://reactjs.org/docs/hooks-effect.html"
+            >
+              useEffect
+            </a>{" "}
+            훅을 사용하여 커스텀 등록을 하고,{" "}
+            <code>
+              <Link to={translateLink("api#setValue", currentLanguage)}>
+                setValue
+              </Link>
+            </code>{" "}
+            로 값을 업데이트 할 수 있습니다.
           </p>
         </>
       ),
