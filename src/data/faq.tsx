@@ -1120,30 +1120,30 @@ export default {
         ),
       },
       {
-        title: "Can it work with Controlled component?",
+        title: "제어 컴포넌트와 조합할 수 있나요?",
         description: (
           <>
             <p>
-              Short answer: <b>Yes</b>
+              짧게 말씀드리면 <b>할 수 있습니다.</b>
             </p>
             <p>
-              React-hook-form is not recommending you to build form controlled,
-              however you can still achieve that easily.
+              React-hook-form 은 사용자가 제어되는 폼을 만들도록 권장하진 않지만{" "}
+              제어 컴포넌트와 쉽게 조합할 수 있습니다.
             </p>
             <p>
-              The trick to using <code>watch</code> API to monitor each input's
-              change and assign to value prop.
+              그 방법은 <code>watch</code> API 를 사용하여 각 인풋 값의 변화를
+              관찰하고 value prop 에 할당하는 것입니다.
             </p>
             <p>
-              또는 래퍼 구성 요소 인{" "}
+              또는 감싸는 컴포넌트인{" "}
               <a
                 href="https://github.com/react-hook-form/react-hook-form-input"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 React Hook Form Input
-              </a>
-              을 사용하여 사용자 지정 레지스터를 관리 할 수 ​​있습니다.
+              </a>{" "}
+              을 사용하여 커스텀 레지스터를 관리 할 수 ​​있습니다.
             </p>
           </>
         ),
