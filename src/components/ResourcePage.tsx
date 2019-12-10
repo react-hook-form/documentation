@@ -169,6 +169,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://medium.com/the-existing/%E0%B8%97%E0%B8%B3-multi-step-forms-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-react-hook-form-%E0%B9%81%E0%B8%A5%E0%B8%B0-usecontext-b3c2137836e2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>ทำ Multi-Step Forms ด้วย React Hook Form และ useContext</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://medium.com/@jidapapattanang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jidapa Pattanang
+                </a>
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://velog.io/@iamchanii/react-hooks-form-%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4-54k0rrj6m7"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -400,9 +421,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3>
-                  The best way to create forms in React
-                </h3>
+                <h3>The best way to create forms in React</h3>
               </a>
               <p>
                 <a
