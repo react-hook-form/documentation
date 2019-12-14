@@ -761,7 +761,7 @@ export default {
               </Link>
             </code>
             . For example: Material-UI's <code>TextField</code> accepts{" "}
-            <code>innerRef</code> as one of it's props. Simply pass{" "}
+            <code>inputRef</code> as one of it's props. Simply pass{" "}
             <code>register</code> to it.
           </p>
           <p>
@@ -849,7 +849,7 @@ import { RHFInput } from 'react-hook-form-input';
               </Link>
             </code>
             . Por exemplo: Material-UI's <code>TextField</code> aceita{" "}
-            <code>innerRef</code> como props. Passando simplesmente{" "}
+            <code>inputRef</code> como props. Passando simplesmente{" "}
             <code>register</code> para ele.
           </p>
           <p>
@@ -938,7 +938,7 @@ import { RHFInput } from 'react-hook-form-input';
             </code>{" "}
             로 등록하는 것입니다. 예를 들어 Material-UI 의{" "}
             <code>TextField</code> 는 prop 중 하나로
-            <code>innerRef</code> 를 받습니다. 간단히 그 prop 에{" "}
+            <code>inputRef</code> 를 받습니다. 간단히 그 prop 에{" "}
             <code>register</code> 를 전달하면 됩니다.
           </p>
           <p>
