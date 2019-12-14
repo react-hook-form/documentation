@@ -6,7 +6,7 @@ const ErrorMessage = ({ errors, name, messages }) => {
   // const { errors } = useFormContext();
   if (!errors.name) return null;
 
-  return <p>{messages[errors.name].message}</p>;
+  return <p>{messages[errors[name]].message}</p>;
 };
 
 const messages = {
