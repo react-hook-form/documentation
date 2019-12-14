@@ -2903,17 +2903,16 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form embrace uncontrolled components and native inputs,
-            however it's hard to avoid working with external controlled
-            component such as{" "}
+            React Hook Form は、非制御コンポーネントとネイティブの input
+            をサポートしていますが、{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/JedWatson/react-select"
             >
               React-Select
-            </a>
-            ,{" "}
+            </a>{" "}
+            や{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -2921,7 +2920,7 @@ export default {
             >
               AntD
             </a>{" "}
-            and{" "}
+            、{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -2929,19 +2928,20 @@ export default {
             >
               Material-UI
             </a>
-            . This wrapper component will make your life easier to work with
-            them.
+            などの外部の制御された UI{" "}
+            コンポーネントライブラリと組み合わせての使用​​を避けることは難しいです。
+            このラッパーコンポーネントにより、制御されたコンポーネントと組み合わせて簡単に使用​​できるようになります。
           </p>
           <p>
-            You can read more at{" "}
+            詳しくは、{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form-input"
               target="_blank"
               rel="noopener noreferrer"
             >
-              react-hook-form-input repo
+              react-hook-form-input のリポジトリ
             </a>
-            .
+            をご覧ください。
           </p>
         </>
       ),
