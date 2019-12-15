@@ -485,7 +485,9 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate(translateLink("/?goToDemo&updated=true", currentLanguage))
+                    navigate(
+                      translateLink("/?goToDemo&updated=true", currentLanguage)
+                    )
                   }
                 }}
               >
