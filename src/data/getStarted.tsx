@@ -1025,9 +1025,9 @@ import { RHFInput } from 'react-hook-form-input';
             </code>{" "}
             に使用できる <code>innerRef</code> または <code>ref</code>{" "}
             を公開しているかどうかを確認することです。 例えば、Material-UI の{" "}
-            <code>TextField</code> は、 props の1つとして <code>innerRef</code>{" "}
+            <code>TextField</code> は、 props の1つとして <code>inputRef</code>{" "}
             を受け付けます。
-            <code>innerRef</code> に <code>register</code> を渡すだけです
+            <code>inputRef</code> に <code>register</code> を渡すだけです
           </p>
           <p>
             <code>
