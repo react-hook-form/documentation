@@ -65,7 +65,8 @@ export default {
             rel="noopener noreferrer"
           >
             Antd
-          </a> Besides, with React Hook Form controlled component's re-rendering is
+          </a>{" "}
+          Besides, with React Hook Form controlled component's re-rendering is
           also been optimized. Here is an example which we combined with
           controlled and uncontrolled form validation.
         </p>
@@ -138,12 +139,11 @@ export default {
       ),
     },
     jp: {
-      title: "Controlled mixed with Uncontrolled",
+      title: "制御されたコンポーネントと非制御コンポーネントの組み合わせ",
       description: (
         <p>
-          React Hook Form embraces uncontrolled components and also compatible
-          with controlled component. Most of UI library is built to support only
-          controlled components, such as{" "}
+          React Hook Form は、非制御コンポーネントをサポートしていますが、
+          制御されたコンポーネントとも互換性があります。{" "}
           <a
             href="https://github.com/mui-org/material-ui"
             target="_blank"
@@ -151,17 +151,19 @@ export default {
           >
             Material-UI
           </a>{" "}
-          and{" "}
+          や{" "}
           <a
             href="https://github.com/ant-design/ant-design"
             target="_blank"
             rel="noopener noreferrer"
           >
             Antd
-          </a>
-          . Besides, with React Hook Form controlled component's re-rendering is
-          also been optimized. Here is an example which we combined with
-          controlled and uncontrolled form validation.
+          </a>{" "}
+          などの UI ライブラリのほとんどは、
+          制御されたコンポーネントのみをサポートして構築されています。
+          さらに、React Hook Form{" "}
+          を使用することで制御されたコンポーネントの再レンダリングも最適化されます。
+          下記は、制御されたコンポーネントと非制御コンポーネントのフォームバリデーションを組み合わせた例です。
         </p>
       ),
     },
@@ -1842,7 +1844,7 @@ export default {
       ),
     },
     jp: {
-      title: "条件付き制御コンポーネント",
+      title: "条件付き制御されたコンポーネント",
       description: (
         <p>
           React Hook Form
@@ -1856,7 +1858,7 @@ export default {
           >
             こちらに例を示します
           </a>{" "}
-          。ただし、制御コンポーネントでは <code>ref</code>{" "}
+          。ただし、制御されたコンポーネントでは <code>ref</code>{" "}
           が登録されていないため、 同じように自動的に登録解除されません。
           このような場合、{" "}
           <code>
