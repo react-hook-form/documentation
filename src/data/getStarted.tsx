@@ -617,7 +617,7 @@ export default {
       title: "制御された Input",
       description: (
         <p>
-          React Hook Form は、非制御コンポーネントと HTML の input
+          React Hook Form は、非制御コンポーネントとネイティブ HTML input{" "}
           をサポートしますが、{" "}
           <a
             target="_blank"
