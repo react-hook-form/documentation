@@ -2903,7 +2903,7 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form は、非制御コンポーネントとネイティブの input
+            React Hook Form は、非制御コンポーネントとネイティブ HTML input{" "}
             をサポートしていますが、{" "}
             <a
               target="_blank"
