@@ -1846,32 +1846,55 @@ export default {
     jp: {
       title: "条件付き制御されたコンポーネント",
       description: (
-        <p>
-          React Hook Form
-          を使用すると、条件付きフィールドを非常にシンプルに扱えます。 input
-          がコンポーネントツリーから削除されると、自動的に{" "}
-          <code>unregister</code> されるからです。 そのような振る舞いの
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            こちらに例を示します
-          </a>{" "}
-          。ただし、制御されたコンポーネントでは <code>ref</code>{" "}
-          が登録されていないため、 同じように自動的に登録解除されません。
-          このような場合、{" "}
-          <code>
+        <>
+          <p>
+            React Hook Form
+            を使用すると、条件付きフィールドを非常にシンプルに扱えます。 input
+            がコンポーネントツリーから削除されると、自動的に{" "}
+            <code>unregister</code> されるからです。 そのような動作を
             <a
-              href="https://reactjs.org/docs/hooks-effect.html"
+              href="https://codesandbox.io/s/13ykqx4wx7"
               target="_blank"
               rel="noopener noreferrer"
             >
-              useEffect
-            </a>
-          </code>{" "}
-          を活用することができます。下記に例を示します：
-        </p>
+              こちらの例に示します
+            </a>{" "}
+            。ただし、制御されたコンポーネントでは <code>ref</code>{" "}
+            が登録されていないため、 同じように自動的に登録解除されません。
+            対処方法は下記の通りです。
+          </p>
+          <ul>
+            <li>
+              <p>
+                <code>
+                  <a
+                    href="https://reactjs.org/docs/hooks-effect.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    useEffect
+                  </a>
+                </code>{" "}
+                を使用して、カスタム登録として input を登録し、
+                コンポーネントのアンマウント後に登録を解除します
+              </p>
+            </li>
+            <li>
+              <p>
+                <a
+                  href="https://github.com/react-hook-form/react-hook-form-input"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  react-hook-form-input
+                </a>{" "}
+                をインポートしてコンポーネントをラップし、
+                登録および登録解除を管理できるようにします
+              </p>
+            </li>
+          </ul>
+          <p>下記に例を示します：</p>
+        </>
       ),
     },
     zh: {
