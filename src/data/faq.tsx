@@ -1487,30 +1487,32 @@ export default {
         ),
       },
       {
-        title: "Can it work with Controlled component?",
+        title:
+          "制御されたコンポーネントと組み合わせて使用することができますか？",
         description: (
           <>
             <p>
-              Short answer: <b>Yes</b>
+              短い回答： <b>Yes</b>
             </p>
             <p>
-              React-hook-form is not recommending you to build form controlled,
-              however you can still achieve that easily.
+              React Hook Form{" "}
+              は、制御されたフォームを構築することを推奨していませんが、
+              制御されたコンポーネントと組み合わせて簡単に構築することができます。
             </p>
             <p>
-              The trick to using <code>watch</code> API to monitor each input's
-              change and assign to value prop.
+              それは、<code>watch</code> API を使用して、各入力の変更を監視し、
+              value prop に割り当てるトリックです。
             </p>
             <p>
-              または、ラッパーコンポーネントの
+              または、ラッパーコンポーネントの{" "}
               <a
                 href="https://github.com/react-hook-form/react-hook-form-input"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 React Hook Form Input
-              </a>
-              を使用して、これらのカスタムレジスタを処理できます。
+              </a>{" "}
+              を使用して、これらのカスタム登録を処理できます。
             </p>
           </>
         ),
