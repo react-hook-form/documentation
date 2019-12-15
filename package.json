@@ -36,6 +36,8 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
     "prettier": "1.19.1"
   },
   "keywords": [
@@ -58,5 +60,16 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run format",
+      "git add"
+    ]
   }
 }

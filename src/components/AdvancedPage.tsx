@@ -23,7 +23,7 @@ import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
 import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
-import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput";
+import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
 
 const { useRef } = React
 
@@ -281,9 +281,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               rawData={controlledMixedUncontrolled}
               url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
             />
-            <CodeArea
-              rawData={controlledMixedUncontrolledInput}
-            />
+            <CodeArea rawData={controlledMixedUncontrolledInput} />
           </TabGroup>
 
           <StarRepo currentLanguage={currentLanguage} />

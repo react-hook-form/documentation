@@ -447,7 +447,8 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 rel="noopener noreferrer"
               >
                 <h3>
-                  Build a production-ready React/Node.js app using TypeScript and GraphQL (React Hook Form).
+                  Build a production-ready React/Node.js app using TypeScript
+                  and GraphQL (React Hook Form).
                 </h3>
               </a>
               <p>
@@ -469,7 +470,8 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 rel="noopener noreferrer"
               >
                 <h3>
-                  Does this library make Redux Form obsolete? | React Hook Form Tutorial | React Tutorials
+                  Does this library make Redux Form obsolete? | React Hook Form
+                  Tutorial | React Tutorials
                 </h3>
               </a>
               <p>

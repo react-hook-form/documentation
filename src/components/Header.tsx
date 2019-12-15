@@ -128,7 +128,7 @@ const ToggleGroup = styled.div`
     padding: 10px 25px;
     cursor: pointer;
     background: ${colors.lightPink};
-    
+
     &:hover {
       background: ${colors.secondary};
     }
@@ -141,7 +141,7 @@ const ToggleGroup = styled.div`
 
     &:disabled {
       cursor: default;
-    background: black;
+      background: black;
     }
 
     &:nth-child(2) {
