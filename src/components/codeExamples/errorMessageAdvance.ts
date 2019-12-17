@@ -4,7 +4,7 @@ import useForm, { useFormContext } from "react-hook-form";
 const ErrorMessage = ({ errors, name, messages }) => {
   // Note: if you are using FormContext, then you can use Errors without props eg:
   // const { errors } = useFormContext();
-  if (!errors.name) return null;
+  if (!errors[name]) return null;
 
   return <p>{messages[errors[name]].message}</p>;
 };
