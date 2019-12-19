@@ -173,6 +173,18 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
             rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`}
             withOutCopy
           />
+          <p>If you encounter: </p>
+          <blockquote>
+            {" "}
+            Object doesn't support property or method 'find'
+          </blockquote>
+          <p>
+            You should try to add this{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill">
+              find polyfill
+            </a>{" "}
+            to the top of your app.js
+          </p>
 
           <hr />
 
