@@ -14,7 +14,7 @@ export default function RHFInput({
     <>
       <CodeHeading>
         <h2>
-          RHFInput: <TypeText>Component</TypeText>
+          Controller: <TypeText>Component</TypeText>
         </h2>
       </CodeHeading>
 

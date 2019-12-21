@@ -1,5 +1,5 @@
 export default `import React from "react";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 export default function Form({ defaultValues, children, onSubmit }) {
   const methods = useForm({ defaultValues });

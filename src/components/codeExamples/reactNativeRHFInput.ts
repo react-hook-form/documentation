@@ -1,7 +1,6 @@
 export default `import React from "react"
 import { Text, View, TextInput, Button, Alert } from "react-native"
-import { RHFInput } from 'react-hook-form-input';
-import useForm from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 
 export default function App() {
   const { register, setValue, handleSubmit, errors } = useForm()
@@ -10,21 +9,19 @@ export default function App() {
   return (
     <View>
       <Text>First name</Text>
-      <RHFInput
+      <Controller
         as={<TextInput />}
+        control={control}
         name="firstName"
-        setValue={setValue} 
-        register={register}
         rules={{ required: true }}
       />
       {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
-      <RHFInput
+      <Controller
         as={<TextInput />}
+        control={control}
         name="lastName"
-        setValue={setValue} 
-        register={register}
       />
 
       <View>

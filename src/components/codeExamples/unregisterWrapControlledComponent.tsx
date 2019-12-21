@@ -1,10 +1,9 @@
 export default `import React, { useEffect } from "react";
-import { RHFInput } from 'react-hook-form-input";
-import useForm from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 function App() {
-  const { register, handleSubmit, setValue, watch } = useForm();
+  const { register, handleSubmit, setValue, watch, control } = useForm();
   const name = watch("name");
   const onSubmit = data => console.log(data);
 
@@ -19,11 +18,10 @@ function App() {
 
       <label>Conditional Field:</label>
       {name !== "bill" && (
-        <RHFInput
+        <Controller
           name="test" 
-          as={<TextField />} 
-          register={register} 
-          setValue={setValue}  
+          as={<TextField />}
+          control={control} 
         />
       )}
 

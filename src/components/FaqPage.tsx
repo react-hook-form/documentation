@@ -170,7 +170,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           {faq.questions[currentLanguage][7].description}
 
           <CodeArea
-            rawData={`import useForm from 'react-hook-form/dist/react-hook-form.ie11'`}
+            rawData={`import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'`}
             withOutCopy
           />
 

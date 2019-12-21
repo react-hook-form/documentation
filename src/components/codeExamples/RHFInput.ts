@@ -1,6 +1,5 @@
 export default `import React from 'react';
-import useForm from 'react-hook-form';
-import { RHFInput } from 'react-hook-form-input';
+import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 
 const options = [
@@ -10,16 +9,15 @@ const options = [
 ];
 
 function App() {
-  const { handleSubmit, register, setValue } = useForm();
+  const { handleSubmit, register, setValue, control } = useForm();
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
-      <RHFInput
+      <Controller
         as={<Select options={options} />}
+        control={control}
         rules={{ required: true }}
         name="reactSelect"
-        register={register}
-        setValue={setValue}
       />
       <button>submit</button>
     </form>

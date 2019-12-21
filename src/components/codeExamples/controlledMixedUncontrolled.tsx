@@ -1,6 +1,6 @@
 export default `import React, { useEffect } from "react";
 import { Input, Select, MenuItem } from "@material-ui/core";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const defaultValues = {
   select: "",

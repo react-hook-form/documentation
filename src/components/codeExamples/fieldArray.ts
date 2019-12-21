@@ -1,5 +1,5 @@
 export default `import React, { useState } from "react";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function createArrayWithNumbers(length) {
   return Array.from({ length }, (_, k) => k + 1);

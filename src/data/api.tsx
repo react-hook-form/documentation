@@ -2803,7 +2803,7 @@ export default {
   },
   RHFInput: {
     en: {
-      title: "RHFInput",
+      title: "Controller",
       description: (
         <>
           <p>
@@ -2836,22 +2836,11 @@ export default {
             . This wrapper component will make your life easier to work with
             them.
           </p>
-          <p>
-            You can read more at{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-hook-form-input repo
-            </a>
-            .
-          </p>
         </>
       ),
     },
     pt: {
-      title: "RHFInput",
+      title: "Controller",
       description: (
         <>
           <p>
@@ -2884,22 +2873,11 @@ export default {
             . Este componente irá fazer sua vida mais simples trabalhando com
             ele.
           </p>
-          <p>
-            Você ler mais em{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-hook-form-input repo
-            </a>
-            .
-          </p>
         </>
       ),
     },
     jp: {
-      title: "RHFInput",
+      title: "Controller",
       description: (
         <>
           <p>
@@ -2932,22 +2910,11 @@ export default {
             コンポーネントライブラリと組み合わせての使用​​を避けることは難しいです。
             このラッパーコンポーネントにより、制御されたコンポーネントと組み合わせて簡単に使用​​できるようになります。
           </p>
-          <p>
-            詳しくは、{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-hook-form-input のリポジトリ
-            </a>
-            をご覧ください。
-          </p>
         </>
       ),
     },
     zh: {
-      title: "RHFInput",
+      title: "Controller",
       description: (
         <>
           <p>
@@ -2980,22 +2947,11 @@ export default {
             . This wrapper component will make your life easier to work with
             them.
           </p>
-          <p>
-            You can read more at{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-hook-form-input repo
-            </a>
-            .
-          </p>
         </>
       ),
     },
     kr: {
-      title: "RHFInput",
+      title: "Controller",
       description: (
         <>
           <p>
@@ -3026,16 +2982,6 @@ export default {
             와 같은 제어 컴포넌트를 사용하는 외부 라이브러리와 조합하여 사용하는
             것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와
             쉽게 조합하여 사용할 수 있도록 도와주는 역할을 합니다.
-          </p>
-          <p>
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-hook-form-input 저장소
-            </a>{" "}
-            에서 더 자세한 정보를 확인하실 수 있습니다.
           </p>
         </>
       ),

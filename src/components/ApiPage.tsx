@@ -11,7 +11,6 @@ import {
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
 import Link from "../styles/link"
-import code from "./codeExamples/defaultExample"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
@@ -23,12 +22,10 @@ import setError from "./codeExamples/setError"
 import setValue from "./codeExamples/setValue"
 import { CenterContent, Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
-import typeScript from "./codeExamples/typeScript"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import nativeValidation from "./codeExamples/nativeValidation"
-import reactNative from "./codeExamples/reactNative"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
@@ -44,7 +41,6 @@ import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
-import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
 
 const { useRef, useEffect } = React
 
@@ -197,7 +193,6 @@ function ApiPage({
     api.formContext,
     api.RHFInput,
     api.validationSchema,
-    api.NativeValidation,
   ]
   const {
     state: { language },
@@ -801,24 +796,6 @@ function ApiPage({
           <CodeArea
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
-          />
-
-          <hr />
-
-          <CodeHeading
-            ref={ref => {
-              // @ts-ignore
-              apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
-            }}
-          >
-            <h2>Browser built-in validation</h2>
-          </CodeHeading>
-
-          {api.NativeValidation[currentLanguage].description}
-
-          <CodeArea
-            rawData={nativeValidation}
-            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
 
           <CenterContent style={{ marginTop: 40 }}>

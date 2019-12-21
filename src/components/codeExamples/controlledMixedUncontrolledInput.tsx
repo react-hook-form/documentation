@@ -1,7 +1,6 @@
 export default `import React, { useEffect } from "react";
-import { RHFInput } from 'react-hook-form-input';
 import { Input, Select, MenuItem } from "@material-ui/core";
-import useForm from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 const defaultValues = {
   select: "",
@@ -9,12 +8,12 @@ const defaultValues = {
 };
 
 function App() {
-  const { register, handleSubmit, setValue, reset, watch } = useForm({ defaultValues });
+  const { register, handleSubmit, setValue, reset, watch, control } = useForm({ defaultValues });
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput
+      <Controller
         as={
           <Select>
             <MenuItem value={10}>Ten</MenuItem>
@@ -22,8 +21,7 @@ function App() {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         }
-        setValue={setValue}
-        register={register}
+        control={control}
         name="select"
       />
       

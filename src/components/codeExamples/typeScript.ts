@@ -1,5 +1,5 @@
 export default `import * as React from "react";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 type FormData = {
   firstName: string;

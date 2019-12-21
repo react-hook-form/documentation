@@ -1,5 +1,5 @@
 export default `import React, { useEffect } from "react";
-import useForm from "./src";
+import { useForm } from "./src";
 
 const defaultValues = {
   firstName: "bill",
