@@ -130,15 +130,8 @@ export default {
             <Note>Note: </Note>React Native will need to use a manual register
             command:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code> or
-            using{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
-            to wrap and auto register your component. You can also read more at{" "}
+            using <Link to="/api#Controller">Controller</Link> to wrap and auto
+            register your component. You can also read more at{" "}
             <Link to="/api/#ReactNative">React Native</Link> section.
           </p>
         </>
@@ -166,17 +159,9 @@ export default {
             <Note>Nota: </Note>React Native vai precisar do uso manual do
             comando de registro:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code> or
-            usando{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
-            para englobar e registrar automaticamente seu componente. Você
-            também pode ler mais em{" "}
-            <Link to="/api/#ReactNative">React Native</Link> Seção.
+            usando <Link to="/api#Controller">Controller</Link> para englobar e
+            registrar automaticamente seu componente. Você também pode ler mais
+            em <Link to="/api/#ReactNative">React Native</Link> Seção.
           </p>
         </>
       ),
@@ -204,15 +189,8 @@ export default {
             <Note>참고:</Note> React Native 는 수동으로 register 커맨드를
             입력해야 합니다. (예:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
-            또는{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>
-            을 사용하여 구성 요소를 래핑합니다.
+            또는 <Link to="/api#Controller">Controller</Link>을 사용하여 구성
+            요소를 래핑합니다.
             <Link to="/api/#ReactNative">React Native</Link> 섹션에서 더 많은
             내용을 읽을 수도 있습니다.
           </p>
@@ -249,13 +227,7 @@ export default {
             <code>register</code>) する必要があります。 (例：{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
             または、
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>
+            <Link to="/api#Controller">Controller</Link>
             を使用してコンポーネントをラップします。
             <Link to="/api/#ReactNative">React Native</Link>
             セクションで詳細を読むこともできます。
@@ -282,13 +254,7 @@ export default {
             <Note>注意：</Note>React Native 将需要使用手动注册 (例子如下:{" "}
             <code>{`register({ name: 'test' }, { required: true })`}</code>
             或使用
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>
+            <Link to="/api#Controller">Controller</Link>
             来包装您的组件。您还可以在
             <Link to="/api/#ReactNative">React Native</Link>部分阅读更多内容。
           </p>
@@ -563,7 +529,7 @@ export default {
             rel="noopener noreferrer"
             href="https://github.com/react-hook-form/react-hook-form-input"
           >
-            React Hook Form Input
+            Controller
           </a>{" "}
           to streamline the integration process while still giving you the
           freedom to use custom register with your needs.
@@ -606,7 +572,7 @@ export default {
             rel="noopener noreferrer"
             href="https://github.com/react-hook-form/react-hook-form-input"
           >
-            React Hook Form Input
+            Controller
           </a>{" "}
           para agilizar o processo de integração e ainda oferecer a você
           liberdade de usar o registro personalizado com suas necessidades.
@@ -650,7 +616,7 @@ export default {
             rel="noopener noreferrer"
             href="https://github.com/react-hook-form/react-hook-form-input"
           >
-            React Hook Form Input
+            Controller
           </a>{" "}
           は、必要に応じてカスタム登録を自由に使用できると同時に、統合プロセスを簡素化します。
         </p>
@@ -691,7 +657,7 @@ export default {
             rel="noopener noreferrer"
             href="https://github.com/react-hook-form/react-hook-form-input"
           >
-            React Hook Form Input
+            Controller
           </a>{" "}
           来简化集成过程，同时仍然可以自由地使用自定义register满足您的需求。
         </p>
@@ -734,7 +700,7 @@ export default {
             rel="noopener noreferrer"
             href="https://github.com/react-hook-form/react-hook-form-input"
           >
-            React Hook Form Input
+            Controller
           </a>{" "}
           은 여전히 필요에 따라 인풋 필드를 커스텀 등록하는 방법을 제공하여 위의
           외부 컴포넌트들과 쉽게 통합할 수 있습니다.
@@ -778,15 +744,8 @@ export default {
           </p>
           <p>
             The next easiest way is to use the{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
-            wrapper component, which will take care of the custom register
-            process for you.
+            <Link to="/api#Controller">Controller</Link> wrapper component,
+            which will take care of the custom register process for you.
           </p>
           <CodeArea
             rawData={`
@@ -800,16 +759,6 @@ import { RHFInput } from 'react-hook-form-input';
 />
 `}
           />
-          <p>
-            <Note>Note:</Note> React Hook Form Input is in beta.{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
-            >
-              Please help test it.
-            </a>
-          </p>
           <p>
             <Note>Option 3:</Note> Lastly we can set up a custom register using
             the{" "}
@@ -866,15 +815,9 @@ import { RHFInput } from 'react-hook-form-input';
           </p>
           <p>
             A forma mais fácil de usar é{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
-            utilizar um componente por volta, que irá tomar conta de registrar
-            customizadamente o processo para você.
+            <Link to="/api#Controller">Controller</Link> utilizar um componente
+            por volta, que irá tomar conta de registrar customizadamente o
+            processo para você.
           </p>
           <CodeArea
             rawData={`
@@ -888,16 +831,6 @@ import { RHFInput } from 'react-hook-form-input';
 />
 `}
           />
-          <p>
-            <Note>Nota:</Note> React Hook Form Input está em beta.{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
-            >
-              Por favor, ajude a testar.
-            </a>
-          </p>
           <p>
             <Note>Opção 3:</Note> Por último, podemos setar um registro
             customizado usando{" "}
@@ -954,14 +887,7 @@ import { RHFInput } from 'react-hook-form-input';
             <code>react-datepicker</code> 같은 라이브러리가 그렇습니다.
           </p>
           <p>
-            그 다음으로 쉬운 방법은{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
+            그 다음으로 쉬운 방법은 <Link to="/api#Controller">Controller</Link>{" "}
             래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀
             등록 과정을 대신 처리해 줍니다.
           </p>
@@ -977,16 +903,6 @@ import { RHFInput } from 'react-hook-form-input';
 />
 `}
           />
-          <p>
-            <Note>참고: </Note>React Hook Form Input 은 아직 베타 단계입니다.{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
-            >
-              테스트를 도와주세요.
-            </a>
-          </p>
           <p>
             <Note>옵션 3:</Note>마지막으로 the{" "}
             <a
@@ -1044,14 +960,7 @@ import { RHFInput } from 'react-hook-form-input';
           </p>
           <p>
             次に簡単な方法は、ラッパーコンポーネントである{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>{" "}
-            を使用することです。
+            <Link to="/api#Controller">Controller</Link> を使用することです。
             このコンポーネントはカスタム登録処理を行います。
           </p>
           <CodeArea
@@ -1066,16 +975,6 @@ import { RHFInput } from 'react-hook-form-input';
 />
 `}
           />
-          <p>
-            <Note>注意：</Note> React Hook Form Input はベータ版です。
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://spectrum.chat/react-hook-form/general/react-hook-form-input~54322d3e-5400-4755-972b-cb1c3d911ff6"
-            >
-              テストに協力して下さい。
-            </a>
-          </p>
           <p>
             <Note>オプション3：</Note> 最後に{" "}
             <a
@@ -1124,13 +1023,7 @@ import { RHFInput } from 'react-hook-form-input';
           <p>
             <Note>注意:</Note>
             我们还制作了一个包装器组件
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/react-hook-form/react-hook-form-input"
-            >
-              React Hook Form Input
-            </a>
+            <Link to="/api#Controller">Controller</Link>
             ，以帮助您的自定义注册表格过程。
           </p>
         </>

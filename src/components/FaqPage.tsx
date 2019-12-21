@@ -19,7 +19,7 @@ import faq from "../data/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
-import controlledRHFInput from "./codeExamples/controlledRHFInput"
+import controlledRHFInput from "./codeExamples/control"
 
 const { useRef } = React
 

@@ -1,14 +1,9 @@
-export default `import React, { useEffect } from "react";
+export default `import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 function App() {
-  const { register, setValue, handleSubmit } = useForm({
-    defaultValues: {
-      firstName: "",
-      lastName: ""
-    }
-  });
+  const { register, setValue, handleSubmit } = useForm();
 
   const onSubmit = data => {
     console.log(data);
@@ -22,11 +17,6 @@ function App() {
         control={control}
       />
       
-      <Controller
-        as={<TextField />}
-        name="lastName"
-        control={control}
-      />
       <input type="submit" />
     </form>
   );

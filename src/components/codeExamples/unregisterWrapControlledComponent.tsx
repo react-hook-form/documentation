@@ -7,11 +7,8 @@ function App() {
   const name = watch("name");
   const onSubmit = data => console.log(data);
 
-
-  // React Hook Form Input will take care controlled component's register and unregister
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Unregister Controlled Component</h1>
 
       <label>Name:</label>
       <input ref={register} name="name" />

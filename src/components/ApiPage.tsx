@@ -40,6 +40,7 @@ import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
+import control from "./codeExamples/control"
 
 const { useRef, useEffect } = React
 
@@ -188,6 +189,7 @@ function ApiPage({
     api.setValue,
     api.getValues,
     api.triggerValidation,
+    api.control,
     api.formState,
     api.formContext,
     api.Controller,
@@ -214,6 +216,7 @@ function ApiPage({
     ValidationSchemaRef: null,
     handleSubmitRef: null,
     getValuesRef: null,
+    controlRef: null,
     TypeScriptRef: null,
     clearErrorRef: null,
     triggerValidationRef: null,
@@ -753,6 +756,22 @@ function ApiPage({
             rawData={trigger}
             url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
           />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.controlRef = ref
+            }}
+          >
+            <h2>
+              control: <TypeText>Object</TypeText>
+            </h2>
+          </CodeHeading>
+          {api.control[currentLanguage].description}
+
+          <CodeArea rawData={control} />
 
           <hr />
 
