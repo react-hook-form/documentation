@@ -188,13 +188,10 @@ const Faq = ({
 
           {getStarted.workWithUI[currentLanguage].description(currentLanguage)}
 
-          <TabGroup buttonLabels={["Custom register", "React Hook Form Input"]}>
-            <CodeArea
-              rawData={uiLibrary}
-              url="https://codesandbox.io/s/72j69vnk1x"
-            />
-            <CodeArea rawData={uiLibraryHookInput} />
-          </TabGroup>
+          <CodeArea
+            rawData={uiLibrary}
+            url="https://codesandbox.io/s/72j69vnk1x"
+          />
 
           <Title
             ref={ref => {
@@ -245,16 +242,16 @@ const Faq = ({
 
           {getStarted.reactNative[currentLanguage].description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
-            <CodeArea
-              isExpo
-              rawData={reactNative}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form"
-            />
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
             <CodeArea
               isExpo
               rawData={reactNativeRHFInput}
               url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
+            />
+            <CodeArea
+              isExpo
+              rawData={reactNative}
+              url="https://snack.expo.io/@bluebill1049/react-hook-form"
             />
           </TabGroup>
 

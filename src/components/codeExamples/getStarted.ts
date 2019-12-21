@@ -94,38 +94,35 @@ export default function App() {
 `
 
 export const uiLibraryHookInput = `import React from 'react';
-import { useForm } from 'react-hook-form';
-import { RHFInput } from 'react-hook-form-input';
+import { useForm, Controller } from 'react-hook-form';
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from 'antd';
 
 export default function App() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput 
+      <Controller 
         as={<Input />} 
-        register={register} 
-        setValue={setValue} 
-        name="HelloWorld" 
+        name="HelloWorld"
+        control={control} 
       />
         
-      <RHFInput 
+      <Controller 
         as={<InputField />} 
-        register={register} 
-        setValue={setValue} 
-        name="AntdInput" 
+        name="AntdInput"
+        control={control} 
       />
         
-      <RHFInput 
+      <Controller 
         as={<Select />} 
-        register={register} 
-        setValue={setValue} 
-        name="reactSelect" 
+        name="reactSelect"
+        control={control} 
       />
+      
       <input type="submit" />
     </form>
   );
@@ -133,40 +130,35 @@ export default function App() {
 `
 
 export const controlledComponent = `import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
-import { RHFInput } from "react-hook-form-input";
 
 function App() {
   const methods = useForm();
-  const { handleSubmit, register, setValue, reset } = methods;
+  const { handleSubmit, control, reset } = methods;
   const onSubmit = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput
+      <Controller
         as={<Checkbox />}
         name="Checkbox"
-        type="checkbox"
         value="test"
-        register={register}
-        setValue={setValue}
+        control={control}
       />
 
-      <RHFInput
+      <Controller
         as={<TextField />}
         name="TextField"
-        register={register}
-        setValue={setValue}
+        control={control}
       />
       
-      <RHFInput
+      <Controller
         as={<ReactSelect />}
         options={options}
         name="ReactSelect"
-        register={register}
-        setValue={setValue}
+        control={control}
       />
 
       <button>Submit</button>

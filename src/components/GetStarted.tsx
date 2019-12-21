@@ -7,7 +7,6 @@ import breakpoints from "../styles/breakpoints"
 import getStarted from "../data/getStarted"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
-import generateCode from "./logic/generateCode"
 
 export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;

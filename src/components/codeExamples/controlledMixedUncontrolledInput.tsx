@@ -8,7 +8,7 @@ const defaultValues = {
 };
 
 function App() {
-  const { register, handleSubmit, setValue, reset, watch, control } = useForm({ defaultValues });
+  const { handleSubmit, reset, watch, control } = useForm({ defaultValues });
   const onSubmit = data => console.log(data);
 
   return (

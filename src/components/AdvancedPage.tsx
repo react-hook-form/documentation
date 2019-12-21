@@ -253,12 +253,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           {advanced.conditionalControlledComponent[currentLanguage].description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={unregisterWrapControlledComponent} />
             <CodeArea
               rawData={unregisterControlledComponent}
               url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
             />
-            <CodeArea rawData={unregisterWrapControlledComponent} />
           </TabGroup>
 
           <hr />
@@ -276,12 +276,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               .description
           }
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={controlledMixedUncontrolledInput} />
             <CodeArea
               rawData={controlledMixedUncontrolled}
               url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
             />
-            <CodeArea rawData={controlledMixedUncontrolledInput} />
           </TabGroup>
 
           <StarRepo currentLanguage={currentLanguage} />

@@ -4,6 +4,8 @@ import { Note } from "../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../components/logic/translateLink"
 import CodeArea from "../components/CodeArea"
+import { uiLibraryHookInput } from "../components/codeExamples/getStarted"
+import TabGroup from "../components/TabGroup"
 
 export default {
   title: {
@@ -747,18 +749,7 @@ export default {
             <Link to="/api#Controller">Controller</Link> wrapper component,
             which will take care of the custom register process for you.
           </p>
-          <CodeArea
-            rawData={`
-import { RHFInput } from 'react-hook-form-input';
-
-<RHFInput
-  as={<Select />}
-  register={register}
-  setValue={setValue}
-  name="reactSelect"
-/>
-`}
-          />
+          <CodeArea rawData={uiLibraryHookInput} />
           <p>
             <Note>Option 3:</Note> Lastly we can set up a custom register using
             the{" "}
@@ -819,18 +810,8 @@ import { RHFInput } from 'react-hook-form-input';
             por volta, que irá tomar conta de registrar customizadamente o
             processo para você.
           </p>
-          <CodeArea
-            rawData={`
-import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput
-  as={<Select />}
-  register={register}
-  setValue={setValue}
-  name="reactSelect"
-/>
-`}
-          />
+          <CodeArea rawData={uiLibraryHookInput} />
           <p>
             <Note>Opção 3:</Note> Por último, podemos setar um registro
             customizado usando{" "}
@@ -891,18 +872,8 @@ import { RHFInput } from 'react-hook-form-input';
             래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀
             등록 과정을 대신 처리해 줍니다.
           </p>
-          <CodeArea
-            rawData={`
-import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput
-  as={<Select />}
-  register={register}
-  setValue={setValue}
-  name="reactSelect"
-/>
-`}
-          />
+          <CodeArea rawData={uiLibraryHookInput} />
           <p>
             <Note>옵션 3:</Note>마지막으로 the{" "}
             <a
@@ -963,18 +934,8 @@ import { RHFInput } from 'react-hook-form-input';
             <Link to="/api#Controller">Controller</Link> を使用することです。
             このコンポーネントはカスタム登録処理を行います。
           </p>
-          <CodeArea
-            rawData={`
-import { RHFInput } from 'react-hook-form-input';
 
-<RHFInput
-  as={<Select />}
-  register={register}
-  setValue={setValue}
-  name="reactSelect"
-/>
-`}
-          />
+          <CodeArea rawData={uiLibraryHookInput} />
           <p>
             <Note>オプション3：</Note> 最後に{" "}
             <a

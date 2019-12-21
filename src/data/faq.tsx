@@ -2,6 +2,7 @@ import * as React from "react"
 import { Note } from "../styles/typography"
 import { Table, TableWrapper } from "../components/ApiPage"
 import colors from "../styles/colors"
+import { Link } from "gatsby"
 
 export default {
   title: {

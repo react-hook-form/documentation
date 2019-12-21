@@ -1301,15 +1301,7 @@ export default {
             >
               link for such implementation.
             </a>{" "}
-            with{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
-            .
+            with <PageLink to={"/api#Controller"}>Controller</PageLink>.
           </p>
         </>
       ),
@@ -1341,15 +1333,7 @@ export default {
             >
               link para esta implementação.
             </a>{" "}
-            com{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
-            .
+            com <PageLink to={"/api#Controller"}>Controller</PageLink>.
           </p>
         </>
       ),
@@ -1382,15 +1366,7 @@ export default {
             >
               link for such implementation.
             </a>{" "}
-            with{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
-            .
+            with <PageLink to={"/api#Controller"}>Controller</PageLink>.
           </p>
         </>
       ),
@@ -1416,14 +1392,7 @@ export default {
           <p>
             <Note>注意：</Note>{" "}
             アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
-            を使用した
+            <PageLink to={"/api#Controller"}>Controller</PageLink> を使用した
             <a
               href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
@@ -1453,21 +1422,14 @@ export default {
             <Note>注意:</Note>
             如果您的应用程序需要功能，例如：删除，插入，追加，前置。 这里是这种
             <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
+              href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
               target="_blank"
               rel="noreferrer noopener"
             >
               实现的链接
             </a>
             混合了
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
-            。
+            <PageLink to={"/api#Controller"}>Controller</PageLink>。
           </p>
         </>
       ),
@@ -1728,6 +1690,12 @@ export default {
           <ul>
             <li>
               <p>
+                Import <Link to="/api#Controller">Controller</Link> to wrap your
+                component and let it manage register and unregister
+              </p>
+            </li>
+            <li>
+              <p>
                 Leverage the use of{" "}
                 <code>
                   <a
@@ -1739,19 +1707,6 @@ export default {
                   </a>
                 </code>{" "}
                 with custom register
-              </p>
-            </li>
-            <li>
-              <p>
-                Import{" "}
-                <a
-                  href="https://github.com/react-hook-form/react-hook-form-input"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  react-hook-form-input
-                </a>{" "}
-                to wrap your component and let it manage register and unregister
               </p>
             </li>
           </ul>
@@ -1782,6 +1737,13 @@ export default {
           <ul>
             <li>
               <p>
+                Importe <Link to="/api#Controller">Controller</Link> para
+                englobar seu componente e deixe-o gerenciar o 'register' e
+                'unregister'
+              </p>
+            </li>
+            <li>
+              <p>
                 Fazer o uso do{" "}
                 <code>
                   <a
@@ -1795,20 +1757,6 @@ export default {
                 com um 'register' customizado
               </p>
             </li>
-            <li>
-              <p>
-                Importe{" "}
-                <a
-                  href="https://github.com/react-hook-form/react-hook-form-input"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  react-hook-form-input
-                </a>{" "}
-                para englobar seu componente e deixe-o gerenciar o 'register' e
-                'unregister'
-              </p>
-            </li>
           </ul>
           <p> Aqui está os exemplos:</p>
         </>
@@ -1816,6 +1764,7 @@ export default {
     },
     kr: {
       title: "조건부 제어 컴포넌트",
+      // Todo: missing korean translation
       description: (
         <p>
           React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다.
@@ -1866,6 +1815,13 @@ export default {
           <ul>
             <li>
               <p>
+                <Link to="/api#Controller">Controller</Link>{" "}
+                をインポートしてコンポーネントをラップし、
+                登録および登録解除を管理できるようにします
+              </p>
+            </li>
+            <li>
+              <p>
                 <code>
                   <a
                     href="https://reactjs.org/docs/hooks-effect.html"
@@ -1877,19 +1833,6 @@ export default {
                 </code>{" "}
                 を使用して、カスタム登録として input を登録し、
                 コンポーネントのアンマウント後に登録を解除します
-              </p>
-            </li>
-            <li>
-              <p>
-                <a
-                  href="https://github.com/react-hook-form/react-hook-form-input"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  react-hook-form-input
-                </a>{" "}
-                をインポートしてコンポーネントをラップし、
-                登録および登録解除を管理できるようにします
               </p>
             </li>
           </ul>
@@ -1932,13 +1875,7 @@ export default {
             <li>
               <p>
                 使用
-                <a
-                  href="https://github.com/react-hook-form/react-hook-form-input"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  react-hook-form-input
-                </a>
+                <Link to="/api#Controller">Controller</Link>
                 来包裹您的受控组件从而做到自动注册于取消注册功能
               </p>
             </li>
