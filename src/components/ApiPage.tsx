@@ -25,7 +25,6 @@ import getValues from "./codeExamples/getValues"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
-import nativeValidation from "./codeExamples/nativeValidation"
 import unregisterCode from "./codeExamples/unregisterCode"
 import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
@@ -191,7 +190,7 @@ function ApiPage({
     api.triggerValidation,
     api.formState,
     api.formContext,
-    api.RHFInput,
+    api.Controller,
     api.validationSchema,
   ]
   const {
@@ -219,7 +218,7 @@ function ApiPage({
     clearErrorRef: null,
     triggerValidationRef: null,
     FormContextRef: null,
-    RHFInputRef: null,
+    ControllerRef: null,
     BrowserbuiltinvalidationRef: null,
     ReactNativeRef: null,
   })
@@ -774,7 +773,7 @@ function ApiPage({
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.RHFInputRef = ref)}>
+          <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
             <RHFInput currentLanguage={currentLanguage} />
           </section>
 

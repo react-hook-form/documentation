@@ -2801,7 +2801,7 @@ export default {
       ),
     },
   },
-  RHFInput: {
+  Controller: {
     en: {
       title: "Controller",
       description: (
