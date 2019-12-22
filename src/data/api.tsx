@@ -894,8 +894,10 @@ export default {
             <p>
               By using a custom register call, you will need to update the input
               value with{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>,
-              because input is no longer registered with its ref.
+              <CodeAsLink onClick={() => goToSection("setValue")}>
+                setValue
+              </CodeAsLink>
+              , because input is no longer registered with its ref.
             </p>
 
             <p>
@@ -993,8 +995,10 @@ export default {
             <p>
               Usando uma chamada de registro personalizada, você precisará
               atualizar a entrada valor com{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>,
-              porque o campo não está mais registrado como o ref.
+              <CodeAsLink onClick={() => goToSection("setValue")}>
+                setValue
+              </CodeAsLink>
+              , porque o campo não está mais registrado como o ref.
             </p>
 
             <p>
@@ -1089,8 +1093,10 @@ export default {
             <p>
               Custome register를 사용하면, 입력은 더이상 ref로 등록되지
               않으므로,{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code> 을
-              통해 입력 값을 업데이트해 주어야 합니다.
+              <CodeAsLink onClick={() => goToSection("setValue")}>
+                setValue
+              </CodeAsLink>{" "}
+              을 통해 입력 값을 업데이트해 주어야 합니다.
             </p>
 
             <p>
@@ -1186,7 +1192,9 @@ export default {
 
             <p>
               カスタム登録を使用すると、 input の ref は登録されていないため、{" "}
-              <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
+              <CodeAsLink onClick={() => goToSection("setValue")}>
+                setValue
+              </CodeAsLink>{" "}
               で入力値を更新する必要があります。
             </p>
 
@@ -1277,7 +1285,9 @@ export default {
 
             <p>
               通过使用自定义注册时，您将需要使用
-              <code onClick={() => goToSection("setValue")}>setValue</code>
+              <CodeAsLink onClick={() => goToSection("setValue")}>
+                setValue
+              </CodeAsLink>
               来更新输入值，因为输入注册没有<code>ref</code>。
             </p>
 
@@ -1974,15 +1984,13 @@ export default {
             <Note>Note:</Note> For controlled components like{" "}
             <code>React-Select</code> which don't expose <code>ref</code>, you
             will have to reset the input value manually through{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code> or
-            using{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>{" "}
+            or using{" "}
+            <CodeAsLink onClick={() => goToSection("Controller")}>
+              Controller
+            </CodeAsLink>{" "}
             to wrap around your controlled component.
           </p>
         </>
@@ -2001,15 +2009,13 @@ export default {
             <Note>Nota:</Note> Para componentes controlados como{" "}
             <code>React-Select</code> que não expõe <code>ref</code>, você irá
             precisar resetar o campo manualmente através{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code> ou
-            usando{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>{" "}
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>{" "}
+            ou usando{" "}
+            <CodeAsLink onClick={() => goToSection("Controller")}>
+              Controller
+            </CodeAsLink>{" "}
             para encapsular seu componente controlado.
           </p>
         </>
@@ -2027,15 +2033,13 @@ export default {
           <p>
             <Note>참고:</Note> <code>React-Select</code> 와 같이{" "}
             <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
-            <code onClick={() => goToSection("setValue")}>setValue</code>를 통해
-            수동으로 입력값을 재설정해주어야 합니다. 또는{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>
+            를 통해 수동으로 입력값을 재설정해주어야 합니다. 또는{" "}
+            <CodeAsLink onClick={() => goToSection("Controller")}>
+              Controller
+            </CodeAsLink>
             을 사용하여 제어 컴포넌트를 감싸 처리할 수 있습니다.
           </p>
         </>
@@ -2054,15 +2058,13 @@ export default {
           <p>
             <Note>注意：</Note> <code>ref</code> を公開しない{" "}
             <code>React-Select</code> のような制御コンポーネントの場合は、
-            <code onClick={() => goToSection("setValue")}>setValue</code>{" "}
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>{" "}
             を使用して入力値を手動でリセットする必要があります または、
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
+            <CodeAsLink onClick={() => goToSection("Controller")}>
+              Controller
+            </CodeAsLink>
             を使用して、制御対象コンポーネントをラップします。
           </p>
         </>
@@ -2080,15 +2082,13 @@ export default {
             <Note>注意:</Note> 对于像<code>React-Select</code>这样不公开
             <code>ref</code>
             的受控组件，您必须通过
-            <code onClick={() => goToSection("setValue")}>setValue</code>
+            <CodeAsLink onClick={() => goToSection("setValue")}>
+              setValue
+            </CodeAsLink>
             手动重置输入值或使用
-            <a
-              href="https://github.com/react-hook-form/react-hook-form-input"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React Hook Form Input
-            </a>
+            <CodeAsLink onClick={() => goToSection("Controller")}>
+              Controller
+            </CodeAsLink>
             来包装您的受控组件。
           </p>
         </>

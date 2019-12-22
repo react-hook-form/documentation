@@ -392,12 +392,8 @@ export default {
             </p>
             <p>
               Alternatively, you can use our wrapper component{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form-input"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                React Hook Form Input
+              <a href="https://www.react-hook-form.com/api#Controller">
+                title="React Hook Form Controller Controller
               </a>{" "}
               which take care those custom register for you.
             </p>
@@ -769,12 +765,8 @@ export default {
             </p>
             <p>
               Alternativamente, você pode usar um componente por volta{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form-input"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                React Hook Form Input
+              <a href="https://www.react-hook-form.com/api#Controller">
+                title="React Hook Form Controller Controller
               </a>{" "}
               que tomará conta de registrar customizadamente para voocê.
             </p>
@@ -1137,12 +1129,8 @@ export default {
             </p>
             <p>
               또는 감싸는 컴포넌트인{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form-input"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                React Hook Form Input
+              <a href="https://www.react-hook-form.com/api#Controller">
+                title="React Hook Form Controller Controller
               </a>{" "}
               을 사용하여 커스텀 레지스터를 관리 할 수 ​​있습니다.
             </p>
@@ -1506,12 +1494,8 @@ export default {
             </p>
             <p>
               または、ラッパーコンポーネントの{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form-input"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                React Hook Form Input
+              <a href="https://www.react-hook-form.com/api#Controller">
+                title="React Hook Form Controller Controller
               </a>{" "}
               を使用して、これらのカスタム登録を処理できます。
             </p>
@@ -1841,11 +1825,10 @@ export default {
             <p>
               或者，您可以使用我们的包装器组件
               <a
-                href="https://github.com/react-hook-form/react-hook-form-input"
-                target="_blank"
-                rel="noreferrer noopener"
+                href="https://www.react-hook-form.com/api#Controller"
+                title="React Hook Form Controller"
               >
-                React Hook Form Input
+                Controller
               </a>
               ，它会为您处理那些自定义注册。
             </p>

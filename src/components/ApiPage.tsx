@@ -412,7 +412,7 @@ function ApiPage({
             </code>
             <Popup
               top={3}
-              message="React Native: Custom register or using React Hook Form Input"
+              message="React Native: Custom register or using Controller"
             />
           </H5>
 
@@ -538,7 +538,7 @@ function ApiPage({
           >
             <h2>
               register: <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
-              <Popup message="React Native: Custom register or using React Hook Form Input" />
+              <Popup message="React Native: Custom register or using Controller" />
             </h2>
           </CodeHeading>
 

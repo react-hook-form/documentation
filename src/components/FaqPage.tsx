@@ -221,12 +221,12 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[currentLanguage][11].description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={controlledRHFInput} />
             <CodeArea
               rawData={controlled}
               url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
             />
-            <CodeArea rawData={controlledRHFInput} />
           </TabGroup>
 
           <StarRepo currentLanguage={currentLanguage} />
