@@ -3113,5 +3113,46 @@ export default {
         </p>
       ),
     },
+    // Todo: Japanese translation
+    jp: {
+      title: "control",
+      description: (
+        <p>
+          This object is made for React Hook Form's Controller component, which
+          contains methods for registering controlled component into React Hook
+          Form.
+        </p>
+      ),
+    },
+    // Todo: korean translation
+    kr: {
+      title: "control",
+      description: (
+        <p>
+          This object is made for React Hook Form's Controller component, which
+          contains methods for registering controlled component into React Hook
+          Form.
+        </p>
+      ),
+    },
+    pt: {
+      title: "control",
+      description: (
+        <p>
+          Esse objeto foi criado para o componente Controlador do formulário
+          React Hook, que contém métodos para registrar o componente controlado
+          no React Hook Formato.
+        </p>
+      ),
+    },
+    zh: {
+      title: "control",
+      description: (
+        <p>
+          该对象是为React Hook Form的Controller组件制作的。包含React Hook
+          Form的方法和同时将受控组件注册。
+        </p>
+      ),
+    },
   },
 }

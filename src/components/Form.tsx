@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   margin: 20px auto 0;
 `
 
-const DemoForm = styled.form`
+export const DemoForm = styled.form`
   flex: 1;
 
   & > select,

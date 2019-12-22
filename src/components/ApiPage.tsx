@@ -336,6 +336,9 @@ function ApiPage({
             ,{" "}
             <CodeAsLink onClick={() => goToSection("triggerValidation")}>
               triggerValidation
+            </CodeAsLink>,{" "}
+            <CodeAsLink onClick={() => goToSection("control")}>
+              control
             </CodeAsLink>{" "}
             and{" "}
             <CodeAsLink onClick={() => goToSection("formState")}>
@@ -620,8 +623,8 @@ function ApiPage({
           <TabGroup
             buttonLabels={[
               "Uncontrolled",
+              "Controller",
               "Controlled / React Native",
-              "React Hook Form Input",
             ]}
           >
             <CodeArea
@@ -629,12 +632,12 @@ function ApiPage({
               url="https://codesandbox.io/s/jjm3wyqmjy"
             />
             <CodeArea
-              rawData={resetCodeControlled}
-              url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
-            />
-            <CodeArea
               rawData={resetRHFInput}
               url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+            />
+            <CodeArea
+              rawData={resetCodeControlled}
+              url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
             />
           </TabGroup>
 

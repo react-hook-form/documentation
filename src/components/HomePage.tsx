@@ -5,11 +5,12 @@ import Form from "./Form"
 import Header from "./Header"
 import CodeCompareSection from "./CodeCompareSection"
 import CodePerfCompareSection from "./CodePerfCompareSection"
+import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import { H1 } from "../styles/typography"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
-import { CenterContent } from "../styles/containers"
+import { CenterContent, Section } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
@@ -128,6 +129,8 @@ function HomePage({
         isPlayCodeCompare={isPlayCodeCompare}
         currentLanguage={currentLanguage}
       />
+
+      <IsolateRender />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}
