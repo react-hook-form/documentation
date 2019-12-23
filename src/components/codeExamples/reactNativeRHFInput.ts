@@ -1,10 +1,10 @@
-export default `import React from "react"
-import { Text, View, TextInput, Button, Alert } from "react-native"
-import { useForm, Controller } from 'react-hook-form'
+export default `import React from "react";
+import { Text, View, TextInput, Button, Alert } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
 export default function App() {
-  const { control, handleSubmit, errors } = useForm()
-  const onSubmit = data => Alert.alert('Form Data', data)
+  const { control, handleSubmit, errors } = useForm();
+  const onSubmit = data => Alert.alert("Form Data", data);
 
   return (
     <View>
@@ -18,16 +18,10 @@ export default function App() {
       {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
-      <Controller
-        as={<TextInput />}
-        control={control}
-        name="lastName"
-      />
+      <Controller as={<TextInput />} control={control} name="lastName" />
 
-      <View>
-        <Button onPress={handleSubmit(onSubmit)} />
-      </View>
+      <Button onPress={handleSubmit(onSubmit)} />
     </View>
-  )
+  );
 }
 `

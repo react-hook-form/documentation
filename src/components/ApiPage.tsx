@@ -19,6 +19,7 @@ import ApiWatch from "./ApiWatch"
 import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
+import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
 import { CenterContent, Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
@@ -356,7 +357,6 @@ function ApiPage({
   reValidateMode: 'onChange',
   defaultValues: {},
   validationSchema: {},
-  validationSchemaOption: { abortEarly: false },
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
   nativeValidation: false,
@@ -459,19 +459,6 @@ function ApiPage({
                   <td>
                     <TableH5>
                       <code>
-                        validationSchemaOption: <br />
-                        <MobileType>Object</MobileType>
-                      </code>
-                    </TableH5>
-                  </td>
-                  <td>
-                    <p>{api.useForm[currentLanguage].validationSchemaOption}</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <TableH5>
-                      <code>
                         validateCriteriaMode: <br />
                         <MobileType>firstErrorDetected | all</MobileType>
                       </code>
@@ -506,23 +493,6 @@ function ApiPage({
                     </TableH5>
                   </td>
                   <td>{api.useForm[currentLanguage].submitFocusError}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <H5 style={{ marginTop: 20, border: "none" }}>
-                      <code>
-                        nativeValidation: <br />
-                        <MobileType>boolean = false</MobileType>
-                      </code>
-                    </H5>
-                  </td>
-                  <td>
-                    {api.useForm[currentLanguage].nativeValidation(goToSection)}
-                    <CodeSandBoxLink
-                      style={codeSandBoxStyle}
-                      url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-                    />
-                  </td>
                 </tr>
               </tbody>
             </Table>
@@ -693,6 +663,10 @@ function ApiPage({
             </h2>
           </CodeHeading>
           {api.clearError[currentLanguage].description}
+
+          <CodeArea
+            rawData={clearError}
+          />
 
           <hr />
 

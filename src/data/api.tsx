@@ -43,21 +43,6 @@ export default {
           example demonstrates all options' default value.
         </p>
       ),
-      validationSchemaOption: (
-        <>
-          The <code>options</code> argument is an object hash containing any
-          schema options you may want to override (or specify for the first
-          time). You can read more in the{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            yup documentation
-          </a>
-          .
-        </>
-      ),
       validateCriteriaMode: (
         <>
           <p>
@@ -186,21 +171,6 @@ export default {
           <code>useForm</code> também tem argumentos<b>opcionais</b>. O exempo a
           seguir demonstra todas as opções, com valor padrão.
         </p>
-      ),
-      validationSchemaOption: (
-        <>
-          O Argumento <code>options</code> é um objeto hash contendo qualquer
-          opção de esquema, caso queira sobrescrever ( ou especificar no
-          primeiro uso). Você pode ler mais em{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            documentação da biblioteca yup
-          </a>
-          .
-        </>
       ),
       validateCriteriaMode: (
         <>
@@ -334,20 +304,6 @@ export default {
           예제는 모든 옵션의 기본값을 보여줍니다.
         </p>
       ),
-      validationSchemaOption: (
-        <>
-          <code>옵션</code>인수는 재정의(또는 처음 지정)할 수 있는 스키마 옵션이
-          포함된 객체 해시입니다. 더 자세한 사항은{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            yup 문서
-          </a>
-          에서 찾아 볼 수 있습니다.
-        </>
-      ),
       validateCriteriaMode: (
         <>
           <p>
@@ -474,20 +430,6 @@ export default {
           <code>useForm</code> は<b>省略可能</b>な引数もあります。
           下記の例は、全てのオプションのデフォルト値を示します。
         </p>
-      ),
-      validationSchemaOption: (
-        <>
-          <code>options</code> 引数はオーバーライド (または初めに指定)
-          したいスキーマオプションを含むオブジェクトハッシュです。{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            Yup ドキュメント
-          </a>
-          で詳細を読むことができます。
-        </>
       ),
       validateCriteriaMode: (
         <>
@@ -618,20 +560,6 @@ export default {
           <code>useForm</code>也有<strong>可选</strong>的参数。
           下面的示例演示了所有选项的默认值。
         </p>
-      ),
-      validationSchemaOption: (
-        <>
-          <code>Options</code>参数是一个<code>Object</code>
-          ，其中包含您可能想要复盖的任何模式选项（或首次指定）。 您可以在
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/jquense/yup#mixedvalidatevalue-any-options-object-promiseany-validationerror"
-          >
-            yup文档中阅读更多内容
-          </a>
-          。
-        </>
       ),
       validateCriteriaMode: (
         <>

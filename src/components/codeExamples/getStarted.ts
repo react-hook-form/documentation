@@ -93,11 +93,11 @@ export default function App() {
 }
 `
 
-export const uiLibraryHookInput = `import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+export const uiLibraryHookInput = `import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
-import { Input as InputField } from 'antd';
+import { Input as InputField } from "antd";
 
 export default function App() {
   const { control, handleSubmit } = useForm();
@@ -105,24 +105,10 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller 
-        as={<Input />} 
-        name="HelloWorld"
-        control={control} 
-      />
-        
-      <Controller 
-        as={<InputField />} 
-        name="AntdInput"
-        control={control} 
-      />
-        
-      <Controller 
-        as={<Select />} 
-        name="reactSelect"
-        control={control} 
-      />
-      
+      <Controller as={<Input />} name="HelloWorld" control={control} />
+      <Controller as={<InputField />} name="AntdInput" control={control} />
+      <Controller as={<Select />} name="reactSelect" control={control} />
+
       <input type="submit" />
     </form>
   );
@@ -137,10 +123,12 @@ import { TextField, Checkbox } from "@material-ui/core";
 function App() {
   const methods = useForm();
   const { handleSubmit, control, reset } = methods;
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller as={<TextField />} name="TextField" control={control} />
+      
       <Controller
         as={<Checkbox />}
         name="Checkbox"
@@ -148,12 +136,6 @@ function App() {
         control={control}
       />
 
-      <Controller
-        as={<TextField />}
-        name="TextField"
-        control={control}
-      />
-      
       <Controller
         as={<ReactSelect />}
         options={options}

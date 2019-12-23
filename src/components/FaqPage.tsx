@@ -53,6 +53,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question10: null,
     question11: null,
     question12: null,
+    question13: null,
   })
 
   const goToSection = name => {
@@ -228,6 +229,14 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
               url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
             />
           </TabGroup>
+
+          <hr />
+
+          <QuestionTitle ref={ref => (sectionsRef.current.question12 = ref)}>
+            {faq.questions[currentLanguage][12].title}
+          </QuestionTitle>
+
+          {faq.questions[currentLanguage][12].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Note } from "../styles/typography"
-import { Table, TableWrapper } from "../components/ApiPage"
+import { CodeAsLink, Table, TableWrapper } from "../components/ApiPage"
 import colors from "../styles/colors"
 import { Link } from "gatsby"
 
@@ -400,6 +400,43 @@ export default {
           </>
         ),
       },
+      {
+        title: "Testing React Hook Form",
+        description: (
+          <div>
+            <ul>
+              <li>
+                <p>
+                  Why am I getting <code>act</code> warning?
+                </p>
+
+                <p>
+                  All validation methods in React Hook Form will be treated as
+                  async functions, so it's important to wrap <code>async</code>{" "}
+                  around your{" "}
+                  <CodeAsLink
+                    href="https://reactjs.org/docs/test-utils.html#act"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    act
+                  </CodeAsLink>
+                  .
+                </p>
+              </li>
+              <li>
+                <p>Why input change is not fire event?</p>
+
+                <p>
+                  React Hook Form using <code>input</code> event for input
+                  change, so to fix it. you can easily switch to{" "}
+                  <code>fireEvent.input</code> for react-testing-library
+                </p>
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
     pt: [
       {
@@ -773,6 +810,44 @@ export default {
           </>
         ),
       },
+      // Todo: translate please
+      {
+        title: "Testing React Hook Form",
+        description: (
+          <div>
+            <ul>
+              <li>
+                <p>
+                  Why am I getting <code>act</code> warning?
+                </p>
+
+                <p>
+                  All validation methods in React Hook Form will be treated as
+                  async functions, so it's important to wrap <code>async</code>{" "}
+                  around your{" "}
+                  <CodeAsLink
+                    href="https://reactjs.org/docs/test-utils.html#act"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    act
+                  </CodeAsLink>
+                  .
+                </p>
+              </li>
+              <li>
+                <p>Why input change is not fire event?</p>
+
+                <p>
+                  React Hook Form using <code>input</code> event for input
+                  change, so to fix it. you can easily switch to{" "}
+                  <code>fireEvent.input</code> for react-testing-library
+                </p>
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
     kr: [
       {
@@ -1135,6 +1210,44 @@ export default {
               을 사용하여 커스텀 레지스터를 관리 할 수 ​​있습니다.
             </p>
           </>
+        ),
+      },
+      // translate please
+      {
+        title: "Testing React Hook Form",
+        description: (
+          <div>
+            <ul>
+              <li>
+                <p>
+                  Why am I getting <code>act</code> warning?
+                </p>
+
+                <p>
+                  All validation methods in React Hook Form will be treated as
+                  async functions, so it's important to wrap <code>async</code>{" "}
+                  around your{" "}
+                  <CodeAsLink
+                    href="https://reactjs.org/docs/test-utils.html#act"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    act
+                  </CodeAsLink>
+                  .
+                </p>
+              </li>
+              <li>
+                <p>Why input change is not fire event?</p>
+
+                <p>
+                  React Hook Form using <code>input</code> event for input
+                  change, so to fix it. you can easily switch to{" "}
+                  <code>fireEvent.input</code> for react-testing-library
+                </p>
+              </li>
+            </ul>
+          </div>
         ),
       },
     ],
@@ -1502,6 +1615,44 @@ export default {
           </>
         ),
       },
+      // Todo: translate please
+      {
+        title: "Testing React Hook Form",
+        description: (
+          <div>
+            <ul>
+              <li>
+                <p>
+                  Why am I getting <code>act</code> warning?
+                </p>
+
+                <p>
+                  All validation methods in React Hook Form will be treated as
+                  async functions, so it's important to wrap <code>async</code>{" "}
+                  around your{" "}
+                  <CodeAsLink
+                    href="https://reactjs.org/docs/test-utils.html#act"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    act
+                  </CodeAsLink>
+                  .
+                </p>
+              </li>
+              <li>
+                <p>Why input change is not fire event?</p>
+
+                <p>
+                  React Hook Form using <code>input</code> event for input
+                  change, so to fix it. you can easily switch to{" "}
+                  <code>fireEvent.input</code> for react-testing-library
+                </p>
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
     zh: [
       {
@@ -1833,6 +1984,42 @@ export default {
               ，它会为您处理那些自定义注册。
             </p>
           </>
+        ),
+      },
+      {
+        title: "Testing React Hook Form",
+        description: (
+          <div>
+            <ul>
+              <li>
+                <p>
+                  为什么我会收到<code> act </code>警告？
+                </p>
+
+                <p>
+                  React Hook表单中的所有验证方法将被视为 异步函数, 因此包装
+                  <code>async</code> 在你{" "}
+                  <CodeAsLink
+                    href="https://reactjs.org/docs/test-utils.html#act"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    act
+                  </CodeAsLink>
+                  很重要 .
+                </p>
+              </li>
+              <li>
+                <p>为什么输入更改不是触发事件？</p>
+
+                <p>
+                  React Hook Form 使用<code> input </code>
+                  事件作为输入来响应。您可以轻松切换到
+                  <code> fireEvent.input </code>用于react-testing-library。
+                </p>
+              </li>
+            </ul>
+          </div>
         ),
       },
     ],

@@ -21,9 +21,7 @@ export default function App() {
         onChangeText={text => setValue('lastName', text)}
       />
 
-      <View>
-        <Button onPress={handleSubmit(onSubmit)} />
-      </View>
+      <Button onPress={handleSubmit(onSubmit)} />
     </View>
   )
 }
