@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react"
 import styled from "styled-components"
-import { AnimateKeyframes } from "react-simple-animate"
+import { AnimateKeyframes, Animate } from "react-simple-animate"
 import { H1, Note } from "../styles/typography"
 import { CenterContent } from "../styles/containers"
 import { ChangeEvent, useEffect, useState } from "react"
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     font-size: 45px;
     font-weight: 800;
     margin-top: 160px;
-    line-height: 1;
+    line-height: 1.4;
     background: ${colors.primary};
 
     @media ${breakpoints.fromMediumScreen} {
@@ -99,7 +99,7 @@ const IsoLateInput = () => {
   )
 }
 
-const ControlledInputs = () => {
+const ControlledInputs = ({ style }) => {
   const [text, updateText] = useState("")
   const [play, setPlay] = useState(false)
 
@@ -108,7 +108,7 @@ const ControlledInputs = () => {
   }, [text])
 
   return (
-    <section style={{ marginBottom: 20 }}>
+    <section style={{ ...style, marginBottom: 20 }}>
       <DemoForm>
         <h2>Controlled Form</h2>
         <AnimateKeyframes
@@ -157,7 +157,14 @@ const ControlledInputs = () => {
   )
 }
 
-export default function IsolateRender() {
+function IsolateRender({
+  isIsolatePlay,
+  currentLanguage,
+}: {
+  isIsolatePlay: boolean
+  currentLanguage: string
+}) {
+  console.log(isIsolatePlay)
   return (
     <CenterContent>
       <H1>Isolate component re-render</H1>
@@ -173,23 +180,64 @@ export default function IsolateRender() {
       </p>
 
       <Wrapper>
-        <section>
-          <DemoForm>
-            <h2> React Hook Form</h2>
-            <IsoLateInput />
-            <ExternalComponent>Child Component A</ExternalComponent>
-            <ExternalComponent>Child Component B</ExternalComponent>
-            <ExternalComponent>Child Component C</ExternalComponent>
-          </DemoForm>
-        </section>
+        <Animate
+          play={isIsolatePlay}
+          start={{
+            opacity: 0,
+            transform: "translateX(-20px)",
+          }}
+          end={{
+            opacity: 1,
+          }}
+          easeType={"ease-in"}
+          render={({ style }) => {
+            return (
+              <section style={style} id="isolate">
+                <DemoForm>
+                  <h2> React Hook Form</h2>
+                  <IsoLateInput />
+                  <ExternalComponent>Child Component A</ExternalComponent>
+                  <ExternalComponent>Child Component B</ExternalComponent>
+                  <ExternalComponent>Child Component C</ExternalComponent>
+                </DemoForm>
+              </section>
+            )
+          }}
+        />
 
-        <div>
+        <Animate
+          play={isIsolatePlay}
+          start={{
+            opacity: 0,
+            transform: "translateY(20px)",
+          }}
+          end={{
+            opacity: 1,
+          }}
+          delay={0.25}
+          easeType={"ease-in"}
+        >
           <p>VS</p>
           <Line />
-        </div>
+        </Animate>
 
-        <ControlledInputs />
+        <Animate
+          play={isIsolatePlay}
+          start={{
+            opacity: 0,
+            transform: "translateX(20px)",
+          }}
+          end={{
+            opacity: 1,
+          }}
+          easeType={"ease-in"}
+          render={({ style }) => {
+            return <ControlledInputs style={style} />
+          }}
+        />
       </Wrapper>
     </CenterContent>
   )
 }
+
+export default React.memo(IsolateRender)

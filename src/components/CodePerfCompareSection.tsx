@@ -112,7 +112,7 @@ const props = {
   easeType: "ease-in",
 }
 
-export default function CodePerfCompareSection({
+function CodePerfCompareSection({
   isPlayRender,
   currentLanguage,
 }: {
@@ -243,3 +243,5 @@ export default function CodePerfCompareSection({
     </AnimateGroup>
   )
 }
+
+export default React.memo(CodePerfCompareSection)

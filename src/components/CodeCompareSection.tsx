@@ -57,7 +57,7 @@ const props = {
   easeType: "ease-in",
 }
 
-export default function CodeCompareSection({
+function CodeCompareSection({
   isPlayCodeCompare,
   currentLanguage,
 }: {
@@ -125,3 +125,5 @@ export default function CodeCompareSection({
     </AnimateGroup>
   )
 }
+
+export default React.memo(CodeCompareSection)

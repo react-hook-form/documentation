@@ -57,7 +57,7 @@ const animationProps = {
   duration: 0.8,
 }
 
-export default function Form({
+function Form({
   onSubmit,
   submitData,
   toggleBuilder,
@@ -198,3 +198,5 @@ export default function Form({
     </>
   )
 }
+
+export default React.memo(Form)

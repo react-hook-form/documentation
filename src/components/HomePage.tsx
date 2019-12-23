@@ -43,6 +43,7 @@ function HomePage({
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
+  const [isIsolatePlay, setIsolatePlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const {
@@ -81,6 +82,7 @@ function HomePage({
     const featureList = document.querySelector("#featureLast")
     const codeComparison = document.querySelector("#codeComparison")
     const rendering = document.querySelector("#rendering")
+    const isolate = document.querySelector("#isolate")
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -94,6 +96,9 @@ function HomePage({
           if (entry.target === rendering && !isPlayRender) {
             setRenderPlay(true)
           }
+          if (entry.target === isolate && !isIsolatePlay) {
+            setIsolatePlay(true)
+          }
         }
       })
     }, options)
@@ -101,6 +106,7 @@ function HomePage({
     observer.observe(featureList)
     observer.observe(codeComparison)
     observer.observe(rendering)
+    observer.observe(isolate)
 
     return () => {
       observer.disconnect()
@@ -130,7 +136,10 @@ function HomePage({
         currentLanguage={currentLanguage}
       />
 
-      <IsolateRender />
+      <IsolateRender
+        isIsolatePlay={isIsolatePlay}
+        currentLanguage={currentLanguage}
+      />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}
