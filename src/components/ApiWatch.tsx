@@ -15,7 +15,8 @@ export default function ApiWatch({
     <>
       <CodeHeading>
         <h2>
-          watch: <TypeText>(names?: string | string[]) => any</TypeText>
+          watch:{" "}
+          <TypeText>{`(names?: string | string[] | { nest : boolean }) => any`}</TypeText>
         </h2>
       </CodeHeading>
 
@@ -25,7 +26,13 @@ export default function ApiWatch({
         <Table>
           <tbody>
             <tr>
-              <th>{generic.type[currentLanguage]}</th>
+              <th
+                style={{
+                  minWidth: 180,
+                }}
+              >
+                {generic.type[currentLanguage]}
+              </th>
               <th
                 style={{
                   minWidth: 200,
@@ -79,6 +86,18 @@ export default function ApiWatch({
                 <code>watch()</code>
                 <br />
                 <code>{`watch(undefined, { field: 'value1' })`}</code>
+              </td>
+              <td>
+                <TypeText>{`{ [key:string] : any }`}</TypeText>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <TypeText>{`{ nest: boolean }`}</TypeText>
+              </td>
+              <td>{api.watch[currentLanguage].tableTitle.nest}</td>
+              <td>
+                <code>{`watch({ nest: true })`}</code>
               </td>
               <td>
                 <TypeText>{`{ [key:string] : any }`}</TypeText>

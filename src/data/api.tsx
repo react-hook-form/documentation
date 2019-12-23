@@ -1619,6 +1619,7 @@ export default {
         ),
         multiple: "Watch multiple inputs",
         all: "Watch all inputs",
+        nest: "Watch all inputs and return nested object",
       },
     },
     pt: {
@@ -1667,6 +1668,7 @@ export default {
         ),
         multiple: "Assista múltiplos campos",
         all: "Assista todos os campos",
+        nest: "Assista a todas as entradas e retorne objeto aninhado",
       },
     },
     kr: {
@@ -1713,6 +1715,7 @@ export default {
         ),
         multiple: "여러 입력을 확인",
         all: "모든 입력을 확인",
+        nest: "모든 입력을보고 중첩 된 객체를 반환",
       },
     },
     jp: {
@@ -1758,6 +1761,7 @@ export default {
         ),
         multiple: "複数の input を監視します",
         all: "全ての input を監視します",
+        nest: "すべての入力を監視し、ネストされたオブジェクトを返します",
       },
     },
     zh: {
@@ -1801,6 +1805,7 @@ export default {
         ),
         multiple: "观看多个输入",
         all: "观看所有输入",
+        nest: "观察所有输入并返回嵌套对象",
       },
     },
   },
