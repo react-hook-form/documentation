@@ -337,7 +337,8 @@ function ApiPage({
             ,{" "}
             <CodeAsLink onClick={() => goToSection("triggerValidation")}>
               triggerValidation
-            </CodeAsLink>,{" "}
+            </CodeAsLink>
+            ,{" "}
             <CodeAsLink onClick={() => goToSection("control")}>
               control
             </CodeAsLink>{" "}
@@ -664,9 +665,7 @@ function ApiPage({
           </CodeHeading>
           {api.clearError[currentLanguage].description}
 
-          <CodeArea
-            rawData={clearError}
-          />
+          <CodeArea rawData={clearError} />
 
           <hr />
 
@@ -748,7 +747,10 @@ function ApiPage({
           </CodeHeading>
           {api.control[currentLanguage].description}
 
-          <CodeArea rawData={control} />
+          <CodeArea
+            rawData={control}
+            url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
+          />
 
           <hr />
 
