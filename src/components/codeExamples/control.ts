@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 function App() {
-  const { register, setValue, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const onSubmit = data => {
     console.log(data);
