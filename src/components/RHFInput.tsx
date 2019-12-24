@@ -62,6 +62,32 @@ export default function RHFInput({
             </tr>
             <tr>
               <td>
+                <code>onChange</code>
+              </td>
+              <td>
+                <TypeText>(arguments: any) => any</TypeText>
+              </td>
+              <td>
+                This <code>onChange</code> prop allow you to customise the
+                return value. <br />
+                <code>eg: {`onChange={{(data) => data.value}}`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>onBlur</code>
+              </td>
+              <td>
+                <TypeText>(arguments: any) => any</TypeText>
+              </td>
+              <td>
+                This <code>onBlur</code> prop allow you to customise the return
+                value. <br />
+                <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <code>onChangeName</code>
               </td>
               <td>
