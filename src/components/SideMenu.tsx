@@ -108,7 +108,7 @@ const Code = styled.span`
   top: -2px;
 `
 
-export default function SideMenu({
+function SideMenu({
   links,
   goToSection,
   enLinks,
@@ -246,3 +246,5 @@ export default function SideMenu({
     </Menu>
   )
 }
+
+export default React.memo(SideMenu)

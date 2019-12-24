@@ -15,13 +15,15 @@ import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
 import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
-import faq from "../data/faq"
+import faqContent from "../data/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import controlledRHFInput from "./codeExamples/control"
 
 const { useRef } = React
+
+const enLinks = faqContent["en"].questions
 
 const Faq = ({ defaultLang }: { defaultLang: string }) => {
   const {
@@ -31,13 +33,8 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const links = faq.questions[currentLanguage].map((item, index) => ({
-    en: faq.questions.en[index],
-    pt: item,
-    jp: item,
-    zh: item,
-    kr: item,
-  }))
+  const faq = faqContent[currentLanguage]
+  const links = faq.questions
 
   const sectionsRef = useRef({
     question0: null,
@@ -58,8 +55,8 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
   const goToSection = name => {
     const filterName = name.replace(/[^\w\s]| /g, "")
-    const path = links.findIndex(
-      ({ en: { title } }) =>
+    const path = enLinks.findIndex(
+      ({ title }) =>
         title.replace(/[^\w\s]| /g, "").toLowerCase() ===
         filterName.toLowerCase()
     )
@@ -93,13 +90,12 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
   return (
     <Container>
-      <HeadingWithTopMargin id="main">
-        {faq.header[currentLanguage].title}
-      </HeadingWithTopMargin>
-      <SubHeading>{faq.header[currentLanguage].description}</SubHeading>
+      <HeadingWithTopMargin id="main">{faq.header.title}</HeadingWithTopMargin>
+      <SubHeading>{faq.header.description}</SubHeading>
 
       <Wrapper>
         <SideMenu
+          enLinks={enLinks}
           isStatic
           links={links}
           goToSection={goToSection}
@@ -108,67 +104,67 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
         <main>
           <QuestionTitle ref={ref => (sectionsRef.current.question0 = ref)}>
-            {faq.questions[currentLanguage][0].title}
+            {faq.questions[0].title}
           </QuestionTitle>
-          {faq.questions[currentLanguage][0].description}
+          {faq.questions[0].description}
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question1 = ref)}>
-            {faq.questions[currentLanguage][1].title}
+            {faq.questions[1].title}
           </QuestionTitle>
-          {faq.questions[currentLanguage][1].description}
+          {faq.questions[1].description}
           <CodeArea rawData={accessibleCode} />
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question2 = ref)}>
-            {faq.questions[currentLanguage][2].title}
+            {faq.questions[2].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][2].description}
+          {faq.questions[2].description}
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question3 = ref)}>
-            {faq.questions[currentLanguage][3].title}
+            {faq.questions[3].title}
           </QuestionTitle>
-          {faq.questions[currentLanguage][3].description}
+          {faq.questions[3].description}
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question4 = ref)}>
-            {faq.questions[currentLanguage][4].title}
+            {faq.questions[4].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][4].description}
+          {faq.questions[4].description}
           <CodeArea rawData={initialValue} />
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question5 = ref)}>
-            {faq.questions[currentLanguage][5].title}
+            {faq.questions[5].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][5].description}
+          {faq.questions[5].description}
 
           <CodeArea rawData={shareRef} />
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question6 = ref)}>
-            {faq.questions[currentLanguage][6].title}
+            {faq.questions[6].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][6].description}
+          {faq.questions[6].description}
 
           <CodeArea rawData={manualValidation} />
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question7 = ref)}>
-            {faq.questions[currentLanguage][7].title}
+            {faq.questions[7].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][7].description}
+          {faq.questions[7].description}
 
           <CodeArea
             rawData={`import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'`}
@@ -178,18 +174,18 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question8 = ref)}>
-            {faq.questions[currentLanguage][8].title}
+            {faq.questions[8].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][8].description}
+          {faq.questions[8].description}
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question9 = ref)}>
-            {faq.questions[currentLanguage][9].title}
+            {faq.questions[9].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][9].description}
+          {faq.questions[9].description}
 
           <InstallCode>
             npm i mutationobserver-shim
@@ -209,18 +205,18 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question10 = ref)}>
-            {faq.questions[currentLanguage][10].title}
+            {faq.questions[10].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][10].description}
+          {faq.questions[10].description}
 
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question11 = ref)}>
-            {faq.questions[currentLanguage][11].title}
+            {faq.questions[11].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][11].description}
+          {faq.questions[11].description}
 
           <TabGroup buttonLabels={["Controller", "Custom Register"]}>
             <CodeArea rawData={controlledRHFInput} />
@@ -233,10 +229,10 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <QuestionTitle ref={ref => (sectionsRef.current.question12 = ref)}>
-            {faq.questions[currentLanguage][12].title}
+            {faq.questions[12].title}
           </QuestionTitle>
 
-          {faq.questions[currentLanguage][12].description}
+          {faq.questions[12].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 
