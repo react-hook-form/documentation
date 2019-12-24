@@ -2,14 +2,15 @@ import * as React from "react"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import { TypeText } from "../styles/typography"
-import api from "../data/api"
 import rhfInput from "./codeExamples/RHFInput"
 import generic from "../data/generic"
 
 export default function RHFInput({
   currentLanguage,
+  api,
 }: {
   currentLanguage: string
+  api: any
 }) {
   return (
     <>
@@ -19,7 +20,7 @@ export default function RHFInput({
         </h2>
       </CodeHeading>
 
-      {api.Controller[currentLanguage].description}
+      {api.Controller.description}
 
       <TableWrapper>
         <Table>

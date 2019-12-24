@@ -111,12 +111,14 @@ const Code = styled.span`
 export default function SideMenu({
   links,
   goToSection,
+  enLinks,
   isStatic,
   currentLanguage,
 }: {
   links: any
   goToSection: Function
   isStatic?: boolean
+  enLinks: any
   currentLanguage: string
 }) {
   return (
@@ -136,13 +138,11 @@ export default function SideMenu({
         <ul className="scrollArea">
           {links.map((rawLink, index) => {
             const link =
-              typeof rawLink[currentLanguage] === "function"
-                ? rawLink[currentLanguage]().title
-                : rawLink[currentLanguage].title
+              typeof rawLink === "function" ? rawLink().title : rawLink.title
             const enLink =
-              typeof rawLink.en === "function"
-                ? rawLink.en().title
-                : rawLink.en.title
+              typeof enLinks[index] === "function"
+                ? enLinks[index]().title
+                : enLinks[index].title
 
             if (
               [
@@ -150,7 +150,7 @@ export default function SideMenu({
                 "controller",
                 "validationschema",
                 "browser built-in validation",
-              ].includes(link.toLowerCase()) ||
+              ].includes((link || "").toLowerCase()) ||
               isStatic
             ) {
               return (
