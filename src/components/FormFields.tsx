@@ -17,7 +17,7 @@ const RadioGroup = styled.div`
   }
 `
 
-export default ({ formData, errors, register }) => {
+const FormFields = ({ formData, errors, register }) => {
   return (formData || []).map(field => {
     switch (field.type) {
       case "select":
@@ -71,27 +71,25 @@ export default ({ formData, errors, register }) => {
               field.options
                 .split(";")
                 .filter(Boolean)
-                .map(name => {
-                  return (
-                    <label
-                      key={name}
-                      style={{
-                        ...(errors[field.name]
-                          ? { color: colors.lightPink }
-                          : null),
-                      }}
-                    >
-                      {name}
-                      &nbsp;
-                      <input
-                        type="radio"
-                        name={field.name}
-                        value={name}
-                        ref={register({ required: field.required })}
-                      />
-                    </label>
-                  )
-                })}
+                .map(name => (
+                  <label
+                    key={name}
+                    style={{
+                      ...(errors[field.name]
+                        ? { color: colors.lightPink }
+                        : null),
+                    }}
+                  >
+                    {name}
+                    &nbsp;
+                    <input
+                      type="radio"
+                      name={field.name}
+                      value={name}
+                      ref={register({ required: field.required })}
+                    />
+                  </label>
+                ))}
           </RadioGroup>
         )
       default:
@@ -122,3 +120,5 @@ export default ({ formData, errors, register }) => {
     }
   })
 }
+
+export default React.memo(FormFields)

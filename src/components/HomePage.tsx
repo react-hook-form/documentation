@@ -108,9 +108,7 @@ function HomePage({
     observer.observe(rendering)
     observer.observe(isolate)
 
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (

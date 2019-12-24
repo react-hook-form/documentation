@@ -36,15 +36,18 @@ const Layout = (props: {
   defaultLang: string
 }) => {
   const [show, setShow] = React.useState(false)
+  const scrollHandler = () => {
+    if (window.scrollY > 75) {
+      setShow(true)
+    } else {
+      setShow(false)
+    }
+  }
 
   React.useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 75) {
-        setShow(true)
-      } else {
-        setShow(false)
-      }
-    })
+    window.addEventListener("scroll", scrollHandler)
+
+    return () => window.removeEventListener("scroll", scrollHandler)
   }, [])
 
   return (
