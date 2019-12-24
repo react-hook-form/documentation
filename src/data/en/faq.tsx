@@ -14,13 +14,13 @@ export default {
       title: "Performance of React Hook Form",
       description: (
         <p>
-          Performance is one of the primary goals for building this custom
-          hook. React Hook Form relies on uncontrolled component, hence the
-          reason why the register function occurs at the ref. This approach
-          will reduce the amount of re-rendering occurring due to user typing
-          or value changing. Components mount to the page is much quicker as
-          well because they are not controlled. For mounting speed, I have
-          completed a quick comparison test which you can refer to by{" "}
+          Performance is one of the primary goals for building this custom hook.
+          React Hook Form relies on uncontrolled component, hence the reason why
+          the register function occurs at the ref. This approach will reduce the
+          amount of re-rendering occurring due to user typing or value changing.
+          Components mount to the page is much quicker as well because they are
+          not controlled. For mounting speed, I have completed a quick
+          comparison test which you can refer to by{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -54,17 +54,17 @@ export default {
       description: (
         <>
           <p>
-            No, not out of box. but you can build a wrapper around it and use
-            in your Class Component.
+            No, not out of box. but you can build a wrapper around it and use in
+            your Class Component.
           </p>
 
           <blockquote>
             You can’t use Hooks inside of a class component, but you can
             definitely mix classes and function components with Hooks in a
-            single tree. Whether a component is a class or a function that
-            uses Hooks is an implementation detail of that component. In the
-            longer term, we expect Hooks to be the primary way people write
-            React components.
+            single tree. Whether a component is a class or a function that uses
+            Hooks is an implementation detail of that component. In the longer
+            term, we expect Hooks to be the primary way people write React
+            components.
           </blockquote>
         </>
       ),
@@ -89,8 +89,8 @@ export default {
               </b>
               <p>
                 React Hook Form's <code>reset</code> method will reset all
-                fields value, and also will clear all <code>errors</code>{" "}
-                within the form.
+                fields value, and also will clear all <code>errors</code> within
+                the form.
               </p>
             </li>
           </ul>
@@ -101,11 +101,11 @@ export default {
       title: "How to initialize form values?",
       description: (
         <p>
-          React Hook Form relies on uncontrolled component. With an
-          uncontrolled component, you can specify a <code>defaultValue</code>{" "}
-          or <code>defaultChecked</code> to an individual field. However, the
-          hook itself does provide an easier way to initialise all input
-          values too. Example below:
+          React Hook Form relies on uncontrolled component. With an uncontrolled
+          component, you can specify a <code>defaultValue</code> or{" "}
+          <code>defaultChecked</code> to an individual field. However, the hook
+          itself does provide an easier way to initialise all input values too.
+          Example below:
         </p>
       ),
     },
@@ -114,8 +114,8 @@ export default {
       description: (
         <p>
           React Hook Form needs <code>ref</code> to collect the input value,
-          however, you may want to use <code>ref</code> for other purposes
-          (eg. scroll into the view). The following example will show you how.
+          however, you may want to use <code>ref</code> for other purposes (eg.
+          scroll into the view). The following example will show you how.
         </p>
       ),
     },
@@ -130,10 +130,9 @@ export default {
           </p>
 
           <p>
-            <Note>Note:</Note> Because <code>ref</code> has not been
-            registered, React Hook Form won't be able to register event
-            listeners to the inputs. This means you will have to manually
-            update value and error.
+            <Note>Note:</Note> Because <code>ref</code> has not been registered,
+            React Hook Form won't be able to register event listeners to the
+            inputs. This means you will have to manually update value and error.
           </p>
         </>
       ),
@@ -193,156 +192,161 @@ export default {
       description: (
         <>
           <p>
-            First of all, all libs try to solve the same problem which is
-            making form building experience easy and great. However, there are
-            some fundamental differences between the three, react-hook-form is
-            built with uncontrolled input in mind and tries to provide your
-            form with best performance and least re-render if possible. On top
-            of that, react-hook-form is built by React Hook and used as hook,
-            which means there is no Component for you to import. Here are some
-            of the detail differences:
+            First of all, all libs try to solve the same problem which is making
+            form building experience easy and great. However, there are some
+            fundamental differences between the three, react-hook-form is built
+            with uncontrolled input in mind and tries to provide your form with
+            best performance and least re-render if possible. On top of that,
+            react-hook-form is built by React Hook and used as hook, which means
+            there is no Component for you to import. Here are some of the detail
+            differences:
           </p>
 
           <TableWrapper>
             <Table>
               <thead>
-              <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                <th width={200} />
-                <th>
-                  <p>React Hook Form</p>
-                </th>
-                <th>
-                  <p>Formik</p>
-                </th>
-                <th>
-                  <p>Redux Form</p>
-                </th>
-              </tr>
+                <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                  <th width={200} />
+                  <th>
+                    <p>React Hook Form</p>
+                  </th>
+                  <th>
+                    <p>Formik</p>
+                  </th>
+                  <th>
+                    <p>Redux Form</p>
+                  </th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>
-                  <b>Component</b>
-                </td>
-                <td>
-                  <a
-                    href="https://reactjs.org/docs/uncontrolled-components.html"
-                    target="_blank"
-                  >
-                    uncontrolled
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href="https://reactjs.org/docs/forms.html"
-                    target="_blank"
-                  >
-                    controlled
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href="https://reactjs.org/docs/forms.html"
-                    target="_blank"
-                  >
-                    controlled
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Rendering</b>
-                </td>
-                <td>minimum re-render</td>
-                <td>
-                  re-render according to local state changes which means as
-                  you type in the input.
-                </td>
-                <td>
-                  re-render according to state management lib (Redux)
-                  changes which means as you type in the input.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>API</b>
-                </td>
-                <td>Hooks</td>
-                <td>Component (RenderProps, Form, Field) + Hooks</td>
-                <td>Component (RenderProps, Form, Field)</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Package size</b>
-                </td>
-                <td>
-                  Small
-                  <br />
-                  <code>
-                    react-hook-form@3.26.2
+                <tr>
+                  <td>
+                    <b>Component</b>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/uncontrolled-components.html"
+                      target="_blank"
+                    >
+                      uncontrolled
+                    </a>{" "}
+                    &{" "}
+                    <a
+                      href="https://reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      controlled
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      controlled
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      controlled
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Rendering</b>
+                  </td>
+                  <td>minimum re-render</td>
+                  <td>
+                    re-render according to local state changes which means as
+                    you type in the input.
+                  </td>
+                  <td>
+                    re-render according to state management lib (Redux) changes
+                    which means as you type in the input.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>API</b>
+                  </td>
+                  <td>Hooks</td>
+                  <td>Component (RenderProps, Form, Field) + Hooks</td>
+                  <td>Component (RenderProps, Form, Field)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Package size</b>
+                  </td>
+                  <td>
+                    Small
                     <br />
-                    <Note>5.3KB</Note>
-                  </code>
-                </td>
-                <td>
-                  Medium
-                  <br />
-                  <code>
-                    formik@2.0.1
+                    <code>
+                      react-hook-form@4.0.0
+                      <br />
+                      <Note>6.2KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    Medium
                     <br />
-                    <Note>14.4KB</Note>
-                  </code>
-                </td>
-                <td>
-                  Large
-                  <br />
-                  <code>
-                    redux-form@8.2.6
+                    <code>
+                      formik@2.0.1
+                      <br />
+                      <Note>14.4KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    Large
                     <br />
-                    <Note>27KB</Note>
-                  </code>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Validation</b>
-                </td>
-                <td>
-                  Built-in &{" "}
-                  <a href="https://github.com/jquense/yup" target="_blank">
-                    Yup
-                  </a>
-                </td>
-                <td>
-                  Build your own &{" "}
-                  <a href="https://github.com/jquense/yup" target="_blank">
-                    Yup
-                  </a>
-                </td>
-                <td>Build your own & Plugins</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Learning curve</b>
-                </td>
-                <td>Low</td>
-                <td>Medium</td>
-                <td>Medium</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Status</b>
-                </td>
-                <td>Small Community: New lib and growing</td>
-                <td>
-                  Large Community: Well established form lib in the
-                  community
-                </td>
-                <td>
-                  Large Community: Well established form lib in the
-                  community
-                </td>
-              </tr>
+                    <code>
+                      redux-form@8.2.6
+                      <br />
+                      <Note>27KB</Note>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Validation</b>
+                  </td>
+                  <td>
+                    Built-in &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>
+                    Build your own &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>Build your own & Plugins</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Learning curve</b>
+                  </td>
+                  <td>Low</td>
+                  <td>Medium</td>
+                  <td>Medium</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Status</b>
+                  </td>
+                  <td>Medium Community: New lib and growing</td>
+                  <td>
+                    Large Community: Well established form lib in the community
+                  </td>
+                  <td>
+                    Large Community: Well established form lib in the community
+                  </td>
+                </tr>
               </tbody>
             </Table>
           </TableWrapper>
@@ -402,8 +406,8 @@ export default {
               <p>Why input change is not fire event?</p>
 
               <p>
-                React Hook Form using <code>input</code> event for input
-                change, so to fix it. you can easily switch to{" "}
+                React Hook Form using <code>input</code> event for input change,
+                so to fix it. you can easily switch to{" "}
                 <code>fireEvent.input</code> for react-testing-library
               </p>
             </li>
