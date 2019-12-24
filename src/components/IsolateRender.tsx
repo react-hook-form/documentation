@@ -167,7 +167,7 @@ function IsolateRender({
   console.log(isIsolatePlay)
   return (
     <CenterContent>
-      <H1>Isolate component re-render</H1>
+      <H1>Isolate Component Re-render</H1>
 
       <p>
         You have the ability to isolate components re-render which lead to less
