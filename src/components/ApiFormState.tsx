@@ -5,7 +5,7 @@ import { TypeText } from "../styles/typography"
 import generic from "../data/generic"
 
 export default React.memo(
-  ({ api, currentLanguage }: { currentLanguage: string, api: any }) => {
+  ({ api, currentLanguage }: { currentLanguage: string; api: any }) => {
     return (
       <>
         <CodeHeading>

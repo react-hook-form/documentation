@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     grid-gap: 40px;
     grid-template-columns: 1fr 65px 1fr;
   }
-  
+
   & > div {
     display: none;
 
