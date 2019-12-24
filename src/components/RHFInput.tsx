@@ -3,7 +3,9 @@ import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import { TypeText } from "../styles/typography"
 import rhfInput from "./codeExamples/RHFInput"
+import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../data/generic"
+import TabGroup from "./TabGroup"
 
 export default function RHFInput({
   currentLanguage,
@@ -113,11 +115,13 @@ export default function RHFInput({
           </tbody>
         </Table>
       </TableWrapper>
-
-      <CodeArea
-        rawData={rhfInput}
-        url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
-      />
+      <TabGroup buttonLabels={["Web", "React Native"]}>
+        <CodeArea
+          rawData={rhfInput}
+          url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+        />
+        <CodeArea rawData={reactNativeController} />
+      </TabGroup>
     </>
   )
 }
