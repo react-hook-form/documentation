@@ -1,5 +1,5 @@
 export default `import React, { useEffect } from "react";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function App() {
   const { register, watch, setValue, handleSubmit } = useForm({

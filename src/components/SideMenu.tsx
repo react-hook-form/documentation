@@ -108,15 +108,17 @@ const Code = styled.span`
   top: -2px;
 `
 
-export default function SideMenu({
+function SideMenu({
   links,
   goToSection,
+  enLinks,
   isStatic,
   currentLanguage,
 }: {
   links: any
   goToSection: Function
   isStatic?: boolean
+  enLinks: any
   currentLanguage: string
 }) {
   return (
@@ -136,21 +138,19 @@ export default function SideMenu({
         <ul className="scrollArea">
           {links.map((rawLink, index) => {
             const link =
-              typeof rawLink[currentLanguage] === "function"
-                ? rawLink[currentLanguage]().title
-                : rawLink[currentLanguage].title
+              typeof rawLink === "function" ? rawLink().title : rawLink.title
             const enLink =
-              typeof rawLink.en === "function"
-                ? rawLink.en().title
-                : rawLink.en.title
+              typeof enLinks[index] === "function"
+                ? enLinks[index]().title
+                : enLinks[index].title
 
             if (
               [
                 "formcontext",
-                "rhfinput",
+                "controller",
                 "validationschema",
                 "browser built-in validation",
-              ].includes(link.toLowerCase()) ||
+              ].includes((link || "").toLowerCase()) ||
               isStatic
             ) {
               return (
@@ -194,7 +194,7 @@ export default function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - 5
+                        ...(index !== links.length - 4
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -204,7 +204,7 @@ export default function SideMenu({
                     : null),
                 }}
               >
-                <Arrow last={index === links.length - 5}>
+                <Arrow last={index === links.length - 4}>
                   {index > 0 && (
                     <span
                       style={{
@@ -246,3 +246,5 @@ export default function SideMenu({
     </Menu>
   )
 }
+
+export default React.memo(SideMenu)

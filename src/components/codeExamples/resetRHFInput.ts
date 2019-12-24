@@ -1,26 +1,23 @@
 export default `import React from "react";
-import useForm from "react-hook-form";
-import { RHFInput } from "react-hook-form-input";
+import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 export default function App() {
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const { register, handleSubmit, reset, setValue, control } = useForm();
   const onSubmit = (data) => { console.log(data) };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput 
+      <Controller 
         as={<TextField />} 
-        name="firstName" 
+        name="firstName"
+        control={control} 
         rules={ required: true } 
-        register={register} 
-        setValue={setValue}
       />
-      <RHFInput 
+      <Controller 
         as={<TextField />} 
-        name="lastName" 
-        register={register} 
-        setValue={setValue} 
+        name="lastName"
+        control={control} 
       />
       
       <input type="submit" />

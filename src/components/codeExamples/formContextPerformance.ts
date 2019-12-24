@@ -1,6 +1,6 @@
 export default `
 import React from "react";
-import useForm, { FormContext, useFormContext } from "react-hook-form";
+import { useForm, FormContext, useFormContext } from "react-hook-form";
 
 export default function App() {
   const methods = useForm();

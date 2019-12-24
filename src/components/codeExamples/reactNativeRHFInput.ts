@@ -1,36 +1,27 @@
-export default `import React from "react"
-import { Text, View, TextInput, Button, Alert } from "react-native"
-import { RHFInput } from 'react-hook-form-input';
-import useForm from 'react-hook-form'
+export default `import React from "react";
+import { Text, View, TextInput, Button, Alert } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
 export default function App() {
-  const { register, setValue, handleSubmit, errors } = useForm()
-  const onSubmit = data => Alert.alert('Form Data', data)
+  const { control, handleSubmit, errors } = useForm();
+  const onSubmit = data => Alert.alert("Form Data", data);
 
   return (
     <View>
       <Text>First name</Text>
-      <RHFInput
+      <Controller
         as={<TextInput />}
+        control={control}
         name="firstName"
-        setValue={setValue} 
-        register={register}
         rules={{ required: true }}
       />
       {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
-      <RHFInput
-        as={<TextInput />}
-        name="lastName"
-        setValue={setValue} 
-        register={register}
-      />
+      <Controller as={<TextInput />} control={control} name="lastName" />
 
-      <View>
-        <Button onPress={handleSubmit(onSubmit)} />
-      </View>
+      <Button onPress={handleSubmit(onSubmit)} />
     </View>
-  )
+  );
 }
 `

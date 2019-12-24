@@ -1,7 +1,7 @@
 export default `import React from 'react';
-import useForm from 'react-hook-form';
-import { RHFInput } from 'react-hook-form-input';
 import Select from 'react-select';
+import { TextField } from "@material-ui/core";
+import { useForm, Controller } from 'react-hook-form';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -10,17 +10,23 @@ const options = [
 ];
 
 function App() {
-  const { handleSubmit, register, setValue } = useForm();
+  const { handleSubmit, control } = useForm();
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
-      <RHFInput
+      <Controller
         as={<Select options={options} />}
+        control={control}
         rules={{ required: true }}
         name="reactSelect"
-        register={register}
-        setValue={setValue}
       />
+      
+      <Controller
+        as={<TextField />}
+        name="firstName"
+        control={control}
+      />
+      
       <button>submit</button>
     </form>
   );

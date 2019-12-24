@@ -1,0 +1,379 @@
+import * as React from "react"
+import { Note } from "../../styles/typography"
+import { CodeAsLink, Table, TableWrapper } from "../../components/ApiPage"
+import colors from "../../styles/colors"
+
+export default {
+  title: "常见问题",
+  header: {
+    title: "常见问题",
+    description: "经常问的问题。",
+  },
+  questions: [
+    {
+      title: "React Hook Form的性能",
+      description: (
+        <p>
+          性能是构建这个自定义挂钩(Hook)的主要目标之一。 React Hook
+          Form依赖于不受控制的组件，因此<code>register</code>函数发生在
+          <code>ref</code>的原因。
+          这种方法将减少由于用户输入或值改变而发生的重新render数量。
+          组件安装到页面也更快，因为它们不受控制。
+          其次对于安装速度，我已经完成了一个快速比较测试，
+          <a
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            你可以通过这个链接来参考
+          </a>
+          。
+        </p>
+      ),
+    },
+    {
+      title: "如何创建一个可访问的输入错误和消息？",
+      description: (
+        <p>
+          React Hook Form基于不受控制
+          <a
+            href="https://reactjs.org/docs/uncontrolled-components.html"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            (Uncontrolled Component)
+          </a>
+          的组件，它使您能够轻松的构建自定义表单。
+        </p>
+      ),
+    },
+    {
+      title: "它是否与Class类组件一起使用？",
+      description: (
+        <>
+          <p>不, 但是你可以在它周围构建一个包装并在你的类组件中使用。</p>
+        </>
+      ),
+    },
+    {
+      title: "如何重置表单？",
+      description: (
+        <>
+          <p>有两种方法。</p>
+          <ul>
+            <li>
+              <b>HTMLFormElement.reset()</b>
+              <p>
+                此方法与单击表单的重置按钮相同，并且只清除
+                <code>input/select/checkbox</code>框值。
+              </p>
+            </li>
+            <li>
+              <b>
+                React Hook Form API: <code>reset()</code>
+              </b>
+              <p>
+                React Hook
+                Form的重置方法将重置所有字段值，并且还将清除表单中的所有错误。
+              </p>
+            </li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      title: "如何初始化值？",
+      description: (
+        <p>
+          React Hook Form依赖于不受控制的组件。
+          对于不受控制的组件，可以为单个表格加入默认值
+          <code>defaultValue</code>或加入在默认选中的值
+          <code>defaultChecked</code>。
+          但是，钩子本身也提供了一种更简单的方法来初始化所有输入值。 下面的例子:
+        </p>
+      ),
+    },
+    {
+      title: "如何分享ref用法?",
+      description: (
+        <p>
+          React Hook Form需要<code>ref</code>来收集输入值，但是，您可能需要将
+          <code>ref</code>用于其他目的目的（例如，如果您想要使用它）。
+          滚动到视图中）。 以下示例将向您展示如何。
+        </p>
+      ),
+    },
+    {
+      title: "如果你没有访问ref怎么办？",
+      description: (
+        <>
+          <p>
+            您实际上可以在没有<code>ref</code>的情况下注册
+            <code>register</code>输入。 事实上，您可以手动设置值，设置错误
+            <code>setError</code>和触发验证<code>triggerValidation</code>。
+          </p>
+
+          <p>
+            <Note>注意:</Note> 由于<code>ref</code>尚未注册，因此React Hook
+            Form将无法加入侦听器(event listener)。
+            这意味着您将不得不手动更新值和错误。
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "浏览器支持?",
+      description: (
+        <>
+          <p>React Hook Form支持所有主流浏览器。</p>
+
+          <p>对于传统的IE11支持，您可以从IE11版本导入。</p>
+        </>
+      ),
+    },
+    {
+      title: "为什么第一次按键不起作用？",
+      description: (
+        <>
+          <p>
+            仔细检查是否使用值<code>value</code>而不是默认值
+            <code>defaultValue</code>。
+          </p>
+
+          <p>
+            React Hook Form是基于不受控制的输入构建的，这意味着您不需要通过
+            <code>onChange</code>更改输入值。
+            因此，您根本不需要值，事实上，您只需要初始输入值<code>value</code>
+            的默认值<code>defaultValue</code>。
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "因MutationObserver测试失败?",
+      description: (
+        <p>
+          如果您在测试过程中遇到困难，并且问题是由
+          <code>MutationObserver</code>引起的。 确保安装
+          <code>MutationObserver</code>并在测试设置中导入此包
+          <a
+            href="https://jestjs.io/docs/en/configuration"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            setup.js file
+          </a>
+          文件。
+        </p>
+      ),
+    },
+    {
+      title: "React Hook Form, Formik 或者 Redux Form?",
+      description: (
+        <>
+          <p>
+            首先，他们都在尝试解决同样的问题，使表单变的简单。
+            然而，三者之间的一些根本性区别，react-hook-form是
+            建立在不受控制的输入，并尝试提供您的表单
+            具有最佳性能和最少重新render。react-hook-form是由React
+            Hook构建并用作hook, 这意味着没有组件供您导入。 这里有一些的细节差异:
+          </p>
+
+          <TableWrapper>
+            <Table>
+              <thead>
+                <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                  <th width={200} />
+                  <th>
+                    <p>React Hook Form</p>
+                  </th>
+                  <th>
+                    <p>Formik</p>
+                  </th>
+                  <th>
+                    <p>Redux Form</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Component</b>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/uncontrolled-components.html"
+                      target="_blank"
+                    >
+                      uncontrolled
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      controlled
+                    </a>
+                  </td>
+                  <td>
+                    <a
+                      href="https://reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      controlled
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Rendering</b>
+                  </td>
+                  <td>最少的re-render</td>
+                  <td>您键入输入将重新启动render。</td>
+                  <td>您键入输入将重新启动render。</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>API</b>
+                  </td>
+                  <td>Hooks</td>
+                  <td>Component (RenderProps, Form, Field) + Hooks</td>
+                  <td>Component (RenderProps, Form, Field)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Package size</b>
+                  </td>
+                  <td>
+                    小
+                    <br />
+                    <code>
+                      react-hook-form@3.26.2
+                      <br />
+                      <Note>5.3KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    中
+                    <br />
+                    <code>
+                      formik@2.0.1
+                      <br />
+                      <Note>14.4KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    大
+                    <br />
+                    <code>
+                      redux-form@8.2.6
+                      <br />
+                      <Note>27KB</Note>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>验证</b>
+                  </td>
+                  <td>
+                    自带验证 &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>
+                    自己建立验证 &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>Build your own & Plugins</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Learning curve</b>
+                  </td>
+                  <td>低</td>
+                  <td>中</td>
+                  <td>中</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>状态</b>
+                  </td>
+                  <td>小社区</td>
+                  <td>大社区</td>
+                  <td>大社区</td>
+                </tr>
+              </tbody>
+            </Table>
+          </TableWrapper>
+        </>
+      ),
+    },
+    {
+      title: "Can it work with Controlled component?",
+      description: (
+        <>
+          <p>
+            <b>可以的。</b>
+          </p>
+          <p>
+            React-hook-form不建议您建立受控的表单， 但是您仍然可以轻松实现。
+          </p>
+          <p>
+            使用<code> watch </code> API监视每个输入的更改并分配给价值道具。
+          </p>
+          <p>
+            或者，您可以使用我们的包装器组件
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
+            </a>
+            ，它会为您处理那些自定义注册。
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Testing React Hook Form",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                为什么我会收到<code> act </code>警告？
+              </p>
+
+              <p>
+                React Hook表单中的所有验证方法将被视为 异步函数, 因此包装
+                <code>async</code> 在你{" "}
+                <CodeAsLink
+                  href="https://reactjs.org/docs/test-utils.html#act"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  act
+                </CodeAsLink>
+                很重要 .
+              </p>
+            </li>
+            <li>
+              <p>为什么输入更改不是触发事件？</p>
+
+              <p>
+                React Hook Form 使用<code> input </code>
+                事件作为输入来响应。您可以轻松切换到
+                <code> fireEvent.input </code>用于react-testing-library。
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ],
+}

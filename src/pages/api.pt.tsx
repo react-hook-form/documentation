@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ApiPage from "../components/ApiPage"
-import api from "../data/api"
+import api from "../data/pt/api"
 
 const ApiPT = ({
   location,
@@ -13,7 +13,7 @@ const ApiPT = ({
   }
 }) => (
   <Layout location={location} defaultLang={"pt"}>
-    <Seo title={api.title.pt} location={location} />
+    <Seo title={api.title} location={location} />
     <ApiPage defaultLang="pt" />
   </Layout>
 )

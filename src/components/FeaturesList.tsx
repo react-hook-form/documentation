@@ -82,7 +82,7 @@ const props = {
   duration: 0.3,
 }
 
-export default function FeaturesList({
+function FeaturesList({
   isPlayFeature,
   currentLanguage,
 }: {
@@ -184,3 +184,5 @@ export default function FeaturesList({
     </Features>
   )
 }
+
+export default React.memo(FeaturesList)

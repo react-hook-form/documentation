@@ -5,11 +5,12 @@ import Form from "./Form"
 import Header from "./Header"
 import CodeCompareSection from "./CodeCompareSection"
 import CodePerfCompareSection from "./CodePerfCompareSection"
+import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import { H1 } from "../styles/typography"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
-import { CenterContent } from "../styles/containers"
+import { CenterContent, Section } from "../styles/containers"
 import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
@@ -42,6 +43,7 @@ function HomePage({
   const HomeRef = useRef(null)
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
+  const [isIsolatePlay, setIsolatePlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const {
@@ -80,6 +82,7 @@ function HomePage({
     const featureList = document.querySelector("#featureLast")
     const codeComparison = document.querySelector("#codeComparison")
     const rendering = document.querySelector("#rendering")
+    const isolate = document.querySelector("#isolate")
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -93,6 +96,9 @@ function HomePage({
           if (entry.target === rendering && !isPlayRender) {
             setRenderPlay(true)
           }
+          if (entry.target === isolate && !isIsolatePlay) {
+            setIsolatePlay(true)
+          }
         }
       })
     }, options)
@@ -100,6 +106,7 @@ function HomePage({
     observer.observe(featureList)
     observer.observe(codeComparison)
     observer.observe(rendering)
+    observer.observe(isolate)
 
     return () => {
       observer.disconnect()
@@ -126,6 +133,11 @@ function HomePage({
 
       <CodeCompareSection
         isPlayCodeCompare={isPlayCodeCompare}
+        currentLanguage={currentLanguage}
+      />
+
+      <IsolateRender
+        isIsolatePlay={isIsolatePlay}
         currentLanguage={currentLanguage}
       />
 

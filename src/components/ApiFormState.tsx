@@ -2,11 +2,10 @@ import * as React from "react"
 import { CodeSandBoxLink } from "./CodeArea"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import { TypeText } from "../styles/typography"
-import api from "../data/api"
 import generic from "../data/generic"
 
 export default React.memo(
-  ({ currentLanguage }: { currentLanguage: string }) => {
+  ({ api, currentLanguage }: { currentLanguage: string, api: any }) => {
     return (
       <>
         <CodeHeading>
@@ -14,7 +13,7 @@ export default React.memo(
             formState: <TypeText>Object</TypeText>
           </h2>
         </CodeHeading>
-        <p>{api.formState[currentLanguage].description}</p>
+        <p>{api.formState.description}</p>
 
         <TableWrapper>
           <Table>
@@ -31,7 +30,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].dirty}</td>
+                <td>{api.formState.dirty}</td>
               </tr>
               <tr>
                 <td>
@@ -40,7 +39,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].isSubmitted}</td>
+                <td>{api.formState.isSubmitted}</td>
               </tr>
               <tr>
                 <td>
@@ -49,7 +48,7 @@ export default React.memo(
                 <td>
                   <TypeText>{`string[]`}</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].touched}</td>
+                <td>{api.formState.touched}</td>
               </tr>
               <tr>
                 <td>
@@ -58,7 +57,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].isSubmitting}</td>
+                <td>{api.formState.isSubmitting}</td>
               </tr>
               <tr>
                 <td>
@@ -67,7 +66,7 @@ export default React.memo(
                 <td>
                   <TypeText>number</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].submitCount}</td>
+                <td>{api.formState.submitCount}</td>
               </tr>
               <tr>
                 <td>
@@ -76,7 +75,7 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>{api.formState[currentLanguage].isValid}</td>
+                <td>{api.formState.isValid}</td>
               </tr>
               <tr>
                 <td>

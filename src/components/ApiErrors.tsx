@@ -3,13 +3,12 @@ import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import { TypeText } from "../styles/typography"
-import api from "../data/api"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
 
 export default React.memo(
-  ({ currentLanguage }: { currentLanguage: string }) => {
+  ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
     return (
       <>
         <CodeHeading>
@@ -18,7 +17,7 @@ export default React.memo(
           </h2>
         </CodeHeading>
 
-        {api.errors[currentLanguage].description(currentLanguage)}
+        {api.errors.description(currentLanguage)}
 
         <TableWrapper>
           <Table>
@@ -53,7 +52,7 @@ export default React.memo(
                 <td>
                   <TypeText>{`Record<{ string, string | boolean }>`}</TypeText>
                 </td>
-                <td>{api.errors[currentLanguage].types}</td>
+                <td>{api.errors.types}</td>
               </tr>
               <tr>
                 <td>
@@ -62,7 +61,7 @@ export default React.memo(
                 <td>
                   <TypeText>string</TypeText>
                 </td>
-                <td>{api.errors[currentLanguage].message}</td>
+                <td>{api.errors.message}</td>
               </tr>
               <tr>
                 <td>
@@ -71,7 +70,7 @@ export default React.memo(
                 <td>
                   <TypeText>React.RefObject</TypeText>
                 </td>
-                <td>{api.errors[currentLanguage].ref}</td>
+                <td>{api.errors.ref}</td>
               </tr>
             </tbody>
           </Table>

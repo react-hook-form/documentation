@@ -84,18 +84,18 @@ const Video = styled.video`
 
   @media ${breakpoints.fromMediumScreen} {
     width: 700px;
-    height: 491px;
+    height: 400px;
     margin: 0 auto 20px;
   }
 
   @media ${breakpoints.fromLargeScreen} {
     width: 800px;
-    height: 563px;
+    height: 480px;
   }
 
   @media ${breakpoints.fromXlargeScreen} {
-    width: 900px;
-    height: 631px;
+    width: 980px;
+    height: 600px;
   }
 `
 

@@ -18,7 +18,7 @@ import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
-import advanced from "../data/advanced"
+import advancedContent from "../data/advanced"
 import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
@@ -26,6 +26,19 @@ import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapCont
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
 
 const { useRef } = React
+const advancedEn = advancedContent["en"]
+const enLinks = [
+  advancedEn.accessibility,
+  advancedEn.wizard,
+  advancedEn.smartForm,
+  advancedEn.fieldArrays,
+  advancedEn.schema,
+  advancedEn.errorMessage,
+  advancedEn.connectForm,
+  advancedEn.formContext,
+  advancedEn.conditionalControlledComponent,
+  advancedEn.controlledMixedWithUnControlled,
+]
 
 function Advanced({ defaultLang }: { defaultLang: string }) {
   const pageContentRef = useRef({
@@ -48,6 +61,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const advanced = advancedContent[currentLanguage]
 
   const links = [
     advanced.accessibility,
@@ -86,12 +100,13 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
   return (
     <Container>
       <HeadingWithTopMargin id="main">
-        {advanced.header[currentLanguage].title}
+        {advanced.header.title}
       </HeadingWithTopMargin>
-      <SubHeading>{advanced.header[currentLanguage].description}</SubHeading>
+      <SubHeading>{advanced.header.description}</SubHeading>
 
       <Wrapper>
         <SideMenu
+          enLinks={enLinks}
           isStatic
           links={links}
           goToSection={goToSection}
@@ -102,40 +117,40 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <QuestionTitle
             ref={ref => (pageContentRef.current.AccessibilityA11y = ref)}
           >
-            {advanced.accessibility[currentLanguage].title}
+            {advanced.accessibility.title}
           </QuestionTitle>
 
-          {advanced.accessibility[currentLanguage].description}
+          {advanced.accessibility.description}
 
           <hr />
 
           <QuestionTitle
             ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}
           >
-            {advanced.wizard[currentLanguage].title}
+            {advanced.wizard.title}
           </QuestionTitle>
 
-          {advanced.wizard[currentLanguage].description}
+          {advanced.wizard.description}
 
           <hr />
 
           <QuestionTitle
             ref={ref => (pageContentRef.current.SmartFormComponent = ref)}
           >
-            {advanced.smartForm[currentLanguage].title}
+            {advanced.smartForm.title}
           </QuestionTitle>
 
-          {advanced.smartForm[currentLanguage].description}
+          {advanced.smartForm.description}
 
           <hr />
 
           <QuestionTitle
             ref={ref => (pageContentRef.current.FieldArrays = ref)}
           >
-            {advanced.fieldArrays[currentLanguage].title}
+            {advanced.fieldArrays.title}
           </QuestionTitle>
 
-          {advanced.fieldArrays[currentLanguage].description}
+          {advanced.fieldArrays.description}
 
           <CodeArea
             rawData={fieldArray}
@@ -147,12 +162,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <QuestionTitle
             ref={ref => (pageContentRef.current.SchemaValidation = ref)}
           >
-            {advanced.schema[currentLanguage].title}
+            {advanced.schema.title}
           </QuestionTitle>
 
-          {advanced.schema[currentLanguage].description}
+          {advanced.schema.description}
 
-          {advanced.schema[currentLanguage].step1}
+          {advanced.schema.step1}
 
           <InstallCode>
             npm install yup
@@ -166,7 +181,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             </CopyButton>
           </InstallCode>
 
-          {advanced.schema[currentLanguage].step2}
+          {advanced.schema.step2}
 
           <CodeArea
             rawData={schemaValidation}
@@ -178,16 +193,16 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <QuestionTitle
             ref={ref => (pageContentRef.current.ErrorMessage = ref)}
           >
-            {advanced.errorMessage[currentLanguage].title}
+            {advanced.errorMessage.title}
           </QuestionTitle>
 
-          {advanced.errorMessage[currentLanguage].description}
+          {advanced.errorMessage.description}
 
           <ul>
             <li>
               <h4>Register</h4>
               <p>
-                {advanced.errorMessage[currentLanguage].register}
+                {advanced.errorMessage.register}
                 <br />
                 <br />
                 <code>{`<input
@@ -199,20 +214,20 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             </li>
             <li>
               <h4>{`<ErrorMessage />`}</h4>
-              <p>{advanced.errorMessage[currentLanguage].component}</p>
+              <p>{advanced.errorMessage.component}</p>
 
               <CodeArea rawData={errorMessageAdvance} />
             </li>
             <li>
               <h4>Optional Chaining</h4>
-              {advanced.errorMessage[currentLanguage].optionalChaining}
+              {advanced.errorMessage.optionalChaining}
               <p />
             </li>
             <li>
               <h4>
                 Lodash <code>get</code>
               </h4>
-              {advanced.errorMessage[currentLanguage].get}
+              {advanced.errorMessage.get}
               <p />
             </li>
           </ul>
@@ -222,10 +237,10 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <QuestionTitle
             ref={ref => (pageContentRef.current.ConnectForm = ref)}
           >
-            {advanced.connectForm[currentLanguage].title}
+            {advanced.connectForm.title}
           </QuestionTitle>
 
-          {advanced.connectForm[currentLanguage].description}
+          {advanced.connectForm.description}
 
           <CodeArea rawData={connectForm} />
 
@@ -234,10 +249,10 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <QuestionTitle
             ref={ref => (pageContentRef.current.FormContextPerformance = ref)}
           >
-            {advanced.formContext[currentLanguage].title}
+            {advanced.formContext.title}
           </QuestionTitle>
 
-          {advanced.formContext[currentLanguage].description}
+          {advanced.formContext.description}
 
           <CodeArea rawData={formContextPerformance} />
 
@@ -248,17 +263,17 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               (pageContentRef.current.ConditionalControlledComponent = ref)
             }
           >
-            {advanced.conditionalControlledComponent[currentLanguage].title}
+            {advanced.conditionalControlledComponent.title}
           </QuestionTitle>
 
-          {advanced.conditionalControlledComponent[currentLanguage].description}
+          {advanced.conditionalControlledComponent.description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={unregisterWrapControlledComponent} />
             <CodeArea
               rawData={unregisterControlledComponent}
               url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
             />
-            <CodeArea rawData={unregisterWrapControlledComponent} />
           </TabGroup>
 
           <hr />
@@ -268,20 +283,17 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
             }
           >
-            {advanced.controlledMixedWithUnControlled[currentLanguage].title}
+            {advanced.controlledMixedWithUnControlled.title}
           </QuestionTitle>
 
-          {
-            advanced.controlledMixedWithUnControlled[currentLanguage]
-              .description
-          }
+          {advanced.controlledMixedWithUnControlled.description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={controlledMixedUncontrolledInput} />
             <CodeArea
               rawData={controlledMixedUncontrolled}
               url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
             />
-            <CodeArea rawData={controlledMixedUncontrolledInput} />
           </TabGroup>
 
           <StarRepo currentLanguage={currentLanguage} />

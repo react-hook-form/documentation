@@ -1,5 +1,5 @@
 export const registerCode = `import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 export default function App() {
   const { register, handleSubmit } = useForm()
@@ -18,7 +18,7 @@ export default function App() {
 }`
 
 export const migrateCode = `import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 // The following component is an example of your existing Input Component 
 const Input = ({ label, register, required }) => ( 
@@ -53,7 +53,7 @@ export default function App() {
 }`
 
 export const uiLibrary = `import React from 'react';
-import useForm from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from 'antd';
@@ -93,39 +93,22 @@ export default function App() {
 }
 `
 
-export const uiLibraryHookInput = `import React from 'react';
-import useForm from 'react-hook-form';
-import { RHFInput } from 'react-hook-form-input';
+export const uiLibraryHookInput = `import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
-import { Input as InputField } from 'antd';
+import { Input as InputField } from "antd";
 
 export default function App() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput 
-        as={<Input />} 
-        register={register} 
-        setValue={setValue} 
-        name="HelloWorld" 
-      />
-        
-      <RHFInput 
-        as={<InputField />} 
-        register={register} 
-        setValue={setValue} 
-        name="AntdInput" 
-      />
-        
-      <RHFInput 
-        as={<Select />} 
-        register={register} 
-        setValue={setValue} 
-        name="reactSelect" 
-      />
+      <Controller as={<Input />} name="HelloWorld" control={control} />
+      <Controller as={<InputField />} name="AntdInput" control={control} />
+      <Controller as={<Select />} name="reactSelect" control={control} />
+
       <input type="submit" />
     </form>
   );
@@ -133,40 +116,31 @@ export default function App() {
 `
 
 export const controlledComponent = `import React from "react";
-import useForm from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
-import { RHFInput } from "react-hook-form-input";
 
 function App() {
   const methods = useForm();
-  const { handleSubmit, register, setValue, reset } = methods;
-  const onSubmit = (data) => console.log(data);
+  const { handleSubmit, control, reset } = methods;
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <RHFInput
+      <Controller as={<TextField />} name="TextField" control={control} />
+      
+      <Controller
         as={<Checkbox />}
         name="Checkbox"
-        type="checkbox"
         value="test"
-        register={register}
-        setValue={setValue}
+        control={control}
       />
 
-      <RHFInput
-        as={<TextField />}
-        name="TextField"
-        register={register}
-        setValue={setValue}
-      />
-      
-      <RHFInput
+      <Controller
         as={<ReactSelect />}
         options={options}
         name="ReactSelect"
-        register={register}
-        setValue={setValue}
+        control={control}
       />
 
       <button>Submit</button>
@@ -176,7 +150,7 @@ function App() {
 `
 
 export const globalState = `import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux'
 import updateAction from './actions'
 
@@ -199,7 +173,7 @@ connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(Yo
 `
 
 export const errors = `import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm()
@@ -217,7 +191,7 @@ export default function App() {
 `
 
 export const applyValidation = `import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 export default function App() {
   const { register, handleSubmit } = useForm()

@@ -12,18 +12,31 @@ import {
   errors,
   applyValidation,
   controlledComponent,
-  uiLibraryHookInput,
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
-import getStarted from "../data/getStarted"
+import getStartedContent from "../data/getStarted"
 import TabGroup from "./TabGroup"
 import reactNative from "./codeExamples/reactNative"
 import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
 import typeScript from "./codeExamples/typeScript"
 
 const { useRef } = React
+const getStartedEn = getStartedContent["en"]
+const enLinks = [
+  getStartedEn.install,
+  getStartedEn.video,
+  getStartedEn.register,
+  getStartedEn.applyValidation,
+  getStartedEn.adapting,
+  getStartedEn.workWithUI,
+  getStartedEn.controlledInput,
+  getStartedEn.globalState,
+  getStartedEn.errors,
+  getStartedEn.reactNative,
+  getStartedEn.typeScript,
+]
 
 const Faq = ({
   location,
@@ -43,6 +56,7 @@ const Faq = ({
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const getStarted = getStartedContent[currentLanguage]
 
   const links = [
     getStarted.install,
@@ -98,12 +112,13 @@ const Faq = ({
   return (
     <Container>
       <HeadingWithTopMargin id="main">
-        {getStarted.header[currentLanguage].title}
+        {getStarted.header.title}
       </HeadingWithTopMargin>
-      <SubHeading>{getStarted.header[currentLanguage].description}</SubHeading>
+      <SubHeading>{getStarted.header.description}</SubHeading>
 
       <Wrapper>
         <SideMenu
+          enLinks={enLinks}
           isStatic
           links={links}
           goToSection={goToSection}
@@ -111,6 +126,7 @@ const Faq = ({
         />
         <main>
           <GetStarted
+            getStarted={getStarted}
             quickStartRef={ref => {
               sectionsRef.current.quickstart = ref
             }}
@@ -126,9 +142,9 @@ const Faq = ({
           </p>
 
           <h2 ref={ref => (sectionsRef.current.videotutorial = ref)}>
-            {getStarted.video[currentLanguage].title}
+            {getStarted.video.title}
           </h2>
-          <p>{getStarted.video[currentLanguage].description}</p>
+          <p>{getStarted.video.description}</p>
 
           <iframe
             width="100%"
@@ -145,10 +161,10 @@ const Faq = ({
               sectionsRef.current.registerfields = ref
             }}
           >
-            {getStarted.register[currentLanguage].title}
+            {getStarted.register.title}
           </Title>
 
-          {getStarted.register[currentLanguage].description}
+          {getStarted.register.description}
 
           <CodeArea rawData={registerCode} />
 
@@ -157,12 +173,10 @@ const Faq = ({
               sectionsRef.current.applyvalidation = ref
             }}
           >
-            {getStarted.applyValidation[currentLanguage].title}
+            {getStarted.applyValidation.title}
           </Title>
 
-          {getStarted.applyValidation[currentLanguage].description(
-            currentLanguage
-          )}
+          {getStarted.applyValidation.description(currentLanguage)}
 
           <CodeArea rawData={applyValidation} />
 
@@ -171,10 +185,10 @@ const Faq = ({
               sectionsRef.current.adaptingexistingform = ref
             }}
           >
-            {getStarted.adapting[currentLanguage].title}
+            {getStarted.adapting.title}
           </Title>
 
-          {getStarted.adapting[currentLanguage].description}
+          {getStarted.adapting.description}
 
           <CodeArea rawData={migrateCode} />
 
@@ -183,28 +197,25 @@ const Faq = ({
               sectionsRef.current.workwithuilibrary = ref
             }}
           >
-            {getStarted.workWithUI[currentLanguage].title}
+            {getStarted.workWithUI.title}
           </Title>
 
-          {getStarted.workWithUI[currentLanguage].description(currentLanguage)}
+          {getStarted.workWithUI.description(currentLanguage)}
 
-          <TabGroup buttonLabels={["Custom register", "React Hook Form Input"]}>
-            <CodeArea
-              rawData={uiLibrary}
-              url="https://codesandbox.io/s/72j69vnk1x"
-            />
-            <CodeArea rawData={uiLibraryHookInput} />
-          </TabGroup>
+          <CodeArea
+            rawData={uiLibrary}
+            url="https://codesandbox.io/s/72j69vnk1x"
+          />
 
           <Title
             ref={ref => {
               sectionsRef.current.controlledinput = ref
             }}
           >
-            {getStarted.controlledInput[currentLanguage].title}
+            {getStarted.controlledInput.title}
           </Title>
 
-          {getStarted.controlledInput[currentLanguage].description}
+          {getStarted.controlledInput.description}
 
           <CodeArea
             rawData={controlledComponent}
@@ -216,10 +227,10 @@ const Faq = ({
               sectionsRef.current.integrateglobalstate = ref
             }}
           >
-            {getStarted.globalState[currentLanguage].title}
+            {getStarted.globalState.title}
           </Title>
 
-          {getStarted.globalState[currentLanguage].description}
+          {getStarted.globalState.description}
 
           <CodeArea rawData={globalState} />
 
@@ -228,10 +239,10 @@ const Faq = ({
               sectionsRef.current.handleerrors = ref
             }}
           >
-            {getStarted.errors[currentLanguage].title}
+            {getStarted.errors.title}
           </Title>
 
-          {getStarted.errors[currentLanguage].description}
+          {getStarted.errors.description}
 
           <CodeArea rawData={errors} />
 
@@ -243,18 +254,18 @@ const Faq = ({
             React Native
           </Title>
 
-          {getStarted.reactNative[currentLanguage].description}
+          {getStarted.reactNative.description}
 
-          <TabGroup buttonLabels={["Custom Register", "React Hook Form Input"]}>
-            <CodeArea
-              isExpo
-              rawData={reactNative}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form"
-            />
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
             <CodeArea
               isExpo
               rawData={reactNativeRHFInput}
               url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
+            />
+            <CodeArea
+              isExpo
+              rawData={reactNative}
+              url="https://snack.expo.io/@bluebill1049/react-hook-form"
             />
           </TabGroup>
 
@@ -266,7 +277,7 @@ const Faq = ({
             TypeScript
           </Title>
 
-          {getStarted.typeScript[currentLanguage].description}
+          {getStarted.typeScript.description}
 
           <CodeArea
             rawData={typeScript}

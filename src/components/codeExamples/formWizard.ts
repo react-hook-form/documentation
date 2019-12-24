@@ -27,7 +27,7 @@ export default function App() {
 `
 
 export const step2 = `import React from "react";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";

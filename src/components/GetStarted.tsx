@@ -7,7 +7,6 @@ import breakpoints from "../styles/breakpoints"
 import getStarted from "../data/getStarted"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
-import generateCode from "./logic/generateCode"
 
 export const InstallCode = styled.span`
   background: ${colors.buttonBlue} !important;
@@ -47,16 +46,16 @@ export const CopyButton = styled.button`
 export default function GetStarted({
   quickStartRef,
   currentLanguage,
+  getStarted,
 }: {
   quickStartRef: any
   currentLanguage: string
+  getStarted: any
 }) {
   return (
     <>
-      <h2 ref={quickStartRef}>
-        {getStarted.install[currentLanguage].linkTitle}
-      </h2>
-      <p>{getStarted.install[currentLanguage].description}</p>
+      <h2 ref={quickStartRef}>{getStarted.install.linkTitle}</h2>
+      <p>{getStarted.install.description}</p>
 
       <InstallCode>
         npm install react-hook-form
@@ -78,9 +77,9 @@ export default function GetStarted({
           marginTop: 50,
         }}
       >
-        {getStarted.example[currentLanguage].title}
+        {getStarted.example.title}
       </h2>
-      <p>{getStarted.example[currentLanguage].description}</p>
+      <p>{getStarted.example.description}</p>
       <CodeArea rawData={code} url="https://codesandbox.io/s/kw7z2q2n15" />
     </>
   )

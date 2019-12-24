@@ -5,10 +5,9 @@ import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
-import api from "../data/api"
-import { CodeBlock, TypeText } from "../styles/typography"
+import { TypeText } from "../styles/typography"
 
-export default function FormContext({ currentLanguage }: { currentLanguage }) {
+export default function FormContext({ currentLanguage, api }) {
   return (
     <>
       <CodeHeading>
@@ -17,7 +16,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
         </h2>
       </CodeHeading>
 
-      {api.formContext[currentLanguage].introduction}
+      {api.formContext.introduction}
 
       <TableWrapper>
         <Table>
@@ -42,7 +41,7 @@ export default function FormContext({ currentLanguage }: { currentLanguage }) {
         </Table>
       </TableWrapper>
 
-      {api.formContext[currentLanguage].description}
+      {api.formContext.description}
 
       <SyntaxHighlighter
         customStyle={{

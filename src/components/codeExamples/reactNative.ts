@@ -1,6 +1,6 @@
 export default `import React from "react"
 import { Text, View, TextInput, Button, Alert } from "react-native"
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 export default function App() {
   const { register, setValue, handleSubmit, errors } = useForm()
@@ -21,9 +21,7 @@ export default function App() {
         onChangeText={text => setValue('lastName', text)}
       />
 
-      <View>
-        <Button onPress={handleSubmit(onSubmit)} />
-      </View>
+      <Button onPress={handleSubmit(onSubmit)} />
     </View>
   )
 }
