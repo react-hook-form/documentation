@@ -34,6 +34,11 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import api from "../data/api"
+import apiEn from '../data/en/api'
+import apiPt from '../data/pt/api'
+import apiZh from '../data/zh/api'
+import apiJp from '../data/jp/api'
+import apiKr from '../data/kr/api'
 import RHFInput from "./RHFInput"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
