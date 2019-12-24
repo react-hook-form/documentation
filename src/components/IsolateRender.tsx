@@ -20,18 +20,21 @@ const Wrapper = styled.div`
     grid-gap: 40px;
     grid-template-columns: 1fr 65px 1fr;
   }
+  
+  & > div {
+    display: none;
+
+    @media ${breakpoints.fromMediumScreen} {
+      display: block;
+    }
+  }
 
   & p {
-    display: none;
     font-size: 45px;
     font-weight: 800;
     margin-top: 160px;
     line-height: 1.4;
     background: ${colors.primary};
-
-    @media ${breakpoints.fromMediumScreen} {
-      display: block;
-    }
   }
 
   & h2 {
@@ -134,6 +137,7 @@ const ControlledInputs = ({ style }) => {
             </ExternalComponent>
           )}
         />
+
         <AnimateKeyframes
           {...props}
           play={play}
@@ -164,7 +168,6 @@ function IsolateRender({
   isIsolatePlay: boolean
   currentLanguage: string
 }) {
-  console.log(isIsolatePlay)
   return (
     <CenterContent>
       <H1>Isolate Component Re-render</H1>
