@@ -45,8 +45,8 @@ export default {
         </p>
 
         <p>
-          <Note>참고:</Note> React Native 는 수동으로 register 커맨드를
-          입력해야 합니다. (예:{" "}
+          <Note>참고:</Note> React Native 는 수동으로 register 커맨드를 입력해야
+          합니다. (예:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code>
           또는 <Link to="/api#Controller">Controller</Link>을 사용하여 구성
           요소를 래핑합니다.
@@ -131,18 +131,11 @@ export default {
         >
           Material-UI
         </a>{" "}
-        같이 외부 라이브러리에서 제공하는 제어 컴포넌트와 함께 사용해야 할
-        때가 있습니다. 그래서 이럴 때 사용하기 위해 감싸는 컴포넌트를
-        제공합니다.{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/react-hook-form/react-hook-form-input"
-        >
-          Controller
-        </a>{" "}
-        은 여전히 필요에 따라 인풋 필드를 커스텀 등록하는 방법을 제공하여 위의
-        외부 컴포넌트들과 쉽게 통합할 수 있습니다.
+        같이 외부 라이브러리에서 제공하는 제어 컴포넌트와 함께 사용해야 할 때가
+        있습니다. 그래서 이럴 때 사용하기 위해 감싸는 컴포넌트를 제공합니다.{" "}
+        <Link to="/api#Controller">Controller</Link> 은 여전히 필요에 따라 인풋
+        필드를 커스텀 등록하는 방법을 제공하여 위의 외부 컴포넌트들과 쉽게
+        통합할 수 있습니다.
       </p>
     ),
   },
@@ -163,8 +156,8 @@ export default {
               register
             </Link>
           </code>{" "}
-          로 등록하는 것입니다. 예를 들어 Material-UI 의{" "}
-          <code>TextField</code> 는 prop 중 하나로
+          로 등록하는 것입니다. 예를 들어 Material-UI 의 <code>TextField</code>{" "}
+          는 prop 중 하나로
           <code>inputRef</code> 를 받습니다. 간단히 그 prop 에{" "}
           <code>register</code> 를 전달하면 됩니다.
         </p>
@@ -182,8 +175,8 @@ export default {
         </p>
         <p>
           그 다음으로 쉬운 방법은 <Link to="/api#Controller">Controller</Link>{" "}
-          래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀
-          등록 과정을 대신 처리해 줍니다.
+          래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀 등록
+          과정을 대신 처리해 줍니다.
         </p>
 
         <CodeArea rawData={uiLibraryHookInput} />
@@ -215,10 +208,10 @@ export default {
     title: "React Native",
     description: (
       <p>
-        비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 하지만,
-        웹과 네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정
-        API도 있습니다. 이 경우, 다음 예제와 같이{" "}
-        <b>수동 등록(manual register)</b>을 해주어야 합니다.
+        비제어 컴포넌트에서도 동일한 성능 향상을 얻을 수 있습니다. 하지만, 웹과
+        네이티브의 API 차이로 인해 React Native와 호환되지 않는 특정 API도
+        있습니다. 이 경우, 다음 예제와 같이 <b>수동 등록(manual register)</b>을
+        해주어야 합니다.
       </p>
     ),
   },

@@ -34,8 +34,8 @@ export default {
           <strong>
             <code>register</code>
           </strong>{" "}
-          your uncontrolled component into the Hook and hence enabling its
-          value to be validated and gathered for submitting.
+          your uncontrolled component into the Hook and hence enabling its value
+          to be validated and gathered for submitting.
         </p>
 
         <p>
@@ -103,9 +103,9 @@ export default {
     title: "Controlled Input",
     description: (
       <p>
-        React Hook Form embrace uncontrolled components and native HTML
-        inputs, however it's hard to avoid working with external controlled
-        component such as{" "}
+        React Hook Form embrace uncontrolled components and native HTML inputs,
+        however it's hard to avoid working with external controlled component
+        such as{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -130,15 +130,9 @@ export default {
           Material-UI
         </a>
         , hence we have built a wrapper component:{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/react-hook-form/react-hook-form-input"
-        >
-          Controller
-        </a>{" "}
-        to streamline the integration process while still giving you the
-        freedom to use custom register with your needs.
+        <Link to="/api#Controller">Controller</Link> to streamline the
+        integration process while still giving you the freedom to use custom
+        register with your needs.
       </p>
     ),
   },
@@ -152,8 +146,8 @@ export default {
         </p>
         <p>
           <Note>Option 1:</Note> The best way is to check if the component you
-          wish to use exposes an <code>innerRef</code> or <code>ref</code>{" "}
-          that can be used to{" "}
+          wish to use exposes an <code>innerRef</code> or <code>ref</code> that
+          can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -177,8 +171,8 @@ export default {
         </p>
         <p>
           The next easiest way is to use the{" "}
-          <Link to="/api#Controller">Controller</Link> wrapper component,
-          which will take care of the custom register process for you.
+          <Link to="/api#Controller">Controller</Link> wrapper component, which
+          will take care of the custom register process for you.
         </p>
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
@@ -211,10 +205,9 @@ export default {
     description: (
       <p>
         You will get the same performance enhancement from an Uncontrolled
-        Component. However, there are certain APIs which are not compatible
-        with React Native (duo to the API difference from web and native). You
-        will have to use a <b>manual register</b> as shown in the following
-        example.
+        Component. However, there are certain APIs which are not compatible with
+        React Native (duo to the API difference from web and native). You will
+        have to use a <b>manual register</b> as shown in the following example.
       </p>
     ),
   },
@@ -222,8 +215,8 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form is built with <code>Typescript</code>, so you can
-        define a <code>FormData</code> type to support form values.
+        React Hook Form is built with <code>Typescript</code>, so you can define
+        a <code>FormData</code> type to support form values.
       </p>
     ),
   },

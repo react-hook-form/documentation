@@ -39,17 +39,17 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Cada campo <strong>obrigatório</strong> precisa
-          ter um único <code>name</code> como chave do processo de registro.
+          <Note>Nota:</Note> Cada campo <strong>obrigatório</strong> precisa ter
+          um único <code>name</code> como chave do processo de registro.
         </p>
 
         <p>
-          <Note>Nota: </Note>React Native vai precisar do uso manual do
-          comando de registro:{" "}
+          <Note>Nota: </Note>React Native vai precisar do uso manual do comando
+          de registro:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or
           usando <Link to="/api#Controller">Controller</Link> para englobar e
-          registrar automaticamente seu componente. Você também pode ler mais
-          em <Link to="/api/#ReactNative">React Native</Link> Seção.
+          registrar automaticamente seu componente. Você também pode ler mais em{" "}
+          <Link to="/api/#ReactNative">React Native</Link> Seção.
         </p>
       </>
     ),
@@ -59,8 +59,8 @@ export default {
     description: currentLanguage => (
       <>
         <p>
-          React Hook Form cria validação de formulário simples, alinhado com
-          os existentes{" "}
+          React Hook Form cria validação de formulário simples, alinhado com os
+          existentes{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
             target="_blank"
@@ -132,15 +132,9 @@ export default {
           Material-UI
         </a>
         , consequentemente precisamos construir um componente por volta:{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/react-hook-form/react-hook-form-input"
-        >
-          Controller
-        </a>{" "}
-        para agilizar o processo de integração e ainda oferecer a você
-        liberdade de usar o registro personalizado com suas necessidades.
+        <Link to="/api#Controller">Controller</Link> para agilizar o processo de
+        integração e ainda oferecer a você liberdade de usar o registro
+        personalizado com suas necessidades.
       </p>
     ),
   },
@@ -149,8 +143,8 @@ export default {
     description: currentLanguage => (
       <>
         <p>
-          React Hook Form é bem fácil de ser integrado com componentes
-          externos de interface.
+          React Hook Form é bem fácil de ser integrado com componentes externos
+          de interface.
         </p>
         <p>
           <Note>Opção 1:</Note> A melhor forma é checar se o componente que
@@ -215,10 +209,9 @@ export default {
     description: (
       <p>
         Você obterá o mesmo aprimoramento de desempenho de um Componente Não
-        Controlado. No entanto, existem certas APIs que não são compatíveis
-        com React Native (devido a diferença de API da Web e nativa). Você
-        terá que usar um <b>registro manual</b> como mostra o seguinte
-        exemplo.
+        Controlado. No entanto, existem certas APIs que não são compatíveis com
+        React Native (devido a diferença de API da Web e nativa). Você terá que
+        usar um <b>registro manual</b> como mostra o seguinte exemplo.
       </p>
     ),
   },

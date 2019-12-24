@@ -140,13 +140,7 @@ export default {
         などの外部の制御された UI{" "}
         コンポーネントライブラリと組み合わせての使用を避けることは難しいため、
         ラッパーコンポーネントを作成しました。{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/react-hook-form/react-hook-form-input"
-        >
-          Controller
-        </a>{" "}
+        <Link to="/api#Controller">Controller</Link>{" "}
         は、必要に応じてカスタム登録を自由に使用できると同時に、統合プロセスを簡素化します。
       </p>
     ),
@@ -182,9 +176,8 @@ export default {
         </p>
         <p>
           <Note>オプション2：</Note> 例えば、 <code>react-select</code> や{" "}
-          <code>react-datepicker</code> などのように、
-          コンポーネントによっては register のための prop
-          が公開されていないことがあります。
+          <code>react-datepicker</code> などのように、 コンポーネントによっては
+          register のための prop が公開されていないことがあります。
         </p>
         <p>
           次に簡単な方法は、ラッパーコンポーネントである{" "}

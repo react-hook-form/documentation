@@ -125,13 +125,7 @@ export default {
           Material-UI
         </a>
         ，因此我们建立了一个包装组件:{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/react-hook-form/react-hook-form-input"
-        >
-          Controller
-        </a>{" "}
+        <Link to="/api#Controller">Controller</Link>{" "}
         来简化集成过程，同时仍然可以自由地使用自定义register满足您的需求。
       </p>
     ),
@@ -196,8 +190,6 @@ export default {
   },
   errors: {
     title: "处理错误",
-    description: (
-      <>React Hook Form提供了一个错误对象，用于显示表单中的错误。</>
-    ),
+    description: <>React Hook Form提供了一个错误对象，用于显示表单中的错误。</>,
   },
 }
