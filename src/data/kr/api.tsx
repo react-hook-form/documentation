@@ -603,7 +603,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>
-            This prop allow you to target that specific event name, eg: when
+            This prop allow you to target that specific event name, eg: when{" "}
             <code>onChange</code> event is named <code>onTextChange</code>
           </td>
         </tr>
@@ -615,7 +615,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>
-            This prop allow you to target that specific event name, eg: when
+            This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
           </td>
         </tr>
