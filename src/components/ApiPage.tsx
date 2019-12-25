@@ -34,7 +34,7 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import apiContent from "../data/api"
-import RHFInput from "./RHFInput"
+import Controller from "./Controller"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
@@ -794,7 +794,7 @@ function ApiPage({
           <hr />
 
           <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
-            <RHFInput currentLanguage={currentLanguage} api={api} />
+            <Controller currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

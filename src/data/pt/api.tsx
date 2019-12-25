@@ -11,7 +11,8 @@ import Popup from "../../components/Popup"
 export default {
   title: "API Documentação",
   header: {
-    description: "React Hook Form foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
+    description:
+      "React Hook Form foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
   },
   useForm: {
     title: "useForm",
@@ -33,16 +34,16 @@ export default {
           todos os campos' e reunir todos os primeiros erros encontrados.
         </p>
         <p>
-          Com a configuração de <code>all</code>, todos as validações de
-          campos' irá executar e reunir todos os erros encontrados
+          Com a configuração de <code>all</code>, todos as validações de campos'
+          irá executar e reunir todos os erros encontrados
         </p>
       </>
     ),
     validateOnSubmit: (
       <>
         A validação irá ativar o evento de <code>submit</code> e os campos
-        inválidos serão anexados, o evento <code>onChange</code> ouve os
-        eventos para validar-los novamente.
+        inválidos serão anexados, o evento <code>onChange</code> ouve os eventos
+        para validar-los novamente.
       </>
     ),
     validateOnBlur: (
@@ -82,8 +83,8 @@ export default {
           <Note>Nota:</Note> <code>defaultValues</code> não tem população
           automática, com o registro manual do campo (ex:{" "}
           <code>{`register({ name: 'test' })`}</code>) porquê o campo manual{" "}
-          <code>register</code> não provê a props <code>ref</code> para o
-          React Hook Form.
+          <code>register</code> não provê a props <code>ref</code> para o React
+          Hook Form.
         </p>
       </>
     ),
@@ -107,8 +108,8 @@ export default {
     validationFields: (
       <p>
         Fornecer uma matriz de campos (array) significa que apenas os campos
-        incluídos serão validado. Esta opção é útil quando você deseja
-        alternar quais campos são necessários para validar.
+        incluídos serão validado. Esta opção é útil quando você deseja alternar
+        quais campos são necessários para validar.
       </p>
     ),
     submitFocusError: (
@@ -119,16 +120,16 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Apenas campos registrados com <code>ref</code>{" "}
-          irá funcionar. Manualmente registrando os inputs não funcionará. ex:{" "}
+          <Note>Nota:</Note> Apenas campos registrados com <code>ref</code> irá
+          funcionar. Manualmente registrando os inputs não funcionará. ex:{" "}
           <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
         </p>
       </>
     ),
     nativeValidation: goToSection => (
       <p>
-        Setar esta opção para <code>true</code> irá habilitar a validação
-        nativa do navegador. Você pode{" "}
+        Setar esta opção para <code>true</code> irá habilitar a validação nativa
+        do navegador. Você pode{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -151,8 +152,8 @@ export default {
         <p>
           Este método permite você o <code>unregister</code> um único campo ou
           matriz (array) de campos. Isto é útil quando você precisa registrar
-          seu campo durante o <code>useEffect</code> como registro customizado
-          e para remover o registro após o componente ser desmontado.
+          seu campo durante o <code>useEffect</code> como registro customizado e
+          para remover o registro após o componente ser desmontado.
         </p>
         <p>
           <Note>Nota:</Note> Quando você remove o registro do campo, seu valor
@@ -211,10 +212,10 @@ export default {
         <>
           <Title>Register Customizado</Title>
           <p>
-            Você também pode registrar entradas manualmente, o que é útil
-            quando trabalhando com componentes personalizados e{" "}
-            <code>Ref</code> não é acessível. Este é realmente o caso quando
-            você está trabalhando com React Native ou personalizado como{" "}
+            Você também pode registrar entradas manualmente, o que é útil quando
+            trabalhando com componentes personalizados e <code>Ref</code> não é
+            acessível. Este é realmente o caso quando você está trabalhando com
+            React Native ou personalizado como{" "}
             <a
               href="https://github.com/JedWatson/react-select"
               target="_blank"
@@ -240,8 +241,8 @@ export default {
 
           <p>
             <Note>Nota:</Note> Se você um registro de campo customizado para
-            ativar a re-renderização seu valor atualiza, então você precisa
-            dar um tempo ao seu campo{" "}
+            ativar a re-renderização seu valor atualiza, então você precisa dar
+            um tempo ao seu campo{" "}
           </p>
         </>
       ),
@@ -249,9 +250,9 @@ export default {
     validation: {
       required: (
         <>
-          Um booleano que, se verdadeiro, indica que a entrada deve ter um
-          valor antes que o formulário possa ser enviado. Você pode atribuir
-          uma string para retornar uma mensagem de erro no objeto de{" "}
+          Um booleano que, se verdadeiro, indica que a entrada deve ter um valor
+          antes que o formulário possa ser enviado. Você pode atribuir uma
+          string para retornar uma mensagem de erro no objeto de{" "}
           <code>errors</code>.
         </>
       ),
@@ -265,8 +266,7 @@ export default {
   },
   formState: {
     title: "formState",
-    description:
-      "Este objeto contém informação sobre o estado do formulário.",
+    description: "Este objeto contém informação sobre o estado do formulário.",
     dirty:
       "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
     isSubmitted:
@@ -319,9 +319,9 @@ export default {
     ),
     types: (
       <>
-        Isto é útil para validação de campos como regras de senha, com
-        múltiplos errors que precisam ser retornados de um único campo. Para
-        habilitar essa funcionalidade, tenha certeza de setar{" "}
+        Isto é útil para validação de campos como regras de senha, com múltiplos
+        errors que precisam ser retornados de um único campo. Para habilitar
+        essa funcionalidade, tenha certeza de setar{" "}
         <code>validateCriteriaMode: 'all'</code>.
       </>
     ),
@@ -341,10 +341,9 @@ export default {
           <li>
             <p>
               Quando <code>defaultValue</code> não está definido, o primeiro a
-              renderizar do <code>watch</code> retornará{" "}
-              <code>undefined</code> porque é chamado antes do{" "}
-              <code>register</code>, porém você pode utilizar{" "}
-              <code>defaultValue</code> como segundo argumento a ser
+              renderizar do <code>watch</code> retornará <code>undefined</code>{" "}
+              porque é chamado antes do <code>register</code>, porém você pode
+              utilizar <code>defaultValue</code> como segundo argumento a ser
               retornado.
             </p>
           </li>
@@ -386,8 +385,8 @@ export default {
           formulário for um sucesso.
         </p>
         <p>
-          <Note>Nota:</Note> Você pode passar uma função <code>async</code>{" "}
-          para validação assíncrona. ex:{" "}
+          <Note>Nota:</Note> Você pode passar uma função <code>async</code> para
+          validação assíncrona. ex:{" "}
         </p>
         <p>
           <CodeBlock>
@@ -455,8 +454,8 @@ export default {
     description: (
       <>
         <p>
-          Esta função permite definir dinamicamente o campo / seleção do
-          valor. Ao mesmo tempo, tenta evitar a nova renderização quando não é
+          Esta função permite definir dinamicamente o campo / seleção do valor.
+          Ao mesmo tempo, tenta evitar a nova renderização quando não é
           necessário e apenas as seguintes condições acionarão a nova
           renderização.
         </p>
@@ -512,10 +511,9 @@ export default {
           <li>
             <p>
               Trabalhando com campos definidos do formulário,{" "}
-              <code>getValues({`{ nest: true }`})</code> irá retornar o dado
-              em uma estrutura aninhada de acordo com o campo{" "}
-              <code>name</code>. ex:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+              <code>getValues({`{ nest: true }`})</code> irá retornar o dado em
+              uma estrutura aninhada de acordo com o campo <code>name</code>.
+              ex: <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
         </ul>
@@ -527,8 +525,7 @@ export default {
     description: (
       <>
         <p>
-          Para acionamento manual do campo / select de validação de
-          formulário.
+          Para acionamento manual do campo / select de validação de formulário.
         </p>
         <p>
           <Note>Nota:</Note> Quando a validação falha, o <code>errors</code>{" "}
@@ -558,12 +555,108 @@ export default {
   },
   Controller: {
     title: "Controller",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <TypeText>any</TypeText>
+          </td>
+          <td>
+            The same as uncontrolled component's <code>defaultValue</code>, when
+            supply <code>boolean</code> value, it will be treated as checkbox
+            input.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>Validation rules according to register at React Hook Form</td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChange</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onChange</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlur</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onBlur</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChangeName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onChange</code> event is named <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlurName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+      </tbody>
+    ),
     description: (
       <>
         <p>
-          O React Hook Form adota componentes não controlados e campos
-          nativos, no entanto, é difícil evitar trabalhar com componentes
-          externos controlados, tais como{" "}
+          O React Hook Form adota componentes não controlados e campos nativos,
+          no entanto, é difícil evitar trabalhar com componentes externos
+          controlados, tais como{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -587,8 +680,7 @@ export default {
           >
             Material-UI
           </a>
-          . Este componente irá fazer sua vida mais simples trabalhando com
-          ele.
+          . Este componente irá fazer sua vida mais simples trabalhando com ele.
         </p>
       </>
     ),
@@ -621,9 +713,9 @@ export default {
     title: "control",
     description: (
       <p>
-        Esse objeto foi criado para o componente Controlador do formulário
-        React Hook, que contém métodos para registrar o componente controlado
-        no React Hook Formato.
+        Esse objeto foi criado para o componente Controlador do formulário React
+        Hook, que contém métodos para registrar o componente controlado no React
+        Hook Formato.
       </p>
     ),
   },

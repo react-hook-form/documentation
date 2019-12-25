@@ -17,21 +17,20 @@ export default {
     title: "useForm",
     intro: (
       <>
-        <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수
-        있습니다..{" "}
+        <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
       </>
     ),
     description: (
       <p>
-        <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음
-        예제는 모든 옵션의 기본값을 보여줍니다.
+        <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음 예제는
+        모든 옵션의 기본값을 보여줍니다.
       </p>
     ),
     validateCriteriaMode: (
       <>
         <p>
-          기본값으로 설정 된 <code>firstErrorDetected</code> 는 모든 필드
-          유효성 검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
+          기본값으로 설정 된 <code>firstErrorDetected</code> 는 모든 필드 유효성
+          검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
         </p>
         <p>
           <code>all</code> 로 설정하면, 모든 필드의 유효성 검사가 실행되면서
@@ -53,9 +52,9 @@ export default {
     ),
     validateOnChange: (
       <>
-        유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어,
-        여러번 다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로
-        추천하지 않습니다.
+        유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번
+        다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로 추천하지
+        않습니다.
       </>
     ),
     defaultValues: goToSection => (
@@ -72,14 +71,14 @@ export default {
 
         <p>
           <Note>참고:</Note> <code>defaultValues</code> 내 정의 된 값은{" "}
-          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
-          의 <code>defaultValue</code> 값으로 주입됩니다.
+          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> 의{" "}
+          <code>defaultValue</code> 값으로 주입됩니다.
         </p>
 
         <p>
-          <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook
-          Form의 <code>ref</code> 를 제공하지 않기에, 수동 입력 필드(예를
-          들어, <code>{`register({ name: 'test' })`}</code> )의{" "}
+          <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook Form의{" "}
+          <code>ref</code> 를 제공하지 않기에, 수동 입력 필드(예를 들어,{" "}
+          <code>{`register({ name: 'test' })`}</code> )의{" "}
           <code>defaultValues</code> 는 자동 완성 되지 않습니다.
         </p>
       </>
@@ -95,8 +94,8 @@ export default {
     ),
     reValidateMode: (
       <p>
-        이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수
-        있습니다. (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
+        이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수 있습니다.
+        (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
         <Popup />
       </p>
     ),
@@ -109,8 +108,8 @@ export default {
     submitFocusError: (
       <>
         <p>
-          기본적으로 사용자가 폼을 제출하고 에러가 있는 경우, 에러가 있는
-          첫번째 필드에 포커스 됩니다.
+          기본적으로 사용자가 폼을 제출하고 에러가 있는 경우, 에러가 있는 첫번째
+          필드에 포커스 됩니다.
         </p>
 
         <p>
@@ -170,8 +169,8 @@ export default {
         </p>
         <p>
           <Note>중요:</Note> <code>name</code>은 <b>필수</b>이며 <b>유니크</b>
-          해야합니다. name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼
-          필드를 쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
+          해야합니다. name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를
+          쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
         </p>
       </>
     ),
@@ -182,8 +181,8 @@ export default {
           borderLeft: `4px solid ${colors.lightPink}`,
         }}
       >
-        <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와
-        같이 name을 지정할 수 있습니다.{" "}
+        <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와 같이
+        name을 지정할 수 있습니다.{" "}
         <Link
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="example for Field Array"
@@ -204,8 +203,8 @@ export default {
         <>
           <Title>Custom Register</Title>
           <p>
-            커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우,
-            입력을 수동으로 등록 할 수 있습니다. 이는 실제로 React Native 또는{" "}
+            커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우, 입력을
+            수동으로 등록 할 수 있습니다. 이는 실제로 React Native 또는{" "}
             <a
               href="https://github.com/JedWatson/react-select"
               target="_blank"
@@ -217,8 +216,7 @@ export default {
           </p>
 
           <p>
-            Custome register를 사용하면, 입력은 더이상 ref로 등록되지
-            않으므로,{" "}
+            Custome register를 사용하면, 입력은 더이상 ref로 등록되지 않으므로,{" "}
             <CodeAsLink onClick={() => goToSection("setValue")}>
               setValue
             </CodeAsLink>{" "}
@@ -230,9 +228,8 @@ export default {
           </p>
 
           <p>
-            <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을
-            다시 렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야
-            합니다.
+            <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을 다시
+            렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야 합니다.
           </p>
         </>
       ),
@@ -260,8 +257,8 @@ export default {
     touched: "상호 작용된 모든 입력의 배열입니다.",
     isSubmitting: (
       <>
-        폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>
-        로 설정합니다.
+        폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>로
+        설정합니다.
       </>
     ),
     submitCount: "제출 한 폼의 수",
@@ -273,9 +270,9 @@ export default {
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
         <p>
-          <Note>참고: </Note>이 객체 자체는 평탄하게 구성되어
-          있습니다.(중첩되지 않음) 따라서 입력값의 이름을 바로 사용하여 에러
-          객체의 내용에 접근할 수 있습니다. 예를 들자면 아래와 같습니다.
+          <Note>참고: </Note>이 객체 자체는 평탄하게 구성되어 있습니다.(중첩되지
+          않음) 따라서 입력값의 이름을 바로 사용하여 에러 객체의 내용에 접근할
+          수 있습니다. 예를 들자면 아래와 같습니다.
         </p>
         <p>
           <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
@@ -303,8 +300,8 @@ export default {
       <>
         This is useful for input validation like rules of password, which
         multiple errors need to return for a single field. To enable this
-        feature, make sure you have set{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
+        .
       </>
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
@@ -323,16 +320,16 @@ export default {
             <p>
               <code>defaultValue</code>가 정의 안되어 있는 경우,{" "}
               <code>register</code>가 아직 호출이 안되었기 때문에{" "}
-              <code>watch</code>의 첫번째 렌더링에서는 <code>undefined</code>{" "}
-              을 반환합니다. 하지만, 두번째 인수로 <code>defaultValue</code>를
+              <code>watch</code>의 첫번째 렌더링에서는 <code>undefined</code> 을
+              반환합니다. 하지만, 두번째 인수로 <code>defaultValue</code>를
               설정하여 값을 반환 할 수 있습니다.
             </p>
           </li>
           <li>
             <p>
-              <code>useForm</code> 에서 <code>defaultValues</code>로 정의가
-              되어 있다면, 첫번째 렌더링에서 <code>defaultValues</code>에
-              적용된 내용을 반환합니다.
+              <code>useForm</code> 에서 <code>defaultValues</code>로 정의가 되어
+              있다면, 첫번째 렌더링에서 <code>defaultValues</code>에 적용된
+              내용을 반환합니다.
             </p>
           </li>
         </ul>
@@ -363,8 +360,8 @@ export default {
       <>
         <p>이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다.</p>
         <p>
-          <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code>{" "}
-          함수를 전달할 수 있습니다 . 예 :{" "}
+          <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를
+          전달할 수 있습니다 . 예 :{" "}
         </p>
         <p>
           <CodeBlock>
@@ -384,8 +381,8 @@ export default {
           할 수 있습니다.
         </p>
         <p>
-          <Note>참고:</Note> <code>React-Select</code> 와 같이{" "}
-          <code>ref</code> 를 노출시키지 않는 컴포넌트는,{" "}
+          <Note>참고:</Note> <code>React-Select</code> 와 같이 <code>ref</code>{" "}
+          를 노출시키지 않는 컴포넌트는,{" "}
           <CodeAsLink onClick={() => goToSection("setValue")}>
             setValue
           </CodeAsLink>
@@ -402,8 +399,8 @@ export default {
     title: "setError",
     description: (
       <p>
-        이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할
-        수 있습니다.
+        이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할 수
+        있습니다.
       </p>
     ),
   },
@@ -435,8 +432,8 @@ export default {
       <>
         <p>
           이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. 그와
-          동시에, 아래의 조건이 충족할 때만 다시 랜더링되어 불필요한
-          리랜더링을 피하려 합니다.
+          동시에, 아래의 조건이 충족할 때만 다시 랜더링되어 불필요한 리랜더링을
+          피하려 합니다.
         </p>
         <ul>
           <li>
@@ -457,9 +454,8 @@ export default {
           </li>
         </ul>
         <p>
-          <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는
-          이 입력의 <code>name</code>을 <code>touched</code>로 설정하게
-          됩니다.
+          <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는 이
+          입력의 <code>name</code>을 <code>touched</code>로 설정하게 됩니다.
         </p>
         <p>
           <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
@@ -529,6 +525,102 @@ export default {
   },
   Controller: {
     title: "Controller",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <TypeText>any</TypeText>
+          </td>
+          <td>
+            The same as uncontrolled component's <code>defaultValue</code>, when
+            supply <code>boolean</code> value, it will be treated as checkbox
+            input.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>Validation rules according to register at React Hook Form</td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChange</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onChange</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlur</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onBlur</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChangeName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onChange</code> event is named <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlurName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+      </tbody>
+    ),
     description: (
       <>
         <p>
@@ -557,8 +649,8 @@ export default {
             Material-UI
           </a>{" "}
           와 같은 제어 컴포넌트를 사용하는 외부 라이브러리와 조합하여 사용하는
-          것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와
-          쉽게 조합하여 사용할 수 있도록 도와주는 역할을 합니다.
+          것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와 쉽게
+          조합하여 사용할 수 있도록 도와주는 역할을 합니다.
         </p>
       </>
     ),
@@ -575,9 +667,9 @@ export default {
     description: (
       <>
         <p>
-          <code>FormContext</code>으로 폼을 감싸면,{" "}
-          <code>useFormContext</code>: <TypeText>function</TypeText> 이 하위
-          컴포넌트에서 호출 될 수 있습니다.
+          <code>FormContext</code>으로 폼을 감싸면, <code>useFormContext</code>:{" "}
+          <TypeText>function</TypeText> 이 하위 컴포넌트에서 호출 될 수
+          있습니다.
         </p>
         <p>
           <Note>참고:</Note> <code>useFormContext</code> 를 통해 모든{" "}

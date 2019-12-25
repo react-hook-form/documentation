@@ -1,11 +1,12 @@
 import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../../styles/link"
-import { CodeBlock, Note, Title } from "../../styles/typography"
-import { CodeAsLink } from "../../components/ApiPage"
+import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
+import { CodeAsLink, Table } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
+import generic from "../generic"
 
 export default {
   title: "API文档",
@@ -513,6 +514,102 @@ export default {
   },
   Controller: {
     title: "Controller",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <TypeText>any</TypeText>
+          </td>
+          <td>
+            The same as uncontrolled component's <code>defaultValue</code>, when
+            supply <code>boolean</code> value, it will be treated as checkbox
+            input.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>Validation rules according to register at React Hook Form</td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChange</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onChange</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlur</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onBlur</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChangeName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onChange</code> event is named <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlurName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+      </tbody>
+    ),
     description: (
       <>
         <p>

@@ -150,8 +150,8 @@ export default {
         <p>
           This method will allow you to <code>unregister</code> a single input
           or an array of inputs. This is useful when you register your input
-          during <code>useEffect</code> as custom register and to unregister
-          it after component unmount.
+          during <code>useEffect</code> as custom register and to unregister it
+          after component unmount.
         </p>
         <p>
           <Note>Note:</Note> When you unregister an input, its value will no
@@ -169,14 +169,14 @@ export default {
           validation rules into React Hook Form.
         </p>
         <p>
-          Validation rules are all based on HTML standard and also allow
-          custom validation.
+          Validation rules are all based on HTML standard and also allow custom
+          validation.
         </p>
         <p>
           <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-          <b>unique</b>. Input name also supports dot and bracket syntax,
-          which allows you to easily create nested form fields. Example table
-          is below:
+          <b>unique</b>. Input name also supports dot and bracket syntax, which
+          allows you to easily create nested form fields. Example table is
+          below:
         </p>
       </>
     ),
@@ -210,10 +210,10 @@ export default {
         <>
           <Title>Custom Register</Title>
           <p>
-            You can also register inputs manually, which is useful when
-            working with custom components and <code>Ref</code> is not
-            accessible. This is actually the case when you are working with
-            React Native or custom component like{" "}
+            You can also register inputs manually, which is useful when working
+            with custom components and <code>Ref</code> is not accessible. This
+            is actually the case when you are working with React Native or
+            custom component like{" "}
             <a
               href="https://github.com/JedWatson/react-select"
               target="_blank"
@@ -239,8 +239,8 @@ export default {
 
           <p>
             <Note>Note:</Note> If you want the custom registered input to
-            trigger a re-render during its value update, then you should give
-            a type to your registered input.
+            trigger a re-render during its value update, then you should give a
+            type to your registered input.
           </p>
         </>
       ),
@@ -249,8 +249,8 @@ export default {
       required: (
         <>
           A Boolean which, if true, indicates that the input must have a value
-          before the form can be submitted. You can assign a string to return
-          an error message in the <code>errors</code> object.
+          before the form can be submitted. You can assign a string to return an
+          error message in the <code>errors</code> object.
         </>
       ),
       maxLength: "The maximum length of the value to accept for this input.",
@@ -315,8 +315,8 @@ export default {
       <>
         This is useful for input validation like rules of password, which
         multiple errors need to return for a single field. To enable this
-        feature, make sure you have set{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
+        .
       </>
     ),
     message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
@@ -327,18 +327,17 @@ export default {
     description: (
       <>
         <p>
-          This will watch specified input/inputs and return its value, and
-          it's useful for determining what to render.
+          This will watch specified input/inputs and return its value, and it's
+          useful for determining what to render.
         </p>
 
         <ul>
           <li>
             <p>
-              When <code>defaultValue</code> is not defined, the first render
-              of <code>watch</code> will return <code>undefined</code> because
-              it is called before <code>register</code>, but you can set the{" "}
-              <code>defaultValue</code> as the second argument to return
-              value.
+              When <code>defaultValue</code> is not defined, the first render of{" "}
+              <code>watch</code> will return <code>undefined</code> because it
+              is called before <code>register</code>, but you can set the{" "}
+              <code>defaultValue</code> as the second argument to return value.
             </p>
           </li>
           <li>
@@ -448,9 +447,9 @@ export default {
     description: (
       <>
         <p>
-          This function allows you to dynamically set input/select value. At
-          the same time, it tries to avoid re-render when it's not necessary
-          and only the following conditions will trigger re-render.
+          This function allows you to dynamically set input/select value. At the
+          same time, it tries to avoid re-render when it's not necessary and
+          only the following conditions will trigger re-render.
         </p>
         <ul>
           <li>
@@ -477,8 +476,8 @@ export default {
           will push the input's <code>name</code> into <code>touched</code>.
         </p>
         <p>
-          You can also set <code>shouldValidate</code> to <code>true</code>{" "}
-          and it will trigger field validation. eg:{" "}
+          You can also set <code>shouldValidate</code> to <code>true</code> and
+          it will trigger field validation. eg:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
       </>
@@ -531,8 +530,8 @@ export default {
       <p>
         If you would like to centralize your validation rules with external
         validation schema, you can apply <code>validationSchema</code> at{" "}
-        <code>useForm</code> as an optional argument. React Hook Form
-        currently supports{" "}
+        <code>useForm</code> as an optional argument. React Hook Form currently
+        supports{" "}
         <Link
           href="https://github.com/jquense/yup"
           target="_blank"
@@ -546,12 +545,108 @@ export default {
   },
   Controller: {
     title: "Controller",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <TypeText>any</TypeText>
+          </td>
+          <td>
+            The same as uncontrolled component's <code>defaultValue</code>, when
+            supply <code>boolean</code> value, it will be treated as checkbox
+            input.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <TypeText>Object</TypeText>
+          </td>
+          <td>Validation rules according to register at React Hook Form</td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChange</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onChange</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlur</code>
+          </td>
+          <td>
+            <TypeText>(arguments: any) => any</TypeText>
+          </td>
+          <td>
+            This <code>onBlur</code> prop allow you to customise the return
+            value. <br />
+            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onChangeName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onChange</code> event is named <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlurName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>
+            This prop allow you to target that specific event name, eg: when
+            <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+      </tbody>
+    ),
     description: (
       <>
         <p>
           React Hook Form embrace uncontrolled components and native inputs,
-          however it's hard to avoid working with external controlled
-          component such as{" "}
+          however it's hard to avoid working with external controlled component
+          such as{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -575,8 +670,7 @@ export default {
           >
             Material-UI
           </a>
-          . This wrapper component will make your life easier to work with
-          them.
+          . This wrapper component will make your life easier to work with them.
         </p>
       </>
     ),
@@ -585,9 +679,9 @@ export default {
     title: "FormContext",
     introduction: (
       <p>
-        Form context is intended to solve the problem when there are deep
-        nested inputs in your components tree, and passing methods deep down
-        as <code>props</code> becomes painful.
+        Form context is intended to solve the problem when there are deep nested
+        inputs in your components tree, and passing methods deep down as{" "}
+        <code>props</code> becomes painful.
       </p>
     ),
     description: (
@@ -598,8 +692,8 @@ export default {
           invoked in its child component.
         </p>
         <p>
-          <Note>Note:</Note> invoking <code>useFormContext</code> will give
-          you all of the <code>useForm</code> hook functions.
+          <Note>Note:</Note> invoking <code>useFormContext</code> will give you
+          all of the <code>useForm</code> hook functions.
         </p>
       </>
     ),
