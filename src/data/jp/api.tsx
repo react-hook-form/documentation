@@ -290,6 +290,16 @@ export default {
           オブジェクトには、各 input
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
+
+        <p>
+          <Note>注意：</Note> 高度な使用法ページから{" "}
+          <Link
+            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+          >
+            エラーメッセージ
+          </Link>{" "}
+          のレシピを学ぶこともできます。
+        </p>
       </>
     ),
     types: (

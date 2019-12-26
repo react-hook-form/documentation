@@ -289,6 +289,16 @@ export default {
           Objeto contendo erros de formulário, ou mensagens de erro que
           pertencem a cada campo.
         </p>
+
+        <p>
+          <Note>Nota:</Note> Você também pode aprender em{" "}
+          <NavLink
+            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+          >
+            Mensagem de erro
+          </NavLink>{" "}
+          de uma página avançada.
+        </p>
       </>
     ),
     types: (

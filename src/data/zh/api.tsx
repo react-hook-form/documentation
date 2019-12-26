@@ -269,6 +269,16 @@ export default {
     description: currentLanguage => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
+
+        <p>
+          <Note>注意:</Note> 您还可以从
+          <Link
+            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+          >
+            高级页面
+          </Link>
+          了解错误消息的现实方法。
+        </p>
       </>
     ),
     types: (
