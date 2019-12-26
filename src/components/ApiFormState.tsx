@@ -46,7 +46,7 @@ export default React.memo(
                   <code>touched</code>
                 </td>
                 <td>
-                  <TypeText>{`string[]`}</TypeText>
+                  <TypeText>object</TypeText>
                 </td>
                 <td>{api.formState.touched}</td>
               </tr>

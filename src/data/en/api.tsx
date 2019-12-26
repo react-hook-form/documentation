@@ -266,7 +266,7 @@ export default {
     description: "This object contain information about the form state.",
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
-    touched: "An array of all inputs which have been interacted.",
+    touched: "An object of all inputs which have been interacted.",
     isSubmitting: (
       <>
         During form submitting will set to <code>true</code> and after

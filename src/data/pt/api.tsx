@@ -271,7 +271,7 @@ export default {
       "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
     isSubmitted:
       "Marcado como verdadeiro após o usuário submeter o formulário.",
-    touched: "Uma matriz (Array) com todos os campos que foram interagidos.",
+    touched: "Uma matriz (Object) com todos os campos que foram interagidos.",
     isSubmitting: (
       <>
         Durante a submissão do formulário irá setar <code>true</code> e depois
