@@ -290,32 +290,6 @@ export default {
           オブジェクトには、各 input
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
-
-        <p>
-          <Note>注意： </Note>オブジェクト自体は (ネストではなく)
-          フラットな構造のため、 input の name を使用して errors
-          に直接アクセスできます。例：{" "}
-        </p>
-        <p>
-          <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
-        </p>
-        <p>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
-            Optional chaining
-          </a>{" "}
-          が多くのブラウザでサポートされた場合、私たちはネストされた errors
-          オブジェクトの導入を検討しています。
-        </p>
-
-        <p>
-          <Note>注意：</Note> 高度な使用法ページから{" "}
-          <Link
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            エラーメッセージ
-          </Link>{" "}
-          のレシピを学ぶこともできます。
-        </p>
       </>
     ),
     types: (

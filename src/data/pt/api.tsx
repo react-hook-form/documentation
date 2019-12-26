@@ -289,32 +289,6 @@ export default {
           Objeto contendo erros de formulário, ou mensagens de erro que
           pertencem a cada campo.
         </p>
-
-        <p>
-          <Note>Nota: </Note>O objeto em si é estruturado como plano (não
-          aninhado), o que significa que você acessa erros diretamente com o
-          nome de entrada. ex:{" "}
-        </p>
-        <p>
-          <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
-        </p>
-        <p>
-          nós consideramos introduzir objetos de erros aninhados{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
-            Encadeamento Opcional
-          </a>{" "}
-          tem um suporte melhor para o navegador.
-        </p>
-
-        <p>
-          <Note>Nota:</Note> Você também pode aprender em{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Mensagem de erro
-          </NavLink>{" "}
-          de uma página avançada.
-        </p>
       </>
     ),
     types: (

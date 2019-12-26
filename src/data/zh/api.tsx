@@ -269,32 +269,6 @@ export default {
     description: currentLanguage => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
-
-        <p>
-          <Note>注意: </Note>
-          这个对象本身的结构是扁平的（不是嵌套），这意味着您可以直接使用输入名称来访问错误。
-          例如:{" "}
-        </p>
-        <p>
-          <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
-        </p>
-        <p>
-          我们将考虑一次引入嵌套错误对象直到{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
-            Optional chaining
-          </a>{" "}
-          有更好的浏览器支持.
-        </p>
-
-        <p>
-          <Note>注意:</Note> 您还可以从
-          <Link
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            高级页面
-          </Link>
-          了解错误消息的现实方法。
-        </p>
       </>
     ),
     types: (

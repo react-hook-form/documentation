@@ -286,21 +286,6 @@ export default {
         </p>
 
         <p>
-          <Note>Note: </Note>The object itself is structured as flat (not
-          nested) which means you access errors directly with input name. eg:{" "}
-        </p>
-        <p>
-          <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
-        </p>
-        <p>
-          we will consider to introduce nested error object once{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
-            Optional chaining
-          </a>{" "}
-          has better browser support.
-        </p>
-
-        <p>
           <Note>Note:</Note> You can also learn recipes on{" "}
           <NavLink
             to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}

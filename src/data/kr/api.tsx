@@ -269,31 +269,6 @@ export default {
     description: currentLanguage => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
-        <p>
-          <Note>참고: </Note>이 객체 자체는 평탄하게 구성되어 있습니다.(중첩되지
-          않음) 따라서 입력값의 이름을 바로 사용하여 에러 객체의 내용에 접근할
-          수 있습니다. 예를 들자면 아래와 같습니다.
-        </p>
-        <p>
-          <code>{`<input name="username[0].firstName" ref={register} />; \nerrors['username[0].firstName'];`}</code>
-        </p>
-        <p>
-          우리는{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
-            Optional chaining
-          </a>{" "}
-          을 지원하는 브라우저가 더 많아지면 중첩된 에러 객체를 제공하는 것을
-          고려할 예정입니다.
-        </p>
-        <p>
-          <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            에러 메시지
-          </NavLink>{" "}
-          사용 방법을 확인 할 수 있습니다.{" "}
-        </p>
       </>
     ),
     types: (
