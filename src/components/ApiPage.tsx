@@ -748,7 +748,7 @@ function ApiPage({
             <h2>
               triggerValidation:{" "}
               <TypeText>
-                {`(payload?: { name: string } | { name: string }[])`} => boolean
+                {`(payload?: string | string[]) => Promise<boolean>`}
               </TypeText>
             </h2>
           </CodeHeading>
