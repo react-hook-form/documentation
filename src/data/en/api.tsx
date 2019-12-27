@@ -543,6 +543,18 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td>
+            Controlled component. eg: <code>as="input"</code> or{" "}
+            <code>{`as={<TextInput />}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <code>defaultValue</code>
           </td>
           <td>
@@ -691,6 +703,48 @@ export default {
         contains methods for registering controlled component into React Hook
         Form.
       </p>
+    ),
+  },
+  ErrorMessage: {
+    title: "ErrorMessage",
+    description: (
+      <p>A simple component to render associated input's error message.</p>
+    ),
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>associated field name.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td>
+            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+            <code>{`as={<Text />}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>errors</code>
+          </td>
+          <td>
+            <TypeText>object</TypeText>
+          </td>
+          <td>
+            <code>errors</code> object from React Hook Form
+          </td>
+        </tr>
+      </tbody>
     ),
   },
 }

@@ -35,6 +35,7 @@ import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import apiContent from "../data/api"
 import Controller from "./Controller"
+import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
@@ -63,6 +64,7 @@ const enLinks = [
   apiEn.formState,
   apiEn.formContext,
   apiEn.Controller,
+  apiEn.ErrorMessage,
   apiEn.validationSchema,
 ]
 
@@ -223,6 +225,7 @@ function ApiPage({
     api.formState,
     api.formContext,
     api.Controller,
+    api.ErrorMessage,
     api.validationSchema,
   ]
   const copyFormData = useRef([])
@@ -246,6 +249,7 @@ function ApiPage({
     FormContextRef: null,
     ControllerRef: null,
     BrowserbuiltinvalidationRef: null,
+    ErrorMessageRef: null,
     ReactNativeRef: null,
   })
   copyFormData.current = formData
@@ -795,6 +799,12 @@ function ApiPage({
 
           <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
             <Controller currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section ref={ref => (apiSectionsRef.current.ErrorMessageRef = ref)}>
+            <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
