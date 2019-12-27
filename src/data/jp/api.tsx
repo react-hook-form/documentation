@@ -572,7 +572,12 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td>Validation rules according to register at React Hook Form</td>
+          <td>
+            Validation rules according to <code>register</code> at React Hook
+            Form, except <code>min</code> and <code>max</code> attributes which
+            needs to be replaced with <code>validate</code> due to input type is
+            not supplied.
+          </td>
         </tr>
         <tr>
           <td>
