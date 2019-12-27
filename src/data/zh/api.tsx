@@ -511,6 +511,18 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td>
+            受控组件。 例如: <code>as="input"</code> or{" "}
+            <code>{`as={<TextInput />}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <code>control</code>
           </td>
           <td>
@@ -655,6 +667,48 @@ export default {
         该对象是为React Hook Form的Controller组件制作的。包含React Hook
         Form的方法和同时将受控组件注册。
       </p>
+    ),
+  },
+  ErrorMessage: {
+    title: "ErrorMessage",
+    description: (
+      <p>A simple component to render associated input's error message.</p>
+    ),
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>关联的表格名称。</td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td>
+            包装器组件或HTML标签。 例如: <code>as="span"</code> or{" "}
+            <code>{`as={<Text />}`}</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>errors</code>
+          </td>
+          <td>
+            <TypeText>object</TypeText>
+          </td>
+          <td>
+            React Hook表单中的<code> errors </code>对象
+          </td>
+        </tr>
+      </tbody>
     ),
   },
 }
