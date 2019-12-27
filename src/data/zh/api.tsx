@@ -507,6 +507,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td>✓</td>
           <td>Unique name of your input.</td>
         </tr>
         <tr>
@@ -516,8 +517,9 @@ export default {
           <td>
             <TypeText>React.ElementType | string</TypeText>
           </td>
+          <td>✓</td>
           <td>
-            受控组件。 例如: <code>as="input"</code> or{" "}
+            Controlled component. eg: <code>as="input"</code> or{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -528,6 +530,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
+          <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
           </td>
@@ -539,6 +542,7 @@ export default {
           <td>
             <TypeText>any</TypeText>
           </td>
+          <td></td>
           <td>
             The same as uncontrolled component's <code>defaultValue</code>, when
             supply <code>boolean</code> value, it will be treated as checkbox
@@ -552,6 +556,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
+          <td></td>
           <td>Validation rules according to register at React Hook Form</td>
         </tr>
         <tr>
@@ -561,6 +566,7 @@ export default {
           <td>
             <TypeText>(arguments: any) => any</TypeText>
           </td>
+          <td></td>
           <td>
             This <code>onChange</code> prop allow you to customise the return
             value. <br />
@@ -574,6 +580,7 @@ export default {
           <td>
             <TypeText>(arguments: any) => any</TypeText>
           </td>
+          <td></td>
           <td>
             This <code>onBlur</code> prop allow you to customise the return
             value. <br />
@@ -587,6 +594,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onChange</code> event is named <code>onTextChange</code>
@@ -599,6 +607,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
@@ -683,19 +692,8 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td>✓</td>
           <td>关联的表格名称。</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <TypeText>React.ElementType | string</TypeText>
-          </td>
-          <td>
-            包装器组件或HTML标签。 例如: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
         </tr>
         <tr>
           <td>
@@ -704,8 +702,22 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
+          <td>✓</td>
           <td>
             React Hook表单中的<code> errors </code>对象
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            包装器组件或HTML标签。 例如: <code>as="span"</code> or{" "}
+            <code>{`as={<Text />}`}</code>
           </td>
         </tr>
       </tbody>

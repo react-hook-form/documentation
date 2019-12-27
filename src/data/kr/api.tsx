@@ -518,6 +518,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td>✓</td>
           <td>Unique name of your input.</td>
         </tr>
         <tr>
@@ -527,6 +528,7 @@ export default {
           <td>
             <TypeText>React.ElementType | string</TypeText>
           </td>
+          <td>✓</td>
           <td>
             Controlled component. eg: <code>as="input"</code> or{" "}
             <code>{`as={<TextInput />}`}</code>
@@ -539,6 +541,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
+          <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
           </td>
@@ -550,6 +553,7 @@ export default {
           <td>
             <TypeText>any</TypeText>
           </td>
+          <td></td>
           <td>
             The same as uncontrolled component's <code>defaultValue</code>, when
             supply <code>boolean</code> value, it will be treated as checkbox
@@ -563,6 +567,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
+          <td></td>
           <td>Validation rules according to register at React Hook Form</td>
         </tr>
         <tr>
@@ -572,6 +577,7 @@ export default {
           <td>
             <TypeText>(arguments: any) => any</TypeText>
           </td>
+          <td></td>
           <td>
             This <code>onChange</code> prop allow you to customise the return
             value. <br />
@@ -585,6 +591,7 @@ export default {
           <td>
             <TypeText>(arguments: any) => any</TypeText>
           </td>
+          <td></td>
           <td>
             This <code>onBlur</code> prop allow you to customise the return
             value. <br />
@@ -598,6 +605,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onChange</code> event is named <code>onTextChange</code>
@@ -610,6 +618,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
@@ -698,19 +707,8 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td>✓</td>
           <td>associated field name.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <TypeText>React.ElementType | string</TypeText>
-          </td>
-          <td>
-            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
         </tr>
         <tr>
           <td>
@@ -719,8 +717,22 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
+          <td>✓</td>
           <td>
             <code>errors</code> object from React Hook Form
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <TypeText>React.ElementType | string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+            <code>{`as={<Text />}`}</code>
           </td>
         </tr>
       </tbody>

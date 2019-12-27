@@ -30,6 +30,7 @@ export default function Controller({
             <tr>
               <th>{generic.name[currentLanguage]}</th>
               <th>{generic.type[currentLanguage]}</th>
+              <th width="90px">{generic.required[currentLanguage]}</th>
               <th>{generic.description[currentLanguage]}</th>
             </tr>
           </thead>

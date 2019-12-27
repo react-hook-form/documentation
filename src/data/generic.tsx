@@ -6,6 +6,13 @@ export default {
     jp: "コピー",
     zh: "拷贝",
   },
+  required: {
+    en: "Required",
+    pt: "Requeridas",
+    kr: "필수",
+    jp: "必須",
+    zh: "需要",
+  },
   learnMore: {
     en: {
       title: "Want to learn more?",
