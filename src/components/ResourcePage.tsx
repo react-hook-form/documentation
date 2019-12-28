@@ -104,6 +104,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://medium.com/@angular_evan/yup-you-should-use-react-hook-form-9864d8bc80ef"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Yup, you should use React Hook Form</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://medium.com/@angular_evan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Evan Williams
+                </a>
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://medium.com/better-programming/build-the-next-generation-of-forms-with-react-hooks-forms-b4f2039e51c1"
                 target="_blank"
                 rel="noopener noreferrer"
