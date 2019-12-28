@@ -286,14 +286,30 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> You can also learn recipes on{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Error Message
-          </NavLink>{" "}
-          from advanced page.
+          <Note>Note:</Note> Difference between V3 and V4:
         </p>
+
+        <ul>
+          <li>
+            <p>V4: Nested object</p>
+            <p>
+              <strong>Reason:</strong> as optional chaining becoming more
+              popular among the community and to support better type.
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: Flatten object</p>
+            <p>
+              <strong>Reason:</strong> simple and easy to access error.
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (

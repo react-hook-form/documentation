@@ -213,12 +213,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               </p>
             </li>
             <li>
-              <h4>{`<ErrorMessage />`}</h4>
-              <p>{advanced.errorMessage.component}</p>
-
-              <CodeArea rawData={errorMessageAdvance} />
-            </li>
-            <li>
               <h4>Optional Chaining</h4>
               {advanced.errorMessage.optionalChaining}
               <p />

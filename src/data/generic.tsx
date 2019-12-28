@@ -112,6 +112,13 @@ export default {
     jp: "メニュー",
     zh: "菜单",
   },
+  note: {
+    en: "Note",
+    pt: "Nota",
+    kr: "노트",
+    jp: "注意",
+    zh: "注意",
+  },
   support: {
     en: "Please support us by leaving a ★",
     pt: "Por favor, nos ajude deixando uma ★",

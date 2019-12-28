@@ -271,14 +271,30 @@ export default {
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
         <p>
-          <Note>注意:</Note> 您还可以从
-          <Link
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            高级页面
-          </Link>
-          了解错误消息的现实方法。
+          <Note>{generic[currentLanguage].note}:</Note> V3和V4之间的区别：
         </p>
+
+        <ul>
+          <li>
+            <p>V4: 嵌套对象</p>
+            <p>
+              <strong>原因:</strong> 随着optional chaining接越来越多
+              在社区中流行并支持更好的type。
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: 展平对象</p>
+            <p>
+              <strong>原因:</strong> 简单易访问的错误。
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (
