@@ -7,6 +7,7 @@ import {
   H5,
   H1,
   TypeText,
+  Note,
 } from "../styles/typography"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
@@ -43,6 +44,7 @@ import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
 import control from "./codeExamples/control"
+import nativeValidation from "./codeExamples/nativeValidation"
 
 const { useRef, useEffect } = React
 
@@ -66,6 +68,7 @@ const enLinks = [
   apiEn.Controller,
   apiEn.ErrorMessage,
   apiEn.validationSchema,
+  apiEn.NativeValidation,
 ]
 
 export const CodeAsLink = styled(Link)`
@@ -227,6 +230,7 @@ function ApiPage({
     api.Controller,
     api.ErrorMessage,
     api.validationSchema,
+    api.NativeValidation,
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
@@ -825,6 +829,29 @@ function ApiPage({
           <CodeArea
             rawData={validationSchemaCode}
             url="https://codesandbox.io/s/928po918qr"
+          />
+
+          <hr />
+
+          <CodeHeading
+            ref={ref => {
+              // @ts-ignore
+              apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
+            }}
+          >
+            <h2>Browser built-in validation (V3 only)</h2>
+          </CodeHeading>
+
+          {api.NativeValidation.description}
+
+          <p>
+            <Note>Note</Note>: This feature has been removed in V4 due to low
+            usage, but you can still using it in V3
+          </p>
+
+          <CodeArea
+            rawData={nativeValidation}
+            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
 
           <CenterContent style={{ marginTop: 40 }}>

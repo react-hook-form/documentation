@@ -745,4 +745,14 @@ export default {
       </tbody>
     ),
   },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+        <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+        문법은 표준과 같습니다.
+      </p>
+    ),
+  },
 }

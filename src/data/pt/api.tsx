@@ -776,4 +776,14 @@ export default {
       </tbody>
     ),
   },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        O exemplo a seguir demonstra como você pode aproveitar a validação do
+        navegador. Você apenas precisa setar <code>nativeValidation</code> para{" "}
+        <code>true</code> e o restante da sintaxe é igual à validação padrão.
+      </p>
+    ),
+  },
 }

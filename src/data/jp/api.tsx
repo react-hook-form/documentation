@@ -768,4 +768,14 @@ export default {
       </tbody>
     ),
   },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        下記の例は、ブラウザバリデーションを活用する方法を示しています。
+        <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+        残りの構文は標準のバリデーションと同じになります。
+      </p>
+    ),
+  },
 }
