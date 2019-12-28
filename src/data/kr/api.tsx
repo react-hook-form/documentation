@@ -568,14 +568,21 @@ export default {
             <TypeText>Object</TypeText>
           </td>
           <td></td>
-          <td>Validation rules according to register at React Hook Form</td>
+          <td>
+            Validation rules according to <code>register</code>.
+            <p>
+              <Note>Note:</Note> <code>min</code> and <code>max</code>{" "}
+              validators are not going to work due to the input type, replace
+              with validate function instead.
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
             <code>onChange</code>
           </td>
           <td>
-            <TypeText>(arguments: any) => any</TypeText>
+            <TypeText>(args: any) => any</TypeText>
           </td>
           <td></td>
           <td>
@@ -589,7 +596,7 @@ export default {
             <code>onBlur</code>
           </td>
           <td>
-            <TypeText>(arguments: any) => any</TypeText>
+            <TypeText>(args: any) => any</TypeText>
           </td>
           <td></td>
           <td>
