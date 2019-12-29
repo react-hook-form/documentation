@@ -272,7 +272,7 @@ export default {
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
         {/* Todo: Korean */}
         <p>
-          <Note>{generic[currentLanguage].note}:</Note> Difference between V3
+          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
           and V4:
         </p>
         <ul>

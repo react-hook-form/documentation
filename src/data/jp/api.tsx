@@ -4,7 +4,6 @@ import Link from "../../styles/link"
 import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
 import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
 
@@ -294,7 +293,7 @@ export default {
 
         {/* Todo: Kotaro */}
         <p>
-          <Note>{generic[currentLanguage].note}:</Note> Difference between V3
+          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
           and V4:
         </p>
 

@@ -271,7 +271,7 @@ export default {
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
         <p>
-          <Note>{generic[currentLanguage].note}:</Note> V3和V4之间的区别：
+          <Note>{generic.note[currentLanguage]}:</Note> V3和V4之间的区别：
         </p>
 
         <ul>
