@@ -286,14 +286,30 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> You can also learn recipes on{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Error Message
-          </NavLink>{" "}
-          from advanced page.
+          <Note>Note:</Note> Difference between V3 and V4:
         </p>
+
+        <ul>
+          <li>
+            <p>V4: Nested object</p>
+            <p>
+              <strong>Reason:</strong> as optional chaining becoming more
+              popular among the community and to support better type.
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: Flatten object</p>
+            <p>
+              <strong>Reason:</strong> simple and easy to access error.
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (
@@ -562,9 +578,10 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -650,6 +667,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -745,9 +776,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            <code>errors</code> object from React Hook Form
+            <code>errors</code> object from React Hook Form. it's optional if
+            you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -764,6 +796,17 @@ export default {
           </td>
         </tr>
       </tbody>
+    ),
+  },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        The following example demonstrates how you can leverage the browser's
+        validation. You only need to set <code>nativeValidation</code> to{" "}
+        <code>true</code> and the rest of the syntax is the same as standard
+        validation.
+      </p>
     ),
   },
 }

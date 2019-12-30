@@ -7,6 +7,7 @@ import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
+import generic from "../generic"
 
 export default {
   title: "API 설명서",
@@ -269,15 +270,32 @@ export default {
     description: currentLanguage => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
+        {/* Todo: Korean */}
         <p>
-          <Note>참고:</Note> '고급 사용법' 에서 더 자세한{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            에러 메시지
-          </NavLink>{" "}
-          사용 방법을 확인 할 수 있습니다.{" "}
+          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
+          and V4:
         </p>
+        <ul>
+          <li>
+            <p>V4: Nested object</p>
+            <p>
+              <strong>Reason:</strong> as optional chaining becoming more
+              popular among the community and to support better type.
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: Flatten object</p>
+            <p>
+              <strong>Reason:</strong> simple and easy to access error.
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (
@@ -544,6 +562,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -629,6 +648,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -724,9 +757,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            <code>errors</code> object from React Hook Form
+            <code>errors</code> object from React Hook Form. it's optional if
+            you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -743,6 +777,16 @@ export default {
           </td>
         </tr>
       </tbody>
+    ),
+  },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+        <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+        문법은 표준과 같습니다.
+      </p>
     ),
   },
 }

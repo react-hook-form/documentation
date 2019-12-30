@@ -271,14 +271,30 @@ export default {
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
         <p>
-          <Note>注意:</Note> 您还可以从
-          <Link
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            高级页面
-          </Link>
-          了解错误消息的现实方法。
+          <Note>{generic.note[currentLanguage]}:</Note> V3和V4之间的区别：
         </p>
+
+        <ul>
+          <li>
+            <p>V4: 嵌套对象</p>
+            <p>
+              <strong>原因:</strong> 随着optional chaining接越来越多
+              在社区中流行并支持更好的type。
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: 展平对象</p>
+            <p>
+              <strong>原因:</strong> 简单易访问的错误。
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (
@@ -533,6 +549,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -618,6 +635,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -711,7 +742,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            React Hook表单中的<code> errors </code>对象
+            React Hook表单中的<code> errors </code>
+            对象。如果您使用的是FormContext，则为可选。
           </td>
         </tr>
         <tr>
@@ -728,6 +760,16 @@ export default {
           </td>
         </tr>
       </tbody>
+    ),
+  },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
+        <code>nativeValidation</code>设置为<code>true</code>
+        ，其余语法与标准验证相同。
+      </p>
     ),
   },
 }

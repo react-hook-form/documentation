@@ -7,6 +7,7 @@ import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
+import generic from "../generic"
 
 export default {
   title: "API Documentação",
@@ -290,15 +291,33 @@ export default {
           pertencem a cada campo.
         </p>
 
+        {/* Todo: PT */}
         <p>
-          <Note>Nota:</Note> Você também pode aprender em{" "}
-          <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Mensagem de erro
-          </NavLink>{" "}
-          de uma página avançada.
+          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
+          and V4:
         </p>
+
+        <ul>
+          <li>
+            <p>V4: Nested object</p>
+            <p>
+              <strong>Reason:</strong> as optional chaining becoming more
+              popular among the community and to support better type.
+            </p>
+            <p>
+              <code>{`errors?.yourDetail?.firstName;`}</code>
+            </p>
+          </li>
+          <li>
+            <p>V3: Flatten object</p>
+            <p>
+              <strong>Reason:</strong> simple and easy to access error.
+            </p>
+            <p>
+              <code>{`errors['yourDetail.firstName'];`}</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     types: (
@@ -574,6 +593,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -659,6 +679,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -755,9 +789,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            <code>errors</code> object from React Hook Form
+            <code>errors</code> object from React Hook Form. it's optional if
+            you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -774,6 +809,16 @@ export default {
           </td>
         </tr>
       </tbody>
+    ),
+  },
+  NativeValidation: {
+    title: "Browser built-in validation",
+    description: (
+      <p>
+        O exemplo a seguir demonstra como você pode aproveitar a validação do
+        navegador. Você apenas precisa setar <code>nativeValidation</code> para{" "}
+        <code>true</code> e o restante da sintaxe é igual à validação padrão.
+      </p>
     ),
   },
 }
