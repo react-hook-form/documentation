@@ -549,6 +549,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -741,7 +742,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            React Hook表单中的<code> errors </code>对象
+            React Hook表单中的<code> errors </code>
+            对象。如果您使用的是FormContext，则为可选。
           </td>
         </tr>
         <tr>

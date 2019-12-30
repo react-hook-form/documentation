@@ -593,6 +593,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -788,9 +789,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            <code>errors</code> object from React Hook Form
+            <code>errors</code> object from React Hook Form. it's optional if
+            you are using FormContext.
           </td>
         </tr>
         <tr>
