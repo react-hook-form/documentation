@@ -24,7 +24,7 @@ function NestedInput() {
   } = useFormContext();
   
   // we can use React.memo to prevent re-render except dirty state changed
-  return React.memo(
+  return React.useMemo(
     () => (
       <div>
         <input name="test" ref={register} />

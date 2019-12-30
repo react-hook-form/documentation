@@ -195,7 +195,7 @@ function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - 5
+                        ...(index !== links.length - 6
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -205,7 +205,7 @@ function SideMenu({
                     : null),
                 }}
               >
-                <Arrow last={index === links.length - 5}>
+                <Arrow last={index === links.length - 6}>
                   {index > 0 && (
                     <span
                       style={{

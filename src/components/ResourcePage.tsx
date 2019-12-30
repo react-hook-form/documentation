@@ -292,6 +292,72 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </Article>
           </li>
+
+          <li>
+            <Article>
+              <a
+                href="https://qiita.com/yhosok/items/7dd1963ee7138ec0642f"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React Hook Form 入門</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://qiita.com/yhosok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Yasunori Hosokawa
+                </a>
+              </p>
+            </Article>
+          </li>
+
+          <li>
+            <Article>
+              <a
+                href="https://qiita.com/seira/items/63c801a9ed2d1b9eb401"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React-Hook-Formがイケてるって聞いたので触ってみた</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://qiita.com/seira"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  seira
+                </a>
+              </p>
+            </Article>
+          </li>
+
+          <li>
+            <Article>
+              <a
+                href="https://qiita.com/akihiro_FE/items/b2295e6b98e8e8c881ed"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React-hook-formで簡単にバリデーションフォーム作る</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://qiita.com/akihiro_FE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  akihiro_FE
+                </a>
+              </p>
+            </Article>
+          </li>
         </ContentList>
 
         <Title>{generic.newsletter[currentLanguage]}</Title>
