@@ -149,7 +149,11 @@ export default function SortableContainer({
                     </button>
                     <button
                       onClick={() => {
-                        if (window.confirm("Are you sure you want to delete this?")) {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this?"
+                          )
+                        ) {
                           const index = formData.findIndex(
                             data => field.name === data.name
                           )
@@ -182,7 +186,9 @@ export default function SortableContainer({
         <EditPanel>
           <button
             onClick={() => {
-              if (window.confirm("Are you sure you want to delete all fields?")) {
+              if (
+                window.confirm("Are you sure you want to delete all fields?")
+              ) {
                 updateFormData([])
               }
             }}

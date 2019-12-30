@@ -69,11 +69,7 @@ export default {
     get: (
       <p>
         プロジェクトで{" "}
-        <a
-          href="https://lodash.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>{" "}
         を使用している場合、lodash の{" "}
@@ -328,8 +324,8 @@ export default {
     ),
     step2: (
       <p>
-        <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、 React
-        Hook Form を使用して input を登録します。
+        <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、 React Hook
+        Form を使用して input を登録します。
       </p>
     ),
   },

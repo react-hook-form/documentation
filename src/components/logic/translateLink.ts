@@ -5,5 +5,5 @@ export default (link, currentLanguage) => {
     return link
   }
 
-  return `/${currentLanguage}${link ? '/' + link : ''}`
+  return `/${currentLanguage}${link ? "/" + link : ""}`
 }

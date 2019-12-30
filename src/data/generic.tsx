@@ -1,6 +1,7 @@
 export default {
   copy: {
     en: "Copy",
+    es: "Copiar",
     pt: "Copiar",
     kr: "Copy",
     jp: "コピー",
@@ -8,6 +9,7 @@ export default {
   },
   required: {
     en: "Required",
+    es: "Requeridos",
     pt: "Requeridas",
     kr: "필수",
     jp: "必須",
@@ -18,6 +20,12 @@ export default {
       title: "Want to learn more?",
       description:
         "Check out the React Hook Form documentation and learn all about the API.",
+      buttonText: "Checkout API",
+    },
+    es: {
+      title: "¿Quieres aprender más?",
+      description:
+        "Revisa la documentación de React Hook Form y aprende todo acerca de la API.",
       buttonText: "Checkout API",
     },
     pt: {
@@ -50,6 +58,11 @@ export default {
       description: `Learn how to build complex and accessible forms with React Hook Form.`,
       buttonText: `Learn Advanced Usage`,
     },
+    es: {
+      title: "Uso avanzado",
+      description: `Aprende a crear formularios complejos y accesibles con React Hook Form.`,
+      buttonText: `Aprende el uso avanzado`,
+    },
     pt: {
       title: "Uso Avançado",
       description: `Aprenda como construir formulários acessíveis e complexos com React Hook Form.`,
@@ -77,6 +90,11 @@ export default {
       description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
       buttonText: `Star React Hook Form`,
     },
+    es: {
+      title: "Necesitamos tu apoyo",
+      description: `Si encuentras React Hook Form útil en tu proyecto de React, por favor da una estrella para apoyar al repositorio y los contribuyentes ❤`,
+      buttonText: `Da una estrella a React Hook Form`,
+    },
     pt: {
       title: "Nós precisamos de sua ajuda",
       description: `Se você achar o React Hook Form útil em seu projeto React, por favor dê uma estrela ao repositório para ajudar o projeto e contribua ❤`,
@@ -100,6 +118,7 @@ export default {
   },
   codeExample: {
     en: "Code Examples",
+    es: "Códigos de ejemplo",
     pt: "Exemplo de códigos",
     kr: "코드 예시",
     jp: "コードの例",
@@ -107,6 +126,7 @@ export default {
   },
   menu: {
     en: "Menu",
+    es: "Menú",
     pt: "Menu",
     kr: "메뉴",
     jp: "メニュー",
@@ -114,6 +134,7 @@ export default {
   },
   note: {
     en: "Note",
+    es: "Nota",
     pt: "Nota",
     kr: "노트",
     jp: "注意",
@@ -121,6 +142,7 @@ export default {
   },
   support: {
     en: "Please support us by leaving a ★",
+    es: "Por favor, ayudanos dejando una ★",
     pt: "Por favor, nos ajude deixando uma ★",
     kr: "★을 눌러서 응원해주세요",
     jp: "★ を付けてサポートしてください",
@@ -128,6 +150,7 @@ export default {
   },
   select: {
     en: "Select",
+    es: "Seleccionar",
     pt: "Selecionar",
     kr: "선택",
     jp: "Select",
@@ -135,6 +158,7 @@ export default {
   },
   name: {
     en: "Name",
+    es: "Nombre",
     pt: "Nome",
     kr: "이름",
     jp: "Name",
@@ -142,6 +166,7 @@ export default {
   },
   type: {
     en: "Type",
+    es: "Tipo",
     pt: "Tipo",
     kr: "종류",
     jp: "Type",
@@ -149,6 +174,7 @@ export default {
   },
   description: {
     en: "Description",
+    es: "Descripción",
     pt: "Descrição",
     kr: "설명",
     jp: "説明",
@@ -156,6 +182,7 @@ export default {
   },
   features: {
     en: "Features",
+    es: "Recursos",
     pt: "Recursos",
     kr: "기능",
     jp: "特徴",
@@ -163,6 +190,7 @@ export default {
   },
   delete: {
     en: "Delete",
+    es: "Borrar",
     pt: "Deletar",
     kr: "삭제",
     jp: "削除",
@@ -170,6 +198,7 @@ export default {
   },
   example: {
     en: "Example",
+    es: "Ejemplo",
     pt: "Exemplo",
     kr: "예시",
     jp: "例",
@@ -177,6 +206,7 @@ export default {
   },
   edit: {
     en: "Edit",
+    es: "Editar",
     pt: "Editar",
     kr: "수정",
     jp: "編集",
@@ -184,6 +214,7 @@ export default {
   },
   cancelEdit: {
     en: "Cancel Edit",
+    es: "Cancelar Edición",
     pt: "Cancelar Edição",
     kr: "수정 취소",
     jp: "編集をキャンセル",
@@ -191,6 +222,7 @@ export default {
   },
   deleteAll: {
     en: "Delete All",
+    es: "Borrar todo",
     pt: "Deletar tudo",
     kr: "전체 삭제",
     jp: "全て削除",
@@ -198,6 +230,7 @@ export default {
   },
   create: {
     en: "Create",
+    es: "Crear",
     pt: "Criar",
     kr: "추가",
     jp: "作成",
@@ -205,6 +238,7 @@ export default {
   },
   update: {
     en: "Update",
+    es: "Actualizar",
     pt: "Atualizar",
     kr: "변경",
     jp: "更新",
@@ -212,6 +246,7 @@ export default {
   },
   copied: {
     en: "Copy code into your clipboard.",
+    es: "Copiar código en el clipboard.",
     pt: "Código copiado.",
     kr: "클립보드에 코드 복사",
     jp: "コードをクリップボードにコピーします。",
@@ -219,6 +254,7 @@ export default {
   },
   return: {
     en: "Return",
+    es: "Retornar",
     pt: "Retornar",
     kr: "Return",
     jp: "Return",
@@ -226,6 +262,7 @@ export default {
   },
   blog: {
     en: "Articles/Blog",
+    es: "Artículos/Blog",
     pt: "Artigos/Blog",
     kr: "기사 / 블로그",
     jp: "記事/ブログ",
@@ -233,6 +270,7 @@ export default {
   },
   video: {
     en: "Videos",
+    es: "Videos",
     pt: "Vídeos",
     kr: "비디오",
     jp: "ビデオ",
@@ -240,6 +278,7 @@ export default {
   },
   newsletter: {
     en: "Newsletter",
+    es: "Noticias",
     pt: "Notícias",
     kr: "뉴스 레터",
     jp: "ニュースレター",
