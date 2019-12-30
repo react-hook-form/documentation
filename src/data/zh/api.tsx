@@ -549,6 +549,7 @@ export default {
           <td>✓</td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -634,6 +635,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -727,7 +742,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            React Hook表单中的<code> errors </code>对象
+            React Hook表单中的<code> errors </code>
+            对象。如果您使用的是FormContext，则为可选。
           </td>
         </tr>
         <tr>

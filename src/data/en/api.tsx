@@ -578,9 +578,10 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
+            it's optional if you are using FormContext.
           </td>
         </tr>
         <tr>
@@ -666,6 +667,20 @@ export default {
           <td>
             This prop allow you to target that specific event name, eg: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
           </td>
         </tr>
       </tbody>
@@ -761,9 +776,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            <code>errors</code> object from React Hook Form
+            <code>errors</code> object from React Hook Form. it's optional if
+            you are using FormContext.
           </td>
         </tr>
         <tr>
