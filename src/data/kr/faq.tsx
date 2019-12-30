@@ -14,14 +14,13 @@ export default {
       title: "React Hook Form 의 퍼포먼스",
       description: (
         <p>
-          이 커스텀 훅을 만들 때 가장 먼저 고려된 목표 중 하나가
-          퍼포먼스입니다. React Hook Form 은 비제어 컴포넌트를 활용하고 있기
-          때문에 <code>ref</code> 에서 <code>register</code> 함수가
-          실행됩니다. 이러한 접근 방식은 사용자가 타이핑하거나 값을 변경할 때
-          리랜더링이 일어나는 양을 줄여줄 것입니다. 제어 컴포넌트가 아니기
-          때문에 페이지에 컴포넌트가 마운트되는 속도도 훨씬 더 빠릅니다.{" "}
-          마운트되는 속도에 대해 여러분이 참고하실 수 있도록 간단한 속도 비교
-          테스트를{" "}
+          이 커스텀 훅을 만들 때 가장 먼저 고려된 목표 중 하나가 퍼포먼스입니다.
+          React Hook Form 은 비제어 컴포넌트를 활용하고 있기 때문에{" "}
+          <code>ref</code> 에서 <code>register</code> 함수가 실행됩니다. 이러한
+          접근 방식은 사용자가 타이핑하거나 값을 변경할 때 리랜더링이 일어나는
+          양을 줄여줄 것입니다. 제어 컴포넌트가 아니기 때문에 페이지에
+          컴포넌트가 마운트되는 속도도 훨씬 더 빠릅니다. 마운트되는 속도에 대해
+          여러분이 참고하실 수 있도록 간단한 속도 비교 테스트를{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -62,10 +61,10 @@ export default {
           <blockquote>
             여러분은 클래스 컴포넌트 안에서 훅을 사용할 수 없습니다. 하지만
             확실히 클래스 컴포넌트와 훅을 사용하는 함수 컴포넌트를 같은 트리
-            안에서 섞어 사용할 수 있습니다. 컴포넌트가 클래스인지, 훅을
-            사용하는 함수 컴포넌트인지는 개별 컴포넌트의 세부 구현에
-            불과합니다. 긴 안목으로 보아 우리는 사람들이 훅을 우선적으로
-            고려하여 리액트 컴포넌트를 작성하길 기대합니다.
+            안에서 섞어 사용할 수 있습니다. 컴포넌트가 클래스인지, 훅을 사용하는
+            함수 컴포넌트인지는 개별 컴포넌트의 세부 구현에 불과합니다. 긴
+            안목으로 보아 우리는 사람들이 훅을 우선적으로 고려하여 리액트
+            컴포넌트를 작성하길 기대합니다.
           </blockquote>
         </>
       ),
@@ -89,8 +88,7 @@ export default {
               </b>
               <p>
                 React Hook Form 의 <code>reset</code> 메서드는 모든 필드 값을{" "}
-                리셋하며, 또한 폼 안의 모든 <code>errors</code> 를{" "}
-                초기화합니다.
+                리셋하며, 또한 폼 안의 모든 <code>errors</code> 를 초기화합니다.
               </p>
             </li>
           </ul>
@@ -102,10 +100,10 @@ export default {
       description: (
         <p>
           React Hook Form 은 비제어 컴포넌트를 활용합니다. 비제어 컴포넌트를
-          사용하면 <code>defaultValue</code> 나 <code>defaultChecked</code>{" "}
-          값을 개별 필드에 넣어 기본값을 설정할 수 있습니다. 하지만 훅에서
-          기본적으로 손쉽게 모든 인풋의 기본값을 설정할 수 있는 방법을
-          제공합니다. 아래의 예제를 보세요.
+          사용하면 <code>defaultValue</code> 나 <code>defaultChecked</code> 값을
+          개별 필드에 넣어 기본값을 설정할 수 있습니다. 하지만 훅에서 기본적으로
+          손쉽게 모든 인풋의 기본값을 설정할 수 있는 방법을 제공합니다. 아래의
+          예제를 보세요.
         </p>
       ),
     },
@@ -125,15 +123,15 @@ export default {
       description: (
         <>
           <p>
-            사실 <code>ref</code> 없이 <code>register</code> 를 할 수
-            있습니다. 수동으로 <code>setValue</code>, <code>setError</code>{" "}
-            그리고 <code>triggerValidation</code> 를 사용하면 됩니다.
+            사실 <code>ref</code> 없이 <code>register</code> 를 할 수 있습니다.
+            수동으로 <code>setValue</code>, <code>setError</code> 그리고{" "}
+            <code>triggerValidation</code> 를 사용하면 됩니다.
           </p>
 
           <p>
-            <Note>참고:</Note> <code>ref</code> 가 등록되지 않았기 때문에,
-            React Hook Form 은 인풋에 이벤트 리스너를 등록할 수 없을 겁니다.
-            따라서 인풋 값과 에러를 수동으로 업데이트 해 주어야 합니다.
+            <Note>참고:</Note> <code>ref</code> 가 등록되지 않았기 때문에, React
+            Hook Form 은 인풋에 이벤트 리스너를 등록할 수 없을 겁니다. 따라서
+            인풋 값과 에러를 수동으로 업데이트 해 주어야 합니다.
           </p>
         </>
       ),
@@ -197,150 +195,146 @@ export default {
             공통의 문제를 해결하려고 합니다. 하지만 세 라이브러리는 약간
             근본적인 차이를 가지고 있고, react-hook-form 은 비제어 입력을
             기본으로 삼고 있습니다. 그리하여 여러분의 폼이 최대한의 퍼포먼스를
-            내고 최소한의 리랜더링만 발생하도록 합니다. 그 위에
-            react-hook-form 은 리액트 훅을 기반으로 만들어졌으며 훅으로
-            사용됩니다. 따라서 별도의 컴포넌트를 불러올 필요가 없습니다.
-            아래에 더 자세한 차이점을 표기했습니다.
+            내고 최소한의 리랜더링만 발생하도록 합니다. 그 위에 react-hook-form
+            은 리액트 훅을 기반으로 만들어졌으며 훅으로 사용됩니다. 따라서
+            별도의 컴포넌트를 불러올 필요가 없습니다. 아래에 더 자세한 차이점을
+            표기했습니다.
           </p>
 
           <TableWrapper>
             <Table>
               <thead>
-              <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                <th width={200} />
-                <th>
-                  <p>React Hook Form</p>
-                </th>
-                <th>
-                  <p>Formik</p>
-                </th>
-                <th>
-                  <p>Redux Form</p>
-                </th>
-              </tr>
+                <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
+                  <th width={200} />
+                  <th>
+                    <p>React Hook Form</p>
+                  </th>
+                  <th>
+                    <p>Formik</p>
+                  </th>
+                  <th>
+                    <p>Redux Form</p>
+                  </th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>
-                  <b>컴포넌트</b>
-                </td>
-                <td>
-                  <a>
+                <tr>
+                  <td>
+                    <b>컴포넌트</b>
+                  </td>
+                  <td>
+                    <a>
+                      <a
+                        href="https://ko.reactjs.org/docs/uncontrolled-components.html"
+                        target="_blank"
+                      >
+                        비제어
+                      </a>
+                    </a>
+                  </td>
+                  <td>
                     <a
-                      href="https://ko.reactjs.org/docs/uncontrolled-components.html"
+                      href="https://ko.reactjs.org/docs/forms.html"
                       target="_blank"
                     >
-                      비제어
+                      제어
                     </a>
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href="https://ko.reactjs.org/docs/forms.html"
-                    target="_blank"
-                  >
-                    제어
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href="https://ko.reactjs.org/docs/forms.html"
-                    target="_blank"
-                  >
-                    제어
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>랜더링</b>
-                </td>
-                <td>최소한의 리랜더링</td>
-                <td>인풋에 타이핑하면서 지역 상태가 변할떄마다 리랜더링</td>
-                <td>
-                  인풋에 타이핑하면서 상태 관리 라이브러리(Redux)의 상태가
-                  바뀔 때마다 리랜더링
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>API</b>
-                </td>
-                <td>훅</td>
-                <td>컴포넌트 (RenderProps, Form, Field) + 훅</td>
-                <td>컴포넌트 (RenderProps, Form, Field)</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>패키지 크기</b>
-                </td>
-                <td>
-                  작음
-                  <br />
-                  <code>
-                    react-hook-form@3.26.2
+                  </td>
+                  <td>
+                    <a
+                      href="https://ko.reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      제어
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>랜더링</b>
+                  </td>
+                  <td>최소한의 리랜더링</td>
+                  <td>인풋에 타이핑하면서 지역 상태가 변할떄마다 리랜더링</td>
+                  <td>
+                    인풋에 타이핑하면서 상태 관리 라이브러리(Redux)의 상태가
+                    바뀔 때마다 리랜더링
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>API</b>
+                  </td>
+                  <td>훅</td>
+                  <td>컴포넌트 (RenderProps, Form, Field) + 훅</td>
+                  <td>컴포넌트 (RenderProps, Form, Field)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>패키지 크기</b>
+                  </td>
+                  <td>
+                    작음
                     <br />
-                    <Note />
-                    <Note>5.3KB</Note>
-                  </code>
-                </td>
-                <td>
-                  중간
-                  <br />
-                  <code>
-                    formik@2.0.1
+                    <code>
+                      react-hook-form@3.26.2
+                      <br />
+                      <Note />
+                      <Note>5.3KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    중간
                     <br />
-                    <Note>14.4KB</Note>
-                  </code>
-                </td>
-                <td>
-                  큼
-                  <br />
-                  <code>
-                    redux-form@8.2.6
+                    <code>
+                      formik@2.0.1
+                      <br />
+                      <Note>14.4KB</Note>
+                    </code>
+                  </td>
+                  <td>
+                    큼
                     <br />
-                    <Note>27KB</Note>
-                  </code>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>유효성 검사</b>
-                </td>
-                <td>
-                  내장됨 &{" "}
-                  <a href="https://github.com/jquense/yup" target="_blank">
-                    Yup
-                  </a>
-                </td>
-                <td>
-                  직접 만들어야 함 &{" "}
-                  <a href="https://github.com/jquense/yup" target="_blank">
-                    Yup
-                  </a>
-                </td>
-                <td>직접 만들어야 함 & 플러그인</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>러닝 커브</b>
-                </td>
-                <td>낮음</td>
-                <td>중간</td>
-                <td>중간</td>
-              </tr>
-              <tr>
-                <td>
-                  <b>현황</b>
-                </td>
-                <td>작은 커뮤니티: 새로운 라이브러리이며 성장 중</td>
-                <td>
-                  큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리
-                </td>
-                <td>
-                  큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리
-                </td>
-              </tr>
+                    <code>
+                      redux-form@8.2.6
+                      <br />
+                      <Note>27KB</Note>
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>유효성 검사</b>
+                  </td>
+                  <td>
+                    내장됨 &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>
+                    직접 만들어야 함 &{" "}
+                    <a href="https://github.com/jquense/yup" target="_blank">
+                      Yup
+                    </a>
+                  </td>
+                  <td>직접 만들어야 함 & 플러그인</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>러닝 커브</b>
+                  </td>
+                  <td>낮음</td>
+                  <td>중간</td>
+                  <td>중간</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>현황</b>
+                  </td>
+                  <td>작은 커뮤니티: 새로운 라이브러리이며 성장 중</td>
+                  <td>큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리</td>
+                  <td>큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리</td>
+                </tr>
               </tbody>
             </Table>
           </TableWrapper>
@@ -401,8 +395,8 @@ export default {
               <p>Why input change is not fire event?</p>
 
               <p>
-                React Hook Form using <code>input</code> event for input
-                change, so to fix it. you can easily switch to{" "}
+                React Hook Form using <code>input</code> event for input change,
+                so to fix it. you can easily switch to{" "}
                 <code>fireEvent.input</code> for react-testing-library
               </p>
             </li>

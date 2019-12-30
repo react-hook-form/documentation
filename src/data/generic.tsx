@@ -134,6 +134,7 @@ export default {
   },
   note: {
     en: "Note",
+    es: "Nota",
     pt: "Nota",
     kr: "노트",
     jp: "注意",
@@ -165,7 +166,7 @@ export default {
   },
   type: {
     en: "Type",
-    Examples: "Tipo",
+    es: "Tipo",
     pt: "Tipo",
     kr: "종류",
     jp: "Type",

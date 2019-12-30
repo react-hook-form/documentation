@@ -49,9 +49,8 @@ export default {
           이슈에 투표를 하여
         </a>{" "}
         우선순위를 올려 주실 수 있습니다. 게다가 React Hook Form 을 활용하면
-        제어 컴포넌트의 리랜더링 또한 최적화됩니다. 아래에 제어되는 폼과
-        비제어 폼이 결합된 상태에서 폼 유효성 검사흘 하는 예를 보실 수
-        있습니다.
+        제어 컴포넌트의 리랜더링 또한 최적화됩니다. 아래에 제어되는 폼과 비제어
+        폼이 결합된 상태에서 폼 유효성 검사흘 하는 예를 보실 수 있습니다.
       </p>
     ),
   },
@@ -60,8 +59,8 @@ export default {
     description: (
       <p>
         에러 메세지는 입력값에 관하여 문제가 있을 때 사용자에게 시각적으로
-        피드백을 주는 것입니다. React Hook Form 은 쉽게 에러를 되짚을 수
-        있도록 에러 객체를 제공합니다. 하지만 더 나은 방식으로 에러를 스크린에
+        피드백을 주는 것입니다. React Hook Form 은 쉽게 에러를 되짚을 수 있도록
+        에러 객체를 제공합니다. 하지만 더 나은 방식으로 에러를 스크린에
         랜더링하기 위해 몇 가지 다른 방법이 있습니다.
       </p>
     ),
@@ -75,11 +74,7 @@ export default {
     get: (
       <p>
         만약 여러분의 프로젝트가{" "}
-        <a
-          href="https://lodash.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>
         를 사용하고 있다면, lodash의{" "}
@@ -124,10 +119,10 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form 은 네이티브 폼 유효성 검사를 지원합니다. 그래서
-          고유의 규칙을 설정하여 입력값을 검증할 수 있습니다. 우리는 대부분
-          커스텀 디자인과 레이아웃을 적용하여 폼을 만들기 때문에 폼의
-          접근성(A11y)이 보장되도록 만들어야 할 책임이 있습니다.
+          React Hook Form 은 네이티브 폼 유효성 검사를 지원합니다. 그래서 고유의
+          규칙을 설정하여 입력값을 검증할 수 있습니다. 우리는 대부분 커스텀
+          디자인과 레이아웃을 적용하여 폼을 만들기 때문에 폼의 접근성(A11y)이
+          보장되도록 만들어야 할 책임이 있습니다.
         </p>
 
         <p>
@@ -199,8 +194,8 @@ export default {
         />
 
         <p>
-          <Note>3단계:</Note> 스토어에 모아진 모든 데이터를 사용하여 마지막
-          폼을 제출하거나 결과물을 출력하세요.
+          <Note>3단계:</Note> 스토어에 모아진 모든 데이터를 사용하여 마지막 폼을
+          제출하거나 결과물을 출력하세요.
         </p>
         <CodeArea
           rawData={step3}
@@ -239,8 +234,7 @@ export default {
 
         <p>
           <code>Form</code> 컴포넌트가 하는 일은 모든{" "}
-          <code>react-hook-form</code> 메서드를 자손 컴포넌트로 넘기는
-          것입니다.
+          <code>react-hook-form</code> 메서드를 자손 컴포넌트로 넘기는 것입니다.
         </p>
 
         <CodeArea
@@ -262,9 +256,9 @@ export default {
         />
 
         <p>
-          <code>Form</code> 컴포넌트를 사용하여 <code>react-hook-form</code>{" "}
-          의 props를 자손 컴포넌트로 주입할 수 있고, 덕분에 쉽게 복잡한 폼을
-          만들고 조합할 수 있습니다.
+          <code>Form</code> 컴포넌트를 사용하여 <code>react-hook-form</code> 의
+          props를 자손 컴포넌트로 주입할 수 있고, 덕분에 쉽게 복잡한 폼을 만들고
+          조합할 수 있습니다.
         </p>
       </>
     ),
@@ -274,12 +268,11 @@ export default {
     description: (
       <>
         <p>
-          이 기능은 React Hook Form 이 제공하는 제일 좋은 기능 중 하나입니다.
-          이 기능을 구현하기 위해 (다른 라이브러리같은) 컴포넌트를 불러오는
-          대신에 이미 있는 HTML 마크업을 활용할 수 있습니다. 핵심은 그 안에
-          있는 <code>name</code> 속성입니다. React Hook Form 에서는{" "}
-          <code>name</code> 속성이 여러분이 사용하고자 하는 자료 구조를
-          대변합니다.
+          이 기능은 React Hook Form 이 제공하는 제일 좋은 기능 중 하나입니다. 이
+          기능을 구현하기 위해 (다른 라이브러리같은) 컴포넌트를 불러오는 대신에
+          이미 있는 HTML 마크업을 활용할 수 있습니다. 핵심은 그 안에 있는{" "}
+          <code>name</code> 속성입니다. React Hook Form 에서는 <code>name</code>{" "}
+          속성이 여러분이 사용하고자 하는 자료 구조를 대변합니다.
         </p>
 
         <p>
@@ -288,8 +281,8 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> if your application requires functionality such
-          as: Delete, Insert, Append, Preprend. Here is the{" "}
+          <Note>Note:</Note> if your application requires functionality such as:
+          Delete, Insert, Append, Preprend. Here is the{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -312,10 +305,10 @@ export default {
             Yup
           </a>
           을 활용하여 스키마 기반의 폼 유효성 검사를 제공합니다.{" "}
-          <code>validationSchema</code> 를 <a href="/api#useForm">useForm</a>{" "}
-          에 넘겨주어 추가 설정을 할 수 있습니다. React Hook Form 은 입력된
-          데이터를 스키마와 비교하여 <a href="/api#errors">에러</a> 혹은
-          알맞은 결과를 표시합니다.
+          <code>validationSchema</code> 를 <a href="/api#useForm">useForm</a> 에
+          넘겨주어 추가 설정을 할 수 있습니다. React Hook Form 은 입력된
+          데이터를 스키마와 비교하여 <a href="/api#errors">에러</a> 혹은 알맞은
+          결과를 표시합니다.
         </p>
       </>
     ),
@@ -328,8 +321,8 @@ export default {
     ),
     step2: (
       <p>
-        <Note>2단계:</Note> 유효성 검사를 위한 스키마를 작성하고 React Hook
-        Form 을 사용하여 인풋을 등록합니다.
+        <Note>2단계:</Note> 유효성 검사를 위한 스키마를 작성하고 React Hook Form
+        을 사용하여 인풋을 등록합니다.
       </p>
     ),
   },
@@ -337,9 +330,9 @@ export default {
     title: "폼 연결하기",
     description: (
       <p>
-        폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 남아있어야
-        하는 때가 있습니다. 그럴 때 <a href="/api#FormContext">FormContext</a>{" "}
-        가 아주 유용합니다. 하지만 <code>ConnectForm</code> 을 만들고 리액트의{" "}
+        폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 남아있어야 하는
+        때가 있습니다. 그럴 때 <a href="/api#FormContext">FormContext</a> 가
+        아주 유용합니다. 하지만 <code>ConnectForm</code> 을 만들고 리액트의{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
         패턴을 활용하여 개발자 경험을 향상시킬 수 있습니다. 이러한 컴포넌트를
         사용할 때의 이점은 어디서나 인풋을 React Hook Form과 연결할 수 있다는
@@ -352,9 +345,9 @@ export default {
     // Todo: missing korean translation
     description: (
       <p>
-        React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다.
-        인풋이 컴포넌트 트리에서 제거되는 순간 자동으로{" "}
-        <code>unregister</code> 되기 때문입니다.{" "}
+        React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다. 인풋이
+        컴포넌트 트리에서 제거되는 순간 자동으로 <code>unregister</code> 되기
+        때문입니다.{" "}
         <a
           href="https://codesandbox.io/s/13ykqx4wx7"
           target="_blank"
@@ -391,10 +384,10 @@ export default {
           리액트의 Context
         </a>{" "}
         API를 기반으로 만들어졌습니다. 이를 통해 컴포넌트 트리에 걸쳐 매
-        단계마다 props를 전달해줘야 하는 문제를 해결할 수 있습니다. 하지만
-        React Hook Form 이 상태 업데이트를 할 때마다 컴포넌트 트리가 리랜더링
-        되는 문제를 일으킵니다. 필요하다면 여전히 아래의 예제처럼 앱을
-        최적화할 수 있습니다.
+        단계마다 props를 전달해줘야 하는 문제를 해결할 수 있습니다. 하지만 React
+        Hook Form 이 상태 업데이트를 할 때마다 컴포넌트 트리가 리랜더링 되는
+        문제를 일으킵니다. 필요하다면 여전히 아래의 예제처럼 앱을 최적화할 수
+        있습니다.
       </p>
     ),
   },

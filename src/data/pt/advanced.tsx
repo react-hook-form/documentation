@@ -76,8 +76,8 @@ export default {
           >
             optional chaining
           </a>{" "}
-          operador <code>?.</code> permite ler o objeto <code>errors</code>{" "}
-          sem preocupação com a causa do erro devido ao <code>null</code> ou{" "}
+          operador <code>?.</code> permite ler o objeto <code>errors</code> sem
+          preocupação com a causa do erro devido ao <code>null</code> ou{" "}
           <code>undefined</code>.
         </p>
         <p>
@@ -88,11 +88,7 @@ export default {
     get: (
       <p>
         Se seu projeto usar{" "}
-        <a
-          href="https://lodash.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>
         , então você pode utilizar do lodash{" "}
@@ -125,8 +121,8 @@ export default {
         </p>
 
         <p>
-          O código a seguir trabalha como planejado para validação;
-          entretanto, isso pode ser implementado para acessibilidade.
+          O código a seguir trabalha como planejado para validação; entretanto,
+          isso pode ser implementado para acessibilidade.
         </p>
 
         <CodeArea rawData={accessibleCodeBase} />
@@ -158,16 +154,15 @@ export default {
         <p>
           É muito comum coletar informações do usuário através de diferentes
           páginas e seções. Nós recomendamos uma biblioteca de gerencia de
-          estado para armazenar os dados do usuário entre os diferentes
-          campos, páginas / seções. Neste exemplo, nós iremos usar{" "}
+          estado para armazenar os dados do usuário entre os diferentes campos,
+          páginas / seções. Neste exemplo, nós iremos usar{" "}
           <Link
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
           </Link>{" "}
-          como nossa biblioteca de gerencia de estado (você pode substituir
-          por{" "}
+          como nossa biblioteca de gerencia de estado (você pode substituir por{" "}
           <Link href="https://github.com/reduxjs/redux" target="_blank">
             redux
           </Link>
@@ -186,8 +181,8 @@ export default {
 
         <p>
           <Note>Passo 2:</Note> Cirar suas páginas, faça-o coletar seus dados,
-          submeter o dano e armazenar no "store" e passar para próxima página
-          do formulário.
+          submeter o dano e armazenar no "store" e passar para próxima página do
+          formulário.
         </p>
         <CodeArea
           rawData={step2}
@@ -216,9 +211,9 @@ export default {
     description: (
       <>
         <p>
-          Com esta ideia você pode facilmente compor seu formulário com
-          campos. Nós iremos criar um componente <code>Form</code> para
-          automaticamente capturar os dados do formulário.
+          Com esta ideia você pode facilmente compor seu formulário com campos.
+          Nós iremos criar um componente <code>Form</code> para automaticamente
+          capturar os dados do formulário.
         </p>
 
         <CodeArea
@@ -260,8 +255,8 @@ export default {
         <p>
           Com o componente <code>Form</code> injetando{" "}
           <code>react-hook-form</code>
-          's <code>props</code> no componente filho, você pode facilmente
-          criar e compor formulários dinâmicos para sua aplicação.
+          's <code>props</code> no componente filho, você pode facilmente criar
+          e compor formulários dinâmicos para sua aplicação.
         </p>
       </>
     ),
@@ -273,8 +268,8 @@ export default {
         <p>
           Essa é uma das melhoras funcionalidades do React Hook Form: ao invés
           de importar componentes (como outras bibliotecas) para utilizar esta
-          funcionalidade, você pode utilizar o próprio HTML. A chave está
-          dentro do atributo <code>name</code>. No React Hook Form, o atributo{" "}
+          funcionalidade, você pode utilizar o próprio HTML. A chave está dentro
+          do atributo <code>name</code>. No React Hook Form, o atributo{" "}
           <code>name</code> representa a estrutura do dado que quer usar.
         </p>
 
@@ -284,8 +279,8 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Se sua aplicação necessita de funcionalidades
-          como: Delete, Insert, Append, Preprend. Aqui está{" "}
+          <Note>Nota:</Note> Se sua aplicação necessita de funcionalidades como:
+          Delete, Insert, Append, Preprend. Aqui está{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -303,8 +298,7 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form suporta esquema baseado na validação do formulário
-          com{" "}
+          React Hook Form suporta esquema baseado na validação do formulário com{" "}
           <a href="https://github.com/jquense/yup" target="_blank">
             Yup
           </a>
@@ -333,14 +327,14 @@ export default {
     title: "Connect Form",
     description: (
       <p>
-        Quando construimos formulário, as vezes nosso campo está presente
-        muitos níveis abaixo da árvore do componente, e isso é quando o{" "}
+        Quando construimos formulário, as vezes nosso campo está presente muitos
+        níveis abaixo da árvore do componente, e isso é quando o{" "}
         <a href="/api#FormContext">FormContext</a> é muito útil. Entretanto,
         podemos futuramente melhorar a experiência do desenvolvedor usando o
         componente <code>ConnectForm</code> para alavancar o React{" "}
-        <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        A vantagem desse componente é que você pode conectar seu campo com o
-        React Hook Form de qualquer lugar.
+        <a href="https://reactjs.org/docs/render-props.html">renderProps</a>. A
+        vantagem desse componente é que você pode conectar seu campo com o React
+        Hook Form de qualquer lugar.
       </p>
     ),
   },
@@ -350,8 +344,8 @@ export default {
       <>
         <p>
           Em termos de campos condicionais, React Hook Form faz o uso muito
-          simples para nós, porque a partir do momento que você remove um
-          campo a árvore de componente, irá receber o <code>unregister</code>{" "}
+          simples para nós, porque a partir do momento que você remove um campo
+          a árvore de componente, irá receber o <code>unregister</code>{" "}
           automaticamente,{" "}
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
@@ -367,9 +361,8 @@ export default {
         <ul>
           <li>
             <p>
-              Importe <Link to="/api#Controller">Controller</Link> para
-              englobar seu componente e deixe-o gerenciar o 'register' e
-              'unregister'
+              Importe <Link to="/api#Controller">Controller</Link> para englobar
+              seu componente e deixe-o gerenciar o 'register' e 'unregister'
             </p>
           </li>
           <li>
@@ -407,11 +400,11 @@ export default {
           React's Context API.
         </a>{" "}
         Que resolve o problema em que os dados são passados pela árvore de
-        componentes sem precisar passar a props manualmente em todos os
-        níveis. Isso também faz com que a árvore de componentes acione uma
-        nova renderização quando o React Hook Form acionar uma atualização de
-        estado, mas ainda podemos otimizar nosso aplicativo, se necessário,
-        através do exemplo a seguir.
+        componentes sem precisar passar a props manualmente em todos os níveis.
+        Isso também faz com que a árvore de componentes acione uma nova
+        renderização quando o React Hook Form acionar uma atualização de estado,
+        mas ainda podemos otimizar nosso aplicativo, se necessário, através do
+        exemplo a seguir.
       </p>
     ),
   },
