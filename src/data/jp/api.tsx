@@ -670,6 +670,20 @@ export default {
             <code>onBlur</code> event is named <code>onTextBlur</code>
           </td>
         </tr>
+        <tr>
+          <td>
+            <code>valueName</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td></td>
+          <td>
+            This prop allows you to override the <code>value</code> prop and
+            support other components which doesn't use <code>value</code> prop.
+            eg: <code>checked</code>, <code>selected</code> and ect...
+          </td>
+        </tr>
       </tbody>
     ),
     description: (
