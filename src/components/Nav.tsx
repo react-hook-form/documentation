@@ -300,6 +300,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           defaultValue={currentLanguage}
         >
           <option value="en">English</option>
+          <option value="es">Español</option>
           <option value="zh">简体中文</option>
           <option value="jp">日本語</option>
           <option value="kr">한국어</option>

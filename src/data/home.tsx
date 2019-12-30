@@ -4,6 +4,7 @@ import { Note } from "../styles/typography"
 export default {
   title: {
     en: "Home",
+    es: "Inicio",
     pt: "Início",
     kr: "홈",
     jp: "ホーム",
@@ -11,6 +12,7 @@ export default {
   },
   description: {
     en: "React hook for form validation without the hassle",
+    es: "React hook para validación de formularios sin molestias",
     pt: "React hook para validação de formulário sem aborrecimento",
     kr: "번거로움 없이 폼 검증을 위한 React hook",
     jp: "手間がかからないフォームバリデーションのための React フック",
@@ -19,6 +21,8 @@ export default {
   slogan: {
     en:
       "Performant, flexible and extensible forms with easy-to-use validation.",
+    es:
+      "Formularios con buen rendimiento, flexibles y extensibles con validación fácil de usar.",
     pt:
       "Performático, flexível e formulário extensível, com fácil utilização e validação.",
     kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
@@ -28,6 +32,7 @@ export default {
   },
   getStarted: {
     en: "Get Started",
+    es: "Comenzar Ahora",
     pt: "Comece Agora",
     kr: "시작하기",
     jp: "はじめる",
@@ -35,6 +40,7 @@ export default {
   },
   demo: {
     en: "Demo",
+    es: "Demo",
     pt: "Demonstração",
     kr: "데모",
     jp: "デモ",
@@ -44,6 +50,10 @@ export default {
     en: {
       heading: "Find it useful and interesting?",
       description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+    },
+    es: {
+      heading: "Te pareció útil e interesante?",
+      description: `La validación de formularios debería ser más simple. React Hook Form te ayudará a escribir menos código y a tener un mejor rendimiento. Consulta la sección Comenzar Ahora y aprende más en la página de documentación de la API.`,
     },
     pt: {
       heading: "Achou útil e interessante?",
@@ -83,6 +93,28 @@ export default {
       {
         title: "Adoptable",
         description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
+      },
+    ],
+    es: [
+      {
+        title: "DX",
+        description: `API intuitiva y con funciones completas que proporciona una experiencia perfecta a los desarrolladores al crear formularios.`,
+      },
+      {
+        title: "HTML estandar",
+        description: `Aprovecha el propio HTML y valida tus formularios con nuestra API basada en restricciones.`,
+      },
+      {
+        title: "Super Ligera",
+        description: `El rendimiento es importante y el tamaño son importantes. React Hook Form es una pequeña librería sin dependencias.`,
+      },
+      {
+        title: "Performance",
+        description: `Minimiza el número de renderizaciones y logra un montaje más rápido, proporcionar una mejor experiencia de usuario.`,
+      },
+      {
+        title: "Adoptable",
+        description: `Dado que el estado del formulario es inherentemente local, se puede adoptar fácilmente sin otras dependencias.`,
       },
     ],
     pt: [
@@ -193,6 +225,23 @@ export default {
         </>
       ),
     },
+    es: {
+      title: "Comparación de código de Librería",
+      description: (
+        <>
+          <p id="codeComparison">
+            Reducir la cantidad de código que hay que escribir es uno de los
+            objetivos principales de React Hook Form. Para demostrar esto,
+            veamos una forma muy simple de validación entre algunas de las
+            librerías de validación más populares.
+          </p>
+          <p style={{ fontSize: 14 }}>
+            <Note>⚠ Nota:</Note> Tanto el código de Formik como el de Redux-Form
+            a continuación fueron copiados de la documentación oficial.
+          </p>
+        </>
+      ),
+    },
     pt: {
       title: "Comparação de código de bibliotecas",
       description: (
@@ -263,6 +312,11 @@ export default {
       description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
       totalReRender: "Total re-renders:",
     },
+    es: {
+      title: "Reduce la renderización",
+      description: `¿Alguna vez te has preguntado cuántas renderizaciones de componentes han sido desencadenadas por el usuario? React Hook Form utiliza la validación de formularios no controlada para reducir el impacto en el rendimiento.`,
+      totalReRender: "Total de renderizaciones:",
+    },
     pt: {
       title: "Reduza a renderização",
       description: `Você já se questionou quantas vezes o componente é renderizado pelo usuário? React Hook Form abraça o uso de validação de formulários incontroláveis, para reduzir desnecessários impactos de performance.`,
@@ -308,6 +362,35 @@ export default {
             rel="noopener noreferrer"
           >
             Check out the result of 1000 fields within a form here
+          </a>
+          .
+        </>
+      ),
+    },
+    es: {
+      title: "Montaje más rápido",
+      description: (
+        <p>
+          Los siguientes resultados muestran el tiempo que se tardó en
+          renderizar y montar los componentes. Los resultados se capturan con
+          una ralentización de CPU de 6x en el comienzo de la aplicación con la
+          pestaña de rendimiento de Chrome Dev Tools. El código es de la sección
+          anterior{" "}
+          <a href="#codeComparison">Comparación de código de Librerías</a>.
+        </p>
+      ),
+      totalMount: "No. de montajes",
+      totalChange: "No. de cambios confirmados",
+      totalTime: "Tiempo total",
+      performanceTests: (
+        <>
+          <span style={{ fontSize: 20 }}>⚠</span> ¿Quieres ver pruebas de
+          rendimiento más intensas?{" "}
+          <a
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            rel="noopener noreferrer"
+          >
+            Mira el resultado de 1000 campos dentro de un formulario aquí
           </a>
           .
         </>
@@ -442,6 +525,24 @@ export default {
       watch: "Change input value to see watched values",
       error: "Validation errors will appear here",
       touched: "Touched fields will display here",
+    },
+    es: {
+      title: "Demo en vivo",
+      description: (
+        <>
+          El siguiente formulario muestra la validación de formularios. Cada
+          columna representa lo que se ha capturado en el hook personalizado.
+          Puedes cambiar los campos en el formulario haciendo click en{" "}
+          <strong> EDIT </strong> {""}.
+        </>
+      ),
+      submit: "Enviar",
+      watchTitle: "Watch",
+      errorTitle: "Errores",
+      touchedTitle: "Touched",
+      watch: "Cambia el valor del input para ver los valores observados",
+      error: "Los errores de validación aparecerán aquí",
+      touched: "Los campos Touched se mostrarán aquí",
     },
     pt: {
       title: "Demonstração real",

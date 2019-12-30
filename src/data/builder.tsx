@@ -3,6 +3,7 @@ import * as React from "react"
 export default {
   title: {
     en: "Form Builder",
+    es: "Constructor de Formulario",
     pt: "Construtor de Formulário",
     kr: "폼 빌더",
     jp: "Form Builder",
@@ -10,6 +11,7 @@ export default {
   },
   description: {
     en: "GUI for building forms with validation",
+    es: "Interface para construcción de formularios con validación",
     pt: "Interface para construção de formulários com validação",
     kr: "유효성 검사와 함께 폼을 구축하기 위한 GUI",
     jp: "バリデーションフォームを構築するための GUI",
@@ -19,6 +21,10 @@ export default {
     en: {
       title: "Builder",
       description: "Build your own form with code and example.",
+    },
+    es: {
+      title: "Constructor de formulario",
+      description: "Contruye tu propio formulario con código y ejemplo.",
     },
     pt: {
       title: "Construtor",
@@ -42,6 +48,10 @@ export default {
       title: "Form Layout",
       message: "You can start adding fields with Input Creator.",
     },
+    es: {
+      title: "Layout de formulario",
+      message: "Puedes empezar a agregar campos con el creador de Inputs.",
+    },
     pt: {
       title: "Layout do formulário",
       message: "Você pode adicionar campos com o criador de inputs.",
@@ -63,6 +73,14 @@ export default {
     en: {
       title: "Input Creator",
       description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
+      message: "Puedes empezar a agregar campos con el creador de Inputs.",
+      options: "Opciones",
+      validation: "Mostrar validación",
+      generate: "Generar Formulario",
+    },
+    es: {
+      title: "Creador de Inputs",
+      description: `Este formulario permite crear y actualizar el campo. El botón de Generar creará un nuevo formulario con las actualizaciones.`,
       message: "You can start adding fields with Input Creator.",
       options: "Options",
       validation: "Show validation",
@@ -105,6 +123,10 @@ export default {
     en: {
       title: "Code",
       description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+    },
+    es: {
+      title: "Código",
+      description: `A medida que hagas cambios en el formulario, la sección de código se actualizará y puedes copiar el código.`,
     },
     pt: {
       title: "Código",

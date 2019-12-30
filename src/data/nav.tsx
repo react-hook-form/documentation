@@ -14,6 +14,19 @@ export default {
     releases: "Releases",
     resources: "Resources",
   },
+  es: {
+    home: "Inicio",
+    getStarted: "Comenzar ahora",
+    advanced: "Avanzado",
+    builder: (
+      <>
+        <span className="desktopOnly">Form&nbsp;</span>Builder
+      </>
+    ),
+    faqs: "FAQs",
+    releases: "Releases",
+    resources: "Recursos",
+  },
   pt: {
     home: "Início",
     getStarted: "Comece agora",
