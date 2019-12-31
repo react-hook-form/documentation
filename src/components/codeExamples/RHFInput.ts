@@ -18,6 +18,10 @@ function App() {
         as={<Select options={options} />}
         control={control}
         rules={{ required: true }}
+        onChange={([selected]) => {
+          // React Select return object instead of value for selection
+          return { value: selected };
+        }}
         name="reactSelect"
       />
       
