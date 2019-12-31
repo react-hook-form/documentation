@@ -72,19 +72,19 @@ export default {
   inputCreator: {
     en: {
       title: "Input Creator",
-      description: `This form allow you to create and update input. Generate form button will create a new form with the updates.`,
-      message: "Puedes empezar a agregar campos con el creador de Inputs.",
-      options: "Opciones",
-      validation: "Mostrar validación",
-      generate: "Generar Formulario",
-    },
-    es: {
-      title: "Creador de Inputs",
-      description: `Este formulario permite crear y actualizar el campo. El botón de Generar creará un nuevo formulario con las actualizaciones.`,
+      description: `This form allows you to create and update inputs. The Generate Form button will create a new form with the updates.`,
       message: "You can start adding fields with Input Creator.",
       options: "Options",
       validation: "Show validation",
       generate: "Generate Form",
+    },
+    es: {
+      title: "Creador de Inputs",
+      description: `Este formulario permite crear y actualizar el campo. El botón de Generar creará un nuevo formulario con las actualizaciones.`,
+      message: "Puedes empezar a agregar campos con el creador de Inputs.",
+      options: "Opciones", 
+      validation: "Mostrar validación",
+      generate: "Generar Formulario",
     },
     pt: {
       title: "Criador de Input",
@@ -122,7 +122,7 @@ export default {
   code: {
     en: {
       title: "Code",
-      description: `As you making changes over the form, the code section will be updated and you can copy the code as well.`,
+      description: `As you are making changes over the form, the code section will be updated and you can copy the code as well.`,
     },
     es: {
       title: "Código",
