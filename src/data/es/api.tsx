@@ -608,11 +608,6 @@ export default {
           <td></td>
           <td>
             Reglas de validación conforme a <code>register</code>.
-            <p>
-              <Note>Nota:</Note> Los validadores <code>min</code> y{" "}
-              <code>max</code> no van a funcionar debido al tipo de entrada,
-              reemplazalos con una función de validación.
-            </p>
           </td>
         </tr>
         <tr>
