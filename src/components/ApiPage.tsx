@@ -859,7 +859,7 @@ function ApiPage({
             <p>{generic.advanceUsage[currentLanguage].description}</p>
             <PrimaryButton
               onClick={() => {
-                navigate(translateLink("advanced-usage", currentLanguage))
+                navigate(translateLink("/advanced-usage", currentLanguage))
               }}
               style={{ margin: "40px auto" }}
             >
