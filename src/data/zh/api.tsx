@@ -754,6 +754,29 @@ export default {
             <code>{`as={<Text />}`}</code>
           </td>
         </tr>
+
+        <tr>
+          <td>
+            <code>children</code>
+          </td>
+          <td>
+            <TypeText>
+              ({`{ message: string, messages: string[]}`}) => any
+            </TypeText>
+          </td>
+          <td></td>
+          <td>
+            这是一个{" "}
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              render prop
+            </a>{" "}
+            用于呈现错误单个或多个消息。
+          </td>
+        </tr>
       </tbody>
     ),
   },

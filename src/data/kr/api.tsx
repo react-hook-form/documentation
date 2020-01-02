@@ -771,6 +771,28 @@ export default {
             <code>{`as={<Text />}`}</code>
           </td>
         </tr>
+        <tr>
+          <td>
+            <code>children</code>
+          </td>
+          <td>
+            <TypeText>
+              ({`{ message: string, messages: string[]}`}) => any
+            </TypeText>
+          </td>
+          <td></td>
+          <td>
+            This is a{" "}
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              render prop
+            </a>{" "}
+            for rendering error message or messages.
+          </td>
+        </tr>
       </tbody>
     ),
   },
