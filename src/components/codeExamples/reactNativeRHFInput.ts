@@ -5,6 +5,11 @@ import { useForm, Controller } from "react-hook-form";
 export default function App() {
   const { control, handleSubmit, errors } = useForm();
   const onSubmit = data => Alert.alert("Form Data", data);
+  const onChange = args => {
+    return {
+      value: args[0].nativeEvent.text,
+    };
+  };
 
   return (
     <View>
@@ -13,6 +18,7 @@ export default function App() {
         as={<TextInput />}
         control={control}
         name="firstName"
+        onChange={onChange}
         rules={{ required: true }}
       />
       {errors.firstName && <Text>This is required.</Text>}
