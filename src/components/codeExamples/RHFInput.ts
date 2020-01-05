@@ -14,6 +14,10 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
+      {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
+      <Controller as={TextField} name="TextField" control={control} />
+      
+      {* // Another possibility, any potential props passed to <Checkbox/> will be overrided. SomeName => Checkbox *}
       <Controller
         as={<Select options={options} />}
         control={control}

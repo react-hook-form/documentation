@@ -102,38 +102,54 @@ export default {
   controlledInput: {
     title: "Controlled Input",
     description: (
-      <p>
-        React Hook Form embrace uncontrolled components and native HTML inputs,
-        however it's hard to avoid working with external controlled component
-        such as{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/JedWatson/react-select"
-        >
-          React-Select
-        </a>
-        ,{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/ant-design/ant-design"
-        >
-          AntD
-        </a>{" "}
-        and{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://material-ui.com/"
-        >
-          Material-UI
-        </a>
-        , hence we have built a wrapper component:{" "}
-        <Link to="/api#Controller">Controller</Link> to streamline the
-        integration process while still giving you the freedom to use custom
-        register with your needs.
-      </p>
+      <>
+        <p>
+          React Hook Form embrace uncontrolled components and native HTML
+          inputs, however it's hard to avoid working with external controlled
+          component such as{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          , hence we have built a wrapper component:{" "}
+          <Link to="/api#Controller">Controller</Link> to streamline the
+          integration process while still giving you the freedom to use custom
+          register with your needs.
+        </p>
+        <p>
+          Every props you pass to Controller component, will be forwarded to the
+          Component instance you provided with the <code>as</code> prop. That
+          means imagine you have a custom <code>Switch</code> component that
+          require a <code>label</code> prop. You can pass this prop to the
+          Controller component directly. The <code>name</code> prop will be used
+          mainly to access the value through the form later.
+        </p>
+
+        <p>
+          If you use a <code>defaultValue</code> prop, it will take priority
+          over the <code>useForm</code> <code>defaultValues</code> value for
+          your property given at <code>name</code> prop.
+        </p>
+      </>
     ),
   },
   workWithUI: {
