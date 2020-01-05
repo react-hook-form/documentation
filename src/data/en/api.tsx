@@ -595,7 +595,8 @@ export default {
           <td>
             The same as uncontrolled component's <code>defaultValue</code>, when
             supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            input. <strong>Note</strong>: When provided, this take priority over{" "}
+            <code>useForm</code> <code>defaultValues</code> for given key.
           </td>
         </tr>
         <tr>
@@ -710,6 +711,20 @@ export default {
             Material-UI
           </a>
           . This wrapper component will make your life easier to work with them.
+        </p>
+        <p>
+          Every props you pass to Controller component, will be forwarded to the
+          Component instance you provided with the <code>as</code> prop. That
+          means imagine you have a custom <code>Switch</code> component that
+          require a <code>label</code> prop. You can pass this prop to the
+          Controller component directly. The <code>name</code> prop will be used
+          mainly to access the value through the form later.
+        </p>
+
+        <p>
+          If you use a <code>defaultValue</code> prop, it will take priority
+          over the <code>useForm</code> <code>defaultValues</code> value for
+          your property given at <code>name</code> prop.
         </p>
       </>
     ),
