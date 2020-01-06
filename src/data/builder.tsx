@@ -82,7 +82,7 @@ export default {
       title: "Creador de Inputs",
       description: `Este formulario permite crear y actualizar el campo. El botón de Generar creará un nuevo formulario con las actualizaciones.`,
       message: "Puedes empezar a agregar campos con el creador de Inputs.",
-      options: "Opciones", 
+      options: "Opciones",
       validation: "Mostrar validación",
       generate: "Generar Formulario",
     },

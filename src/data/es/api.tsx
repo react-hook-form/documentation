@@ -596,6 +596,11 @@ export default {
             Lo mismo que el <code>defaultValue</code> de componentes no
             controlados, cuando se setea un valor <code>booleano</code>, es
             tratado como un checkbox input.
+            <p>
+              <Note>Note:</Note> you will need to supply either{" "}
+              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
+              <code>useForm</code>
+            </p>
           </td>
         </tr>
         <tr>

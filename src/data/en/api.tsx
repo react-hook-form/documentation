@@ -595,8 +595,16 @@ export default {
           <td>
             The same as uncontrolled component's <code>defaultValue</code>, when
             supply <code>boolean</code> value, it will be treated as checkbox
-            input. <strong>Note</strong>: When provided, this take priority over{" "}
-            <code>useForm</code> <code>defaultValues</code> for given key.
+            input.
+            <p>
+              <Note>Note:</Note> you will need to supply either{" "}
+              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
+              <code>useForm</code>
+            </p>
+            <p>
+              <Note>Note</Note>: When provided, this take priority over{" "}
+              <code>useForm</code> <code>defaultValues</code> for given key.
+            </p>
           </td>
         </tr>
         <tr>
