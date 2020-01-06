@@ -569,6 +569,11 @@ export default {
               <code>defaultValue</code> or <code>defaultValues</code> at{" "}
               <code>useForm</code>
             </p>
+            <p>
+              <Note>Note:</Note> you will need to supply either{" "}
+              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
+              <code>useForm</code>
+            </p>
           </td>
         </tr>
         <tr>
