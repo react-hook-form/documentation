@@ -407,15 +407,16 @@ export default {
         </p>
         <p>
           <Note>注意：</Note> <code>ref</code> を公開しない{" "}
-          <code>React-Select</code> のような制御コンポーネントの場合は、
+          <code>React-Select</code> のような制御されたコンポーネントの場合は、{" "}
+          手動で入力値をリセットするために{" "}
           <CodeAsLink onClick={() => goToSection("setValue")}>
             setValue
           </CodeAsLink>{" "}
-          を使用して入力値を手動でリセットする必要があります または、
+          を使用するか、{" "}
           <CodeAsLink onClick={() => goToSection("Controller")}>
             Controller
-          </CodeAsLink>
-          を使用して、制御対象コンポーネントをラップします。
+          </CodeAsLink>{" "}
+          コンポーネントを使用して制御されたコンポーネントをラップする必要があります。
         </p>
       </>
     ),
