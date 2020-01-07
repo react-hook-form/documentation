@@ -39,7 +39,7 @@ const Menu = styled.aside`
 
         & > li {
           line-height: 22px;
-          padding-bottom: 10px;
+          padding-bottom: 6px;
           font-size: 16px;
           display: flex;
 
