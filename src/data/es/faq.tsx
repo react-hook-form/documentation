@@ -375,8 +375,11 @@ export default {
           </p>
           <p>
             Alternativamente, puedes utilizar nuestro componente wrapper{" "}
-            <a href="https://www.react-hook-form.com/api#Controller">
-              title="React Hook Form Controller
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
             </a>{" "}
             el que se encargará de realizar el registro por ti.
           </p>
