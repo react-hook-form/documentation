@@ -364,8 +364,11 @@ export default {
           </p>
           <p>
             または、ラッパーコンポーネントの{" "}
-            <a href="https://www.react-hook-form.com/api#Controller">
-              title="React Hook Form Controller Controller
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
             </a>{" "}
             を使用して、これらのカスタム登録を処理できます。
           </p>
