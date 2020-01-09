@@ -19,6 +19,7 @@ function App() {
           name="test" 
           as={<TextField />}
           control={control} 
+          defaultValue=""
         />
       )}
 

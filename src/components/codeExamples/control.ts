@@ -15,6 +15,7 @@ function App() {
         as={<TextField />}
         name="firstName"
         control={control}
+        defaultValue=""
       />
       
       <input type="submit" />

@@ -369,8 +369,11 @@ export default {
           </p>
           <p>
             Alternativamente, você pode usar um componente por volta{" "}
-            <a href="https://www.react-hook-form.com/api#Controller">
-              title="React Hook Form Controller Controller
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
             </a>{" "}
             que tomará conta de registrar customizadamente para voocê.
           </p>
