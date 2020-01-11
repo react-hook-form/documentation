@@ -17,6 +17,7 @@ export default () => {
         as={<TextInput />}
         onChange={onChange}
         name="firstName"
+        defaultValue=""
       />
 
       <Button title="Button" onPress={handleSubmit(onSubmit)} />

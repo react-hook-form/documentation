@@ -358,8 +358,11 @@ export default {
           </p>
           <p>
             또는 감싸는 컴포넌트인{" "}
-            <a href="https://www.react-hook-form.com/api#Controller">
-              title="React Hook Form Controller Controller
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
             </a>{" "}
             을 사용하여 커스텀 레지스터를 관리 할 수 ​​있습니다.
           </p>

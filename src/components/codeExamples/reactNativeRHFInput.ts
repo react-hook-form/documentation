@@ -20,11 +20,12 @@ export default function App() {
         name="firstName"
         onChange={onChange}
         rules={{ required: true }}
+        defaultValue=""
       />
       {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
-      <Controller as={<TextInput />} control={control} name="lastName" />
+      <Controller as={<TextInput />} control={control} name="lastName" defaultValue="" />
 
       <Button onPress={handleSubmit(onSubmit)} />
     </View>

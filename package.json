@@ -4,6 +4,7 @@
   "description": "React hooks for form validation without the hassle.",
   "version": "3.0.0",
   "author": "beier luo",
+  "engines": { "node": "12.x" },
   "dependencies": {
     "gatsby": "2.18.17",
     "gatsby-image": "2.2.37",

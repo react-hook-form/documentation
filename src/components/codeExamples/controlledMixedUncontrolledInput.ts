@@ -23,6 +23,7 @@ function App() {
         }
         control={control}
         name="select"
+        defaultValue={10}
       />
       
       <Input inputRef={register} name="input" />

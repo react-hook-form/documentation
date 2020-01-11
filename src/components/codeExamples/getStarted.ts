@@ -105,8 +105,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller as={<Input />} name="HelloWorld" control={control} />
-      <Controller as={<InputField />} name="AntdInput" control={control} />
+      <Controller as={<Input />} name="HelloWorld" control={control} defaultValue="" />
+      <Controller as={<InputField />} name="AntdInput" control={control} defaultValue="" />
       <Controller
         as={<Select />}
         name="reactSelect"
@@ -115,6 +115,7 @@ export default function App() {
           // React Select return object instead of value for selection
           return { value: selected };
         }}
+        defaultValue={{}}
       />
 
       <input type="submit" />
@@ -136,7 +137,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
-      <Controller as={TextField} name="TextField" control={control} />
+      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
       {* // Another possibility, any potential props passed to <Checkbox/> will be overrided. SomeName => Checkbox *}
       <Controller
@@ -144,6 +145,7 @@ function App() {
         name="Checkbox"
         value="test"
         control={control}
+        defaultValue={false}
       />
 
       <button>Submit</button>

@@ -15,7 +15,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
       {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
-      <Controller as={TextField} name="TextField" control={control} />
+      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
       {* // Another possibility, any potential props passed to <Checkbox/> will be overrided. SomeName => Checkbox *}
       <Controller
@@ -27,12 +27,14 @@ function App() {
           return { value: selected };
         }}
         name="reactSelect"
+        defaultValue={{ value: 'chocolate' }}
       />
       
       <Controller
         as={<TextField />}
         name="firstName"
         control={control}
+        defaultValue=""
       />
       
       <button>submit</button>
