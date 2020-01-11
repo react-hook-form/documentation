@@ -370,8 +370,11 @@ export default {
           </p>
           <p>
             Alternatively, you can use our wrapper component{" "}
-            <a href="https://www.react-hook-form.com/api#Controller">
-              title="React Hook Form Controller Controller
+            <a
+              href="https://www.react-hook-form.com/api#Controller"
+              title="React Hook Form Controller"
+            >
+              Controller
             </a>{" "}
             which take care those custom register for you.
           </p>

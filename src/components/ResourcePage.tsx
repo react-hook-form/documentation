@@ -104,6 +104,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <Article>
               <a
+                href="https://itnext.io/is-react-hook-form-the-future-57c6f94a2665"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Is React Hook Form the future?</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://itnext.io/@gapur.kassym"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gapur Kassym
+                </a>
+              </p>
+            </Article>
+          </li>
+          <li>
+            <Article>
+              <a
                 href="https://medium.com/@angular_evan/yup-you-should-use-react-hook-form-9864d8bc80ef"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -13,11 +13,13 @@ export default function App() {
         name="firstName"
         control={control} 
         rules={ required: true } 
+        defaultValue=""
       />
       <Controller 
         as={<TextField />} 
         name="lastName"
-        control={control} 
+        control={control}
+        defaultValue="" 
       />
       
       <input type="submit" />
