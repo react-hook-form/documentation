@@ -296,7 +296,7 @@ export default {
     kr: "Return",
     jp: "Return",
     zh: "Return",
-    ru: "Вернуться",
+    ru: "Возвращает",
   },
   blog: {
     en: "Articles/Blog",

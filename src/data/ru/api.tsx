@@ -149,14 +149,15 @@ export default {
     description: (
       <>
         <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs. This is useful when you register your input
-          during <code>useEffect</code> as custom register and to unregister it
-          after component unmount.
+          Этот метод позволяет вам отменить регистрацию <code>unregister</code>
+          единичных полей или массива полей. Это удобно, если вы
+          зарегистрировали поле внутри <code>useEffect</code> в качестве
+          кастомной регистрации и вам нужно отменить регистрацию после
+          отключения (unmount) компонента.
         </p>
         <p>
-          <Note>Примечание:</Note> When you unregister an input, its value will
-          no longer be included in the form data that gets submitted.
+          <Note>Примечание:</Note> Когда вы регистрируете поле, его значение
+          больше не будет включено в данные формы, которые будут отправляться.
         </p>
       </>
     ),
@@ -166,18 +167,18 @@ export default {
     description: (
       <>
         <p>
-          This method allows you to register input/select <code>Ref</code> and
-          validation rules into React Hook Form.
+          Этот метод позволяет регистрировать input/select <code>Ref</code> и
+          правила их валидации в React Hook Form.
         </p>
         <p>
-          Validation rules are all based on HTML standard and also allow custom
-          validation.
+          Правила валидации основаны на HTML стандарте и также позволяют
+          добавлять кастомную валидацию.
         </p>
         <p>
-          <Note>Important:</Note> <code>name</code> is <b>required</b> and{" "}
-          <b>unique</b>. Input name also supports dot and bracket syntax, which
-          allows you to easily create nested form fields. Example table is
-          below:
+          <Note>Важно:</Note> значени <code>name</code> - <b>обязательное</b> и{" "}
+          <b>уникальное</b>. Имя поля также поддерживает "dot and bracket
+          syntax", который даёт вам возможность создавать вложенные поля формы.
+          Форма с примером приведена ниже:
         </p>
       </>
     ),
@@ -188,33 +189,33 @@ export default {
           borderLeft: `4px solid ${colors.lightPink}`,
         }}
       >
-        If you working on <code>arrays/array fields</code>, you can assign an
-        input name as <code>name[index]</code>.{" "}
+        Если вы работаете с <code>массивом/массивами полей</code>, вы можете
+        задать имя поля как <code>name[index]</code>.{" "}
         <Link
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
-          title="example for Field Array"
+          title="пример массива полей"
         >
-          Check out the Field Array example
+          Посмотреть пример с массивом полей
         </Link>
         .
       </p>
     ),
-    example: "Submit Result",
+    example: "Результат отправки формы",
     selectHelp:
-      "By selecting the register option, the API table below will get updated.",
+      "При выборе способа регистрации, таблица API, приведенная ниже, будет обновлена.",
     options: {
       title: "Register options",
-      registerWithValidation: "Register with validation",
+      registerWithValidation: "Регистрация с валидацией",
       registerWithValidationMessage:
-        "Register with validation and error message",
+        "Регистрация с валидацией и сообщением об ошибке",
       note: goToSection => (
         <>
-          <Title>Custom Register</Title>
+          <Title>Кастомная регистрация</Title>
           <p>
-            You can also register inputs manually, which is useful when working
-            with custom components and <code>Ref</code> is not accessible. This
-            is actually the case when you are working with React Native or
-            custom component like{" "}
+            Вы также можете зарегистрировать поля вручную, что может быть удобно
+            при работе с кастомными компонентами, когда <code>Ref</code>{" "}
+            неприменим. Это также актуально, когда вы работаете с React Native с
+            такими кастомными компонентами как{" "}
             <a
               href="https://github.com/JedWatson/react-select"
               target="_blank"
@@ -226,12 +227,13 @@ export default {
           </p>
 
           <p>
-            By using a custom register call, you will need to update the input
-            value with{" "}
+            При использовании вызова кастомной регистрации, вам нужно обновить
+            значение поля с помощью{" "}
             <CodeAsLink onClick={() => goToSection("setValue")}>
               setValue
             </CodeAsLink>
-            , because input is no longer registered with its ref.
+            , потому что поле больше не является зарегистрированным с помощью
+            его ref.
           </p>
 
           <p>
@@ -239,9 +241,9 @@ export default {
           </p>
 
           <p>
-            <Note>Примечание:</Note> If you want the custom registered input to
-            trigger a re-render during its value update, then you should give a
-            type to your registered input.
+            <Note>Примечание:</Note> Если вы хотите, чтобы регистрация
+            кастомного поля вызывала повторный рендеринг после обновления его
+            значения, то вам нужно указать тип зарегистрированного поля.
           </p>
         </>
       ),
@@ -249,53 +251,54 @@ export default {
     validation: {
       required: (
         <>
-          A Boolean which, if true, indicates that the input must have a value
-          before the form can be submitted. You can assign a string to return an
-          error message in the <code>errors</code> object.
+          Булевые "правдивые" значения указывают на то, что поле должн иметь
+          значение перед отправкой формы. Вы также можете указать строку с
+          текстом ошибки для объекта ошибки (<code>errors</code> object).
         </>
       ),
-      maxLength: "The maximum length of the value to accept for this input.",
-      minLength: "The minimum length of the value to accept for this input.",
-      max: "The maximum value to accept for this input.",
-      min: "The minimum value to accept for this input.",
-      pattern: "The regex pattern for the input.",
-      validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+      maxLength: "Максимальная разрешённая длинна поля.",
+      minLength: "Минимальная разрешённая длинна поля.",
+      max: "Максимальное разрешённое значение для данного поля.",
+      min: "Минимальное разрешённое значение для данного поля.",
+      pattern: "Шаблон regex для данного поля",
+      validate: `Вы можете передать функцию обратного вызова в качестве аргумента для валидации или передать объект функций обратного вызова для проверки всех из них (см. примеры)`,
     },
   },
   formState: {
     title: "formState",
-    description: "This object contain information about the form state.",
-    dirty: "Set to true after a user interacted with any of the inputs.",
-    isSubmitted: "Set true after a user submitted the form.",
-    touched: "An object of all inputs which have been interacted.",
+    description: "Этот объект содержит информацию о состоянии формы.",
+    dirty: "Устанавливается в true после изменения любого поля.",
+    isSubmitted: "Устанавливается в true после отправки формы.",
+    touched:
+      "Объект, содержаций все поля, с которыми взаимодействовал пользователь.",
     isSubmitting: (
       <>
-        During form submitting will set to <code>true</code> and after
-        submitting set to <code>false</code>
+        Во время отправки формы будет выставлено в <code>true</code> и после
+        отправки будет выставлено в <code>false</code>
       </>
     ),
-    submitCount: "Number of forms submit.",
-    isValid: "Set true if doesn't have any error.",
+    submitCount: "Количество отправлений формы.",
+    isValid: "Устанавливается в true, если нет ошибок.",
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: () => (
       <>
         <p>
-          Object contains form errors or error messages which belong to each
-          input.
+          Объект, содержащий ошибки формы или сообщения об ошибках для каждого
+          поля.
         </p>
 
         <p>
-          <Note>Примечание:</Note> Difference between V3 and V4:
+          <Note>Примечание:</Note> Есть развница в V3 и V4:
         </p>
 
         <ul>
           <li>
-            <p>V4: Nested object</p>
+            <p>V4: Наследуемый объект</p>
             <p>
-              <strong>Reason:</strong> as optional chaining becoming more
-              popular among the community and to support better type.
+              <strong>Причина:</strong> так как опциональный чейнинг становится
+              все более популярным в сообществе и для поддержки лучшего типа.
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
@@ -304,7 +307,7 @@ export default {
           <li>
             <p>V3: Flatten object</p>
             <p>
-              <strong>Reason:</strong> simple and easy to access error.
+              <strong>Причина:</strong> простой доступ к ошибке.
             </p>
             <p>
               <code>{`errors['yourDetail.firstName'];`}</code>
@@ -315,14 +318,14 @@ export default {
     ),
     types: (
       <>
-        This is useful for input validation like rules of password, which
-        multiple errors need to return for a single field. To enable this
-        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
-        .
+        Это полезно для проверки входных данных, таких как правила пароля,
+        которые должны возвращать несколько ошибок для одного поля. Чтобы
+        включить эту функцию, убедитесь, что вы установили{" "}
+        <code>validateCriteriaMode: 'all'</code>.
       </>
     ),
-    message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
-    ref: `Reference for your input element.`,
+    message: `Сообщение является пустой строкой по умолчанию. Однако, если вы зарегистрируете валидацию с сообщением об ошибке, то затем она будет возвращена.`,
+    ref: `Ссылка на ваш элемент поля.`,
   },
   watch: {
     title: "watch",
@@ -580,7 +583,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
             it's optional if you are using FormContext.
@@ -593,7 +596,7 @@ export default {
           <td>
             <TypeText>any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             The same as uncontrolled component's <code>defaultValue</code>, when
             supply <code>boolean</code> value, it will be treated as checkbox
@@ -616,7 +619,7 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             Validation rules according to <code>register</code>.
           </td>
@@ -628,7 +631,7 @@ export default {
           <td>
             <TypeText>(args: any) => any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This <code>onChange</code> prop allow you to customise the return
             value. <br />
@@ -642,7 +645,7 @@ export default {
           <td>
             <TypeText>(args: any) => any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This <code>onBlur</code> prop allow you to customise the return
             value. <br />
@@ -656,7 +659,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This prop allow you to target that specific event name, т.е.: when{" "}
             <code>onChange</code> event is named <code>onTextChange</code>
@@ -669,7 +672,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This prop allow you to target that specific event name, т.е.: when{" "}
             <code>onBlur</code> event is named <code>onTextBlur</code>
@@ -682,7 +685,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This prop allows you to override the <code>value</code> prop and
             support other components which doesn't use <code>value</code> prop.
@@ -796,7 +799,7 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             <code>errors</code> object from React Hook Form. it's optional if
             you are using FormContext.
@@ -809,7 +812,7 @@ export default {
           <td>
             <TypeText>React.ElementType | string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             Wrapper component or HTML tag. т.е.: <code>as="span"</code> or{" "}
             <code>{`as={<Text />}`}</code>
@@ -824,7 +827,7 @@ export default {
               ({`{ message: string, messages: string[]}`}) => any
             </TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
             This is a{" "}
             <a
