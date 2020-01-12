@@ -146,7 +146,7 @@ function SideMenu({
 
             if (
               [
-                "formcontext",
+                "useformcontext",
                 "controller",
                 "usefieldarray",
                 "errormessage",

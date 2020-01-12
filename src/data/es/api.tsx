@@ -7,8 +7,8 @@ import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
-import CodeArea from "../../components/CodeArea";
-import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument";
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "Documentación de la API",
@@ -528,7 +528,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         Si quieres centralizar tus reglas de validación con una librería de
@@ -715,8 +715,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         Form context está destinado a resolver el problema cuando hay inputs
@@ -930,5 +930,5 @@ export default {
         </tr>
       </>
     ),
-  }
+  },
 }

@@ -8,8 +8,8 @@ import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
-import CodeArea from "../../components/CodeArea";
-import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument";
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "API Documentação",
@@ -540,7 +540,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         Se você preferir, pode centralizar a validação de regras com validação
@@ -738,8 +738,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         O contexto do formulário visa solucionar o problema quando houver
@@ -849,7 +849,8 @@ export default {
         <code>true</code> e o restante da sintaxe é igual à validação padrão.
       </p>
     ),
-  },  useFieldArray: {
+  },
+  useFieldArray: {
     title: "useFieldArray",
     description: (
       <>
@@ -949,5 +950,5 @@ export default {
         </tr>
       </>
     ),
-  }
+  },
 }

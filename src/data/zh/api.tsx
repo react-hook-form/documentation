@@ -497,7 +497,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         如果您希望使用外部验证模式，可以在
@@ -694,8 +694,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         当组件存在深处时传递<code>props</code>变得痛苦，这个组件解决这个问题。

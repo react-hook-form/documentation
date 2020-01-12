@@ -12,11 +12,11 @@ export default function FormContext({ currentLanguage, api }) {
     <>
       <CodeHeading>
         <h2>
-          FormContext: <TypeText>Component</TypeText>
+          useFormContext: <TypeText>Component</TypeText>
         </h2>
       </CodeHeading>
 
-      {api.formContext.introduction}
+      {api.useFormContext.introduction}
 
       <TableWrapper>
         <Table>
@@ -41,7 +41,7 @@ export default function FormContext({ currentLanguage, api }) {
         </Table>
       </TableWrapper>
 
-      {api.formContext.description}
+      {api.useFormContext.description}
 
       <SyntaxHighlighter
         customStyle={{

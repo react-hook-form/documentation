@@ -45,7 +45,7 @@ import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
-import UseFieldArray from "./UseFieldArray";
+import UseFieldArray from "./UseFieldArray"
 
 const { useRef, useEffect } = React
 
@@ -65,10 +65,10 @@ const enLinks = [
   apiEn.triggerValidation,
   apiEn.control,
   apiEn.formState,
-  apiEn.formContext,
   apiEn.Controller,
-  apiEn.useFieldArray,
   apiEn.ErrorMessage,
+  apiEn.useFormContext,
+  apiEn.useFieldArray,
   apiEn.validationSchema,
   apiEn.NativeValidation,
 ]
@@ -228,10 +228,10 @@ function ApiPage({
     api.triggerValidation,
     api.control,
     api.formState,
-    api.formContext,
     api.Controller,
-    api.useFieldArray,
     api.ErrorMessage,
+    api.useFormContext,
+    api.useFieldArray,
     api.validationSchema,
     api.NativeValidation,
   ]
@@ -246,14 +246,14 @@ function ApiPage({
     errorsRef: null,
     watchRef: null,
     setErrorRef: null,
-    ValidationSchemaRef: null,
+    validationSchemaRef: null,
     handleSubmitRef: null,
     getValuesRef: null,
     controlRef: null,
     TypeScriptRef: null,
     clearErrorRef: null,
     triggerValidationRef: null,
-    FormContextRef: null,
+    useFormContextRef: null,
     ControllerRef: null,
     BrowserbuiltinvalidationRef: null,
     ErrorMessageRef: null,
@@ -799,18 +799,6 @@ function ApiPage({
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
-            <FormContext currentLanguage={currentLanguage} api={api} />
-          </section>
-
-          <hr />
-
-          <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
-            <UseFieldArray currentLanguage={currentLanguage} api={api} />
-          </section>
-
-          <hr />
-
           <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
             <Controller currentLanguage={currentLanguage} api={api} />
           </section>
@@ -823,10 +811,24 @@ function ApiPage({
 
           <hr />
 
+          <section
+            ref={ref => (apiSectionsRef.current.useFormContextRef = ref)}
+          >
+            <FormContext currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
+            <UseFieldArray currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
           <CodeHeading
             ref={ref => {
               // @ts-ignore
-              apiSectionsRef.current.ValidationSchemaRef = ref
+              apiSectionsRef.current.validationSchemaRef = ref
             }}
           >
             <h2>

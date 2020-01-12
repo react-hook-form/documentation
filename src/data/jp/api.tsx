@@ -530,7 +530,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
@@ -729,8 +729,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         フォームコンテキストは、コンポーネントツリーに深くネストされた input
