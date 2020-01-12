@@ -1,10 +1,8 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../../styles/link"
 import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink, Table } from "../../components/ApiPage"
+import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
@@ -808,10 +806,6 @@ export default {
       <>
         <p>
           用于处理字段数组（动态输入）的自定义挂钩。 此挂钩提供以下对象和函数。
-        </p>
-
-        <p>
-          <code>useFieldArray</code> 具有以下<strong>必需</strong>参数.
         </p>
 
         <CodeArea rawData={useFieldArrayArgument} />

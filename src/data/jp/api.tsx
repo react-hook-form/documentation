@@ -849,11 +849,6 @@ export default {
           hook provides the following object and functions.
         </p>
 
-        <p>
-          <code>useFieldArray</code> has the the following{" "}
-          <strong>required</strong> arguments.
-        </p>
-
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
