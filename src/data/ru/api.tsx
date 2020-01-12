@@ -24,7 +24,7 @@ export default {
     description: (
       <p>
         <code>useForm</code> также имеет <b>необязательные</b> аргументы. В
-        следующем примере приведены значение по умолчанию для всех параметров.
+        следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
     validateCriteriaMode: (
@@ -64,7 +64,7 @@ export default {
           Вы можете установить зачение по умолчанию для поля с помощью{" "}
           <code>defaultValue/defaultChecked</code>{" "}
           <Link href="https://reactjs.org/docs/uncontrolled-components.html">
-            (узнать больше из доки по React для Default Values)
+            (узнать больше из доки по React о Default Values)
           </Link>{" "}
           или передать <code>defaultValues</code> в качестве необязального
           параметра для заполнения значений по умолчанию для всей формы.
@@ -79,10 +79,10 @@ export default {
 
         <p>
           <Note>Примечание:</Note> <code>defaultValues</code> не заполняется
-          автоматически при регистрации вручную (т.е.:{" "}
+          автоматически при регистрации вручную (например:{" "}
           <code>{`register({ name: 'test' })`}</code>) потому что поле,
-          зарегистрированное <code>register</code> вручную, не передаёт{" "}
-          <code>ref</code> в React Hook Form.
+          <code>зарегистрированное</code> вручную, не передаёт <code>ref</code>{" "}
+          в React Hook Form.
         </p>
       </>
     ),
@@ -98,7 +98,7 @@ export default {
     ),
     reValidateMode: (
       <p>
-        Этот параметр позволяет настроить, когда поля с ошибками будут повторно
+        Этот параметр позволяет установить, когда поля с ошибками будут повторно
         валидироваться (по умолчанию проверка запускается при любом изменении в
         поле). <Popup />
       </p>
@@ -119,9 +119,9 @@ export default {
 
         <p>
           <Note>Примечание:</Note> Только зарегистрированные поля с{" "}
-          <code>ref</code>
-          будут работать. Поля, зарегистрированные вручную, работать не будут.
-          т.е.: <code>{`register({ name: 'test' }) // не работает`}</code>{" "}
+          <code>ref</code> будут работать. Поля, зарегистрированные вручную,
+          работать не будут. например:{" "}
+          <code>{`register({ name: 'test' }) // не работает`}</code>{" "}
         </p>
       </>
     ),
@@ -149,7 +149,8 @@ export default {
     description: (
       <>
         <p>
-          Этот метод позволяет вам отменить регистрацию <code>unregister</code>
+          Этот метод позволяет вам отменить регистрацию -{" "}
+          <code>unregister</code>
           единичных полей или массива полей. Это удобно, если вы
           зарегистрировали поле внутри <code>useEffect</code> в качестве
           кастомной регистрации и вам нужно отменить регистрацию после
@@ -175,8 +176,8 @@ export default {
           добавлять кастомную валидацию.
         </p>
         <p>
-          <Note>Важно:</Note> значени <code>name</code> - <b>обязательное</b> и{" "}
-          <b>уникальное</b>. Имя поля также поддерживает "dot and bracket
+          <Note>Важно:</Note> параметр <code>name</code> - <b>обязательный</b> и{" "}
+          <b>уникальный</b>. Имя поля также поддерживает "dot and bracket
           syntax", который даёт вам возможность создавать вложенные поля формы.
           Форма с примером приведена ниже:
         </p>
@@ -251,7 +252,7 @@ export default {
     validation: {
       required: (
         <>
-          Булевые "правдивые" значения указывают на то, что поле должн иметь
+          Булевые "правдивые" значения указывают на то, что поле должно иметь
           значение перед отправкой формы. Вы также можете указать строку с
           текстом ошибки для объекта ошибки (<code>errors</code> object).
         </>
@@ -295,17 +296,17 @@ export default {
 
         <ul>
           <li>
-            <p>V4: Наследуемый объект</p>
+            <p>V4: Вложеный объект</p>
             <p>
               <strong>Причина:</strong> так как опциональный чейнинг становится
-              все более популярным в сообществе и для поддержки лучшего типа.
+              всё более популярным в сообществе и для поддержки лучшего типа.
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
             </p>
           </li>
           <li>
-            <p>V3: Flatten object</p>
+            <p>V3: Плоский объект</p>
             <p>
               <strong>Причина:</strong> простой доступ к ошибке.
             </p>
@@ -332,24 +333,24 @@ export default {
     description: (
       <>
         <p>
-          This will watch specified input/inputs and return its value, and it's
-          useful for determining what to render.
+          Будет следить за выбранным полем/полями и вернёт его/их значение(я).
+          Это может быть удобно для определениятого того, что нужно рендерить.
         </p>
 
         <ul>
           <li>
             <p>
-              When <code>defaultValue</code> is not defined, the first render of{" "}
-              <code>watch</code> will return <code>undefined</code> because it
-              is called before <code>register</code>, but you can set the{" "}
-              <code>defaultValue</code> as the second argument to return value.
+              Когда <code>defaultValue</code> не определено, первый рендер
+              вернёт <code>undefined</code> из <code>watch</code> потому, что он
+              вызывается раньше <code>регистрации</code>, но вы можете задать{" "}
+              <code>defaultValue</code> вторым аргументом.
             </p>
           </li>
           <li>
             <p>
-              However, if <code>defaultValues</code> was initialised in{" "}
-              <code>useForm</code> as argument, then the first render will
-              return what's provided in <code>defaultValues</code>.
+              Однако, если <code>defaultValues</code> было инициализировано в{" "}
+              <code>useForm</code> в качестве аргумента, то 1-й рендер вернёт
+              значение, указанное в качесте <code>defaultValues</code>.
             </p>
           </li>
         </ul>
@@ -358,7 +359,7 @@ export default {
     tableTitle: {
       single: (
         <>
-          Watch input value by name (similar to lodash{" "}
+          Наблюдение за полем по имени (как и функция{" "}
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -366,12 +367,12 @@ export default {
           >
             get
           </a>{" "}
-          function)
+          в lodash)
         </>
       ),
-      multiple: "Watch multiple inputs",
-      all: "Watch all inputs",
-      nest: "Watch all inputs and return nested object",
+      multiple: "Наблюдение за несколькими полями",
+      all: "Наблюдение за всеми полями",
+      nest: "Наблюдение за всеми полями и возврат вложенного объекта",
     },
   },
   handleSubmit: {
@@ -379,12 +380,12 @@ export default {
     description: (
       <>
         <p>
-          This function will pass the form data when form validation is
-          successful.
+          Эта функция будет передавать данные формы, когда валидация формы
+          прошла успешно.
         </p>
         <p>
-          <Note>Примечание:</Note> You can pass an <code>async</code> function
-          for asynchronous validation. т.е.:{" "}
+          <Note>Примечание:</Note> Вы можете использовать <code>async</code>{" "}
+          функцию для асинхронной валидации, например:{" "}
         </p>
         <p>
           <CodeBlock>
@@ -399,22 +400,22 @@ export default {
     description: (
       <>
         <p>
-          This function will reset the fields' values and errors within the
-          form. You can pass <code>values</code> as an optional argument to
-          reset your form into assigned default values.
+          Эта функция сбрасывает значения полей и ошибки формы. Вы можете
+          передать <code>values</code> в качестве необязательного аргумента для
+          сброса формы в присвоенные значения по умолчанию.
         </p>
         <p>
-          <Note>Примечание:</Note> For controlled components like{" "}
-          <code>React-Select</code> which don't expose <code>ref</code>, you
-          will have to reset the input value manually through{" "}
+          <Note>Примечание:</Note> Для контролируемых компонентов, например{" "}
+          <code>React-Select</code>, у которых нет значения <code>ref</code>, вы
+          должны сбрасывать значение вручную с помощью{" "}
           <CodeAsLink onClick={() => goToSection("setValue")}>
             setValue
           </CodeAsLink>{" "}
-          or using{" "}
+          или использовать{" "}
           <CodeAsLink onClick={() => goToSection("Controller")}>
             Controller
           </CodeAsLink>{" "}
-          to wrap around your controlled component.
+          в качестве обёртки для вашего контролируемого компонента.
         </p>
       </>
     ),
@@ -422,7 +423,10 @@ export default {
   setError: {
     title: "setError",
     description: (
-      <p>The function allows you to manually set one or multiple errors.</p>
+      <p>
+        Эта функция даёт возможность вручную установать одну или несколько
+        ошибок.
+      </p>
     ),
   },
   clearError: {
@@ -431,17 +435,17 @@ export default {
       <ul>
         <li>
           <p>
-            <code>undefined</code>: reset all errors
+            <code>undefined</code>: сбрасывает все ошибки
           </p>
         </li>
         <li>
           <p>
-            <code>string</code>: reset single error
+            <code>string</code>: сбрасывает одну ошибку
           </p>
         </li>
         <li>
           <p>
-            <code>string[]</code>: reset multiple errors
+            <code>string[]</code>: сбрасывает массив ошибок
           </p>
         </li>
       </ul>
@@ -452,38 +456,39 @@ export default {
     description: (
       <>
         <p>
-          This function allows you to dynamically set input/select value. At the
-          same time, it tries to avoid re-render when it's not necessary and
-          only the following conditions will trigger re-render.
+          Эта функция позволяет динамически устанавливать значение для
+          input/select. В то же время она пытается избежать повторного
+          рендеринга, когда в этом нет необходимости, и только следующие условия
+          вызовут повторный рендеринг.
         </p>
         <ul>
           <li>
-            <p>When an error is triggered by a value update</p>
+            <p>Когда ошибка вызывается при обновлении значения поля</p>
           </li>
           <li>
-            <p>When an error is corrected by a value update</p>
+            <p>Когда ошибка исправляется при обновлении значения поля</p>
           </li>
           <li>
             <p>
-              When setValue is invoked for the first time and formState{" "}
-              <code>dirty</code> is set to true
+              Когда setValue вызван впервые и formState параметр{" "}
+              <code>dirty</code> установлен в true
             </p>
           </li>
           <li>
             <p>
-              When setValue is invoked and formState <code>touched</code> is
-              updated
+              Когда вызван setValue и обновлено значение свойства{" "}
+              <code>touched</code> из formState
             </p>
           </li>
         </ul>
         <p>
-          <Note>Примечание:</Note> By invoking this method,{" "}
-          <code>formState</code> will push the input's <code>name</code> into{" "}
+          <Note>Примечание:</Note> При вызове этого метода,{" "}
+          <code>formState</code> добавит <code>имя</code> поля в массив{" "}
           <code>touched</code>.
         </p>
         <p>
-          You can also set <code>shouldValidate</code> to <code>true</code> and
-          it will trigger field validation. т.е.:{" "}
+          Также вы можете установать <code>shouldValidate</code> в{" "}
+          <code>true</code>и это вызовет валидацию поля, например:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
       </>
@@ -494,23 +499,23 @@ export default {
     description: (
       <>
         <p>
-          This function will return the entire form data, and it's useful in a
-          function when you want to retrieve form values.
+          Эта функция возвращает все данные формы, и это полезно, когда вы
+          хотите получить значения полей формы.
         </p>
 
         <ul>
           <li>
             <p>
-              By default <code>getValues()</code> will return form data in a
-              flat structure. т.е.:{" "}
+              По умолчанию <code>getValues()</code> вернёт значения полей формы
+              в виде плоской структуры, например:{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
             </p>
           </li>
           <li>
             <p>
-              Working on the defined form fields,{" "}
-              <code>getValues({`{ nest: true }`})</code> will return data in a
-              nested structure according to input <code>name</code>. т.е.:{" "}
+              При работе с определёнными полями формы,{" "}
+              <code>getValues({`{ nest: true }`})</code> вернёт данные во
+              вложенной структуре согласно <code>имени</code> поля, например:{" "}
               <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
@@ -522,10 +527,10 @@ export default {
     title: "triggerValidation",
     description: (
       <>
-        <p>To manually trigger an input/select validation in the form.</p>
+        <p>Для принудительного вызова валидации input/select полей формы.</p>
         <p>
-          <Note>Примечание:</Note> When validation fails, the{" "}
-          <code>errors</code> object will be updated.
+          <Note>Примечание:</Note> При неудачной валидации, объект{" "}
+          <code>errors</code> будет обновлён.
         </p>
       </>
     ),
@@ -534,10 +539,10 @@ export default {
     title: "ValidationSchema",
     description: (
       <p>
-        If you would like to centralize your validation rules with external
-        validation schema, you can apply <code>validationSchema</code> at{" "}
-        <code>useForm</code> as an optional argument. React Hook Form currently
-        supports{" "}
+        Если вы хотите централизовать свои правила валидации с помощью внешней
+        схемы валидации, то вы можете использовать <code>validationSchema</code>{" "}
+        в <code>useForm</code> в качестве необязательного параметра. React Hook
+        Form в настоящий момент поддерживает{" "}
         <Link
           href="https://github.com/jquense/yup"
           target="_blank"
@@ -545,7 +550,7 @@ export default {
         >
           Yup
         </Link>{" "}
-        for object schema validation.
+        в качестве внешнего объекта схемы валидации.
       </p>
     ),
   },
@@ -561,7 +566,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>Unique name of your input.</td>
+          <td>Уникальное имя вашего поля.</td>
         </tr>
         <tr>
           <td>
@@ -572,7 +577,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. т.е.: <code>as="input"</code> or{" "}
+            Контролируемый компонент, например: <code>as="input"</code> или{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -585,8 +590,8 @@ export default {
           </td>
           <td />
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            <code>control</code> объект - это вызов формой <code>useForm</code>.
+            Это необязательно, если вы используете FormContext.
           </td>
         </tr>
         <tr>
@@ -598,17 +603,18 @@ export default {
           </td>
           <td />
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            То же, что и <code>defaultValue</code> неконтролируемого компонента,
+            когда указывается <code>логическое</code> значение. Будет
+            обрабатываться как чекбокс.
             <p>
-              <Note>Примечание:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
+              <Note>Примечание:</Note> вам нужно задать или атрибут поля{" "}
+              <code>defaultValue</code> или <code>defaultValues</code> для{" "}
               <code>useForm</code>
             </p>
             <p>
-              <Note>Note</Note>: When provided, this take priority over{" "}
-              <code>useForm</code> <code>defaultValues</code> for given key.
+              <Note>Примечание</Note>: Если указано, то будет иметь приоритет
+              над <code>defaultValues</code> у <code>useForm</code> для данного
+              поля.
             </p>
           </td>
         </tr>
@@ -621,7 +627,7 @@ export default {
           </td>
           <td />
           <td>
-            Validation rules according to <code>register</code>.
+            Валидационные правила в соответствии с <code>register</code>.
           </td>
         </tr>
         <tr>
@@ -633,9 +639,9 @@ export default {
           </td>
           <td />
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
-            <code>т.е.: {`onChange={{(data) => data.value}}`}</code>
+            Параметр <code>onChange</code> позволяет вам изменять возвращаемое
+            значение, <br />
+            <code>например: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -647,9 +653,9 @@ export default {
           </td>
           <td />
           <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>т.е.: {`onBlur={{(data) => data.value}}`}</code>
+            Параметр <code>onBlur</code> позволяет вам изменять возвращаемое
+            значение, <br />
+            <code>например: {`onBlur={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -661,8 +667,9 @@ export default {
           </td>
           <td />
           <td>
-            This prop allow you to target that specific event name, т.е.: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
+            Этот параметр позволяет вам настроить таргетинг на конкретное имя
+            события, например: когда событие <code>onChange</code> называется{" "}
+            <code>onTextChange</code>
           </td>
         </tr>
         <tr>
@@ -674,8 +681,9 @@ export default {
           </td>
           <td />
           <td>
-            This prop allow you to target that specific event name, т.е.: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            Этот параметр позволяет вам настроить таргетинг на конкретное имя
+            события, например: когда событие <code>onBlur</code> называется{" "}
+            <code>onTextBlur</code>
           </td>
         </tr>
         <tr>
@@ -687,9 +695,10 @@ export default {
           </td>
           <td />
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            т.е.: <code>checked</code>, <code>selected</code> and ect...
+            Этот параметр позволяет переопределять свойство <code>value</code> и
+            поддерживает другие компоненты, которые не используют свойство{" "}
+            <code>value</code>, например: <code>checked</code>,{" "}
+            <code>selected</code> и т.д.
           </td>
         </tr>
       </tbody>
@@ -697,9 +706,9 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form embrace uncontrolled components and native inputs,
-          however it's hard to avoid working with external controlled component
-          such as{" "}
+          React Hook Form принимает неконтролируемые компоненты и нативные поля,
+          однако трудно избежать работы с внешним контролируемым компонентом,
+          таким как{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -715,7 +724,7 @@ export default {
           >
             AntD
           </a>{" "}
-          and{" "}
+          и{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -723,21 +732,23 @@ export default {
           >
             Material-UI
           </a>
-          . This wrapper component will make your life easier to work with them.
+          . Этот компонент-обёртка сделает вашу жизнь проще при работе с ними.
         </p>
         <p>
-          Every props you pass to Controller component, will be forwarded to the
-          Component instance you provided with the <code>as</code> prop. That
-          means imagine you have a custom <code>Switch</code> component that
-          require a <code>label</code> prop. You can pass this prop to the
-          Controller component directly. The <code>name</code> prop will be used
-          mainly to access the value through the form later.
+          Каждый параметр, который вы передаёте в компонет Controller, будет
+          передан в экземпляр компонента, который вы указали в параметре{" "}
+          <code>as</code>. Например, представьте что у вас есть кастомный{" "}
+          <code>Switch</code>, с обязательным свойством - <code>label</code>. Вы
+          можете передать это свойство в Controller напрямую. Свойство{" "}
+          <code>name</code> будет использовано позже для доступа к значению
+          этого свойства внутри формы.
         </p>
 
         <p>
-          If you use a <code>defaultValue</code> prop, it will take priority
-          over the <code>useForm</code> <code>defaultValues</code> value for
-          your property given at <code>name</code> prop.
+          Если вы используете свойство <code>defaultValue</code>, то оно будет
+          иметь приоритет перед значением одноимённого свойства{" "}
+          <code>useForm</code>
+          для поля с одним и тем же <code>name</code>.
         </p>
       </>
     ),
@@ -746,21 +757,21 @@ export default {
     title: "FormContext",
     introduction: (
       <p>
-        Form context is intended to solve the problem when there are deep nested
-        inputs in your components tree, and passing methods deep down as{" "}
-        <code>props</code> becomes painful.
+        Контекст формы предназначен для решения проблемы, когда в дереве
+        компонентов есть глубоко вложенные поля, а методы передаются вглубь как{" "}
+        <code>props</code>.
       </p>
     ),
     description: (
       <>
         <p>
-          Once your form is wrapped with <code>FormContext</code>, the{" "}
-          <code>useFormContext</code>: <TypeText>function</TypeText> can be
-          invoked in its child component.
+          Как только ваша форма обёрнута в <code>FormContext</code>, то{" "}
+          <code>useFormContext</code>: <TypeText>function</TypeText> может быть
+          вызвана внутри вложенного компонента.
         </p>
         <p>
-          <Note>Примечание:</Note> invoking <code>useFormContext</code> will
-          give you all of the <code>useForm</code> hook functions.
+          <Note>Примечание:</Note> вызов <code>useFormContext</code> вернёт все
+          функции из <code>useForm</code>.
         </p>
       </>
     ),
@@ -769,8 +780,8 @@ export default {
     title: "control",
     description: (
       <p>
-        This object is made for React Hook Form's Controller component, which
-        contains methods for registering controlled component into React Hook
+        Этот объект создан для компонента Controller из React Hook Form, который
+        содержит методы для регистрации управляемого компонента в React Hook
         Form.
       </p>
     ),
@@ -778,7 +789,9 @@ export default {
   ErrorMessage: {
     title: "ErrorMessage",
     description: (
-      <p>A simple component to render associated input's error message.</p>
+      <p>
+        Простой компонент для отображения связанного сообщения об ошибке поля.
+      </p>
     ),
     table: (
       <tbody>
@@ -790,7 +803,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>associated field name.</td>
+          <td>имя связанного поля.</td>
         </tr>
         <tr>
           <td>
@@ -801,8 +814,8 @@ export default {
           </td>
           <td />
           <td>
-            <code>errors</code> object from React Hook Form. it's optional if
-            you are using FormContext.
+            <code>errors</code> объект из React Hook Form. Необязательно, если
+            вы используете FormContext.
           </td>
         </tr>
         <tr>
@@ -814,7 +827,7 @@ export default {
           </td>
           <td />
           <td>
-            Wrapper component or HTML tag. т.е.: <code>as="span"</code> or{" "}
+            Компонент-обёртка или HTML тэг. Например: <code>as="span"</code> или{" "}
             <code>{`as={<Text />}`}</code>
           </td>
         </tr>
@@ -829,7 +842,7 @@ export default {
           </td>
           <td />
           <td>
-            This is a{" "}
+            Это{" "}
             <a
               href="https://reactjs.org/docs/render-props.html"
               target="_blank"
@@ -837,7 +850,7 @@ export default {
             >
               render prop
             </a>{" "}
-            for rendering error message or messages.
+            сообщения об ошибке/ошибках.
           </td>
         </tr>
       </tbody>
@@ -847,10 +860,10 @@ export default {
     title: "Browser built-in validation",
     description: (
       <p>
-        The following example demonstrates how you can leverage the browser's
-        validation. You only need to set <code>nativeValidation</code> to{" "}
-        <code>true</code> and the rest of the syntax is the same as standard
-        validation.
+        В следующем примере показано, как вы можете использовать браузерную
+        валидацию. Вам нужно установить свойство <code>nativeValidation</code> в{" "}
+        <code>true</code>, а остальная часть синтаксиса такая же, как для
+        стандартной валидации.
       </p>
     ),
   },
