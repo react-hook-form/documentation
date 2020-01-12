@@ -8,6 +8,8 @@ import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "API 설명서",
@@ -814,6 +816,107 @@ export default {
         <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
         문법은 표준과 같습니다.
       </p>
+    ),
+  },
+  useFieldArray: {
+    title: "useFieldArray",
+    description: (
+      <>
+        <p>
+          A custom hook for working with Field Arrays (dynamic inputs). This
+          hook provides the following object and functions.
+        </p>
+
+        <p>
+          <code>useFieldArray</code> has the the following{" "}
+          <strong>required</strong> arguments.
+        </p>
+
+        <CodeArea rawData={useFieldArrayArgument} />
+
+        <p>
+          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
+          <code>defaultValues</code> at <code>useForm</code> hook.
+        </p>
+      </>
+    ),
+    table: (
+      <>
+        <tr>
+          <td>
+            <code>fields</code>
+          </td>
+          <td>
+            <code>object</code>
+          </td>
+          <td>This object is the source of truth to map and render inputs.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>append</code>
+          </td>
+          <td>
+            <code>(obj: any) => void</code>
+          </td>
+          <td>Append input/inputs to the end of your fields</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prepend</code>
+          </td>
+          <td>
+            <code>(obj: any) => void</code>
+          </td>
+          <td>Prepend input/inputs to the start of your fields</td>
+        </tr>
+        <tr>
+          <td>
+            <code>insert</code>
+          </td>
+          <td>
+            <code>(index: number, value: any) => void</code>
+          </td>
+          <td>Insert input/inputs at particular position.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>swap</code>
+          </td>
+          <td>
+            <code>(from: number, to: number) => void</code>
+          </td>
+          <td>Swap input/inputs position.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>move</code>
+          </td>
+          <td>
+            <code>(from: number, to: number) => void</code>
+          </td>
+          <td>
+            Move input/inputs to another position.
+            <p>
+              <Note>Note:</Note> difference between <code>move</code> and{" "}
+              <code>swap</code>, keep calling <code>move</code> will push
+              input/inputs in a circle, while <code>swap</code> only change two
+              input/inputs' position.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove</code>
+          </td>
+          <td>
+            <code>(index?: number) => void</code>
+          </td>
+          <td>
+            Remove input/inputs at particular position, or remove all when no
+            index is provided.
+          </td>
+        </tr>
+      </>
     ),
   },
 }

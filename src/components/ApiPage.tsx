@@ -45,6 +45,7 @@ import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetRHFInput from "./codeExamples/resetRHFInput"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
+import UseFieldArray from "./UseFieldArray";
 
 const { useRef, useEffect } = React
 
@@ -66,6 +67,7 @@ const enLinks = [
   apiEn.formState,
   apiEn.formContext,
   apiEn.Controller,
+  apiEn.useFieldArray,
   apiEn.ErrorMessage,
   apiEn.validationSchema,
   apiEn.NativeValidation,
@@ -228,6 +230,7 @@ function ApiPage({
     api.formState,
     api.formContext,
     api.Controller,
+    api.useFieldArray,
     api.ErrorMessage,
     api.validationSchema,
     api.NativeValidation,
@@ -255,6 +258,7 @@ function ApiPage({
     BrowserbuiltinvalidationRef: null,
     ErrorMessageRef: null,
     ReactNativeRef: null,
+    useFieldArrayRef: null,
   })
   copyFormData.current = formData
 
@@ -797,6 +801,12 @@ function ApiPage({
 
           <section ref={ref => (apiSectionsRef.current.FormContextRef = ref)}>
             <FormContext currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
+            <UseFieldArray currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

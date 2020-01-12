@@ -7,6 +7,8 @@ import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "API文档",
@@ -798,6 +800,102 @@ export default {
         <code>nativeValidation</code>设置为<code>true</code>
         ，其余语法与标准验证相同。
       </p>
+    ),
+  },
+  useFieldArray: {
+    title: "useFieldArray",
+    description: (
+      <>
+        <p>
+          用于处理字段数组（动态输入）的自定义挂钩。 此挂钩提供以下对象和函数。
+        </p>
+
+        <p>
+          <code>useFieldArray</code> 具有以下<strong>必需</strong>参数.
+        </p>
+
+        <CodeArea rawData={useFieldArrayArgument} />
+
+        <p>
+          <Note>Note:</Note> 可以通过在<code>userform</code>中的
+          <code>defaultValues</code>来填充<code>字段</code>。
+        </p>
+      </>
+    ),
+    table: (
+      <>
+        <tr>
+          <td>
+            <code>fields</code>
+          </td>
+          <td>
+            <code>object</code>
+          </td>
+          <td>此对象是映射和render染输入的真实来源</td>
+        </tr>
+        <tr>
+          <td>
+            <code>append</code>
+          </td>
+          <td>
+            <code>(obj: any) => void</code>
+          </td>
+          <td>将输入/输入追加到字段的末尾</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prepend</code>
+          </td>
+          <td>
+            <code>(obj: any) => void</code>
+          </td>
+          <td>将输入/输入前置到字段的开头</td>
+        </tr>
+        <tr>
+          <td>
+            <code>insert</code>
+          </td>
+          <td>
+            <code>(index: number, value: any) => void</code>
+          </td>
+          <td>在特定位置插入输入</td>
+        </tr>
+        <tr>
+          <td>
+            <code>swap</code>
+          </td>
+          <td>
+            <code>(from: number, to: number) => void</code>
+          </td>
+          <td>交换输入位置</td>
+        </tr>
+        <tr>
+          <td>
+            <code>move</code>
+          </td>
+          <td>
+            <code>(from: number, to: number) => void</code>
+          </td>
+          <td>
+            将输入移动到另一位置。
+            <p>
+              <Note>Note:</Note>
+              <code>move</code>和<code>swap</code>之间的差异 <code>swap</code>
+              在于继续调用<code>move</code>将推送输入一直推下,<code>swap</code>
+              只是交换输入的位置。
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove</code>
+          </td>
+          <td>
+            <code>(index?: number) => void</code>
+          </td>
+          <td>在特定位置删除输入，或删除所有输入当没有提供位置。</td>
+        </tr>
+      </>
     ),
   },
 }
