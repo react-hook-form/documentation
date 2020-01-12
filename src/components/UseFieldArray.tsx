@@ -16,7 +16,8 @@ export default function UseFieldArray({
     <>
       <CodeHeading>
         <h2>
-          useFieldArray: <TypeText>Function</TypeText>
+          useFieldArray:{" "}
+          <TypeText>{`({ control?: any, name: string }) => object`}</TypeText>
         </h2>
       </CodeHeading>
 
