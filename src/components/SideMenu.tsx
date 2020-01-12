@@ -144,6 +144,12 @@ function SideMenu({
                 ? enLinks[index]().title
                 : enLinks[index].title
 
+            let linkName = link.startsWith("use") ? `♆ ${link}` : link
+
+            if (/^[A-Z]/.test(link[0]) && !link.includes(" ")) {
+              linkName = "❒ " + linkName
+            }
+
             if (
               [
                 "useformcontext",
@@ -168,7 +174,7 @@ function SideMenu({
                         position: "relative",
                       }}
                     >
-                      {link}
+                      {linkName}
                     </button>
                   ) : (
                     <button
@@ -181,7 +187,7 @@ function SideMenu({
                         ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                       }}
                     >
-                      {link}
+                      {linkName}
                     </button>
                   )}
                 </li>
@@ -227,7 +233,7 @@ function SideMenu({
                     ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                   }}
                 >
-                  {link}
+                  {linkName}
                 </button>
               </li>
             )
