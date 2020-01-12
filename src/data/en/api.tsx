@@ -1,11 +1,8 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../../styles/link"
-import { Link as NavLink } from "gatsby"
 import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
 import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import useFieldArray from "../../components/codeExamples/useFieldArray"
 import CodeArea from "../../components/CodeArea"
@@ -576,16 +573,28 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <code>object</code>
+            <TypeText>object & {`{ id: string }`}</TypeText>
           </td>
-          <td>This object is the source of truth to map and render inputs.</td>
+          <td>
+            This object is the source of truth to map and render inputs.
+            <p>
+              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
+              <code>id</code> is required with mapped components to help React
+              identify which items have changed, are added, or are removed.
+            </p>
+            <p>
+              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
             <code>append</code>
           </td>
           <td>
-            <code>(obj: any) => void</code>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
           </td>
           <td>Append input/inputs to the end of your fields</td>
         </tr>
@@ -594,7 +603,9 @@ export default {
             <code>prepend</code>
           </td>
           <td>
-            <code>(obj: any) => void</code>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
           </td>
           <td>Prepend input/inputs to the start of your fields</td>
         </tr>
@@ -603,7 +614,9 @@ export default {
             <code>insert</code>
           </td>
           <td>
-            <code>(index: number, value: any) => void</code>
+            <code>
+              <TypeText>(index: number, value: any) => void</TypeText>
+            </code>
           </td>
           <td>Insert input/inputs at particular position.</td>
         </tr>
@@ -612,7 +625,9 @@ export default {
             <code>swap</code>
           </td>
           <td>
-            <code>(from: number, to: number) => void</code>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
           </td>
           <td>Swap input/inputs position.</td>
         </tr>
@@ -621,7 +636,9 @@ export default {
             <code>move</code>
           </td>
           <td>
-            <code>(from: number, to: number) => void</code>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
           </td>
           <td>
             Move input/inputs to another position.
@@ -638,7 +655,9 @@ export default {
             <code>remove</code>
           </td>
           <td>
-            <code>(index?: number) => void</code>
+            <code>
+              <TypeText>(index?: number) => void</TypeText>
+            </code>
           </td>
           <td>
             Remove input/inputs at particular position, or remove all when no

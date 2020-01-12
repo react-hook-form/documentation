@@ -829,16 +829,28 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <code>object</code>
+            <TypeText>object & {`{ id: string }`}</TypeText>
           </td>
-          <td>此对象是映射和render染输入的真实来源</td>
+          <td>
+            此对象是映射和render染输入的真实来源
+            <p>
+              <Note>重要: </Note>
+              因为每个输入可以不受控制, <code>id</code>
+              是必须的来帮助反应组件是否已更改、添加或删除了。
+            </p>
+            <p>
+              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
             <code>append</code>
           </td>
           <td>
-            <code>(obj: any) => void</code>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
           </td>
           <td>将输入/输入追加到字段的末尾</td>
         </tr>
@@ -847,7 +859,9 @@ export default {
             <code>prepend</code>
           </td>
           <td>
-            <code>(obj: any) => void</code>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
           </td>
           <td>将输入/输入前置到字段的开头</td>
         </tr>
@@ -856,7 +870,9 @@ export default {
             <code>insert</code>
           </td>
           <td>
-            <code>(index: number, value: any) => void</code>
+            <code>
+              <TypeText>(index: number, value: any) => void</TypeText>
+            </code>
           </td>
           <td>在特定位置插入输入</td>
         </tr>
@@ -865,7 +881,9 @@ export default {
             <code>swap</code>
           </td>
           <td>
-            <code>(from: number, to: number) => void</code>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
           </td>
           <td>交换输入位置</td>
         </tr>
@@ -874,7 +892,9 @@ export default {
             <code>move</code>
           </td>
           <td>
-            <code>(from: number, to: number) => void</code>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
           </td>
           <td>
             将输入移动到另一位置。
@@ -891,7 +911,9 @@ export default {
             <code>remove</code>
           </td>
           <td>
-            <code>(index?: number) => void</code>
+            <code>
+              <TypeText>(index?: number) => void</TypeText>
+            </code>
           </td>
           <td>在特定位置删除输入，或删除所有输入当没有提供位置。</td>
         </tr>
