@@ -58,7 +58,7 @@ export default {
     register: (
       <>
         Embed error message during <code>register</code>, you can easily insert
-        your error message in the <code>value</code> attribute. Eg:
+        your error message in the <code>message</code> attribute. Eg:
       </>
     ),
     component: "Create a ErrorMessage component to help your print out error.",
