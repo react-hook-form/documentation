@@ -4,6 +4,7 @@ import getStartedPt from "../data/pt/getStarted"
 import getStartedZh from "../data/zh/getStarted"
 import getStartedJp from "../data/jp/getStarted"
 import getStartedKr from "../data/kr/getStarted"
+import getStartedDe from "../data/de/getStarted"
 
 export default {
   en: getStartedEn,
@@ -12,4 +13,5 @@ export default {
   kr: getStartedKr,
   jp: getStartedJp,
   zh: getStartedZh,
+  de: getStartedDe,
 }

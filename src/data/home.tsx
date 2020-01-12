@@ -9,6 +9,7 @@ export default {
     kr: "홈",
     jp: "ホーム",
     zh: "首页",
+    de: "Startseite",
   },
   description: {
     en: "React hook for form validation without the hassle",
@@ -17,6 +18,7 @@ export default {
     kr: "번거로움 없이 폼 검증을 위한 React hook",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
+    de: "React hook für Problemlose Formularvalidierung",
   },
   slogan: {
     en:
@@ -29,6 +31,8 @@ export default {
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
     zh: "高性能、灵活、易拓展、易于使用的表单校验库。",
+    de:
+      "Performante, flexibele und erweiterbare Formulare mit simpler Validierung",
   },
   getStarted: {
     en: "Get Started",
@@ -37,6 +41,7 @@ export default {
     kr: "시작하기",
     jp: "はじめる",
     zh: "起步",
+    de: "Erste Schritte",
   },
   demo: {
     en: "Demo",
@@ -45,6 +50,7 @@ export default {
     kr: "데모",
     jp: "デモ",
     zh: "演示",
+    de: "Demo",
   },
   findInteresting: {
     en: {
@@ -70,6 +76,10 @@ export default {
     zh: {
       heading: "发现它有用又有趣?",
       description: `表单验证应该更简单。 React Hook Form将使您编写更少的代码并具有更好的性能。 查看"入门"部分，也可以在API文档页面了解更多信息。`,
+    },
+    de: {
+      heading: "Interessiert?",
+      description: `Formularvalidierung sollte viel einfacher sein. React Hook Form erlaubt Ihnen  weniger und performanteren Code zu schreiben. Starten Sie in der "Erste Schritte" Sektion und erfahren Sie mehr auf der API Dokumentationsseite.`,
     },
   },
   features: {
@@ -206,6 +216,28 @@ export default {
         description: `由于表单的状态是基于本地的，因此可以轻松地在没有其他依赖关系的情况下采用它。`,
       },
     ],
+    de: [
+      {
+        title: "DX",
+        description: `Intuitives, featurereiches API, das Entwicklern eine nahtlose Erfahrung beim Bauen von Formularen bietet.`,
+      },
+      {
+        title: "HTML standard",
+        description: `Verwenden Sie bestehendes HTML und validieren Sie Formulare mit einem bedingungsbasierten Validierungs-API.`,
+      },
+      {
+        title: "Leichtgewicht",
+        description: `Performance und Packagegröße sind wichtig. React Hook Form ist eine kleine Library ohne Abhängigkeiten.`,
+      },
+      {
+        title: "Performant",
+        description: `Minimiert die Anzahl von re-renders und erlaubt schnelleres mounting, um die beste user experience zu ermöglichen.`,
+      },
+      {
+        title: "Adaptierbar",
+        description: `Da der Formular-Status local gespeicht wird, kann er einfach adaptiert werden.`,
+      },
+    ],
   },
   codeComparison: {
     en: {
@@ -305,6 +337,23 @@ export default {
         </>
       ),
     },
+    de: {
+      title: "Library Code Vergleich",
+      description: (
+        <>
+          <p id="codeComparison">
+            Eines der Hauptziele von React Hook Form ist es, weniger Code zu
+            benötigen. Um dies zu veranschaulichen, sehen wir uns eine simple
+            Form der Validierung neben einigen der populärsten Formular
+            Validierungs Libraries an.
+          </p>
+          <p style={{ fontSize: 14 }}>
+            <Note>⚠ Notiz:</Note> Sowohl das Beispiel von Formik als auch von
+            Redux-Form wurde aus der offiziellen Dokumentation kopiert.
+          </p>
+        </>
+      ),
+    },
   },
   rendering: {
     en: {
@@ -336,6 +385,11 @@ export default {
       title: "减少Rendering",
       description: `你有没有想过用户触发了多少组件的重新render？ React Hook Form注重不受控制的表单验证，以减少不必要的性能影响。`,
       totalReRender: "Total re-renders:",
+    },
+    de: {
+      title: "Rendering reduzieren",
+      description: `Haben sie sich schon einmal gefragt wie viele re-renders durch den Nutzer verursacht wurden? React Hook Form verwendet unkontrollierte Formular-Validierung um unnötige Performance-Einbußen zu minimieren.`,
+      totalReRender: "Insgesamte re-renders:",
     },
   },
   mount: {
@@ -506,6 +560,35 @@ export default {
         </>
       ),
     },
+    de: {
+      title: "Schnelleres Mounting",
+      description: (
+        <p>
+          Die folgenden Resultate demonstrieren wie lange es dauert um die
+          Komponenten zu mounten und zu rendern. Resultate wurden unter einer
+          langsamen 6x CPU beim App-Start mit Chrome Dev Tools performance Tab
+          aufgezeichnet. Der verwendete Code ist aus der oberen Sektion.{" "}
+          <a href="#codeComparison">Library Code Vergleich</a>.
+        </p>
+      ),
+      totalMount: "Anz. an mount(s)",
+      totalChange: "Anz. an kommiertierten Änderung(en)",
+      totalTime: "Gesamtzeit",
+      performanceTests: (
+        <>
+          <span style={{ fontSize: 20 }}>⚠</span> Sind Sie an intensiveren
+          Performance-Tests interessiert?{" "}
+          <a
+            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
+            rel="noopener noreferrer"
+          >
+            Sehen Sie sich die Resultate von 1000 Feldern innerhalb eines
+            Formulars an
+          </a>
+          .
+        </>
+      ),
+    },
   },
   liveDemo: {
     en: {
@@ -613,6 +696,23 @@ export default {
       watch: "更改输入值以查看观看值的变化",
       error: "验证错误将出现在这里",
       touched: "触摸的表格将显示在这里",
+    },
+    de: {
+      title: "Live Demo",
+      description: (
+        <>
+          Das folgende Formular demonstriert Formvalidierung in Aktion. Jede
+          Spalte zeigt die vom custom hook erhaltenen Werte an. Felder können
+          über den <strong>EDIT</strong> Knopf editiert werden.
+        </>
+      ),
+      submit: "Senden",
+      watchTitle: "Ansehen",
+      errorTitle: "Fehler",
+      touchedTitle: "Berührt",
+      watch: "Ändern Sie den Eingabewert um die beobachteten Werte zu sehen.",
+      error: "Validierungsfehler erscheinen hier.",
+      touched: "Berührte Felder erscheinen hier.",
     },
   },
 }

@@ -8,6 +8,7 @@ export default {
     kr: "폼 빌더",
     jp: "Form Builder",
     zh: "表单生成器",
+    de: "Formular-Ersteller",
   },
   description: {
     en: "GUI for building forms with validation",
@@ -16,6 +17,7 @@ export default {
     kr: "유효성 검사와 함께 폼을 구축하기 위한 GUI",
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
+    de: "GUI um Formulare mit Validierung zu bauen",
   },
   builder: {
     en: {
@@ -42,6 +44,10 @@ export default {
       title: "表单生成器",
       description: "使用代码和示例构建自己的表单。",
     },
+    de: {
+      title: "Generator",
+      description: "Generieren Sie Ihr Formular mit Code und Beispiel.",
+    },
   },
   layout: {
     en: {
@@ -67,6 +73,10 @@ export default {
     zh: {
       title: "表格布局",
       message: `您可以通过拖放重新排列，删除和编辑每个表格。`,
+    },
+    de: {
+      title: "Formular Layout",
+      message: "Fügen Sie neue Felder mit dem 'Eingabe Generator' hinzu.",
     },
   },
   inputCreator: {
@@ -118,6 +128,14 @@ export default {
       validation: "显示验证",
       generate: "生成表格",
     },
+    de: {
+      title: "Eingabe Generator",
+      description: `Mit diesem Formular können inputs erstellt und editiert werden. Der "Formular generieren"-Knopf erstellt ein neues Formular laut Ihren Wünschen.`,
+      message: "Sie können mit dem 'Eingabe Generator' neue Felder hinzufügen.",
+      options: "Optionen",
+      validation: "Zeige Validierung an",
+      generate: "Formular generieren",
+    },
   },
   code: {
     en: {
@@ -143,6 +161,10 @@ export default {
     zh: {
       title: "代码",
       description: `当您对表单进行更改时，代码部分将被更新，您也可以复制代码。`,
+    },
+    de: {
+      title: "Code",
+      description: `Während Sie Änderungen über das Formular machen, wird der Code auf dem neuesten Stand gehalten und steht für Sie zum Kopieren bereit.`,
     },
   },
 }

@@ -6,6 +6,7 @@ export default {
     kr: "Copy",
     jp: "コピー",
     zh: "拷贝",
+    de: "Kopieren",
   },
   required: {
     en: "Required",
@@ -14,6 +15,7 @@ export default {
     kr: "필수",
     jp: "必須",
     zh: "需要",
+    de: "Benötigt",
   },
   learnMore: {
     en: {
@@ -51,6 +53,12 @@ export default {
       description: "查看React Hook Form文档，了解所有关于API的信息。",
       buttonText: "看看 API",
     },
+    de: {
+      title: "Mehr entdecken?",
+      description:
+        "Sehen Sie sich die React Hook Form Dokumentation an um alles über das API zu lernen.",
+      buttonText: "Gehe zu API",
+    },
   },
   advanceUsage: {
     en: {
@@ -82,6 +90,11 @@ export default {
       title: "高级用法",
       description: `了解如何使用React Hook Form构建复杂且易于访问的表单。`,
       buttonText: `学习高级用法`,
+    },
+    de: {
+      title: "Erweiterte Anwendung",
+      description: `Lernen Sie wie komplexw und zugängliche Formulare mit React Hook Form erstellt werden.`,
+      buttonText: `Lernen Sie die erweiterte Anwendung`,
     },
   },
   needYourSupport: {
@@ -115,6 +128,11 @@ export default {
       description: `如果您发现React Hook Form在您的研究项目中有用，请支持我们和贡献者❤`,
       buttonText: `给React Hook Form留颗星`,
     },
+    de: {
+      title: "Wir brauchen Ihre Hilfe",
+      description: `Wenn Sie React Hook Form nützlich finden, hinterlassen Sie einen Stern auf Github ❤`,
+      buttonText: `Stern an React Hook Form`,
+    },
   },
   codeExample: {
     en: "Code Examples",
@@ -123,6 +141,7 @@ export default {
     kr: "코드 예시",
     jp: "コードの例",
     zh: "程式码范例",
+    de: "Code Beispiele",
   },
   menu: {
     en: "Menu",
@@ -131,6 +150,7 @@ export default {
     kr: "메뉴",
     jp: "メニュー",
     zh: "菜单",
+    de: "Menü",
   },
   note: {
     en: "Note",
@@ -139,6 +159,7 @@ export default {
     kr: "노트",
     jp: "注意",
     zh: "注意",
+    de: "Notiz",
   },
   support: {
     en: "Please support us by leaving a ★",
@@ -147,6 +168,7 @@ export default {
     kr: "★을 눌러서 응원해주세요",
     jp: "★ を付けてサポートしてください",
     zh: "请给我们加颗星",
+    de: "Bitte unterstützen Sie uns indem Sie einen ★ da lassen",
   },
   select: {
     en: "Select",
@@ -155,6 +177,7 @@ export default {
     kr: "선택",
     jp: "Select",
     zh: "选择",
+    de: "Auswählen",
   },
   name: {
     en: "Name",
@@ -163,6 +186,7 @@ export default {
     kr: "이름",
     jp: "Name",
     zh: "名字",
+    de: "Name",
   },
   type: {
     en: "Type",
@@ -171,6 +195,7 @@ export default {
     kr: "종류",
     jp: "Type",
     zh: "类型",
+    de: "Typ",
   },
   description: {
     en: "Description",
@@ -179,6 +204,7 @@ export default {
     kr: "설명",
     jp: "説明",
     zh: "説明",
+    de: "Beschreibung",
   },
   features: {
     en: "Features",
@@ -187,6 +213,7 @@ export default {
     kr: "기능",
     jp: "特徴",
     zh: "特征",
+    de: "Merkmale",
   },
   delete: {
     en: "Delete",
@@ -195,6 +222,7 @@ export default {
     kr: "삭제",
     jp: "削除",
     zh: "删除",
+    de: "Löschen",
   },
   example: {
     en: "Example",
@@ -203,6 +231,7 @@ export default {
     kr: "예시",
     jp: "例",
     zh: "例子",
+    de: "Beispiel",
   },
   edit: {
     en: "Edit",
@@ -211,6 +240,7 @@ export default {
     kr: "수정",
     jp: "編集",
     zh: "编辑",
+    de: "Editieren",
   },
   cancelEdit: {
     en: "Cancel Edit",
@@ -219,6 +249,7 @@ export default {
     kr: "수정 취소",
     jp: "編集をキャンセル",
     zh: "取消编辑",
+    de: "Editieren abbrechen",
   },
   deleteAll: {
     en: "Delete All",
@@ -227,6 +258,7 @@ export default {
     kr: "전체 삭제",
     jp: "全て削除",
     zh: "删除所有",
+    de: "Alles löschen",
   },
   create: {
     en: "Create",
@@ -235,6 +267,7 @@ export default {
     kr: "추가",
     jp: "作成",
     zh: "创造",
+    de: "Erstellen",
   },
   update: {
     en: "Update",
@@ -243,6 +276,7 @@ export default {
     kr: "변경",
     jp: "更新",
     zh: "更新",
+    de: "Aktualisieren",
   },
   copied: {
     en: "Copy code into your clipboard.",
@@ -251,6 +285,7 @@ export default {
     kr: "클립보드에 코드 복사",
     jp: "コードをクリップボードにコピーします。",
     zh: "将代码复制到剪贴板。",
+    de: "Code in die Zwischenablage kopieren.",
   },
   return: {
     en: "Return",
@@ -259,6 +294,7 @@ export default {
     kr: "Return",
     jp: "Return",
     zh: "Return",
+    de: "Zurück",
   },
   blog: {
     en: "Articles/Blog",
@@ -267,6 +303,7 @@ export default {
     kr: "기사 / 블로그",
     jp: "記事/ブログ",
     zh: "文章/博客",
+    de: "Artikel/Blog",
   },
   video: {
     en: "Videos",
@@ -275,6 +312,7 @@ export default {
     kr: "비디오",
     jp: "ビデオ",
     zh: "影片",
+    de: "Videos",
   },
   newsletter: {
     en: "Newsletter",
@@ -283,5 +321,6 @@ export default {
     kr: "뉴스 레터",
     jp: "ニュースレター",
     zh: "通讯",
+    de: "Newsletter",
   },
 }

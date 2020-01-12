@@ -75,4 +75,17 @@ export default {
     releases: "发布",
     resources: "资源",
   },
+  de: {
+    home: "Startseite",
+    getStarted: "Erste Schritte",
+    advanced: "Erweitert",
+    builder: (
+      <>
+        <span className="desktopOnly">Formular&nbsp;</span>Generator
+      </>
+    ),
+    faqs: "FAQs",
+    releases: "Releases",
+    resources: "Resources",
+  },
 }

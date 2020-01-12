@@ -305,6 +305,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="jp">日本語</option>
           <option value="kr">한국어</option>
           <option value="pt">Português</option>
+          <option value="de">Deutsch</option>
         </select>
       </LangsSelect>
 
@@ -313,7 +314,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <IconWrapper>
             <div className="flag icon" />
           </IconWrapper>
-          <span>{nav[currentLanguage].home}</span>
+          <span>{nav[currentLanguage]?.home}</span>
         </Link>
         <Link
           activeClassName="active"
