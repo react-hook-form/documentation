@@ -12,10 +12,10 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 
 export default {
-  title: "Advanced Usage",
+  title: "Продвинутое использование",
   header: {
     title: "Advanced",
-    description: "Build complex and accessible forms with React Hook Form.",
+    description: "Построение сложных и доступных форм с React Hook Form.",
   },
   controlledMixedWithUnControlled: {
     title: "Controlled mixed with Uncontrolled Components",
@@ -58,7 +58,7 @@ export default {
     register: (
       <>
         Embed error message during <code>register</code>, you can easily insert
-        your error message in the <code>message</code> attribute. Eg:
+        your error message in the <code>value</code> attribute. Eg:
       </>
     ),
     component: "Create a ErrorMessage component to help your print out error.",
@@ -266,11 +266,6 @@ export default {
           within the <code>name</code> attribute. In React Hook Form, the{" "}
           <code>name</code> attribute represents the data structure you want to
           use.
-        </p>
-
-        <p>
-          <Note>Note:</Note> we have also build a custom hook for complex
-          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>
