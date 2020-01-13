@@ -290,28 +290,26 @@ export default {
           オブジェクトには、各 input
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
-
-        {/* Todo: Kotaro */}
         <p>
-          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
-          and V4:
+          <Note>{generic.note[currentLanguage]}:</Note> V3 と V4 の違い:
         </p>
 
         <ul>
           <li>
-            <p>V4: Nested object</p>
+            <p>V4: ネストされたオブジェクト</p>
             <p>
-              <strong>Reason:</strong> as optional chaining becoming more
-              popular among the community and to support better type.
+              <strong>原因:</strong> Optional chaining
+              はコミュニティの間でますます人気なり、より良い type
+              をサポートします。
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
             </p>
           </li>
           <li>
-            <p>V3: Flatten object</p>
+            <p>V3: フラットなオブジェクト</p>
             <p>
-              <strong>Reason:</strong> simple and easy to access error.
+              <strong>原因:</strong> シンプルでアクセスしやすいエラー。
             </p>
             <p>
               <code>{`errors['yourDetail.firstName'];`}</code>
