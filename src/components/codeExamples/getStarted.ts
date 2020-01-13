@@ -106,8 +106,17 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller as={<Input />} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={<InputField />} name="AntdInput" control={control} defaultValue=""/>
-      <Controller as={<Select />} name="reactSelect" control={control} defaultValue=""/>
+      <Controller as={<InputField />} name="AntdInput" control={control} defaultValue="" />
+      <Controller
+        as={<Select />}
+        name="reactSelect"
+        control={control}
+        onChange={([selected]) => {
+          // React Select return object instead of value for selection
+          return { value: selected };
+        }}
+        defaultValue={{}}
+      />
 
       <input type="submit" />
     </form>
