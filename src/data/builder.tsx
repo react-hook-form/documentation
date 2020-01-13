@@ -8,6 +8,7 @@ export default {
     kr: "폼 빌더",
     jp: "Form Builder",
     zh: "表单生成器",
+    ru: "Конструктор форм",
   },
   description: {
     en: "GUI for building forms with validation",
@@ -16,6 +17,7 @@ export default {
     kr: "유효성 검사와 함께 폼을 구축하기 위한 GUI",
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
+    ru: "GUI для создания форм с валидацией",
   },
   builder: {
     en: {
@@ -42,6 +44,10 @@ export default {
       title: "表单生成器",
       description: "使用代码和示例构建自己的表单。",
     },
+    ru: {
+      title: "Конструктор",
+      description: "Создайте свою собственную форму с кодом и примером.",
+    },
   },
   layout: {
     en: {
@@ -67,6 +73,10 @@ export default {
     zh: {
       title: "表格布局",
       message: `您可以通过拖放重新排列，删除和编辑每个表格。`,
+    },
+    ru: {
+      title: "Разметра формы",
+      message: "Вы можете начать добавление полей с Input Creator.",
     },
   },
   inputCreator: {
@@ -118,6 +128,15 @@ export default {
       validation: "显示验证",
       generate: "生成表格",
     },
+    ru: {
+      title: "Input Creator",
+      description:
+        "Эта форма позволяет создавать и обновлять поля формы. Кнопка «Создать форму» создаст новую форму с обновлениями.",
+      message: "Вы можете начать добавление полей с Input Creator.",
+      options: "Настройки",
+      validation: "Показать валидацию",
+      generate: "Создать форму",
+    },
   },
   code: {
     en: {
@@ -143,6 +162,11 @@ export default {
     zh: {
       title: "代码",
       description: `当您对表单进行更改时，代码部分将被更新，您也可以复制代码。`,
+    },
+    ru: {
+      title: "Код",
+      description:
+        "Область с кодом будет обновляться, когда вы вносите изменения в форму. Вы можете также скопировать код.",
     },
   },
 }

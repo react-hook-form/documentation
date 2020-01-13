@@ -4,6 +4,7 @@ import advancedPt from "../data/pt/advanced"
 import advancedZh from "../data/zh/advanced"
 import advancedJp from "../data/jp/advanced"
 import advancedKr from "../data/kr/advanced"
+import advancedRu from "../data/ru/advanced"
 
 export default {
   en: advancedEn,
@@ -12,4 +13,5 @@ export default {
   kr: advancedKr,
   jp: advancedJp,
   zh: advancedZh,
+  ru: advancedRu,
 }

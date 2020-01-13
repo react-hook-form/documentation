@@ -75,4 +75,17 @@ export default {
     releases: "发布",
     resources: "资源",
   },
+  ru: {
+    home: "Главная",
+    getStarted: "Начать",
+    advanced: "Сложные примеры",
+    builder: (
+      <>
+        Конструктор<span className="desktopOnly">&nbsp;форм</span>
+      </>
+    ),
+    faqs: "FAQs",
+    releases: "Релизы",
+    resources: "Ресурсы",
+  },
 }
