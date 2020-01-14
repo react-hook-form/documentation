@@ -769,7 +769,10 @@ export default {
   ErrorMessage: {
     title: "ErrorMessage",
     description: (
-      <p>A simple component to render associated input's error message.</p>
+      <p>
+        関連する input
+        のエラーメッセージを表示するためのシンプルなコンポーネント。
+      </p>
     ),
     table: (
       <tbody>
@@ -781,7 +784,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>associated field name.</td>
+          <td>関連するフィールド名</td>
         </tr>
         <tr>
           <td>
@@ -792,7 +795,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            <code>errors</code> object from React Hook Form
+            React Hook Form の <code>errors</code> オブジェクト
           </td>
         </tr>
         <tr>
@@ -804,8 +807,8 @@ export default {
           </td>
           <td></td>
           <td>
-            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
+            ラッパーコンポーネント、または HTML タグ。 例:{" "}
+            <code>as="span"</code> または <code>{`as={<Text />}`}</code>
           </td>
         </tr>
         <tr>
@@ -819,7 +822,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This is a{" "}
+            これは、単一のエラーメッセージ、
+            または複数のエラーメッセージをレンダリングするための{" "}
             <a
               href="https://reactjs.org/docs/render-props.html"
               target="_blank"
@@ -827,7 +831,7 @@ export default {
             >
               render prop
             </a>{" "}
-            for rendering error message or messages.
+            です。
           </td>
         </tr>
       </tbody>
