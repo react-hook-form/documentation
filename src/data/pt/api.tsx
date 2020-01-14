@@ -290,28 +290,26 @@ export default {
           Objeto contendo erros de formulário, ou mensagens de erro que
           pertencem a cada campo.
         </p>
-
-        {/* Todo: PT */}
         <p>
-          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
-          and V4:
+          <Note>{generic.note[currentLanguage]}:</Note> Diferença entre a versão
+          3 e 4:
         </p>
 
         <ul>
           <li>
-            <p>V4: Nested object</p>
+            <p>Versão 4: Objetos aninhados</p>
             <p>
-              <strong>Reason:</strong> as optional chaining becoming more
-              popular among the community and to support better type.
+              <strong>Razão:</strong> com o encadeamento opcional se tornando
+              mais popular entre a comunidade e para dar melhor suporte a tipo.
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
             </p>
           </li>
           <li>
-            <p>V3: Flatten object</p>
+            <p>Versão 3: Objetos nivelados object</p>
             <p>
-              <strong>Reason:</strong> simple and easy to access error.
+              <strong>Razão:</strong> simples e fácil de acessar o erro.
             </p>
             <p>
               <code>{`errors['yourDetail.firstName'];`}</code>
@@ -568,7 +566,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>Unique name of your input.</td>
+          <td>"Name" único do seu campo.</td>
         </tr>
         <tr>
           <td>
@@ -579,7 +577,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. eg: <code>as="input"</code> or{" "}
+            Componente controlado. ex: <code>as="input"</code> ou{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -592,8 +590,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            <code>control</code> objeto é invocado do <code>useForm</code>. é
+            opcional, se estiver usando o FormContext.
           </td>
         </tr>
         <tr>
@@ -605,18 +603,16 @@ export default {
           </td>
           <td></td>
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            O mesmo que componente não controlado <code>defaultValue</code>,
+            quando suprido um valor <code>boolean</code>, ele será tratado campo
+            checkbox.
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <Note>Nota:</Note> você precisa fornecer <code>defaultValue</code>{" "}
+              ou <code>defaultValues</code> em <code>useForm</code>
             </p>
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <Note>Nota:</Note> quando fornecido ele possui prioridade sobre{" "}
+              <code>useForm</code> <code>defaultValues</code> para dada chave
             </p>
           </td>
         </tr>
@@ -629,7 +625,7 @@ export default {
           </td>
           <td></td>
           <td>
-            Validation rules according to <code>register</code>.
+            Regras de validação de acordo com o <code>register</code>.
           </td>
         </tr>
         <tr>
@@ -641,9 +637,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            Esta propriedade <code>onChange</code> lhe permite customizar o
+            retorno do valor. <br />
+            <code>ex: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -655,9 +651,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+            Este propridade <code>onBlur</code> lhe permite customizar o retorno
+            do valor. <br />
+            <code>ex: {`onBlur={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -669,8 +665,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
+            Este propridade lhe permite marcar eventos específicos, ex: quando{" "}
+            <code>onChange</code> evento é chamado <code>onTextChange</code>
           </td>
         </tr>
         <tr>
@@ -682,8 +678,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            Este propridade lhe permite marcar eventos específicos, ex: quando{" "}
+            <code>onBlur</code> evento é chamado <code>onTextBlur</code>
           </td>
         </tr>
         <tr>
@@ -695,9 +691,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and ect...
+            Esta propriedade lhe permite sobrescrever a propriedade{" "}
+            <code>value</code> e suporta outras componentes que não utilizam a
+            propriedade <code>value</code>. ex: <code>checked</code>,{" "}
+            <code>selected</code> e outros...
           </td>
         </tr>
       </tbody>
@@ -733,6 +730,22 @@ export default {
           </a>
           . Este componente irá fazer sua vida mais simples trabalhando com ele.
         </p>
+        <p>
+          Cada propriedade <code>props</code> que se passa para um componente
+          conntrolado, será encaminhado para a instância do componente que você
+          proveu com a propriedade <code>as</code>. Isto significa que você
+          possui um componente custom <code>Switch</code> que necessita de uma
+          propriedade <code>label</code>. Você pode passar essa propriedade
+          diretamente para o componente controlado. A propriedade{" "}
+          <code>name</code> será usada principalmente para acessar o valor
+          através do formulário depois.
+        </p>
+
+        <p>
+          Caso utilize a propriedade <code>defaultValue</code>, ele terá
+          prioridade sobre o <code>useForm</code> <code>defaultValues</code>{" "}
+          valor dado pela propriedade <code>name</code>.
+        </p>
       </>
     ),
   },
@@ -741,8 +754,8 @@ export default {
     introduction: (
       <p>
         O contexto do formulário visa solucionar o problema quando houver
-        profundos campos           aninhados em sua árvore de componentes e
-        métodos de passagem no fundo como
+        profundos campos aninhados em sua árvore de componentes e métodos de
+        passagem no fundo como
         <code>props</code> se torna trabalhoso.
       </p>
     ),
@@ -773,7 +786,10 @@ export default {
   ErrorMessage: {
     title: "ErrorMessage",
     description: (
-      <p>A simple component to render associated input's error message.</p>
+      <p>
+        Um simples componente para renderizar a mensagem de erro do campo
+        associado.
+      </p>
     ),
     table: (
       <tbody>
@@ -785,7 +801,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>associated field name.</td>
+          <td>campo name associado.</td>
         </tr>
         <tr>
           <td>
@@ -796,8 +812,8 @@ export default {
           </td>
           <td></td>
           <td>
-            <code>errors</code> object from React Hook Form. it's optional if
-            you are using FormContext.
+            <code>errors</code> objeto do React Hook Form. é opcional se estiver
+            usando FormContext.
           </td>
         </tr>
         <tr>
@@ -809,7 +825,7 @@ export default {
           </td>
           <td></td>
           <td>
-            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+            Um componente ou tag HTML. ex: <code>as="span"</code> or{" "}
             <code>{`as={<Text />}`}</code>
           </td>
         </tr>
@@ -824,7 +840,7 @@ export default {
           </td>
           <td></td>
           <td>
-            This is a{" "}
+            Este é um{" "}
             <a
               href="https://reactjs.org/docs/render-props.html"
               target="_blank"
@@ -832,14 +848,14 @@ export default {
             >
               render prop
             </a>{" "}
-            for rendering error message or messages.
+            para renderizar mensagem de erro ou mensagens.
           </td>
         </tr>
       </tbody>
     ),
   },
   NativeValidation: {
-    title: "Browser built-in validation",
+    title: "Validações nativas do browser",
     description: (
       <p>
         O exemplo a seguir demonstra como você pode aproveitar a validação do
