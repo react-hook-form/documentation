@@ -8,6 +8,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { DemoForm } from "./Form"
 import colors from "../styles/colors"
 import breakpoints from "../styles/breakpoints"
+import home from "../data/home"
 
 const Wrapper = styled.div`
   display: grid;
@@ -170,17 +171,9 @@ function IsolateRender({
 }) {
   return (
     <CenterContent>
-      <H1>Isolate Component Re-render</H1>
+      <H1>{home.isolateRender[currentLanguage].title}</H1>
 
-      <p>
-        You have the ability to isolate components re-render which lead to less
-        performance impact on your page or app. The following example
-        demonstrate such behaviour.
-      </p>
-
-      <p style={{ fontSize: 14 }}>
-        <Note>Note:</Note> Type in the input box to see the render behaviour.
-      </p>
+      {home.isolateRender[currentLanguage].description}
 
       <Wrapper>
         <Animate

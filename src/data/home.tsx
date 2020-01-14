@@ -360,6 +360,127 @@ export default {
       ),
     },
   },
+  isolateRender: {
+    en: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    es: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    pt: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    kr: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    jp: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    zh: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+    ru: {
+      title: "Isolate Component Re-render",
+      description: (
+        <>
+          <p>
+            You have the ability to isolate components re-render which lead to
+            less performance impact on your page or app. The following example
+            demonstrate such behaviour.
+          </p>
+
+          <p style={{ fontSize: 14 }}>
+            <Note>Note:</Note> Type in the input box to see the render
+            behaviour.
+          </p>
+        </>
+      ),
+    },
+  },
   rendering: {
     en: {
       title: "Reduce Rendering",
