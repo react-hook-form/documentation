@@ -380,21 +380,20 @@ export default {
         </>
       ),
     },
-    // Todo: translate please
     {
-      title: "Testing React Hook Form",
+      title: "Testando React Hook Form",
       description: (
         <div>
           <ul>
             <li>
               <p>
-                Why am I getting <code>act</code> warning?
+                Por que estou recebendo o alerta <code>act</code>?
               </p>
 
               <p>
-                All validation methods in React Hook Form will be treated as
-                async functions, so it's important to wrap <code>async</code>{" "}
-                around your{" "}
+                Todas os métodos de validação noReact Hook Form será tratado
+                como funções assíncronas, então, é importante utilizar{" "}
+                <code>async</code> entorno do seu{" "}
                 <CodeAsLink
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
@@ -406,12 +405,13 @@ export default {
               </p>
             </li>
             <li>
-              <p>Why input change is not fire event?</p>
+              <p>Por que a mudança do campo não está acionando eventos?</p>
 
               <p>
-                React Hook Form using <code>input</code> event for input change,
-                so to fix it. you can easily switch to{" "}
-                <code>fireEvent.input</code> for react-testing-library
+                React Hook Form utiliza <code>input</code> eventos para mudança
+                de campo, então para corrigir isto. você pode simplismente
+                substituir por <code>fireEvent.input</code> para
+                react-testing-library
               </p>
             </li>
           </ul>
