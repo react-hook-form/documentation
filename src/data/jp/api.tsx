@@ -853,15 +853,16 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with Field Arrays (dynamic inputs). This
-          hook provides the following object and functions.
+          フィールド配列（動的な input）を操作するためのカスタムフック。
+          このフックは、次のオブジェクトと関数を提供します。
         </p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
-          <code>defaultValues</code> at <code>useForm</code> hook.
+          <Note>Note:</Note> <code>useForm</code> フックで{" "}
+          <code>defaultValues</code> を指定することにより、<code>fields</code>{" "}
+          に格納することができます。
         </p>
       </>
     ),
@@ -875,11 +876,13 @@ export default {
             <TypeText>object & {`{ id: string }`}</TypeText>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            このオブジェクトは、input
+            をマップおよびレンダリングするための信頼できる情報源です。
             <p>
-              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
-              <code>id</code> is required with mapped components to help React
-              identify which items have changed, are added, or are removed.
+              <Note>重要: </Note> 各 input は制御することができないため、{" "}
+              マップされたコンポーネントには <code>id</code> が必須です。
+              これは、React{" "}
+              が変更、追加もしくは削除されたのかを識別するのに役立ちます。
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -895,7 +898,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>フィールドの最後に input を追加します。</td>
         </tr>
         <tr>
           <td>
@@ -906,7 +909,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>フィールドの先頭に input を追加します。</td>
         </tr>
         <tr>
           <td>
@@ -917,7 +920,7 @@ export default {
               <TypeText>(index: number, value: any) => void</TypeText>
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>特定の位置に input を挿入します。</td>
         </tr>
         <tr>
           <td>
@@ -928,7 +931,7 @@ export default {
               <TypeText>(from: number, to: number) => void</TypeText>
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>input の位置を入れ替えます。</td>
         </tr>
         <tr>
           <td>
@@ -940,12 +943,13 @@ export default {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            input を別の位置に移動します。
             <p>
-              <Note>Note:</Note> difference between <code>move</code> and{" "}
-              <code>swap</code>, keep calling <code>move</code> will push
-              input/inputs in a circle, while <code>swap</code> only change two
-              input/inputs' position.
+              <Note>注意:</Note> <code>move</code> と <code>swap</code>{" "}
+              の違いは、
+              <code>move</code> を呼び出し続けると input{" "}
+              が円を描いて押し込まれるのに対して、
+              <code>swap</code> は2つの input の位置を変更するだけです。
             </p>
           </td>
         </tr>
@@ -959,8 +963,8 @@ export default {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            特定の位置の input を削除します。引数で index を渡さない場合は全ての{" "}
+            input を削除します。
           </td>
         </tr>
       </>
