@@ -8,6 +8,8 @@ import colors from "../../styles/colors"
 import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "API 설명서",
@@ -508,7 +510,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
@@ -705,8 +707,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         폼 컨텍스트(Form Context)는 입력들이 컴포넌트 트리에서 깊이 중첩되었을
@@ -814,6 +816,124 @@ export default {
         <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
         문법은 표준과 같습니다.
       </p>
+    ),
+  },
+  useFieldArray: {
+    title: "useFieldArray",
+    description: (
+      <>
+        <p>
+          A custom hook for working with Field Arrays (dynamic inputs). This
+          hook provides the following object and functions.
+        </p>
+
+        <CodeArea rawData={useFieldArrayArgument} />
+
+        <p>
+          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
+          <code>defaultValues</code> at <code>useForm</code> hook.
+        </p>
+      </>
+    ),
+    table: (
+      <>
+        <tr>
+          <td>
+            <code>fields</code>
+          </td>
+          <td>
+            <TypeText>object & {`{ id: string }`}</TypeText>
+          </td>
+          <td>
+            This object is the source of truth to map and render inputs.
+            <p>
+              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
+              <code>id</code> is required with mapped components to help React
+              identify which items have changed, are added, or are removed.
+            </p>
+            <p>
+              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>append</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
+          </td>
+          <td>Append input/inputs to the end of your fields</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prepend</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
+          </td>
+          <td>Prepend input/inputs to the start of your fields</td>
+        </tr>
+        <tr>
+          <td>
+            <code>insert</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(index: number, value: any) => void</TypeText>
+            </code>
+          </td>
+          <td>Insert input/inputs at particular position.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>swap</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
+          </td>
+          <td>Swap input/inputs position.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>move</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
+          </td>
+          <td>
+            Move input/inputs to another position.
+            <p>
+              <Note>Note:</Note> difference between <code>move</code> and{" "}
+              <code>swap</code>, keep calling <code>move</code> will push
+              input/inputs in a circle, while <code>swap</code> only change two
+              input/inputs' position.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(index?: number) => void</TypeText>
+            </code>
+          </td>
+          <td>
+            Remove input/inputs at particular position, or remove all when no
+            index is provided.
+          </td>
+        </tr>
+      </>
     ),
   },
 }
