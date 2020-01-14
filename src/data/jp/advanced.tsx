@@ -277,8 +277,9 @@ export default {
         </p>
 
         <p>
-          <Note>注意:</Note> we have also build a custom hook for complex
-          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+          <Note>注意:</Note> 私たちは、複雑なシナリオのためのカスタムフック{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>{" "}
+          も作成しました。
         </p>
 
         <p>
