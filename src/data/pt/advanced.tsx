@@ -19,12 +19,12 @@ export default {
       "Construa formulários complexos e acessíveis, utilizando React Hook Form.",
   },
   controlledMixedWithUnControlled: {
-    title: "Controlled mixed with Uncontrolled Components",
+    title: "Controlado misto com componente não controlados",
     description: (
       <p>
-        React Hook Form embraces uncontrolled components and also compatible
-        with controlled component. Most of UI library is built to support only
-        controlled components, such as{" "}
+        React Hook Form faz uso de componentes não controlados e também
+        controlados. A maioria das bibliotecas de interface é construída para
+        suportar apenas componentes controlados como{" "}
         <a
           href="https://github.com/mui-org/material-ui"
           target="_blank"
@@ -32,7 +32,7 @@ export default {
         >
           Material-UI
         </a>{" "}
-        and{" "}
+        e{" "}
         <a
           href="https://github.com/ant-design/ant-design"
           target="_blank"
@@ -40,9 +40,9 @@ export default {
         >
           Antd
         </a>
-        . Besides, with React Hook Form controlled component's re-rendering is
-        also been optimized. Here is an example which we combined with
-        controlled and uncontrolled form validation.
+        . Além de, com React Hook Form a re-renderização de componentes
+        controlados é também otimizada. Aqui um exemplo onde combinamos a
+        validação de um formulário com componentes controlados e não controlados
       </p>
     ),
   },
@@ -148,7 +148,7 @@ export default {
     ),
   },
   wizard: {
-    title: "Wizard Form / Funnel",
+    title: "Formulário em etapas/funil",
     description: (
       <>
         <p>
@@ -207,7 +207,7 @@ export default {
     ),
   },
   smartForm: {
-    title: "Smart Form Component",
+    title: "Formulário inteligente",
     description: (
       <>
         <p>
@@ -262,7 +262,7 @@ export default {
     ),
   },
   fieldArrays: {
-    title: "Field Arrays",
+    title: "Campo Arrays",
     description: (
       <>
         <p>
@@ -299,7 +299,7 @@ export default {
     ),
   },
   schema: {
-    title: "Schema Validation",
+    title: "Validação de formulário",
     description: (
       <>
         <p>
@@ -329,7 +329,7 @@ export default {
     ),
   },
   connectForm: {
-    title: "Connect Form",
+    title: "Conectar Formulário",
     description: (
       <p>
         Quando construimos formulário, as vezes nosso campo está presente muitos
@@ -344,7 +344,7 @@ export default {
     ),
   },
   conditionalControlledComponent: {
-    title: "Conditional Controlled Component",
+    title: "Componente controlado condicional",
     description: (
       <>
         <p>
