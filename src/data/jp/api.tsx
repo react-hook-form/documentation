@@ -557,7 +557,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>Unique name of your input.</td>
+          <td>input のユニークな name 。</td>
         </tr>
         <tr>
           <td>
@@ -568,7 +568,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. eg: <code>as="input"</code> or{" "}
+            制御されたコンポーネント。 例: <code>as="input"</code> または{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -581,8 +581,9 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            <code>control</code> オブジェクトは <code>useForm</code>{" "}
+            から呼び出されます。 ただし、 FormContext
+            を使用している場合は省略できます。
           </td>
         </tr>
         <tr>
@@ -594,18 +595,17 @@ export default {
           </td>
           <td></td>
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            非制御コンポーネントの <code>defaultValue</code> と同じですが、{" "}
+            <code>boolean</code> 値を指定すると、チェックボックスの input
+            として扱われます。
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <Note>注意:</Note> <code>useForm</code> で{" "}
+              <code>defaultValue</code> または <code>defaultValues</code>{" "}
+              のどちらかを指定する必要があります。
             </p>
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <Note>注意:</Note> 指定した場合、これは <code>useForm</code> の{" "}
+              <code>defaultValue</code> よりも優先されます。
             </p>
           </td>
         </tr>
@@ -618,7 +618,7 @@ export default {
           </td>
           <td></td>
           <td>
-            Validation rules according to <code>register</code>.
+            <code>register</code> によるバリデーションルール
           </td>
         </tr>
         <tr>
@@ -630,9 +630,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            この <code>onChange</code> prop
+            を使用すると、戻り値をカスタマイズすることができます。
+            <br />
+            例： <code>{`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -644,9 +645,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+            この <code>onBlur</code> prop
+            では、戻り値をカスタマイズすることができます。
+            <br />
+            例： <code>{`onBlur={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -658,8 +660,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
+            この prop
+            を使用すると、特定のイベント名をターゲットにすることができます。
+            例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
+            と命名されている場合。
           </td>
         </tr>
         <tr>
@@ -671,8 +675,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            この prop
+            を使用すると、特定のイベント名をターゲットにすることができます。
+            例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
+            と命名されている場合。
           </td>
         </tr>
         <tr>
@@ -684,9 +690,10 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and ect...
+            この prop を使用すると、<code>value</code> prop をオーバーライドし、
+            <code>value</code> prop
+            を使用しない他のコンポーネントをサポートできます。 例えば、{" "}
+            <code>checked</code>, <code>selected</code> 等...
           </td>
         </tr>
       </tbody>
