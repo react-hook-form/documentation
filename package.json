@@ -34,7 +34,7 @@
     "react-sortablejs": "1.5.1",
     "react-syntax-highlighter": "11.0.2",
     "sortablejs": "1.10.1",
-    "styled-components": "4.4.1"
+    "styled-components": "5.0.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
