@@ -1,11 +1,8 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../../styles/link"
-import { Link as NavLink } from "gatsby"
 import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
 import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
@@ -873,8 +870,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         Контекст формы предназначен для решения проблемы, когда в дереве
