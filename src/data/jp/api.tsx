@@ -287,7 +287,7 @@ export default {
     description: currentLanguage => (
       <>
         <p>
-          オブジェクトには、各 input
+          オブジェクトには、各 input{" "}
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
         <p>
@@ -298,8 +298,8 @@ export default {
           <li>
             <p>V4: ネストされたオブジェクト</p>
             <p>
-              <strong>原因:</strong> Optional chaining
-              はコミュニティの間でますます人気なり、より良い type
+              <strong>原因:</strong> Optional chaining{" "}
+              はコミュニティの間でますます人気なり、より良い type{" "}
               をサポートします。
             </p>
             <p>
@@ -618,7 +618,7 @@ export default {
           </td>
           <td></td>
           <td>
-            <code>register</code> によるバリデーションルール
+            <code>register</code> によるバリデーションルール。
           </td>
         </tr>
         <tr>
@@ -770,7 +770,7 @@ export default {
     title: "ErrorMessage",
     description: (
       <p>
-        関連する input
+        関連する input{" "}
         のエラーメッセージを表示するためのシンプルなコンポーネント。
       </p>
     ),
@@ -822,8 +822,7 @@ export default {
           </td>
           <td></td>
           <td>
-            これは、単一のエラーメッセージ、
-            または複数のエラーメッセージをレンダリングするための{" "}
+            これは、単一または複数のエラーメッセージをレンダリングするための{" "}
             <a
               href="https://reactjs.org/docs/render-props.html"
               target="_blank"
