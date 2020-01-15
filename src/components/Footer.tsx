@@ -120,6 +120,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => (
         Little State Machine
       </a>
     </p>
+    {currentLanguage === "pt" && (
+      <p>
+        <a href="https://github.com/kevenleone">@kevenleone</a>
+      </p>
+    )}
     {currentLanguage === "kr" && (
       <p>
         에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
