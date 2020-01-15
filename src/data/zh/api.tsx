@@ -1,12 +1,12 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import Link from "../../styles/link"
 import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink, Table } from "../../components/ApiPage"
+import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
+import CodeArea from "../../components/CodeArea"
+import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 
 export default {
   title: "API文档",
@@ -495,7 +495,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         如果您希望使用外部验证模式，可以在
@@ -692,8 +692,8 @@ export default {
       </>
     ),
   },
-  formContext: {
-    title: "FormContext",
+  useFormContext: {
+    title: "useFormContext",
     introduction: (
       <p>
         当组件存在深处时传递<code>props</code>变得痛苦，这个组件解决这个问题。
@@ -798,6 +798,120 @@ export default {
         <code>nativeValidation</code>设置为<code>true</code>
         ，其余语法与标准验证相同。
       </p>
+    ),
+  },
+  useFieldArray: {
+    title: "useFieldArray",
+    description: (
+      <>
+        <p>
+          用于处理字段数组（动态输入）的自定义挂钩。 此挂钩提供以下对象和函数。
+        </p>
+
+        <CodeArea rawData={useFieldArrayArgument} />
+
+        <p>
+          <Note>Note:</Note> 可以通过在<code>userform</code>中的
+          <code>defaultValues</code>来填充<code>字段</code>。
+        </p>
+      </>
+    ),
+    table: (
+      <>
+        <tr>
+          <td>
+            <code>fields</code>
+          </td>
+          <td>
+            <TypeText>object & {`{ id: string }`}</TypeText>
+          </td>
+          <td>
+            此对象是映射和render染输入的真实来源
+            <p>
+              <Note>重要: </Note>
+              因为每个输入可以不受控制, <code>id</code>
+              是必须的来帮助反应组件是否已更改、添加或删除了。
+            </p>
+            <p>
+              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>append</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
+          </td>
+          <td>将输入/输入追加到字段的末尾</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prepend</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(obj: any) => void</TypeText>
+            </code>
+          </td>
+          <td>将输入/输入前置到字段的开头</td>
+        </tr>
+        <tr>
+          <td>
+            <code>insert</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(index: number, value: any) => void</TypeText>
+            </code>
+          </td>
+          <td>在特定位置插入输入</td>
+        </tr>
+        <tr>
+          <td>
+            <code>swap</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
+          </td>
+          <td>交换输入位置</td>
+        </tr>
+        <tr>
+          <td>
+            <code>move</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(from: number, to: number) => void</TypeText>
+            </code>
+          </td>
+          <td>
+            将输入移动到另一位置。
+            <p>
+              <Note>Note:</Note>
+              <code>move</code>和<code>swap</code>之间的差异 <code>swap</code>
+              在于继续调用<code>move</code>将推送输入一直推下,<code>swap</code>
+              只是交换输入的位置。
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove</code>
+          </td>
+          <td>
+            <code>
+              <TypeText>(index?: number) => void</TypeText>
+            </code>
+          </td>
+          <td>在特定位置删除输入，或删除所有输入当没有提供位置。</td>
+        </tr>
+      </>
     ),
   },
 }

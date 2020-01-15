@@ -247,6 +247,11 @@ export default {
           键位于name属性中。 在React Hook Form中，name属性表示要使用的数据结构。
         </p>
 
+        <p>
+          <Note>注意:</Note> 我们还建立自定义挂钩了为了复杂的情况:{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+        </p>
+
         <p>下面的示例演示如何通过操作输入名称属性来创建自动生成表单。</p>
 
         <p>

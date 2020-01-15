@@ -274,6 +274,11 @@ export default {
         </p>
 
         <p>
+          <Note>Note:</Note> we have also build a custom hook for complex
+          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+        </p>
+
+        <p>
           O exemplo a seguir demonstra como você cria campos de array para
           manipular o campo de atributo <code>name</code>.
         </p>

@@ -273,6 +273,11 @@ export default {
         </p>
 
         <p>
+          <Note>Note:</Note> we have also build a custom hook for complex
+          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+        </p>
+
+        <p>
           El siguiente ejemplo muestra cómo puedes crear Field Arrays
           manipulando el atributo <code>name</code> del input.
         </p>

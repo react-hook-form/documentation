@@ -276,6 +276,11 @@ export default {
         </p>
 
         <p>
+          <Note>Note:</Note> we have also build a custom hook for complex
+          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+        </p>
+
+        <p>
           아래의 예시는 인풋의 <code>name</code> 속성을 조작하여 어떻게 필드
           배열을 만들 수 있는지 보여줍니다.
         </p>

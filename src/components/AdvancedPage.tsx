@@ -19,11 +19,11 @@ import StarRepo from "./StarRepo"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advancedContent from "../data/advanced"
-import errorMessageAdvance from "./codeExamples/errorMessageAdvance"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
 import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
+import useFieldArray from "./codeExamples/useFieldArray"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -152,10 +152,16 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           {advanced.fieldArrays.description}
 
-          <CodeArea
-            rawData={fieldArray}
-            url="https://codesandbox.io/s/6j1760jkjk"
-          />
+          <TabGroup buttonLabels={["Custom hook", "register"]}>
+            <CodeArea
+              rawData={useFieldArray}
+              url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
+            />
+            <CodeArea
+              rawData={fieldArray}
+              url="https://codesandbox.io/s/6j1760jkjk"
+            />
+          </TabGroup>
 
           <hr />
 

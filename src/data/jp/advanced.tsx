@@ -277,6 +277,12 @@ export default {
         </p>
 
         <p>
+          <Note>注意:</Note> 私たちは、複雑なシナリオのためのカスタムフック{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>{" "}
+          も作成しました。
+        </p>
+
+        <p>
           下記の例は、input の <code>name</code>{" "}
           属性を操作してどのようにフィールド配列を作成できるかを示しています。
         </p>

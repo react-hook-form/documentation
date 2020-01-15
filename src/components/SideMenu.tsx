@@ -144,10 +144,17 @@ function SideMenu({
                 ? enLinks[index]().title
                 : enLinks[index].title
 
+            let linkName = link.startsWith("use") ? `♆ ${link}` : link
+
+            if (/^[A-Z]/.test(link[0]) && !link.includes(" ")) {
+              linkName = "❒ " + linkName
+            }
+
             if (
               [
-                "formcontext",
+                "useformcontext",
                 "controller",
+                "usefieldarray",
                 "errormessage",
                 "validationschema",
                 "browser built-in validation",
@@ -167,7 +174,7 @@ function SideMenu({
                         position: "relative",
                       }}
                     >
-                      {link}
+                      {linkName}
                     </button>
                   ) : (
                     <button
@@ -180,7 +187,7 @@ function SideMenu({
                         ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                       }}
                     >
-                      {link}
+                      {linkName}
                     </button>
                   )}
                 </li>
@@ -195,7 +202,7 @@ function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - 6
+                        ...(index !== links.length - 7
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -205,7 +212,7 @@ function SideMenu({
                     : null),
                 }}
               >
-                <Arrow last={index === links.length - 6}>
+                <Arrow last={index === links.length - 7}>
                   {index > 0 && (
                     <span
                       style={{
@@ -226,7 +233,7 @@ function SideMenu({
                     ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
                   }}
                 >
-                  {link}
+                  {linkName}
                 </button>
               </li>
             )
