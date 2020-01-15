@@ -300,9 +300,8 @@ export default {
           <li>
             <p>V4: ネストされたオブジェクト</p>
             <p>
-              <strong>原因:</strong> Optional chaining{" "}
-              はコミュニティの間でますます人気なり、より良い type{" "}
-              をサポートします。
+              <strong>理由:</strong> Optional chaining{" "}
+              はコミュニティの間でより一般的になり、型のサポートが向上するため。
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
@@ -311,7 +310,7 @@ export default {
           <li>
             <p>V3: フラットなオブジェクト</p>
             <p>
-              <strong>原因:</strong> シンプルでアクセスしやすいエラー。
+              <strong>理由:</strong> エラーがシンプルでアクセスしやすいため。
             </p>
             <p>
               <code>{`errors['yourDetail.firstName'];`}</code>
@@ -731,6 +730,22 @@ export default {
           などの外部の制御された UI{" "}
           コンポーネントライブラリと組み合わせての使用​​を避けることは難しいです。
           このラッパーコンポーネントにより、制御されたコンポーネントと組み合わせて簡単に使用​​できるようになります。
+        </p>
+        <p>
+          Controllerコンポーネントへ渡す全ての props は、
+          <code>as</code> prop で指定した Component インスタンスに転送されます。
+          つまり、<code>label</code> prop を必要とするカスタム{" "}
+          <code>Switch</code> コンポーネントがあるとします。 この{" "}
+          <code>label</code> prop を Controller{" "}
+          コンポーネントに直接渡すことができます。
+          <code>name</code> prop{" "}
+          は、主に後でフォームから値にアクセスするために使用されます。
+        </p>
+
+        <p>
+          <code>defaultValue</code> prop を使用する場合、
+          <code>useForm</code> で設定した <code>defaultValues</code>{" "}
+          の値より優先されます。
         </p>
       </>
     ),
