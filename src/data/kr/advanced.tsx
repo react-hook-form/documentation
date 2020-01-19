@@ -96,17 +96,16 @@ export default {
     optionalChaining: (
       <>
         <p>
-          The{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
           >
-            optional chaining
+            옵셔널 체이닝
           </a>{" "}
-          operator <code>?.</code> permits reading the <code>errors</code>{" "}
-          object without worrying about causing error due to <code>null</code>{" "}
-          or <code>undefined</code>.
+          접근자 <code>?.</code> 는 <code>errors</code> 객체를 읽을 때{" "}
+          <code>null</code> 이나 <code>undefined</code> 인 속성 때문에 에러가
+          발생할 걱정을 하지 않고 속성에 접근할 수 있습니다.
         </p>
         <p>
           <code>{`errors?.firstName?.message`}</code>
@@ -347,32 +346,47 @@ export default {
   },
   conditionalControlledComponent: {
     title: "조건부 제어 컴포넌트",
-    // Todo: missing korean translation
     description: (
-      <p>
-        React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다. 인풋이
-        컴포넌트 트리에서 제거되는 순간 자동으로 <code>unregister</code> 되기
-        때문입니다.{" "}
-        <a
-          href="https://codesandbox.io/s/13ykqx4wx7"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          여기 예제가 있습니다.
-        </a>{" "}
-        하지만 이러한 동작은 제어 컴포넌트에는 적용하기 어려운데,{" "}
-        <code>ref</code> 가 등록되어있지 않기 때문입니다. 이럴 때는{" "}
-        <code>
+      <>
+        <p>
+          React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다.
+          인풋이 컴포넌트 트리에서 제거되는 순간 자동으로{" "}
+          <code>unregister</code> 되기 때문입니다.{" "}
           <a
-            href="https://reactjs.org/docs/hooks-effect.html"
+            href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            useEffect
-          </a>
-        </code>
-        를 활용할 수 있습니다. 여기 활용 예제가 있습니다:
-      </p>
+            여기 예제가 있습니다.
+          </a>{" "}
+          하지만 이러한 동작은 제어 컴포넌트에는 적용하기 어려운데,{" "}
+          <code>ref</code> 가 등록되어있지 않기 때문입니다. 이럴 때는 아래의
+          방법을 사용할 수 있습니다.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <Link to="/api#Controller">Controller</Link> 를 불러와서
+              컴포넌트를 감싸면 알아서 register 와 unregister 처리를 합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>
+                <a
+                  href="https://reactjs.org/docs/hooks-effect.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  useEffect
+                </a>
+              </code>
+              를 활용할 수 있습니다.
+            </p>
+          </li>
+        </ul>
+        <p>여기 활용 예제가 있습니다.</p>
+      </>
     ),
   },
   formContext: {
