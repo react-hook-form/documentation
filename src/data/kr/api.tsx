@@ -539,7 +539,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>Unique name of your input.</td>
+          <td>입력값을 위한 고유의 이름.</td>
         </tr>
         <tr>
           <td>
@@ -550,7 +550,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. eg: <code>as="input"</code> or{" "}
+            제어 컴포넌트. 예: <code>as="input"</code> 혹은{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -563,8 +563,9 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            <code>control</code> 객체는 <code>useForm</code> 을 호출하여 나온
+            것을 넣어주면 됩니다. FormContext 를 사용하고 있다면 필수는
+            아닙니다.
           </td>
         </tr>
         <tr>
@@ -574,20 +575,16 @@ export default {
           <td>
             <TypeText>any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            비제어 컴포넌트의 <code>defaultValue</code> 와 같습니다.{" "}
+            <code>boolean</code> 값이 주어졌을 때는, 체크박스 입력값으로
+            다루어집니다.
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
-            </p>
-            <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <Note>참고: </Note>
+              <code>defaultValue</code> 또는
+              <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
+              할 것입니다.
             </p>
           </td>
         </tr>
@@ -598,9 +595,9 @@ export default {
           <td>
             <TypeText>Object</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            Validation rules according to <code>register</code>.
+            <code>registter</code> 에 따른 유효성 검사 규칙.
           </td>
         </tr>
         <tr>
@@ -610,11 +607,10 @@ export default {
           <td>
             <TypeText>(args: any) => any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            이 <code>onChange</code> prop 으로 리턴 값을 커스터마이징 할 수
+            있습니다. <code>예: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -624,11 +620,10 @@ export default {
           <td>
             <TypeText>(args: any) => any</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
+            이 <code>onBlur</code> prop 으로 리턴 값을 커스터마이징 할 수
+            있습니다. <code>예: {`onBlur={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>
@@ -638,10 +633,11 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
+            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
+            수 있도록 합니다. 예: <code>onChange</code> 이벤트가{" "}
+            <code>onTextChange</code> 로 되어있는 경우.
           </td>
         </tr>
         <tr>
@@ -651,10 +647,11 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
+            수 있도록 합니다. 예: <code>onBlur</code> 이벤트가{" "}
+            <code>onTextBlur</code> 로 되어있는 경우.
           </td>
         </tr>
         <tr>
@@ -664,11 +661,11 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and ect...
+            이 prop 은 <code>value</code> prop 을 다시 정의하여(Override)
+            <code>value</code> prop 을 사용하지 않는 다른 컴포넌트에 사용할 수
+            있습니다. 예: <code>checked</code>, <code>selected</code> 등.
           </td>
         </tr>
       </tbody>
@@ -734,16 +731,16 @@ export default {
     title: "control",
     description: (
       <p>
-        This object is made for React Hook Form's Controller component, which
-        contains methods for registering controlled component into React Hook
-        Form.
+        이 객체는 React Hook Form 의 Controller 컴포넌트를 위해 만들어졌습니다.
+        안에는 제어되는 컴포넌트를 React Hook Form 에 등록하기 위한 메서드가
+        담겨 있습니다.
       </p>
     ),
   },
   ErrorMessage: {
     title: "ErrorMessage",
     description: (
-      <p>A simple component to render associated input's error message.</p>
+      <p>입력값의 에러 메세지를 랜더링하기 위한 간단한 컴포넌트입니다.</p>
     ),
     table: (
       <tbody>
@@ -755,7 +752,7 @@ export default {
             <TypeText>string</TypeText>
           </td>
           <td>✓</td>
-          <td>associated field name.</td>
+          <td>연결할 필드 이름.</td>
         </tr>
         <tr>
           <td>
@@ -764,10 +761,10 @@ export default {
           <td>
             <TypeText>object</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            <code>errors</code> object from React Hook Form. it's optional if
-            you are using FormContext.
+            <code>errors</code> 객체는 React Hook Form 에서 전달된 것입니다.
+            FormContext 를 쓴다면 필수 값은 아닙니다.
           </td>
         </tr>
         <tr>
@@ -777,10 +774,10 @@ export default {
           <td>
             <TypeText>React.ElementType | string</TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
+            감싸질 컴포넌트나 HTML 태그. 예: <code>as="span"</code> 나{" "}
+            <code>{`as={<Text />}`}</code> 등.
           </td>
         </tr>
         <tr>
@@ -792,9 +789,9 @@ export default {
               ({`{ message: string, messages: string[]}`}) => any
             </TypeText>
           </td>
-          <td></td>
+          <td />
           <td>
-            This is a{" "}
+            에러 메세지나 일반 메세지를 랜더링하기 위한{" "}
             <a
               href="https://reactjs.org/docs/render-props.html"
               target="_blank"
@@ -802,7 +799,7 @@ export default {
             >
               render prop
             </a>{" "}
-            for rendering error message or messages.
+            입니다.
           </td>
         </tr>
       </tbody>
@@ -823,20 +820,21 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with Field Arrays (dynamic inputs). This
-          hook provides the following object and functions.
+          필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이 훅은
+          아래의 객체와 함수를 제공합니다.
         </p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
-          <code>defaultValues</code> at <code>useForm</code> hook.
+          <Note>참고:</Note> <code>useForm</code> hook 에 있는{" "}
+          <code>defaultValues</code> 를 전달하여 <code>fields</code> 를 생성할
+          수 있습니다.
         </p>
 
         <p>
-          <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
-          <code>fields</code> object as your component key.
+          <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
+          컴포넌트의 key 로 전달하는 것을 잊지 마세요.
         </p>
       </>
     ),
@@ -850,14 +848,16 @@ export default {
             <TypeText>object & {`{ id: string }`}</TypeText>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            이 객체는 input 을 생성하고 랜더링하기 위한 주요 객체(source of
+            truth)입니다.
             <p>
-              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
-              <code>id</code> is required with mapped components to help React
-              identify which items have changed, are added, or are removed.
+              <Note>중요: </Note> 모든 입력 필드는 비제어 상태이기 떄문에,{" "}
+              <code>map</code> 으로 생성되는 컴포넌트에
+              <code>id</code> 값을 필수로 전달해주어야 합니다. 그래야 리액트가
+              어떤 아이템이 추가되고, 변경되고, 제거되는지 파악할 수 있습니다.
             </p>
             <p>
-              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+              예: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
             </p>
           </td>
         </tr>
@@ -870,7 +870,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -881,7 +881,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -892,7 +892,7 @@ export default {
               <TypeText>(index: number, value: any) => void</TypeText>
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -903,7 +903,7 @@ export default {
               <TypeText>(from: number, to: number) => void</TypeText>
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
         </tr>
         <tr>
           <td>
@@ -915,12 +915,12 @@ export default {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            입력 필드(들)를 다른 위치로 이동합니다.
             <p>
-              <Note>Note:</Note> difference between <code>move</code> and{" "}
-              <code>swap</code>, keep calling <code>move</code> will push
-              input/inputs in a circle, while <code>swap</code> only change two
-              input/inputs' position.
+              <Note>참고:</Note> <code>move</code> 와 <code>swap</code> 의
+              차이점을 설명하자면, <code>move</code> 를 계속 호출하는 것은 입력
+              필드(들)를 임의의 공간 안에 집어넣는 것과 비슷하고,{" "}
+              <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는 것입니다.
             </p>
           </td>
         </tr>
@@ -934,8 +934,8 @@ export default {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            특정 위치에 있는 입력 필드(들)를 제거합니다. 인덱스를 넣지 않았다면
+            전체를 제거합니다.
           </td>
         </tr>
       </>
