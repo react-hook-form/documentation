@@ -369,38 +369,37 @@ export default {
         </>
       ),
     },
-    // translate please
     {
-      title: "Testing React Hook Form",
+      title: "React Hook Form 테스트하기",
       description: (
         <div>
           <ul>
             <li>
               <p>
-                Why am I getting <code>act</code> warning?
+                왜 <code>act</code> 경고가 뜨나요?
               </p>
 
               <p>
-                All validation methods in React Hook Form will be treated as
-                async functions, so it's important to wrap <code>async</code>{" "}
-                around your{" "}
+                React Hook Form 의 모든 유효선 검사 방법은 비동기 함수로
+                다루어집니다. 따라서{" "}
                 <CodeAsLink
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   act
-                </CodeAsLink>
-                .
+                </CodeAsLink>{" "}
+                부분을 <code>async</code> 로 감싸주는게 중요합니다.
               </p>
             </li>
             <li>
-              <p>Why input change is not fire event?</p>
+              <p>왜 입력값이 바뀔 때 이벤트가 발생하나요?</p>
 
               <p>
-                React Hook Form using <code>input</code> event for input change,
-                so to fix it. you can easily switch to{" "}
-                <code>fireEvent.input</code> for react-testing-library
+                React Hook Form 은 입력값이 변화할 때 <code>input</code>{" "}
+                이벤트를 사용합니다. 따라서 <code>react-testing-library</code>{" "}
+                의 <code>fireEvent.input</code> 을 사용하면 쉽게 문제를 해결할
+                수 있습니다.
               </p>
             </li>
           </ul>
