@@ -820,20 +820,21 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with Field Arrays (dynamic inputs). This
-          hook provides the following object and functions.
+          필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이 훅은
+          아래의 객체와 함수를 제공합니다.
         </p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
-          <code>defaultValues</code> at <code>useForm</code> hook.
+          <Note>참고:</Note> <code>useForm</code> hook 에 있는{" "}
+          <code>defaultValues</code> 를 전달하여 <code>fields</code> 를 생성할
+          수 있습니다.
         </p>
 
         <p>
-          <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
-          <code>fields</code> object as your component key.
+          <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
+          컴포넌트의 key 로 전달하는 것을 잊지 마세요.
         </p>
       </>
     ),
@@ -847,14 +848,16 @@ export default {
             <TypeText>object & {`{ id: string }`}</TypeText>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            이 객체는 input 을 생성하고 랜더링하기 위한 주요 객체(source of
+            truth)입니다.
             <p>
-              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
-              <code>id</code> is required with mapped components to help React
-              identify which items have changed, are added, or are removed.
+              <Note>중요: </Note> 모든 입력 필드는 비제어 상태이기 떄문에,{" "}
+              <code>map</code> 으로 생성되는 컴포넌트에
+              <code>id</code> 값을 필수로 전달해주어야 합니다. 그래야 리액트가
+              어떤 아이템이 추가되고, 변경되고, 제거되는지 파악할 수 있습니다.
             </p>
             <p>
-              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+              예: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
             </p>
           </td>
         </tr>
@@ -867,7 +870,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -878,7 +881,7 @@ export default {
               <TypeText>(obj: any) => void</TypeText>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -889,7 +892,7 @@ export default {
               <TypeText>(index: number, value: any) => void</TypeText>
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
         </tr>
         <tr>
           <td>
@@ -900,7 +903,7 @@ export default {
               <TypeText>(from: number, to: number) => void</TypeText>
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
         </tr>
         <tr>
           <td>
@@ -912,12 +915,12 @@ export default {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            입력 필드(들)를 다른 위치로 이동합니다.
             <p>
-              <Note>Note:</Note> difference between <code>move</code> and{" "}
-              <code>swap</code>, keep calling <code>move</code> will push
-              input/inputs in a circle, while <code>swap</code> only change two
-              input/inputs' position.
+              <Note>참고:</Note> <code>move</code> 와 <code>swap</code> 의
+              차이점을 설명하자면, <code>move</code> 를 계속 호출하는 것은 입력
+              필드(들)를 임의의 공간 안에 집어넣는 것과 비슷하고,{" "}
+              <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는 것입니다.
             </p>
           </td>
         </tr>
@@ -931,8 +934,8 @@ export default {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            특정 위치에 있는 입력 필드(들)를 제거합니다. 인덱스를 넣지 않았다면
+            전체를 제거합니다.
           </td>
         </tr>
       </>
