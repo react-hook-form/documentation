@@ -654,7 +654,7 @@ export default {
             <p>
               <Note>Note:</Note> difference between <code>move</code> and{" "}
               <code>swap</code>, keep calling <code>move</code> will push
-              input/inputs in a circle, while <code>swap</code> only change two
+              input/inputs in a loop, while <code>swap</code> only change two
               input/inputs' position.
             </p>
           </td>
