@@ -875,14 +875,15 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> <code>useForm</code> フックで{" "}
+          <Note>注意:</Note> <code>useForm</code> フックで{" "}
           <code>defaultValues</code> を指定することにより、<code>fields</code>{" "}
           に格納することができます。
         </p>
 
         <p>
-          <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
-          <code>fields</code> object as your component key.
+          <Note>重要:</Note> <code>fields</code> オブジェクトから{" "}
+          <code>id</code> をコンポーネントの <code>key</code>{" "}
+          に割り当てていることを確認してください。
         </p>
       </>
     ),
