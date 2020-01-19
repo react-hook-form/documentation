@@ -8,15 +8,11 @@ export default `function Test() {
   );
 
   return (
-    <>
-      {fields.map((field, index) => {
-        return (
-          <div key={field.id}> {/* important: using id from to track item added or removed */}
-            <input name={\`test[\${index}}]\`} ref={register({})} />
-          </div>
-        );
-      })}
-    </>
+    {fields.map((field, index) => (
+      <div key={field.id}>
+        <input name={\`test[\${index}}]\`} ref={register} />
+      </div>
+    ))}
   );
 }
 

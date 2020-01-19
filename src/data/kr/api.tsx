@@ -838,13 +838,6 @@ export default {
           <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
           <code>fields</code> object as your component key.
         </p>
-
-        <p>
-          <Note>Important:</Note> due to ref callback issue, for{" "}
-          <code>register</code>
-          without any validation, please make sure to pass empty object as
-          payload. eg: <code>{`ref={register({})}`}</code>
-        </p>
       </>
     ),
     table: (
