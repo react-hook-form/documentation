@@ -39,18 +39,9 @@ export default {
         >
           Antd
         </a>{" "}
-        같은 라이브러리 말이죠. 다행히도 Material-UI 는 이미 비제어
-        컴포넌트(React Hook Form)를 지원하는 것을 고려하고 있으니,{" "}
-        <a
-          href="https://github.com/mui-org/material-ui/issues/18269"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          이슈에 투표를 하여
-        </a>{" "}
-        우선순위를 올려 주실 수 있습니다. 게다가 React Hook Form 을 활용하면
-        제어 컴포넌트의 리랜더링 또한 최적화됩니다. 아래에 제어되는 폼과 비제어
-        폼이 결합된 상태에서 폼 유효성 검사흘 하는 예를 보실 수 있습니다.
+        같은 라이브러리 말이죠. 뿐만 아니라 React Hook Form 을 활용하면 제어
+        컴포넌트의 리랜더링 또한 최적화됩니다. 아래에 제어되는 폼과 비제어 폼이
+        결합된 상태에서 폼 유효성 검사흘 하는 예를 보실 수 있습니다.
       </p>
     ),
   },
