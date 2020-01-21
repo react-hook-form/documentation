@@ -639,21 +639,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td></td>
-          <td>
-            この <code>onBlur</code> prop
-            では、戻り値をカスタマイズすることができます。
-            <br />
-            例： <code>{`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
