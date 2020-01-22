@@ -1,11 +1,39 @@
 import * as React from "react"
 import { CodeSandBoxLink } from "./CodeArea"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
-import { TypeText } from "../styles/typography"
+import { CodeHeading, Table, TableWrapper, CodeAsLink } from "./ApiPage"
+import { TypeText, Note } from "../styles/typography"
 import generic from "../data/generic"
 
+const goToSection = (name, sectionsRef) => {
+  const url = window.location.href
+  const hashIndex = url.indexOf("#")
+  const filterName = name.replace(/ |-/g, "")
+
+  history.pushState(
+    {},
+    null,
+    hashIndex < 0
+      ? `${url}#${filterName}`
+      : `${url.substr(0, hashIndex)}#${filterName}`
+  )
+
+  const refName = `${filterName}Ref`
+
+  if (sectionsRef.current[refName]) {
+    sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
+  }
+}
+
 export default React.memo(
-  ({ api, currentLanguage }: { currentLanguage: string; api: any }) => {
+  ({
+    api,
+    currentLanguage,
+    sectionsRef,
+  }: {
+    currentLanguage: string
+    api: any
+    sectionsRef: any
+  }) => {
     return (
       <>
         <CodeHeading>
@@ -75,7 +103,22 @@ export default React.memo(
                 <td>
                   <TypeText>boolean</TypeText>
                 </td>
-                <td>{api.formState.isValid}</td>
+                <td>
+                  <div>{api.formState.isValid}</div>
+                  <p>
+                    <Note>Note:</Note> <code>isValid</code> is affected by{" "}
+                    <CodeAsLink
+                      onClick={() => goToSection("useForm", sectionsRef)}
+                    >
+                      mode
+                    </CodeAsLink>
+                    .
+                  </p>
+                  <p>
+                    Will only update and subscribe on form submission when used
+                    with <code>onSubmit</code>.
+                  </p>
+                </td>
               </tr>
               <tr>
                 <td>
