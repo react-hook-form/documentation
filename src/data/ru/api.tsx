@@ -266,7 +266,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "Этот объект содержит информацию о состоянии формы.",
+    description: (
+      <>
+        <p>Этот объект содержит информацию о состоянии формы.</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "Устанавливается в true после изменения любого поля.",
     isSubmitted: "Устанавливается в true после отправки формы.",
     touched:

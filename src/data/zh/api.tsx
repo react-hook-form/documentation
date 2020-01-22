@@ -240,7 +240,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "此对象包含有关表单状态的信息。",
+    description: (
+      <>
+        <p>此对象包含有关表单状态的信息。</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: (
       <>
         在用户与任何输入互动后设置为<code>true</code>。

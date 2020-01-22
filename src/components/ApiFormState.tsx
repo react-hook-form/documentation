@@ -41,7 +41,7 @@ export default React.memo(
             formState: <TypeText>Object</TypeText>
           </h2>
         </CodeHeading>
-        <p>{api.formState.description}</p>
+        {api.formState.description}
 
         <TableWrapper>
           <Table>
@@ -112,11 +112,8 @@ export default React.memo(
                     >
                       mode
                     </CodeAsLink>
-                    .
-                  </p>
-                  <p>
-                    Will only update and subscribe on form submission when used
-                    with <code>onSubmit</code>.
+                    . This state is only applicable with <code>onChange</code>{" "}
+                    and <code>onBlur</code> mode.
                   </p>
                 </td>
               </tr>
