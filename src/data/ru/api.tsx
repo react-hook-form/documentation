@@ -768,20 +768,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td />
-          <td>
-            Параметр <code>onBlur</code> позволяет вам изменять возвращаемое
-            значение, <br />
-            <code>например: {`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
