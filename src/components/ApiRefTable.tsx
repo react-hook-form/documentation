@@ -403,12 +403,12 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `{
-        positive: value => parseInt(value) > 0,
-        lessThanTen: value => parseInt(value) < 10
+        positive: value => parseInt(value, 10) > 0,
+        lessThanTen: value => parseInt(value, 10) < 10
       }`
           : `{
-        positive: value => parseInt(value) > 0 || 'should be greater than 0',
-        lessThanTen: value => parseInt(value) < 100 || 'should be greater than 10'
+        positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
+        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10'
       }`
       }
     })
