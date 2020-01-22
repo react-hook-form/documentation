@@ -245,16 +245,16 @@ export default {
         <p>此对象包含有关表单状态的信息。</p>
 
         <p>
-          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <Note>重要信息：</Note>
+          <code>formState</code>与
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
             rel="noopener noreferrer"
           >
             Proxy
-          </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          </a>
+          一起包装以提高渲染性能，因此请使您在渲染前先调用/读取它，以启用状态更新。
         </p>
       </>
     ),
