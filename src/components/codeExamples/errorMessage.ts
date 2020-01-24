@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="singleErrorInput" ref={register({ required: true })} />
+      <input name="singleErrorInput" ref={register({ required: 'This is required.' })} />
       <ErrorMessage errors={errors} name="singleErrorInput" />
       
       <input type="submit" />
