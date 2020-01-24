@@ -464,7 +464,7 @@ function ApiPage({
 })
 
 <input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} /> 
+<input name="lastName" ref={() => register({ name: 'lastName' })} />
 // ❌ above example does not work with "defaultValues" due to its "ref" not being provided
 `}
           />
@@ -794,7 +794,11 @@ function ApiPage({
               apiSectionsRef.current.formStateRef = ref
             }}
           >
-            <ApiFormState currentLanguage={currentLanguage} api={api} />
+            <ApiFormState
+              currentLanguage={currentLanguage}
+              api={api}
+              sectionsRef={apiSectionsRef}
+            />
           </section>
 
           <hr />

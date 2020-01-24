@@ -266,8 +266,26 @@ export default {
   },
   formState: {
     title: "formState",
-    description:
-      "このオブジェクトには、フォームの状態に関する情報が含まれています。",
+    description: (
+      <>
+        <p>
+          このオブジェクトには、フォームの状態に関する情報が含まれています。
+        </p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "ユーザが入力操作した後 true に設定します。",
     isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
     touched: (

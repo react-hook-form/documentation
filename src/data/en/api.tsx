@@ -263,7 +263,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "This object contain information about the form state.",
+    description: (
+      <>
+        <p>This object contain information about the form state.</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
     touched: "An object of all inputs which have been interacted.",

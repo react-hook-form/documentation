@@ -269,7 +269,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "Este objeto contém informação sobre o estado do formulário.",
+    description: (
+      <>
+        <p>Este objeto contém informação sobre o estado do formulário.</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty:
       "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
     isSubmitted:
