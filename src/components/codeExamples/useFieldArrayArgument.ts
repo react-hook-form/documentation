@@ -9,8 +9,10 @@ export default `function Test() {
 
   return (
     {fields.map((field, index) => (
+      {/* important: using id from to track item added or removed */}
       <div key={field.id}>
-        <input name={\`test[\${index}}]\`} ref={register} />
+        {/* register with empty validation make sure pass empty object  */}
+        <input name={\`test[\${index}}]\`} ref={register({})} />
       </div>
     ))}
   );
