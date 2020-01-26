@@ -12,18 +12,18 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 
 export default {
-  title: "Продвинутое использование",
+  title: "Сложные примеры",
   header: {
-    title: "Advanced",
-    description: "Построение сложных и доступных форм с React Hook Form.",
+    title: "Сложные примеры",
+    description: "Стройте сложные и доступные формы с React Hook Form.",
   },
   controlledMixedWithUnControlled: {
-    title: "Controlled mixed with Uncontrolled Components",
+    title: "Управляемые вместе с неуправляемыми компонентами",
     description: (
       <p>
-        React Hook Form embraces uncontrolled components and also compatible
-        with controlled component. Most of UI library is built to support only
-        controlled components, such as{" "}
+        React Hook Form работает с неуправляемыми компонентами, а так же
+        совместим с управляемыми компонентами. Большинство UI библиотем
+        построены на поддержке только управляемых компонентов, таких как{" "}
         <a
           href="https://github.com/mui-org/material-ui"
           target="_blank"
@@ -31,51 +31,51 @@ export default {
         >
           Material-UI
         </a>{" "}
-        and{" "}
+        и{" "}
         <a
           href="https://github.com/ant-design/ant-design"
           target="_blank"
           rel="noopener noreferrer"
         >
           Antd
-        </a>{" "}
-        Besides, with React Hook Form controlled component's re-rendering is
-        also been optimized. Here is an example which we combined with
-        controlled and uncontrolled form validation.
+        </a>
+        . К тому же, с React Hook Form ре-рендеринг управляемых компонентов так
+        же был оптимизирован. Ниже пример где мы комбинируем управляемую и
+        неуправляемую валидацию формы.
       </p>
     ),
   },
   errorMessage: {
-    title: "Error Message",
+    title: "Сообщение об ошибке",
     description: (
       <p>
-        Error messages are visual feedback to our users when there are issues
-        associated with their inputs. In React Hook Form, we provide errors
-        object to let you retrieve errors easily. However, there are several
-        different ways for us to improve render error to the screen.
+        Сообщения об ошибке - это визуальная обратная связь для юзеров,
+        связанная с их вводом. В React Hook Form мы предоставляем объект{" "}
+        <code>errors</code>, чтобы вы легко могли извлечь ошибки при
+        необходимости. Однако есть несколько способов улучшить рендериг ошибок
+        на экран.
       </p>
     ),
     register: (
       <>
-        Embed error message during <code>register</code>, you can easily insert
-        your error message in the <code>value</code> attribute. Eg:
+        Вы можете легко передать сообщение об ошибке в <code>value</code>{" "}
+        атрибут во время регистрации поля ввода. Например:
       </>
     ),
-    component: "Create a ErrorMessage component to help your print out error.",
+    component: "Создайте ErrorMessage компонент чтобы проще выводить ошибки.",
     optionalChaining: (
       <>
         <p>
-          The{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
           >
-            optional chaining
+            Оператор опциональной последовательности
           </a>{" "}
-          operator <code>?.</code> permits reading the <code>errors</code>{" "}
-          object without worrying about causing error due to <code>null</code>{" "}
-          or <code>undefined</code>.
+          <code>?.</code> позволяет читать объект <code>errors</code> без
+          необходимости беспокоиться об обращении к несуществующему свойству с{" "}
+          <code>null</code> или <code>undefined</code>.
         </p>
         <p>
           <code>{`errors?.firstName?.message`}</code>
@@ -84,11 +84,11 @@ export default {
     ),
     get: (
       <p>
-        If your project is using{" "}
+        Если вы используете в проекте{" "}
         <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>
-        , then you can leverage what lodash{" "}
+        , тогда вы можете использовать lodash{" "}
         <code>
           <a
             href="https://lodash.com/docs/4.17.15#get"
@@ -98,7 +98,7 @@ export default {
             get
           </a>
         </code>{" "}
-        function. Eg:
+        функцию. Например:
         <br />
         <br />
         <code>{`get(errors, 'firstName.message')`}</code>
@@ -106,25 +106,25 @@ export default {
     ),
   },
   accessibility: {
-    title: "Accessibility (A11y)",
+    title: "Доступность (A11y)",
     description: (
       <>
         <p>
-          React Hook Form has support for native form validation, which let you
-          validate inputs with your own rules, since most of us have to build
-          forms in a custom design and layout, and it's our responsibility to
-          make sure our forms are accessible (A11y).
+          В React Hook Form есть поддержка нативной валидации, которая позволяет
+          валидировать поля по вашим правилам. Поскольку мы разрабатыеваем формы
+          по уникальным дизайнам и разметкам - важно, чтобы формы были
+          доступными (A11y).
         </p>
 
         <p>
-          The following code example works as intended for validation; however,
-          it can be improved for accessibility.
+          Следующий пример кода работает как задумано, но может быть улучшен для
+          лучшей доступности.
         </p>
 
         <CodeArea rawData={accessibleCodeBase} />
 
         <p>
-          The following code example is an improved version by leveraging{" "}
+          Следующий пример кода улучшен блягодаря{" "}
           <a
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
@@ -137,7 +137,7 @@ export default {
         <CodeArea rawData={accessibleCodeFinal} />
 
         <p>
-          After this improvement, the screen reader will say:{" "}
+          После этих изменений, скринридер скажет:{" "}
           <i>“Name, edit, invalid entry, This is required.”</i>
         </p>
       </>
@@ -148,27 +148,27 @@ export default {
     description: (
       <>
         <p>
-          It's pretty common to collect user information through different pages
-          and sections. We recommend using a state management library to store
-          user input through different pages/section. In this example, we are
-          going to use{" "}
+          Довольно распространенный кейс хранить информацию юзера пока он
+          переходит по разным страницам/секциям. Мы рекомендуем использовать
+          библиотеки управления состоянием, для хранения введенных юзером данных
+          на разных страницах/секциях. В этом примере, мы используем{" "}
           <Link
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
           </Link>{" "}
-          as our state management library (you can replace it with{" "}
+          как библиотеку для управления состоянием (вы можете заменить ее на{" "}
           <Link href="https://github.com/reduxjs/redux" target="_blank">
             redux
           </Link>
-          , if you are more familiar with it).
+          , если более знакомы с ней).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>Step 1:</Note> Set up your routes and store.
+          <Note>Шаг 1:</Note> Настройте страницы и хранилище.
         </p>
         <CodeArea
           rawData={step1}
@@ -176,8 +176,9 @@ export default {
         />
 
         <p>
-          <Note>Step 2:</Note> Create your pages, make them collect their data,
-          submit that data to the store and push to the next page of your form.
+          <Note>Шаг 2:</Note> Создайте страницы, настройте их так, чтобы они
+          агрегировали данные, при клике на "submit" данные записывались в
+          хранилище и передавались на следующую страницу формы.
         </p>
         <CodeArea
           rawData={step2}
@@ -185,8 +186,8 @@ export default {
         />
 
         <p>
-          <Note>Step 3:</Note> Make your final submission with all the data in
-          the store or display the resulting data.
+          <Note>Шаг 3:</Note> Настройте финальное действие со всеми данными из
+          хранилища.
         </p>
         <CodeArea
           rawData={step3}
@@ -194,20 +195,20 @@ export default {
         />
 
         <p>
-          Following the above pattern, you should be able to build a wizard
-          form/funnel to collect user input data from multiple pages.
+          Следуюя шаблону выше, вы сможете построить "wizard form/funnel" для
+          агрегации данных юзера с нескольких страниц.
         </p>
       </>
     ),
   },
   smartForm: {
-    title: "Smart Form Component",
+    title: "Умный компонент Form",
     description: (
       <>
         <p>
-          This idea here is that you can easily compose your form with inputs.
-          We are going to create a <code>Form</code> component to automatically
-          collecting form data.
+          В этом примере показано, как легко вы можете составить композицию
+          формы и полей ввода. Мы создадим <code>Form</code> компонент чтобы
+          автоманически собирать данные.
         </p>
 
         <CodeArea
@@ -217,15 +218,15 @@ export default {
 
         <p style={{ textAlign: "center" }}>♦</p>
 
-        <p>Let's have a look what's in each of those components.</p>
+        <p>Давайте посмотрим что в каждом из этих компонентов.</p>
 
         <CodeHeading>
           <h2>Form</h2>
         </CodeHeading>
 
         <p>
-          The <code>Form</code> component's responsibility is to inject all{" "}
-          <code>react-hook-form</code> methods into the child component.
+          Компонент <code>Form</code> ответственнен за передачу всех методов{" "}
+          <code>react-hook-form</code> дочернему компоненту.
         </p>
 
         <CodeArea
@@ -238,7 +239,7 @@ export default {
         </CodeHeading>
 
         <p>
-          Those input components' responsibility is to registering them into{" "}
+          Эти компоненты отвечают за их регистрацию в{" "}
           <code>react-hook-form</code>.
         </p>
         <CodeArea
@@ -247,10 +248,9 @@ export default {
         />
 
         <p>
-          With the <code>Form</code> component injecting{" "}
-          <code>react-hook-form</code>
-          's <code>props</code> into the child component, you can easily create
-          and compose complex forms in your app.
+          С <code>Form</code> компонентом, передающим{" "}
+          <code>react-hook-form</code> <code>props</code> дочернему компоненту,
+          вы можете легко создать сложные формы в вашем приложении.
         </p>
       </>
     ),
@@ -260,61 +260,61 @@ export default {
     description: (
       <>
         <p>
-          This is one of the best features about React Hook Form: instead of
-          importing components (like other libraries) to achieve this
-          functionality, you can leverage your existing HTML markup. The key is
-          within the <code>name</code> attribute. In React Hook Form, the{" "}
-          <code>name</code> attribute represents the data structure you want to
-          use.
+          Это одна из лучших особенностей React Hook Form: вместо подключения
+          сторонних библиотек, вы можете просто улучшить вашу существующую HTML
+          разметку, чтобы достичь желаемой функциональности. Вся суть в{" "}
+          <code>name</code> атрибуте. В React Hook Form, <code>name</code>{" "}
+          атрибут представляет структуру данных которую вы хотите использовать.
         </p>
 
         <p>
-          The following example demonstrates how you can create Field Arrays by
-          manipulating the input <code>name</code> attribute.
+          Следующий пример демонстрирует как вы можете создать Field Arrays
+          манипулируя <code>name</code> атрибутом на поле ввода.
         </p>
 
         <p>
-          <Note>Note:</Note> if your application requires functionality such as:
-          Delete, Insert, Append, Preprend. Here is the{" "}
+          <Note>Заметка:</Note> если в вашем приложении должна быть следующая
+          функциональность: Delete, Insert, Append, Preprend. Вы можете найти
+          реализацию{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
             rel="noreferrer noopener"
           >
-            link for such implementation.
+            по этой ссылке.
           </a>{" "}
-          with <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          с <PageLink to={"/api#Controller"}>Controller</PageLink>.
         </p>
       </>
     ),
   },
   schema: {
-    title: "Schema Validation",
+    title: "Валидация по схеме",
     description: (
       <>
         <p>
-          React Hook Form supports schema-based form validation with{" "}
+          React Hook Form поддерживает валидацию формы по схеме с{" "}
           <a href="https://github.com/jquense/yup" target="_blank">
             Yup
           </a>
-          , where you can pass your <code>validationSchema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. React Hook
-          Form will validate your input data against the schema and return with
-          either <a href="/api#errors">errors</a> or a valid result.
+          , где вы можете передать <code>validationSchema</code> в{" "}
+          <a href="/api#useForm">useForm</a> как опциональную настройку. React
+          Hook Form будет валидировать ваши поля ввода по схеме и возвращать
+          либо <a href="/api#errors">ошибки</a>, либо валидный результат.
         </p>
       </>
     ),
     step1: (
       <>
         <p>
-          <Note>Step 1:</Note> Install <code>Yup</code> into your project.
+          <Note>Шаг 1:</Note> Установите <code>Yup</code> в проект.
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>Step 2:</Note> Prepare your schema for validation and register
-        inputs with React Hook Form.
+        <Note>Шаг 2:</Note> Настройте схему данных для валидации и
+        зарегистрируйте поля ввода в React Hook Form.
       </p>
     ),
   },
@@ -322,46 +322,46 @@ export default {
     title: "Connect Form",
     description: (
       <p>
-        When we are building forms, there are times when our input lives inside
-        of deeply nested component trees, and that's when{" "}
-        <a href="/api#FormContext">FormContext</a> comes in very handy. However,
-        we can further improve the Developer Experience by creating a{" "}
-        <code>ConnectForm</code> component and leveraging React's{" "}
-        <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit of such a component is you can connect your input with React
-        Hook Form from anywhere.
+        Когда мы строим формы, иногда поля ввода располежены глубоко в дереве
+        компонентов, для таких случаев{" "}
+        <a href="/api#FormContext">FormContext</a> очень полезен. Однако мы
+        можем улучшить опыт разработки созданием <code>ConnectForm</code>{" "}
+        компонента с комбинированием{" "}
+        <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
+        React'a. Плюс такого компонента в том, что вы можете подключать ваши
+        поля ввода к React Hook Form откуда угодно.
       </p>
     ),
   },
   conditionalControlledComponent: {
-    title: "Conditional Controlled Component",
+    title: "Условные управляемые компоненты",
     description: (
       <>
         <p>
-          In terms of conditional field, React Hook Form made that really simple
-          for us, because the moment when you removed the input form the
-          component tree, it will get <code>unregister</code> automatically,{" "}
+          React Hook Form позволяет очень легко работать с условными полями,
+          потому что в момент, когда вы убираете поле ввода из дерева
+          компонентов - оно отпишется автоматически.
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            here is an example
+            вот пример
           </a>{" "}
-          for such behavior. However, that's not the same case for controlled
-          components since <code>ref</code> is not been registered, and we can
-          do the following:
+          для подобного поведения. Однако это не сработает для управляемых
+          компонентов, поскольку они не зарегистрирован с помощью{" "}
+          <code>ref</code>, но мы можем сделать следующее:
         </p>
         <ul>
           <li>
             <p>
-              Import <Link to="/api#Controller">Controller</Link> to wrap your
-              component and let it manage register and unregister
+              Подключить <Link to="/api#Controller">Controller</Link> чтобы
+              обернуть компонент и позволить ему регистрацию и отписку.
             </p>
           </li>
           <li>
             <p>
-              Leverage the use of{" "}
+              Использовать{" "}
               <code>
                 <a
                   href="https://reactjs.org/docs/hooks-effect.html"
@@ -371,32 +371,32 @@ export default {
                   useEffect
                 </a>
               </code>{" "}
-              with custom register
+              с регистрацией.
             </p>
           </li>
         </ul>
-        <p> Here are the examples:</p>
+        <p> Примеры использования:</p>
       </>
     ),
   },
   formContext: {
-    title: "FormContext Performance",
+    title: "FormContext производительность",
     description: (
       <p>
-        React Hook Form's{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+        React Hook Form <PageLink to="/api/#FormContext">FormContext</PageLink>{" "}
+        построен на{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
           rel="noreferrer noopener"
         >
-          React's Context
+          React Context
         </a>{" "}
-        API. It solves the problem where data is passed through the component
-        tree without having to pass props down manually at every level. This
-        also causes the component tree to trigger a re-render when React Hook
-        Form triggers a state update, but we can still can optimise our App if
-        required via the example below.
+        API. Он решает проблему передачи данных по дереву компонентов без
+        необходимости вручную передавать данные на каждом уровне. Это так же
+        является причиной вызова ре-рендера дерева компонентов когда React Hook
+        Form вызывает обновление состояния, но мы можем оптимизировать наше
+        приложение если необходим с помощью примера ниже.
       </p>
     ),
   },
