@@ -130,6 +130,21 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
             {advanced.wizard.title}
           </QuestionTitle>
 
+          <p>
+            In this video tutorial, I have demonstrated the core concept of how
+            to build multiple steps funnel with React Hook Form.
+          </p>
+
+          <iframe
+            width="100%"
+            height="528"
+            title="react hook form persist multiple steps forms (Form Wizard) - video tutorial"
+            src="https://www.youtube.com/embed/CeAkxVwsyMU"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
           {advanced.wizard.description}
 
           <hr />
