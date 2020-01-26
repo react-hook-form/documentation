@@ -840,6 +840,13 @@ export default {
           <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
           컴포넌트의 key 로 전달하는 것을 잊지 마세요.
         </p>
+
+        <p>
+          <Note>중요:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
+        </p>
       </>
     ),
     table: (
