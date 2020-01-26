@@ -269,7 +269,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "Este objeto contém informação sobre o estado do formulário.",
+    description: (
+      <>
+        <p>Este objeto contém informação sobre o estado do formulário.</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty:
       "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
     isSubmitted:
@@ -646,20 +663,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td></td>
-          <td>
-            Este propridade <code>onBlur</code> lhe permite customizar o retorno
-            do valor. <br />
-            <code>ex: {`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
@@ -885,6 +888,13 @@ export default {
         <p>
           <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
           <code>fields</code> object as your component key.
+        </p>
+
+        <p>
+          <Note>Important:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

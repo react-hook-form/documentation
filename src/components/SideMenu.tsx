@@ -146,7 +146,11 @@ function SideMenu({
 
             let linkName = link.startsWith("use") ? `♆ ${link}` : link
 
-            if (/^[A-Z]/.test(link[0]) && !link.includes(" ")) {
+            if (
+              /^[A-Z]/.test(link[0]) &&
+              !link.includes(" ") &&
+              link !== "TypeScript"
+            ) {
               linkName = "❒ " + linkName
             }
 

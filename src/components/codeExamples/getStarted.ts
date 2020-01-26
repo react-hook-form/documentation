@@ -204,7 +204,7 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register({ required: true, maxlength: 20 })} />
+      <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
       <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
       <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
       <input type="submit" />

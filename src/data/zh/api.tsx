@@ -240,7 +240,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "此对象包含有关表单状态的信息。",
+    description: (
+      <>
+        <p>此对象包含有关表单状态的信息。</p>
+
+        <p>
+          <Note>重要信息：</Note>
+          <code>formState</code>与
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>
+          一起包装以提高渲染性能，因此请使您在渲染前先调用/读取它，以启用状态更新。
+        </p>
+      </>
+    ),
     dirty: (
       <>
         在用户与任何输入互动后设置为<code>true</code>。
@@ -604,20 +621,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td></td>
-          <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
@@ -811,13 +814,19 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> 可以通过在<code>userform</code>中的
+          <Note>注意:</Note> 可以通过在<code>userform</code>中的
           <code>defaultValues</code>来填充<code>字段</code>。
         </p>
 
         <p>
           <Note>注意:</Note> 确保您将来自<code>fields</code>对象的
           <code>id</code>分配为组件键。
+        </p>
+
+        <p>
+          <Note>注意:</Note>
+          由于ref回调问题，对于未经验证的注册，请确保将空的对象作作为argument。例如
+          <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

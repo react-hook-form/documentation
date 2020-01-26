@@ -266,8 +266,26 @@ export default {
   },
   formState: {
     title: "formState",
-    description:
-      "このオブジェクトには、フォームの状態に関する情報が含まれています。",
+    description: (
+      <>
+        <p>
+          このオブジェクトには、フォームの状態に関する情報が含まれています。
+        </p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "ユーザが入力操作した後 true に設定します。",
     isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
     touched: (
@@ -639,21 +657,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td></td>
-          <td>
-            この <code>onBlur</code> prop
-            では、戻り値をカスタマイズすることができます。
-            <br />
-            例： <code>{`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
@@ -884,6 +887,13 @@ export default {
           <Note>重要:</Note> <code>fields</code> オブジェクトから{" "}
           <code>id</code> をコンポーネントの <code>key</code>{" "}
           に割り当てていることを確認してください。
+        </p>
+
+        <p>
+          <Note>重要:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

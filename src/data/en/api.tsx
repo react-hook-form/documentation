@@ -263,7 +263,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "This object contain information about the form state.",
+    description: (
+      <>
+        <p>This object contain information about the form state.</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
     touched: "An object of all inputs which have been interacted.",
@@ -564,6 +581,13 @@ export default {
           <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
           <code>fields</code> object as your component key.
         </p>
+
+        <p>
+          <Note>Important:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
+        </p>
       </>
     ),
     table: (
@@ -754,20 +778,6 @@ export default {
             This <code>onChange</code> prop allow you to customise the return
             value. <br />
             <code>eg: {`onChange={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td></td>
-          <td>
-            This <code>onBlur</code> prop allow you to customise the return
-            value. <br />
-            <code>eg: {`onBlur={{(data) => data.value}}`}</code>
           </td>
         </tr>
         <tr>

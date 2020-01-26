@@ -254,7 +254,24 @@ export default {
   },
   formState: {
     title: "formState",
-    description: "폼 상태(form state)에 대한 정보를 포함합니다",
+    description: (
+      <>
+        <p>폼 상태(form state)에 대한 정보를 포함합니다</p>
+
+        <p>
+          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make you have invoke/read it before
+          <code>render</code> in order to enable the state update.
+        </p>
+      </>
+    ),
     dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
     isSubmitted: "사용자가 폼을 제출 한 후 true로 설정하십시오.",
     touched: "상호 작용된 모든 입력의 배열입니다.",
@@ -615,19 +632,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>onBlur</code>
-          </td>
-          <td>
-            <TypeText>(args: any) => any</TypeText>
-          </td>
-          <td />
-          <td>
-            이 <code>onBlur</code> prop 으로 리턴 값을 커스터마이징 할 수
-            있습니다. <code>예: {`onBlur={{(data) => data.value}}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>onChangeName</code>
           </td>
           <td>
@@ -835,6 +839,13 @@ export default {
         <p>
           <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
           컴포넌트의 key 로 전달하는 것을 잊지 마세요.
+        </p>
+
+        <p>
+          <Note>중요:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),
