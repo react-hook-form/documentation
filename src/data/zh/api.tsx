@@ -411,7 +411,16 @@ export default {
   }),
   setError: {
     title: "setError",
-    description: <p>允许您手动设置输入单个和多项错误。</p>,
+    description: (
+      <>
+        <p>允许您手动设置输入单个和多项错误。</p>
+        <p>
+          <Note>注意:</Note> 此方法将不会保留错误并阻止提交动作。适用于在
+          <code>handleSubmit</code>
+          函数中，当您想要在异步验证后向用户提供错误反馈。
+        </p>
+      </>
+    ),
   },
   clearError: {
     title: "clearError",

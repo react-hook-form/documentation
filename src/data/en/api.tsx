@@ -435,7 +435,14 @@ export default {
   setError: {
     title: "setError",
     description: (
-      <p>The function allows you to manually set one or multiple errors.</p>
+      <>
+        <p>The function allows you to manually set one or multiple errors.</p>
+        <p>
+          <Note>Note: </Note>: This method will not persist the error and block
+          the submit action. It's more useful during handleSubmit function when
+          you want to give error feedback to the users after async validation.
+        </p>
+      </>
     ),
   },
   clearError: {
