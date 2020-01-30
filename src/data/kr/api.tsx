@@ -773,6 +773,15 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>message</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>인라인 오류 메시지.</td>
+        </tr>
+        <tr>
+          <td>
             <code>as</code>
           </td>
           <td>

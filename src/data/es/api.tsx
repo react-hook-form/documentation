@@ -784,6 +784,15 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>message</code>
+          </td>
+          <td>
+            <TypeText>string</TypeText>
+          </td>
+          <td>mensaje de error en línea.</td>
+        </tr>
+        <tr>
+          <td>
             <code>as</code>
           </td>
           <td>
