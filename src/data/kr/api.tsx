@@ -862,7 +862,7 @@ export default {
           <Note>중요:</Note> due to ref callback issue, for{" "}
           <code>register</code>
           without any validation, please make sure to pass empty object as
-          payload. eg: <code>{`ref={register({})}`}</code>
+          payload. eg: <code>{`ref={register()}`}</code>
         </p>
       </>
     ),

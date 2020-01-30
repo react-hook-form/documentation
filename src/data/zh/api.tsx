@@ -845,7 +845,7 @@ export default {
         <p>
           <Note>注意:</Note>
           由于ref回调问题，对于未经验证的注册，请确保将空的对象作作为argument。例如
-          <code>{`ref={register({})}`}</code>
+          <code>{`ref={register()}`}</code>
         </p>
       </>
     ),
