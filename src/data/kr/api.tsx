@@ -419,10 +419,17 @@ export default {
   setError: {
     title: "setError",
     description: (
-      <p>
-        이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할 수
-        있습니다.
-      </p>
+      <>
+        <p>
+          이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할
+          수 있습니다.
+        </p>
+        <p>
+          <Note>참고</Note> :이 방법은 오류와 차단을 지속하지 않습니다 제출
+          조치. <code>handleSubmit</code> 함수 중에 더 유용합니다. 비동기 유효성 검사 후
+          사용자에게 오류 피드백을 제공하려고합니다.
+        </p>
+      </>
     ),
   },
   clearError: {
@@ -848,6 +855,13 @@ export default {
         <p>
           <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
           컴포넌트의 key 로 전달하는 것을 잊지 마세요.
+        </p>
+
+        <p>
+          <Note>중요:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

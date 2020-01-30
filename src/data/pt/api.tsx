@@ -444,7 +444,16 @@ export default {
   setError: {
     title: "setError",
     description: (
-      <p>A função permite você de manualmente setar um ou múltiplos erros.</p>
+      <>
+        <p>A função permite você de manualmente setar um ou múltiplos erros.</p>
+
+        <p>
+          <Note>Nota:</Note> este método não persistirá no erro e bloqueará a
+          ação de envio. É mais útil durante a função <code>handleSubmit</code> quando você
+          deseja fornecer feedback de erro aos usuários após a validação
+          assíncrona.
+        </p>
+      </>
     ),
   },
   clearError: {
@@ -897,6 +906,13 @@ export default {
         <p>
           <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
           <code>fields</code> object as your component key.
+        </p>
+
+        <p>
+          <Note>Important:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

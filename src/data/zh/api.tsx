@@ -411,7 +411,16 @@ export default {
   }),
   setError: {
     title: "setError",
-    description: <p>允许您手动设置输入单个和多项错误。</p>,
+    description: (
+      <>
+        <p>允许您手动设置输入单个和多项错误。</p>
+        <p>
+          <Note>注意:</Note> 此方法将不会保留错误并阻止提交动作。适用于在
+          <code>handleSubmit</code>
+          函数中，当您想要在异步验证后向用户提供错误反馈。
+        </p>
+      </>
+    ),
   },
   clearError: {
     title: "clearError",
@@ -823,13 +832,19 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> 可以通过在<code>userform</code>中的
+          <Note>注意:</Note> 可以通过在<code>userform</code>中的
           <code>defaultValues</code>来填充<code>字段</code>。
         </p>
 
         <p>
           <Note>注意:</Note> 确保您将来自<code>fields</code>对象的
           <code>id</code>分配为组件键。
+        </p>
+
+        <p>
+          <Note>注意:</Note>
+          由于ref回调问题，对于未经验证的注册，请确保将空的对象作作为argument。例如
+          <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

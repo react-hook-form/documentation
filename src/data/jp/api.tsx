@@ -440,7 +440,16 @@ export default {
   }),
   setError: {
     title: "setError",
-    description: <p>単一または複数の input のエラーを手動で設定できます。</p>,
+    description: (
+      <>
+        <p>単一または複数の input のエラーを手動で設定できます。</p>
+        <p>
+          <Note>注意: </Note>: このメソッドはエラーを保持せず、ブロックしません
+          送信アクション。これは、<code>handleSubmit</code>関数中に次の場合に便利です。
+          非同期検証後にエラーフィードバックをユーザーに提供する必要があります。
+        </p>
+      </>
+    ),
   },
   clearError: {
     title: "clearError",
@@ -896,6 +905,13 @@ export default {
           <Note>重要:</Note> <code>fields</code> オブジェクトから{" "}
           <code>id</code> をコンポーネントの <code>key</code>{" "}
           に割り当てていることを確認してください。
+        </p>
+
+        <p>
+          <Note>重要:</Note> due to ref callback issue, for{" "}
+          <code>register</code>
+          without any validation, please make sure to pass empty object as
+          payload. eg: <code>{`ref={register({})}`}</code>
         </p>
       </>
     ),

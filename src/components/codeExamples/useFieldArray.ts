@@ -12,7 +12,8 @@ function App() {
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
-            <input name={\`test[\${index}].name\`} ref={register} /> 
+            {/* for empty validation register make sure pass empty object  */}
+            <input name={\`test[\${index}].name\`} ref={register({})} /> 
             <button onClick={() => remove(index)}>Delete</button>
           </li>
         )}
