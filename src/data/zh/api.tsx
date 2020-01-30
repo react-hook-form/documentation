@@ -770,6 +770,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>内联错误消息。</td>
         </tr>
         <tr>

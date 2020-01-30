@@ -449,9 +449,9 @@ export default {
 
         <p>
           <Note>Nota:</Note> este método não persistirá no erro e bloqueará a
-          ação de envio. É mais útil durante a função <code>handleSubmit</code> quando você
-          deseja fornecer feedback de erro aos usuários após a validação
-          assíncrona.
+          ação de envio. É mais útil durante a função <code>handleSubmit</code>{" "}
+          quando você deseja fornecer feedback de erro aos usuários após a
+          validação assíncrona.
         </p>
       </>
     ),
@@ -837,6 +837,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>mensagem de erro em linha.</td>
         </tr>
         <tr>

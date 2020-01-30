@@ -797,6 +797,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>mensaje de error en línea.</td>
         </tr>
         <tr>

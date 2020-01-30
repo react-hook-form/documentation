@@ -426,8 +426,8 @@ export default {
         </p>
         <p>
           <Note>참고</Note> :이 방법은 오류와 차단을 지속하지 않습니다 제출
-          조치. <code>handleSubmit</code> 함수 중에 더 유용합니다. 비동기 유효성 검사 후
-          사용자에게 오류 피드백을 제공하려고합니다.
+          조치. <code>handleSubmit</code> 함수 중에 더 유용합니다. 비동기 유효성
+          검사 후 사용자에게 오류 피드백을 제공하려고합니다.
         </p>
       </>
     ),
@@ -785,6 +785,7 @@ export default {
           <td>
             <TypeText>string</TypeText>
           </td>
+          <td></td>
           <td>인라인 오류 메시지.</td>
         </tr>
         <tr>
