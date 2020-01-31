@@ -46,7 +46,7 @@ Thanks goes to all our backers! [[Become a backer](https://opencollective.com/re
 
 ## Contributors
 
-Thanks goes to these wonderful people. [[Become a contributor](CONTRIBUTING.md)].
+Thanks goes to these wonderful people. [[Become a contributor](https://github.com/react-hook-form/react-hook-form/blob/master/CONTRIBUTING.md)].
 
 <a href="https://github.com/react-hook-form/react-hook-form/graphs/contributors">
     <img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
