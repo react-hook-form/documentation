@@ -18,6 +18,11 @@ import styles from "./HomePage.module.css"
 
 const { useState, useRef, useEffect } = React
 
+const options = {
+  rootMargin: "0px 0px",
+  threshold: [1],
+}
+
 function HomePage({
   location,
   defaultLang,
@@ -57,11 +62,6 @@ function HomePage({
           setFormUpdated(true)
         }
       }, 100)
-    }
-
-    let options = {
-      rootMargin: "0px 0px",
-      threshold: [1],
     }
 
     if (!IntersectionObserver) {
