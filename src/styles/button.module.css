@@ -1,0 +1,60 @@
+.buttonsGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 auto;
+}
+
+.primaryButton {
+  box-sizing: border-box;
+  background: var(--color-primary);
+  border: 1px solid var(--color-blue);
+  border-radius: 4px;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 20px 0;
+  -webkit-appearance: none;
+  line-height: 1;
+  display: inline-block;
+  padding: 16px 10px;
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(5px);
+  }
+}
+
+.primaryButton > span {
+  display: inline-block;
+  animation: moving 0.4s linear infinite;
+  animation-direction: alternate;
+}
+
+.primaryButton:active {
+  background: black;
+}
+
+.primaryButton:hover {
+  border: 1px solid var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .primaryButton {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 40px 0;
+    padding: 15px 30px;
+  }
+
+  .buttonsGroup {
+    grid-column-gap: 30px;
+  }
+}

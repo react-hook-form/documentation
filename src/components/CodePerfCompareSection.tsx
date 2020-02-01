@@ -18,93 +18,7 @@ import formikVideo from "../images/formik-test.mp4"
 import reduxFormVideo from "../images/redux-form-test.mp4"
 import { CenterContent } from "../styles/containers"
 import home from "../data/home"
-
-const ImgSection = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media ${breakpoints.fromMediumScreen} {
-    flex-direction: row;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  & > img {
-    border-radius: 4px;
-    max-width: 100%;
-    margin: 20px 0;
-    box-shadow: 0 0 8px #000000;
-    object-fit: cover;
-
-    @media ${breakpoints.fromMediumScreen} {
-      max-width: 80%;
-      margin: 0 0 40px;
-    }
-  }
-
-  & ul {
-    min-width: 250px;
-    padding-left: 0;
-    margin: 0 15px 0 20px;
-
-    & > li {
-      padding: 2px 0;
-      font-size: 16px;
-      margin-left: 0;
-    }
-  }
-`
-
-const VideoWrapper = styled.section`
-  width: 100%;
-  height: 450px;
-  display: flex;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  margin: 20px 0 40px;
-
-  & > section:first-child {
-    order: 1;
-
-    @media ${breakpoints.fromLargeScreen} {
-      order: 0;
-    }
-  }
-
-  & > section {
-    width: 100%;
-    height: 100%;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    overflow-y: hidden;
-
-    & > video {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    grid-column-gap: 40px;
-    max-width: 1100px;
-    margin: 40px auto;
-    overflow-y: hidden;
-
-    & > section > video {
-      height: 400px;
-      border-radius: 10px;
-
-      @media ${breakpoints.fromLargeScreen} {
-        height: 450px;
-      }
-    }
-  }
-`
+import styles from "./CodePerfCompareSection.module.css"
 
 const props = {
   start: { transform: "translateY(100px)" },
@@ -127,7 +41,7 @@ function CodePerfCompareSection({
         <p>{home.rendering[currentLanguage].description}</p>
       </CenterContent>
 
-      <VideoWrapper>
+      <section className={styles.videoWrapper}>
         <Animate
           {...props}
           sequenceIndex={0}
@@ -172,7 +86,7 @@ function CodePerfCompareSection({
             </section>
           )}
         />
-      </VideoWrapper>
+      </section>
 
       <CenterContent>
         <H1>{home.mount[currentLanguage].title}</H1>
@@ -187,7 +101,7 @@ function CodePerfCompareSection({
       >
         React Hook Form
       </Title>
-      <ImgSection>
+      <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 1</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
@@ -201,10 +115,10 @@ function CodePerfCompareSection({
           height={163}
           alt="React Hook Form performance"
         />
-      </ImgSection>
+      </div>
 
       <Title>Formik</Title>
-      <ImgSection>
+      <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 6</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
@@ -218,10 +132,10 @@ function CodePerfCompareSection({
           placeholder={false}
           alt="Formik performance"
         />
-      </ImgSection>
+      </div>
 
       <Title>Redux Form</Title>
-      <ImgSection>
+      <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 17</li>
           <li>{home.mount[currentLanguage].totalChange}: 2</li>
@@ -235,7 +149,7 @@ function CodePerfCompareSection({
           placeholder={false}
           alt="Redux Form performance"
         />
-      </ImgSection>
+      </div>
 
       <p style={{ marginBottom: 40, textAlign: "center" }}>
         {home.mount[currentLanguage].performanceTests}

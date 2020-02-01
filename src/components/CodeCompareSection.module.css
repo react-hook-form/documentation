@@ -1,0 +1,42 @@
+.gridView {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridView > div:first-child {
+  order: 1;
+}
+
+.fullScreen {
+  background: none;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  font-size: 12px;
+  border-top: none;
+  border-right: none;
+  border-color: var(--color-secondary);
+  border-bottom-left-radius: 4px;
+  display: none;
+}
+
+.fullScreen:hover {
+  background: var(--color-light-pink);
+}
+
+@media (min-width: 1000px) {
+  .gridView {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 40px;
+  }
+
+  .gridView > div:first-child {
+    order: 0;
+  }
+
+  .fullScreen {
+    display: block;
+  }
+}

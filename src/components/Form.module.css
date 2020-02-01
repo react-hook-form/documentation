@@ -1,0 +1,35 @@
+.code {
+  padding: 0 20px;
+  white-space: pre-wrap;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.wrapper {
+  display: grid;
+  min-height: 700px;
+  transition: 1s all;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-column-gap: 40px;
+  max-width: 1440px;
+  margin: 20px auto 0;
+}
+
+.demoForm {
+  flex: 1;
+}
+
+.demoForm > select,
+.demoForm > input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.demoForm > select:not([multiple]) {
+  height: 43px;
+}

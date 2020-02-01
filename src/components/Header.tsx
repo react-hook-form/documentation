@@ -11,7 +11,7 @@ import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
 import styles from "./Header.module.css"
-import buttonStyles from "./codeExamples/button.module.css"
+import buttonStyles from "../styles/button.module.css"
 
 const LogoSvg = (
   <>

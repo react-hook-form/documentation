@@ -1,0 +1,10 @@
+.centerContent {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1024px;
+}
+
+.centerContent p {
+  max-width: 768px;
+  margin: 0 auto 10px;
+}

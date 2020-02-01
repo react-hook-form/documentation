@@ -1,6 +1,5 @@
 import * as React from "react"
-import styled from "styled-components"
-import { Title, H1, Note } from "../styles/typography"
+import { Title, H1 } from "../styles/typography"
 import formikCode from "./codeExamples/formikCode"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import reduxFormCode from "./codeExamples/reduxFormCode"
@@ -9,47 +8,7 @@ import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
-
-const GridView = styled.section`
-  display: flex;
-  flex-direction: column;
-
-  & > div:first-child {
-    order: 1;
-  }
-
-  @media (min-width: 1000px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 40px;
-
-    & > div:first-child {
-      order: 0;
-    }
-  }
-`
-
-const FullScreen = styled.button`
-  background: none;
-  color: white;
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  font-size: 12px;
-  border-top: none;
-  border-right: none;
-  border-color: ${colors.secondary};
-  border-bottom-left-radius: 4px;
-  display: none;
-
-  &:hover {
-    background: ${colors.lightPink};
-  }
-
-  @media (min-width: 1000px) {
-    display: block;
-  }
-`
+import styles from "./CodeCompareSection.module.css"
 
 const props = {
   start: { transform: "translateY(100px)" },
@@ -75,7 +34,8 @@ function CodeCompareSection({
           {home.codeComparison[currentLanguage].description}
         </CenterContent>
 
-        <GridView
+        <section
+          className={styles.gridView}
           style={{
             marginTop: 20,
           }}
@@ -100,9 +60,12 @@ function CodeCompareSection({
                 }}
               >
                 <Title>React Hook Form</Title>
-                <FullScreen onClick={() => setFullScreen(!showFullScreen)}>
+                <button
+                  className={styles.fullScreen}
+                  onClick={() => setFullScreen(!showFullScreen)}
+                >
                   {showFullScreen ? "Show Comparison" : "Full Screen"}
-                </FullScreen>
+                </button>
                 <CodeArea
                   style={{
                     border: `1px solid ${colors.secondary}`,
@@ -120,7 +83,7 @@ function CodeCompareSection({
               <CodeArea rawData={reduxFormCode} withOutCopy />
             </Animate>
           )}
-        </GridView>
+        </section>
       </Section>
     </AnimateGroup>
   )

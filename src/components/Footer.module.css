@@ -1,0 +1,39 @@
+.footer {
+  padding: 40px 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.footer > p {
+  font-size: 13px;
+}
+
+.links {
+  border-bottom: 1px solid var(--color-light-pink);
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 0 0 10px 0;
+  display: block;
+}
+
+.links > li {
+  display: inline-block;
+
+  .links > a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 12px;
+  }
+}
