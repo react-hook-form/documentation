@@ -1,8 +1,8 @@
 :root {
-  --secondary-color: #bf1650;
-  --light-pink: #ec5990;
-  --primary-color: #0e101c;
-  --blue: #1e2a4a;
+  --color-secondary: #bf1650;
+  --color-light-pink: #ec5990;
+  --color-primary: #0e101c;
+  --color-blue: #1e2a4a;
 }
 
 html {
@@ -22,7 +22,7 @@ html {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--light-pink);
+  background: var(--color-light-pink);
 }
 body {
   margin: 0;
@@ -294,7 +294,7 @@ textarea {
 select:hover,
 textarea:hover,
 input:hover {
-  border: 1px solid var(--light-pink);
+  border: 1px solid var(--color-light-pink);
 }
 
 input[type="submit"]:hover {
@@ -376,7 +376,7 @@ table {
   }
 
   pre::-webkit-scrollbar-thumb:hover {
-    background: var(--light-pink);
+    background: var(--color-light-pink);
   }
 }
 
@@ -391,7 +391,7 @@ table {
 }
 
 a.active {
-  background: var(--primary-color);
+  background: var(--color-primary);
   border-bottom: 1.25px solid var(--secondary-color) !important;
 }
 

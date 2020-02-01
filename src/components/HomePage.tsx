@@ -1,6 +1,5 @@
 import * as React from "react"
 import { navigate } from "@reach/router"
-import styled from "styled-components"
 import Form from "./Form"
 import Header from "./Header"
 import CodeCompareSection from "./CodeCompareSection"
@@ -11,22 +10,13 @@ import Builder from "./BuilderPage"
 import { H1 } from "../styles/typography"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
 import { CenterContent } from "../styles/containers"
-import breakpoints from "../styles/breakpoints"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
 import translateLink from "./logic/translateLink"
+import styles from "./HomePage.module.css"
 
 const { useState, useRef, useEffect } = React
-
-const Root = styled.div`
-  padding: 0 20px 50px;
-  position: relative;
-
-  @media ${breakpoints.fromLargeScreen} {
-    padding: 0 50px;
-  }
-`
 
 function HomePage({
   location,
@@ -112,7 +102,7 @@ function HomePage({
   }, [])
 
   return (
-    <Root>
+    <div className={styles.root}>
       {showBuilder && (
         <Builder
           showBuilder
@@ -182,7 +172,7 @@ function HomePage({
       </CenterContent>
 
       <FooterContent currentLanguage={currentLanguage} />
-    </Root>
+    </div>
   )
 }
 

@@ -1,0 +1,138 @@
+.logo {
+  height: 80px;
+  fill: white;
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--color-light-pink);
+  margin: -50px auto 0;
+}
+
+@media (min-width: 320px) {
+  .logo {
+    height: 120px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
+.desktopLogo {
+  display: none;
+  position: relative;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--color-light-pink);
+  top: 10px;
+  margin-right: 10px;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.videoHeading {
+  text-align: center;
+  font-weight: normal;
+  line-height: 2;
+  border-bottom: 2px solid var(--color-secondary);
+  display: block;
+  margin-bottom: 0;
+}
+
+.toggleGroup {
+  text-align: center;
+  display: none;
+}
+
+.toggleGroup > button {
+  width: 155px;
+  color: white;
+  border: 1px solid var(--color-primary);
+  padding: 10px 25px;
+  cursor: pointer;
+  background: var(--color-light-pink);
+}
+
+.toggleGroup > button:hover {
+  background: var(--color-primary);
+}
+
+.toggleGroup > button:first-child {
+  border-right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.toggleGroup > button:disabled {
+  cursor: default;
+  background: black;
+}
+
+.toggleGroup > button:nth-child(2) {
+  border-left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.video {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0px 0 9px 0px #010817;
+  background: var(--color-primary);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.video:hover {
+  border: 1px solid var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .head {
+    height: auto;
+  }
+
+  .videoHeading {
+    display: none;
+  }
+
+  .desktopLogo {
+    fill: white;
+    display: inline-block;
+  }
+
+  .toggleGroup {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .video {
+    width: 700px;
+    height: 400px;
+    margin: 0 auto 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video {
+    width: 800px;
+    height: 480px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .video {
+    width: 980px;
+    height: 600px;
+  }
+}

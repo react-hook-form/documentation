@@ -1,11 +1,9 @@
 import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
-import styled, { css } from "styled-components"
-import { Animate, AnimateGroup, AnimateKeyframes } from "react-simple-animate"
-import colors from "../styles/colors"
+import styled from "styled-components"
+import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
 import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
-import breakpoints from "../styles/breakpoints"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
@@ -13,155 +11,8 @@ import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
-
-const Logo = styled.svg`
-  height: 80px;
-  fill: white;
-  padding: 20px;
-  border-radius: 15px;
-  background: ${colors.lightPink};
-  margin: -50px auto 0;
-
-  @media ${breakpoints.fromXsmallScreen} {
-    height: 120px;
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: none;
-  }
-`
-
-const DesktopLogo = styled.svg`
-  display: none;
-  position: relative;
-  height: 60px;
-  padding: 10px;
-  border-radius: 10px;
-  background: ${colors.lightPink};
-  top: 10px;
-  margin-right: 10px;
-
-  @media ${breakpoints.fromMediumScreen} {
-    fill: white;
-    display: inline-block;
-  }
-`
-
-const ButtonsGroupSmall = styled(ButtonsGroup)`
-  min-width: 300px;
-`
-
-const Head = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-
-  @media ${breakpoints.fromMediumScreen} {
-    height: auto;
-  }
-`
-
-const Video = styled.video`
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-  box-shadow: 0px 0 9px 0px #010817;
-  background: ${colors.primary};
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: 0.3s all;
-  ${props =>
-    props.isLast &&
-    css`
-      margin-bottom: 100px;
-    `}
-
-  &:hover {
-    border: 1px solid ${colors.secondary};
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    width: 700px;
-    height: 400px;
-    margin: 0 auto 20px;
-  }
-
-  @media ${breakpoints.fromLargeScreen} {
-    width: 800px;
-    height: 480px;
-  }
-
-  @media ${breakpoints.fromXlargeScreen} {
-    width: 980px;
-    height: 600px;
-  }
-`
-
-const VideoHeading = styled.h4`
-  text-align: center;
-  font-weight: normal;
-  line-height: 2;
-  border-bottom: 2px solid ${colors.secondary};
-  display: block;
-  margin-bottom: 0;
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: none;
-  }
-`
-
-const ToggleGroup = styled.div`
-  text-align: center;
-  display: none;
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: block;
-    margin-bottom: 50px;
-  }
-
-  & > button {
-    width: 155px;
-    color: white;
-    border: 1px solid ${colors.secondary};
-    padding: 10px 25px;
-    cursor: pointer;
-    background: ${colors.lightPink};
-
-    &:hover {
-      background: ${colors.secondary};
-    }
-
-    &:first-child {
-      border-right: 0;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-    }
-
-    &:disabled {
-      cursor: default;
-      background: black;
-    }
-
-    &:nth-child(2) {
-      border-left: 0;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-    }
-  }
-`
-
-const VideoWrapper = styled.div`
-  @media ${breakpoints.fromMediumScreen} {
-    ${props =>
-      props.show
-        ? css`
-            display: block;
-          `
-        : `display: none`}
-  }
-`
+import styles from "./Header.module.css"
+import buttonStyles from "./codeExamples/button.module.css"
 
 const LogoSvg = (
   <>
@@ -197,7 +48,7 @@ export default function Header({
 
   return (
     <AnimateGroup play>
-      <Head id="main">
+      <header className={styles.head} id="main">
         <Animate
           sequenceIndex={0}
           duration={0.2}
@@ -210,9 +61,9 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <Logo style={style} viewBox="0 0 100 100">
+            <svg className={styles.logo} style={style} viewBox="0 0 100 100">
               {LogoSvg}
-            </Logo>
+            </svg>
           )}
         />
 
@@ -229,8 +80,10 @@ export default function Header({
           easeType="ease-in"
           render={({ style }) => (
             <Heading style={style}>
-              <DesktopLogo viewBox="0 0 100 100">{LogoSvg}</DesktopLogo> React
-              Hook Form
+              <svg className={styles.desktopLogo} viewBox="0 0 100 100">
+                {LogoSvg}
+              </svg>{" "}
+              React Hook Form
             </Heading>
           )}
         />
@@ -263,7 +116,13 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <ButtonsGroupSmall style={style}>
+            <div
+              className={buttonStyles.buttonsGroup}
+              style={{
+                ...style,
+                minWidth: 300,
+              }}
+            >
               <PrimaryButton
                 onClick={() => {
                   // @ts-ignore
@@ -280,13 +139,17 @@ export default function Header({
               >
                 {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
               </PrimaryButton>
-            </ButtonsGroupSmall>
+            </div>
           )}
         />
-      </Head>
+      </header>
 
-      <VideoHeading>React Web</VideoHeading>
-      <VideoWrapper show={isWeb}>
+      <h4 className={styles.videoHeading}>React Web</h4>
+      <div
+        style={{
+          display: isWeb ? "block" : "none",
+        }}
+      >
         <div style={{ position: "relative" }}>
           <Animate
             sequenceIndex={3}
@@ -296,7 +159,8 @@ export default function Header({
             duration={0.4}
             easeType="ease-in"
             render={({ style }) => (
-              <Video
+              <video
+                className={styles.video}
                 id="tabPanel-1"
                 aria-labelledby="tabPanel-1"
                 controls
@@ -305,27 +169,36 @@ export default function Header({
                 style={style}
               >
                 <source src={video} type="video/mp4" />
-              </Video>
+              </video>
             )}
           />
         </div>
-      </VideoWrapper>
+      </div>
 
-      <VideoWrapper show={!isWeb}>
-        <VideoHeading>React Native</VideoHeading>
-        <Video
+      <div
+        style={{
+          display: isWeb ? "none" : "block",
+        }}
+      >
+        <h4 className={styles.videoHeading}>React Native</h4>
+        <video
+          className={styles.video}
           id="tabPanel-2"
           aria-labelledby="tabPanel-2"
           controls
           playsInline
-          isLast
           muted
+          style={{ marginBottom: 100 }}
         >
           <source src={nativeVideo} type="video/mp4" />
-        </Video>
-      </VideoWrapper>
+        </video>
+      </div>
 
-      <ToggleGroup role="tablist" aria-label="Select video">
+      <div
+        className={styles.toggleGroup}
+        role="tablist"
+        aria-label="Select video"
+      >
         <button
           aria-label="show web video"
           aria-selected={isWeb ? "true" : "false"}
@@ -350,7 +223,7 @@ export default function Header({
         >
           React Native
         </button>
-      </ToggleGroup>
+      </div>
     </AnimateGroup>
   )
 }
