@@ -1,65 +1,9 @@
 import * as React from "react"
 import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
-import styled from "styled-components"
 import colors from "../styles/colors"
 import generic from "../data/generic"
-
-const List = styled.li`
-  border: 1px solid ${colors.lightBlue};
-  padding: 14px 14px 14px 50px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  background: ${colors.primary};
-  cursor: move;
-  position: relative;
-  list-style: none;
-
-  & > svg {
-    fill: white;
-    display: inline-block;
-    width: 20px;
-    position: absolute;
-    left: 15px;
-    top: 17px;
-  }
-`
-
-const EditPanel = styled.div`
-  float: right;
-
-  & > button {
-    position: relative;
-    color: white;
-    top: -2px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 1px 8px;
-    background: ${colors.lightBlue};
-    border: 1px solid transparent;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    &:hover {
-      background: ${colors.primary};
-      border: 1px solid ${colors.secondary};
-    }
-  }
-
-  & > button:first-child {
-    margin-right: 14px;
-  }
-`
-
-const SortableWrapper = styled.div`
-  margin-top: 30px;
-
-  & > ul {
-    margin-left: 0;
-    padding-left: 0;
-  }
-`
+import styles from "./SortableContainer.module.css"
 
 export default function SortableContainer({
   updateFormData,
@@ -79,7 +23,7 @@ export default function SortableContainer({
   currentLanguage: string
 }) {
   return (
-    <SortableWrapper>
+    <div className={styles.sortableWrapper}>
       <Sortable
         tag="ul"
         onChange={data => {
@@ -105,7 +49,7 @@ export default function SortableContainer({
               }}
               key={field.name}
               render={({ style }) => (
-                <List style={style} data-id={field.name}>
+                <li className={styles.list} style={style} data-id={field.name}>
                   <svg viewBox="0 0 1024 1280">
                     <circle cx="319.5" cy="155.5" r="104.1" />
                     <path d="M413.6,155.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7     c-25.4-30.3-28.1-75.2-7.6-108.7c20.1-33.1,60.2-51.1,98.3-43.4C381.4,72,413.3,110.8,413.6,155.5c0.1,12.9,20.1,12.9,20,0     c-0.3-47.8-30.4-90.6-75.2-107.3c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6     c52.5-10.6,90.4-58.6,90.8-111.7C433.7,142.6,413.7,142.6,413.6,155.5z" />
@@ -122,7 +66,7 @@ export default function SortableContainer({
                   </svg>
                   {field.name}
 
-                  <EditPanel>
+                  <div className={styles.editPanel}>
                     <button
                       style={{
                         ...(editIndex === index
@@ -174,8 +118,8 @@ export default function SortableContainer({
                     >
                       {generic.delete[currentLanguage]}
                     </button>
-                  </EditPanel>
-                </List>
+                  </div>
+                </li>
               )}
             />
           )
@@ -183,7 +127,7 @@ export default function SortableContainer({
       </Sortable>
 
       {(formData || []).length > 0 && (
-        <EditPanel>
+        <div className={styles.editPanel}>
           <button
             onClick={() => {
               if (
@@ -198,8 +142,8 @@ export default function SortableContainer({
           >
             {generic.deleteAll[currentLanguage]}
           </button>
-        </EditPanel>
+        </div>
       )}
-    </SortableWrapper>
+    </div>
   )
 }

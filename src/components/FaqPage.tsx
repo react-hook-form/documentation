@@ -6,20 +6,21 @@ import {
 } from "../styles/typography"
 import SideMenu from "../components/SideMenu"
 import { Container, Wrapper } from "../styles/containers"
-import CodeArea, { CopyIcon } from "../components/CodeArea"
+import CodeArea from "../components/CodeArea"
 import Footer from "../components/Footer"
 import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
 import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
-import { CopyButton, InstallCode } from "./GetStarted"
 import StarRepo from "../components/StarRepo"
 import faqContent from "../data/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import controlledRHFInput from "./codeExamples/control"
+import codeAreaStyles from "./CodeArea.module.css"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 
@@ -199,20 +200,21 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[9].description}
 
-          <InstallCode>
+          <span className={getStartedStyles.installCode}>
             npm i mutationobserver-shim
-            <CopyButton
+            <button
+              className={codeAreaStyles.copyButton}
               onClick={() => {
                 copyClipBoard("npm i mutationobserver-shim")
                 alert("Code copied into your clipboard.")
               }}
             >
-              <CopyIcon>
+              <span className={codeAreaStyles.copyIcon}>
                 <span />
-              </CopyIcon>{" "}
+              </span>{" "}
               Copy
-            </CopyButton>
-          </InstallCode>
+            </button>
+          </span>
 
           <hr />
 

@@ -14,7 +14,7 @@ import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayAr
 export default {
   title: "API 설명서",
   header: {
-    description: "React Hook Form은 API 단순화를 통해 최고의 DX를 제공합니다.",
+    description: "은 API 단순화를 통해 최고의 DX를 제공합니다.",
   },
   useForm: {
     title: "useForm",

@@ -1,10 +1,10 @@
 import * as React from "react"
-import { navigate } from "@reach/router"
-import { H1 } from "../styles/typography"
-import { PrimaryButton } from "../styles/buttons"
-import { CenterContent } from "../styles/containers"
+import { navigate } from "gatsby"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
+import containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 export default function LearnMore({
   currentLanguage,
@@ -12,18 +12,21 @@ export default function LearnMore({
   currentLanguage: string
 }) {
   return (
-    <CenterContent style={{ marginTop: 40 }}>
-      <H1>{generic.learnMore[currentLanguage].title}</H1>
+    <div className={containerStyles.centerContent} style={{ marginTop: 40 }}>
+      <h1 className={typographyStyles.h1}>
+        {generic.learnMore[currentLanguage].title}
+      </h1>
       <p>{generic.learnMore[currentLanguage].description}</p>
 
-      <PrimaryButton
+      <button
+        className={buttonStyles.primaryButton}
         onClick={() => {
           navigate(translateLink("api", currentLanguage))
         }}
         style={{ margin: "40px auto" }}
       >
         {generic.learnMore[currentLanguage].buttonText}
-      </PrimaryButton>
-    </CenterContent>
+      </button>
+    </div>
   )
 }

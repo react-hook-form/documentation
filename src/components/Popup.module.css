@@ -1,0 +1,52 @@
+.iconStyle,
+.icon,
+.button {
+  border-radius: 50%;
+  border: none;
+  height: 18px;
+  width: 18px;
+  font-size: 15px;
+  display: inline-flex;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.icon {
+  border: 1px solid white;
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.root {
+  font-weight: bold;
+  position: relative;
+}
+
+.root > span {
+
+  font-size: 14px !important;
+  margin-left: 10px;
+  font-weight: 400;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: 5px;
+}
+
+.root > span > span {
+
+  display: inline-block;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--color-light-pink);
+  color: white;
+}

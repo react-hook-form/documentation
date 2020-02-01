@@ -12,7 +12,7 @@ export default {
   title: "API Documentation",
   header: {
     description:
-      "React Hook Form focuses on providing the best DX by simplifying the API.",
+      "focuses on providing the best DX by simplifying the API.",
   },
   useForm: {
     title: "useForm",

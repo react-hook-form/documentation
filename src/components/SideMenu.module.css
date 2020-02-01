@@ -1,0 +1,104 @@
+.menu {
+  display: none;
+  position: relative;
+}
+
+.arrow {
+  position: relative;
+  color: var(--color-light-pink);
+}
+
+.arrowLast:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 43%;
+  border-left: 1px solid #ec5990;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: block;
+  }
+
+  .menu > div {
+    position: fixed;
+    margin-top: -10px;
+  }
+
+  .menu > div > ul {
+    margin-top: 0;
+    max-width: 200px;
+    padding: 0;
+    overflow-y: auto;
+    height: calc(100vh - 236px);
+    overflow-y: auto;
+  }
+
+  .menu > div > ul > li {
+    line-height: 22px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    display: flex;
+  }
+
+  .menu > div > ul > li > a {
+    text-decoration: none;
+    padding-left: 6px;
+    line-height: 20px;
+  }
+
+  .menu > div > ul > li > a,
+  .menu > div > ul > li > button {
+    color: white;
+    transition: 0.3s all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    text-align: left;
+  }
+
+  .menu > div > ul > li > a:hover,
+  .menu > div > ul > li > button:hover {
+    border-bottom: 1px solid var(--color-light-pink);
+  }
+}
+
+.titleList {
+  width: 200px;
+}
+
+.code {
+  color: var(--color-light-pink);
+  position: relative;
+  font-size: 14px;
+  top: -2px;
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    margin-top: -65px;
+  }
+
+  .menu > ul {
+    max-width: 250px;
+    height: calc(100vh - 200px);
+  }
+
+  .titleList {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+
+  .titleList > h2 {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu > ul {
+    max-width: 270px;
+  }
+}

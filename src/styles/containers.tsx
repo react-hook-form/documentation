@@ -23,6 +23,7 @@ export const Container = styled.div`
 
   @media ${breakpoints.fromMediumScreen} {
     padding-top: 0;
+    
   }
 `
 

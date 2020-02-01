@@ -1,100 +1,11 @@
 import * as React from "react"
-import styled from "styled-components"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
 import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
-import colors from "../styles/colors"
-import breakpoints from "../styles/breakpoints"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-
-const commonStyle = `
-  border: none;
-  color: white;
-  border-radius: 4px;
-  font-size: 13px;
-  padding: 0 10px;
-  position: absolute;
-  right: 20px;
-  z-index: 1;
-  top: 10px;
-  box-shadow: 0 0 10px ${colors.black};
-  display: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 34px;
-  align-items: center;
-
-  &:hover {
-    background: ${colors.secondary};
-    color: white;
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    display: flex;
-  }
-`
-
-const CopyButton = styled.button`
-  ${commonStyle};
-  background: ${colors.lightBlue};
-  border: 1px solid transparent;
-
-  &:hover {
-    background: none;
-    border: 1px solid ${colors.secondary};
-    color: white;
-
-    & span {
-      background: ${colors.primary};
-    }
-  }
-`
-
-export const LinkToSandBox = styled.a`
-  ${commonStyle};
-  background: ${colors.lightPink};
-  text-decoration: none;
-  line-height: 2;
-  right: 115px;
-
-  & > svg {
-    display: inline-block;
-    height: 20px;
-    position: relative;
-    margin-right: 8px;
-  }
-`
-
-const Wrapper = styled.div`
-  & pre {
-    line-height: 1.5 !important;
-  }
-`
-
-export const CopyIcon = styled.span`
-  border: 1px solid #fff;
-  border-radius: 2px;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  position: relative;
-  margin-right: 10px;
-  margin-top: -2px;
-
-  & > span {
-    border: 1px solid #fff;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    background: ${colors.lightBlue};
-    border-radius: 2px;
-    width: 14px;
-    height: 14px;
-    display: inline-block;
-  }
-`
+import styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
   url,
@@ -105,7 +16,8 @@ export const CodeSandBoxLink = ({
   style?: any
   isExpo?: boolean
 }) => (
-  <LinkToSandBox
+  <a
+    className={`${styles.button} ${styles.linkToSandBox}`}
     style={style}
     href={url}
     target="_blank"
@@ -122,7 +34,7 @@ export const CodeSandBoxLink = ({
       </svg>
     )}{" "}
     {isExpo ? "Expo" : "CodeSandbox"}
-  </LinkToSandBox>
+  </a>
 )
 
 export default function CodeArea({
@@ -154,23 +66,24 @@ export default function CodeArea({
       }}
     >
       {!withOutCopy && (
-        <CopyButton
+        <button
+          className={`${styles.button} ${styles.copyButton}`}
           onClick={() => {
             copyClipBoard(rawData || generateCode(data))
             alert(generic.copied[currentLanguage])
           }}
           aria-label={generic.copied[currentLanguage]}
         >
-          <CopyIcon>
+          <span className={styles.copyIcon}>
             <span />
-          </CopyIcon>{" "}
+          </span>{" "}
           {generic.copy[currentLanguage]}
-        </CopyButton>
+        </button>
       )}
 
       {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
 
-      <Wrapper>
+      <div className={styles.wrapper}>
         <SyntaxHighlighter
           customStyle={{
             border: "none",
@@ -181,7 +94,7 @@ export default function CodeArea({
         >
           {rawData || generateCode(data)}
         </SyntaxHighlighter>
-      </Wrapper>
+      </div>
     </section>
   )
 }

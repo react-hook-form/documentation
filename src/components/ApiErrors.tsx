@@ -2,10 +2,10 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import { CodeHeading, Table, TableWrapper } from "./ApiPage"
-import { TypeText } from "../styles/typography"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
+import typographyStyles from "../styles/typography.module.css"
 
 export default React.memo(
   ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
@@ -13,7 +13,10 @@ export default React.memo(
       <>
         <CodeHeading>
           <h2>
-            errors: <TypeText>{`Record<string, Object>`}</TypeText>
+            errors:{" "}
+            <span
+              className={typographyStyles.typeText}
+            >{`Record<string, Object>`}</span>
           </h2>
         </CodeHeading>
 
@@ -38,7 +41,7 @@ export default React.memo(
                   <code>type</code>
                 </td>
                 <td>
-                  <TypeText>string</TypeText>
+                  <span className={typographyStyles.typeText}>string</span>
                 </td>
                 <td>
                   Error {generic.type[currentLanguage]}. eg: required, min, max,
@@ -50,7 +53,9 @@ export default React.memo(
                   <code>types</code>
                 </td>
                 <td>
-                  <TypeText>{`Record<{ string, string | boolean }>`}</TypeText>
+                  <span
+                    className={typographyStyles.typeText}
+                  >{`Record<{ string, string | boolean }>`}</span>
                 </td>
                 <td>{api.errors.types}</td>
               </tr>
@@ -59,7 +64,7 @@ export default React.memo(
                   <code>message</code>
                 </td>
                 <td>
-                  <TypeText>string</TypeText>
+                  <span className={typographyStyles.typeText}>string</span>
                 </td>
                 <td>{api.errors.message}</td>
               </tr>
@@ -68,7 +73,9 @@ export default React.memo(
                   <code>ref</code>
                 </td>
                 <td>
-                  <TypeText>React.RefObject</TypeText>
+                  <span className={typographyStyles.typeText}>
+                    React.RefObject
+                  </span>
                 </td>
                 <td>{api.errors.ref}</td>
               </tr>

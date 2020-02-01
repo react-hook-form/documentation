@@ -1,58 +1,11 @@
 import * as React from "react"
-import styled from "styled-components"
 import { HeadingWithTopMargin, SubHeading, Title } from "../styles/typography"
 import Footer from "./Footer"
-import { Container } from "../styles/containers"
-import breakpoints from "../styles/breakpoints"
-import colors from "../styles/colors"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import generic from "../data/generic"
-
-const Root = styled.div`
-  margin: 0 20px 40px;
-  padding-bottom: 40px;
-`
-
-const ContentList = styled.ul`
-  list-style: none;
-  padding: 0;
-  width: 100%;
-
-  @media ${breakpoints.fromLargeScreen} {
-    display: grid;
-    max-width: 1280px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px;
-    margin: 0 auto;
-  }
-`
-
-const Article = styled.article`
-  margin-bottom: 30px;
-
-  & img {
-    object-fit: contain;
-    height: 100px;
-    width: 100%;
-    border: 1px solid ${colors.lightBlue};
-    border-radius: 4px;
-  }
-
-  & > a {
-    text-decoration: none;
-    color: white;
-  }
-
-  h3 {
-    margin: 5px 0;
-    font-size: 18px;
-  }
-
-  p {
-    margin: 5px 0;
-  }
-`
+import styles from "./ResourcePage.module.css"
+import containerStyle from "../styles/container.module.css"
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const {
@@ -64,8 +17,8 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
 
   return (
-    <Container>
-      <Root>
+    <div className={containerStyle.container}>
+      <main className={styles.root}>
         <HeadingWithTopMargin id="main">
           {nav[currentLanguage].resources}
         </HeadingWithTopMargin>
@@ -76,9 +29,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
 
         <Title>{generic.blog[currentLanguage]}</Title>
 
-        <ContentList>
+        <ul className={styles.contentList}>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://blog.logrocket.com/react-hook-form-vs-formik-a-technical-and-performance-comparison/"
                 target="_blank"
@@ -99,10 +52,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Siegfried Grimbeek
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://itnext.io/is-react-hook-form-the-future-57c6f94a2665"
                 target="_blank"
@@ -120,10 +73,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Gapur Kassym
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://medium.com/@angular_evan/yup-you-should-use-react-hook-form-9864d8bc80ef"
                 target="_blank"
@@ -141,10 +94,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Evan Williams
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://medium.com/better-programming/build-the-next-generation-of-forms-with-react-hooks-forms-b4f2039e51c1"
                 target="_blank"
@@ -164,10 +117,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Riccardo Giorato
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://nordschool.com/react-hook-form/"
                 target="_blank"
@@ -185,10 +138,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Ahmed Mansour
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://cloud.tencent.com/developer/article/1520536"
                 target="_blank"
@@ -206,10 +159,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   我已经洗完澡了
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://medium.com/the-existing/%E0%B8%97%E0%B8%B3-multi-step-forms-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-react-hook-form-%E0%B9%81%E0%B8%A5%E0%B8%B0-usecontext-b3c2137836e2"
                 target="_blank"
@@ -227,10 +180,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Jidapa Pattanang
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://velog.io/@iamchanii/react-hooks-form-%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4-54k0rrj6m7"
                 target="_blank"
@@ -248,10 +201,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   이찬희
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://blog.logrocket.com/popular-react-hook-libraries/"
                 target="_blank"
@@ -269,10 +222,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Raphael Ugwu
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://dev.to/bluebill1049/form-validation-with-hook-in-3kb-3d0l"
                 target="_blank"
@@ -290,10 +243,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Bill Luo
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://dev.to/bluebill1049/uncontrolled-form-for-react-2b3n"
                 target="_blank"
@@ -311,11 +264,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Bill Luo
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
 
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://qiita.com/yhosok/items/7dd1963ee7138ec0642f"
                 target="_blank"
@@ -333,11 +286,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Yasunori Hosokawa
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
 
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://qiita.com/seira/items/63c801a9ed2d1b9eb401"
                 target="_blank"
@@ -355,11 +308,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   seira
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
 
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://qiita.com/akihiro_FE/items/b2295e6b98e8e8c881ed"
                 target="_blank"
@@ -377,15 +330,15 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   akihiro_FE
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
-        </ContentList>
+        </ul>
 
         <Title>{generic.newsletter[currentLanguage]}</Title>
 
-        <ContentList>
+        <ul className={styles.contentList}>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://zerotomastery.io/blog/web-developer-monthly-october-2019/"
                 target="_blank"
@@ -398,10 +351,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   alternatives. Really neat!
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://react.statuscode.com/issues/159"
                 target="_blank"
@@ -414,10 +367,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   comparisons with similar libraries. GitHub repo.
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://javascriptweekly.com/issues/458"
                 target="_blank"
@@ -429,10 +382,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   validation.
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="http://reactjsnewsletter.com/issues/179#start"
                 target="_blank"
@@ -445,10 +398,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   comparisons with similar libraries. GitHub repo.
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://us15.campaign-archive.com/?u=b015626aa6028495fe77c75ea&id=df27ee2eff"
                 target="_blank"
@@ -460,10 +413,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Native!) forms library with easy to use for validation.
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://syndicode.com/2019/10/30/monthly-most-popular-js-repositories-evolve-and-prosper/"
                 target="_blank"
@@ -476,10 +429,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   validation.
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="http://ruanyifeng.com/blog/2019/11/weekly-issue-82.html"
                 target="_blank"
@@ -492,14 +445,14 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   也很高，也许以后可以摆脱那些笨重的表单组件了。
                 </p>
               </a>
-            </Article>
+            </article>
           </li>
-        </ContentList>
+        </ul>
 
         <Title>{generic.video[currentLanguage]}</Title>
-        <ContentList>
+        <ul className={styles.contentList}>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://www.youtube.com/watch?v=-mFXqOaqgZk"
                 target="_blank"
@@ -520,10 +473,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 In this video tutorial, I am demonstrating how you can use
                 react-hook-form to easily validate your forms.
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s"
                 target="_blank"
@@ -545,10 +498,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 Right now the best way to create forms in React is to use React
                 Form Hook library.
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://dev.to/bettercodingacademy/i-m-a-professional-react-developer-and-here-s-how-i-build-a-production-ready-react-node-js-app-using-typescript-and-graphql-ga8"
                 target="_blank"
@@ -568,10 +521,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Lucas Chen
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
           <li>
-            <Article>
+            <article className={styles.article}>
               <a
                 href="https://www.youtube.com/watch?v=lHclVxcborY"
                 target="_blank"
@@ -591,12 +544,12 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   Better Coding Academy
                 </a>
               </p>
-            </Article>
+            </article>
           </li>
-        </ContentList>
+        </ul>
 
         <Footer currentLanguage={currentLanguage} />
-      </Root>
-    </Container>
+      </main>
+    </div>
   )
 }

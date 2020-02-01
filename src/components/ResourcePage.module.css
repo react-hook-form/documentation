@@ -1,0 +1,46 @@
+.root {
+  margin: 0 20px 40px;
+  padding-bottom: 40px;
+}
+
+.contentList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.article {
+  margin-bottom: 30px;
+}
+
+.article img {
+  object-fit: contain;
+  height: 100px;
+  width: 100%;
+  border: 1px solid var(--color-light-blue);
+  border-radius: 4px;
+}
+
+.article > a {
+  text-decoration: none;
+  color: white;
+}
+
+.article h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.article p {
+  margin: 5px 0;
+}
+
+@media (min-width: 768px) {
+  .contentList {
+    display: grid;
+    max-width: 1280px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin: 0 auto;
+  }
+}

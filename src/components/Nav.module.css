@@ -1,0 +1,180 @@
+.iconGroup {
+  position: absolute;
+  display: flex;
+  left: 10px;
+  top: 15px;
+  width: 110px;
+}
+
+.icon {
+  transition: 0.3s all;
+  z-index: 10;
+  max-width: 50px;
+  flex: 1;
+}
+
+.icon svg {
+  height: 28px;
+  fill: white;
+}
+
+.icon svg:hover {
+  opacity: 0.5;
+}
+
+.actionButtonGroup {
+  display: flex;
+  bottom: 0;
+  z-index: 5;
+  left: 0;
+  background: var(--color-blue);
+  box-shadow: 0 0 5px 0 #000;
+  width: 100%;
+  position: fixed;
+  height: 43px;
+}
+
+.actionButtonGroup > a {
+  flex: 1;
+  font-size: 0.5rem;
+  border-left: 1px solid var(--color-button-blue);
+  padding: 5px 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  min-width: 40px;
+}
+
+.actionButtonGroup > a:first-child {
+  border-left: 0;
+}
+
+.actionButtonGroup > a:hover {
+  color: var(--color-light-pink);
+}
+
+.actionButtonGroup > a > span {
+  display: block;
+  height: 20px;
+}
+
+.gitHubButtonWrap {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 1;
+}
+
+.gitHubButtonWrap > span > span {
+  display: flex;
+}
+
+.iconWrapper {
+  height: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.langSelect {
+  position: absolute;
+  right: calc(100% - 50% - 45px);
+  z-index: 5;
+  top: 0;
+  min-width: 90px;
+}
+
+.langSelect > select {
+  width: 100%;
+  margin-top: 15px;
+  line-height: 20px;
+  min-height: 28px;
+  font-size: 14px;
+  display: block;
+  background: none;
+  appearance: none;
+  color: white;
+  border: 1px solid var(--color-light-blue);
+  text-align: center;
+  border-radius: 3px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.langSelect > select:hover {
+  border: 1px solid var(--color-secondary);
+}
+
+.langSelect > select > option {
+  color: black;
+}
+
+.langSelect:after {
+  content: "▼";
+  font-size: 10px;
+  right: 5px;
+  top: 16px;
+  position: absolute;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .gitHubButtonWrap {
+    right: 110px;
+  }
+
+  .langSelect {
+    right: 10px;
+  }
+
+  .langSelect:after {
+    right: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .iconWrapper {
+    display: none;
+  }
+
+  .iconGroup {
+    left: 20px;
+    width: 160px;
+  }
+
+  .actionButtonGroup {
+    z-index: 1;
+    justify-content: space-around;
+    position: inherit;
+    background: none;
+    border: none;
+    margin: 0 auto;
+    background: var(--color-button-blue);
+    height: auto;
+    max-width: 580px;
+    padding: 13px 10px;
+  }
+
+  .actionButtonGroup > a {
+    font-size: 0.8rem;
+    flex: none;
+    border: none;
+    padding: 2px 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gitHubButtonWrap {
+    right: 140px;
+  }
+
+  .actionButtonGroup {
+    max-width: 700px;
+  }
+
+  .langSelect {
+    right: 20px;
+    min-width: 100px;
+  }
+}

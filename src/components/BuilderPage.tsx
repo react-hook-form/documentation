@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
 import useForm from "react-hook-form"
-import styled from "styled-components"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
 import { navigate } from "@reach/router"
@@ -23,6 +22,7 @@ import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
+import styles from "./BuilderPage.module.css"
 
 const { useState, useRef, useEffect } = React
 
@@ -37,127 +37,6 @@ const errorStyle = {
   border: `1px solid ${colors.secondary}`,
   background: colors.errorPink,
 }
-
-const Root = styled.main`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 4;
-  color: white;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-`
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-column-gap: 60px;
-  overflow: hidden;
-  margin-bottom: 100px;
-  padding: 0 20px 100px 20px;
-  color: white;
-
-  & > section:first-child {
-    margin-top: 50px;
-    order: 3;
-  }
-
-  & > form:nth-child(2) {
-    order: 1;
-  }
-
-  & > section:nth-child(3) {
-    order: 2;
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    & > section:first-child {
-      margin-top: 0;
-      order: 1;
-    }
-
-    & > form:nth-child(2) {
-      order: 2;
-    }
-
-    & > section:nth-child(3) {
-      order: 3;
-    }
-  }
-`
-
-const Form = styled.form`
-  & select,
-  & input {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 4px;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-
-    &:hover {
-      border: 1px solid ${colors.lightPink};
-    }
-  }
-
-  & select:not([multiple]) {
-    height: 40px;
-  }
-
-  & input.form-error {
-    border: 1px solid #bf1650;
-  }
-
-  & input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-    margin-right: 10px;
-  }
-
-  & label {
-    line-height: 2;
-    text-align: left;
-    display: block;
-    margin-bottom: 13px;
-    margin-top: 20px;
-  }
-
-  & fieldset {
-    border: 1px solid ${colors.lightBlue};
-    border-radius: 4px;
-  }
-`
-
-const CloseButton = styled.button`
-  font-size: 25px;
-  position: absolute;
-  cursor: pointer;
-  z-index: 5;
-  border-radius: 8px;
-  color: white;
-  top: 20px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  background: ${colors.primary};
-  border: 1px solid white;
-
-  &:hover {
-    border: 1px solid ${colors.secondary};
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-`
 
 const defaultValue = {
   max: undefined,
@@ -261,7 +140,7 @@ function BuilderPage({
       </HeadingWithTopMargin>
       <SubHeading>{builder.builder[currentLanguage].description}</SubHeading>
 
-      <Wrapper>
+      <div className={styles.wrapper}>
         <section>
           <Title>{builder.layout[currentLanguage].title}</Title>
 
@@ -284,7 +163,7 @@ function BuilderPage({
           />
         </section>
 
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <Title ref={form}>
             {builder.inputCreator[currentLanguage].title}
           </Title>
@@ -495,7 +374,7 @@ function BuilderPage({
               </DarkButton>
             )}
           />
-        </Form>
+        </form>
 
         <section
           style={{
@@ -512,7 +391,7 @@ function BuilderPage({
 
           <CodeArea data={formData} />
         </section>
-      </Wrapper>
+      </div>
 
       <div style={{ margin: "0 20px" }}>
         <LearnMore currentLanguage={currentLanguage} />
@@ -536,7 +415,7 @@ function BuilderPage({
         transform: "translateY(0)",
       }}
       render={({ style }) => (
-        <Root style={style}>
+        <main className={styles.root} style={style}>
           <div
             id="builder"
             style={{
@@ -545,7 +424,8 @@ function BuilderPage({
               background: colors.primary,
             }}
           >
-            <CloseButton
+            <button
+              className={styles.closeButton}
               aria-label="close builder"
               ref={closeButton}
               onClick={() => {
@@ -554,11 +434,11 @@ function BuilderPage({
               }}
             >
               &#10005;
-            </CloseButton>
+            </button>
 
             {child}
           </div>
-        </Root>
+        </main>
       )}
     />
   )

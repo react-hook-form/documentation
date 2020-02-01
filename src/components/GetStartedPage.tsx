@@ -1,9 +1,7 @@
 import * as React from "react"
-import { HeadingWithTopMargin, SubHeading, Title } from "../styles/typography"
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
 import CodeArea from "../components/CodeArea"
-import { Container, Wrapper } from "../styles/containers"
 import {
   registerCode,
   migrateCode,
@@ -21,8 +19,10 @@ import TabGroup from "./TabGroup"
 import reactNative from "./codeExamples/reactNative"
 import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
 import typeScript from "./codeExamples/typeScript"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
-const { useRef } = React
+const { useRef, useEffect } = React
 const getStartedEn = getStartedContent["en"]
 const enLinks = [
   getStartedEn.install,
@@ -104,19 +104,21 @@ const Faq = ({
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (location.hash)
       setTimeout(() => goToSection(location.hash.substr(1)), 10)
   }, [])
 
   return (
-    <Container>
-      <HeadingWithTopMargin id="main">
+    <div className={containerStyles.container}>
+      <h1 className={typographyStyles.heading} id="main">
         {getStarted.header.title}
-      </HeadingWithTopMargin>
-      <SubHeading>{getStarted.header.description}</SubHeading>
+      </h1>
+      <p className={typographyStyles.subHeading}>
+        {getStarted.header.description}
+      </p>
 
-      <Wrapper>
+      <div className={containerStyles.wrapper}>
         <SideMenu
           enLinks={enLinks}
           isStatic
@@ -156,49 +158,53 @@ const Faq = ({
             allowFullScreen
           />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.registerfields = ref
             }}
           >
             {getStarted.register.title}
-          </Title>
+          </h2>
 
           {getStarted.register.description}
 
           <CodeArea rawData={registerCode} />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.applyvalidation = ref
             }}
           >
             {getStarted.applyValidation.title}
-          </Title>
+          </h2>
 
           {getStarted.applyValidation.description(currentLanguage)}
 
           <CodeArea rawData={applyValidation} />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.adaptingexistingform = ref
             }}
           >
             {getStarted.adapting.title}
-          </Title>
+          </h2>
 
           {getStarted.adapting.description}
 
           <CodeArea rawData={migrateCode} />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.workwithuilibrary = ref
             }}
           >
             {getStarted.workWithUI.title}
-          </Title>
+          </h2>
 
           {getStarted.workWithUI.description(currentLanguage)}
 
@@ -207,13 +213,14 @@ const Faq = ({
             url="https://codesandbox.io/s/72j69vnk1x"
           />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.controlledinput = ref
             }}
           >
             {getStarted.controlledInput.title}
-          </Title>
+          </h2>
 
           {getStarted.controlledInput.description}
 
@@ -222,37 +229,40 @@ const Faq = ({
             url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
           />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.integrateglobalstate = ref
             }}
           >
             {getStarted.globalState.title}
-          </Title>
+          </h2>
 
           {getStarted.globalState.description}
 
           <CodeArea rawData={globalState} />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.handleerrors = ref
             }}
           >
             {getStarted.errors.title}
-          </Title>
+          </h2>
 
           {getStarted.errors.description}
 
           <CodeArea rawData={errors} />
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.reactnative = ref
             }}
           >
             React Native
-          </Title>
+          </h2>
 
           {getStarted.reactNative.description}
 
@@ -269,13 +279,14 @@ const Faq = ({
             />
           </TabGroup>
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             ref={ref => {
               sectionsRef.current.typescript = ref
             }}
           >
             TypeScript
-          </Title>
+          </h2>
 
           {getStarted.typeScript.description}
 
@@ -288,8 +299,8 @@ const Faq = ({
 
           <Footer currentLanguage={currentLanguage} />
         </main>
-      </Wrapper>
-    </Container>
+      </div>
+    </div>
   )
 }
 

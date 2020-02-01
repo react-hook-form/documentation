@@ -30,10 +30,10 @@
 
 .links > li {
   display: inline-block;
+}
 
-  .links > a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 12px;
-  }
+.links > li > a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 12px;
 }

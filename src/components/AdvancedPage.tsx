@@ -11,7 +11,6 @@ import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
 import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
 import copyClipBoard from "./utils/copyClipBoard"
-import { CopyButton, InstallCode } from "./GetStarted"
 import schemaValidation from "./codeExamples/schemaValidation"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
@@ -24,6 +23,8 @@ import TabGroup from "./TabGroup"
 import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
 import useFieldArray from "./codeExamples/useFieldArray"
+import codeAreaStyles from "./CodeArea.module.css"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -190,17 +191,18 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           {advanced.schema.step1}
 
-          <InstallCode>
+          <span className={getStartedStyles.copyButton}>
             npm install yup
-            <CopyButton
+            <button
+              className={codeAreaStyles.copyButton}
               onClick={() => {
                 copyClipBoard("npm install yup")
                 alert("Code copied into your clipboard.")
               }}
             >
               {generic.copy[currentLanguage]}
-            </CopyButton>
-          </InstallCode>
+            </button>
+          </span>
 
           {advanced.schema.step2}
 

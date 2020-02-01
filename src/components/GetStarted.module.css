@@ -1,0 +1,36 @@
+.installCode {
+  background: var(--color-button-blue) !important;
+  padding: 13px 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  display: block;
+}
+
+.copyButton {
+  display: none;
+  background: var(--color-light-blue);
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  float: right;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  margin-top: -2px;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  background: none;
+  border: 1px solid var(--color-primary);
+  color: white;
+}
+
+.copyButton:hover span {
+  background: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .copyButton {
+    display: inline-block;
+  }
+}

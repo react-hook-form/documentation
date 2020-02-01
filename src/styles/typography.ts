@@ -38,7 +38,7 @@ export const Heading = styled.h1`
   }
 `
 
-const commonStyle = `
+export const H1 = styled.h1`
   font-size: 24px;
   display: inline-block;
   margin: 40px auto;
@@ -49,10 +49,6 @@ const commonStyle = `
   @media ${breakpoints.fromMediumScreen} {
     font-size: 36px;
   }
-`
-
-export const H1 = styled.h1`
-  ${commonStyle}
 `
 
 export const QuestionTitle = styled.h2`

@@ -1,10 +1,39 @@
+.container {
+  padding-top: 45px;
+}
+
 .centerContent {
   margin: 0 auto;
   text-align: center;
   max-width: 1024px;
 }
 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 15px 100px 20px;
+}
+
 .centerContent p {
   max-width: 768px;
   margin: 0 auto 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-top: 0;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
 }

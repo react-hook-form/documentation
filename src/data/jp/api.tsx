@@ -13,7 +13,7 @@ export default {
   title: "API ドキュメント",
   header: {
     description:
-      "React Hook Form は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
+      "は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
   },
   useForm: {
     title: "useForm",

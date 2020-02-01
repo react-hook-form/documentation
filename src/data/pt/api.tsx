@@ -15,7 +15,7 @@ export default {
   title: "API Documentação",
   header: {
     description:
-      "React Hook Form foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
+      "foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
   },
   useForm: {
     title: "useForm",

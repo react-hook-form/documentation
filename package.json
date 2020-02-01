@@ -1,6 +1,5 @@
 {
   "name": "react-hook-form-website",
-  "private": true,
   "description": "React hooks for form validation without the hassle.",
   "version": "3.0.0",
   "author": "beier luo",

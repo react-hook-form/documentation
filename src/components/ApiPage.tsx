@@ -312,7 +312,7 @@ function ApiPage({
           </select>
         </QuickSelect>
       </HiddenMenu>
-      <SubHeading>{api.header.description[currentLanguage]}</SubHeading>
+      <SubHeading>{api.header.description}</SubHeading>
 
       <Wrapper>
         <SideMenu
