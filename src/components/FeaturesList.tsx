@@ -1,75 +1,9 @@
-import styled from "styled-components"
 import * as React from "react"
 import { Title } from "../styles/typography"
-import breakpoints from "../styles/breakpoints"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
-
-const FeaturesContent = styled.div`
-  text-align: center;
-
-  & h3 {
-    font-weight: 300;
-    font-size: 20px;
-    margin-top: 10px;
-  }
-
-  & svg {
-    fill: white;
-    width: 50px;
-    display: block;
-    margin: 0 auto;
-    height: 60px;
-  }
-
-  & > article {
-    padding-bottom: 30px;
-
-    @media ${breakpoints.fromXlargeScreen} {
-      padding-bottom: 0;
-    }
-  }
-
-  & > article > div {
-    transform: scale(0);
-  }
-
-  @media ${breakpoints.fromMediumScreen} {
-    & h3 {
-      font-size: 22px;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 30px;
-    max-width: 1024px;
-    margin: 20px auto 30px;
-  }
-
-  @media ${breakpoints.fromXlargeScreen} {
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 40px;
-    max-width: 1200px;
-  }
-`
-
-const Features = styled.div`
-  margin-top: -60px;
-
-  @media ${breakpoints.fromMediumScreen} {
-    margin-top: 60px;
-  }
-
-  & > h2 {
-    margin-bottom: 30px;
-
-    @media ${breakpoints.fromMediumScreen} {
-      max-width: 450px;
-      margin: 0 auto 20px;
-    }
-  }
-`
+import styles from "./FeatureList.module.css"
 
 const props = {
   keyframes: [
@@ -90,11 +24,11 @@ function FeaturesList({
   currentLanguage: string
 }) {
   return (
-    <Features>
+    <div className={styles.features}>
       <Title>{generic.features[currentLanguage]}</Title>
 
       <AnimateGroup play={isPlayFeature}>
-        <FeaturesContent>
+        <div className={styles.featuresContent}>
           <article id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <div
@@ -179,9 +113,9 @@ function FeaturesList({
             <h3>{home.features[currentLanguage][4].title}</h3>
             <p>{home.features[currentLanguage][4].description}</p>
           </article>
-        </FeaturesContent>
+        </div>
       </AnimateGroup>
-    </Features>
+    </div>
   )
 }
 

@@ -7,18 +7,6 @@
   margin: -50px auto 0;
 }
 
-@media (min-width: 320px) {
-  .logo {
-    height: 120px;
-  }
-}
-
-@media (min-width: 768px) {
-  .logo {
-    display: none;
-  }
-}
-
 .desktopLogo {
   display: none;
   position: relative;
@@ -97,7 +85,25 @@
   border: 1px solid var(--color-secondary);
 }
 
+.videoWrapperShow {
+  margin-bottom: 100px;
+}
+
+.videoWrapperHide {
+  margin-bottom: 100px;
+}
+
+@media (min-width: 320px) {
+  .logo {
+    height: 120px;
+  }
+}
+
 @media (min-width: 768px) {
+  .logo {
+    display: none;
+  }
+
   .head {
     height: auto;
   }
@@ -120,6 +126,16 @@
     width: 700px;
     height: 400px;
     margin: 0 auto 20px;
+  }
+
+  .videoWrapperShow {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .videoWrapperHide {
+    display: none;
+    margin-bottom: 0;
   }
 }
 

@@ -1,9 +1,8 @@
 import * as React from "react"
 import { Heading, SubHeading } from "../styles/typography"
-import styled from "styled-components"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
-import { ButtonsGroup, PrimaryButton } from "../styles/buttons"
+import { PrimaryButton } from "../styles/buttons"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
@@ -146,9 +145,7 @@ export default function Header({
 
       <h4 className={styles.videoHeading}>React Web</h4>
       <div
-        style={{
-          display: isWeb ? "block" : "none",
-        }}
+        className={isWeb ? styles.videoWrapperShow : styles.videoWrapperHide}
       >
         <div style={{ position: "relative" }}>
           <Animate
@@ -176,9 +173,7 @@ export default function Header({
       </div>
 
       <div
-        style={{
-          display: isWeb ? "none" : "block",
-        }}
+        className={isWeb ? styles.videoWrapperHide : styles.videoWrapperShow}
       >
         <h4 className={styles.videoHeading}>React Native</h4>
         <video
@@ -188,7 +183,6 @@ export default function Header({
           controls
           playsInline
           muted
-          style={{ marginBottom: 100 }}
         >
           <source src={nativeVideo} type="video/mp4" />
         </video>
