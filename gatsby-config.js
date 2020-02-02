@@ -11,7 +11,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-styled-components`,
     "gatsby-plugin-typescript",
     {
       resolve: `gatsby-source-filesystem`,
@@ -36,12 +35,6 @@ module.exports = {
         showSpinner: false,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-fullstory`,
-    //   options: {
-    //     fs_org: 'PDC81',
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

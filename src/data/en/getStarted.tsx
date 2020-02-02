@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "Get Started",
@@ -39,13 +39,14 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> Each field is <strong>required</strong> to have a
-          unique <code>name</code> as a key for the registration process.
+          <b className={typographyStyles.note}>Note:</b> Each field is{" "}
+          <strong>required</strong> to have a unique <code>name</code> as a key
+          for the registration process.
         </p>
 
         <p>
-          <Note>Note: </Note>React Native will need to use a manual register
-          command:{" "}
+          <b className={typographyStyles.note}>Note: </b>React Native will need
+          to use a manual register command:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or
           using <Link to="/api#Controller">Controller</Link> to wrap and auto
           register your component. You can also read more at{" "}
@@ -161,9 +162,9 @@ export default {
           component libraries.
         </p>
         <p>
-          <Note>Option 1:</Note> The best way is to check if the component you
-          wish to use exposes an <code>innerRef</code> or <code>ref</code> that
-          can be used to{" "}
+          <b className={typographyStyles.note}>Option 1:</b> The best way is to
+          check if the component you wish to use exposes an{" "}
+          <code>innerRef</code> or <code>ref</code> that can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -181,9 +182,9 @@ export default {
           </code>
         </p>
         <p>
-          <Note>Option 2:</Note> Sometimes components don't expose a prop to
-          register, for example <code>react-select</code> or{" "}
-          <code>react-datepicker</code>.
+          <b className={typographyStyles.note}>Option 2:</b> Sometimes
+          components don't expose a prop to register, for example{" "}
+          <code>react-select</code> or <code>react-datepicker</code>.
         </p>
         <p>
           The next easiest way is to use the{" "}
@@ -192,8 +193,8 @@ export default {
         </p>
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>Option 3:</Note> Lastly we can set up a custom register using
-          the{" "}
+          <b className={typographyStyles.note}>Option 3:</b> Lastly we can set
+          up a custom register using the{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

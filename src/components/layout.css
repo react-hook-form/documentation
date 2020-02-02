@@ -6,6 +6,7 @@
   --color-button-blue: #191d3a;
   --color-light-blue: #516391;
   --color-link: #ff7aa8;
+  --color-medium-blue: #4f6294;
 }
 
 html {
@@ -17,11 +18,11 @@ html {
   width: 0.5em;
 }
 ::-webkit-scrollbar-track {
-  background: #191d3a;
+  background: var(--color-button-blue);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #4f6294;
+  background: var(--color-medium-blue);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -358,6 +359,23 @@ table {
   font-size: 0.9rem;
 }
 
+.scrollToTop {
+  display: none;
+}
+
+.scrollToTop:hover {
+  border-color: var(--color-secondary);
+}
+
+.desktopOnly {
+  display: none !important;
+}
+
+a.active {
+  background: var(--color-primary);
+  border-bottom: 1.25px solid var(--color-secondary) !important;
+}
+
 @media (min-width: 768px) {
   pre {
     -webkit-overflow-scrolling: touch;
@@ -381,24 +399,26 @@ table {
   pre::-webkit-scrollbar-thumb:hover {
     background: var(--color-light-pink);
   }
-}
 
-.desktopOnly {
-  display: none !important;
+  .scrollToTop {
+    display: block;
+    background: var(--color-primary);
+    position: fixed;
+    right: 30px;
+    color: white;
+    bottom: 30px;
+    height: 40px;
+    width: 40px;
+    z-index: 10;
+    border-radius: 5px;
+  }
 }
 
 @media (min-width: 1024px) {
   .desktopOnly {
     display: inline-block !important;
   }
-}
 
-a.active {
-  background: var(--color-primary);
-  border-bottom: 1.25px solid var(--color-secondary) !important;
-}
-
-@media (min-width: 1024px) {
   a.active {
     background: none;
   }

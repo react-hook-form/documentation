@@ -17,7 +17,6 @@
     "gatsby-plugin-react-helmet": "3.1.21",
     "gatsby-plugin-sharp": "2.3.13",
     "gatsby-plugin-sitemap": "2.2.25",
-    "gatsby-plugin-styled-components": "3.1.17",
     "gatsby-plugin-typescript": "2.1.26",
     "gatsby-source-filesystem": "2.1.46",
     "gatsby-transformer-sharp": "2.3.12",
@@ -32,11 +31,9 @@
     "react-simple-img": "2.3.7",
     "react-sortablejs": "1.5.1",
     "react-syntax-highlighter": "11.0.2",
-    "sortablejs": "1.10.1",
-    "styled-components": "5.0.0"
+    "sortablejs": "1.10.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "1.19.1"

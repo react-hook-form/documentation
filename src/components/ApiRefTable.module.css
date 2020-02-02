@@ -1,0 +1,22 @@
+.fieldset {
+  padding: 10px 15px;
+  border: 1px solid var(--color-light-blue);
+  border-radius: 3px;
+}
+
+.fieldset > legend {
+  text-align: center;
+}
+
+.fieldset > label {
+  padding-bottom: 15px;
+  display: block;
+}
+
+.fieldset > label:nth-child(2) {
+  padding-top: 10px;
+}
+
+.fieldset > label > input {
+  margin-right: 10px;
+}

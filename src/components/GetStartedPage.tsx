@@ -111,7 +111,7 @@ const Faq = ({
 
   return (
     <div className={containerStyles.container}>
-      <h1 className={typographyStyles.heading} id="main">
+      <h1 className={typographyStyles.headingWithTopMargin} id="main">
         {getStarted.header.title}
       </h1>
       <p className={typographyStyles.subHeading}>

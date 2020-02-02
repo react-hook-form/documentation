@@ -5,17 +5,8 @@ import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
 import { navigate } from "@reach/router"
 import colors from "../styles/colors"
-import {
-  SubHeading,
-  HeadingWithTopMargin,
-  Error,
-  Title,
-} from "../styles/typography"
 import CodeArea from "./CodeArea"
-import { Container } from "../styles/containers"
-import breakpoints from "../styles/breakpoints"
 import Footer from "./Footer"
-import { PinkButton, DarkButton } from "../styles/buttons"
 import Popup from "./Popup"
 import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
@@ -23,6 +14,9 @@ import builder from "../data/builder"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
 import styles from "./BuilderPage.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 const { useState, useRef, useEffect } = React
 
@@ -134,15 +128,19 @@ function BuilderPage({
   }, [editIndex])
 
   const child = (
-    <Container>
-      <HeadingWithTopMargin id="main">
+    <div className={containerStyles.container}>
+      <h1 className={typographyStyles.headingWithTopMargin} id="main">
         {builder.builder[currentLanguage].title}
-      </HeadingWithTopMargin>
-      <SubHeading>{builder.builder[currentLanguage].description}</SubHeading>
+      </h1>
+      <p className={typographyStyles.subHeading}>
+        {builder.builder[currentLanguage].description}
+      </p>
 
       <div className={styles.wrapper}>
         <section>
-          <Title>{builder.layout[currentLanguage].title}</Title>
+          <h2 className={typographyStyles.title}>
+            {builder.layout[currentLanguage].title}
+          </h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
@@ -164,9 +162,9 @@ function BuilderPage({
         </section>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <Title ref={form}>
+          <h2 className={typographyStyles.title} ref={form}>
             {builder.inputCreator[currentLanguage].title}
-          </Title>
+          </h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
@@ -197,10 +195,12 @@ function BuilderPage({
             end={{ maxHeight: 20 }}
           >
             {errors.name && errors.name["type"] === "required" && (
-              <Error>This is required.</Error>
+              <p className={typographyStyles.error}>This is required.</p>
             )}
             {errors.name && errors.name["type"] === "validate" && (
-              <Error>Name required to be unique.</Error>
+              <p className={typographyStyles.error}>
+                Name required to be unique.
+              </p>
             )}
           </Animate>
 
@@ -322,7 +322,8 @@ function BuilderPage({
             </fieldset>
           </Animate>
 
-          <PinkButton
+          <button
+            className={buttonStyles.pinkButton}
             onClick={() => {
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
@@ -330,10 +331,11 @@ function BuilderPage({
             {editIndex >= 0
               ? generic.update[currentLanguage]
               : generic.create[currentLanguage]}
-          </PinkButton>
+          </button>
 
           {formData.length > 0 && (
-            <Title
+            <h2
+              className={typographyStyles.title}
               style={{
                 fontSize: 14,
                 maxWidth: "80%",
@@ -341,7 +343,7 @@ function BuilderPage({
               }}
             >
               or
-            </Title>
+            </h2>
           )}
 
           <Animate
@@ -355,7 +357,8 @@ function BuilderPage({
               pointerEvents: "auto",
             }}
             render={({ style }) => (
-              <DarkButton
+              <button
+                className={buttonStyles.darkButton}
                 style={style}
                 type="button"
                 onClick={() => {
@@ -371,7 +374,7 @@ function BuilderPage({
                 }}
               >
                 {builder.inputCreator[currentLanguage].generate}
-              </DarkButton>
+              </button>
             )}
           />
         </form>
@@ -382,7 +385,9 @@ function BuilderPage({
             position: "relative",
           }}
         >
-          <Title>{builder.code[currentLanguage].title}</Title>
+          <h2 className={typographyStyles.title}>
+            {builder.code[currentLanguage].title}
+          </h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
@@ -398,7 +403,7 @@ function BuilderPage({
 
         <Footer currentLanguage={currentLanguage} />
       </div>
-    </Container>
+    </div>
   )
 
   if (isStatic) return child

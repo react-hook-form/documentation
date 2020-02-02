@@ -3,13 +3,12 @@ import { Link as PageLink } from "gatsby"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "高度な使用法",
@@ -156,23 +155,29 @@ export default {
           このような場合、異なるページやセクション間でのユーザーの入力値を、
           状態管理ライブラリを使用して保存しておくことをお勧めします。
           この例では、状態管理ライブラリとして{" "}
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>{" "}
+          </a>{" "}
           (より身近なものであれば、{" "}
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>{" "}
+          </a>{" "}
           として置き換えることができます) を使用します。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>ステップ1：</Note> ルーティングとストアを設定します。
+          <b className={typographyStyles.note}>ステップ1：</b>{" "}
+          ルーティングとストアを設定します。
         </p>
         <CodeArea
           rawData={step1}
@@ -180,7 +185,7 @@ export default {
         />
 
         <p>
-          <Note>ステップ2：</Note>{" "}
+          <b className={typographyStyles.note}>ステップ2：</b>{" "}
           ページを作成し、フォームの送信データを収集し、
           そのデータをストアに送信して次のページに移動するようにします。
         </p>
@@ -190,7 +195,7 @@ export default {
         />
 
         <p>
-          <Note>ステップ3：</Note>{" "}
+          <b className={typographyStyles.note}>ステップ3：</b>{" "}
           最終的に、ストア内のすべてのフォームデータを使用して、
           フォームを送信したりフォームデータの結果を表示します。
         </p>
@@ -226,9 +231,9 @@ export default {
 
         <p>各コンポーネントがどのように構成されているか見てみましょう。</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           <code>Form</code> コンポーネントの責任は、全ての{" "}
@@ -241,9 +246,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           <code>Input / Select</code> コンポーネントの責任は、自分自身を{" "}
@@ -277,7 +282,8 @@ export default {
         </p>
 
         <p>
-          <Note>注意:</Note> 私たちは、複雑なシナリオのためのカスタムフック{" "}
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          私たちは、複雑なシナリオのためのカスタムフック{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>{" "}
           も作成しました。
         </p>
@@ -288,7 +294,7 @@ export default {
         </p>
 
         <p>
-          <Note>注意：</Note>{" "}
+          <b className={typographyStyles.note}>注意：</b>{" "}
           アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
           <PageLink to={"/api#Controller"}>Controller</PageLink> を使用した
           <a
@@ -323,15 +329,16 @@ export default {
     step1: (
       <>
         <p>
-          <Note>ステップ1：</Note> <code>Yup</code>{" "}
+          <b className={typographyStyles.note}>ステップ1：</b> <code>Yup</code>{" "}
           をプロジェクトにインストールします。
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>ステップ2：</Note> バリデーション用のスキーマを作成し、 React Hook
-        Form を使用して input を登録します。
+        <b className={typographyStyles.note}>ステップ2：</b>{" "}
+        バリデーション用のスキーマを作成し、 React Hook Form を使用して input
+        を登録します。
       </p>
     ),
   },
@@ -373,7 +380,7 @@ export default {
         <ul>
           <li>
             <p>
-              <Link to="/api#Controller">Controller</Link>{" "}
+              <PageLink to="/api#Controller">Controller</PageLink>{" "}
               をインポートしてコンポーネントをラップし、
               登録および登録解除を管理できるようにします
             </p>

@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "Comenzar",
@@ -39,13 +39,14 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Cada campo <strong>required</strong> necesita tener
-          un único <code>name</code> como key para el proceso de registración.
+          <b className={typographyStyles.note}>Nota:</b> Cada campo{" "}
+          <strong>required</strong> necesita tener un único <code>name</code>{" "}
+          como key para el proceso de registración.
         </p>
 
         <p>
-          <Note>Nota: </Note>En React Native es necesario utilizar un comando de
-          registro manual:{" "}
+          <b className={typographyStyles.note}>Nota: </b>En React Native es
+          necesario utilizar un comando de registro manual:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> o
           utilizar <Link to="/api#Controller">Controller</Link> para wrappear y
           auto registrar tu componente. Puedes leer mas en la sección de{" "}
@@ -146,10 +147,10 @@ export default {
           de UI externas.
         </p>
         <p>
-          <Note>Opción 1:</Note> La mejor manera es chequear si el componente
-          que pretendes utilizar expone una referencia interna{" "}
-          <code>innerRef</code>o una referencia <code>ref</code> pueda ser
-          utilizada para registración el componente con{" "}
+          <b className={typographyStyles.note}>Opción 1:</b> La mejor manera es
+          chequear si el componente que pretendes utilizar expone una referencia
+          interna <code>innerRef</code>o una referencia <code>ref</code> pueda
+          ser utilizada para registración el componente con{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -167,9 +168,10 @@ export default {
           </code>
         </p>
         <p>
-          <Note>Opción 2:</Note> Algunas veces los componentes no exponen una
-          propiedad que se pueda utilizar para registar, como es el caso de{" "}
-          <code>react-select</code> o <code>react-datepicker</code>.
+          <b className={typographyStyles.note}>Opción 2:</b> Algunas veces los
+          componentes no exponen una propiedad que se pueda utilizar para
+          registar, como es el caso de <code>react-select</code> o{" "}
+          <code>react-datepicker</code>.
         </p>
         <p>
           La siguiente forma más fácil es utilizar el componente{" "}
@@ -178,8 +180,8 @@ export default {
         </p>
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>Opción 3:</Note> Por último, puedes configurar un registro
-          personalizado utilizando el hook{" "}
+          <b className={typographyStyles.note}>Opción 3:</b> Por último, puedes
+          configurar un registro personalizado utilizando el hook{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

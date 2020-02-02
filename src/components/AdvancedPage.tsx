@@ -1,12 +1,6 @@
 import * as React from "react"
-import {
-  SubHeading,
-  HeadingWithTopMargin,
-  QuestionTitle,
-} from "../styles/typography"
 import CodeArea from "./CodeArea"
 import SideMenu from "./SideMenu"
-import { Container, Wrapper } from "../styles/containers"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
 import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
@@ -23,8 +17,10 @@ import TabGroup from "./TabGroup"
 import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
 import useFieldArray from "./codeExamples/useFieldArray"
+import typographyStyles from "../styles/typography.module.css"
 import codeAreaStyles from "./CodeArea.module.css"
 import getStartedStyles from "./GetStarted.module.css"
+import containerStyles from "../styles/container.module.css"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -99,13 +95,15 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
   }, [])
 
   return (
-    <Container>
-      <HeadingWithTopMargin id="main">
+    <div className={containerStyles.container}>
+      <h1 className={typographyStyles.headingWithTopMargin} id="main">
         {advanced.header.title}
-      </HeadingWithTopMargin>
-      <SubHeading>{advanced.header.description}</SubHeading>
+      </h1>
+      <p className={typographyStyles.subHeading}>
+        {advanced.header.description}
+      </p>
 
-      <Wrapper>
+      <div className={containerStyles.wrapper}>
         <SideMenu
           enLinks={enLinks}
           isStatic
@@ -115,21 +113,23 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
         />
 
         <main>
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.AccessibilityA11y = ref)}
           >
             {advanced.accessibility.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.accessibility.description}
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}
           >
             {advanced.wizard.title}
-          </QuestionTitle>
+          </h2>
 
           <p>
             In this video tutorial, I have demonstrated the core concept of how
@@ -150,21 +150,23 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.SmartFormComponent = ref)}
           >
             {advanced.smartForm.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.smartForm.description}
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.FieldArrays = ref)}
           >
             {advanced.fieldArrays.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.fieldArrays.description}
 
@@ -181,11 +183,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.SchemaValidation = ref)}
           >
             {advanced.schema.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.schema.description}
 
@@ -213,11 +216,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.ErrorMessage = ref)}
           >
             {advanced.errorMessage.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.errorMessage.description}
 
@@ -251,11 +255,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.ConnectForm = ref)}
           >
             {advanced.connectForm.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.connectForm.description}
 
@@ -263,11 +268,12 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref => (pageContentRef.current.FormContextPerformance = ref)}
           >
             {advanced.formContext.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.formContext.description}
 
@@ -275,13 +281,14 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref =>
               (pageContentRef.current.ConditionalControlledComponent = ref)
             }
           >
             {advanced.conditionalControlledComponent.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.conditionalControlledComponent.description}
 
@@ -295,13 +302,14 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <hr />
 
-          <QuestionTitle
+          <h2
+            className={typographyStyles.questionTitle}
             ref={ref =>
               (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
             }
           >
             {advanced.controlledMixedWithUnControlled.title}
-          </QuestionTitle>
+          </h2>
 
           {advanced.controlledMixedWithUnControlled.description}
 
@@ -317,8 +325,8 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <Footer currentLanguage={currentLanguage} />
         </main>
-      </Wrapper>
-    </Container>
+      </div>
+    </div>
   )
 }
 

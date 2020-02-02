@@ -1,0 +1,8 @@
+.radioGroup {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.radioGroup > label:first-child {
+  margin-right: 20px;
+}

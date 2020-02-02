@@ -1,33 +1,8 @@
 import * as React from "react"
-import styled from "styled-components"
-import colors from "../styles/colors"
-import { TableWrapper, Table } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
-import { CodeBlock, TypeText } from "../styles/typography"
-
-const Group = styled.fieldset`
-  padding: 10px 15px;
-  border: 1px solid ${colors.lightBlue};
-  border-radius: 3px;
-
-  & > legend {
-    text-align: center;
-  }
-
-  & > label {
-    &:nth-child(2) {
-      padding-top: 10px;
-    }
-
-    padding-bottom: 15px;
-    display: block;
-
-    & > input {
-      margin-right: 10px;
-    }
-  }
-`
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default function ApiRefTable({
   goToSection,
@@ -44,8 +19,8 @@ export default function ApiRefTable({
     <>
       {api.register.description}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th>
@@ -86,18 +61,20 @@ export default function ApiRefTable({
               </td>
             </tr>
           </tbody>
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
 
       {api.register.fieldArray}
 
       {api.register.options.note(goToSection)}
 
       <p>
-        <CodeBlock>{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</CodeBlock>
+        <code
+          className={typographyStyles.codeBlock}
+        >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
       </p>
 
-      <Group>
+      <fieldset>
         <legend>{api.register.options.title}</legend>
         <p>{api.register.selectHelp}</p>
         <label>
@@ -117,10 +94,10 @@ export default function ApiRefTable({
           />
           {api.register.options.registerWithValidationMessage}
         </label>
-      </Group>
+      </fieldset>
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th>{generic.name[currentLanguage]}</th>
@@ -143,7 +120,9 @@ export default function ApiRefTable({
               <td>
                 <code>ref</code>
                 <br />
-                <TypeText>React.RefObject</TypeText>
+                <code className={typographyStyles.typeText}>
+                  React.RefObject
+                </code>
               </td>
               <td>React element ref</td>
               <td>
@@ -161,7 +140,9 @@ export default function ApiRefTable({
               <td>
                 <code>required</code>
                 <br />
-                <TypeText>{isStandard ? "boolean" : "string"}</TypeText>
+                <code className={typographyStyles.typeText}>
+                  {isStandard ? "boolean" : "string"}
+                </code>
               </td>
               <td>{api.register.validation.required}</td>
               <td>
@@ -184,14 +165,14 @@ export default function ApiRefTable({
                 <code>maxLength</code>
                 <br />
                 <code>
-                  <TypeText>
+                  <code className={typographyStyles.typeText}>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </TypeText>
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.maxLength}</td>
@@ -222,14 +203,14 @@ export default function ApiRefTable({
                 <code>minLength</code>
                 <br />
                 <code>
-                  <TypeText>
+                  <code className={typographyStyles.typeText}>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </TypeText>
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.minLength}</td>
@@ -260,14 +241,14 @@ export default function ApiRefTable({
                 <code>max</code>
                 <br />
                 <code>
-                  <TypeText>
+                  <code className={typographyStyles.typeText}>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </TypeText>
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.max}</td>
@@ -298,14 +279,14 @@ export default function ApiRefTable({
                 <code>min</code>
                 <br />
                 <code>
-                  <TypeText>
+                  <code className={typographyStyles.typeText}>
                     {isStandard
                       ? "number"
                       : `{
   value: number,
   message: string
 }`}
-                  </TypeText>
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.min}</td>
@@ -336,14 +317,14 @@ export default function ApiRefTable({
                 <code>pattern</code>
                 <br />
                 <code>
-                  <TypeText>
+                  <code className={typographyStyles.typeText}>
                     {isStandard
                       ? "RegExp"
                       : `{
   value: RegExp,
   message: string
 }`}
-                  </TypeText>
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.pattern}</td>
@@ -374,7 +355,9 @@ export default function ApiRefTable({
                 <code>validate</code>
                 <br />
                 <code>
-                  <TypeText>Function | Object</TypeText>
+                  <code className={typographyStyles.typeText}>
+                    Function | Object
+                  </code>
                 </code>
               </td>
               <td>{api.register.validation.validate}</td>
@@ -432,8 +415,8 @@ export default function ApiRefTable({
               </td>
             </tr>
           </tbody>
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
     </>
   )
 }

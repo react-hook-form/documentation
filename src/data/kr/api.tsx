@@ -1,15 +1,12 @@
 import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
-import Link from "../../styles/link"
-import { Link as NavLink } from "gatsby"
-import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
 import Popup from "../../components/Popup"
 import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "API 설명서",
@@ -65,22 +62,32 @@ export default {
         <p>
           입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정
           하거나{" "}
-          <Link href="https://ko.reactjs.org/docs/uncontrolled-components.html">
+          <a
+            className={buttonStyles.links}
+            href="https://ko.reactjs.org/docs/uncontrolled-components.html"
+          >
             (기본값에 대한 React 문서를 읽어보세요)
-          </Link>
+          </a>
           , <code>defaultValues</code> 를 옵셔널 인수로 전달 하여 전체 폼의
           기본값을 채울 수 있습니다.
         </p>
 
         <p>
-          <Note>참고:</Note> <code>defaultValues</code> 내 정의 된 값은{" "}
-          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> 의{" "}
-          <code>defaultValue</code> 값으로 주입됩니다.
+          <b className={typographyStyles.note}>참고:</b>{" "}
+          <code>defaultValues</code> 내 정의 된 값은{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("watch")}
+          >
+            watch
+          </button>{" "}
+          의 <code>defaultValue</code> 값으로 주입됩니다.
         </p>
 
         <p>
-          <Note>참고:</Note> 수동 <code>register</code> 필드는 React Hook Form의{" "}
-          <code>ref</code> 를 제공하지 않기에, 수동 입력 필드(예를 들어,{" "}
+          <b className={typographyStyles.note}>참고:</b> 수동{" "}
+          <code>register</code> 필드는 React Hook Form의 <code>ref</code> 를
+          제공하지 않기에, 수동 입력 필드(예를 들어,{" "}
           <code>{`register({ name: 'test' })`}</code> )의{" "}
           <code>defaultValues</code> 는 자동 완성 되지 않습니다.
         </p>
@@ -89,9 +96,12 @@ export default {
     validationSchema: goToSection => (
       <p>
         <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
-        <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ValidationSchema")}
+        >
           validationSchema
-        </CodeAsLink>{" "}
+        </button>{" "}
         섹션을 참고하세요.
       </p>
     ),
@@ -116,8 +126,8 @@ export default {
         </p>
 
         <p>
-          <Note>참고:</Note> <code>ref</code> 로 등록된 필드만 작동합니다.
-          수동으로 등록하면 동작하지 않습니다. 예 :{" "}
+          <b className={typographyStyles.note}>참고:</b> <code>ref</code> 로
+          등록된 필드만 작동합니다. 수동으로 등록하면 동작하지 않습니다. 예 :{" "}
           <code>{`register({ name: 'test' }) // 동작하지 않음`}</code>{" "}
         </p>
       </>
@@ -135,9 +145,12 @@ export default {
           브라우저 기본 유효성 검사
         </a>
         에 대한 내용을 확인하시고 좀 더 자세한 내용과 예시는{" "}
-        <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("nativeValidation")}
+        >
           nativeValidation
-        </CodeAsLink>{" "}
+        </button>{" "}
         에서 참고하실 수 있습니다.
       </p>
     ),
@@ -152,8 +165,9 @@ export default {
           컴포넌트가 언마운트 되면서 등록을 해제하고자 할 때 유용합니다.
         </p>
         <p>
-          <Note>참고:</Note> 입력을 등록 취소(unregister)하면, 제출된 폼
-          데이터에 해당 값이 더 이상 포함되지 않습니다.
+          <b className={typographyStyles.note}>참고:</b> 입력을 등록
+          취소(unregister)하면, 제출된 폼 데이터에 해당 값이 더 이상 포함되지
+          않습니다.
         </p>
       </>
     ),
@@ -171,7 +185,8 @@ export default {
           검사도 가능합니다.
         </p>
         <p>
-          <Note>중요:</Note> <code>name</code>은 <b>필수</b>이며 <b>유니크</b>
+          <b className={typographyStyles.note}>중요:</b> <code>name</code>은{" "}
+          <b>필수</b>이며 <b>유니크</b>
           해야합니다. name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를
           쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
         </p>
@@ -186,12 +201,13 @@ export default {
       >
         <code>arrays/array</code> 필드의 경우, <code>name[index]</code> 와 같이
         name을 지정할 수 있습니다.{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           Field Array 예제를 확인하세요.
-        </Link>
+        </a>
         .
       </p>
     ),
@@ -204,7 +220,7 @@ export default {
       registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
       note: goToSection => (
         <>
-          <Title>Custom Register</Title>
+          <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
             커스텀 컴포넌트와 <code>Ref</code>에 액세스 할 수 없는 경우, 입력을
             수동으로 등록 할 수 있습니다. 이는 실제로 React Native 또는{" "}
@@ -220,19 +236,25 @@ export default {
 
           <p>
             Custome register를 사용하면, 입력은 더이상 ref로 등록되지 않으므로,{" "}
-            <CodeAsLink onClick={() => goToSection("setValue")}>
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setValue")}
+            >
               setValue
-            </CodeAsLink>{" "}
+            </button>{" "}
             을 통해 입력 값을 업데이트해 주어야 합니다.
           </p>
 
           <p>
-            <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
           </p>
 
           <p>
-            <Note>참고:</Note> 값을 업데이트하는 동안 커스텀 등록된 입력을 다시
-            렌더링 하도록 하려면, 등록된 입력의 타입을 지정해 주어야 합니다.
+            <b className={typographyStyles.note}>참고:</b> 값을 업데이트하는
+            동안 커스텀 등록된 입력을 다시 렌더링 하도록 하려면, 등록된 입력의
+            타입을 지정해 주어야 합니다.
           </p>
         </>
       ),
@@ -259,7 +281,8 @@ export default {
         <p>폼 상태(form state)에 대한 정보를 포함합니다</p>
 
         <p>
-          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>formState</code> is wrapped with{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -291,8 +314,10 @@ export default {
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
         {/* Todo: Korean */}
         <p>
-          <Note>{generic.note[currentLanguage]}:</Note> Difference between V3
-          and V4:
+          <b className={typographyStyles.note}>
+            {generic.note[currentLanguage]}:
+          </b>{" "}
+          Difference between V3 and V4:
         </p>
         <ul>
           <li>
@@ -381,13 +406,13 @@ export default {
       <>
         <p>이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다.</p>
         <p>
-          <Note>참고:</Note> 비동기 유효성 검사를 위한 <code>async</code> 함수를
-          전달할 수 있습니다 . 예 :{" "}
+          <b className={typographyStyles.note}>참고:</b> 비동기 유효성 검사를
+          위한 <code>async</code> 함수를 전달할 수 있습니다 . 예 :{" "}
         </p>
         <p>
-          <CodeBlock>
+          <code className={typographyStyles.codeBlock}>
             handleSubmit(async (data) => await fetchAPI(data))
-          </CodeBlock>
+          </code>
         </p>
       </>
     ),
@@ -402,15 +427,22 @@ export default {
           할 수 있습니다.
         </p>
         <p>
-          <Note>참고:</Note> <code>React-Select</code> 와 같이 <code>ref</code>{" "}
-          를 노출시키지 않는 컴포넌트는,{" "}
-          <CodeAsLink onClick={() => goToSection("setValue")}>
+          <b className={typographyStyles.note}>참고:</b>{" "}
+          <code>React-Select</code> 와 같이 <code>ref</code> 를 노출시키지 않는
+          컴포넌트는,{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("setValue")}
+          >
             setValue
-          </CodeAsLink>
+          </button>
           를 통해 수동으로 입력값을 재설정해주어야 합니다. 또는{" "}
-          <CodeAsLink onClick={() => goToSection("Controller")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("Controller")}
+          >
             Controller
-          </CodeAsLink>
+          </button>
           을 사용하여 제어 컴포넌트를 감싸 처리할 수 있습니다.
         </p>
       </>
@@ -425,9 +457,10 @@ export default {
           수 있습니다.
         </p>
         <p>
-          <Note>참고</Note> :이 방법은 오류와 차단을 지속하지 않습니다 제출
-          조치. <code>handleSubmit</code> 함수 중에 더 유용합니다. 비동기 유효성
-          검사 후 사용자에게 오류 피드백을 제공하려고합니다.
+          <b className={typographyStyles.note}>참고</b> :이 방법은 오류와 차단을
+          지속하지 않습니다 제출 조치. <code>handleSubmit</code> 함수 중에 더
+          유용합니다. 비동기 유효성 검사 후 사용자에게 오류 피드백을
+          제공하려고합니다.
         </p>
       </>
     ),
@@ -482,8 +515,9 @@ export default {
           </li>
         </ul>
         <p>
-          <Note>참고:</Note> 이 함수를 호출함으로써, <code>formState</code>는 이
-          입력의 <code>name</code>을 <code>touched</code>로 설정하게 됩니다.
+          <b className={typographyStyles.note}>참고:</b> 이 함수를 호출함으로써,{" "}
+          <code>formState</code>는 이 입력의 <code>name</code>을{" "}
+          <code>touched</code>로 설정하게 됩니다.
         </p>
         <p>
           <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
@@ -527,8 +561,8 @@ export default {
       <>
         <p>폼의 입력/선택 유효성 검사를 수동으로 트리거합니다.</p>
         <p>
-          <Note>참고:</Note> 유효성 검사에 실패하면 <code>errors</code> 객체가
-          업데이트됩니다.
+          <b className={typographyStyles.note}>참고:</b> 유효성 검사에 실패하면{" "}
+          <code>errors</code> 객체가 업데이트됩니다.
         </p>
       </>
     ),
@@ -540,13 +574,14 @@ export default {
         외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
         <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로
         적용 할 수 있습니다. React Hook Form의 객체 스키마 유효성 검사에서는{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/jquense/yup"
           target="_blank"
           rel="noopener noreferrer"
         >
           Yup
-        </Link>{" "}
+        </a>{" "}
         을 지원합니다.
       </p>
     ),
@@ -560,7 +595,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>입력값을 위한 고유의 이름.</td>
@@ -570,7 +605,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td>✓</td>
           <td>
@@ -583,7 +620,7 @@ export default {
             <code>control</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
           <td>
@@ -597,7 +634,7 @@ export default {
             <code>defaultValue</code>
           </td>
           <td>
-            <TypeText>any</TypeText>
+            <code className={typographyStyles.typeText}>any</code>
           </td>
           <td />
           <td>
@@ -605,7 +642,7 @@ export default {
             <code>boolean</code> 값이 주어졌을 때는, 체크박스 입력값으로
             다루어집니다.
             <p>
-              <Note>참고: </Note>
+              <b className={typographyStyles.note}>참고: </b>
               <code>defaultValue</code> 또는
               <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
               할 것입니다.
@@ -617,7 +654,7 @@ export default {
             <code>rules</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td />
           <td>
@@ -629,7 +666,9 @@ export default {
             <code>onChange</code>
           </td>
           <td>
-            <TypeText>(args: any) => any</TypeText>
+            <code className={typographyStyles.typeText}>
+              (args: any) => any
+            </code>
           </td>
           <td />
           <td>
@@ -642,7 +681,7 @@ export default {
             <code>onChangeName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -656,7 +695,7 @@ export default {
             <code>onBlurName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -670,7 +709,7 @@ export default {
             <code>valueName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -728,12 +767,13 @@ export default {
       <>
         <p>
           <code>FormContext</code>으로 폼을 감싸면, <code>useFormContext</code>:{" "}
-          <TypeText>function</TypeText> 이 하위 컴포넌트에서 호출 될 수
-          있습니다.
+          <code className={typographyStyles.typeText}>function</code> 이 하위
+          컴포넌트에서 호출 될 수 있습니다.
         </p>
         <p>
-          <Note>참고:</Note> <code>useFormContext</code> 를 통해 모든{" "}
-          <code>useForm</code> 의 hook function이 제공됩니다.
+          <b className={typographyStyles.note}>참고:</b>{" "}
+          <code>useFormContext</code> 를 통해 모든 <code>useForm</code> 의 hook
+          function이 제공됩니다.
         </p>
       </>
     ),
@@ -760,7 +800,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>연결할 필드 이름.</td>
@@ -770,7 +810,7 @@ export default {
             <code>errors</code>
           </td>
           <td>
-            <TypeText>object</TypeText>
+            <code className={typographyStyles.typeText}>object</code>
           </td>
           <td />
           <td>
@@ -783,7 +823,7 @@ export default {
             <code>message</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>인라인 오류 메시지.</td>
@@ -793,7 +833,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td />
           <td>
@@ -806,9 +848,9 @@ export default {
             <code>children</code>
           </td>
           <td>
-            <TypeText>
+            <code className={typographyStyles.typeText}>
               ({`{ message: string, messages: string[]}`}) => any
-            </TypeText>
+            </code>
           </td>
           <td />
           <td>
@@ -848,19 +890,20 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>참고:</Note> <code>useForm</code> hook 에 있는{" "}
-          <code>defaultValues</code> 를 전달하여 <code>fields</code> 를 생성할
-          수 있습니다.
+          <b className={typographyStyles.note}>참고:</b> <code>useForm</code>{" "}
+          hook 에 있는 <code>defaultValues</code> 를 전달하여{" "}
+          <code>fields</code> 를 생성할 수 있습니다.
         </p>
 
         <p>
-          <Note>중요:</Note> <code>fields</code> 객체의 <code>id</code> 값을
-          컴포넌트의 key 로 전달하는 것을 잊지 마세요.
+          <b className={typographyStyles.note}>중요:</b> <code>fields</code>{" "}
+          객체의 <code>id</code> 값을 컴포넌트의 key 로 전달하는 것을 잊지
+          마세요.
         </p>
 
         <p>
-          <Note>중요:</Note> due to ref callback issue, for{" "}
-          <code>register</code>
+          <b className={typographyStyles.note}>중요:</b> due to ref callback
+          issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
         </p>
@@ -873,14 +916,16 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <TypeText>object & {`{ id: string }`}</TypeText>
+            <code className={typographyStyles.typeText}>
+              object & {`{ id: string }`}
+            </code>
           </td>
           <td>
             이 객체는 input 을 생성하고 랜더링하기 위한 주요 객체(source of
             truth)입니다.
             <p>
-              <Note>중요: </Note> 모든 입력 필드는 비제어 상태이기 떄문에,{" "}
-              <code>map</code> 으로 생성되는 컴포넌트에
+              <b className={typographyStyles.note}>중요: </b> 모든 입력 필드는
+              비제어 상태이기 떄문에, <code>map</code> 으로 생성되는 컴포넌트에
               <code>id</code> 값을 필수로 전달해주어야 합니다. 그래야 리액트가
               어떤 아이템이 추가되고, 변경되고, 제거되는지 파악할 수 있습니다.
             </p>
@@ -894,8 +939,8 @@ export default {
             <code>append</code>
           </td>
           <td>
-            <code>
-              <TypeText>(obj: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (obj: any) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
@@ -905,8 +950,8 @@ export default {
             <code>prepend</code>
           </td>
           <td>
-            <code>
-              <TypeText>(obj: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (obj: any) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
@@ -916,8 +961,8 @@ export default {
             <code>insert</code>
           </td>
           <td>
-            <code>
-              <TypeText>(index: number, value: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (index: number, value: any) => void
             </code>
           </td>
           <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
@@ -927,8 +972,8 @@ export default {
             <code>swap</code>
           </td>
           <td>
-            <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (from: number, to: number) => void
             </code>
           </td>
           <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
@@ -938,17 +983,18 @@ export default {
             <code>move</code>
           </td>
           <td>
-            <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (from: number, to: number) => void
             </code>
           </td>
           <td>
             입력 필드(들)를 다른 위치로 이동합니다.
             <p>
-              <Note>참고:</Note> <code>move</code> 와 <code>swap</code> 의
-              차이점을 설명하자면, <code>move</code> 를 계속 호출하는 것은 입력
-              필드(들)를 임의의 공간 안에 집어넣는 것과 비슷하고,{" "}
-              <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는 것입니다.
+              <b className={typographyStyles.note}>참고:</b> <code>move</code>{" "}
+              와 <code>swap</code> 의 차이점을 설명하자면, <code>move</code> 를
+              계속 호출하는 것은 입력 필드(들)를 임의의 공간 안에 집어넣는 것과
+              비슷하고, <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는
+              것입니다.
             </p>
           </td>
         </tr>
@@ -957,8 +1003,8 @@ export default {
             <code>remove</code>
           </td>
           <td>
-            <code>
-              <TypeText>(index?: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (index?: number) => void
             </code>
           </td>
           <td>

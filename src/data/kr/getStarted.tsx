@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
-import { Link } from "@reach/router"
+import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "시작하기",
@@ -40,13 +40,14 @@ export default {
         </p>
 
         <p>
-          <Note>참고:</Note> 각각의 필드는 등록 과정의 key 로 사용하기 위해{" "}
-          <code>name</code> 속성이 <strong>반드시</strong> 필요합니다.
+          <b className={typographyStyles.note}>참고:</b> 각각의 필드는 등록
+          과정의 key 로 사용하기 위해 <code>name</code> 속성이{" "}
+          <strong>반드시</strong> 필요합니다.
         </p>
 
         <p>
-          <Note>참고:</Note> React Native 는 수동으로 register 커맨드를 입력해야
-          합니다. (예:{" "}
+          <b className={typographyStyles.note}>참고:</b> React Native 는
+          수동으로 register 커맨드를 입력해야 합니다. (예:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code>
           또는 <Link to="/api#Controller">Controller</Link>을 사용하여 구성
           요소를 래핑합니다.
@@ -148,9 +149,9 @@ export default {
           있습니다.
         </p>
         <p>
-          <Note>옵션 1: </Note>제일 좋은 방법은 사용하려는 컴포넌트가{" "}
-          <code>innerRef</code> 혹은 <code>ref</code> 를 드러내는지 확인하여,
-          사용할 수 있다면{" "}
+          <b className={typographyStyles.note}>옵션 1: </b>제일 좋은 방법은
+          사용하려는 컴포넌트가 <code>innerRef</code> 혹은 <code>ref</code> 를
+          드러내는지 확인하여, 사용할 수 있다면{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -169,9 +170,10 @@ export default {
           </code>
         </p>
         <p>
-          <Note>옵션 2: </Note>때때로 외부 컴포넌트는 등록을 위한 prop 을
-          지원하지 않을 수 있습니다. 예를 들어 <code>react-select</code> 나{" "}
-          <code>react-datepicker</code> 같은 라이브러리가 그렇습니다.
+          <b className={typographyStyles.note}>옵션 2: </b>때때로 외부
+          컴포넌트는 등록을 위한 prop 을 지원하지 않을 수 있습니다. 예를 들어{" "}
+          <code>react-select</code> 나 <code>react-datepicker</code> 같은
+          라이브러리가 그렇습니다.
         </p>
         <p>
           그 다음으로 쉬운 방법은 <Link to="/api#Controller">Controller</Link>{" "}
@@ -181,7 +183,7 @@ export default {
 
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>옵션 3:</Note>마지막으로 the{" "}
+          <b className={typographyStyles.note}>옵션 3:</b>마지막으로 the{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

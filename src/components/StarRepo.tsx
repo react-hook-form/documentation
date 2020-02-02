@@ -1,8 +1,7 @@
 import * as React from "react"
-import { H1 } from "../styles/typography"
-import { PrimaryButton } from "../styles/buttons"
 import generic from "../data/generic"
-import { CenterContent } from "../styles/containers"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
 
 export default function StarRepo({
   currentLanguage,
@@ -10,17 +9,21 @@ export default function StarRepo({
   currentLanguage: string
 }) {
   return (
-    <CenterContent maxWidth={600} style={{ marginTop: 40 }}>
-      <H1>{generic.needYourSupport[currentLanguage].title}</H1>
+    <div
+      className={containerStyles.centerContent}
+      style={{ marginTop: 40, maxWidth: 600 }}
+    >
+      <h1>{generic.needYourSupport[currentLanguage].title}</h1>
       <p>{generic.needYourSupport[currentLanguage].description}</p>
-      <PrimaryButton
+      <button
+        className={buttonStyles.primaryButton}
         onClick={() => {
           window.open("https://github.com/react-hook-form/react-hook-form")
         }}
         style={{ margin: "40px auto" }}
       >
         {generic.needYourSupport[currentLanguage].buttonText}
-      </PrimaryButton>
-    </CenterContent>
+      </button>
+    </div>
   )
 }

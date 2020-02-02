@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Note } from "../../styles/typography"
-import { CodeAsLink, Table, TableWrapper } from "../../components/ApiPage"
 import colors from "../../styles/colors"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "자주 묻는 질문",
@@ -129,9 +130,10 @@ export default {
           </p>
 
           <p>
-            <Note>참고:</Note> <code>ref</code> 가 등록되지 않았기 때문에, React
-            Hook Form 은 인풋에 이벤트 리스너를 등록할 수 없을 겁니다. 따라서
-            인풋 값과 에러를 수동으로 업데이트 해 주어야 합니다.
+            <b className={typographyStyles.note}>참고:</b> <code>ref</code> 가
+            등록되지 않았기 때문에, React Hook Form 은 인풋에 이벤트 리스너를
+            등록할 수 없을 겁니다. 따라서 인풋 값과 에러를 수동으로 업데이트 해
+            주어야 합니다.
           </p>
         </>
       ),
@@ -201,8 +203,8 @@ export default {
             표기했습니다.
           </p>
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
                   <th width={200} />
@@ -278,8 +280,8 @@ export default {
                     <code>
                       react-hook-form@3.26.2
                       <br />
-                      <Note />
-                      <Note>5.3KB</Note>
+                      <b className={typographyStyles.note} />
+                      <b className={typographyStyles.note}>5.3KB</b>
                     </code>
                   </td>
                   <td>
@@ -288,7 +290,7 @@ export default {
                     <code>
                       formik@2.0.1
                       <br />
-                      <Note>14.4KB</Note>
+                      <b className={typographyStyles.note}>14.4KB</b>
                     </code>
                   </td>
                   <td>
@@ -297,7 +299,7 @@ export default {
                     <code>
                       redux-form@8.2.6
                       <br />
-                      <Note>27KB</Note>
+                      <b className={typographyStyles.note}>27KB</b>
                     </code>
                   </td>
                 </tr>
@@ -336,8 +338,8 @@ export default {
                   <td>큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리</td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
         </>
       ),
     },
@@ -382,13 +384,14 @@ export default {
               <p>
                 React Hook Form 의 모든 유효선 검사 방법은 비동기 함수로
                 다루어집니다. 따라서{" "}
-                <CodeAsLink
+                <a
+                  className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   act
-                </CodeAsLink>{" "}
+                </a>{" "}
                 부분을 <code>async</code> 로 감싸주는게 중요합니다.
               </p>
             </li>

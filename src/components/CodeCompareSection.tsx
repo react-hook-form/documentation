@@ -1,13 +1,13 @@
 import * as React from "react"
-import { Title, H1 } from "../styles/typography"
 import formikCode from "./codeExamples/formikCode"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import reduxFormCode from "./codeExamples/reduxFormCode"
-import { CenterContent, Section } from "../styles/containers"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import styles from "./CodeCompareSection.module.css"
 
 const props = {
@@ -27,12 +27,18 @@ function CodeCompareSection({
 
   return (
     <AnimateGroup play={isPlayCodeCompare}>
-      <Section>
-        <CenterContent>
-          <H1>{home.codeComparison[currentLanguage].title}</H1>
+      <div
+        style={{
+          marginBottom: 40,
+        }}
+      >
+        <div className={containerStyles.centerContent}>
+          <h1 className={typographyStyles.h1}>
+            {home.codeComparison[currentLanguage].title}
+          </h1>
 
           {home.codeComparison[currentLanguage].description}
-        </CenterContent>
+        </div>
 
         <section
           className={styles.gridView}
@@ -42,7 +48,7 @@ function CodeCompareSection({
         >
           {!showFullScreen && (
             <Animate {...props} sequenceIndex={0}>
-              <Title>Formik</Title>
+              <h2 className={typographyStyles.title}>Formik</h2>
               <CodeArea rawData={formikCode} withOutCopy />
             </Animate>
           )}
@@ -59,7 +65,7 @@ function CodeCompareSection({
                     : null),
                 }}
               >
-                <Title>React Hook Form</Title>
+                <h2 className={typographyStyles.title}>React Hook Form</h2>
                 <button
                   className={styles.fullScreen}
                   onClick={() => setFullScreen(!showFullScreen)}
@@ -79,12 +85,12 @@ function CodeCompareSection({
 
           {!showFullScreen && (
             <Animate {...props} sequenceIndex={2}>
-              <Title>Redux Form</Title>
+              <h2 className={typographyStyles.title}>Redux Form</h2>
               <CodeArea rawData={reduxFormCode} withOutCopy />
             </Animate>
           )}
         </section>
-      </Section>
+      </div>
     </AnimateGroup>
   )
 }

@@ -1,9 +1,9 @@
 import * as React from "react"
-import { TypeText } from "../styles/typography"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import generic from "../data/generic"
 import errorMessage from "./codeExamples/errorMessage"
 import CodeArea from "./CodeArea"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default ({
   api,
@@ -14,16 +14,17 @@ export default ({
 }) => {
   return (
     <div>
-      <CodeHeading>
+      <div className={typographyStyles.codeHeading}>
         <h2>
-          ErrorMessage: <TypeText>Component</TypeText>
+          ErrorMessage:{" "}
+          <code className={typographyStyles.typeText}>Component</code>
         </h2>
-      </CodeHeading>
+      </div>
 
       {api.ErrorMessage.description}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <thead>
             <tr>
               <th>{generic.name[currentLanguage]}</th>
@@ -33,8 +34,8 @@ export default ({
             </tr>
           </thead>
           {api.ErrorMessage.table}
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
 
       <CodeArea
         rawData={errorMessage}

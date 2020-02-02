@@ -1,9 +1,6 @@
 import * as React from "react"
-import styled from "styled-components"
-import { H1, Note, Title } from "../styles/typography"
 import { SimpleImg } from "react-simple-img"
 import { AnimateGroup, Animate } from "react-simple-animate"
-import breakpoints from "../styles/breakpoints"
 // @ts-ignore
 import formik from "../images/formik.png"
 // @ts-ignore
@@ -16,8 +13,9 @@ import reactHookFormVideo from "../images/react-hook-form-test.mp4"
 import formikVideo from "../images/formik-test.mp4"
 // @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.mp4"
-import { CenterContent } from "../styles/containers"
 import home from "../data/home"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import styles from "./CodePerfCompareSection.module.css"
 
 const props = {
@@ -35,11 +33,13 @@ function CodePerfCompareSection({
 }) {
   return (
     <AnimateGroup play={isPlayRender}>
-      <CenterContent>
-        <H1 id="rendering">{home.rendering[currentLanguage].title}</H1>
+      <div className={containerStyles.centerContent}>
+        <h1 className={typographyStyles.h1} id="rendering">
+          {home.rendering[currentLanguage].title}
+        </h1>
 
         <p>{home.rendering[currentLanguage].description}</p>
-      </CenterContent>
+      </div>
 
       <section className={styles.videoWrapper}>
         <Animate
@@ -51,7 +51,8 @@ function CodePerfCompareSection({
                 <source src={formikVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender} <Note>30+</Note>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <b className={typographyStyles.note}>30+</b>
               </p>
             </section>
           )}
@@ -66,7 +67,8 @@ function CodePerfCompareSection({
                 <source src={reactHookFormVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender} <Note>3</Note>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <b className={typographyStyles.note}>3</b>
               </p>
             </section>
           )}
@@ -81,32 +83,37 @@ function CodePerfCompareSection({
                 <source src={reduxFormVideo} type="video/mp4" />
               </video>
               <p>
-                {home.rendering[currentLanguage].totalReRender} <Note>30+</Note>
+                {home.rendering[currentLanguage].totalReRender}{" "}
+                <b className={typographyStyles.note}>30+</b>
               </p>
             </section>
           )}
         />
       </section>
 
-      <CenterContent>
-        <H1>{home.mount[currentLanguage].title}</H1>
+      <div className={containerStyles.centerContent}>
+        <h1 className={typographyStyles.h1}>
+          {home.mount[currentLanguage].title}
+        </h1>
 
         {home.mount[currentLanguage].description}
-      </CenterContent>
+      </div>
 
-      <Title
+      <h2
+        className={typographyStyles.title}
         style={{
           marginTop: 40,
         }}
       >
         React Hook Form
-      </Title>
+      </h2>
       <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 1</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <Note>1800ms</Note>
+            {home.mount[currentLanguage].totalTime}:{" "}
+            <b className={typographyStyles.note}>1800ms</b>
           </li>
         </ul>
         <SimpleImg
@@ -117,13 +124,14 @@ function CodePerfCompareSection({
         />
       </div>
 
-      <Title>Formik</Title>
+      <h2 className={typographyStyles.title}>Formik</h2>
       <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 6</li>
           <li>{home.mount[currentLanguage].totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <Note>2070ms</Note>
+            {home.mount[currentLanguage].totalTime}:{" "}
+            <b className={typographyStyles.note}>2070ms</b>
           </li>
         </ul>
         <SimpleImg
@@ -134,13 +142,14 @@ function CodePerfCompareSection({
         />
       </div>
 
-      <Title>Redux Form</Title>
+      <h2 className={typographyStyles.title}>Redux Form</h2>
       <div className={styles.imgSection}>
         <ul>
           <li>{home.mount[currentLanguage].totalMount}: 17</li>
           <li>{home.mount[currentLanguage].totalChange}: 2</li>
           <li>
-            {home.mount[currentLanguage].totalTime}: <Note>2380ms</Note>
+            {home.mount[currentLanguage].totalTime}:{" "}
+            <b className={typographyStyles.note}>2380ms</b>
           </li>
         </ul>
         <SimpleImg

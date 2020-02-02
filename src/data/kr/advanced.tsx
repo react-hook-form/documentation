@@ -3,13 +3,12 @@ import { Link as PageLink } from "gatsby"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "고급 사용법",
@@ -151,23 +150,29 @@ export default {
           흔합니다. 이럴 때는 상태 관리 라이브러리를 활용하여 다른 페이지와
           섹션에 걸쳐 사용자의 입력값을 저장해두는 것을 추천합니다. 이번
           예제에서는{" "}
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>{" "}
+          </a>{" "}
           을 상태 관리 라이브러리로 사용합니다 (더 친숙하다면{" "}
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>
+          </a>
           로 교체할 수도 있습니다).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>1단계:</Note> 라우트와 스토어를 설정합니다.
+          <b className={typographyStyles.note}>1단계:</b> 라우트와 스토어를
+          설정합니다.
         </p>
         <CodeArea
           rawData={step1}
@@ -175,8 +180,9 @@ export default {
         />
 
         <p>
-          <Note>2단계:</Note> 페이지를 생성하고, 폼을 제출할 때 데이터를
-          스토어에 저장하도록 만든 뒤 다음 페이지로 이동하도록 만듭니다.
+          <b className={typographyStyles.note}>2단계:</b> 페이지를 생성하고,
+          폼을 제출할 때 데이터를 스토어에 저장하도록 만든 뒤 다음 페이지로
+          이동하도록 만듭니다.
         </p>
         <CodeArea
           rawData={step2}
@@ -184,8 +190,8 @@ export default {
         />
 
         <p>
-          <Note>3단계:</Note> 스토어에 모아진 모든 데이터를 사용하여 마지막 폼을
-          제출하거나 결과물을 출력하세요.
+          <b className={typographyStyles.note}>3단계:</b> 스토어에 모아진 모든
+          데이터를 사용하여 마지막 폼을 제출하거나 결과물을 출력하세요.
         </p>
         <CodeArea
           rawData={step3}
@@ -218,9 +224,9 @@ export default {
 
         <p>각각의 컴포넌트가 어떻게 이루어져 있는지 살펴보겠습니다.</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           <code>Form</code> 컴포넌트가 하는 일은 모든{" "}
@@ -232,9 +238,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           인풋 컴포넌트의 역할은 자기 자신을 <code>react-hook-form</code> 에
@@ -266,8 +272,9 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> we have also build a custom hook for complex
-          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+          <b className={typographyStyles.note}>Note:</b> we have also build a
+          custom hook for complex scenario:{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>
@@ -276,8 +283,9 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> if your application requires functionality such as:
-          Delete, Insert, Append, Preprend. Here is the{" "}
+          <b className={typographyStyles.note}>Note:</b> if your application
+          requires functionality such as: Delete, Insert, Append, Preprend. Here
+          is the{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -310,14 +318,15 @@ export default {
     step1: (
       <>
         <p>
-          <Note>1단계:</Note> <code>Yup</code> 을 프로젝트에 설치합니다.
+          <b className={typographyStyles.note}>1단계:</b> <code>Yup</code> 을
+          프로젝트에 설치합니다.
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>2단계:</Note> 유효성 검사를 위한 스키마를 작성하고 React Hook Form
-        을 사용하여 인풋을 등록합니다.
+        <b className={typographyStyles.note}>2단계:</b> 유효성 검사를 위한
+        스키마를 작성하고 React Hook Form 을 사용하여 인풋을 등록합니다.
       </p>
     ),
   },
@@ -357,7 +366,7 @@ export default {
         <ul>
           <li>
             <p>
-              <Link to="/api#Controller">Controller</Link> 를 불러와서
+              <PageLink to="/api#Controller">Controller</PageLink> 를 불러와서
               컴포넌트를 감싸면 알아서 register 와 unregister 처리를 합니다.
             </p>
           </li>

@@ -2,14 +2,13 @@ import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "Сложные примеры",
@@ -152,23 +151,29 @@ export default {
           переходит по разным страницам/секциям. Мы рекомендуем использовать
           библиотеки управления состоянием, для хранения введенных юзером данных
           на разных страницах/секциях. В этом примере, мы используем{" "}
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>{" "}
+          </a>{" "}
           как библиотеку для управления состоянием (вы можете заменить ее на{" "}
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>
+          </a>
           , если более знакомы с ней).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>Шаг 1:</Note> Настройте страницы и хранилище.
+          <b className={typographyStyles.note}>Шаг 1:</b> Настройте страницы и
+          хранилище.
         </p>
         <CodeArea
           rawData={step1}
@@ -176,9 +181,10 @@ export default {
         />
 
         <p>
-          <Note>Шаг 2:</Note> Создайте страницы, настройте их так, чтобы они
-          агрегировали данные, при клике на "submit" данные записывались в
-          хранилище и передавались на следующую страницу формы.
+          <b className={typographyStyles.note}>Шаг 2:</b> Создайте страницы,
+          настройте их так, чтобы они агрегировали данные, при клике на "submit"
+          данные записывались в хранилище и передавались на следующую страницу
+          формы.
         </p>
         <CodeArea
           rawData={step2}
@@ -186,8 +192,8 @@ export default {
         />
 
         <p>
-          <Note>Шаг 3:</Note> Настройте финальное действие со всеми данными из
-          хранилища.
+          <b className={typographyStyles.note}>Шаг 3:</b> Настройте финальное
+          действие со всеми данными из хранилища.
         </p>
         <CodeArea
           rawData={step3}
@@ -220,9 +226,9 @@ export default {
 
         <p>Давайте посмотрим что в каждом из этих компонентов.</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           Компонент <code>Form</code> ответственнен за передачу всех методов{" "}
@@ -234,9 +240,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           Эти компоненты отвечают за их регистрацию в{" "}
@@ -273,9 +279,9 @@ export default {
         </p>
 
         <p>
-          <Note>Заметка:</Note> если в вашем приложении должна быть следующая
-          функциональность: Delete, Insert, Append, Preprend. Вы можете найти
-          реализацию{" "}
+          <b className={typographyStyles.note}>Заметка:</b> если в вашем
+          приложении должна быть следующая функциональность: Delete, Insert,
+          Append, Preprend. Вы можете найти реализацию{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -307,14 +313,15 @@ export default {
     step1: (
       <>
         <p>
-          <Note>Шаг 1:</Note> Установите <code>Yup</code> в проект.
+          <b className={typographyStyles.note}>Шаг 1:</b> Установите{" "}
+          <code>Yup</code> в проект.
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>Шаг 2:</Note> Настройте схему данных для валидации и
-        зарегистрируйте поля ввода в React Hook Form.
+        <b className={typographyStyles.note}>Шаг 2:</b> Настройте схему данных
+        для валидации и зарегистрируйте поля ввода в React Hook Form.
       </p>
     ),
   },
@@ -355,8 +362,8 @@ export default {
         <ul>
           <li>
             <p>
-              Подключить <Link to="/api#Controller">Controller</Link> чтобы
-              обернуть компонент и позволить ему регистрацию и отписку.
+              Подключить <PageLink to="/api#Controller">Controller</PageLink>{" "}
+              чтобы обернуть компонент и позволить ему регистрацию и отписку.
             </p>
           </li>
           <li>
