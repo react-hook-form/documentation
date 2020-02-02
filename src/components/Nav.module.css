@@ -14,7 +14,7 @@
 }
 
 .icon svg {
-  height: 28px;
+  height: 24px;
   fill: white;
 }
 
@@ -140,7 +140,7 @@
 
   .iconGroup {
     left: 20px;
-    width: 160px;
+    width: 135px;
   }
 
   .actionButtonGroup {
