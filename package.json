@@ -21,6 +21,7 @@
     "gatsby-source-filesystem": "2.1.48",
     "gatsby-transformer-sharp": "2.3.14",
     "little-state-machine": "^2.10.6",
+    "prismjs": "^1.19.0",
     "ptz-i18n": "^1.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -30,7 +31,6 @@
     "react-simple-animate": "^3.3.4",
     "react-simple-img": "2.3.7",
     "react-sortablejs": "1.5.1",
-    "react-syntax-highlighter": "11.0.2",
     "sortablejs": "1.10.1"
   },
   "devDependencies": {
@@ -49,8 +49,8 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc"
   },
   "repository": {
     "type": "git",
@@ -67,6 +67,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run format",
+      "npm run prettier",
       "git add"
     ]
   }
