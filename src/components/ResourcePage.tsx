@@ -59,6 +59,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <article className={styles.article}>
               <a
+                href="https://seifi.org/reactjs/build-a-contact-form-in-gatsby-part-2-react-hook-form.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  Build a contact form in Gatsby - Part 2 - React Hook Form
+                </h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://seifi.org/about/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Joe Seifi
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
                 href="https://itnext.io/is-react-hook-form-the-future-57c6f94a2665"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -548,6 +571,26 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   rel="noopener noreferrer"
                 >
                   Better Coding Academy
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=lHclVxcborY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React Hook form tutorials</h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCbaiPi4-JPvIlzR4_7-kAfA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  HicoTek
                 </a>
               </p>
             </article>
