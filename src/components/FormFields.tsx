@@ -54,7 +54,7 @@ const FormFields = ({ formData, errors, register }) => {
       case "radio":
         return (
           <div
-            className={styles.RadioGroup}
+            className={styles.radioGroup}
             key={field.name}
             style={{ marginBottom: 20 }}
             aria-label={field.name}

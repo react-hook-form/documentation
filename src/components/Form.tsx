@@ -73,7 +73,7 @@ function Form({
 
       <div className={styles.wrapper}>
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={typographyStyles.h2}>
+          <h2 className={typographyStyles.title}>
             {generic.example[currentLanguage]}
           </h2>
 
@@ -84,7 +84,7 @@ function Form({
           </button>
 
           <h2
-            className={typographyStyles.h2}
+            className={typographyStyles.title}
             style={{
               fontSize: 14,
               maxWidth: "80%",
@@ -108,7 +108,7 @@ function Form({
         </form>
 
         <section>
-          <h2 className={typographyStyles.h2}>
+          <h2 className={typographyStyles.title}>
             {home.liveDemo[currentLanguage].watchTitle}
           </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
@@ -124,7 +124,7 @@ function Form({
         </section>
 
         <section>
-          <h2 className={typographyStyles.h2}>
+          <h2 className={typographyStyles.title}>
             {home.liveDemo[currentLanguage].errorTitle}
           </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
@@ -147,7 +147,7 @@ function Form({
         </section>
 
         <section>
-          <h2 className={typographyStyles.h2}>
+          <h2 className={typographyStyles.title}>
             {home.liveDemo[currentLanguage].touchedTitle}
           </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>
@@ -164,7 +164,7 @@ function Form({
 
         {!!Object.keys(submitData).length && (
           <section>
-            <h2 className={typographyStyles.h2}>
+            <h2 className={typographyStyles.title}>
               {home.liveDemo[currentLanguage].submit}
             </h2>
             <Animate

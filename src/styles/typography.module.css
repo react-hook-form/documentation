@@ -56,7 +56,7 @@
   margin: 40px auto;
   font-weight: 300;
   padding-bottom: 5px;
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .h5 {

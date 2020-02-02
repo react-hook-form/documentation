@@ -22,7 +22,8 @@
 
 .button,
 .primaryButton,
-.pinkButton {
+.pinkButton,
+.darkButton {
   border-radius: 4px;
   transition: 0.3s all;
   cursor: pointer;
