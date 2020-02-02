@@ -15,7 +15,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 ::-webkit-scrollbar {
-  width: 0.5em;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-button-blue);
@@ -382,21 +382,21 @@ a.active {
     -moz-overflow-scrolling: touch;
   }
 
-  pre::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     height: 8px;
   }
 
-  pre::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: #191d3a;
     border-radius: 10px;
   }
 
-  pre::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background: #4f6294;
     border-radius: 10px;
   }
 
-  pre::-webkit-scrollbar-thumb:hover {
+  ::-webkit-scrollbar-thumb:hover {
     background: var(--color-light-pink);
   }
 
