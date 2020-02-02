@@ -14,14 +14,14 @@ export default function ApiWatch({
 }) {
   return (
     <>
-      <div className={typographyStyles.codeHeading}>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           watch:{" "}
-          <code
+          <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[] | { nest : boolean }) => any`}</code>
+          >{`(names?: string | string[] | { nest : boolean }) => any`}</span>
         </h2>
-      </div>
+      </code>
 
       {api.watch.description}
 

@@ -14,14 +14,14 @@ export default function UseFieldArray({
 }) {
   return (
     <>
-      <div className={typographyStyles.codeHeading}>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           useFieldArray:{" "}
-          <code
+          <span
             className={typographyStyles.typeText}
-          >{`({ control?: any, name: string }) => object`}</code>
+          >{`({ control?: any, name: string }) => object`}</span>
         </h2>
-      </div>
+      </code>
 
       {api.useFieldArray.description}
 

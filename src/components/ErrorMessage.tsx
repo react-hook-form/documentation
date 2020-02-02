@@ -14,12 +14,12 @@ export default ({
 }) => {
   return (
     <div>
-      <div className={typographyStyles.codeHeading}>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           ErrorMessage:{" "}
-          <code className={typographyStyles.typeText}>Component</code>
+          <span className={typographyStyles.typeText}>Component</span>
         </h2>
-      </div>
+      </code>
 
       {api.ErrorMessage.description}
 

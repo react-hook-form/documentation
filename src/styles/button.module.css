@@ -10,6 +10,7 @@
   background: none;
   border: none;
   padding: 0;
+  color: var(--color-link) !important;
 }
 
 .buttonsGroup {

@@ -11,14 +11,14 @@ export default React.memo(
   ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
     return (
       <>
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>
             errors:{" "}
             <span
               className={typographyStyles.typeText}
             >{`Record<string, Object>`}</span>
           </h2>
-        </div>
+        </code>
 
         {api.errors.description(currentLanguage)}
 

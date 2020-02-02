@@ -3,6 +3,7 @@ import CodeArea from "./CodeArea"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import styles from "./ApiRefTable.module.css"
 
 export default function ApiRefTable({
   goToSection,
@@ -74,7 +75,7 @@ export default function ApiRefTable({
         >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
       </p>
 
-      <fieldset>
+      <fieldset className={styles.fieldset}>
         <legend>{api.register.options.title}</legend>
         <p>{api.register.selectHelp}</p>
         <label>

@@ -88,7 +88,7 @@ export default function CodeArea({
       {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
 
       <div className={styles.wrapper}>
-        <pre style={style}>
+        <pre style={style} className="raw-code">
           <code className="language-javascript">
             {rawData || generateCode(data)}
           </code>

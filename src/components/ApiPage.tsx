@@ -198,7 +198,7 @@ function ApiPage({
 
         <main>
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               apiSectionsRef.current.useFormRef = ref
             }}
@@ -489,7 +489,7 @@ function ApiPage({
           <p style={{ textAlign: "center" }}>♦</p>
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.registerRef = ref
@@ -513,7 +513,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.unregisterRef = ref
@@ -554,7 +554,7 @@ function ApiPage({
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
@@ -576,7 +576,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.resetRef = ref
@@ -616,7 +616,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
@@ -655,7 +655,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.clearErrorRef = ref
@@ -675,7 +675,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setValueRef = ref
@@ -699,7 +699,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.getValuesRef = ref
@@ -723,7 +723,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.triggerValidationRef = ref
@@ -746,7 +746,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.controlRef = ref
@@ -807,7 +807,7 @@ function ApiPage({
           <hr />
 
           <code
-            className={styles.codeHeading}
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.validationSchemaRef = ref
@@ -828,15 +828,15 @@ function ApiPage({
 
           <hr />
 
-          <code
-            className={styles.codeHeading}
+          <h2
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >
-            <h2>Browser built-in validation (V3 only)</h2>
-          </code>
+            Browser built-in validation (V3 only)
+          </h2>
 
           {api.NativeValidation.description}
 

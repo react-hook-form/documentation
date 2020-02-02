@@ -8,12 +8,12 @@ import tableStyles from "../styles/table.module.css"
 export default function FormContext({ currentLanguage, api }) {
   return (
     <>
-      <div className={typographyStyles.codeHeading}>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           useFormContext:{" "}
-          <code className={typographyStyles.typeText}>Component</code>
+          <span className={typographyStyles.typeText}>Component</span>
         </h2>
-      </div>
+      </code>
 
       {api.useFormContext.introduction}
 

@@ -37,11 +37,11 @@ export default React.memo(
   }) => {
     return (
       <>
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>
-            formState: <code className={typographyStyles.typeText}>Object</code>
+            formState: <span className={typographyStyles.typeText}>Object</span>
           </h2>
-        </div>
+        </code>
         {api.formState.description}
 
         <div className={tableStyles.tableWrapper}>

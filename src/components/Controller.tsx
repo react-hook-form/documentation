@@ -16,12 +16,12 @@ export default function Controller({
 }) {
   return (
     <>
-      <div className={typographyStyles.codeHeading}>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           Controller:{" "}
-          <code className={typographyStyles.typeText}>Component</code>
+          <span className={typographyStyles.typeText}>Component</span>
         </h2>
-      </div>
+      </code>
 
       {api.Controller.description}
 

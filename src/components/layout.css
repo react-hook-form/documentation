@@ -601,6 +601,11 @@ h4 {
 * based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/
 * license: MIT; http://moox.mit-license.org/
 */
+.raw-code {
+  padding: 15px;
+  font-size: 0.8rem;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   -moz-tab-size: 2;
@@ -638,6 +643,7 @@ pre[class*="language-"] {
 pre[class*="language-"] code {
   white-space: pre;
   display: block;
+  line-height: 1.5;
 }
 
 :not(pre) > code[class*="language-"] {
