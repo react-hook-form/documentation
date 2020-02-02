@@ -50,7 +50,7 @@
 }
 
 .toggleGroup > button:hover {
-  background: var(--color-primary);
+  background: var(--color-secondary);
 }
 
 .toggleGroup > button:first-child {
