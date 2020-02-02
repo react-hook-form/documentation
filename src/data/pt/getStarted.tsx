@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "Comece agora",
@@ -39,13 +39,14 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Cada campo <strong>obrigatório</strong> precisa ter
-          um único <code>name</code> como chave do processo de registro.
+          <b className={typographyStyles.note}>Nota:</b> Cada campo{" "}
+          <strong>obrigatório</strong> precisa ter um único <code>name</code>{" "}
+          como chave do processo de registro.
         </p>
 
         <p>
-          <Note>Nota: </Note>React Native vai precisar do uso manual do comando
-          de registro:{" "}
+          <b className={typographyStyles.note}>Nota: </b>React Native vai
+          precisar do uso manual do comando de registro:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or
           usando <Link to="/api#Controller">Controller</Link> para englobar e
           registrar automaticamente seu componente. Você também pode ler mais em{" "}
@@ -147,9 +148,9 @@ export default {
           de interface.
         </p>
         <p>
-          <Note>Opção 1:</Note> A melhor forma é checar se o componente que
-          deseja expõe um <code>innerRef</code> ou <code>ref</code> isso pode
-          ser utilizado para{" "}
+          <b className={typographyStyles.note}>Opção 1:</b> A melhor forma é
+          checar se o componente que deseja expõe um <code>innerRef</code> ou{" "}
+          <code>ref</code> isso pode ser utilizado para{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -167,9 +168,9 @@ export default {
           </code>
         </p>
         <p>
-          <Note>Opção 2:</Note> As vezes componentes não expõe uma prop par
-          aregistrar, por exemplo <code>react-select</code> ou{" "}
-          <code>react-datepicker</code>.
+          <b className={typographyStyles.note}>Opção 2:</b> As vezes componentes
+          não expõe uma prop par aregistrar, por exemplo{" "}
+          <code>react-select</code> ou <code>react-datepicker</code>.
         </p>
         <p>
           A forma mais fácil de usar é{" "}
@@ -180,8 +181,8 @@ export default {
 
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>Opção 3:</Note> Por último, podemos setar um registro
-          customizado usando{" "}
+          <b className={typographyStyles.note}>Opção 3:</b> Por último, podemos
+          setar um registro customizado usando{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

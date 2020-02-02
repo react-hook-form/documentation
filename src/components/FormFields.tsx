@@ -1,21 +1,12 @@
 import * as React from "react"
-import styled from "styled-components"
 import colors from "../styles/colors"
+import styles from "./FormFields.module.css"
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,
   background: colors.errorPink,
   borderLeft: `10px solid ${colors.lightPink}`,
 }
-
-const RadioGroup = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-
-  & > label:first-child {
-    margin-right: 20px;
-  }
-`
 
 const FormFields = ({ formData, errors, register }) => {
   return (formData || []).map(field => {
@@ -62,7 +53,8 @@ const FormFields = ({ formData, errors, register }) => {
         )
       case "radio":
         return (
-          <RadioGroup
+          <div
+            className={styles.radioGroup}
             key={field.name}
             style={{ marginBottom: 20 }}
             aria-label={field.name}
@@ -90,7 +82,7 @@ const FormFields = ({ formData, errors, register }) => {
                     />
                   </label>
                 ))}
-          </RadioGroup>
+          </div>
         )
       default:
         return (

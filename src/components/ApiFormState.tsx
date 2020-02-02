@@ -1,8 +1,9 @@
 import * as React from "react"
 import { CodeSandBoxLink } from "./CodeArea"
-import { CodeHeading, Table, TableWrapper, CodeAsLink } from "./ApiPage"
-import { TypeText, Note } from "../styles/typography"
 import generic from "../data/generic"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
+import buttonStyles from "../styles/button.module.css"
 
 const goToSection = (name, sectionsRef) => {
   const url = window.location.href
@@ -36,15 +37,15 @@ export default React.memo(
   }) => {
     return (
       <>
-        <CodeHeading>
+        <code className={typographyStyles.codeHeading}>
           <h2>
-            formState: <TypeText>Object</TypeText>
+            formState: <span className={typographyStyles.typeText}>Object</span>
           </h2>
-        </CodeHeading>
+        </code>
         {api.formState.description}
 
-        <TableWrapper>
-          <Table>
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
             <tbody>
               <tr>
                 <th>{generic.name[currentLanguage]}</th>
@@ -56,7 +57,7 @@ export default React.memo(
                   <code>dirty</code>
                 </td>
                 <td>
-                  <TypeText>boolean</TypeText>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>{api.formState.dirty}</td>
               </tr>
@@ -65,7 +66,7 @@ export default React.memo(
                   <code>isSubmitted</code>
                 </td>
                 <td>
-                  <TypeText>boolean</TypeText>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>{api.formState.isSubmitted}</td>
               </tr>
@@ -74,7 +75,7 @@ export default React.memo(
                   <code>touched</code>
                 </td>
                 <td>
-                  <TypeText>object</TypeText>
+                  <code className={typographyStyles.typeText}>object</code>
                 </td>
                 <td>{api.formState.touched}</td>
               </tr>
@@ -83,7 +84,7 @@ export default React.memo(
                   <code>isSubmitting</code>
                 </td>
                 <td>
-                  <TypeText>boolean</TypeText>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>{api.formState.isSubmitting}</td>
               </tr>
@@ -92,7 +93,7 @@ export default React.memo(
                   <code>submitCount</code>
                 </td>
                 <td>
-                  <TypeText>number</TypeText>
+                  <code className={typographyStyles.typeText}>number</code>
                 </td>
                 <td>{api.formState.submitCount}</td>
               </tr>
@@ -101,17 +102,19 @@ export default React.memo(
                   <code>isValid</code>
                 </td>
                 <td>
-                  <TypeText>boolean</TypeText>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
                   <div>{api.formState.isValid}</div>
                   <p>
-                    <Note>Note:</Note> <code>isValid</code> is affected by{" "}
-                    <CodeAsLink
+                    <b className={typographyStyles.note}>Note:</b>{" "}
+                    <code>isValid</code> is affected by{" "}
+                    <code
+                      className={buttonStyles.codeAsLink}
                       onClick={() => goToSection("useForm", sectionsRef)}
                     >
                       mode
-                    </CodeAsLink>
+                    </code>
                     . This state is only applicable with <code>onChange</code>{" "}
                     and <code>onBlur</code> mode.
                   </p>
@@ -129,8 +132,8 @@ export default React.memo(
                 </td>
               </tr>
             </tbody>
-          </Table>
-        </TableWrapper>
+          </table>
+        </div>
       </>
     )
   }

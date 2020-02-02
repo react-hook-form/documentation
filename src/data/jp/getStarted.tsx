@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
-import { Link } from "@reach/router"
+import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "はじめる",
@@ -47,13 +47,14 @@ export default {
         </p>
 
         <p>
-          <Note>注意：</Note> 各フィールドには登録プロセスの key
-          としてユニークな <code>name</code> 属性が<strong>必須</strong>です。
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          各フィールドには登録プロセスの key としてユニークな <code>name</code>{" "}
+          属性が<strong>必須</strong>です。
         </p>
 
         <p>
-          <Note>注意：</Note>React Native は手動登録 (manual{" "}
-          <code>register</code>) する必要があります。 (例：{" "}
+          <b className={typographyStyles.note}>注意：</b>React Native は手動登録
+          (manual <code>register</code>) する必要があります。 (例：{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code>
           または、
           <Link to="/api#Controller">Controller</Link>
@@ -154,7 +155,7 @@ export default {
           コンポーネントライブラリとの統合が容易です。
         </p>
         <p>
-          <Note>オプション1：</Note>{" "}
+          <b className={typographyStyles.note}>オプション1：</b>{" "}
           最適な方法は、使用したい外部コンポーネントが{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
@@ -175,9 +176,10 @@ export default {
           </code>
         </p>
         <p>
-          <Note>オプション2：</Note> 例えば、 <code>react-select</code> や{" "}
-          <code>react-datepicker</code> などのように、 コンポーネントによっては
-          register のための prop が公開されていないことがあります。
+          <b className={typographyStyles.note}>オプション2：</b> 例えば、{" "}
+          <code>react-select</code> や <code>react-datepicker</code>{" "}
+          などのように、 コンポーネントによっては register のための prop
+          が公開されていないことがあります。
         </p>
         <p>
           次に簡単な方法は、ラッパーコンポーネントである{" "}
@@ -187,7 +189,7 @@ export default {
 
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>オプション3：</Note> 最後に{" "}
+          <b className={typographyStyles.note}>オプション3：</b> 最後に{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

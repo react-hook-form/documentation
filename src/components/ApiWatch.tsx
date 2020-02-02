@@ -1,9 +1,9 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
-import { TypeText } from "../styles/typography"
 import generic from "../data/generic"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default function ApiWatch({
   currentLanguage,
@@ -14,17 +14,19 @@ export default function ApiWatch({
 }) {
   return (
     <>
-      <CodeHeading>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           watch:{" "}
-          <TypeText>{`(names?: string | string[] | { nest : boolean }) => any`}</TypeText>
+          <span
+            className={typographyStyles.typeText}
+          >{`(names?: string | string[] | { nest : boolean }) => any`}</span>
         </h2>
-      </CodeHeading>
+      </code>
 
       {api.watch.description}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th
@@ -52,7 +54,7 @@ export default function ApiWatch({
             </tr>
             <tr>
               <td>
-                <TypeText>string</TypeText>
+                <code className={typographyStyles.typeText}>string</code>
               </td>
               <td>{api.watch.tableTitle.single}</td>
               <td>
@@ -61,12 +63,14 @@ export default function ApiWatch({
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <TypeText>{`string | string[] | { [key:string] : any } | undefined`}</TypeText>
+                <code
+                  className={typographyStyles.typeText}
+                >{`string | string[] | { [key:string] : any } | undefined`}</code>
               </td>
             </tr>
             <tr>
               <td>
-                <TypeText>{`string[]`}</TypeText>
+                <code className={typographyStyles.typeText}>{`string[]`}</code>
               </td>
               <td>{api.watch.tableTitle.multiple}</td>
               <td>
@@ -75,12 +79,14 @@ export default function ApiWatch({
                 <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <TypeText>{`{ [key:string] : any }`}</TypeText>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{ [key:string] : any }`}</code>
               </td>
             </tr>
             <tr>
               <td>
-                <TypeText>undefined</TypeText>
+                <code className={typographyStyles.typeText}>undefined</code>
               </td>
               <td>{api.watch.tableTitle.all}</td>
               <td>
@@ -89,24 +95,30 @@ export default function ApiWatch({
                 <code>{`watch(undefined, { field: 'value1' })`}</code>
               </td>
               <td>
-                <TypeText>{`{ [key:string] : any }`}</TypeText>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{ [key:string] : any }`}</code>
               </td>
             </tr>
             <tr>
               <td>
-                <TypeText>{`{ nest: boolean }`}</TypeText>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{ nest: boolean }`}</code>
               </td>
               <td>{api.watch.tableTitle.nest}</td>
               <td>
                 <code>{`watch({ nest: true })`}</code>
               </td>
               <td>
-                <TypeText>{`{ [key:string] : any }`}</TypeText>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{ [key:string] : any }`}</code>
               </td>
             </tr>
           </tbody>
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
       <CodeArea rawData={watchCode} url="https://codesandbox.io/s/pp1l40q7wx" />
 
       <hr />

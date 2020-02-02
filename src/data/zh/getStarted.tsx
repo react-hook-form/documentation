@@ -1,10 +1,8 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
-import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "起步",
@@ -36,12 +34,14 @@ export default {
         </p>
 
         <p>
-          <Note>注意：</Note>每个表格都需要有一个<strong>独特</strong>
+          <b className={typographyStyles.note}>注意：</b>每个表格都需要有一个
+          <strong>独特</strong>
           的名称作为注册过程的密钥
         </p>
 
         <p>
-          <Note>注意：</Note>React Native 将需要使用手动注册 (例子如下:{" "}
+          <b className={typographyStyles.note}>注意：</b>React Native
+          将需要使用手动注册 (例子如下:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code>
           或使用
           <Link to="/api#Controller">Controller</Link>
@@ -136,7 +136,8 @@ export default {
       <>
         <p>React Hook Form 让外部UI组件库集成变得简单。</p>
         <p>
-          <Note>注意:</Note> 大多数UI库都会将内部的<code>innerRef</code>或者
+          <b className={typographyStyles.note}>注意:</b> 大多数UI库都会将内部的
+          <code>innerRef</code>或者
           <code>Ref</code>
           公开给与注册
           <code>
@@ -156,7 +157,7 @@ export default {
           更新它的值。
         </p>
         <p>
-          <Note>注意:</Note>
+          <b className={typographyStyles.note}>注意:</b>
           我们还制作了一个包装器组件
           <Link to="/api#Controller">Controller</Link>
           ，以帮助您的自定义注册表格过程。

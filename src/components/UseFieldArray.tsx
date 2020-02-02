@@ -1,9 +1,9 @@
 import * as React from "react"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
-import { TypeText } from "../styles/typography"
 import generic from "../data/generic"
 import CodeArea from "./CodeArea"
 import useFieldArray from "./codeExamples/useFieldArray"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default function UseFieldArray({
   currentLanguage,
@@ -14,17 +14,19 @@ export default function UseFieldArray({
 }) {
   return (
     <>
-      <CodeHeading>
+      <code className={typographyStyles.codeHeading}>
         <h2>
           useFieldArray:{" "}
-          <TypeText>{`({ control?: any, name: string }) => object`}</TypeText>
+          <span
+            className={typographyStyles.typeText}
+          >{`({ control?: any, name: string }) => object`}</span>
         </h2>
-      </CodeHeading>
+      </code>
 
       {api.useFieldArray.description}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th>{generic.name[currentLanguage]}</th>
@@ -33,8 +35,8 @@ export default function UseFieldArray({
             </tr>
             {api.useFieldArray.table}
           </tbody>
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
 
       <CodeArea
         rawData={useFieldArray}

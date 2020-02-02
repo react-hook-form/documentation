@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Note } from "../styles/typography"
+import typographyStyles from "../styles/typography.module.css"
 
 export default {
   title: {
@@ -256,8 +256,8 @@ export default {
             validation libraries.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ Note:</Note> Both Formik and Redux-Form code below are
-            copied from official documentation.
+            <b className={typographyStyles.note}>⚠ Note:</b> Both Formik and
+            Redux-Form code below are copied from official documentation.
           </p>
         </>
       ),
@@ -273,8 +273,9 @@ export default {
             librerías de validación más populares.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ Nota:</Note> Tanto el código de Formik como el de Redux-Form
-            a continuación fueron copiados de la documentación oficial.
+            <b className={typographyStyles.note}>⚠ Nota:</b> Tanto el código de
+            Formik como el de Redux-Form a continuación fueron copiados de la
+            documentación oficial.
           </p>
         </>
       ),
@@ -290,8 +291,8 @@ export default {
             bibliotecas de validação de formulários.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ Nota:</Note> Ambos, Formik e Redux-Form o código foi copiado
-            com base na documentação oficial.
+            <b className={typographyStyles.note}>⚠ Nota:</b> Ambos, Formik e
+            Redux-Form o código foi copiado com base na documentação oficial.
           </p>
         </>
       ),
@@ -306,8 +307,8 @@ export default {
             라이브러리들을 사용한 간단한 폼을 살펴보세요.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ 참고:</Note>아래의 Formik 및 Redux-Form 코드는 다음과
-            같습니다. 공식 문서에서 복사。
+            <b className={typographyStyles.note}>⚠ 참고:</b>아래의 Formik 및
+            Redux-Form 코드는 다음과 같습니다. 공식 문서에서 복사。
           </p>
         </>
       ),
@@ -321,8 +322,8 @@ export default {
             これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にシンプルなコードを見てみましょう。
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ 注意：</Note>下記の Formik と Redux-Form
-            のコードは公式ドキュメントからコピーされています。
+            <b className={typographyStyles.note}>⚠ 注意：</b>下記の Formik と
+            Redux-Form のコードは公式ドキュメントからコピーされています。
           </p>
         </>
       ),
@@ -336,8 +337,8 @@ export default {
             为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式，同时加以对比。
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ 注意:</Note>下面的Formik和Redux-Form代码都是
-            从官方文件复制。
+            <b className={typographyStyles.note}>⚠ 注意:</b>
+            下面的Formik和Redux-Form代码都是 从官方文件复制。
           </p>
         </>
       ),
@@ -353,8 +354,9 @@ export default {
             нескольких популярных библиотек валидации форм.
           </p>
           <p style={{ fontSize: 14 }}>
-            <Note>⚠ Обратите внимание:</Note> Код Formik и Redux-Form,
-            приведённый ниже, скопирован из официальной документации.
+            <b className={typographyStyles.note}>⚠ Обратите внимание:</b> Код
+            Formik и Redux-Form, приведённый ниже, скопирован из официальной
+            документации.
           </p>
         </>
       ),
@@ -372,8 +374,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -389,8 +391,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -406,8 +408,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -423,8 +425,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -440,8 +442,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -457,8 +459,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),
@@ -474,8 +476,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <Note>Note:</Note> Type in the input box to see the render
-            behaviour.
+            <b className={typographyStyles.note}>Note:</b> Type in the input box
+            to see the render behaviour.
           </p>
         </>
       ),

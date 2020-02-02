@@ -1,11 +1,11 @@
 import * as React from "react"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
-import { TypeText } from "../styles/typography"
 import rhfInput from "./codeExamples/RHFInput"
 import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../data/generic"
 import TabGroup from "./TabGroup"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default function Controller({
   currentLanguage,
@@ -16,16 +16,17 @@ export default function Controller({
 }) {
   return (
     <>
-      <CodeHeading>
+      <code className={typographyStyles.codeHeading}>
         <h2>
-          Controller: <TypeText>Component</TypeText>
+          Controller:{" "}
+          <span className={typographyStyles.typeText}>Component</span>
         </h2>
-      </CodeHeading>
+      </code>
 
       {api.Controller.description}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <thead>
             <tr>
               <th>{generic.name[currentLanguage]}</th>
@@ -35,8 +36,8 @@ export default function Controller({
             </tr>
           </thead>
           {api.Controller.table}
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={rhfInput}

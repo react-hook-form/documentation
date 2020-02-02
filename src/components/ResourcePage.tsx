@@ -1,9 +1,9 @@
 import * as React from "react"
-import { HeadingWithTopMargin, SubHeading, Title } from "../styles/typography"
 import Footer from "./Footer"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import generic from "../data/generic"
+import typographyStyles from "../styles/typography.module.css"
 import styles from "./ResourcePage.module.css"
 import containerStyle from "../styles/container.module.css"
 
@@ -19,15 +19,17 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   return (
     <div className={containerStyle.container}>
       <main className={styles.root}>
-        <HeadingWithTopMargin id="main">
+        <h1 className={typographyStyles.headingWithTopMargin} id="main">
           {nav[currentLanguage].resources}
-        </HeadingWithTopMargin>
-        <SubHeading>
+        </h1>
+        <p className={typographyStyles.subHeading}>
           {generic.blog[currentLanguage]}, {generic.video[currentLanguage]} &{" "}
           {generic.newsletter[currentLanguage]}
-        </SubHeading>
+        </p>
 
-        <Title>{generic.blog[currentLanguage]}</Title>
+        <h2 className={typographyStyles.title}>
+          {generic.blog[currentLanguage]}
+        </h2>
 
         <ul className={styles.contentList}>
           <li>
@@ -334,7 +336,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           </li>
         </ul>
 
-        <Title>{generic.newsletter[currentLanguage]}</Title>
+        <h2 className={typographyStyles.title}>
+          {generic.newsletter[currentLanguage]}
+        </h2>
 
         <ul className={styles.contentList}>
           <li>
@@ -449,7 +453,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           </li>
         </ul>
 
-        <Title>{generic.video[currentLanguage]}</Title>
+        <h2 className={typographyStyles.title}>
+          {generic.video[currentLanguage]}
+        </h2>
         <ul className={styles.contentList}>
           <li>
             <article className={styles.article}>

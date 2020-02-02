@@ -1,14 +1,14 @@
 import * as React from "react"
-import { Title, H1, Note } from "../styles/typography"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
-import { DarkButton, PinkButton } from "../styles/buttons"
-import { CenterContent } from "../styles/containers"
 import goToBuilder from "./utils/goToBuilder"
 import useForm from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import styles from "./Form.module.css"
 
 const animationProps = {
@@ -50,8 +50,10 @@ function Form({
 
   return (
     <>
-      <CenterContent>
-        <H1>{home.liveDemo[currentLanguage].title}</H1>
+      <div className={containerStyles.centerContent}>
+        <h1 className={typographyStyles.h1}>
+          {home.liveDemo[currentLanguage].title}
+        </h1>
         {formUpdated && (
           <Animate
             play={formUpdated}
@@ -60,23 +62,29 @@ function Form({
             delay={1.5}
             render={({ style }) => (
               <p style={{ marginBottom: 20, ...style }}>
-                <Note>Note:</Note> your form have been updated.
+                <b className={typographyStyles.note}>Note:</b> your form have
+                been updated.
               </p>
             )}
           />
         )}
         <p>{home.liveDemo[currentLanguage].description}</p>
-      </CenterContent>
+      </div>
 
       <div className={styles.wrapper}>
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
-          <Title>{generic.example[currentLanguage]}</Title>
+          <h2 className={typographyStyles.title}>
+            {generic.example[currentLanguage]}
+          </h2>
 
           <FormFields {...{ formData, errors, register }} />
 
-          <PinkButton>{home.liveDemo[currentLanguage].submit}</PinkButton>
+          <button className={buttonStyles.pinkButton}>
+            {home.liveDemo[currentLanguage].submit}
+          </button>
 
-          <Title
+          <h2
+            className={typographyStyles.title}
             style={{
               fontSize: 14,
               maxWidth: "80%",
@@ -84,9 +92,10 @@ function Form({
             }}
           >
             or
-          </Title>
+          </h2>
 
-          <DarkButton
+          <button
+            className={buttonStyles.darkButton}
             type="button"
             onClick={() => {
               reset()
@@ -95,11 +104,13 @@ function Form({
             }}
           >
             {generic.edit[currentLanguage]}
-          </DarkButton>
+          </button>
         </form>
 
         <section>
-          <Title>{home.liveDemo[currentLanguage].watchTitle}</Title>
+          <h2 className={typographyStyles.title}>
+            {home.liveDemo[currentLanguage].watchTitle}
+          </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
           <Animate
             play={Object.keys(watch()).length > 0}
@@ -113,7 +124,9 @@ function Form({
         </section>
 
         <section>
-          <Title>{home.liveDemo[currentLanguage].errorTitle}</Title>
+          <h2 className={typographyStyles.title}>
+            {home.liveDemo[currentLanguage].errorTitle}
+          </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
           <Animate {...animationProps} play={!!Object.keys(errors).length}>
             <pre className={styles.code}>
@@ -134,7 +147,9 @@ function Form({
         </section>
 
         <section>
-          <Title>{home.liveDemo[currentLanguage].touchedTitle}</Title>
+          <h2 className={typographyStyles.title}>
+            {home.liveDemo[currentLanguage].touchedTitle}
+          </h2>
           <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>
           <Animate
             play={!!touched.length}
@@ -149,7 +164,9 @@ function Form({
 
         {!!Object.keys(submitData).length && (
           <section>
-            <Title>{home.liveDemo[currentLanguage].submit}</Title>
+            <h2 className={typographyStyles.title}>
+              {home.liveDemo[currentLanguage].submit}
+            </h2>
             <Animate
               play={!!Object.keys(submitData).length}
               {...animationProps}

@@ -1,12 +1,11 @@
 import * as React from "react"
-import Link from "../../styles/link"
-import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
 import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "API文档",
@@ -59,16 +58,26 @@ export default {
       <>
         <p>
           您可以使用defaultValue/defaultChecked设置输入的默认值
-          <Link href="https://reactjs.org/docs/uncontrolled-components.html">
+          <a
+            className={buttonStyles.links}
+            href="https://reactjs.org/docs/uncontrolled-components.html"
+          >
             （从React文档中读取默认值的更多内容）
-          </Link>
+          </a>
           ，或者将defaultValues作为可选参数来填充整个表单的默认值。
         </p>
 
         <p>
-          <Note>注意:</Note> 默认值<code>defaultValues</code>
+          <b className={typographyStyles.note}>注意:</b> 默认值
+          <code>defaultValues</code>
           中定义的值将作为默认值<code>defaultValue</code>注入
-          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>。
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("watch")}
+          >
+            watch
+          </button>
+          。
         </p>
 
         <p>
@@ -83,9 +92,12 @@ export default {
     validationSchema: goToSection => (
       <p>
         将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
-        <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ValidationSchema")}
+        >
           validationSchema
-        </CodeAsLink>
+        </button>
         部分。
       </p>
     ),
@@ -108,9 +120,9 @@ export default {
         </p>
 
         <p>
-          <Note>注意:</Note> 只有具有<code>ref</code>的注册字段将工作。
-          手动注册的输入将无法正常工作。 比如:{" "}
-          <code>{`register({ name: 'test' }) // 不会工作`}</code>{" "}
+          <b className={typographyStyles.note}>注意:</b> 只有具有
+          <code>ref</code>的注册字段将工作。 手动注册的输入将无法正常工作。
+          比如: <code>{`register({ name: 'test' }) // 不会工作`}</code>{" "}
         </p>
       </>
     ),
@@ -125,9 +137,12 @@ export default {
           您可以了解有关内置浏览器验证的更多信息
         </a>
         ，并参考本机验证部分
-        <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("nativeValidation")}
+        >
           nativeValidation
-        </CodeAsLink>
+        </button>
         了解更多详细信息和示例。
       </p>
     ),
@@ -138,7 +153,7 @@ export default {
       <>
         <p>此方法将允许您取消注册单个输入或输入的数组。</p>
         <p>
-          <Note>注意:</Note>{" "}
+          <b className={typographyStyles.note}>注意:</b>{" "}
           取消注册输入时，其值将不再被包含在被提交的表单数据中。当您手动在
           <code> useEffect </code>
           注册输入时会有用，同时当组件卸载时你也可以用它来取消注册。
@@ -156,7 +171,8 @@ export default {
         </p>
         <p>验证规则都是基于HTML标准，也允许自定义验证。</p>
         <p>
-          <Note>重要:</Note> 名称<code>name</code>是<strong>必需</strong>的和
+          <b className={typographyStyles.note}>重要:</b> 名称<code>name</code>是
+          <strong>必需</strong>的和
           <strong>唯一</strong>的。
           输入名称还支持点和括号语法，它允许您轻松创建表单。 示例表如下:
         </p>
@@ -171,12 +187,13 @@ export default {
       >
         如果您使用数组/数组字段，则可以将输入名称指定为
         <code>name[index]</code>。{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           查看Field Array数组示例
-        </Link>
+        </a>
         .
       </p>
     ),
@@ -188,7 +205,7 @@ export default {
       registerWithValidationMessage: "注册验证和错误消息",
       note: goToSection => (
         <>
-          <Title>手动注册输入</Title>
+          <h2 className={typographyStyles.title}>手动注册输入</h2>
           <p>
             您还可以手动注册输入，这在使用自定义组件和无法访问<code>Ref</code>
             时情况下非常有用。 实际上，当您使用React Native或自定义组件（如
@@ -204,18 +221,23 @@ export default {
 
           <p>
             通过使用自定义注册时，您将需要使用
-            <CodeAsLink onClick={() => goToSection("setValue")}>
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setValue")}
+            >
               setValue
-            </CodeAsLink>
+            </button>
             来更新输入值，因为输入注册没有<code>ref</code>。
           </p>
 
           <p>
-            <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
           </p>
 
           <p>
-            <Note>注意:</Note>{" "}
+            <b className={typographyStyles.note}>注意:</b>{" "}
             如果您希望自定义注册输入在其值更新过程中触发重新render，那么你应该给您注册的输入的类型加以
             <code>type</code>。
           </p>
@@ -245,7 +267,7 @@ export default {
         <p>此对象包含有关表单状态的信息。</p>
 
         <p>
-          <Note>重要信息：</Note>
+          <b className={typographyStyles.note}>重要信息：</b>
           <code>formState</code>与
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
@@ -288,7 +310,10 @@ export default {
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
         <p>
-          <Note>{generic.note[currentLanguage]}:</Note> V3和V4之间的区别：
+          <b className={typographyStyles.note}>
+            {generic.note[currentLanguage]}:
+          </b>{" "}
+          V3和V4之间的区别：
         </p>
 
         <ul>
@@ -375,12 +400,13 @@ export default {
       <>
         <p>当表单验证成功时，此函数将传递表单数据。</p>
         <p>
-          <Note>注意:</Note> 您可以传递<code>async</code>验证。例如：
+          <b className={typographyStyles.note}>注意:</b> 您可以传递
+          <code>async</code>验证。例如：
         </p>
         <p>
-          <CodeBlock>
+          <code className={typographyStyles.codeBlock}>
             handleSubmit(async (data) => await fetchAPI(data))
-          </CodeBlock>
+          </code>
         </p>
       </>
     ),
@@ -394,16 +420,23 @@ export default {
           作为可选参数传递，以将表单重置为已分配的默认值。
         </p>
         <p>
-          <Note>注意:</Note> 对于像<code>React-Select</code>这样不公开
+          <b className={typographyStyles.note}>注意:</b> 对于像
+          <code>React-Select</code>这样不公开
           <code>ref</code>
           的受控组件，您必须通过
-          <CodeAsLink onClick={() => goToSection("setValue")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("setValue")}
+          >
             setValue
-          </CodeAsLink>
+          </button>
           手动重置输入值或使用
-          <CodeAsLink onClick={() => goToSection("Controller")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("Controller")}
+          >
             Controller
-          </CodeAsLink>
+          </button>
           来包装您的受控组件。
         </p>
       </>
@@ -415,7 +448,8 @@ export default {
       <>
         <p>允许您手动设置输入单个和多项错误。</p>
         <p>
-          <Note>注意:</Note> 此方法将不会保留错误并阻止提交动作。适用于在
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          此方法将不会保留错误并阻止提交动作。适用于在
           <code>handleSubmit</code>
           函数中，当您想要在异步验证后向用户提供错误反馈。
         </p>
@@ -471,7 +505,8 @@ export default {
           </li>
         </ul>
         <p>
-          <Note>注意:</Note> 通过调用此方法，<code>formState</code>
+          <b className={typographyStyles.note}>注意:</b> 通过调用此方法，
+          <code>formState</code>
           将将输入的名称<code>name</code>推入触摸<code>touched</code>。
         </p>
         <p>
@@ -515,7 +550,8 @@ export default {
       <>
         <p>手动触发表单中的输入/选择验证。</p>
         <p>
-          <Note>注意:</Note> 当验证失败时，<code>errors</code>对象将被更新。
+          <b className={typographyStyles.note}>注意:</b> 当验证失败时，
+          <code>errors</code>对象将被更新。
         </p>
       </>
     ),
@@ -527,13 +563,14 @@ export default {
         如果您希望使用外部验证模式，可以在
         <code>useForm</code>应用验证模式<code>validationSchema</code>
         作为可选参数。 React Hook Form当前支持
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/jquense/yup"
           target="_blank"
           rel="noopener noreferrer"
         >
           Yup
-        </Link>
+        </a>
         进行对象模式验证。
       </p>
     ),
@@ -547,7 +584,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>Unique name of your input.</td>
@@ -557,7 +594,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td>✓</td>
           <td>
@@ -570,7 +609,7 @@ export default {
             <code>control</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
           <td>
@@ -583,7 +622,7 @@ export default {
             <code>defaultValue</code>
           </td>
           <td>
-            <TypeText>any</TypeText>
+            <code className={typographyStyles.typeText}>any</code>
           </td>
           <td></td>
           <td>
@@ -591,14 +630,14 @@ export default {
             supply <code>boolean</code> value, it will be treated as checkbox
             input.
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <b className={typographyStyles.note}>Note:</b> you will need to
+              supply either <code>defaultValue</code> or{" "}
+              <code>defaultValues</code> at <code>useForm</code>
             </p>
             <p>
-              <Note>Note:</Note> you will need to supply either{" "}
-              <code>defaultValue</code> or <code>defaultValues</code> at{" "}
-              <code>useForm</code>
+              <b className={typographyStyles.note}>Note:</b> you will need to
+              supply either <code>defaultValue</code> or{" "}
+              <code>defaultValues</code> at <code>useForm</code>
             </p>
           </td>
         </tr>
@@ -607,7 +646,7 @@ export default {
             <code>rules</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td></td>
           <td>
@@ -619,7 +658,9 @@ export default {
             <code>onChange</code>
           </td>
           <td>
-            <TypeText>(args: any) => any</TypeText>
+            <code className={typographyStyles.typeText}>
+              (args: any) => any
+            </code>
           </td>
           <td></td>
           <td>
@@ -633,7 +674,7 @@ export default {
             <code>onChangeName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -646,7 +687,7 @@ export default {
             <code>onBlurName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -659,7 +700,7 @@ export default {
             <code>valueName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -718,7 +759,8 @@ export default {
           <code>useFormContext</code>:函数可以在其子组件中调用。
         </p>
         <p>
-          <Note>注意:</Note> 调用使用<code>useFormContext</code>将为您提供所有
+          <b className={typographyStyles.note}>注意:</b> 调用使用
+          <code>useFormContext</code>将为您提供所有
           <code>useForm</code>函数。
         </p>
       </>
@@ -745,7 +787,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>关联的表格名称。</td>
@@ -755,7 +797,7 @@ export default {
             <code>errors</code>
           </td>
           <td>
-            <TypeText>object</TypeText>
+            <code className={typographyStyles.typeText}>object</code>
           </td>
           <td>✓</td>
           <td>
@@ -768,7 +810,7 @@ export default {
             <code>message</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>内联错误消息。</td>
@@ -778,7 +820,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td></td>
           <td>
@@ -792,9 +836,9 @@ export default {
             <code>children</code>
           </td>
           <td>
-            <TypeText>
+            <code className={typographyStyles.typeText}>
               ({`{ message: string, messages: string[]}`}) => any
-            </TypeText>
+            </code>
           </td>
           <td></td>
           <td>
@@ -833,17 +877,19 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>注意:</Note> 可以通过在<code>userform</code>中的
+          <b className={typographyStyles.note}>注意:</b> 可以通过在
+          <code>userform</code>中的
           <code>defaultValues</code>来填充<code>字段</code>。
         </p>
 
         <p>
-          <Note>注意:</Note> 确保您将来自<code>fields</code>对象的
+          <b className={typographyStyles.note}>注意:</b> 确保您将来自
+          <code>fields</code>对象的
           <code>id</code>分配为组件键。
         </p>
 
         <p>
-          <Note>注意:</Note>
+          <b className={typographyStyles.note}>注意:</b>
           由于ref回调问题，对于未经验证的注册，请确保将空的对象作作为argument。例如
           <code>{`ref={register()}`}</code>
         </p>
@@ -856,12 +902,14 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <TypeText>object & {`{ id: string }`}</TypeText>
+            <code className={typographyStyles.typeText}>
+              object & {`{ id: string }`}
+            </code>
           </td>
           <td>
             此对象是映射和render染输入的真实来源
             <p>
-              <Note>重要: </Note>
+              <b className={typographyStyles.note}>重要: </b>
               因为每个输入可以不受控制, <code>id</code>
               是必须的来帮助反应组件是否已更改、添加或删除了。
             </p>
@@ -876,7 +924,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(obj: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (obj: any) => void
+              </code>
             </code>
           </td>
           <td>将输入/输入追加到字段的末尾</td>
@@ -887,7 +937,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(obj: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (obj: any) => void
+              </code>
             </code>
           </td>
           <td>将输入/输入前置到字段的开头</td>
@@ -898,7 +950,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(index: number, value: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (index: number, value: any) => void
+              </code>
             </code>
           </td>
           <td>在特定位置插入输入</td>
@@ -909,7 +963,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) => void
+              </code>
             </code>
           </td>
           <td>交换输入位置</td>
@@ -920,13 +976,15 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) => void
+              </code>
             </code>
           </td>
           <td>
             将输入移动到另一位置。
             <p>
-              <Note>Note:</Note>
+              <b className={typographyStyles.note}>Note:</b>
               <code>move</code>和<code>swap</code>之间的差异 <code>swap</code>
               在于继续调用<code>move</code>将推送输入一直推下,<code>swap</code>
               只是交换输入的位置。
@@ -939,7 +997,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(index?: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (index?: number) => void
+              </code>
             </code>
           </td>
           <td>在特定位置删除输入，或删除所有输入当没有提供位置。</td>

@@ -7,14 +7,14 @@ import CodePerfCompareSection from "./CodePerfCompareSection"
 import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
-import { H1 } from "../styles/typography"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
 import translateLink from "./logic/translateLink"
-import styles from "./HomePage.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import buttonStyles from "../styles/button.module.css"
+import styles from "./HomePage.module.css"
 
 const { useState, useRef, useEffect } = React
 
@@ -147,7 +147,9 @@ function HomePage({
       />
 
       <section className={containerStyles.centerContent}>
-        <H1>{home.findInteresting[currentLanguage].heading}</H1>
+        <h1 className={typographyStyles.h1}>
+          {home.findInteresting[currentLanguage].heading}
+        </h1>
         <p>{home.findInteresting[currentLanguage].description}</p>
         <div
           className={buttonStyles.buttonsGroup}

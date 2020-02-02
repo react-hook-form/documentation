@@ -1,10 +1,10 @@
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
 import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
+import Prism from "prismjs"
+import { useEffect } from "react"
 import styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -59,6 +59,10 @@ export default function CodeArea({
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
 
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [rawData])
+
   return (
     <section
       style={{
@@ -84,16 +88,11 @@ export default function CodeArea({
       {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
 
       <div className={styles.wrapper}>
-        <SyntaxHighlighter
-          customStyle={{
-            border: "none",
-            ...style,
-          }}
-          style={xonokai}
-          language={"jsx"}
-        >
-          {rawData || generateCode(data)}
-        </SyntaxHighlighter>
+        <pre style={style} className="raw-code">
+          <code className="language-javascript">
+            {rawData || generateCode(data)}
+          </code>
+        </pre>
       </div>
     </section>
   )

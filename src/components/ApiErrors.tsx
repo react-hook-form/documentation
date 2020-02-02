@@ -1,29 +1,29 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default React.memo(
   ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
     return (
       <>
-        <CodeHeading>
+        <code className={typographyStyles.codeHeading}>
           <h2>
             errors:{" "}
             <span
               className={typographyStyles.typeText}
             >{`Record<string, Object>`}</span>
           </h2>
-        </CodeHeading>
+        </code>
 
         {api.errors.description(currentLanguage)}
 
-        <TableWrapper>
-          <Table>
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
             <tbody>
               <tr>
                 <th>{generic.name[currentLanguage]}</th>
@@ -80,8 +80,8 @@ export default React.memo(
                 <td>{api.errors.ref}</td>
               </tr>
             </tbody>
-          </Table>
-        </TableWrapper>
+          </table>
+        </div>
 
         <TabGroup buttonLabels={["First error detected", "Display all errors"]}>
           <CodeArea

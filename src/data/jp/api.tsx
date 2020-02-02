@@ -1,13 +1,12 @@
 import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
-import Link from "../../styles/link"
-import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
 import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "API ドキュメント",
@@ -66,24 +65,33 @@ export default {
         <p>
           <code>defaultValue/defaultChecked</code> を使用して input
           のデフォルト値を設定するか{" "}
-          <Link href="https://reactjs.org/docs/uncontrolled-components.html">
+          <a
+            className={buttonStyles.links}
+            href="https://reactjs.org/docs/uncontrolled-components.html"
+          >
             (詳細については React ドキュメントを参照)
-          </Link>{" "}
+          </a>{" "}
           、<code>defaultValues</code>{" "}
           を省略可能な引数として渡してフォーム全体のデフォルト値を設定することができます。
         </p>
 
         <p>
-          <Note>注意：</Note> <code>defaultValues</code> で定義された値は{" "}
-          <code>defaultValue</code> として{" "}
-          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>{" "}
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          <code>defaultValues</code> で定義された値は <code>defaultValue</code>{" "}
+          として{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("watch")}
+          >
+            watch
+          </button>{" "}
           に注入されます。
         </p>
 
         <p>
-          <Note>注意：</Note> 手動で <code>register</code>{" "}
-          を適用したフィールドでは React Hook Form に <code>ref</code>{" "}
-          を提供しないため、 手動で登録した input (例:{" "}
+          <b className={typographyStyles.note}>注意：</b> 手動で{" "}
+          <code>register</code> を適用したフィールドでは React Hook Form に{" "}
+          <code>ref</code> を提供しないため、 手動で登録した input (例:{" "}
           <code>{`register({ name: 'test' })`}</code>) に{" "}
           <code>defaultValues</code> は自動設定されません。
         </p>
@@ -93,9 +101,12 @@ export default {
       <p>
         スキーマレベルで <code>Yup</code>{" "}
         を使用してフォームバリデーションルールを適用します。{" "}
-        <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ValidationSchema")}
+        >
           validationSchema
-        </CodeAsLink>{" "}
+        </button>{" "}
         セクションを参照してください。
       </p>
     ),
@@ -120,7 +131,7 @@ export default {
         </p>
 
         <p>
-          <Note>注意：</Note> <code>ref</code>{" "}
+          <b className={typographyStyles.note}>注意：</b> <code>ref</code>{" "}
           を持つ登録したフィールドのみが機能します。 手動で登録した input
           では機能しません。例：{" "}
           <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
@@ -139,9 +150,12 @@ export default {
           ビルトインブラウザーバリデーションの詳細を確認
         </a>
         できます。詳細と例については{" "}
-        <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("nativeValidation")}
+        >
           nativeValidation
-        </CodeAsLink>{" "}
+        </button>{" "}
         セクションを参照してください。
       </p>
     ),
@@ -158,8 +172,9 @@ export default {
           コンポーネントのアンマウント後に登録を解除する場合に便利です。
         </p>
         <p>
-          <Note>注意：</Note> input を登録解除 (<code>unregister</code>)
-          すると、 その値は送信されたフォームデータに含まれなくなります。
+          <b className={typographyStyles.note}>注意：</b> input を登録解除 (
+          <code>unregister</code>) すると、
+          その値は送信されたフォームデータに含まれなくなります。
         </p>
       </>
     ),
@@ -178,7 +193,8 @@ export default {
           標準に基づいており、カスタムバリデーションも可能です。
         </p>
         <p>
-          <Note>重要：</Note> <code>name</code> 属性は<b>必須</b>かつ
+          <b className={typographyStyles.note}>重要：</b> <code>name</code>{" "}
+          属性は<b>必須</b>かつ
           <b>ユニーク</b>です。 input の name
           属性はドット記法およびブラケット記法もサポートしているため、
           ネストされたフォームフィールドを簡単に作成することができます。例は下記の通りです：
@@ -194,12 +210,13 @@ export default {
       >
         <code>arrays/array</code> フィールドを使用する場合、input の name 属性を{" "}
         <code>name[index]</code> のように割り当てることができます。
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           フィールド配列の例をご覧ください
-        </Link>
+        </a>
         。
       </p>
     ),
@@ -212,7 +229,7 @@ export default {
       registerWithValidationMessage: "バリデーションとエラーメッセージで登録",
       note: goToSection => (
         <>
-          <Title>カスタム登録</Title>
+          <h2 className={typographyStyles.title}>カスタム登録</h2>
           <p>
             また、input を手動で登録 (manual <code>register</code>)
             することもできます。 これは、カスタムコンポーネントを操作していて{" "}
@@ -229,18 +246,24 @@ export default {
 
           <p>
             カスタム登録を使用すると、 input の ref は登録されていないため、{" "}
-            <CodeAsLink onClick={() => goToSection("setValue")}>
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setValue")}
+            >
               setValue
-            </CodeAsLink>{" "}
+            </button>{" "}
             で入力値を更新する必要があります。
           </p>
 
           <p>
-            <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
           </p>
 
           <p>
-            <Note>注意：</Note> 値の更新中に、カスタム登録した input
+            <b className={typographyStyles.note}>注意：</b>{" "}
+            値の更新中に、カスタム登録した input
             で再レンダリングをトリガーしたい場合は、 登録した input に type
             属性を指定する必要があります。
           </p>
@@ -273,7 +296,8 @@ export default {
         </p>
 
         <p>
-          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>formState</code> is wrapped with{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -311,7 +335,10 @@ export default {
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
         <p>
-          <Note>{generic.note[currentLanguage]}:</Note> V3 と V4 の違い:
+          <b className={typographyStyles.note}>
+            {generic.note[currentLanguage]}:
+          </b>{" "}
+          V3 と V4 の違い:
         </p>
 
         <ul>
@@ -402,13 +429,14 @@ export default {
           この関数は、フォームバリデーションに成功するとフォームデータを渡します。
         </p>
         <p>
-          <Note>注意：</Note> 非同期バリデーションのための <code>async</code>{" "}
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          非同期バリデーションのための <code>async</code>{" "}
           関数を渡すことができます。例：{" "}
         </p>
         <p>
-          <CodeBlock>
+          <code className={typographyStyles.codeBlock}>
             handleSubmit(async (data) => await fetchAPI(data))
-          </CodeBlock>
+          </code>
         </p>
       </>
     ),
@@ -423,16 +451,23 @@ export default {
           を渡すと、 割り当てられたデフォルト値でフォームをリセットできます。
         </p>
         <p>
-          <Note>注意：</Note> <code>ref</code> を公開しない{" "}
-          <code>React-Select</code> のような制御されたコンポーネントの場合は、{" "}
+          <b className={typographyStyles.note}>注意：</b> <code>ref</code>{" "}
+          を公開しない <code>React-Select</code>{" "}
+          のような制御されたコンポーネントの場合は、{" "}
           手動で入力値をリセットするために{" "}
-          <CodeAsLink onClick={() => goToSection("setValue")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("setValue")}
+          >
             setValue
-          </CodeAsLink>{" "}
+          </button>{" "}
           を使用するか、{" "}
-          <CodeAsLink onClick={() => goToSection("Controller")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("Controller")}
+          >
             Controller
-          </CodeAsLink>{" "}
+          </button>{" "}
           コンポーネントを使用して制御されたコンポーネントをラップする必要があります。
         </p>
       </>
@@ -444,7 +479,8 @@ export default {
       <>
         <p>単一または複数の input のエラーを手動で設定できます。</p>
         <p>
-          <Note>注意: </Note>: このメソッドはエラーを保持せず、ブロックしません
+          <b className={typographyStyles.note}>注意: </b>:
+          このメソッドはエラーを保持せず、ブロックしません
           送信アクション。これは、<code>handleSubmit</code>
           関数中に次の場合に便利です。
           非同期検証後にエラーフィードバックをユーザーに提供する必要があります。
@@ -504,7 +540,8 @@ export default {
           </li>
         </ul>
         <p>
-          <Note>注意：</Note> このメソッドを呼び出すことで、
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          このメソッドを呼び出すことで、
           <code>formState</code> は input の <code>name</code> を{" "}
           <code>touched</code> にプッシュします。
         </p>
@@ -549,7 +586,8 @@ export default {
       <>
         <p>フォームで input/select のバリデーションを手動でトリガーします。</p>
         <p>
-          <Note>注意：</Note> バリデーションが失敗すると、<code>errors</code>{" "}
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          バリデーションが失敗すると、<code>errors</code>{" "}
           オブジェクトが更新されます。
         </p>
       </>
@@ -563,13 +601,14 @@ export default {
         省略可能な引数として <code>useForm</code> に{" "}
         <code>validationSchema</code> を適用できます。 React Hook Form
         は現在、オブジェクトスキーマバリデーションで{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/jquense/yup"
           target="_blank"
           rel="noopener noreferrer"
         >
           Yup
-        </Link>{" "}
+        </a>{" "}
         をサポートしています。
       </p>
     ),
@@ -583,7 +622,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>input のユニークな name 。</td>
@@ -593,7 +632,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td>✓</td>
           <td>
@@ -606,7 +647,7 @@ export default {
             <code>control</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
           <td>
@@ -620,7 +661,7 @@ export default {
             <code>defaultValue</code>
           </td>
           <td>
-            <TypeText>any</TypeText>
+            <code className={typographyStyles.typeText}>any</code>
           </td>
           <td></td>
           <td>
@@ -628,12 +669,13 @@ export default {
             <code>boolean</code> 値を指定すると、チェックボックスの input
             として扱われます。
             <p>
-              <Note>注意:</Note> <code>useForm</code> で{" "}
-              <code>defaultValue</code> または <code>defaultValues</code>{" "}
-              のどちらかを指定する必要があります。
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              <code>useForm</code> で <code>defaultValue</code> または{" "}
+              <code>defaultValues</code> のどちらかを指定する必要があります。
             </p>
             <p>
-              <Note>注意:</Note> 指定した場合、これは <code>useForm</code> の{" "}
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              指定した場合、これは <code>useForm</code> の{" "}
               <code>defaultValue</code> よりも優先されます。
             </p>
           </td>
@@ -643,7 +685,7 @@ export default {
             <code>rules</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td></td>
           <td>
@@ -655,7 +697,9 @@ export default {
             <code>onChange</code>
           </td>
           <td>
-            <TypeText>(args: any) => any</TypeText>
+            <code className={typographyStyles.typeText}>
+              (args: any) => any
+            </code>
           </td>
           <td></td>
           <td>
@@ -670,7 +714,7 @@ export default {
             <code>onChangeName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -685,7 +729,7 @@ export default {
             <code>onBlurName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -700,7 +744,7 @@ export default {
             <code>valueName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>
@@ -777,11 +821,13 @@ export default {
         <p>
           フォームが <code>FormContext</code> でラップされると、
           ラップされた子コンポーネントで <code>useFormContext</code> を使用して{" "}
-          <TypeText>function</TypeText> を呼び出すことができます。
+          <code className={typographyStyles.typeText}>function</code>{" "}
+          を呼び出すことができます。
         </p>
         <p>
-          <Note>注意：</Note> <code>useFormContext</code> を呼び出すと全ての{" "}
-          <code>useForm</code> フック関数が得られます。
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          <code>useFormContext</code> を呼び出すと全ての <code>useForm</code>{" "}
+          フック関数が得られます。
         </p>
       </>
     ),
@@ -811,7 +857,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>関連するフィールド名</td>
@@ -821,7 +867,7 @@ export default {
             <code>errors</code>
           </td>
           <td>
-            <TypeText>object</TypeText>
+            <code className={typographyStyles.typeText}>object</code>
           </td>
           <td>✓</td>
           <td>
@@ -833,7 +879,7 @@ export default {
             <code>message</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>インラインエラーメッセージ。</td>
@@ -843,7 +889,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td></td>
           <td>
@@ -856,9 +904,9 @@ export default {
             <code>children</code>
           </td>
           <td>
-            <TypeText>
+            <code className={typographyStyles.typeText}>
               ({`{ message: string, messages: string[]}`}) => any
-            </TypeText>
+            </code>
           </td>
           <td></td>
           <td>
@@ -898,20 +946,20 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>注意:</Note> <code>useForm</code> フックで{" "}
-          <code>defaultValues</code> を指定することにより、<code>fields</code>{" "}
-          に格納することができます。
+          <b className={typographyStyles.note}>注意:</b> <code>useForm</code>{" "}
+          フックで <code>defaultValues</code> を指定することにより、
+          <code>fields</code> に格納することができます。
         </p>
 
         <p>
-          <Note>重要:</Note> <code>fields</code> オブジェクトから{" "}
-          <code>id</code> をコンポーネントの <code>key</code>{" "}
+          <b className={typographyStyles.note}>重要:</b> <code>fields</code>{" "}
+          オブジェクトから <code>id</code> をコンポーネントの <code>key</code>{" "}
           に割り当てていることを確認してください。
         </p>
 
         <p>
-          <Note>重要:</Note> due to ref callback issue, for{" "}
-          <code>register</code>
+          <b className={typographyStyles.note}>重要:</b> due to ref callback
+          issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
         </p>
@@ -924,15 +972,17 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <TypeText>object & {`{ id: string }`}</TypeText>
+            <code className={typographyStyles.typeText}>
+              object & {`{ id: string }`}
+            </code>
           </td>
           <td>
             このオブジェクトは、input
             をマップおよびレンダリングするための信頼できる情報源です。
             <p>
-              <Note>重要: </Note> 各 input は制御することができないため、{" "}
-              マップされたコンポーネントには <code>id</code> が必須です。
-              これは、React{" "}
+              <b className={typographyStyles.note}>重要: </b> 各 input
+              は制御することができないため、 マップされたコンポーネントには{" "}
+              <code>id</code> が必須です。 これは、React{" "}
               が変更、追加もしくは削除されたのかを識別するのに役立ちます。
             </p>
             <p>
@@ -945,8 +995,8 @@ export default {
             <code>append</code>
           </td>
           <td>
-            <code>
-              <TypeText>(obj: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (obj: any) => void
             </code>
           </td>
           <td>フィールドの最後に input を追加します。</td>
@@ -956,8 +1006,8 @@ export default {
             <code>prepend</code>
           </td>
           <td>
-            <code>
-              <TypeText>(obj: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (obj: any) => void
             </code>
           </td>
           <td>フィールドの先頭に input を追加します。</td>
@@ -967,8 +1017,8 @@ export default {
             <code>insert</code>
           </td>
           <td>
-            <code>
-              <TypeText>(index: number, value: any) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (index: number, value: any) => void
             </code>
           </td>
           <td>特定の位置に input を挿入します。</td>
@@ -978,8 +1028,8 @@ export default {
             <code>swap</code>
           </td>
           <td>
-            <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (from: number, to: number) => void
             </code>
           </td>
           <td>input の位置を入れ替えます。</td>
@@ -989,15 +1039,15 @@ export default {
             <code>move</code>
           </td>
           <td>
-            <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (from: number, to: number) => void
             </code>
           </td>
           <td>
             input を別の位置に移動します。
             <p>
-              <Note>注意:</Note> <code>move</code> と <code>swap</code>{" "}
-              の違いは、
+              <b className={typographyStyles.note}>注意:</b> <code>move</code>{" "}
+              と <code>swap</code> の違いは、
               <code>move</code> を呼び出し続けると input{" "}
               が円を描いて押し込まれるのに対して、
               <code>swap</code> は2つの input の位置を変更するだけです。
@@ -1009,8 +1059,8 @@ export default {
             <code>remove</code>
           </td>
           <td>
-            <code>
-              <TypeText>(index?: number) => void</TypeText>
+            <code className={typographyStyles.typeText}>
+              (index?: number) => void
             </code>
           </td>
           <td>

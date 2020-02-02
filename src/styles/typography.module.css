@@ -1,4 +1,5 @@
-.heading {
+.heading,
+.headingWithTopMargin {
   text-align: center;
   margin-bottom: 10px;
 }
@@ -44,13 +45,31 @@
   margin-right: -50%;
 }
 
+.codeHeading > h2:before {
+  display: inline-block;
+  content: "</> ";
+}
+
 .h1 {
   font-size: 24px;
   display: inline-block;
   margin: 40px auto;
   font-weight: 300;
   padding-bottom: 5px;
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.h5 {
+  font-size: 18px;
+  text-align: left;
+  font-weight: 500;
+  padding-bottom: 15px;
+  margin: 50px 0 10px;
+  border-bottom: 1px solid var(--color-light-blue);
+}
+
+.h5 > code {
+  font-size: 18px !important;
 }
 
 .typeText {
@@ -60,12 +79,27 @@
   color: var(--color-light-pink);
 }
 
+.note {
+  color: var(--color-light-pink);
+}
+
+.codeBlock {
+  display: block;
+  padding: 10px;
+}
+
+.error {
+  font-size: 12px;
+  color: var(--color-light-pink);
+}
+
 @media (min-width: 768px) {
   .h1 {
     font-size: 36px;
   }
 
-  .heading {
+  .heading,
+  .headingWithTopMargin {
     font-size: 55px !important;
     margin: 80px auto 10px;
   }
@@ -81,10 +115,25 @@
     font-size: 1.3rem;
     line-height: 1.5;
   }
+
+  .headingWithTopMargin {
+    margin-top: 70px;
+  }
+
+  .questionTitle {
+    padding-left: 10px;
+    border-left: 5px solid var(--color-light-pink);
+    line-height: 1;
+  }
 }
 
 @media (min-width: 1024px) {
-  .heading {
+  .heading,
+  .headingWithTopMargin {
     margin-top: 20px;
+  }
+
+  .headingWithTopMargin {
+    margin-top: 34px;
   }
 }

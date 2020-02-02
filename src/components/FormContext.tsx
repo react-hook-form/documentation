@@ -1,25 +1,24 @@
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { xonokai } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { CodeHeading, Table, TableWrapper } from "./ApiPage"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
-import { TypeText } from "../styles/typography"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 export default function FormContext({ currentLanguage, api }) {
   return (
     <>
-      <CodeHeading>
+      <code className={typographyStyles.codeHeading}>
         <h2>
-          useFormContext: <TypeText>Component</TypeText>
+          useFormContext:{" "}
+          <span className={typographyStyles.typeText}>Component</span>
         </h2>
-      </CodeHeading>
+      </code>
 
       {api.useFormContext.introduction}
 
-      <TableWrapper>
-        <Table>
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th>{generic.name[currentLanguage]}</th>
@@ -31,28 +30,21 @@ export default function FormContext({ currentLanguage, api }) {
                 <code>...props</code>
               </td>
               <td>
-                <TypeText>Object</TypeText>
+                <code className={typographyStyles.typeText}>Object</code>
               </td>
               <td>
                 Accept all <code>useForm</code> methods.
               </td>
             </tr>
           </tbody>
-        </Table>
-      </TableWrapper>
+        </table>
+      </div>
 
       {api.useFormContext.description}
 
-      <SyntaxHighlighter
-        customStyle={{
-          border: "none",
-        }}
-        style={xonokai}
-        language={"jsx"}
-      >
-        const methods = useFormContext() // methods contain all useForm
-        functions
-      </SyntaxHighlighter>
+      <CodeArea
+        rawData={`const methods = useFormContext() // methods contain all useForm functions`}
+      />
 
       <CodeArea
         rawData={formContext}

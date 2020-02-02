@@ -1,0 +1,54 @@
+.hiddenMenu > h1 {
+  display: none;
+}
+
+.mobileTypeText {
+  font-weight: 100;
+  font-size: 15px;
+  font-family: monospace;
+  color: var(--color-light-pink);
+  margin-top: 10px;
+  display: block;
+}
+
+.quickSelect {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.quickSelect:after {
+  content: "▼";
+  font-size: 15px;
+  right: 17%;
+  top: 12px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.quickSelect > select {
+  border-radius: 4px;
+  border: 1px solid var(--color-light-blue);
+  appearance: none;
+  background: none;
+  color: white;
+  margin: 0.67em auto 20px;
+  display: block;
+  text-align: center;
+  text-align-last: center;
+  font-size: 2rem;
+  font-weight: lighter;
+  position: relative;
+  padding: 10px 30px;
+  max-width: 240px;
+}
+
+@media (min-width: 768px) {
+  .hiddenMenu > h1 {
+    display: block;
+  }
+
+  .hiddenMenu > div {
+    display: none;
+  }
+}

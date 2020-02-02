@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Title } from "../styles/typography"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
+import typographyStyles from "../styles/typography.module.css"
 import styles from "./FeatureList.module.css"
 
 const props = {
@@ -25,7 +25,9 @@ function FeaturesList({
 }) {
   return (
     <div className={styles.features}>
-      <Title>{generic.features[currentLanguage]}</Title>
+      <h2 className={typographyStyles.title}>
+        {generic.features[currentLanguage]}
+      </h2>
 
       <AnimateGroup play={isPlayFeature}>
         <div className={styles.featuresContent}>

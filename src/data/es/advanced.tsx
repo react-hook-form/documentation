@@ -2,14 +2,13 @@ import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "Uso avanzado",
@@ -156,23 +155,29 @@ export default {
           diferentes páginas y secciones. Recomendamos utilizar una librería de
           manejo de estados para almacenar las entradas del usuario a través de
           diferentes páginas / secciones. En este ejemplo, vamos a usar{" "}
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>{" "}
+          </a>{" "}
           como nuestra libería de manejo de estados (la puedes reemplazar con{" "}
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>
+          </a>
           , si estás más familiarizado).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>Paso 1:</Note> Configura tus rutas y tu store.
+          <b className={typographyStyles.note}>Paso 1:</b> Configura tus rutas y
+          tu store.
         </p>
         <CodeArea
           rawData={step1}
@@ -180,8 +185,9 @@ export default {
         />
 
         <p>
-          <Note>Paso 2:</Note> Crea tus páginas, haz que recoja sus datos, envia
-          esos datos al store y pasa a la siguiente página del formulario.
+          <b className={typographyStyles.note}>Paso 2:</b> Crea tus páginas, haz
+          que recoja sus datos, envia esos datos al store y pasa a la siguiente
+          página del formulario.
         </p>
         <CodeArea
           rawData={step2}
@@ -189,8 +195,8 @@ export default {
         />
 
         <p>
-          <Note>Paso 3:</Note> Realiza el submit final con todos los datos en el
-          store o muestra los datos resultantes.
+          <b className={typographyStyles.note}>Paso 3:</b> Realiza el submit
+          final con todos los datos en el store o muestra los datos resultantes.
         </p>
         <CodeArea
           rawData={step3}
@@ -224,9 +230,9 @@ export default {
 
         <p>Veamos qué hay en cada uno de esos componentes.</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           La responsabilidad del componente <code>Form</code> es inyectar todos
@@ -238,9 +244,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           La responsabilidad de los componentes Input es registrarse en {""}
@@ -273,8 +279,9 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> we have also build a custom hook for complex
-          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+          <b className={typographyStyles.note}>Note:</b> we have also build a
+          custom hook for complex scenario:{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>
@@ -283,8 +290,9 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> si tu aplicación necesita funcionalidad como:
-          Eliminar, Insertar, Anexar, Anteponer. Aquí esta el{" "}
+          <b className={typographyStyles.note}>Nota:</b> si tu aplicación
+          necesita funcionalidad como: Eliminar, Insertar, Anexar, Anteponer.
+          Aquí esta el{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -318,14 +326,15 @@ export default {
     step1: (
       <>
         <p>
-          <Note>Paso 1:</Note> Agregá <code>Yup</code> en tu proyecto.
+          <b className={typographyStyles.note}>Paso 1:</b> Agregá{" "}
+          <code>Yup</code> en tu proyecto.
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>Paso 2:</Note>Crea tu esquema de validación y registra los inputs
-        en React Hook Form.
+        <b className={typographyStyles.note}>Paso 2:</b>Crea tu esquema de
+        validación y registra los inputs en React Hook Form.
       </p>
     ),
   },
@@ -367,8 +376,8 @@ export default {
         <ul>
           <li>
             <p>
-              Importa <Link to="/api#Controller">Controller</Link> para wrappear
-              tu componente y deja que Controller maneje el registro y
+              Importa <PageLink to="/api#Controller">Controller</PageLink> para
+              wrappear tu componente y deja que Controller maneje el registro y
               desregistro
             </p>
           </li>

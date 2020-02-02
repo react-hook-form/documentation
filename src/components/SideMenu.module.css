@@ -29,7 +29,7 @@
 
   .menu > div > ul {
     margin-top: 0;
-    max-width: 200px;
+    max-width: 260px;
     padding: 0;
     overflow-y: auto;
     height: calc(100vh - 236px);

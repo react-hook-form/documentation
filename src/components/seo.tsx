@@ -3,7 +3,6 @@ import Helmet from "react-helmet"
 import { getCurrentLangKey, getLangs, getUrlForLang } from "ptz-i18n"
 import { useStateMachine } from "little-state-machine"
 import { updateCurrentLanguage } from "../actions/languageActions"
-import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({
   title,
@@ -15,23 +14,19 @@ function SEO({
   location: { pathname: string }
 }) {
   const { action } = useStateMachine(updateCurrentLanguage)
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            languages {
-              defaultLangKey
-              langs
-            }
-          }
-        }
-      }
-    `
-  )
+
+  const site = {
+    siteMetadata: {
+      title: `React Hook Form - Simple React forms validation`,
+      description: `Performant, flexible and extensible forms with easy-to-use validation.`,
+      author: `@bluebill1049`,
+      siteUrl: "https://www.react-hook-form.com",
+      languages: {
+        langs: ["en", "es", "jp", "zh", "kr", "pt", "ru"],
+        defaultLangKey: "en",
+      },
+    },
+  }
 
   const metaDescription = description || site.siteMetadata.description
   const { langs, defaultLangKey } = site.siteMetadata.languages

@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Note } from "../../styles/typography"
-import { CodeAsLink, Table, TableWrapper } from "../../components/ApiPage"
 import colors from "../../styles/colors"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "FAQs",
@@ -132,10 +133,10 @@ export default {
             <code>triggerValidation</code>.
           </p>
           <p>
-            <Note> Nota: </Note> Debido a que la <code>referencia</code> no se
-            ha registrado, React Hook Form no podrá registrar listeners de
-            eventos en los inputs. Esto significa que tendrás que actualizar
-            manualmente el valor y el error.
+            <b className={typographyStyles.note}> Nota: </b> Debido a que la{" "}
+            <code>referencia</code> no se ha registrado, React Hook Form no
+            podrá registrar listeners de eventos en los inputs. Esto significa
+            que tendrás que actualizar manualmente el valor y el error.
           </p>
         </>
       ),
@@ -206,8 +207,8 @@ export default {
             detalles. diferencias:
           </p>
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
                   <th width={200} />
@@ -292,7 +293,7 @@ export default {
                     <code>
                       react-hook-form@4.0.0
                       <br />
-                      <Note>6.2KB</Note>
+                      <b className={typographyStyles.note}>6.2KB</b>
                     </code>
                   </td>
                   <td>
@@ -301,7 +302,7 @@ export default {
                     <code>
                       formik@2.0.1
                       <br />
-                      <Note>14.4KB</Note>
+                      <b className={typographyStyles.note}>14.4KB</b>
                     </code>
                   </td>
                   <td>
@@ -310,7 +311,7 @@ export default {
                     <code>
                       redux-form@8.2.6
                       <br />
-                      <Note>27KB</Note>
+                      <b className={typographyStyles.note}>27KB</b>
                     </code>
                   </td>
                 </tr>
@@ -353,8 +354,8 @@ export default {
                   </td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
         </>
       ),
     },
@@ -399,13 +400,14 @@ export default {
               <p>
                 Todos los métodos de validación en React Hook Form son tratados
                 como funciones async, es importante que wrappees con async tu{" "}
-                <CodeAsLink
+                <a
+                  className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   act
-                </CodeAsLink>
+                </a>
                 .
               </p>
             </li>

@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Note } from "../../styles/typography"
-import { CodeAsLink, Table, TableWrapper } from "../../components/ApiPage"
 import colors from "../../styles/colors"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "常见问题",
@@ -114,8 +115,8 @@ export default {
           </p>
 
           <p>
-            <Note>注意:</Note> 由于<code>ref</code>尚未注册，因此React Hook
-            Form将无法加入侦听器(event listener)。
+            <b className={typographyStyles.note}>注意:</b> 由于<code>ref</code>
+            尚未注册，因此React Hook Form将无法加入侦听器(event listener)。
             这意味着您将不得不手动更新值和错误。
           </p>
         </>
@@ -179,8 +180,8 @@ export default {
             Hook构建并用作hook, 这意味着没有组件供您导入。 这里有一些的细节差异:
           </p>
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
                   <th width={200} />
@@ -251,7 +252,7 @@ export default {
                     <code>
                       react-hook-form@3.26.2
                       <br />
-                      <Note>5.3KB</Note>
+                      <b className={typographyStyles.note}>5.3KB</b>
                     </code>
                   </td>
                   <td>
@@ -260,7 +261,7 @@ export default {
                     <code>
                       formik@2.0.1
                       <br />
-                      <Note>14.4KB</Note>
+                      <b className={typographyStyles.note}>14.4KB</b>
                     </code>
                   </td>
                   <td>
@@ -269,7 +270,7 @@ export default {
                     <code>
                       redux-form@8.2.6
                       <br />
-                      <Note>27KB</Note>
+                      <b className={typographyStyles.note}>27KB</b>
                     </code>
                   </td>
                 </tr>
@@ -308,8 +309,8 @@ export default {
                   <td>大社区</td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
         </>
       ),
     },
@@ -352,13 +353,14 @@ export default {
               <p>
                 React Hook表单中的所有验证方法将被视为 异步函数, 因此包装
                 <code>async</code> 在你{" "}
-                <CodeAsLink
+                <a
+                  className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   act
-                </CodeAsLink>
+                </a>
                 很重要 .
               </p>
             </li>

@@ -2,14 +2,13 @@ import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "高级用法",
@@ -141,23 +140,29 @@ export default {
           通过不同的页面和部分收集用户信息是很常见的。
           我们建议使用状态管理库通过不同的页面/部分去存储用户输入。
           在这个例子中，我们将使用
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>
+          </a>
           作为我们的状态管理库（如果您更熟悉它，您可以用
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>
+          </a>
           替换它）。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>步骤1:</Note> 设置你的routes和store。
+          <b className={typographyStyles.note}>步骤1:</b>{" "}
+          设置你的routes和store。
         </p>
         <CodeArea
           rawData={step1}
@@ -165,7 +170,7 @@ export default {
         />
 
         <p>
-          <Note>步骤2:</Note>{" "}
+          <b className={typographyStyles.note}>步骤2:</b>{" "}
           创建您的网页，让他们收集数据，提交该数据存储并推送到下一页你的表格。
         </p>
         <CodeArea
@@ -174,7 +179,8 @@ export default {
         />
 
         <p>
-          <Note>步骤3:</Note> 让您的最终提交所有的数据存储并且显示生成的数据。
+          <b className={typographyStyles.note}>步骤3:</b>{" "}
+          让您的最终提交所有的数据存储并且显示生成的数据。
         </p>
         <CodeArea
           rawData={step3}
@@ -205,9 +211,9 @@ export default {
 
         <p>让我们来看看这些组件中的每个组件。</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           这个组件的责任是将所有<code>react-hook-form</code>方法注入到子组件中
@@ -218,9 +224,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           这个输入组件的责任是将它们注册到 <code>react-hook-form</code>.
@@ -248,14 +254,15 @@ export default {
         </p>
 
         <p>
-          <Note>注意:</Note> 我们还建立自定义挂钩了为了复杂的情况:{" "}
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          我们还建立自定义挂钩了为了复杂的情况:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>下面的示例演示如何通过操作输入名称属性来创建自动生成表单。</p>
 
         <p>
-          <Note>注意:</Note>
+          <b className={typographyStyles.note}>注意:</b>
           如果您的应用程序需要功能，例如：删除，插入，追加，前置。 这里是这种
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
@@ -290,13 +297,15 @@ export default {
     step1: (
       <>
         <p>
-          <Note>步骤1:</Note> 将<code>Yup</code>安装到您的项目中。
+          <b className={typographyStyles.note}>步骤1:</b> 将<code>Yup</code>
+          安装到您的项目中。
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>步骤2:</Note> 准备您的架构以进行验证和注册 输入到React Hook Form.
+        <b className={typographyStyles.note}>步骤2:</b>{" "}
+        准备您的架构以进行验证和注册 输入到React Hook Form.
       </p>
     ),
   },
@@ -348,7 +357,7 @@ export default {
           <li>
             <p>
               使用
-              <Link to="/api#Controller">Controller</Link>
+              <PageLink to="/api#Controller">Controller</PageLink>
               来包裹您的受控组件从而做到自动注册于取消注册功能
             </p>
           </li>

@@ -1,5 +1,16 @@
-.links {
+.links,
+.codeAsLink {
   color: var(--color-link);
+}
+
+.codeAsLink {
+  cursor: pointer;
+  text-decoration: underline;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-link) !important;
 }
 
 .buttonsGroup {
@@ -9,10 +20,10 @@
   margin: 0 auto;
 }
 
-.primaryButton {
-  box-sizing: border-box;
-  background: var(--color-primary);
-  border: 1px solid var(--color-blue);
+.button,
+.primaryButton,
+.pinkButton,
+.darkButton {
   border-radius: 4px;
   transition: 0.3s all;
   cursor: pointer;
@@ -26,6 +37,40 @@
   padding: 16px 10px;
 }
 
+.primaryButton {
+  box-sizing: border-box;
+  background: var(--color-primary);
+  border: 1px solid var(--color-light-blue);
+}
+
+.pinkButton,
+.darkButton {
+  background: var(--color-light-pink);
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  border: 1px solid var(--color-light-pink);
+  width: 100%;
+}
+
+.pinkButton:hover {
+  background: var(--color-secondary);
+}
+
+.darkButton {
+  background: black;
+  color: white;
+  border: 1px solid var(--color-light-pink);
+}
+
+.darkButton:hover {
+  background: var(--color-primary);
+  border: 1px solid var(--color-secondary);
+}
+
+.darkButton:active {
+  background: black;
+}
+
 @keyframes moving {
   from {
     transform: translateX(0px);
@@ -36,7 +81,7 @@
   }
 }
 
-.primaryButton > span {
+.primaryButton:hover > span {
   display: inline-block;
   animation: moving 0.4s linear infinite;
   animation-direction: alternate;

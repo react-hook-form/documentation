@@ -1,13 +1,13 @@
 // @flow
 import * as React from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
-import { H1 } from "../styles/typography"
-import { CenterContent } from "../styles/containers"
 import { ChangeEvent, useEffect, useState } from "react"
 import colors from "../styles/colors"
 import home from "../data/home"
-import styles from "./IsolateRender.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import formStyles from "./Form.module.css"
+import styles from "./IsolateRender.module.css"
 
 const props = {
   keyframes: [
@@ -112,8 +112,10 @@ function IsolateRender({
   currentLanguage: string
 }) {
   return (
-    <CenterContent>
-      <H1>{home.isolateRender[currentLanguage].title}</H1>
+    <div className={containerStyles.centerContent}>
+      <h1 className={typographyStyles.h1}>
+        {home.isolateRender[currentLanguage].title}
+      </h1>
 
       {home.isolateRender[currentLanguage].description}
 
@@ -180,7 +182,7 @@ function IsolateRender({
           }}
         />
       </div>
-    </CenterContent>
+    </div>
   )
 }
 

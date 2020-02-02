@@ -1,17 +1,6 @@
 import * as React from "react"
-import styled from "styled-components"
-import colors from "../styles/colors"
-import {
-  SubHeading,
-  HeadingWithTopMargin,
-  H5,
-  H1,
-  TypeText,
-  Note,
-} from "../styles/typography"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
-import Link from "../styles/link"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
@@ -22,15 +11,12 @@ import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
-import { CenterContent, Container, Wrapper } from "../styles/containers"
 import getValues from "./codeExamples/getValues"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import unregisterCode from "./codeExamples/unregisterCode"
-import breakpoints from "../styles/breakpoints"
 import Popup from "./Popup"
-import { PrimaryButton } from "../styles/buttons"
 import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
@@ -46,6 +32,11 @@ import resetRHFInput from "./codeExamples/resetRHFInput"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./ApiPage.module.css"
+import tableStyles from "../styles/table.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
 
 const { useRef, useEffect } = React
 
@@ -72,125 +63,6 @@ const enLinks = [
   apiEn.validationSchema,
   apiEn.NativeValidation,
 ]
-
-export const CodeAsLink = styled(Link)`
-  cursor: pointer;
-  text-decoration: underline;
-`
-
-export const CodeHeading = styled.code`
-  & > h2:before {
-    display: inline-block;
-    content: "</> ";
-  }
-`
-
-export const Table = styled.table`
-  margin-top: 20px;
-  border-collapse: collapse;
-
-  td {
-    padding: 10px 20px 10px 0;
-    line-height: 1.4;
-
-    & > pre {
-      margin: 0;
-    }
-  }
-
-  td:last-child {
-    padding-right: 0;
-  }
-`
-
-export const TableWrapper = styled.div`
-  -webkit-overflow-scrolling: touch;
-  overflow-y: hidden;
-  overflow-x: auto;
-
-  @media ${breakpoints.fromMediumScreen} {
-    &::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #191d3a;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #4f6294;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #ec5990;
-    }
-  }
-`
-
-export const MobileType = styled(TypeText)`
-  margin-top: 10px;
-  display: block;
-
-  @media ${breakpoints.fromMediumScreen} {
-    margin-top: 0px;
-    display: inline;
-  }
-`
-
-const HiddenMenu = styled.div`
-  & > h1 {
-    display: none;
-
-    @media ${breakpoints.fromMediumScreen} {
-      display: block;
-    }
-  }
-
-  & > div {
-    @media ${breakpoints.fromMediumScreen} {
-      display: none;
-    }
-  }
-`
-
-const TableH5 = styled(H5)`
-  border: none;
-  margin-top: 20px;
-`
-
-const QuickSelect = styled.div`
-  position: relative;
-  max-width: 320px;
-  margin: 0 auto;
-
-  &:after {
-    content: "▼";
-    font-size: 15px;
-    right: 17%;
-    top: 12px;
-    position: absolute;
-    pointer-events: none;
-  }
-
-  & > select {
-    border-radius: 4px;
-    border: 1px solid ${colors.lightBlue};
-    appearance: none;
-    background: none;
-    color: white;
-    margin: 0.67em auto 20px;
-    display: block;
-    text-align: center;
-    text-align-last: center;
-    font-size: 2rem;
-    font-weight: lighter;
-    position: relative;
-    padding: 10px 30px;
-    max-width: 240px;
-  }
-`
 
 const codeSandBoxStyle = {
   position: "relative",
@@ -288,10 +160,12 @@ function ApiPage({
   }, [])
 
   return (
-    <Container>
-      <HiddenMenu>
-        <HeadingWithTopMargin id="main">API</HeadingWithTopMargin>
-        <QuickSelect>
+    <div className={containerStyles.container}>
+      <div className={styles.hiddenMenu}>
+        <h1 className={typographyStyles.headingWithTopMargin} id="main">
+          API
+        </h1>
+        <div className={styles.quickSelect}>
           <select
             aria-label={`${generic.select[currentLanguage]} API`}
             onChange={e => {
@@ -310,11 +184,11 @@ function ApiPage({
               )
             })}
           </select>
-        </QuickSelect>
-      </HiddenMenu>
-      <SubHeading>{api.header.description}</SubHeading>
+        </div>
+      </div>
+      <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      <Wrapper>
+      <div className={containerStyles.wrapper}>
         <SideMenu
           links={links}
           enLinks={enLinks}
@@ -323,62 +197,109 @@ function ApiPage({
         />
 
         <main>
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               apiSectionsRef.current.useFormRef = ref
             }}
           >
             <h2>
-              useForm: <TypeText>Function</TypeText>
+              useForm:{" "}
+              <span className={typographyStyles.typeText}>Function</span>
             </h2>
-          </CodeHeading>
+          </code>
           <p>
             {api.useForm.intro}
-            <CodeAsLink onClick={() => goToSection("register")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("register")}
+            >
               register
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("unregister")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("unregister")}
+            >
               unregister
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("errors")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("errors")}
+            >
               errors
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink>,{" "}
-            <CodeAsLink onClick={() => goToSection("handleSubmit")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("watch")}
+            >
+              watch
+            </code>
+            ,{" "}
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("handleSubmit")}
+            >
               handleSubmit
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("reset")}>reset</CodeAsLink>,{" "}
-            <CodeAsLink onClick={() => goToSection("setError")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("reset")}
+            >
+              reset
+            </code>
+            ,{" "}
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setError")}
+            >
               setError
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("clearError")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("clearError")}
+            >
               clearError
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("setValue")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setValue")}
+            >
               setValue
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("getValues")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("getValues")}
+            >
               getValues
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("triggerValidation")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("triggerValidation")}
+            >
               triggerValidation
-            </CodeAsLink>
+            </code>
             ,{" "}
-            <CodeAsLink onClick={() => goToSection("control")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("control")}
+            >
               control
-            </CodeAsLink>{" "}
+            </code>{" "}
             and{" "}
-            <CodeAsLink onClick={() => goToSection("formState")}>
+            <code
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("formState")}
+            >
               formState
-            </CodeAsLink>
+            </code>
             .
           </p>
 
@@ -397,15 +318,18 @@ function ApiPage({
 })`}
           />
 
-          <H5>
+          <h5 className={typographyStyles.h5}>
             <code>
-              mode: <TypeText>string = 'onSubmit'</TypeText>
+              mode:{" "}
+              <span className={typographyStyles.typeText}>
+                string = 'onSubmit'
+              </span>
             </code>
             <Popup top={3} />
-          </H5>
+          </h5>
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <tbody>
                 <tr>
                   <th>{generic.name[currentLanguage]}</th>
@@ -415,40 +339,40 @@ function ApiPage({
                 <tr>
                   <td>onSubmit (Default)</td>
                   <td>
-                    <TypeText>string</TypeText>
+                    <span className={typographyStyles.typeText}>string</span>
                   </td>
                   <td>{api.useForm.validateOnSubmit}</td>
                 </tr>
                 <tr>
                   <td>onBlur</td>
                   <td>
-                    <TypeText>string</TypeText>
+                    <span className={typographyStyles.typeText}>string</span>
                   </td>
                   <td>{api.useForm.validateOnBlur}</td>
                 </tr>
                 <tr>
                   <td>onChange</td>
                   <td>
-                    <TypeText>string</TypeText>
+                    <span className={typographyStyles.typeText}>string</span>
                   </td>
                   <td>{api.useForm.validateOnChange}</td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
 
-          <H5 style={{ marginTop: 20 }}>
+          <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
             <code>
               defaultValues:{" "}
-              <TypeText>
+              <span className={typographyStyles.typeText}>
                 {`Record<string, any>`} = {`{}`}
-              </TypeText>
+              </span>
             </code>
             <Popup
               top={3}
               message="React Native: Custom register or using Controller"
             />
-          </H5>
+          </h5>
 
           {api.useForm.defaultValues(goToSection)}
 
@@ -469,17 +393,23 @@ function ApiPage({
 `}
           />
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <tbody>
                 <tr>
                   <td>
-                    <TableH5>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
                       <code>
                         validationSchema: <br />
-                        <MobileType>Object</MobileType>
+                        <span className={styles.mobileTypeText}>Object</span>
                       </code>
-                    </TableH5>
+                    </h5>
                   </td>
                   <td>
                     {api.useForm.validationSchema(goToSection)}
@@ -491,12 +421,20 @@ function ApiPage({
                 </tr>
                 <tr>
                   <td>
-                    <TableH5>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
                       <code>
                         validateCriteriaMode: <br />
-                        <MobileType>firstErrorDetected | all</MobileType>
+                        <span className={styles.mobileTypeText}>
+                          firstErrorDetected | all
+                        </span>
                       </code>
-                    </TableH5>
+                    </h5>
                   </td>
                   <td>
                     {api.useForm.validateCriteriaMode}
@@ -508,43 +446,63 @@ function ApiPage({
                 </tr>
                 <tr>
                   <td>
-                    <TableH5>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
                       <code>
                         reValidateMode: <br />
-                        <MobileType>onChange | onBlur | onSubmit</MobileType>
+                        <span className={styles.mobileTypeText}>
+                          onChange | onBlur | onSubmit
+                        </span>
                       </code>
-                    </TableH5>
+                    </h5>
                   </td>
                   <td>{api.useForm.reValidateMode}</td>
                 </tr>
                 <tr>
                   <td>
-                    <TableH5>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
                       <code>
                         submitFocusError: <br />
-                        <MobileType>boolean = true</MobileType>
+                        <span className={styles.mobileTypeText}>
+                          boolean = true
+                        </span>
                       </code>
-                    </TableH5>
+                    </h5>
                   </td>
                   <td>{api.useForm.submitFocusError}</td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
 
           <p style={{ textAlign: "center" }}>♦</p>
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.registerRef = ref
             }}
           >
             <h2>
-              register: <TypeText>{`(Ref, validateRule?) => void`}</TypeText>
+              register:{" "}
+              <span
+                className={typographyStyles.typeText}
+              >{`(Ref, validateRule?) => void`}</span>
               <Popup message="React Native: Custom register or using Controller" />
             </h2>
-          </CodeHeading>
+          </code>
 
           <ApiRefTable
             api={api}
@@ -554,7 +512,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.unregisterRef = ref
@@ -562,9 +521,11 @@ function ApiPage({
           >
             <h2>
               unregister:{" "}
-              <TypeText>{`(name: string | string[]) => void`}</TypeText>
+              <span
+                className={typographyStyles.typeText}
+              >{`(name: string | string[]) => void`}</span>
             </h2>
-          </CodeHeading>
+          </code>
 
           {api.unregister.description}
 
@@ -592,7 +553,8 @@ function ApiPage({
           >
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
@@ -600,9 +562,11 @@ function ApiPage({
           >
             <h2>
               handleSubmit:{" "}
-              <TypeText>(data: Object, e: Event) => void</TypeText>
+              <span className={typographyStyles.typeText}>
+                (data: Object, e: Event) => void
+              </span>
             </h2>
-          </CodeHeading>
+          </code>
           {api.handleSubmit.description}
           <CodeArea
             rawData={handleSubmitCode}
@@ -611,7 +575,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.resetRef = ref
@@ -619,9 +584,11 @@ function ApiPage({
           >
             <h2>
               reset:{" "}
-              <TypeText>{`(values?: Record<string, any>) => void`}</TypeText>
+              <span
+                className={typographyStyles.typeText}
+              >{`(values?: Record<string, any>) => void`}</span>
             </h2>
-          </CodeHeading>
+          </code>
 
           {api.reset(goToSection).description}
 
@@ -648,7 +615,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
@@ -656,11 +624,11 @@ function ApiPage({
           >
             <h2>
               setError: <br />
-              <TypeText>
+              <span className={typographyStyles.typeText}>
                 {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
-              </TypeText>
+              </span>
             </h2>
-          </CodeHeading>
+          </code>
           {api.setError.description}
 
           <TabGroup
@@ -686,7 +654,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.clearErrorRef = ref
@@ -694,16 +663,19 @@ function ApiPage({
           >
             <h2>
               clearError:{" "}
-              <TypeText>(name?: string | string[]) => void</TypeText>
+              <span className={typographyStyles.typeText}>
+                (name?: string | string[]) => void
+              </span>
             </h2>
-          </CodeHeading>
+          </code>
           {api.clearError.description}
 
           <CodeArea rawData={clearError} />
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setValueRef = ref
@@ -711,11 +683,11 @@ function ApiPage({
           >
             <h2>
               setValue:{" "}
-              <TypeText>
+              <span className={typographyStyles.typeText}>
                 (name: string, value: any, shouldValidate?: boolean) => void
-              </TypeText>
+              </span>
             </h2>
-          </CodeHeading>
+          </code>
 
           {api.setValue.description}
 
@@ -726,7 +698,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.getValuesRef = ref
@@ -734,9 +707,11 @@ function ApiPage({
           >
             <h2>
               getValues:{" "}
-              <TypeText>{`(payload?: { nest: boolean }) => Object`}</TypeText>
+              <span
+                className={typographyStyles.typeText}
+              >{`(payload?: { nest: boolean }) => Object`}</span>
             </h2>
-          </CodeHeading>
+          </code>
 
           {api.getValues.description}
 
@@ -747,7 +722,8 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.triggerValidationRef = ref
@@ -755,11 +731,11 @@ function ApiPage({
           >
             <h2>
               triggerValidation:{" "}
-              <TypeText>
+              <span className={typographyStyles.typeText}>
                 {`(payload?: string | string[]) => Promise<boolean>`}
-              </TypeText>
+              </span>
             </h2>
-          </CodeHeading>
+          </code>
           {api.triggerValidation.description}
 
           <CodeArea
@@ -769,16 +745,17 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.controlRef = ref
             }}
           >
             <h2>
-              control: <TypeText>Object</TypeText>
+              control: <span className={typographyStyles.typeText}>Object</span>
             </h2>
-          </CodeHeading>
+          </code>
           {api.control.description}
 
           <CodeArea
@@ -829,16 +806,18 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <code
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.validationSchemaRef = ref
             }}
           >
             <h2>
-              validationSchema: <TypeText>Object</TypeText>
+              validationSchema:{" "}
+              <span className={typographyStyles.typeText}>Object</span>
             </h2>
-          </CodeHeading>
+          </code>
 
           {api.validationSchema.description}
 
@@ -849,20 +828,21 @@ function ApiPage({
 
           <hr />
 
-          <CodeHeading
+          <h2
+            className={typographyStyles.codeHeading}
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >
-            <h2>Browser built-in validation (V3 only)</h2>
-          </CodeHeading>
+            Browser built-in validation (V3 only)
+          </h2>
 
           {api.NativeValidation.description}
 
           <p>
-            <Note>Note</Note>: This feature has been removed in V4 due to low
-            usage, but you can still using it in V3
+            <b className={typographyStyles.note}>Note</b>: This feature has been
+            removed in V4 due to low usage, but you can still using it in V3
           </p>
 
           <CodeArea
@@ -870,22 +850,28 @@ function ApiPage({
             url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
           />
 
-          <CenterContent style={{ marginTop: 40 }}>
-            <H1>{generic.advanceUsage[currentLanguage].title}</H1>
+          <div
+            className={containerStyles.centerContent}
+            style={{ marginTop: 40 }}
+          >
+            <h1 className={typographyStyles.h1}>
+              {generic.advanceUsage[currentLanguage].title}
+            </h1>
             <p>{generic.advanceUsage[currentLanguage].description}</p>
-            <PrimaryButton
+            <button
+              className={buttonStyles.primaryButton}
               onClick={() => {
                 navigate(translateLink("advanced-usage", currentLanguage))
               }}
               style={{ margin: "40px auto" }}
             >
               {generic.advanceUsage[currentLanguage].buttonText}
-            </PrimaryButton>
-          </CenterContent>
+            </button>
+          </div>
           <Footer currentLanguage={currentLanguage} />
         </main>
-      </Wrapper>
-    </Container>
+      </div>
+    </div>
   )
 }
 

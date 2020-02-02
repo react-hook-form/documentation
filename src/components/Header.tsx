@@ -1,8 +1,6 @@
 import * as React from "react"
-import { Heading, SubHeading } from "../styles/typography"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
-import { PrimaryButton } from "../styles/buttons"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
@@ -10,6 +8,7 @@ import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
+import typographyStyles from "../styles/typography.module.css"
 import styles from "./Header.module.css"
 import buttonStyles from "../styles/button.module.css"
 
@@ -78,12 +77,12 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <Heading style={style}>
+            <h1 className={typographyStyles.heading} style={style}>
               <svg className={styles.desktopLogo} viewBox="0 0 100 100">
                 {LogoSvg}
               </svg>{" "}
               React Hook Form
-            </Heading>
+            </h1>
           )}
         />
 
@@ -98,9 +97,12 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <SubHeading style={{ marginBottom: 0, maxWidth: 660, ...style }}>
+            <p
+              className={typographyStyles.subHeading}
+              style={{ marginBottom: 0, maxWidth: 660, ...style }}
+            >
               {home.slogan[currentLanguage]}
-            </SubHeading>
+            </p>
           )}
         />
 
@@ -122,22 +124,24 @@ export default function Header({
                 minWidth: 300,
               }}
             >
-              <PrimaryButton
+              <button
+                className={buttonStyles.primaryButton}
                 onClick={() => {
                   // @ts-ignore
                   homeRef.current.scrollIntoView({ behavior: "smooth" })
                 }}
               >
                 {home.demo[currentLanguage]}
-              </PrimaryButton>
+              </button>
 
-              <PrimaryButton
+              <button
+                className={buttonStyles.primaryButton}
                 onClick={() => {
                   navigate(translateLink("get-started", currentLanguage))
                 }}
               >
                 {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
-              </PrimaryButton>
+              </button>
             </div>
           )}
         />

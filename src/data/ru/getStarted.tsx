@@ -1,10 +1,10 @@
 import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
-import { Note } from "../../styles/typography"
-import { Link } from "@reach/router"
+import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
 import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "Начать",
@@ -41,14 +41,14 @@ export default {
         </p>
 
         <p>
-          <Note>Примечание:</Note> Каждое <strong>обязательное</strong> поле
-          должно иметь уникальное имя <code>name</code> в качестве ключа для
-          процесса регистрации.
+          <b className={typographyStyles.note}>Примечание:</b> Каждое{" "}
+          <strong>обязательное</strong> поле должно иметь уникальное имя{" "}
+          <code>name</code> в качестве ключа для процесса регистрации.
         </p>
 
         <p>
-          <Note>Примечание: </Note>В React Native нужно будет вручную ввести
-          команду для регистрации:{" "}
+          <b className={typographyStyles.note}>Примечание: </b>В React Native
+          нужно будет вручную ввести команду для регистрации:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> или
           использовать <Link to="/api#Controller">Controller</Link> для
           оборачивания и автоматической регистрации вашего компонента. Вы можете
@@ -169,9 +169,9 @@ export default {
           сторонних UI библиотек.
         </p>
         <p>
-          <Note>Вариант 1:</Note> Лучший способ - это проверить, содержит ли
-          нужный вам компонент, <code>innerRef</code> или <code>ref</code>,
-          которые можно использовать для передачи свойства{" "}
+          <b className={typographyStyles.note}>Вариант 1:</b> Лучший способ -
+          это проверить, содержит ли нужный вам компонент, <code>innerRef</code>{" "}
+          или <code>ref</code>, которые можно использовать для передачи свойства{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -189,9 +189,9 @@ export default {
           </code>
         </p>
         <p>
-          <Note>Вариант 2:</Note> Иногда компоненты не имеют отдельного свойства
-          для ригистрации, например <code>react-select</code> или{" "}
-          <code>react-datepicker</code>.
+          <b className={typographyStyles.note}>Вариант 2:</b> Иногда компоненты
+          не имеют отдельного свойства для ригистрации, например{" "}
+          <code>react-select</code> или <code>react-datepicker</code>.
         </p>
         <p>
           В этом случае, самый простой способ - это использование
@@ -200,8 +200,8 @@ export default {
         </p>
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
-          <Note>Вариант 3:</Note> И, наконец, мы можем создать кастомную
-          регистрацию с помощью{" "}
+          <b className={typographyStyles.note}>Вариант 3:</b> И, наконец, мы
+          можем создать кастомную регистрацию с помощью{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

@@ -1,11 +1,10 @@
 import * as React from "react"
-import Link from "../../styles/link"
-import { CodeBlock, Note, Title, TypeText } from "../../styles/typography"
-import { CodeAsLink } from "../../components/ApiPage"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "Документация по API",
@@ -62,23 +61,32 @@ export default {
         <p>
           Вы можете установить зачение по умолчанию для поля с помощью{" "}
           <code>defaultValue/defaultChecked</code>{" "}
-          <Link href="https://reactjs.org/docs/uncontrolled-components.html">
+          <a
+            className={buttonStyles.links}
+            href="https://reactjs.org/docs/uncontrolled-components.html"
+          >
             (узнать больше из доки по React о Default Values)
-          </Link>{" "}
+          </a>{" "}
           или передать <code>defaultValues</code> в качестве необязального
           параметра для заполнения значений по умолчанию для всей формы.
         </p>
 
         <p>
-          <Note>Примечание:</Note> Значение, определённое в{" "}
-          <code>defaultValues</code> будет добавлено в{" "}
-          <CodeAsLink onClick={() => goToSection("watch")}>watch</CodeAsLink> в
-          качестве <code>defaultValue</code>.
+          <b className={typographyStyles.note}>Примечание:</b> Значение,
+          определённое в <code>defaultValues</code> будет добавлено в{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("watch")}
+          >
+            watch
+          </button>{" "}
+          в качестве <code>defaultValue</code>.
         </p>
 
         <p>
-          <Note>Примечание:</Note> <code>defaultValues</code> не заполняется
-          автоматически при регистрации вручную (например:{" "}
+          <b className={typographyStyles.note}>Примечание:</b>{" "}
+          <code>defaultValues</code> не заполняется автоматически при
+          регистрации вручную (например:{" "}
           <code>{`register({ name: 'test' })`}</code>) потому что поле,
           <code>зарегистрированное</code> вручную, не передаёт <code>ref</code>{" "}
           в React Hook Form.
@@ -89,9 +97,12 @@ export default {
       <p>
         Применение правил валидации с <code>Yup</code> на уровне схемы,
         перейдите в раздел{" "}
-        <CodeAsLink onClick={() => goToSection("ValidationSchema")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ValidationSchema")}
+        >
           validationSchema
-        </CodeAsLink>{" "}
+        </button>{" "}
         .
       </p>
     ),
@@ -117,9 +128,9 @@ export default {
         </p>
 
         <p>
-          <Note>Примечание:</Note> Только зарегистрированные поля с{" "}
-          <code>ref</code> будут работать. Поля, зарегистрированные вручную,
-          работать не будут. например:{" "}
+          <b className={typographyStyles.note}>Примечание:</b> Только
+          зарегистрированные поля с <code>ref</code> будут работать. Поля,
+          зарегистрированные вручную, работать не будут. например:{" "}
           <code>{`register({ name: 'test' }) // не работает`}</code>{" "}
         </p>
       </>
@@ -136,9 +147,12 @@ export default {
           узнать больше о браузерной валидации
         </a>
         , и перейти в раздел{" "}
-        <CodeAsLink onClick={() => goToSection("nativeValidation")}>
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("nativeValidation")}
+        >
           nativeValidation
-        </CodeAsLink>{" "}
+        </button>{" "}
         , где приведено больше деталей и примеров.
       </p>
     ),
@@ -156,8 +170,9 @@ export default {
           отключения (unmount) компонента.
         </p>
         <p>
-          <Note>Примечание:</Note> Когда вы регистрируете поле, его значение
-          больше не будет включено в данные формы, которые будут отправляться.
+          <b className={typographyStyles.note}>Примечание:</b> Когда вы
+          регистрируете поле, его значение больше не будет включено в данные
+          формы, которые будут отправляться.
         </p>
       </>
     ),
@@ -175,10 +190,11 @@ export default {
           добавлять кастомную валидацию.
         </p>
         <p>
-          <Note>Важно:</Note> параметр <code>name</code> - <b>обязательный</b> и{" "}
-          <b>уникальный</b>. Имя поля также поддерживает "dot and bracket
-          syntax", который даёт вам возможность создавать вложенные поля формы.
-          Форма с примером приведена ниже:
+          <b className={typographyStyles.note}>Важно:</b> параметр{" "}
+          <code>name</code> - <b>обязательный</b> и <b>уникальный</b>. Имя поля
+          также поддерживает "dot and bracket syntax", который даёт вам
+          возможность создавать вложенные поля формы. Форма с примером приведена
+          ниже:
         </p>
       </>
     ),
@@ -191,12 +207,13 @@ export default {
       >
         Если вы работаете с <code>массивом/массивами полей</code>, вы можете
         задать имя поля как <code>name[index]</code>.{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
           title="пример массива полей"
         >
           Посмотреть пример с массивом полей
-        </Link>
+        </a>
         .
       </p>
     ),
@@ -210,7 +227,7 @@ export default {
         "Регистрация с валидацией и сообщением об ошибке",
       note: goToSection => (
         <>
-          <Title>Кастомная регистрация</Title>
+          <h2 className={typographyStyles.title}>Кастомная регистрация</h2>
           <p>
             Вы также можете зарегистрировать поля вручную, что может быть удобно
             при работе с кастомными компонентами, когда <code>Ref</code>{" "}
@@ -229,21 +246,27 @@ export default {
           <p>
             При использовании вызова кастомной регистрации, вам нужно обновить
             значение поля с помощью{" "}
-            <CodeAsLink onClick={() => goToSection("setValue")}>
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("setValue")}
+            >
               setValue
-            </CodeAsLink>
+            </button>
             , потому что поле больше не является зарегистрированным с помощью
             его ref.
           </p>
 
           <p>
-            <CodeBlock>{`register({ name: 'firstName' }, { required: true, min: 8 })`}</CodeBlock>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
           </p>
 
           <p>
-            <Note>Примечание:</Note> Если вы хотите, чтобы регистрация
-            кастомного поля вызывала повторный рендеринг после обновления его
-            значения, то вам нужно указать тип зарегистрированного поля.
+            <b className={typographyStyles.note}>Примечание:</b> Если вы хотите,
+            чтобы регистрация кастомного поля вызывала повторный рендеринг после
+            обновления его значения, то вам нужно указать тип
+            зарегистрированного поля.
           </p>
         </>
       ),
@@ -271,7 +294,8 @@ export default {
         <p>Этот объект содержит информацию о состоянии формы.</p>
 
         <p>
-          <Note>Important:</Note> <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>formState</code> is wrapped with{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -307,7 +331,8 @@ export default {
         </p>
 
         <p>
-          <Note>Примечание:</Note> Есть развница в V3 и V4:
+          <b className={typographyStyles.note}>Примечание:</b> Есть развница в
+          V3 и V4:
         </p>
 
         <ul>
@@ -400,13 +425,14 @@ export default {
           прошла успешно.
         </p>
         <p>
-          <Note>Примечание:</Note> Вы можете использовать <code>async</code>{" "}
-          функцию для асинхронной валидации, например:{" "}
+          <b className={typographyStyles.note}>Примечание:</b> Вы можете
+          использовать <code>async</code> функцию для асинхронной валидации,
+          например:{" "}
         </p>
         <p>
-          <CodeBlock>
+          <code className={typographyStyles.codeBlock}>
             handleSubmit(async (data) => await fetchAPI(data))
-          </CodeBlock>
+          </code>
         </p>
       </>
     ),
@@ -421,16 +447,23 @@ export default {
           сброса формы в присвоенные значения по умолчанию.
         </p>
         <p>
-          <Note>Примечание:</Note> Для контролируемых компонентов, например{" "}
-          <code>React-Select</code>, у которых нет значения <code>ref</code>, вы
-          должны сбрасывать значение вручную с помощью{" "}
-          <CodeAsLink onClick={() => goToSection("setValue")}>
+          <b className={typographyStyles.note}>Примечание:</b> Для
+          контролируемых компонентов, например <code>React-Select</code>, у
+          которых нет значения <code>ref</code>, вы должны сбрасывать значение
+          вручную с помощью{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("setValue")}
+          >
             setValue
-          </CodeAsLink>{" "}
+          </button>{" "}
           или использовать{" "}
-          <CodeAsLink onClick={() => goToSection("Controller")}>
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("Controller")}
+          >
             Controller
-          </CodeAsLink>{" "}
+          </button>{" "}
           в качестве обёртки для вашего контролируемого компонента.
         </p>
       </>
@@ -445,10 +478,10 @@ export default {
           ошибок.
         </p>
         <p>
-          <Note>Примечание:</Note> этот метод не сохранит ошибку и заблокирует
-          отправить действие. Это более полезно во время функции{" "}
-          <code>handleSubmit</code>, когда Вы хотите отправить сообщение об
-          ошибке пользователям после асинхронной проверки.
+          <b className={typographyStyles.note}>Примечание:</b> этот метод не
+          сохранит ошибку и заблокирует отправить действие. Это более полезно во
+          время функции <code>handleSubmit</code>, когда Вы хотите отправить
+          сообщение об ошибке пользователям после асинхронной проверки.
         </p>
       </>
     ),
@@ -506,8 +539,8 @@ export default {
           </li>
         </ul>
         <p>
-          <Note>Примечание:</Note> При вызове этого метода,{" "}
-          <code>formState</code> добавит <code>имя</code> поля в массив{" "}
+          <b className={typographyStyles.note}>Примечание:</b> При вызове этого
+          метода, <code>formState</code> добавит <code>имя</code> поля в массив{" "}
           <code>touched</code>.
         </p>
         <p>
@@ -553,8 +586,8 @@ export default {
       <>
         <p>Для принудительного вызова валидации input/select полей формы.</p>
         <p>
-          <Note>Примечание:</Note> При неудачной валидации, объект{" "}
-          <code>errors</code> будет обновлён.
+          <b className={typographyStyles.note}>Примечание:</b> При неудачной
+          валидации, объект <code>errors</code> будет обновлён.
         </p>
       </>
     ),
@@ -567,13 +600,14 @@ export default {
         схемы валидации, то вы можете использовать <code>validationSchema</code>{" "}
         в <code>useForm</code> в качестве необязательного параметра. React Hook
         Form в настоящий момент поддерживает{" "}
-        <Link
+        <a
+          className={buttonStyles.links}
           href="https://github.com/jquense/yup"
           target="_blank"
           rel="noopener noreferrer"
         >
           Yup
-        </Link>{" "}
+        </a>{" "}
         в качестве внешнего объекта схемы валидации.
       </p>
     ),
@@ -590,18 +624,20 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <Note>Note:</Note> you can populate the <code>fields</code> by supply{" "}
-          <code>defaultValues</code> at <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
+          <code>fields</code> by supply <code>defaultValues</code> at{" "}
+          <code>useForm</code> hook.
         </p>
 
         <p>
-          <Note>Important:</Note> make sure you assign <code>id</code> from{" "}
-          <code>fields</code> object as your component key.
+          <b className={typographyStyles.note}>Important:</b> make sure you
+          assign <code>id</code> from <code>fields</code> object as your
+          component key.
         </p>
 
         <p>
-          <Note>Important:</Note> due to ref callback issue, for{" "}
-          <code>register</code>
+          <b className={typographyStyles.note}>Important:</b> due to ref
+          callback issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
         </p>
@@ -614,14 +650,17 @@ export default {
             <code>fields</code>
           </td>
           <td>
-            <TypeText>object & {`{ id: string }`}</TypeText>
+            <code className={typographyStyles.typeText}>
+              object & {`{ id: string }`}
+            </code>
           </td>
           <td>
             This object is the source of truth to map and render inputs.
             <p>
-              <Note>Important: </Note> because each inputs can be uncontrolled,{" "}
-              <code>id</code> is required with mapped components to help React
-              identify which items have changed, are added, or are removed.
+              <b className={typographyStyles.note}>Important: </b> because each
+              inputs can be uncontrolled, <code>id</code> is required with
+              mapped components to help React identify which items have changed,
+              are added, or are removed.
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -634,7 +673,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(obj: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (obj: any) => void
+              </code>
             </code>
           </td>
           <td>Append input/inputs to the end of your fields</td>
@@ -645,7 +686,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(obj: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (obj: any) => void
+              </code>
             </code>
           </td>
           <td>Prepend input/inputs to the start of your fields</td>
@@ -656,7 +699,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(index: number, value: any) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (index: number, value: any) => void
+              </code>
             </code>
           </td>
           <td>Insert input/inputs at particular position.</td>
@@ -667,7 +712,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) => void
+              </code>
             </code>
           </td>
           <td>Swap input/inputs position.</td>
@@ -678,16 +725,18 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(from: number, to: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) => void
+              </code>
             </code>
           </td>
           <td>
             Move input/inputs to another position.
             <p>
-              <Note>Note:</Note> difference between <code>move</code> and{" "}
-              <code>swap</code>, keep calling <code>move</code> will push
-              input/inputs in a loop, while <code>swap</code> only change two
-              input/inputs' position.
+              <b className={typographyStyles.note}>Note:</b> difference between{" "}
+              <code>move</code> and <code>swap</code>, keep calling{" "}
+              <code>move</code> will push input/inputs in a loop, while{" "}
+              <code>swap</code> only change two input/inputs' position.
             </p>
           </td>
         </tr>
@@ -697,7 +746,9 @@ export default {
           </td>
           <td>
             <code>
-              <TypeText>(index?: number) => void</TypeText>
+              <code className={typographyStyles.typeText}>
+                (index?: number) => void
+              </code>
             </code>
           </td>
           <td>
@@ -717,7 +768,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>Уникальное имя вашего поля.</td>
@@ -727,7 +778,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td>✓</td>
           <td>
@@ -740,7 +793,7 @@ export default {
             <code>control</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td />
           <td>
@@ -753,7 +806,7 @@ export default {
             <code>defaultValue</code>
           </td>
           <td>
-            <TypeText>any</TypeText>
+            <code className={typographyStyles.typeText}>any</code>
           </td>
           <td />
           <td>
@@ -761,14 +814,14 @@ export default {
             когда указывается <code>логическое</code> значение. Будет
             обрабатываться как чекбокс.
             <p>
-              <Note>Примечание:</Note> вам нужно задать или атрибут поля{" "}
-              <code>defaultValue</code> или <code>defaultValues</code> для{" "}
-              <code>useForm</code>
+              <b className={typographyStyles.note}>Примечание:</b> вам нужно
+              задать или атрибут поля <code>defaultValue</code> или{" "}
+              <code>defaultValues</code> для <code>useForm</code>
             </p>
             <p>
-              <Note>Примечание</Note>: Если указано, то будет иметь приоритет
-              над <code>defaultValues</code> у <code>useForm</code> для данного
-              поля.
+              <b className={typographyStyles.note}>Примечание</b>: Если указано,
+              то будет иметь приоритет над <code>defaultValues</code> у{" "}
+              <code>useForm</code> для данного поля.
             </p>
           </td>
         </tr>
@@ -777,7 +830,7 @@ export default {
             <code>rules</code>
           </td>
           <td>
-            <TypeText>Object</TypeText>
+            <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td />
           <td>
@@ -789,7 +842,9 @@ export default {
             <code>onChange</code>
           </td>
           <td>
-            <TypeText>(args: any) => any</TypeText>
+            <code className={typographyStyles.typeText}>
+              (args: any) => any
+            </code>
           </td>
           <td />
           <td>
@@ -803,7 +858,7 @@ export default {
             <code>onChangeName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -817,7 +872,7 @@ export default {
             <code>onBlurName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -831,7 +886,7 @@ export default {
             <code>valueName</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td />
           <td>
@@ -906,12 +961,14 @@ export default {
       <>
         <p>
           Как только ваша форма обёрнута в <code>FormContext</code>, то{" "}
-          <code>useFormContext</code>: <TypeText>function</TypeText> может быть
+          <code>useFormContext</code>:{" "}
+          <code className={typographyStyles.typeText}>function</code> может быть
           вызвана внутри вложенного компонента.
         </p>
         <p>
-          <Note>Примечание:</Note> вызов <code>useFormContext</code> вернёт все
-          функции из <code>useForm</code>.
+          <b className={typographyStyles.note}>Примечание:</b> вызов{" "}
+          <code>useFormContext</code> вернёт все функции из <code>useForm</code>
+          .
         </p>
       </>
     ),
@@ -940,7 +997,7 @@ export default {
             <code>name</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>имя связанного поля.</td>
@@ -950,7 +1007,7 @@ export default {
             <code>errors</code>
           </td>
           <td>
-            <TypeText>object</TypeText>
+            <code className={typographyStyles.typeText}>object</code>
           </td>
           <td />
           <td>
@@ -963,7 +1020,7 @@ export default {
             <code>message</code>
           </td>
           <td>
-            <TypeText>string</TypeText>
+            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td></td>
           <td>встроенное сообщение об ошибке.</td>
@@ -973,7 +1030,9 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <TypeText>React.ElementType | string</TypeText>
+            <code className={typographyStyles.typeText}>
+              React.ElementType | string
+            </code>
           </td>
           <td />
           <td>
@@ -986,9 +1045,9 @@ export default {
             <code>children</code>
           </td>
           <td>
-            <TypeText>
+            <code className={typographyStyles.typeText}>
               ({`{ message: string, messages: string[]}`}) => any
-            </TypeText>
+            </code>
           </td>
           <td />
           <td>

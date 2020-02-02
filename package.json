@@ -7,21 +7,21 @@
     "node": "12.x"
   },
   "dependencies": {
-    "gatsby": "2.18.21",
-    "gatsby-image": "2.2.38",
-    "gatsby-plugin-google-analytics": "2.1.32",
+    "gatsby": "2.19.11",
+    "gatsby-image": "2.2.40",
+    "gatsby-plugin-google-analytics": "2.1.35",
     "gatsby-plugin-gtag": "1.0.12",
     "gatsby-plugin-i18n": "^1.0.1",
-    "gatsby-plugin-manifest": "2.2.37",
-    "gatsby-plugin-nprogress": "^2.1.18",
-    "gatsby-plugin-react-helmet": "3.1.21",
-    "gatsby-plugin-sharp": "2.3.13",
-    "gatsby-plugin-sitemap": "2.2.25",
-    "gatsby-plugin-styled-components": "3.1.17",
-    "gatsby-plugin-typescript": "2.1.26",
-    "gatsby-source-filesystem": "2.1.46",
-    "gatsby-transformer-sharp": "2.3.12",
+    "gatsby-plugin-manifest": "2.2.41",
+    "gatsby-plugin-nprogress": "^2.1.19",
+    "gatsby-plugin-react-helmet": "3.1.22",
+    "gatsby-plugin-sharp": "2.4.5",
+    "gatsby-plugin-sitemap": "2.2.27",
+    "gatsby-plugin-typescript": "2.1.27",
+    "gatsby-source-filesystem": "2.1.48",
+    "gatsby-transformer-sharp": "2.3.14",
     "little-state-machine": "^2.10.6",
+    "prismjs": "^1.19.0",
     "ptz-i18n": "^1.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -31,12 +31,9 @@
     "react-simple-animate": "^3.3.4",
     "react-simple-img": "2.3.7",
     "react-sortablejs": "1.5.1",
-    "react-syntax-highlighter": "11.0.2",
-    "sortablejs": "1.10.1",
-    "styled-components": "5.0.0"
+    "sortablejs": "1.10.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "1.19.1"
@@ -52,8 +49,8 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc"
   },
   "repository": {
     "type": "git",
@@ -70,6 +67,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run format",
+      "npm run prettier",
       "git add"
     ]
   }

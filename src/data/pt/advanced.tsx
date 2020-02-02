@@ -3,13 +3,12 @@ import CodeArea from "../../components/CodeArea"
 import { Link as PageLink } from "gatsby"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import Link from "../../styles/link"
-import { Note } from "../../styles/typography"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
-import { CodeHeading } from "../../components/ApiPage"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "Uso Avançado",
@@ -156,23 +155,29 @@ export default {
           páginas e seções. Nós recomendamos uma biblioteca de gerencia de
           estado para armazenar os dados do usuário entre os diferentes campos,
           páginas / seções. Neste exemplo, nós iremos usar{" "}
-          <Link
+          <a
+            className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
           >
             little state machine
-          </Link>{" "}
+          </a>{" "}
           como nossa biblioteca de gerencia de estado (você pode substituir por{" "}
-          <Link href="https://github.com/reduxjs/redux" target="_blank">
+          <a
+            className={buttonStyles.links}
+            href="https://github.com/reduxjs/redux"
+            target="_blank"
+          >
             redux
-          </Link>
+          </a>
           , se você for mais familiar com ele).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <Note>Passo 1:</Note> Construir as rotas e o armazenamento (store).
+          <b className={typographyStyles.note}>Passo 1:</b> Construir as rotas e
+          o armazenamento (store).
         </p>
         <CodeArea
           rawData={step1}
@@ -180,9 +185,9 @@ export default {
         />
 
         <p>
-          <Note>Passo 2:</Note> Cirar suas páginas, faça-o coletar seus dados,
-          submeter o dano e armazenar no "store" e passar para próxima página do
-          formulário.
+          <b className={typographyStyles.note}>Passo 2:</b> Cirar suas páginas,
+          faça-o coletar seus dados, submeter o dano e armazenar no "store" e
+          passar para próxima página do formulário.
         </p>
         <CodeArea
           rawData={step2}
@@ -190,8 +195,8 @@ export default {
         />
 
         <p>
-          <Note>Passo 3:</Note> Faça a submissão final com o dano no store ou
-          exiba os dados em tela.
+          <b className={typographyStyles.note}>Passo 3:</b> Faça a submissão
+          final com o dano no store ou exiba os dados em tela.
         </p>
         <CodeArea
           rawData={step3}
@@ -225,9 +230,9 @@ export default {
 
         <p>Vamos dar uma olhada em cada um destes componentes.</p>
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           O componente <code>Form</code> é responsável por injetar todos os
@@ -239,9 +244,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <CodeHeading>
+        <div className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </CodeHeading>
+        </div>
 
         <p>
           A responsabilidade desses componentes de entrada é registrá-los no{" "}
@@ -274,8 +279,9 @@ export default {
         </p>
 
         <p>
-          <Note>Note:</Note> we have also build a custom hook for complex
-          scenario: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+          <b className={typographyStyles.note}>Note:</b> we have also build a
+          custom hook for complex scenario:{" "}
+          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>
@@ -284,8 +290,9 @@ export default {
         </p>
 
         <p>
-          <Note>Nota:</Note> Se sua aplicação necessita de funcionalidades como:
-          Delete, Insert, Append, Preprend. Aqui está{" "}
+          <b className={typographyStyles.note}>Nota:</b> Se sua aplicação
+          necessita de funcionalidades como: Delete, Insert, Append, Preprend.
+          Aqui está{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
             target="_blank"
@@ -317,14 +324,15 @@ export default {
     step1: (
       <>
         <p>
-          <Note>Passo 1:</Note> Instale o <code>Yup</code> em seu projeto.
+          <b className={typographyStyles.note}>Passo 1:</b> Instale o{" "}
+          <code>Yup</code> em seu projeto.
         </p>
       </>
     ),
     step2: (
       <p>
-        <Note>Passo 2:</Note> Crie um esquema para validação e registre
-        (register) os campos com React Hook Form.
+        <b className={typographyStyles.note}>Passo 2:</b> Crie um esquema para
+        validação e registre (register) os campos com React Hook Form.
       </p>
     ),
   },
@@ -366,8 +374,9 @@ export default {
         <ul>
           <li>
             <p>
-              Importe <Link to="/api#Controller">Controller</Link> para englobar
-              seu componente e deixe-o gerenciar o 'register' e 'unregister'
+              Importe <PageLink to="/api#Controller">Controller</PageLink> para
+              englobar seu componente e deixe-o gerenciar o 'register' e
+              'unregister'
             </p>
           </li>
           <li>

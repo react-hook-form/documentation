@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Note } from "../../styles/typography"
-import { CodeAsLink, Table, TableWrapper } from "../../components/ApiPage"
 import colors from "../../styles/colors"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "FAQs",
@@ -129,8 +130,9 @@ export default {
           </p>
 
           <p>
-            <Note>注:</Note> ただし<code>ref</code>が登録されていないため, React
-            Hook Formはinputのイベントリスナーへの登録が出来ず、
+            <b className={typographyStyles.note}>注:</b> ただし<code>ref</code>
+            が登録されていないため, React Hook
+            Formはinputのイベントリスナーへの登録が出来ず、
             そのため値やエラーの更新を手動で行わなければいけません
           </p>
         </>
@@ -200,8 +202,8 @@ export default {
             つまり、コンポーネントをインポートしません。詳細な違いを以下に示します。
           </p>
 
-          <TableWrapper>
-            <Table>
+          <div className={tableStyles.tableWrapper}>
+            <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
                   <th width={200} />
@@ -277,8 +279,7 @@ export default {
                     <code>
                       react-hook-form@3.26.2
                       <br />
-                      <Note />
-                      <Note>5.3KB</Note>
+                      <b className={typographyStyles.note}>5.3KB</b>
                     </code>
                   </td>
                   <td>
@@ -287,7 +288,7 @@ export default {
                     <code>
                       formik@2.0.1
                       <br />
-                      <Note>14.4KB</Note>
+                      <b className={typographyStyles.note}>14.4KB</b>
                     </code>
                   </td>
                   <td>
@@ -296,7 +297,7 @@ export default {
                     <code>
                       redux-form@8.2.6
                       <br />
-                      <Note>27KB</Note>
+                      <b className={typographyStyles.note}>27KB</b>
                     </code>
                   </td>
                 </tr>
@@ -341,8 +342,8 @@ export default {
                   </td>
                 </tr>
               </tbody>
-            </Table>
-          </TableWrapper>
+            </table>
+          </div>
         </>
       ),
     },
@@ -388,13 +389,14 @@ export default {
               <p>
                 React Hook Form
                 の全てのバリデーションメソッドは非同期関数として扱われるため、
-                <CodeAsLink
+                <a
+                  className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   act
-                </CodeAsLink>{" "}
+                </a>{" "}
                 を <code>async</code> でラップすることが重要です。
               </p>
             </li>
