@@ -43,8 +43,8 @@ module.exports = {
         name: `react-hook-form`,
         short_name: `react-hook-form`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#1e2a4a`,
+        theme_color: `#1e2a4a`,
         display: `standalone`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -63,5 +63,6 @@ module.exports = {
         anonymize: true,
       },
     },
+    'gatsby-plugin-offline',
   ],
 }

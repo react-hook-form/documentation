@@ -95,6 +95,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
       <div className={styles.langSelect}>
         <select
+          aria-label="Select a language"
           onChange={e => {
             const selectedLanguage = e.target.value
             action(selectedLanguage)
