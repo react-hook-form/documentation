@@ -12,10 +12,8 @@ export default function LearnMore({
   currentLanguage: string
 }) {
   return (
-    <div className={containerStyles.centerContent} style={{ marginTop: 40 }}>
-      <h1 className={typographyStyles.h1}>
-        {generic.learnMore[currentLanguage].title}
-      </h1>
+    <div className={containerStyles.centerContent} style={{ marginTop: 100 }}>
+      <h1>{generic.learnMore[currentLanguage].title}</h1>
       <p>{generic.learnMore[currentLanguage].description}</p>
 
       <button
