@@ -15,6 +15,8 @@
   min-width: 250px;
   padding-left: 0;
   margin: 0 15px 0 20px;
+  margin-left: 0;
+  list-style-type: none;
 }
 
 .imgSection ul > li {
@@ -53,13 +55,12 @@
 @media (min-width: 768px) {
   .imgSection {
     flex-direction: row;
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: 80%;
+    justify-content: center;
   }
 
-  .imgSection {
-    max-width: 80%;
-    margin: 0 0 40px;
+  .imgSection ul {
+    margin-left: 250px;
   }
 
   .videoWrapper > section:first-child {

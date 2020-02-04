@@ -29,11 +29,13 @@
 }
 
 .links > li {
-  display: inline-block;
+  display: inline-flex;
 }
 
 .links > li > a {
   text-decoration: none;
   color: white;
   padding: 10px 12px;
+  min-width: 48px;
+  min-height: 48px;
 }

@@ -34,6 +34,7 @@ const IsoLateInput = () => {
       play={play}
       render={({ style }) => (
         <input
+          aria-label="Uncontrolled Input re-render demo using React Hook Form"
           placeholder="Type here to see result..."
           style={style}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +63,7 @@ const ControlledInputs = ({ style }) => {
           play={play}
           render={({ style }) => (
             <input
+              aria-label="Controlled Input re-render demo"
               placeholder="Type here to see result..."
               style={style}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
