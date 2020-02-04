@@ -4,9 +4,9 @@ import { AnimateGroup, Animate } from "react-simple-animate"
 // @ts-ignore
 import formik from "../images/formik.min.png"
 // @ts-ignore
-import hookFrom from "../images/hookForm.min.png"
+import hookFrom from "../images/hookform.min.png"
 // @ts-ignore
-import reduxForm from "../images/reduxForm.min.png"
+import reduxForm from "../images/reduxform.min.png"
 // @ts-ignore
 import reactHookFormVideo from "../images/react-hook-form-test.min.mp4"
 // @ts-ignore
