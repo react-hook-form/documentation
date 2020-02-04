@@ -12,7 +12,7 @@ export default `function Test() {
       {/* important: using id from to track item added or removed */}
       <div key={field.id}>
         {/* register with empty validation make sure pass empty object  */}
-        <input name={\`test[\${index}}]\`} ref={register()} />
+        <input name={\`test[\${index}]\`} ref={register()} />
       </div>
     ))}
   );
