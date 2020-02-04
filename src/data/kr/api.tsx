@@ -445,6 +445,12 @@ export default {
           </button>
           을 사용하여 제어 컴포넌트를 감싸 처리할 수 있습니다.
         </p>
+        <p>
+          <b className={typographyStyles.note}>참고:</b> 당신은해야합니다
+          <code> useForm </code> 또는중 <code> defaultValues ​​</code>제공
+          <code> 컨트롤러 </code>를 재설정하기위한 값으로<code> 재설정 </code>
+          구성 요소의 가치.
+        </p>
       </>
     ),
   }),
@@ -906,6 +912,11 @@ export default {
           issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>참고:</b> 기본값을 설정하거나
+          입력으로 재설정하려는 경우 <code> defaultValue </code>를 설정하십시오.
         </p>
       </>
     ),

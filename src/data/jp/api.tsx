@@ -470,6 +470,14 @@ export default {
           </button>{" "}
           コンポーネントを使用して制御されたコンポーネントをラップする必要があります。
         </p>
+        <p>
+          <b className={typographyStyles.note}>注意：</b>
+          あなたがする必要があります
+          <code> useForm </code>または中に<code> defaultValues </code>
+          を指定します<code> Controller </code>をリセットするための値を含む
+          <code> reset </code>
+          コンポーネントの価値。
+        </p>
       </>
     ),
   }),
@@ -962,6 +970,12 @@ export default {
           issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          デフォルト値を設定するか、入力でリセットする場合は、
+          <code> defaultValue </code>を設定します。
         </p>
       </>
     ),

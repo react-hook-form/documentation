@@ -466,6 +466,12 @@ export default {
           </button>{" "}
           para encapsular seu componente controlado.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> Você vai precisar
+          forneça <code> defaultValues ​​</code> durante <code> useForm </code>
+          ou<code> reset </code> com valor para redefinir o
+          <code> Controller </code>valor dos componentes.
+        </p>
       </>
     ),
   }),
@@ -967,6 +973,12 @@ export default {
           callback issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> defina{" "}
+          <code> defaultValue </code> quando desejar definir o valor padrão ou
+          redefinir com entradas.
         </p>
       </>
     ),

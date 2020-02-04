@@ -466,6 +466,12 @@ export default {
           </button>{" "}
           в качестве обёртки для вашего контролируемого компонента.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Примечание:</b> Вам нужно будет
+          укажите <code> defaultValues ​​</code> во время <code> useForm </code>
+          или<code> reset </code> со значением для сброса
+          <code> Controller </code>стоимость компонентов.
+        </p>
       </>
     ),
   }),
@@ -651,6 +657,12 @@ export default {
           callback issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> установите{" "}
+          <code> defaultValue </code>, если вы хотите установить значение по
+          умолчанию или сбросить с помощью входов.
         </p>
       </>
     ),

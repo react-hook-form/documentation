@@ -457,6 +457,12 @@ export default {
           </button>{" "}
           to wrap around your controlled component.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Note: </b> You will need to
+          supply <code>defaultValues</code> during <code>useForm</code> or{" "}
+          <code>reset</code> with value for resetting <code>Controller</code>{" "}
+          components' value.
+        </p>
       </>
     ),
   }),
@@ -638,6 +644,12 @@ export default {
           callback issue, for <code>register</code>
           without any validation, please make sure to pass empty object as
           payload. eg: <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b>: set{" "}
+          <code>defaultValue</code> when you want to set default value or reset
+          with inputs.
         </p>
       </>
     ),

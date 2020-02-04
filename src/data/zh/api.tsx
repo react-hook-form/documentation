@@ -439,6 +439,12 @@ export default {
           </button>
           来包装您的受控组件。
         </p>
+        <p>
+          <b className={typographyStyles.note}>注意:</b> 您将需要在
+          <code>useForm</code>提供<code>defaultValues</code>或者
+          <code>reset</code>带价值，来重置<code> Controller </code>
+          组件的价值。
+        </p>
       </>
     ),
   }),
@@ -892,6 +898,11 @@ export default {
           <b className={typographyStyles.note}>注意:</b>
           由于ref回调问题，对于未经验证的注册，请确保将空的对象作作为argument。例如
           <code>{`ref={register()}`}</code>
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b>
+          要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
         </p>
       </>
     ),
