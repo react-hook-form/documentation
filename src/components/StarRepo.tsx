@@ -11,7 +11,7 @@ export default function StarRepo({
   return (
     <div
       className={containerStyles.centerContent}
-      style={{ marginTop: 40, maxWidth: 600 }}
+      style={{ marginTop: 100, maxWidth: 600 }}
     >
       <h1>{generic.needYourSupport[currentLanguage].title}</h1>
       <p>{generic.needYourSupport[currentLanguage].description}</p>
