@@ -852,11 +852,9 @@ function ApiPage({
 
           <div
             className={containerStyles.centerContent}
-            style={{ marginTop: 40 }}
+            style={{ marginTop: 100 }}
           >
-            <h1 className={typographyStyles.h1}>
-              {generic.advanceUsage[currentLanguage].title}
-            </h1>
+            <h1>{generic.advanceUsage[currentLanguage].title}</h1>
             <p>{generic.advanceUsage[currentLanguage].description}</p>
             <button
               className={buttonStyles.primaryButton}
