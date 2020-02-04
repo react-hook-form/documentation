@@ -11,7 +11,7 @@
   ],
   "routes": [
     {
-      "src": "^/[^/]*\\.(jpg|jpeg|png|mp4)",
+      "src": "/static/(.*)",
       "headers": { "cache-control": "public, max-age=31536000, immutable" },
       "continue": true
     }
