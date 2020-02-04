@@ -15,8 +15,8 @@ import TabGroup from "./TabGroup"
 import controlledRHFInput from "./codeExamples/control"
 import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 import containerStyles from "../styles/container.module.css"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 
@@ -231,7 +231,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           <span className={getStartedStyles.installCode}>
             npm i mutationobserver-shim
             <button
-              className={codeAreaStyles.copyButton}
+              className={getStartedStyles.copyButton}
               onClick={() => {
                 copyClipBoard("npm i mutationobserver-shim")
                 alert("Code copied into your clipboard.")
