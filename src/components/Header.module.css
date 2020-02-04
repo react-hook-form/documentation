@@ -144,6 +144,10 @@
     width: 800px;
     height: 480px;
   }
+
+  .logoHeading {
+    margin-top: 35px;
+  }
 }
 
 @media (min-width: 1280px) {

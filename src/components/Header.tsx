@@ -9,8 +9,8 @@ import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
 import typographyStyles from "../styles/typography.module.css"
-import styles from "./Header.module.css"
 import buttonStyles from "../styles/button.module.css"
+import styles from "./Header.module.css"
 
 const LogoSvg = (
   <>
@@ -77,7 +77,10 @@ export default function Header({
           }}
           easeType="ease-in"
           render={({ style }) => (
-            <h1 className={typographyStyles.heading} style={style}>
+            <h1
+              className={`${typographyStyles.heading} ${styles.logoHeading}`}
+              style={style}
+            >
               <svg className={styles.desktopLogo} viewBox="0 0 100 100">
                 {LogoSvg}
               </svg>{" "}
