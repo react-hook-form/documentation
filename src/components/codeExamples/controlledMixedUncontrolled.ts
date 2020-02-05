@@ -28,7 +28,7 @@ function App() {
       <br />
       <Input inputRef={register} name="input" />
 
-      <button type="button" onClick={() => reset({ defaultValues })}>Reset</button>
+      <button type="button" onClick={() => reset({ ...defaultValues })}>Reset</button>
       <input type="submit" />
     </form>
   );
