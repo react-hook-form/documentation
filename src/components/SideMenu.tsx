@@ -58,6 +58,7 @@ function SideMenu({
                 "usefieldarray",
                 "errormessage",
                 "validationschema",
+                "validationresolver",
                 "browser built-in validation",
               ].includes((link || "").toLowerCase()) ||
               isStatic
@@ -103,7 +104,7 @@ function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - 7
+                        ...(index !== links.length - 8
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -115,7 +116,7 @@ function SideMenu({
               >
                 <span
                   className={`${styles.arrow} ${
-                    index === links.length - 7 ? styles.arrowLast : ""
+                    index === links.length - 8 ? styles.arrowLast : ""
                   }`}
                 >
                   {index > 0 && (

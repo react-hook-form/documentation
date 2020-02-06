@@ -110,9 +110,9 @@ export default {
       <>
         <p>
           React Hook Form has support for native form validation, which let you
-          validate inputs with your own rules, since most of us have to build
-          forms in a custom design and layout, and it's our responsibility to
-          make sure our forms are accessible (A11y).
+          validate inputs with your rules, since most of us have to build forms
+          in a custom design and layout, and it's our responsibility to make
+          sure our forms are accessible (A11y).
         </p>
 
         <p>

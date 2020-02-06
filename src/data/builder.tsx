@@ -22,7 +22,7 @@ export default {
   builder: {
     en: {
       title: "Builder",
-      description: "Build your own form with code and example.",
+      description: "Build your form with code and example.",
     },
     es: {
       title: "Constructor de formulario",

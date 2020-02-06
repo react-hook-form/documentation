@@ -37,6 +37,7 @@ import styles from "./ApiPage.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
+import ValidationResolver from "./ValidationResolver"
 
 const { useRef, useEffect } = React
 
@@ -60,6 +61,7 @@ const enLinks = [
   apiEn.ErrorMessage,
   apiEn.useFormContext,
   apiEn.useFieldArray,
+  apiEn.validationResolver,
   apiEn.validationSchema,
   apiEn.NativeValidation,
 ]
@@ -104,6 +106,7 @@ function ApiPage({
     api.ErrorMessage,
     api.useFormContext,
     api.useFieldArray,
+    api.validationResolver,
     api.validationSchema,
     api.NativeValidation,
   ]
@@ -127,6 +130,7 @@ function ApiPage({
     triggerValidationRef: null,
     useFormContextRef: null,
     ControllerRef: null,
+    validationResolverRef: null,
     BrowserbuiltinvalidationRef: null,
     ErrorMessageRef: null,
     ReactNativeRef: null,
@@ -311,7 +315,9 @@ function ApiPage({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationSchema: {},
+  validationSchema: undefined, // Note: will be deprecated in the next major version
+  validationResolver: undefined,
+  validationContext: undefined,
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
   nativeValidation: false,
@@ -418,6 +424,40 @@ function ApiPage({
                       url="https://codesandbox.io/s/928po918qr"
                     />
                   </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
+                      <code>
+                        validationResolver: <br />
+                        <span className={styles.mobileTypeText}>Function</span>
+                      </code>
+                    </h5>
+                  </td>
+                  <td>{api.useForm.validationResolver(goToSection)}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5
+                      className={typographyStyles.h5}
+                      style={{
+                        border: "none",
+                        marginTop: 20,
+                      }}
+                    >
+                      <code>
+                        validationContext: <br />
+                        <span className={styles.mobileTypeText}>Object</span>
+                      </code>
+                    </h5>
+                  </td>
+                  <td>{api.useForm.validateContext}</td>
                 </tr>
                 <tr>
                   <td>
@@ -802,6 +842,14 @@ function ApiPage({
 
           <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section
+            ref={ref => (apiSectionsRef.current.validationResolverRef = ref)}
+          >
+            <ValidationResolver currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

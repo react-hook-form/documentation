@@ -10,7 +10,7 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" ref={(e) => {
         register(e)
-        firstNameRef.current = e // you can still assign to your own ref
+        firstNameRef.current = e // you can still assign to ref
       }} />
       <input name="lastName" ref={(e) => {
         // register's first argument is ref, and second is validation rules

@@ -290,7 +290,7 @@ export default {
                       Yup
                     </a>
                   </td>
-                  <td>Build your own & Plugins</td>
+                  <td>Build yourself or Plugins</td>
                 </tr>
                 <tr>
                   <td>

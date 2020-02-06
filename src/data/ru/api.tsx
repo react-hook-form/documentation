@@ -25,6 +25,36 @@ export default {
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
+    validationResolver: (
+      <>
+        <p>
+          该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
+          <code> values </code>作为 参数，您将需要验证结果并返回两者
+          <code> values </code>和<code> errors </code>。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意：</b>
+          只要有错误对象不是空对象，反应钩子形式将考虑该形式视为无效。
+        </p>
+      </>
+    ),
+    validateContext: (
+      <>
+        <p>
+          This context object will be injected into{" "}
+          <code>validationResolver</code>'s second argument or{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>{" "}
+          validation's context object.
+        </p>
+      </>
+    ),
     validateCriteriaMode: (
       <>
         <p>
