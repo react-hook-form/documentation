@@ -26,17 +26,20 @@ export default {
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
-    validationResolver: (
+    validationResolver: goToSection => (
       <>
         <p>
-          该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
-          <code> values </code>作为 参数，您将需要验证结果并返回两者
-          <code> values </code>和<code> errors </code>。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意：</b>
-          只要有错误对象不是空对象，反应钩子形式将考虑该形式视为无效。
+          This callback function allow you to run through any schema or custom
+          validation. The function has the entire form <code>values</code> as
+          argument, and you will need to validate the result and return both{" "}
+          <code>values</code> and <code>errors</code>. Read more at{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
         </p>
       </>
     ),

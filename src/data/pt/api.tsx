@@ -1,4 +1,3 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
