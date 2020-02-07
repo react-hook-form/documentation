@@ -1,5 +1,5 @@
 export default `import { useStateMachine } from 'little-state-machine';
-import { useFormContext } from 'react-hook-form';
+import { FormContext, useForm, useFormContext } from 'react-hook-form';
 
 export const ConnectForm = ({ children }) => {
  const methods = useFormContext();
