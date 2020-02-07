@@ -76,7 +76,7 @@
   font-weight: 100;
   font-size: 15px;
   font-family: monospace;
-  color: var(--color-light-pink);
+  color: var(--color-light-pink) !important;
 }
 
 .note {
