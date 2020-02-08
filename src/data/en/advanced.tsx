@@ -109,10 +109,10 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form has support for native form validation, which let you
-          validate inputs with your own rules, since most of us have to build
-          forms in a custom design and layout, and it's our responsibility to
-          make sure our forms are accessible (A11y).
+          React Hook Form has support for native form validation, which lets you
+          validate inputs with your own rules. Since most of us have to build
+          forms with custom designs and layouts, it is our responsibility to
+          make sure those are accessible (A11y).
         </p>
 
         <p>
@@ -149,7 +149,7 @@ export default {
         <p>
           It's pretty common to collect user information through different pages
           and sections. We recommend using a state management library to store
-          user input through different pages/section. In this example, we are
+          user input through different pages or sections. In this example, we are
           going to use{" "}
           <a
             className={buttonStyles.links}
@@ -165,8 +165,8 @@ export default {
             target="_blank"
           >
             redux
-          </a>
-          , if you are more familiar with it).
+          </a>{" "}
+          if you are more familiar with it).
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
@@ -182,8 +182,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Step 2:</b> Create your pages,
-          make them collect their data, submit that data to the store and push
-          to the next page of your form.
+          collect and submit the data to the store and show the next page of
+          your form.
         </p>
         <CodeArea
           rawData={step2}

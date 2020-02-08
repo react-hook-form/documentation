@@ -136,13 +136,15 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
+      {/* Option 1 (preferred): pass a component to the Controller. */}
       <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
-      {* // Another possibility, any potential props passed to <Checkbox/> will be overrided. SomeName => Checkbox *}
+      {/* Option 2: pass a JSX element to the Controller. */}
+      {/* Note that any prop passed to the element will be overriden. */}
+      {/* In this case, "SomeName" will be changed to "MyCheckbox". */}
       <Controller
         as={<Checkbox name="SomeName"/>}
-        name="Checkbox"
+        name="MyCheckbox"
         value="test"
         control={control}
         defaultValue={false}

@@ -28,12 +28,11 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          The default behavior <code>firstErrorDetected</code> will validate all
-          fields' validation and gather all the first error encounter.
+          When set to <code>firstErrorDetected</code> (default), only first error from
+          each field will be gathered.
         </p>
         <p>
-          With config set to <code>all</code>, all fields' validation will be
-          run through and gather all the errors encounter.
+          When set to <code>all</code>, all errors from each field will be gathered.
         </p>
       </>
     ),
@@ -52,8 +51,8 @@ export default {
     validateOnChange: (
       <>
         Validation will trigger on the <code>change</code> event with each
-        input, and lead to multiple re-renders. Not recommended: Consider this
-        as a bad performance practice.
+        input, and lead to multiple re-renders. Warning: this often comes with
+        a significant impact on performances.
       </>
     ),
     defaultValues: goToSection => (
@@ -107,7 +106,7 @@ export default {
     ),
     reValidateMode: (
       <p>
-        This option allows you to configure when inputs with errors getd
+        This option allows you to configure when inputs with errors get
         re-validated (by default, validation is triggered during an input
         change.) <Popup />
       </p>
@@ -122,8 +121,8 @@ export default {
     submitFocusError: (
       <>
         <p>
-          By default when the user submits a form and that contains an error,
-          the first field with an error will be focused.
+          When set to true (default) and the user submits a form that fails the
+          validation, it will set focus on the first field with an error.
         </p>
 
         <p>
@@ -161,9 +160,9 @@ export default {
       <>
         <p>
           This method will allow you to <code>unregister</code> a single input
-          or an array of inputs. This is useful when you register your input
-          during <code>useEffect</code> as custom register and to unregister it
-          after component unmount.
+          or an array of inputs. This is useful when you used a custom register
+          in <code>useEffect</code> and want to unregister it when the component
+          unmounts.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> When you unregister an
@@ -296,29 +295,28 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
+          to improve render performance, so make sure you invoke or read it before{" "}
           <code>render</code> in order to enable the state update.
         </p>
       </>
     ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
-    touched: "An object of all inputs which have been interacted.",
+    touched: "An object containing all the inputs the user has interacted with.",
     isSubmitting: (
       <>
-        During form submitting will set to <code>true</code> and after
-        submitting set to <code>false</code>
+        <code>true</code> if the form is currently being submitted. <code>false</code> otherwise.
       </>
     ),
-    submitCount: "Number of forms submit.",
-    isValid: "Set true if doesn't have any error.",
+    submitCount: "Number of times the form was submitted.",
+    isValid: "Set to true if the form doesn't have any error.",
   },
   errors: {
     title: "errors",
     description: currentLanguage => (
       <>
         <p>
-          Object contains form errors or error messages which belong to each
+          Object containing form errors and error messages corresponding to each
           input.
         </p>
 
@@ -329,10 +327,10 @@ export default {
 
         <ul>
           <li>
-            <p>V4: Nested object</p>
+            <p>V4: Nested objects</p>
             <p>
-              <strong>Reason:</strong> as optional chaining becoming more
-              popular among the community and to support better type.
+              <strong>Reason:</strong> optional chaining is getting widely adopted
+              and allows better support for types..
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
@@ -352,13 +350,13 @@ export default {
     ),
     types: (
       <>
-        This is useful for input validation like rules of password, which
-        multiple errors need to return for a single field. To enable this
-        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
-        .
+        This is useful when you want to return all validation errors for a single input.
+        For instance, a password field that is required to have a minimum length AND contain
+        a special character. Note that you need to set <code>validateCriteriaMode</code> to
+        <code>'all'</code> for this option to work properly.
       </>
     ),
-    message: `Message is an empty string by default. However, if you register validation with error message, then it will be returned.`,
+    message: `If you registered your input with an error message, then it will be put in this field. Otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
   },
   watch: {
@@ -366,7 +364,7 @@ export default {
     description: (
       <>
         <p>
-          This will watch specified input/inputs and return its value, and it's
+          This will watch specified inputs and return their values. It is
           useful for determining what to render.
         </p>
 
@@ -472,9 +470,9 @@ export default {
       <>
         <p>The function allows you to manually set one or multiple errors.</p>
         <p>
-          <b className={typographyStyles.note}>Note: </b>: This method will not
+          <b className={typographyStyles.note}>Note:</b> This method will not
           persist the error and block the submit action. It's more useful during
-          handleSubmit function when you want to give error feedback to the
+          <code>handleSubmit</code> function when you want to give error feedback to the
           users after async validation.
         </p>
       </>
@@ -508,8 +506,8 @@ export default {
       <>
         <p>
           This function allows you to dynamically set input/select value. At the
-          same time, it tries to avoid re-render when it's not necessary and
-          only the following conditions will trigger re-render.
+          same time, it tries to avoid re-rendering when it's not necessary.
+          Only the following conditions will trigger a re-render:
         </p>
         <ul>
           <li>
@@ -533,12 +531,11 @@ export default {
         </ul>
         <p>
           <b className={typographyStyles.note}>Note:</b> By invoking this
-          method, <code>formState</code> will push the input's <code>name</code>{" "}
-          into <code>touched</code>.
+          method, <code>formState</code> will set the input to <code>touched</code>.
         </p>
         <p>
-          You can also set <code>shouldValidate</code> to <code>true</code> and
-          it will trigger field validation. eg:{" "}
+          You can also set the <code>shouldValidate</code> parameter to <code>true</code>
+          in order to trigger a field validation. eg:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
       </>
@@ -549,8 +546,8 @@ export default {
     description: (
       <>
         <p>
-          This function will return the entire form data, and it's useful in a
-          function when you want to retrieve form values.
+          This function will return the entire form data, and it's useful  when you want to
+          retrieve form values.
         </p>
 
         <ul>
@@ -589,10 +586,9 @@ export default {
     title: "validationSchema",
     description: (
       <p>
-        If you would like to centralize your validation rules with external
-        validation schema, you can apply <code>validationSchema</code> at{" "}
-        <code>useForm</code> as an optional argument. React Hook Form currently
-        supports{" "}
+        If you would like to centralize your validation rules as an external
+        validation schema, you can use the <code>validationSchema</code> parameter.
+        React Hook Form currently supports{" "}
         <a
           className={buttonStyles.links}
           href="https://github.com/jquense/yup"
@@ -794,8 +790,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. eg: <code>as="input"</code> or{" "}
-            <code>{`as={<TextInput />}`}</code>
+            Controlled component. eg: <code>as="input"</code>,{" "}
+            <code>{`as={<TextInput />}`}</code> or <code>{`as={TextInput}`}</code>.
           </td>
         </tr>
         <tr>
@@ -858,8 +854,7 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
+            This prop allows you to customize the return value.<br />
             <code>eg: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
@@ -872,8 +867,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
+            This prop allows you to target a specific event name for <code>onChange</code>,
+            eg: when <code>onChange</code> event is named <code>onTextChange</code>
           </td>
         </tr>
         <tr>
@@ -885,8 +880,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            This prop allows you to target a specific event name for <code>onBlur</code>,
+            eg: when <code>onBlur</code> event is named <code>onTextBlur</code>
           </td>
         </tr>
         <tr>
@@ -898,9 +893,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and ect...
+            This prop allows you to support inputs that doesn't use a prop called{" "}
+            <code>value</code>. eg: <code>checked</code>, <code>selected</code> and etc.
           </td>
         </tr>
       </tbody>
@@ -908,7 +902,7 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form embrace uncontrolled components and native inputs,
+          React Hook Form embraces uncontrolled components and native inputs,
           however it's hard to avoid working with external controlled component
           such as{" "}
           <a
@@ -934,21 +928,22 @@ export default {
           >
             Material-UI
           </a>
-          . This wrapper component will make your life easier to work with them.
+          . This wrapper component will make it easier for you to work with them.
         </p>
         <p>
-          Every props you pass to Controller component, will be forwarded to the
-          Component instance you provided with the <code>as</code> prop. That
-          means imagine you have a custom <code>Switch</code> component that
-          require a <code>label</code> prop. You can pass this prop to the
-          Controller component directly. The <code>name</code> prop will be used
-          mainly to access the value through the form later.
+          Every prop you pass to the Controller component will be forwarded to the
+          component instance you provided with the <code>as</code> prop. For
+          instance, if you have a custom <code>Switch</code> component that
+          requires a <code>label</code> prop, you can pass it to the Controller
+          component directly and it will take care of forwarding the prop for you.
+          The <code>name</code> prop will be used mainly to access the value through
+          the form later.
         </p>
 
         <p>
-          If you use a <code>defaultValue</code> prop, it will take priority
-          over the <code>useForm</code> <code>defaultValues</code> value for
-          your property given at <code>name</code> prop.
+          If you specify a <code>defaultValue</code> prop, it will take priority
+          over the default value specified in <code>useForm</code>'s <code>defaultValues</code>
+          for this input.
         </p>
       </>
     ),
@@ -956,26 +951,25 @@ export default {
   useFormContext: {
     title: "useFormContext",
     introduction: (
-      <p>
-        Form context is intended to solve the problem when there are deep nested
-        inputs in your components tree, and passing methods deep down as{" "}
-        <code>props</code> becomes painful.
-      </p>
-    ),
-    description: (
       <>
         <p>
-          Once your form is wrapped with <code>FormContext</code>, the{" "}
-          <code>useFormContext</code>:{" "}
-          <code className={typographyStyles.typeText}>function</code> can be
-          invoked in its child component.
+          Hook function that allows you to access the form context.{" "}
+          <code>useFormContext</code> is intended to be used in deeply nested
+          structures, where it would become inconvenient to pass the context
+          as a prop.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> invoking{" "}
-          <code>useFormContext</code> will give you all of the{" "}
-          <code>useForm</code> hook functions.
+          You need to wrap your form with the <code>FormContext</code> provider
+          component for <code>useFormContext</code> to work properly.
         </p>
       </>
+    ),
+    description: (
+      <p>
+        <b className={typographyStyles.note}>Note:</b> invoking{" "}
+        <code>useFormContext</code> will give you all of the{" "}
+        <code>useForm</code> hook functions.
+      </p>
     ),
   },
   control: {
@@ -1014,8 +1008,8 @@ export default {
           </td>
           <td></td>
           <td>
-            <code>errors</code> object from React Hook Form. it's optional if
-            you are using FormContext.
+            <code>errors</code> object from React Hook Form. It's optional if
+            you are using <code>FormContext</code>.
           </td>
         </tr>
         <tr>
