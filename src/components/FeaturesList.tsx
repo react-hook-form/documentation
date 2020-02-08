@@ -26,7 +26,7 @@ function FeaturesList({
 }) {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
 
@@ -39,7 +39,7 @@ function FeaturesList({
       <AnimateGroup play={isPlayFeature}>
         <div
           className={`${styles.featuresContent} ${
-            darkMode ? styles.lightFeaturesContent : ""
+            lightMode ? styles.lightFeaturesContent : ""
           }`}
         >
           <article id="featureLast">
@@ -50,7 +50,7 @@ function FeaturesList({
                   display: "flex",
                   width: 45,
                   height: 45,
-                  border: `2px solid ${darkMode ? "#2d2d2d" : "white"}`,
+                  border: `2px solid ${lightMode ? "#2d2d2d" : "white"}`,
                   borderRadius: "50%",
                   alignItems: "center",
                   justifyContent: "center",
@@ -62,7 +62,7 @@ function FeaturesList({
                   style={{
                     lineHeight: "19px",
                     fontSize: "15px",
-                    ...(darkMode ? { color: "#2d2d2d", fontWeight: 800 } : {}),
+                    ...(lightMode ? { color: "#2d2d2d", fontWeight: 800 } : {}),
                   }}
                 >{`</>`}</code>
               </div>

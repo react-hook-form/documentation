@@ -18,7 +18,7 @@ export default function GetStarted({
 }) {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
 
@@ -29,7 +29,7 @@ export default function GetStarted({
 
       <span
         className={`${styles.installCode} ${
-          darkMode ? styles.lightInstallCode : ""
+          lightMode ? styles.lightInstallCode : ""
         }`}
       >
         npm install react-hook-form

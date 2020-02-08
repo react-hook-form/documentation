@@ -14,7 +14,7 @@ const Layout = (props: {
 }) => {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
   const [show, setShow] = React.useState(false)
@@ -29,14 +29,14 @@ const Layout = (props: {
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
 
-    if (darkMode) {
+    if (lightMode) {
       document.querySelector("body").classList.add("light")
     } else {
       document.querySelector("body").classList.remove("light")
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
-  }, [darkMode])
+  }, [lightMode])
 
   return (
     <>

@@ -8,13 +8,13 @@ export default function Toggle() {
   const {
     action,
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine(updateSetting)
 
   const onChange = e => {
     action({
-      darkMode: e.target.checked,
+      lightMode: e.target.checked,
     })
 
     if (e.target.checked) {
@@ -30,7 +30,7 @@ export default function Toggle() {
         id="toggle"
         type="checkbox"
         onChange={onChange}
-        defaultChecked={darkMode}
+        defaultChecked={lightMode}
       />
       <span className={`${styles.slider} ${styles.round}`} />
     </label>

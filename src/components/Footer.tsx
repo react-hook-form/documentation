@@ -9,13 +9,13 @@ import styles from "./Footer.module.css"
 export default ({ currentLanguage }: { currentLanguage: string }) => {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
 
   return (
     <footer
-      className={`${styles.footer} ${darkMode ? styles.lightFooter : {}}`}
+      className={`${styles.footer} ${lightMode ? styles.lightFooter : {}}`}
     >
       <ul className={styles.links}>
         <li>

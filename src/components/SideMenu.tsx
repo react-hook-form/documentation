@@ -20,12 +20,12 @@ function SideMenu({
 }) {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
 
   return (
-    <aside className={`${styles.menu} ${darkMode ? styles.lightMenu : ""}`}>
+    <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>
         <div className={styles.titleList}>
           <h2

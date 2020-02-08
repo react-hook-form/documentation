@@ -14,13 +14,13 @@ function Popup({
 }) {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
   const [tipShow, setTipShow] = React.useState(false)
 
   return iconOnly ? (
-    <span className={`${styles.icon} ${darkMode ? styles.lightIcon : {}}`}>
+    <span className={`${styles.icon} ${lightMode ? styles.lightIcon : {}}`}>
       !
     </span>
   ) : (

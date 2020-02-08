@@ -116,7 +116,7 @@ function IsolateRender({
 }) {
   const {
     state: {
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine()
 
@@ -129,7 +129,7 @@ function IsolateRender({
       {home.isolateRender[currentLanguage].description}
 
       <div
-        className={`${styles.wrapper} ${darkMode ? styles.lightWrapper : ""}`}
+        className={`${styles.wrapper} ${lightMode ? styles.lightWrapper : ""}`}
       >
         <Animate
           play={isIsolatePlay}

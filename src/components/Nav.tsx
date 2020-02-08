@@ -14,7 +14,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     action,
     state: {
       language,
-      setting: { darkMode },
+      setting: { lightMode },
     },
   } = useStateMachine(updateCurrentLanguage)
   const { currentLanguage } =
@@ -100,7 +100,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
       <div
         className={`${styles.langSelect} ${
-          darkMode ? styles.lightLangSelect : ""
+          lightMode ? styles.lightLangSelect : ""
         }`}
       >
         <select
@@ -145,10 +145,10 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </select>
       </div>
 
-      <div className={darkMode ? styles.lightActionButtonWrapper : ""}>
+      <div className={lightMode ? styles.lightActionButtonWrapper : ""}>
         <nav
           className={`${styles.actionButtonGroup} ${
-            darkMode ? styles.darkActionButtonGroup : ""
+            lightMode ? styles.darkActionButtonGroup : ""
           }`}
         >
           <Link
