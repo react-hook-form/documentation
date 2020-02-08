@@ -802,18 +802,39 @@ body.light {
   box-shadow: none;
 }
 
-.light::-webkit-scrollbar {
+.light ::-webkit-scrollbar {
 }
-.light::-webkit-scrollbar-track {
+.light ::-webkit-scrollbar-track {
   background: inherit;
 }
-.light::-webkit-scrollbar-thumb {
+.light ::-webkit-scrollbar-thumb {
   background: grey;
 }
-.light::-webkit-scrollbar-thumb:hover {
+.light ::-webkit-scrollbar-thumb:hover {
   background: black;
 }
 
 .light a.active {
   border-bottom: 2px solid white !important;
+}
+
+.light img {
+  box-shadow: none !important;
+}
+
+@media (min-width: 768px) {
+  .light ::-webkit-scrollbar {
+  }
+
+  .light ::-webkit-scrollbar-track {
+    background: inherit;
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    background: grey;
+  }
+
+  .light ::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
 }

@@ -4,6 +4,7 @@ import home from "../data/home"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./FeatureList.module.css"
+import { useStateMachine } from "little-state-machine"
 
 const props = {
   keyframes: [
@@ -23,6 +24,12 @@ function FeaturesList({
   isPlayFeature: boolean
   currentLanguage: string
 }) {
+  const {
+    state: {
+      setting: { darkMode },
+    },
+  } = useStateMachine()
+
   return (
     <div className={styles.features}>
       <h2 className={typographyStyles.title}>
@@ -30,7 +37,11 @@ function FeaturesList({
       </h2>
 
       <AnimateGroup play={isPlayFeature}>
-        <div className={styles.featuresContent}>
+        <div
+          className={`${styles.featuresContent} ${
+            darkMode ? styles.lightFeaturesContent : ""
+          }`}
+        >
           <article id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <div
@@ -39,7 +50,7 @@ function FeaturesList({
                   display: "flex",
                   width: 45,
                   height: 45,
-                  border: "2px solid white",
+                  border: `2px solid ${darkMode ? "#2d2d2d" : "white"}`,
                   borderRadius: "50%",
                   alignItems: "center",
                   justifyContent: "center",
@@ -48,7 +59,11 @@ function FeaturesList({
                 }}
               >
                 <code
-                  style={{ lineHeight: "19px", fontSize: "15px" }}
+                  style={{
+                    lineHeight: "19px",
+                    fontSize: "15px",
+                    ...(darkMode ? { color: "#2d2d2d", fontWeight: 800 } : {}),
+                  }}
                 >{`</>`}</code>
               </div>
             </AnimateKeyframes>
