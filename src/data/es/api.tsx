@@ -901,7 +901,7 @@ export default {
     description: (
       <>
         <p>
-          Un hook customizado para trabajar con Field Arrays no-controlados 
+          Un hook customizado para trabajar con Field Arrays no-controlados
           (inputs dinámicos). La razón detrás de este hook es proveer una mejor
           experiencia de uso y performance de los formularios. Puedes mirar{" "}
           <a
@@ -919,21 +919,22 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los (campos){" "}
-          <code>fields</code> seteando <code>defaultValues</code> en{" "}
+          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los
+          (campos) <code>fields</code> seteando <code>defaultValues</code> en{" "}
           <code>useForm</code> hook.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Importante:</b> asegurate de 
+          <b className={typographyStyles.note}>Importante:</b> asegurate de
           asignar el <code>id</code> del objeto <code>fields</code> como la key
           de tu componente.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Importante:</b> debido a un problema 
-          en la referencia del callback, para (registrar) <code>register</code>
-          sin ninguna validación, asegurate de pasar vacio como payload de 
+          <b className={typographyStyles.note}>Importante:</b> debido a un
+          problema en la referencia del callback, para (registrar){" "}
+          <code>register</code>
+          sin ninguna validación, asegurate de pasar vacio como payload de
           callback. ej: <code>{`ref={register()}`}</code>
         </p>
 
@@ -956,12 +957,13 @@ export default {
             </code>
           </td>
           <td>
-            Este objeto es la fuente de la verdad para mapear y representar entradas.
+            Este objeto es la fuente de la verdad para mapear y representar
+            entradas.
             <p>
-              <b className={typographyStyles.note}>Importante: </b> debido a que 
-              las entradas pueden ser no-controladas, se requiere <code> id </code> con
-              componentes mapeados para ayudar a React a identificar qué elementos 
-              se han cambiado, agregado o eliminado.
+              <b className={typographyStyles.note}>Importante: </b> debido a que
+              las entradas pueden ser no-controladas, se requiere{" "}
+              <code> id </code> con componentes mapeados para ayudar a React a
+              identificar qué elementos se han cambiado, agregado o eliminado.
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -1027,7 +1029,8 @@ export default {
               <b className={typographyStyles.note}>Nota:</b> la diferencia entre{" "}
               <code>move</code> y <code>swap</code>, si continuas llamando a{" "}
               <code>move</code> pusheara input/inputs en circulo, mientras que{" "}
-              <code>swap</code> solo intercambiará las posiciones de dos input/inputs.
+              <code>swap</code> solo intercambiará las posiciones de dos
+              input/inputs.
             </p>
           </td>
         </tr>
@@ -1041,8 +1044,8 @@ export default {
             </code>
           </td>
           <td>
-            Elimina input/inputs en una posición en particular, or elimina todos cuando
-            no se proporciona un index.
+            Elimina input/inputs en una posición en particular, or elimina todos
+            cuando no se proporciona un index.
           </td>
         </tr>
       </>

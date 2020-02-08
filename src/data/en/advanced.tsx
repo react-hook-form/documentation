@@ -149,8 +149,8 @@ export default {
         <p>
           It's pretty common to collect user information through different pages
           and sections. We recommend using a state management library to store
-          user input through different pages or sections. In this example, we are
-          going to use{" "}
+          user input through different pages or sections. In this example, we
+          are going to use{" "}
           <a
             className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"

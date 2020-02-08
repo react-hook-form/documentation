@@ -28,11 +28,12 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          When set to <code>firstErrorDetected</code> (default), only first error from
-          each field will be gathered.
+          When set to <code>firstErrorDetected</code> (default), only first
+          error from each field will be gathered.
         </p>
         <p>
-          When set to <code>all</code>, all errors from each field will be gathered.
+          When set to <code>all</code>, all errors from each field will be
+          gathered.
         </p>
       </>
     ),
@@ -51,8 +52,8 @@ export default {
     validateOnChange: (
       <>
         Validation will trigger on the <code>change</code> event with each
-        input, and lead to multiple re-renders. Warning: this often comes with
-        a significant impact on performances.
+        input, and lead to multiple re-renders. Warning: this often comes with a
+        significant impact on performances.
       </>
     ),
     defaultValues: goToSection => (
@@ -295,17 +296,19 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make sure you invoke or read it before{" "}
-          <code>render</code> in order to enable the state update.
+          to improve render performance, so make sure you invoke or read it
+          before <code>render</code> in order to enable the state update.
         </p>
       </>
     ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
-    touched: "An object containing all the inputs the user has interacted with.",
+    touched:
+      "An object containing all the inputs the user has interacted with.",
     isSubmitting: (
       <>
-        <code>true</code> if the form is currently being submitted. <code>false</code> otherwise.
+        <code>true</code> if the form is currently being submitted.{" "}
+        <code>false</code> otherwise.
       </>
     ),
     submitCount: "Number of times the form was submitted.",
@@ -329,8 +332,8 @@ export default {
           <li>
             <p>V4: Nested objects</p>
             <p>
-              <strong>Reason:</strong> optional chaining is getting widely adopted
-              and allows better support for types..
+              <strong>Reason:</strong> optional chaining is getting widely
+              adopted and allows better support for types..
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
@@ -350,9 +353,10 @@ export default {
     ),
     types: (
       <>
-        This is useful when you want to return all validation errors for a single input.
-        For instance, a password field that is required to have a minimum length AND contain
-        a special character. Note that you need to set <code>validateCriteriaMode</code> to
+        This is useful when you want to return all validation errors for a
+        single input. For instance, a password field that is required to have a
+        minimum length AND contain a special character. Note that you need to
+        set <code>validateCriteriaMode</code> to
         <code>'all'</code> for this option to work properly.
       </>
     ),
@@ -364,8 +368,8 @@ export default {
     description: (
       <>
         <p>
-          This will watch specified inputs and return their values. It is
-          useful for determining what to render.
+          This will watch specified inputs and return their values. It is useful
+          for determining what to render.
         </p>
 
         <ul>
@@ -472,8 +476,8 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> This method will not
           persist the error and block the submit action. It's more useful during
-          <code>handleSubmit</code> function when you want to give error feedback to the
-          users after async validation.
+          <code>handleSubmit</code> function when you want to give error
+          feedback to the users after async validation.
         </p>
       </>
     ),
@@ -531,10 +535,12 @@ export default {
         </ul>
         <p>
           <b className={typographyStyles.note}>Note:</b> By invoking this
-          method, <code>formState</code> will set the input to <code>touched</code>.
+          method, <code>formState</code> will set the input to{" "}
+          <code>touched</code>.
         </p>
         <p>
-          You can also set the <code>shouldValidate</code> parameter to <code>true</code>
+          You can also set the <code>shouldValidate</code> parameter to{" "}
+          <code>true</code>
           in order to trigger a field validation. eg:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
@@ -546,8 +552,8 @@ export default {
     description: (
       <>
         <p>
-          This function will return the entire form data, and it's useful  when you want to
-          retrieve form values.
+          This function will return the entire form data, and it's useful when
+          you want to retrieve form values.
         </p>
 
         <ul>
@@ -587,8 +593,8 @@ export default {
     description: (
       <p>
         If you would like to centralize your validation rules as an external
-        validation schema, you can use the <code>validationSchema</code> parameter.
-        React Hook Form currently supports{" "}
+        validation schema, you can use the <code>validationSchema</code>{" "}
+        parameter. React Hook Form currently supports{" "}
         <a
           className={buttonStyles.links}
           href="https://github.com/jquense/yup"
@@ -791,7 +797,8 @@ export default {
           <td>✓</td>
           <td>
             Controlled component. eg: <code>as="input"</code>,{" "}
-            <code>{`as={<TextInput />}`}</code> or <code>{`as={TextInput}`}</code>.
+            <code>{`as={<TextInput />}`}</code> or{" "}
+            <code>{`as={TextInput}`}</code>.
           </td>
         </tr>
         <tr>
@@ -854,7 +861,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to customize the return value.<br />
+            This prop allows you to customize the return value.
+            <br />
             <code>eg: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
@@ -867,8 +875,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to target a specific event name for <code>onChange</code>,
-            eg: when <code>onChange</code> event is named <code>onTextChange</code>
+            This prop allows you to target a specific event name for{" "}
+            <code>onChange</code>, eg: when <code>onChange</code> event is named{" "}
+            <code>onTextChange</code>
           </td>
         </tr>
         <tr>
@@ -880,8 +889,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to target a specific event name for <code>onBlur</code>,
-            eg: when <code>onBlur</code> event is named <code>onTextBlur</code>
+            This prop allows you to target a specific event name for{" "}
+            <code>onBlur</code>, eg: when <code>onBlur</code> event is named{" "}
+            <code>onTextBlur</code>
           </td>
         </tr>
         <tr>
@@ -893,8 +903,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to support inputs that doesn't use a prop called{" "}
-            <code>value</code>. eg: <code>checked</code>, <code>selected</code> and etc.
+            This prop allows you to support inputs that doesn't use a prop
+            called <code>value</code>. eg: <code>checked</code>,{" "}
+            <code>selected</code> and etc.
           </td>
         </tr>
       </tbody>
@@ -928,21 +939,23 @@ export default {
           >
             Material-UI
           </a>
-          . This wrapper component will make it easier for you to work with them.
+          . This wrapper component will make it easier for you to work with
+          them.
         </p>
         <p>
-          Every prop you pass to the Controller component will be forwarded to the
-          component instance you provided with the <code>as</code> prop. For
+          Every prop you pass to the Controller component will be forwarded to
+          the component instance you provided with the <code>as</code> prop. For
           instance, if you have a custom <code>Switch</code> component that
           requires a <code>label</code> prop, you can pass it to the Controller
-          component directly and it will take care of forwarding the prop for you.
-          The <code>name</code> prop will be used mainly to access the value through
-          the form later.
+          component directly and it will take care of forwarding the prop for
+          you. The <code>name</code> prop will be used mainly to access the
+          value through the form later.
         </p>
 
         <p>
           If you specify a <code>defaultValue</code> prop, it will take priority
-          over the default value specified in <code>useForm</code>'s <code>defaultValues</code>
+          over the default value specified in <code>useForm</code>'s{" "}
+          <code>defaultValues</code>
           for this input.
         </p>
       </>
@@ -955,8 +968,8 @@ export default {
         <p>
           Hook function that allows you to access the form context.{" "}
           <code>useFormContext</code> is intended to be used in deeply nested
-          structures, where it would become inconvenient to pass the context
-          as a prop.
+          structures, where it would become inconvenient to pass the context as
+          a prop.
         </p>
         <p>
           You need to wrap your form with the <code>FormContext</code> provider

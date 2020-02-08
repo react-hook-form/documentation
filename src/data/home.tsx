@@ -526,13 +526,15 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following screenshots demonstrate how much components mounting
-          is faster with React Hook Form. Mounting and rendering the
-          <a href="#codeComparison">Library Code Comparison</a> is ~13%
-          faster than Formik and ~25% faster than Redux Form.
+          The following screenshots demonstrate how much components mounting is
+          faster with React Hook Form. Mounting and rendering the
+          <a href="#codeComparison">Library Code Comparison</a> is ~13% faster
+          than Formik and ~25% faster than Redux Form.
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ Note: a 6x CPU slowdown
-            was simulated with Chrome Dev Tools for the sake of the benchmark.</b>
+            <b className={typographyStyles.note}>
+              ⚠ Note: a 6x CPU slowdown was simulated with Chrome Dev Tools for
+              the sake of the benchmark.
+            </b>
           </p>
         </p>
       ),

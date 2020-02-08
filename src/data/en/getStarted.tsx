@@ -45,12 +45,12 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note: </b>React Native will require
-          you to either use a manual register command:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code> or
-          a <Link to="/api#Controller">Controller</Link> to wrap and
-          register your component automatically. Learn more in the dedicated section
-          for <Link to="/api/#ReactNative">React Native</Link>.
+          <b className={typographyStyles.note}>Note: </b>React Native will
+          require you to either use a manual register command:{" "}
+          <code>{`register({ name: 'test' }, { required: true })`}</code> or a{" "}
+          <Link to="/api#Controller">Controller</Link> to wrap and register your
+          component automatically. Learn more in the dedicated section for{" "}
+          <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
     ),
@@ -60,7 +60,8 @@ export default {
     description: currentLanguage => (
       <>
         <p>
-          React Hook Form makes form validation easy by aligning with the existing{" "}
+          React Hook Form makes form validation easy by aligning with the
+          existing{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
             target="_blank"
@@ -137,7 +138,8 @@ export default {
           register with your needs.
         </p>
         <p>
-          Read more about the <Link to="/api#Controller">Controller</Link> component.
+          Read more about the <Link to="/api#Controller">Controller</Link>{" "}
+          component.
         </p>
       </>
     ),
@@ -212,8 +214,9 @@ export default {
       <p>
         You will get the same performance enhancement from an Uncontrolled
         Component. However, there are certain APIs which are not compatible with
-        React Native (due to the API differences between web and native). You will
-        have to use a <b>manual register</b> as shown in the following example.
+        React Native (due to the API differences between web and native). You
+        will have to use a <b>manual register</b> as shown in the following
+        example.
       </p>
     ),
   },
