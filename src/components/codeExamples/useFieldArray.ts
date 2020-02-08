@@ -1,30 +1,30 @@
-export default `import React from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
+export default `import React from "react";
+import { useForm, useFieldArray } from "react-hook-form";
 
 function App() {
   const { register, control, handleSubmit } = useForm({
-    // defaultValues: {}; you can populate the fields by this attribute
+    // defaultValues: {}; you can populate the fields by this attribute 
   });
   const { fields, append, prepend, remove } = useFieldArray({
     control,
-    name: 'test'
+    name: "test"
   });
   return (
-    <form onSubmit={handleSubmit(data => console.log('data', data))}>
+    <form onSubmit={handleSubmit(data => console.log("data", data))}>
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
             {/* for empty validation register make sure pass empty object  */}
-            <input name={`test[${index}].name`} ref={register()} />
+            <input name={\`test[\${index}].name\`} ref={register()} /> 
             <button onClick={() => remove(index)}>Delete</button>
           </li>
         ))}
       </ul>
       <section>
-        <button type="button" onClick={() => append({ name: 'test' })}>
+        <button type="button" onClick={() => append({ name: "test" })} >
           append
         </button>
-        <button type="button" onClick={() => prepend({ name: 'test1' })}>
+        <button type="button" onClick={() => prepend({ name: "test1" })}>
           prepend
         </button>
       </section>
