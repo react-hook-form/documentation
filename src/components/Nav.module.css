@@ -3,7 +3,7 @@
   display: flex;
   left: 10px;
   top: 15px;
-  width: 110px;
+  width: 140px;
 }
 
 .icon {
@@ -119,6 +119,10 @@
   pointer-events: none;
 }
 
+.lightLangSelect:after {
+  color: white;
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 110px;
@@ -140,7 +144,7 @@
 
   .iconGroup {
     left: 20px;
-    width: 135px;
+    width: 180px;
   }
 
   .actionButtonGroup {
@@ -156,9 +160,9 @@
     padding: 13px 10px;
   }
 
-  .darkActionButtonWrapper {
-    background: var(--color-light-blue);
-    border-bottom: 4px solid var(--color-light-pink);
+  .lightActionButtonWrapper {
+    background: var(--color-primary);
+    border-bottom: 3px solid var(--color-light-pink);
   }
 
   .darkActionButtonGroup {

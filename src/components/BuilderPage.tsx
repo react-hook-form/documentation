@@ -13,10 +13,10 @@ import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
-import styles from "./BuilderPage.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
+import styles from "./BuilderPage.module.css"
 
 const { useState, useRef, useEffect } = React
 

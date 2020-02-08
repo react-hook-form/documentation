@@ -789,6 +789,10 @@ body.light {
   border: 1px solid transparent !important;
 }
 
+.light a {
+  box-shadow: none;
+}
+
 .light button:hover {
   background: var(--color-grey);
 }
@@ -802,15 +806,15 @@ body.light {
   box-shadow: none;
 }
 
-.light ::-webkit-scrollbar {
+.light::-webkit-scrollbar {
 }
-.light ::-webkit-scrollbar-track {
+.light::-webkit-scrollbar-track {
   background: inherit;
 }
-.light ::-webkit-scrollbar-thumb {
+.light::-webkit-scrollbar-thumb {
   background: grey;
 }
-.light ::-webkit-scrollbar-thumb:hover {
+.light::-webkit-scrollbar-thumb:hover {
   background: black;
 }
 

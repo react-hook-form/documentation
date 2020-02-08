@@ -6,6 +6,7 @@ import nav from "../data/nav"
 import translateLink from "./logic/translateLink"
 import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
+import Toggle from "./Toggle"
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
@@ -85,6 +86,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </svg>
           </a>
         </span>
+        <Toggle />
       </div>
 
       <div className={styles.gitHubButtonWrap}>
@@ -96,7 +98,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         />
       </div>
 
-      <div className={styles.langSelect}>
+      <div
+        className={`${styles.langSelect} ${
+          darkMode ? styles.lightLangSelect : ""
+        }`}
+      >
         <select
           aria-label="Select a language"
           onChange={e => {
@@ -139,7 +145,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </select>
       </div>
 
-      <div className={darkMode && styles.darkActionButtonWrapper}>
+      <div className={darkMode ? styles.lightActionButtonWrapper : ""}>
         <nav
           className={`${styles.actionButtonGroup} ${
             darkMode ? styles.darkActionButtonGroup : ""

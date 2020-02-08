@@ -33,6 +33,8 @@ const Layout = (props: {
       !document.querySelector("body").className.includes("light")
     ) {
       document.querySelector("body").className += "light"
+    } else {
+      document.querySelector("body").classList.remove("light")
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
