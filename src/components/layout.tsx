@@ -28,17 +28,15 @@ const Layout = (props: {
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
-    if (
-      darkMode &&
-      !document.querySelector("body").className.includes("light")
-    ) {
-      document.querySelector("body").className += "light"
+
+    if (darkMode) {
+      document.querySelector("body").classList.add("light")
     } else {
       document.querySelector("body").classList.remove("light")
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
-  }, [])
+  }, [darkMode])
 
   return (
     <>
