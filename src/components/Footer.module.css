@@ -50,6 +50,7 @@
 
 .lightFooter .links > li > a {
   color: var(--color-black);
+  font-weight: 500;
 }
 
 .lightFooter .links > li > a:hover {

@@ -595,6 +595,8 @@ h4 {
 .raw-code {
   padding: 15px;
   font-size: 0.8rem;
+  background: var(--color-primary);
+  border-radius: 4px;
 }
 
 code[class*="language-"],

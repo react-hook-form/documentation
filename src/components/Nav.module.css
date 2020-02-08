@@ -123,6 +123,12 @@
   color: white;
 }
 
+.lightActionButtonWrapper {
+  height: 60px;
+  background: var(--color-primary);
+  border-bottom: 3px solid var(--color-light-pink);
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 110px;
@@ -138,6 +144,10 @@
 }
 
 @media (min-width: 1024px) {
+  .lightActionButtonWrapper {
+    height: auto;
+  }
+
   .iconWrapper {
     display: none;
   }
@@ -158,11 +168,6 @@
     height: auto;
     max-width: 580px;
     padding: 13px 10px;
-  }
-
-  .lightActionButtonWrapper {
-    background: var(--color-primary);
-    border-bottom: 3px solid var(--color-light-pink);
   }
 
   .darkActionButtonGroup {
