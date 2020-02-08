@@ -10,6 +10,7 @@
   --color-black: #2d2d2d;
   --color-purple: #0f111b;
   --color-grey: #333;
+  --color-light-grey: #ccc;
 }
 
 html {
@@ -789,6 +790,7 @@ body.light {
 .light button {
   font-weight: 400;
   border: 1px solid transparent !important;
+  box-shadow: none;
 }
 
 .light a {
@@ -801,7 +803,7 @@ body.light {
 
 .light select,
 .light input {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light-grey);
 }
 
 .light video {
@@ -826,6 +828,26 @@ body.light {
 
 .light img {
   box-shadow: none !important;
+}
+
+.light code[class*="language-"],
+.light pre[class*="language-"] {
+  background: white;
+  color: black;
+}
+
+.light pre[class*="language-"] {
+  border: 1px solid var(--color-light-grey)
+}
+
+.light pre {
+  background: white;
+  border: 1px solid var(--color-light-grey)
+}
+
+.light .token.attr-name,
+.light .token.string {
+  color: #e68600;
 }
 
 @media (min-width: 768px) {
