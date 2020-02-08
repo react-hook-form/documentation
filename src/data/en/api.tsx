@@ -51,7 +51,7 @@ export default {
     validateOnChange: (
       <>
         Validation will trigger on the <code>change</code> event with each
-        input, and lead to multiple re-renders. Warning: the often comes with
+        input, and lead to multiple re-renders. Warning: this often comes with
         a significant impact on performances.
       </>
     ),
