@@ -5,6 +5,7 @@ import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
 import styles from "./GetStarted.module.css"
 import codeAreaStyles from "./CodeArea.module.css"
+import { useStateMachine } from "little-state-machine"
 
 export default function GetStarted({
   quickStartRef,
@@ -15,12 +16,19 @@ export default function GetStarted({
   currentLanguage: string
   getStarted: any
 }) {
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
+
   return (
     <>
       <h2 ref={quickStartRef}>{getStarted.install.linkTitle}</h2>
       <p>{getStarted.install.description}</p>
 
-      <span className={styles.installCode}>
+      <span
+        className={`${styles.installCode} ${
+          lightMode ? styles.lightInstallCode : ""
+        }`}
+      >
         npm install react-hook-form
         <button
           className={styles.copyButton}

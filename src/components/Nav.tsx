@@ -6,13 +6,16 @@ import nav from "../data/nav"
 import translateLink from "./logic/translateLink"
 import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
+import Toggle from "./Toggle"
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     action,
+    state,
     state: { language },
   } = useStateMachine(updateCurrentLanguage)
+  const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -82,6 +85,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </svg>
           </a>
         </span>
+        <Toggle />
       </div>
 
       <div className={styles.gitHubButtonWrap}>
@@ -93,7 +97,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         />
       </div>
 
-      <div className={styles.langSelect}>
+      <div
+        className={`${styles.langSelect} ${
+          lightMode ? styles.lightLangSelect : ""
+        }`}
+      >
         <select
           aria-label="Select a language"
           onChange={e => {
@@ -136,69 +144,78 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </select>
       </div>
 
-      <nav className={styles.actionButtonGroup}>
-        <Link activeClassName="active" to={translateLink("/", currentLanguage)}>
-          <div className={styles.iconWrapper}>
-            <div className="flag icon" />
-          </div>
-          <span>{nav[currentLanguage].home}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/get-started", currentLanguage)}
+      <div className={lightMode ? styles.lightActionButtonWrapper : ""}>
+        <nav
+          className={`${styles.actionButtonGroup} ${
+            lightMode ? styles.darkActionButtonGroup : ""
+          }`}
         >
-          <div className={styles.iconWrapper}>
-            <div className="shutdown icon" />
-          </div>
-          <span>{nav[currentLanguage].getStarted}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/api", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="keyboard icon" />
-          </div>
-          <span>API</span>
-        </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="flag icon" />
+            </div>
+            <span>{nav[currentLanguage].home}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/get-started", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="shutdown icon" />
+            </div>
+            <span>{nav[currentLanguage].getStarted}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/api", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="keyboard icon" />
+            </div>
+            <span>API</span>
+          </Link>
 
-        <Link
-          activeClassName="active"
-          to={translateLink("/advanced-usage", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="search icon" />
-          </div>
-          <span>{nav[currentLanguage].advanced}</span>
-        </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/advanced-usage", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="search icon" />
+            </div>
+            <span>{nav[currentLanguage].advanced}</span>
+          </Link>
 
-        <Link
-          activeClassName="active"
-          to={translateLink("/form-builder", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="edit icon" />
-          </div>
-          <span>{nav[currentLanguage].builder}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/faqs", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="eye icon" />
-          </div>
-          <span>{nav[currentLanguage].faqs}</span>
-        </Link>
-        <a
-          href="https://github.com/react-hook-form/react-hook-form/releases"
-          target="_blank"
-          className="desktopOnly"
-          rel="noreferrer noopener"
-        >
-          {nav[currentLanguage].releases}
-        </a>
-      </nav>
+          <Link
+            activeClassName="active"
+            to={translateLink("/form-builder", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="edit icon" />
+            </div>
+            <span>{nav[currentLanguage].builder}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/faqs", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="eye icon" />
+            </div>
+            <span>{nav[currentLanguage].faqs}</span>
+          </Link>
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/releases"
+            target="_blank"
+            className="desktopOnly"
+            rel="noreferrer noopener"
+          >
+            {nav[currentLanguage].releases}
+          </a>
+        </nav>
+      </div>
     </>
   )
 }

@@ -2,6 +2,7 @@ import * as React from "react"
 import colors from "../styles/colors"
 import generic from "../data/generic"
 import styles from "./SideMenu.module.css"
+import { useStateMachine } from "little-state-machine"
 import typographyStyles from "../styles/typography.module.css"
 
 function SideMenu({
@@ -17,8 +18,11 @@ function SideMenu({
   enLinks: any
   currentLanguage: string
 }) {
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
+
   return (
-    <aside className={styles.menu}>
+    <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>
         <div className={styles.titleList}>
           <h2

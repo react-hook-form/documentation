@@ -19,6 +19,10 @@
   margin-right: 5px;
 }
 
+.lightIcon {
+  /*border: 1px solid var(--color-black)*/
+}
+
 .root {
   font-weight: bold;
   position: relative;

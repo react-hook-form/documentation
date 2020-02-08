@@ -3,7 +3,7 @@
   display: flex;
   left: 10px;
   top: 15px;
-  width: 110px;
+  width: 140px;
 }
 
 .icon {
@@ -119,6 +119,16 @@
   pointer-events: none;
 }
 
+.lightLangSelect:after {
+  color: white;
+}
+
+.lightActionButtonWrapper {
+  height: 60px;
+  background: var(--color-primary);
+  border-bottom: 3px solid var(--color-light-pink);
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 110px;
@@ -134,13 +144,17 @@
 }
 
 @media (min-width: 1024px) {
+  .lightActionButtonWrapper {
+    height: auto;
+  }
+
   .iconWrapper {
     display: none;
   }
 
   .iconGroup {
     left: 20px;
-    width: 135px;
+    width: 180px;
   }
 
   .actionButtonGroup {
@@ -156,11 +170,22 @@
     padding: 13px 10px;
   }
 
+  .darkActionButtonGroup {
+    background: none;
+    box-shadow: none;
+    color: white;
+  }
+
   .actionButtonGroup > a {
     font-size: 0.8rem;
     flex: none;
     border: none;
     padding: 2px 0;
+  }
+
+  .darkActionButtonGroup > a {
+    color: white;
+    font-weight: 500;
   }
 }
 

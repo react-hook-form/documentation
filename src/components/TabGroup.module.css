@@ -18,6 +18,19 @@
   background: var(--color-primary);
 }
 
+.lightButtonTabGroup > button {
+  background: white;
+  color: var(--color-black);
+}
+
+.lightButtonTabGroup > button:hover {
+  color: white;
+}
+
+.lightButtonTabGroup > button:disabled {
+  color: white;
+}
+
 @media (min-width: 768px) {
   .buttonTabGroup > button {
     padding: 5px 20px 5px;

@@ -24,8 +24,10 @@ const enLinks = faqContent["en"].questions
 
 const Faq = ({ defaultLang }: { defaultLang: string }) => {
   const {
+    state,
     state: { language },
   } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -228,7 +230,11 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[9].description}
 
-          <span className={getStartedStyles.installCode}>
+          <span
+            className={`${getStartedStyles.installCode} ${
+              lightMode ? getStartedStyles.lightInstallCode : ""
+            }`}
+          >
             npm i mutationobserver-shim
             <button
               className={getStartedStyles.copyButton}

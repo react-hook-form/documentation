@@ -1,14 +1,19 @@
 import * as React from "react"
+import { useStateMachine } from "little-state-machine"
 import styles from "./TabGroup.module.css"
 
 export default ({ children, buttonLabels }) => {
+  const { state } = useStateMachine()
   const [index, setIndex] = React.useState(0)
+  const lightMode = state?.setting?.lightMode
 
   return (
     <div>
       <div
-        className={styles.buttonTabGroup}
-        style={{ marginBottom: -13, marginTop: 30 }}
+        className={`${styles.buttonTabGroup} ${
+          lightMode ? styles.lightButtonTabGroup : ""
+        }`}
+        style={{ marginBottom: -15, marginTop: 30 }}
       >
         {buttonLabels.map((label, currentIndex) => (
           <button

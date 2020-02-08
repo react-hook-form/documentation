@@ -18,6 +18,10 @@
   background: var(--color-primary);
 }
 
+.lightWrapper p {
+  background: white;
+}
+
 .wrapper h2 {
   font-size: 14px;
 }

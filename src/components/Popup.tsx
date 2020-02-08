@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
+import { useStateMachine } from "little-state-machine"
 import styles from "./Popup.module.css"
 
 function Popup({
@@ -11,10 +12,14 @@ function Popup({
   message?: string
   top?: number
 }) {
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const [tipShow, setTipShow] = React.useState(false)
 
   return iconOnly ? (
-    <span className={styles.icon}>!</span>
+    <span className={`${styles.icon} ${lightMode ? styles.lightIcon : {}}`}>
+      !
+    </span>
   ) : (
     <span className={styles.root}>
       <button className={styles.button} onClick={() => setTipShow(!tipShow)}>
