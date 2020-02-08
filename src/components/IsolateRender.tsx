@@ -8,6 +8,7 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import formStyles from "./Form.module.css"
 import styles from "./IsolateRender.module.css"
+import { useStateMachine } from "little-state-machine"
 
 const props = {
   keyframes: [
@@ -113,6 +114,9 @@ function IsolateRender({
   isIsolatePlay: boolean
   currentLanguage: string
 }) {
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
+
   return (
     <div className={containerStyles.centerContent}>
       <h1 className={typographyStyles.h1}>
@@ -121,7 +125,9 @@ function IsolateRender({
 
       {home.isolateRender[currentLanguage].description}
 
-      <div className={styles.wrapper}>
+      <div
+        className={`${styles.wrapper} ${lightMode ? styles.lightWrapper : ""}`}
+      >
         <Animate
           play={isIsolatePlay}
           start={{
@@ -152,7 +158,6 @@ function IsolateRender({
             )
           }}
         />
-
         <Animate
           play={isIsolatePlay}
           start={{
@@ -168,7 +173,6 @@ function IsolateRender({
           <p>VS</p>
           <div className={styles.line} />
         </Animate>
-
         <Animate
           play={isIsolatePlay}
           start={{

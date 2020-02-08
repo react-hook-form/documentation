@@ -64,6 +64,23 @@
   .menu > div > ul > li > button:hover {
     border-bottom: 1px solid var(--color-light-pink);
   }
+
+  .lightMenu > div > ul > li > a,
+  .lightMenu > div > ul > li > button {
+    color: var(--color-black);
+    transition: 0.3s all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    text-align: left;
+  }
+
+  .lightMenu > div > ul > li > a:hover,
+  .lightMenu > div > ul > li > button:hover {
+    background: none;
+    border-bottom: 1px solid var(--color-light-pink) !important;
+  }
 }
 
 .titleList {

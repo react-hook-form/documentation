@@ -11,9 +11,17 @@
   text-decoration: none;
 }
 
+.lightFooter a {
+  color: var(--color-black);
+}
+
 .footer a:hover {
   color: white;
   text-decoration: none;
+}
+
+.lightFooter a:hover {
+  color: var(--color-light-pink);
 }
 
 .footer > p {
@@ -38,4 +46,12 @@
   padding: 10px 12px;
   min-width: 48px;
   min-height: 48px;
+}
+
+.lightFooter .links > li > a {
+  color: var(--color-black);
+}
+
+.lightFooter .links > li > a:hover {
+  color: var(--color-light-pink);
 }
