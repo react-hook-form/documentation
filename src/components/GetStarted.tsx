@@ -16,11 +16,8 @@ export default function GetStarted({
   currentLanguage: string
   getStarted: any
 }) {
-  const {
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine()
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
 
   return (
     <>

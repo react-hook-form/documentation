@@ -12,11 +12,8 @@ const Layout = (props: {
   }
   defaultLang: string
 }) => {
-  const {
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine()
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const [show, setShow] = React.useState(false)
   const scrollHandler = () => {
     if (window.scrollY > 75) {

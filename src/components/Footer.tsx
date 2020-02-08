@@ -7,11 +7,8 @@ import { useStateMachine } from "little-state-machine"
 import styles from "./Footer.module.css"
 
 export default ({ currentLanguage }: { currentLanguage: string }) => {
-  const {
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine()
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
 
   return (
     <footer

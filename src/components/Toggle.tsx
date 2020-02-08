@@ -5,12 +5,8 @@ import { updateSetting } from "../actions/settingActions"
 import { createFileNodeFromBuffer } from "gatsby-source-filesystem"
 
 export default function Toggle() {
-  const {
-    action,
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine(updateSetting)
+  const { action, state } = useStateMachine(updateSetting)
+  const lightMode = state?.setting?.lightMode
 
   const onChange = e => {
     action({

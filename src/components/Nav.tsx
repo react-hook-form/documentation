@@ -12,11 +12,10 @@ import styles from "./Nav.module.css"
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     action,
-    state: {
-      language,
-      setting: { lightMode },
-    },
+    state,
+    state: { language },
   } = useStateMachine(updateCurrentLanguage)
+  const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
       ? language

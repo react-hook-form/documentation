@@ -12,11 +12,8 @@ function Popup({
   message?: string
   top?: number
 }) {
-  const {
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine()
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const [tipShow, setTipShow] = React.useState(false)
 
   return iconOnly ? (

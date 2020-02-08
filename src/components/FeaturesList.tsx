@@ -24,11 +24,8 @@ function FeaturesList({
   isPlayFeature: boolean
   currentLanguage: string
 }) {
-  const {
-    state: {
-      setting: { lightMode },
-    },
-  } = useStateMachine()
+  const { state } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
 
   return (
     <div className={styles.features}>
