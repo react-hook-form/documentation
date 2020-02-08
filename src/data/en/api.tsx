@@ -122,7 +122,7 @@ export default {
       <>
         <p>
           When set to true (default) and the user submits a form that fails the
-          validation, set focus on the first field with an error.
+          validation, it will set focus on the first field with an error.
         </p>
 
         <p>
