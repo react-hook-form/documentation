@@ -901,46 +901,46 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation behind this hook is to provide better user
-          experience and form performance. You can watch{" "}
+          Un hook customizado para trabajar con Field Arrays no-controlados 
+          (inputs dinámicos). La razón detrás de este hook es proveer una mejor
+          experiencia de uso y performance de los formularios. Puedes mirar{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            this short video
+            este corto video
           </a>{" "}
-          to compare controlled vs uncontrolled Field Array.
+          para comparar Field Arrays controlados vs. no-controlados.
         </p>
 
-        <p>This hook provides the following object and functions.</p>
+        <p>Este hook provee el siguiente objeto y funciones.</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
+          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los (campos){" "}
+          <code>fields</code> seteando <code>defaultValues</code> en{" "}
           <code>useForm</code> hook.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
+          <b className={typographyStyles.note}>Importante:</b> asegurate de 
+          asignar el <code>id</code> del objeto <code>fields</code> como la key
+          de tu componente.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b> due to ref
-          callback issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
+          <b className={typographyStyles.note}>Importante:</b> debido a un problema 
+          en la referencia del callback, para (registrar) <code>register</code>
+          sin ninguna validación, asegurate de pasar vacio como payload de 
+          callback. ej: <code>{`ref={register()}`}</code>
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> establezca{" "}
+          <b className={typographyStyles.note}>Nota:</b> establezca{" "}
           <code> defaultValue </code> cuando desee establecer el valor
-          predeterminado o restablecer con entradas.
+          predeterminado o restablecer entradas.
         </p>
       </>
     ),
@@ -956,12 +956,12 @@ export default {
             </code>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            Este objeto es la fuente de la verdad para mapear y representar entradas.
             <p>
-              <b className={typographyStyles.note}>Important: </b> because each
-              inputs can be uncontrolled, <code>id</code> is required with
-              mapped components to help React identify which items have changed,
-              are added, or are removed.
+              <b className={typographyStyles.note}>Importante: </b> debido a que 
+              las entradas pueden ser no-controladas, se requiere <code> id </code> con
+              componentes mapeados para ayudar a React a identificar qué elementos 
+              se han cambiado, agregado o eliminado.
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -977,7 +977,7 @@ export default {
               (obj: any) => void
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>Agregue input/inputs al final de los campos</td>
         </tr>
         <tr>
           <td>
@@ -988,7 +988,7 @@ export default {
               (obj: any) => void
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>Antepone input/inputs al comienzo de tus campos</td>
         </tr>
         <tr>
           <td>
@@ -999,7 +999,7 @@ export default {
               (index: number, value: any) => void
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>Inserta input/inputs en una posición en particular.</td>
         </tr>
         <tr>
           <td>
@@ -1010,7 +1010,7 @@ export default {
               (from: number, to: number) => void
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>Intercambia las posiciones de los input/inputs.</td>
         </tr>
         <tr>
           <td>
@@ -1022,12 +1022,12 @@ export default {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            Mueve los input/inputs a otra posición.
             <p>
-              <b className={typographyStyles.note}>Note:</b> difference between{" "}
-              <code>move</code> and <code>swap</code>, keep calling{" "}
-              <code>move</code> will push input/inputs in a circle, while{" "}
-              <code>swap</code> only change two input/inputs' position.
+              <b className={typographyStyles.note}>Nota:</b> la diferencia entre{" "}
+              <code>move</code> y <code>swap</code>, si continuas llamando a{" "}
+              <code>move</code> pusheara input/inputs en circulo, mientras que{" "}
+              <code>swap</code> solo intercambiará las posiciones de dos input/inputs.
             </p>
           </td>
         </tr>
@@ -1041,8 +1041,8 @@ export default {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            Elimina input/inputs en una posición en particular, or elimina todos cuando
+            no se proporciona un index.
           </td>
         </tr>
       </>
