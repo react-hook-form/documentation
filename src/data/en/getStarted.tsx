@@ -14,7 +14,7 @@ export default {
   },
   video: {
     title: "Video Tutorial",
-    description: `In this video tutorial, I have demonstrated the basic usage and concept of using React Hook Form.`,
+    description: `This video tutorial illustrates the basic usage and concepts of React Hook Form.`,
   },
   install: {
     linkTitle: "Installation",
@@ -23,19 +23,19 @@ export default {
   },
   example: {
     title: "Example",
-    description: `The following code will demonstrate the basic usage:`,
+    description: `The following code excerpt demonstrates a basic usage example:`,
   },
   register: {
     title: "Register fields",
     description: (
       <>
         <p>
-          One of the key concepts for React Hook Form is to{" "}
+          One of the key concepts in React Hook Form is to{" "}
           <strong>
             <code>register</code>
           </strong>{" "}
-          your uncontrolled component into the Hook and hence enabling its value
-          to be validated and gathered for submitting.
+          your uncontrolled component into the Hook. This will make its value
+          available for both the form validation and submission.
         </p>
 
         <p>
@@ -45,12 +45,12 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note: </b>React Native will need
-          to use a manual register command:{" "}
+          <b className={typographyStyles.note}>Note: </b>React Native will require
+          you to either use a manual register command:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or
-          using <Link to="/api#Controller">Controller</Link> to wrap and auto
-          register your component. You can also read more at{" "}
-          <Link to="/api/#ReactNative">React Native</Link> section.
+          a <Link to="/api#Controller">Controller</Link> to wrap and
+          register your component automatically. Learn more in the dedicated section
+          for <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
     ),
@@ -60,18 +60,18 @@ export default {
     description: currentLanguage => (
       <>
         <p>
-          React Hook Form make form validation easy by aligning with existing{" "}
+          React Hook Form makes form validation easy by aligning with the existing{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
             target="_blank"
             rel="noopener noreferrer"
           >
-            HTML standard form validation
+            HTML standard for form validation
           </a>
           .
         </p>
 
-        <p>List of validation rules supported by:</p>
+        <p>List of validation rules supported:</p>
         <ul>
           <li>required</li>
           <li>min</li>
@@ -82,7 +82,7 @@ export default {
           <li>validate</li>
         </ul>
         <p>
-          You can read more detail on each rule at the{" "}
+          You can read more detail on each rule in the{" "}
           <Link to={translateLink("api#register", currentLanguage)}>
             register section
           </Link>
@@ -137,18 +137,7 @@ export default {
           register with your needs.
         </p>
         <p>
-          Every props you pass to Controller component, will be forwarded to the
-          Component instance you provided with the <code>as</code> prop. That
-          means imagine you have a custom <code>Switch</code> component that
-          require a <code>label</code> prop. You can pass this prop to the
-          Controller component directly. The <code>name</code> prop will be used
-          mainly to access the value through the form later.
-        </p>
-
-        <p>
-          If you use a <code>defaultValue</code> prop, it will take priority
-          over the <code>useForm</code> <code>defaultValues</code> value for
-          your property given at <code>name</code> prop.
+          Read more about the <Link to="/api#Controller">Controller</Link> component.
         </p>
       </>
     ),
@@ -171,7 +160,7 @@ export default {
             </Link>
           </code>
           . For example: Material-UI's <code>TextField</code> accepts{" "}
-          <code>inputRef</code> as one of it's props. Simply pass{" "}
+          <code>inputRef</code> as one of its props. You can simply pass{" "}
           <code>register</code> to it.
         </p>
         <p>
@@ -187,9 +176,9 @@ export default {
           <code>react-select</code> or <code>react-datepicker</code>.
         </p>
         <p>
-          The next easiest way is to use the{" "}
+          The second easiest way is to use the{" "}
           <Link to="/api#Controller">Controller</Link> wrapper component, which
-          will take care of the custom register process for you.
+          will take care of the registration process for you.
         </p>
         <CodeArea rawData={uiLibraryHookInput} />
         <p>
@@ -215,7 +204,7 @@ export default {
   },
   globalState: {
     title: "Integrate global state",
-    description: `React Hook Form doesn't require you to have a state management to store your data, but you can easily integrate with one.`,
+    description: `React Hook Form doesn't require you to rely on a state management library such as Redux to store your data, but you can easily integrate with it:`,
   },
   reactNative: {
     title: "React Native",
@@ -223,7 +212,7 @@ export default {
       <p>
         You will get the same performance enhancement from an Uncontrolled
         Component. However, there are certain APIs which are not compatible with
-        React Native (duo to the API difference from web and native). You will
+        React Native (due to the API differences between web and native). You will
         have to use a <b>manual register</b> as shown in the following example.
       </p>
     ),
@@ -242,7 +231,7 @@ export default {
     description: (
       <>
         React Hook Form provides an <code>errors</code> object to show you the
-        errors within the form.
+        errors in the form.
       </>
     ),
   },

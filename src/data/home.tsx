@@ -54,7 +54,7 @@ export default {
   findInteresting: {
     en: {
       heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to write less code and have better performance. Check out the Get Started section and learn more on the API documentation page.`,
+      description: `Form validation should be much simpler. React Hook Form will lead you to less code and better performances. Check out the Get Started section and learn more on the API documentation page.`,
     },
     es: {
       heading: "Te pareció útil e interesante?",
@@ -94,7 +94,7 @@ export default {
       },
       {
         title: "Super Light",
-        description: `Performance is important and package size matters. React Hook Form is a tiny library without any dependencies.`,
+        description: `Package size matters. React Hook Form is a tiny library without any dependencies.`,
       },
       {
         title: "Performance",
@@ -251,13 +251,13 @@ export default {
         <>
           <p id="codeComparison">
             Reducing the amount of code that you have to write is one of the
-            primary goals for React Hook Form. To illustrate that, let's look at
-            a very simple form of validation among some of the most popular form
-            validation libraries.
+            primary goals of React Hook Form. To illustrate that, let's look at
+            this very simple comparison between the most popular form validation
+            libraries.
           </p>
           <p style={{ fontSize: 14 }}>
             <b className={typographyStyles.note}>⚠ Note:</b> Both Formik and
-            Redux-Form code below are copied from official documentation.
+            Redux-Form snippets below are copied from official documentation.
           </p>
         </>
       ),
@@ -368,9 +368,9 @@ export default {
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            You have the ability to isolate components re-render which leads to
+            better performances on your page or app. The following example
+            demonstrates this behaviour.
           </p>
 
           <p style={{ fontSize: 14 }}>
@@ -486,7 +486,7 @@ export default {
   rendering: {
     en: {
       title: "Reduce Rendering",
-      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce unnecessary performance impact.`,
+      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce any unnecessary performance penalty.`,
       totalReRender: "Total re-renders:",
     },
     es: {
@@ -526,11 +526,14 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following results demonstrate how long it took to render and mount
-          the components. Results are captured under a 6x CPU slow down on App
-          start with the Chrome Dev Tools' performance tab. The running code is
-          from the section above{" "}
-          <a href="#codeComparison">Library Code Comparison</a>.
+          The following screenshots demonstrate how much components mounting
+          is faster with React Hook Form. Mounting and rendering the
+          <a href="#codeComparison">Library Code Comparison</a> is ~13%
+          faster than Formik and ~25% faster than Redux Form.
+          <p style={{ fontSize: 14 }}>
+            <b className={typographyStyles.note}>⚠ Note: a 6x CPU slowdown
+            was simulated with Chrome Dev Tools for the sake of the benchmark.</b>
+          </p>
         </p>
       ),
       totalMount: "No. of mount(s)",
@@ -733,7 +736,7 @@ export default {
       watchTitle: "Watch",
       errorTitle: "Errors",
       touchedTitle: "Touched",
-      watch: "Change input value to see watched values",
+      watch: "Change inputs value to update watched values",
       error: "Validation errors will appear here",
       touched: "Touched fields will display here",
     },

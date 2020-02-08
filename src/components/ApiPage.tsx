@@ -842,7 +842,7 @@ function ApiPage({
 
           <p>
             <b className={typographyStyles.note}>Note</b>: This feature has been
-            removed in V4 due to low usage, but you can still using it in V3
+            removed in V4 due to low usage, but you can still use it in V3
           </p>
 
           <CodeArea
