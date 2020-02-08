@@ -8,7 +8,7 @@ export default ({ children, buttonLabels }) => {
     <div>
       <div
         className={styles.buttonTabGroup}
-        style={{ marginBottom: -13, marginTop: 30 }}
+        style={{ marginBottom: -15, marginTop: 30 }}
       >
         {buttonLabels.map((label, currentIndex) => (
           <button

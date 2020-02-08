@@ -11,7 +11,10 @@ import styles from "./Nav.module.css"
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     action,
-    state: { language },
+    state: {
+      language,
+      setting: { darkMode },
+    },
   } = useStateMachine(updateCurrentLanguage)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -136,69 +139,78 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </select>
       </div>
 
-      <nav className={styles.actionButtonGroup}>
-        <Link activeClassName="active" to={translateLink("/", currentLanguage)}>
-          <div className={styles.iconWrapper}>
-            <div className="flag icon" />
-          </div>
-          <span>{nav[currentLanguage].home}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/get-started", currentLanguage)}
+      <div className={darkMode && styles.darkActionButtonWrapper}>
+        <nav
+          className={`${styles.actionButtonGroup} ${
+            darkMode ? styles.darkActionButtonGroup : ""
+          }`}
         >
-          <div className={styles.iconWrapper}>
-            <div className="shutdown icon" />
-          </div>
-          <span>{nav[currentLanguage].getStarted}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/api", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="keyboard icon" />
-          </div>
-          <span>API</span>
-        </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="flag icon" />
+            </div>
+            <span>{nav[currentLanguage].home}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/get-started", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="shutdown icon" />
+            </div>
+            <span>{nav[currentLanguage].getStarted}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/api", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="keyboard icon" />
+            </div>
+            <span>API</span>
+          </Link>
 
-        <Link
-          activeClassName="active"
-          to={translateLink("/advanced-usage", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="search icon" />
-          </div>
-          <span>{nav[currentLanguage].advanced}</span>
-        </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/advanced-usage", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="search icon" />
+            </div>
+            <span>{nav[currentLanguage].advanced}</span>
+          </Link>
 
-        <Link
-          activeClassName="active"
-          to={translateLink("/form-builder", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="edit icon" />
-          </div>
-          <span>{nav[currentLanguage].builder}</span>
-        </Link>
-        <Link
-          activeClassName="active"
-          to={translateLink("/faqs", currentLanguage)}
-        >
-          <div className={styles.iconWrapper}>
-            <div className="eye icon" />
-          </div>
-          <span>{nav[currentLanguage].faqs}</span>
-        </Link>
-        <a
-          href="https://github.com/react-hook-form/react-hook-form/releases"
-          target="_blank"
-          className="desktopOnly"
-          rel="noreferrer noopener"
-        >
-          {nav[currentLanguage].releases}
-        </a>
-      </nav>
+          <Link
+            activeClassName="active"
+            to={translateLink("/form-builder", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="edit icon" />
+            </div>
+            <span>{nav[currentLanguage].builder}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/faqs", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="eye icon" />
+            </div>
+            <span>{nav[currentLanguage].faqs}</span>
+          </Link>
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/releases"
+            target="_blank"
+            className="desktopOnly"
+            rel="noreferrer noopener"
+          >
+            {nav[currentLanguage].releases}
+          </a>
+        </nav>
+      </div>
     </>
   )
 }

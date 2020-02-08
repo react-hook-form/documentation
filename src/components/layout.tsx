@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
+import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"
 import "./layout.css"
 
@@ -11,6 +12,11 @@ const Layout = (props: {
   }
   defaultLang: string
 }) => {
+  const {
+    state: {
+      setting: { darkMode },
+    },
+  } = useStateMachine()
   const [show, setShow] = React.useState(false)
   const scrollHandler = () => {
     if (window.scrollY > 75) {
@@ -22,6 +28,12 @@ const Layout = (props: {
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
+    if (
+      darkMode &&
+      !document.querySelector("body").className.includes("light")
+    ) {
+      document.querySelector("body").className += "light"
+    }
 
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [])

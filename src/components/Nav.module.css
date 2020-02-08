@@ -156,11 +156,27 @@
     padding: 13px 10px;
   }
 
+  .darkActionButtonWrapper {
+    background: var(--color-light-blue);
+    border-bottom: 4px solid var(--color-light-pink);
+  }
+
+  .darkActionButtonGroup {
+    background: none;
+    box-shadow: none;
+    color: white;
+  }
+
   .actionButtonGroup > a {
     font-size: 0.8rem;
     flex: none;
     border: none;
     padding: 2px 0;
+  }
+
+  .darkActionButtonGroup > a {
+    color: white;
+    font-weight: 500;
   }
 }
 
