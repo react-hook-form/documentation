@@ -5,8 +5,10 @@ function App() {
   const { register, control, handleSubmit } = useForm({
     // defaultValues: {}; you can populate the fields by this attribute 
   });
-  const { fields, append, prepend, remove } = useFieldArray({ control, name: "test" });
-
+  const { fields, append, prepend, remove } = useFieldArray({
+    control,
+    name: "test"
+  });
   return (
     <form onSubmit={handleSubmit(data => console.log("data", data))}>
       <ul>
@@ -16,7 +18,7 @@ function App() {
             <input name={\`test[\${index}].name\`} ref={register()} /> 
             <button onClick={() => remove(index)}>Delete</button>
           </li>
-        )}
+        ))}
       </ul>
       <section>
         <button type="button" onClick={() => append({ name: "test" })} >
@@ -25,6 +27,7 @@ function App() {
         <button type="button" onClick={() => prepend({ name: "test1" })}>
           prepend
         </button>
+      </section>
     </form>
   );
 }

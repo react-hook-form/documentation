@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
+import Prism from "prismjs"
 import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"
 import "./layout.css"
@@ -32,6 +33,7 @@ const Layout = (props: {
       document.querySelector("body").classList.remove("light")
     }
 
+    Prism.highlightAll()
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [lightMode])
 

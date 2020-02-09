@@ -3,8 +3,6 @@ import copyClipBoard from "./utils/copyClipBoard"
 import generateCode from "./logic/generateCode"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import Prism from "prismjs"
-import { useEffect } from "react"
 import styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -58,10 +56,6 @@ export default function CodeArea({
 
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
-
-  useEffect(() => {
-    Prism.highlightAll()
-  }, [rawData])
 
   return (
     <section
