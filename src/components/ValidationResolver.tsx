@@ -17,7 +17,10 @@ export default function({ api }) {
 
       {api.validationResolver.description}
 
-      <CodeArea rawData={validationResolver} />
+      <CodeArea
+        rawData={validationResolver}
+        url="https://codesandbox.io/s/react-hook-form-validationresolver-b3phr"
+      />
     </>
   )
 }
