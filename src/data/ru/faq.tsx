@@ -322,12 +322,12 @@ export default {
                     </a>
                   </td>
                   <td>
-                    Build your own &{" "}
+                    Build yourself or{" "}
                     <a href="https://github.com/jquense/yup" target="_blank">
                       Yup
                     </a>
                   </td>
-                  <td>Build your own & Plugins</td>
+                  <td>Build yourself or Plugins</td>
                 </tr>
                 <tr>
                   <td>

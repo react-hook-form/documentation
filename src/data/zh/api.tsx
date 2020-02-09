@@ -25,6 +25,46 @@ export default {
         下面的示例演示了所有选项的默认值。
       </p>
     ),
+    validationResolver: goToSection => (
+      <>
+        <p>
+          该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
+          <code> values </code>作为 参数，您将需要验证结果并返回两者
+          <code> values </code>和<code> errors </code>。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意：</b>
+          只要有错误对象不是空对象，反应钩子形式将考虑该形式视为无效。
+        </p>
+
+        <p>
+          请在此阅读更多信息：
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>
+          。
+        </p>
+      </>
+    ),
+    validateContext: (
+      <>
+        <p>
+          该上下文对象将被注入<code> validationResolver </code>的第二个参数或
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            对
+          </a>
+          验证的上下文对象。
+        </p>
+      </>
+    ),
     validateCriteriaMode: (
       <>
         <p>
@@ -712,7 +752,7 @@ export default {
           <td>
             This prop allows you to override the <code>value</code> prop and
             support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and ect...
+            eg: <code>checked</code>, <code>selected</code> and etc...
           </td>
         </tr>
       </tbody>
@@ -1015,6 +1055,44 @@ export default {
           </td>
           <td>在特定位置删除输入，或删除所有输入当没有提供位置。</td>
         </tr>
+      </>
+    ),
+  },
+  validationResolver: {
+    title: "validationResolver",
+    description: (
+      <>
+        <p>
+          此功能使您可以运行任何外部验证方法，例如
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          ，
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>
+          和。实际上，目标不仅限于限制Yup作为我们的外部（架构）验证库。我们希望支持许多其他验证库以与React
+          Hook Form一起使用。您甚至可以编写自定义验证逻辑进行验证。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          确保返回的对象包含值和错误，并且它们的默认值应为空对象
+          <code>{`{}`}</code>。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          返回错误对象的键应与您的输入有关。
+        </p>
       </>
     ),
   },

@@ -1,7 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
-import useFieldArray from "../../components/codeExamples/useFieldArray"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
@@ -34,6 +33,39 @@ export default {
         <p>
           When set to <code>all</code>, all errors from each field will be
           gathered.
+        </p>
+      </>
+    ),
+    validationResolver: goToSection => (
+      <>
+        <p>
+          This callback function allows you to run through any schema or custom
+          validation. The function has the entire form <code>values</code> as
+          argument, and you will need to validate the result and return both{" "}
+          <code>values</code> and <code>errors</code>. Read more at{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
+        </p>
+      </>
+    ),
+    validateContext: (
+      <>
+        <p>
+          This context object will be injected into{" "}
+          <code>validationResolver</code>'s second argument or{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>{" "}
+          validation's context object.
         </p>
       </>
     ),
@@ -1084,6 +1116,48 @@ export default {
         <code>true</code> and the rest of the syntax is the same as standard
         validation.
       </p>
+    ),
+  },
+  validationResolver: {
+    title: "validationResolver",
+    description: (
+      <>
+        <p>
+          This function allow you to run any external validation methods, such
+          as{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          and etc. In fact, the goal is not only limited Yup as our external
+          (schema) validation library. We would like to support many other
+          validation libraries to work with React Hook Form. You can even write
+          your custom validation logic to validate.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> make sure you are
+          returning object which contains <code>values</code> and{" "}
+          <code>errors</code>, and their default value should be empty object{" "}
+          <code>{`{}`}</code>.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> returning errors
+          object's key should be relevant to your inputs.
+        </p>
+      </>
     ),
   },
 }

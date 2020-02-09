@@ -391,8 +391,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b> Escriba en el cuadro
+            de entrada para ver el comportamiento de renderizado.
           </p>
         </>
       ),
@@ -408,25 +408,24 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b> Digite na caixa de
+            entrada para ver o comportamento de renderização.
           </p>
         </>
       ),
     },
+    // Todo: Dohyung
     kr: {
       title: "Isolate Component Re-render",
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            につながるコンポーネントの再レンダリングを分離する機能がありますページまたはアプリのパフォーマンスへの影響が少なくなります。次の例そのような振る舞いを示します。
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b>
+            入力ボックスに入力しますレンダリング動作を確認します。
           </p>
         </>
       ),
@@ -436,14 +435,14 @@ export default {
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            컴포넌트를 다시 렌더링하여 격리시킬 수 있습니다. 페이지 나 앱의
+            성능에 미치는 영향이 줄어 듭니다. 다음 예 그러한 행동을
+            보여주십시오.
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b>입력 상자에 입력렌더링
+            동작을 볼 수 있습니다.
           </p>
         </>
       ),
@@ -453,14 +452,12 @@ export default {
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            您可以隔离重新渲染的组件，从而导致对网页或应用的性能影响较小。下面的例子表现出这种行为。
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b>
+            在输入框中输入查看渲染行为。
           </p>
         </>
       ),
@@ -476,8 +473,8 @@ export default {
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            <b className={typographyStyles.note}>Note:</b>Введите в поле ввода
+            чтобы увидеть поведение рендера.
           </p>
         </>
       ),
@@ -848,5 +845,47 @@ export default {
       error: "Валидация ошибок появится здесь",
       touched: "Измененные поля отобразятся здесь",
     },
+  },
+  validationResolver: {
+    title: "validationResolver",
+    description: (
+      <>
+        <p>
+          This function allow you to run any external validation methods, such
+          as{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          and etc. In fact, the goal is not only limited Yup as our external
+          (schema) validation library. We would like to support many other
+          validation libraries to work with React Hook Form. You can even write
+          your custom validation logic to validate.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> make sure you are
+          returning object which contains <code>values</code> and{" "}
+          <code>errors</code>, and their default value should be empty object{" "}
+          <code>{`{}`}</code>.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> returning errors
+          object's key should be relevant to your inputs.
+        </p>
+      </>
+    ),
   },
 }

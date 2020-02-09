@@ -5,6 +5,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Документация по API",
@@ -24,6 +25,39 @@ export default {
         <code>useForm</code> также имеет <b>необязательные</b> аргументы. В
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
+    ),
+    validationResolver: goToSection => (
+      <>
+        <p>
+          This callback function allow you to run through any schema or custom
+          validation. The function has the entire form <code>values</code> as
+          argument, and you will need to validate the result and return both{" "}
+          <code>values</code> and <code>errors</code>. Read more at{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
+        </p>
+      </>
+    ),
+    validateContext: (
+      <>
+        <p>
+          This context object will be injected into{" "}
+          <code>validationResolver</code>'s second argument or{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>{" "}
+          validation's context object.
+        </p>
+      </>
     ),
     validateCriteriaMode: (
       <>
@@ -1097,6 +1131,48 @@ export default {
         <code>true</code>, а остальная часть синтаксиса такая же, как для
         стандартной валидации.
       </p>
+    ),
+  },
+  validationResolver: {
+    title: "validationResolver",
+    description: (
+      <>
+        <p>
+          This function allow you to run any external validation methods, such
+          as{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          and etc. In fact, the goal is not only limited Yup as our external
+          (schema) validation library. We would like to support many other
+          validation libraries to work with React Hook Form. You can even write
+          your custom validation logic to validate.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> make sure you are
+          returning object which contains <code>values</code> and{" "}
+          <code>errors</code>, and their default value should be empty object{" "}
+          <code>{`{}`}</code>.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> returning errors
+          object's key should be relevant to your inputs.
+        </p>
+      </>
     ),
   },
 }
