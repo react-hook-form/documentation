@@ -79,7 +79,7 @@
 
 .langSelect {
   position: absolute;
-  right: calc(100% - 50% - 45px);
+  right: calc(100% - 50% - 68px);
   z-index: 5;
   top: 0;
   min-width: 90px;
