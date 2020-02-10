@@ -414,18 +414,18 @@ export default {
         </>
       ),
     },
-    // Todo: Dohyung
     kr: {
-      title: "Isolate Component Re-render",
+      title: "컴포넌트의 리랜더링을 분리하기",
       description: (
         <>
           <p>
-            につながるコンポーネントの再レンダリングを分離する機能がありますページまたはアプリのパフォーマンスへの影響が少なくなります。次の例そのような振る舞いを示します。
+            페이지나 앱의 퍼포먼스에 부정적인 영향을 줄 수 있는 리랜더링을
+            분리할 수 있습니다. 아래의 예제는 그 방법을 보여줍니다.
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b>
-            入力ボックスに入力しますレンダリング動作を確認します。
+            <b className={typographyStyles.note}>참고:</b> 인풋 박스에
+            타이핑해보시고 어떻게 랜더링되는지 확인해보세요.
           </p>
         </>
       ),

@@ -20,29 +20,29 @@ export default {
         <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
       </>
     ),
-    // Todo: Dohyung
     validationResolver: goToSection => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          이 콜백 함수는 어떠한 스키마나 커스텀 유효성 검사 함수를 끼워넣어
+          실행시킬 수 있도록 합니다. 이 함수는 전체 폼의 <code>values</code> 를
+          인자로 가지고 있으며, 결과를 검증한 다음
+          <code>values</code> 와 <code>errors</code> 값 모두를 리턴해야 합니다.
+          자세한 내용은
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
           >
             validationResolver
           </button>{" "}
-          section.
+          섹션에서 확인하세요.
         </p>
       </>
     ),
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          이 컨텍스트 객체는 <code>validationResolver</code> 의 두 번째 인자로
+          주입되거나{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -50,7 +50,7 @@ export default {
           >
             Yup
           </a>{" "}
-          validation's context object.
+          유효성 검사의 컨텍스트 객체로 주입됩니다.
         </p>
       </>
     ),
@@ -315,8 +315,8 @@ export default {
         <p>폼 상태(form state)에 대한 정보를 포함합니다</p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>중요:</b> <code>formState</code>{" "}
+          는 랜더링 퍼포먼스 향상을 위해{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -324,8 +324,8 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          로 감싸져 있습니다. 그러니 상태를 업데이트 하려면 <code>render</code>{" "}
+          전에 읽거나 실행해야 합니다.
         </p>
       </>
     ),
@@ -346,28 +346,27 @@ export default {
     description: currentLanguage => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
-        {/* Todo: Korean */}
         <p>
           <b className={typographyStyles.note}>
             {generic.note[currentLanguage]}:
           </b>{" "}
-          Difference between V3 and V4:
+          V3 과 V4 의 차이점:
         </p>
         <ul>
           <li>
-            <p>V4: Nested object</p>
+            <p>V4: 중첩된 객체</p>
             <p>
-              <strong>Reason:</strong> as optional chaining becoming more
-              popular among the community and to support better type.
+              <strong>사용 이유:</strong> 옵셔널 체이닝이 커뮤니티 사이에서 많이
+              알려졌고, 더 나은 타입 지원을 합니다.
             </p>
             <p>
               <code>{`errors?.yourDetail?.firstName;`}</code>
             </p>
           </li>
           <li>
-            <p>V3: Flatten object</p>
+            <p>V3: 평탄한 객체</p>
             <p>
-              <strong>Reason:</strong> simple and easy to access error.
+              <strong>사용 이유:</strong> 단순하고 에러에 접근하기 쉽습니다.
             </p>
             <p>
               <code>{`errors['yourDetail.firstName'];`}</code>
@@ -378,10 +377,10 @@ export default {
     ),
     types: (
       <>
-        This is useful for input validation like rules of password, which
-        multiple errors need to return for a single field. To enable this
-        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
-        .
+        여러 종류의 에러가 하나의 필드에 적용되어야 하는 비밀번호 규칙 같은
+        입력의 유효성 검사를 할 때 유용합니다. 이 기능을 활성화하려면,{" "}
+        <code>validateCriteriaMode: 'all'</code> 으로 설정해두는 것을 잊지
+        마세요.
       </>
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
@@ -942,10 +941,9 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>중요:</b> due to ref callback
-          issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
+          <b className={typographyStyles.note}>중요:</b> ref 콜백 이슈 때문에,
+          유효성 검사 규칙 없이 <code>register</code> 를 하려고 한다면, 콜백에
+          인자를 전달하지 마세요. 예: <code>{`ref={register()}`}</code>
         </p>
 
         <p>
@@ -1060,14 +1058,12 @@ export default {
       </>
     ),
   },
-  // Todo: Dohyung
   validationResolver: {
     title: "validationResolver",
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          이 함수는
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1083,22 +1079,23 @@ export default {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          등의 외부 유효성 검사 방법들을 실행할 수 있도록 합니다. 실제로, 이
+          함수의 목적은 단순히 외부 유효성 검사 라이브러리로 Yup 등을 제한된
+          범위로 지원하는 정도에서 끝나지 않습니다. 우리는 다양한 라이브러리가
+          React Hook Form 과 함께 동작할 수 있도록 지원하려 합니다. 심지어
+          유효성 검사를 위해 직접 커스터마이징할 수도 있습니다.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          <b className={typographyStyles.note}>참고:</b> 반드시{" "}
+          <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
+          리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체 <code>{`{}`}</code>{" "}
+          가 되어야 합니다.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
+          반드시 인풋 값과 연결되어야 합니다.
         </p>
       </>
     ),
