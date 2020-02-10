@@ -941,10 +941,9 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>중요:</b> due to ref callback
-          issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
+          <b className={typographyStyles.note}>중요:</b> ref 콜백 이슈 때문에,
+          유효성 검사 규칙 없이 <code>register</code> 를 하려고 한다면, 콜백에
+          인자를 전달하지 마세요. 예: <code>{`ref={register()}`}</code>
         </p>
 
         <p>
