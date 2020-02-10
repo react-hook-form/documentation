@@ -315,8 +315,8 @@ export default {
         <p>폼 상태(form state)에 대한 정보를 포함합니다</p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>중요:</b> <code>formState</code>{" "}
+          는 랜더링 퍼포먼스 향상을 위해{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -324,8 +324,8 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          로 감싸져 있습니다. 그러니 상태를 업데이트 하려면 <code>render</code>{" "}
+          전에 읽거나 실행해야 합니다.
         </p>
       </>
     ),
