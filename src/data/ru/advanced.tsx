@@ -123,7 +123,7 @@ export default {
         <CodeArea rawData={accessibleCodeBase} />
 
         <p>
-          Следующий пример кода улучшен блягодаря{" "}
+          Следующий пример кода улучшен благодаря{" "}
           <a
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
