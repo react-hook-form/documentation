@@ -7,6 +7,7 @@
   margin: 30px auto 80px;
   display: block;
   cursor: not-allowed;
+  border-radius: 5px;
 }
 
 .devTool ::-webkit-scrollbar {
@@ -37,11 +38,11 @@
 
 @media (min-width: 768px) {
   .devToolImg {
-    max-width: 800px;
+    max-width: 600px;
     margin: 50px auto 0;
     display: block;
-    border-radius: 4px;
     height: auto;
+    border-radius: 8px;
   }
 
   .demo {
@@ -60,5 +61,9 @@
 @media (min-width: 1024px) {
   .devTool {
     display: block;
+  }
+
+  .devToolImg {
+    max-width: 800px;
   }
 }
