@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
-import useForm from "react-hook-form"
+import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
 import { navigate } from "@reach/router"

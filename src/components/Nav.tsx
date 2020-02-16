@@ -214,6 +214,15 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           >
             {nav[currentLanguage].releases}
           </a>
+          <Link
+            activeClassName="active"
+            to={translateLink("/dev-tools", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="eye icon" />
+            </div>
+            <span>DevTools</span>
+          </Link>
         </nav>
       </div>
     </>

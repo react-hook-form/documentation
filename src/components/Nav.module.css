@@ -177,7 +177,7 @@
   }
 
   .actionButtonGroup > a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     flex: none;
     border: none;
     padding: 2px 0;
@@ -201,5 +201,9 @@
   .langSelect {
     right: 20px;
     min-width: 100px;
+  }
+
+  .actionButtonGroup > a {
+    font-size: 0.8rem;
   }
 }

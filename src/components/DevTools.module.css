@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+}
+
+.devTool ::-webkit-scrollbar {
+}
+
+.devTool ::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.devTool ::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+.devTool ::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+@media (min-width: 1024px) {
+  .devTool {
+    display: block;
+  }
+}
