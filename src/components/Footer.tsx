@@ -48,6 +48,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
             {nav[currentLanguage].resources}
           </Link>
         </li>
+        <li>
+          <Link to={translateLink("/dev-tools", currentLanguage)}>
+            DevTools
+          </Link>
+        </li>
       </ul>
       <p>
         Design and Build by{" "}

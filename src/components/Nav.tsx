@@ -206,6 +206,15 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/dev-tools", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="laptop icon" />
+            </div>
+            <span>DevTools</span>
+          </Link>
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"
             target="_blank"

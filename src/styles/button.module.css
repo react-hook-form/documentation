@@ -43,6 +43,14 @@
   border: 1px solid var(--color-light-blue);
 }
 
+a.primaryButton {
+  text-decoration: none;
+}
+
+a.primaryButton:hover {
+  color: white;
+}
+
 .pinkButton,
 .darkButton {
   background: var(--color-light-pink);

@@ -1,0 +1,69 @@
+.container {
+  display: grid;
+}
+
+.devToolImg {
+  height: 230px;
+  margin: 30px auto 80px;
+  display: block;
+  cursor: not-allowed;
+  border-radius: 5px;
+}
+
+.devTool ::-webkit-scrollbar {
+}
+
+.devTool ::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.devTool ::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+.devTool ::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+.demo {
+  display: grid;
+  grid-gap: 30px;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.demo > div:first-child {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .devToolImg {
+    max-width: 600px;
+    margin: 50px auto 0;
+    display: block;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .demo {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .demo > div:first-child {
+    order: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .devTool {
+    display: block;
+  }
+
+  .devToolImg {
+    max-width: 800px;
+  }
+}

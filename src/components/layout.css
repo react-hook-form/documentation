@@ -588,6 +588,28 @@ h4 {
   border: solid 1px currentColor;
 }
 
+.laptop.icon {
+  color: #fff;
+  position: absolute;
+  margin-left: 0;
+  margin-top: 3px;
+  width: 12px;
+  height: 8px;
+  border-radius: 2px;
+  border: solid 1px currentColor;
+}
+
+.laptop.icon:before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  bottom: -5px;
+  width: 18px;
+  height: 1px;
+  border-radius: 0 0 2px 2px;
+  border: solid 1px currentColor;
+}
+
 /**
 * xonokai theme for JavaScript, CSS and HTML
 * based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -837,12 +859,12 @@ body.light {
 }
 
 .light pre[class*="language-"] {
-  border: 1px solid var(--color-light-grey)
+  border: 1px solid var(--color-light-grey);
 }
 
 .light pre {
   background: white;
-  border: 1px solid var(--color-light-grey)
+  border: 1px solid var(--color-light-grey);
 }
 
 .light .token.attr-name,

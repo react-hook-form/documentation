@@ -2,6 +2,11 @@
   padding-top: 45px;
 }
 
+.subContainer {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
 .centerContent {
   margin: 0 auto;
   text-align: center;
