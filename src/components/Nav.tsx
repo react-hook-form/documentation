@@ -219,7 +219,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             to={translateLink("/dev-tools", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
-              <div className="eye icon" />
+              <div className="laptop icon" />
             </div>
             <span>DevTools</span>
           </Link>
