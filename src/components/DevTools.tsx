@@ -65,7 +65,7 @@ export default () => {
         <DevToolFeaturesList isPlayFeature currentLanguage="en" />
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{`< />`} Installation</h1>
+          <h1 className={typographyStyles.h1}>{`</>`} Installation</h1>
         </div>
 
         <div className={containerStyles.subContainer}>
