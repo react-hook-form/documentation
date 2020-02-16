@@ -206,14 +206,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/releases"
-            target="_blank"
-            className="desktopOnly"
-            rel="noreferrer noopener"
-          >
-            {nav[currentLanguage].releases}
-          </a>
           <Link
             activeClassName="active"
             to={translateLink("/dev-tools", currentLanguage)}
@@ -223,6 +215,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>DevTools</span>
           </Link>
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/releases"
+            target="_blank"
+            className="desktopOnly"
+            rel="noreferrer noopener"
+          >
+            {nav[currentLanguage].releases}
+          </a>
         </nav>
       </div>
     </>
