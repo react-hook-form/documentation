@@ -83,7 +83,7 @@ export default () => {
             <button
               className={getStartedStyle.copyButton}
               onClick={() => {
-                copyClipBoard("npm install react-hook-form")
+                copyClipBoard("npm install react-hook-form-devtools -D")
                 alert(generic.copied["en"])
               }}
             >
