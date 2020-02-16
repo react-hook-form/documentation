@@ -131,7 +131,7 @@ export default () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              GitHub Repo
             </a>
           </div>
         </div>
