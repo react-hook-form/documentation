@@ -113,4 +113,4 @@ const FormFields = ({ formData, errors, register }) => {
   })
 }
 
-export default React.memo(FormFields)
+export default FormFields

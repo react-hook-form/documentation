@@ -36,7 +36,7 @@ function Form({
   formUpdated: boolean
   currentLanguage: string
   methods: any
-  devTool: boolean
+  devTool?: boolean
 }) {
   const {
     register,
