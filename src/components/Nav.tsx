@@ -7,6 +7,7 @@ import translateLink from "./logic/translateLink"
 import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
+import { Animate } from "react-simple-animate"
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
@@ -15,6 +16,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     state,
     state: { language },
   } = useStateMachine(updateCurrentLanguage)
+  const [showMenu, setShowMenu] = React.useState(false)
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
@@ -144,6 +146,39 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </select>
       </div>
 
+      {showMenu && (
+        <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
+          <nav
+            className={`${styles.actionButtonGroup} ${
+              lightMode ? styles.darkActionButtonGroup : ""
+            } ${styles.mobileMenu}`}
+            style={{
+              bottom: 44,
+            }}
+          >
+            <Link
+              activeClassName="active"
+              to={translateLink("/dev-tools", currentLanguage)}
+            >
+              <div className={styles.iconWrapper}>
+                <div className="laptop icon" />
+              </div>
+              <span>DevTools</span>
+            </Link>
+
+            <Link
+              activeClassName="active"
+              to={translateLink("/form-builder", currentLanguage)}
+            >
+              <div className={styles.iconWrapper}>
+                <div className="edit icon" />
+              </div>
+              <span>{nav[currentLanguage].builder}</span>
+            </Link>
+          </nav>
+        </Animate>
+      )}
+
       <div className={lightMode ? styles.lightActionButtonWrapper : ""}>
         <nav
           className={`${styles.actionButtonGroup} ${
@@ -197,6 +232,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].builder}</span>
           </Link>
+
           <Link
             activeClassName="active"
             to={translateLink("/faqs", currentLanguage)}
@@ -206,6 +242,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
+
           <Link
             activeClassName="active"
             to={translateLink("/dev-tools", currentLanguage)}
@@ -222,6 +259,18 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             rel="noreferrer noopener"
           >
             {nav[currentLanguage].releases}
+          </a>
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault()
+              setShowMenu(!showMenu)
+            }}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="more icon"></div>
+            </div>
+            More
           </a>
         </nav>
       </div>

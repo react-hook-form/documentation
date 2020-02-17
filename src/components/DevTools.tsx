@@ -51,6 +51,7 @@ export default () => {
             opacity: 0,
             transform: "translateY(30px)",
           }}
+          delay={0.2}
           render={({ style }) => (
             <div className={containerStyles.subContainer} style={style}>
               <img

@@ -46,6 +46,11 @@
   min-width: 40px;
 }
 
+.actionButtonGroup > a:nth-child(5),
+.actionButtonGroup > a:nth-child(7) {
+  display: none;
+}
+
 .actionButtonGroup > a:first-child {
   border-left: 0;
 }
@@ -129,6 +134,13 @@
   border-bottom: 3px solid var(--color-light-pink);
 }
 
+.mobileMenu {
+  width: 33.33%;
+  right: 0;
+  left: auto;
+  z-index: 2;
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 110px;
@@ -140,6 +152,15 @@
 
   .langSelect:after {
     right: 8px;
+  }
+
+  .actionButtonGroup > a:nth-child(5),
+  .actionButtonGroup > a:nth-child(7) {
+    display: block;
+  }
+
+  .actionButtonGroup > a:nth-child(9) {
+    display: none;
   }
 }
 
