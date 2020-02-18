@@ -153,7 +153,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               lightMode ? styles.darkActionButtonGroup : ""
             } ${styles.mobileMenu}`}
             style={{
-              bottom: 44,
+              bottom: 43,
             }}
           >
             <Link
