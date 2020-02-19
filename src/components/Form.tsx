@@ -38,18 +38,12 @@ function Form({
   methods: any
   devTool?: boolean
 }) {
-  const {
-    register,
-    errors,
-    handleSubmit,
-    watch,
-    formState: { touched },
-    reset,
-  } =
+  const { register, errors, handleSubmit, watch, formState, reset } =
     methods ||
     useForm({
       mode: "onChange",
     })
+  const touched = Object.keys(formState.touched)
   const {
     state: { formData },
   } = useStateMachine()
