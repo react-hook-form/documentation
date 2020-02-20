@@ -29,10 +29,11 @@ export default {
     validationResolver: goToSection => (
       <>
         <p>
-          Essa função de callback permite que voce execute sua validacao através 
-          de qualquer esquema ou validação customizada. A função recebe um formulário
-          completo com os <code>valores</code> como argumento. Você deve validar o resultado
-          e retornar ambos {" "}<code>valores</code> e <code>erros</code>. Leia mais em {" "}
+          Essa função de callback permite que voce execute sua validacao através
+          de qualquer esquema ou validação customizada. A função recebe um
+          formulário completo com os <code>valores</code> como argumento. Você
+          deve validar o resultado e retornar ambos <code>valores</code> e{" "}
+          <code>erros</code>. Leia mais em{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
@@ -937,7 +938,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages: string[]}`}) => any
+              ({`{ message: string, messages?: string[]}`}) => any
             </code>
           </td>
           <td></td>
@@ -951,6 +952,10 @@ export default {
               render prop
             </a>{" "}
             para renderizar mensagem de erro ou mensagens.
+            <p>
+              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+              validateCriteriaMode to 'all' for using <code>messages</code>.
+            </p>
           </td>
         </tr>
       </tbody>
