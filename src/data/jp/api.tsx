@@ -947,7 +947,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages: string[]}`}) => any
+              ({`{ message: string, messages?: string[]}`}) => any
             </code>
           </td>
           <td></td>
@@ -961,6 +961,12 @@ export default {
               render prop
             </a>{" "}
             です。
+            <p>
+              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+              validateCriteriaMode to 'all' for using <code>messages</code>. If{" "}
+              you don't set the option to 'all', <code>messages</code> will be{" "}
+              <code>undefined</code>.
+            </p>
           </td>
         </tr>
       </tbody>
