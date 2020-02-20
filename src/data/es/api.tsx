@@ -914,9 +914,7 @@ export default {
             for rendering error message or messages.
             <p>
               <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>. If{" "}
-              you don't set the option to 'all', <code>messages</code> will be{" "}
-              <code>undefined</code>.
+              validateCriteriaMode to 'all' for using <code>messages</code>.
             </p>
           </td>
         </tr>
