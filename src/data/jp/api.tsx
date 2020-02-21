@@ -28,29 +28,28 @@ export default {
         下記の例は、全てのオプションのデフォルト値を示します。
       </p>
     ),
-    // Todo: Kotaro
     validationResolver: goToSection => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          このコールバック関数を使用すると、任意のスキーマバリデーションまたはカスタムバリデーションを実行できます。
+          この関数は引数としてフォーム全体の <code>values</code> を持ち、
+          その値を検証して <code>values</code> と <code>errors</code>{" "}
+          の両方を返す必要があります。詳細については{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
           >
             validationResolver
           </button>{" "}
-          section.
+          セクションをご覧ください。
         </p>
       </>
     ),
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          このコンテキストオブジェクトは、<code>validationResolver</code>{" "}
+          の第二引数または{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -58,7 +57,7 @@ export default {
           >
             Yup
           </a>{" "}
-          validation's context object.
+          バリデーションのコンテキストオブジェクトに渡されます。
         </p>
       </>
     ),
@@ -330,8 +329,8 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>重要:</b> <code>formState</code>{" "}
+          はレンダリングパフォーマンスの改善のために{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -339,8 +338,9 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          にラップされているので、状態の更新を有効にするには、
+          <code>render</code> 前に <code>formState</code>{" "}
+          を呼び出すか、読み込む必要があります。
         </p>
       </>
     ),
@@ -947,7 +947,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages: string[]}`}) => any
+              ({`{ message: string, messages?: string[]}`}) => any
             </code>
           </td>
           <td></td>
@@ -961,6 +961,10 @@ export default {
               render prop
             </a>{" "}
             です。
+            <p>
+              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+              validateCriteriaMode to 'all' for using <code>messages</code>.
+            </p>
           </td>
         </tr>
       </tbody>
@@ -1119,14 +1123,12 @@ export default {
       </>
     ),
   },
-  // Todo: Kotaro
   validationResolver: {
     title: "validationResolver",
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          この関数を使用すると、
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1134,7 +1136,7 @@ export default {
           >
             Joi
           </a>
-          ,{" "}
+          、
           <a
             href="https://github.com/ianstormtaylor/superstruct"
             target="_blank"
@@ -1142,22 +1144,25 @@ export default {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          などの任意の外部のバリデーションメソッドを実行できます。 実際には、Yup{" "}
+          を外部の（スキーマ）バリデーションライブラリとして制限するだけがゴールではありません。
+          私たちは React Hook Form{" "}
+          で動作する多くのバリデーションライブラリをサポートしたいと思っています。
+          カスタムバリデーションロジックを作成して検証することもできます。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          <b className={typographyStyles.note}>注意:</b> <code>values</code> と{" "}
+          <code>errors</code>{" "}
+          を含むオブジェクトを返していることを確認してください。
+          デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
+          である必要があります。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>注意:</b> 返す{" "}
+          <code>errors</code> オブジェクトのキーは、フォーム内の input（
+          <code>name</code>属性）に関連させる必要があります。
         </p>
       </>
     ),

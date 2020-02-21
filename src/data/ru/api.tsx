@@ -1103,7 +1103,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages: string[]}`}) => any
+              ({`{ message: string, messages?: string[]}`}) => any
             </code>
           </td>
           <td />
@@ -1117,6 +1117,10 @@ export default {
               render prop
             </a>{" "}
             сообщения об ошибке/ошибках.
+            <p>
+              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+              validateCriteriaMode to 'all' for using <code>messages</code>.
+            </p>
           </td>
         </tr>
       </tbody>

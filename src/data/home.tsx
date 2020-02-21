@@ -431,18 +431,17 @@ export default {
       ),
     },
     jp: {
-      title: "Isolate Component Re-render",
+      title: "コンポーネントの再レンダリングを分離",
       description: (
         <>
           <p>
-            컴포넌트를 다시 렌더링하여 격리시킬 수 있습니다. 페이지 나 앱의
-            성능에 미치는 영향이 줄어 듭니다. 다음 예 그러한 행동을
-            보여주십시오.
+            コンポーネントの再レンダリングを分離して、ページまたはアプリケーションのパフォーマンスを向上させることができます。
+            次の例は、このような動作を示しています。
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b>입력 상자에 입력렌더링
-            동작을 볼 수 있습니다.
+            <b className={typographyStyles.note}>注意:</b>{" "}
+            入力欄に入力してレンダリングの動作を確認してください。
           </p>
         </>
       ),

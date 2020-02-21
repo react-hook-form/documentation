@@ -22,17 +22,18 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> também tem argumentos<b>opcionais</b>. O exempo a
+        <code>useForm</code> também tem argumentos <b>opcionais</b>. O exempo a
         seguir demonstra todas as opções, com valor padrão.
       </p>
     ),
     validationResolver: goToSection => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          Essa função de callback permite que voce execute sua validacao através
+          de qualquer esquema ou validação customizada. A função recebe um
+          formulário completo com os <code>valores</code> como argumento. Você
+          deve validar o resultado e retornar ambos <code>valores</code> e{" "}
+          <code>erros</code>. Leia mais em{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
@@ -937,7 +938,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages: string[]}`}) => any
+              ({`{ message: string, messages?: string[]}`}) => any
             </code>
           </td>
           <td></td>
@@ -951,6 +952,10 @@ export default {
               render prop
             </a>{" "}
             para renderizar mensagem de erro ou mensagens.
+            <p>
+              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+              validateCriteriaMode to 'all' for using <code>messages</code>.
+            </p>
           </td>
         </tr>
       </tbody>
