@@ -1,3 +1,8 @@
+.buttonTabGroup  {
+  display: grid;
+  grid-auto-flow: column;
+}
+
 .buttonTabGroup > button {
   background: var(--color-primary);
   color: white;

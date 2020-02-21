@@ -30,7 +30,18 @@ export default ({ children, buttonLabels }) => {
           </button>
         ))}
       </div>
-      {children.map((child, currentIndex) => index === currentIndex && child)}
+      {children.map((child, currentIndex) => {
+        return (
+          <div
+            key={currentIndex}
+            style={{
+              display: index === currentIndex ? "block" : "none",
+            }}
+          >
+            {child}
+          </div>
+        )
+      })}
     </div>
   )
 }
