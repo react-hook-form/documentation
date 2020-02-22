@@ -1,0 +1,107 @@
+.root {
+  width: 600px;
+  margin: -30px auto 90px;
+  display: grid;
+  grid-column-gap: 20px;
+  align-items: inherit;
+  grid-template-areas:
+    "d d e"
+    "a b e"
+    "c b e";
+}
+.root span {
+  display: block;
+}
+
+.happy {
+  align-self: center;
+  grid-area: a;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 600;
+  color: var(--color-light-pink);
+}
+
+.birthday {
+  align-self: center;
+  grid-area: c;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 300;
+  position: relative;
+}
+
+.birthday p {
+  bottom: -35px;
+  right: 0;
+  position: absolute;
+  font-size: 12px;
+  margin: 0;
+  color: var(--color-light-blue);
+  padding: 0;
+}
+
+.first {
+  margin-top: 0;
+  font-size: 130px;
+  line-height: 110px;
+  font-weight: bold;
+  display: block;
+  grid-area: b;
+}
+
+.first sup {
+  font-size: 30px;
+  font-weight: 400;
+  top: -4.1rem;
+}
+
+.cake {
+  grid-area: d;
+  text-align: center;
+  font-size: 80px;
+  line-height: 100px;
+}
+
+.cake svg {
+  fill: white;
+  padding-top: 20px;
+  height: 200px;
+}
+
+.achievement {
+  grid-area: e;
+  align-self: end;
+}
+
+.achievementList {
+  display: grid;
+}
+
+.achievementList h4 {
+  margin-left: 33px;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.achievementList h4 span {
+  border-bottom: 1px solid var(--color-light-blue);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.achievementList ul {
+  list-style: none;
+  margin: 0;
+}
+
+.achievementList p {
+  padding: 5px 0;
+  margin: 0;
+}
+
+.achievement strong {
+  color: var(--color-light-pink);
+  font-weight: 500;
+}

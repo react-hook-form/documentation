@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
+import Bday from "./Bday"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
@@ -149,6 +150,8 @@ export default function Header({
           )}
         />
       </header>
+
+      <Bday />
 
       <h4 className={styles.videoHeading}>React Web</h4>
       <div
