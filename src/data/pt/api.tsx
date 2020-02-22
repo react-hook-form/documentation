@@ -715,6 +715,12 @@ export default {
               ele possui prioridade sobre <code>useForm</code>{" "}
               <code>defaultValues</code> para dada chave
             </p>
+            <p>
+              <b className={typographyStyles.note}>Note</b>: se o seu formulário
+              invocar <code> reset </code> com valores diferentes, você
+              precisará forneça <code>defaultValues</code> no nível useForm em
+              vez de definido inline <code>defaultValue</code>..
+            </p>
           </td>
         </tr>
         <tr>
@@ -1016,6 +1022,18 @@ export default {
           <b className={typographyStyles.note}>Note:</b> defina{" "}
           <code> defaultValue </code> quando desejar definir o valor padrão ou
           redefinir com entradas.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> se você quiser
+          assistir à atualização dos valores da matriz de campos durante o
+          acréscimo, faça o pré-anexo e o restante das outras ações. Você
+          precisará observar todo o objeto da matriz de campos, por exemplo:
+          <code>watch('fieldArrayName')</code>. Isso se deve ao fato de a API
+          watch ter a intenção de assinar alterações de entrada e não de
+          atualização de estado (fizemos uma solução alternativa apenas para a
+          matriz de campos), também use esse recurso com cuidado, pois afeta o
+          desempenho do formulário / aplicativo.
         </p>
       </>
     ),

@@ -720,6 +720,12 @@ export default {
               指定した場合、これは <code>useForm</code> の{" "}
               <code>defaultValue</code> よりも優先されます。
             </p>
+            <p>
+              <b className={typographyStyles.note}>注意</b>: あなたのフォームが
+              さまざまな値で<code>reset</code>を呼び出します。
+              setではなくuseFormレベルで<code>defaultValues</code>を提供します
+              インライン<code>defaultValue</code>。
+            </p>
           </td>
         </tr>
         <tr>
@@ -1014,6 +1020,13 @@ export default {
           <b className={typographyStyles.note}>注意:</b>{" "}
           デフォルト値を設定するか、入力でリセットする場合は、
           <code> defaultValue </code>を設定します。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意: </b>
+          追加、追加、その他のアクション中にフィールド配列値の更新を監視する場合。フィールド配列オブジェクト全体を監視する必要があります。例：
+          <code>watch( 'fieldArrayName')</code>
+          。これは、ウォッチAPIが状態の更新ではなく入力の変更をサブスクライブすることを目的としているためです（フィールド配列に対してのみ回避策を作成しました）。また、フォーム/アプリのパフォーマンスに影響するため、この機能は注意して使用してください。
         </p>
       </>
     ),

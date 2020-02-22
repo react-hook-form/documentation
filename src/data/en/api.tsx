@@ -681,9 +681,19 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b>: set{" "}
+          <b className={typographyStyles.note}>Note: </b> set{" "}
           <code>defaultValue</code> when you want to set default value or reset
           with inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> if you want to watch
+          field array values' update during append, prepend and rest of the
+          other actions. You will have to watch the entire field array object
+          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
+          meant to subscribe input change rather state update (we made a
+          workaround only for field array), also use this feature in caution as
+          it does impact your form/app's performance.
         </p>
       </>
     ),
@@ -864,9 +874,15 @@ export default {
               <code>defaultValues</code> at <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note</b>: When provided, this
+              <b className={typographyStyles.note}>Note</b>: when provided, this
               take priority over <code>useForm</code> <code>defaultValues</code>{" "}
               for given key.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Note</b>: if your form will
+              invoke <code>reset</code> with different values, you will need to
+              provide <code>defaultValues</code> at useForm level instead of set
+              inline <code>defaultValue</code>.
             </p>
           </td>
         </tr>

@@ -698,6 +698,16 @@ export default {
           <code> defaultValue </code>, если вы хотите установить значение по
           умолчанию или сбросить с помощью входов.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> if you want to watch
+          field array values' update during append, prepend and rest of the
+          other actions. You will have to watch the entire field array object
+          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
+          meant to subscribe input change rather state update (we made a
+          workaround only for field array), also use this feature in caution as
+          it does impact your form/app's performance.
+        </p>
       </>
     ),
     table: (
@@ -879,6 +889,12 @@ export default {
               <b className={typographyStyles.note}>Примечание</b>: Если указано,
               то будет иметь приоритет над <code>defaultValues</code> у{" "}
               <code>useForm</code> для данного поля.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Note</b>: if your form will
+              invoke <code>reset</code> with different values, you will need to
+              provide <code>defaultValues</code> at useForm level instead of set
+              inline <code>defaultValue</code>.
             </p>
           </td>
         </tr>

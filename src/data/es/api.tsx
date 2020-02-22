@@ -705,6 +705,13 @@ export default {
               supply either <code>defaultValue</code> or{" "}
               <code>defaultValues</code> at <code>useForm</code>
             </p>
+            <p>
+              <b className={typographyStyles.note}>Note</b>: si tu formulario lo
+              hará invoque <code>reset</code> con diferentes valores, deberá
+              proporcionar <code>defaultValues​​</code> en el nivel useForm en
+              lugar de set
+              <code>defaultValue</code> en línea.
+            </p>
           </td>
         </tr>
         <tr>
@@ -979,6 +986,18 @@ export default {
           <b className={typographyStyles.note}>Nota:</b> establezca{" "}
           <code> defaultValue </code> cuando desee establecer el valor
           predeterminado o restablecer entradas.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> si desea ver la
+          actualización de los valores de la matriz de campo durante el
+          agregado, anteponer y el resto de las otras acciones. Deberá observar
+          todo el objeto de la matriz de campos, por ejemplo:{" "}
+          <code>watch('fieldArrayName')</code>. Esto se debe a que la API de
+          observación estaba destinada a suscribir el cambio de entrada en lugar
+          de la actualización de estado (hicimos una solución solo para la
+          matriz de campo), también use esta función con precaución, ya que
+          afecta el rendimiento de su formulario / aplicación.
         </p>
       </>
     ),

@@ -686,6 +686,12 @@ export default {
               <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
               할 것입니다.
             </p>
+            <p>
+              <b className={typographyStyles.note}>참고</b>:당신의 양식이 다른
+              값으로 <code>reset</code>을 호출하면 set 대신 useForm 레벨에서{" "}
+              <code>defaultValues​​</code> 제공 인라인 <code>defaultValue</code>
+              .
+            </p>
           </td>
         </tr>
         <tr>
@@ -953,6 +959,16 @@ export default {
         <p>
           <b className={typographyStyles.note}>참고:</b> 기본값을 설정하거나
           입력으로 재설정하려는 경우 <code> defaultValue </code>를 설정하십시오.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b>
+          추가하는 동안 필드 배열 값의 업데이트를보고 싶다면 다른 작업을 앞에
+          추가하십시오. <code>watch('fieldArrayName')</code>와 같이 전체 필드
+          배열 객체를 감시해야합니다. 이것은 API가 상태 업데이트가 아닌 입력
+          변경을 구독하기위한 것이므로 (필드 배열에 대해서만 해결 방법을
+          만들었습니다) 양식 / 앱의 성능에 영향을 미치 므로이 기능을주의해서
+          사용하십시오.
         </p>
       </>
     ),
