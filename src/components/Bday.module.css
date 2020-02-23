@@ -1,14 +1,24 @@
 .root {
-  width: 600px;
-  margin: -30px auto 90px;
-  display: grid;
-  grid-column-gap: 20px;
-  align-items: inherit;
-  grid-template-areas:
-    "d d e"
-    "a b e"
-    "c b e";
+  display: none;
 }
+
+@media (min-width: 768px) {
+  .root {
+    width: 650px;
+    margin: 0 auto 0px;
+    align-items: inherit;
+    grid-template-areas:
+      "d d e"
+      "a b e"
+      "c b e";
+    border: 1px solid var(--color-light-blue);
+    padding: 0 40px 60px;
+    border-radius: 7px;
+    box-shadow: 0 0 20px var(--color-primary);
+    display: grid;
+  }
+}
+
 .root span {
   display: block;
 }
@@ -29,6 +39,7 @@
   font-size: 50px;
   font-weight: 300;
   position: relative;
+  margin-top: -33px;
 }
 
 .birthday p {
@@ -46,6 +57,7 @@
   font-size: 130px;
   line-height: 110px;
   font-weight: bold;
+  padding-left: 10px;
   display: block;
   grid-area: b;
 }
@@ -65,8 +77,7 @@
 
 .cake svg {
   fill: white;
-  padding-top: 20px;
-  height: 200px;
+  height: 180px;
 }
 
 .achievement {
@@ -76,10 +87,11 @@
 
 .achievementList {
   display: grid;
+  padding-left: 10px;
 }
 
 .achievementList h4 {
-  margin-left: 33px;
+  margin-left: 12px;
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 20px;
@@ -99,9 +111,30 @@
 .achievementList p {
   padding: 5px 0;
   margin: 0;
+  font-size: 14px;
 }
 
 .achievement strong {
   color: var(--color-light-pink);
   font-weight: 500;
+}
+
+.link {
+  border: 1px solid white;
+  margin-left: 40px;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 20px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 14px;
+  color: white;
+  width: 150px;
+}
+
+.link:hover {
+  background-color: white;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
