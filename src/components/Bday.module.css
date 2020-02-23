@@ -39,7 +39,7 @@
   font-size: 50px;
   font-weight: 300;
   position: relative;
-  margin-top: -33px;
+  margin-top: -10px;
 }
 
 .birthday p {
@@ -55,7 +55,7 @@
 .first {
   margin-top: 0;
   font-size: 130px;
-  line-height: 110px;
+  line-height: 120px;
   font-weight: bold;
   padding-left: 10px;
   display: block;

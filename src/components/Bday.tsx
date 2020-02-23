@@ -7,11 +7,6 @@ const list = [
     ★ OS Awards: nominated as <br />
     <strong>Breakthrough of the year</strong>
   </p>,
-
-  <p>
-    ★ OS Awards: nominated as <br />
-    <strong>Breakthrough of the year</strong>
-  </p>,
   <p>
     ★ NPM downloads: <strong>1.3M</strong>
   </p>,
