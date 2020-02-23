@@ -932,13 +932,19 @@ export default {
   NativeValidation: {
     title: "Validación nativa del navegador",
     description: (
-      <p>
-        El siguiente ejemplo muestra cómo puedes aprovechar la validación nativa
-        del navegador. Solo necesitas establecer <code>nativeValidation</code>{" "}
-        en {""}
-        <code>true</code> y el resto de la sintaxis es la misma que la
-        validación estándar.
-      </p>
+      <>
+        <p>
+          El siguiente ejemplo muestra cómo puedes aprovechar la validación
+          nativa del navegador. Solo necesitas establecer{" "}
+          <code>nativeValidation</code> en {""}
+          <code>true</code> y el resto de la sintaxis es la misma que la
+          validación estándar.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   useFieldArray: {

@@ -1146,12 +1146,18 @@ export default {
   NativeValidation: {
     title: "Browser built-in validation",
     description: (
-      <p>
-        В следующем примере показано, как вы можете использовать браузерную
-        валидацию. Вам нужно установить свойство <code>nativeValidation</code> в{" "}
-        <code>true</code>, а остальная часть синтаксиса такая же, как для
-        стандартной валидации.
-      </p>
+      <>
+        <p>
+          В следующем примере показано, как вы можете использовать браузерную
+          валидацию. Вам нужно установить свойство <code>nativeValidation</code>{" "}
+          в <code>true</code>, а остальная часть синтаксиса такая же, как для
+          стандартной валидации.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   validationResolver: {

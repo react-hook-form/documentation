@@ -722,10 +722,10 @@ export default {
               <code>defaultValue</code> よりも優先されます。
             </p>
             <p>
-              <b className={typographyStyles.note}>注意</b>: あなたのフォームが
-              さまざまな値で<code>reset</code>を呼び出します。
-              setではなくuseFormレベルで<code>defaultValues</code>を提供します
-              インライン<code>defaultValue</code>。
+              <b className={typographyStyles.note}>注意:</b> フォームで{" "}
+              <code>reset</code> を呼び出す場合、 インラインの{" "}
+              <code>defaultValue</code> を設定する代わりに、 useForm で{" "}
+              <code>defaultValues</code> を指定する必要があります。
             </p>
           </td>
         </tr>
@@ -969,8 +969,9 @@ export default {
             </a>{" "}
             です。
             <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              <code>messages</code> を使用するためには、 validateCriteriaMode を{" "}
+              'all' に設定する必要があります。
             </p>
           </td>
         </tr>
@@ -980,11 +981,18 @@ export default {
   NativeValidation: {
     title: "Browser built-in validation",
     description: (
-      <p>
-        下記の例は、ブラウザバリデーションを活用する方法を示しています。
-        <code>nativeValidation</code> を <code>true</code> に設定するだけで、
-        残りの構文は標準のバリデーションと同じになります。
-      </p>
+      <>
+        <p>
+          下記の例は、ブラウザバリデーションを活用する方法を示しています。
+          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
+          残りの構文は標準のバリデーションと同じになります。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>注意</b>:
+          この機能は使用率が低いため V4 で削除されましたが、 V3{" "}
+          では引き続き使用できます。
+        </p>
+      </>
     ),
   },
   useFieldArray: {
@@ -1011,10 +1019,10 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>重要:</b> due to ref callback
-          issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
+          <b className={typographyStyles.note}>重要:</b> コールバック ref{" "}
+          の問題のため、<code>register</code>{" "}
+          にバリデーションルールを指定しない場合は、空のペイロードを渡すようにしてください。例:{" "}
+          <code>{`ref={register()}`}</code>
         </p>
 
         <p>
@@ -1024,10 +1032,12 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>注意: </b>
-          追加、追加、その他のアクション中にフィールド配列値の更新を監視する場合。フィールド配列オブジェクト全体を監視する必要があります。例：
-          <code>watch( 'fieldArrayName')</code>
-          。これは、ウォッチAPIが状態の更新ではなく入力の変更をサブスクライブすることを目的としているためです（フィールド配列に対してのみ回避策を作成しました）。また、フォーム/アプリのパフォーマンスに影響するため、この機能は注意して使用してください。
+          <b className={typographyStyles.note}>注意:</b> append、prepend
+          及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
+          フィールド配列オブジェクト全体を監視する必要があります。例:{" "}
+          <code>watch('fieldArrayName')</code> これは、watch API{" "}
+          が状態の更新ではなく入力の変更をサブスクライブするためです（私たちはフィールド配列に対してのみ回避策を用意しました）。
+          また、この機能はフォーム・アプリのパフォーマンスに影響を与えるので、注意して使用してください。
         </p>
       </>
     ),
