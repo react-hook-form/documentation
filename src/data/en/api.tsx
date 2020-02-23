@@ -335,6 +335,7 @@ export default {
     ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
+    dirtyFields: "A unique set of user modified fields.",
     touched:
       "An object containing all the inputs the user has interacted with.",
     isSubmitting: (

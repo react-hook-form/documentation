@@ -341,6 +341,7 @@ export default {
     ),
     dirty:
       "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
+    dirtyFields: "Um conjunto exclusivo de campos modificados pelo usuário.",
     isSubmitted:
       "Marcado como verdadeiro após o usuário submeter o formulário.",
     touched: "Uma matriz (Object) com todos os campos que foram interagidos.",

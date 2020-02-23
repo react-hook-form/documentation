@@ -63,6 +63,15 @@ export default React.memo(
               </tr>
               <tr>
                 <td>
+                  <code>dirtyFields</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Set</code>
+                </td>
+                <td>{api.formState.dirtyFields}</td>
+              </tr>
+              <tr>
+                <td>
                   <code>isSubmitted</code>
                 </td>
                 <td>
