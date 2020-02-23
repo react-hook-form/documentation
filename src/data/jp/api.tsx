@@ -345,6 +345,7 @@ export default {
       </>
     ),
     dirty: "ユーザが入力操作した後 true に設定します。",
+    dirtyFields: "ユーザーが変更したフィールドの一意のセット。",
     isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
     touched: (
       <>
