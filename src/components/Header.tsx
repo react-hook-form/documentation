@@ -159,7 +159,7 @@ export default function Header({
       >
         <div style={{ position: "relative" }}>
           <Animate
-            sequenceIndex={3}
+            sequenceIndex={4}
             delay={0.1}
             start={{ opacity: 0 }}
             end={{ opacity: 1 }}
