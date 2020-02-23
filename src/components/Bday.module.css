@@ -4,7 +4,7 @@
 
 @media (min-width: 768px) {
   .root {
-    width: 650px;
+    width: 630px;
     margin: 0 auto 0px;
     align-items: inherit;
     grid-template-areas:
