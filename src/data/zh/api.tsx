@@ -916,11 +916,17 @@ export default {
   NativeValidation: {
     title: "Browser built-in validation",
     description: (
-      <p>
-        下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
-        <code>nativeValidation</code>设置为<code>true</code>
-        ，其余语法与标准验证相同。
-      </p>
+      <>
+        <p>
+          下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
+          <code>nativeValidation</code>设置为<code>true</code>
+          ，其余语法与标准验证相同。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   useFieldArray: {

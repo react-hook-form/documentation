@@ -888,11 +888,6 @@ function ApiPage({
 
           {api.NativeValidation.description}
 
-          <p>
-            <b className={typographyStyles.note}>Note</b>: This feature has been
-            removed in V4 due to low usage, but you can still use it in V3
-          </p>
-
           <CodeArea
             rawData={nativeValidation}
             url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
