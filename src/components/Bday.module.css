@@ -12,7 +12,7 @@
       "a b e"
       "c b e";
     border: 1px solid var(--color-light-blue);
-    padding: 0 40px 60px;
+    padding: 0 40px 40px;
     border-radius: 7px;
     box-shadow: 0 0 20px var(--color-primary);
     display: grid;
