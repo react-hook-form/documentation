@@ -186,7 +186,7 @@ function ApiPage({
           let temp
 
           for (const top of allTops) {
-            if (!temp || Math.abs(top) < Math.abs(temp)) {
+            if (temp === undefined || Math.abs(top) < Math.abs(temp)) {
               temp = top
               foundIndex = index
             }
@@ -196,8 +196,8 @@ function ApiPage({
           setActiveIndex(foundIndex)
         },
         {
-          rootMargin: "0px 0px",
-          threshold: [0.3],
+          rootMargin: "40px",
+          threshold: [0.01],
         }
       )
 
@@ -580,7 +580,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.registerRef = ref
             }}
           >
@@ -605,7 +604,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.unregisterRef = ref
             }}
           >
@@ -630,7 +628,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.errorsRef = ref
             }}
           >
@@ -639,7 +636,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.watchRef = ref
             }}
           >
@@ -648,7 +644,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
             }}
           >
