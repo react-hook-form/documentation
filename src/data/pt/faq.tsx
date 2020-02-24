@@ -15,11 +15,11 @@ export default {
       title: "Performance do React Hook Form",
       description: (
         <p>
-          Performance é um dos objetivos principais, para construir esse hook
-          customizável. React Hook Form depende de componentes incontroláveis,
-          consequentemente a razão da função de 'register' ocorre com o uso do
-          ref. Esta abordagem irá reduzir o total de re-renderização ocorridas
-          pela escrita do usuário ou mudança de valores. Componentes montados na
+          Performance é um dos objetivos principais para construir esse hook
+          customizável. React Hook Form depende de componentes não controlados,
+          consequentemente, esta é a razão pela qual a função de 'register' estar no
+          ref. Esta abordagem irá reduzir o total de novas renderizações ocorridas
+          pela digitação do usuário ou mudança de valores. Componentes montados na
           página são mais rápidos porque eles não são controlados. Para montar
           com velocidade, Eu tenho um guia completo de comparações rápidas, que
           você pode conferir em{" "}
@@ -56,7 +56,7 @@ export default {
       description: (
         <>
           <p>
-            Não, não nesta abordagem. mas você pode criar um embrulho por volta
+            Não, não nesta abordagem. mas você pode empacotar os componentes 
             e usar como componente de classe.
           </p>
 
@@ -81,13 +81,12 @@ export default {
               <b>HTMLFormElement.reset()</b>
               <p>
                 Este método faz a mesma coisa que clicar no botão reset do
-                formulário, e apenas limpa
-                <code>input/select/checkbox</code>.
+                formulário, e apenas limpa <code>input/select/checkbox</code>.
               </p>
             </li>
             <li>
               <b>
-                React Hook Form API: <code>reset()</code>
+                API do React Hook Form: <code>reset()</code>
               </b>
               <p>
                 React Hook Form's <code>reset</code> método irá limpar todos os
@@ -199,10 +198,10 @@ export default {
         <>
           <p>
             Antes de tudo, todas as bibliotecas tentam resolver o mesmo problema
-            que está tornando a experiência de criação de formulários fácil e
+            o que está tornando a experiência de criação de formulários fácil e
             ótima. No entanto, existem algumas diferenças fundamentais entre os
-            três, o formulário react-hook-hook é construído com a entrada
-            descontrolada em mente e tenta fornecer ao seu formulário o melhor
+            três, react-hook-hook é construído com a entrada
+            não controlada em mente e tenta fornecer ao seu formulário o melhor
             desempenho e a menor renderização possível, se possível. Além disso,
             o formulário reat-hook é criado pelo React Hook e usado como hook, o
             que significa que não há nenhum componente para você importar. Aqui
