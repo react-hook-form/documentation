@@ -137,7 +137,7 @@ function ApiPage({
   })
   copyFormData.current = formData
 
-  const goToSection = name => {
+  const goToSection = (name, animate = true) => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ |-/g, "")
@@ -153,35 +153,40 @@ function ApiPage({
     const refName = `${filterName}Ref`
 
     if (apiSectionsRef.current[refName]) {
-      apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
+      apiSectionsRef.current[refName].scrollIntoView(
+        animate ? { behavior: "smooth" } : undefined
+      )
     }
   }
 
   useEffect(() => {
     if (location.hash) {
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+      setTimeout(() => goToSection(location.hash.substr(1), false), 10)
     }
   }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
-        for (let i = entries.length; i--; ) {
-          let index = 0
-          if (entries[i].isIntersecting && entries[i].intersectionRatio > 0) {
+        let index = 0
+        let found = false
+        for (const entrie of entries) {
+          if (entrie.isIntersecting && entrie.intersectionRatio > 0) {
             for (const key in apiSectionsRef.current) {
-              if (entries[i].target === apiSectionsRef.current[key]) {
+              if (entrie.target === apiSectionsRef.current[key]) {
                 setActiveIndex(index)
+                found = true
                 break
               }
               index++
             }
           }
+          if (found) break
         }
       },
       {
         rootMargin: "0px 0px",
-        threshold: [0.25],
+        threshold: [0.3],
       }
     )
 
@@ -691,7 +696,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
             }}
           >
@@ -729,114 +733,115 @@ function ApiPage({
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.clearErrorRef = ref
             }}
           >
-            <h2>
-              clearError:{" "}
-              <span className={typographyStyles.typeText}>
-                (name?: string | string[]) => void
-              </span>
-            </h2>
-          </code>
-          {api.clearError.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                clearError:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name?: string | string[]) => void
+                </span>
+              </h2>
+            </code>
+            {api.clearError.description}
 
-          <CodeArea rawData={clearError} />
+            <CodeArea rawData={clearError} />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.setValueRef = ref
             }}
           >
-            <h2>
-              setValue:{" "}
-              <span className={typographyStyles.typeText}>
-                (name: string, value: any, shouldValidate?: boolean) => void
-              </span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                setValue:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name: string, value: any, shouldValidate?: boolean) => void
+                </span>
+              </h2>
+            </code>
 
-          {api.setValue.description}
+            {api.setValue.description}
 
-          <CodeArea
-            rawData={setValue}
-            url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
-          />
+            <CodeArea
+              rawData={setValue}
+              url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.getValuesRef = ref
             }}
           >
-            <h2>
-              getValues:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(payload?: { nest: boolean }) => Object`}</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                getValues:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(payload?: { nest: boolean }) => Object`}</span>
+              </h2>
+            </code>
 
-          {api.getValues.description}
+            {api.getValues.description}
 
-          <CodeArea
-            rawData={getValues}
-            url="https://codesandbox.io/s/get-form-values-xjepz"
-          />
+            <CodeArea
+              rawData={getValues}
+              url="https://codesandbox.io/s/get-form-values-xjepz"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.triggerValidationRef = ref
             }}
           >
-            <h2>
-              triggerValidation:{" "}
-              <span className={typographyStyles.typeText}>
-                {`(payload?: string | string[]) => Promise<boolean>`}
-              </span>
-            </h2>
-          </code>
-          {api.triggerValidation.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                triggerValidation:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`(payload?: string | string[]) => Promise<boolean>`}
+                </span>
+              </h2>
+            </code>
+            {api.triggerValidation.description}
 
-          <CodeArea
-            rawData={trigger}
-            url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
-          />
+            <CodeArea
+              rawData={trigger}
+              url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.controlRef = ref
             }}
           >
-            <h2>
-              control: <span className={typographyStyles.typeText}>Object</span>
-            </h2>
-          </code>
-          {api.control.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                control:{" "}
+                <span className={typographyStyles.typeText}>Object</span>
+              </h2>
+            </code>
+            {api.control.description}
 
-          <CodeArea
-            rawData={control}
-            url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
-          />
+            <CodeArea
+              rawData={control}
+              url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
+            />
+          </section>
 
           <hr />
 
@@ -889,44 +894,44 @@ function ApiPage({
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.validationSchemaRef = ref
             }}
           >
-            <h2>
-              validationSchema:{" "}
-              <span className={typographyStyles.typeText}>Object</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                validationSchema:{" "}
+                <span className={typographyStyles.typeText}>Object</span>
+              </h2>
+            </code>
 
-          {api.validationSchema.description}
+            {api.validationSchema.description}
 
-          <CodeArea
-            rawData={validationSchemaCode}
-            url="https://codesandbox.io/s/928po918qr"
-          />
+            <CodeArea
+              rawData={validationSchemaCode}
+              url="https://codesandbox.io/s/928po918qr"
+            />
+          </section>
 
           <hr />
 
-          <h2
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >
-            Browser built-in validation (V3 only)
-          </h2>
+            <h2 className={typographyStyles.codeHeading}>
+              Browser built-in validation (V3 only)
+            </h2>
 
-          {api.NativeValidation.description}
+            {api.NativeValidation.description}
 
-          <CodeArea
-            rawData={nativeValidation}
-            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-          />
+            <CodeArea
+              rawData={nativeValidation}
+              url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
+            />
+          </section>
 
           <div
             className={containerStyles.centerContent}
