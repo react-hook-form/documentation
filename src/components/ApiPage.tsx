@@ -87,6 +87,7 @@ function ApiPage({
       ? language
       : { currentLanguage: defaultLang }
   const api = apiContent[currentLanguage]
+  const [activeIndex, setActiveIndex] = React.useState(0)
   const links = [
     api.useForm,
     api.register,
@@ -112,29 +113,27 @@ function ApiPage({
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
-    quickStartRef: null,
-    formStateRef: null,
     useFormRef: null,
     registerRef: null,
     unregisterRef: null,
-    resetRef: null,
     errorsRef: null,
     watchRef: null,
-    setErrorRef: null,
-    validationSchemaRef: null,
     handleSubmitRef: null,
-    getValuesRef: null,
-    controlRef: null,
-    TypeScriptRef: null,
+    resetRef: null,
+    setErrorRef: null,
     clearErrorRef: null,
+    setValueRef: null,
+    getValuesRef: null,
     triggerValidationRef: null,
-    useFormContextRef: null,
+    controlRef: null,
+    formStateRef: null,
     ControllerRef: null,
-    validationResolverRef: null,
-    BrowserbuiltinvalidationRef: null,
     ErrorMessageRef: null,
-    ReactNativeRef: null,
+    useFormContextRef: null,
     useFieldArrayRef: null,
+    validationResolverRef: null,
+    validationSchemaRef: null,
+    BrowserbuiltinvalidationRef: null,
   })
   copyFormData.current = formData
 
@@ -159,8 +158,38 @@ function ApiPage({
   }
 
   useEffect(() => {
-    if (location.hash)
+    if (location.hash) {
       setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    }
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        for (let i = entries.length; i--; ) {
+          let index = 0
+          if (entries[i].isIntersecting && entries[i].intersectionRatio > 0) {
+            for (const key in apiSectionsRef.current) {
+              if (entries[i].target === apiSectionsRef.current[key]) {
+                setActiveIndex(index)
+                break
+              }
+              index++
+            }
+          }
+        }
+      },
+      {
+        rootMargin: "0px 0px",
+        threshold: [0.25],
+      }
+    )
+
+    Object.values(apiSectionsRef.current).forEach(item => {
+      if (item) {
+        observer.observe(item)
+      }
+    })
   }, [])
 
   return (
@@ -195,6 +224,7 @@ function ApiPage({
       <div className={containerStyles.wrapper}>
         <SideMenu
           links={links}
+          activeIndex={activeIndex}
           enLinks={enLinks}
           goToSection={goToSection}
           currentLanguage={currentLanguage}
@@ -528,27 +558,28 @@ function ApiPage({
 
           <p style={{ textAlign: "center" }}>♦</p>
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.registerRef = ref
             }}
           >
-            <h2>
-              register:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(Ref, validateRule?) => void`}</span>
-              <Popup message="React Native: Custom register or using Controller" />
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                register:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(Ref, validateRule?) => void`}</span>
+                <Popup message="React Native: Custom register or using Controller" />
+              </h2>
+            </code>
 
-          <ApiRefTable
-            api={api}
-            goToSection={goToSection}
-            currentLanguage={currentLanguage}
-          />
+            <ApiRefTable
+              api={api}
+              goToSection={goToSection}
+              currentLanguage={currentLanguage}
+            />
+          </section>
 
           <hr />
 
@@ -593,104 +624,108 @@ function ApiPage({
           >
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
-          <code
-            className={typographyStyles.codeHeading}
+
+          <section
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
             }}
           >
-            <h2>
-              handleSubmit:{" "}
-              <span className={typographyStyles.typeText}>
-                (data: Object, e: Event) => void
-              </span>
-            </h2>
-          </code>
-          {api.handleSubmit.description}
-          <CodeArea
-            rawData={handleSubmitCode}
-            url="https://codesandbox.io/s/yj07z1639"
-          />
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                handleSubmit:{" "}
+                <span className={typographyStyles.typeText}>
+                  (data: Object, e: Event) => void
+                </span>
+              </h2>
+            </code>
+            {api.handleSubmit.description}
+            <CodeArea
+              rawData={handleSubmitCode}
+              url="https://codesandbox.io/s/yj07z1639"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.resetRef = ref
             }}
           >
-            <h2>
-              reset:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(values?: Record<string, any>) => void`}</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                reset:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(values?: Record<string, any>) => void`}</span>
+              </h2>
+            </code>
 
-          {api.reset(goToSection).description}
+            {api.reset(goToSection).description}
 
-          <TabGroup
-            buttonLabels={[
-              "Uncontrolled",
-              "Controller",
-              "Controlled / React Native",
-            ]}
-          >
-            <CodeArea
-              rawData={resetCode}
-              url="https://codesandbox.io/s/jjm3wyqmjy"
-            />
-            <CodeArea
-              rawData={resetRHFInput}
-              url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
-            />
-            <CodeArea
-              rawData={resetCodeControlled}
-              url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
-            />
-          </TabGroup>
+            <TabGroup
+              buttonLabels={[
+                "Uncontrolled",
+                "Controller",
+                "Controlled / React Native",
+              ]}
+            >
+              <CodeArea
+                rawData={resetCode}
+                url="https://codesandbox.io/s/jjm3wyqmjy"
+              />
+              <CodeArea
+                rawData={resetRHFInput}
+                url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+              />
+              <CodeArea
+                rawData={resetCodeControlled}
+                url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
+              />
+            </TabGroup>
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
             }}
           >
-            <h2>
-              setError: <br />
-              <span className={typographyStyles.typeText}>
-                {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
-              </span>
-            </h2>
-          </code>
-          {api.setError.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                setError: <br />
+                <span className={typographyStyles.typeText}>
+                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
+                </span>
+              </h2>
+            </code>
+            {api.setError.description}
 
-          <TabGroup
-            buttonLabels={[
-              "Single Error",
-              "Multiple Error",
-              "Single Field Errors",
-            ]}
-          >
-            <CodeArea
-              rawData={setError}
-              url="https://codesandbox.io/s/o7rxyym3q5"
-            />
-            <CodeArea
-              rawData={setMultipleErrors}
-              url="https://codesandbox.io/s/o7rxyym3q5"
-            />
-            <CodeArea
-              rawData={setAllErrors}
-              url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
-            />
-          </TabGroup>
+            <TabGroup
+              buttonLabels={[
+                "Single Error",
+                "Multiple Error",
+                "Single Field Errors",
+              ]}
+            >
+              <CodeArea
+                rawData={setError}
+                url="https://codesandbox.io/s/o7rxyym3q5"
+              />
+              <CodeArea
+                rawData={setMultipleErrors}
+                url="https://codesandbox.io/s/o7rxyym3q5"
+              />
+              <CodeArea
+                rawData={setAllErrors}
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
+              />
+            </TabGroup>
+          </section>
 
           <hr />
 
