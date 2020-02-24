@@ -166,43 +166,47 @@ function ApiPage({
   }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        let index = 0
-        const allTops = []
-        for (const entrie of entries) {
-          for (const key in apiSectionsRef.current) {
-            const { top } = apiSectionsRef.current[key].getBoundingClientRect()
-            allTops.push(top)
+    try {
+      const observer = new IntersectionObserver(
+        entries => {
+          let index = 0
+          const allTops = []
+          for (const entrie of entries) {
+            for (const key in apiSectionsRef.current) {
+              const { top } = apiSectionsRef.current[
+                key
+              ].getBoundingClientRect()
+              allTops.push(top)
+              index++
+            }
+          }
+
+          index = 0
+          let foundIndex = 0
+          let temp
+
+          for (const top of allTops) {
+            if (!temp || Math.abs(top) < Math.abs(temp)) {
+              temp = top
+              foundIndex = index
+            }
             index++
           }
+
+          setActiveIndex(foundIndex)
+        },
+        {
+          rootMargin: "0px 0px",
+          threshold: [0.3],
         }
+      )
 
-        index = 0
-        let foundIndex = 0
-        let temp
-
-        for (const top of allTops) {
-          if (!temp || Math.abs(top) < Math.abs(temp)) {
-            temp = top
-            foundIndex = index
-          }
-          index++
+      Object.values(apiSectionsRef.current).forEach(item => {
+        if (item) {
+          observer.observe(item)
         }
-
-        setActiveIndex(foundIndex)
-      },
-      {
-        rootMargin: "0px 0px",
-        threshold: [0.3],
-      }
-    )
-
-    Object.values(apiSectionsRef.current).forEach(item => {
-      if (item) {
-        observer.observe(item)
-      }
-    })
+      })
+    } catch {}
   }, [])
 
   return (
