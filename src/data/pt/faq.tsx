@@ -17,12 +17,12 @@ export default {
         <p>
           Performance é um dos objetivos principais para construir esse hook
           customizável. React Hook Form depende de componentes não controlados,
-          consequentemente, esta é a razão pela qual a função de 'register' estar no
-          ref. Esta abordagem irá reduzir o total de novas renderizações ocorridas
-          pela digitação do usuário ou mudança de valores. Componentes montados na
-          página são mais rápidos porque eles não são controlados. Para montar
-          com velocidade, Eu tenho um guia completo de comparações rápidas, que
-          você pode conferir em{" "}
+          consequentemente, esta é a razão pela qual a função de 'register'
+          estar no ref. Esta abordagem irá reduzir o total de novas
+          renderizações ocorridas pela digitação do usuário ou mudança de
+          valores. Componentes montados na página são mais rápidos porque eles
+          não são controlados. Para montar com velocidade, Eu tenho um guia
+          completo de comparações rápidas, que você pode conferir em{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -56,8 +56,8 @@ export default {
       description: (
         <>
           <p>
-            Não, não nesta abordagem. mas você pode empacotar os componentes 
-            e usar como componente de classe.
+            Não, não nesta abordagem. mas você pode empacotar os componentes e
+            usar como componente de classe.
           </p>
 
           <blockquote>
@@ -200,11 +200,11 @@ export default {
             Antes de tudo, todas as bibliotecas tentam resolver o mesmo problema
             o que está tornando a experiência de criação de formulários fácil e
             ótima. No entanto, existem algumas diferenças fundamentais entre os
-            três, react-hook-hook é construído com a entrada
-            não controlada em mente e tenta fornecer ao seu formulário o melhor
-            desempenho e a menor renderização possível, se possível. Além disso,
-            o formulário reat-hook é criado pelo React Hook e usado como hook, o
-            que significa que não há nenhum componente para você importar. Aqui
+            três, react-hook-hook é construído com a entrada não controlada em
+            mente e tenta fornecer ao seu formulário o melhor desempenho e a
+            menor renderização possível, se possível. Além disso, o formulário
+            reat-hook é criado pelo React Hook e usado como hook, o que
+            significa que não há nenhum componente para você importar. Aqui
             estão algumas das diferenças de detalhes:
           </p>
 

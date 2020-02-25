@@ -82,6 +82,7 @@ function ApiPage({
   const {
     state: { language },
   } = useStateMachine()
+  const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -166,19 +167,22 @@ function ApiPage({
   }, [])
 
   useEffect(() => {
+    if (isUnmount.current) return
     try {
       const observer = new IntersectionObserver(
         entries => {
           let index = 0
           const allTops = []
           for (const entrie of entries) {
-            for (const key in apiSectionsRef.current) {
-              const { top } = apiSectionsRef.current[
-                key
-              ].getBoundingClientRect()
-              allTops.push(top)
-              index++
-            }
+            try {
+              for (const key in apiSectionsRef.current) {
+                const { top } = apiSectionsRef.current[
+                  key
+                ].getBoundingClientRect()
+                allTops.push(top)
+                index++
+              }
+            } catch {}
           }
 
           index = 0
@@ -207,6 +211,10 @@ function ApiPage({
         }
       })
     } catch {}
+
+    return () => {
+      isUnmount.current = true
+    }
   }, [])
 
   return (
