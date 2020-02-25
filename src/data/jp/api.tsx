@@ -506,12 +506,10 @@ export default {
           コンポーネントを使用して制御されたコンポーネントをラップする必要があります。
         </p>
         <p>
-          <b className={typographyStyles.note}>注意：</b>
-          あなたがする必要があります
-          <code> useForm </code>または中に<code> defaultValues </code>
-          を指定します<code> Controller </code>をリセットするための値を含む
-          <code> reset </code>
-          コンポーネントの価値。
+          <b className={typographyStyles.note}>注意：</b>{" "}
+          <code>Controller</code> コンポーネントの値をリセットするには、
+          <code>useForm</code> に <code>defaultValues</code>{" "}
+          を指定する必要があります。
         </p>
       </>
     ),
@@ -522,11 +520,10 @@ export default {
       <>
         <p>単一または複数の input のエラーを手動で設定できます。</p>
         <p>
-          <b className={typographyStyles.note}>注意: </b>:
-          このメソッドはエラーを保持せず、ブロックしません
-          送信アクション。これは、<code>handleSubmit</code>
-          関数中に次の場合に便利です。
-          非同期検証後にエラーフィードバックをユーザーに提供する必要があります。
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          このメソッドはエラーを保存せず、フォームの送信をブロックしません。
+          非同期バリデーション後にユーザーへエラーをフィードバックしたい場合は、{" "}
+          <code>handleSubmit</code> 関数内で使用してください。
         </p>
       </>
     ),
@@ -722,10 +719,11 @@ export default {
               <code>defaultValue</code> よりも優先されます。
             </p>
             <p>
-              <b className={typographyStyles.note}>注意:</b> フォームで{" "}
-              <code>reset</code> を呼び出す場合、 インラインの{" "}
-              <code>defaultValue</code> を設定する代わりに、 useForm で{" "}
-              <code>defaultValues</code> を指定する必要があります。
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              フォーム内でデフォルト値を引数として <code>reset</code>{" "}
+              を呼び出す場合、 インラインの <code>defaultValue</code>{" "}
+              を設定する代わりに、 useForm で <code>defaultValues</code>{" "}
+              を指定する必要があります。
             </p>
           </td>
         </tr>
@@ -1027,8 +1025,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
-          デフォルト値を設定するか、入力でリセットする場合は、
-          <code> defaultValue </code>を設定します。
+          デフォルト値を設定するか、入力値をリセットしたい場合は、
+          <code>defaultValue</code> を設定します。
         </p>
 
         <p>

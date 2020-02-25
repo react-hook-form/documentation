@@ -880,7 +880,7 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: if your form will
-              invoke <code>reset</code> with different values, you will need to
+              invoke <code>reset</code> with default values, you will need to
               provide <code>defaultValues</code> at useForm level instead of set
               inline <code>defaultValue</code>.
             </p>
