@@ -494,9 +494,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note: </b> You will need to
-          supply <code>defaultValues</code> during <code>useForm</code> or{" "}
-          <code>reset</code> with value for resetting <code>Controller</code>{" "}
-          components' value.
+          supply <code>defaultValues</code> at <code>useForm</code> to{" "}
+          <code>reset</code> <code>Controller</code> components' value.
         </p>
       </>
     ),
