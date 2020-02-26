@@ -713,7 +713,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any) => any
+              (args: any | EventTarget) => any
             </code>
           </td>
           <td />
