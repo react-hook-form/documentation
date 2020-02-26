@@ -1,9 +1,11 @@
 import * as React from "react"
 import colors from "../styles/colors"
 import generic from "../data/generic"
-import styles from "./SideMenu.module.css"
 import { useStateMachine } from "little-state-machine"
 import typographyStyles from "../styles/typography.module.css"
+import styles from "./SideMenu.module.css"
+
+const activateStyle = { borderBottom: `1px solid ${colors.lightPink}` }
 
 function SideMenu({
   links,
@@ -11,12 +13,14 @@ function SideMenu({
   enLinks,
   isStatic,
   currentLanguage,
+  activeIndex,
 }: {
   links: any
   goToSection: Function
   isStatic?: boolean
   enLinks: any
   currentLanguage: string
+  activeIndex: number
 }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
@@ -78,6 +82,7 @@ function SideMenu({
                       style={{
                         top: "-3px",
                         position: "relative",
+                        ...(activeIndex === index ? activateStyle : {}),
                       }}
                     >
                       {linkName}
@@ -91,6 +96,7 @@ function SideMenu({
                         top: "-3px",
                         position: "relative",
                         ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
+                        ...(activeIndex === index ? activateStyle : {}),
                       }}
                     >
                       {linkName}
@@ -143,6 +149,7 @@ function SideMenu({
                     top: "-3px",
                     position: "relative",
                     ...(link === "Quick Start" ? { paddingLeft: 0 } : null),
+                    ...(activeIndex === index ? activateStyle : {}),
                   }}
                 >
                   {linkName}

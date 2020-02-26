@@ -14,7 +14,8 @@
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-column-gap: 60px;
   overflow: hidden;
-  margin-bottom: 100px;
+  max-width: 2000px;
+  margin: 0 auto 100px;
   padding: 0 20px 100px 20px;
 }
 

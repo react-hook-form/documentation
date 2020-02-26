@@ -58,6 +58,8 @@
     cursor: pointer;
     border-bottom: 1px solid transparent;
     text-align: left;
+    padding: 0;
+    margin: 0 7px;
   }
 
   .menu > div > ul > li > a:hover,

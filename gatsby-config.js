@@ -5,13 +5,14 @@ module.exports = {
     title: `React Hook Form - Simple React forms validation`,
     description: `Performant, flexible and extensible forms with easy-to-use validation.`,
     author: `@bluebill1049`,
-    siteUrl: "https://www.react-hook-form.com",
+    siteUrl: `https://www.react-hook-form.com`,
     languages,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    "gatsby-plugin-typescript",
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-css-modules-typings`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,9 +21,9 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-i18n",
+      resolve: `gatsby-plugin-i18n`,
       options: {
-        langKeyForNull: "en",
+        langKeyForNull: `en`,
         langKeyDefault: languages.defaultLangKey,
         useLangKeyLayout: true,
         prefixDefault: false,
@@ -52,17 +53,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-139961497-1",
+        trackingId: `UA-139961497-1`,
       },
     },
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: "UA-139961497-1",
+        trackingId: `UA-139961497-1`,
         head: false,
         anonymize: true,
       },
     },
-    'gatsby-plugin-offline',
+    `gatsby-plugin-offline`,
   ],
 }

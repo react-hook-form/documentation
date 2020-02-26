@@ -335,6 +335,7 @@ export default {
     ),
     dirty: "Set to true after a user interacted with any of the inputs.",
     isSubmitted: "Set true after a user submitted the form.",
+    dirtyFields: "A unique set of user modified fields.",
     touched:
       "An object containing all the inputs the user has interacted with.",
     isSubmitting: (
@@ -493,9 +494,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note: </b> You will need to
-          supply <code>defaultValues</code> during <code>useForm</code> or{" "}
-          <code>reset</code> with value for resetting <code>Controller</code>{" "}
-          components' value.
+          supply <code>defaultValues</code> at <code>useForm</code> to{" "}
+          <code>reset</code> <code>Controller</code> components' value.
         </p>
       </>
     ),
@@ -880,7 +880,7 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: if your form will
-              invoke <code>reset</code> with different values, you will need to
+              invoke <code>reset</code> with default values, you will need to
               provide <code>defaultValues</code> at useForm level instead of set
               inline <code>defaultValue</code>.
             </p>
@@ -1130,12 +1130,18 @@ export default {
   NativeValidation: {
     title: "Browser built-in validation",
     description: (
-      <p>
-        The following example demonstrates how you can leverage the browser's
-        validation. You only need to set <code>nativeValidation</code> to{" "}
-        <code>true</code> and the rest of the syntax is the same as standard
-        validation.
-      </p>
+      <>
+        <p>
+          The following example demonstrates how you can leverage the browser's
+          validation. You only need to set <code>nativeValidation</code> to{" "}
+          <code>true</code> and the rest of the syntax is the same as standard
+          validation.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   validationResolver: {

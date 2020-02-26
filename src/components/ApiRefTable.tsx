@@ -147,7 +147,13 @@ export default function ApiRefTable({
                 <code>required</code>
                 <br />
                 <code className={typographyStyles.typeText}>
-                  {isStandard ? "boolean" : "string"}
+                  {isStandard
+                    ? "boolean"
+                    : `string |
+{
+  value: boolean,
+  message: string
+}`}
                 </code>
               </td>
               <td>{api.register.validation.required}</td>

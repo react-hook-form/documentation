@@ -2,9 +2,9 @@ import * as React from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
+import { useStateMachine } from "little-state-machine"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./FeatureList.module.css"
-import { useStateMachine } from "little-state-machine"
 
 const props = {
   keyframes: [

@@ -82,11 +82,13 @@ function ApiPage({
   const {
     state: { language },
   } = useStateMachine()
+  const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
   const api = apiContent[currentLanguage]
+  const [activeIndex, setActiveIndex] = React.useState(0)
   const links = [
     api.useForm,
     api.register,
@@ -112,33 +114,31 @@ function ApiPage({
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
-    quickStartRef: null,
-    formStateRef: null,
     useFormRef: null,
     registerRef: null,
     unregisterRef: null,
-    resetRef: null,
     errorsRef: null,
     watchRef: null,
-    setErrorRef: null,
-    validationSchemaRef: null,
     handleSubmitRef: null,
-    getValuesRef: null,
-    controlRef: null,
-    TypeScriptRef: null,
+    resetRef: null,
+    setErrorRef: null,
     clearErrorRef: null,
+    setValueRef: null,
+    getValuesRef: null,
     triggerValidationRef: null,
-    useFormContextRef: null,
+    controlRef: null,
+    formStateRef: null,
     ControllerRef: null,
-    validationResolverRef: null,
-    BrowserbuiltinvalidationRef: null,
     ErrorMessageRef: null,
-    ReactNativeRef: null,
+    useFormContextRef: null,
     useFieldArrayRef: null,
+    validationResolverRef: null,
+    validationSchemaRef: null,
+    BrowserbuiltinvalidationRef: null,
   })
   copyFormData.current = formData
 
-  const goToSection = name => {
+  const goToSection = (name, animate = true) => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ |-/g, "")
@@ -154,13 +154,67 @@ function ApiPage({
     const refName = `${filterName}Ref`
 
     if (apiSectionsRef.current[refName]) {
-      apiSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
+      apiSectionsRef.current[refName].scrollIntoView(
+        animate ? { behavior: "smooth" } : undefined
+      )
     }
   }
 
   useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    if (location.hash) {
+      setTimeout(() => goToSection(location.hash.substr(1), false), 10)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isUnmount.current) return
+    try {
+      const observer = new IntersectionObserver(
+        entries => {
+          let index = 0
+          const allTops = []
+          for (const entrie of entries) {
+            try {
+              for (const key in apiSectionsRef.current) {
+                const { top } = apiSectionsRef.current[
+                  key
+                ].getBoundingClientRect()
+                allTops.push(top)
+                index++
+              }
+            } catch {}
+          }
+
+          index = 0
+          let foundIndex = 0
+          let temp
+
+          for (const top of allTops) {
+            if (temp === undefined || Math.abs(top) < Math.abs(temp)) {
+              temp = top
+              foundIndex = index
+            }
+            index++
+          }
+
+          setActiveIndex(foundIndex)
+        },
+        {
+          rootMargin: "40px",
+          threshold: [0.01],
+        }
+      )
+
+      Object.values(apiSectionsRef.current).forEach(item => {
+        if (item) {
+          observer.observe(item)
+        }
+      })
+    } catch {}
+
+    return () => {
+      isUnmount.current = true
+    }
   }, [])
 
   return (
@@ -195,123 +249,124 @@ function ApiPage({
       <div className={containerStyles.wrapper}>
         <SideMenu
           links={links}
+          activeIndex={activeIndex}
           enLinks={enLinks}
           goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
 
         <main>
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
               apiSectionsRef.current.useFormRef = ref
             }}
           >
-            <h2>
-              useForm:{" "}
-              <span className={typographyStyles.typeText}>Function</span>
-            </h2>
-          </code>
-          <p>
-            {api.useForm.intro}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("register")}
-            >
-              register
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                useForm:{" "}
+                <span className={typographyStyles.typeText}>Function</span>
+              </h2>
             </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("unregister")}
-            >
-              unregister
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("errors")}
-            >
-              errors
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("watch")}
-            >
-              watch
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("handleSubmit")}
-            >
-              handleSubmit
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("reset")}
-            >
-              reset
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("setError")}
-            >
-              setError
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("clearError")}
-            >
-              clearError
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("setValue")}
-            >
-              setValue
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("getValues")}
-            >
-              getValues
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("triggerValidation")}
-            >
-              triggerValidation
-            </code>
-            ,{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("control")}
-            >
-              control
-            </code>{" "}
-            and{" "}
-            <code
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("formState")}
-            >
-              formState
-            </code>
-            .
-          </p>
+            <p>
+              {api.useForm.intro}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("register")}
+              >
+                register
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("unregister")}
+              >
+                unregister
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("errors")}
+              >
+                errors
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("watch")}
+              >
+                watch
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("handleSubmit")}
+              >
+                handleSubmit
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("reset")}
+              >
+                reset
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("setError")}
+              >
+                setError
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("clearError")}
+              >
+                clearError
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("setValue")}
+              >
+                setValue
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("getValues")}
+              >
+                getValues
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("triggerValidation")}
+              >
+                triggerValidation
+              </code>
+              ,{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("control")}
+              >
+                control
+              </code>{" "}
+              and{" "}
+              <code
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("formState")}
+              >
+                formState
+              </code>
+              .
+            </p>
 
-          {api.useForm.description}
+            {api.useForm.description}
 
-          <CodeArea
-            withOutCopy
-            rawData={`const { register } = useForm({
+            <CodeArea
+              withOutCopy
+              rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -322,69 +377,69 @@ function ApiPage({
   submitFocusError: true,
   nativeValidation: false,
 })`}
-          />
-
-          <h5 className={typographyStyles.h5}>
-            <code>
-              mode:{" "}
-              <span className={typographyStyles.typeText}>
-                string = 'onSubmit'
-              </span>
-            </code>
-            <Popup top={3} />
-          </h5>
-
-          <div className={tableStyles.tableWrapper}>
-            <table className={tableStyles.table}>
-              <tbody>
-                <tr>
-                  <th>{generic.name[currentLanguage]}</th>
-                  <th>{generic.type[currentLanguage]}</th>
-                  <th>{generic.description[currentLanguage]}</th>
-                </tr>
-                <tr>
-                  <td>onSubmit (Default)</td>
-                  <td>
-                    <span className={typographyStyles.typeText}>string</span>
-                  </td>
-                  <td>{api.useForm.validateOnSubmit}</td>
-                </tr>
-                <tr>
-                  <td>onBlur</td>
-                  <td>
-                    <span className={typographyStyles.typeText}>string</span>
-                  </td>
-                  <td>{api.useForm.validateOnBlur}</td>
-                </tr>
-                <tr>
-                  <td>onChange</td>
-                  <td>
-                    <span className={typographyStyles.typeText}>string</span>
-                  </td>
-                  <td>{api.useForm.validateOnChange}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
-            <code>
-              defaultValues:{" "}
-              <span className={typographyStyles.typeText}>
-                {`Record<string, any>`} = {`{}`}
-              </span>
-            </code>
-            <Popup
-              top={3}
-              message="React Native: Custom register or using Controller"
             />
-          </h5>
 
-          {api.useForm.defaultValues(goToSection)}
+            <h5 className={typographyStyles.h5}>
+              <code>
+                mode:{" "}
+                <span className={typographyStyles.typeText}>
+                  string = 'onSubmit'
+                </span>
+              </code>
+              <Popup top={3} />
+            </h5>
 
-          <CodeArea
-            url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
-            rawData={`const { register } = useForm({
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
+                  <tr>
+                    <th>{generic.name[currentLanguage]}</th>
+                    <th>{generic.type[currentLanguage]}</th>
+                    <th>{generic.description[currentLanguage]}</th>
+                  </tr>
+                  <tr>
+                    <td>onSubmit (Default)</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validateOnSubmit}</td>
+                  </tr>
+                  <tr>
+                    <td>onBlur</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validateOnBlur}</td>
+                  </tr>
+                  <tr>
+                    <td>onChange</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validateOnChange}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                defaultValues:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`Record<string, any>`} = {`{}`}
+                </span>
+              </code>
+              <Popup
+                top={3}
+                message="React Native: Custom register or using Controller"
+              />
+            </h5>
+
+            {api.useForm.defaultValues(goToSection)}
+
+            <CodeArea
+              url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
+              rawData={`const { register } = useForm({
   defaultValues: {
     firstName: "bill",
     lastName: "luo",
@@ -397,188 +452,190 @@ function ApiPage({
 <input name="lastName" ref={() => register({ name: 'lastName' })} />
 // ❌ above example does not work with "defaultValues" due to its "ref" not being provided
 `}
-          />
+            />
 
-          <div className={tableStyles.tableWrapper}>
-            <table className={tableStyles.table}>
-              <tbody>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        validationSchema: <br />
-                        <span className={styles.mobileTypeText}>Object</span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>
-                    {api.useForm.validationSchema(goToSection)}
-                    <CodeSandBoxLink
-                      style={codeSandBoxStyle}
-                      url="https://codesandbox.io/s/928po918qr"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        validationResolver: <br />
-                        <span className={styles.mobileTypeText}>Function</span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>{api.useForm.validationResolver(goToSection)}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        validationContext: <br />
-                        <span className={styles.mobileTypeText}>Object</span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>{api.useForm.validateContext}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        validateCriteriaMode: <br />
-                        <span className={styles.mobileTypeText}>
-                          firstErrorDetected | all
-                        </span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>
-                    {api.useForm.validateCriteriaMode}
-                    <CodeSandBoxLink
-                      style={codeSandBoxStyle}
-                      url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        reValidateMode: <br />
-                        <span className={styles.mobileTypeText}>
-                          onChange | onBlur | onSubmit
-                        </span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>{api.useForm.reValidateMode}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5
-                      className={typographyStyles.h5}
-                      style={{
-                        border: "none",
-                        marginTop: 20,
-                      }}
-                    >
-                      <code>
-                        submitFocusError: <br />
-                        <span className={styles.mobileTypeText}>
-                          boolean = true
-                        </span>
-                      </code>
-                    </h5>
-                  </td>
-                  <td>{api.useForm.submitFocusError}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          validationSchema: <br />
+                          <span className={styles.mobileTypeText}>Object</span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>
+                      {api.useForm.validationSchema(goToSection)}
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/928po918qr"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          validationResolver: <br />
+                          <span className={styles.mobileTypeText}>
+                            Function
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>{api.useForm.validationResolver(goToSection)}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          validationContext: <br />
+                          <span className={styles.mobileTypeText}>Object</span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>{api.useForm.validateContext}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          validateCriteriaMode: <br />
+                          <span className={styles.mobileTypeText}>
+                            firstErrorDetected | all
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>
+                      {api.useForm.validateCriteriaMode}
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          reValidateMode: <br />
+                          <span className={styles.mobileTypeText}>
+                            onChange | onBlur | onSubmit
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>{api.useForm.reValidateMode}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          submitFocusError: <br />
+                          <span className={styles.mobileTypeText}>
+                            boolean = true
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>{api.useForm.submitFocusError}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-          <p style={{ textAlign: "center" }}>♦</p>
+            <p style={{ textAlign: "center" }}>♦</p>
+          </section>
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.registerRef = ref
             }}
           >
-            <h2>
-              register:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(Ref, validateRule?) => void`}</span>
-              <Popup message="React Native: Custom register or using Controller" />
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                register:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(Ref, validateRule?) => void`}</span>
+                <Popup message="React Native: Custom register or using Controller" />
+              </h2>
+            </code>
 
-          <ApiRefTable
-            api={api}
-            goToSection={goToSection}
-            currentLanguage={currentLanguage}
-          />
-
-          <hr />
-
-          <code
-            className={typographyStyles.codeHeading}
-            ref={ref => {
-              // @ts-ignore
-              apiSectionsRef.current.unregisterRef = ref
-            }}
-          >
-            <h2>
-              unregister:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(name: string | string[]) => void`}</span>
-            </h2>
-          </code>
-
-          {api.unregister.description}
-
-          <CodeArea
-            url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
-            rawData={unregisterCode}
-          />
+            <ApiRefTable
+              api={api}
+              goToSection={goToSection}
+              currentLanguage={currentLanguage}
+            />
+          </section>
 
           <hr />
 
           <section
             ref={ref => {
-              // @ts-ignore
+              apiSectionsRef.current.unregisterRef = ref
+            }}
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                unregister:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(name: string | string[]) => void`}</span>
+              </h2>
+            </code>
+
+            {api.unregister.description}
+
+            <CodeArea
+              url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
+              rawData={unregisterCode}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={ref => {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
@@ -587,221 +644,223 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.watchRef = ref
             }}
           >
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
-          <code
-            className={typographyStyles.codeHeading}
+
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.handleSubmitRef = ref
             }}
           >
-            <h2>
-              handleSubmit:{" "}
-              <span className={typographyStyles.typeText}>
-                (data: Object, e: Event) => void
-              </span>
-            </h2>
-          </code>
-          {api.handleSubmit.description}
-          <CodeArea
-            rawData={handleSubmitCode}
-            url="https://codesandbox.io/s/yj07z1639"
-          />
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                handleSubmit:{" "}
+                <span className={typographyStyles.typeText}>
+                  (data: Object, e: Event) => void
+                </span>
+              </h2>
+            </code>
+            {api.handleSubmit.description}
+            <CodeArea
+              rawData={handleSubmitCode}
+              url="https://codesandbox.io/s/yj07z1639"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
               // @ts-ignore
               apiSectionsRef.current.resetRef = ref
             }}
           >
-            <h2>
-              reset:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(values?: Record<string, any>) => void`}</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                reset:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(values?: Record<string, any>) => void`}</span>
+              </h2>
+            </code>
 
-          {api.reset(goToSection).description}
+            {api.reset(goToSection).description}
 
-          <TabGroup
-            buttonLabels={[
-              "Uncontrolled",
-              "Controller",
-              "Controlled / React Native",
-            ]}
-          >
-            <CodeArea
-              rawData={resetCode}
-              url="https://codesandbox.io/s/jjm3wyqmjy"
-            />
-            <CodeArea
-              rawData={resetRHFInput}
-              url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
-            />
-            <CodeArea
-              rawData={resetCodeControlled}
-              url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
-            />
-          </TabGroup>
+            <TabGroup
+              buttonLabels={[
+                "Uncontrolled",
+                "Controller",
+                "Controlled / React Native",
+              ]}
+            >
+              <CodeArea
+                rawData={resetCode}
+                url="https://codesandbox.io/s/jjm3wyqmjy"
+              />
+              <CodeArea
+                rawData={resetRHFInput}
+                url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+              />
+              <CodeArea
+                rawData={resetCodeControlled}
+                url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
+              />
+            </TabGroup>
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.setErrorRef = ref
             }}
           >
-            <h2>
-              setError: <br />
-              <span className={typographyStyles.typeText}>
-                {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
-              </span>
-            </h2>
-          </code>
-          {api.setError.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                setError: <br />
+                <span className={typographyStyles.typeText}>
+                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
+                </span>
+              </h2>
+            </code>
+            {api.setError.description}
 
-          <TabGroup
-            buttonLabels={[
-              "Single Error",
-              "Multiple Error",
-              "Single Field Errors",
-            ]}
-          >
-            <CodeArea
-              rawData={setError}
-              url="https://codesandbox.io/s/o7rxyym3q5"
-            />
-            <CodeArea
-              rawData={setMultipleErrors}
-              url="https://codesandbox.io/s/o7rxyym3q5"
-            />
-            <CodeArea
-              rawData={setAllErrors}
-              url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
-            />
-          </TabGroup>
+            <TabGroup
+              buttonLabels={[
+                "Single Error",
+                "Multiple Error",
+                "Single Field Errors",
+              ]}
+            >
+              <CodeArea
+                rawData={setError}
+                url="https://codesandbox.io/s/o7rxyym3q5"
+              />
+              <CodeArea
+                rawData={setMultipleErrors}
+                url="https://codesandbox.io/s/o7rxyym3q5"
+              />
+              <CodeArea
+                rawData={setAllErrors}
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
+              />
+            </TabGroup>
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.clearErrorRef = ref
             }}
           >
-            <h2>
-              clearError:{" "}
-              <span className={typographyStyles.typeText}>
-                (name?: string | string[]) => void
-              </span>
-            </h2>
-          </code>
-          {api.clearError.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                clearError:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name?: string | string[]) => void
+                </span>
+              </h2>
+            </code>
+            {api.clearError.description}
 
-          <CodeArea rawData={clearError} />
+            <CodeArea rawData={clearError} />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.setValueRef = ref
             }}
           >
-            <h2>
-              setValue:{" "}
-              <span className={typographyStyles.typeText}>
-                (name: string, value: any, shouldValidate?: boolean) => void
-              </span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                setValue:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name: string, value: any, shouldValidate?: boolean) => void
+                </span>
+              </h2>
+            </code>
 
-          {api.setValue.description}
+            {api.setValue.description}
 
-          <CodeArea
-            rawData={setValue}
-            url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
-          />
+            <CodeArea
+              rawData={setValue}
+              url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.getValuesRef = ref
             }}
           >
-            <h2>
-              getValues:{" "}
-              <span
-                className={typographyStyles.typeText}
-              >{`(payload?: { nest: boolean }) => Object`}</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                getValues:{" "}
+                <span
+                  className={typographyStyles.typeText}
+                >{`(payload?: { nest: boolean }) => Object`}</span>
+              </h2>
+            </code>
 
-          {api.getValues.description}
+            {api.getValues.description}
 
-          <CodeArea
-            rawData={getValues}
-            url="https://codesandbox.io/s/get-form-values-xjepz"
-          />
+            <CodeArea
+              rawData={getValues}
+              url="https://codesandbox.io/s/get-form-values-xjepz"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.triggerValidationRef = ref
             }}
           >
-            <h2>
-              triggerValidation:{" "}
-              <span className={typographyStyles.typeText}>
-                {`(payload?: string | string[]) => Promise<boolean>`}
-              </span>
-            </h2>
-          </code>
-          {api.triggerValidation.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                triggerValidation:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`(payload?: string | string[]) => Promise<boolean>`}
+                </span>
+              </h2>
+            </code>
+            {api.triggerValidation.description}
 
-          <CodeArea
-            rawData={trigger}
-            url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
-          />
+            <CodeArea
+              rawData={trigger}
+              url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
+            />
+          </section>
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.controlRef = ref
             }}
           >
-            <h2>
-              control: <span className={typographyStyles.typeText}>Object</span>
-            </h2>
-          </code>
-          {api.control.description}
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                control:{" "}
+                <span className={typographyStyles.typeText}>Object</span>
+              </h2>
+            </code>
+            {api.control.description}
 
-          <CodeArea
-            rawData={control}
-            url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
-          />
+            <CodeArea
+              rawData={control}
+              url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
+            />
+          </section>
 
           <hr />
 
@@ -854,49 +913,44 @@ function ApiPage({
 
           <hr />
 
-          <code
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.validationSchemaRef = ref
             }}
           >
-            <h2>
-              validationSchema:{" "}
-              <span className={typographyStyles.typeText}>Object</span>
-            </h2>
-          </code>
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                validationSchema:{" "}
+                <span className={typographyStyles.typeText}>Object</span>
+              </h2>
+            </code>
 
-          {api.validationSchema.description}
+            {api.validationSchema.description}
 
-          <CodeArea
-            rawData={validationSchemaCode}
-            url="https://codesandbox.io/s/928po918qr"
-          />
+            <CodeArea
+              rawData={validationSchemaCode}
+              url="https://codesandbox.io/s/928po918qr"
+            />
+          </section>
 
           <hr />
 
-          <h2
-            className={typographyStyles.codeHeading}
+          <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >
-            Browser built-in validation (V3 only)
-          </h2>
+            <h2 className={typographyStyles.codeHeading}>
+              Browser built-in validation (V3 only)
+            </h2>
 
-          {api.NativeValidation.description}
+            {api.NativeValidation.description}
 
-          <p>
-            <b className={typographyStyles.note}>Note</b>: This feature has been
-            removed in V4 due to low usage, but you can still use it in V3
-          </p>
-
-          <CodeArea
-            rawData={nativeValidation}
-            url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-          />
+            <CodeArea
+              rawData={nativeValidation}
+              url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
+            />
+          </section>
 
           <div
             className={containerStyles.centerContent}

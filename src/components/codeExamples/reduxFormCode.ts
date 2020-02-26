@@ -42,11 +42,11 @@ const Form = props => {
   );
 };
 
-const FormRedux = reduxForm({ form: "syncValidation", validate })(Example);
+const FormRedux = reduxForm({ form: "syncValidation", validate })(Form);
 
 const Example = () => (
   <Provider store={store}>
-    <Example/>
+    <FormRedux />
   </Provider>
 );
 `

@@ -30,6 +30,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 40px;
+    max-width: 2000px;
+    margin: 0 auto;
   }
 
   .gridView > div:first-child {

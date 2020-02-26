@@ -348,6 +348,7 @@ export default {
     ),
     dirty:
       "Se setea en verdader luego que el usuario haya interactuado con algún input.",
+    dirtyFields: "Un conjunto único de campos modificados por el usuario.",
     isSubmitted:
       "Se setea a verdadero luego que el usuario envia el formulario.",
     touched: "Un objeto con todos los inputs con los que se interactuó.",
@@ -931,13 +932,19 @@ export default {
   NativeValidation: {
     title: "Validación nativa del navegador",
     description: (
-      <p>
-        El siguiente ejemplo muestra cómo puedes aprovechar la validación nativa
-        del navegador. Solo necesitas establecer <code>nativeValidation</code>{" "}
-        en {""}
-        <code>true</code> y el resto de la sintaxis es la misma que la
-        validación estándar.
-      </p>
+      <>
+        <p>
+          El siguiente ejemplo muestra cómo puedes aprovechar la validación
+          nativa del navegador. Solo necesitas establecer{" "}
+          <code>nativeValidation</code> en {""}
+          <code>true</code> y el resto de la sintaxis es la misma que la
+          validación estándar.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   useFieldArray: {

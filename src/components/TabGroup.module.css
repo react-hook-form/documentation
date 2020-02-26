@@ -15,12 +15,17 @@
   text-transform: uppercase;
 }
 
+.buttonTabGroup > button:nth-child(n+2) {
+  border-left: 3px solid var(--color-primary);
+}
+
 .buttonTabGroup > button:hover {
   background: var(--color-secondary);
 }
 
 .buttonTabGroup > button:disabled {
   background: var(--color-primary);
+  cursor: not-allowed;
 }
 
 .lightButtonTabGroup > button {

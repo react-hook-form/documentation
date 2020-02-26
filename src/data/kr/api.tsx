@@ -330,6 +330,7 @@ export default {
       </>
     ),
     dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
+    dirtyFields: "고유 한 사용자 수정 필드 세트.",
     isSubmitted: "사용자가 폼을 제출 한 후 true로 설정하십시오.",
     touched: "상호 작용된 모든 입력의 배열입니다.",
     isSubmitting: (
@@ -920,11 +921,17 @@ export default {
   NativeValidation: {
     title: "Browser built-in validation",
     description: (
-      <p>
-        다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
-        <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
-        문법은 표준과 같습니다.
-      </p>
+      <>
+        <p>
+          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
+          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
+          문법은 표준과 같습니다.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note</b>: This feature has been
+          removed in V4 due to low usage, but you can still use it in V3
+        </p>
+      </>
     ),
   },
   useFieldArray: {
