@@ -12,7 +12,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-css-modules-typings`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
