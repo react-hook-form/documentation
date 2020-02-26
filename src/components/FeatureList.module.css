@@ -3,7 +3,7 @@
 }
 
 .featuresContent h3 {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 20px;
   margin-top: 10px;
 }
@@ -55,14 +55,14 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
     max-width: 1024px;
-    margin: 20px auto 30px;
+    margin: 40px auto 30px;
   }
 }
 
 @media (min-width: 1280px) {
   .featuresContent {
     grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 40px;
+    grid-column-gap: 35px;
     max-width: 1200px;
   }
 
