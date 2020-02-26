@@ -200,7 +200,7 @@ function ApiPage({
           setActiveIndex(foundIndex)
         },
         {
-          rootMargin: "40px",
+          rootMargin: "100px",
           threshold: [0.01],
         }
       )

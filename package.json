@@ -35,7 +35,6 @@
     "sortablejs": "1.10.1"
   },
   "devDependencies": {
-    "gatsby-plugin-css-modules-typings": "^1.0.1",
     "gatsby-plugin-offline": "^3.0.34",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
