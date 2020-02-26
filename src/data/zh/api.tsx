@@ -634,7 +634,7 @@ export default {
             <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
-          <td>Unique name of your input.</td>
+          <td>输入的唯一名称。</td>
         </tr>
         <tr>
           <td>
@@ -647,7 +647,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            Controlled component. eg: <code>as="input"</code> or{" "}
+            受控组件。例如： <code>as="input"</code> or{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -660,8 +660,8 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            <code>control</code>对象来自调用<code>useForm</code>的对象。
+            如果您使用的是FormContext，则为可选。
           </td>
         </tr>
         <tr>
@@ -673,21 +673,15 @@ export default {
           </td>
           <td></td>
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            与不受控制的组件的<code>defaultValue</code>相同，当 提供
+            <code>boolean</code>值，它将被视为复选框 输入。
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>注意:</b> 您将需要提供
+              <code>defaultValue</code>或<code>useForm</code>上的
+              <code>defaultValues</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
-            </p>
-            <p>
-              <b className={typographyStyles.note}>Note</b>: 如果您的表格会
+              <b className={typographyStyles.note}>注意</b>: 如果您的表格会
               使用不同的值调用<code> reset </code>，您将需要
               在useForm级别而不是set上提供<code> defaultValues </code>
               内联<code> defaultValue </code>。
@@ -703,7 +697,7 @@ export default {
           </td>
           <td></td>
           <td>
-            Validation rules according to <code>register</code>.
+            根据<code> register </code>的验证规则。
           </td>
         </tr>
         <tr>
@@ -717,8 +711,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This <code>onChange</code> prop allow you to customise the return
-            value. <br />
+            这个<code> onChange </code>道具可让您自定义返回值。
+            <br />
             <code>eg: {`onChange={{(data) => data.value}}`}</code>
           </td>
         </tr>
@@ -731,21 +725,8 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onChange</code> event is named <code>onTextChange</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            This prop allow you to target that specific event name, eg: when{" "}
-            <code>onBlur</code> event is named <code>onTextBlur</code>
+            该props可让您定位特定的事件名称，例如：<code>onChange</code>
+            事件被命名为<code> onTextChange </code>
           </td>
         </tr>
         <tr>
@@ -757,9 +738,9 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to override the <code>value</code> prop and
-            support other components which doesn't use <code>value</code> prop.
-            eg: <code>checked</code>, <code>selected</code> and etc...
+            该属性允许您覆盖<code>value</code>属性， 支持其他不使用
+            <code>value</code>属性的组件。 例如：<code>选中</code>，
+            <code>选中</code>等...
           </td>
         </tr>
       </tbody>
@@ -767,9 +748,8 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form embrace uncontrolled components and native inputs,
-          however it's hard to avoid working with external controlled component
-          such as{" "}
+          React Hook Form包含不受控制的组件和本机输入，
+          但是很难避免使用外部受控组件 如
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -785,7 +765,7 @@ export default {
           >
             AntD
           </a>{" "}
-          and{" "}
+          和{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -793,7 +773,7 @@ export default {
           >
             Material-UI
           </a>
-          . This wrapper component will make your life easier to work with them.
+          。 这个包装器组件将使您的工作更轻松。
         </p>
       </>
     ),
@@ -905,8 +885,9 @@ export default {
             </a>{" "}
             用于呈现错误单个或多个消息。
             <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
+              <b className={typographyStyles.note}>注意:</b>
+              您需要设置将<code>validateCriteriaMode</code>设置为“all”以使用
+              <code>消息</code>.
             </p>
           </td>
         </tr>
@@ -923,8 +904,8 @@ export default {
           ，其余语法与标准验证相同。
         </p>
         <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
+          <b className={typographyStyles.note}>注意</b>:
+          此功能已被由于使用率较低，已在V4中将其删除，但您仍可以在V3中使用它。
         </p>
       </>
     ),
@@ -963,7 +944,7 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note: </b>
+          <b className={typographyStyles.note}>注意: </b>
           如果要在追加，添加和其余其他操作期间观看字段数组值的更新。您将必须监视整个字段数组对象，例如：
           <code>watch('fieldArrayName')</code>。这是由于watch
           API旨在订阅输入更改而不是状态更新（我们仅对字段数组进行了变通），还请谨慎使用此功能，因为它确实会影响表单/应用程序的性能。
@@ -1059,7 +1040,7 @@ export default {
           <td>
             将输入移动到另一位置。
             <p>
-              <b className={typographyStyles.note}>Note:</b>
+              <b className={typographyStyles.note}>注意:</b>
               <code>move</code>和<code>swap</code>之间的差异 <code>swap</code>
               在于继续调用<code>move</code>将推送输入一直推下,<code>swap</code>
               只是交换输入的位置。
