@@ -57,16 +57,16 @@ export default {
     {
       title: "React Base",
       description:
-        "DevTool itself is built by React, so you easily integrate with your React application.",
+        "DevTool em si foi construído para React, para você integrar facilmente sua aplicação React.",
     },
     {
       description:
-        "React Hook Form focus on delivering a great experience in terms of building forms with React. This tool will help debug your forms.",
+        "React Hook Form foca em entregar uma grande experiência ao construir formulários com React. Essa ferramenta vai ajudar a debuggar seus formulários",
     },
     {
       title: "Open-Source",
       description:
-        "DevTools is an open-source project, so we can all improve the experience together.",
+        "DevTools é um projeto de código aberto, assim podemos todos melhorar essa experiência juntos",
     },
   ],
 }
