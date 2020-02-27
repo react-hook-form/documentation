@@ -3,47 +3,52 @@ import typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "DevTools",
-  description: "React Hook Form DevTools to help debug forms with validation.",
-  install: "Installation",
+  description:
+    "React Hook Form Devtools ajuda debuggar formulários com validações",
+  install: "Instalação",
   step1: (
     <>
-      <b className={typographyStyles.note}>Step 1: </b>install{" "}
-      <code>react-hook-form-devtools</code> as a dev dependency package.
+      <b className={typographyStyles.note}>Passo 1: </b>Instalar{" "}
+      <code>react-hook-form-devtools</code> como pacote de dependencia dev.
     </>
   ),
   step2: (
     <>
-      <b className={typographyStyles.note}>Step 2: </b>Integrate with your React
-      App is as simple as import a Component into your App/Form render and pass{" "}
-      <code>control</code> prop into it.
+      <b className={typographyStyles.note}>Passo 2:</b> Integrar com sua
+      aplicação React é tão simples quanto importar um componente para seu
+      App/Formulário e passar
+      <code>Propriedades controladas</code> nele.
     </>
   ),
   demoDescription:
-    "You can interact with the following demo to see DevTool in action.",
-  function: "Functionality",
+    "Você pode interagir com o demo a seguir para ver o DevTool em ação",
+  function: "Funcionalidade",
   functionDetail: (
     <>
       <li>
-        <p>Read inputs and entire form state.</p>
+        <p>Ler inputs e o estado de formulários inteiros</p>
       </li>
       <li>
         <p>
-          <b className={typographyStyles.note}>Note: </b>Because RHF is based on
-          uncontrolled inputs, <strong>Update</strong> button will refresh the
-          DevTool to read the latest input value and form state.
+          <b className={typographyStyles.note}>Nota:</b> Porquê RHF é baseado em
+          inputs incontrolados, o botão de <strong>Update</strong> vai
+          recarregar o DevTool para ler o ultimo valor do input e do formulário.
         </p>
       </li>
       <li>
-        <p>Visual feedback when input or form is valid or invalid.</p>
-      </li>
-      <li>
-        <p>Search registered input and also custom registered components.</p>
+        <p>Feedback visual quando o input for válido ou inválido</p>
       </li>
       <li>
         <p>
-          <b className={typographyStyles.note}>Note: </b> you can easily locate
-          an input by clicking the <strong>Native</strong> button. This will be
-          useful when you working on a large form.
+          Busca os inputs registrados e também componentes customizados
+          registrados
+        </p>
+      </li>
+      <li>
+        <p>
+          <b className={typographyStyles.note}>Nota: </b> Você pode facilmente
+          localizar um input ao clicar no botão <strong>Nativo</strong>. Isso
+          será útil quando você estiver trabalhando em um formulário grande.
         </p>
       </li>
     </>
@@ -52,16 +57,16 @@ export default {
     {
       title: "React Base",
       description:
-        "DevTool itself is built by React, so you easily integrate with your React application.",
+        "DevTool em si foi construído para você integrar facilmente sua aplicação React.",
     },
     {
       description:
-        "React Hook Form focus on delivering a great experience in terms of building forms with React. This tool will help debug your forms.",
+        "React Hook Form foca em entregar uma grande experiência ao construir formulários com React. Essa ferramenta vai ajudar a debuggar seus formulários",
     },
     {
       title: "Open-Source",
       description:
-        "DevTools is an open-source project, so we can all improve the experience together.",
+        "DevTools é um projeto de código aberto, assim podemos todos melhorar essa experiência juntos",
     },
   ],
 }
