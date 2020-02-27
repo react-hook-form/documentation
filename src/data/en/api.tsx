@@ -674,13 +674,6 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b> due to ref
-          callback issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
-        </p>
-
-        <p>
           <b className={typographyStyles.note}>Note: </b> set{" "}
           <code>defaultValue</code> when you want to set default value or reset
           with inputs.

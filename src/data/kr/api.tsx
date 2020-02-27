@@ -958,12 +958,6 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>중요:</b> ref 콜백 이슈 때문에,
-          유효성 검사 규칙 없이 <code>register</code> 를 하려고 한다면, 콜백에
-          인자를 전달하지 마세요. 예: <code>{`ref={register()}`}</code>
-        </p>
-
-        <p>
           <b className={typographyStyles.note}>참고:</b> 기본값을 설정하거나
           입력으로 재설정하려는 경우 <code> defaultValue </code>를 설정하십시오.
         </p>
