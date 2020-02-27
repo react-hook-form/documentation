@@ -30,17 +30,17 @@ export default {
     validationResolver: goToSection => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          Esta función de devolución de llamada le permite ejecutar cualquier
+          esquema o personalizado validación. La función tiene la forma completa
+          <code>values</code> como argumento, y deberá validar el resultado y
+          devolver ambos <code>values</code> y <code>errors</code>. Lee mas en{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
           >
             validationResolver
-          </button>{" "}
-          section.
+          </button>
+          sección.
         </p>
       </>
     ),
@@ -48,15 +48,17 @@ export default {
       <>
         <p>
           This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          <code>validationResolver</code>'s second argument or Este objeto de
+          contexto se inyectará en El segundo argumento de{" "}
+          <code>validationResolver</code> o
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
             rel="noopener noreferrer"
           >
             Yup
-          </a>{" "}
-          validation's context object.
+          </a>
+          objeto de contexto de validación.
         </p>
       </>
     ),
@@ -492,9 +494,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Necesitaras proporcione
-          <code> defaultValues ​​</code> durante <code> useForm </code> o
-          <code> reset </code> con valor para restablecer
-          <code> Controller </code>valor de los componentes.
+          <code>defaultValues</code> durante <code>useForm</code> o
+          <code>reset</code> con valor para restablecer
+          <code>Controller</code>valor de los componentes.
         </p>
       </>
     ),
@@ -697,14 +699,14 @@ export default {
             controlados, cuando se setea un valor <code>booleano</code>, es
             tratado como un checkbox input.
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>Nota:</b> necesitaras
+              proporcione <code>defaultValue</code> o
+              <code>defaultValues​​</code> en <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>Nota:</b> necesitaras
+              proporcione <code> defaultValue </code> o{" "}
+              <code> defaultValues ​​</code> en <code> useForm </code>
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: si tu formulario lo
@@ -1119,8 +1121,8 @@ export default {
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          Esta función le permite ejecutar cualquier método de validación
+          externo, tal como{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1136,22 +1138,23 @@ export default {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          y etc. De hecho, el objetivo no es solo limitado Sí como nuestro
+          externo (esquema) biblioteca de validación. Nos gustaría apoyar a
+          muchos otros bibliotecas de validación para trabajar con React Hook
+          Form. Incluso puedes escribir su lógica de validación personalizada
+          para validar.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          <b className={typographyStyles.note}>Nota:</b> asegúrate de que eres
+          devolver objeto que contiene <code>values</code> y <code>errors</code>
+          , y su valor predeterminado debe ser un objeto vacío{" "}
+          <code> {`{}`} </code>.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>Nota:</b> errores de retorno La
+          clave del objeto debe ser relevante para sus entradas.
         </p>
       </>
     ),
