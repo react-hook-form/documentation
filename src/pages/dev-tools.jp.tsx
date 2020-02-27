@@ -12,7 +12,7 @@ const Api = ({
     pathname: string
   }
 }) => (
-  <Layout location={location} defaultLang="en">
+  <Layout location={location} defaultLang="jp">
     <Seo title={api.title} location={location} />
     <DevTools defaultLang="en" />
   </Layout>

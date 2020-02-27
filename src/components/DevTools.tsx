@@ -10,7 +10,7 @@ import code from "./codeExamples/devTool"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
-import { updateCurrentLanguage } from "../actions/languageActions"
+import content from "../data/devtools"
 import devTool from "../images/dev-tool.png"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -19,12 +19,19 @@ import codeAreaStyles from "./CodeArea.module.css"
 import getStartedStyle from "./GetStarted.module.css"
 import styles from "./DevTools.module.css"
 
-export default () => {
+export default ({ defaultLang }: { defaultLang: string }) => {
   const methods = useForm({
     mode: "onChange",
   })
   const [showDevTool, setShowDevTool] = React.useState(false)
-  const { state } = useStateMachine(updateCurrentLanguage)
+  const {
+    state,
+    state: { language },
+  } = useStateMachine()
+  const { currentLanguage } =
+    language && language.currentLanguage
+      ? language
+      : { currentLanguage: defaultLang }
   const lightMode = state?.setting?.lightMode
 
   const { control, formState } = methods
@@ -39,10 +46,10 @@ export default () => {
     <div className={containerStyles.container}>
       <main style={{ margin: "0 20px" }}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          DevTools
+          {content[currentLanguage].title}
         </h1>
         <p className={typographyStyles.subHeading}>
-          React Hook Form DevTools to help debug forms with validation.
+          {content[currentLanguage].description}
         </p>
 
         <Animate
@@ -66,14 +73,13 @@ export default () => {
         <DevToolFeaturesList isPlayFeature currentLanguage="en" />
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{`</>`} Installation</h1>
+          <h1 className={typographyStyles.h1}>
+            {`</>`} {content[currentLanguage].install}
+          </h1>
         </div>
 
         <div className={containerStyles.subContainer}>
-          <p>
-            <b className={typographyStyles.note}>Step 1: </b>install{" "}
-            <code>react-hook-form-devtools</code> as a dev dependency package.
-          </p>
+          <p>{content[currentLanguage].step1}</p>
 
           <span
             className={`${getStartedStyle.installCode} ${
@@ -95,20 +101,16 @@ export default () => {
             </button>
           </span>
 
-          <p>
-            <b className={typographyStyles.note}>Step2: </b>Integrate with your
-            React App is as simple as import a Component into your App/Form
-            render and pass <code>control</code> prop into it.
-          </p>
+          <p>{content[currentLanguage].step2}</p>
 
           <CodeArea rawData={code} />
         </div>
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>Live Demo</h1>
-          <p>
-            You can interact with the following demo to see DevTool in action.
-          </p>
+          <h1 className={typographyStyles.h1}>
+            {generic.liveDemo[currentLanguage]}
+          </h1>
+          <p>{content[currentLanguage].demoDescription}</p>
 
           <div
             className={buttonStyles.buttonsGroup}
@@ -158,36 +160,9 @@ export default () => {
               }}
               className={typographyStyles.title}
             >
-              Functionality
+              {content[currentLanguage].function}
             </h3>
-            <ul>
-              <li>
-                <p>Read inputs and entire form state</p>
-              </li>
-              <li>
-                <p>
-                  <b className={typographyStyles.note}>Note: </b>Because RHF is
-                  based on uncontrolled inputs, <strong>Update</strong> button
-                  will refresh the DevTool to read the latest input value and
-                  form state.
-                </p>
-              </li>
-              <li>
-                <p>Visual feedback when input or form is valid or invalid.</p>
-              </li>
-              <li>
-                <p>
-                  Search registered input and also custom registered components.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <b className={typographyStyles.note}>Note: </b> you can easily
-                  locate an input by clicking the <strong>Native</strong>{" "}
-                  button. This will be useful when you working on a large form.
-                </p>
-              </li>
-            </ul>
+            <ul>{content[currentLanguage].functionDetail}</ul>
           </div>
         </div>
 

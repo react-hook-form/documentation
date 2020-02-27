@@ -325,4 +325,13 @@ export default {
     zh: "通讯",
     ru: "Новости проекта",
   },
+  liveDemo: {
+    en: "Live Demo",
+    es: "Demo en vivo",
+    pt: "Demonstração real",
+    kr: "라이브 데모",
+    jp: "ライブデモ",
+    zh: "现场演示",
+    ru: "Живой пример",
+  },
 }
