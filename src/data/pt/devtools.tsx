@@ -57,7 +57,7 @@ export default {
     {
       title: "React Base",
       description:
-        "DevTool em si foi construído para React, para você integrar facilmente sua aplicação React.",
+        "DevTool em si foi construído para você integrar facilmente sua aplicação React.",
     },
     {
       description:
