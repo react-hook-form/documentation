@@ -1017,13 +1017,6 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>重要:</b> コールバック ref{" "}
-          の問題のため、<code>register</code>{" "}
-          にバリデーションルールを指定しない場合は、空のペイロードを渡すようにしてください。例:{" "}
-          <code>{`ref={register()}`}</code>
-        </p>
-
-        <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
           デフォルト値を設定するか、入力値をリセットしたい場合は、
           <code>defaultValue</code> を設定します。
