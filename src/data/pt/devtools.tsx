@@ -46,7 +46,7 @@ export default {
       </li>
       <li>
         <p>
-          <b className={typographyStyles.note}>Note: </b> Você pode facilmente
+          <b className={typographyStyles.note}>Nota: </b> Você pode facilmente
           localizar um input ao clicar no botão <strong>Nativo</strong>. Isso
           será útil quando você estiver trabalhando em um formulário grande.
         </p>
