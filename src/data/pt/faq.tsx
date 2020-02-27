@@ -8,7 +8,7 @@ export default {
   title: "FAQs",
   header: {
     title: "FAQs",
-    description: "questões frequentemente perguntadas.",
+    description: "Perguntas feitas frequentemente",
   },
   questions: [
     {
@@ -22,13 +22,13 @@ export default {
           renderizações ocorridas pela digitação do usuário ou mudança de
           valores. Componentes montados na página são mais rápidos porque eles
           não são controlados. Para montar com velocidade, Eu tenho um guia
-          completo de comparações rápidas, que você pode conferir em{" "}
+          completo de comparações rápidas, que você pode conferir neste{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
             rel="noopener noreferrer"
           >
-            o link deste repositório
+            link
           </a>
           .
         </p>
@@ -44,7 +44,7 @@ export default {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Component não controlado
+            Componentes não controlados
           </a>
           , que nos possibilita construir formulários acessíveis e customizados
           facilmente.
@@ -166,10 +166,10 @@ export default {
           <p>
             React Hook Form é construido com base em componentes não
             controlados, que significa que você não pode alterar o campo{" "}
-            <code>value</code> através do <code>state</code> por{" "}
-            <code>onChange</code>. Consequentemente você não precisa{" "}
-            <code>value</code> de toda forma, de fato você apenas precisa{" "}
-            <code>defaultValue</code> para valor inicial do campo.
+            <code>value</code> através do <code>state</code> pelo{" "}
+            <code>onChange</code>. Consequentemente você não precisa do{" "}
+            <code>value</code> de toda forma, de fato você apenas precisa do{" "}
+            <code>defaultValue</code> para o valor inicial do campo.
           </p>
         </>
       ),
@@ -178,8 +178,8 @@ export default {
       title: "Teste falhou devido ao MutationObserver?",
       description: (
         <p>
-          Se você tem dificuldade durante o teste e o problema causado foi por{" "}
-          <code>MutationObserver</code>. Tenha certeza se instalou{" "}
+          Se você tiver dificuldade durante o teste e o problema causado foi
+          pelo <code>MutationObserver</code>. Tenha certeza se instalou{" "}
           <code>mutationobserver</code> e importe o pacote em seu teste{" "}
           <a
             href="https://jestjs.io/docs/en/configuration"
@@ -200,12 +200,12 @@ export default {
             Antes de tudo, todas as bibliotecas tentam resolver o mesmo problema
             o que está tornando a experiência de criação de formulários fácil e
             ótima. No entanto, existem algumas diferenças fundamentais entre os
-            três, react-hook-hook é construído com a entrada não controlada em
-            mente e tenta fornecer ao seu formulário o melhor desempenho e a
-            menor renderização possível, se possível. Além disso, o formulário
-            reat-hook é criado pelo React Hook e usado como hook, o que
-            significa que não há nenhum componente para você importar. Aqui
-            estão algumas das diferenças de detalhes:
+            três, react-hook é construído com a inputs não controlados em mente
+            e tenta fornecer ao seu formulário o melhor desempenho e a menor
+            renderização possível. Além disso, o formulário react-hook-form foi
+            construido pelo React Hook e usado como hook, o que significa que
+            não há nenhum componente para você importar. Aqui estão algumas das
+            diferenças de detalhes:
           </p>
 
           <div className={tableStyles.tableWrapper}>
