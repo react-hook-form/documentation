@@ -70,7 +70,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           )}
         />
 
-        <DevToolFeaturesList isPlayFeature currentLanguage="en" />
+        <DevToolFeaturesList isPlayFeature currentLanguage={currentLanguage} />
 
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>

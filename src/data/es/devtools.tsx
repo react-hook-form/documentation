@@ -59,4 +59,20 @@ export default {
       </li>
     </>
   ),
+  features: [
+    {
+      title: "React Base",
+      description:
+        "DevTool en sí está construido por React, por lo que puede integrarse fácilmente con su aplicación React.",
+    },
+    {
+      description:
+        "React Hook Form se centra en ofrecer una gran experiencia en términos de creación de formularios con React. Esta herramienta ayudará a depurar sus formularios.",
+    },
+    {
+      title: "Fuente abierta",
+      description:
+        "DevTools es un proyecto de código abierto, por lo que todos podemos mejorar la experiencia juntos.",
+    },
+  ],
 }

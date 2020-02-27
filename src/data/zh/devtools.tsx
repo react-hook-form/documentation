@@ -47,4 +47,19 @@ export default {
       </li>
     </>
   ),
+  features: [
+    {
+      title: "基于React",
+      description:
+        "DevTool本身是由React构建的，因此您可以轻松地与React应用程序集成。",
+    },
+    {
+      description:
+        "React Hook Form致力于在使用React构建表单方面提供丰富的经验。此工具将帮助调试表单。",
+    },
+    {
+      title: "开源",
+      description: "DevTools是一个开源项目，因此我们所有人都可以一起改善体验。",
+    },
+  ],
 }

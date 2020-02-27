@@ -48,4 +48,20 @@ export default {
       </li>
     </>
   ),
+  features: [
+    {
+      title: "React Base",
+      description:
+        "DevTool itself is built by React, so you easily integrate with your React application.",
+    },
+    {
+      description:
+        "React Hook Form focus on delivering a great experience in terms of building forms with React. This tool will help debug your forms.",
+    },
+    {
+      title: "Open-Source",
+      description:
+        "DevTools is an open-source project, so we can all improve the experience together.",
+    },
+  ],
 }
