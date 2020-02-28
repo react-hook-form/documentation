@@ -414,5 +414,44 @@ export default {
         </div>
       ),
     },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b> subscribe to
+                input’s change via event listener and re-render based on which
+                fields that are subscribed. Re-render based on which input is
+                watched/subscribed. check out{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  this codesandbox
+                </a>{" "}
+                for actual behaviour.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>: get value
+                which stored inside the custom hook as reference, fast and
+                cheap. This method doesn’t trigger re-render.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>: React
+                local state represent more than just input’s state and also
+                decide what to render. This will trigger on each input’s change.
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ],
 }

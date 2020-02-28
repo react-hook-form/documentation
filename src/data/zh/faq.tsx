@@ -377,5 +377,43 @@ export default {
         </div>
       ),
     },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b>
+                订阅通过事件侦听器更改输入，然后根据订阅的字段。根据哪个输入重新渲染
+                观看/订阅。 查看{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  这个 codesandbox
+                </a>{" "}
+                的实际行为.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>:
+                获得价值存储在自定义钩子中作为参考，既快速又便宜。
+                此方法不会触发重新渲染。
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>:
+                状态不仅代表输入状态，还决定什么
+                渲染。这将在每次输入更改时触发。
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ],
 }
