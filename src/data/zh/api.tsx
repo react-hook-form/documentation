@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -439,7 +440,12 @@ export default {
     title: "handleSubmit",
     description: (
       <>
-        <p>当表单验证成功时，此函数将传递表单数据。</p>
+        <p>当表单验证成功时，此函数将传递表单数据并可以远程调用。</p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
+        </p>
         <p>
           <b className={typographyStyles.note}>注意:</b> 您可以传递
           <code>async</code>验证。例如：

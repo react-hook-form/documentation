@@ -457,7 +457,12 @@ export default {
       <>
         <p>
           Эта функция будет передавать данные формы, когда валидация формы
-          прошла успешно.
+          прошла успешно и может быть вызван удаленно.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Примечание:</b> Вы можете

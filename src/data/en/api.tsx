@@ -449,7 +449,12 @@ export default {
       <>
         <p>
           This function will pass the form data when form validation is
-          successful.
+          successful and can be invoked remotely as well.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can pass an{" "}

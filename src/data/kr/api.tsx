@@ -438,7 +438,15 @@ export default {
     title: "handleSubmit",
     description: (
       <>
-        <p>이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다.</p>
+        <p>
+          이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를
+          전달합니다원격으로도 호출 할 수 있습니다.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
+        </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 비동기 유효성 검사를
           위한 <code>async</code> 함수를 전달할 수 있습니다 . 예 :{" "}

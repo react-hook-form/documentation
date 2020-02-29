@@ -461,7 +461,12 @@ export default {
     description: (
       <>
         <p>
-          この関数は、フォームバリデーションに成功するとフォームデータを渡します。
+          この関数は、フォームバリデーションに成功するとフォームデータを渡しますまた、リモートで呼び出すこともできます。
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>注意：</b>{" "}

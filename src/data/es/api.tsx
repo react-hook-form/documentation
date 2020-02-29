@@ -449,7 +449,12 @@ export default {
       <>
         <p>
           Esta función pasará los datos del formulario cuando la validación haya
-          sido exitosa.
+          sido exitosa Y puede ser invocada remotamente también.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Puedes pasar una

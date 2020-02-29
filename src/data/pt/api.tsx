@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -457,7 +458,12 @@ export default {
       <>
         <p>
           Esta função irá passar os dados do formulário quando a validação do
-          formulário for um sucesso.
+          formulário for um sucesso e também pode ser chamado remotamente.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Você pode passar uma
