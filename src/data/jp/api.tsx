@@ -461,7 +461,7 @@ export default {
     description: (
       <>
         <p>
-          この関数は、フォームバリデーションに成功するとフォームデータを渡しますまた、リモートで呼び出すこともできます。
+          この関数は、フォームバリデーションに成功するとフォームデータを渡します。また、リモートで呼び出すこともできます。
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
