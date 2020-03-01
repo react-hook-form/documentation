@@ -155,7 +155,14 @@ function ApiPage({
 
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView(
-        animate ? { behavior: "smooth" } : undefined
+        animate &&
+          Object.keys(apiSectionsRef.current).findIndex(
+            item => item === refName
+          ) -
+            activeIndex <
+            5
+          ? { behavior: "smooth" }
+          : undefined
       )
     }
   }
