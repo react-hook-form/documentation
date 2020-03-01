@@ -112,6 +112,19 @@ export default {
         </p>
 
         <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>defaultValues</code> is cached within the custom hook, if you
+          want to reset <code>defaultValues</code> please use{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>{" "}
+          api.
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>Nota:</b> Los valores definidos
           en <code>defaultValues</code> serán inyectados en{" "}
           <button

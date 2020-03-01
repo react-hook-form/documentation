@@ -109,6 +109,19 @@ export default {
         </p>
 
         <p>
+          <b className={typographyStyles.note}>重要提示：</b>
+          <code>defaultValues</code>将缓存在自定义钩子中， 要重置
+          <code>defaultValues</code>，请使用
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>
+          api。
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>注意:</b> 默认值
           <code>defaultValues</code>
           中定义的值将作为默认值<code>defaultValue</code>注入
