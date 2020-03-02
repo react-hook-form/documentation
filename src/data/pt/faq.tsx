@@ -361,12 +361,12 @@ export default {
             Resposta simples: <b>Sim</b>
           </p>
           <p>
-            React-hook-form não é recmoendado para construçãoo de formulário
-            controlado, entretantoo você pode utilizar facilmente.
+            React-hook-form não é recomendado para construçãoo de formulários
+            controlados, entretanto você pode utilizar facilmente.
           </p>
           <p>
-            O truque utilizando <code>watch</code> API para monitoroar cada
-            input e mudar o valor assinado a prop
+            O truque utilizando <code>watch</code> API para monitorar cada input
+            e mudar o valor assinado a prop
           </p>
           <p>
             Alternativamente, você pode usar um componente por volta{" "}
@@ -392,9 +392,9 @@ export default {
               </p>
 
               <p>
-                Todas os métodos de validação noReact Hook Form será tratado
+                Todas os métodos de validação nocReact Hook Form serão tratados
                 como funções assíncronas, então, é importante utilizar{" "}
-                <code>async</code> entorno do seu{" "}
+                <code>async</code> no entorno do seu{" "}
                 <a
                   className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
@@ -411,8 +411,8 @@ export default {
 
               <p>
                 React Hook Form utiliza <code>input</code> eventos para mudança
-                de campo, então para corrigir isto. você pode simplismente
-                substituir por <code>fireEvent.input</code> para
+                de campos, então para corrigir isto você pode simplesmente
+                substituir <code>fireEvent.input</code> por
                 react-testing-library
               </p>
             </li>
@@ -427,32 +427,33 @@ export default {
           <ul>
             <li>
               <p>
-                <b className={typographyStyles.note}>watch:</b> subscribe to
-                input’s change via event listener and re-render based on which
-                fields that are subscribed. Re-render based on which input is
-                watched/subscribed. check out{" "}
+                <b className={typographyStyles.note}>watch:</b> subscreve no
+                Input Change via Event Listener e renderiza novamente baseado em
+                qual campo está subscrito. A re-renderização basea-se em qual
+                input está sendo assistido/subscrito. Veja{" "}
                 <a
                   href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  this codesandbox
+                  este codesandbox
                 </a>{" "}
-                for actual behaviour.
+                do atual comportamento.
               </p>
             </li>
             <li>
               <p>
                 <b className={typographyStyles.note}>getValues</b>: get value
-                which stored inside the custom hook as reference, fast and
-                cheap. This method doesn’t trigger re-render.
+                que é armazenado dentro do hook customizado como referência,
+                rápido e barato. Este método não dispara o re-render;
               </p>
             </li>
             <li>
               <p>
                 <b className={typographyStyles.note}>local state</b>: React
-                local state represent more than just input’s state and also
-                decide what to render. This will trigger on each input’s change.
+                local state representa mais que apenas o estado do Input mas
+                também decide o que renderizar. Isso irá disparar em cada
+                mudança nos inputs.
               </p>
             </li>
           </ul>
