@@ -14,7 +14,9 @@ export default function App() {
         name="firstName"
         ref={register({ required: true })}
       />
-      {errors.firstName && <span id="firstNameError">This field is required</span>}
+      <span id="firstNameError" style={{ display: errors.firstName ? "block" : "none" }}>
+        This field is required
+      </span>
 
       <input type="submit" />
     </form>
