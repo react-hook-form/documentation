@@ -28,7 +28,7 @@ import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
-import resetRHFInput from "./codeExamples/resetRHFInput"
+import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
@@ -708,7 +708,7 @@ function ApiPage({
                 url="https://codesandbox.io/s/jjm3wyqmjy"
               />
               <CodeArea
-                rawData={resetRHFInput}
+                rawData={resetController}
                 url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
               />
               <CodeArea

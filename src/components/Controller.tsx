@@ -1,6 +1,6 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
-import rhfInput from "./codeExamples/RHFInput"
+import controller from "./codeExamples/controller"
 import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../data/generic"
 import TabGroup from "./TabGroup"
@@ -40,7 +40,7 @@ export default function Controller({
       </div>
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
-          rawData={rhfInput}
+          rawData={controller}
           url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
         />
         <CodeArea rawData={reactNativeController} />

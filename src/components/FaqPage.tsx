@@ -12,7 +12,7 @@ import faqContent from "../data/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
-import controlledRHFInput from "./codeExamples/control"
+import control from "./codeExamples/control"
 import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -273,7 +273,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           {faq.questions[11].description}
 
           <TabGroup buttonLabels={["Controller", "Custom Register"]}>
-            <CodeArea rawData={controlledRHFInput} />
+            <CodeArea rawData={control} />
             <CodeArea
               rawData={controlled}
               url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
