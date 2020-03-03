@@ -30,6 +30,7 @@ function App() {
         defaultValue={{ value: 'chocolate' }}
       />
       
+      {* // what is this example showing? can we remove it? *}
       <Controller
         as={<TextField />}
         name="firstName"

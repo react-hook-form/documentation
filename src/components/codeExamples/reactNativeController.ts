@@ -14,7 +14,7 @@ export default () => {
     <View style={styles.container}>
       <Controller
         control={control}
-        as={<TextInput />}
+        as={TextInput}
         onChange={onChange}
         name="firstName"
         defaultValue=""

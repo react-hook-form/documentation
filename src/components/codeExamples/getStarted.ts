@@ -105,10 +105,10 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller as={<Input />} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={<InputField />} name="AntdInput" control={control} defaultValue="" />
+      <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
+      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
       <Controller
-        as={<Select />}
+        as={Select}
         name="reactSelect"
         control={control}
         onChange={([selected]) => {

@@ -15,7 +15,7 @@ export default function App() {
     <View>
       <Text>First name</Text>
       <Controller
-        as={<TextInput />}
+        as={TextInput}
         control={control}
         name="firstName"
         onChange={onChange}
@@ -25,7 +25,7 @@ export default function App() {
       {errors.firstName && <Text>This is required.</Text>}
 
       <Text>Last name</Text>
-      <Controller as={<TextInput />} control={control} name="lastName" defaultValue="" />
+      <Controller as={TextInput} control={control} name="lastName" defaultValue="" />
 
       <Button onPress={handleSubmit(onSubmit)} />
     </View>

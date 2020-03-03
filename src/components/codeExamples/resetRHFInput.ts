@@ -9,14 +9,14 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller 
-        as={<TextField />} 
+        as={TextField} 
         name="firstName"
         control={control} 
         rules={ required: true } 
         defaultValue=""
       />
       <Controller 
-        as={<TextField />} 
+        as={TextField} 
         name="lastName"
         control={control}
         defaultValue="" 
