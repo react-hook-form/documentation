@@ -740,7 +740,13 @@ export default {
           <td />
           <td>
             이 <code>onChange</code> prop 으로 리턴 값을 커스터마이징 할 수
-            있습니다. <code>예: {`onChange={{(data) => data.value}}`}</code>
+            있습니다, 외부 구성 요소 <code>value</code> 소품의 모양을 알고
+            있어야합니다.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>

@@ -769,9 +769,14 @@ export default {
           <td></td>
           <td>
             この <code>onChange</code> prop
-            を使用すると、戻り値をカスタマイズすることができます。
-            <br />
-            例： <code>{`onChange={{(data) => data.value}}`}</code>
+            を使用すると、戻り値をカスタマイズすることができます,
+            外部コンポーネント<code>value</code>
+            の小道具の形状に注意してください。.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>

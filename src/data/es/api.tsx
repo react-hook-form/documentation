@@ -759,8 +759,13 @@ export default {
           <td></td>
           <td>
             Esta propiedad <code>onChange</code> te permitirá customizar el
-            valor de retorno. <br />
-            <code>ej: {`onChange={{(data) => data.value}}`}</code>
+            valor de retorno, asegúrese de conocer la forma de los accesorios
+            del componente externo <code>value</code>.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>

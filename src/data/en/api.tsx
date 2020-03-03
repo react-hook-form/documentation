@@ -920,9 +920,13 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to customize the return value.
-            <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            This prop allows you to customize the return value, make sure you
+            aware the shape of the external component <code>value</code> props.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ { checked } ]) => ({ checked })}}`}
+            />
           </td>
         </tr>
         <tr>

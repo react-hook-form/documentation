@@ -934,8 +934,13 @@ export default {
           <td />
           <td>
             Параметр <code>onChange</code> позволяет вам изменять возвращаемое
-            значение, <br />
-            <code>например: {`onChange={{(data) => data.value}}`}</code>
+            значение, убедитесь, что вы знаете форму реквизита{" "}
+            <code>value</code> внешнего компонента..
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>

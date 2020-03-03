@@ -730,9 +730,13 @@ export default {
           </td>
           <td></td>
           <td>
-            这个<code> onChange </code>道具可让您自定义返回值。
-            <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            这个<code> onChange </code>道具可让您自定义返回值,
+            确保您知道外部组件<code>value</code>props的形状。
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
