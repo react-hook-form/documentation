@@ -1210,6 +1210,13 @@ export default {
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
+        </p>
       </>
     ),
   },

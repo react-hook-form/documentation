@@ -1139,6 +1139,13 @@ export default {
           <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
           반드시 인풋 값과 연결되어야 합니다.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>참고:</b>이 함수는
+          <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
+          캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
+          변경할 수있는 변경 가능한 객체입니다.
+        </p>
       </>
     ),
   },

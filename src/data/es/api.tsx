@@ -1174,6 +1174,14 @@ export default {
           <b className={typographyStyles.note}>Nota:</b> errores de retorno La
           clave del objeto debe ser relevante para sus entradas.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> esta función se
+          almacenará en caché dentro del enlace personalizado, similar a{" "}
+          <code>validationSchema</code>, mientras que{" "}
+          <code>validationContext</code> es un objeto mutable que se puede
+          cambiar en cada representación.
+        </p>
       </>
     ),
   },

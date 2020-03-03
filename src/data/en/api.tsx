@@ -525,8 +525,8 @@ export default {
         <p>The function allows you to manually set one or multiple errors.</p>
         <p>
           <b className={typographyStyles.note}>Note:</b> This method will not
-          persist the error and block the submit action. It's more useful during
-          {" "}<code>handleSubmit</code> function when you want to give error
+          persist the error and block the submit action. It's more useful during{" "}
+          <code>handleSubmit</code> function when you want to give error
           feedback to the users after async validation.
         </p>
       </>
@@ -1186,13 +1186,20 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> make sure you are
           returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
+          <code>errors</code>, and their default value should be{" "}
           <code>{`{}`}</code>.
         </p>
 
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
         </p>
       </>
     ),
