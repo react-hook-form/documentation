@@ -526,7 +526,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> This method will not
           persist the error and block the submit action. It's more useful during
-          <code>handleSubmit</code> function when you want to give error
+          {" "}<code>handleSubmit</code> function when you want to give error
           feedback to the users after async validation.
         </p>
       </>
