@@ -680,32 +680,71 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>{" "}
+          <code>useFieldArray</code> is built on top of uncontrolled components.
+          The following notes will help you aware and be mindful of its
+          behaviour during implementation.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              make sure you assign <code>id</code> from <code>fields</code>{" "}
+              object as your component key.
+            </p>
+          </li>
+          <li>
+            <p>
+              set <code>defaultValue</code> when you want to set default value
+              or reset with inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              if you want to watch field array values' update during append,
+              prepend and rest of the other actions. You will have to watch the
+              entire field array object eg: <code>watch('fieldArrayName')</code>
+              . This is due to watch API was meant to subscribe input change
+              rather state update (we made a workaround only for field array),
+              also use this feature in caution as it does impact your form/app's
+              performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              you can not call actions one after another. Actions need to be
+              triggered per render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> set{" "}
-          <code>defaultValue</code> when you want to set default value or reset
-          with inputs.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> if you want to watch
-          field array values' update during append, prepend and rest of the
-          other actions. You will have to watch the entire field array object
-          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
-          meant to subscribe input change rather state update (we made a
-          workaround only for field array), also use this feature in caution as
-          it does impact your form/app's performance.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (

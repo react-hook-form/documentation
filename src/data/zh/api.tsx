@@ -944,28 +944,62 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>注意:</b> 可以通过在
-          <code>userform</code>中的
-          <code>defaultValues</code>来填充<code>字段</code>。
+          <b className={typographyStyles.note}>注意: </b>{" "}
+          <code> useFieldArray </code>建立在不受控制的组件之上。
+          以下说明将帮助您了解并牢记其实施过程中的行为。
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b> 确保您将来自
-          <code>fields</code>对象的
-          <code>id</code>分配为组件键。
-        </p>
+        <ul>
+          <li>
+            <p>
+              可以通过在<code>userform</code>中的
+              <code>defaultValues</code>来填充<code>字段</code>。
+            </p>
+          </li>
+          <li>
+            <p>
+              确保您将来自<code>fields</code>对象的
+              <code>id</code>分配为组件键。
+            </p>
+          </li>
+          <li>
+            <p>
+              要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
+            </p>
+          </li>
+          <li>
+            <p>
+              如果要在追加，添加和其余其他操作期间观看字段数组值的更新。您将必须监视整个字段数组对象，例如：
+              <code>watch('fieldArrayName')</code>。这是由于watch
+              API旨在订阅输入更改而不是状态更新（我们仅对字段数组进行了变通），还请谨慎使用此功能，因为它确实会影响表单/应用程序的性能。
+            </p>
+          </li>
+          <li>
+            <p>您不能一个接一个地调用动作。行动需要每个渲染触发。</p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意: </b>
-          如果要在追加，添加和其余其他操作期间观看字段数组值的更新。您将必须监视整个字段数组对象，例如：
-          <code>watch('fieldArrayName')</code>。这是由于watch
-          API旨在订阅输入更改而不是状态更新（我们仅对字段数组进行了变通），还请谨慎使用此功能，因为它确实会影响表单/应用程序的性能。
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (

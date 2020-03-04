@@ -995,42 +995,73 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los
-          (campos) <code>fields</code> seteando <code>defaultValues</code> en{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>
+          <code>useFieldArray</code> está construido sobre componentes no
+          controlados. Las siguientes notas lo ayudarán a conocer y tener en
+          cuenta su comportamiento durante la implementación.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> asegurate de
-          asignar el <code>id</code> del objeto <code>fields</code> como la key
-          de tu componente.
-        </p>
+        <ul>
+          <li>
+            <p>
+              puedes inicializar los (campos) <code>fields</code> seteando{" "}
+              <code>defaultValues</code> en <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              asegurate de asignar el <code>id</code> del objeto{" "}
+              <code>fields</code> como la key de tu componente.
+            </p>
+          </li>
+          <li>
+            <p>
+              establezca <code> defaultValue </code> cuando desee establecer el
+              valor predeterminado o restablecer entradas.
+            </p>
+          </li>
+          <li>
+            <p>
+              si desea ver la actualización de los valores de la matriz de campo
+              durante el agregado, anteponer y el resto de las otras acciones.
+              Deberá observar todo el objeto de la matriz de campos, por
+              ejemplo: <code>watch('fieldArrayName')</code>. Esto se debe a que
+              la API de observación estaba destinada a suscribir el cambio de
+              entrada en lugar de la actualización de estado (hicimos una
+              solución solo para la matriz de campo), también use esta función
+              con precaución, ya que afecta el rendimiento de su formulario /
+              aplicación.
+            </p>
+          </li>
+          <li>
+            <p>
+              no puedes llamar acciones una tras otra. Las acciones deben ser
+              activado por render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> debido a un
-          problema en la referencia del callback, para (registrar){" "}
-          <code>register</code>
-          sin ninguna validación, asegurate de pasar vacio como payload de
-          callback. ej: <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> establezca{" "}
-          <code> defaultValue </code> cuando desee establecer el valor
-          predeterminado o restablecer entradas.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b> si desea ver la
-          actualización de los valores de la matriz de campo durante el
-          agregado, anteponer y el resto de las otras acciones. Deberá observar
-          todo el objeto de la matriz de campos, por ejemplo:{" "}
-          <code>watch('fieldArrayName')</code>. Esto se debe a que la API de
-          observación estaba destinada a suscribir el cambio de entrada en lugar
-          de la actualización de estado (hicimos una solución solo para la
-          matriz de campo), también use esta función con precaución, ya que
-          afecta el rendimiento de su formulario / aplicación.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (

@@ -973,31 +973,69 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>참고:</b> <code>useForm</code>{" "}
-          hook 에 있는 <code>defaultValues</code> 를 전달하여{" "}
-          <code>fields</code> 를 생성할 수 있습니다.
+          <b className={typographyStyles.note}>참고: </b>
+          <code>useFieldArray</code>는 제어되지 않은 구성 요소 위에 구축됩니다.
+          다음 참고 사항은 해당 정보를 인식하고주의하는 데 도움이됩니다. 구현 중
+          동작.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>중요:</b> <code>fields</code>{" "}
-          객체의 <code>id</code> 값을 컴포넌트의 key 로 전달하는 것을 잊지
-          마세요.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>useForm</code> hook 에 있는 <code>defaultValues</code> 를
+              전달하여 <code>fields</code> 를 생성할 수 있습니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>fields</code> 객체의 <code>id</code> 값을 컴포넌트의 key 로
+              전달하는 것을 잊지 마세요.
+            </p>
+          </li>
+          <li>
+            <p>
+              기본값을 설정하거나입력으로 재설정하려는 경우{" "}
+              <code> defaultValue </code>를 설정하십시오.
+            </p>
+          </li>
+          <li>
+            <p>
+              추가하는 동안 필드 배열 값의 업데이트를보고 싶다면 다른 작업을
+              앞에 추가하십시오. <code>watch('fieldArrayName')</code>와 같이
+              전체 필드 배열 객체를 감시해야합니다. 이것은 API가 상태 업데이트가
+              아닌 입력 변경을 구독하기위한 것이므로 (필드 배열에 대해서만 해결
+              방법을 만들었습니다) 양식 / 앱의 성능에 영향을 미치 므로이
+              기능을주의해서 사용하십시오.
+            </p>
+          </li>
+          <li>
+            <p>
+              액션을 하나씩 호출 할 수 없습니다. 행동은렌더 당 트리거됩니다.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 기본값을 설정하거나
-          입력으로 재설정하려는 경우 <code> defaultValue </code>를 설정하십시오.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b>
-          추가하는 동안 필드 배열 값의 업데이트를보고 싶다면 다른 작업을 앞에
-          추가하십시오. <code>watch('fieldArrayName')</code>와 같이 전체 필드
-          배열 객체를 감시해야합니다. 이것은 API가 상태 업데이트가 아닌 입력
-          변경을 구독하기위한 것이므로 (필드 배열에 대해서만 해결 방법을
-          만들었습니다) 양식 / 앱의 성능에 영향을 미치 므로이 기능을주의해서
-          사용하십시오.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (
