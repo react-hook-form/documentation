@@ -17,7 +17,7 @@ function App() {
       {name !== "bill" && (
         <Controller
           name="test" 
-          as={<TextField />}
+          as={TextField}
           control={control} 
           defaultValue=""
         />

@@ -30,13 +30,6 @@ function App() {
         defaultValue={{ value: 'chocolate' }}
       />
       
-      <Controller
-        as={<TextField />}
-        name="firstName"
-        control={control}
-        defaultValue=""
-      />
-      
       <button>submit</button>
     </form>
   );
