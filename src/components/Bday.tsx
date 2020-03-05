@@ -46,7 +46,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                   </div>
                   <div className={styles.birthday} style={style}>
                     Birthday
-                    <p>Birth: 06/03/2019</p>
+                    <p>06/03/2019</p>
                   </div>
                   <div className={styles.first} style={style}>
                     1<sup>st</sup>
