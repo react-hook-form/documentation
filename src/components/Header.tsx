@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
+import Bday from "./Bday"
 // @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
 // @ts-ignore
@@ -31,9 +32,11 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
+  isCardPlay,
 }: {
   homeRef: React.Ref<HTMLDivElement>
   defaultLang: string
+  isCardPlay: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
@@ -45,186 +48,190 @@ export default function Header({
       : { currentLanguage: defaultLang }
 
   return (
-    <AnimateGroup play>
-      <header className={styles.head} id="main">
-        <Animate
-          sequenceIndex={0}
-          duration={0.2}
-          start={{
-            transform: "translateY(20px)",
-            opacity: 0,
-          }}
-          end={{
-            transform: "translateY(0)",
-          }}
-          easeType="ease-in"
-          render={({ style }) => (
-            <svg className={styles.logo} style={style} viewBox="0 0 100 100">
-              {LogoSvg}
-            </svg>
-          )}
-        />
-
-        <Animate
-          sequenceIndex={0}
-          duration={0.2}
-          start={{
-            transform: "translateY(20px)",
-            opacity: 0,
-          }}
-          end={{
-            transform: "translateY(0)",
-          }}
-          easeType="ease-in"
-          render={({ style }) => (
-            <h1
-              className={`${typographyStyles.heading} ${styles.logoHeading}`}
-              style={style}
-            >
-              <svg className={styles.desktopLogo} viewBox="0 0 100 100">
-                {LogoSvg}
-              </svg>{" "}
-              React Hook Form
-            </h1>
-          )}
-        />
-
-        <Animate
-          sequenceIndex={1}
-          start={{
-            transform: "translateY(20px)",
-            opacity: 0,
-          }}
-          end={{
-            transform: "translateY(0)",
-          }}
-          easeType="ease-in"
-          render={({ style }) => (
-            <p
-              className={typographyStyles.subHeading}
-              style={{ marginBottom: 0, maxWidth: 660, ...style }}
-            >
-              {home.slogan[currentLanguage]}
-            </p>
-          )}
-        />
-
-        <Animate
-          sequenceIndex={2}
-          start={{
-            transform: "translateY(20px)",
-            opacity: 0,
-          }}
-          end={{
-            transform: "translateY(0)",
-          }}
-          easeType="ease-in"
-          render={({ style }) => (
-            <div
-              className={buttonStyles.buttonsGroup}
-              style={{
-                ...style,
-                minWidth: 300,
-              }}
-            >
-              <button
-                className={buttonStyles.primaryButton}
-                onClick={() => {
-                  // @ts-ignore
-                  homeRef.current.scrollIntoView({ behavior: "smooth" })
-                }}
-              >
-                {home.demo[currentLanguage]}
-              </button>
-
-              <button
-                className={buttonStyles.primaryButton}
-                onClick={() => {
-                  navigate(translateLink("get-started", currentLanguage))
-                }}
-              >
-                {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
-              </button>
-            </div>
-          )}
-        />
-      </header>
-
-      <h4 className={styles.videoHeading}>React Web</h4>
-      <div
-        className={isWeb ? styles.videoWrapperShow : styles.videoWrapperHide}
-      >
-        <div style={{ position: "relative" }}>
+    <>
+      <AnimateGroup play>
+        <header className={styles.head} id="main">
           <Animate
-            sequenceIndex={3}
-            delay={0.1}
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-            duration={0.4}
+            sequenceIndex={0}
+            duration={0.2}
+            start={{
+              transform: "translateY(20px)",
+              opacity: 0,
+            }}
+            end={{
+              transform: "translateY(0)",
+            }}
             easeType="ease-in"
             render={({ style }) => (
-              <video
-                className={styles.video}
-                id="tabPanel-1"
-                aria-labelledby="tabPanel-1"
-                controls
-                playsInline
-                muted
-                style={style}
-              >
-                <source src={video} type="video/mp4" />
-              </video>
+              <svg className={styles.logo} style={style} viewBox="0 0 100 100">
+                {LogoSvg}
+              </svg>
             )}
           />
+
+          <Animate
+            sequenceIndex={0}
+            duration={0.2}
+            start={{
+              transform: "translateY(20px)",
+              opacity: 0,
+            }}
+            end={{
+              transform: "translateY(0)",
+            }}
+            easeType="ease-in"
+            render={({ style }) => (
+              <h1
+                className={`${typographyStyles.heading} ${styles.logoHeading}`}
+                style={style}
+              >
+                <svg className={styles.desktopLogo} viewBox="0 0 100 100">
+                  {LogoSvg}
+                </svg>{" "}
+                React Hook Form
+              </h1>
+            )}
+          />
+
+          <Animate
+            sequenceIndex={1}
+            start={{
+              transform: "translateY(20px)",
+              opacity: 0,
+            }}
+            end={{
+              transform: "translateY(0)",
+            }}
+            easeType="ease-in"
+            render={({ style }) => (
+              <p
+                className={typographyStyles.subHeading}
+                style={{ marginBottom: 0, maxWidth: 660, ...style }}
+              >
+                {home.slogan[currentLanguage]}
+              </p>
+            )}
+          />
+
+          <Animate
+            sequenceIndex={2}
+            start={{
+              transform: "translateY(20px)",
+              opacity: 0,
+            }}
+            end={{
+              transform: "translateY(0)",
+            }}
+            easeType="ease-in"
+            render={({ style }) => (
+              <div
+                className={buttonStyles.buttonsGroup}
+                style={{
+                  ...style,
+                  minWidth: 300,
+                }}
+              >
+                <button
+                  className={buttonStyles.primaryButton}
+                  onClick={() => {
+                    // @ts-ignore
+                    homeRef.current.scrollIntoView({ behavior: "smooth" })
+                  }}
+                >
+                  {home.demo[currentLanguage]}
+                </button>
+
+                <button
+                  className={buttonStyles.primaryButton}
+                  onClick={() => {
+                    navigate(translateLink("get-started", currentLanguage))
+                  }}
+                >
+                  {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
+                </button>
+              </div>
+            )}
+          />
+        </header>
+
+        <h4 className={styles.videoHeading}>React Web</h4>
+        <div
+          className={isWeb ? styles.videoWrapperShow : styles.videoWrapperHide}
+        >
+          <div style={{ position: "relative" }}>
+            <Animate
+              sequenceIndex={3}
+              delay={0.1}
+              start={{ opacity: 0 }}
+              end={{ opacity: 1 }}
+              duration={0.4}
+              easeType="ease-in"
+              render={({ style }) => (
+                <video
+                  className={styles.video}
+                  id="tabPanel-1"
+                  aria-labelledby="tabPanel-1"
+                  controls
+                  playsInline
+                  muted
+                  style={style}
+                >
+                  <source src={video} type="video/mp4" />
+                </video>
+              )}
+            />
+          </div>
         </div>
-      </div>
 
-      <div
-        className={isWeb ? styles.videoWrapperHide : styles.videoWrapperShow}
-      >
-        <h4 className={styles.videoHeading}>React Native</h4>
-        <video
-          className={styles.video}
-          id="tabPanel-2"
-          aria-labelledby="tabPanel-2"
-          controls
-          playsInline
-          muted
+        <div
+          className={isWeb ? styles.videoWrapperHide : styles.videoWrapperShow}
         >
-          <source src={nativeVideo} type="video/mp4" />
-        </video>
-      </div>
+          <h4 className={styles.videoHeading}>React Native</h4>
+          <video
+            className={styles.video}
+            id="tabPanel-2"
+            aria-labelledby="tabPanel-2"
+            controls
+            playsInline
+            muted
+          >
+            <source src={nativeVideo} type="video/mp4" />
+          </video>
+        </div>
 
-      <div
-        className={styles.toggleGroup}
-        role="tablist"
-        aria-label="Select video"
-      >
-        <button
-          aria-label="show web video"
-          aria-selected={isWeb ? "true" : "false"}
-          aria-controls="tabPanel-1"
-          role="tab"
-          disabled={isWeb}
-          onClick={() => {
-            setIsWeb(true)
-          }}
+        <div
+          className={styles.toggleGroup}
+          role="tablist"
+          aria-label="Select video"
         >
-          React Web
-        </button>
-        <button
-          disabled={!isWeb}
-          role="tab"
-          aria-label="show react native video"
-          aria-selected={!isWeb}
-          aria-controls="tabPanel-2"
-          onClick={() => {
-            setIsWeb(false)
-          }}
-        >
-          React Native
-        </button>
-      </div>
-    </AnimateGroup>
+          <button
+            aria-label="show web video"
+            aria-selected={isWeb ? "true" : "false"}
+            aria-controls="tabPanel-1"
+            role="tab"
+            disabled={isWeb}
+            onClick={() => {
+              setIsWeb(true)
+            }}
+          >
+            React Web
+          </button>
+          <button
+            disabled={!isWeb}
+            role="tab"
+            aria-label="show react native video"
+            aria-selected={!isWeb}
+            aria-controls="tabPanel-2"
+            onClick={() => {
+              setIsWeb(false)
+            }}
+          >
+            React Native
+          </button>
+        </div>
+      </AnimateGroup>
+
+      <Bday isCardPlay={isCardPlay} />
+    </>
   )
 }
