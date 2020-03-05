@@ -30,17 +30,17 @@ export default {
     validationResolver: goToSection => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          Esta función de devolución de llamada le permite ejecutar cualquier
+          esquema o personalizado validación. La función tiene la forma completa
+          <code>values</code> como argumento, y deberá validar el resultado y
+          devolver ambos <code>values</code> y <code>errors</code>. Lee mas en{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
           >
             validationResolver
-          </button>{" "}
-          section.
+          </button>
+          sección.
         </p>
       </>
     ),
@@ -48,15 +48,17 @@ export default {
       <>
         <p>
           This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          <code>validationResolver</code>'s second argument or Este objeto de
+          contexto se inyectará en El segundo argumento de{" "}
+          <code>validationResolver</code> o
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
             rel="noopener noreferrer"
           >
             Yup
-          </a>{" "}
-          validation's context object.
+          </a>
+          objeto de contexto de validación.
         </p>
       </>
     ),
@@ -107,6 +109,19 @@ export default {
           </a>{" "}
           o utilizando <code>defaultValues</code> como argumento opcional para
           cargar los valores por defecto del formulario entero.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>defaultValues</code> is cached within the custom hook, if you
+          want to reset <code>defaultValues</code> please use{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>{" "}
+          api.
         </p>
 
         <p>
@@ -447,7 +462,12 @@ export default {
       <>
         <p>
           Esta función pasará los datos del formulario cuando la validación haya
-          sido exitosa.
+          sido exitosa Y puede ser invocada remotamente también.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Puedes pasar una
@@ -492,9 +512,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Necesitaras proporcione
-          <code> defaultValues ​​</code> durante <code> useForm </code> o
-          <code> reset </code> con valor para restablecer
-          <code> Controller </code>valor de los componentes.
+          <code>defaultValues</code> durante <code>useForm</code> o
+          <code>reset</code> con valor para restablecer
+          <code>Controller</code>valor de los componentes.
         </p>
       </>
     ),
@@ -697,14 +717,14 @@ export default {
             controlados, cuando se setea un valor <code>booleano</code>, es
             tratado como un checkbox input.
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>Nota:</b> necesitaras
+              proporcione <code>defaultValue</code> o
+              <code>defaultValues​​</code> en <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>Nota:</b> necesitaras
+              proporcione <code> defaultValue </code> o{" "}
+              <code> defaultValues ​​</code> en <code> useForm </code>
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: si tu formulario lo
@@ -733,14 +753,19 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any) => any
+              (args: any | EventTarget) => any
             </code>
           </td>
           <td></td>
           <td>
             Esta propiedad <code>onChange</code> te permitirá customizar el
-            valor de retorno. <br />
-            <code>ej: {`onChange={{(data) => data.value}}`}</code>
+            valor de retorno, asegúrese de conocer la forma de los accesorios
+            del componente externo <code>value</code>.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -970,42 +995,73 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los
-          (campos) <code>fields</code> seteando <code>defaultValues</code> en{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>
+          <code>useFieldArray</code> está construido sobre componentes no
+          controlados. Las siguientes notas lo ayudarán a conocer y tener en
+          cuenta su comportamiento durante la implementación.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> asegurate de
-          asignar el <code>id</code> del objeto <code>fields</code> como la key
-          de tu componente.
-        </p>
+        <ul>
+          <li>
+            <p>
+              puedes inicializar los (campos) <code>fields</code> seteando{" "}
+              <code>defaultValues</code> en <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              asegurate de asignar el <code>id</code> del objeto{" "}
+              <code>fields</code> como la key de tu componente.
+            </p>
+          </li>
+          <li>
+            <p>
+              establezca <code> defaultValue </code> cuando desee establecer el
+              valor predeterminado o restablecer entradas.
+            </p>
+          </li>
+          <li>
+            <p>
+              si desea ver la actualización de los valores de la matriz de campo
+              durante el agregado, anteponer y el resto de las otras acciones.
+              Deberá observar todo el objeto de la matriz de campos, por
+              ejemplo: <code>watch('fieldArrayName')</code>. Esto se debe a que
+              la API de observación estaba destinada a suscribir el cambio de
+              entrada en lugar de la actualización de estado (hicimos una
+              solución solo para la matriz de campo), también use esta función
+              con precaución, ya que afecta el rendimiento de su formulario /
+              aplicación.
+            </p>
+          </li>
+          <li>
+            <p>
+              no puedes llamar acciones una tras otra. Las acciones deben ser
+              activado por render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> debido a un
-          problema en la referencia del callback, para (registrar){" "}
-          <code>register</code>
-          sin ninguna validación, asegurate de pasar vacio como payload de
-          callback. ej: <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> establezca{" "}
-          <code> defaultValue </code> cuando desee establecer el valor
-          predeterminado o restablecer entradas.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b> si desea ver la
-          actualización de los valores de la matriz de campo durante el
-          agregado, anteponer y el resto de las otras acciones. Deberá observar
-          todo el objeto de la matriz de campos, por ejemplo:{" "}
-          <code>watch('fieldArrayName')</code>. Esto se debe a que la API de
-          observación estaba destinada a suscribir el cambio de entrada en lugar
-          de la actualización de estado (hicimos una solución solo para la
-          matriz de campo), también use esta función con precaución, ya que
-          afecta el rendimiento de su formulario / aplicación.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1119,8 +1175,8 @@ export default {
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          Esta función le permite ejecutar cualquier método de validación
+          externo, tal como{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1136,22 +1192,31 @@ export default {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          y etc. De hecho, el objetivo no es solo limitado Sí como nuestro
+          externo (esquema) biblioteca de validación. Nos gustaría apoyar a
+          muchos otros bibliotecas de validación para trabajar con React Hook
+          Form. Incluso puedes escribir su lógica de validación personalizada
+          para validar.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          <b className={typographyStyles.note}>Nota:</b> asegúrate de que eres
+          devolver objeto que contiene <code>values</code> y <code>errors</code>
+          , y su valor predeterminado debe ser un objeto vacío{" "}
+          <code> {`{}`} </code>.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>Nota:</b> errores de retorno La
+          clave del objeto debe ser relevante para sus entradas.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> esta función se
+          almacenará en caché dentro del enlace personalizado, similar a{" "}
+          <code>validationSchema</code>, mientras que{" "}
+          <code>validationContext</code> es un objeto mutable que se puede
+          cambiar en cada representación.
         </p>
       </>
     ),

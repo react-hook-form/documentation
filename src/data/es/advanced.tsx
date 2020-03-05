@@ -294,7 +294,7 @@ export default {
           necesita funcionalidad como: Eliminar, Insertar, Anexar, Anteponer.
           Aquí esta el{" "}
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
             target="_blank"
             rel="noreferrer noopener"
           >

@@ -283,7 +283,7 @@ export default {
           приложении должна быть следующая функциональность: Delete, Insert,
           Append, Preprend. Вы можете найти реализацию{" "}
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
             target="_blank"
             rel="noreferrer noopener"
           >

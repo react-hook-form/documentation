@@ -8,7 +8,7 @@ export default {
   title: "FAQs",
   header: {
     title: "FAQs",
-    description: "questões frequentemente perguntadas.",
+    description: "Perguntas feitas frequentemente",
   },
   questions: [
     {
@@ -22,13 +22,13 @@ export default {
           renderizações ocorridas pela digitação do usuário ou mudança de
           valores. Componentes montados na página são mais rápidos porque eles
           não são controlados. Para montar com velocidade, Eu tenho um guia
-          completo de comparações rápidas, que você pode conferir em{" "}
+          completo de comparações rápidas, que você pode conferir neste{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
             rel="noopener noreferrer"
           >
-            o link deste repositório
+            link
           </a>
           .
         </p>
@@ -44,7 +44,7 @@ export default {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Component não controlado
+            Componentes não controlados
           </a>
           , que nos possibilita construir formulários acessíveis e customizados
           facilmente.
@@ -166,10 +166,10 @@ export default {
           <p>
             React Hook Form é construido com base em componentes não
             controlados, que significa que você não pode alterar o campo{" "}
-            <code>value</code> através do <code>state</code> por{" "}
-            <code>onChange</code>. Consequentemente você não precisa{" "}
-            <code>value</code> de toda forma, de fato você apenas precisa{" "}
-            <code>defaultValue</code> para valor inicial do campo.
+            <code>value</code> através do <code>state</code> pelo{" "}
+            <code>onChange</code>. Consequentemente você não precisa do{" "}
+            <code>value</code> de toda forma, de fato você apenas precisa do{" "}
+            <code>defaultValue</code> para o valor inicial do campo.
           </p>
         </>
       ),
@@ -178,8 +178,8 @@ export default {
       title: "Teste falhou devido ao MutationObserver?",
       description: (
         <p>
-          Se você tem dificuldade durante o teste e o problema causado foi por{" "}
-          <code>MutationObserver</code>. Tenha certeza se instalou{" "}
+          Se você tiver dificuldade durante o teste e o problema causado foi
+          pelo <code>MutationObserver</code>. Tenha certeza se instalou{" "}
           <code>mutationobserver</code> e importe o pacote em seu teste{" "}
           <a
             href="https://jestjs.io/docs/en/configuration"
@@ -200,12 +200,12 @@ export default {
             Antes de tudo, todas as bibliotecas tentam resolver o mesmo problema
             o que está tornando a experiência de criação de formulários fácil e
             ótima. No entanto, existem algumas diferenças fundamentais entre os
-            três, react-hook-hook é construído com a entrada não controlada em
-            mente e tenta fornecer ao seu formulário o melhor desempenho e a
-            menor renderização possível, se possível. Além disso, o formulário
-            reat-hook é criado pelo React Hook e usado como hook, o que
-            significa que não há nenhum componente para você importar. Aqui
-            estão algumas das diferenças de detalhes:
+            três, react-hook é construído com a inputs não controlados em mente
+            e tenta fornecer ao seu formulário o melhor desempenho e a menor
+            renderização possível. Além disso, o formulário react-hook-form foi
+            construido pelo React Hook e usado como hook, o que significa que
+            não há nenhum componente para você importar. Aqui estão algumas das
+            diferenças de detalhes:
           </p>
 
           <div className={tableStyles.tableWrapper}>
@@ -361,12 +361,12 @@ export default {
             Resposta simples: <b>Sim</b>
           </p>
           <p>
-            React-hook-form não é recmoendado para construçãoo de formulário
-            controlado, entretantoo você pode utilizar facilmente.
+            React-hook-form não é recomendado para construçãoo de formulários
+            controlados, entretanto você pode utilizar facilmente.
           </p>
           <p>
-            O truque utilizando <code>watch</code> API para monitoroar cada
-            input e mudar o valor assinado a prop
+            O truque utilizando <code>watch</code> API para monitorar cada input
+            e mudar o valor assinado a prop
           </p>
           <p>
             Alternativamente, você pode usar um componente por volta{" "}
@@ -392,9 +392,9 @@ export default {
               </p>
 
               <p>
-                Todas os métodos de validação noReact Hook Form será tratado
+                Todas os métodos de validação nocReact Hook Form serão tratados
                 como funções assíncronas, então, é importante utilizar{" "}
-                <code>async</code> entorno do seu{" "}
+                <code>async</code> no entorno do seu{" "}
                 <a
                   className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
@@ -411,9 +411,49 @@ export default {
 
               <p>
                 React Hook Form utiliza <code>input</code> eventos para mudança
-                de campo, então para corrigir isto. você pode simplismente
-                substituir por <code>fireEvent.input</code> para
+                de campos, então para corrigir isto você pode simplesmente
+                substituir <code>fireEvent.input</code> por
                 react-testing-library
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b> subscreve no
+                Input Change via Event Listener e renderiza novamente baseado em
+                qual campo está subscrito. A re-renderização basea-se em qual
+                input está sendo assistido/subscrito. Veja{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  este codesandbox
+                </a>{" "}
+                do atual comportamento.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>: get value
+                que é armazenado dentro do hook customizado como referência,
+                rápido e barato. Este método não dispara o re-render;
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>: React
+                local state representa mais que apenas o estado do Input mas
+                também decide o que renderizar. Isso irá disparar em cada
+                mudança nos inputs.
               </p>
             </li>
           </ul>

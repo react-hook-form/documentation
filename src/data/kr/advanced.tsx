@@ -287,7 +287,7 @@ export default {
           requires functionality such as: Delete, Insert, Append, Preprend. Here
           is the{" "}
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-l19pz"
+            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
             target="_blank"
             rel="noreferrer noopener"
           >

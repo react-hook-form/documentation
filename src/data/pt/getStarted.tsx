@@ -19,7 +19,7 @@ export default {
   install: {
     linkTitle: "Instalação",
     title: "Começo rápido",
-    description: `Instalando React Hook Form apenas necessita de um único comando e você está pronto pra rodar.`,
+    description: `Instalar o React Hook Form necessita apenas de um único comando e você estará pronto pra rodar.`,
   },
   example: {
     title: "Examplo",
@@ -49,8 +49,8 @@ export default {
           precisar do uso manual do comando de registro:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or
           usando <Link to="/api#Controller">Controller</Link> para englobar e
-          registrar automaticamente seu componente. Você também pode ler mais em{" "}
-          <Link to="/api/#ReactNative">React Native</Link> Seção.
+          registrar automaticamente seu componente. Você também pode ler mais na
+          Seção <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
     ),
@@ -106,8 +106,8 @@ export default {
     title: "Campo Controlado",
     description: (
       <p>
-        O React Hook Form adota componentes não controlados e HTML nativo
-        entradas, no entanto, é difícil evitar trabalhar com controladores
+        O React Hook Form adota componentes não controlados e entradas deHTML
+        nativo, no entanto, é difícil evitar trabalhar com controladores
         externos componente como{" "}
         <a
           target="_blank"
@@ -124,7 +124,7 @@ export default {
         >
           AntD
         </a>{" "}
-        and{" "}
+        e{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -153,11 +153,11 @@ export default {
           <code>ref</code> isso pode ser utilizado para{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
-              register
+              registrar
             </Link>
           </code>
           . Por exemplo: Material-UI's <code>TextField</code> aceita{" "}
-          <code>inputRef</code> como props. Passando simplesmente{" "}
+          <code>inputRef</code> como props. Passando simplesmente o{" "}
           <code>register</code> para ele.
         </p>
         <p>
@@ -169,7 +169,7 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Opção 2:</b> As vezes componentes
-          não expõe uma prop par aregistrar, por exemplo{" "}
+          não expõe uma prop para registrar, por exemplo{" "}
           <code>react-select</code> ou <code>react-datepicker</code>.
         </p>
         <p>

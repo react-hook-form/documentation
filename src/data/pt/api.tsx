@@ -107,6 +107,19 @@ export default {
         </p>
 
         <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>defaultValues</code> is cached within the custom hook, if you
+          want to reset <code>defaultValues</code> please use{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>{" "}
+          api.
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>Nota:</b> Valores definidos em{" "}
           <code>defaultValues</code> será injetado em{" "}
           <button
@@ -457,7 +470,12 @@ export default {
       <>
         <p>
           Esta função irá passar os dados do formulário quando a validação do
-          formulário for um sucesso.
+          formulário for um sucesso e também pode ser chamado remotamente.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Você pode passar uma
@@ -742,14 +760,19 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any) => any
+              (args: any | EventTarget) => any
             </code>
           </td>
           <td></td>
           <td>
             Esta propriedade <code>onChange</code> lhe permite customizar o
-            retorno do valor. <br />
-            <code>ex: {`onChange={{(data) => data.value}}`}</code>
+            retorno do valor, verifique se o formato do componente externo{" "}
+            <code>value</code> props.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1008,41 +1031,74 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Importante: </b> O
+          <code>useFieldArray</code> é construído sobre componentes não
+          controlados. As notas a seguir ajudarão você a estar ciente e
+          consciente de suas comportamento durante a implementação.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              certifique-se de atribuir <code>id</code> a partir de{" "}
+              <code>fields</code>
+              objeto como sua chave de componente.
+            </p>
+          </li>
+          <li>
+            <p>
+              defina <code> defaultValue </code> quando desejar definir o valor
+              padrão ou redefinir com entradas.
+            </p>
+          </li>
+          <li>
+            <p>
+              se você quiser assistir à atualização dos valores da matriz de
+              campos durante o acréscimo, faça o pré-anexo e o restante das
+              outras ações. Você precisará observar todo o objeto da matriz de
+              campos, por exemplo:
+              <code>watch('fieldArrayName')</code>. Isso se deve ao fato de a
+              API watch ter a intenção de assinar alterações de entrada e não de
+              atualização de estado (fizemos uma solução alternativa apenas para
+              a matriz de campos), também use esse recurso com cuidado, pois
+              afeta o desempenho do formulário / aplicativo.
+            </p>
+          </li>
+          <li>
+            <p>
+              você não pode chamar ações uma após a outra. As ações precisam ser
+              acionado por renderização.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> due to ref
-          callback issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> defina{" "}
-          <code> defaultValue </code> quando desejar definir o valor padrão ou
-          redefinir com entradas.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b> se você quiser
-          assistir à atualização dos valores da matriz de campos durante o
-          acréscimo, faça o pré-anexo e o restante das outras ações. Você
-          precisará observar todo o objeto da matriz de campos, por exemplo:
-          <code>watch('fieldArrayName')</code>. Isso se deve ao fato de a API
-          watch ter a intenção de assinar alterações de entrada e não de
-          atualização de estado (fizemos uma solução alternativa apenas para a
-          matriz de campos), também use esse recurso com cuidado, pois afeta o
-          desempenho do formulário / aplicativo.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1187,6 +1243,13 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
         </p>
       </>
     ),

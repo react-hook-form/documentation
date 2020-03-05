@@ -418,5 +418,46 @@ export default {
         </div>
       ),
     },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b>
+                Подписаться на изменение входных данных через прослушиватель
+                событий и повторное рендеринг, какой вход смотрел / подписался.
+                проверять, выписываться{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  codesandbox
+                </a>
+                за реальное поведение.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>: получить
+                значение который хранится внутри пользовательского крючка в
+                качестве ссылки, быстро и дешево. Этот метод не запускает
+                повторную визуализацию.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>:
+                Реагировать местный состояние представляет собой нечто большее,
+                чем просто состояние ввода, а также решает, что оказывать. Это
+                будет срабатывать при изменении каждого входа.
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ],
 }

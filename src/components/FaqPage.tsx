@@ -291,6 +291,17 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[12].description}
 
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref => (sectionsRef.current.question13 = ref)}
+          >
+            {faq.questions[13].title}
+          </h2>
+
+          {faq.questions[13].description}
+
           <StarRepo currentLanguage={currentLanguage} />
 
           <Footer currentLanguage={currentLanguage} />

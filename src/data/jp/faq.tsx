@@ -414,5 +414,48 @@ export default {
         </div>
       ),
     },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b>{" "}
+                イベントリスナーを介して input{" "}
+                の変更を購読し、購読されているフィールドに基づいて再レンダリングします。
+                どの input{" "}
+                が監視/購読されているかに基づいて再レンダリングします。
+                実際の動作については、
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  この codesandbox
+                </a>{" "}
+                をご覧ください。
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>:{" "}
+                カスタムフック内に参照（<code>ref</code>
+                ）として格納された値を、高速かつ安価に取得します。
+                このメソッドは再レンダリングをトリガーしません。
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>: React{" "}
+                のローカルな状態は input{" "}
+                の状態を表すだけでなく、レンダリングするべきかを決定します。
+                これは、各 input の変更時にトリガーされます。
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ],
 }

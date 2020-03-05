@@ -53,7 +53,7 @@ function Form({
       {!devTool && (
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>
-            {home.liveDemo[currentLanguage].title}
+            {generic.liveDemo[currentLanguage]}
           </h1>
           {formUpdated && (
             <Animate

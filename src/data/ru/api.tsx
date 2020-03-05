@@ -106,6 +106,19 @@ export default {
         </p>
 
         <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>defaultValues</code> is cached within the custom hook, if you
+          want to reset <code>defaultValues</code> please use{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>{" "}
+          api.
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>Примечание:</b> Значение,
           определённое в <code>defaultValues</code> будет добавлено в{" "}
           <button
@@ -457,7 +470,12 @@ export default {
       <>
         <p>
           Эта функция будет передавать данные формы, когда валидация формы
-          прошла успешно.
+          прошла успешно и может быть вызван удаленно.
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>Примечание:</b> Вы можете
@@ -676,39 +694,71 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>{" "}
+          <code>useFieldArray</code> is built on top of uncontrolled components.
+          The following notes will help you aware and be mindful of its
+          behaviour during implementation.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              make sure you assign <code>id</code> from <code>fields</code>{" "}
+              object as your component key.
+            </p>
+          </li>
+          <li>
+            <p>
+              set <code>defaultValue</code> when you want to set default value
+              or reset with inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              if you want to watch field array values' update during append,
+              prepend and rest of the other actions. You will have to watch the
+              entire field array object eg: <code>watch('fieldArrayName')</code>
+              . This is due to watch API was meant to subscribe input change
+              rather state update (we made a workaround only for field array),
+              also use this feature in caution as it does impact your form/app's
+              performance.
+            </p>
+          </li>
+          <li>
+            <p>
+              you can not call actions one after another. Actions need to be
+              triggered per render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> due to ref
-          callback issue, for <code>register</code>
-          without any validation, please make sure to pass empty as payload as
-          callback. eg: <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> установите{" "}
-          <code> defaultValue </code>, если вы хотите установить значение по
-          умолчанию или сбросить с помощью входов.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b> if you want to watch
-          field array values' update during append, prepend and rest of the
-          other actions. You will have to watch the entire field array object
-          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
-          meant to subscribe input change rather state update (we made a
-          workaround only for field array), also use this feature in caution as
-          it does impact your form/app's performance.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -917,14 +967,19 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any) => any
+              (args: any | EventTarget) => any
             </code>
           </td>
           <td />
           <td>
             Параметр <code>onChange</code> позволяет вам изменять возвращаемое
-            значение, <br />
-            <code>например: {`onChange={{(data) => data.value}}`}</code>
+            значение, убедитесь, что вы знаете форму реквизита{" "}
+            <code>value</code> внешнего компонента..
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1198,6 +1253,13 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
         </p>
       </>
     ),

@@ -155,7 +155,14 @@ function ApiPage({
 
     if (apiSectionsRef.current[refName]) {
       apiSectionsRef.current[refName].scrollIntoView(
-        animate ? { behavior: "smooth" } : undefined
+        animate &&
+          Math.abs(
+            Object.keys(apiSectionsRef.current).findIndex(
+              item => item === refName
+            ) - activeIndex
+          ) < 5
+          ? { behavior: "smooth" }
+          : undefined
       )
     }
   }
@@ -200,7 +207,7 @@ function ApiPage({
           setActiveIndex(foundIndex)
         },
         {
-          rootMargin: "40px",
+          rootMargin: "100px",
           threshold: [0.01],
         }
       )
@@ -659,7 +666,7 @@ function ApiPage({
               <h2>
                 handleSubmit:{" "}
                 <span className={typographyStyles.typeText}>
-                  (data: Object, e: Event) => void
+                  (data: Object, e: Event) => () => void
                 </span>
               </h2>
             </code>
@@ -778,13 +785,17 @@ function ApiPage({
             }}
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>
-                setValue:{" "}
-                <span className={typographyStyles.typeText}>
-                  (name: string, value: any, shouldValidate?: boolean) => void
-                </span>
-              </h2>
+              <h2>setValue: </h2>
             </code>
+            <p>
+              <span className={typographyStyles.typeText}>
+                (name: string, value: any, shouldValidate?: boolean) => void
+              </span>
+              <br />
+              <span className={typographyStyles.typeText}>
+                {`(Record<Name, any>[], shouldValidate?: boolean) => void`}
+              </span>
+            </p>
 
             {api.setValue.description}
 

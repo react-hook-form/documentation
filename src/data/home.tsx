@@ -720,7 +720,6 @@ export default {
   },
   liveDemo: {
     en: {
-      title: "Live Demo",
       description: (
         <>
           The following form demonstrates form validation in action. Each column

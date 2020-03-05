@@ -2,9 +2,10 @@ import * as React from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
+import { useStateMachine } from "little-state-machine"
+import content from "../data/devtools"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./DevToolFeaturesList.module.css"
-import { useStateMachine } from "little-state-machine"
 
 const props = {
   keyframes: [
@@ -66,11 +67,8 @@ function FeaturesList({
                 />
               </svg>
             </AnimateKeyframes>
-            <h3>React Base</h3>
-            <p>
-              DevTool itself is built by React, so you easily integrate with
-              your React application.
-            </p>
+            <h3>{content[currentLanguage].features[0].title}</h3>
+            <p>{content[currentLanguage].features[0].description}</p>
           </article>
           <article>
             <AnimateKeyframes {...props} sequenceIndex={0}>
@@ -98,10 +96,7 @@ function FeaturesList({
               </div>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][0].title}</h3>
-            <p>
-              React Hook Form focus on delivering a great experience in terms of
-              building forms with React. This tool will help debug your forms.
-            </p>
+            <p>{content[currentLanguage].features[1].description}</p>
           </article>
           <article>
             <AnimateKeyframes {...props} sequenceIndex={0}>
@@ -110,11 +105,8 @@ function FeaturesList({
                 <path d="M100,50c0-27.614-22.386-50-50-50S0,22.386,0,50c0,25.954,19.777,47.285,45.082,49.757l0,0l0.001-0.009h0  C44.958,79.426,32.708,63.73,27.626,58.087v-0.002c0,0-2.087-2.503-0.905-5.503l9.256-23.476c0,0,1.713-4.34,5.517-4.34H50h8.506  c3.805,0,5.517,4.34,5.517,4.34l9.256,23.476c1.183,3-0.905,5.503-0.905,5.503v0.002c-5.082,5.644-17.332,21.339-17.456,41.661  l0.001,0.009C80.224,97.285,100,75.954,100,50z"></path>
               </svg>
             </AnimateKeyframes>
-            <h3>Open-Source</h3>
-            <p>
-              DevTools is an open-source project, so we can all improve the
-              experience together.
-            </p>
+            <h3>{content[currentLanguage].features[2].title}</h3>
+            <p>{content[currentLanguage].features[2].description}</p>
           </article>
         </div>
       </AnimateGroup>

@@ -424,5 +424,46 @@ export default {
         </div>
       ),
     },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}> watch: </b> suscríbase a
+                cambio de entrada a través del detector de eventos y renderizado
+                en función de qué campos que están suscritos. Renderizar en
+                función de qué entrada es visto / suscrito revisa{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  codesandbox
+                </a>{" "}
+                por comportamiento real.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>: obtener
+                valor que almacena dentro del gancho personalizado como
+                referencia, rápido y barato. Este método no activa el
+                re-renderizado.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>estado</b>: Reaccionar
+                local state representa más que solo el estado de entrada y
+                también decide qué para renderizar Esto se activará con cada
+                cambio de entrada.
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ],
 }

@@ -109,6 +109,19 @@ export default {
         </p>
 
         <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>defaultValues</code> is cached within the custom hook, if you
+          want to reset <code>defaultValues</code> please use{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("reset")}
+          >
+            reset
+          </button>{" "}
+          api.
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>注意：</b>{" "}
           <code>defaultValues</code> で定義された値は <code>defaultValue</code>{" "}
           として{" "}
@@ -461,7 +474,12 @@ export default {
     description: (
       <>
         <p>
-          この関数は、フォームバリデーションに成功するとフォームデータを渡します。
+          この関数は、フォームバリデーションに成功するとフォームデータを渡します。また、リモートで呼び出すこともできます。
+        </p>
+        <p>
+          <code className={typographyStyles.codeBlock}>
+            handleSubmit(onSubmit)()
+          </code>
         </p>
         <p>
           <b className={typographyStyles.note}>注意：</b>{" "}
@@ -745,15 +763,20 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any) => any
+              (args: any | EventTarget) => any
             </code>
           </td>
           <td></td>
           <td>
             この <code>onChange</code> prop
-            を使用すると、戻り値をカスタマイズすることができます。
-            <br />
-            例： <code>{`onChange={{(data) => data.value}}`}</code>
+            を使用すると、戻り値をカスタマイズすることができます,
+            外部コンポーネント<code>value</code>
+            の小道具の形状に注意してください。.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1005,38 +1028,70 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>注意:</b> <code>useForm</code>{" "}
-          フックで <code>defaultValues</code> を指定することにより、
-          <code>fields</code> に格納することができます。
+          <b className={typographyStyles.note}>重要: </b>{" "}
+          <code>useFieldArray</code>
+          は、制御されていないコンポーネントの上に構築されます。
+          次の注意事項は、そのことに注意し、留意するのに役立ちます実装中の動作。
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>重要:</b> <code>fields</code>{" "}
-          オブジェクトから <code>id</code> をコンポーネントの <code>key</code>{" "}
-          に割り当てていることを確認してください。
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>useForm</code>フックで <code>defaultValues</code>{" "}
+              を指定することにより、
+              <code>fields</code> に格納することができます。
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>fields</code>オブジェクトから <code>id</code>{" "}
+              をコンポーネントの <code>key</code>{" "}
+              に割り当てていることを確認してください。
+            </p>
+          </li>
+          <li>
+            <p>
+              デフォルト値を設定するか、入力値をリセットしたい場合は、
+              <code>defaultValue</code> を設定します。
+            </p>
+          </li>
+          <li>
+            <p>
+              append、prepend及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
+              フィールド配列オブジェクト全体を監視する必要があります。例:{" "}
+              <code>watch('fieldArrayName')</code> これは、watch API{" "}
+              が状態の更新ではなく入力の変更をサブスクライブするためです（私たちはフィールド配列に対してのみ回避策を用意しました）。
+              また、この機能はフォーム・アプリのパフォーマンスに影響を与えるので、注意して使用してください。
+            </p>
+          </li>
+          <li>
+            <p>
+              次々とアクションを呼び出すことはできません。アクションはレンダリングごとにトリガーされます。
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>重要:</b> コールバック ref{" "}
-          の問題のため、<code>register</code>{" "}
-          にバリデーションルールを指定しない場合は、空のペイロードを渡すようにしてください。例:{" "}
-          <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          デフォルト値を設定するか、入力値をリセットしたい場合は、
-          <code>defaultValue</code> を設定します。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意:</b> append、prepend
-          及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
-          フィールド配列オブジェクト全体を監視する必要があります。例:{" "}
-          <code>watch('fieldArrayName')</code> これは、watch API{" "}
-          が状態の更新ではなく入力の変更をサブスクライブするためです（私たちはフィールド配列に対してのみ回避策を用意しました）。
-          また、この機能はフォーム・アプリのパフォーマンスに影響を与えるので、注意して使用してください。
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1185,6 +1240,14 @@ export default {
           <b className={typographyStyles.note}>注意:</b> 返す{" "}
           <code>errors</code> オブジェクトのキーは、フォーム内の input（
           <code>name</code>属性）に関連させる必要があります。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b>この関数は
+          <code>validationSchema</code>
+          と同様にカスタムフック内にキャッシュされますが、
+          <code>validationContext</code>
+          は再レンダリングのたびに変更できる可変オブジェクトです。
         </p>
       </>
     ),
