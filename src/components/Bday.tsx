@@ -8,10 +8,10 @@ const list = [
     <strong>Breakthrough of the year</strong>
   </p>,
   <p>
-    ★ NPM downloads: <strong>1.3M</strong>
+    ★ NPM downloads: <strong>1.5M</strong>
   </p>,
   <p>
-    ★ Github stars: <strong>7.2K</strong>
+    ★ Github stars: <strong>7.5K</strong>
   </p>,
   <p>
     ★ Github commit: <strong>1.6K</strong>
