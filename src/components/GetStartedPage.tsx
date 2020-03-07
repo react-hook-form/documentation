@@ -226,7 +226,7 @@ const Faq = ({
 
           <CodeArea
             rawData={controlledComponent}
-            url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+            url="https://codesandbox.io/s/react-hook-form-controller-079xx"
           />
 
           <h2

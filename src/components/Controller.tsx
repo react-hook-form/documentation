@@ -41,7 +41,7 @@ export default function Controller({
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={controller}
-          url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+          url="https://codesandbox.io/s/react-hook-form-controller-079xx"
         />
         <CodeArea rawData={reactNativeController} />
       </TabGroup>

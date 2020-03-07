@@ -709,7 +709,7 @@ function ApiPage({
               />
               <CodeArea
                 rawData={resetController}
-                url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+                url="https://codesandbox.io/s/react-hook-form-controller-079xx"
               />
               <CodeArea
                 rawData={resetCodeControlled}
