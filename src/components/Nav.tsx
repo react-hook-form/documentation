@@ -305,7 +305,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="jp">日本語</option>
           <option value="kr">한국어</option>
           <option value="pt">Português</option>
-          <option value="de">Deutsch</option>
         </select>
       </LangsSelect>
 
