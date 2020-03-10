@@ -38,6 +38,7 @@ import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import ValidationResolver from "./ValidationResolver"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef, useEffect } = React
 
@@ -80,8 +81,10 @@ function ApiPage({
   defaultLang: string
 }) {
   const {
+    state,
     state: { language },
   } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -230,7 +233,11 @@ function ApiPage({
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
           API
         </h1>
-        <div className={styles.quickSelect}>
+        <div
+          className={`${styles.quickSelect} ${
+            lightMode ? styles.lightQuickSelect : ""
+          }`}
+        >
           <select
             aria-label={`${generic.select[currentLanguage]} API`}
             onChange={e => {

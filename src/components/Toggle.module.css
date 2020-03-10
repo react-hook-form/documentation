@@ -4,6 +4,7 @@
   display: inline-block;
   width: 40px;
   height: 24px;
+  z-index: 1;
 }
 
 /* Hide default HTML checkbox */
