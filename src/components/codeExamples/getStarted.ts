@@ -45,7 +45,7 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="First Name" ref={register} required />
+      <Input label="First Name" register={register} required />
       <Select label="Age" ref={register} />
       <input type="submit" />
     </form>

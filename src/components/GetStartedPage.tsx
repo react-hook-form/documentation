@@ -195,7 +195,10 @@ const Faq = ({
 
           {getStarted.adapting.description}
 
-          <CodeArea rawData={migrateCode} />
+          <CodeArea
+            rawData={migrateCode}
+            url="https://codesandbox.io/s/adapting-existing-form-3mspt"
+          />
 
           <h2
             className={typographyStyles.title}
