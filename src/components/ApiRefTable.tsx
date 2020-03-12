@@ -106,7 +106,13 @@ export default function ApiRefTable({
         <table className={tableStyles.table}>
           <tbody>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
+              <th
+                style={{
+                  minWidth: isStandard ? 100 : 190,
+                }}
+              >
+                {generic.name[currentLanguage]}
+              </th>
               <th
                 style={{
                   minWidth: 300,

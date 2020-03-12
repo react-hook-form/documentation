@@ -260,9 +260,9 @@ export default {
     ),
     example: "제출 결과",
     selectHelp:
-      "등록 옵션(register options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
+      "등록 옵션(Register Options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "유효성 검사와 함께 등록",
       registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
       note: goToSection => (

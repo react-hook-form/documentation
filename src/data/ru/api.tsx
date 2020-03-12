@@ -268,7 +268,7 @@ export default {
     selectHelp:
       "При выборе способа регистрации, таблица API, приведенная ниже, будет обновлена.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "Регистрация с валидацией",
       registerWithValidationMessage:
         "Регистрация с валидацией и сообщением об ошибке",

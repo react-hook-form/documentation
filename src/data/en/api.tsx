@@ -261,7 +261,7 @@ export default {
     selectHelp:
       "By selecting the register option, the API table below will get updated.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "Register with validation",
       registerWithValidationMessage:
         "Register with validation and error message",
