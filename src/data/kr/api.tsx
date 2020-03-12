@@ -703,16 +703,20 @@ export default {
             <code>boolean</code> 값이 주어졌을 때는, 체크박스 입력값으로
             다루어집니다.
             <p>
-              <b className={typographyStyles.note}>참고: </b>
-              <code>defaultValue</code> 또는
-              <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
-              할 것입니다.
+              <b className={typographyStyles.note}>참고: </b>{" "}
+              <code>defaultValue</code> 또는 <code>useForm</code> 의{" "}
+              <code>defaultValues</code> 을 넣어주어야 할 것입니다.
             </p>
             <p>
-              <b className={typographyStyles.note}>참고</b>:당신의 양식이 다른
-              값으로 <code>reset</code>을 호출하면 set 대신 useForm 레벨에서{" "}
-              <code>defaultValues​​</code> 제공 인라인 <code>defaultValue</code>
-              .
+              <b className={typographyStyles.note}>참고: </b> 이 값을 사용하면
+              주어진 키 값은 <code>useForm</code> 의 <code>defaultValues</code>{" "}
+              값보다 우선적으로 적용됩니다.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>참고: </b> 만약 폼이 기본값과
+              함께 <code>reset</code>을 호출한다면, 인라인 값으로{" "}
+              <code>defaultValues</code> 를 제공하는 대신 useForm 단계에서{" "}
+              <code>defaultValues​​</code> 를 제공해주어야 합니다.
             </p>
           </td>
         </tr>
@@ -966,17 +970,27 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
     description: (
       <>
         <p>
-          필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이 훅은
-          아래의 객체와 함수를 제공합니다.
+          비제어 필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이
+          훅은 더 나은 사용자 경험과 폼 퍼포먼스를 제공하기 위해서 태어났습니다.{" "}
+          <a
+            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            이 짧은 비디오를 보고
+          </a>{" "}
+          제어 vs 비제어 필드 배열을 비교할 수 있습니다.
         </p>
+
+        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>참고: </b>
-          <code>useFieldArray</code>는 제어되지 않은 구성 요소 위에 구축됩니다.
-          다음 참고 사항은 해당 정보를 인식하고주의하는 데 도움이됩니다. 구현 중
-          동작.
+          <b className={typographyStyles.note}>중요: </b>
+          <code>useFieldArray</code>는 비제어 컴포넌트 기반으로 구성됩니다.
+          아래의 참고 사항은 폼을 구현하면서 비제어 컴포넌트의 특성 상 유념해야
+          하는 점을 새겨둘 수 있도록 돕습니다.
         </p>
 
         <ul>
@@ -994,23 +1008,26 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              기본값을 설정하거나입력으로 재설정하려는 경우{" "}
-              <code> defaultValue </code>를 설정하십시오.
+              기본값을 설정하거나 입력값을 재설정하기 위해{" "}
+              <code>defaultValue</code>를 설정하십시오.
             </p>
           </li>
           <li>
             <p>
-              추가하는 동안 필드 배열 값의 업데이트를보고 싶다면 다른 작업을
-              앞에 추가하십시오. <code>watch('fieldArrayName')</code>와 같이
-              전체 필드 배열 객체를 감시해야합니다. 이것은 API가 상태 업데이트가
-              아닌 입력 변경을 구독하기위한 것이므로 (필드 배열에 대해서만 해결
-              방법을 만들었습니다) 양식 / 앱의 성능에 영향을 미치 므로이
-              기능을주의해서 사용하십시오.
+              필드 배열에 앞이나 뒤에 필드를 붙이거나 다른 액션을 수행하면서
+              필드 배열의 값이 업데이트 되는 것을 관찰하고 싶다면, 전체 필드
+              배열 객체를 관찰하도록 해야 합니다. 예:{" "}
+              <code>watch('fieldArrayName')</code>. watch API 는 본래 상태
+              업데이트(필드 배열만을 위해 우회 방법을 만들어 두었습니다)가
+              아니라 입력값의 변경을 관찰하기 위해 사용되기 떄문입니다. 또한 이
+              기능을 사용할 때 폼이나 앱의 퍼포먼스에 영향을 줄 수 있기 때문에
+              주의해서 사용하셔야 합니다.
             </p>
           </li>
           <li>
             <p>
-              액션을 하나씩 호출 할 수 없습니다. 행동은렌더 당 트리거됩니다.
+              액션을 연속하여 호출할 수 없습니다. 액션은 매 랜더링마다
+              수행되어야 합니다.
             </p>
             <CodeArea
               withOutCopy
