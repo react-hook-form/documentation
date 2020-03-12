@@ -200,34 +200,40 @@ export default function Header({
         </div>
 
         <div
-          className={styles.toggleGroup}
-          role="tablist"
-          aria-label="Select video"
+          style={{
+            textAlign: "center",
+          }}
         >
-          <button
-            aria-label="show web video"
-            aria-selected={isWeb ? "true" : "false"}
-            aria-controls="tabPanel-1"
-            role="tab"
-            disabled={isWeb}
-            onClick={() => {
-              setIsWeb(true)
-            }}
+          <div
+            className={styles.toggleGroup}
+            role="tablist"
+            aria-label="Select video"
           >
-            React Web
-          </button>
-          <button
-            disabled={!isWeb}
-            role="tab"
-            aria-label="show react native video"
-            aria-selected={!isWeb}
-            aria-controls="tabPanel-2"
-            onClick={() => {
-              setIsWeb(false)
-            }}
-          >
-            React Native
-          </button>
+            <button
+              aria-label="show web video"
+              aria-selected={isWeb ? "true" : "false"}
+              aria-controls="tabPanel-1"
+              role="tab"
+              disabled={isWeb}
+              onClick={() => {
+                setIsWeb(true)
+              }}
+            >
+              React Web
+            </button>
+            <button
+              disabled={!isWeb}
+              role="tab"
+              aria-label="show react native video"
+              aria-selected={!isWeb}
+              aria-controls="tabPanel-2"
+              onClick={() => {
+                setIsWeb(false)
+              }}
+            >
+              React Native
+            </button>
+          </div>
         </div>
       </AnimateGroup>
 

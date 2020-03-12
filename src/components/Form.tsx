@@ -35,7 +35,7 @@ function Form({
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
   currentLanguage: string
-  methods: any
+  methods?: any
   devTool?: boolean
 }) {
   const { register, errors, handleSubmit, watch, formState, reset } =

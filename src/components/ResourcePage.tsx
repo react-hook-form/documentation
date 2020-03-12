@@ -357,6 +357,28 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </article>
           </li>
+
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://dev.to/aaronksaunders/using-react-hook-form-with-ionic-react-components-2aab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Using React Hook Form with Ionic React Components</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://dev.to/aaronksaunders"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aaron K Saunders
+                </a>
+              </p>
+            </article>
+          </li>
         </ul>
 
         <h2 className={typographyStyles.title}>
@@ -387,7 +409,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3>React Status</h3>
+                <h3>React Status #159</h3>
                 <p>
                   It’s not just an interesting project, but it has one of the
                   best project homepages I’ve seen too, complete with code
@@ -418,7 +440,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h3>React.js Newsletter</h3>
+                <h3>React.js Newsletter #179</h3>
                 <p>
                   It’s not just an interesting project, but it has one of the
                   best project homepages I’ve seen too, complete with code
@@ -470,6 +492,37 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   这是一个 React 表单库，基于 React
                   Hooks，看上去代码相当简洁，star
                   也很高，也许以后可以摆脱那些笨重的表单组件了。
+                </p>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="http://reactjsnewsletter.com/issues/179#start"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React.js Newsletter #202</h3>
+                <p>
+                  Performant, flexible and extensible forms with easy-to-use
+                  validation.
+                </p>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://react.statuscode.com/issues/178"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React.js Newsletter #178</h3>
+                <p>
+                  There are a lot of great reviews for this library, plus it has
+                  a great homepage too. Certainly worth a look if you’re
+                  building or refactoring forms. GitHub repo.
                 </p>
               </a>
             </article>
