@@ -703,16 +703,20 @@ export default {
             <code>boolean</code> 값이 주어졌을 때는, 체크박스 입력값으로
             다루어집니다.
             <p>
-              <b className={typographyStyles.note}>참고: </b>
-              <code>defaultValue</code> 또는
-              <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
-              할 것입니다.
+              <b className={typographyStyles.note}>참고: </b>{" "}
+              <code>defaultValue</code> 또는 <code>useForm</code> 의{" "}
+              <code>defaultValues</code> 을 넣어주어야 할 것입니다.
             </p>
             <p>
-              <b className={typographyStyles.note}>참고</b>:당신의 양식이 다른
-              값으로 <code>reset</code>을 호출하면 set 대신 useForm 레벨에서{" "}
-              <code>defaultValues​​</code> 제공 인라인 <code>defaultValue</code>
-              .
+              <b className={typographyStyles.note}>참고: </b> 이 값을 사용하면
+              주어진 키 값은 <code>useForm</code> 의 <code>defaultValues</code>{" "}
+              값보다 우선적으로 적용됩니다.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>참고: </b> 만약 폼이 기본값과
+              함께 <code>reset</code>을 호출한다면, 인라인 값으로{" "}
+              <code>defaultValues</code> 를 제공하는 대신 useForm 단계에서{" "}
+              <code>defaultValues​​</code> 를 제공해주어야 합니다.
             </p>
           </td>
         </tr>
