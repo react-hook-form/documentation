@@ -487,8 +487,10 @@ export default {
       <>
         <p>
           Esta función reseteará los valores de los campos y errores dentro del
-          formulario. Puedes pasar <code>valores</code> como argumento opcional
-          para resetear el formulario a los valores asignados.
+          formulario. Al suministrar <code>omitResetState</code>, tiene la
+          libertad de solo restablece un estado específico. Puedes pasar{" "}
+          <code>valores</code> como argumento opcional para resetear el
+          formulario a los valores asignados.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Para componentes

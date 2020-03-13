@@ -500,8 +500,11 @@ export default {
       <>
         <p>
           この関数は、フォーム内のフィールドの値とエラーをリセット (
-          <code>reset</code>) します。 省略可能な引数として <code>values</code>{" "}
-          を渡すと、 割り当てられたデフォルト値でフォームをリセットできます。
+          <code>reset</code>) します。<code>omitResetState</code>
+          を指定することにより、次のことができます。
+          特定の状態のみをリセットします。 省略可能な引数として{" "}
+          <code>values</code> を渡すと、
+          割り当てられたデフォルト値でフォームをリセットできます。
         </p>
         <p>
           <b className={typographyStyles.note}>注意：</b> <code>ref</code>{" "}

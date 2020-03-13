@@ -488,8 +488,10 @@ export default {
       <>
         <p>
           This function will reset the fields' values and errors within the
-          form. You can pass <code>values</code> as an optional argument to
-          reset your form into assigned default values.
+          form. By supply <code>omitResetState</code>, you have the freedom to
+          only reset specific piece of state. You can pass <code>values</code>{" "}
+          as an optional argument to reset your form into assigned default
+          values.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> For controlled

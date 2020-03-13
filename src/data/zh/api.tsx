@@ -476,7 +476,8 @@ export default {
     description: (
       <>
         <p>
-          此函数将重置表单中的字段值和错误。 您可以将值<code>values</code>
+          此函数将重置表单中的字段值和错误。通过提供<code>omitResetState</code>
+          ，您可以自由地 仅重置特定状态。 您可以将值<code>values</code>
           作为可选参数传递，以将表单重置为已分配的默认值。
         </p>
         <p>
