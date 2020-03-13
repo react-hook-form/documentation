@@ -1001,6 +1001,14 @@ React.useEffect(() => {
             `}
             />
           </li>
+          <li>
+            <p>
+              与<code>useFormContext</code>一起使用时，请使用
+              <code>{`ref={register()}`}</code>而不是
+              <code>{`ref={register}`}</code>，这一点很重要，因此
+              <code>register</code>将在映射期间被调用。
+            </p>
+          </li>
         </ul>
       </>
     ),

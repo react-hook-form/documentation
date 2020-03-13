@@ -1052,6 +1052,15 @@ React.useEffect(() => {
             `}
             />
           </li>
+          <li>
+            <p>
+              It's <strong>important</strong> to apply{" "}
+              <code>{`ref={register()}`}</code> instead of{" "}
+              <code>{`ref={register}`}</code> when working with{" "}
+              <code>useFormContext</code> so <code>register</code> will get
+              invoked during <code>map</code>.
+            </p>
+          </li>
         </ul>
       </>
     ),

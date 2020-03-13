@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -1097,6 +1098,15 @@ React.useEffect(() => {
 }, fields)
             `}
             />
+          </li>
+          <li>
+            <p>
+              It's <strong>important</strong> to apply{" "}
+              <code>{`ref={register()}`}</code> instead of{" "}
+              <code>{`ref={register}`}</code> when working with{" "}
+              <code>useFormContext</code> so <code>register</code> will get
+              invoked during <code>map</code>.
+            </p>
           </li>
         </ul>
       </>
