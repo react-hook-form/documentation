@@ -960,7 +960,10 @@ React.useEffect(() => {
           <td></td>
           <td>
             This prop allows you to customize the return value, make sure you
-            aware the shape of the external component <code>value</code> props.
+            aware the shape of the external component <code>value</code> props.{" "}
+            <code>value</code> or <code>checked</code> attribute will be read
+            when payload's shape is an <code>object</code> which contains{" "}
+            <code>type</code> attribute.
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}

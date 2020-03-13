@@ -731,7 +731,9 @@ export default {
           <td></td>
           <td>
             这个<code> onChange </code>道具可让您自定义返回值,
-            确保您知道外部组件<code>value</code>props的形状。
+            确保您知道外部组件<code>value</code>props的形状。 当payload是
+            <code>object</code>时，将读取<code>value</code>或<code>check</code>
+            属性。
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}

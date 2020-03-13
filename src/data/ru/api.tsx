@@ -974,7 +974,10 @@ React.useEffect(() => {
           <td>
             Параметр <code>onChange</code> позволяет вам изменять возвращаемое
             значение, убедитесь, что вы знаете форму реквизита{" "}
-            <code>value</code> внешнего компонента..
+            <code>value</code> внешнего компонента. Атрибут <code>value</code>{" "}
+            или <code>checked</code> будет считываться, когда форма полезных
+            данных представляет собой <code>object</code>, который содержит
+            атрибут type.
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}
