@@ -688,7 +688,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.resetRef = ref
             }}
           >
@@ -697,7 +696,7 @@ function ApiPage({
                 reset:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(values?: Record<string, any>) => void`}</span>
+                >{`(values?: Record<string, any>, omitResetState: OmitResetState = {}) => void`}</span>
               </h2>
             </code>
 

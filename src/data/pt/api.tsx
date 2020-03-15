@@ -496,8 +496,10 @@ export default {
       <>
         <p>
           Essa função irá limpar o valor dos campos, e erros dentro do
-          formulário. Você pode passar <code>values</code> como valor opcional
-          para resetar o formulário assinado com o valor padrão.
+          formulário. Ao fornecer <code> omitResetState </code>, você tem a
+          liberdade de redefina apenas parte específica do estado. Você pode
+          passar <code>values</code> como valor opcional para resetar o
+          formulário assinado com o valor padrão.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Para componentes
