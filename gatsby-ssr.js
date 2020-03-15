@@ -1,7 +1,12 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from "react"
 
-// You can delete this file if you're not using it
+export function onRenderBody({ setHeadComponents }) {
+  setHeadComponents([
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CE7DKK3Y&placement=react-hook-formcom"
+      id="_carbonads_js"
+    ></script>,
+  ])
+}

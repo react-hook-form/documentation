@@ -134,6 +134,8 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
       >
         Hosted on ▲ ZEIT Now
       </p>
+
+      <div id="carbonads"></div>
     </footer>
   )
 }
