@@ -416,32 +416,32 @@ export default {
           <ul>
             <li>
               <p>
-                <b className={typographyStyles.note}>watch:</b> subscribe to
-                input’s change via event listener and re-render based on which
-                fields that are subscribed. Re-render based on which input is
-                watched/subscribed. check out{" "}
+                <b className={typographyStyles.note}>watch:</b> 이벤트 리스너를
+                통해 인풋의 변경을 구독하고, 구독하고 있는 인풋 필드에 따라
+                리랜더링됩니다.{" "}
                 <a
                   href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  this codesandbox
+                  이 codesandbox
                 </a>{" "}
-                for actual behaviour.
+                에서 실제 동작을 확인하실 수 있습니다.
               </p>
             </li>
             <li>
               <p>
-                <b className={typographyStyles.note}>getValues</b>: get value
-                which stored inside the custom hook as reference, fast and
-                cheap. This method doesn’t trigger re-render.
+                <b className={typographyStyles.note}>getValues</b>: 커스텀 훅
+                안에 레퍼런스로 저장되어있는 값을 가져옵니다. 빠르고 리소스를
+                적게 먹습니다. 이 메서드는 리랜더링을 일으키지 않습니다.
               </p>
             </li>
             <li>
               <p>
-                <b className={typographyStyles.note}>local state</b>: React
-                local state represent more than just input’s state and also
-                decide what to render. This will trigger on each input’s change.
+                <b className={typographyStyles.note}>지역 상태</b>: React 지역
+                상태는 단순히 인풋의 상태를 표현하는 것 뿐 아니라 어떤 것이
+                랜더되어야 할지도 결정합니다. 이 경우 매 인풋 값이 바뀔때마다
+                리랜더링이 일어납니다.
               </p>
             </li>
           </ul>

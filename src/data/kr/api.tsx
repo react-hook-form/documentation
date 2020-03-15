@@ -744,13 +744,15 @@ export default {
           </td>
           <td />
           <td>
-            이 <code>onChange</code> prop 으로 리턴 값을 커스터마이징 할 수
-            있습니다, 외부 구성 요소 <code>value</code> 소품의 모양을 알고
-            있어야합니다.
+            리턴 값을 커스터마이징 할 수 있습니다, 외부 컴포넌트의{" "}
+            <code>value</code> prop 이 어떤 형태를 가지고 있는지 알고 있어야
+            합니다. 이벤트 핸들러에 전달된 값이 <code>object</code> 형태이고{" "}
+            <code>type</code> 속성값을 포함하고 있는 경우 <code>value</code>{" "}
+            혹은 <code>checked</code> 속성값을 읽어올 수 있습니다.
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+onChange={{([ { checked } ]) => ({ checked })}}`}
             />
           </td>
         </tr>
@@ -1055,11 +1057,11 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFormContext</code> so <code>register</code> will get
-              invoked during <code>map</code>.
+              만약 <code>useFormContext</code> 를 사용하는 경우, 배열 인풋을
+              등록할 때 <code>{`ref={register}`}</code> 대신{" "}
+              <code>{`ref={register()}`}</code> 형태로 사용하는 것이 중요합니다.
+              그래야 <code>register</code> 가 배열의 <code>map</code> 함수
+              안에서 수행됩니다.
             </p>
           </li>
         </ul>
