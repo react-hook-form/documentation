@@ -5,10 +5,22 @@ import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
 import { useStateMachine } from "little-state-machine"
 import styles from "./Footer.module.css"
+import { useEffect, useRef } from "react"
 
 export default ({ currentLanguage }: { currentLanguage: string }) => {
   const { state } = useStateMachine()
+  const footer = useRef()
   const lightMode = state?.setting?.lightMode
+
+  useEffect(() => {
+    const s = document.createElement("script")
+    s.type = "text/javascript"
+    s.async = true
+    s.src =
+      "//cdn.carbonads.com/carbon.js?serve=CE7DKK3Y&placement=react-hook-formcom"
+    // @ts-ignore
+    footer.current.appendChild(s)
+  }, [])
 
   return (
     <footer
@@ -135,7 +147,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         Hosted on ▲ ZEIT Now
       </p>
 
-      <div id="carbonads"></div>
+      <div ref={footer} />
     </footer>
   )
 }
