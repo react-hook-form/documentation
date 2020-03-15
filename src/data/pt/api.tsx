@@ -1119,7 +1119,7 @@ React.useEffect(() => {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1143,7 +1143,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Append input/inputs to the end of your fields</td>
@@ -1154,7 +1154,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Prepend input/inputs to the start of your fields</td>
@@ -1165,7 +1165,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: any) => void
+              (index: number, value: object) => void
             </code>
           </td>
           <td>Insert input/inputs at particular position.</td>
@@ -1206,7 +1206,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number) => void
+              (index?: number | number[]) => void
             </code>
           </td>
           <td>

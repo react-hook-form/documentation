@@ -1019,7 +1019,7 @@ React.useEffect(() => {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1043,7 +1043,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -1056,7 +1056,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -1069,7 +1069,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: any) => void
+                (index: number, value: object) => void
               </code>
             </code>
           </td>
@@ -1116,7 +1116,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number) => void
+                (index?: number | number[]) => void
               </code>
             </code>
           </td>
