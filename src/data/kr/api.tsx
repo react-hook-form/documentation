@@ -1057,11 +1057,11 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFormContext</code> so <code>register</code> will get
-              invoked during <code>map</code>.
+              만약 <code>useFormContext</code> 를 사용하는 경우, 배열 인풋을
+              등록할 때 <code>{`ref={register}`}</code> 대신{" "}
+              <code>{`ref={register()}`}</code> 형태로 사용하는 것이 중요합니다.
+              그래야 <code>register</code> 가 배열의 <code>map</code> 함수
+              안에서 수행됩니다.
             </p>
           </li>
         </ul>
