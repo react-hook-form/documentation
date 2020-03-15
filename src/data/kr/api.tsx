@@ -744,13 +744,15 @@ export default {
           </td>
           <td />
           <td>
-            이 <code>onChange</code> prop 으로 리턴 값을 커스터마이징 할 수
-            있습니다, 외부 구성 요소 <code>value</code> 소품의 모양을 알고
-            있어야합니다.
+            리턴 값을 커스터마이징 할 수 있습니다, 외부 컴포넌트의{" "}
+            <code>value</code> prop 이 어떤 형태를 가지고 있는지 알고 있어야
+            합니다. 이벤트 핸들러에 전달된 값이 <code>object</code> 형태이고{" "}
+            <code>type</code> 속성값을 포함하고 있는 경우 <code>value</code>{" "}
+            혹은 <code>checked</code> 속성값을 읽어올 수 있습니다.
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+onChange={{([ { checked } ]) => ({ checked })}}`}
             />
           </td>
         </tr>
