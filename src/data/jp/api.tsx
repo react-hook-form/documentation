@@ -1255,11 +1255,11 @@ React.useEffect(() => {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>注意:</b>この関数は
-          <code>validationSchema</code>
-          と同様にカスタムフック内にキャッシュされますが、
-          <code>validationContext</code>
-          は再レンダリングのたびに変更できる可変オブジェクトです。
+          <b className={typographyStyles.note}>注意:</b> この関数は{" "}
+          <code>validationSchema</code>{" "}
+          と同様にカスタムフック内にキャッシュされますが、{" "}
+          <code>validationContext</code>{" "}
+          は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
         </p>
       </>
     ),
