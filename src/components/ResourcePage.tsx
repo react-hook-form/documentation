@@ -82,6 +82,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <article className={styles.article}>
               <a
+                href="https://dev.to/jodylecompte/hookify-your-react-forms-154o"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Hookify Your React Forms</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://dev.to/jodylecompte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jody LeCompte
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
                 href="https://itnext.io/is-react-hook-form-the-future-57c6f94a2665"
                 target="_blank"
                 rel="noopener noreferrer"
