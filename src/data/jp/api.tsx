@@ -109,16 +109,16 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
+          <b className={typographyStyles.note}>重要:</b>{" "}
+          <code>defaultValues</code> はカスタムフック内にキャッシュされます。{" "}
+          <code>defaultValues</code> をリセットしたい場合は、{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
           >
             reset
           </button>{" "}
-          api.
+          API を使用してください。
         </p>
 
         <p>
@@ -358,7 +358,11 @@ export default {
       </>
     ),
     dirty: "ユーザが入力操作した後 true に設定します。",
-    dirtyFields: "ユーザーが変更したフィールドの一意のセット。",
+    dirtyFields: (
+      <>
+        ユーザーが変更したフィールドの一意の <code>Set</code> オブジェクト。
+      </>
+    ),
     isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
     touched: (
       <>
@@ -771,14 +775,15 @@ export default {
           </td>
           <td></td>
           <td>
-            この <code>onChange</code> prop
-            を使用すると、戻り値をカスタマイズすることができます,
-            外部コンポーネント<code>value</code>
-            の小道具の形状に注意してください。.
+            この prop を使用すると、戻り値をカスタマイズすることができます。
+            外部 UI コンポーネントの <code>value</code> prop{" "}
+            の形状を確認してください。 ペイロードの形状が <code>type</code>{" "}
+            属性を含むオブジェクトの場合、<code>value</code> または{" "}
+            <code>checked</code> 属性が読み込まれます。
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+onChange={{([ { checked } ]) => ({ checked })}}`}
             />
           </td>
         </tr>
@@ -791,7 +796,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
             と命名されている場合。
@@ -806,7 +811,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
             と命名されている場合。
@@ -1024,30 +1029,40 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
     description: (
       <>
         <p>
-          フィールド配列（動的な input）を操作するためのカスタムフック。
-          このフックは、次のオブジェクトと関数を提供します。
+          フィールド配列（動的な複数の input）を操作するためのカスタムフック。
+          このフックの背後にある動機は、より良いユーザーエクスペリエンスとフォームのパフォーマンスを提供することです。
+          <a
+            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            この短いビデオ
+          </a>
+          で、制御されたフィールド配列と非制御フィールド配列を比較できます。
         </p>
+
+        <p>このフックは、次のオブジェクトと関数を提供します。</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>重要: </b>{" "}
-          <code>useFieldArray</code>
-          は、制御されていないコンポーネントの上に構築されます。
-          次の注意事項は、そのことに注意し、留意するのに役立ちます実装中の動作。
+          <b className={typographyStyles.note}>重要:</b>{" "}
+          <code>useFieldArray</code>{" "}
+          は非制御コンポーネントに基づいて構築されます。
+          下記の注意事項は、実装時の動作を理解し、注意するのに役立ちます。
         </p>
 
         <ul>
           <li>
             <p>
-              <code>useForm</code>フックで <code>defaultValues</code>{" "}
-              を指定することにより、
-              <code>fields</code> に格納することができます。
+              <code>useForm</code> フックで <code>defaultValues</code>{" "}
+              を指定することにより、 <code>fields</code>{" "}
+              配列に値を格納することができます。
             </p>
           </li>
           <li>
             <p>
-              <code>fields</code>オブジェクトから <code>id</code>{" "}
+              <code>fields</code> オブジェクトから <code>id</code>{" "}
               をコンポーネントの <code>key</code>{" "}
               に割り当てていることを確認してください。
             </p>
@@ -1060,7 +1075,8 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              append、prepend及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
+              append、prepend、そして reset{" "}
+              及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
               フィールド配列オブジェクト全体を監視する必要があります。例:{" "}
               <code>watch('fieldArrayName')</code> これは、watch API{" "}
               が状態の更新ではなく入力の変更をサブスクライブするためです（私たちはフィールド配列に対してのみ回避策を用意しました）。
@@ -1069,7 +1085,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              次々とアクションを呼び出すことはできません。アクションはレンダリングごとにトリガーされます。
+              次々とアクションを呼び出すことはできません。アクションはレンダリングごとにトリガーする必要があります。
             </p>
             <CodeArea
               withOutCopy
@@ -1096,11 +1112,11 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFormContext</code> so <code>register</code> will get
-              invoked during <code>map</code>.
+              <code>useFormContext</code> を使用する際には、
+              <code>{`ref={register}`}</code> ではなく{" "}
+              <code>{`ref={register()}`}</code> を適用して、 <code>map</code>{" "}
+              中に <code>register</code> が呼び出されるようにすることが
+              <strong>重要</strong>です。
             </p>
           </li>
         </ul>
@@ -1121,7 +1137,7 @@ React.useEffect(() => {
             このオブジェクトは、input
             をマップおよびレンダリングするための信頼できる情報源です。
             <p>
-              <b className={typographyStyles.note}>重要: </b> 各 input
+              <b className={typographyStyles.note}>重要:</b> 各 input{" "}
               は制御することができないため、 マップされたコンポーネントには{" "}
               <code>id</code> が必須です。 これは、React{" "}
               が変更、追加もしくは削除されたのかを識別するのに役立ちます。
@@ -1255,11 +1271,11 @@ React.useEffect(() => {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>注意:</b>この関数は
-          <code>validationSchema</code>
-          と同様にカスタムフック内にキャッシュされますが、
-          <code>validationContext</code>
-          は再レンダリングのたびに変更できる可変オブジェクトです。
+          <b className={typographyStyles.note}>注意:</b> この関数は{" "}
+          <code>validationSchema</code>{" "}
+          と同様にカスタムフック内にキャッシュされますが、{" "}
+          <code>validationContext</code>{" "}
+          は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
         </p>
       </>
     ),
