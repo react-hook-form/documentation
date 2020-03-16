@@ -771,14 +771,15 @@ export default {
           </td>
           <td></td>
           <td>
-            この <code>onChange</code> prop
-            を使用すると、戻り値をカスタマイズすることができます,
-            外部コンポーネント<code>value</code>
-            の小道具の形状に注意してください。.
+            この prop を使用すると、戻り値をカスタマイズすることができます。
+            外部 UI コンポーネントの <code>value</code> prop{" "}
+            の形状を確認してください。 ペイロードの形状が <code>type</code>{" "}
+            属性を含むオブジェクトの場合、<code>value</code> または{" "}
+            <code>checked</code> 属性が読み込まれます。
             <CodeArea
               withOutCopy
               rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+onChange={{([ { checked } ]) => ({ checked })}}`}
             />
           </td>
         </tr>
@@ -791,7 +792,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
             と命名されている場合。
@@ -806,7 +807,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
             と命名されている場合。
