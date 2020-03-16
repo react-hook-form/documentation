@@ -109,16 +109,16 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
+          <b className={typographyStyles.note}>重要:</b>{" "}
+          <code>defaultValues</code> はカスタムフック内にキャッシュされます。{" "}
+          <code>defaultValues</code> をリセットしたい場合は、{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
           >
             reset
           </button>{" "}
-          api.
+          API を使用してください。
         </p>
 
         <p>
