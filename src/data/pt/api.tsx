@@ -1244,24 +1244,28 @@ React.useEffect(() => {
           validation libraries to work with React Hook Form. You can even write
           your custom validation logic to validate.
         </p>
-
         <p>
           <b className={typographyStyles.note}>Note:</b> make sure you are
           returning object which contains <code>values</code> and{" "}
           <code>errors</code>, and their default value should be empty object{" "}
           <code>{`{}`}</code>.
         </p>
-
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
         </p>
-
         <p>
           <b className={typographyStyles.note}>Note:</b> this function will be
           cached inside the custom hook similar as <code>validationSchema</code>
           , while <code>validationContext</code> is a mutable object which can
           be changed on each re-render.
+        </p>
+        // todo: Vitor please translate
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

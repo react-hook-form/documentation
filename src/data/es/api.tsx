@@ -1229,6 +1229,13 @@ React.useEffect(() => {
           <code>validationContext</code> es un objeto mutable que se puede
           cambiar en cada representación.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> volver a validar la
+          entrada solo ocurre un campo a la vez durante la interacción del
+          usuario, porque el lib mismo evaluará el objeto de error en el campo
+          específico y desencadenar re-renderizar en consecuencia.
+        </p>
       </>
     ),
   },

@@ -1200,24 +1200,28 @@ React.useEffect(() => {
           React Hook Form 과 함께 동작할 수 있도록 지원하려 합니다. 심지어
           유효성 검사를 위해 직접 커스터마이징할 수도 있습니다.
         </p>
-
         <p>
           <b className={typographyStyles.note}>참고:</b> 반드시{" "}
           <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
           리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체 <code>{`{}`}</code>{" "}
           가 되어야 합니다.
         </p>
-
         <p>
           <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
           반드시 인풋 값과 연결되어야 합니다.
         </p>
-
         <p>
           <b className={typographyStyles.note}>참고:</b>이 함수는
           <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
           캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
           변경할 수있는 변경 가능한 객체입니다.
+        </p>
+        // todo: Dohyung please translate
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

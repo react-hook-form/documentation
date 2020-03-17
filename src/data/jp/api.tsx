@@ -1255,7 +1255,6 @@ React.useEffect(() => {
           で動作する多くのバリデーションライブラリをサポートしたいと思っています。
           カスタムバリデーションロジックを作成して検証することもできます。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b> <code>values</code> と{" "}
           <code>errors</code>{" "}
@@ -1263,19 +1262,24 @@ React.useEffect(() => {
           デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
           である必要があります。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b> 返す{" "}
           <code>errors</code> オブジェクトのキーは、フォーム内の input（
           <code>name</code>属性）に関連させる必要があります。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b> この関数は{" "}
           <code>validationSchema</code>{" "}
           と同様にカスタムフック内にキャッシュされますが、{" "}
           <code>validationContext</code>{" "}
           は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
+        </p>
+        // todo: Kotaro please translate
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),
