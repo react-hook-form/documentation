@@ -10,8 +10,15 @@ export default function App() {
       <input name="lastName" ref={register({ required: true })} />
       <button
         type="button"
+        onClick={() => { triggerValidation("lastName"); }}
+      >
+        Trigger
+      </button>
+      <button
+        type="button"
         onClick={async () => {
-          triggerValidation("lastName");
+          const result = await triggerValidation("lastName");
+          if (result) { console.log('valid input') }
         }}
       >
         Trigger
