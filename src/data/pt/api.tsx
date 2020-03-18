@@ -1110,6 +1110,10 @@ React.useEffect(() => {
               invoked during <code>map</code>.
             </p>
           </li>
+          <li>
+            Ele não funciona com o registro personalizado em{" "}
+            <code>useEffect</code>.
+          </li>
         </ul>
       </>
     ),

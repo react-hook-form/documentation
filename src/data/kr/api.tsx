@@ -1064,6 +1064,10 @@ React.useEffect(() => {
               안에서 수행됩니다.
             </p>
           </li>
+          <li>
+            <code>useEffect</code>의 사용자 정의 레지스터에서는 작동하지
+            않습니다.
+          </li>
         </ul>
       </>
     ),

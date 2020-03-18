@@ -756,6 +756,11 @@ React.useEffect(() => {
               invoked during <code>map</code>.
             </p>
           </li>
+          <li>
+            <p>
+              It doesn't work with custom register at <code>useEffect</code>.
+            </p>
+          </li>
         </ul>
       </>
     ),

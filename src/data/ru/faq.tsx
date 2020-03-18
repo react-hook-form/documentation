@@ -3,6 +3,9 @@ import colors from "../../styles/colors"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
+import CodeArea from "../../components/CodeArea"
+import focusController from "../../components/codeExamples/focusController"
+import toggleFields from "../../components/codeExamples/toggleFields"
 
 export default {
   title: "FAQs",
@@ -457,6 +460,75 @@ export default {
             </li>
           </ul>
         </div>
+      ),
+    },
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook Form не контролирует всю вашу форму и входные данные,
+            которые является причиной, почему React не распознает фактический
+            вклад, который имеет были обменены или отпущены. Как решение, вы
+            можете решить эту проблему проблема, предоставляя уникальный ввод{" "}
+            <code> key </code> для вашего ввода. Вы также можете прочитать
+            больше о ключевых реквизитах от {""}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              эта статья написана Kent C. Dodds
+            </a>
+            .
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+          />
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with submitFocusError?",
+      description: (
+        <>
+          <p>
+            После ошибки проверки React Hook Form автоматически сфокусируется на
+            инвалидов, элементы которых имеют свои соответствующие ссылки, такие
+            как нативные входы (например: <code>{`<input />`}</code>) или
+            некоторые сторонние Компоненты, которые правильно экспортируют его
+            ссылку (например: из MUI
+            <code>
+              {`<TextField inputRef = {register ({обязательно: 'поле обязательно для заполнения'})} />`}
+            </code>
+            )
+          </p>
+
+          <p>
+            Однако для некоторых сторонних контролируемых компонентов, таких как
+            <code>{`<Автозаполнение>`}</code> из MUI или <code>{`<XX>`}</code>
+            от AntD) очень трудно предсказать его рефери, потому что изменения
+            форматов, поэтому React Hook Form правильно обнаружит ошибка
+            проверки, но не сможет автоматически вид компонентов.
+          </p>
+
+          <p>
+            Как обходной путь, после ошибки проверки вы можете вручную
+            сфокусироваться на сторонний контролируемый компонент (если вы
+            можете получить фактический внутренний вход ref), например:
+          </p>
+          <CodeArea rawData={focusController} />
+
+          <p>
+            Если вам сложно сделать автофокус с внешним управлением компонент.
+            Есть возможность отключить «автофокус при ошибке» особенность. Может
+            быть, такое поведение принесет лучший пользовательский опыт в
+            некоторые случаи.
+            <code> {`useForm ({submitFocusError: false});`} </code>
+          </p>
+        </>
       ),
     },
   ],

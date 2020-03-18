@@ -6,7 +6,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -1010,6 +1009,9 @@ React.useEffect(() => {
               <code>register</code>将在映射期间被调用。
             </p>
           </li>
+          <li>
+            它不适用于<code>useEffect</code>上的自定义注册。
+          </li>
         </ul>
       </>
     ),
@@ -1168,7 +1170,6 @@ React.useEffect(() => {
           <b className={typographyStyles.note}>注意:</b>
           重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
         </p>
-        \
       </>
     ),
   },

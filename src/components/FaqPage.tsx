@@ -50,6 +50,8 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question11: null,
     question12: null,
     question13: null,
+    question14: null,
+    question15: null,
   })
 
   const goToSection = name => {
@@ -301,6 +303,28 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           </h2>
 
           {faq.questions[13].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref => (sectionsRef.current.question14 = ref)}
+          >
+            {faq.questions[14].title}
+          </h2>
+
+          {faq.questions[14].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref => (sectionsRef.current.question15 = ref)}
+          >
+            {faq.questions[15].title}
+          </h2>
+
+          {faq.questions[15].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 
