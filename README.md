@@ -12,14 +12,6 @@
 
     $ yarn && yarn start
 
-#### How can you help?
-
-We have setup the website so it's easy to translate (i18n). The entire site of translation is captured under `/data` folder.
-
-- Add your language into `languages.js`
-- Create a new folder for your language
-- Create file for each pages
-
 ## Backers
 
 Thanks goes to all our backers! [[Become a backer](https://opencollective.com/react-hook-form#backer)].
