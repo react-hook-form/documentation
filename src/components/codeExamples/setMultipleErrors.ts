@@ -12,7 +12,7 @@ export default function App() {
       <input name="lastName" ref={register} />
       {errors.lastName && errors.lastName.message}
       
-      <button type="button" onClick={() => setError({
+      <button type="button" onClick={() => {
         setError([
           {
             type: 'required',
@@ -25,7 +25,7 @@ export default function App() {
             message: 'Minlength is 10',
           },
         ]);
-      })}>
+      }}>
         Set Errors for a single field
       </button>
     </form>
