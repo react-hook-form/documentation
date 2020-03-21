@@ -1277,12 +1277,11 @@ React.useEffect(() => {
           <code>validationContext</code>{" "}
           は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
         </p>
-        // todo: Kotaro please translate
         <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
+          それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
+          input の再検証が発生します。
         </p>
       </>
     ),
