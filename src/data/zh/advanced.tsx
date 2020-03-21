@@ -314,7 +314,7 @@ export default {
     description: (
       <p>
         当我们构建表单时，有时候我们的输入会在深度嵌套的组件树中，而这时
-        <a href="/api#FormContext">FormContext</a>让一切变得非常方便。
+        <a href="/api#useFormContext">FormContext</a>让一切变得非常方便。
         但是，我们可以通过创建连接表单组件并利用React的
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
         来进一步改善开发人员体验。
@@ -371,7 +371,8 @@ export default {
     description: (
       <p>
         React Hook Form的
-        <PageLink to="/api/#FormContext">FormContext</PageLink>是建立在React的
+        <PageLink to="/api/#useFormContext">FormContext</PageLink>
+        是建立在React的
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"

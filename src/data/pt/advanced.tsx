@@ -342,7 +342,7 @@ export default {
       <p>
         Quando construimos formulário, as vezes nosso campo está presente muitos
         níveis abaixo da árvore do componente, e isso é quando o{" "}
-        <a href="/api#FormContext">FormContext</a> é muito útil. Entretanto,
+        <a href="/api#useFormContext">FormContext</a> é muito útil. Entretanto,
         podemos futuramente melhorar a experiência do desenvolvedor usando o
         componente <code>ConnectForm</code> para alavancar o React{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>. A
@@ -404,7 +404,7 @@ export default {
     description: (
       <p>
         React Hook Form's{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> é construído
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> é construído
         sobre{" "}
         <a
           href="https://reactjs.org/docs/context.html"

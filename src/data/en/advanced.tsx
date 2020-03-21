@@ -339,8 +339,8 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#FormContext">FormContext</a> comes in very handy. However,
-        we can further improve the Developer Experience by creating a{" "}
+        <a href="/api#useFormContext">FormContext</a> comes in very handy.
+        However, we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
         The benefit of such a component is you can connect your input with React
@@ -399,7 +399,7 @@ export default {
     description: (
       <p>
         React Hook Form's{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> is built upon{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"

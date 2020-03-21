@@ -335,7 +335,7 @@ export default {
     description: (
       <p>
         폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 남아있어야 하는
-        때가 있습니다. 그럴 때 <a href="/api#FormContext">FormContext</a> 가
+        때가 있습니다. 그럴 때 <a href="/api#useFormContext">FormContext</a> 가
         아주 유용합니다. 하지만 <code>ConnectForm</code> 을 만들고 리액트의{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
         패턴을 활용하여 개발자 경험을 향상시킬 수 있습니다. 이러한 컴포넌트를
@@ -394,7 +394,7 @@ export default {
     description: (
       <p>
         React Hook Form 의{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> 는{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> 는{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"

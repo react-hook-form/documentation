@@ -331,7 +331,7 @@ export default {
       <p>
         Когда мы строим формы, иногда поля ввода располежены глубоко в дереве
         компонентов, для таких случаев{" "}
-        <a href="/api#FormContext">FormContext</a> очень полезен. Однако мы
+        <a href="/api#useFormContext">FormContext</a> очень полезен. Однако мы
         можем улучшить опыт разработки созданием <code>ConnectForm</code>{" "}
         компонента с комбинированием{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
@@ -390,8 +390,8 @@ export default {
     title: "FormContext производительность",
     description: (
       <p>
-        React Hook Form <PageLink to="/api/#FormContext">FormContext</PageLink>{" "}
-        построен на{" "}
+        React Hook Form{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> построен на{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"

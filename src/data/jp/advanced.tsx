@@ -348,7 +348,7 @@ export default {
       <p>
         フォームを作成するときに、深くネストされたコンポーネントツリーの中に
         input が存在することがあり、 そのような場合は{" "}
-        <a href="/api#FormContext">FormContext</a> が非常に便利です。
+        <a href="/api#useFormContext">FormContext</a> が非常に便利です。
         <code>ConnectForm</code> コンポーネントを作成して React の
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
         を活用することで、 DX を更に向上することができます。{" "}
@@ -410,7 +410,7 @@ export default {
     description: (
       <p>
         React Hook Form の{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> は、{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> は、{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"

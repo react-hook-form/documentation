@@ -345,7 +345,7 @@ export default {
         Cuando creamos formularios, hay momentos en que nuestros inputs están
         dentro de árboles de componentes profundamente anidados, y ahí es cuando{" "}
         {""}
-        <a href="/api#FormContext">FormContext</a> resulta útil. Sin embargo,
+        <a href="/api#useFormContext">FormContext</a> resulta útil. Sin embargo,
         podemos mejorar aún más la experiencia del desarrollador creando un
         componente {""} <code>ConnectForm</code> y aprovechando{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a> de
@@ -405,7 +405,7 @@ export default {
     title: "Performance de FormContext",
     description: (
       <p>
-        <PageLink to="/api/#FormContext">FormContext</PageLink> de React Hook
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> de React Hook
         Form está construído sobre la API de{" "}
         <a
           href="https://reactjs.org/docs/context.html"
