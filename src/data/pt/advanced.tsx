@@ -9,6 +9,7 @@ import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 
 export default {
   title: "Uso Avançado",
@@ -420,6 +421,28 @@ export default {
         mas ainda podemos otimizar nosso aplicativo, se necessário, através do
         exemplo a seguir.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          You can build a custom hook as a validation resolver. A custom hook
+          can easily integration with yup/Joi/Superstruct as a validation
+          method, and to be used inside validation resolver.
+        </p>
+        <ul>
+          <li>
+            Define a memoized validation schema (or define it outside your
+            component if you don't have any dependencies)
+          </li>
+          <li>Use the custom hook, by passing the validation schema</li>
+          <li>Pass the validation resolver to the useForm hook</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
     ),
   },
 }

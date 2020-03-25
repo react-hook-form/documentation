@@ -9,6 +9,7 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 
 export default {
   title: "Uso avanzado",
@@ -421,6 +422,29 @@ export default {
         estado, pero aún podemos optimizar nuestra aplicación si es necesario
         como en el ejemplo a continuación.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          Puede crear un enlace personalizado como un solucionador de
+          validación. Un gancho personalizado puede integrarse fácilmente con
+          yup / Joi / Superstruct como validación método, y para ser utilizado
+          dentro de la resolución de validación.
+        </p>
+        <ul>
+          <li>
+            Defina un esquema de validación memorable (o defínalo fuera de su
+            componente si no tiene dependencias)
+          </li>
+          <li>Use el enlace personalizado, pasando el esquema de validación</li>
+          <li>Pase la resolución de validación al gancho useForm </li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
     ),
   },
 }

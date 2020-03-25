@@ -9,6 +9,7 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 
 export default {
   title: "高级用法",
@@ -384,6 +385,26 @@ export default {
         这也会导致组件树在React Hook
         Form触发状态更新时触发重新render，但如果需要通过示例，我们仍然可以优化我们的应用程序。
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          您可以构建一个自定义钩子作为验证解析器。定制挂钩
+          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(validationResolver)中使用。
+        </p>
+        <ul>
+          <li>
+            定义一个记忆化的验证模式或在您的外部定义它组件如果您没有任何依赖性）
+          </li>
+          <li>通过传递验证模式来使用自定义钩子</li>
+          <li>将验证解析器传递给useForm钩子</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
     ),
   },
 }

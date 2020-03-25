@@ -9,6 +9,7 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 
 export default {
   title: "Сложные примеры",
@@ -405,6 +406,29 @@ export default {
         Form вызывает обновление состояния, но мы можем оптимизировать наше
         приложение если необходим с помощью примера ниже.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          Вы можете создать пользовательский хук в качестве решателя проверки.
+          Пользовательский крючок может легко интегрироваться с yup / Joi /
+          Superstruct в качестве проверки метод, и будет использоваться внутри
+          решателя проверки.
+        </p>
+        <ul>
+          <li>
+            Определите запомненную схему проверки (или определите ее вне
+            компонент, если у вас нет никаких зависимостей)
+          </li>
+          <li> Используйте пользовательский хук, передав схему проверки </li>
+          <li> Передайте средство проверки правильности в ловушку useForm </li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
     ),
   },
 }

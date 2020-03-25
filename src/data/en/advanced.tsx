@@ -2,6 +2,7 @@ import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
@@ -413,6 +414,28 @@ export default {
         Form triggers a state update, but we can still can optimise our App if
         required via the example below.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          You can build a custom hook as a validation resolver. A custom hook
+          can easily integration with yup/Joi/Superstruct as a validation
+          method, and to be used inside validation resolver.
+        </p>
+        <ul>
+          <li>
+            Define a memoized validation schema (or define it outside your
+            component if you don't have any dependencies)
+          </li>
+          <li>Use the custom hook, by passing the validation schema</li>
+          <li>Pass the validation resolver to the useForm hook</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
     ),
   },
 }

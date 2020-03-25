@@ -19,8 +19,8 @@ import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUnco
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import codeAreaStyles from "./CodeArea.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 import containerStyles from "../styles/container.module.css"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -35,6 +35,7 @@ const enLinks = [
   advancedEn.formContext,
   advancedEn.conditionalControlledComponent,
   advancedEn.controlledMixedWithUnControlled,
+  advancedEn.customHookWithValidationResolver,
 ]
 
 function Advanced({ defaultLang }: { defaultLang: string }) {
@@ -49,6 +50,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     ErrorMessage: null,
     ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
+    CustomHookwithValidationResolver: null,
   })
 
   const {
@@ -71,6 +73,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.formContext,
     advanced.conditionalControlledComponent,
     advanced.controlledMixedWithUnControlled,
+    advanced.customHookWithValidationResolver,
   ]
 
   const goToSection = name => {
@@ -320,6 +323,19 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
             />
           </TabGroup>
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref =>
+              (pageContentRef.current.CustomHookwithValidationResolver = ref)
+            }
+          >
+            {advanced.customHookWithValidationResolver.title}
+          </h2>
+
+          {advanced.customHookWithValidationResolver.description}
 
           <StarRepo currentLanguage={currentLanguage} />
 
