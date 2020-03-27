@@ -1,5 +1,5 @@
 export default `import { useCallback } from "react";
-import { useFromm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const useYupValidationResolver = validationSchema =>
   useCallback(
