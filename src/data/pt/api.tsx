@@ -48,8 +48,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          Esse objeto de contexto será injetado no segundo argumento de {" "}
+          <code>validationResolver</code> ou em {" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
