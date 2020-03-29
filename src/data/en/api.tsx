@@ -562,9 +562,13 @@ export default {
     description: (
       <>
         <p>
-          This function allows you to dynamically set input/select value. At the
-          same time, it tries to avoid re-rendering when it's not necessary.
-          Only the following conditions will trigger a re-render:
+          This function allows you to dynamically set{" "}
+          <strong>
+            <code>registered</code>
+          </strong>{" "}
+          input/select value. At the same time, it tries to avoid re-rendering
+          when it's not necessary. Only the following conditions will trigger a
+          re-render:
         </p>
         <ul>
           <li>
