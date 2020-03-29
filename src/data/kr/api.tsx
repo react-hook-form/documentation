@@ -1,4 +1,3 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
@@ -1013,18 +1012,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             <p>
               기본값을 설정하거나 입력값을 재설정하기 위해{" "}
               <code>defaultValue</code>를 설정하십시오.
-            </p>
-          </li>
-          <li>
-            <p>
-              필드 배열에 앞이나 뒤에 필드를 붙이거나 다른 액션을 수행하면서
-              필드 배열의 값이 업데이트 되는 것을 관찰하고 싶다면, 전체 필드
-              배열 객체를 관찰하도록 해야 합니다. 예:{" "}
-              <code>watch('fieldArrayName')</code>. watch API 는 본래 상태
-              업데이트(필드 배열만을 위해 우회 방법을 만들어 두었습니다)가
-              아니라 입력값의 변경을 관찰하기 위해 사용되기 떄문입니다. 또한 이
-              기능을 사용할 때 폼이나 앱의 퍼포먼스에 영향을 줄 수 있기 때문에
-              주의해서 사용하셔야 합니다.
             </p>
           </li>
           <li>

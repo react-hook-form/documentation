@@ -970,13 +970,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
             </p>
           </li>
           <li>
-            <p>
-              如果要在追加，添加和其余其他操作期间观看字段数组值的更新。您将必须监视整个字段数组对象，例如：
-              <code>watch('fieldArrayName')</code>。这是由于watch
-              API旨在订阅输入更改而不是状态更新（我们仅对字段数组进行了变通），还请谨慎使用此功能，因为它确实会影响表单/应用程序的性能。
-            </p>
-          </li>
-          <li>
             <p>您不能一个接一个地调用动作。行动需要每个渲染触发。</p>
             <CodeArea
               withOutCopy

@@ -6,7 +6,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -48,8 +47,8 @@ export default {
     validateContext: (
       <>
         <p>
-          Esse objeto de contexto será injetado no segundo argumento de {" "}
-          <code>validationResolver</code> ou em {" "}
+          Esse objeto de contexto será injetado no segundo argumento de{" "}
+          <code>validationResolver</code> ou em{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -1058,19 +1057,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
             <p>
               defina <code> defaultValue </code> quando desejar definir o valor
               padrão ou redefinir com entradas.
-            </p>
-          </li>
-          <li>
-            <p>
-              se você quiser assistir à atualização dos valores da matriz de
-              campos durante o acréscimo, faça o pré-anexo e o restante das
-              outras ações. Você precisará observar todo o objeto da matriz de
-              campos, por exemplo:
-              <code>watch('fieldArrayName')</code>. Isso se deve ao fato de a
-              API watch ter a intenção de assinar alterações de entrada e não de
-              atualização de estado (fizemos uma solução alternativa apenas para
-              a matriz de campos), também use esse recurso com cuidado, pois
-              afeta o desempenho do formulário / aplicativo.
             </p>
           </li>
           <li>

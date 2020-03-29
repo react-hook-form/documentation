@@ -710,17 +710,6 @@ export default {
           </li>
           <li>
             <p>
-              if you want to watch field array values' update during append,
-              prepend and rest of the other actions. You will have to watch the
-              entire field array object eg: <code>watch('fieldArrayName')</code>
-              . This is due to watch API was meant to subscribe input change
-              rather state update (we made a workaround only for field array),
-              also use this feature in caution as it does impact your form/app's
-              performance.
-            </p>
-          </li>
-          <li>
-            <p>
               you can not call actions one after another. Actions need to be
               triggered per render.
             </p>

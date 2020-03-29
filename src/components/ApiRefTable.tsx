@@ -108,7 +108,7 @@ export default function ApiRefTable({
             <tr>
               <th
                 style={{
-                  minWidth: isStandard ? 100 : 190,
+                  minWidth: isStandard ? 100 : 240,
                 }}
               >
                 {generic.name[currentLanguage]}
@@ -158,7 +158,7 @@ export default function ApiRefTable({
                     : `string |
 {
   value: boolean,
-  message: string
+  message: string | JSX
 }`}
                 </code>
               </td>
@@ -171,7 +171,11 @@ export default function ApiRefTable({
   name="test"
   ref={
     register({
-      ${isStandard ? "required: true" : `required: 'error message'`}
+      ${
+        isStandard
+          ? "required: true"
+          : `required: 'error message' // <p>error message</p>`
+      }
     })
   }
 />`}
@@ -188,7 +192,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string
+  message: string | JSX
 }`}
                   </code>
                 </code>
@@ -207,7 +211,7 @@ export default function ApiRefTable({
           ? "maxLength: 2"
           : `maxLength : {
         value: 2,
-        message: 'error message'
+        message: 'error message' // <p>error message</p>
       }`
       }
     })
@@ -226,7 +230,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string
+  message: string | JSX
 }`}
                   </code>
                 </code>
@@ -245,7 +249,7 @@ export default function ApiRefTable({
           ? 1
           : `{
         value: 1,
-        message: 'error message'
+        message: 'error message' // <p>error message</p>
       }`
       }
     })
@@ -264,7 +268,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string
+  message: string | JSX
 }`}
                   </code>
                 </code>
@@ -283,7 +287,7 @@ export default function ApiRefTable({
           ? 3
           : `{
         value: 3,
-        message: 'error message'
+        message: 'error message' // <p>error message</p>
       }`
       }
     })
@@ -302,7 +306,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string
+  message: string | JSX
 }`}
                   </code>
                 </code>
@@ -321,7 +325,7 @@ export default function ApiRefTable({
           ? 3
           : `{
         value: 3,
-        message: 'error message'
+        message: 'error message' // <p>error message</p>
       }`
       }
     })
@@ -340,7 +344,7 @@ export default function ApiRefTable({
                       ? "RegExp"
                       : `{
   value: RegExp,
-  message: string
+  message: string | JSX
 }`}
                   </code>
                 </code>
@@ -359,7 +363,7 @@ export default function ApiRefTable({
           ? "/[A-Za-z]{3}/"
           : `{
         value: /[A-Za-z]{3}/,
-        message: 'error message'
+        message: 'error message' // <p>error message</p>
       }`
       }
     })
@@ -391,7 +395,7 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `value => value === '1'`
-          : `value => value === '1' || 'error message';`
+          : `value => value === '1' || 'error message';  // <p>error message</p>`
       }
     })
   }
@@ -423,7 +427,7 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `async value => await fetch(url)`
-          : `async value => await fetch(url) || 'error message';`
+          : `async value => await fetch(url) || 'error message';  // <p>error message</p>`
       }
     })
   }
