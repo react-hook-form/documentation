@@ -7,13 +7,11 @@ export default function App() {
 
   return (
     <form>
+      <input name="firstName" ref={register({ required: true })} />
       <input name="lastName" ref={register({ required: true })} />
-      <button
-        type="button"
-        onClick={() => { triggerValidation("lastName"); }}
-      >
-        Trigger
-      </button>
+      <button type="button" onClick={() => { triggerValidation("lastName"); }}>Trigger</button>
+      <button type="button" onClick={() => { triggerValidation(["firstName", "lastName"]); }}>Trigger Multiple</button>
+      <button type="button" onClick={() => { triggerValidation(); }}>Trigger All</button>
       <button
         type="button"
         onClick={async () => {
@@ -21,7 +19,7 @@ export default function App() {
           if (result) { console.log('valid input') }
         }}
       >
-        Trigger
+        Trigger with result
       </button>
     </form>
   );
