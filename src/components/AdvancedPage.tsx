@@ -36,6 +36,7 @@ const enLinks = [
   advancedEn.conditionalControlledComponent,
   advancedEn.controlledMixedWithUnControlled,
   advancedEn.customHookWithValidationResolver,
+  advancedEn.workingWithVirtualizedList,
 ]
 
 function Advanced({ defaultLang }: { defaultLang: string }) {
@@ -51,6 +52,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
     CustomHookwithValidationResolver: null,
+    Workingwithvirtualizedlist: null,
   })
 
   const {
@@ -74,6 +76,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.conditionalControlledComponent,
     advanced.controlledMixedWithUnControlled,
     advanced.customHookWithValidationResolver,
+    advanced.workingWithVirtualizedList,
   ]
 
   const goToSection = name => {
@@ -336,6 +339,19 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           </h2>
 
           {advanced.customHookWithValidationResolver.description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref =>
+              (pageContentRef.current.Workingwithvirtualizedlist = ref)
+            }
+          >
+            {advanced.workingWithVirtualizedList.title}
+          </h2>
+
+          {advanced.workingWithVirtualizedList.description}
 
           <StarRepo currentLanguage={currentLanguage} />
 
