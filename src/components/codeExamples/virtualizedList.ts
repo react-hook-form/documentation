@@ -1,79 +1,69 @@
-export default `import React from 'react'
-import { FormContext, useForm, useFormContext } from 'react-hook-form'
-import { VariableSizeList as List } from 'react-window'
+export default `import React from "react";
+import { FormContext, useForm, useFormContext } from "react-hook-form";
+import { VariableSizeList as List } from "react-window";
 
-const arrayOfItems = Array.from(Array(1000).keys()).map((i) => ({
-	title: \`List \${i}\`,
-	quantity: Math.floor(Math.random() * 10),
-}))
+const items = Array.from(Array(1000).keys()).map((i) => ({
+  title: "List \${i}",
+  quantity: Math.floor(Math.random() * 10),
+}));
 
 const WindowedRow = React.memo(({ index, style, data }) => {
-	const { getValues, setValue } = useFormContext()
-	const values = getValues()
-	const qtyKey = \`[\${index}].quantity\`
-	const qty = values[qtyKey]
+  const { getValues, setValue } = useFormContext();
+  const values = getValues();
+  const qtyKey = "[\${index}].quantity";
+  const qty = values[qtyKey];
 
-	return (
-		<div style={style}>
-			<span>{data[index].title}</span>
-			<input
+  return (
+    <div>
+      <span>{data[index].title}</span>
+      <input
         // Rather than ref={register}, we use defaultValue and setValue
-				defaultValue={qty}
-				onChange={(e) => {
-					setValue(
-						qtyKey,
-						isNaN(Number(e.target.value)) ? 0 : Number(e.target.value)
-					)
-				}}
-			/>
-		</div>
-	)
-})
+        defaultValue={qty}
+        onChange={(e) => {
+          setValue(
+            qtyKey,
+            isNaN(Number(e.target.value)) ? 0 : Number(e.target.value)
+          );
+        }}
+      />
+    </div>
+  );
+});
 
-const onSubmit = (data) => {
-	console.log(data)
-}
+export default React.memo(({ items }) => {
+  const formMethods = useForm({ defaultValues: items });
 
-export const Items = React.memo(({ items }) => {
-    const formMethods = useForm({ defaultValues: items })
-    
-    // We manually call register here for each field.
-	React.useEffect(() => {
-		if (items) {
-			items.forEach((item, idx) => {
-				formMethods.register(\`[\${idx}].quantity\`)
-			})
-		}
-	}, [formMethods, items])
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
-	return (
-		<>
-			<div>
-				<h1>Using React-Hook-Form in combination with React-window</h1>
-			</div>
-			<FormContext {...formMethods}>
-				<form
-					onSubmit={formMethods.handleSubmit(onSubmit)}>
-					<List
-						height={300}
-						itemCount={items.length}
-						itemSize={() => 50}
-						width={300}
-						itemData={items}>
-						{WindowedRow}
-					</List>
+  // We manually call register here for each field.
+  React.useEffect(() => {
+    if (items) {
+      items.forEach((item, idx) => {
+        formMethods.register("[\${idx}].quantity");
+      });
+    }
+  }, [formMethods, items]);
 
-					<div>
-						<button type="submit">Submit</button>
-					</div>
-				</form>
-			</FormContext>
-		</>
-	)
-})
+  return (
+    <>
+      <FormContext {...formMethods}>
+        <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+          <List
+            height={300}
+            itemCount={items.length}
+            itemSize={() => 50}
+            width={300}
+            itemData={items}
+          >
+            {WindowedRow}
+          </List>
 
-export default function App() {
-	return <Items items={arrayOfItems} />
-}
-
+          <button type="submit">Submit</button>
+        </form>
+      </FormContext>
+    </>
+  );
+});
 `
