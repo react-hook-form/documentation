@@ -2,6 +2,7 @@ import * as React from "react"
 import colors from "../../styles/colors"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 import CodeArea from "../../components/CodeArea"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
@@ -523,6 +524,42 @@ export default {
             component. It is possible to disable the "autofocus on error"
             feature. Maybe this behavior will bring a better user experience in
             some cases. <code>{`useForm({submitFocusError: false});`}</code>
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "How to use with a virtulized list",
+      description: (
+        <>
+          <p>
+            Imagine a scenario where you have a table of data. This table might
+            contain hundreds or thousands of rows, and each row will have
+            inputs. A common practice is to only render the items that are in
+            the viewport, however this will cause issues as the items are
+            removed from the DOM when they are out of view, and re-added. This
+            will cause items to reset to their default values when they re-enter
+            the viewport.
+          </p>
+
+          <p>
+            To work around this, you can manually register the fields, and then
+            programatically set the value of the field.
+          </p>
+
+          <p>
+            An example is shown below using{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/bvaughn/react-window"
+            >
+              react-window
+            </a>
+            <CodeArea
+              rawData={virtualizedList}
+              url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+            />
           </p>
         </>
       ),
