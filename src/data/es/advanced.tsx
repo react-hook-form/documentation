@@ -453,21 +453,22 @@ export default {
     description: (
       <>
         <p>
-          Imagine a scenario where you have a table of data. This table might
-          contain hundreds or thousands of rows, and each row will have inputs.
-          A common practice is to only render the items that are in the
-          viewport, however this will cause issues as the items are removed from
-          the DOM when they are out of view, and re-added. This will cause items
-          to reset to their default values when they re-enter the viewport.
+          Imagine un escenario en el que tiene una tabla de datos. Esta tabla
+          puede contienen cientos o miles de filas, y cada fila tendrá entradas.
+          Una práctica común es representar solo los elementos que están en el
+          ventana gráfica, sin embargo, esto causará problemas ya que los
+          elementos se eliminan de el DOM cuando están fuera de la vista y se
+          vuelven a agregar. Esto causará artículos para restablecer sus valores
+          predeterminados cuando vuelven a ingresar a la ventana gráfica.
         </p>
 
         <p>
-          To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          Para evitar esto, puede registrar manualmente los campos y luego
+          establece programáticamente el valor del campo.
         </p>
 
         <p>
-          An example is shown below using{" "}
+          A continuación se muestra un ejemplo usando{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

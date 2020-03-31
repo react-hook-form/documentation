@@ -52,6 +52,11 @@ export default {
           </button>{" "}
           section.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> This function will be
+          cached inside the hook, you will have to either move the function
+          outside of the component or memorise the function.
+        </p>
       </>
     ),
     validateContext: (

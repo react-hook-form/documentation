@@ -413,21 +413,15 @@ export default {
     description: (
       <>
         <p>
-          Imagine a scenario where you have a table of data. This table might
-          contain hundreds or thousands of rows, and each row will have inputs.
-          A common practice is to only render the items that are in the
-          viewport, however this will cause issues as the items are removed from
-          the DOM when they are out of view, and re-added. This will cause items
-          to reset to their default values when they re-enter the viewport.
+          想象一下您有一个数据表的情况。该表可能包含数百或数千行，并且每一行都有输入。
+          一种常见的做法是仅渲染位于视口，但是这将导致问题，因为从当DOM不在视野中时，并重新添加。这会导致物品
+          重新进入视口时重置为默认值。
         </p>
 
-        <p>
-          To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
-        </p>
+        <p>若要解决此问题，您可以手动注册字段，然后以编程方式设置字段的值。</p>
 
         <p>
-          An example is shown below using{" "}
+          下面是一个使用示例{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
