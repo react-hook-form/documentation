@@ -7,8 +7,7 @@ const items = Array.from(Array(1000).keys()).map((i) => ({
   quantity: Math.floor(Math.random() * 10),
 }));
 
-const WindowedRow = React.memo(({ index, style, data }) => {
-  const { getValues, setValue } = useFormContext();
+const WindowedRow = React.memo(({ index, style, data, getValues, setValue }) => {
   const values = getValues();
   const qtyKey = "[\${index}].quantity";
   const qty = values[qtyKey];
@@ -32,10 +31,7 @@ const WindowedRow = React.memo(({ index, style, data }) => {
 
 export default React.memo(({ items }) => {
   const formMethods = useForm({ defaultValues: items });
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = (data) => console.log(data);
 
   // We manually call register here for each field.
   React.useEffect(() => {
@@ -47,23 +43,19 @@ export default React.memo(({ items }) => {
   }, [formMethods, items]);
 
   return (
-    <>
-      <FormContext {...formMethods}>
-        <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-          <List
-            height={300}
-            itemCount={items.length}
-            itemSize={() => 50}
-            width={300}
-            itemData={items}
-          >
-            {WindowedRow}
-          </List>
-
-          <button type="submit">Submit</button>
-        </form>
-      </FormContext>
-    </>
+    <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+      <List
+        height={300}
+        itemCount={items.length}
+        itemSize={() => 50}
+        width={300}
+        itemData={items}
+        {{ ...formMethods }}
+      >
+        {WindowedRow}
+      </List>
+      <button type="submit">Submit</button>
+    </form>
   );
 });
 `
