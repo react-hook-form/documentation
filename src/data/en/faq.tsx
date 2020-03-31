@@ -418,7 +418,17 @@ export default {
               <p>
                 React Hook Form using <code>input</code> event for input change,
                 so to fix it. you can easily switch to{" "}
-                <code>fireEvent.input</code> for react-testing-library
+                <code>fireEvent.input</code> for react-testing-library. Here is
+                a testing{" "}
+                <a
+                  className={buttonStyles.codeAsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://codesandbox.io/s/react-hook-form-test-s4j7c?from-embed"
+                >
+                  example at codesandbox
+                </a>
+                .
               </p>
             </li>
           </ul>
