@@ -451,24 +451,22 @@ export default {
         </div>
       ),
     },
-    // todo: korean translation please
     {
-      title:
-        "Why is default value not changing correctly with ternary operator?",
+      title: "왜 삼항 연산자를 적용한 기본값은 의도한대로 반응하지 않나요?",
       description: (
         <>
           <p>
-            React Hook Form doesn't control your entire form and inputs, which
-            is the reason why React wouldn't recognise the actual input that has
-            been exchanged or swopped. As a solution, you can resolve this
-            problem by giving a unique <code>key</code> prop to your input. You
-            can also read more about the key props from{" "}
+            React Hook Form 은 전체 폼과 인풋을 제어하지 않습니다. 그래서
+            리액트는 실제 입력 값이 바뀌었는지 알아차리지 못하는 것입니다. 이
+            문제를 해결하기 위해 인풋 컴포넌트에 고유의 <code>key</code> prop 을
+            전달해줄 수 있습니다. <code>key</code> prop 에 대해서 더 자세히
+            알아보시려면{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
             >
-              this article written by Kent C. Dodds
+              Kent C. Dodds 가 쓴 이 글을 읽어보세요
             </a>
             .
           </p>
@@ -480,31 +478,31 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title:
+        "submitFocusError 옵션을 주어도 Controller 한테는 동작하지 않는데요?",
       description: (
         <>
           <p>
-            After a validation error, React Hook Form will automatically focus
-            on the invalids elements of which have their proper ref, like the
-            native inputs (eg: <code>{`<input />`}</code>) or some 3rd party
-            Components that correctly export his ref (eg: from MUI{" "}
+            유효성 검사 후 에러가 발생할 때, React Hook Form 은 자동으로 잘못된
+            인풋 엘리먼트로 포커스를 맞춥니다. 그 인풋 엘리먼트는 적절하게 ref
+            가 할당되어 있어야 합니다. 예를 들어 기본 <code>{`<input />`}</code>{" "}
+            이나, 적절하게 ref 를 드러내는 서드파티 컴포넌트(예: MUI의
             <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
-            )
+            )처럼 말입니다.
           </p>
 
           <p>
-            However, for some 3rd party controlled Components like{" "}
-            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
-            from AntD) it's very difficult to predict his ref because the
-            formats changes, so React Hook Form will properly detect the
-            validation error but will not be able to automatically focus that
-            kind of Components.
+            하지만 MUI의 <code>{`<Autocomplete>`}</code> 나, AntD 의{" "}
+            <code>{`<XX>`}</code> 같은 일부 서드파티 컴포넌트는 형태가 바뀌기
+            때문에 ref 를 예측하기 아주 어렵습니다. 그래서 React Hook Form 은
+            유효성을 검사하고 에러를 적절히 찾아닐 수 있지만 이런 컴포넌트에
+            바로 포커스를 맞출 수 없습니다.
           </p>
 
           <p>
-            As a workaround, after the validation error, you can manually focus
-            on the 3rd party controlled Component (if you can get the actual
-            internal input ref), for example:
+            우회 해결책으로 실제로 인풋 ref 를 가져올 수 있다면, 유효성 검사 후
+            에러가 발생할 때 수동으로 서드파티 컴포넌트의 포커스를 지정해줄 수
+            있습니다.
           </p>
           <CodeArea rawData={focusController} />
 
