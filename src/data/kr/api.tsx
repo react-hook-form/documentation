@@ -1202,17 +1202,16 @@ React.useEffect(() => {
           반드시 인풋 값과 연결되어야 합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b>이 함수는
+          <b className={typographyStyles.note}>참고:</b> 이 함수는
           <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
           캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
           변경할 수있는 변경 가능한 객체입니다.
         </p>
-        // todo: Dohyung please translate
         <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
+          <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는
+          것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다. 왜냐하면
+          라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고 그에 따라
+          리랜더링을 실행하기 때문입니다.
         </p>
       </>
     ),
