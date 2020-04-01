@@ -804,6 +804,33 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
         </tr>
         <tr>
           <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              This callback allows the custom hook to focus on the input when
+              there is an error. This function is applicable for both React and
+              React-Native components as long as they can be focused.
+            </p>
+            <p>
+              Here is a{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                working example with MUI
+              </a>
+              .
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <code>onBlurName</code>
           </td>
           <td>
