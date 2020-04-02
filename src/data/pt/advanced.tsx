@@ -41,8 +41,8 @@ export default {
         >
           Antd
         </a>
-        . Além de, com React Hook Form a re-renderização de componentes
-        controlados é também otimizada. Aqui um exemplo onde combinamos a
+        . Além disso, com React Hook Form a re-renderização de componentes
+        controlados também é otimizada. Aqui um exemplo onde combinamos a
         validação de um formulário com componentes controlados e não controlados
       </p>
     ),
@@ -154,8 +154,8 @@ export default {
       <>
         <p>
           É muito comum coletar informações do usuário através de diferentes
-          páginas e seções. Nós recomendamos uma biblioteca de gerencia de
-          estado para armazenar os dados do usuário entre os diferentes campos,
+          páginas e seções. Nós recomendamos uma biblioteca de gerenciamento de
+          estados para armazenar os dados do usuário entre os diferentes campos,
           páginas / seções. Neste exemplo, nós iremos usar{" "}
           <a
             className={buttonStyles.links}
@@ -187,8 +187,8 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Passo 2:</b> Cirar suas páginas,
-          faça-o coletar seus dados, submeter o dano e armazenar no "store" e
+          <b className={typographyStyles.note}>Passo 2:</b> Criar suas páginas,
+          faça-o coletar seus dados, submeter e armazenar os dados na "store" e
           passar para próxima página do formulário.
         </p>
         <CodeArea
@@ -198,7 +198,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Passo 3:</b> Faça a submissão
-          final com o dano no store ou exiba os dados em tela.
+          final com o dado na store ou exiba os dados em tela.
         </p>
         <CodeArea
           rawData={step3}
@@ -261,9 +261,9 @@ export default {
 
         <p>
           Com o componente <code>Form</code> injetando{" "}
-          <code>react-hook-form</code>
-          's <code>props</code> no componente filho, você pode facilmente criar
-          e compor formulários dinâmicos para sua aplicação.
+          <code>react-hook-form props</code>
+          no componente filho, você pode facilmente criar e construir
+          formulários dinâmicos para sua aplicação.
         </p>
       </>
     ),
@@ -281,9 +281,9 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> we have also build a
-          custom hook for complex scenario:{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
+          <b className={typographyStyles.note}>Nota:</b>
+          Nós construimos também um <code>custom hook</code> com um cenário
+          complexo: <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
         <p>
@@ -334,7 +334,8 @@ export default {
     step2: (
       <p>
         <b className={typographyStyles.note}>Passo 2:</b> Crie um esquema para
-        validação e registre (register) os campos com React Hook Form.
+        validação e registre (<code>register</code>) os campos com React Hook
+        Form.
       </p>
     ),
   },
@@ -359,8 +360,8 @@ export default {
       <>
         <p>
           Em termos de campos condicionais, React Hook Form faz o uso muito
-          simples para nós, porque a partir do momento que você remove um campo
-          a árvore de componente, irá receber o <code>unregister</code>{" "}
+          simples, porque a partir do momento que você remove um campo a
+          hierarquia de componentes, irá receber o <code>unregister</code>{" "}
           automaticamente,{" "}
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
@@ -369,16 +370,16 @@ export default {
           >
             aqui um exemplo
           </a>{" "}
-          por tal comportamento. Entretanto, este não é o mesmo caso do
-          componente controlado, desde que o <code>ref</code> não foi
-          registrado, e podemos fazer o seguinte:
+          de tal comportamento. Entretanto, este não é o mesmo caso do
+          componente controlado, caso o <code>ref</code> não tenha sido
+          registrado, podemos fazer o seguinte:
         </p>
         <ul>
           <li>
             <p>
               Importe <PageLink to="/api#Controller">Controller</PageLink> para
-              englobar seu componente e deixe-o gerenciar o 'register' e
-              'unregister'
+              englobar seu componente e deixe-o gerenciar o{" "}
+              <code>register</code> e<code>unregister</code>
             </p>
           </li>
           <li>
@@ -393,7 +394,7 @@ export default {
                   useEffect
                 </a>
               </code>{" "}
-              com um 'register' customizado
+              com um <code>register</code> customizado
             </p>
           </li>
         </ul>
@@ -402,12 +403,12 @@ export default {
     ),
   },
   formContext: {
-    title: "FormContext Performance",
+    title: "Performance do FormContext",
     description: (
       <p>
         React Hook Form's{" "}
         <PageLink to="/api/#useFormContext">FormContext</PageLink> é construído
-        sobre{" "}
+        sob a{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
@@ -425,21 +426,25 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "Custom Hook com Validation Resolver",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integration with yup/Joi/Superstruct as a validation
-          method, and to be used inside validation resolver.
+          Você pode construir um custom hook como validação no{" "}
+          <code>resolver</code>. Um custom hook pode ser facilmente integrado
+          com yup/Joi/Superstruct como método de validação e pode ser usado
+          dentro do <code>resolver</code> de validação.
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            Defina um schema memo (ou defina fora do seu componente se você não
+            tem dependências)
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>Use um custom hook passando o schema de validação</li>
+          <li>
+            Passe o <code>resolver</code> de validação para usar o{" "}
+            <code>useForm</code> hook
+          </li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -452,10 +457,10 @@ export default {
       <>
         <p>
           Imagine um cenário em que você tenha uma tabela de dados. Esta tabela
-          pode contém centenas ou milhares de linhas e cada linha terá entradas.
+          pode conter centenas ou milhares de linhas e cada linha terá entradas.
           Uma prática comum é renderizar apenas os itens que estão no viewport,
           no entanto, isso causará problemas quando os itens forem removidos do
-          o DOM quando estão fora de vista e adicionados novamente. Isso causará
+          DOM quando estão fora de vista e adicionados novamente. Isso causará
           itens para redefinir seus valores padrão quando eles entrarem
           novamente na janela de exibição.
         </p>
