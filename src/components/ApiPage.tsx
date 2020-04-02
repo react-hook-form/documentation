@@ -389,7 +389,7 @@ function ApiPage({
   validationContext: undefined,
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
-  nativeValidation: false,
+  nativeValidation: false, // Note: version 3 only
 })`}
             />
 
