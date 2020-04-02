@@ -22,18 +22,18 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> também tem argumentos <b>opcionais</b>. O exempo a
+        <code>useForm</code> também tem argumentos <b>opcionais</b>. O exemplo a
         seguir demonstra todas as opções, com valor padrão.
       </p>
     ),
     validationResolver: goToSection => (
       <>
         <p>
-          Essa função de callback permite que voce execute sua validacao através
+          Essa função de callback permite que você execute sua validação através
           de qualquer esquema ou validação customizada. A função recebe um
-          formulário completo com os <code>valores</code> como argumento. Você
-          deve validar o resultado e retornar ambos <code>valores</code> e{" "}
-          <code>erros</code>. Leia mais em{" "}
+          formulário completo com os <code>value</code> como argumento. Você
+          deve validar o resultado e retornar ambos <code>value</code> e{" "}
+          <code>errors</code>. Leia mais em{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
@@ -64,11 +64,11 @@ export default {
       <>
         <p>
           O comportamento padrão <code>firstErrorDetected</code> irá validar
-          todos os campos' e reunir todos os primeiros erros encontrados.
+          todos os campos e reunir todos os primeiros erros encontrados.
         </p>
         <p>
-          Com a configuração de <code>all</code>, todos as validações de campos'
-          irá executar e reunir todos os erros encontrados
+          Com a configuração de <code>all</code>, todos as validações de campos
+          irão executar e reunir todos os erros encontrados
         </p>
       </>
     ),
@@ -76,12 +76,12 @@ export default {
       <>
         A validação irá ativar o evento de <code>submit</code> e os campos
         inválidos serão anexados, o evento <code>onChange</code> ouve os eventos
-        para validar-los novamente.
+        para valida-los novamente.
       </>
     ),
     validateOnBlur: (
       <>
-        Validation irá ativar o evento de <code>blur</code>.
+        <code>Validation</code> irá ativar o evento de <code>blur</code>.
       </>
     ),
     validateOnChange: (
@@ -107,7 +107,7 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
+          <b className={typographyStyles.note}>Importante:</b>{" "}
           <code>defaultValues</code> is cached within the custom hook, if you
           want to reset <code>defaultValues</code> please use{" "}
           <button
@@ -133,10 +133,10 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Nota:</b>{" "}
-          <code>defaultValues</code> não tem população automática, com o
+          <code>defaultValues</code> não é populado automaticamente, com o
           registro manual do campo (ex:{" "}
           <code>{`register({ name: 'test' })`}</code>) porquê o campo manual{" "}
-          <code>register</code> não provê a props <code>ref</code> para o React
+          <code>register</code> não provê <code>props ref</code> para o React
           Hook Form.
         </p>
       </>
@@ -156,15 +156,15 @@ export default {
     ),
     reValidateMode: (
       <p>
-        Esta opção permite configurar quando entradas com erros são exibidas
-        revalidado (por padrão, a validação é acionada durante uma entrada
+        Esta opção permite configurar quando entradas com erros são exibidas e
+        revalidadas (por padrão, a validação é acionada durante uma entrada
         mudança.) <Popup />
       </p>
     ),
     validationFields: (
       <p>
         Fornecer uma matriz de campos (array) significa que apenas os campos
-        incluídos serão validado. Esta opção é útil quando você deseja alternar
+        incluídos serão validados. Esta opção é útil quando você deseja alternar
         quais campos são necessários para validar.
       </p>
     ),
@@ -210,7 +210,7 @@ export default {
     description: (
       <>
         <p>
-          Este método permite você o <code>unregister</code> um único campo ou
+          Este método permite você <code>unregister</code> um único campo ou
           matriz (array) de campos. Isto é útil quando você precisa registrar
           seu campo durante o <code>useEffect</code> como registro customizado e
           para remover o registro após o componente ser desmontado.
@@ -233,12 +233,12 @@ export default {
         </p>
         <p>
           Regras de validação são baseadas no padrão do HTML e também permite
-          customizações customizadas.
+          customizações.
         </p>
         <p>
           <b className={typographyStyles.note}>Importante:</b> <code>name</code>{" "}
-          é <b>obrigatório</b> e <b>único</b>. O name do campo também suporta
-          pontos e chaves como sintaxe, que possibilita você a criar campos
+          é <b>obrigatório</b> e <b>unique</b>. O name do campo também suporta
+          pontos e chaves como sintaxe, o que possibilita você criar campos
           aninhados. A tabela de exemplo está abaixo:
         </p>
       </>
@@ -307,9 +307,9 @@ export default {
           </p>
 
           <p>
-            <b className={typographyStyles.note}>Nota:</b> Se você um registro
-            de campo customizado para ativar a re-renderização seu valor
-            atualiza, então você precisa dar um tempo ao seu campo{" "}
+            <b className={typographyStyles.note}>Nota:</b> Se você fizer um
+            registro de campo customizado para ativar a re-renderização seu
+            valor, então você precisa dar um tempo ao seu campo{" "}
           </p>
         </>
       ),
@@ -339,7 +339,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
+          <code>formState</code> é encapsulado com{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -347,16 +347,15 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          para melhorar a performance do <code>render</code>. Tenha certeza que
+          você tem <code>invoke/read</code>
+          antes do <code>render</code> para habilitar a atualização do estado.
         </p>
       </>
     ),
-    dirty:
-      "Marcado como verdadeiro após o usuário interagir com algum dos campos.",
+    dirty: "Marcado como true após o usuário interagir com algum dos campos.",
     dirtyFields: "Um conjunto exclusivo de campos modificados pelo usuário.",
-    isSubmitted:
-      "Marcado como verdadeiro após o usuário submeter o formulário.",
+    isSubmitted: "Marcado como true após o usuário submeter o formulário.",
     touched: "Uma matriz (Object) com todos os campos que foram interagidos.",
     isSubmitting: (
       <>
@@ -364,7 +363,7 @@ export default {
         submeter para <code>false</code>
       </>
     ),
-    submitCount: "Número de formulários submetido.",
+    submitCount: "Número de formulários submetidos.",
     isValid: "Marcado como verdadeiro se não tiver erro.",
   },
   errors: {
@@ -394,7 +393,7 @@ export default {
             </p>
           </li>
           <li>
-            <p>Versão 3: Objetos nivelados object</p>
+            <p>Versão 3: Objetos nivelados</p>
             <p>
               <strong>Razão:</strong> simples e fácil de acessar o erro.
             </p>
@@ -413,7 +412,7 @@ export default {
         <code>validateCriteriaMode: 'all'</code>.
       </>
     ),
-    message: `'Message' é um campo string e vazio por padrão. Entratanto, se você registrar a validação com mensagem de erro, ele será retornado.`,
+    message: `'Message' é um campo string e vazio por padrão. Entretanto, se você registrar a validação com mensagem de erro, ele será retornado.`,
     ref: `Referência para o elemento do campo.`,
   },
   watch: {
@@ -522,9 +521,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Você vai precisar
-          forneça <code> defaultValues ​​</code> durante <code> useForm </code>
-          ou<code> reset </code> com valor para redefinir o
-          <code> Controller </code>valor dos componentes.
+          fornecer <code> defaultValues ​​</code> durante <code> useForm </code>
+          ou<code> reset </code> com valor para redefinir no
+          <code> Controller </code>o valor dos componentes.
         </p>
       </>
     ),
@@ -533,11 +532,11 @@ export default {
     title: "setError",
     description: (
       <>
-        <p>A função permite você de manualmente setar um ou múltiplos erros.</p>
+        <p>A função permite você manualmente setar um ou múltiplos erros.</p>
 
         <p>
           <b className={typographyStyles.note}>Nota:</b> este método não
-          persistirá no erro e bloqueará a ação de envio. É mais útil durante a
+          persistirá o erro e bloqueará a ação de envio. É mais útil durante a
           função <code>handleSubmit</code> quando você deseja fornecer feedback
           de erro aos usuários após a validação assíncrona.
         </p>
@@ -724,7 +723,7 @@ export default {
           <td></td>
           <td>
             O mesmo que componente não controlado <code>defaultValue</code>,
-            quando suprido um valor <code>boolean</code>, ele será tratado campo
+            quando suprido um valor <code>boolean</code>, ele será tratado como
             checkbox.
             <p>
               <b className={typographyStyles.note}>Nota:</b> você precisa
@@ -739,7 +738,7 @@ export default {
             <p>
               <b className={typographyStyles.note}>Note</b>: se o seu formulário
               invocar <code> reset </code> com valores diferentes, você
-              precisará forneça <code>defaultValues</code> no nível useForm em
+              precisará fornecer <code>defaultValues</code> no nível useForm em
               vez de definido inline <code>defaultValue</code>..
             </p>
           </td>
@@ -767,8 +766,8 @@ export default {
           </td>
           <td></td>
           <td>
-            Esta propriedade <code>onChange</code> lhe permite customizar o
-            retorno do valor, verifique se o formato do componente externo{" "}
+            A propriedade <code>onChange</code> lhe permite customizar o retorno
+            do valor, verifique se o formato do componente externo{" "}
             <code>value</code> props.
             <CodeArea
               withOutCopy
@@ -799,7 +798,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
           <td></td>
           <td>
-            Este propridade lhe permite marcar eventos específicos, ex: quando{" "}
+            Esta propridade lhe permite marcar eventos específicos, ex: quando o{" "}
             <code>onBlur</code> evento é chamado <code>onTextBlur</code>
           </td>
         </tr>
@@ -813,7 +812,7 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           <td></td>
           <td>
             Esta propriedade lhe permite sobrescrever a propriedade{" "}
-            <code>value</code> e suporta outras componentes que não utilizam a
+            <code>value</code> e suporta outros componentes que não utilizam a
             propriedade <code>value</code>. ex: <code>checked</code>,{" "}
             <code>selected</code> e outros...
           </td>
@@ -849,17 +848,16 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           >
             Material-UI
           </a>
-          . Este componente irá fazer sua vida mais simples trabalhando com ele.
+          . Este componente irá fazer sua vida mais simples.
         </p>
         <p>
-          Cada propriedade <code>props</code> que se passa para um componente
-          conntrolado, será encaminhado para a instância do componente que você
-          proveu com a propriedade <code>as</code>. Isto significa que você
-          possui um componente custom <code>Switch</code> que necessita de uma
-          propriedade <code>label</code>. Você pode passar essa propriedade
-          diretamente para o componente controlado. A propriedade{" "}
-          <code>name</code> será usada principalmente para acessar o valor
-          através do formulário depois.
+          Cada <code>props</code> que se passa para um componente conntrolado,
+          será encaminhado para a instância do componente que você proveu com a
+          propriedade <code>as</code>. Isto significa que você possui um
+          componente custom <code>Switch</code> que necessita de uma propriedade{" "}
+          <code>label</code>. Você pode passar essa propriedade diretamente para
+          o componente controlado. A propriedade <code>name</code> será usada
+          principalmente para acessar o valor através do formulário depois.
         </p>
 
         <p>
@@ -1015,20 +1013,19 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
     description: (
       <>
         <p>
-          A custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation behind this hook is to provide better user
-          experience and form performance. You can watch{" "}
+          Um custom hook para usar com Arrays de campos não-controlados (inputs
+          dinâmicos). A motivação por trás disso é fornecer melhor experiência
+          ao usuário e performance ao formulário. Você pode assistir{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            this short video
+            este video
           </a>{" "}
-          to compare controlled vs uncontrolled Field Array.
+          para comparar arrays controlados e não controlados.
         </p>
-
-        <p>This hook provides the following object and functions.</p>
+        <p>Esse hook fornece os seguintes objetos e funções:</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
@@ -1042,8 +1039,8 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
         <ul>
           <li>
             <p>
-              you can populate the <code>fields</code> by supply{" "}
-              <code>defaultValues</code> at <code>useForm</code> hook.
+              Você pode popular os <code>fields</code> fornecendo
+              <code>defaultValues</code> no <code>useForm</code> hook.
             </p>
           </li>
           <li>
@@ -1089,11 +1086,11 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFormContext</code> so <code>register</code> will get
-              invoked during <code>map</code>.
+              é <strong>importante</strong> aplicar{" "}
+              <code>{`ref={register()}`}</code> ao invés de{" "}
+              <code>{`ref={register}`}</code> quando estiver trabalhando com{" "}
+              <code>useFormContext</code> para que o <code>register</code> seja
+              invocado durante <code>map</code>.
             </p>
           </li>
           <li>
@@ -1115,15 +1112,16 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            Esse objeto é onde o <code>map</code> confia para renderizar os
+            campos.
             <p>
-              <b className={typographyStyles.note}>Important: </b> because each
-              inputs can be uncontrolled, <code>id</code> is required with
-              mapped components to help React identify which items have changed,
-              are added, or are removed.
+              <b className={typographyStyles.note}>Importante: </b>
+              Porque cada campo pode ser não-controlado, <code>id</code> é
+              mandatório com componentes mapeados, para ajudar o React a
+              identificar quais itens mudaram, foram adicionados ou removidos.
             </p>
             <p>
-              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+              ex: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
             </p>
           </td>
         </tr>
@@ -1136,7 +1134,7 @@ React.useEffect(() => {
               (obj: object | object[]) => void
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>Append input/inputs no final de seus campos.</td>
         </tr>
         <tr>
           <td>
@@ -1147,7 +1145,7 @@ React.useEffect(() => {
               (obj: object | object[]) => void
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>Prepend input/inputs no começo de seus campos.</td>
         </tr>
         <tr>
           <td>
@@ -1158,7 +1156,7 @@ React.useEffect(() => {
               (index: number, value: object) => void
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>Insert input/inputs em uma posição particular.</td>
         </tr>
         <tr>
           <td>
@@ -1169,7 +1167,7 @@ React.useEffect(() => {
               (from: number, to: number) => void
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>Swap input/inputs posição.</td>
         </tr>
         <tr>
           <td>
@@ -1181,12 +1179,12 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            Move input/inputs em outra posição.
             <p>
-              <b className={typographyStyles.note}>Note:</b> difference between{" "}
-              <code>move</code> and <code>swap</code>, keep calling{" "}
-              <code>move</code> will push input/inputs in a circle, while{" "}
-              <code>swap</code> only change two input/inputs' position.
+              <b className={typographyStyles.note}>Note:</b> A diferença entre{" "}
+              <code>move</code> e <code>swap</code>, é que chamando{" "}
+              <code>move</code> vai empurrar os campos em um loop , enquanto{" "}
+              <code>swap</code> somente muda a posição de dois campos.
             </p>
           </td>
         </tr>
@@ -1200,8 +1198,8 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            Remove campos de uma posição particular, ou remove todos quando
+            nenhum índice é fornecido.
           </td>
         </tr>
       </>
@@ -1212,8 +1210,8 @@ React.useEffect(() => {
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          Essa função permite executar qualquer validação ou metodo externo,
+          como
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1229,33 +1227,33 @@ React.useEffect(() => {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          e etc. Fato é que, o objetivo é não se limitar ao Yup como nosso
+          schema externo. Nós gostariamos de suportar muitas outras bibliotecas
+          de validação para funcionar com o React Hook Form. Você pode inclusive
+          escrever sua propria logica de validação.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
+          <b className={typographyStyles.note}>Nota:</b> Tenha certeza que você
+          retornando o objeto que contem <code>values</code> e{" "}
+          <code>errors</code>, e seus valores padrão sejam um objeto vazio{" "}
           <code>{`{}`}</code>.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>Nota:</b> retornar a chave do
+          objeto que contenha os erros é relevante para seus inputs.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> this function will be
-          cached inside the custom hook similar as <code>validationSchema</code>
-          , while <code>validationContext</code> is a mutable object which can
-          be changed on each re-render.
+          <b className={typographyStyles.note}>Nota:</b> Essa função será
+          cacheada dentro do custom hook, similar ao{" "}
+          <code>validationSchema</code>, enquanto o{" "}
+          <code>validationContext</code> é um objeto mutável que pode ser
+          modificado a cada re-render.
         </p>
-        // todo: Vitor please translate
         <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
+          <b className={typographyStyles.note}>Nota:</b> Revalidar o input vai
+          ocorrer somente em um campo por vez durante as interações do usuário,
+          porque a biblioteca em si vai considerar o objeto do campo em
+          especifico e disparará o re-render de acordo.
         </p>
       </>
     ),
