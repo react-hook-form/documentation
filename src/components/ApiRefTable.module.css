@@ -1,11 +1,12 @@
 .fieldset {
   padding: 10px 15px;
   border: 1px solid var(--color-light-blue);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .fieldset > legend {
   text-align: center;
+  padding: 0 10px;
 }
 
 .fieldset > label {
@@ -19,4 +20,6 @@
 
 .fieldset > label > input {
   margin-right: 10px;
+  top: -2px;
+  position: relative;
 }

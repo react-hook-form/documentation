@@ -28,7 +28,7 @@ import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
-import resetRHFInput from "./codeExamples/resetRHFInput"
+import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
@@ -38,6 +38,7 @@ import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import ValidationResolver from "./ValidationResolver"
+import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef, useEffect } = React
 
@@ -80,8 +81,10 @@ function ApiPage({
   defaultLang: string
 }) {
   const {
+    state,
     state: { language },
   } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -230,7 +233,11 @@ function ApiPage({
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
           API
         </h1>
-        <div className={styles.quickSelect}>
+        <div
+          className={`${styles.quickSelect} ${
+            lightMode ? styles.lightQuickSelect : ""
+          }`}
+        >
           <select
             aria-label={`${generic.select[currentLanguage]} API`}
             onChange={e => {
@@ -681,7 +688,6 @@ function ApiPage({
 
           <section
             ref={ref => {
-              // @ts-ignore
               apiSectionsRef.current.resetRef = ref
             }}
           >
@@ -690,7 +696,7 @@ function ApiPage({
                 reset:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(values?: Record<string, any>) => void`}</span>
+                >{`(values?: Record<string, any>, omitResetState: OmitResetState = {}) => void`}</span>
               </h2>
             </code>
 
@@ -708,8 +714,8 @@ function ApiPage({
                 url="https://codesandbox.io/s/jjm3wyqmjy"
               />
               <CodeArea
-                rawData={resetRHFInput}
-                url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+                rawData={resetController}
+                url="https://codesandbox.io/s/react-hook-form-controller-079xx"
               />
               <CodeArea
                 rawData={resetCodeControlled}
@@ -972,7 +978,7 @@ function ApiPage({
             <button
               className={buttonStyles.primaryButton}
               onClick={() => {
-                navigate(translateLink("/advanced-usage", currentLanguage))
+                navigate(translateLink("advanced-usage", currentLanguage))
               }}
               style={{ margin: "40px auto" }}
             >

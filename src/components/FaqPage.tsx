@@ -12,7 +12,7 @@ import faqContent from "../data/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
-import controlledRHFInput from "./codeExamples/control"
+import control from "./codeExamples/control"
 import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -50,6 +50,8 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question11: null,
     question12: null,
     question13: null,
+    question14: null,
+    question15: null,
   })
 
   const goToSection = name => {
@@ -273,7 +275,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           {faq.questions[11].description}
 
           <TabGroup buttonLabels={["Controller", "Custom Register"]}>
-            <CodeArea rawData={controlledRHFInput} />
+            <CodeArea rawData={control} />
             <CodeArea
               rawData={controlled}
               url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
@@ -301,6 +303,28 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
           </h2>
 
           {faq.questions[13].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref => (sectionsRef.current.question14 = ref)}
+          >
+            {faq.questions[14].title}
+          </h2>
+
+          {faq.questions[14].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={ref => (sectionsRef.current.question15 = ref)}
+          >
+            {faq.questions[15].title}
+          </h2>
+
+          {faq.questions[15].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

@@ -5,6 +5,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentation",
@@ -50,6 +51,11 @@ export default {
             validationResolver
           </button>{" "}
           section.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> This function will be
+          cached inside the hook, you will have to either move the function
+          outside of the component or memorise the function.
         </p>
       </>
     ),
@@ -261,7 +267,7 @@ export default {
     selectHelp:
       "By selecting the register option, the API table below will get updated.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "Register with validation",
       registerWithValidationMessage:
         "Register with validation and error message",
@@ -487,8 +493,10 @@ export default {
       <>
         <p>
           This function will reset the fields' values and errors within the
-          form. You can pass <code>values</code> as an optional argument to
-          reset your form into assigned default values.
+          form. By supply <code>omitResetState</code>, you have the freedom to
+          only reset specific piece of state. You can pass <code>values</code>{" "}
+          as an optional argument to reset your form into assigned default
+          values.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> For controlled
@@ -525,7 +533,7 @@ export default {
         <p>The function allows you to manually set one or multiple errors.</p>
         <p>
           <b className={typographyStyles.note}>Note:</b> This method will not
-          persist the error and block the submit action. It's more useful during
+          persist the error and block the submit action. It's more useful during{" "}
           <code>handleSubmit</code> function when you want to give error
           feedback to the users after async validation.
         </p>
@@ -559,9 +567,13 @@ export default {
     description: (
       <>
         <p>
-          This function allows you to dynamically set input/select value. At the
-          same time, it tries to avoid re-rendering when it's not necessary.
-          Only the following conditions will trigger a re-render:
+          This function allows you to dynamically set{" "}
+          <strong>
+            <code>registered</code>
+          </strong>{" "}
+          input/select value. At the same time, it tries to avoid re-rendering
+          when it's not necessary. Only the following conditions will trigger a
+          re-render:
         </p>
         <ul>
           <li>
@@ -680,32 +692,74 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>{" "}
+          <code>useFieldArray</code> is built on top of uncontrolled components.
+          The following notes will help you aware and be mindful of its
+          behaviour during implementation.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              make sure you assign <code>id</code> from <code>fields</code>{" "}
+              object as your component key.
+            </p>
+          </li>
+          <li>
+            <p>
+              set <code>defaultValue</code> when you want to set default value
+              or reset with inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              you can not call actions one after another. Actions need to be
+              triggered per render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> set{" "}
-          <code>defaultValue</code> when you want to set default value or reset
-          with inputs.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> if you want to watch
-          field array values' update during append, prepend and rest of the
-          other actions. You will have to watch the entire field array object
-          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
-          meant to subscribe input change rather state update (we made a
-          workaround only for field array), also use this feature in caution as
-          it does impact your form/app's performance.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              It's <strong>important</strong> to apply{" "}
+              <code>{`ref={register()}`}</code> instead of{" "}
+              <code>{`ref={register}`}</code> when working with{" "}
+              <code>useFormContext</code> so <code>register</code> will get
+              invoked during <code>map</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              It doesn't work with custom register at <code>useEffect</code>.
+            </p>
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -714,7 +768,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -739,7 +793,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -752,7 +806,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -765,7 +819,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: any) => void
+                (index: number, value: object) => void
               </code>
             </code>
           </td>
@@ -812,7 +866,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number) => void
+                (index?: number | number[]) => void
               </code>
             </code>
           </td>
@@ -920,9 +974,16 @@ export default {
           </td>
           <td></td>
           <td>
-            This prop allows you to customize the return value.
-            <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            This prop allows you to customize the return value, make sure you
+            aware the shape of the external component <code>value</code> props.{" "}
+            <code>value</code> or <code>checked</code> attribute will be read
+            when payload's shape is an <code>object</code> which contains{" "}
+            <code>type</code> attribute.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ { checked } ]) => ({ checked })}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1186,13 +1247,27 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> make sure you are
           returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
+          <code>errors</code>, and their default value should be{" "}
           <code>{`{}`}</code>.
         </p>
 
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

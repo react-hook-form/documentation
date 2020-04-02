@@ -19,17 +19,29 @@ export default function App() {
         aria-describedby="error-name-required error-name-maxLength"
         ref={register({ required: true, maxLength: 30 })}
       />
-      {errors.name && errors.name.type === "required" && (
-        {/* the id field is used to associated with aria-describedby*/}
-        <span role="alert" id="error-name-required">
-          This is required
-        </span>
-      )}
-      {errors.name && errors.name.type === "maxLength" && (
-        <span role="alert" id="error-name-maxLength">
-          Max length exceeded
-        </span>
-      )}
+      {/* the id field is used to associated with aria-describedby*/}
+      <span
+        role="alert"
+        id="error-name-required"
+        style={{
+          display: errors.name && errors.name.type === "required"
+            ? "block"
+            : "none"
+        }}
+      >
+        This is required
+      </span>
+      <span
+        role="alert"
+        id="error-name-maxLength"
+        style={{
+          display: errors.name && errors.name.type === "maxLength"
+            ? "block"
+            : "none"
+        }}
+      >
+        Max length exceeded
+      </span>
       <input type="submit" />
     </form>
   );

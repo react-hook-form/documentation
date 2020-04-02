@@ -9,6 +9,8 @@ import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 
 export default {
   title: "고급 사용법",
@@ -335,7 +337,7 @@ export default {
     description: (
       <p>
         폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 남아있어야 하는
-        때가 있습니다. 그럴 때 <a href="/api#FormContext">FormContext</a> 가
+        때가 있습니다. 그럴 때 <a href="/api#useFormContext">FormContext</a> 가
         아주 유용합니다. 하지만 <code>ConnectForm</code> 을 만들고 리액트의{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
         패턴을 활용하여 개발자 경험을 향상시킬 수 있습니다. 이러한 컴포넌트를
@@ -394,7 +396,7 @@ export default {
     description: (
       <p>
         React Hook Form 의{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> 는{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> 는{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
@@ -408,6 +410,65 @@ export default {
         문제를 일으킵니다. 필요하다면 여전히 아래의 예제처럼 앱을 최적화할 수
         있습니다.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          You can build a custom hook as a validation resolver. A custom hook
+          can easily integration with yup/Joi/Superstruct as a validation
+          method, and to be used inside validation resolver.
+        </p>
+        <ul>
+          <li>
+            Define a memoized validation schema (or define it outside your
+            component if you don't have any dependencies)
+          </li>
+          <li>Use the custom hook, by passing the validation schema</li>
+          <li>Pass the validation resolver to the useForm hook</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          Imagine a scenario where you have a table of data. This table might
+          contain hundreds or thousands of rows, and each row will have inputs.
+          A common practice is to only render the items that are in the
+          viewport, however this will cause issues as the items are removed from
+          the DOM when they are out of view, and re-added. This will cause items
+          to reset to their default values when they re-enter the viewport.
+        </p>
+
+        <p>
+          To work around this, you can manually register the fields, and then
+          programatically set the value of the field.
+        </p>
+
+        <p>
+          An example is shown below using{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }

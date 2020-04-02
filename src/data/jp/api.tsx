@@ -1,4 +1,3 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
@@ -7,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API ドキュメント",
@@ -109,16 +109,16 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
+          <b className={typographyStyles.note}>重要:</b>{" "}
+          <code>defaultValues</code> はカスタムフック内にキャッシュされます。{" "}
+          <code>defaultValues</code> をリセットしたい場合は、{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
           >
             reset
           </button>{" "}
-          api.
+          API を使用してください。
         </p>
 
         <p>
@@ -358,7 +358,11 @@ export default {
       </>
     ),
     dirty: "ユーザが入力操作した後 true に設定します。",
-    dirtyFields: "ユーザーが変更したフィールドの一意のセット。",
+    dirtyFields: (
+      <>
+        ユーザーが変更したフィールドの一意の <code>Set</code> オブジェクト。
+      </>
+    ),
     isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
     touched: (
       <>
@@ -500,8 +504,11 @@ export default {
       <>
         <p>
           この関数は、フォーム内のフィールドの値とエラーをリセット (
-          <code>reset</code>) します。 省略可能な引数として <code>values</code>{" "}
-          を渡すと、 割り当てられたデフォルト値でフォームをリセットできます。
+          <code>reset</code>) します。<code>omitResetState</code>
+          を指定することにより、次のことができます。
+          特定の状態のみをリセットします。 省略可能な引数として{" "}
+          <code>values</code> を渡すと、
+          割り当てられたデフォルト値でフォームをリセットできます。
         </p>
         <p>
           <b className={typographyStyles.note}>注意：</b> <code>ref</code>{" "}
@@ -768,10 +775,16 @@ export default {
           </td>
           <td></td>
           <td>
-            この <code>onChange</code> prop
-            を使用すると、戻り値をカスタマイズすることができます。
-            <br />
-            例： <code>{`onChange={{(data) => data.value}}`}</code>
+            この prop を使用すると、戻り値をカスタマイズすることができます。
+            外部 UI コンポーネントの <code>value</code> prop{" "}
+            の形状を確認してください。 ペイロードの形状が <code>type</code>{" "}
+            属性を含むオブジェクトの場合、<code>value</code> または{" "}
+            <code>checked</code> 属性が読み込まれます。
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ { checked } ]) => ({ checked })}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -783,7 +796,7 @@ export default {
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
             と命名されている場合。
@@ -798,7 +811,7 @@ export default {
           </td>
           <td></td>
           <td>
-            この prop
+            この prop{" "}
             を使用すると、特定のイベント名をターゲットにすることができます。
             例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
             と命名されている場合。
@@ -1016,38 +1029,90 @@ export default {
     description: (
       <>
         <p>
-          フィールド配列（動的な input）を操作するためのカスタムフック。
-          このフックは、次のオブジェクトと関数を提供します。
+          フィールド配列（動的な複数の input）を操作するためのカスタムフック。
+          このフックの背後にある動機は、より良いユーザーエクスペリエンスとフォームのパフォーマンスを提供することです。
+          <a
+            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            この短いビデオ
+          </a>
+          で、制御されたフィールド配列と非制御フィールド配列を比較できます。
         </p>
+
+        <p>このフックは、次のオブジェクトと関数を提供します。</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>注意:</b> <code>useForm</code>{" "}
-          フックで <code>defaultValues</code> を指定することにより、
-          <code>fields</code> に格納することができます。
+          <b className={typographyStyles.note}>重要:</b>{" "}
+          <code>useFieldArray</code>{" "}
+          は非制御コンポーネントに基づいて構築されます。
+          下記の注意事項は、実装時の動作を理解し、注意するのに役立ちます。
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>重要:</b> <code>fields</code>{" "}
-          オブジェクトから <code>id</code> をコンポーネントの <code>key</code>{" "}
-          に割り当てていることを確認してください。
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>useForm</code> フックで <code>defaultValues</code>{" "}
+              を指定することにより、 <code>fields</code>{" "}
+              配列に値を格納することができます。
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>fields</code> オブジェクトから <code>id</code>{" "}
+              をコンポーネントの <code>key</code>{" "}
+              に割り当てていることを確認してください。
+            </p>
+          </li>
+          <li>
+            <p>
+              デフォルト値を設定するか、入力値をリセットしたい場合は、
+              <code>defaultValue</code> を設定します。
+            </p>
+          </li>
+          <li>
+            <p>
+              次々とアクションを呼び出すことはできません。アクションはレンダリングごとにトリガーする必要があります。
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          デフォルト値を設定するか、入力値をリセットしたい場合は、
-          <code>defaultValue</code> を設定します。
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b> append、prepend
-          及びその他のアクションで更新されるフィールド配列の値を監視したい場合、
-          フィールド配列オブジェクト全体を監視する必要があります。例:{" "}
-          <code>watch('fieldArrayName')</code> これは、watch API{" "}
-          が状態の更新ではなく入力の変更をサブスクライブするためです（私たちはフィールド配列に対してのみ回避策を用意しました）。
-          また、この機能はフォーム・アプリのパフォーマンスに影響を与えるので、注意して使用してください。
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              <code>useFormContext</code> を使用する際には、
+              <code>{`ref={register}`}</code> ではなく{" "}
+              <code>{`ref={register()}`}</code> を適用して、 <code>map</code>{" "}
+              中に <code>register</code> が呼び出されるようにすることが
+              <strong>重要</strong>です。
+            </p>
+          </li>
+          <li>
+            <code>useEffect</code>のカスタムレジスタでは機能しません。
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1056,7 +1121,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1065,7 +1130,7 @@ export default {
             このオブジェクトは、input
             をマップおよびレンダリングするための信頼できる情報源です。
             <p>
-              <b className={typographyStyles.note}>重要: </b> 各 input
+              <b className={typographyStyles.note}>重要:</b> 各 input{" "}
               は制御することができないため、 マップされたコンポーネントには{" "}
               <code>id</code> が必須です。 これは、React{" "}
               が変更、追加もしくは削除されたのかを識別するのに役立ちます。
@@ -1081,7 +1146,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>フィールドの最後に input を追加します。</td>
@@ -1092,7 +1157,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>フィールドの先頭に input を追加します。</td>
@@ -1103,7 +1168,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: any) => void
+              (index: number, value: object) => void
             </code>
           </td>
           <td>特定の位置に input を挿入します。</td>
@@ -1145,7 +1210,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number) => void
+              (index?: number | number[]) => void
             </code>
           </td>
           <td>
@@ -1183,7 +1248,6 @@ export default {
           で動作する多くのバリデーションライブラリをサポートしたいと思っています。
           カスタムバリデーションロジックを作成して検証することもできます。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b> <code>values</code> と{" "}
           <code>errors</code>{" "}
@@ -1191,11 +1255,23 @@ export default {
           デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
           である必要があります。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b> 返す{" "}
           <code>errors</code> オブジェクトのキーは、フォーム内の input（
           <code>name</code>属性）に関連させる必要があります。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>注意:</b> この関数は{" "}
+          <code>validationSchema</code>{" "}
+          と同様にカスタムフック内にキャッシュされますが、{" "}
+          <code>validationContext</code>{" "}
+          は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>注意:</b>{" "}
+          ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
+          それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
+          input の再検証が発生します。
         </p>
       </>
     ),

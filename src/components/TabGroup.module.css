@@ -16,7 +16,7 @@
 }
 
 .buttonTabGroup > button:nth-child(n+2) {
-  border-left: 3px solid var(--color-primary);
+  margin-left: 3px;
 }
 
 .buttonTabGroup > button:hover {

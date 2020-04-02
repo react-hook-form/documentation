@@ -3,6 +3,9 @@ import colors from "../../styles/colors"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import CodeArea from "../../components/CodeArea"
+import focusController from "../../components/codeExamples/focusController"
+import toggleFields from "../../components/codeExamples/toggleFields"
 
 export default {
   title: "常见问题",
@@ -413,6 +416,68 @@ export default {
             </li>
           </ul>
         </div>
+      ),
+    },
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook
+            Form不能控制您的整个表单和输入，这就是为什么React无法识别实际输入的原因当被交换或交换。作为解决方案，您可以解决此问题
+            通过为您的输入提供唯一的<code>key</code>道具来解决问题。您
+            也可以从这了解更多有关的信息
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              肯特·C·多兹撰写的这篇文章
+            </a>
+            。
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+          />
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with submitFocusError?",
+      description: (
+        <>
+          <p>
+            验证错误后，React Hook
+            Form将自动聚焦在其无效元素上具有适当的引用，例如本机输入（例如：
+            <code>{`<input />`}</code>
+            或某些第三方正确导出引用的组件（例如：从MUI
+            <code>
+              {`<TextField inputRef = {register({required：'必填字段'})} />`}
+            </code>
+            ）
+          </p>
+
+          <p>
+            但是，对于某些第三方控制的组件，例如MUI中的
+            <code>{`<Autocomplete>`}</code>
+            很难预测他的ref，因此React Hook
+            Form将正确检测验证错误，但将无法自动关注种类的组件。
+          </p>
+
+          <p>
+            作为一种解决方法，在验证错误之后，您可以手动关注在第3方控制的组件上（如果您可以获得实际的
+            内部输入参考），例如：
+          </p>
+
+          <CodeArea rawData={focusController} />
+
+          <p>
+            如果您发现很难通过外部控制使自动对焦。可以禁用“错误时自动对焦”特征。也许这种行为会带来更好的用户体验。{" "}
+            <code>{`useForm（{ submitFocusError：false });`}</code>
+          </p>
+        </>
       ),
     },
   ],

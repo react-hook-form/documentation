@@ -1,0 +1,140 @@
+.root {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .root {
+    width: 630px;
+    margin: 0 auto 0px;
+    align-items: inherit;
+    grid-template-areas:
+      "d d e"
+      "a b e"
+      "c b e";
+    border: 1px solid var(--color-light-blue);
+    padding: 0 40px 40px;
+    border-radius: 7px;
+    box-shadow: 0 0 20px var(--color-primary);
+    display: grid;
+  }
+}
+
+.root span {
+  display: block;
+}
+
+.happy {
+  align-self: center;
+  grid-area: a;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 600;
+  color: var(--color-light-pink);
+}
+
+.birthday {
+  align-self: center;
+  grid-area: c;
+  text-align: right;
+  font-size: 50px;
+  font-weight: 300;
+  position: relative;
+  margin-top: -10px;
+}
+
+.birthday p {
+  bottom: -35px;
+  right: 0;
+  position: absolute;
+  font-size: 12px;
+  margin: 0;
+  color: var(--color-light-blue);
+  padding: 0;
+}
+
+.first {
+  margin-top: 0;
+  font-size: 130px;
+  line-height: 120px;
+  font-weight: bold;
+  padding-left: 10px;
+  display: block;
+  grid-area: b;
+}
+
+.first sup {
+  font-size: 30px;
+  font-weight: 400;
+  top: -4.1rem;
+}
+
+.cake {
+  grid-area: d;
+  text-align: center;
+  font-size: 80px;
+  line-height: 100px;
+}
+
+.cake svg {
+  fill: white;
+  height: 180px;
+}
+
+.achievement {
+  grid-area: e;
+  align-self: end;
+}
+
+.achievementList {
+  display: grid;
+  padding-left: 10px;
+}
+
+.achievementList h4 {
+  margin-left: 12px;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.achievementList h4 span {
+  border-bottom: 1px solid var(--color-light-blue);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.achievementList ul {
+  list-style: none;
+  margin: 0;
+}
+
+.achievementList p {
+  padding: 5px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.achievement strong {
+  color: var(--color-light-pink);
+  font-weight: 500;
+}
+
+.link {
+  border: 1px solid white;
+  margin-left: 40px;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 20px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 14px;
+  color: white;
+  width: 150px;
+}
+
+.link:hover {
+  background-color: white;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}

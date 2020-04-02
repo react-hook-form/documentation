@@ -2,10 +2,12 @@ import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
@@ -339,8 +341,8 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#FormContext">FormContext</a> comes in very handy. However,
-        we can further improve the Developer Experience by creating a{" "}
+        <a href="/api#useFormContext">FormContext</a> comes in very handy.
+        However, we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
         The benefit of such a component is you can connect your input with React
@@ -399,7 +401,7 @@ export default {
     description: (
       <p>
         React Hook Form's{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> is built upon{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> is built upon{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
@@ -413,6 +415,65 @@ export default {
         Form triggers a state update, but we can still can optimise our App if
         required via the example below.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          You can build a custom hook as a validation resolver. A custom hook
+          can easily integration with yup/Joi/Superstruct as a validation
+          method, and to be used inside validation resolver.
+        </p>
+        <ul>
+          <li>
+            Define a memoized validation schema (or define it outside your
+            component if you don't have any dependencies)
+          </li>
+          <li>Use the custom hook, by passing the validation schema</li>
+          <li>Pass the validation resolver to the useForm hook</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          Imagine a scenario where you have a table of data. This table might
+          contain hundreds or thousands of rows, and each row will have inputs.
+          A common practice is to only render the items that are in the
+          viewport, however this will cause issues as the items are removed from
+          the DOM when they are out of view, and re-added. This will cause items
+          to reset to their default values when they re-enter the viewport.
+        </p>
+
+        <p>
+          To work around this, you can manually register the fields, and then
+          programatically set the value of the field.
+        </p>
+
+        <p>
+          An example is shown below using{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }

@@ -3,6 +3,9 @@ import colors from "../../styles/colors"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
+import CodeArea from "../../components/CodeArea"
+import focusController from "../../components/codeExamples/focusController"
+import toggleFields from "../../components/codeExamples/toggleFields"
 
 export default {
   title: "자주 묻는 질문",
@@ -416,36 +419,102 @@ export default {
           <ul>
             <li>
               <p>
-                <b className={typographyStyles.note}>watch:</b> subscribe to
-                input’s change via event listener and re-render based on which
-                fields that are subscribed. Re-render based on which input is
-                watched/subscribed. check out{" "}
+                <b className={typographyStyles.note}>watch:</b> 이벤트 리스너를
+                통해 인풋의 변경을 구독하고, 구독하고 있는 인풋 필드에 따라
+                리랜더링됩니다.{" "}
                 <a
                   href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  this codesandbox
+                  이 codesandbox
                 </a>{" "}
-                for actual behaviour.
+                에서 실제 동작을 확인하실 수 있습니다.
               </p>
             </li>
             <li>
               <p>
-                <b className={typographyStyles.note}>getValues</b>: get value
-                which stored inside the custom hook as reference, fast and
-                cheap. This method doesn’t trigger re-render.
+                <b className={typographyStyles.note}>getValues</b>: 커스텀 훅
+                안에 레퍼런스로 저장되어있는 값을 가져옵니다. 빠르고 리소스를
+                적게 먹습니다. 이 메서드는 리랜더링을 일으키지 않습니다.
               </p>
             </li>
             <li>
               <p>
-                <b className={typographyStyles.note}>local state</b>: React
-                local state represent more than just input’s state and also
-                decide what to render. This will trigger on each input’s change.
+                <b className={typographyStyles.note}>지역 상태</b>: React 지역
+                상태는 단순히 인풋의 상태를 표현하는 것 뿐 아니라 어떤 것이
+                랜더되어야 할지도 결정합니다. 이 경우 매 인풋 값이 바뀔때마다
+                리랜더링이 일어납니다.
               </p>
             </li>
           </ul>
         </div>
+      ),
+    },
+    // todo: korean translation please
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook Form doesn't control your entire form and inputs, which
+            is the reason why React wouldn't recognise the actual input that has
+            been exchanged or swopped. As a solution, you can resolve this
+            problem by giving a unique <code>key</code> prop to your input. You
+            can also read more about the key props from{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              this article written by Kent C. Dodds
+            </a>
+            .
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+          />
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with submitFocusError?",
+      description: (
+        <>
+          <p>
+            After a validation error, React Hook Form will automatically focus
+            on the invalids elements of which have their proper ref, like the
+            native inputs (eg: <code>{`<input />`}</code>) or some 3rd party
+            Components that correctly export his ref (eg: from MUI{" "}
+            <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
+            )
+          </p>
+
+          <p>
+            However, for some 3rd party controlled Components like{" "}
+            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
+            from AntD) it's very difficult to predict his ref because the
+            formats changes, so React Hook Form will properly detect the
+            validation error but will not be able to automatically focus that
+            kind of Components.
+          </p>
+
+          <p>
+            As a workaround, after the validation error, you can manually focus
+            on the 3rd party controlled Component (if you can get the actual
+            internal input ref), for example:
+          </p>
+          <CodeArea rawData={focusController} />
+
+          <p>
+            If you find difficult to make the autofocus with external controlled
+            component. It is possible to disable the "autofocus on error"
+            feature. Maybe this behavior will bring a better user experience in
+            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+          </p>
+        </>
       ),
     },
   ],

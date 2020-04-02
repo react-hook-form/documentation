@@ -43,6 +43,10 @@
   max-width: 240px;
 }
 
+.lightQuickSelect.quickSelect > select {
+  color: black;
+}
+
 @media (min-width: 768px) {
   .hiddenMenu > h1 {
     display: block;

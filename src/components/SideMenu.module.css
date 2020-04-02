@@ -85,6 +85,12 @@
   }
 }
 
+@media (min-height: 920px) {
+  .menu > div > ul > li {
+    padding-bottom: 12px;
+  }
+}
+
 .titleList {
   width: 200px;
 }

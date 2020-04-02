@@ -9,6 +9,8 @@ import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 
 export default {
   title: "Uso Avançado",
@@ -342,7 +344,7 @@ export default {
       <p>
         Quando construimos formulário, as vezes nosso campo está presente muitos
         níveis abaixo da árvore do componente, e isso é quando o{" "}
-        <a href="/api#FormContext">FormContext</a> é muito útil. Entretanto,
+        <a href="/api#useFormContext">FormContext</a> é muito útil. Entretanto,
         podemos futuramente melhorar a experiência do desenvolvedor usando o
         componente <code>ConnectForm</code> para alavancar o React{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>. A
@@ -404,7 +406,7 @@ export default {
     description: (
       <p>
         React Hook Form's{" "}
-        <PageLink to="/api/#FormContext">FormContext</PageLink> é construído
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> é construído
         sobre{" "}
         <a
           href="https://reactjs.org/docs/context.html"
@@ -420,6 +422,66 @@ export default {
         mas ainda podemos otimizar nosso aplicativo, se necessário, através do
         exemplo a seguir.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          You can build a custom hook as a validation resolver. A custom hook
+          can easily integration with yup/Joi/Superstruct as a validation
+          method, and to be used inside validation resolver.
+        </p>
+        <ul>
+          <li>
+            Define a memoized validation schema (or define it outside your
+            component if you don't have any dependencies)
+          </li>
+          <li>Use the custom hook, by passing the validation schema</li>
+          <li>Pass the validation resolver to the useForm hook</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          Imagine um cenário em que você tenha uma tabela de dados. Esta tabela
+          pode contém centenas ou milhares de linhas e cada linha terá entradas.
+          Uma prática comum é renderizar apenas os itens que estão no viewport,
+          no entanto, isso causará problemas quando os itens forem removidos do
+          o DOM quando estão fora de vista e adicionados novamente. Isso causará
+          itens para redefinir seus valores padrão quando eles entrarem
+          novamente na janela de exibição.
+        </p>
+
+        <p>
+          Para contornar isso, você pode registrar manualmente os campos e, em
+          seguida, definir programaticamente o valor do campo.
+        </p>
+
+        <p>
+          Um exemplo é mostrado abaixo usando{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }

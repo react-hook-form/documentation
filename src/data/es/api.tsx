@@ -1,4 +1,3 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import { Link as NavLink } from "gatsby"
 import colors from "../../styles/colors"
@@ -487,8 +486,10 @@ export default {
       <>
         <p>
           Esta función reseteará los valores de los campos y errores dentro del
-          formulario. Puedes pasar <code>valores</code> como argumento opcional
-          para resetear el formulario a los valores asignados.
+          formulario. Al suministrar <code>omitResetState</code>, tiene la
+          libertad de solo restablece un estado específico. Puedes pasar{" "}
+          <code>valores</code> como argumento opcional para resetear el
+          formulario a los valores asignados.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Para componentes
@@ -759,8 +760,13 @@ export default {
           <td></td>
           <td>
             Esta propiedad <code>onChange</code> te permitirá customizar el
-            valor de retorno. <br />
-            <code>ej: {`onChange={{(data) => data.value}}`}</code>
+            valor de retorno, asegúrese de conocer la forma de los accesorios
+            del componente externo <code>value</code>.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -990,42 +996,74 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> puedes inicializar los
-          (campos) <code>fields</code> seteando <code>defaultValues</code> en{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>
+          <code>useFieldArray</code> está construido sobre componentes no
+          controlados. Las siguientes notas lo ayudarán a conocer y tener en
+          cuenta su comportamiento durante la implementación.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> asegurate de
-          asignar el <code>id</code> del objeto <code>fields</code> como la key
-          de tu componente.
-        </p>
+        <ul>
+          <li>
+            <p>
+              puedes inicializar los (campos) <code>fields</code> seteando{" "}
+              <code>defaultValues</code> en <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              asegurate de asignar el <code>id</code> del objeto{" "}
+              <code>fields</code> como la key de tu componente.
+            </p>
+          </li>
+          <li>
+            <p>
+              establezca <code> defaultValue </code> cuando desee establecer el
+              valor predeterminado o restablecer entradas.
+            </p>
+          </li>
+          <li>
+            <p>
+              no puedes llamar acciones una tras otra. Las acciones deben ser
+              activado por render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Importante:</b> debido a un
-          problema en la referencia del callback, para (registrar){" "}
-          <code>register</code>
-          sin ninguna validación, asegurate de pasar vacio como payload de
-          callback. ej: <code>{`ref={register()}`}</code>
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> establezca{" "}
-          <code> defaultValue </code> cuando desee establecer el valor
-          predeterminado o restablecer entradas.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b> si desea ver la
-          actualización de los valores de la matriz de campo durante el
-          agregado, anteponer y el resto de las otras acciones. Deberá observar
-          todo el objeto de la matriz de campos, por ejemplo:{" "}
-          <code>watch('fieldArrayName')</code>. Esto se debe a que la API de
-          observación estaba destinada a suscribir el cambio de entrada en lugar
-          de la actualización de estado (hicimos una solución solo para la
-          matriz de campo), también use esta función con precaución, ya que
-          afecta el rendimiento de su formulario / aplicación.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              It's <strong>important</strong> to apply{" "}
+              <code>{`ref={register()}`}</code> instead of{" "}
+              <code>{`ref={register}`}</code> when working with{" "}
+              <code>useFormContext</code> so <code>register</code> will get
+              invoked during <code>map</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              No funciona con registro personalizado en <code>useEffect</code>.
+            </p>
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1034,7 +1072,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1059,7 +1097,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Agregue input/inputs al final de los campos</td>
@@ -1070,7 +1108,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Antepone input/inputs al comienzo de tus campos</td>
@@ -1081,7 +1119,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: any) => void
+              (index: number, value: object) => void
             </code>
           </td>
           <td>Inserta input/inputs en una posición en particular.</td>
@@ -1123,7 +1161,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number) => void
+              (index?: number | number[]) => void
             </code>
           </td>
           <td>
@@ -1173,6 +1211,21 @@ export default {
         <p>
           <b className={typographyStyles.note}>Nota:</b> errores de retorno La
           clave del objeto debe ser relevante para sus entradas.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> esta función se
+          almacenará en caché dentro del enlace personalizado, similar a{" "}
+          <code>validationSchema</code>, mientras que{" "}
+          <code>validationContext</code> es un objeto mutable que se puede
+          cambiar en cada representación.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> volver a validar la
+          entrada solo ocurre un campo a la vez durante la interacción del
+          usuario, porque el lib mismo evaluará el objeto de error en el campo
+          específico y desencadenar re-renderizar en consecuencia.
         </p>
       </>
     ),

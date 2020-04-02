@@ -9,6 +9,8 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 
 export default {
   title: "Uso avanzado",
@@ -345,7 +347,7 @@ export default {
         Cuando creamos formularios, hay momentos en que nuestros inputs están
         dentro de árboles de componentes profundamente anidados, y ahí es cuando{" "}
         {""}
-        <a href="/api#FormContext">FormContext</a> resulta útil. Sin embargo,
+        <a href="/api#useFormContext">FormContext</a> resulta útil. Sin embargo,
         podemos mejorar aún más la experiencia del desarrollador creando un
         componente {""} <code>ConnectForm</code> y aprovechando{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a> de
@@ -405,7 +407,7 @@ export default {
     title: "Performance de FormContext",
     description: (
       <p>
-        <PageLink to="/api/#FormContext">FormContext</PageLink> de React Hook
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> de React Hook
         Form está construído sobre la API de{" "}
         <a
           href="https://reactjs.org/docs/context.html"
@@ -421,6 +423,67 @@ export default {
         estado, pero aún podemos optimizar nuestra aplicación si es necesario
         como en el ejemplo a continuación.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          Puede crear un enlace personalizado como un solucionador de
+          validación. Un gancho personalizado puede integrarse fácilmente con
+          yup / Joi / Superstruct como validación método, y para ser utilizado
+          dentro de la resolución de validación.
+        </p>
+        <ul>
+          <li>
+            Defina un esquema de validación memorable (o defínalo fuera de su
+            componente si no tiene dependencias)
+          </li>
+          <li>Use el enlace personalizado, pasando el esquema de validación</li>
+          <li>Pase la resolución de validación al gancho useForm </li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          Imagine un escenario en el que tiene una tabla de datos. Esta tabla
+          puede contienen cientos o miles de filas, y cada fila tendrá entradas.
+          Una práctica común es representar solo los elementos que están en el
+          ventana gráfica, sin embargo, esto causará problemas ya que los
+          elementos se eliminan de el DOM cuando están fuera de la vista y se
+          vuelven a agregar. Esto causará artículos para restablecer sus valores
+          predeterminados cuando vuelven a ingresar a la ventana gráfica.
+        </p>
+
+        <p>
+          Para evitar esto, puede registrar manualmente los campos y luego
+          establece programáticamente el valor del campo.
+        </p>
+
+        <p>
+          A continuación se muestra un ejemplo usando{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }

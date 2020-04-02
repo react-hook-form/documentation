@@ -6,7 +6,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -48,8 +47,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          Esse objeto de contexto será injetado no segundo argumento de{" "}
+          <code>validationResolver</code> ou em{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -496,8 +495,10 @@ export default {
       <>
         <p>
           Essa função irá limpar o valor dos campos, e erros dentro do
-          formulário. Você pode passar <code>values</code> como valor opcional
-          para resetar o formulário assinado com o valor padrão.
+          formulário. Ao fornecer <code> omitResetState </code>, você tem a
+          liberdade de redefina apenas parte específica do estado. Você pode
+          passar <code>values</code> como valor opcional para resetar o
+          formulário assinado com o valor padrão.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Para componentes
@@ -767,8 +768,13 @@ export default {
           <td></td>
           <td>
             Esta propriedade <code>onChange</code> lhe permite customizar o
-            retorno do valor. <br />
-            <code>ex: {`onChange={{(data) => data.value}}`}</code>
+            retorno do valor, verifique se o formato do componente externo{" "}
+            <code>value</code> props.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1027,34 +1033,74 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Importante: </b> O
+          <code>useFieldArray</code> é construído sobre componentes não
+          controlados. As notas a seguir ajudarão você a estar ciente e
+          consciente de suas comportamento durante a implementação.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              certifique-se de atribuir <code>id</code> a partir de{" "}
+              <code>fields</code>
+              objeto como sua chave de componente.
+            </p>
+          </li>
+          <li>
+            <p>
+              defina <code> defaultValue </code> quando desejar definir o valor
+              padrão ou redefinir com entradas.
+            </p>
+          </li>
+          <li>
+            <p>
+              você não pode chamar ações uma após a outra. As ações precisam ser
+              acionado por renderização.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> defina{" "}
-          <code> defaultValue </code> quando desejar definir o valor padrão ou
-          redefinir com entradas.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> se você quiser
-          assistir à atualização dos valores da matriz de campos durante o
-          acréscimo, faça o pré-anexo e o restante das outras ações. Você
-          precisará observar todo o objeto da matriz de campos, por exemplo:
-          <code>watch('fieldArrayName')</code>. Isso se deve ao fato de a API
-          watch ter a intenção de assinar alterações de entrada e não de
-          atualização de estado (fizemos uma solução alternativa apenas para a
-          matriz de campos), também use esse recurso com cuidado, pois afeta o
-          desempenho do formulário / aplicativo.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              It's <strong>important</strong> to apply{" "}
+              <code>{`ref={register()}`}</code> instead of{" "}
+              <code>{`ref={register}`}</code> when working with{" "}
+              <code>useFormContext</code> so <code>register</code> will get
+              invoked during <code>map</code>.
+            </p>
+          </li>
+          <li>
+            Ele não funciona com o registro personalizado em{" "}
+            <code>useEffect</code>.
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1063,7 +1109,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1087,7 +1133,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Append input/inputs to the end of your fields</td>
@@ -1098,7 +1144,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>Prepend input/inputs to the start of your fields</td>
@@ -1109,7 +1155,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: any) => void
+              (index: number, value: object) => void
             </code>
           </td>
           <td>Insert input/inputs at particular position.</td>
@@ -1150,7 +1196,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number) => void
+              (index?: number | number[]) => void
             </code>
           </td>
           <td>
@@ -1188,17 +1234,28 @@ export default {
           validation libraries to work with React Hook Form. You can even write
           your custom validation logic to validate.
         </p>
-
         <p>
           <b className={typographyStyles.note}>Note:</b> make sure you are
           returning object which contains <code>values</code> and{" "}
           <code>errors</code>, and their default value should be empty object{" "}
           <code>{`{}`}</code>.
         </p>
-
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
+        </p>
+        // todo: Vitor please translate
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

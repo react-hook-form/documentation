@@ -17,7 +17,7 @@ import { useStateMachine } from "little-state-machine"
 import getStartedContent from "../data/getStarted"
 import TabGroup from "./TabGroup"
 import reactNative from "./codeExamples/reactNative"
-import reactNativeRHFInput from "./codeExamples/reactNativeRHFInput"
+import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
@@ -195,7 +195,10 @@ const Faq = ({
 
           {getStarted.adapting.description}
 
-          <CodeArea rawData={migrateCode} />
+          <CodeArea
+            rawData={migrateCode}
+            url="https://codesandbox.io/s/adapting-existing-form-3mspt"
+          />
 
           <h2
             className={typographyStyles.title}
@@ -226,7 +229,7 @@ const Faq = ({
 
           <CodeArea
             rawData={controlledComponent}
-            url="https://codesandbox.io/s/react-hook-form-hookforminput-rzu9s"
+            url="https://codesandbox.io/s/react-hook-form-controller-079xx"
           />
 
           <h2
@@ -269,7 +272,7 @@ const Faq = ({
           <TabGroup buttonLabels={["Controller", "Custom Register"]}>
             <CodeArea
               isExpo
-              rawData={reactNativeRHFInput}
+              rawData={reactNativeController}
               url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
             />
             <CodeArea

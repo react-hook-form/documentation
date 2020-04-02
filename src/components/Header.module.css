@@ -38,15 +38,17 @@
 .toggleGroup {
   text-align: center;
   display: none;
+  border: 1px solid var(--color-light-blue);
+  border-radius: 4px;
 }
 
 .toggleGroup > button {
   width: 155px;
   color: white;
-  border: 1px solid var(--color-primary);
   padding: 10px 25px;
+  border: 1px solid transparent;
   cursor: pointer;
-  background: var(--color-light-pink);
+  background: black;
 }
 
 .toggleGroup > button:hover {
@@ -57,11 +59,12 @@
   border-right: 0;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  border-right: 1px solid var(--color-light-blue);
 }
 
 .toggleGroup > button:disabled {
   cursor: default;
-  background: black;
+  background: transparent;
 }
 
 .toggleGroup > button:nth-child(2) {
@@ -118,8 +121,8 @@
   }
 
   .toggleGroup {
-    display: block;
-    margin-bottom: 50px;
+    display: inline-block;
+    margin: 0 auto 50px;
   }
 
   .video {

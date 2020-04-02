@@ -12,7 +12,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        as={<TextField />}
+        as={TextField}
         name="firstName"
         control={control}
         defaultValue=""

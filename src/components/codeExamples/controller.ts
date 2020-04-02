@@ -23,18 +23,11 @@ function App() {
         control={control}
         rules={{ required: true }}
         onChange={([selected]) => {
-          // React Select return object instead of value for selection
-          return { value: selected };
+          // Place your logic here
+          return selected;
         }}
         name="reactSelect"
         defaultValue={{ value: 'chocolate' }}
-      />
-      
-      <Controller
-        as={<TextField />}
-        name="firstName"
-        control={control}
-        defaultValue=""
       />
       
       <button>submit</button>

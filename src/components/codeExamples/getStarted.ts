@@ -45,7 +45,7 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="First Name" ref={register} required />
+      <Input label="First Name" register={register} required />
       <Select label="Age" ref={register} />
       <input type="submit" />
     </form>
@@ -105,10 +105,10 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller as={<Input />} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={<InputField />} name="AntdInput" control={control} defaultValue="" />
+      <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
+      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
       <Controller
-        as={<Select />}
+        as={Select}
         name="reactSelect"
         control={control}
         onChange={([selected]) => {

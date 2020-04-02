@@ -6,7 +6,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -476,7 +475,8 @@ export default {
     description: (
       <>
         <p>
-          此函数将重置表单中的字段值和错误。 您可以将值<code>values</code>
+          此函数将重置表单中的字段值和错误。通过提供<code>omitResetState</code>
+          ，您可以自由地 仅重置特定状态。 您可以将值<code>values</code>
           作为可选参数传递，以将表单重置为已分配的默认值。
         </p>
         <p>
@@ -730,9 +730,15 @@ export default {
           </td>
           <td></td>
           <td>
-            这个<code> onChange </code>道具可让您自定义返回值。
-            <br />
-            <code>eg: {`onChange={{(data) => data.value}}`}</code>
+            这个<code> onChange </code>道具可让您自定义返回值,
+            确保您知道外部组件<code>value</code>props的形状。 当payload是
+            <code>object</code>时，将读取<code>value</code>或<code>check</code>
+            属性。
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -940,28 +946,66 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>注意:</b> 可以通过在
-          <code>userform</code>中的
-          <code>defaultValues</code>来填充<code>字段</code>。
+          <b className={typographyStyles.note}>注意: </b>{" "}
+          <code> useFieldArray </code>建立在不受控制的组件之上。
+          以下说明将帮助您了解并牢记其实施过程中的行为。
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b> 确保您将来自
-          <code>fields</code>对象的
-          <code>id</code>分配为组件键。
-        </p>
+        <ul>
+          <li>
+            <p>
+              可以通过在<code>userform</code>中的
+              <code>defaultValues</code>来填充<code>字段</code>。
+            </p>
+          </li>
+          <li>
+            <p>
+              确保您将来自<code>fields</code>对象的
+              <code>id</code>分配为组件键。
+            </p>
+          </li>
+          <li>
+            <p>
+              要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
+            </p>
+          </li>
+          <li>
+            <p>您不能一个接一个地调用动作。行动需要每个渲染触发。</p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>注意: </b>
-          如果要在追加，添加和其余其他操作期间观看字段数组值的更新。您将必须监视整个字段数组对象，例如：
-          <code>watch('fieldArrayName')</code>。这是由于watch
-          API旨在订阅输入更改而不是状态更新（我们仅对字段数组进行了变通），还请谨慎使用此功能，因为它确实会影响表单/应用程序的性能。
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              与<code>useFormContext</code>一起使用时，请使用
+              <code>{`ref={register()}`}</code>而不是
+              <code>{`ref={register}`}</code>，这一点很重要，因此
+              <code>register</code>将在映射期间被调用。
+            </p>
+          </li>
+          <li>
+            它不适用于<code>useEffect</code>上的自定义注册。
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -970,7 +1014,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -994,7 +1038,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -1007,7 +1051,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -1020,7 +1064,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: any) => void
+                (index: number, value: object) => void
               </code>
             </code>
           </td>
@@ -1067,7 +1111,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number) => void
+                (index?: number | number[]) => void
               </code>
             </code>
           </td>
@@ -1100,16 +1144,24 @@ export default {
           和。实际上，目标不仅限于限制Yup作为我们的外部（架构）验证库。我们希望支持许多其他验证库以与React
           Hook Form一起使用。您甚至可以编写自定义验证逻辑进行验证。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
           确保返回的对象包含值和错误，并且它们的默认值应为空对象
           <code>{`{}`}</code>。
         </p>
-
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
           返回错误对象的键应与您的输入有关。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>注意:</b>该函数将被缓存在类似于
+          <code>validationSchema</code>的自定义钩子中，而
+          <code>validationContext</code>
+          是一个可变对象，可以在每次重新渲染时进行更改。
+        </p>
+        <p>
+          <b className={typographyStyles.note}>注意:</b>
+          重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
         </p>
       </>
     ),

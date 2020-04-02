@@ -1,4 +1,3 @@
-import code from "../../components/codeExamples/defaultExample"
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
@@ -260,9 +259,9 @@ export default {
     ),
     example: "제출 결과",
     selectHelp:
-      "등록 옵션(register options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
+      "등록 옵션(Register Options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "유효성 검사와 함께 등록",
       registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
       note: goToSection => (
@@ -478,8 +477,9 @@ export default {
       <>
         <p>
           이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다.{" "}
-          <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본 값으로 재설정
-          할 수 있습니다.
+          <code> omitResetState </code>를 제공하면 자유롭게 특정 상태 만
+          재설정합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본
+          값으로 재설정 할 수 있습니다.
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b>{" "}
@@ -703,16 +703,20 @@ export default {
             <code>boolean</code> 값이 주어졌을 때는, 체크박스 입력값으로
             다루어집니다.
             <p>
-              <b className={typographyStyles.note}>참고: </b>
-              <code>defaultValue</code> 또는
-              <code>useForm</code> 의 <code>defaultValues</code> 을 넣어주어야
-              할 것입니다.
+              <b className={typographyStyles.note}>참고: </b>{" "}
+              <code>defaultValue</code> 또는 <code>useForm</code> 의{" "}
+              <code>defaultValues</code> 을 넣어주어야 할 것입니다.
             </p>
             <p>
-              <b className={typographyStyles.note}>참고</b>:당신의 양식이 다른
-              값으로 <code>reset</code>을 호출하면 set 대신 useForm 레벨에서{" "}
-              <code>defaultValues​​</code> 제공 인라인 <code>defaultValue</code>
-              .
+              <b className={typographyStyles.note}>참고: </b> 이 값을 사용하면
+              주어진 키 값은 <code>useForm</code> 의 <code>defaultValues</code>{" "}
+              값보다 우선적으로 적용됩니다.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>참고: </b> 만약 폼이 기본값과
+              함께 <code>reset</code>을 호출한다면, 인라인 값으로{" "}
+              <code>defaultValues</code> 를 제공하는 대신 useForm 단계에서{" "}
+              <code>defaultValues​​</code> 를 제공해주어야 합니다.
             </p>
           </td>
         </tr>
@@ -739,8 +743,16 @@ export default {
           </td>
           <td />
           <td>
-            이 <code>onChange</code> prop 으로 리턴 값을 커스터마이징 할 수
-            있습니다. <code>예: {`onChange={{(data) => data.value}}`}</code>
+            리턴 값을 커스터마이징 할 수 있습니다, 외부 컴포넌트의{" "}
+            <code>value</code> prop 이 어떤 형태를 가지고 있는지 알고 있어야
+            합니다. 이벤트 핸들러에 전달된 값이 <code>object</code> 형태이고{" "}
+            <code>type</code> 속성값을 포함하고 있는 경우 <code>value</code>{" "}
+            혹은 <code>checked</code> 속성값을 읽어올 수 있습니다.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ { checked } ]) => ({ checked })}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -960,38 +972,90 @@ export default {
     description: (
       <>
         <p>
-          필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이 훅은
-          아래의 객체와 함수를 제공합니다.
+          비제어 필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이
+          훅은 더 나은 사용자 경험과 폼 퍼포먼스를 제공하기 위해서 태어났습니다.{" "}
+          <a
+            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            이 짧은 비디오를 보고
+          </a>{" "}
+          제어 vs 비제어 필드 배열을 비교할 수 있습니다.
         </p>
+
+        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>참고:</b> <code>useForm</code>{" "}
-          hook 에 있는 <code>defaultValues</code> 를 전달하여{" "}
-          <code>fields</code> 를 생성할 수 있습니다.
+          <b className={typographyStyles.note}>중요: </b>
+          <code>useFieldArray</code>는 비제어 컴포넌트 기반으로 구성됩니다.
+          아래의 참고 사항은 폼을 구현하면서 비제어 컴포넌트의 특성 상 유념해야
+          하는 점을 새겨둘 수 있도록 돕습니다.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>중요:</b> <code>fields</code>{" "}
-          객체의 <code>id</code> 값을 컴포넌트의 key 로 전달하는 것을 잊지
-          마세요.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>useForm</code> hook 에 있는 <code>defaultValues</code> 를
+              전달하여 <code>fields</code> 를 생성할 수 있습니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>fields</code> 객체의 <code>id</code> 값을 컴포넌트의 key 로
+              전달하는 것을 잊지 마세요.
+            </p>
+          </li>
+          <li>
+            <p>
+              기본값을 설정하거나 입력값을 재설정하기 위해{" "}
+              <code>defaultValue</code>를 설정하십시오.
+            </p>
+          </li>
+          <li>
+            <p>
+              액션을 연속하여 호출할 수 없습니다. 액션은 매 랜더링마다
+              수행되어야 합니다.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 기본값을 설정하거나
-          입력으로 재설정하려는 경우 <code> defaultValue </code>를 설정하십시오.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b>
-          추가하는 동안 필드 배열 값의 업데이트를보고 싶다면 다른 작업을 앞에
-          추가하십시오. <code>watch('fieldArrayName')</code>와 같이 전체 필드
-          배열 객체를 감시해야합니다. 이것은 API가 상태 업데이트가 아닌 입력
-          변경을 구독하기위한 것이므로 (필드 배열에 대해서만 해결 방법을
-          만들었습니다) 양식 / 앱의 성능에 영향을 미치 므로이 기능을주의해서
-          사용하십시오.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              만약 <code>useFormContext</code> 를 사용하는 경우, 배열 인풋을
+              등록할 때 <code>{`ref={register}`}</code> 대신{" "}
+              <code>{`ref={register()}`}</code> 형태로 사용하는 것이 중요합니다.
+              그래야 <code>register</code> 가 배열의 <code>map</code> 함수
+              안에서 수행됩니다.
+            </p>
+          </li>
+          <li>
+            <code>useEffect</code>의 사용자 정의 레지스터에서는 작동하지
+            않습니다.
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -1000,7 +1064,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -1025,7 +1089,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
@@ -1036,7 +1100,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: any) => void
+              (obj: object | object[]) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
@@ -1047,7 +1111,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: any) => void
+              (index: number, value: object) => void
             </code>
           </td>
           <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
@@ -1089,7 +1153,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number) => void
+              (index?: number | number[]) => void
             </code>
           </td>
           <td>
@@ -1127,17 +1191,28 @@ export default {
           React Hook Form 과 함께 동작할 수 있도록 지원하려 합니다. 심지어
           유효성 검사를 위해 직접 커스터마이징할 수도 있습니다.
         </p>
-
         <p>
           <b className={typographyStyles.note}>참고:</b> 반드시{" "}
           <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
           리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체 <code>{`{}`}</code>{" "}
           가 되어야 합니다.
         </p>
-
         <p>
           <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
           반드시 인풋 값과 연결되어야 합니다.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>참고:</b>이 함수는
+          <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
+          캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
+          변경할 수있는 변경 가능한 객체입니다.
+        </p>
+        // todo: Dohyung please translate
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

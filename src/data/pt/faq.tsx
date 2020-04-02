@@ -3,6 +3,9 @@ import colors from "../../styles/colors"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import CodeArea from "../../components/CodeArea"
+import focusController from "../../components/codeExamples/focusController"
+import toggleFields from "../../components/codeExamples/toggleFields"
 
 export default {
   title: "FAQs",
@@ -458,6 +461,72 @@ export default {
             </li>
           </ul>
         </div>
+      ),
+    },
+    // todo: pt translation please
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook Form doesn't control your entire form and inputs, which
+            is the reason why React wouldn't recognise the actual input that has
+            been exchanged or swopped. As a solution, you can resolve this
+            problem by giving a unique <code>key</code> prop to your input. You
+            can also read more about the key props from{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              this article written by Kent C. Dodds
+            </a>
+            .
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+          />
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with submitFocusError?",
+      description: (
+        <>
+          <p>
+            After a validation error, React Hook Form will automatically focus
+            on the invalids elements of which have their proper ref, like the
+            native inputs (eg: <code>{`<input />`}</code>) or some 3rd party
+            Components that correctly export his ref (eg: from MUI{" "}
+            <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
+            )
+          </p>
+
+          <p>
+            However, for some 3rd party controlled Components like{" "}
+            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
+            from AntD) it's very difficult to predict his ref because the
+            formats changes, so React Hook Form will properly detect the
+            validation error but will not be able to automatically focus that
+            kind of Components.
+          </p>
+
+          <p>
+            As a workaround, after the validation error, you can manually focus
+            on the 3rd party controlled Component (if you can get the actual
+            internal input ref), for example:
+          </p>
+          <CodeArea rawData={focusController} />
+
+          <p>
+            If you find difficult to make the autofocus with external controlled
+            component. It is possible to disable the "autofocus on error"
+            feature. Maybe this behavior will bring a better user experience in
+            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+          </p>
+        </>
       ),
     },
   ],

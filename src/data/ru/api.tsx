@@ -5,7 +5,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Документация по API",
@@ -268,7 +267,7 @@ export default {
     selectHelp:
       "При выборе способа регистрации, таблица API, приведенная ниже, будет обновлена.",
     options: {
-      title: "Register options",
+      title: "Register Options",
       registerWithValidation: "Регистрация с валидацией",
       registerWithValidationMessage:
         "Регистрация с валидацией и сообщением об ошибке",
@@ -495,9 +494,11 @@ export default {
     description: (
       <>
         <p>
-          Эта функция сбрасывает значения полей и ошибки формы. Вы можете
-          передать <code>values</code> в качестве необязательного аргумента для
-          сброса формы в присвоенные значения по умолчанию.
+          Эта функция сбрасывает значения полей и ошибки формы. Поставив{" "}
+          <code> omitResetState </code>, вы можете свободно только сбросить
+          конкретный кусок состояния. Вы можете передать <code>values</code> в
+          качестве необязательного аргумента для сброса формы в присвоенные
+          значения по умолчанию.
         </p>
         <p>
           <b className={typographyStyles.note}>Примечание:</b> Для
@@ -694,32 +695,73 @@ export default {
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> you can populate the{" "}
-          <code>fields</code> by supply <code>defaultValues</code> at{" "}
-          <code>useForm</code> hook.
+          <b className={typographyStyles.note}>Important: </b>{" "}
+          <code>useFieldArray</code> is built on top of uncontrolled components.
+          The following notes will help you aware and be mindful of its
+          behaviour during implementation.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> make sure you
-          assign <code>id</code> from <code>fields</code> object as your
-          component key.
-        </p>
+        <ul>
+          <li>
+            <p>
+              you can populate the <code>fields</code> by supply{" "}
+              <code>defaultValues</code> at <code>useForm</code> hook.
+            </p>
+          </li>
+          <li>
+            <p>
+              make sure you assign <code>id</code> from <code>fields</code>{" "}
+              object as your component key.
+            </p>
+          </li>
+          <li>
+            <p>
+              set <code>defaultValue</code> when you want to set default value
+              or reset with inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              you can not call actions one after another. Actions need to be
+              triggered per render.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> установите{" "}
-          <code> defaultValue </code>, если вы хотите установить значение по
-          умолчанию или сбросить с помощью входов.
-        </p>
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
 
-        <p>
-          <b className={typographyStyles.note}>Note: </b> if you want to watch
-          field array values' update during append, prepend and rest of the
-          other actions. You will have to watch the entire field array object
-          eg: <code>watch('fieldArrayName')</code>. This is due to watch API was
-          meant to subscribe input change rather state update (we made a
-          workaround only for field array), also use this feature in caution as
-          it does impact your form/app's performance.
-        </p>
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            It's <strong>important</strong> to apply{" "}
+            <code>{`ref={register()}`}</code> instead of{" "}
+            <code>{`ref={register}`}</code> when working with{" "}
+            <code>useFormContext</code> so <code>register</code> will get
+            invoked during <code>map</code>.
+          </li>
+          <li>
+            <p>
+              Он не работает с пользовательским регистром в{" "}
+              <code>useEffect</code>.
+            </p>
+          </li>
+        </ul>
       </>
     ),
     table: (
@@ -728,7 +770,7 @@ export default {
           <td>
             <code>fields</code>
           </td>
-          <td>
+          <td width={320}>
             <code className={typographyStyles.typeText}>
               object & {`{ id: string }`}
             </code>
@@ -753,7 +795,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -766,7 +808,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: any) => void
+                (obj: object | object[]) => void
               </code>
             </code>
           </td>
@@ -779,7 +821,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: any) => void
+                (index: number, value: object) => void
               </code>
             </code>
           </td>
@@ -826,7 +868,7 @@ export default {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number) => void
+                (index?: number | number[]) => void
               </code>
             </code>
           </td>
@@ -934,8 +976,16 @@ export default {
           <td />
           <td>
             Параметр <code>onChange</code> позволяет вам изменять возвращаемое
-            значение, <br />
-            <code>например: {`onChange={{(data) => data.value}}`}</code>
+            значение, убедитесь, что вы знаете форму реквизита{" "}
+            <code>value</code> внешнего компонента. Атрибут <code>value</code>{" "}
+            или <code>checked</code> будет считываться, когда форма полезных
+            данных представляет собой <code>object</code>, который содержит
+            атрибут type.
+            <CodeArea
+              withOutCopy
+              rawData={`onChange={{([ event ]) => event.target.value}}
+onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
+            />
           </td>
         </tr>
         <tr>
@@ -1209,6 +1259,20 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> returning errors
           object's key should be relevant to your inputs.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this function will be
+          cached inside the custom hook similar as <code>validationSchema</code>
+          , while <code>validationContext</code> is a mutable object which can
+          be changed on each re-render.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> re-validate input will
+          only occur one field at time during user’s interaction, because the
+          lib itself will evaluate the error object to the specific field and
+          trigger re-render accordingly.
         </p>
       </>
     ),

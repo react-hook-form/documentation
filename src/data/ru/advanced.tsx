@@ -9,6 +9,8 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 
 export default {
   title: "Сложные примеры",
@@ -331,7 +333,7 @@ export default {
       <p>
         Когда мы строим формы, иногда поля ввода располежены глубоко в дереве
         компонентов, для таких случаев{" "}
-        <a href="/api#FormContext">FormContext</a> очень полезен. Однако мы
+        <a href="/api#useFormContext">FormContext</a> очень полезен. Однако мы
         можем улучшить опыт разработки созданием <code>ConnectForm</code>{" "}
         компонента с комбинированием{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
@@ -390,8 +392,8 @@ export default {
     title: "FormContext производительность",
     description: (
       <p>
-        React Hook Form <PageLink to="/api/#FormContext">FormContext</PageLink>{" "}
-        построен на{" "}
+        React Hook Form{" "}
+        <PageLink to="/api/#useFormContext">FormContext</PageLink> построен на{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
@@ -405,6 +407,67 @@ export default {
         Form вызывает обновление состояния, но мы можем оптимизировать наше
         приложение если необходим с помощью примера ниже.
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          Вы можете создать пользовательский хук в качестве решателя проверки.
+          Пользовательский крючок может легко интегрироваться с yup / Joi /
+          Superstruct в качестве проверки метод, и будет использоваться внутри
+          решателя проверки.
+        </p>
+        <ul>
+          <li>
+            Определите запомненную схему проверки (или определите ее вне
+            компонент, если у вас нет никаких зависимостей)
+          </li>
+          <li> Используйте пользовательский хук, передав схему проверки </li>
+          <li> Передайте средство проверки правильности в ловушку useForm </li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          Imagine um cenário em que você tenha uma tabela de dados. Esta tabela
+          pode contém centenas ou milhares de linhas e cada linha terá entradas.
+          Uma prática comum é renderizar apenas os itens que estão no viewport,
+          no entanto, isso causará problemas quando os itens forem removidos do
+          o DOM quando estão fora de vista e adicionados novamente. Isso causará
+          itens para redefinir seus valores padrão quando eles entrarem
+          novamente na janela de exibição.
+        </p>
+
+        <p>
+          Para contornar isso, você pode registrar manualmente os campos e, em
+          seguida, definir programaticamente o valor do campo.
+        </p>
+
+        <p>
+          Um exemplo é mostrado abaixo usando{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }

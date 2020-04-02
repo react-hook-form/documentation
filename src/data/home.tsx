@@ -257,7 +257,7 @@ export default {
           </p>
           <p style={{ fontSize: 14 }}>
             <b className={typographyStyles.note}>⚠ Note:</b> Both Formik and
-            Redux-Form snippets below are copied from the official
+            Redux-Form snippets below were copied from the official
             documentation.
           </p>
         </>

@@ -3,6 +3,9 @@ import colors from "../../styles/colors"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import CodeArea from "../../components/CodeArea"
+import focusController from "../../components/codeExamples/focusController"
+import toggleFields from "../../components/codeExamples/toggleFields"
 
 export default {
   title: "FAQs",
@@ -463,6 +466,74 @@ export default {
             </li>
           </ul>
         </div>
+      ),
+    },
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook Form no controla todo el formulario y las entradas, que
+            es la razón por la cual React no reconocería la entrada real que
+            tiene sido intercambiado o cambiado. Como solución, puede resolver
+            esto problema al dar un apoyo único de <code> key </code> a su
+            entrada. Tú también puede leer más sobre los accesorios clave de{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              Este artículo escrito por Kent C. Dodds
+            </a>
+            .
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+          />
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with submitFocusError?",
+      description: (
+        <>
+          <p>
+            Después de un error de validación, React Hook Form se enfocará
+            automáticamente en los elementos inválidos de los cuales tienen su
+            referencia adecuada, como el entradas nativas (p. ej .:{" "}
+            <code>{`<input />`}</code>) o algún tercero Componentes que exportan
+            correctamente su referencia (por ejemplo: desde MUI
+            <code>{`<TextField inputRef = {register ({required: 'Field Required'})} />`}</code>
+            )
+          </p>
+
+          <p>
+            Sin embargo, para algunos Componentes controlados por terceros como
+            <code>{`<Autocomplete>`}</code> de MUI o <code>{`<XX>`}</code>
+            de AntD) es muy difícil predecir su referencia porque el los cambios
+            de formato, por lo que React Hook Form detectará correctamente el
+            error de validación pero no podrá enfocar automáticamente eso tipo
+            de componentes.
+          </p>
+
+          <p>
+            Como solución alternativa, después del error de validación, puede
+            enfocar manualmente en el componente controlado por terceros (si
+            puede obtener el real entrada interna ref), por ejemplo:
+          </p>
+
+          <CodeArea rawData={focusController} />
+
+          <p>
+            Si le resulta difícil hacer el enfoque automático con control
+            externo componente. Es posible deshabilitar el "enfoque automático
+            en caso de error" característica. Tal vez este comportamiento traerá
+            una mejor experiencia de usuario en algunos casos.{" "}
+            <code>{`useForm ({submitFocusError: false});`}</code>
+          </p>
+        </>
       ),
     },
   ],

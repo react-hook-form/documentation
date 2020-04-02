@@ -9,6 +9,8 @@ import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import virtualizedList from "../../components/codeExamples/virtualizedList"
 
 export default {
   title: "高级用法",
@@ -314,7 +316,7 @@ export default {
     description: (
       <p>
         当我们构建表单时，有时候我们的输入会在深度嵌套的组件树中，而这时
-        <a href="/api#FormContext">FormContext</a>让一切变得非常方便。
+        <a href="/api#useFormContext">FormContext</a>让一切变得非常方便。
         但是，我们可以通过创建连接表单组件并利用React的
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
         来进一步改善开发人员体验。
@@ -371,7 +373,8 @@ export default {
     description: (
       <p>
         React Hook Form的
-        <PageLink to="/api/#FormContext">FormContext</PageLink>是建立在React的
+        <PageLink to="/api/#useFormContext">FormContext</PageLink>
+        是建立在React的
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
@@ -383,6 +386,57 @@ export default {
         这也会导致组件树在React Hook
         Form触发状态更新时触发重新render，但如果需要通过示例，我们仍然可以优化我们的应用程序。
       </p>
+    ),
+  },
+  customHookWithValidationResolver: {
+    title: "Custom Hook with Validation Resolver",
+    description: (
+      <>
+        <p>
+          您可以构建一个自定义钩子作为验证解析器。定制挂钩
+          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(validationResolver)中使用。
+        </p>
+        <ul>
+          <li>
+            定义一个记忆化的验证模式或在您的外部定义它组件如果您没有任何依赖性）
+          </li>
+          <li>通过传递验证模式来使用自定义钩子</li>
+          <li>将验证解析器传递给useForm钩子</li>
+        </ul>
+
+        <CodeArea rawData={customHookWithValidationResolver} />
+      </>
+    ),
+  },
+  workingWithVirtualizedList: {
+    title: "Working with virtualized list",
+    description: (
+      <>
+        <p>
+          想象一下您有一个数据表的情况。该表可能包含数百或数千行，并且每一行都有输入。
+          一种常见的做法是仅渲染位于视口，但是这将导致问题，因为从当DOM不在视野中时，并重新添加。这会导致物品
+          重新进入视口时重置为默认值。
+        </p>
+
+        <p>若要解决此问题，您可以手动注册字段，然后以编程方式设置字段的值。</p>
+
+        <p>
+          下面是一个使用示例{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/bvaughn/react-window"
+          >
+            react-window
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={virtualizedList}
+          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+        />
+      </>
     ),
   },
 }
