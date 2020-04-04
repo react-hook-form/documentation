@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -787,6 +788,33 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           <td>
             Este propridade lhe permite marcar eventos específicos, ex: quando{" "}
             <code>onChange</code> evento é chamado <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              Esse retorno de chamada permite que o gancho personalizado se
+              concentre na entrada quando há um erro. Esta função é aplicável
+              para ambos, React e Componentes do React-Native desde que possam
+              ser focados.
+            </p>
+            <p>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Aqui está um exemplo de trabalho.
+              </a>
+              .
+            </p>
           </td>
         </tr>
         <tr>

@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -752,6 +753,45 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           <td>
             该props可让您定位特定的事件名称，例如：<code>onChange</code>
             事件被命名为<code> onTextChange </code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              此回调允许自定义挂钩在以有错误情况下专注于输。此功能适用于React和React-Native
+              只要可以专注于组件。
+            </p>
+            <p>
+              这是一个" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                工作示例
+              </a>
+              。
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onBlurName</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>string</code>
+          </td>
+          <td></td>
+          <td>
+            该道具可让您为指定一个特定的事件名称<code>onBlur</code>，例如：当
+            <code>onBlur</code>事件被命名为时<code>onTextBlur</code>.
           </td>
         </tr>
         <tr>
