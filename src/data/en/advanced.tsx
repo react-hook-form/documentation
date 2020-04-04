@@ -471,7 +471,7 @@ export default {
 
         <CodeArea
           rawData={virtualizedList}
-          url="https://codesandbox.io/s/virtulized-react-hook-form-issue-o75u2"
+          url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
         />
       </>
     ),
