@@ -413,21 +413,21 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "Validation Resolver 를 커스텀 훅으로 정의하기",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integration with yup/Joi/Superstruct as a validation
-          method, and to be used inside validation resolver.
+          유효성 검사에 쓸 리졸버(resolver)를 커스텀 훅으로 만들 수 있습니다.
+          커스텀 훅은 yup/Joi/Superstruct 같은 유효성 검사 방법과 쉽게 결합될 수
+          있으며, 이런 방법들을 유효성 검사 리졸버 내부에서 사용할 수 있습니다.
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            메모이즈 된 유효성 검사 스키마(혹은 컴포펀트 바깥에 선언하여
+            의존성이 생기지 않도록)를 정의하세요
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>커스텀 훅을 호출하면서 유효성 검사 스키마를 전달하세요</li>
+          <li>useForm 훅에 유효성 검사 리졸버를 전달하세요</li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -435,33 +435,32 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "시각화된 리스트를 다루기",
     description: (
       <>
         <p>
-          Imagine a scenario where you have a table of data. This table might
-          contain hundreds or thousands of rows, and each row will have inputs.
-          A common practice is to only render the items that are in the
-          viewport, however this will cause issues as the items are removed from
-          the DOM when they are out of view, and re-added. This will cause items
-          to reset to their default values when they re-enter the viewport.
+          데이터 표를 다루는 시나리오를 상상해봅시다. 이 테이블은 아마
+          수백게에서 수천 개의 행을 포함하고 있고, 각각의 행은 인풋을 가지고
+          있을 것입니다. 가장 이상적인 처리 방법은 뷰포트에 나타나는 아이템만
+          랜더링하는 것이겠지만, 뷰에서 벗어난 DOM 을 아예 제거해버렸다가 다시
+          추가하는 동작이 일어날 수 있습니다. 그러면 이전 아이템이 나타나야하는
+          뷰포트로 돌아갔을 때 해당 아이템이 기본값으로 초기화될 것입니다.
         </p>
 
         <p>
-          To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          이 문제를 해결하기 위해서 필드를 수동으로 등록한 다음 프로그램적으로
+          필드의 값을 설정해야 합니다.
         </p>
 
         <p>
-          An example is shown below using{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/bvaughn/react-window"
           >
             react-window
-          </a>
-          .
+          </a>{" "}
+          를 사용할 때의 예제는 다음과 같습니다.
         </p>
 
         <CodeArea

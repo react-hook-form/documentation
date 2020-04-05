@@ -780,18 +780,18 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           <td></td>
           <td>
             <p>
-              This callback allows the custom hook to focus on the input when
-              there is an error. This function is applicable for both React and
-              React-Native components as long as they can be focused.
+              유효성 검사 에러가 발생했을 때 이 콜백을 이용하여 특정 인풋으로
+              포커스를 이동시킬 수 있습니다. 이 함수는 포커스만 시킬 수 있다면
+              React 및 React-Native 컴포넌트에 모두 적용됩니다.
             </p>
             <p>
-              Here is a{" "}
+              여기에{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                working example with MUI
+                MUI 를 활용한 예제가 있습니다
               </a>
               .
             </p>
@@ -1230,17 +1230,16 @@ React.useEffect(() => {
           반드시 인풋 값과 연결되어야 합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b>이 함수는
+          <b className={typographyStyles.note}>참고:</b> 이 함수는
           <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
           캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
           변경할 수있는 변경 가능한 객체입니다.
         </p>
-        // todo: Dohyung please translate
         <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
+          <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는
+          것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다. 왜냐하면
+          라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고 그에 따라
+          리랜더링을 실행하기 때문입니다.
         </p>
       </>
     ),
