@@ -5,6 +5,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Документация по API",
@@ -1000,6 +1001,33 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
             Этот параметр позволяет вам настроить таргетинг на конкретное имя
             события, например: когда событие <code>onChange</code> называется{" "}
             <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              Этот обратный вызов позволяет пользовательскому хуку
+              сосредоточиться на вводе, когда есть ошибка. Эта функция применима
+              как для React, так и для Реагируйте-нативные компоненты, пока они
+              могут быть сфокусированы.
+            </p>
+            <p>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Вот рабочий пример.
+              </a>
+              .
+            </p>
           </td>
         </tr>
         <tr>

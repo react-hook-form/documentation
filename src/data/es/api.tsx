@@ -7,6 +7,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Documentación de la API",
@@ -781,6 +782,33 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
             Esta propiedad te permite setear el nombre onChange específico del
             objeto wrappeado, por ejemplo, cuando el evento{" "}
             <code>onChange</code> se llama <code>onTextChange</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              Esta devolución de llamada permite que el enlace personalizado se
+              centre en la entrada cuando hay un error. Esta función es
+              aplicable para React y Componentes React-Native siempre que puedan
+              enfocarse.
+            </p>
+            <p>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Aquí hay un ejemplo de trabajo.
+              </a>
+              .
+            </p>
           </td>
         </tr>
         <tr>

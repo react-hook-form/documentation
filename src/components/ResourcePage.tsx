@@ -82,6 +82,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <article className={styles.article}>
               <a
+                href="https://dev.to/matfrana/react-hook-form-the-best-form-library-1o1l"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React Hook Form: the best form library?</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://twitter.com/matfrana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Matteo Frana
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
                 href="https://dev.to/jodylecompte/hookify-your-react-forms-154o"
                 target="_blank"
                 rel="noopener noreferrer"

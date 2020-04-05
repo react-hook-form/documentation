@@ -32,11 +32,11 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
-  isCardPlay,
-}: {
+}: // isCardPlay,
+{
   homeRef: React.Ref<HTMLDivElement>
   defaultLang: string
-  isCardPlay: boolean
+  // isCardPlay: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
@@ -237,7 +237,7 @@ export default function Header({
         </div>
       </AnimateGroup>
 
-      <Bday isCardPlay={isCardPlay} />
+      {/*<Bday isCardPlay={isCardPlay} />*/}
     </>
   )
 }

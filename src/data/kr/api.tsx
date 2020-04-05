@@ -6,6 +6,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API 설명서",
@@ -767,6 +768,33 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
             수 있도록 합니다. 예: <code>onChange</code> 이벤트가{" "}
             <code>onTextChange</code> 로 되어있는 경우.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>onFocus</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>() => void</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              This callback allows the custom hook to focus on the input when
+              there is an error. This function is applicable for both React and
+              React-Native components as long as they can be focused.
+            </p>
+            <p>
+              Here is a{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                working example with MUI
+              </a>
+              .
+            </p>
           </td>
         </tr>
         <tr>

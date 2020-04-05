@@ -91,9 +91,9 @@ function HomePage({
           if (entry.target === isolate && !isIsolatePlay) {
             setIsolatePlay(true)
           }
-          if (entry.target === card && !isCardPlay) {
-            setCardPlay(true)
-          }
+          // if (entry.target === card && !isCardPlay) {
+          //   setCardPlay(true)
+          // }
         }
       })
     }, options)
@@ -102,7 +102,7 @@ function HomePage({
     observer.observe(codeComparison)
     observer.observe(rendering)
     observer.observe(isolate)
-    observer.observe(card)
+    // observer.observe(card)
 
     return () => observer.disconnect()
   }, [])
