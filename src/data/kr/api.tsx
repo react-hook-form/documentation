@@ -780,18 +780,18 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           <td></td>
           <td>
             <p>
-              This callback allows the custom hook to focus on the input when
-              there is an error. This function is applicable for both React and
-              React-Native components as long as they can be focused.
+              유효성 검사 에러가 발생했을 때 이 콜백을 이용하여 특정 인풋으로
+              포커스를 이동시킬 수 있습니다. 이 함수는 포커스만 시킬 수 있다면
+              React 및 React-Native 컴포넌트에 모두 적용됩니다.
             </p>
             <p>
-              Here is a{" "}
+              여기에{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                working example with MUI
+                MUI 를 활용한 예제가 있습니다
               </a>
               .
             </p>
