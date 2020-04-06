@@ -1129,7 +1129,7 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              <code>useFormContext</code> を使用する際には、
+              <code>useFieldArray</code> を使用する際には、
               <code>{`ref={register}`}</code> ではなく{" "}
               <code>{`ref={register()}`}</code> を適用して、 <code>map</code>{" "}
               中に <code>register</code> が呼び出されるようにすることが
