@@ -12,7 +12,7 @@ export default `function Test() {
     {fields.map((field, index) => (
       {/* important: using id from to track item added or removed */}
       <div key={field.id}>
-        <input name={\`test[\${index}]\`} ref={register} />
+        <input name={\`test[\${index}]\`} ref={register()} />
       </div>
     ))}
   );
