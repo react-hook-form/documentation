@@ -1117,7 +1117,7 @@ React.useEffect(() => {
               é <strong>importante</strong> aplicar{" "}
               <code>{`ref={register()}`}</code> ao invés de{" "}
               <code>{`ref={register}`}</code> quando estiver trabalhando com{" "}
-              <code>useFormContext</code> para que o <code>register</code> seja
+              <code>useFieldArray</code> para que o <code>register</code> seja
               invocado durante <code>map</code>.
             </p>
           </li>
