@@ -602,6 +602,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <article className={styles.article}>
               <a
+                href="https://www.youtube.com/watch?v=CeAkxVwsyMU"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  React Hook Form - persist multiple steps forms (Form Wizard).
+                </h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bill Luo
+                </a>
+              </p>
+              <p>Building persist multiple steps form with React Hook Form.</p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
                 href="https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s"
                 target="_blank"
                 rel="noopener noreferrer"
