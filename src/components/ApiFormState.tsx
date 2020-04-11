@@ -1,9 +1,10 @@
 import * as React from "react"
-import { CodeSandBoxLink } from "./CodeArea"
+import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
+import formState from "./codeExamples/formState"
 
 const goToSection = (name, sectionsRef) => {
   const url = window.location.href
@@ -129,19 +130,12 @@ export default React.memo(
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <CodeSandBoxLink
-                    style={{
-                      position: "relative",
-                      left: 0,
-                    }}
-                    url="https://codesandbox.io/s/7o2wrp86k6"
-                  />
-                </td>
-              </tr>
             </tbody>
           </table>
+          <CodeArea
+            url="https://codesandbox.io/s/7o2wrp86k6"
+            rawData={formState}
+          />
         </div>
       </>
     )
