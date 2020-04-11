@@ -349,9 +349,8 @@ export default {
           </a>{" "}
           to improve render performance, so make sure you invoke or read it
           before <code>render</code> in order to enable the state update. This
-          reduce re-render functionality feature only applies to the Web
-          platform due to a lack of support on <code>Proxy</code> at React
-          Native.
+          reduces re-render feature only applies to the Web platform due to a
+          lack of support on Proxy at React Native.
         </p>
       </>
     ),
