@@ -351,6 +351,9 @@ export default {
           para melhorar a performance do <code>render</code>. Tenha certeza que
           você tem <code>invoke/read</code>
           antes do <code>render</code> para habilitar a atualização do estado.
+          este O recurso de funcionalidade de redução de renderização se aplica
+          somente à plataforma da Web devido a uma falta de suporte no{" "}
+          <code>Proxy</code> no React Native.
         </p>
       </>
     ),

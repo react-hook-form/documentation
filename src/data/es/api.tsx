@@ -357,7 +357,10 @@ export default {
             Proxy
           </a>{" "}
           to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          <code>render</code> in order to enable the state update. Esta La
+          función de reducción de la función de renderizado solo se aplica a la
+          plataforma web debido a una falta de soporte en <code>Proxy</code> en
+          React Native.
         </p>
       </>
     ),

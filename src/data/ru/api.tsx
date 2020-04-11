@@ -351,7 +351,10 @@ export default {
             Proxy
           </a>{" "}
           to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update.
+          <code>render</code> in order to enable the state update. Этот Функция
+          уменьшения количества повторного рендеринга применима только к
+          веб-платформе из-за отсутствия поддержки <code>Proxy</code> в React
+          Native.
         </p>
       </>
     ),
@@ -753,8 +756,8 @@ React.useEffect(() => {
             It's <strong>important</strong> to apply{" "}
             <code>{`ref={register()}`}</code> instead of{" "}
             <code>{`ref={register}`}</code> when working with{" "}
-            <code>useFieldArray</code> so <code>register</code> will get
-            invoked during <code>map</code>.
+            <code>useFieldArray</code> so <code>register</code> will get invoked
+            during <code>map</code>.
           </li>
           <li>
             <p>

@@ -338,7 +338,9 @@ export default {
             Proxy
           </a>{" "}
           로 감싸져 있습니다. 그러니 상태를 업데이트 하려면 <code>render</code>{" "}
-          전에 읽거나 실행해야 합니다.
+          전에 읽거나 실행해야 합니다. 이 다시 렌더링 기능 생략 기능은 웹
+          플랫폼에만 적용됩니다. React Native에서 <code>Proxy</code>를
+          지원합니다.
         </p>
       </>
     ),

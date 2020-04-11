@@ -354,6 +354,8 @@ export default {
           にラップされているので、状態の更新を有効にするには、
           <code>render</code> 前に <code>formState</code>{" "}
           を呼び出すか、読み込む必要があります。
+          この再レンダリング機能の削減機能は、Webプラットフォームにのみ適用されます。
+          React Nativeでの<code>Proxy</code>のサポートについて。
         </p>
       </>
     ),

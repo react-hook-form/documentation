@@ -331,6 +331,8 @@ export default {
             Proxy
           </a>
           一起包装以提高渲染性能，因此请使您在渲染前先调用/读取它，以启用状态更新。
+          这个减少重新渲染功能功能由于缺少而仅适用于Web平台React Native上的
+          <code> Proxy </code>支持。
         </p>
       </>
     ),
