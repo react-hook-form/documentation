@@ -732,7 +732,7 @@ export default {
           </td>
           <td />
           <td>
-            <code>registter</code> 에 따른 유효성 검사 규칙.
+            <code>register</code> 에 따른 유효성 검사 규칙.
           </td>
         </tr>
         <tr>
