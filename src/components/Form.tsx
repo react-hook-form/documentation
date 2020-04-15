@@ -63,7 +63,7 @@ function Form({
               delay={1.5}
               render={({ style }) => (
                 <p style={{ marginBottom: 20, ...style }}>
-                  <b className={typographyStyles.note}>Note:</b> your form have
+                  <b className={typographyStyles.note}>Note:</b> your form has
                   been updated.
                 </p>
               )}
