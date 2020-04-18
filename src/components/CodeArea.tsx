@@ -102,9 +102,9 @@ export default function CodeArea({
           </button>
         )}
 
-        {(url || tsUrl) && (
-          <CodeSandBoxLink isExpo={isExpo} url={isTS ? tsUrl : url} />
-        )}
+        {!isTS && url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
+
+        {isTS && tsUrl && <CodeSandBoxLink isExpo={isExpo} url={tsUrl} />}
       </div>
 
       <div className={styles.wrapper}>
