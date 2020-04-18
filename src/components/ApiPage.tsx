@@ -582,7 +582,7 @@ const { register } = useForm<Inputs>({
                       {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
                       />
                     </td>
                   </tr>

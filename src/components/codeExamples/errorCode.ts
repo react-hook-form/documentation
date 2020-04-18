@@ -15,11 +15,9 @@ export default function App() {
         name="multipleErrorInput"
         ref={register({ required: true, maxLength: 50 })}
       />
-      {errors.multipleErrorInput &&
-        errors.multipleErrorInput.type === "required" &&
+      {errors.multipleErrorInput?.type === "required" &&
         "Your input is required"}
-      {errors.multipleErrorInput &&
-        errors.multipleErrorInput.type === "maxLength" &&
+      {errors.multipleErrorInput?.type === "maxLength" &&
         "Your input exceed maxLength"}
 
       {/* register with validation */}
@@ -31,7 +29,7 @@ export default function App() {
         name="errorMessage"
         ref={register({ required: "This is required" })}
       />
-      {errors.errorMessage && errors.errorMessage.message}
+      {errors.errorMessage?.message}
       <input type="submit" />
     </form>
   );
