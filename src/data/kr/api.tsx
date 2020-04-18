@@ -346,7 +346,8 @@ export default {
     ),
     dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
     dirtyFields: "고유 한 사용자 수정 필드 세트.",
-    isSubmitted: "사용자가 폼을 제출 한 후 true로 설정하십시오.",
+    isSubmitted:
+      "사용자가 폼을 제출 한 후 true로 설정하십시오. 양식을 제출 한 후 reset 메소드로 호출 될 때까지 해당 상태가 제출 된 상태로 유지됩니다.",
     touched: "상호 작용된 모든 입력의 배열입니다.",
     isSubmitting: (
       <>

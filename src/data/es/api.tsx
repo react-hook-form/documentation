@@ -368,7 +368,7 @@ export default {
       "Se setea en verdader luego que el usuario haya interactuado con algún input.",
     dirtyFields: "Un conjunto único de campos modificados por el usuario.",
     isSubmitted:
-      "Se setea a verdadero luego que el usuario envia el formulario.",
+      "Se setea a verdadero luego que el usuario envia el formulario. Después del envío de un formulario, su estado permanecerá enviado hasta que se invoque con el método de reinicio.",
     touched: "Un objeto con todos los inputs con los que se interactuó.",
     isSubmitting: (
       <>
