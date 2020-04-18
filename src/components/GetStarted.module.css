@@ -15,7 +15,6 @@
   display: none;
   background: var(--color-light-blue);
   color: white;
-  border-radius: 4px;
   font-size: 13px;
   float: right;
   text-transform: uppercase;
@@ -26,7 +25,7 @@
 
 .copyButton:hover {
   background: none;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-secondary);
   color: white;
 }
 
