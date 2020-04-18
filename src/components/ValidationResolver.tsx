@@ -1,6 +1,7 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
+import validationResolverTs from "./codeExamples/validationResolverTs"
 import typographyStyles from "../styles/typography.module.css"
 
 export default function({ api }) {
@@ -19,7 +20,9 @@ export default function({ api }) {
 
       <CodeArea
         rawData={validationResolver}
+        tsRawData={validationResolverTs}
         url="https://codesandbox.io/s/react-hook-form-validationresolver-b3phr"
+        tsUrl="https://codesandbox.io/s/react-hook-form-validationresolver-with-validationcontext-28pde?file=/src/App.tsx"
       />
     </>
   )

@@ -344,13 +344,14 @@ export default {
     dirtyFields: "一组独特的用户修改字段。",
     isSubmitted: (
       <>
-        在用户提交表单后设置<code>true</code>。
+        在用户提交表单后设置<code>true</code>
+        。提交表单后，其状态将保持提交状态，直到使用reset方法调用为止。
       </>
     ),
     touched: "已被接触过的所有输入的数组。",
     isSubmitting: (
       <>
-        在表单提交将设置为<code>true</code>，提交后设置为<code>false</code>
+        在表单提交将设置为<code>true</code>，提交后设置为<code>false</code>。
       </>
     ),
     submitCount: "提交表格数量。",

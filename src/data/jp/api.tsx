@@ -365,7 +365,8 @@ export default {
         ユーザーが変更したフィールドの一意の <code>Set</code> オブジェクト。
       </>
     ),
-    isSubmitted: "ユーザーがフォームを送信した後 true に設定します。",
+    isSubmitted:
+      "ユーザーがフォームを送信した後 true に設定します。フォームの送信後、その状態は、resetメソッドで呼び出されるまで送信されたままになります。",
     touched: (
       <>
         操作された全ての input の <code>name</code> の配列。

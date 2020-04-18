@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, getValues } = useForm()
+  const { register, getValues } = useForm();
 
   return (
     <form>
@@ -12,8 +12,9 @@ export default function App() {
       <button
         type="button"
         onClick={() => {
-          const values = getValues()
-          // you can run auto save function here eg: autoSave(values)
+          const values = getValues();
+          const singleValue = getValues("test");
+          const nestedObjectValue = getValues({ nested: true });
         }}
       >
         Get Values

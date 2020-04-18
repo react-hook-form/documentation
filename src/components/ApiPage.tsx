@@ -11,7 +11,9 @@ import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
+import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
+import getValuesTs from "./codeExamples/getValuesTs"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
@@ -32,13 +34,12 @@ import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
-import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiPage.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import ValidationResolver from "./ValidationResolver"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef, useEffect } = React
 
@@ -380,6 +381,17 @@ function ApiPage({
 
             <CodeArea
               withOutCopy
+              tsRawData={`const { register } = useForm<{ firstName: string, lastName: string }>({
+  mode: 'onSubmit',
+  reValidateMode: 'onChange',
+  defaultValues: {},
+  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
+  validationResolver: undefined,
+  validationContext: undefined,
+  validateCriteriaMode: "firstErrorDetected",
+  submitFocusError: true,
+  nativeValidation: false, // Note: version 3 only
+})`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
@@ -454,6 +466,26 @@ function ApiPage({
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
               rawData={`const { register } = useForm({
+  defaultValues: {
+    firstName: "bill",
+    lastName: "luo",
+    email: "bluebill1049@hotmail.com",
+    pets: [ 'dog', 'cat' ]
+  }
+})
+
+<input name="firstName" ref={register} /> // ✅ working version
+<input name="lastName" ref={() => register({ name: 'lastName' })} />
+// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
+`}
+              tsRawData={`interface Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  pets: string[];
+}
+  
+const { register } = useForm<Inputs>({
   defaultValues: {
     firstName: "bill",
     lastName: "luo",
@@ -551,7 +583,7 @@ function ApiPage({
                       {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
                       />
                     </td>
                   </tr>
@@ -807,6 +839,7 @@ function ApiPage({
 
             <CodeArea
               rawData={setValue}
+              tsRawData={setValueTs}
               url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
             />
           </section>
@@ -823,7 +856,7 @@ function ApiPage({
                 getValues:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(payload?: { nest: boolean }) => Object`}</span>
+                >{`(payload?: { nest: boolean } | string) => Object`}</span>
               </h2>
             </code>
 
@@ -831,6 +864,7 @@ function ApiPage({
 
             <CodeArea
               rawData={getValues}
+              tsRawData={getValuesTs}
               url="https://codesandbox.io/s/get-form-values-xjepz"
             />
           </section>

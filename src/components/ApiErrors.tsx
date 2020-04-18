@@ -1,6 +1,7 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
+import errorCodeTs from "./codeExamples/errorCodeTs"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import TabGroup from "./TabGroup"
@@ -86,11 +87,13 @@ export default React.memo(
         <TabGroup buttonLabels={["First error detected", "Display all errors"]}>
           <CodeArea
             rawData={errorCode}
+            tsRawData={errorCodeTs}
             url="https://codesandbox.io/s/nrr4n9p8n4"
+            tsUrl="https://codesandbox.io/s/xenodochial-albattani-tcx0n?file=/src/App.tsx"
           />
           <CodeArea
             rawData={multipleErrorCode}
-            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-5l2lm"
+            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
           />
         </TabGroup>
 

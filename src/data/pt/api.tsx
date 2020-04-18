@@ -359,7 +359,8 @@ export default {
     ),
     dirty: "Marcado como true após o usuário interagir com algum dos campos.",
     dirtyFields: "Um conjunto exclusivo de campos modificados pelo usuário.",
-    isSubmitted: "Marcado como true após o usuário submeter o formulário.",
+    isSubmitted:
+      "Marcado como true após o usuário submeter o formulário. Após o envio de um formulário, seu estado permanecerá enviado até ser chamado com o método de redefinição.",
     touched: "Uma matriz (Object) com todos os campos que foram interagidos.",
     isSubmitting: (
       <>

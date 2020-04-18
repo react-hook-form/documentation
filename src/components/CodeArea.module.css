@@ -1,19 +1,25 @@
+.buttonWrapper {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
 .button {
   border: none;
   color: white;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 13px;
   padding: 0 10px;
-  position: absolute;
   right: 20px;
   z-index: 1;
   top: 10px;
-  box-shadow: 0 0 10px black;
   display: none;
   cursor: pointer;
   text-transform: uppercase;
   height: 34px;
   align-items: center;
+  margin: 0 3px
 }
 
 .button:hover {
@@ -32,18 +38,19 @@
   border: 1px solid transparent;
 }
 
+.active,
 .copyButton:hover {
   background: none;
   border: 1px solid var(--color-secondary);
   color: white;
 }
 
+.active,
 .copyButton:hover span {
   background: var(--color-primary);
 }
 
 .linkToSandBox {
-  background: var(--color-light-pink);
   text-decoration: none;
   line-height: 2;
   right: 115px;
@@ -51,7 +58,7 @@
 
 .linkToSandBox > svg {
   display: inline-block;
-  height: 20px;
+  height: 18px;
   position: relative;
   margin-right: 8px;
 }
@@ -60,25 +67,10 @@
   line-height: 1.5 !important;
 }
 
-.copyIcon {
-  border: 1px solid #fff;
-  border-radius: 2px;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  position: relative;
-  margin-right: 10px;
-  margin-top: -2px;
+.wrapper pre code {
+  display: none;
 }
 
-.copyIcon > span {
-  border: 1px solid #fff;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  background: var(--color-light-blue);
-  border-radius: 2px;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
+.wrapper pre code.showCode {
+  display: block;
 }
