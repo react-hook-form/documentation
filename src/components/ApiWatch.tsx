@@ -1,6 +1,7 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
+import watchCodeTs from "./codeExamples/watchCodeTs"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
@@ -119,7 +120,11 @@ export default function ApiWatch({
           </tbody>
         </table>
       </div>
-      <CodeArea rawData={watchCode} url="https://codesandbox.io/s/pp1l40q7wx" />
+      <CodeArea
+        rawData={watchCode}
+        tsRawData={watchCodeTs}
+        url="https://codesandbox.io/s/pp1l40q7wx"
+      />
 
       <hr />
     </>

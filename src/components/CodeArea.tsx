@@ -40,11 +40,13 @@ export default function CodeArea({
   tsRawData,
   data,
   url,
+  tsUrl,
   withOutCopy,
   isExpo,
   style,
 }: {
   tsRawData?: string
+  tsUrl?: string
   rawData?: string
   data?: string
   url?: string
@@ -100,7 +102,9 @@ export default function CodeArea({
           </button>
         )}
 
-        {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
+        {(url || tsUrl) && (
+          <CodeSandBoxLink isExpo={isExpo} url={isTS ? tsUrl : url} />
+        )}
       </div>
 
       <div className={styles.wrapper}>

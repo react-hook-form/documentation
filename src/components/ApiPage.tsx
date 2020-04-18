@@ -11,6 +11,7 @@ import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
+import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
@@ -32,13 +33,12 @@ import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
-import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiPage.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import ValidationResolver from "./ValidationResolver"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef, useEffect } = React
 
@@ -838,6 +838,7 @@ const { register } = useForm<Inputs>({
 
             <CodeArea
               rawData={setValue}
+              tsRawData={setValueTs}
               url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
             />
           </section>
