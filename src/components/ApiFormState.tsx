@@ -78,7 +78,20 @@ export default React.memo(
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>{api.formState.isSubmitted}</td>
+                <td>
+                  {api.formState.isSubmitted}
+                  <div>
+                    <CodeSandBoxLink
+                      style={{
+                        position: "relative",
+                        left: 0,
+                        float: "right",
+                        display: "flex",
+                      }}
+                      url="https://codesandbox.io/s/react-hook-form-reset-issubmitted-state-after-form-submitted-zck8b"
+                    />
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td>

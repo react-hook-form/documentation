@@ -13,6 +13,7 @@ import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
+import getValuesTs from "./codeExamples/getValuesTs"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
@@ -855,7 +856,7 @@ const { register } = useForm<Inputs>({
                 getValues:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(payload?: { nest: boolean }) => Object`}</span>
+                >{`(payload?: { nest: boolean } | string) => Object`}</span>
               </h2>
             </code>
 
@@ -863,6 +864,7 @@ const { register } = useForm<Inputs>({
 
             <CodeArea
               rawData={getValues}
+              tsRawData={getValuesTs}
               url="https://codesandbox.io/s/get-form-values-xjepz"
             />
           </section>
