@@ -37,12 +37,14 @@ export const CodeSandBoxLink = ({
 
 export default function CodeArea({
   rawData,
+  tsRawData,
   data,
   url,
   withOutCopy,
   isExpo,
   style,
 }: {
+  tsRawData?: string
   rawData?: string
   data?: string
   url?: string
@@ -53,6 +55,7 @@ export default function CodeArea({
   const {
     state: { language },
   } = useStateMachine()
+  const [isTS, setIsTS] = React.useState(false)
 
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
@@ -63,28 +66,55 @@ export default function CodeArea({
         position: "relative",
       }}
     >
-      {!withOutCopy && (
-        <button
-          className={`${styles.button} ${styles.copyButton}`}
-          onClick={() => {
-            copyClipBoard(rawData || generateCode(data))
-            alert(generic.copied[currentLanguage])
-          }}
-          aria-label={generic.copied[currentLanguage]}
-        >
-          <span className={styles.copyIcon}>
-            <span />
-          </span>{" "}
-          {generic.copy[currentLanguage]}
-        </button>
-      )}
+      <div className={styles.buttonWrapper}>
+        {tsRawData && (
+          <>
+            <button
+              onClick={() => setIsTS(false)}
+              className={`${styles.button} ${styles.copyButton} ${
+                !isTS ? styles.active : ""
+              }`}
+            >
+              JS
+            </button>
+            <button
+              onClick={() => setIsTS(true)}
+              className={`${styles.button} ${styles.copyButton} ${
+                isTS ? styles.active : ""
+              }`}
+            >
+              TS
+            </button>
+          </>
+        )}
+        {!withOutCopy && (
+          <button
+            className={`${styles.button} ${styles.copyButton}`}
+            onClick={() => {
+              copyClipBoard(rawData || generateCode(data))
+              alert(generic.copied[currentLanguage])
+            }}
+            aria-label={generic.copied[currentLanguage]}
+          >
+            {generic.copy[currentLanguage]}
+          </button>
+        )}
 
-      {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
+        {url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
+      </div>
 
       <div className={styles.wrapper}>
         <pre style={style} className="raw-code">
-          <code className="language-javascript">
+          <code
+            className={`language-javascript ${!isTS ? styles.showCode : ""}`}
+          >
             {rawData || generateCode(data)}
+          </code>
+
+          <code
+            className={`language-javascript ${isTS ? styles.showCode : ""}`}
+          >
+            {tsRawData}
           </code>
         </pre>
       </div>

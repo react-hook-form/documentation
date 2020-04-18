@@ -380,6 +380,17 @@ function ApiPage({
 
             <CodeArea
               withOutCopy
+              tsRawData={`const { register } = useForm<{ firstName: string, lastName: string }>({
+  mode: 'onSubmit',
+  reValidateMode: 'onChange',
+  defaultValues: {},
+  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
+  validationResolver: undefined,
+  validationContext: undefined,
+  validateCriteriaMode: "firstErrorDetected",
+  submitFocusError: true,
+  nativeValidation: false, // Note: version 3 only
+})`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
@@ -454,6 +465,26 @@ function ApiPage({
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
               rawData={`const { register } = useForm({
+  defaultValues: {
+    firstName: "bill",
+    lastName: "luo",
+    email: "bluebill1049@hotmail.com",
+    pets: [ 'dog', 'cat' ]
+  }
+})
+
+<input name="firstName" ref={register} /> // ✅ working version
+<input name="lastName" ref={() => register({ name: 'lastName' })} />
+// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
+`}
+              tsRawData={`interface Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  pets: string[];
+}
+  
+const { register } = useForm<Inputs>({
   defaultValues: {
     firstName: "bill",
     lastName: "luo",
