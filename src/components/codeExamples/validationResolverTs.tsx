@@ -2,11 +2,11 @@ export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 import * as Joi from "@hapi/joi";
 
-interface Inputs = {
+type Inputs = {
   username: string
 };
 
-interface Context = {
+type Context = {
   test: string
 };
 

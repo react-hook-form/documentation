@@ -1,7 +1,7 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 
-interface Inputs = {
+type Inputs = {
   a: number;
   b: string;
   c: Date;

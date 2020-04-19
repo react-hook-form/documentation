@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 // Flat input values
-interface Inputs = {
+type Inputs = {
   key1: string;
   key2: number;
   key3: boolean;

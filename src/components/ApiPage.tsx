@@ -478,7 +478,7 @@ function ApiPage({
 <input name="lastName" ref={() => register({ name: 'lastName' })} />
 // ❌ above example does not work with "defaultValues" due to its "ref" not being provided
 `}
-              tsRawData={`interface Inputs = {
+              tsRawData={`type Inputs = {
   firstName: string;
   lastName: string;
   email: string;
