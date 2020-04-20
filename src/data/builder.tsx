@@ -51,7 +51,7 @@ export default {
   },
   layout: {
     en: {
-      title: "Form Layout",
+      title: "Layout",
       message: "You can start adding fields with Input Creator.",
     },
     es: {
