@@ -713,6 +713,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </article>
           </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=fpwnCGgc9A8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  React Hook Form Talk and Demo by its Author Bill Luo aka
+                  @bluebill1049
+                </h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCorlLn2oZfgOJ-FUcF2eZ1A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ReactEurope
+                </a>
+              </p>
+            </article>
+          </li>
         </ul>
 
         <Footer currentLanguage={currentLanguage} />
