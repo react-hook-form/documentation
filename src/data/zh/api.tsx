@@ -1009,7 +1009,9 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              要设置默认值或使用输入重置时，设置<code> defaultValue </code>。
+              确保将<code>defaultValue</code>设置为要设置默认值时，
+              <code>fields[index]</code>
+              当使用输入,删除或重置。
             </p>
           </li>
           <li>

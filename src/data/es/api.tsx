@@ -1048,8 +1048,9 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              establezca <code> defaultValue </code> cuando desee establecer el
-              valor predeterminado o restablecer entradas.
+              make sure to set <code>defaultValue</code> to{" "}
+              <code>fields[index]</code> when you want to set default value,
+              remove or reset with inputs.
             </p>
           </li>
           <li>

@@ -716,8 +716,9 @@ export default {
           </li>
           <li>
             <p>
-              set <code>defaultValue</code> when you want to set default value
-              or reset with inputs.
+              make sure to set <code>defaultValue</code> to{" "}
+              <code>fields[index]</code> when you want to set default value,
+              remove or reset with inputs.
             </p>
           </li>
           <li>

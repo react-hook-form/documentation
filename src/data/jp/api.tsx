@@ -1099,8 +1099,9 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </li>
           <li>
             <p>
-              デフォルト値を設定するか、入力値をリセットしたい場合は、
-              <code>defaultValue</code> を設定します。
+              必ず<code>defaultValue</code>をに設定してください
+              <code>fields[index]</code>デフォルト値を設定する場合、
+              入力で削除またはリセットします。
             </p>
           </li>
           <li>

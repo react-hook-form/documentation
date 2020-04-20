@@ -1084,8 +1084,9 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </li>
           <li>
             <p>
-              defina <code> defaultValue </code> quando desejar definir o valor
-              padrão ou redefinir com entradas.
+              certifique-se de definir <code>defaultValue</code> como
+              <code>field[index]</code> quando você deseja definir o valor padrão,
+              remova ou redefina com entradas.
             </p>
           </li>
           <li>
