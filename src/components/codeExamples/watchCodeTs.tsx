@@ -41,6 +41,10 @@ export default function App(props) {
   // function watch(fields: string[], defaultValues?: DeepPartial<FormValues> | undefined): DeepPartial<FormValues>
   watch(['key1', 'key3.key1'], { test: 'string' })
   // ❌: type error
+  watch<string, FormData['key3']['key1']>('key3.key1')
+  //  => string
+  watch<string, FormData['key3']['key2']>('key3.key2')
+  //  => string
   
   return <form />;
 }`
