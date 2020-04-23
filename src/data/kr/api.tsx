@@ -1041,8 +1041,8 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </li>
           <li>
             <p>
-              <code>defaultValue</code>를으로 설정하십시오.
-              기본값을 설정하려는 경우 <code>fields[index]</ code>
+              <code>defaultValue</code>를으로 설정하십시오. 기본값을 설정하려는
+              경우 <code>fields[index]</code>
               입력을 제거하거나 재설정하십시오.
             </p>
           </li>
