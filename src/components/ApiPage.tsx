@@ -1,6 +1,7 @@
 import * as React from "react"
 import ApiRefTable from "./ApiRefTable"
 import validationSchemaCode from "./codeExamples/validationSchema"
+import validationSchemaNative from "./codeExamples/validationSchemaNative"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
@@ -978,10 +979,13 @@ const { register } = useForm<Inputs>({
 
             {api.validationSchema.description}
 
-            <CodeArea
-              rawData={validationSchemaCode}
-              url="https://codesandbox.io/s/928po918qr"
-            />
+            <TabGroup buttonLabels={["Web", "React Native"]}>
+              <CodeArea
+                rawData={validationSchemaCode}
+                url="https://codesandbox.io/s/928po918qr"
+              />
+              <CodeArea rawData={validationSchemaNative} />
+            </TabGroup>
           </section>
 
           <hr />
