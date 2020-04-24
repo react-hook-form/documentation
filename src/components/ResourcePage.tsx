@@ -80,6 +80,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           <li>
             <article className={styles.article}>
               <a
+                href="https://elazizi.com/forms-in-react-native-the-right-way"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Forms in React Native, The right way</h3>
+              </a>
+
+              <p>
+                <a
+                  href="https://twitter.com/ElaziziYoussouf/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Youssouf El Azizi
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
                 href="https://seifi.org/reactjs/build-a-contact-form-in-gatsby-part-2-react-hook-form.html"
                 target="_blank"
                 rel="noopener noreferrer"
