@@ -943,11 +943,6 @@ React.useEffect(() => {
               <code>defaultValues</code> at <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note</b>: when provided, this
-              take priority over <code>useForm</code> <code>defaultValues</code>{" "}
-              for given key.
-            </p>
-            <p>
               <b className={typographyStyles.note}>Note</b>: if your form will
               invoke <code>reset</code> with default values, you will need to
               provide <code>defaultValues</code> at useForm level instead of set
@@ -1101,13 +1096,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           component directly and it will take care of forwarding the prop for
           you. The <code>name</code> prop will be used mainly to access the
           value through the form later.
-        </p>
-
-        <p>
-          If you specify a <code>defaultValue</code> prop, it will take priority
-          over the default value specified in <code>useForm</code>'s{" "}
-          <code>defaultValues</code>
-          for this input.
         </p>
       </>
     ),

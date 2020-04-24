@@ -727,11 +727,6 @@ export default {
               <code>defaultValues​​</code> en <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Nota:</b> necesitaras
-              proporcione <code> defaultValue </code> o{" "}
-              <code> defaultValues ​​</code> en <code> useForm </code>
-            </p>
-            <p>
               <b className={typographyStyles.note}>Note</b>: si tu formulario lo
               hará invoque <code>reset</code> con diferentes valores, deberá
               proporcionar <code>defaultValues​​</code> en el nivel useForm en

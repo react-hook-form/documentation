@@ -712,11 +712,6 @@ export default {
               <code>defaultValues</code> 을 넣어주어야 할 것입니다.
             </p>
             <p>
-              <b className={typographyStyles.note}>참고: </b> 이 값을 사용하면
-              주어진 키 값은 <code>useForm</code> 의 <code>defaultValues</code>{" "}
-              값보다 우선적으로 적용됩니다.
-            </p>
-            <p>
               <b className={typographyStyles.note}>참고: </b> 만약 폼이 기본값과
               함께 <code>reset</code>을 호출한다면, 인라인 값으로{" "}
               <code>defaultValues</code> 를 제공하는 대신 useForm 단계에서{" "}

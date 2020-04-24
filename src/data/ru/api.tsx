@@ -945,11 +945,6 @@ React.useEffect(() => {
               <code>defaultValues</code> для <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Примечание</b>: Если указано,
-              то будет иметь приоритет над <code>defaultValues</code> у{" "}
-              <code>useForm</code> для данного поля.
-            </p>
-            <p>
               <b className={typographyStyles.note}>Note</b>: if your form will
               invoke <code>reset</code> with different values, you will need to
               provide <code>defaultValues</code> at useForm level instead of set
@@ -1104,13 +1099,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           можете передать это свойство в Controller напрямую. Свойство{" "}
           <code>name</code> будет использовано позже для доступа к значению
           этого свойства внутри формы.
-        </p>
-
-        <p>
-          Если вы используете свойство <code>defaultValue</code>, то оно будет
-          иметь приоритет перед значением одноимённого свойства{" "}
-          <code>useForm</code>
-          для поля с одним и тем же <code>name</code>.
         </p>
       </>
     ),

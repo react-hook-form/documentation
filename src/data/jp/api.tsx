@@ -743,11 +743,6 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>注意:</b>{" "}
-              指定した場合、これは <code>useForm</code> の{" "}
-              <code>defaultValue</code> よりも優先されます。
-            </p>
-            <p>
-              <b className={typographyStyles.note}>注意:</b>{" "}
               フォーム内でデフォルト値を引数として <code>reset</code>{" "}
               を呼び出す場合、 インラインの <code>defaultValue</code>{" "}
               を設定する代わりに、 useForm で <code>defaultValues</code>{" "}
@@ -905,12 +900,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           コンポーネントに直接渡すことができます。
           <code>name</code> prop{" "}
           は、主に後でフォームから値にアクセスするために使用されます。
-        </p>
-
-        <p>
-          <code>defaultValue</code> prop を使用する場合、
-          <code>useForm</code> で設定した <code>defaultValues</code>{" "}
-          の値より優先されます。
         </p>
       </>
     ),

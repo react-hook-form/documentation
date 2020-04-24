@@ -736,11 +736,6 @@ export default {
               em <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Nota:</b> quando fornecido
-              ele possui prioridade sobre <code>useForm</code>{" "}
-              <code>defaultValues</code> para dada chave
-            </p>
-            <p>
               <b className={typographyStyles.note}>Note</b>: se o seu formulário
               invocar <code> reset </code> com valores diferentes, você
               precisará fornecer <code>defaultValues</code> no nível useForm em
@@ -890,12 +885,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           <code>label</code>. Você pode passar essa propriedade diretamente para
           o componente controlado. A propriedade <code>name</code> será usada
           principalmente para acessar o valor através do formulário depois.
-        </p>
-
-        <p>
-          Caso utilize a propriedade <code>defaultValue</code>, ele terá
-          prioridade sobre o <code>useForm</code> <code>defaultValues</code>{" "}
-          valor dado pela propriedade <code>name</code>.
         </p>
       </>
     ),
