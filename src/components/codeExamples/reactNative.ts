@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 
 export default function App() {
   const { register, setValue, handleSubmit, errors } = useForm()
-  const onSubmit = data => Alert.alert('Form Data', data)
+  const onSubmit = data => Alert.alert('Form Data', JSON.stringify(data));
 
   return (
     <View>
