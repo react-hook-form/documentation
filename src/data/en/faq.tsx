@@ -1,5 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
+import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
@@ -413,13 +414,13 @@ export default {
               </p>
             </li>
             <li>
-              <p>Why input change is not fire event?</p>
+              <p>Why input change is not firing events?</p>
 
               <p>
-                React Hook Form using <code>input</code> event for input change,
-                so to fix it. you can easily switch to{" "}
-                <code>fireEvent.input</code> for react-testing-library. Here is
-                a testing{" "}
+                React Hook Form uses <code>input</code> events for input
+                changes. If you're using <strong>react-testing-library</strong>,
+                you can easily switch to <code>fireEvent.input</code>. Here is a
+                testing{" "}
                 <a
                   className={buttonStyles.codeAsLink}
                   target="_blank"
@@ -430,6 +431,12 @@ export default {
                 </a>
                 .
               </p>
+              <p>
+                If you're using <strong>enzyme</strong>, you'll need to manually
+                set the <code>value</code> of your input's DOM node, then
+                dispatch an input event.
+              </p>
+              <CodeArea rawData={enzymeInput} />
             </li>
           </ul>
         </div>
