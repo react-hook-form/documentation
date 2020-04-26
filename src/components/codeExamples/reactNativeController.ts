@@ -31,7 +31,6 @@ export default function App() {
         defaultValue=""
       />
 
-
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
   );
