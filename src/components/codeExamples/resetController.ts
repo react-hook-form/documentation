@@ -4,7 +4,7 @@ import { TextField } from "@material-ui/core";
 
 export default function App() {
   const { register, handleSubmit, reset, setValue, control } = useForm();
-  const onSubmit = (data) => { console.log(data) };
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

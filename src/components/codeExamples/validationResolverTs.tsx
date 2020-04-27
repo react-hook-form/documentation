@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import * as Joi from "@hapi/joi";
 
 type Inputs = {
-  username: string
+  username: string;
 };
 
 type Context = {
-  test: string
+  test: string;
 };
 
 

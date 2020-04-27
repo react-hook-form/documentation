@@ -8,7 +8,7 @@ export default function App() {
   useEffect(() => {
     register({ name: "firstName" }, { required: true });
     register({ name: "lastName" });
-  }, [])
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -9,6 +9,7 @@ function App() {
     control,
     name: "test"
   });
+  
   return (
     <form onSubmit={handleSubmit(data => console.log("data", data))}>
       <ul>

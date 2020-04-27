@@ -1,9 +1,9 @@
-export const registerCode = `import React from 'react'
-import { useForm } from 'react-hook-form'
+export const registerCode = `import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = data => console.log(data)
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -17,8 +17,8 @@ export default function App() {
   );
 }`
 
-export const migrateCode = `import React from 'react'
-import { useForm } from 'react-hook-form'
+export const migrateCode = `import React from "react";
+import { useForm } from "react-hook-form";
 
 // The following component is an example of your existing Input Component 
 const Input = ({ label, register, required }) => ( 
@@ -26,7 +26,7 @@ const Input = ({ label, register, required }) => (
     <label>{label}</label>
     <input name={label} ref={register({ required })} />
   </>
-)
+);
 
 // you can use React.forwardRef to pass the ref too
 const Select = React.forwardRef(({ label, register }, ref) => ( 
@@ -37,11 +37,11 @@ const Select = React.forwardRef(({ label, register }, ref) => (
       <option value="30">30</option>
     </select>
   </>
-))
+));
 
 export default function App() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = data => console.log(data)
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,14 +49,14 @@ export default function App() {
       <Select label="Age" ref={register} />
       <input type="submit" />
     </form>
-  )
+  );
 }`
 
-export const uiLibrary = `import React from 'react';
-import { useForm } from 'react-hook-form';
+export const uiLibrary = `import React from "react";
+import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
-import { Input as InputField } from 'antd';
+import { Input as InputField } from "antd";
 
 export default function App() {
   const { register, handleSubmit, setValue } = useForm();
@@ -156,15 +156,15 @@ function App() {
 }
 `
 
-export const globalState = `import React from 'react'
-import { useForm } from 'react-hook-form'
-import { connect } from 'react-redux'
-import updateAction from './actions'
+export const globalState = `import React from "react";
+import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import updateAction from "./actions";
 
 export default function App(props) {
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, setValue } = useForm();
   // Submit your data into Redux store
-  const onSubmit = (data) => props.updateAction(data)
+  const onSubmit = data => props.updateAction(data);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -176,33 +176,33 @@ export default function App(props) {
 }
 
 // Connect your component with redux
-connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm)
+connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm);
 `
 
-export const errors = `import React from 'react'
-import { useForm } from 'react-hook-form'
+export const errors = `import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm()
+  const { register, errors, handleSubmit } = useForm();
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="firstName" ref={register({ required: true })} />
-      {errors.firstName && 'First name is required'}
+      {errors.firstName && "First name is required"}
       <Input name="lastName" ref={register({ required: true })} />
-      {errors.lastName && 'Last name is required'}
+      {errors.lastName && "Last name is required"}
       <input type="submit" />
     </form>
   );
 }
 `
 
-export const applyValidation = `import React from 'react'
-import { useForm } from 'react-hook-form'
+export const applyValidation = `import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, handleSubmit } = useForm()
-  const onSubmit = data => console.log(data)
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

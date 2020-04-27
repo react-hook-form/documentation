@@ -20,9 +20,7 @@ function App() {
     setValue(name, e.target.value);
   };
 
-  const onSubmit = data => {
-    console.log(data);
-  };
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

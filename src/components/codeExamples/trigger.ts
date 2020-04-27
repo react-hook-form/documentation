@@ -16,7 +16,7 @@ export default function App() {
         type="button"
         onClick={async () => {
           const result = await triggerValidation("lastName");
-          if (result) { console.log('valid input') }
+          if (result) { console.log("valid input") }
         }}
       >
         Trigger with result
