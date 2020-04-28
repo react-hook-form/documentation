@@ -156,8 +156,7 @@
   }
 
   .actionButtonGroup > a:nth-child(5),
-  .actionButtonGroup > a:nth-child(7),
-  .actionButtonGroup > a:nth-child(8) {
+  .actionButtonGroup > a:nth-child(7) {
     display: block;
   }
 
@@ -218,6 +217,10 @@
 
   .actionButtonGroup {
     max-width: 800px;
+  }
+
+  .actionButtonGroup > a:nth-child(8) {
+    display: block;
   }
 
   .langSelect {
