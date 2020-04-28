@@ -35,12 +35,13 @@ import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
-import styles from "./ApiPage.module.css"
+import ValidationResolver from "./ValidationResolver"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
-import ValidationResolver from "./ValidationResolver"
+import headerStyles from "./Header.module.css"
+import styles from "./ApiPage.module.css"
 
 const { useRef, useEffect } = React
 
@@ -261,6 +262,39 @@ function ApiPage({
         </div>
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
+
+      {/*<div*/}
+      {/*  style={{*/}
+      {/*    textAlign: "center",*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <div*/}
+      {/*    className={headerStyles.toggleGroup}*/}
+      {/*    role="tablist"*/}
+      {/*    aria-label="Select video"*/}
+      {/*    style={{*/}
+      {/*      marginBottom: 10*/}
+      {/*    }}*/}
+      {/*  >*/}
+      {/*    <button*/}
+      {/*      aria-label="show v5 doc"*/}
+      {/*      aria-selected="true"*/}
+      {/*      aria-controls="tabPanel-1"*/}
+      {/*      role="tab"*/}
+      {/*    >*/}
+      {/*      V5*/}
+      {/*    </button>*/}
+      {/*    <button*/}
+      {/*      disabled*/}
+      {/*      role="tab"*/}
+      {/*      aria-label="show v6 doc"*/}
+      {/*      aria-selected="false"*/}
+      {/*      aria-controls="tabPanel-2"*/}
+      {/*    >*/}
+      {/*      V6 <span style={{fontSize: 11}}>(coming)</span>*/}
+      {/*    </button>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <div className={containerStyles.wrapper}>
         <SideMenu
