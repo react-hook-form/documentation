@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, setError } = useForm()
+  const { register, errors, setError } = useForm();
 
   return (
     <form>
@@ -15,19 +15,19 @@ export default function App() {
       <button type="button" onClick={() => {
         setError([
           {
-            type: 'required',
-            name: 'lastName',
-            message: 'This is required.',
+            type: "required",
+            name: "lastName",
+            message: "This is required.",
           },
           {
-            type: 'minLength',
-            name: 'username',
-            message: 'Minlength is 10',
+            type: "minLength",
+            name: "username",
+            message: "Minlength is 10",
           },
         ]);
       }}>
         Set Errors for a single field
       </button>
     </form>
-  )
+  );
 }`

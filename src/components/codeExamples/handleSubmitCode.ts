@@ -2,10 +2,10 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
-    console.log('Submit event', e)
-    alert(JSON.stringify(data))
+    console.log("Submit event", e);
+    alert(JSON.stringify(data));
   };
 
   return (
@@ -14,5 +14,5 @@ export default function App() {
       <input name="lastName" ref={register} />
       <button type="submit">Submit</button>
     </form>
-  )
+  );
 }`

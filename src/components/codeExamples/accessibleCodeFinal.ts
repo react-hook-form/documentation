@@ -3,9 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
-    console.log(data);
-  };
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -14,7 +12,7 @@ export default function App() {
         type="text"
         id="name"
         {/* use aria-invalid to indicate field contain error */}
-        aria-invalid={errors.name ? 'true' : 'false'}
+        aria-invalid={errors.name ? "true" : "false"}
         {/* use aria-describedby to associate with error messages */}
         aria-describedby="error-name-required error-name-maxLength"
         ref={register({ required: true, maxLength: 30 })}

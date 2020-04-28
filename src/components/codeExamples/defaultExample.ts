@@ -1,11 +1,11 @@
-export default `import React from 'react'
-import { useForm } from 'react-hook-form'
+export default `import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, handleSubmit, watch, errors } = useForm()
-  const onSubmit = data => { console.log(data) }
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = data => console.log(data);
 
-  console.log(watch('example')) // watch input value by passing the name of it
+  console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
@@ -20,5 +20,5 @@ export default function App() {
       
       <input type="submit" />
     </form>
-  )
+  );
 }`
