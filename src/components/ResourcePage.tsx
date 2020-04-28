@@ -778,6 +778,46 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </article>
           </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=5MsXpmh3Un8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Using React Hook Form with Ionic React Components</h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCMCcqbJpyL3LAv3PJeYz2bg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aaron Saunders
+                </a>
+              </p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=oXY_sSfjlSw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>Easy Way of Form Validation with React Hook Form</h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCS3-MF_4ADqglU2OSly4vIw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  For Those Who Code
+                </a>
+              </p>
+            </article>
+          </li>
         </ul>
 
         <Footer currentLanguage={currentLanguage} />
