@@ -222,16 +222,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Link
             activeClassName="active"
-            to={translateLink("/form-builder", currentLanguage)}
-          >
-            <div className={styles.iconWrapper}>
-              <div className="edit icon" />
-            </div>
-            <span>{nav[currentLanguage].builder}</span>
-          </Link>
-
-          <Link
-            activeClassName="active"
             to={translateLink("/faqs", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
@@ -248,6 +238,16 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               <div className="laptop icon" />
             </div>
             <span>DevTools</span>
+          </Link>
+
+          <Link
+            activeClassName="active"
+            to={translateLink("/form-builder", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="edit icon" />
+            </div>
+            <span>{nav[currentLanguage].builder}</span>
           </Link>
 
           <Link
