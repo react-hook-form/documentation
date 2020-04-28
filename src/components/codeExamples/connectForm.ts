@@ -1,4 +1,4 @@
-export default `import { FormContext, useForm, useFormContext } from 'react-hook-form';
+export default `import { FormContext, useForm, useFormContext } from "react-hook-form";
 
 export const ConnectForm = ({ children }) => {
  const methods = useFormContext();
@@ -9,11 +9,11 @@ export const ConnectForm = ({ children }) => {
 };
 
 // The following example will be the usage
-export const DeepNest = () => {
+export const DeepNest = () => (
   <ConnectForm>
     {({ register }) => <input ref={register} name="deepNestedInput" />}
   </ConnectForm>
-}
+);
 
 export const App = () => {
   const methods = useForm();
@@ -24,6 +24,6 @@ export const App = () => {
        <DeepNest />
       </form>
     </FormContext>
-  )
+  );
 }
 `

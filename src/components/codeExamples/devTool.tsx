@@ -1,11 +1,11 @@
-export default `import React from 'react';
-import { useForm } from 'react-hook-form';
-import { DevTool } from 'react-hook-form-devtools';
-import './App.css';
+export default `import React from "react";
+import { useForm } from "react-hook-form";
+import { DevTool } from "react-hook-form-devtools";
+import "./App.css";
 
 export default () => {
   const { register, control, handleSubmit } = useForm({
-    mode: 'onChange',
+    mode: "onChange",
   });
 
   return (

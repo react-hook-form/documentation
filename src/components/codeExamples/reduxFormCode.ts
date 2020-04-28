@@ -28,9 +28,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 
 const Form = props => {
   const { handleSubmit } = props;
-  const onSubmit = values => {
-    console.log(values);
-  };
+  const onSubmit = values => console.log(values);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

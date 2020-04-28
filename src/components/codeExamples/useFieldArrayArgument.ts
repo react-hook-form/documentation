@@ -4,7 +4,7 @@ export default `function Test() {
     {
       control, // control props comes from useForm (optional: if you are using FormContext)
       name: "test", // unique name for your Field Array
-      // keyName: 'id', default to "id", you can change the key name
+      // keyName: "id", default to "id", you can change the key name
     }
   );
 

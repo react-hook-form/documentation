@@ -1,13 +1,13 @@
-export default `import React from 'react';
-import { useForm } from 'react-hook-form';
+export default `import React from "react";
+import { useForm } from "react-hook-form";
 
 export default function App(props) {
   const { register, watch } = useForm();
-  const watchYes = watch('yes', props.yes); // supply default value as second argument
+  const watchYes = watch("yes", props.yes); // supply default value as second argument
   const watchAllFields = watch(); // watching every fields in the form
-  const watchFields = watch(['yes', 'number']); // target specific fields by their names
+  const watchFields = watch(["yes", "number"]); // target specific fields by their names
   // watch array fields by the key, pet[0] and pet[1] will both be watched and returns values
-  const pets = watch('pet'); 
+  const pets = watch("pet"); 
   
   return (
     <form>

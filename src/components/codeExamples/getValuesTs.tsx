@@ -10,18 +10,18 @@ type Inputs = {
 };
 
 export default function App() {
-  const { register, getValues } = useForm<Inputs>()
+  const { register, getValues } = useForm<Inputs>();
   
-  getValues()
+  getValues();
   // function getValues(): Inputs
-  getValues({ nest: true })
+  getValues({ nest: true });
   // function getValues<true>(payload: {
   //     nest: true;
-  // }): FormValuees
-  getValues({ nest: false })
+  // }): FormValues
+  getValues({ nest: false });
   // function getValues<false>(payload: {
   //     nest: false;
-  // }): FormValuees
+  // }): FormValues
 
   return <form />;
 }
@@ -38,29 +38,29 @@ type Inputs1 = {
 };
 
 export default function Form() {
-  const { register, getValues } = useForm<Inputs1>()
+  const { register, getValues } = useForm<Inputs1>();
   
-  getValues()
+  getValues();
   // function getValues(): Record<string, unknown>
-  getValues({ nest: true })
+  getValues({ nest: true });
   // function getValues<true>(payload: {
   //     nest: true;
-  // }): FormValuees
-  getValues({ nest: false })
+  // }): FormValues
+  getValues({ nest: false });
   // function getValues<false>(payload: {
   //     nest: false;
   // }): Record<string, unknown>
-  getValues('key1')
+  getValues("key1");
   // function getValues<"key1", unknown>(payload: "key1"): string
-  getValues('key2')
+  getValues("key2");
   // function getValues<"key2", unknown>(payload: "key2"): number
-  getValues('key3.key1')
+  getValues("key3.key1");
   // function getValues<"key3.key1", unknown>(payload: "key3.key1"): unknown
-  getValues<string, number>('key3.key1')
+  getValues<string, number>("key3.key1");
   // function getValues<string, number>(payload: string): number
-  getValues<string, boolean>('key3.key2')
+  getValues<string, boolean>("key3.key2");
   // function getValues<string, boolean>(payload: string): boolean
-  getValues('key4')
+  getValues("key4");
   // function getValues<"key4", unknown>(payload: "key4"): string[]
 
   return <form />;

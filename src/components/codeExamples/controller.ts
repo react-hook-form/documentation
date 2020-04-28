@@ -1,12 +1,12 @@
-export default `import React from 'react';
-import Select from 'react-select';
+export default `import React from "react";
+import Select from "react-select";
 import { TextField } from "@material-ui/core";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from "react-hook-form";
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
 ];
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           return selected;
         }}
         name="reactSelect"
-        defaultValue={{ value: 'chocolate' }}
+        defaultValue={{ value: "chocolate" }}
       />
       
       <button>submit</button>

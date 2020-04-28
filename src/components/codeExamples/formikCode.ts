@@ -24,9 +24,7 @@ function validateUsername(value) {
 }
 
 const Example = () => {
-  const onSubmit = values => {
-    console.log(values);
-  };
+  const onSubmit = values => console.log(values);
 
   return (
     <Formik
