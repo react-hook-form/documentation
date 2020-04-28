@@ -399,7 +399,7 @@ a.active {
     position: fixed;
     right: 30px;
     color: white;
-    bottom: 30px;
+    bottom: 60px;
     height: 40px;
     width: 40px;
     z-index: 10;
@@ -407,13 +407,17 @@ a.active {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1040px) {
   .desktopOnly {
     display: inline-block !important;
   }
 
   a.active {
     background: none;
+  }
+
+  .scrollToTop {
+    bottom: 30px;
   }
 }
 
@@ -643,6 +647,45 @@ h4 {
   border-radius: 0 0 2px 2px;
   border: solid 1px currentColor;
 }
+
+.tag.icon {
+  position: absolute;
+  margin-left: -2px;
+  margin-top: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px 1px 1px 0;
+  border-left: solid 1px currentColor;
+  border-top: solid 1px currentColor;
+}
+
+.tag.icon:before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 9px;
+  height: 10px;
+  border-radius: 1px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+  border-bottom: solid 1px currentColor;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.tag.icon:after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+
 
 /**
 * xonokai theme for JavaScript, CSS and HTML

@@ -155,6 +155,16 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
             <Link
               activeClassName="active"
+              to={translateLink("/resources", currentLanguage)}
+            >
+              <div className={styles.iconWrapper}>
+                <div className="tag icon" />
+              </div>
+              <span>Resources</span>
+            </Link>
+
+            <Link
+              activeClassName="active"
               to={translateLink("/form-builder", currentLanguage)}
             >
               <div className={styles.iconWrapper}>
@@ -239,6 +249,17 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>DevTools</span>
           </Link>
+
+          <Link
+            activeClassName="active"
+            to={translateLink("/resources", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="tag icon" />
+            </div>
+            <span>Resources</span>
+          </Link>
+
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"
             target="_blank"
@@ -247,6 +268,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           >
             {nav[currentLanguage].releases}
           </a>
+
           <a
             href="#"
             onClick={e => {

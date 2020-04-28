@@ -37,7 +37,7 @@
   grid-area: c;
   text-align: right;
   font-size: 50px;
-  font-weight: 300;
+  font-weight: 400;
   position: relative;
   margin-top: -10px;
 }
@@ -93,7 +93,7 @@
 .achievementList h4 {
   margin-left: 12px;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 

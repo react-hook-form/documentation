@@ -29,7 +29,7 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   margin: 20px 0;
   -webkit-appearance: none;
   line-height: 1;
@@ -107,7 +107,7 @@ a.primaryButton:hover {
 @media (min-width: 768px) {
   .primaryButton {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     margin: 40px 0;
     padding: 15px 30px;
   }

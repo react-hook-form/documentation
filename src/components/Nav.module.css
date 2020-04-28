@@ -47,7 +47,8 @@
 }
 
 .actionButtonGroup > a:nth-child(5),
-.actionButtonGroup > a:nth-child(7) {
+.actionButtonGroup > a:nth-child(7),
+.actionButtonGroup > a:nth-child(8) {
   display: none;
 }
 
@@ -135,7 +136,7 @@
 }
 
 .mobileMenu {
-  width: 33.33%;
+  width: 50%;
   right: 0;
   left: auto;
   z-index: 2;
@@ -155,16 +156,17 @@
   }
 
   .actionButtonGroup > a:nth-child(5),
-  .actionButtonGroup > a:nth-child(7) {
+  .actionButtonGroup > a:nth-child(7),
+  .actionButtonGroup > a:nth-child(8) {
     display: block;
   }
 
-  .actionButtonGroup > a:nth-child(9) {
+  .actionButtonGroup > a:nth-child(10) {
     display: none;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1040px) {
   .lightActionButtonWrapper {
     height: auto;
   }
@@ -186,7 +188,7 @@
     margin: 0 auto;
     background: var(--color-button-blue);
     height: auto;
-    max-width: 580px;
+    max-width: 610px;
     padding: 13px 10px;
   }
 
@@ -215,7 +217,7 @@
   }
 
   .actionButtonGroup {
-    max-width: 768px;
+    max-width: 800px;
   }
 
   .langSelect {
