@@ -4,8 +4,8 @@ import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
-import styles from "./ResourcePage.module.css"
 import containerStyle from "../styles/container.module.css"
+import styles from "./ResourcePage.module.css"
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const {
@@ -662,6 +662,26 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 </a>
               </p>
               <p>Building persist multiple steps form with React Hook Form.</p>
+            </article>
+          </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=0nDGeQKLFjo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>React Hook Form - React Forms Episode II</h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/user/jherr2006"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jack Herrington
+                </a>
+              </p>
             </article>
           </li>
           <li>

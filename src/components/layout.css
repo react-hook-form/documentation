@@ -40,9 +40,8 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  font-family: "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -456,7 +455,7 @@ h4 {
 }
 
 .more.icon:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -1px;
   left: -8px;
@@ -467,7 +466,7 @@ h4 {
 }
 
 .more.icon:after {
-  content: '';
+  content: "";
   position: absolute;
   top: -1px;
   left: 6px;
@@ -660,7 +659,7 @@ h4 {
 }
 
 .tag.icon:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 1px;
   top: 1px;
@@ -675,7 +674,7 @@ h4 {
 }
 
 .tag.icon:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 3px;
   top: 3px;
@@ -684,8 +683,6 @@ h4 {
   border-radius: 50%;
   background-color: currentColor;
 }
-
-
 
 /**
 * xonokai theme for JavaScript, CSS and HTML
@@ -884,6 +881,10 @@ pre[data-line] .line-highlight[data-end]:after {
 body.light {
   background-color: white;
   color: var(--color-black);
+}
+
+.light h3 {
+  color: black;
 }
 
 .light button {
