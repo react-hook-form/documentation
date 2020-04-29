@@ -150,7 +150,15 @@ export default {
       <>
         <p>
           React Hook Form has made it easy to integrate with external UI
-          component libraries.
+          component libraries. You can check out{" "}
+          <a
+            href="https://www.youtube.com/watch?v=0nDGeQKLFjo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            this video tutorial
+          </a>{" "}
+          on how to work with MUI.
         </p>
         <p>
           <b className={typographyStyles.note}>Option 1:</b> The best way is to
