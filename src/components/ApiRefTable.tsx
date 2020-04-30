@@ -74,12 +74,6 @@ export default function ApiRefTable({
 
       {api.register.options.note(goToSection)}
 
-      <p>
-        <code
-          className={typographyStyles.codeBlock}
-        >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
-      </p>
-
       <fieldset className={styles.fieldset}>
         <legend>{api.register.options.title}</legend>
         <p>{api.register.selectHelp}</p>
