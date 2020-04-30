@@ -403,7 +403,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Nota:</b> Puedes aprender más en{" "}
           <NavLink
-            to={translateLink("advanced-usage#ErrorMessage", currentLanguage)}
+            to={translateLink("/advanced-usage#ErrorMessage", currentLanguage)}
           >
             Mensaje de error
           </NavLink>{" "}
