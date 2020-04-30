@@ -6,6 +6,11 @@ export default function App() {
   const onSubmit = (data, e) => {
     // e.target.reset(); // HTML standard reset() function will only reset inputs' value
   };
+  
+  useEffect(async () => {
+    const result = await fetch('./api/formValues.json'); // result: { firstName: 'test', lastName: 'test2' }
+    reset(result); // asynchronously reset your form values
+  }, [reset])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
