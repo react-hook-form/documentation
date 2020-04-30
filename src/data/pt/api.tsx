@@ -312,6 +312,19 @@ export default {
             registro de campo customizado para ativar a re-renderização seu
             valor, então você precisa dar um tempo ao seu campo{" "}
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Nota:</b>
+            várias raido input com o mesmo nome, você deseja registrar a
+            validação até o último entrada para que o gancho entenda valide-os
+            como um grupo no final.
+          </p>
         </>
       ),
     },

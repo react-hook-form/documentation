@@ -312,6 +312,18 @@ export default {
             custom registered input to trigger a re-render during its value
             update, then you should give a type to your registered input.
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Note:</b> multiple radio inputs
+            with the same name, you want to register the validation to the last
+            input so the hook understand validate them as a group at the end.
+          </p>
         </>
       ),
     },

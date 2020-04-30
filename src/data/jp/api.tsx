@@ -313,6 +313,18 @@ export default {
             で再レンダリングをトリガーしたい場合は、 登録した input に type
             属性を指定する必要があります。
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Nota:</b> multiple radio inputs
+            with the same name, you want to register the validation to the last
+            input so the hook understand validate them as a group at the end.
+          </p>
         </>
       ),
     },

@@ -303,6 +303,18 @@ export default {
             동안 커스텀 등록된 입력을 다시 렌더링 하도록 하려면, 등록된 입력의
             타입을 지정해 주어야 합니다.
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Nota:</b> multiple radio inputs
+            with the same name, you want to register the validation to the last
+            input so the hook understand validate them as a group at the end.
+          </p>
         </>
       ),
     },

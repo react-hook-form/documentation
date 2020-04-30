@@ -295,6 +295,18 @@ export default {
             如果您希望自定义注册输入在其值更新过程中触发重新render，那么你应该给您注册的输入的类型加以
             <code>type</code>。
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>注意:</b>多个radio
+            input使用相同的名称，您想将验证注册到最后一个
+            输入，以便挂钩了解最后将它们作为一组进行验证。
+          </p>
         </>
       ),
     },
