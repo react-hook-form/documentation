@@ -225,6 +225,7 @@
     display: inline-block;
   }
 
+  .tools:focus ~ div .menuExpand,
   .tools:hover ~ div .menuExpand {
     transform: translateY(0px);
     opacity: 1;

@@ -232,7 +232,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </Link>
 
           <span className="desktopOnly">
-            <span className={styles.tools}>
+            <span className={styles.tools} tabIndex={0}>
               <span
                 style={{
                   position: "relative",
