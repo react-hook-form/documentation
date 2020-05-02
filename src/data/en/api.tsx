@@ -971,7 +971,8 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules according to <code>register</code>.
+            Validation rules according to <code>register</code>. This{" "}
+            <code>object</code> will be cached inside <code>Controller</code>.
           </td>
         </tr>
         <tr>
