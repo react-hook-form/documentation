@@ -232,59 +232,60 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </Link>
 
           <span className="desktopOnly">
-            <a href="#" className={styles.tools}>
+            <span className={styles.tools}>
               <span
                 style={{
                   position: "relative",
                   top: 2,
                 }}
               >
-                Tools{" "}
-                <span
-                  style={{
-                    fontSize: 10,
-                    display: "inline",
-                    marginLeft: 2,
-                    top: -1,
-                    position: "relative",
-                  }}
-                >
-                  ▼
+                <span className={styles.menuExpandLink}>
+                  Tools{" "}
+                  <span
+                    style={{
+                      fontSize: 10,
+                      display: "inline",
+                      marginLeft: 2,
+                      top: -1,
+                      position: "relative",
+                    }}
+                  >
+                    ▼
+                  </span>
                 </span>
               </span>
+            </span>
+            <div
+              style={{
+                position: "absolute",
+                overflow: "hidden",
+                marginLeft: -10,
+                // paddingTop: 5,
+                zIndex: 4,
+              }}
+            >
               <div
                 style={{
-                  position: "absolute",
                   overflow: "hidden",
-                  marginLeft: -10,
-                  paddingTop: 5,
-                  zIndex: 1,
                 }}
               >
-                <div
-                  style={{
-                    overflow: "hidden",
-                    marginTop: 4,
-                  }}
-                >
-                  <div className={styles.menuExpand}>
-                    <Link
-                      activeClassName="active"
-                      to={translateLink("/dev-tools", currentLanguage)}
-                    >
-                      DevTools
-                    </Link>
+                <div className={styles.menuExpand}>
+                  <Link
+                    activeClassName="active"
+                    to={translateLink("/dev-tools", currentLanguage)}
+                  >
+                    DevTools
+                  </Link>
 
-                    <Link
-                      activeClassName="active"
-                      to={translateLink("/form-builder", currentLanguage)}
-                    >
-                      Form Builder
-                    </Link>
-                  </div>
+                  <Link
+                    activeClassName="active"
+                    to={translateLink("/form-builder", currentLanguage)}
+                  >
+                    Form Builder
+                  </Link>
                 </div>
               </div>
-            </a>
+            </div>
           </span>
 
           <Link

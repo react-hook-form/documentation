@@ -166,6 +166,13 @@
 }
 
 @media (min-width: 1040px) {
+  .menuExpandLink {
+    font-size: 0.7rem;
+    position: relative;
+    top: -2px;
+    cursor: default;
+  }
+
   .lightActionButtonWrapper {
     height: auto;
   }
@@ -213,7 +220,12 @@
     font-weight: 500;
   }
 
-  .tools:hover .menuExpand {
+  .tools {
+    height: 29px;
+    display: inline-block;
+  }
+
+  .tools:hover ~ div .menuExpand {
     transform: translateY(0px);
     opacity: 1;
     transition: 0.35s all ease-in;
@@ -229,6 +241,11 @@
     overflow: hidden;
   }
 
+  .menuExpand:hover {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
   .menuExpand a {
     text-align: left;
     padding: 2px 0;
@@ -239,6 +256,11 @@
 }
 
 @media (min-width: 1280px) {
+  .menuExpandLink {
+    font-size: 0.8rem;
+    top: -1px;
+  }
+
   .gitHubButtonWrap {
     right: 140px;
   }
