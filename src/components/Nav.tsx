@@ -258,6 +258,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                   overflow: "hidden",
                   marginLeft: -10,
                   paddingTop: 5,
+                  zIndex: 1,
                 }}
               >
                 <div
