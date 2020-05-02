@@ -176,6 +176,14 @@
     cursor: default;
   }
 
+  .menuExpandLink span {
+    transition: 0.4s all;
+  }
+
+  .menuExpandLink:hover span {
+    color: var(--color-light-pink)
+  }
+
   .lightActionButtonWrapper {
     height: auto;
   }
