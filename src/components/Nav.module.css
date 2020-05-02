@@ -34,7 +34,7 @@
   height: 43px;
 }
 
-.actionButtonGroup > a {
+.actionButtonGroup a {
   flex: 1;
   font-size: 0.5rem;
   border-left: 1px solid var(--color-button-blue);
@@ -46,21 +46,21 @@
   min-width: 40px;
 }
 
-.actionButtonGroup > a:nth-child(5),
-.actionButtonGroup > a:nth-child(7),
-.actionButtonGroup > a:nth-child(8) {
+.actionButtonGroup a:nth-child(5),
+.actionButtonGroup a:nth-child(7),
+.actionButtonGroup a:nth-child(8) {
   display: none;
 }
 
-.actionButtonGroup > a:first-child {
+.actionButtonGroup a:first-child {
   border-left: 0;
 }
 
-.actionButtonGroup > a:hover {
+.actionButtonGroup a:hover {
   color: var(--color-light-pink);
 }
 
-.actionButtonGroup > a > span {
+.actionButtonGroup a > span {
   display: block;
   height: 20px;
 }
@@ -155,12 +155,12 @@
     right: 8px;
   }
 
-  .actionButtonGroup > a:nth-child(5),
-  .actionButtonGroup > a:nth-child(7) {
+  .actionButtonGroup a:nth-child(5),
+  .actionButtonGroup a:nth-child(7) {
     display: block;
   }
 
-  .actionButtonGroup > a:nth-child(10) {
+  .actionButtonGroup a:nth-child(11) {
     display: none;
   }
 }
@@ -176,6 +176,10 @@
 
   .iconGroup {
     left: 20px;
+  }
+
+  .actionButtonGroup a.mobileNav {
+    display: none !important;
   }
 
   .actionButtonGroup {
@@ -197,16 +201,40 @@
     color: white;
   }
 
-  .actionButtonGroup > a {
+  .actionButtonGroup a {
     font-size: 0.7rem;
     flex: none;
     border: none;
     padding: 2px 0;
   }
 
-  .darkActionButtonGroup > a {
+  .darkActionButtonGroup a {
     color: white;
     font-weight: 500;
+  }
+
+  .tools:hover .menuExpand {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: 0.35s all ease-in;
+  }
+
+  .menuExpand {
+    transition: 0.25s all ease-in;
+    padding: 6px 10px 0;
+    background: var(--color-button-blue);
+    transform: translateY(-80px);
+    opacity: 0;
+    width: max-content;
+    overflow: hidden;
+  }
+
+  .menuExpand a {
+    text-align: left;
+    padding: 2px 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
   }
 }
 
@@ -219,7 +247,7 @@
     max-width: 800px;
   }
 
-  .actionButtonGroup > a:nth-child(8) {
+  .actionButtonGroup a:nth-child(8) {
     display: block;
   }
 
@@ -228,7 +256,7 @@
     min-width: 100px;
   }
 
-  .actionButtonGroup > a {
+  .actionButtonGroup a {
     font-size: 0.8rem;
   }
 }

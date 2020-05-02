@@ -8,6 +8,7 @@ import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
+// @ts-ignore
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
@@ -94,8 +95,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         <select
           aria-label="Select a language"
           onChange={e => {
-            const selectedLanguage = e.target.value
-            action(selectedLanguage)
+            // @ts-ignore
+            action(e.target.value)
 
             let url = location.pathname.substr(1)
 
@@ -230,8 +231,64 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
 
+          <span className="desktopOnly">
+            <a href="#" className={styles.tools}>
+              <span
+                style={{
+                  position: "relative",
+                  top: 2,
+                }}
+              >
+                Tools{" "}
+                <span
+                  style={{
+                    fontSize: 10,
+                    display: "inline",
+                    marginLeft: 2,
+                    top: -1,
+                    position: "relative",
+                  }}
+                >
+                  ▼
+                </span>
+              </span>
+              <div
+                style={{
+                  position: "absolute",
+                  overflow: "hidden",
+                  marginLeft: -10,
+                  paddingTop: 5,
+                }}
+              >
+                <div
+                  style={{
+                    overflow: "hidden",
+                    marginTop: 4,
+                  }}
+                >
+                  <div className={styles.menuExpand}>
+                    <Link
+                      activeClassName="active"
+                      to={translateLink("/dev-tools", currentLanguage)}
+                    >
+                      DevTools
+                    </Link>
+
+                    <Link
+                      activeClassName="active"
+                      to={translateLink("/form-builder", currentLanguage)}
+                    >
+                      Form Builder
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </span>
+
           <Link
             activeClassName="active"
+            className={styles.mobileNav}
             to={translateLink("/dev-tools", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
@@ -242,6 +299,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Link
             activeClassName="active"
+            className={styles.mobileNav}
             to={translateLink("/form-builder", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
