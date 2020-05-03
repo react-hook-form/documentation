@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default () => {
-  const { clearError, errors, register } = useForm();
+  const { clearError, errors, register, clearError } = useForm();
 
   return (
     <form>
