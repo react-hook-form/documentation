@@ -1,11 +1,10 @@
 import * as React from "react"
-import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import CodeArea from "../../components/CodeArea"
-import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
+import colors from "../../../styles/colors"
+import Popup from "../../../components/Popup"
+import CodeArea from "../../../components/CodeArea"
+import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../../styles/typography.module.css"
+import buttonStyles from "../../../styles/button.module.css"
 
 export default {
   title: "API Documentation",

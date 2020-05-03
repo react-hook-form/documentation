@@ -1,13 +1,13 @@
 import * as React from "react"
 import { Link as NavLink } from "gatsby"
-import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
-import Popup from "../../components/Popup"
-import CodeArea from "../../components/CodeArea"
-import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
+import colors from "../../../styles/colors"
+import translateLink from "../../../components/logic/translateLink"
+import Popup from "../../../components/Popup"
+import CodeArea from "../../../components/CodeArea"
+import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
+import typographyStyles from "../../../styles/typography.module.css"
+import buttonStyles from "../../../styles/button.module.css"
+import code from "../../../components/codeExamples/defaultExample"
 
 export default {
   title: "Documentación de la API",
