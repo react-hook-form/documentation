@@ -36,6 +36,7 @@ import control from "./v5/codeExamples/control"
 import nativeValidation from "./v5/codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
+import headerStyles from "./Header.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
@@ -262,38 +263,39 @@ function ApiPage({
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      {/*<div*/}
-      {/*  style={{*/}
-      {/*    textAlign: "center",*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <div*/}
-      {/*    className={headerStyles.toggleGroup}*/}
-      {/*    role="tablist"*/}
-      {/*    aria-label="Select video"*/}
-      {/*    style={{*/}
-      {/*      marginBottom: 10*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    <button*/}
-      {/*      aria-label="show v5 doc"*/}
-      {/*      aria-selected="true"*/}
-      {/*      aria-controls="tabPanel-1"*/}
-      {/*      role="tab"*/}
-      {/*    >*/}
-      {/*      V5*/}
-      {/*    </button>*/}
-      {/*    <button*/}
-      {/*      disabled*/}
-      {/*      role="tab"*/}
-      {/*      aria-label="show v6 doc"*/}
-      {/*      aria-selected="false"*/}
-      {/*      aria-controls="tabPanel-2"*/}
-      {/*    >*/}
-      {/*      V6 <span style={{fontSize: 11}}>(coming)</span>*/}
-      {/*    </button>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <div
+          className={headerStyles.toggleGroup}
+          role="tablist"
+          aria-label="Select video"
+          style={{
+            marginBottom: 10,
+          }}
+        >
+          <button
+            disabled
+            aria-label="show v5 doc"
+            aria-selected="true"
+            aria-controls="tabPanel-1"
+            role="tab"
+          >
+            V5
+          </button>
+          <button
+            role="tab"
+            aria-label="show v6 doc"
+            aria-selected="false"
+            aria-controls="tabPanel-2"
+            onClick={() => navigate("/api")}
+          >
+            V6
+          </button>
+        </div>
+      </div>
 
       <div className={containerStyles.wrapper}>
         <SideMenu

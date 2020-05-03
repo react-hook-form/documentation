@@ -263,38 +263,41 @@ function ApiPage({
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      {/*<div*/}
-      {/*  style={{*/}
-      {/*    textAlign: "center",*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <div*/}
-      {/*    className={headerStyles.toggleGroup}*/}
-      {/*    role="tablist"*/}
-      {/*    aria-label="Select video"*/}
-      {/*    style={{*/}
-      {/*      marginBottom: 10*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    <button*/}
-      {/*      aria-label="show v5 doc"*/}
-      {/*      aria-selected="true"*/}
-      {/*      aria-controls="tabPanel-1"*/}
-      {/*      role="tab"*/}
-      {/*    >*/}
-      {/*      V5*/}
-      {/*    </button>*/}
-      {/*    <button*/}
-      {/*      disabled*/}
-      {/*      role="tab"*/}
-      {/*      aria-label="show v6 doc"*/}
-      {/*      aria-selected="false"*/}
-      {/*      aria-controls="tabPanel-2"*/}
-      {/*    >*/}
-      {/*      V6 <span style={{fontSize: 11}}>(coming)</span>*/}
-      {/*    </button>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <div
+          className={headerStyles.toggleGroup}
+          role="tablist"
+          aria-label="Select video"
+          style={{
+            marginBottom: 10,
+          }}
+        >
+          <button
+            aria-label="show v5 doc"
+            aria-selected="true"
+            aria-controls="tabPanel-1"
+            role="tab"
+            onClick={() => {
+              navigate("/v5/api")
+            }}
+          >
+            V5
+          </button>
+          <button
+            disabled
+            role="tab"
+            aria-label="show v6 doc"
+            aria-selected="false"
+            aria-controls="tabPanel-2"
+          >
+            V6
+          </button>
+        </div>
+      </div>
 
       <div className={containerStyles.wrapper}>
         <SideMenu
