@@ -673,26 +673,6 @@ export default {
       </>
     ),
   },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
-        省略可能な引数として <code>useForm</code> に{" "}
-        <code>validationSchema</code> を適用できます。 React Hook Form
-        は現在、オブジェクトスキーマバリデーションで{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        をサポートしています。
-      </p>
-    ),
-  },
   Controller: {
     title: "Controller",
     table: (
@@ -1036,23 +1016,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </td>
         </tr>
       </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          下記の例は、ブラウザバリデーションを活用する方法を示しています。
-          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
-          残りの構文は標準のバリデーションと同じになります。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意</b>:
-          この機能は使用率が低いため V4 で削除されましたが、 V3{" "}
-          では引き続き使用できます。
-        </p>
-      </>
     ),
   },
   useFieldArray: {

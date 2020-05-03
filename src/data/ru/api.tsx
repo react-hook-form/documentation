@@ -669,26 +669,6 @@ export default {
       </>
     ),
   },
-  validationSchema: {
-    title: "ValidationSchema",
-    description: (
-      <p>
-        Если вы хотите централизовать свои правила валидации с помощью внешней
-        схемы валидации, то вы можете использовать <code>validationSchema</code>{" "}
-        в <code>useForm</code> в качестве необязательного параметра. React Hook
-        Form в настоящий момент поддерживает{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        в качестве внешнего объекта схемы валидации.
-      </p>
-    ),
-  },
   useFieldArray: {
     title: "useFieldArray",
     description: (
@@ -1234,23 +1214,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
           </td>
         </tr>
       </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          В следующем примере показано, как вы можете использовать браузерную
-          валидацию. Вам нужно установить свойство <code>nativeValidation</code>{" "}
-          в <code>true</code>, а остальная часть синтаксиса такая же, как для
-          стандартной валидации.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
     ),
   },
   validationResolver: {

@@ -51,6 +51,16 @@
   background: black;
 }
 
+.toggleGroup.smallToggleGroup > button {
+  width: 70px;
+  color: white;
+  padding: 5px 15px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: black;
+  font-size: 14px;
+}
+
 .toggleGroup > button:hover {
   background: var(--color-secondary);
 }

@@ -23,7 +23,7 @@ import Popup from "./Popup"
 import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import apiContent from "../data/api"
+import apiContent from "../data/apiV5"
 import Controller from "./Controller"
 import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
@@ -263,40 +263,6 @@ function ApiPage({
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
-        <div
-          className={headerStyles.toggleGroup}
-          role="tablist"
-          aria-label="Select video"
-          style={{
-            marginBottom: 10,
-          }}
-        >
-          <button
-            disabled
-            aria-label="show v5 doc"
-            aria-selected="true"
-            aria-controls="tabPanel-1"
-            role="tab"
-          >
-            V5
-          </button>
-          <button
-            role="tab"
-            aria-label="show v6 doc"
-            aria-selected="false"
-            aria-controls="tabPanel-2"
-            onClick={() => navigate("/api")}
-          >
-            V6
-          </button>
-        </div>
-      </div>
-
       <div className={containerStyles.wrapper}>
         <SideMenu
           links={links}
@@ -307,6 +273,36 @@ function ApiPage({
         />
 
         <main>
+          <div className={styles.versionToggle}>
+            <div
+              className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
+              role="tablist"
+              aria-label="Select video"
+              style={{
+                marginBottom: 10,
+              }}
+            >
+              <button
+                role="tab"
+                aria-label="show v6 doc"
+                aria-selected="false"
+                aria-controls="tabPanel-2"
+                onClick={() => navigate("/api")}
+              >
+                V6
+              </button>
+              <button
+                disabled
+                aria-label="show v5 doc"
+                aria-selected="true"
+                aria-controls="tabPanel-1"
+                role="tab"
+              >
+                V5
+              </button>
+            </div>
+          </div>
+
           <section
             ref={ref => {
               apiSectionsRef.current.useFormRef = ref

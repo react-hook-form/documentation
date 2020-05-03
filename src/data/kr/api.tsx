@@ -644,25 +644,6 @@ export default {
       </>
     ),
   },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
-        <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로
-        적용 할 수 있습니다. React Hook Form의 객체 스키마 유효성 검사에서는{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        을 지원합니다.
-      </p>
-    ),
-  },
   Controller: {
     title: "Controller",
     table: (
@@ -987,22 +968,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </td>
         </tr>
       </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
-          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
-          문법은 표준과 같습니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
     ),
   },
   useFieldArray: {

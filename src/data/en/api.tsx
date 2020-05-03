@@ -665,25 +665,6 @@ export default {
       </>
     ),
   },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        If you would like to centralize your validation rules as an external
-        validation schema, you can use the <code>validationSchema</code>{" "}
-        parameter. React Hook Form currently supports{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        for object schema validation.
-      </p>
-    ),
-  },
   useFieldArray: {
     title: "useFieldArray",
     description: (
@@ -1229,23 +1210,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </td>
         </tr>
       </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          The following example demonstrates how you can leverage the browser's
-          validation. You only need to set <code>nativeValidation</code> to{" "}
-          <code>true</code> and the rest of the syntax is the same as standard
-          validation.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
     ),
   },
   validationResolver: {

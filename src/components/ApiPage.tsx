@@ -1,7 +1,5 @@
 import * as React from "react"
 import ApiRefTable from "./ApiRefTable"
-import validationSchemaCode from "./codeExamples/validationSchema"
-import validationSchemaNative from "./codeExamples/validationSchemaNative"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
@@ -33,7 +31,6 @@ import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
-import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
 import typographyStyles from "../styles/typography.module.css"
@@ -66,8 +63,6 @@ const enLinks = [
   apiEn.useFormContext,
   apiEn.useFieldArray,
   apiEn.validationResolver,
-  apiEn.validationSchema,
-  apiEn.NativeValidation,
 ]
 
 const codeSandBoxStyle = {
@@ -115,8 +110,6 @@ function ApiPage({
     api.useFormContext,
     api.useFieldArray,
     api.validationResolver,
-    api.validationSchema,
-    api.NativeValidation,
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
@@ -139,8 +132,6 @@ function ApiPage({
     useFormContextRef: null,
     useFieldArrayRef: null,
     validationResolverRef: null,
-    validationSchemaRef: null,
-    BrowserbuiltinvalidationRef: null,
   })
   copyFormData.current = formData
 
@@ -263,42 +254,6 @@ function ApiPage({
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
-        <div
-          className={headerStyles.toggleGroup}
-          role="tablist"
-          aria-label="Select video"
-          style={{
-            marginBottom: 10,
-          }}
-        >
-          <button
-            aria-label="show v5 doc"
-            aria-selected="true"
-            aria-controls="tabPanel-1"
-            role="tab"
-            onClick={() => {
-              navigate("/v5/api")
-            }}
-          >
-            V5
-          </button>
-          <button
-            disabled
-            role="tab"
-            aria-label="show v6 doc"
-            aria-selected="false"
-            aria-controls="tabPanel-2"
-          >
-            V6
-          </button>
-        </div>
-      </div>
-
       <div className={containerStyles.wrapper}>
         <SideMenu
           links={links}
@@ -309,6 +264,38 @@ function ApiPage({
         />
 
         <main>
+          <div className={styles.versionToggle}>
+            <div
+              className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
+              role="tablist"
+              aria-label="Select video"
+              style={{
+                marginBottom: 10,
+              }}
+            >
+              <button
+                disabled
+                role="tab"
+                aria-label="show v6 doc"
+                aria-selected="false"
+                aria-controls="tabPanel-2"
+              >
+                V6
+              </button>
+              <button
+                aria-label="show v5 doc"
+                aria-selected="true"
+                aria-controls="tabPanel-1"
+                role="tab"
+                onClick={() => {
+                  navigate("/v5/api")
+                }}
+              >
+                V5
+              </button>
+            </div>
+          </div>
+
           <section
             ref={ref => {
               apiSectionsRef.current.useFormRef = ref
@@ -423,23 +410,19 @@ function ApiPage({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
   validationResolver: undefined,
   validationContext: undefined,
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
-  nativeValidation: false, // Note: version 3 only
 })`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
   validationResolver: undefined,
   validationContext: undefined,
   validateCriteriaMode: "firstErrorDetected",
   submitFocusError: true,
-  nativeValidation: false, // Note: version 3 only
 })`}
             />
 
@@ -541,29 +524,6 @@ const { register } = useForm<Inputs>({
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          validationSchema: <br />
-                          <span className={styles.mobileTypeText}>Object</span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>
-                      {api.useForm.validationSchema(goToSection)}
-                      <CodeSandBoxLink
-                        style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/928po918qr"
-                      />
-                    </td>
-                  </tr>
                   <tr>
                     <td>
                       <h5
@@ -1001,48 +961,6 @@ const { register } = useForm<Inputs>({
           </section>
 
           <hr />
-
-          <section
-            ref={ref => {
-              apiSectionsRef.current.validationSchemaRef = ref
-            }}
-          >
-            <code className={typographyStyles.codeHeading}>
-              <h2>
-                validationSchema:{" "}
-                <span className={typographyStyles.typeText}>Object</span>
-              </h2>
-            </code>
-
-            {api.validationSchema.description}
-
-            <TabGroup buttonLabels={["Web", "React Native"]}>
-              <CodeArea
-                rawData={validationSchemaCode}
-                url="https://codesandbox.io/s/928po918qr"
-              />
-              <CodeArea rawData={validationSchemaNative} />
-            </TabGroup>
-          </section>
-
-          <hr />
-
-          <section
-            ref={ref => {
-              apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
-            }}
-          >
-            <h2 className={typographyStyles.codeHeading}>
-              Browser built-in validation (V3 only)
-            </h2>
-
-            {api.NativeValidation.description}
-
-            <CodeArea
-              rawData={nativeValidation}
-              url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-            />
-          </section>
 
           <div
             className={containerStyles.centerContent}
