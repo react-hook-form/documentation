@@ -223,7 +223,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Link
             activeClassName="active"
-            to={translateLink("/TS", currentLanguage)}
+            to={translateLink("/ts", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
               <span
