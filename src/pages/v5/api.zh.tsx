@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import ApiPage from "../../components/ApiPageV5"
-import api from "../../data/v5/zh/api"
+import api from "../../data/V5/zh/api"
 
 const ApiZh = ({
   location,
