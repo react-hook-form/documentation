@@ -782,11 +782,6 @@ export default {
             A propriedade <code>onChange</code> lhe permite customizar o retorno
             do valor, verifique se o formato do componente externo{" "}
             <code>value</code> props.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

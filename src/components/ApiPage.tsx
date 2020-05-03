@@ -222,7 +222,7 @@ function ApiPage({
     <div className={containerStyles.container}>
       <div className={styles.hiddenMenu}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          API
+          API.<span style={{ fontWeight: 400, fontSize: 20 }}>V6</span>
         </h1>
         <div
           className={`${styles.quickSelect} ${
@@ -835,7 +835,7 @@ const { register } = useForm<Inputs>({
                 getValues:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(payload?: { nest: boolean } | string) => Object`}</span>
+                >{`(payload?: string | string[]) => Object`}</span>
               </h2>
             </code>
 

@@ -382,16 +382,6 @@ export default {
           Objeto que contiene los errores de formulario o los mensajes de error
           que pertenecen a cada input.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Puedes aprender más en{" "}
-          <NavLink
-            to={translateLink("/advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Mensaje de error
-          </NavLink>{" "}
-          de la página de uso avanzado.
-        </p>
       </>
     ),
     types: (
@@ -451,7 +441,6 @@ export default {
       ),
       multiple: "Observa multiples inputs",
       all: "Observa todos los inputs",
-      nest: "Observa todos los inputs y retorna objetos anidados",
     },
   },
   handleSubmit: {
@@ -736,11 +725,6 @@ export default {
             Esta propiedad <code>onChange</code> te permitirá customizar el
             valor de retorno, asegúrese de conocer la forma de los accesorios
             del componente externo <code>value</code>.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

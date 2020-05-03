@@ -13,16 +13,7 @@ export default function App() {
   const { register, getValues } = useForm<Inputs>();
   
   getValues();
-  // function getValues(): Inputs
-  getValues({ nest: true });
-  // function getValues<true>(payload: {
-  //     nest: true;
-  // }): FormValues
-  getValues({ nest: false });
-  // function getValues<false>(payload: {
-  //     nest: false;
-  // }): FormValues
-
+  
   return <form />;
 }
 
@@ -42,14 +33,6 @@ export default function Form() {
   
   getValues();
   // function getValues(): Record<string, unknown>
-  getValues({ nest: true });
-  // function getValues<true>(payload: {
-  //     nest: true;
-  // }): FormValues
-  getValues({ nest: false });
-  // function getValues<false>(payload: {
-  //     nest: false;
-  // }): Record<string, unknown>
   getValues("key1");
   // function getValues<"key1", unknown>(payload: "key1"): string
   getValues("key2");

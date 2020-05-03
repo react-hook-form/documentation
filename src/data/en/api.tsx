@@ -367,33 +367,6 @@ export default {
           Object containing form errors and error messages corresponding to each
           input.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> Difference between V3
-          and V4:
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: Nested objects</p>
-            <p>
-              <strong>Reason:</strong> optional chaining is getting widely
-              adopted and allows better support for types..
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: Flatten object</p>
-            <p>
-              <strong>Reason:</strong> simple and easy to access error.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -452,7 +425,6 @@ export default {
       ),
       multiple: "Watch multiple inputs",
       all: "Watch all inputs",
-      nest: "Watch all inputs and return nested object",
     },
   },
   handleSubmit: {
@@ -617,14 +589,6 @@ export default {
               By default <code>getValues()</code> will return form data in a
               flat structure. eg:{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              Working on the defined form fields,{" "}
-              <code>getValues({`{ nest: true }`})</code> will return data in a
-              nested structure according to input <code>name</code>. eg:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
         </ul>
@@ -950,11 +914,6 @@ React.useEffect(() => {
             <code>value</code> or <code>checked</code> attribute will be read
             when payload's shape is an <code>object</code> which contains{" "}
             <code>type</code> attribute.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ { checked } ]) => ({ checked })}}`}
-            />
           </td>
         </tr>
         <tr>

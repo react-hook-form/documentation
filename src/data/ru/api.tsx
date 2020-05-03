@@ -376,33 +376,6 @@ export default {
           Объект, содержащий ошибки формы или сообщения об ошибках для каждого
           поля.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Примечание:</b> Есть развница в
-          V3 и V4:
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: Вложеный объект</p>
-            <p>
-              <strong>Причина:</strong> так как опциональный чейнинг становится
-              всё более популярным в сообществе и для поддержки лучшего типа.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: Плоский объект</p>
-            <p>
-              <strong>Причина:</strong> простой доступ к ошибке.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -460,7 +433,6 @@ export default {
       ),
       multiple: "Наблюдение за несколькими полями",
       all: "Наблюдение за всеми полями",
-      nest: "Наблюдение за всеми полями и возврат вложенного объекта",
     },
   },
   handleSubmit: {
@@ -626,14 +598,6 @@ export default {
               По умолчанию <code>getValues()</code> вернёт значения полей формы
               в виде плоской структуры, например:{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              При работе с определёнными полями формы,{" "}
-              <code>getValues({`{ nest: true }`})</code> вернёт данные во
-              вложенной структуре согласно <code>имени</code> поля, например:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
         </ul>
@@ -956,11 +920,6 @@ React.useEffect(() => {
             или <code>checked</code> будет считываться, когда форма полезных
             данных представляет собой <code>object</code>, который содержит
             атрибут type.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

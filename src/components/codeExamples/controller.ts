@@ -22,7 +22,7 @@ function App() {
         as={<Select options={options} />}
         control={control}
         rules={{ required: true }}
-        onChange={([selected]) => {
+        onChange={(selected) => {
           // Place your logic here
           return selected;
         }}

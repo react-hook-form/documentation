@@ -993,11 +993,6 @@ React.useEffect(() => {
             или <code>checked</code> будет считываться, когда форма полезных
             данных представляет собой <code>object</code>, который содержит
             атрибут type.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

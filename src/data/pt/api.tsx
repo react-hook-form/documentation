@@ -374,34 +374,6 @@ export default {
           Objeto contendo erros de formulário, ou mensagens de erro que
           pertencem a cada campo.
         </p>
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          Diferença entre a versão 3 e 4:
-        </p>
-
-        <ul>
-          <li>
-            <p>Versão 4: Objetos aninhados</p>
-            <p>
-              <strong>Razão:</strong> com o encadeamento opcional se tornando
-              mais popular entre a comunidade e para dar melhor suporte a tipo.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>Versão 3: Objetos nivelados</p>
-            <p>
-              <strong>Razão:</strong> simples e fácil de acessar o erro.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -460,7 +432,6 @@ export default {
       ),
       multiple: "Assista múltiplos campos",
       all: "Assista todos os campos",
-      nest: "Assista a todas as entradas e retorne objeto aninhado",
     },
   },
   handleSubmit: {
@@ -625,14 +596,6 @@ export default {
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
             </p>
           </li>
-          <li>
-            <p>
-              Trabalhando com campos definidos do formulário,{" "}
-              <code>getValues({`{ nest: true }`})</code> irá retornar o dado em
-              uma estrutura aninhada de acordo com o campo <code>name</code>.
-              ex: <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -744,11 +707,6 @@ export default {
             A propriedade <code>onChange</code> lhe permite customizar o retorno
             do valor, verifique se o formato do componente externo{" "}
             <code>value</code> props.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

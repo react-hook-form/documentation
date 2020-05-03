@@ -6,7 +6,7 @@ import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
 import resetCode from "./v5/codeExamples/resetCode"
-import ApiWatch from "./ApiWatch"
+import ApiWatch from "./ApiWatchV5"
 import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./v5/codeExamples/handleSubmitCode"
 import setError from "./v5/codeExamples/setError"
@@ -234,7 +234,7 @@ function ApiPage({
     <div className={containerStyles.container}>
       <div className={styles.hiddenMenu}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          API
+          API.<span style={{ fontWeight: 400, fontSize: 20 }}>V5</span>
         </h1>
         <div
           className={`${styles.quickSelect} ${

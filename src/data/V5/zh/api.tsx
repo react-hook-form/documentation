@@ -750,11 +750,6 @@ export default {
             确保您知道外部组件<code>value</code>props的形状。 当payload是
             <code>object</code>时，将读取<code>value</code>或<code>check</code>
             属性。
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

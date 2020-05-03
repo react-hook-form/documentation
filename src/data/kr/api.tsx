@@ -357,33 +357,6 @@ export default {
     description: currentLanguage => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3 과 V4 의 차이점:
-        </p>
-        <ul>
-          <li>
-            <p>V4: 중첩된 객체</p>
-            <p>
-              <strong>사용 이유:</strong> 옵셔널 체이닝이 커뮤니티 사이에서 많이
-              알려졌고, 더 나은 타입 지원을 합니다.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: 평탄한 객체</p>
-            <p>
-              <strong>사용 이유:</strong> 단순하고 에러에 접근하기 쉽습니다.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -441,7 +414,6 @@ export default {
       ),
       multiple: "여러 입력을 확인",
       all: "모든 입력을 확인",
-      nest: "모든 입력을보고 중첩 된 객체를 반환",
     },
   },
   handleSubmit: {
@@ -600,14 +572,6 @@ export default {
               기본적으로, <code>getValues()</code>는 폼 데이터를 flat
               structure로 반환합니다. 예 :{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는{" "}
-              <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로
-              반환됩니다. 예 :{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
         </ul>

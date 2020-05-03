@@ -384,34 +384,6 @@ export default {
           オブジェクトには、各 input{" "}
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3 と V4 の違い:
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: ネストされたオブジェクト</p>
-            <p>
-              <strong>理由:</strong> Optional chaining{" "}
-              はコミュニティの間でより一般的になり、型のサポートが向上するため。
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: フラットなオブジェクト</p>
-            <p>
-              <strong>理由:</strong> エラーがシンプルでアクセスしやすいため。
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -468,7 +440,6 @@ export default {
       ),
       multiple: "複数の input を監視します",
       all: "全ての input を監視します",
-      nest: "すべての入力を監視し、ネストされたオブジェクトを返します",
     },
   },
   handleSubmit: {
@@ -628,15 +599,6 @@ export default {
               デフォルトでは、<code>getValues()</code>{" "}
               はフォームデータをフラットな構造で返します。 例：{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              定義されたフォームフィールドで、
-              <code>getValues({`{ nest: true }`})</code> は input の{" "}
-              <code>name</code>{" "}
-              属性に基づいてネストされた構造でデータを返します。 例：{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
             </p>
           </li>
         </ul>

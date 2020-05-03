@@ -353,35 +353,6 @@ export default {
     description: currentLanguage => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
-
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3和V4之间的区别：
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: 嵌套对象</p>
-            <p>
-              <strong>原因:</strong> 随着optional chaining接越来越多
-              在社区中流行并支持更好的type。
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: 展平对象</p>
-            <p>
-              <strong>原因:</strong> 简单易访问的错误。
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -436,7 +407,6 @@ export default {
       ),
       multiple: "观看多个输入",
       all: "观看所有输入",
-      nest: "观察所有输入并返回嵌套对象",
     },
   },
   handleSubmit: {
@@ -590,13 +560,6 @@ export default {
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
             </p>
           </li>
-          <li>
-            <p>
-              使用定义的表单，<code>getValues({`{ nest: true }`})</code>
-              将根据输入名称返回嵌套结构中的数据。 例如:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -725,11 +688,6 @@ export default {
             确保您知道外部组件<code>value</code>props的形状。 当payload是
             <code>object</code>时，将读取<code>value</code>或<code>check</code>
             属性。
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>

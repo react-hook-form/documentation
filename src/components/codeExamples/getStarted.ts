@@ -111,7 +111,7 @@ export default function App() {
         as={Select}
         name="reactSelect"
         control={control}
-        onChange={([selected]) => {
+        onChange={(selected) => {
           // React Select return object instead of value for selection
           return { value: selected };
         }}
