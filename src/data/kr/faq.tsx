@@ -129,7 +129,7 @@ export default {
           <p>
             사실 <code>ref</code> 없이 <code>register</code> 를 할 수 있습니다.
             수동으로 <code>setValue</code>, <code>setError</code> 그리고{" "}
-            <code>triggerValidation</code> 를 사용하면 됩니다.
+            <code>trigger</code> 를 사용하면 됩니다.
           </p>
 
           <p>

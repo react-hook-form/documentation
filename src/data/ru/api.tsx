@@ -26,23 +26,6 @@ export default {
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
-    validationResolver: goToSection => (
-      <>
-        <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("validationResolver")}
-          >
-            validationResolver
-          </button>{" "}
-          section.
-        </p>
-      </>
-    ),
     validateContext: (
       <>
         <p>
@@ -657,8 +640,8 @@ export default {
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>Для принудительного вызова валидации input/select полей формы.</p>

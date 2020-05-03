@@ -55,14 +55,13 @@ const enLinks = [
   apiEn.clearError,
   apiEn.setValue,
   apiEn.getValues,
-  apiEn.triggerValidation,
+  apiEn.trigger,
   apiEn.control,
   apiEn.formState,
   apiEn.Controller,
   apiEn.ErrorMessage,
   apiEn.useFormContext,
   apiEn.useFieldArray,
-  apiEn.validationResolver,
 ]
 
 const codeSandBoxStyle = {
@@ -102,14 +101,13 @@ function ApiPage({
     api.clearError,
     api.setValue,
     api.getValues,
-    api.triggerValidation,
+    api.trigger,
     api.control,
     api.formState,
     api.Controller,
     api.ErrorMessage,
     api.useFormContext,
     api.useFieldArray,
-    api.validationResolver,
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
@@ -131,7 +129,6 @@ function ApiPage({
     ErrorMessageRef: null,
     useFormContextRef: null,
     useFieldArrayRef: null,
-    validationResolverRef: null,
   })
   copyFormData.current = formData
 
@@ -256,6 +253,7 @@ function ApiPage({
 
       <div className={containerStyles.wrapper}>
         <SideMenu
+          version={6}
           links={links}
           activeIndex={activeIndex}
           enLinks={enLinks}
@@ -383,7 +381,7 @@ function ApiPage({
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("triggerValidation")}
               >
-                triggerValidation
+                trigger
               </code>
               ,{" "}
               <code
@@ -521,28 +519,11 @@ const { register } = useForm<Inputs>({
 `}
             />
 
+            <ValidationResolver api={api} />
+
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          validationResolver: <br />
-                          <span className={styles.mobileTypeText}>
-                            Function
-                          </span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>{api.useForm.validationResolver(goToSection)}</td>
-                  </tr>
                   <tr>
                     <td>
                       <h5
@@ -876,13 +857,13 @@ const { register } = useForm<Inputs>({
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                triggerValidation:{" "}
+                trigger:{" "}
                 <span className={typographyStyles.typeText}>
                   {`(payload?: string | string[]) => Promise<boolean>`}
                 </span>
               </h2>
             </code>
-            {api.triggerValidation.description}
+            {api.trigger.description}
 
             <CodeArea
               rawData={trigger}
@@ -950,14 +931,6 @@ const { register } = useForm<Inputs>({
 
           <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
-          </section>
-
-          <hr />
-
-          <section
-            ref={ref => (apiSectionsRef.current.validationResolverRef = ref)}
-          >
-            <ValidationResolver currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

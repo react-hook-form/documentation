@@ -130,7 +130,7 @@ export default {
           <p>
             You can actually <code>register</code> an input without a{" "}
             <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-            <code>setError</code> and <code>triggerValidation</code>.
+            <code>setError</code> and <code>trigger</code>.
           </p>
 
           <p>

@@ -27,23 +27,6 @@ export default {
         siguiente ejemplo muestra todos los valores de las opciones por defecto.
       </p>
     ),
-    validationResolver: goToSection => (
-      <>
-        <p>
-          Esta función de devolución de llamada le permite ejecutar cualquier
-          esquema o personalizado validación. La función tiene la forma completa
-          <code>values</code> como argumento, y deberá validar el resultado y
-          devolver ambos <code>values</code> y <code>errors</code>. Lee mas en{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("validationResolver")}
-          >
-            validationResolver
-          </button>
-          sección.
-        </p>
-      </>
-    ),
     validateContext: (
       <>
         <p>
@@ -644,8 +627,8 @@ export default {
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>

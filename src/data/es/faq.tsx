@@ -133,7 +133,7 @@ export default {
             Puedes <code>registrar</code> un input sin una{" "}
             <code>referencia</code>. De hecho, puedes setear el valor
             manualmente con <code>setValue</code>, <code>setError </code> y
-            <code>triggerValidation</code>.
+            <code>trigger</code>.
           </p>
           <p>
             <b className={typographyStyles.note}> Nota: </b> Debido a que la{" "}

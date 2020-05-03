@@ -3,18 +3,19 @@ import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
 import validationResolverTs from "./codeExamples/validationResolverTs"
 import typographyStyles from "../styles/typography.module.css"
+import Popup from "./Popup"
 
 export default function({ api }) {
   return (
     <>
-      <code className={typographyStyles.codeHeading}>
-        <h2>
+      <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+        <code>
           validationResolver:{" "}
-          <span
-            className={typographyStyles.typeText}
-          >{`(values: any, validationContext?: object) => object`}</span>
-        </h2>
-      </code>
+          <span className={typographyStyles.typeText}>
+            {`(values: any, validationContext?: object) => object`}
+          </span>
+        </code>
+      </h5>
 
       {api.validationResolver.description}
 

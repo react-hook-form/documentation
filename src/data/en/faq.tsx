@@ -3,7 +3,6 @@ import colors from "../../styles/colors"
 import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
 import CodeArea from "../../components/CodeArea"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
@@ -132,7 +131,7 @@ export default {
           <p>
             You can actually <code>register</code> an input without a{" "}
             <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-            <code>setError</code> and <code>triggerValidation</code>.
+            <code>setError</code> and <code>trigger</code>.
           </p>
 
           <p>
