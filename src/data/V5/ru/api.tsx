@@ -315,6 +315,18 @@ export default {
             обновления его значения, то вам нужно указать тип
             зарегистрированного поля.
           </p>
+
+          <p>
+            <code
+              className={typographyStyles.codeBlock}
+            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Nota:</b>несколько radio input
+            с тем же именем, вы хотите зарегистрировать валидацию до последнего
+            ввод, чтобы ловушка понимала, валидируйте их как группу в конце.
+          </p>
         </>
       ),
     },
