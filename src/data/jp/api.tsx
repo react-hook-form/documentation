@@ -589,21 +589,7 @@ export default {
   },
   getValues: {
     title: "getValues",
-    description: (
-      <>
-        <p>この関数は、フォーム全体のデータを返します。</p>
-
-        <ul>
-          <li>
-            <p>
-              デフォルトでは、<code>getValues()</code>{" "}
-              はフォームデータをフラットな構造で返します。 例：{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-        </ul>
-      </>
-    ),
+    description: <p>この関数は、フォーム全体のデータを返します。</p>,
   },
   trigger: {
     title: "trigger",

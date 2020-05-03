@@ -566,15 +566,6 @@ export default {
           이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는
           경우에 유용합니다.
         </p>
-        <ul>
-          <li>
-            <p>
-              기본적으로, <code>getValues()</code>는 폼 데이터를 flat
-              structure로 반환합니다. 예 :{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },

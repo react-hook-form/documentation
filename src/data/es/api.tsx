@@ -595,24 +595,6 @@ export default {
           Esta función retornará todos los datos del formulario, y es útil en
           funciones en los que quieras retornar todo los valores del formulario.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              Por defecto <code>getValues()</code> retornará los datos del
-              formulario en una estructura plana. ej:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              Trabajando en los campos de formulario definidos,{" "}
-              <code>getValues({`{ nest: true }`})</code> retornará los datos en
-              una estructura anidada de acuerdo al <code>name</code> del input.
-              ej: <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },

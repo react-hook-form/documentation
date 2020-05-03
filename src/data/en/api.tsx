@@ -582,16 +582,6 @@ export default {
           This function will return the entire form data, and it's useful when
           you want to retrieve form values.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              By default <code>getValues()</code> will return form data in a
-              flat structure. eg:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },

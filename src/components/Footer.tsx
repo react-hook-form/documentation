@@ -29,13 +29,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           <Link to={translateLink("/api", currentLanguage)}>API</Link>
         </li>
         <li>
-          <Link to={translateLink("/advanced-usage", currentLanguage)}>
-            {nav[currentLanguage].advanced}
-          </Link>
+          <Link to={translateLink("/ts", currentLanguage)}>TS</Link>
         </li>
         <li>
-          <Link to={translateLink("/form-builder", currentLanguage)}>
-            {nav[currentLanguage].builder}
+          <Link to={translateLink("/advanced-usage", currentLanguage)}>
+            {nav[currentLanguage].advanced}
           </Link>
         </li>
         <li>
@@ -44,13 +42,18 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           </Link>
         </li>
         <li>
-          <Link to={translateLink("/resources", currentLanguage)}>
-            {nav[currentLanguage].resources}
+          <Link to={translateLink("/form-builder", currentLanguage)}>
+            {nav[currentLanguage].builder}
           </Link>
         </li>
         <li>
           <Link to={translateLink("/dev-tools", currentLanguage)}>
             DevTools
+          </Link>
+        </li>
+        <li>
+          <Link to={translateLink("/resources", currentLanguage)}>
+            {nav[currentLanguage].resources}
           </Link>
         </li>
       </ul>

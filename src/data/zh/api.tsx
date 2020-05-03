@@ -1,7 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
 import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
@@ -551,16 +550,6 @@ export default {
     description: (
       <>
         <p>此函数将返回整个表单数据。</p>
-
-        <ul>
-          <li>
-            <p>
-              默认情况下，<code>getValues()</code>
-              将在平坦结构中返回表单数据。例如:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },

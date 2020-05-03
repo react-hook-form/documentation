@@ -587,16 +587,6 @@ export default {
           Essa função vai retornar todo o dado do formulário, e é útil em uma
           função quando você precisa capturar os dados do formulário.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              Por padrão <code>getValues()</code> irá retornar todo o dado do
-              formulário em uma estrutura plana. ex:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },

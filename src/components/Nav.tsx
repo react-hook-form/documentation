@@ -146,12 +146,12 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           >
             <Link
               activeClassName="active"
-              to={translateLink("/dev-tools", currentLanguage)}
+              to={translateLink("/faqs", currentLanguage)}
             >
               <div className={styles.iconWrapper}>
-                <div className="laptop icon" />
+                <div className="eye icon" />
               </div>
-              <span>DevTools</span>
+              <span>{nav[currentLanguage].faqs}</span>
             </Link>
 
             <Link
@@ -162,6 +162,16 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 <div className="tag icon" />
               </div>
               <span>Resources</span>
+            </Link>
+
+            <Link
+              activeClassName="active"
+              to={translateLink("/dev-tools", currentLanguage)}
+            >
+              <div className={styles.iconWrapper}>
+                <div className="laptop icon" />
+              </div>
+              <span>DevTools</span>
             </Link>
 
             <Link
@@ -213,6 +223,31 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Link
             activeClassName="active"
+            to={translateLink("/TS", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <span
+                style={{
+                  border: "1px solid white",
+                  display: "inline-block",
+                  lineHeight: 1.8,
+                  width: 16,
+                  height: 16,
+                  fontSize: 8,
+                  marginTop: 2,
+                  background: "white",
+                  color: "black",
+                  fontWeight: 600,
+                }}
+              >
+                TS
+              </span>
+            </div>
+            <span>TS</span>
+          </Link>
+
+          <Link
+            activeClassName="active"
             to={translateLink("/advanced-usage", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
@@ -260,7 +295,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 position: "absolute",
                 overflow: "hidden",
                 marginLeft: -10,
-                // paddingTop: 5,
                 zIndex: 4,
               }}
             >

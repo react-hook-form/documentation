@@ -122,7 +122,7 @@ function ApiPage({
     clearErrorRef: null,
     setValueRef: null,
     getValuesRef: null,
-    triggerValidationRef: null,
+    triggerRef: null,
     controlRef: null,
     formStateRef: null,
     ControllerRef: null,
@@ -379,7 +379,7 @@ function ApiPage({
               ,{" "}
               <code
                 className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("triggerValidation")}
+                onClick={() => goToSection("trigger")}
               >
                 trigger
               </code>
@@ -852,7 +852,7 @@ const { register } = useForm<Inputs>({
 
           <section
             ref={ref => {
-              apiSectionsRef.current.triggerValidationRef = ref
+              apiSectionsRef.current.triggerRef = ref
             }}
           >
             <code className={typographyStyles.codeHeading}>
