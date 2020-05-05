@@ -28,8 +28,8 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          When set to <code>firstErrorDetected</code> (default), only first
-          error from each field will be gathered.
+          When set to <code>firstError</code> (default), only first error from
+          each field will be gathered.
         </p>
         <p>
           When set to <code>all</code>, all errors from each field will be

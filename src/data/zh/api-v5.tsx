@@ -69,7 +69,7 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          默认行为<code>firstErrorDetected</code>将验证
+          默认行为<code>firstError</code>将验证
           所有字段的验证，并收集所有遇到的第一个错误。
         </p>
         <p>

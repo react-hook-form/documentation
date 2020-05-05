@@ -63,8 +63,8 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          기본값으로 설정 된 <code>firstErrorDetected</code> 는 모든 필드 유효성
-          검사를 실행하고 처음 발견하는 모든 에러를 모읍니다.
+          기본값으로 설정 된 <code>firstError</code> 는 모든 필드 유효성 검사를
+          실행하고 처음 발견하는 모든 에러를 모읍니다.
         </p>
         <p>
           <code>all</code> 로 설정하면, 모든 필드의 유효성 검사가 실행되면서
