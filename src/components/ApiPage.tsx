@@ -423,7 +423,7 @@ function ApiPage({
   validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
   validationResolver: undefined,
   validationContext: undefined,
-  validateCriteriaMode: "firstErrorDetected",
+  validateCriteriaMode: "firstError",
   submitFocusError: true,
   nativeValidation: false, // Note: version 3 only
 })`}
@@ -434,7 +434,7 @@ function ApiPage({
   validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
   validationResolver: undefined,
   validationContext: undefined,
-  validateCriteriaMode: "firstErrorDetected",
+  validateCriteriaMode: "firstError",
   submitFocusError: true,
   nativeValidation: false, // Note: version 3 only
 })`}
@@ -609,7 +609,7 @@ const { register } = useForm<Inputs>({
                         <code>
                           validateCriteriaMode: <br />
                           <span className={styles.mobileTypeText}>
-                            firstErrorDetected | all
+                            firstError | all
                           </span>
                         </code>
                       </h5>

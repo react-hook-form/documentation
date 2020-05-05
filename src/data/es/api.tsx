@@ -65,9 +65,9 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          El comportamiento predeterminado <code>firstErrorDetected</code>{" "}
-          realizará todas las validaciones de los campos y reunirá los primeros
-          errores encontrados.
+          El comportamiento predeterminado <code>firstError</code> realizará
+          todas las validaciones de los campos y reunirá los primeros errores
+          encontrados.
         </p>
         <p>
           Con la configuración seteada en <code>all</code>, se correran todas
