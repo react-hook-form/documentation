@@ -617,7 +617,7 @@ export default {
         </p>
         <p>
           You can also set the <code>shouldValidate</code> parameter to{" "}
-          <code>true</code>
+          <code>true</code>{" "}
           in order to trigger a field validation. eg:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
