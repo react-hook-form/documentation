@@ -60,7 +60,7 @@ export default {
   },
   applyValidation: {
     title: "Применение валидации",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form делает валидацию проще за счёт использования
@@ -162,7 +162,7 @@ export default {
   },
   workWithUI: {
     title: "Работа с UI библиотеками",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form был создан для простой интеграции в компоненты

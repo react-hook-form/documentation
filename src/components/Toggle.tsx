@@ -8,7 +8,7 @@ export default function Toggle() {
   const { action, state } = useStateMachine(updateSetting)
   const lightMode = state?.setting?.lightMode
 
-  const onChange = e => {
+  const onChange = (e) => {
     action({
       lightMode: e.target.checked,
     })

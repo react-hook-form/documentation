@@ -57,7 +57,7 @@ export default {
   },
   applyValidation: {
     title: "Aplicar validação",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form cria validação de formulário simples, alinhado com os
@@ -141,7 +141,7 @@ export default {
   },
   workWithUI: {
     title: "Trabalhe com uma biblioteca de interface",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form é bem fácil de ser integrado com componentes externos

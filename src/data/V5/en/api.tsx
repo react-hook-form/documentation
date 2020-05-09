@@ -36,7 +36,7 @@ export default {
         </p>
       </>
     ),
-    validationResolver: goToSection => (
+    validationResolver: (goToSection) => (
       <>
         <p>
           This callback function allows you to run through any schema or custom
@@ -93,7 +93,7 @@ export default {
         significant impact on performances.
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           You can set the input's default value with{" "}
@@ -142,7 +142,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         Apply form validation rules with <code>Yup</code> at the schema level,
         please refer to the{" "}
@@ -183,7 +183,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         Setting this option to <code>true</code> will enable the browser's
         native validation. You can{" "}
@@ -270,7 +270,7 @@ export default {
       registerWithValidation: "Register with validation",
       registerWithValidationMessage:
         "Register with validation and error message",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
@@ -382,7 +382,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           Object containing form errors and error messages corresponding to each
@@ -501,7 +501,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>

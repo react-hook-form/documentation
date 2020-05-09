@@ -26,12 +26,12 @@ export default function SortableContainer({
     <div className={styles.sortableWrapper}>
       <Sortable
         tag="ul"
-        onChange={data => {
+        onChange={(data) => {
           updateFormData(
             data.reduce((previous, current) => {
               return [
                 ...previous,
-                formData[formData.findIndex(data => current === data.name)],
+                formData[formData.findIndex((data) => current === data.name)],
               ]
             }, [])
           )
@@ -80,7 +80,7 @@ export default function SortableContainer({
                           reset()
                         } else {
                           const index = formData.findIndex(
-                            data => field.name === data.name
+                            (data) => field.name === data.name
                           )
                           setFormData(formData[index])
                           setEditIndex(index)
@@ -99,7 +99,7 @@ export default function SortableContainer({
                           )
                         ) {
                           const index = formData.findIndex(
-                            data => field.name === data.name
+                            (data) => field.name === data.name
                           )
 
                           if (index >= 0) {

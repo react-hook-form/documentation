@@ -50,7 +50,7 @@ function HomePage({
       ? language
       : { currentLanguage: defaultLang }
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     updateSubmitData(data)
   }
 
@@ -76,8 +76,8 @@ function HomePage({
     const isolate = document.querySelector("#isolate")
     const card = document.querySelector("#card")
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (entry.target === featureList && !isPlayFeature) {
             setFeaturePlay(true)
