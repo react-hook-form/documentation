@@ -5,7 +5,6 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -14,11 +13,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        通过调用使用<code>useForm</code>，您将收到以下方法{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code>也有<strong>可选</strong>的参数。

@@ -15,11 +15,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        Вызывая <code>useForm</code>, вы получите следующие методы{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> также имеет <b>необязательные</b> аргументы. В

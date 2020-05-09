@@ -15,11 +15,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
-      </>
-    ),
     validateContext: (
       <>
         <p>

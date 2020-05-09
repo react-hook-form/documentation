@@ -16,12 +16,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        <code>useForm</code>{" "}
-        を呼び出すことにより、次のメソッドを受け取ることができます。{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> は<b>省略可能</b>な引数もあります。

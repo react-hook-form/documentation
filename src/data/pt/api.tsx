@@ -16,11 +16,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        Utilizando <code>useForm</code>, você receberá os seguintes métodos{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> também tem argumentos <b>opcionais</b>. O exemplo a

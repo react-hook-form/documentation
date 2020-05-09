@@ -13,11 +13,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        By invoking <code>useForm</code>, you will receive the following methods{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> also has <b>optional</b> arguments. The following
