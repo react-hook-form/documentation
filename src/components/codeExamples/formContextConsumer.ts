@@ -1,5 +1,5 @@
 export default `import React from "react";
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useForm, FormProvider, FormContext, useFormContext } from "react-hook-form";
 
 export default function App() {
   const methods = useForm();
@@ -16,7 +16,10 @@ export default function App() {
 }
 
 function NestedInput() {
-  const { register } = useFormContext(); // retrieve all hook methods
-  return <input name="test" ref={register} />;
+  return (
+    <FormContext.Consumer>
+      {({ register }) => <input name="test" ref={register} />}
+    </FormContext.Consumer>
+  );
 }
 `
