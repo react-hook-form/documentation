@@ -13,6 +13,7 @@ import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import control from "./codeExamples/control"
+import shareRefTs from "./codeExamples/shareRefTs"
 import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -169,7 +170,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           {faq.questions[5].description}
 
-          <CodeArea rawData={shareRef} />
+          <CodeArea rawData={shareRef} tsRawData={shareRefTs} />
           <hr />
 
           <h2

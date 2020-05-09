@@ -27,8 +27,8 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          When set to <code>firstErrorDetected</code> (default), only first
-          error from each field will be gathered.
+          When set to <code>firstError</code> (default), only first error from
+          each field will be gathered.
         </p>
         <p>
           When set to <code>all</code>, all errors from each field will be
@@ -566,8 +566,7 @@ export default {
         </p>
         <p>
           You can also set the <code>shouldValidate</code> parameter to{" "}
-          <code>true</code>
-          in order to trigger a field validation. eg:{" "}
+          <code>true</code> in order to trigger a field validation. eg:{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
       </>

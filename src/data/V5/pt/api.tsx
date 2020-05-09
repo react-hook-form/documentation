@@ -64,8 +64,8 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          O comportamento padrão <code>firstErrorDetected</code> irá validar
-          todos os campos e reunir todos os primeiros erros encontrados.
+          O comportamento padrão <code>firstError</code> irá validar todos os
+          campos e reunir todos os primeiros erros encontrados.
         </p>
         <p>
           Com a configuração de <code>all</code>, todos as validações de campos

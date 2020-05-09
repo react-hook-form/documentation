@@ -64,7 +64,7 @@ export default {
     validateCriteriaMode: (
       <>
         <p>
-          デフォルトの設定である <code>firstErrorDetected</code>{" "}
+          デフォルトの設定である <code>firstError</code>{" "}
           は、全てのフィールドのバリデーションを行い、最初に発生したエラーを収集します。
         </p>
         <p>

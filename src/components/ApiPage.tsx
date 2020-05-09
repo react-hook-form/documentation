@@ -572,7 +572,7 @@ const { register } = useForm<Inputs>({
                         <code>
                           criteriaMode <br />
                           <span className={styles.mobileTypeText}>
-                            firstErrorDetected | all
+                            firstError | all
                           </span>
                         </code>
                       </h5>
