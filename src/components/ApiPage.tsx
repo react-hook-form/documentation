@@ -33,6 +33,7 @@ import resetController from "./codeExamples/resetController"
 import control from "./codeExamples/control"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
+import UseWatch from "./UseWatch"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
@@ -61,6 +62,7 @@ const enLinks = [
   apiEn.Controller,
   apiEn.ErrorMessage,
   apiEn.useFormContext,
+  apiEn.useWatch,
   apiEn.useFieldArray,
 ]
 
@@ -81,6 +83,7 @@ function ApiPage({
     state,
     state: { language },
   } = useStateMachine()
+  // @ts-ignore
   const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
@@ -107,6 +110,7 @@ function ApiPage({
     api.Controller,
     api.ErrorMessage,
     api.useFormContext,
+    api.useWatch,
     api.useFieldArray,
   ]
   const copyFormData = useRef([])
@@ -129,6 +133,7 @@ function ApiPage({
     ErrorMessageRef: null,
     useFormContextRef: null,
     useFieldArrayRef: null,
+    useWatchRef: null,
   })
   copyFormData.current = formData
 
@@ -833,6 +838,12 @@ const { register } = useForm<Inputs>({
             ref={(ref) => (apiSectionsRef.current.useFormContextRef = ref)}
           >
             <FormContext currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (apiSectionsRef.current.useWatchRef = ref)}>
+            <UseWatch currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

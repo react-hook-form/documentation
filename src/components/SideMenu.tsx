@@ -66,6 +66,7 @@ function SideMenu({
                 "useformcontext",
                 "controller",
                 "usefieldarray",
+                "usewatch",
                 "errormessage",
                 "validationschema",
                 "validationresolver",
@@ -116,7 +117,7 @@ function SideMenu({
                   ...(index > 0
                     ? {
                         marginLeft: 10,
-                        ...(index !== links.length - (version === 6 ? 5 : 8)
+                        ...(index !== links.length - (version === 6 ? 6 : 8)
                           ? { borderLeft: `1px solid ${colors.lightPink}` }
                           : null),
                         ...(index === 3
@@ -128,7 +129,7 @@ function SideMenu({
               >
                 <span
                   className={`${styles.arrow} ${
-                    index === links.length - (version === 6 ? 5 : 8)
+                    index === links.length - (version === 6 ? 6 : 8)
                       ? styles.arrowLast
                       : ""
                   }`}
