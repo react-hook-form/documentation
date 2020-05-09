@@ -136,7 +136,7 @@ export default {
       <p>
         Esta opção permite configurar quando entradas com erros são exibidas e
         revalidadas (por padrão, a validação é acionada durante uma entrada
-        mudança.) <Popup />
+        mudança.)
       </p>
     ),
     validationFields: (
@@ -1167,8 +1167,7 @@ React.useEffect(() => {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Essa função será
-          cacheada dentro do custom hook, similar ao{" "}
-          <code>validationSchema</code>, enquanto o{" "}
+          cacheada dentro do custom hook, enquanto o{" "}
           <code>validationContext</code> é um objeto mutável que pode ser
           modificado a cada re-render.
         </p>

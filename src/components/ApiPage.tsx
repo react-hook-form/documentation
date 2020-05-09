@@ -339,7 +339,7 @@ function ApiPage({
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
-                  string = 'onSubmit'
+                  onChange | onBlur | onSubmit = 'onSubmit'
                 </span>
               </code>
               <Popup top={3} />
@@ -376,6 +376,27 @@ function ApiPage({
                   </tr>
                 </tbody>
               </table>
+
+              <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+                <code>
+                  reValidateMode:{" "}
+                  <span className={typographyStyles.typeText}>
+                    onChange | onBlur | onSubmit = 'onSubmit'
+                  </span>
+                </code>
+                <Popup
+                  top={3}
+                  message="React Native: Custom register or using Controller"
+                />
+              </h5>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <td>{api.useForm.reValidateMode}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
@@ -385,10 +406,6 @@ function ApiPage({
                   {`Record<string, any>`} = {`{}`}
                 </span>
               </code>
-              <Popup
-                top={3}
-                message="React Native: Custom register or using Controller"
-              />
             </h5>
 
             {api.useForm.defaultValues(goToSection)}
@@ -446,30 +463,11 @@ const { register } = useForm<Inputs>({
                       >
                         <code>
                           context: <br />
-                          <span className={styles.mobileTypeText}>Object</span>
+                          <span className={styles.mobileTypeText}>object</span>
                         </code>
                       </h5>
                     </td>
                     <td>{api.useForm.validateContext}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          reValidateMode: <br />
-                          <span className={styles.mobileTypeText}>
-                            onChange | onBlur | onSubmit
-                          </span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>{api.useForm.reValidateMode}</td>
                   </tr>
                   <tr>
                     <td>

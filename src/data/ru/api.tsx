@@ -135,7 +135,7 @@ export default {
       <p>
         Этот параметр позволяет установить, когда поля с ошибками будут повторно
         валидироваться (по умолчанию проверка запускается при любом изменении в
-        поле). <Popup />
+        поле).
       </p>
     ),
     validationFields: (
@@ -1185,9 +1185,8 @@ React.useEffect(() => {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> this function will be
-          cached inside the custom hook similar as <code>validationSchema</code>
-          , while <code>validationContext</code> is a mutable object which can
-          be changed on each re-render.
+          cached inside the custom hook, while <code>validationContext</code> is
+          a mutable object which can be changed on each re-render.
         </p>
 
         <p>

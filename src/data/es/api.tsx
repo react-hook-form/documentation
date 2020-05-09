@@ -140,7 +140,7 @@ export default {
       <p>
         Esta opción te permite configurar cuándo las entradas con errores son
         revalidadas (por defecto, la validación se activa cuando se cambia un
-        input.) <Popup />
+        input.)
       </p>
     ),
     validationFields: (
@@ -1159,8 +1159,7 @@ React.useEffect(() => {
 
         <p>
           <b className={typographyStyles.note}>Nota:</b> esta función se
-          almacenará en caché dentro del enlace personalizado, similar a{" "}
-          <code>validationSchema</code>, mientras que{" "}
+          almacenará en caché dentro del enlace personalizado, mientras que{" "}
           <code>validationContext</code> es un objeto mutable que se puede
           cambiar en cada representación.
         </p>

@@ -132,7 +132,6 @@ export default {
       <p>
         이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수 있습니다.
         (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
-        <Popup />
       </p>
     ),
     validationFields: (
@@ -1136,10 +1135,9 @@ React.useEffect(() => {
           반드시 인풋 값과 연결되어야 합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b> 이 함수는
-          <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
-          캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
-          변경할 수있는 변경 가능한 객체입니다.
+          <b className={typographyStyles.note}>참고:</b>이 기능은
+          <code>validationContext</code>는 다시 렌더링 할 때마다 변경할 수있는
+          변경 가능한 객체.
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는

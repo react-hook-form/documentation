@@ -125,8 +125,7 @@ export default {
     ),
     reValidateMode: (
       <p>
-        此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。{" "}
-        <Popup />
+        此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。
       </p>
     ),
     validationFields: (
@@ -1126,8 +1125,8 @@ React.useEffect(() => {
           返回错误对象的键应与您的输入有关。
         </p>
         <p>
-          <b className={typographyStyles.note}>注意:</b>该函数将被缓存在类似于
-          <code>validationSchema</code>的自定义钩子中，而
+          <b className={typographyStyles.note}>注意:</b>
+          该函数将被缓存在的自定义钩子中，而
           <code>validationContext</code>
           是一个可变对象，可以在每次重新渲染时进行更改。
         </p>

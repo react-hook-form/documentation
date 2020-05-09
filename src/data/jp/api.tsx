@@ -137,7 +137,6 @@ export default {
       <p>
         このオプションを使用すると、エラーのある入力が再度バリデーションされるタイミングを設定することができます。{" "}
         (デフォルトでは、入力変更時にバリデーションがトリガーされます。){" "}
-        <Popup />
       </p>
     ),
     validationFields: (
@@ -1181,11 +1180,10 @@ React.useEffect(() => {
           <code>name</code>属性）に関連させる必要があります。
         </p>
         <p>
-          <b className={typographyStyles.note}>注意:</b> この関数は{" "}
-          <code>validationSchema</code>{" "}
-          と同様にカスタムフック内にキャッシュされますが、{" "}
-          <code>validationContext</code>{" "}
-          は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
+          <b className={typographyStyles.note}>注意:</b>この関数は
+          カスタムフック内にキャッシュされますが、
+          <code>validationContext</code>は
+          再レンダリングのたびに変更できる可変オブジェクト。
         </p>
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}

@@ -132,7 +132,7 @@ export default {
       <p>
         This option allows you to configure when inputs with errors get
         re-validated (by default, validation is triggered during an input
-        change.) <Popup />
+        change.)
       </p>
     ),
     validationFields: (
@@ -1174,9 +1174,8 @@ React.useEffect(() => {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> this function will be
-          cached inside the custom hook similar as <code>validationSchema</code>
-          , while <code>validationContext</code> is a mutable object which can
-          be changed on each re-render.
+          cached inside the custom hook, while <code>validationContext</code> is
+          a mutable object which can be changed on each re-render.
         </p>
 
         <p>
