@@ -394,7 +394,7 @@ export default {
       <>
         <p>
           您可以构建一个自定义钩子作为验证解析器。定制挂钩
-          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(validationResolver)中使用。
+          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(resolver)中使用。
         </p>
         <ul>
           <li>

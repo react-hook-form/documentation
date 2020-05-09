@@ -31,7 +31,7 @@ export default {
       <>
         <p>
           Esse objeto de contexto será injetado no segundo argumento de{" "}
-          <code>validationResolver</code> ou em{" "}
+          <code>resolver</code> ou em{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -74,7 +74,7 @@ export default {
         como uma prática não performática.
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           Você pode setar o valor padrão do campoo com{" "}
@@ -124,7 +124,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         Aplique regras de validação do formulário com <code>Yup</code> a nível
         de esquema, por favor, verifique a seção{" "}
@@ -166,7 +166,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         Setar esta opção para <code>true</code> irá habilitar a validação nativa
         do navegador. Você pode{" "}
@@ -253,7 +253,7 @@ export default {
       registerWithValidation: "'Register' com validação",
       registerWithValidationMessage:
         "'Register' com validação e mensagem de erro",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>Register Customizado</h2>
           <p>
@@ -368,7 +368,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           Objeto contendo erros de formulário, ou mensagens de erro que
@@ -381,7 +381,7 @@ export default {
         Isto é útil para validação de campos como regras de senha, com múltiplos
         errors que precisam ser retornados de um único campo. Para habilitar
         essa funcionalidade, tenha certeza de setar{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `'Message' é um campo string e vazio por padrão. Entretanto, se você registrar a validação com mensagem de erro, ele será retornado.`,
@@ -459,7 +459,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
@@ -1133,8 +1133,8 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>

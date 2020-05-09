@@ -23,8 +23,7 @@ export default {
     validateContext: (
       <>
         <p>
-          이 컨텍스트 객체는 <code>validationResolver</code> 의 두 번째 인자로
-          주입되거나{" "}
+          이 컨텍스트 객체는 <code>resolver</code> 의 두 번째 인자로 주입되거나{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -73,7 +72,7 @@ export default {
         않습니다.
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정
@@ -122,7 +121,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
         <button
@@ -161,7 +160,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가
         활성화됩니다.
@@ -247,7 +246,7 @@ export default {
       title: "Register Options",
       registerWithValidation: "유효성 검사와 함께 등록",
       registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
@@ -354,7 +353,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
       </>
@@ -363,8 +362,7 @@ export default {
       <>
         여러 종류의 에러가 하나의 필드에 적용되어야 하는 비밀번호 규칙 같은
         입력의 유효성 검사를 할 때 유용합니다. 이 기능을 활성화하려면,{" "}
-        <code>validateCriteriaMode: 'all'</code> 으로 설정해두는 것을 잊지
-        마세요.
+        <code>criteriaMode 'all'</code> 으로 설정해두는 것을 잊지 마세요.
       </>
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
@@ -441,7 +439,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
@@ -1105,8 +1103,8 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>

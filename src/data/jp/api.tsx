@@ -76,7 +76,7 @@ export default {
         非推奨: これをパフォーマンスの悪い習慣と考えてください。
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           <code>defaultValue/defaultChecked</code> を使用して input
@@ -126,7 +126,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         スキーマレベルで <code>Yup</code>{" "}
         を使用してフォームバリデーションルールを適用します。{" "}
@@ -167,7 +167,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         このオプションを <code>true</code>{" "}
         に設定すると、ブラウザーネイティブバリデーションが有効になります。
@@ -256,7 +256,7 @@ export default {
       title: "登録オプション",
       registerWithValidation: "バリデーションのみで登録",
       registerWithValidationMessage: "バリデーションとエラーメッセージで登録",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>カスタム登録</h2>
           <p>
@@ -378,7 +378,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           オブジェクトには、各 input{" "}
@@ -390,7 +390,7 @@ export default {
       <>
         これは、単一のフィールドで複数のエラーを返す必要がある、
         パスワードのルールのような input のバリデーションに役立ちます。
-        この機能を有効にするには、 <code>validateCriteriaMode: 'all'</code>{" "}
+        この機能を有効にするには、 <code>criteriaMode 'all'</code>{" "}
         を設定してください。
       </>
     ),
@@ -467,7 +467,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
@@ -1147,8 +1147,8 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>

@@ -30,10 +30,9 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or Este objeto de
-          contexto se inyectará en El segundo argumento de{" "}
-          <code>validationResolver</code> o
+          This context object will be injected into <code>resolver</code>'s
+          second argument or Este objeto de contexto se inyectará en El segundo
+          argumento de <code>resolver</code> o
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -78,7 +77,7 @@ export default {
         Considera que es una mala práctica de performance.
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           Puedes setear el valor por defecto del input con{" "}
@@ -129,7 +128,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         Aplica reglas de validación de formularios con <code> Yup </code>
         en el nivel de esquema, por favor refiérase a la sección{" "}
@@ -171,7 +170,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         Seteando esta opción en <code>true</code> habilitará la validación
         nativa del navegador. Puedes{" "}
@@ -260,7 +259,7 @@ export default {
       registerWithValidation: "Registro con validación",
       registerWithValidationMessage:
         "Registro con validación y mensaje de error",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>Registro personalizado</h2>
           <p>
@@ -376,7 +375,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           Objeto que contiene los errores de formulario o los mensajes de error
@@ -389,7 +388,7 @@ export default {
         Esto es útil para validaciones de inputs como reglas de contraseña,
         cuando múltiples errores deben retornarse para un solo campo. Para
         habilitar esta función, asegúrese de haber configurado{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `Message es un string vacio por defecto. Sin embargo, si registra la validación con un mensaje de error, se devolverá.`,
@@ -468,7 +467,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
@@ -1122,8 +1121,8 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>

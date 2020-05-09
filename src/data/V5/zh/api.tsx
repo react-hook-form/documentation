@@ -26,7 +26,7 @@ export default {
         下面的示例演示了所有选项的默认值。
       </p>
     ),
-    validationResolver: goToSection => (
+    validationResolver: (goToSection) => (
       <>
         <p>
           该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
@@ -95,7 +95,7 @@ export default {
         的事件上触发，并导致多个重新renders。 不推荐这个方法的实践性能。
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           您可以使用defaultValue/defaultChecked设置输入的默认值
@@ -143,7 +143,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
         <button
@@ -180,7 +180,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         将此选项设置为<code>true</code>将启用浏览器的本机验证。{" "}
         <a
@@ -257,7 +257,7 @@ export default {
       title: "注册选项",
       registerWithValidation: "注册验证",
       registerWithValidationMessage: "注册验证和错误消息",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>手动注册输入</h2>
           <p>
@@ -375,7 +375,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
 
@@ -413,8 +413,7 @@ export default {
       <>
         This is useful for input validation like rules of password, which
         multiple errors need to return for a single field. To enable this
-        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
-        .
+        feature, make sure you have set <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
@@ -486,7 +485,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>

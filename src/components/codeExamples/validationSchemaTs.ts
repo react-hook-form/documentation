@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 
 const App = () => {
   const { register, handleSubmit } = useForm<Inputs>({
-    validationResolver: yupResolver(schema), // yup, joi and even your own.
+    resolver: yupResolver(schema), // yup, joi and even your own.
   });
 
   return (

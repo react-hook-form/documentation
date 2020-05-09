@@ -152,7 +152,7 @@ function ApiPage({
         animate &&
           Math.abs(
             Object.keys(apiSectionsRef.current).findIndex(
-              item => item === refName
+              (item) => item === refName
             ) - activeIndex
           ) < 5
           ? { behavior: "smooth" }
@@ -171,7 +171,7 @@ function ApiPage({
     if (isUnmount.current) return
     try {
       const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
           let index = 0
           const allTops = []
           for (const entrie of entries) {
@@ -206,7 +206,7 @@ function ApiPage({
         }
       )
 
-      Object.values(apiSectionsRef.current).forEach(item => {
+      Object.values(apiSectionsRef.current).forEach((item) => {
         if (item) {
           observer.observe(item)
         }
@@ -231,12 +231,12 @@ function ApiPage({
         >
           <select
             aria-label={`${generic.select[currentLanguage]} API`}
-            onChange={e => {
+            onChange={(e) => {
               goToSection(e.target.value)
             }}
           >
             <option>{generic.select[currentLanguage]} API</option>
-            {links.map(option => {
+            {links.map((option) => {
               const title =
                 typeof option === "function" ? option().title : option.title
 
@@ -295,7 +295,7 @@ function ApiPage({
           </div>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.useFormRef = ref
             }}
           >
@@ -408,18 +408,18 @@ function ApiPage({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationResolver: undefined,
-  validationContext: undefined,
-  validateCriteriaMode: "firstErrorDetected",
+  resolver: undefined,
+  context: undefined,
+  criteriaMode: "firstErrorDetected",
   submitFocusError: true,
 })`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationResolver: undefined,
-  validationContext: undefined,
-  validateCriteriaMode: "firstErrorDetected",
+  resolver: undefined,
+  context: undefined,
+  criteriaMode: "firstErrorDetected",
   submitFocusError: true,
 })`}
             />
@@ -534,37 +534,12 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
-                          validationContext: <br />
+                          context: <br />
                           <span className={styles.mobileTypeText}>Object</span>
                         </code>
                       </h5>
                     </td>
                     <td>{api.useForm.validateContext}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          validateCriteriaMode: <br />
-                          <span className={styles.mobileTypeText}>
-                            firstErrorDetected | all
-                          </span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>
-                      {api.useForm.validateCriteriaMode}
-                      <CodeSandBoxLink
-                        style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
-                      />
-                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -595,6 +570,31 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
+                          criteriaMode <br />
+                          <span className={styles.mobileTypeText}>
+                            firstErrorDetected | all
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>
+                      {api.useForm.validateCriteriaMode}
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
                           submitFocusError: <br />
                           <span className={styles.mobileTypeText}>
                             boolean = true
@@ -612,7 +612,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.registerRef = ref
             }}
           >
@@ -636,7 +636,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.unregisterRef = ref
             }}
           >
@@ -660,7 +660,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
@@ -668,7 +668,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.watchRef = ref
             }}
           >
@@ -676,7 +676,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.handleSubmitRef = ref
             }}
           >
@@ -698,7 +698,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.resetRef = ref
             }}
           >
@@ -738,7 +738,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.setErrorRef = ref
             }}
           >
@@ -777,7 +777,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.clearErrorRef = ref
             }}
           >
@@ -797,7 +797,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.setValueRef = ref
             }}
           >
@@ -826,7 +826,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.getValuesRef = ref
             }}
           >
@@ -851,7 +851,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.triggerRef = ref
             }}
           >
@@ -874,7 +874,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.controlRef = ref
             }}
           >
@@ -895,7 +895,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               // @ts-ignore
               apiSectionsRef.current.formStateRef = ref
             }}
@@ -909,27 +909,31 @@ const { register } = useForm<Inputs>({
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
+          <section ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}>
             <Controller currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.ErrorMessageRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.ErrorMessageRef = ref)}
+          >
             <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
           <section
-            ref={ref => (apiSectionsRef.current.useFormContextRef = ref)}
+            ref={(ref) => (apiSectionsRef.current.useFormContextRef = ref)}
           >
             <FormContext currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
+          >
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
           </section>
 

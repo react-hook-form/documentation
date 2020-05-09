@@ -29,8 +29,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          This context object will be injected into <code>resolver</code>'s
+          second argument or{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -73,7 +73,7 @@ export default {
         считается, что это ухудшает производительность.
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           Вы можете установить зачение по умолчанию для поля с помощью{" "}
@@ -123,7 +123,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         Применение правил валидации с <code>Yup</code> на уровне схемы,
         перейдите в раздел{" "}
@@ -165,7 +165,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         Устанавливая эту опцию в <code>true</code> включит нативную браузерную
         валидацию. Вы можете{" "}
@@ -255,7 +255,7 @@ export default {
       registerWithValidation: "Регистрация с валидацией",
       registerWithValidationMessage:
         "Регистрация с валидацией и сообщением об ошибке",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>Кастомная регистрация</h2>
           <p>
@@ -383,7 +383,7 @@ export default {
         Это полезно для проверки входных данных, таких как правила пароля,
         которые должны возвращать несколько ошибок для одного поля. Чтобы
         включить эту функцию, убедитесь, что вы установили{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `Сообщение является пустой строкой по умолчанию. Однако, если вы зарегистрируете валидацию с сообщением об ошибке, то затем она будет возвращена.`,
@@ -461,7 +461,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
@@ -1148,8 +1148,8 @@ React.useEffect(() => {
       </tbody>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>

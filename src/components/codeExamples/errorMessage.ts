@@ -1,6 +1,5 @@
 export default `import React from "react";
-import { ErrorMessage } from 'react-hook-form-error';
-import { useForm } from "react-hook-form";
+import { useForm, ErrorMessage } from "react-hook-form";
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm();
