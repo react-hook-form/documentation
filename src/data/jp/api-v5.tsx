@@ -28,7 +28,7 @@ export default {
         下記の例は、全てのオプションのデフォルト値を示します。
       </p>
     ),
-    validationResolver: goToSection => (
+    validationResolver: (goToSection) => (
       <>
         <p>
           このコールバック関数を使用すると、任意のスキーマバリデーションまたはカスタムバリデーションを実行できます。
@@ -93,7 +93,7 @@ export default {
         非推奨: これをパフォーマンスの悪い習慣と考えてください。
       </>
     ),
-    defaultValues: goToSection => (
+    defaultValues: (goToSection) => (
       <>
         <p>
           <code>defaultValue/defaultChecked</code> を使用して input
@@ -143,13 +143,13 @@ export default {
         </p>
       </>
     ),
-    validationSchema: goToSection => (
+    validationSchema: (goToSection) => (
       <p>
         スキーマレベルで <code>Yup</code>{" "}
         を使用してフォームバリデーションルールを適用します。{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}
@@ -184,7 +184,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: goToSection => (
+    nativeValidation: (goToSection) => (
       <p>
         このオプションを <code>true</code>{" "}
         に設定すると、ブラウザーネイティブバリデーションが有効になります。
@@ -273,7 +273,7 @@ export default {
       title: "登録オプション",
       registerWithValidation: "バリデーションのみで登録",
       registerWithValidationMessage: "バリデーションとエラーメッセージで登録",
-      note: goToSection => (
+      note: (goToSection) => (
         <>
           <h2 className={typographyStyles.title}>カスタム登録</h2>
           <p>
@@ -383,7 +383,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           オブジェクトには、各 input{" "}
@@ -501,7 +501,7 @@ export default {
       </>
     ),
   },
-  reset: goToSection => ({
+  reset: (goToSection) => ({
     title: "reset",
     description: (
       <>
