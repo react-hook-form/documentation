@@ -1181,4 +1181,14 @@ React.useEffect(() => {
       </>
     ),
   },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        Compartilhe a mesma funcionalidade que a API <code> watch </code>, no
+        entanto, isso isolará a nova renderização no nível do componente e
+        resultará potencialmente em melhor desempenho para sua aplicação.
+      </p>
+    ),
+  },
 }

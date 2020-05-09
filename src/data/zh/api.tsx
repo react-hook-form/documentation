@@ -1138,4 +1138,13 @@ React.useEffect(() => {
       </>
     ),
   },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        与<code> watch </code> API共享相同的功能，但是，
+        会在您的组件级别隔离重新渲染，并可能导致 为您的应用程序提供更好的性能。
+      </p>
+    ),
+  },
 }

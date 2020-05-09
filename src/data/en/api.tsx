@@ -590,16 +590,6 @@ export default {
       </>
     ),
   },
-  useWatch: {
-    title: "useWatch",
-    description: (
-      <p>
-        Share the same functionality as <code>watch</code> API, however, this
-        will isolate re-render at your component level and potentially result in
-        better performance for your application.
-      </p>
-    ),
-  },
   useFieldArray: {
     title: "useFieldArray",
     description: (
@@ -1196,6 +1186,16 @@ React.useEffect(() => {
           trigger re-render accordingly.
         </p>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        Share the same functionality as <code>watch</code> API, however, this
+        will isolate re-render at your component level and potentially result in
+        better performance for your application.
+      </p>
     ),
   },
 }

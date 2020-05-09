@@ -1196,4 +1196,14 @@ React.useEffect(() => {
       </>
     ),
   },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        <code> watch </code> APIと同じ機能を共有しますが、これは
+        コンポーネントレベルで再レンダリングを分離し、結果的に
+        アプリケーションのパフォーマンスが向上します。
+      </p>
+    ),
+  },
 }

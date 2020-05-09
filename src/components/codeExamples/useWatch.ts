@@ -4,7 +4,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 function IsolateReRender({ control }) {
   const firstName = useWatch({
     control,
-    name: 'firstName', // watching firstName only
+    name: 'firstName', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
     defaultValue: 'default' // default value before the render
   });
 
@@ -17,6 +17,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(data => console.log("data", data))}>
       <input ref={register} name="firstName" />
+      <input ref={register} name="last" />
       <IsolateReRender control={control} />
       
       <input type="submit" />

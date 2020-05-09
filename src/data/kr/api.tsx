@@ -1150,4 +1150,13 @@ React.useEffect(() => {
       </>
     ),
   },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        그러나 <code> watch </code> API와 동일한 기능을 공유하십시오. 컴포넌트
+        레벨에서 다시 렌더링을 분리하여 결과적으로 애플리케이션 성능 향상.
+      </p>
+    ),
+  },
 }
