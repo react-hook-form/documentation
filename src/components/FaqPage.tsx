@@ -13,6 +13,7 @@ import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import control from "./codeExamples/control"
+import shareRefTs from "./codeExamples/shareRefTs"
 import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -54,7 +55,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     question15: null,
   })
 
-  const goToSection = name => {
+  const goToSection = (name) => {
     const filterName = name.replace(/[^\w\s]| /g, "")
     const path = enLinks.findIndex(
       ({ title }) =>
@@ -108,7 +109,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
         <main>
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question0 = ref)}
+            ref={(ref) => (sectionsRef.current.question0 = ref)}
           >
             {faq.questions[0].title}
           </h2>
@@ -118,7 +119,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question1 = ref)}
+            ref={(ref) => (sectionsRef.current.question1 = ref)}
           >
             {faq.questions[1].title}
           </h2>
@@ -129,7 +130,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question2 = ref)}
+            ref={(ref) => (sectionsRef.current.question2 = ref)}
           >
             {faq.questions[2].title}
           </h2>
@@ -140,7 +141,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question3 = ref)}
+            ref={(ref) => (sectionsRef.current.question3 = ref)}
           >
             {faq.questions[3].title}
           </h2>
@@ -150,7 +151,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question4 = ref)}
+            ref={(ref) => (sectionsRef.current.question4 = ref)}
           >
             {faq.questions[4].title}
           </h2>
@@ -162,19 +163,19 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question5 = ref)}
+            ref={(ref) => (sectionsRef.current.question5 = ref)}
           >
             {faq.questions[5].title}
           </h2>
 
           {faq.questions[5].description}
 
-          <CodeArea rawData={shareRef} />
+          <CodeArea rawData={shareRef} tsRawData={shareRefTs} />
           <hr />
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question6 = ref)}
+            ref={(ref) => (sectionsRef.current.question6 = ref)}
           >
             {faq.questions[6].title}
           </h2>
@@ -186,7 +187,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question7 = ref)}
+            ref={(ref) => (sectionsRef.current.question7 = ref)}
           >
             {faq.questions[7].title}
           </h2>
@@ -214,7 +215,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question8 = ref)}
+            ref={(ref) => (sectionsRef.current.question8 = ref)}
           >
             {faq.questions[8].title}
           </h2>
@@ -225,7 +226,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question9 = ref)}
+            ref={(ref) => (sectionsRef.current.question9 = ref)}
           >
             {faq.questions[9].title}
           </h2>
@@ -256,7 +257,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question10 = ref)}
+            ref={(ref) => (sectionsRef.current.question10 = ref)}
           >
             {faq.questions[10].title}
           </h2>
@@ -267,7 +268,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question11 = ref)}
+            ref={(ref) => (sectionsRef.current.question11 = ref)}
           >
             {faq.questions[11].title}
           </h2>
@@ -286,7 +287,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question12 = ref)}
+            ref={(ref) => (sectionsRef.current.question12 = ref)}
           >
             {faq.questions[12].title}
           </h2>
@@ -297,7 +298,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question13 = ref)}
+            ref={(ref) => (sectionsRef.current.question13 = ref)}
           >
             {faq.questions[13].title}
           </h2>
@@ -308,7 +309,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question14 = ref)}
+            ref={(ref) => (sectionsRef.current.question14 = ref)}
           >
             {faq.questions[14].title}
           </h2>
@@ -319,7 +320,7 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={ref => (sectionsRef.current.question15 = ref)}
+            ref={(ref) => (sectionsRef.current.question15 = ref)}
           >
             {faq.questions[15].title}
           </h2>
