@@ -40,6 +40,7 @@ import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
+import { getNavLink } from "./Nav"
 
 const { useRef, useEffect } = React
 
@@ -291,7 +292,7 @@ function ApiPage({
                 aria-controls="tabPanel-1"
                 role="tab"
                 onClick={() => {
-                  navigate("/v5/api")
+                  navigate(getNavLink(`v5/api`, currentLanguage))
                 }}
               >
                 V5

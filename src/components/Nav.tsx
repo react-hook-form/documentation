@@ -382,7 +382,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   )
 }
 
-function getNavLink(path: string, selectedLanguage: string) {
+export function getNavLink(path: string, selectedLanguage: string) {
   const i18nPagePathRegex = /^([a-z]{2})(\/\S+|\?.+)/
   const i18nHomePageRegex = /^[a-z]{2}$/
   const i18nPageMatched = path.match(i18nPagePathRegex)
