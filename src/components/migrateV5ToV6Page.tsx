@@ -4,7 +4,6 @@ import Footer from "./Footer"
 import migrateV5ToV6 from "../data/en/migrateV5ToV6"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import styles from "./ApiPage.module.css"
 
 const MigrateV5ToV6 = ({ defaultLang }) => {
   const {
@@ -17,7 +16,7 @@ const MigrateV5ToV6 = ({ defaultLang }) => {
 
   return (
     <div className={containerStyles.container}>
-      <section className={styles.hiddenMenu}>
+      <section>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
           Migration Guide
         </h1>

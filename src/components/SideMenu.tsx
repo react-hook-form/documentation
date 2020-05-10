@@ -46,7 +46,7 @@ function SideMenu({
   enLinks: any
   currentLanguage: string
   activeIndex: number
-  version: number
+  version?: number
 }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
