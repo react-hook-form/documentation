@@ -20,6 +20,7 @@
     "gatsby-plugin-typescript": "2.4.2",
     "gatsby-source-filesystem": "2.3.1",
     "gatsby-transformer-sharp": "2.5.2",
+    "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "little-state-machine": "^3.0.0",
     "prismjs": "^1.20.0",
     "ptz-i18n": "^1.0.0",

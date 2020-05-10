@@ -290,7 +290,12 @@ function ApiPage({
             </p>
           </div>
 
-          <div className={styles.versionToggle}>
+          <div
+            className={styles.versionToggle}
+            style={{
+              marginTop: -9,
+            }}
+          >
             <div
               className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
               role="tablist"
