@@ -1,4 +1,4 @@
-export default str => {
+export default (str) => {
   const el = document.createElement("textarea")
   el.value = str
   el.setAttribute("readonly", "")

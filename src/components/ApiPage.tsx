@@ -164,7 +164,7 @@ function ApiPage({
         animate &&
           Math.abs(
             Object.keys(apiSectionsRef.current).findIndex(
-              item => item === refName
+              (item) => item === refName
             ) - activeIndex
           ) < 5
           ? { behavior: "smooth" }
@@ -183,7 +183,7 @@ function ApiPage({
     if (isUnmount.current) return
     try {
       const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
           let index = 0
           const allTops = []
           for (const entrie of entries) {
@@ -218,7 +218,7 @@ function ApiPage({
         }
       )
 
-      Object.values(apiSectionsRef.current).forEach(item => {
+      Object.values(apiSectionsRef.current).forEach((item) => {
         if (item) {
           observer.observe(item)
         }
@@ -243,12 +243,12 @@ function ApiPage({
         >
           <select
             aria-label={`${generic.select[currentLanguage]} API`}
-            onChange={e => {
+            onChange={(e) => {
               goToSection(e.target.value)
             }}
           >
             <option>{generic.select[currentLanguage]} API</option>
-            {links.map(option => {
+            {links.map((option) => {
               const title =
                 typeof option === "function" ? option().title : option.title
 
@@ -307,7 +307,7 @@ function ApiPage({
 
         <main>
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.useFormRef = ref
             }}
           >
@@ -668,7 +668,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.registerRef = ref
             }}
           >
@@ -692,7 +692,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.unregisterRef = ref
             }}
           >
@@ -716,7 +716,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
@@ -724,7 +724,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.watchRef = ref
             }}
           >
@@ -732,7 +732,7 @@ const { register } = useForm<Inputs>({
           </section>
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.handleSubmitRef = ref
             }}
           >
@@ -754,7 +754,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.resetRef = ref
             }}
           >
@@ -794,7 +794,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.setErrorRef = ref
             }}
           >
@@ -833,7 +833,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.clearErrorRef = ref
             }}
           >
@@ -853,7 +853,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.setValueRef = ref
             }}
           >
@@ -882,7 +882,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.getValuesRef = ref
             }}
           >
@@ -907,7 +907,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.triggerValidationRef = ref
             }}
           >
@@ -930,7 +930,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.controlRef = ref
             }}
           >
@@ -951,7 +951,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               // @ts-ignore
               apiSectionsRef.current.formStateRef = ref
             }}
@@ -965,34 +965,38 @@ const { register } = useForm<Inputs>({
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.ControllerRef = ref)}>
+          <section ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}>
             <Controller currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.ErrorMessageRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.ErrorMessageRef = ref)}
+          >
             <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
           <section
-            ref={ref => (apiSectionsRef.current.useFormContextRef = ref)}
+            ref={(ref) => (apiSectionsRef.current.useFormContextRef = ref)}
           >
             <FormContext currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
-          <section ref={ref => (apiSectionsRef.current.useFieldArrayRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
+          >
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
           <section
-            ref={ref => (apiSectionsRef.current.validationResolverRef = ref)}
+            ref={(ref) => (apiSectionsRef.current.validationResolverRef = ref)}
           >
             <ValidationResolver currentLanguage={currentLanguage} api={api} />
           </section>
@@ -1000,7 +1004,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.validationSchemaRef = ref
             }}
           >
@@ -1025,7 +1029,7 @@ const { register } = useForm<Inputs>({
           <hr />
 
           <section
-            ref={ref => {
+            ref={(ref) => {
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
           >

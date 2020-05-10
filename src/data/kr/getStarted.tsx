@@ -59,7 +59,7 @@ export default {
   },
   applyValidation: {
     title: "유효성 검사 적용하기",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form 은 기존의{" "}
@@ -142,7 +142,7 @@ export default {
   },
   workWithUI: {
     title: "UI 라이브러리에 적용하기",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form 은 외부 UI 컴포넌트 라이브러리와 쉽게 연동할 수

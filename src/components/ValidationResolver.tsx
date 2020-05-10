@@ -4,7 +4,7 @@ import validationResolver from "./codeExamples/validationResolver"
 import validationResolverTs from "./codeExamples/validationResolverTs"
 import typographyStyles from "../styles/typography.module.css"
 
-export default function({ api }) {
+export default function ({ api }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>

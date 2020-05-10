@@ -67,7 +67,7 @@ export default {
   },
   applyValidation: {
     title: "バリデーションを適用する",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form は既存の
@@ -148,7 +148,7 @@ export default {
   },
   workWithUI: {
     title: "UI ライブラリを使用する",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form は、外部 UI

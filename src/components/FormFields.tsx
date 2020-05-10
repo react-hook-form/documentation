@@ -9,7 +9,7 @@ const errorStyle = {
 }
 
 const FormFields = ({ formData, errors, register }) => {
-  return (formData || []).map(field => {
+  return (formData || []).map((field) => {
     switch (field.type) {
       case "select":
         return (
@@ -28,7 +28,7 @@ const FormFields = ({ formData, errors, register }) => {
               field.options
                 .split(";")
                 .filter(Boolean)
-                .map(option => {
+                .map((option) => {
                   return <option key={option}>{option}</option>
                 })}
           </select>
@@ -63,7 +63,7 @@ const FormFields = ({ formData, errors, register }) => {
               field.options
                 .split(";")
                 .filter(Boolean)
-                .map(name => (
+                .map((name) => (
                   <label
                     key={name}
                     style={{

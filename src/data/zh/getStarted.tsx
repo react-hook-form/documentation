@@ -53,7 +53,7 @@ export default {
   },
   applyValidation: {
     title: "应用验证",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form 通过与现有的
@@ -132,7 +132,7 @@ export default {
   },
   workWithUI: {
     title: "使用UI库",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>React Hook Form 让外部UI组件库集成变得简单。</p>
         <p>

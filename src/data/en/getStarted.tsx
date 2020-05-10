@@ -57,7 +57,7 @@ export default {
   },
   applyValidation: {
     title: "Apply validation",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form makes form validation easy by aligning with the
@@ -146,7 +146,7 @@ export default {
   },
   workWithUI: {
     title: "Work with UI library",
-    description: currentLanguage => (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form has made it easy to integrate with external UI

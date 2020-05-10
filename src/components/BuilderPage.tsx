@@ -78,7 +78,7 @@ function BuilderPage({
   const copyFormData = useRef([])
   const closeButton = useRef(null)
   const [showValidation, toggleValidation] = useState(false)
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     if (editIndex >= 0) {
       formData[editIndex] = data
       updateFormData([...formData])
@@ -102,10 +102,11 @@ function BuilderPage({
   const editIndexRef = useRef(null)
   editIndexRef.current = editIndex
 
-  const validate = value => {
+  const validate = (value) => {
     return (
-      !Object.values(copyFormData.current).find(data => data.name === value) ||
-      editIndexRef.current !== -1
+      !Object.values(copyFormData.current).find(
+        (data) => data.name === value
+      ) || editIndexRef.current !== -1
     )
   }
 

@@ -423,8 +423,8 @@ export default {
       <>
         <p>
           You can build a custom hook as a validation resolver. A custom hook
-          can easily integrate with yup/Joi/Superstruct as a validation
-          method, and to be used inside validation resolver.
+          can easily integrate with yup/Joi/Superstruct as a validation method,
+          and to be used inside validation resolver.
         </p>
         <ul>
           <li>

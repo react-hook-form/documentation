@@ -86,7 +86,7 @@ const Faq = ({
     typescript: null,
   })
 
-  const goToSection = name => {
+  const goToSection = (name) => {
     console.log(name)
     const url = window.location.href
     const hashIndex = url.indexOf("#")
@@ -129,7 +129,7 @@ const Faq = ({
         <main>
           <GetStarted
             getStarted={getStarted}
-            quickStartRef={ref => {
+            quickStartRef={(ref) => {
               sectionsRef.current.quickstart = ref
             }}
             currentLanguage={currentLanguage}
@@ -143,7 +143,7 @@ const Faq = ({
             ♦
           </p>
 
-          <h2 ref={ref => (sectionsRef.current.videotutorial = ref)}>
+          <h2 ref={(ref) => (sectionsRef.current.videotutorial = ref)}>
             {getStarted.video.title}
           </h2>
           <p>{getStarted.video.description}</p>
@@ -160,7 +160,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.registerfields = ref
             }}
           >
@@ -173,7 +173,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.applyvalidation = ref
             }}
           >
@@ -186,7 +186,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.adaptingexistingform = ref
             }}
           >
@@ -202,7 +202,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.workwithuilibrary = ref
             }}
           >
@@ -218,7 +218,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.controlledinput = ref
             }}
           >
@@ -234,7 +234,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.integrateglobalstate = ref
             }}
           >
@@ -247,7 +247,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.handleerrors = ref
             }}
           >
@@ -260,7 +260,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.reactnative = ref
             }}
           >
@@ -284,7 +284,7 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
-            ref={ref => {
+            ref={(ref) => {
               sectionsRef.current.typescript = ref
             }}
           >
