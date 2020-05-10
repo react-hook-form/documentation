@@ -94,7 +94,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       >
         <select
           aria-label="Select a language"
-          onChange={e => {
+          onChange={(e) => {
+            const selectedLanguage = e.target.value
             // @ts-ignore
             action(e.target.value)
 
@@ -331,7 +332,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <a
             href="#"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               setShowMenu(!showMenu)
             }}
