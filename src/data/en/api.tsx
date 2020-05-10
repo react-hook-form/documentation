@@ -30,6 +30,28 @@ export default {
         </p>
       </>
     ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          This callback function allows you to run through any schema or custom
+          validation. The function has the entire form <code>values</code> as
+          argument, and you will need to validate the result and return both{" "}
+          <code>values</code> and <code>errors</code>. Read more at{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> This function will be
+          cached inside the hook, you will have to either move the function
+          outside of the component or memorise the function.
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -120,7 +142,7 @@ export default {
         please refer to the{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

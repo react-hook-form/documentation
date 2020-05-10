@@ -149,7 +149,7 @@ export default {
         を使用してフォームバリデーションルールを適用します。{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

@@ -22,6 +22,24 @@ export default {
         seguir demonstra todas as opções, com valor padrão.
       </p>
     ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          Essa função de callback permite que você execute sua validação através
+          de qualquer esquema ou validação customizada. A função recebe um
+          formulário completo com os <code>value</code> como argumento. Você
+          deve validar o resultado e retornar ambos <code>value</code> e{" "}
+          <code>errors</code>. Leia mais em{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -125,7 +143,7 @@ export default {
         de esquema, por favor, verifique a seção{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

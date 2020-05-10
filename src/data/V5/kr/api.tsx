@@ -145,7 +145,7 @@ export default {
         <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

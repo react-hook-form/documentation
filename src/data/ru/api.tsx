@@ -21,6 +21,23 @@ export default {
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          This callback function allow you to run through any schema or custom
+          validation. The function has the entire form <code>values</code> as
+          argument, and you will need to validate the result and return both{" "}
+          <code>values</code> and <code>errors</code>. Read more at{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          section.
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -124,7 +141,7 @@ export default {
         перейдите в раздел{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}
@@ -599,6 +616,26 @@ export default {
           валидации, объект <code>errors</code> будет обновлён.
         </p>
       </>
+    ),
+  },
+  validationSchema: {
+    title: "validationSchema",
+    description: (
+      <p>
+        Если вы хотите централизовать свои правила валидации с помощью внешней
+        схемы валидации, то вы можете использовать <code>validationSchema</code>{" "}
+        в <code>useForm</code> в качестве необязательного параметра. React Hook
+        Form в настоящий момент поддерживает{" "}
+        <a
+          className={buttonStyles.links}
+          href="https://github.com/jquense/yup"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Yup
+        </a>{" "}
+        в качестве внешнего объекта схемы валидации.
+      </p>
     ),
   },
   useFieldArray: {

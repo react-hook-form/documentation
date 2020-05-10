@@ -15,6 +15,29 @@ export default {
   },
   useForm: {
     title: "useForm",
+    intro: (
+      <>
+        <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
+      </>
+    ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          이 콜백 함수는 어떠한 스키마나 커스텀 유효성 검사 함수를 끼워넣어
+          실행시킬 수 있도록 합니다. 이 함수는 전체 폼의 <code>values</code> 를
+          인자로 가지고 있으며, 결과를 검증한 다음
+          <code>values</code> 와 <code>errors</code> 값 모두를 리턴해야 합니다.
+          자세한 내용은
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          섹션에서 확인하세요.
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -121,7 +144,7 @@ export default {
         <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

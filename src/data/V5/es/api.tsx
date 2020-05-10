@@ -152,7 +152,7 @@ export default {
         en el nivel de esquema, por favor refiérase a la sección{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

@@ -19,6 +19,31 @@ export default {
         下面的示例演示了所有选项的默认值。
       </p>
     ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
+          <code> values </code>作为 参数，您将需要验证结果并返回两者
+          <code> values </code>和<code> errors </code>。
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意：</b>
+          只要有错误对象不是空对象，反应钩子形式将考虑该形式视为无效。
+        </p>
+
+        <p>
+          请在此阅读更多信息：
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>
+          。
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -116,7 +141,7 @@ export default {
         将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>

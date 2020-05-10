@@ -22,6 +22,23 @@ export default {
         下記の例は、全てのオプションのデフォルト値を示します。
       </p>
     ),
+    validationResolver: (goToSection) => (
+      <>
+        <p>
+          このコールバック関数を使用すると、任意のスキーマバリデーションまたはカスタムバリデーションを実行できます。
+          この関数は引数としてフォーム全体の <code>values</code> を持ち、
+          その値を検証して <code>values</code> と <code>errors</code>{" "}
+          の両方を返す必要があります。詳細については{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("validationResolver")}
+          >
+            validationResolver
+          </button>{" "}
+          セクションをご覧ください。
+        </p>
+      </>
+    ),
     validateContext: (
       <>
         <p>
@@ -126,7 +143,7 @@ export default {
         を使用してフォームバリデーションルールを適用します。{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}

@@ -148,7 +148,7 @@ export default {
         将表单验证规则应用于架构级别的<code>Yup</code>，请参阅验证架构
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>

@@ -146,7 +146,7 @@ export default {
         перейдите в раздел{" "}
         <button
           className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ValidationSchema")}
+          onClick={() => goToSection("validationSchema")}
         >
           validationSchema
         </button>{" "}
@@ -670,7 +670,7 @@ export default {
     ),
   },
   validationSchema: {
-    title: "ValidationSchema",
+    title: "validationSchema",
     description: (
       <p>
         Если вы хотите централизовать свои правила валидации с помощью внешней
