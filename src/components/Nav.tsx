@@ -95,6 +95,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         <select
           aria-label="Select a language"
           onChange={(e) => {
+            const selectedLanguage = e.target.value
             // @ts-ignore
             action(e.target.value)
 
