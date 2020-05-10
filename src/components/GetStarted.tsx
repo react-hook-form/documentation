@@ -4,9 +4,9 @@ import codeTs from "./codeExamples/defaultExampleTs"
 import * as React from "react"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
+import { useStateMachine } from "little-state-machine"
 import styles from "./GetStarted.module.css"
 import codeAreaStyles from "./CodeArea.module.css"
-import { useStateMachine } from "little-state-machine"
 
 export default function GetStarted({
   quickStartRef,

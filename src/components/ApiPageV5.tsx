@@ -34,6 +34,7 @@ import resetCodeControlled from "./V5/codeExamples/resetCodeControlled"
 import resetController from "./V5/codeExamples/resetController"
 import control from "./V5/codeExamples/control"
 import nativeValidation from "./V5/codeExamples/nativeValidation"
+import colors from "../styles/colors"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./V5/ValidationResolver"
 import headerStyles from "./Header.module.css"
@@ -42,6 +43,7 @@ import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import styles from "./ApiPage.module.css"
+import { Link } from "gatsby"
 
 const { useRef, useEffect } = React
 
@@ -273,6 +275,21 @@ function ApiPage({
         />
 
         <main>
+          <div
+            style={{
+              border: `1px solid ${colors.lightBlue}`,
+              marginBottom: 40,
+              padding: "0 20px",
+              borderRadius: 4,
+            }}
+          >
+            <p>
+              <span style={{ fontSize: 12 }}>►</span> React Hook Form V6 is
+              released. If you are planning to upgrade, please read through the{" "}
+              <Link to="/migrate-v5-to-v6">Migration Guide to V6</Link>.
+            </p>
+          </div>
+
           <div className={styles.versionToggle}>
             <div
               className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
