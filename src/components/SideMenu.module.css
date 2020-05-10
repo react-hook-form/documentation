@@ -98,8 +98,9 @@
 .code {
   color: var(--color-light-pink);
   position: relative;
-  font-size: 14px;
-  top: -2px;
+  font-size: 12px;
+  top: 2px;
+  display: inline-table;
 }
 
 @media (min-width: 1024px) {
