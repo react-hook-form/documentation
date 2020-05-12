@@ -19,7 +19,7 @@
   text-transform: uppercase;
   height: 34px;
   align-items: center;
-  margin: 0 3px
+  margin: 0 3px;
 }
 
 .button:hover {
@@ -54,6 +54,7 @@
   text-decoration: none;
   line-height: 2;
   right: 115px;
+  color: inherit;
 }
 
 .linkToSandBox > svg {
