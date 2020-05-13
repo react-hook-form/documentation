@@ -241,7 +241,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
               >
                 <span className={styles.menuExpandLink}>
-                  Tools{" "}
+                  {nav[currentLanguage].tools.nav}{" "}
                   <span
                     style={{
                       fontSize: 10,
@@ -275,14 +275,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                     activeClassName="active"
                     to={translateLink("/dev-tools", currentLanguage)}
                   >
-                    DevTools
+                    {nav[currentLanguage].tools.devTools}
                   </Link>
 
                   <Link
                     activeClassName="active"
                     to={translateLink("/form-builder", currentLanguage)}
                   >
-                    Form Builder
+                    {nav[currentLanguage].tools.formBuilder}
                   </Link>
                 </div>
               </div>
@@ -318,7 +318,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             <div className={styles.iconWrapper}>
               <div className="tag icon" />
             </div>
-            <span>Resources</span>
+            <span>{nav[currentLanguage].resources}</span>
           </Link>
 
           <a
