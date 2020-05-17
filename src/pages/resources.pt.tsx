@@ -13,7 +13,7 @@ const ResourcesPT = ({
 }) => {
   return (
     <Layout location={location} defaultLang="pt">
-      <Seo title="Resources" location={location} />
+      <Seo title="Recursos" location={location} />
       <ResourcePage defaultLang="pt" />
     </Layout>
   )
