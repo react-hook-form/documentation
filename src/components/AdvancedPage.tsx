@@ -79,7 +79,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.workingWithVirtualizedList,
   ]
 
-  const goToSection = (name) => {
+  const goToSection = name => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/[^\w\s]| /g, "")
@@ -121,7 +121,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
         <main>
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.AccessibilityA11y = ref)}
+            ref={ref => (pageContentRef.current.AccessibilityA11y = ref)}
           >
             {advanced.accessibility.title}
           </h2>
@@ -132,7 +132,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.WizardFormFunnel = ref)}
+            ref={ref => (pageContentRef.current.WizardFormFunnel = ref)}
           >
             {advanced.wizard.title}
           </h2>
@@ -158,7 +158,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.SmartFormComponent = ref)}
+            ref={ref => (pageContentRef.current.SmartFormComponent = ref)}
           >
             {advanced.smartForm.title}
           </h2>
@@ -169,7 +169,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.FieldArrays = ref)}
+            ref={ref => (pageContentRef.current.FieldArrays = ref)}
           >
             {advanced.fieldArrays.title}
           </h2>
@@ -191,7 +191,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.SchemaValidation = ref)}
+            ref={ref => (pageContentRef.current.SchemaValidation = ref)}
           >
             {advanced.schema.title}
           </h2>
@@ -200,10 +200,10 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           {advanced.schema.step1}
 
-          <span className={getStartedStyles.copyButton}>
+          <span className={getStartedStyles.installCode}>
             npm install yup
             <button
-              className={codeAreaStyles.copyButton}
+              className={getStartedStyles.copyButton}
               onClick={() => {
                 copyClipBoard("npm install yup")
                 alert("Code copied into your clipboard.")
@@ -224,7 +224,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.ErrorMessage = ref)}
+            ref={ref => (pageContentRef.current.ErrorMessage = ref)}
           >
             {advanced.errorMessage.title}
           </h2>
@@ -263,7 +263,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.ConnectForm = ref)}
+            ref={ref => (pageContentRef.current.ConnectForm = ref)}
           >
             {advanced.connectForm.title}
           </h2>
@@ -276,7 +276,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.FormContextPerformance = ref)}
+            ref={ref => (pageContentRef.current.FormContextPerformance = ref)}
           >
             {advanced.formContext.title}
           </h2>
@@ -289,7 +289,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) =>
+            ref={ref =>
               (pageContentRef.current.ConditionalControlledComponent = ref)
             }
           >
@@ -310,7 +310,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) =>
+            ref={ref =>
               (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
             }
           >
@@ -331,7 +331,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) =>
+            ref={ref =>
               (pageContentRef.current.CustomHookwithValidationResolver = ref)
             }
           >
@@ -344,7 +344,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) =>
+            ref={ref =>
               (pageContentRef.current.Workingwithvirtualizedlist = ref)
             }
           >
