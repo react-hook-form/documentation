@@ -55,7 +55,7 @@ export default React.memo(
               </tr>
               <tr>
                 <td>
-                  <code>isDirty</code>
+                  <code>dirty</code>
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
@@ -67,18 +67,9 @@ export default React.memo(
                   <code>dirtyFields</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>object</code>
+                  <code className={typographyStyles.typeText}>Set</code>
                 </td>
                 <td>{api.formState.dirtyFields}</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>touched</code>
-                </td>
-                <td>
-                  <code className={typographyStyles.typeText}>object</code>
-                </td>
-                <td>{api.formState.touched}</td>
               </tr>
               <tr>
                 <td>
@@ -101,6 +92,15 @@ export default React.memo(
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>touched</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>object</code>
+                </td>
+                <td>{api.formState.touched}</td>
               </tr>
               <tr>
                 <td>
