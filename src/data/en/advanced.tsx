@@ -216,7 +216,7 @@ export default {
         <p>
           This idea here is that you can easily compose your form with inputs.
           We are going to create a <code>Form</code> component to automatically
-          collecting form data.
+          collect form data.
         </p>
 
         <CodeArea
