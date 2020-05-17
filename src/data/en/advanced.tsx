@@ -22,8 +22,8 @@ export default {
     title: "Controlled mixed with Uncontrolled Components",
     description: (
       <p>
-        React Hook Form embraces uncontrolled components and also compatible
-        with controlled component. Most of UI library is built to support only
+        React Hook Form embraces uncontrolled components and is also compatible
+        with controlled components. Most UI libraries are built to support only
         controlled components, such as{" "}
         <a
           href="https://github.com/mui-org/material-ui"
@@ -40,33 +40,33 @@ export default {
         >
           Antd
         </a>{" "}
-        Besides, with React Hook Form controlled component's re-rendering is
-        also been optimized. Here is an example which we combined with
-        controlled and uncontrolled form validation.
+        Besides, with React Hook Form the re-rendering of controlled component is
+        also optimized. Here is an example that combines controlled and
+        uncontrolled form validation.
       </p>
     ),
   },
   errorMessage: {
-    title: "Error Message",
+    title: "Error Messages",
     description: (
       <p>
         Error messages are visual feedback to our users when there are issues
-        associated with their inputs. In React Hook Form, we provide errors
-        object to let you retrieve errors easily. However, there are several
-        different ways for us to improve render error to the screen.
+        with their inputs. React Hook Form provides an <code>errors</code>
+        object to let you retrieve errors easily. There are several
+        different ways to improve error presentation on the screen.
       </p>
     ),
     register: (
       <>
-        Embed error message during <code>register</code>, you can easily insert
-        your error message in the <code>message</code> attribute. Eg:
+        You can simply pass the error message to <code>register</code>, via the
+        <code>message</code> attribute of the validation rule object, like this:
       </>
     ),
-    component: "Create a ErrorMessage component to help your print out error.",
+    component: "Create an <code>ErrorMessage</code> component to help display the error.",
     optionalChaining: (
       <>
         <p>
-          The{" "}
+          The <code>?.</code>{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -74,8 +74,8 @@ export default {
           >
             optional chaining
           </a>{" "}
-          operator <code>?.</code> permits reading the <code>errors</code>{" "}
-          object without worrying about causing error due to <code>null</code>{" "}
+          operator permits reading the <code>errors</code>{" "}
+          object without worrying about causing another error due to <code>null</code>{" "}
           or <code>undefined</code>.
         </p>
         <p>
@@ -89,7 +89,7 @@ export default {
         <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>
-        , then you can leverage what lodash{" "}
+        , then you can leverage the lodash{" "}
         <code>
           <a
             href="https://lodash.com/docs/4.17.15#get"
@@ -216,7 +216,7 @@ export default {
         <p>
           This idea here is that you can easily compose your form with inputs.
           We are going to create a <code>Form</code> component to automatically
-          collecting form data.
+          collect form data.
         </p>
 
         <CodeArea
@@ -278,7 +278,7 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> we have also build a
+          <b className={typographyStyles.note}>Note:</b> we have also built a
           custom hook for complex scenario:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
@@ -290,7 +290,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> if your application
-          requires functionality such as: Delete, Insert, Append, Preprend. Here
+          requires functionality such as Delete, Insert, Append, Preprend, here
           is the{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
@@ -355,15 +355,15 @@ export default {
     description: (
       <>
         <p>
-          In terms of conditional field, React Hook Form made that really simple
-          for us, because the moment when you removed the input form the
-          component tree, it will get <code>unregister</code> automatically,{" "}
+          React Hook Form makes dealing with conditional fields really simple
+          because when you remove the input from the component tree,
+          it will get <code>unregister</code>ed automatically.{" "}
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            here is an example
+            Here is an example
           </a>{" "}
           for such behavior. However, that's not the same case for controlled
           components since <code>ref</code> is not been registered, and we can
@@ -440,7 +440,7 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "Working with virtualized lists",
     description: (
       <>
         <p>
