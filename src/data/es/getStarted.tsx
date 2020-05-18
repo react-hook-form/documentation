@@ -234,8 +234,28 @@ export default {
         <p>
           React Hook Form soporta validación de formularios basada en esquemas
           con{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
           </a>
           , donde puedes pasar tu <code>validationSchema</code> a{" "}
           <a href="/api#useForm">useForm</a> como configuración opcional. React

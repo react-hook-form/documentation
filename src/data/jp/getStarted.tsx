@@ -242,8 +242,28 @@ export default {
       <>
         <p>
           React Hook Form は、{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
           </a>{" "}
           を活用してスキーマベースのフォームバリデーションをサポートしています。
           省略可能な引数として <code>validationSchema</code> を{" "}

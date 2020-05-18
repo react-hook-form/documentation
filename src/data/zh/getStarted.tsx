@@ -199,8 +199,28 @@ export default {
       <>
         <p>
           React Hook Form支持使用
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
           </a>
           进行基于模式的表单验证，您可以在<a href="/api#useForm">useForm</a>
           其中通过

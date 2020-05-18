@@ -241,8 +241,28 @@ export default {
       <>
         <p>
           React Hook Form 은{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
           </a>
           을 활용하여 스키마 기반의 폼 유효성 검사를 제공합니다.{" "}
           <code>validationSchema</code> 를 <a href="/api#useForm">useForm</a> 에

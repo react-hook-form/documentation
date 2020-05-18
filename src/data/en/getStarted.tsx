@@ -243,10 +243,30 @@ export default {
       <>
         <p>
           React Hook Form supports schema-based form validation with{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
           </a>
-          , where you can pass your <code>validationSchema</code> to{" "}
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          , where you can pass your <code>schema</code> to{" "}
           <a href="/api#useForm">useForm</a> as an optional config. React Hook
           Form will validate your input data against the schema and return with
           either <a href="/api#errors">errors</a> or a valid result.
