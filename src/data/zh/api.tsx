@@ -1,6 +1,5 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
@@ -1123,6 +1122,14 @@ React.useEffect(() => {
         <p>
           此功能使您可以运行任何外部验证方法，例如
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1140,25 +1147,62 @@ React.useEffect(() => {
           和。实际上，目标不仅限于限制Yup作为我们的外部（架构）验证库。我们希望支持许多其他验证库以与React
           Hook Form一起使用。您甚至可以编写自定义验证逻辑进行验证。
         </p>
+
         <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          确保返回的对象包含值和错误，并且它们的默认值应为空对象
-          <code>{`{}`}</code>。
+          我们正式支持Yup，Joi和Superstruct
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            标准解析器
+          </a>
+          。
         </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          返回错误对象的键应与您的输入有关。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          该函数将被缓存在的自定义钩子中，而
-          <code>validationContext</code>
-          是一个可变对象，可以在每次重新渲染时进行更改。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
+
+        <p>关于构建自定义解析器的说明：</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              确保返回的对象包含值和错误，并且它们的默认值应为空对象
+              <code>{`{}`}</code>。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              返回错误对象的键应与您的输入有关。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>
+              该函数将被缓存在的自定义钩子中，而
+              <code>context</code>
+              是一个可变对象，可以在每次重新渲染时进行更改。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>
+              重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },

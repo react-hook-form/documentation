@@ -1,12 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API 설명서",
@@ -1127,6 +1124,14 @@ React.useEffect(() => {
         <p>
           이 함수는
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1147,27 +1152,64 @@ React.useEffect(() => {
           React Hook Form 과 함께 동작할 수 있도록 지원하려 합니다. 심지어
           유효성 검사를 위해 직접 커스터마이징할 수도 있습니다.
         </p>
+
         <p>
-          <b className={typographyStyles.note}>참고:</b> 반드시{" "}
-          <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
-          리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체 <code>{`{}`}</code>{" "}
-          가 되어야 합니다.
+          우리는 공식적으로 Yup, Joi 및 Superstruct를{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            표준 리졸버
+          </a>
+          .
         </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
-          반드시 인풋 값과 연결되어야 합니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b>이 기능은
-          <code>validationContext</code>는 다시 렌더링 할 때마다 변경할 수있는
-          변경 가능한 객체.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는
-          것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다. 왜냐하면
-          라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고 그에 따라
-          리랜더링을 실행하기 때문입니다.
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
+
+        <p>사용자 정의 리졸버 빌드에 대한 참고 사항 :</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> 반드시{" "}
+              <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
+              리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체{" "}
+              <code>{`{}`}</code> 가 되어야 합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> errors 객체의 키
+              값은 반드시 인풋 값과 연결되어야 합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b>이 기능은
+              <code>context</code>는 다시 렌더링 할 때마다 변경할 수있는 변경
+              가능한 객체.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> 입력값을 다시
+              검사하는 것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다.
+              왜냐하면 라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고
+              그에 따라 리랜더링을 실행하기 때문입니다.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },

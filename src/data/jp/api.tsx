@@ -1,12 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API ドキュメント",
@@ -1164,6 +1161,14 @@ React.useEffect(() => {
         <p>
           この関数を使用すると、
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1184,30 +1189,67 @@ React.useEffect(() => {
           で動作する多くのバリデーションライブラリをサポートしたいと思っています。
           カスタムバリデーションロジックを作成して検証することもできます。
         </p>
+
         <p>
-          <b className={typographyStyles.note}>注意:</b> <code>values</code> と{" "}
-          <code>errors</code>{" "}
-          を含むオブジェクトを返していることを確認してください。
-          デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
-          である必要があります。
+          Yup、Joi、Superstructを正式にサポートしています{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            標準リゾルバー
+          </a>
+          。
         </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b> 返す{" "}
-          <code>errors</code> オブジェクトのキーは、フォーム内の input（
-          <code>name</code>属性）に関連させる必要があります。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>この関数は
-          カスタムフック内にキャッシュされますが、
-          <code>validationContext</code>は
-          再レンダリングのたびに変更できる可変オブジェクト。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
-          それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
-          input の再検証が発生します。
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
+
+        <p>カスタムリゾルバの構築に関する注意：</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b> <code>values</code>{" "}
+              と <code>errors</code>{" "}
+              を含むオブジェクトを返していることを確認してください。
+              デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
+              である必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b> 返す{" "}
+              <code>errors</code> オブジェクトのキーは、フォーム内の input（
+              <code>name</code>属性）に関連させる必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>この関数は
+              カスタムフック内にキャッシュされますが、
+              <code>context</code>は
+              再レンダリングのたびに変更できる可変オブジェクト。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
+              それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
+              input の再検証が発生します。
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -1215,7 +1257,7 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        <code> watch </code> APIと同じ機能を共有しますが、これは
+        <code>watch</code> APIと同じ機能を共有しますが、これは
         コンポーネントレベルで再レンダリングを分離し、結果的に
         アプリケーションのパフォーマンスが向上します。
       </p>

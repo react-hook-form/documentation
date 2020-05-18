@@ -1,13 +1,9 @@
 import * as React from "react"
-import { Link as NavLink } from "gatsby"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
-import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Documentación de la API",
@@ -1141,6 +1137,14 @@ React.useEffect(() => {
           Esta función le permite ejecutar cualquier método de validación
           externo, tal como{" "}
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1163,30 +1167,66 @@ React.useEffect(() => {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> asegúrate de que eres
-          devolver objeto que contiene <code>values</code> y <code>errors</code>
-          , y su valor predeterminado debe ser un objeto vacío{" "}
-          <code> {`{}`} </code>.
+          Apoyamos a Yup, Joi y Superstruct oficialmente como{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            solucionadores estándar
+          </a>
+          .
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> errores de retorno La
-          clave del objeto debe ser relevante para sus entradas.
-        </p>
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> esta función se
-          almacenará en caché dentro del enlace personalizado, mientras que{" "}
-          <code>validationContext</code> es un objeto mutable que se puede
-          cambiar en cada representación.
-        </p>
+        <p>notas sobre la creación de solucionadores personalizados:</p>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> volver a validar la
-          entrada solo ocurre un campo a la vez durante la interacción del
-          usuario, porque el lib mismo evaluará el objeto de error en el campo
-          específico y desencadenar re-renderizar en consecuencia.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> asegúrate de que
+              eres devolver objeto que contiene <code>values</code> y{" "}
+              <code>errors</code>, y su valor predeterminado debe ser un objeto
+              vacío <code> {`{}`} </code>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> errores de retorno
+              La clave del objeto debe ser relevante para sus entradas.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> esta función se
+              almacenará en caché dentro del enlace personalizado, mientras que{" "}
+              <code>context</code> es un objeto mutable que se puede cambiar en
+              cada representación.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> volver a validar la
+              entrada solo ocurre un campo a la vez durante la interacción del
+              usuario, porque el lib mismo evaluará el objeto de error en el
+              campo específico y desencadenar re-renderizar en consecuencia.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },

@@ -1,11 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Документация по API",
@@ -1188,6 +1186,14 @@ React.useEffect(() => {
           This function allow you to run any external validation methods, such
           as{" "}
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1209,29 +1215,62 @@ React.useEffect(() => {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          Мы официально поддерживаем Yup, Joi и Superstruct как
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            стандартные резольверы
+          </a>
+          .
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
-        </p>
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> this function will be
-          cached inside the custom hook, while <code>validationContext</code> is
-          a mutable object which can be changed on each re-render.
-        </p>
+        <p>примечания по созданию пользовательских распознавателей:</p>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
-        </p>
+        <ul>
+          <li>
+            <p>
+              make sure you are returning object which contains{" "}
+              <code>values</code> and <code>errors</code>, and their default
+              value should be <code>{`{}`}</code>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              returning errors object's key should be relevant to your inputs.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              this function will be cached inside the custom hook, while{" "}
+              <code>context</code> is a mutable object which can be changed on
+              each re-render.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              re-validate input will only occur one field at time during user’s
+              interaction, because the lib itself will evaluate the error object
+              to the specific field and trigger re-render accordingly.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },

@@ -1,12 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -1154,6 +1151,14 @@ React.useEffect(() => {
           Essa função permite executar qualquer validação ou metodo externo,
           como
           <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1173,28 +1178,64 @@ React.useEffect(() => {
           de validação para funcionar com o React Hook Form. Você pode inclusive
           escrever sua propria logica de validação.
         </p>
+
         <p>
-          <b className={typographyStyles.note}>Nota:</b> Tenha certeza que você
-          retornando o objeto que contem <code>values</code> e{" "}
-          <code>errors</code>, e seus valores padrão sejam um objeto vazio{" "}
-          <code>{`{}`}</code>.
+          Apoiamos Yup, Joi e Superstruct oficialmente como{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            resolvedores padrão
+          </a>
+          .
         </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> retornar a chave do
-          objeto que contenha os erros é relevante para seus inputs.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Essa função será
-          cacheada dentro do custom hook, enquanto o{" "}
-          <code>validationContext</code> é um objeto mutável que pode ser
-          modificado a cada re-render.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Revalidar o input vai
-          ocorrer somente em um campo por vez durante as interações do usuário,
-          porque a biblioteca em si vai considerar o objeto do campo em
-          especifico e disparará o re-render de acordo.
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install react-hook-form-resolvers
+        </code>
+
+        <p>notas sobre a criação de resolvedores personalizados:</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Tenha certeza que
+              você retornando o objeto que contem <code>values</code> e{" "}
+              <code>errors</code>, e seus valores padrão sejam um objeto vazio{" "}
+              <code>{`{}`}</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> retornar a chave do
+              objeto que contenha os erros é relevante para seus inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Essa função será
+              cacheada dentro do custom hook, enquanto o <code>context</code> é
+              um objeto mutável que pode ser modificado a cada re-render.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Revalidar o input
+              vai ocorrer somente em um campo por vez durante as interações do
+              usuário, porque a biblioteca em si vai considerar o objeto do
+              campo em especifico e disparará o re-render de acordo.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
