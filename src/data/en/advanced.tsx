@@ -40,8 +40,8 @@ export default {
         >
           Antd
         </a>{" "}
-        Besides, with React Hook Form the re-rendering of controlled component is
-        also optimized. Here is an example that combines controlled and
+        Besides, with React Hook Form the re-rendering of controlled component
+        is also optimized. Here is an example that combines controlled and
         uncontrolled form validation.
       </p>
     ),
@@ -52,8 +52,8 @@ export default {
       <p>
         Error messages are visual feedback to our users when there are issues
         with their inputs. React Hook Form provides an <code>errors</code>
-        object to let you retrieve errors easily. There are several
-        different ways to improve error presentation on the screen.
+        object to let you retrieve errors easily. There are several different
+        ways to improve error presentation on the screen.
       </p>
     ),
     register: (
@@ -62,7 +62,8 @@ export default {
         <code>message</code> attribute of the validation rule object, like this:
       </>
     ),
-    component: "Create an <code>ErrorMessage</code> component to help display the error.",
+    component:
+      "Create an <code>ErrorMessage</code> component to help display the error.",
     optionalChaining: (
       <>
         <p>
@@ -74,9 +75,9 @@ export default {
           >
             optional chaining
           </a>{" "}
-          operator permits reading the <code>errors</code>{" "}
-          object without worrying about causing another error due to <code>null</code>{" "}
-          or <code>undefined</code>.
+          operator permits reading the <code>errors</code> object without
+          worrying about causing another error due to <code>null</code> or{" "}
+          <code>undefined</code>.
         </p>
         <p>
           <code>{`errors?.firstName?.message`}</code>
@@ -304,37 +305,6 @@ export default {
       </>
     ),
   },
-  schema: {
-    title: "Schema Validation",
-    description: (
-      <>
-        <p>
-          React Hook Form supports schema-based form validation with{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , where you can pass your <code>validationSchema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. React Hook
-          Form will validate your input data against the schema and return with
-          either <a href="/api#errors">errors</a> or a valid result.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Step 1:</b> Install{" "}
-          <code>Yup</code> into your project.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Step 2:</b> Prepare your schema for
-        validation and register inputs with React Hook Form.
-      </p>
-    ),
-  },
   connectForm: {
     title: "Connect Form",
     description: (
@@ -356,8 +326,8 @@ export default {
       <>
         <p>
           React Hook Form makes dealing with conditional fields really simple
-          because when you remove the input from the component tree,
-          it will get <code>unregister</code>ed automatically.{" "}
+          because when you remove the input from the component tree, it will get{" "}
+          <code>unregister</code>ed automatically.{" "}
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"

@@ -237,6 +237,37 @@ export default {
       </p>
     ),
   },
+  schema: {
+    title: "Schema Validation",
+    description: (
+      <>
+        <p>
+          React Hook Form supports schema-based form validation with{" "}
+          <a href="https://github.com/jquense/yup" target="_blank">
+            Yup
+          </a>
+          , where you can pass your <code>validationSchema</code> to{" "}
+          <a href="/api#useForm">useForm</a> as an optional config. React Hook
+          Form will validate your input data against the schema and return with
+          either <a href="/api#errors">errors</a> or a valid result.
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Install{" "}
+          <code>Yup</code> into your project.
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>Step 2:</b> Prepare your schema for
+        validation and register inputs with React Hook Form.
+      </p>
+    ),
+  },
   errors: {
     title: "Handle errors",
     description: (
