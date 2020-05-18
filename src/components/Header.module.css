@@ -64,6 +64,7 @@
 
 .toggleGroup > button:disabled {
   cursor: default;
+  color: currentColor;
   background: transparent;
 }
 
