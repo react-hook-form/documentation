@@ -137,6 +137,32 @@ export default (
         rawData={`- <FormContext {...methods}>
 + <FormProvider {...methods}>`}
       />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>Dirty: </h2>
+      </code>
+
+      <p>Changing name from dirty to `isDirty`.</p>
+
+      <CodeArea
+        withOutCopy
+        rawData={`- const { dirty } = formState;
++ const { isDirty } = formState;`}
+      />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>dirtyFields: </h2>
+      </code>
+
+      <p>Changing data type from `Set` to `Object`</p>
+
+      <CodeArea
+        withOutCopy
+        rawData={`- const { dirtyFields } = formState;
+- dirtyFields.has('test');
++ const { isDirty } = formState;
++ dirtyFields.test;`}
+      />
     </main>
   </>
 )
