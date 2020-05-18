@@ -289,6 +289,19 @@ const Faq = ({
             </button>
           </span>
 
+          <span className={getStartedStyles.installCode}>
+            npm install react-hook-form-resolvers
+            <button
+              className={getStartedStyles.copyButton}
+              onClick={() => {
+                copyClipBoard("npm install react-hook-form-resolvers")
+                alert("Code copied into your clipboard.")
+              }}
+            >
+              {generic.copy[currentLanguage]}
+            </button>
+          </span>
+
           {getStarted.schema.step2}
 
           <CodeArea
