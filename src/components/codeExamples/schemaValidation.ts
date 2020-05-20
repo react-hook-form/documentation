@@ -1,6 +1,6 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from 'react-hook-form-resolvers';
+import { yupResolver } from '@hookform/resolvers';
 import * as yup from "yup";
 
 const schema = yup.object().shape({

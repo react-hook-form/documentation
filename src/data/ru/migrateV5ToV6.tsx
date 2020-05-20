@@ -73,7 +73,7 @@ export default (
           display: "block",
         }}
       >
-        npm install react-hook-form-resolvers
+        npm install @hookform/resolvers
       </code>
 
       <CodeArea withOutCopy rawData={validationSchema} />

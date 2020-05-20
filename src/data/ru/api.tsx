@@ -19,7 +19,7 @@ export default {
         следующем примере приведены значения по умолчанию для всех параметров.
       </p>
     ),
-    validationResolver: (goToSection) => (
+    validationResolver: goToSection => (
       <>
         <p>
           This callback function allow you to run through any schema or custom
@@ -83,7 +83,7 @@ export default {
         считается, что это ухудшает производительность.
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: goToSection => (
       <>
         <p>
           Вы можете установить зачение по умолчанию для поля с помощью{" "}
@@ -133,7 +133,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: (goToSection) => (
+    validationSchema: goToSection => (
       <p>
         Применение правил валидации с <code>Yup</code> на уровне схемы,
         перейдите в раздел{" "}
@@ -175,7 +175,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    nativeValidation: goToSection => (
       <p>
         Устанавливая эту опцию в <code>true</code> включит нативную браузерную
         валидацию. Вы можете{" "}
@@ -265,7 +265,7 @@ export default {
       registerWithValidation: "Регистрация с валидацией",
       registerWithValidationMessage:
         "Регистрация с валидацией и сообщением об ошибке",
-      note: (goToSection) => (
+      note: goToSection => (
         <>
           <h2 className={typographyStyles.title}>Кастомная регистрация</h2>
           <p>
@@ -471,7 +471,7 @@ export default {
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: goToSection => ({
     title: "reset",
     description: (
       <>
@@ -1235,7 +1235,7 @@ React.useEffect(() => {
             display: "block",
           }}
         >
-          npm install react-hook-form-resolvers
+          npm install @hookform/resolvers
         </code>
 
         <p>примечания по созданию пользовательских распознавателей:</p>

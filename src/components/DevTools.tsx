@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useForm } from "react-hook-form"
-import { DevTool } from "react-hook-form-devtools"
+import { DevTool } from "@hookform/devtools"
 import { Animate } from "react-simple-animate"
 import Form from "./Form"
 import Footer from "./Footer"
@@ -36,7 +36,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
 
   const { control, formState } = methods
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     console.log(data)
   }
 
@@ -86,11 +86,11 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               lightMode ? getStartedStyle.lightInstallCode : ""
             }`}
           >
-            npm install react-hook-form-devtools -D
+            npm install @hookform/devtools -D
             <button
               className={getStartedStyle.copyButton}
               onClick={() => {
-                copyClipBoard("npm install react-hook-form-devtools -D")
+                copyClipBoard("npm install @hookform/devtools -D")
                 alert(generic.copied["en"])
               }}
             >

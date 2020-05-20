@@ -17,7 +17,7 @@ export default {
         <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
       </>
     ),
-    validationResolver: (goToSection) => (
+    validationResolver: goToSection => (
       <>
         <p>
           이 콜백 함수는 어떠한 스키마나 커스텀 유효성 검사 함수를 끼워넣어
@@ -87,7 +87,7 @@ export default {
         않습니다.
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: goToSection => (
       <>
         <p>
           입력의 기본값을 <code>defaultValue/defaultChecked</code> 로 설정
@@ -136,7 +136,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: (goToSection) => (
+    validationSchema: goToSection => (
       <p>
         <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
         <button
@@ -174,7 +174,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    nativeValidation: goToSection => (
       <p>
         이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가
         활성화됩니다.
@@ -260,7 +260,7 @@ export default {
       title: "Register Options",
       registerWithValidation: "유효성 검사와 함께 등록",
       registerWithValidationMessage: "유효성 검사 및 에러 메시지 등록",
-      note: (goToSection) => (
+      note: goToSection => (
         <>
           <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
@@ -367,7 +367,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: currentLanguage => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
       </>
@@ -453,7 +453,7 @@ export default {
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: goToSection => ({
     title: "reset",
     description: (
       <>
@@ -1174,7 +1174,7 @@ React.useEffect(() => {
             display: "block",
           }}
         >
-          npm install react-hook-form-resolvers
+          npm install @hookform/resolvers
         </code>
 
         <p>사용자 정의 리졸버 빌드에 대한 참고 사항 :</p>

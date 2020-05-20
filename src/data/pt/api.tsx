@@ -19,7 +19,7 @@ export default {
         seguir demonstra todas as opções, com valor padrão.
       </p>
     ),
-    validationResolver: (goToSection) => (
+    validationResolver: goToSection => (
       <>
         <p>
           Essa função de callback permite que você execute sua validação através
@@ -84,7 +84,7 @@ export default {
         como uma prática não performática.
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: goToSection => (
       <>
         <p>
           Você pode setar o valor padrão do campoo com{" "}
@@ -134,7 +134,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: (goToSection) => (
+    validationSchema: goToSection => (
       <p>
         Aplique regras de validação do formulário com <code>Yup</code> a nível
         de esquema, por favor, verifique a seção{" "}
@@ -176,7 +176,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    nativeValidation: goToSection => (
       <p>
         Setar esta opção para <code>true</code> irá habilitar a validação nativa
         do navegador. Você pode{" "}
@@ -263,7 +263,7 @@ export default {
       registerWithValidation: "'Register' com validação",
       registerWithValidationMessage:
         "'Register' com validação e mensagem de erro",
-      note: (goToSection) => (
+      note: goToSection => (
         <>
           <h2 className={typographyStyles.title}>Register Customizado</h2>
           <p>
@@ -378,7 +378,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: currentLanguage => (
       <>
         <p>
           Objeto contendo erros de formulário, ou mensagens de erro que
@@ -469,7 +469,7 @@ export default {
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: goToSection => ({
     title: "reset",
     description: (
       <>
@@ -1200,7 +1200,7 @@ React.useEffect(() => {
             display: "block",
           }}
         >
-          npm install react-hook-form-resolvers
+          npm install @hookform/resolvers
         </code>
 
         <p>notas sobre a criação de resolvedores personalizados:</p>

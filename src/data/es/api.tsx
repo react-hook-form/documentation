@@ -18,7 +18,7 @@ export default {
         siguiente ejemplo muestra todos los valores de las opciones por defecto.
       </p>
     ),
-    validationResolver: (goToSection) => (
+    validationResolver: goToSection => (
       <>
         <p>
           Esta función de devolución de llamada le permite ejecutar cualquier
@@ -85,7 +85,7 @@ export default {
         Considera que es una mala práctica de performance.
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: goToSection => (
       <>
         <p>
           Puedes setear el valor por defecto del input con{" "}
@@ -136,7 +136,7 @@ export default {
         </p>
       </>
     ),
-    validationSchema: (goToSection) => (
+    validationSchema: goToSection => (
       <p>
         Aplica reglas de validación de formularios con <code> Yup </code>
         en el nivel de esquema, por favor refiérase a la sección{" "}
@@ -178,7 +178,7 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    nativeValidation: goToSection => (
       <p>
         Seteando esta opción en <code>true</code> habilitará la validación
         nativa del navegador. Puedes{" "}
@@ -267,7 +267,7 @@ export default {
       registerWithValidation: "Registro con validación",
       registerWithValidationMessage:
         "Registro con validación y mensaje de error",
-      note: (goToSection) => (
+      note: goToSection => (
         <>
           <h2 className={typographyStyles.title}>Registro personalizado</h2>
           <p>
@@ -383,7 +383,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: currentLanguage => (
       <>
         <p>
           Objeto que contiene los errores de formulario o los mensajes de error
@@ -475,7 +475,7 @@ export default {
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: goToSection => ({
     title: "reset",
     description: (
       <>
@@ -1169,7 +1169,7 @@ React.useEffect(() => {
         <p>
           Apoyamos a Yup, Joi y Superstruct oficialmente como{" "}
           <a
-            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            href="https://github.com/react-hook-form/@hookform/resolvers"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -1187,7 +1187,7 @@ React.useEffect(() => {
             display: "block",
           }}
         >
-          npm install react-hook-form-resolvers
+          npm install @hookform/resolvers
         </code>
 
         <p>notas sobre la creación de solucionadores personalizados:</p>

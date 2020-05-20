@@ -1,6 +1,6 @@
 export default `import React from 'react';
 import { useForm } from 'react-hook-form';
-import { superstructResolver } from 'react-hook-form-resolvers';
+import { superstructResolver } from '@hookform/resolvers';
 import { struct } from 'superstruct';
 
 const schema = struct({
