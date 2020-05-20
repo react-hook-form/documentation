@@ -93,7 +93,7 @@ export default React.memo(
           />
           <CodeArea
             rawData={multipleErrorCode}
-            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+            url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-z60r2"
           />
         </TabGroup>
 

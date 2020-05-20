@@ -491,7 +491,7 @@ const { register } = useForm<Inputs>({
                       {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+                        url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-z60r2"
                       />
                     </td>
                   </tr>
@@ -754,7 +754,7 @@ const { register } = useForm<Inputs>({
             <CodeArea
               rawData={getValues}
               tsRawData={getValuesTs}
-              url="https://codesandbox.io/s/get-form-values-xjepz"
+              url="https://codesandbox.io/s/react-hook-form-v6-get-form-values-80c2g"
             />
           </section>
 
@@ -777,7 +777,7 @@ const { register } = useForm<Inputs>({
 
             <CodeArea
               rawData={trigger}
-              url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
+              url="https://codesandbox.io/s/react-hook-form-v6-trigger-validation-5v9xf"
             />
           </section>
 
