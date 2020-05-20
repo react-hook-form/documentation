@@ -1,5 +1,5 @@
 export default `import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 
 function IsolateReRender({ control }) {
   const firstName = useWatch({

@@ -24,7 +24,7 @@ export default function UseFieldArray({
 
       <CodeArea
         rawData={useWatch}
-        url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
+        url="https://codesandbox.io/s/react-hook-form-v6-usewatch-nxmlb"
       />
     </>
   )
