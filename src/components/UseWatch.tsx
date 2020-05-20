@@ -1,6 +1,7 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
 import useWatch from "./codeExamples/useWatch"
+import useWatchTs from "./codeExamples/useWatchTs"
 import typographyStyles from "../styles/typography.module.css"
 
 export default function UseFieldArray({
@@ -24,6 +25,7 @@ export default function UseFieldArray({
 
       <CodeArea
         rawData={useWatch}
+        tsRawData={useWatchTs}
         url="https://codesandbox.io/s/react-hook-form-v6-usewatch-nxmlb"
       />
     </>
