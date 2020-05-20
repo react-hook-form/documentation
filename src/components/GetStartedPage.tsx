@@ -306,7 +306,7 @@ const Faq = ({
 
           <CodeArea
             rawData={schemaValidation}
-            url="https://codesandbox.io/s/928po918qr"
+            url="https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
           />
 
           <h2
@@ -324,7 +324,7 @@ const Faq = ({
             <CodeArea
               isExpo
               rawData={reactNativeController}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
+              url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
             />
             <CodeArea
               isExpo
