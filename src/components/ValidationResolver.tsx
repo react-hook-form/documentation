@@ -24,14 +24,24 @@ export default function ({ api }) {
       {api.resolver.description}
 
       <TabGroup buttonLabels={["Yup", "Joi", "Superstruct", "Custom"]}>
-        <CodeArea rawData={validationSchema} tsRawData={validationSchemaTs} />
-        <CodeArea rawData={joiResolver} />
-        <CodeArea rawData={superStructResolver} />
+        <CodeArea
+          rawData={validationSchema}
+          tsRawData={validationSchemaTs}
+          url="https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
+        />
+        <CodeArea
+          rawData={joiResolver}
+          url="https://codesandbox.io/s/react-hook-form-v6-joiresolver-nuvg5"
+        />
+        <CodeArea
+          rawData={superStructResolver}
+          url="https://codesandbox.io/s/react-hook-form-v6-superstructresolver-ed67i"
+        />
         <CodeArea
           rawData={validationResolver}
           tsRawData={validationResolverTs}
-          url="https://codesandbox.io/s/react-hook-form-validationresolver-b3phr"
-          tsUrl="https://codesandbox.io/s/react-hook-form-validationresolver-with-validationcontext-28pde?file=/src/App.tsx"
+          url="https://codesandbox.io/s/react-hook-form-v6-resolver-qgqtx"
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-resolver-context-fstze"
         />
       </TabGroup>
     </>
