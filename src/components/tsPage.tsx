@@ -54,7 +54,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           TS Support
         </h1>
         <p className={typographyStyles.subHeading}>
-          Better TS support is in our mission.
+          List of exported TS Types.
         </p>
       </section>
 
