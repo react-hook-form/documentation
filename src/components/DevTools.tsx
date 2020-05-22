@@ -36,7 +36,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
 
   const { control, formState } = methods
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data)
   }
 

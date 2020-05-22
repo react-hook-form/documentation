@@ -5,19 +5,20 @@ import typographyStyles from "../../styles/typography.module.css"
 
 export default (
   <>
-    <p>Hi there, </p>
+    <p>Hola, </p>
     <p>
-      Here are the breaking changes you would need to adjust. We sincerely hope
-      those changes aren't creating too much trouble for your codebase. If you
-      are wondering some of the rationals behind, you can take a look at this{" "}
+      Estos son los cambios importantes que necesitaría ajustar. Esperamos
+      sinceramente esos cambios no están creando demasiados problemas para su
+      base de código. Si tu se preguntan algunos de los fundamentos, puede echar
+      un vistazo a este {""}
       <a
         href="https://github.com/react-hook-form/react-hook-form/pull/1471"
         target="_blank"
         rel="noopener noreferrer"
       >
-        pull request
+        solicitud de extracción
       </a>{" "}
-      for more details.
+      para más detalles.
     </p>
 
     <p>
@@ -33,7 +34,8 @@ export default (
         </code>
 
         <p>
-          We are removing <code>validation</code> prefix for all the config.
+          Estamos eliminando el prefijo <code>validation</code> para toda la
+          configuración.
         </p>
 
         <CodeArea
@@ -58,10 +60,10 @@ export default (
         <h2>validationSchema: </h2>
       </code>
       <p>
-        <code>validationSchema</code> has been replace with standard{" "}
-        <code>resolver</code>, and you can use Yup, Joi and Superstruct at the
-        moment. We have an official resolver library to support more schema
-        validation in the future.
+        <code>validationSchema</code> ha sido reemplazado por el estándar {""}
+        <code>resolver</code>, y puede usar Yup, Joi y Superstruct en el
+        momento. Tenemos una biblioteca oficial de resolución para soportar más
+        esquemas validación en el futuro.
       </p>
 
       <code
@@ -83,8 +85,8 @@ export default (
       </code>
 
       <p>
-        <code>watch</code> will no longer return flat form values, instead it
-        will return nested object data by default.
+        <code>watch</code> ya no devolverá valores de forma plana, sino que
+        devolverá datos de objetos anidados por defecto.
       </p>
 
       <CodeArea
@@ -98,8 +100,8 @@ export default (
       </code>
 
       <p>
-        <code>getValues</code> will no longer return flat form values, instead
-        it will return nested object data by default.
+        <code>getValues</code> ya no devolverá valores de forma plana, en su
+        lugar devolverá datos de objetos anidados por defecto.
       </p>
 
       <CodeArea
@@ -113,7 +115,7 @@ export default (
       </code>
 
       <p>
-        method's name is renamed to <code>trigger</code>.
+        El nombre del método cambia de nombre a <code>trigger</code>.
       </p>
 
       <CodeArea
@@ -128,8 +130,8 @@ export default (
       </code>
 
       <p>
-        component's name is renamed to <code>FormProvider</code>, and now you
-        can use <code>FormContext.Consumer</code> as well.
+        el nombre del componente cambia de nombre a <code>FormProvider</code>, y
+        ahora usted puede usar <code>FormContext.Consumer</code> también.
       </p>
 
       <CodeArea
@@ -142,7 +144,9 @@ export default (
         <h2>Dirty: </h2>
       </code>
 
-      <p>Changing name from dirty to `isDirty`.</p>
+      <p>
+        Cambiando el nombre de sucio a <code>isDirty</code>`.
+      </p>
 
       <CodeArea
         withOutCopy
@@ -154,7 +158,9 @@ export default (
         <h2>dirtyFields: </h2>
       </code>
 
-      <p>Changing data type from `Set` to `Object`</p>
+      <p>
+        Cambiar el tipo de datos de <code>Set</code> a <code>Object</code>
+      </p>
 
       <CodeArea
         withOutCopy

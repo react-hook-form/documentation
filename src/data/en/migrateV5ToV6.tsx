@@ -142,7 +142,9 @@ export default (
         <h2>Dirty: </h2>
       </code>
 
-      <p>Changing name from dirty to `isDirty`.</p>
+      <p>
+        Changing name from dirty to <code>isDirty</code>.
+      </p>
 
       <CodeArea
         withOutCopy
@@ -154,7 +156,9 @@ export default (
         <h2>dirtyFields: </h2>
       </code>
 
-      <p>Changing data type from `Set` to `Object`</p>
+      <p>
+        Changing data type from <code>Set</code> to <code>Object</code>
+      </p>
 
       <CodeArea
         withOutCopy
