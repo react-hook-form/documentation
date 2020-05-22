@@ -5,11 +5,11 @@ import typographyStyles from "../../styles/typography.module.css"
 
 export default (
   <>
-    <p>Hi there, </p>
+    <p>こんにちは、 </p>
     <p>
-      Here are the breaking changes you would need to adjust. We sincerely hope
-      those changes aren't creating too much trouble for your codebase. If you
-      are wondering some of the rationals behind, you can take a look at this{" "}
+      調整が必要な重大な変更を以下に示します。私たちは心から願っています
+      これらの変更は、コードベースにあまり問題を引き起こしていません。もし、あんたが
+      背後にあるいくつかの理論的根拠を不思議に思っています。これを見てください
       <a
         href="https://github.com/react-hook-form/react-hook-form/pull/1471"
         target="_blank"
@@ -17,7 +17,7 @@ export default (
       >
         pull request
       </a>{" "}
-      for more details.
+      詳細については。
     </p>
 
     <p>
@@ -33,7 +33,7 @@ export default (
         </code>
 
         <p>
-          We are removing <code>validation</code> prefix for all the config.
+          すべての構成の<code>validation</code>プレフィックスを削除します。
         </p>
 
         <CodeArea
@@ -58,10 +58,10 @@ export default (
         <h2>validationSchema: </h2>
       </code>
       <p>
-        <code>validationSchema</code> has been replace with standard{" "}
-        <code>resolver</code>, and you can use Yup, Joi and Superstruct at the
-        moment. We have an official resolver library to support more schema
-        validation in the future.
+        <code>validationSchema</code>は標準のに置き換えられました
+        <code>resolver</code>、Yup、Joi、Superstructを
+        瞬間。より多くのスキーマをサポートする公式のリゾルバーライブラリがあります
+        将来の検証。
       </p>
 
       <code
@@ -83,8 +83,8 @@ export default (
       </code>
 
       <p>
-        <code>watch</code> will no longer return flat form values, instead it
-        will return nested object data by default.
+        <code>watch</code>はフラットフォームの値を返さなくなり、代わりに
+        デフォルトでは、ネストされたオブジェクトデータを返します。
       </p>
 
       <CodeArea
@@ -98,8 +98,8 @@ export default (
       </code>
 
       <p>
-        <code>getValues</code> will no longer return flat form values, instead
-        it will return nested object data by default.
+        <code>getValues</code>はフラットフォームの値を返さなくなり、代わりに
+        デフォルトでは、ネストされたオブジェクトデータを返します。
       </p>
 
       <CodeArea
@@ -113,7 +113,7 @@ export default (
       </code>
 
       <p>
-        method's name is renamed to <code>trigger</code>.
+        メソッドの名前は<code>trigger</code>に変更されます。
       </p>
 
       <CodeArea
@@ -128,8 +128,8 @@ export default (
       </code>
 
       <p>
-        component's name is renamed to <code>FormProvider</code>, and now you
-        can use <code>FormContext.Consumer</code> as well.
+        コンポーネントの名前は<code>FormProvider</code>に変更され、
+        <code>FormContext.Consumer</code>も使用できます。
       </p>
 
       <CodeArea
@@ -142,7 +142,9 @@ export default (
         <h2>Dirty: </h2>
       </code>
 
-      <p>Changing name from dirty to `isDirty`.</p>
+      <p>
+        名前をダーティから<code>isDirty</code>に変更します。
+      </p>
 
       <CodeArea
         withOutCopy
@@ -154,7 +156,9 @@ export default (
         <h2>dirtyFields: </h2>
       </code>
 
-      <p>Changing data type from `Set` to `Object`</p>
+      <p>
+        データ型を<code>Set</code>から<code>Object</code>に変更する
+      </p>
 
       <CodeArea
         withOutCopy

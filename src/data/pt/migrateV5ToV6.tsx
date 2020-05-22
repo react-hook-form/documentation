@@ -5,12 +5,11 @@ import typographyStyles from "../../styles/typography.module.css"
 
 export default (
   <>
-    <p>Olá,</p>
+    <p>Hi there, </p>
     <p>
-      Aqui teremos algumas mudanças que você precisará ajustar. Nós sinceramente
-      esperamos que tais mudanças não criem muitos problemas na sua codebase. Se você
-      estiver curioso sobre alguns raciocínios por trás das mudanças, você pode dar uma
-      olhada nesse {" "} 
+      Here are the breaking changes you would need to adjust. We sincerely hope
+      those changes aren't creating too much trouble for your codebase. If you
+      are wondering some of the rationals behind, you can take a look at this{" "}
       <a
         href="https://github.com/react-hook-form/react-hook-form/pull/1471"
         target="_blank"
@@ -18,11 +17,11 @@ export default (
       >
         pull request
       </a>{" "}
-      para mais detalhes.
+      for more details.
     </p>
 
     <p>
-      ❤️ <i>React Hook Form Team</i>
+      ❤️ <i>React hook Form Team</i>
     </p>
 
     <hr />
@@ -34,7 +33,7 @@ export default (
         </code>
 
         <p>
-          Nós estamos removendo o prefixo <code>validation</code> para todas as configurações.
+          We are removing <code>validation</code> prefix for all the config.
         </p>
 
         <CodeArea
@@ -59,10 +58,10 @@ export default (
         <h2>validationSchema: </h2>
       </code>
       <p>
-        <code>validationSchema</code> foi substituido pelo padrão {" "}
-        <code>resolver</code>, e você pode usar Yup, Joi e Superstruct no
-        momento. Nós temos uma bibliotea de resolver oficial para suportar
-        mais schemas de validação no futuro.
+        <code>validationSchema</code> has been replace with standard{" "}
+        <code>resolver</code>, and you can use Yup, Joi and Superstruct at the
+        moment. We have an official resolver library to support more schema
+        validation in the future.
       </p>
 
       <code
@@ -84,8 +83,8 @@ export default (
       </code>
 
       <p>
-        <code>watch</code> Não retornará mais valores planos, ao invés
-        passará a retornar objetos com dados aninhados por padrão.
+        <code>watch</code> will no longer return flat form values, instead it
+        will return nested object data by default.
       </p>
 
       <CodeArea
@@ -99,8 +98,8 @@ export default (
       </code>
 
       <p>
-        <code>getValues</code> Não retornará mais valores planos, ao invés
-        passará a retornar objetos com dados aninhados por padrão.
+        <code>getValues</code> will no longer return flat form values, instead
+        it will return nested object data by default.
       </p>
 
       <CodeArea
@@ -114,7 +113,7 @@ export default (
       </code>
 
       <p>
-        o nome <code>method</code> foi renomeado para <code>trigger</code>.
+        method's name is renamed to <code>trigger</code>.
       </p>
 
       <CodeArea
@@ -129,8 +128,8 @@ export default (
       </code>
 
       <p>
-        O nome do <code>component</code> foi renomeado para <code>FormProvider</code>,
-        além disso você pode usar <code>FormContext.Consumer</code> também.
+        component's name is renamed to <code>FormProvider</code>, and now you
+        can use <code>FormContext.Consumer</code> as well.
       </p>
 
       <CodeArea
@@ -143,7 +142,9 @@ export default (
         <h2>Dirty: </h2>
       </code>
 
-      <p>Mudando o nome de dirty para `isDirty`.</p>
+      <p>
+        Changing name from dirty to <code>isDirty</code>.
+      </p>
 
       <CodeArea
         withOutCopy
@@ -155,7 +156,9 @@ export default (
         <h2>dirtyFields: </h2>
       </code>
 
-      <p>Trocando o tipo de dado de `Set` para `Object`</p>
+      <p>
+        Changing data type from <code>Set</code> to <code>Object</code>
+      </p>
 
       <CodeArea
         withOutCopy

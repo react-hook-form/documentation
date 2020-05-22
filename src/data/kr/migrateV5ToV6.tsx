@@ -5,11 +5,11 @@ import typographyStyles from "../../styles/typography.module.css"
 
 export default (
   <>
-    <p>Hi there, </p>
+    <p>안녕, </p>
     <p>
-      Here are the breaking changes you would need to adjust. We sincerely hope
-      those changes aren't creating too much trouble for your codebase. If you
-      are wondering some of the rationals behind, you can take a look at this{" "}
+      다음은 조정해야 할 주요 변경 사항입니다. 우리는 진심으로 희망합니다 이러한
+      변경 사항이 코드베이스에 너무 많은 문제를 일으키지 않습니다. 만약 너라면
+      배후에있는 이성적인 것들이 궁금합니다. {""}
       <a
         href="https://github.com/react-hook-form/react-hook-form/pull/1471"
         target="_blank"
@@ -17,7 +17,7 @@ export default (
       >
         pull request
       </a>{" "}
-      for more details.
+      자세한 사항은.
     </p>
 
     <p>
@@ -33,7 +33,7 @@ export default (
         </code>
 
         <p>
-          We are removing <code>validation</code> prefix for all the config.
+          모든 구성에 대해 <code>validation</code> 접두사를 제거하고 있습니다.
         </p>
 
         <CodeArea
@@ -58,10 +58,9 @@ export default (
         <h2>validationSchema: </h2>
       </code>
       <p>
-        <code>validationSchema</code> has been replace with standard{" "}
-        <code>resolver</code>, and you can use Yup, Joi and Superstruct at the
-        moment. We have an official resolver library to support more schema
-        validation in the future.
+        <code>validationSchema</code>가 표준으로 대체되었습니다 {""}
+        <code>resolver</code>로 Yup, Joi 및 Superstruct를 순간. 더 많은 스키마를
+        지원하는 공식 리졸버 라이브러리가 있습니다 미래에 검증.
       </p>
 
       <code
@@ -83,8 +82,8 @@ export default (
       </code>
 
       <p>
-        <code>watch</code> will no longer return flat form values, instead it
-        will return nested object data by default.
+        <code>watch</code>는 더 이상 플랫 폼 값을 반환하지 않습니다. 기본적으로
+        중첩 된 객체 데이터를 반환합니다.
       </p>
 
       <CodeArea
@@ -98,8 +97,8 @@ export default (
       </code>
 
       <p>
-        <code>getValues</code> will no longer return flat form values, instead
-        it will return nested object data by default.
+        <code>getValues​​</code>는 더 이상 플랫 폼 값을 반환하지 않습니다.
+        기본적으로 중첩 된 객체 데이터를 반환합니다.
       </p>
 
       <CodeArea
@@ -113,7 +112,7 @@ export default (
       </code>
 
       <p>
-        method's name is renamed to <code>trigger</code>.
+        메소드 이름이 <code>trigger</code>로 변경되었습니다.
       </p>
 
       <CodeArea
@@ -128,8 +127,8 @@ export default (
       </code>
 
       <p>
-        component's name is renamed to <code>FormProvider</code>, and now you
-        can use <code>FormContext.Consumer</code> as well.
+        구성 요소 이름이 <code>FormProvider</code>로 바뀌고 이제
+        <code>FormContext.Consumer</code>도 사용할 수 있습니다.
       </p>
 
       <CodeArea
@@ -142,7 +141,9 @@ export default (
         <h2>Dirty: </h2>
       </code>
 
-      <p>Changing name from dirty to `isDirty`.</p>
+      <p>
+        더티에서 <code>isDirty</code> (으)로 이름 변경
+      </p>
 
       <CodeArea
         withOutCopy
@@ -154,7 +155,9 @@ export default (
         <h2>dirtyFields: </h2>
       </code>
 
-      <p>Changing data type from `Set` to `Object`</p>
+      <p>
+        <code>Set</code>에서 <code>Object</code>로 데이터 유형 변경
+      </p>
 
       <CodeArea
         withOutCopy

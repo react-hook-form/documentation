@@ -157,7 +157,7 @@ export default (
       </code>
 
       <p>
-        Changing data type from <code>Set</code> to <code>Object</code>
+        Changing data type from <code>Set</code> to <code>Object</code>.
       </p>
 
       <CodeArea
