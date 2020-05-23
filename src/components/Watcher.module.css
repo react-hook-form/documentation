@@ -1,20 +1,9 @@
-.watcher {
-  display: none;
-}
-
 .root {
-  margin: 40px auto;
-  max-width: 800px;
-  display: grid;
-  grid-template-columns: 100px 1fr 200px;
+  display: none;
 }
 
 .svgWrapper {
   width: 200px;
-}
-
-.svgWrapper svg {
-  height: 200px;
 }
 
 .watchGroup {
@@ -68,13 +57,14 @@
   }
 
   .root {
+    display: grid;
     margin: 40px auto;
     max-width: 800px;
-    display: grid;
     grid-template-columns: 1fr 1fr 200px;
   }
 
   .svgWrapper {
+    display: block;
     width: 300px;
   }
 
