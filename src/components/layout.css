@@ -684,6 +684,31 @@ h4 {
   background-color: currentColor;
 }
 
+.eye-solid.icon {
+  color: #fff;
+  position: absolute;
+  margin-left: 3px;
+  margin-top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 70% 15%;
+  border: solid 1px currentColor;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.eye-solid.icon:before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: solid 1px currentColor;
+  background-color: currentColor;
+}
+
 /**
 * xonokai theme for JavaScript, CSS and HTML
 * based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/

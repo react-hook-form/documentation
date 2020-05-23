@@ -2,6 +2,7 @@ import * as React from "react"
 import { navigate } from "@reach/router"
 import Form from "./Form"
 import Header from "./Header"
+import Watcher from "./Watcher"
 import CodeCompareSection from "./CodeCompareSection"
 import CodePerfCompareSection from "./CodePerfCompareSection"
 import IsolateRender from "./IsolateRender"
@@ -138,6 +139,8 @@ function HomePage({
         isIsolatePlay={isIsolatePlay}
         currentLanguage={currentLanguage}
       />
+
+      <Watcher />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}
