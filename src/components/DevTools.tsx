@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useForm } from "react-hook-form"
-import { DevTool } from "react-hook-form-devtools"
+import { DevTool } from "@hookform/devtools/dist/devtools"
 import { Animate } from "react-simple-animate"
 import Form from "./Form"
 import Footer from "./Footer"

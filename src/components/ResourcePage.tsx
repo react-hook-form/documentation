@@ -36,6 +36,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         <ul className={styles.contentList}>
           {data.articles.map(({ url, title, author, authorUrl }, index) => (
             <Animate
+              key={url}
               play
               easeType={"ease-in"}
               delay={(index + 1) * 0.01}
