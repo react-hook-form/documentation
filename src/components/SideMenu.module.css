@@ -17,6 +17,12 @@
   border-left: 1px solid #ec5990;
 }
 
+.size {
+  font-size: 10px;
+  margin-left: 5px;
+  color: currentColor;
+}
+
 @media (min-width: 768px) {
   .menu {
     display: block;

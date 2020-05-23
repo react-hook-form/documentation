@@ -91,10 +91,11 @@ function SideMenu({
             ) {
               return (
                 <Animate
+                  key={link}
                   {...animateProps}
                   delay={index * 0.01}
                   render={({ style }) => (
-                    <li key={link} style={style}>
+                    <li style={style}>
                       <code className={styles.code}>{`</>`}</code>
                       {isStatic ? (
                         <button
@@ -124,6 +125,11 @@ function SideMenu({
                           }}
                         >
                           {linkName}
+                          {rawLink.size && (
+                            <span className={styles.size}>
+                              ~ {rawLink.size}
+                            </span>
+                          )}
                         </button>
                       )}
                     </li>
@@ -134,11 +140,11 @@ function SideMenu({
 
             return (
               <Animate
+                key={link}
                 {...animateProps}
                 delay={index * 0.01}
                 render={({ style }) => (
                   <li
-                    key={link}
                     onClick={() => goToSection(enLink, index)}
                     style={{
                       ...(index > 0
@@ -186,6 +192,9 @@ function SideMenu({
                       }}
                     >
                       {linkName}
+                      {rawLink.size && (
+                        <span className={styles.size}>~ {rawLink.size}</span>
+                      )}
                     </button>
                   </li>
                 )}

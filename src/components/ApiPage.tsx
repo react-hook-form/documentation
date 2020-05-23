@@ -94,7 +94,10 @@ function ApiPage({
   const api = apiContent[currentLanguage]
   const [activeIndex, setActiveIndex] = React.useState(0)
   const links = [
-    api.useForm,
+    {
+      ...api.useForm,
+      size: "5KB",
+    },
     api.register,
     api.unregister,
     api.errors,
@@ -108,11 +111,26 @@ function ApiPage({
     api.trigger,
     api.control,
     api.formState,
-    api.Controller,
-    api.ErrorMessage,
-    api.useFormContext,
-    api.useWatch,
-    api.useFieldArray,
+    {
+      ...api.Controller,
+      size: "1.2KB",
+    },
+    {
+      ...api.ErrorMessage,
+      size: "400B",
+    },
+    {
+      ...api.useFormContext,
+      size: "100B",
+    },
+    {
+      ...api.useWatch,
+      size: "1KB",
+    },
+    {
+      ...api.useFieldArray,
+      size: "3KB",
+    },
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
@@ -292,7 +310,7 @@ function ApiPage({
                 aria-controls="tabPanel-1"
                 role="tab"
                 onClick={() => {
-                  navigate(getNavLink(`v5/api`, currentLanguage))
+                  navigate(getNavLink(`/v5/api`, currentLanguage))
                 }}
               >
                 V5
