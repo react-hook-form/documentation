@@ -70,8 +70,9 @@ export default () => {
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>Subscribe Input Change</h1>
         <p>
-          Forms' performance is important for UX, you will have the ability to
-          subscribe inputs change without re-render the entire form.
+          Performance is an important aspect of user experience. You will have
+          the ability to subscribe to input change without re-render the entire
+          form.
         </p>
       </div>
 
