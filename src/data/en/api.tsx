@@ -736,11 +736,11 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus: boolean = true) => void
               </code>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>Append input/inputs to the end of your fields and focus.</td>
         </tr>
         <tr>
           <td>
@@ -749,11 +749,11 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus: boolean = true) => void
               </code>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>Prepend input/inputs to the start of your fields and focus.</td>
         </tr>
         <tr>
           <td>
@@ -762,11 +762,12 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object) => void
+                (index: number, value: object, shouldFocus: boolean = true) =>
+                void
               </code>
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>Insert input/inputs at particular position and focus.</td>
         </tr>
         <tr>
           <td>
