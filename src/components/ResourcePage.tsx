@@ -17,6 +17,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const itemPerRow = 4
 
   return (
     <div className={containerStyle.container}>
@@ -34,34 +35,65 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
 
         <ul className={styles.contentList}>
-          {data.articles.map(({ url, title, author, authorUrl }, index) => (
-            <Animate
-              key={url}
-              play
-              easeType={"ease-in"}
-              delay={(index + 1) * 0.01}
-              start={{ transform: "translateY(50px)" }}
-              render={({ style }) => (
-                <li style={style}>
-                  <article className={styles.article}>
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      <h3>{title}</h3>
-                    </a>
+          {data.articles.map(({ url, title, author, authorUrl }, i) => {
+            let index = i + 1
+            let delay = 0.4
 
-                    <p>
-                      <a
-                        href={authorUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {author}
+            if (index === 1) {
+              delay = 0.05
+            } else if (index === 2 || index == 5) {
+              delay = 0.1
+            } else if (index === 3 || index === 6 || index === 9) {
+              delay = 0.15
+            } else if (
+              index === 4 ||
+              index === 7 ||
+              index === 10 ||
+              index === 13
+            ) {
+              delay = 0.2
+            } else if (
+              index === 8 ||
+              index === 11 ||
+              index === 14 ||
+              index === 17
+            ) {
+              delay = 0.25
+            } else if (index === 12 || index === 15 || index === 18) {
+              delay = 0.3
+            } else if (index === 16 || index === 19) {
+              delay = 0.35
+            }
+
+            return (
+              <Animate
+                key={url}
+                play
+                easeType={"ease-in"}
+                delay={delay}
+                start={{ transform: "translate(20px, 20px)", opacity: 0 }}
+                render={({ style }) => (
+                  <li style={style}>
+                    <article className={styles.article}>
+                      <a href={url} target="_blank" rel="noopener noreferrer">
+                        <h3>{title}</h3>
                       </a>
-                    </p>
-                  </article>
-                </li>
-              )}
-            />
-          ))}
+
+                      <p>
+                        <a
+                          href={authorUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {author}
+                        </a>
+                      </p>
+                    </article>
+                  </li>
+                )}
+              />
+            )
+          })}
         </ul>
 
         <h2 className={typographyStyles.title}>
