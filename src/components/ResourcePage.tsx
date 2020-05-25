@@ -17,7 +17,6 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const itemPerRow = 4
   const animationBase = 0.05
 
   return (
@@ -44,12 +43,10 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               delay = animationBase
             } else if (index % 3 === 0) {
               delay = animationBase * (Math.floor(index / 12) * 3 + 3)
-            } else if (index % 3 === 2) {
-              const times = index / 6
-              delay =
-                animationBase * ((times > 3 ? 2 : times >= 1 ? 1 : 0) * 3 + 2)
             } else if (index % 3 === 1) {
-              delay = animationBase * (Math.floor(index / 4 / 4) * 4 + 3)
+              delay = animationBase * (Math.floor(index / 16) * 3 + 3)
+            } else if (index % 3 === 2) {
+              delay = animationBase * (Math.floor(index / 8) * 3 + 2)
             }
 
             return (
