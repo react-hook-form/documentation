@@ -1079,7 +1079,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>フィールドの最後に input を追加します。</td>
@@ -1090,7 +1090,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>フィールドの先頭に input を追加します。</td>
@@ -1101,7 +1101,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object, shouldFocus?: boolean = true) =>
+              void
             </code>
           </td>
           <td>特定の位置に input を挿入します。</td>
