@@ -49,7 +49,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               delay =
                 animationBase * ((times > 3 ? 2 : times >= 1 ? 1 : 0) * 3 + 2)
             } else if (index % 3 === 1) {
-              delay = animationBase * (index / 4 >= 4 ? 7 : 4)
+              delay = animationBase * (Math.floor(index / 4 / 4) * 4 + 3)
             }
 
             return (
