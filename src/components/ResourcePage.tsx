@@ -18,6 +18,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
       ? language
       : { currentLanguage: defaultLang }
   const itemPerRow = 4
+  const animationBase = 0.05
 
   return (
     <div className={containerStyle.container}>
@@ -40,29 +41,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             let delay = 0.4
 
             if (index === 1) {
-              delay = 0.05
+              delay = animationBase
             } else if (index === 2 || index == 5) {
-              delay = 0.1
+              delay = animationBase * 2
             } else if (index === 3 || index === 6 || index === 9) {
-              delay = 0.15
+              delay = animationBase * 3
             } else if (
               index === 4 ||
               index === 7 ||
               index === 10 ||
               index === 13
             ) {
-              delay = 0.2
+              delay = animationBase * 4
             } else if (
               index === 8 ||
               index === 11 ||
               index === 14 ||
               index === 17
             ) {
-              delay = 0.25
+              delay = animationBase * 5
             } else if (index === 12 || index === 15 || index === 18) {
-              delay = 0.3
+              delay = animationBase * 6
             } else if (index === 16 || index === 19) {
-              delay = 0.35
+              delay = animationBase * 7
             }
 
             return (
