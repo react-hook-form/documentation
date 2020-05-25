@@ -43,7 +43,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             if (index === 1) {
               delay = animationBase
             } else if (index % 3 === 0) {
-              delay = animationBase * (index / 3 > 3 ? 6 : 3)
+              delay = animationBase * (Math.floor(index / 12) * 3 + 3)
             } else if (index % 3 === 2) {
               const times = index / 6
               delay =
