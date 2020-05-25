@@ -437,6 +437,29 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               </p>
             </article>
           </li>
+          <li>
+            <article className={styles.article}>
+              <a
+                href="https://www.youtube.com/watch?v=jpkHSn6SRLU"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>
+                  React Hook Form で簡単にフォームバリデーション :
+                  TypeScriptでReact.js入門#07
+                </h3>
+              </a>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCcDY8GkKPSOK_6frk9zZuHA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WEBOTV / WEBプログラム学習チャンネル
+                </a>
+              </p>
+            </article>
+          </li>
         </ul>
 
         <Footer currentLanguage={currentLanguage} />
