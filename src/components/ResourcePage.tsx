@@ -38,32 +38,18 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         <ul className={styles.contentList}>
           {data.articles.map(({ url, title, author, authorUrl }, i) => {
             let index = i + 1
-            let delay = 0.4
+            let delay = 0
 
             if (index === 1) {
               delay = animationBase
-            } else if (index === 2 || index == 5) {
-              delay = animationBase * 2
-            } else if (index === 3 || index === 6 || index === 9) {
-              delay = animationBase * 3
-            } else if (
-              index === 4 ||
-              index === 7 ||
-              index === 10 ||
-              index === 13
-            ) {
-              delay = animationBase * 4
-            } else if (
-              index === 8 ||
-              index === 11 ||
-              index === 14 ||
-              index === 17
-            ) {
-              delay = animationBase * 5
-            } else if (index === 12 || index === 15 || index === 18) {
-              delay = animationBase * 6
-            } else if (index === 16 || index === 19) {
-              delay = animationBase * 7
+            } else if (index % 3 === 0) {
+              delay = animationBase * (index / 3 > 3 ? 6 : 3)
+            } else if (index % 3 === 2) {
+              const times = index / 6
+              delay =
+                animationBase * ((times > 3 ? 2 : times >= 1 ? 1 : 0) * 3 + 2)
+            } else if (index % 3 === 1) {
+              delay = animationBase * (index / 4 >= 4 ? 7 : 4)
             }
 
             return (
