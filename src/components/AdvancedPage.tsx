@@ -4,12 +4,9 @@ import SideMenu from "./SideMenu"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
 import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
-import copyClipBoard from "./utils/copyClipBoard"
-import schemaValidation from "./codeExamples/schemaValidation"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
-import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advancedContent from "../data/advanced"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
@@ -19,7 +16,6 @@ import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUnco
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -187,7 +183,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.ErrorMessage = ref)}
+            ref={(ref) => (pageContentRef.current.ErrorMessages = ref)}
           >
             {advanced.errorMessage.title}
           </h2>
