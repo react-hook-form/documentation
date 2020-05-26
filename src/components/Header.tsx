@@ -70,7 +70,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={0}
+            sequenceIndex={1}
             duration={0.2}
             start={{
               transform: "translateY(20px)",
@@ -94,7 +94,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={1}
+            sequenceIndex={2}
             start={{
               transform: "translateY(20px)",
               opacity: 0,
@@ -114,7 +114,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={2}
+            sequenceIndex={3}
             start={{
               transform: "translateY(20px)",
               opacity: 0,
@@ -160,8 +160,8 @@ export default function Header({
         >
           <div style={{ position: "relative" }}>
             <Animate
-              sequenceIndex={3}
-              delay={0.1}
+              sequenceIndex={4}
+              delay={0.7}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
               duration={0.4}
