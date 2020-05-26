@@ -45,11 +45,11 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     FieldArrays: null,
     ConnectForm: null,
     FormContextPerformance: null,
-    ErrorMessage: null,
+    ErrorMessages: null,
     ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
     CustomHookwithValidationResolver: null,
-    Workingwithvirtualizedlist: null,
+    Workingwithvirtualizedlists: null,
   })
 
   const {
@@ -308,7 +308,7 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) =>
-              (pageContentRef.current.Workingwithvirtualizedlist = ref)
+              (pageContentRef.current.Workingwithvirtualizedlists = ref)
             }
           >
             {advanced.workingWithVirtualizedList.title}
