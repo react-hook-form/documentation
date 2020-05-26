@@ -6,7 +6,7 @@ import TsPage from "../components/tsPage"
 export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="Migrate From V5 to V6" location={location} />
+      <Seo title="TS Support" location={location} />
       <TsPage defaultLang="en" />
     </Layout>
   )
