@@ -77,8 +77,8 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             </code>
 
             <p>
-              This type will support situation when form values and errors's
-              data shape is not matched.
+              This type will be useful when the input itself return nested data
+              object.
             </p>
 
             <TabGroup buttonLabels={["Code Example", "Type"]}>
@@ -173,6 +173,10 @@ errors?.key4?.message // no type error`}
               <h2>Resolver</h2>
             </code>
 
+            <p>
+              This type will support users to write custom validation resolver.
+            </p>
+
             <CodeArea
               rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
@@ -222,6 +226,10 @@ export default function App() {
             <code className={typographyStyles.codeHeading}>
               <h2>OnSubmit</h2>
             </code>
+            <p>
+              This type is useful when submitted data is not matching with{" "}
+              <code>FormValues</code> type.
+            </p>
 
             <CodeArea
               rawData={`import React from "react";
@@ -235,7 +243,7 @@ type FormValues = {
 
 export default function App() {
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit: OnSubmit<FormValues> = data => alert(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -256,6 +264,11 @@ export default function App() {
           <section>
             <code className={typographyStyles.codeHeading}>
               <h2>Control</h2>
+
+              <p>
+                This type support custom hook such as <code>useFieldArray</code>
+                , <code>useWatch</code> and future custom hooks in this library.
+              </p>
             </code>
 
             <CodeArea
@@ -301,6 +314,11 @@ export default function App() {
             <code className={typographyStyles.codeHeading}>
               <h2>UseFormMethods</h2>
             </code>
+
+            <p>
+              This type is useful when you are using <code>Context</code>'s{" "}
+              <code>Consumer</code> instead of <code>useFormContext</code> hook.
+            </p>
 
             <CodeArea
               rawData={`import React from "react";
