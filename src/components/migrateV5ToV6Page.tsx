@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import Footer from "./Footer"
 import migrateV5ToV6 from "../data/en/migrateV5ToV6"
@@ -29,10 +30,22 @@ const MigrateV5ToV6 = ({ defaultLang }) => {
           margin: "0 auto",
         }}
       >
-        {migrateV5ToV6}
-
-        <Footer currentLanguage={currentLanguage} />
+        <Animate
+          play
+          delay={0.1}
+          start={{
+            opacity: 0,
+            transform: "translateY(20px)",
+          }}
+          end={{
+            opacity: 1,
+          }}
+        >
+          {migrateV5ToV6}
+        </Animate>
       </div>
+
+      <Footer currentLanguage={currentLanguage} />
     </div>
   )
 }
