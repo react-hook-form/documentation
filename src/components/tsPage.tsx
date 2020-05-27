@@ -14,7 +14,7 @@ const links = [
     title: "Resolver",
   },
   {
-    title: "OnSubmit",
+    title: "SubmitHandler",
   },
   {
     title: "Control",
@@ -29,7 +29,7 @@ const enLinks = [
     title: "Resolver",
   },
   {
-    title: "OnSubmit",
+    title: "SubmitHandler",
   },
   {
     title: "Control",
@@ -84,7 +84,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             <TabGroup buttonLabels={["Code Example", "Type"]}>
               <CodeArea
                 url="https://codesandbox.io/s/react-hook-form-nestedvalue-dujyc"
-                rawData={`import * as React from 'react';
+                rawData={`import React from 'react';
 import { useForm, NestedValue } from 'react-hook-form';
 import { Autocomplete, TextField, Select } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
@@ -224,7 +224,7 @@ export default function App() {
 
           <section>
             <code className={typographyStyles.codeHeading}>
-              <h2>OnSubmit</h2>
+              <h2>SubmitHandler</h2>
             </code>
             <p>
               This type is useful when submitted data is not matching with{" "}
@@ -233,7 +233,7 @@ export default function App() {
 
             <CodeArea
               rawData={`import React from "react";
-import { useForm, OnSubmit } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 type FormValues = {
   firstName: string;
@@ -243,7 +243,7 @@ type FormValues = {
 
 export default function App() {
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: OnSubmit<FormValues> = data => alert(JSON.stringify(data));
+  const onSubmit: SubmitHandler<FormValues> = data => alert(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -322,7 +322,7 @@ export default function App() {
 
             <CodeArea
               rawData={`import React from "react";
-import { useForm, UseFormMethods, OnSubmit } from "react-hook-form";
+import { useForm, UseFormMethods, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -354,7 +354,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 type FormProps<TFormValues> = {
-  onSubmit: OnSubmit<TFormValues>;
+  onSubmit: SubmitHandler<TFormValues>;
   children: (methods: UseFormMethods<TFormValues>) => React.ReactNode;
 };
 
