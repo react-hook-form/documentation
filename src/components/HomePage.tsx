@@ -43,6 +43,7 @@ function HomePage({
   const [isCardPlay, setCardPlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
+  const [isPlayWatch, setWatchPlay] = useState(false)
   const {
     state: { language },
   } = useStateMachine()
@@ -75,6 +76,7 @@ function HomePage({
     const codeComparison = document.querySelector("#codeComparison")
     const rendering = document.querySelector("#rendering")
     const isolate = document.querySelector("#isolate")
+    const watch = document.querySelector("#watch")
     const card = document.querySelector("#card")
 
     const observer = new IntersectionObserver((entries) => {
@@ -92,6 +94,9 @@ function HomePage({
           if (entry.target === isolate && !isIsolatePlay) {
             setIsolatePlay(true)
           }
+          if (entry.target === watch && !isPlayWatch) {
+            setWatchPlay(true)
+          }
           // if (entry.target === card && !isCardPlay) {
           //   setCardPlay(true)
           // }
@@ -103,6 +108,7 @@ function HomePage({
     observer.observe(codeComparison)
     observer.observe(rendering)
     observer.observe(isolate)
+    observer.observe(watch)
     // observer.observe(card)
 
     return () => observer.disconnect()
@@ -140,7 +146,7 @@ function HomePage({
         currentLanguage={currentLanguage}
       />
 
-      <Watcher />
+      <Watcher isPlayWatch={isPlayWatch} />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}
