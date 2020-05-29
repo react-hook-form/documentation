@@ -65,7 +65,9 @@ export default React.memo(
                   <code>message</code>
                 </td>
                 <td>
-                  <span className={typographyStyles.typeText}>string</span>
+                  <span className={typographyStyles.typeText}>
+                    string | React.ReactElement
+                  </span>
                 </td>
                 <td>{api.errors.message}</td>
               </tr>
