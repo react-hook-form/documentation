@@ -430,21 +430,21 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "バリデーションリゾルバーを使ったカスタムフック",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integration with yup/Joi/Superstruct as a validation
-          method, and to be used inside validation resolver.
+          バリデーションリゾルバーとしてカスタムフックを構築できます。
+          カスタムフックは yup/Joi/Superstruct を使って、
+          バリデーションリゾルバーの中で使われるバリデーションメソッドに簡単に統合することができます。
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            メモ化されたバリデーションスキームを定義する
+            (または依存関係を持たないならばコンポーネントの外にバリデーションスキームを定義する)
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>バリデーションスキームを渡してカスタムフックを使う</li>
+          <li>useForm フックにバリデーションリゾルバーを渡す</li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -452,33 +452,35 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "バーチャルリストで動かす",
     description: (
       <>
         <p>
-          Imagine a scenario where you have a table of data. This table might
-          contain hundreds or thousands of rows, and each row will have inputs.
-          A common practice is to only render the items that are in the
-          viewport, however this will cause issues as the items are removed from
-          the DOM when they are out of view, and re-added. This will cause items
-          to reset to their default values when they re-enter the viewport.
+          データの表があるシナリオを想像してください。
+          この表は100または1000以上の列を含み、
+          それぞれの列には入力欄があります。
+          一般的にはビューポート内にあるアイテムのみをレンダリングしますが、
+          これはアイテムがビューの外に出た時にDOMから削除されて、
+          再追加されるため問題が発生します。
+          これはアイテムが再びビューポートに入った時に、
+          アイテムがデフォルトの値にリセットされる原因となります。
         </p>
 
         <p>
-          To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          この問題を回避するためには、 手動でフィールドを登録し、
+          プログラムによってフィールドの値をセットします。
         </p>
 
         <p>
-          An example is shown below using{" "}
+          以下に{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/bvaughn/react-window"
           >
             react-window
-          </a>
-          .
+          </a>{" "}
+          を使用した例を示します。
         </p>
 
         <CodeArea
