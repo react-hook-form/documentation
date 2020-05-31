@@ -26,8 +26,8 @@ const resolver = (data: any, validationContext) => {
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm({
-    validationResolver: resolver, // make sure to memorise callback or place it outside the component
-    validationContext: { test: "test" }
+    resolver, // make sure to memorise callback or place it outside the component
+    context: { test: "test" }
   });
 
   return (

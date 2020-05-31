@@ -21,7 +21,7 @@ const validationSchema = Joi.object({
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm<Inputs, Context>({
-    validationResolver: (data, validationContext) => {
+    resolver: (data, validationContext) => {
       const { error, value: values } = validationSchema.validate(data, { abortEarly: false });
 
       return {
@@ -36,7 +36,7 @@ export default function App() {
           : {}
       };
     },
-    validationContext: { test: "test" }
+    context: { test: "test" }
   });
 
   return (

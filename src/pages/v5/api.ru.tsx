@@ -1,9 +1,9 @@
 import * as React from "react"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
-import ApiPage from "../../components/ApiPage"
+import ApiPage from "../../components/ApiPageV5"
 import apiV5 from "../../data/ru/api-v5"
-import api from "../../data/ru/api"
+import api from "../../data/V5/ru/api"
 
 const Api = ({
   location,

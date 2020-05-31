@@ -19,8 +19,12 @@ import TabGroup from "./TabGroup"
 import reactNative from "./codeExamples/reactNative"
 import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
-import containerStyles from "../styles/container.module.css"
+import schemaValidation from "./codeExamples/schemaValidation"
+import copyClipBoard from "./utils/copyClipBoard"
+import generic from "../data/generic"
+import getStartedStyles from "./GetStarted.module.css"
 import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 
 const { useRef, useEffect } = React
 const getStartedEn = getStartedContent["en"]
@@ -34,6 +38,7 @@ const enLinks = [
   getStartedEn.controlledInput,
   getStartedEn.globalState,
   getStartedEn.errors,
+  getStartedEn.schema,
   getStartedEn.reactNative,
   getStartedEn.typeScript,
 ]
@@ -68,6 +73,7 @@ const Faq = ({
     getStarted.controlledInput,
     getStarted.globalState,
     getStarted.errors,
+    getStarted.schema,
     getStarted.reactNative,
     getStarted.typeScript,
   ]
@@ -82,6 +88,7 @@ const Faq = ({
     handleerrors: null,
     registerfields: null,
     applyvalidation: null,
+    schemavalidation: null,
     reactnative: null,
     typescript: null,
   })
@@ -260,6 +267,50 @@ const Faq = ({
 
           <h2
             className={typographyStyles.title}
+            ref={(ref) => (sectionsRef.current.schemavalidation = ref)}
+          >
+            {getStarted.schema.title}
+          </h2>
+
+          {getStarted.schema.description}
+
+          {getStarted.schema.step1}
+
+          <span className={getStartedStyles.installCode}>
+            npm install yup
+            <button
+              className={getStartedStyles.copyButton}
+              onClick={() => {
+                copyClipBoard("npm install yup")
+                alert("Code copied into your clipboard.")
+              }}
+            >
+              {generic.copy[currentLanguage]}
+            </button>
+          </span>
+
+          <span className={getStartedStyles.installCode}>
+            npm install @hookform/resolvers
+            <button
+              className={getStartedStyles.copyButton}
+              onClick={() => {
+                copyClipBoard("npm install @hookform/resolvers")
+                alert("Code copied into your clipboard.")
+              }}
+            >
+              {generic.copy[currentLanguage]}
+            </button>
+          </span>
+
+          {getStarted.schema.step2}
+
+          <CodeArea
+            rawData={schemaValidation}
+            url="https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
+          />
+
+          <h2
+            className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current.reactnative = ref
             }}
@@ -273,7 +324,7 @@ const Faq = ({
             <CodeArea
               isExpo
               rawData={reactNativeController}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form-input"
+              url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
             />
             <CodeArea
               isExpo

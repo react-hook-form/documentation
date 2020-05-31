@@ -4,12 +4,9 @@ import SideMenu from "./SideMenu"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
 import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
-import copyClipBoard from "./utils/copyClipBoard"
-import schemaValidation from "./codeExamples/schemaValidation"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
-import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import advancedContent from "../data/advanced"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
@@ -18,9 +15,7 @@ import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapCont
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
-import codeAreaStyles from "./CodeArea.module.css"
 import containerStyles from "../styles/container.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 const advancedEn = advancedContent["en"]
@@ -29,7 +24,6 @@ const enLinks = [
   advancedEn.wizard,
   advancedEn.smartForm,
   advancedEn.fieldArrays,
-  advancedEn.schema,
   advancedEn.errorMessage,
   advancedEn.connectForm,
   advancedEn.formContext,
@@ -45,7 +39,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     WizardFormFunnel: null,
     SmartFormComponent: null,
     FieldArrays: null,
-    SchemaValidation: null,
     ConnectForm: null,
     FormContextPerformance: null,
     ErrorMessages: null,
@@ -69,7 +62,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     advanced.wizard,
     advanced.smartForm,
     advanced.fieldArrays,
-    advanced.schema,
     advanced.errorMessage,
     advanced.connectForm,
     advanced.formContext,
@@ -186,39 +178,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
               url="https://codesandbox.io/s/6j1760jkjk"
             />
           </TabGroup>
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.SchemaValidation = ref)}
-          >
-            {advanced.schema.title}
-          </h2>
-
-          {advanced.schema.description}
-
-          {advanced.schema.step1}
-
-          <span className={getStartedStyles.installCode}>
-            npm install yup
-            <button
-              className={getStartedStyles.copyButton}
-              onClick={() => {
-                copyClipBoard("npm install yup")
-                alert("Code copied into your clipboard.")
-              }}
-            >
-              {generic.copy[currentLanguage]}
-            </button>
-          </span>
-
-          {advanced.schema.step2}
-
-          <CodeArea
-            rawData={schemaValidation}
-            url="https://codesandbox.io/s/928po918qr"
-          />
 
           <hr />
 

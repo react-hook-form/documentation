@@ -1,12 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
@@ -15,11 +12,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        通过调用使用<code>useForm</code>，您将收到以下方法{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code>也有<strong>可选</strong>的参数。
@@ -54,7 +46,7 @@ export default {
     validateContext: (
       <>
         <p>
-          该上下文对象将被注入<code> validationResolver </code>的第二个参数或
+          该上下文对象将被注入<code> resolver </code>的第二个参数或
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -157,8 +149,7 @@ export default {
     ),
     reValidateMode: (
       <p>
-        此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。{" "}
-        <Popup />
+        此选项允许您在有错误的输入重新验证时进行配置（默认情况下，在输入更改期间触发验证）。
       </p>
     ),
     validationFields: (
@@ -378,43 +369,13 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
-
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3和V4之间的区别：
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: 嵌套对象</p>
-            <p>
-              <strong>原因:</strong> 随着optional chaining接越来越多
-              在社区中流行并支持更好的type。
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: 展平对象</p>
-            <p>
-              <strong>原因:</strong> 简单易访问的错误。
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
       <>
         This is useful for input validation like rules of password, which
         multiple errors need to return for a single field. To enable this
-        feature, make sure you have set <code>validateCriteriaMode: 'all'</code>
-        .
+        feature, make sure you have set <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
@@ -461,7 +422,6 @@ export default {
       ),
       multiple: "观看多个输入",
       all: "观看所有输入",
-      nest: "观察所有输入并返回嵌套对象",
     },
   },
   handleSubmit: {
@@ -606,28 +566,11 @@ export default {
     description: (
       <>
         <p>此函数将返回整个表单数据。</p>
-
-        <ul>
-          <li>
-            <p>
-              默认情况下，<code>getValues()</code>
-              将在平坦结构中返回表单数据。例如:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              使用定义的表单，<code>getValues({`{ nest: true }`})</code>
-              将根据输入名称返回嵌套结构中的数据。 例如:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>手动触发表单中的输入/选择验证。</p>
@@ -750,11 +693,6 @@ export default {
             确保您知道外部组件<code>value</code>props的形状。 当payload是
             <code>object</code>时，将读取<code>value</code>或<code>check</code>
             属性。
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>
@@ -1095,7 +1033,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus?: boolean = true) => void
               </code>
             </code>
           </td>
@@ -1108,7 +1046,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus?: boolean = true) => void
               </code>
             </code>
           </td>
@@ -1121,7 +1059,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object) => void
+                (index: number, value: object, shouldFocus?: boolean = true) =>
+                void
               </code>
             </code>
           </td>
@@ -1177,12 +1116,20 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           此功能使您可以运行任何外部验证方法，例如
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1201,26 +1148,72 @@ React.useEffect(() => {
           和。实际上，目标不仅限于限制Yup作为我们的外部（架构）验证库。我们希望支持许多其他验证库以与React
           Hook Form一起使用。您甚至可以编写自定义验证逻辑进行验证。
         </p>
+
         <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          确保返回的对象包含值和错误，并且它们的默认值应为空对象
-          <code>{`{}`}</code>。
+          我们正式支持Yup，Joi和Superstruct
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            标准解析器
+          </a>
+          。
         </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          返回错误对象的键应与您的输入有关。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>该函数将被缓存在类似于
-          <code>validationSchema</code>的自定义钩子中，而
-          <code>validationContext</code>
-          是一个可变对象，可以在每次重新渲染时进行更改。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
+
+        <p>关于构建自定义解析器的说明：</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              确保返回的对象包含值和错误，并且它们的默认值应为空对象
+              <code>{`{}`}</code>。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              返回错误对象的键应与您的输入有关。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>
+              该函数将被缓存在的自定义钩子中，而
+              <code>context</code>
+              是一个可变对象，可以在每次重新渲染时进行更改。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>
+              重新验证输入将在用户互动期间一次只能出现一个字段，因为这个软件会将错误对象评估为特定字段，并且触发相应的重新渲染。
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        与<code> watch </code> API共享相同的功能，但是，
+        会在您的组件级别隔离重新渲染，并可能导致 为您的应用程序提供更好的性能。
+      </p>
     ),
   },
 }

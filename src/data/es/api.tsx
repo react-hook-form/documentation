@@ -1,13 +1,9 @@
 import * as React from "react"
-import { Link as NavLink } from "gatsby"
 import colors from "../../styles/colors"
-import translateLink from "../../components/logic/translateLink"
-import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Documentación de la API",
@@ -16,11 +12,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        Invocando <code>useForm</code>, recibirás los siguientes métodos{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> también tiene argumentos <b>opcionales</b>. El
@@ -47,10 +38,9 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or Este objeto de
-          contexto se inyectará en El segundo argumento de{" "}
-          <code>validationResolver</code> o
+          This context object will be injected into <code>resolver</code>'s
+          second argument or Este objeto de contexto se inyectará en El segundo
+          argumento de <code>resolver</code> o
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -163,7 +153,7 @@ export default {
       <p>
         Esta opción te permite configurar cuándo las entradas con errores son
         revalidadas (por defecto, la validación se activa cuando se cambia un
-        input.) <Popup />
+        input.)
       </p>
     ),
     validationFields: (
@@ -399,16 +389,6 @@ export default {
           Objeto que contiene los errores de formulario o los mensajes de error
           que pertenecen a cada input.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Puedes aprender más en{" "}
-          <NavLink
-            to={translateLink("/advanced-usage#ErrorMessage", currentLanguage)}
-          >
-            Mensaje de error
-          </NavLink>{" "}
-          de la página de uso avanzado.
-        </p>
       </>
     ),
     types: (
@@ -416,7 +396,7 @@ export default {
         Esto es útil para validaciones de inputs como reglas de contraseña,
         cuando múltiples errores deben retornarse para un solo campo. Para
         habilitar esta función, asegúrese de haber configurado{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `Message es un string vacio por defecto. Sin embargo, si registra la validación con un mensaje de error, se devolverá.`,
@@ -468,7 +448,6 @@ export default {
       ),
       multiple: "Observa multiples inputs",
       all: "Observa todos los inputs",
-      nest: "Observa todos los inputs y retorna objetos anidados",
     },
   },
   handleSubmit: {
@@ -623,29 +602,11 @@ export default {
           Esta función retornará todos los datos del formulario, y es útil en
           funciones en los que quieras retornar todo los valores del formulario.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              Por defecto <code>getValues()</code> retornará los datos del
-              formulario en una estructura plana. ej:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              Trabajando en los campos de formulario definidos,{" "}
-              <code>getValues({`{ nest: true }`})</code> retornará los datos en
-              una estructura anidada de acuerdo al <code>name</code> del input.
-              ej: <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>
@@ -657,26 +618,6 @@ export default {
           falla, el objeto <code>errors</code> se actualizará.
         </p>
       </>
-    ),
-  },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        Si quieres centralizar tus reglas de validación con una librería de
-        validación de esquemas, puedes setear <code>validationSchema</code> en{" "}
-        <code>useForm</code> como argumento opcional. React Hook Form
-        actualmente soporta{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        para validación de esquema de objeto.
-      </p>
     ),
   },
   Controller: {
@@ -773,11 +714,6 @@ export default {
             Esta propiedad <code>onChange</code> te permitirá customizar el
             valor de retorno, asegúrese de conocer la forma de los accesorios
             del componente externo <code>value</code>.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>
@@ -993,24 +929,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
       </tbody>
     ),
   },
-  NativeValidation: {
-    title: "Validación nativa del navegador",
-    description: (
-      <>
-        <p>
-          El siguiente ejemplo muestra cómo puedes aprovechar la validación
-          nativa del navegador. Solo necesitas establecer{" "}
-          <code>nativeValidation</code> en {""}
-          <code>true</code> y el resto de la sintaxis es la misma que la
-          validación estándar.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
-    ),
-  },
   useFieldArray: {
     title: "useFieldArray",
     description: (
@@ -1136,7 +1054,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus: boolean = true) => void
             </code>
           </td>
           <td>Agregue input/inputs al final de los campos</td>
@@ -1147,7 +1065,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus: boolean = true) => void
             </code>
           </td>
           <td>Antepone input/inputs al comienzo de tus campos</td>
@@ -1158,7 +1076,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object, shouldFocus: boolean = true) =>
+              void
             </code>
           </td>
           <td>Inserta input/inputs en una posición en particular.</td>
@@ -1211,13 +1130,21 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           Esta función le permite ejecutar cualquier método de validación
           externo, tal como{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1241,32 +1168,77 @@ React.useEffect(() => {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Nota:</b> asegúrate de que eres
-          devolver objeto que contiene <code>values</code> y <code>errors</code>
-          , y su valor predeterminado debe ser un objeto vacío{" "}
-          <code> {`{}`} </code>.
+          Apoyamos a Yup, Joi y Superstruct oficialmente como{" "}
+          <a
+            href="https://github.com/react-hook-form/@hookform/resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            solucionadores estándar
+          </a>
+          .
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> errores de retorno La
-          clave del objeto debe ser relevante para sus entradas.
-        </p>
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> esta función se
-          almacenará en caché dentro del enlace personalizado, similar a{" "}
-          <code>validationSchema</code>, mientras que{" "}
-          <code>validationContext</code> es un objeto mutable que se puede
-          cambiar en cada representación.
-        </p>
+        <p>notas sobre la creación de solucionadores personalizados:</p>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> volver a validar la
-          entrada solo ocurre un campo a la vez durante la interacción del
-          usuario, porque el lib mismo evaluará el objeto de error en el campo
-          específico y desencadenar re-renderizar en consecuencia.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> asegúrate de que
+              eres devolver objeto que contiene <code>values</code> y{" "}
+              <code>errors</code>, y su valor predeterminado debe ser un objeto
+              vacío <code> {`{}`} </code>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> errores de retorno
+              La clave del objeto debe ser relevante para sus entradas.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> esta función se
+              almacenará en caché dentro del enlace personalizado, mientras que{" "}
+              <code>context</code> es un objeto mutable que se puede cambiar en
+              cada representación.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> volver a validar la
+              entrada solo ocurre un campo a la vez durante la interacción del
+              usuario, porque el lib mismo evaluará el objeto de error en el
+              campo específico y desencadenar re-renderizar en consecuencia.
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        Comparta la misma funcionalidad que la API <code> watch </code>, sin
+        embargo, esto aislará el renderizado en el nivel de su componente y
+        potencialmente resultará en Mejor rendimiento para su aplicación.
+      </p>
     ),
   },
 }

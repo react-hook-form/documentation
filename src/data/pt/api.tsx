@@ -1,12 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "API Documentação",
@@ -16,11 +13,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        Utilizando <code>useForm</code>, você receberá os seguintes métodos{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> também tem argumentos <b>opcionais</b>. O exemplo a
@@ -49,7 +41,7 @@ export default {
       <>
         <p>
           Esse objeto de contexto será injetado no segundo argumento de{" "}
-          <code>validationResolver</code> ou em{" "}
+          <code>resolver</code> ou em{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -159,7 +151,7 @@ export default {
       <p>
         Esta opção permite configurar quando entradas com erros são exibidas e
         revalidadas (por padrão, a validação é acionada durante uma entrada
-        mudança.) <Popup />
+        mudança.)
       </p>
     ),
     validationFields: (
@@ -392,34 +384,6 @@ export default {
           Objeto contendo erros de formulário, ou mensagens de erro que
           pertencem a cada campo.
         </p>
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          Diferença entre a versão 3 e 4:
-        </p>
-
-        <ul>
-          <li>
-            <p>Versão 4: Objetos aninhados</p>
-            <p>
-              <strong>Razão:</strong> com o encadeamento opcional se tornando
-              mais popular entre a comunidade e para dar melhor suporte a tipo.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>Versão 3: Objetos nivelados</p>
-            <p>
-              <strong>Razão:</strong> simples e fácil de acessar o erro.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -427,7 +391,7 @@ export default {
         Isto é útil para validação de campos como regras de senha, com múltiplos
         errors que precisam ser retornados de um único campo. Para habilitar
         essa funcionalidade, tenha certeza de setar{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `'Message' é um campo string e vazio por padrão. Entretanto, se você registrar a validação com mensagem de erro, ele será retornado.`,
@@ -478,7 +442,6 @@ export default {
       ),
       multiple: "Assista múltiplos campos",
       all: "Assista todos os campos",
-      nest: "Assista a todas as entradas e retorne objeto aninhado",
     },
   },
   handleSubmit: {
@@ -634,29 +597,11 @@ export default {
           Essa função vai retornar todo o dado do formulário, e é útil em uma
           função quando você precisa capturar os dados do formulário.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              Por padrão <code>getValues()</code> irá retornar todo o dado do
-              formulário em uma estrutura plana. ex:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              Trabalhando com campos definidos do formulário,{" "}
-              <code>getValues({`{ nest: true }`})</code> irá retornar o dado em
-              uma estrutura aninhada de acordo com o campo <code>name</code>.
-              ex: <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>
@@ -667,26 +612,6 @@ export default {
           falha, o <code>errors</code> objeto será atualizado.
         </p>
       </>
-    ),
-  },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        Se você preferir, pode centralizar a validação de regras com validação
-        externa, validação de esquema, você pode aplicar{" "}
-        <code>validationSchema</code> em <code>useForm</code> como argumento
-        opcional. React Hook Form atualmente suporta{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        para validação de esquema de objeto.
-      </p>
     ),
   },
   Controller: {
@@ -782,11 +707,6 @@ export default {
             A propriedade <code>onChange</code> lhe permite customizar o retorno
             do valor, verifique se o formato do componente externo{" "}
             <code>value</code> props.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>
@@ -1025,23 +945,6 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
       </tbody>
     ),
   },
-  NativeValidation: {
-    title: "Validações nativas do browser",
-    description: (
-      <>
-        <p>
-          O exemplo a seguir demonstra como você pode aproveitar a validação do
-          navegador. Você apenas precisa setar <code>nativeValidation</code>{" "}
-          para <code>true</code> e o restante da sintaxe é igual à validação
-          padrão.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
-    ),
-  },
   useFieldArray: {
     title: "useFieldArray",
     description: (
@@ -1166,7 +1069,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>Append input/inputs no final de seus campos.</td>
@@ -1177,7 +1080,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object | object[], shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>Prepend input/inputs no começo de seus campos.</td>
@@ -1188,7 +1091,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object, shouldFocus?: boolean = true) =>
+              void
             </code>
           </td>
           <td>Insert input/inputs em uma posição particular.</td>
@@ -1240,13 +1144,21 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           Essa função permite executar qualquer validação ou metodo externo,
           como
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1267,30 +1179,75 @@ React.useEffect(() => {
           de validação para funcionar com o React Hook Form. Você pode inclusive
           escrever sua propria logica de validação.
         </p>
+
         <p>
-          <b className={typographyStyles.note}>Nota:</b> Tenha certeza que você
-          retornando o objeto que contem <code>values</code> e{" "}
-          <code>errors</code>, e seus valores padrão sejam um objeto vazio{" "}
-          <code>{`{}`}</code>.
+          Apoiamos Yup, Joi e Superstruct oficialmente como{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            resolvedores padrão
+          </a>
+          .
         </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> retornar a chave do
-          objeto que contenha os erros é relevante para seus inputs.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Essa função será
-          cacheada dentro do custom hook, similar ao{" "}
-          <code>validationSchema</code>, enquanto o{" "}
-          <code>validationContext</code> é um objeto mutável que pode ser
-          modificado a cada re-render.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> Revalidar o input vai
-          ocorrer somente em um campo por vez durante as interações do usuário,
-          porque a biblioteca em si vai considerar o objeto do campo em
-          especifico e disparará o re-render de acordo.
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
+
+        <p>notas sobre a criação de resolvedores personalizados:</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Tenha certeza que
+              você retornando o objeto que contem <code>values</code> e{" "}
+              <code>errors</code>, e seus valores padrão sejam um objeto vazio{" "}
+              <code>{`{}`}</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> retornar a chave do
+              objeto que contenha os erros é relevante para seus inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Essa função será
+              cacheada dentro do custom hook, enquanto o <code>context</code> é
+              um objeto mutável que pode ser modificado a cada re-render.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Nota:</b> Revalidar o input
+              vai ocorrer somente em um campo por vez durante as interações do
+              usuário, porque a biblioteca em si vai considerar o objeto do
+              campo em especifico e disparará o re-render de acordo.
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        Compartilhe a mesma funcionalidade que a API <code> watch </code>, no
+        entanto, isso isolará a nova renderização no nível do componente e
+        resultará potencialmente em melhor desempenho para sua aplicação.
+      </p>
     ),
   },
 }

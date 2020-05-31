@@ -9,7 +9,7 @@ export default {
   step1: (
     <>
       <b className={typographyStyles.note}>Passo 1: </b>Instalar{" "}
-      <code>react-hook-form-devtools</code> como pacote de dependencia dev.
+      <code>@hookform/devtools</code> como pacote de dependencia dev.
     </>
   ),
   step2: (

@@ -131,8 +131,7 @@ export default {
           <p>
             Você pode atualmente usar o <code>register</code> em um campo sem o{" "}
             <code>ref</code>. De fato, você pode manualmente usar{" "}
-            <code>setValue</code>, <code>setError</code> e{" "}
-            <code>triggerValidation</code>.
+            <code>setValue</code>, <code>setError</code> e <code>trigger</code>.
           </p>
 
           <p>

@@ -1,11 +1,9 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
 
 export default {
   title: "Документация по API",
@@ -15,11 +13,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        Вызывая <code>useForm</code>, вы получите следующие методы{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> также имеет <b>необязательные</b> аргументы. В
@@ -46,8 +39,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into{" "}
-          <code>validationResolver</code>'s second argument or{" "}
+          This context object will be injected into <code>resolver</code>'s
+          second argument or{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -157,7 +150,7 @@ export default {
       <p>
         Этот параметр позволяет установить, когда поля с ошибками будут повторно
         валидироваться (по умолчанию проверка запускается при любом изменении в
-        поле). <Popup />
+        поле).
       </p>
     ),
     validationFields: (
@@ -393,33 +386,6 @@ export default {
           Объект, содержащий ошибки формы или сообщения об ошибках для каждого
           поля.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Примечание:</b> Есть развница в
-          V3 и V4:
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: Вложеный объект</p>
-            <p>
-              <strong>Причина:</strong> так как опциональный чейнинг становится
-              всё более популярным в сообществе и для поддержки лучшего типа.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: Плоский объект</p>
-            <p>
-              <strong>Причина:</strong> простой доступ к ошибке.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
@@ -427,7 +393,7 @@ export default {
         Это полезно для проверки входных данных, таких как правила пароля,
         которые должны возвращать несколько ошибок для одного поля. Чтобы
         включить эту функцию, убедитесь, что вы установили{" "}
-        <code>validateCriteriaMode: 'all'</code>.
+        <code>criteriaMode 'all'</code>.
       </>
     ),
     message: `Сообщение является пустой строкой по умолчанию. Однако, если вы зарегистрируете валидацию с сообщением об ошибке, то затем она будет возвращена.`,
@@ -477,7 +443,6 @@ export default {
       ),
       multiple: "Наблюдение за несколькими полями",
       all: "Наблюдение за всеми полями",
-      nest: "Наблюдение за всеми полями и возврат вложенного объекта",
     },
   },
   handleSubmit: {
@@ -636,29 +601,11 @@ export default {
           Эта функция возвращает все данные формы, и это полезно, когда вы
           хотите получить значения полей формы.
         </p>
-
-        <ul>
-          <li>
-            <p>
-              По умолчанию <code>getValues()</code> вернёт значения полей формы
-              в виде плоской структуры, например:{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              При работе с определёнными полями формы,{" "}
-              <code>getValues({`{ nest: true }`})</code> вернёт данные во
-              вложенной структуре согласно <code>имени</code> поля, например:{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>Для принудительного вызова валидации input/select полей формы.</p>
@@ -812,7 +759,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus?: boolean = true) => void
               </code>
             </code>
           </td>
@@ -825,7 +772,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object | object[], shouldFocus?: boolean = true) => void
               </code>
             </code>
           </td>
@@ -838,7 +785,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object) => void
+                (index: number, value: object, shouldFocus?: boolean = true) =>
+                void
               </code>
             </code>
           </td>
@@ -993,11 +941,6 @@ React.useEffect(() => {
             или <code>checked</code> будет считываться, когда форма полезных
             данных представляет собой <code>object</code>, который содержит
             атрибут type.
-            <CodeArea
-              withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
-            />
           </td>
         </tr>
         <tr>
@@ -1236,30 +1179,21 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
       </tbody>
     ),
   },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          В следующем примере показано, как вы можете использовать браузерную
-          валидацию. Вам нужно установить свойство <code>nativeValidation</code>{" "}
-          в <code>true</code>, а остальная часть синтаксиса такая же, как для
-          стандартной валидации.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
-    ),
-  },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           This function allow you to run any external validation methods, such
           as{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1282,31 +1216,73 @@ onChange={{([ event, data ]) => ({ checked: data.checked})}}`}
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
-          <code>{`{}`}</code>.
+          Мы официально поддерживаем Yup, Joi и Superstruct как
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            стандартные резольверы
+          </a>
+          .
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
-        </p>
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> this function will be
-          cached inside the custom hook similar as <code>validationSchema</code>
-          , while <code>validationContext</code> is a mutable object which can
-          be changed on each re-render.
-        </p>
+        <p>примечания по созданию пользовательских распознавателей:</p>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> re-validate input will
-          only occur one field at time during user’s interaction, because the
-          lib itself will evaluate the error object to the specific field and
-          trigger re-render accordingly.
-        </p>
+        <ul>
+          <li>
+            <p>
+              make sure you are returning object which contains{" "}
+              <code>values</code> and <code>errors</code>, and their default
+              value should be <code>{`{}`}</code>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              returning errors object's key should be relevant to your inputs.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              this function will be cached inside the custom hook, while{" "}
+              <code>context</code> is a mutable object which can be changed on
+              each re-render.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              re-validate input will only occur one field at time during user’s
+              interaction, because the lib itself will evaluate the error object
+              to the specific field and trigger re-render accordingly.
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        Используйте те же функции, что и API <code> watch </code>, однако это
+        будет изолировать повторный рендеринг на уровне вашего компонента и
+        потенциально приведет к лучшая производительность для вашего приложения.
+      </p>
     ),
   },
 }

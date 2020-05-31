@@ -307,38 +307,6 @@ export default {
       </>
     ),
   },
-  schema: {
-    title: "Validação de formulário",
-    description: (
-      <>
-        <p>
-          React Hook Form suporta esquema baseado na validação do formulário com{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , aqui você utiliza o <code>validationSchema</code> para{" "}
-          <a href="/api#useForm">useForm</a> como configuração opcional. React
-          Hook Form irá validar o campo com base no esquema e retornará com{" "}
-          <a href="/api#errors">errors</a> ou um valor válido.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Passo 1:</b> Instale o{" "}
-          <code>Yup</code> em seu projeto.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Passo 2:</b> Crie um esquema para
-        validação e registre (<code>register</code>) os campos com React Hook
-        Form.
-      </p>
-    ),
-  },
   connectForm: {
     title: "Conectar Formulário",
     description: (

@@ -128,7 +128,7 @@ export default {
           <p>
             実は<code>ref</code>を使わずとも<code>register</code>
             は使用出来ます。 加えて<code>setValue</code>と<code>setError</code>
-            、<code>triggerValidation</code>
+            、<code>trigger</code>
             の手動での使用も出来ます。
           </p>
 

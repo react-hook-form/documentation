@@ -1,12 +1,13 @@
 {
   "name": "react-hook-form-website",
   "description": "React hooks for form validation without the hassle.",
-  "version": "3.1.0",
+  "version": "6.0.0",
   "author": "beier luo",
   "engines": {
     "node": "12.x"
   },
   "dependencies": {
+    "@hookform/devtools": "2.0.0-beta.1",
     "gatsby": "2.21.21",
     "gatsby-image": "2.4.3",
     "gatsby-plugin-google-analytics": "2.3.1",
@@ -20,6 +21,7 @@
     "gatsby-plugin-typescript": "2.4.2",
     "gatsby-source-filesystem": "2.3.1",
     "gatsby-transformer-sharp": "2.5.2",
+    "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "little-state-machine": "^3.0.0",
     "prismjs": "^1.20.0",
     "ptz-i18n": "^1.0.0",
@@ -27,9 +29,8 @@
     "react-dom": "16.13.1",
     "react-github-btn": "1.2.0",
     "react-helmet": "5.2.1",
-    "react-hook-form": "4.9.3",
-    "react-hook-form-devtools": "1.0.2-beta.2",
-    "react-simple-animate": "^3.3.4",
+    "react-hook-form": "6.0.0-rc.1",
+    "react-simple-animate": "^3.3.8",
     "react-simple-img": "2.3.7",
     "react-sortablejs": "1.5.1",
     "sortablejs": "1.10.2"

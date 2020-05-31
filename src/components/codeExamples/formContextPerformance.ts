@@ -30,7 +30,7 @@ export default function App() {
         <NestedInputContainer />
         <input type="submit" />
       </form>
-    </FormContext>
+    </FormProvider>
   );
 }
 `

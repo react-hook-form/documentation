@@ -114,7 +114,7 @@ export default {
           <p>
             您实际上可以在没有<code>ref</code>的情况下注册
             <code>register</code>输入。 事实上，您可以手动设置值，设置错误
-            <code>setError</code>和触发验证<code>triggerValidation</code>。
+            <code>setError</code>和触发验证<code>trigger</code>。
           </p>
 
           <p>

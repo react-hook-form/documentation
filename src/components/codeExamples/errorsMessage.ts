@@ -3,7 +3,7 @@ import { useForm, ErrorMessage } from "react-hook-form";
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm({
-    validateCriteriaMode: "all"
+    criteriaMode "all"
   });
   const onSubmit = data => console.log(data);
 
