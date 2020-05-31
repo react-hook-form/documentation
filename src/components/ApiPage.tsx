@@ -23,7 +23,7 @@ import Popup from "./Popup"
 import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import apiContent from "../data/api"
+import apiEn from "../data/en/api"
 import Controller from "./Controller"
 import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
@@ -45,7 +45,6 @@ import styles from "./ApiPage.module.css"
 
 const { useRef, useEffect } = React
 
-const apiEn = apiContent["en"]
 const enLinks = [
   apiEn.useForm,
   apiEn.register,
@@ -76,13 +75,13 @@ const codeSandBoxStyle = {
   float: "right",
 }
 
-function ApiPage({
-  formData,
-  defaultLang,
-}: {
+interface Props {
   formData?: any
   defaultLang: string
-}) {
+  api: any
+}
+
+function ApiPage({ formData, defaultLang, api }: Props) {
   const {
     state,
     state: { language },
@@ -93,7 +92,6 @@ function ApiPage({
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const api = apiContent[currentLanguage]
   const [activeIndex, setActiveIndex] = React.useState(0)
   const links = [
     api.useForm,
