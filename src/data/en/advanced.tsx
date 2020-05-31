@@ -51,14 +51,14 @@ export default {
     description: (
       <p>
         Error messages are visual feedback to our users when there are issues
-        with their inputs. React Hook Form provides an <code>errors</code>
+        with their inputs. React Hook Form provides an <code>errors</code>{" "}
         object to let you retrieve errors easily. There are several different
         ways to improve error presentation on the screen.
       </p>
     ),
     register: (
       <>
-        You can simply pass the error message to <code>register</code>, via the
+        You can simply pass the error message to <code>register</code>, via the{" "}
         <code>message</code> attribute of the validation rule object, like this:
       </>
     ),
