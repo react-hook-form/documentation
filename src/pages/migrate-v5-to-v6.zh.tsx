@@ -5,7 +5,7 @@ import MigrateV5ToV6 from "../components/migrateV5ToV6Page"
 
 export default ({ location }) => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout location={location} defaultLang="zh">
       <Seo title="Migrate From V5 to V6" location={location} />
       <MigrateV5ToV6 defaultLang="zh" />
     </Layout>

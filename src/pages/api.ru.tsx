@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ApiPage from "../components/ApiPage"
-import api from "../data/en/api"
+import api from "../data/ru/api"
 
 const Api = ({
   location,
