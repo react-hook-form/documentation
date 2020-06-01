@@ -1088,87 +1088,39 @@ React.useEffect(() => {
     description: (
       <p>A simple component to render associated input's error message.</p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>associated field name.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td></td>
-          <td>
-            <code>errors</code> object from React Hook Form. It's optional if
-            you are using <code>FormContext</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              string | React.ReactElement
-            </code>
-          </td>
-          <td></td>
-          <td>inline error message.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td></td>
-          <td>
-            Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string | React.ReactElement, messages?: Object}`})
-              => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            This is a{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            for rendering error message or messages.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>associated field name.</>,
+      errors: (
+        <>
+          <code>errors</code> object from React Hook Form. It's optional if you
+          are using <code>FormContext</code>.
+        </>
+      ),
+      message: <>inline error message.</>,
+      as: (
+        <>
+          Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+          <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      render: (
+        <>
+          This is a{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          for rendering error message or messages.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   resolver: {
     title: "resolver",

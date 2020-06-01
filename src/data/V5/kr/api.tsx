@@ -910,87 +910,39 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
     description: (
       <p>입력값의 에러 메세지를 랜더링하기 위한 간단한 컴포넌트입니다.</p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>연결할 필드 이름.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td />
-          <td>
-            <code>errors</code> 객체는 React Hook Form 에서 전달된 것입니다.
-            FormContext 를 쓴다면 필수 값은 아닙니다.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              string | React.ReactElement
-            </code>
-          </td>
-          <td></td>
-          <td>인라인 오류 메시지.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td />
-          <td>
-            감싸질 컴포넌트나 HTML 태그. 예: <code>as="span"</code> 나{" "}
-            <code>{`as={<Text />}`}</code> 등.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string | React.ReactElement, messages?: Object}`})
-              => any
-            </code>
-          </td>
-          <td />
-          <td>
-            에러 메세지나 일반 메세지를 랜더링하기 위한{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            입니다.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>연결할 필드 이름.</>,
+      errors: (
+        <>
+          <code>errors</code> 객체는 React Hook Form 에서 전달된 것입니다.
+          FormContext 를 쓴다면 필수 값은 아닙니다.
+        </>
+      ),
+      message: <>인라인 오류 메시지.</>,
+      as: (
+        <>
+          감싸질 컴포넌트나 HTML 태그. 예: <code>as="span"</code> 나{" "}
+          <code>{`as={<Text />}`}</code> 등.
+        </>
+      ),
+      children: (
+        <>
+          에러 메세지나 일반 메세지를 랜더링하기 위한{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          입니다.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   NativeValidation: {
     title: "Browser built-in validation",

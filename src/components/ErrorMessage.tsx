@@ -35,7 +35,66 @@ export default ({
               <th>{generic.description[currentLanguage]}</th>
             </tr>
           </thead>
-          {api.ErrorMessage.table}
+          <tbody>
+            <tr>
+              <td>
+                <code>name</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>✓</td>
+              <td>{api.ErrorMessage.table.name}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>errors</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>object</code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.errors}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>message</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  string | React.ReactElement
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.message}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>as</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  React.ElementType | string
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.as}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>render</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  (
+                  {`{ message: string | React.ReactElement, messages?: Object}`}
+                  ) => any
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.render}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
 

@@ -1100,87 +1100,39 @@ React.useEffect(() => {
         Простой компонент для отображения связанного сообщения об ошибке поля.
       </p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>имя связанного поля.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td />
-          <td>
-            <code>errors</code> объект из React Hook Form. Необязательно, если
-            вы используете FormContext.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              string | React.ReactElement
-            </code>
-          </td>
-          <td></td>
-          <td>встроенное сообщение об ошибке.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td />
-          <td>
-            Компонент-обёртка или HTML тэг. Например: <code>as="span"</code> или{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string | React.ReactElement, messages?: Object}`})
-              => any
-            </code>
-          </td>
-          <td />
-          <td>
-            Это{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            сообщения об ошибке/ошибках.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>имя связанного поля.</>,
+      errors: (
+        <>
+          <code>errors</code> объект из React Hook Form. Необязательно, если вы
+          используете FormContext.
+        </>
+      ),
+      message: <>встроенное сообщение об ошибке.</>,
+      as: (
+        <>
+          Компонент-обёртка или HTML тэг. Например: <code>as="span"</code> или{" "}
+          <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      render: (
+        <>
+          Это{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          сообщения об ошибке/ошибках.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   resolver: {
     title: "resolver",

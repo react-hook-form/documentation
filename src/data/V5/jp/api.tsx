@@ -959,87 +959,39 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
         のエラーメッセージを表示するためのシンプルなコンポーネント。
       </p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>関連するフィールド名</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td>✓</td>
-          <td>
-            React Hook Form の <code>errors</code> オブジェクト
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              string | React.ReactElement
-            </code>
-          </td>
-          <td></td>
-          <td>インラインエラーメッセージ。</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td></td>
-          <td>
-            ラッパーコンポーネント、または HTML タグ。 例:{" "}
-            <code>as="span"</code> または <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string | React.ReactElement, messages?: Object}`})
-              => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            これは、単一または複数のエラーメッセージをレンダリングするための{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            です。
-            <p>
-              <b className={typographyStyles.note}>注意:</b>{" "}
-              <code>messages</code> を使用するためには、 validateCriteriaMode を{" "}
-              'all' に設定する必要があります。
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>関連するフィールド名</>,
+      errors: (
+        <>
+          React Hook Form の <code>errors</code> オブジェクト
+        </>
+      ),
+      message: <>インラインエラーメッセージ。</>,
+      as: (
+        <>
+          ラッパーコンポーネント、または HTML タグ。 例: <code>as="span"</code>{" "}
+          または <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      children: (
+        <>
+          これは、単一または複数のエラーメッセージをレンダリングするための{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          です。
+          <p>
+            <b className={typographyStyles.note}>注意:</b> <code>messages</code>{" "}
+            を使用するためには、 validateCriteriaMode を 'all'
+            に設定する必要があります。
+          </p>
+        </>
+      ),
+    },
   },
   NativeValidation: {
     title: "Browser built-in validation",

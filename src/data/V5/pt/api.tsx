@@ -941,87 +941,39 @@ export default {
         associado.
       </p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>campo name associado.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td></td>
-          <td>
-            <code>errors</code> objeto do React Hook Form. é opcional se estiver
-            usando FormContext.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              string | React.ReactElement
-            </code>
-          </td>
-          <td></td>
-          <td>mensagem de erro em linha.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td></td>
-          <td>
-            Um componente ou tag HTML. ex: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string | React.ReactElement, messages?: Object}`})
-              => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            Este é um{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            para renderizar mensagem de erro ou mensagens.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>campo name associado.</>,
+      errors: (
+        <>
+          <code>errors</code> objeto do React Hook Form. é opcional se estiver
+          usando FormContext.
+        </>
+      ),
+      message: <>mensagem de erro em linha.</>,
+      as: (
+        <>
+          Um componente ou tag HTML. ex: <code>as="span"</code> or{" "}
+          <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      children: (
+        <>
+          Este é um{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          para renderizar mensagem de erro ou mensagens.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   NativeValidation: {
     title: "Validações nativas do browser",
