@@ -14,7 +14,7 @@ const ApiPT = ({
 }) => (
   <Layout location={location} defaultLang="pt">
     <Seo title={advanced.title} location={location} />
-    <AdvancedUsage defaultLang="pt" />
+    <AdvancedUsage defaultLang="pt" advanced={advanced} />
   </Layout>
 )
 
