@@ -887,86 +887,40 @@ export default {
     description: (
       <p>A simple component to render associated input's error message.</p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>关联的表格名称。</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td>✓</td>
-          <td>
-            React Hook表单中的<code> errors </code>
-            对象。如果您使用的是FormContext，则为可选。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>内联错误消息。</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td></td>
-          <td>
-            包装器组件或HTML标签。 例如: <code>as="span"</code> or{" "}
-            <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            这是一个{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            用于呈现错误单个或多个消息。
-            <p>
-              <b className={typographyStyles.note}>注意:</b>
-              您需要设置将<code>validateCriteriaMode</code>设置为“all”以使用
-              <code>消息</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
+    table: {
+      name: <>关联的表格名称。</>,
+      errors: (
+        <>
+          React Hook表单中的<code> errors </code>
+          对象。如果您使用的是FormContext，则为可选。
+        </>
+      ),
+      message: <>内联错误消息。</>,
+      as: (
+        <>
+          包装器组件或HTML标签。 例如: <code>as="span"</code> or{" "}
+          <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      children: (
+        <>
+          这是一个{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          用于呈现错误单个或多个消息。
+          <p>
+            <b className={typographyStyles.note}>注意:</b>
+            您需要设置将<code>validateCriteriaMode</code>设置为“all”以使用
+            <code>消息</code>.
+          </p>
+        </>
+      ),
+    },
   },
   NativeValidation: {
     title: "Browser built-in validation",

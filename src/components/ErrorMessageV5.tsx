@@ -82,7 +82,7 @@ export default ({
             </tr>
             <tr>
               <td>
-                <code>render</code>
+                <code>children</code>
               </td>
               <td>
                 <code className={typographyStyles.typeText}>
@@ -92,7 +92,7 @@ export default ({
                 </code>
               </td>
               <td></td>
-              <td>{api.ErrorMessage.table.render}</td>
+              <td>{api.ErrorMessage.table.children}</td>
             </tr>
           </tbody>
         </table>

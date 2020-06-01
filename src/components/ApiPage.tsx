@@ -672,7 +672,7 @@ const { register } = useForm<Inputs>({
               <h2>
                 setError: <br />
                 <span className={typographyStyles.typeText}>
-                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
+                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string | React.ReactElement) => void`}
                 </span>
               </h2>
             </code>

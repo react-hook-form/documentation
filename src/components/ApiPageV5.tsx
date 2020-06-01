@@ -25,7 +25,7 @@ import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import apiEn from "../data/V5/en/api"
 import Controller from "./Controller"
-import ErrorMessage from "./ErrorMessage"
+import ErrorMessage from "./ErrorMessageV5"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./V5/codeExamples/setMultipleErrors"
@@ -819,7 +819,7 @@ const { register } = useForm<Inputs>({
               <h2>
                 setError: <br />
                 <span className={typographyStyles.typeText}>
-                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
+                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string | React.ReactElement) => void`}
                 </span>
               </h2>
             </code>
