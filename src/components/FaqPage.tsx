@@ -8,7 +8,7 @@ import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
 import copyClipBoard from "../components/utils/copyClipBoard"
 import StarRepo from "../components/StarRepo"
-import faqContent from "../data/faq"
+import faqEn from "../data/en/faq"
 import { useStateMachine } from "little-state-machine"
 import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
@@ -21,9 +21,14 @@ import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 
-const enLinks = faqContent["en"].questions
+const enLinks = faqEn.questions
 
-const Faq = ({ defaultLang }: { defaultLang: string }) => {
+interface Props {
+  defaultLang: string
+  faq: any
+}
+
+const Faq = ({ defaultLang, faq }: Props) => {
   const {
     state,
     state: { language },
@@ -33,7 +38,6 @@ const Faq = ({ defaultLang }: { defaultLang: string }) => {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const faq = faqContent[currentLanguage]
   const links = faq.questions
 
   const sectionsRef = useRef({
