@@ -14,7 +14,7 @@ import {
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
-import getStartedContent from "../data/getStarted"
+import getStartedEn from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
 import reactNative from "./codeExamples/reactNative"
 import reactNativeController from "./codeExamples/reactNativeController"
@@ -27,7 +27,6 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 
 const { useRef, useEffect } = React
-const getStartedEn = getStartedContent["en"]
 const enLinks = [
   getStartedEn.install,
   getStartedEn.video,
@@ -43,17 +42,17 @@ const enLinks = [
   getStartedEn.typeScript,
 ]
 
-const Faq = ({
-  location,
-  defaultLang,
-}: {
+interface Props {
   location: {
     search: string
     pathname: string
     hash: string
   }
   defaultLang: string
-}) => {
+  getStarted: any
+}
+
+const Faq = ({ location, defaultLang, getStarted }: Props) => {
   const {
     state: { language },
   } = useStateMachine()
@@ -61,7 +60,6 @@ const Faq = ({
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const getStarted = getStartedContent[currentLanguage]
 
   const links = [
     getStarted.install,

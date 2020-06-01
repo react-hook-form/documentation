@@ -8,7 +8,7 @@ import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
 import { useStateMachine } from "little-state-machine"
-import advancedContent from "../data/advanced"
+import advancedEn from "../data/en/advanced"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
 import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
@@ -18,7 +18,6 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 
 const { useRef } = React
-const advancedEn = advancedContent["en"]
 const enLinks = [
   advancedEn.accessibility,
   advancedEn.wizard,
@@ -33,7 +32,12 @@ const enLinks = [
   advancedEn.workingWithVirtualizedList,
 ]
 
-function Advanced({ defaultLang }: { defaultLang: string }) {
+interface Props {
+  defaultLang: string
+  advanced: any
+}
+
+function Advanced({ defaultLang, advanced }: Props) {
   const pageContentRef = useRef({
     AccessibilityA11y: null,
     WizardFormFunnel: null,
@@ -55,7 +59,6 @@ function Advanced({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const advanced = advancedContent[currentLanguage]
 
   const links = [
     advanced.accessibility,

@@ -15,7 +15,11 @@ const GetStarted = ({
 }) => (
   <Layout location={location} defaultLang="ru">
     <Seo title={getStarted.title} location={location} />
-    <GetStartedPage location={location} defaultLang="ru" />
+    <GetStartedPage
+      location={location}
+      defaultLang="ru"
+      getStarted={getStarted}
+    />
   </Layout>
 )
 
