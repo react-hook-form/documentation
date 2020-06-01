@@ -5,9 +5,9 @@ import TsPage from "../components/tsPage"
 
 export default ({ location }) => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout location={location} defaultLang="ru">
       <Seo title="TS Support" location={location} />
-      <TsPage defaultLang="en" />
+      <TsPage defaultLang="ru" />
     </Layout>
   )
 }

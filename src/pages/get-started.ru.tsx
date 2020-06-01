@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import GetStartedPage from "../components/GetStartedPage"
-import getStarted from "../data/en/getStarted"
+import getStarted from "../data/ru/getStarted"
 
 const GetStarted = ({
   location,

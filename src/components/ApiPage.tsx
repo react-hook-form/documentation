@@ -308,7 +308,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 aria-controls="tabPanel-1"
                 role="tab"
                 onClick={() => {
-                  navigate(getNavLink(`/v5/api`, currentLanguage))
+                  navigate(getNavLink(`v5/api`, currentLanguage))
                 }}
               >
                 V5

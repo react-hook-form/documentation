@@ -13,13 +13,13 @@ const Api = ({
   }
 }) => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout location={location} defaultLang="es">
       <Seo
-        title={builder.title.en}
-        description={builder.description.en}
+        title={builder.title.es}
+        description={builder.description.es}
         location={location}
       />
-      <BuilderPage isStatic defaultLang="en" />
+      <BuilderPage isStatic defaultLang="es" />
     </Layout>
   )
 }
