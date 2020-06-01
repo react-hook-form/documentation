@@ -14,7 +14,8 @@ export default {
     title: "useForm",
     intro: (
       <>
-        By invoking <code>useForm</code>, you will receive the following methods{" "}:
+        By invoking <code>useForm</code>, you will receive the following methods{" "}
+        :
       </>
     ),
     description: (
@@ -904,13 +905,15 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("register")}
-          >
-            register
-          </button>. This{" "}
-            <code>object</code> will be cached inside <code>Controller</code>.
+            Validation rules in the same format as for{" "}
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("register")}
+            >
+              register
+            </button>
+            . This <code>object</code> will be cached inside{" "}
+            <code>Controller</code>.
           </td>
         </tr>
         <tr>
@@ -1115,7 +1118,9 @@ React.useEffect(() => {
             <code>message</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>string</code>
+            <code className={typographyStyles.typeText}>
+              string | React.ReactElement
+            </code>
           </td>
           <td></td>
           <td>inline error message.</td>
@@ -1141,7 +1146,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
+              ({`{ message: string | React.ReactElement, messages?: Object}`})
+              => any
             </code>
           </td>
           <td></td>

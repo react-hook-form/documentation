@@ -1130,7 +1130,9 @@ React.useEffect(() => {
             <code>message</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>string</code>
+            <code className={typographyStyles.typeText}>
+              string | React.ReactElement
+            </code>
           </td>
           <td></td>
           <td>встроенное сообщение об ошибке.</td>
@@ -1156,7 +1158,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
+              ({`{ message: string | React.ReactElement, messages?: Object}`})
+              => any
             </code>
           </td>
           <td />

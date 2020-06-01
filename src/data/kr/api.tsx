@@ -870,7 +870,9 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             <code>message</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>string</code>
+            <code className={typographyStyles.typeText}>
+              string | React.ReactElement
+            </code>
           </td>
           <td></td>
           <td>인라인 오류 메시지.</td>
@@ -896,7 +898,8 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
+              ({`{ message: string | React.ReactElement, messages?: Object}`})
+              => any
             </code>
           </td>
           <td />
