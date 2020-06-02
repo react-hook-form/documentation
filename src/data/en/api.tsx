@@ -905,14 +905,8 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for{" "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("register")}
-            >
-              register
-            </button>
-            . This <code>object</code> will be cached inside{" "}
+            Validation rules in the same format as for <code>register</code>.
+            This <code>object</code> will be cached inside{" "}
             <code>Controller</code>.
           </td>
         </tr>
