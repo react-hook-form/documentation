@@ -975,16 +975,16 @@ React.useEffect(() => {
           <td>
             Валидационные правила в соответствии с <code>register</code>.
             <ul>
-              <Li>
+              <li>
                 Локальное состояние: ввод <code>register</code> с обновленной
                 проверкой правила или <code>unregister</code> на{" "}
                 <code>useEffect</code> и позволить <code>Controller</code>{" "}
                 перерегистрировать себя с обновленными <code>rules</code>.
-              </Li>
-              <Li>
+              </li>
+              <li>
                 Состояние ввода: используйте функцию <code>validate</code> с{" "}
                 <code>getValues​​</code> для условного возврата проверки.
-              </Li>
+              </li>
             </ul>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
