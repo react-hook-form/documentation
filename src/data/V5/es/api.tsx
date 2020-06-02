@@ -902,37 +902,46 @@ export default {
       </p>
     ),
   },
-  table: {
-    name: <>Nombre de campo asociado.</>,
-    errors: (
-      <>
-        Objeto <code>errors</code> de React Hook Form
-      </>
+  ErrorMessage: {
+    title: "ErrorMessage",
+    description: (
+      <p>
+        Un componente simple para representar el mensaje de error del input
+        asociado.
+      </p>
     ),
-    message: <>mensaje de error en línea.</>,
-    as: (
-      <>
-        Componente wrappeado o un tag HTML. ej: <code>as="span"</code> o{" "}
-        <code>{`as={<Text />}`}</code>
-      </>
-    ),
-    children: (
-      <>
-        This is a{" "}
-        <a
-          href="https://reactjs.org/docs/render-props.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          render prop
-        </a>{" "}
-        for rendering error message or messages.
-        <p>
-          <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-          validateCriteriaMode to 'all' for using <code>messages</code>.
-        </p>
-      </>
-    ),
+    table: {
+      name: <>Nombre de campo asociado.</>,
+      errors: (
+        <>
+          Objeto <code>errors</code> de React Hook Form
+        </>
+      ),
+      message: <>mensaje de error en línea.</>,
+      as: (
+        <>
+          Componente wrappeado o un tag HTML. ej: <code>as="span"</code> o{" "}
+          <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      children: (
+        <>
+          This is a{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          for rendering error message or messages.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   NativeValidation: {
     title: "Validación nativa del navegador",

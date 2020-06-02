@@ -1,10 +1,10 @@
 import * as React from "react"
-import CodeArea, { CodeSandBoxLink } from "./CodeArea"
-import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import buttonStyles from "../styles/button.module.css"
+import CodeArea, { CodeSandBoxLink } from "../CodeArea"
+import generic from "../../data/generic"
 import formState from "./codeExamples/formState"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 const goToSection = (name, sectionsRef) => {
   const url = window.location.href

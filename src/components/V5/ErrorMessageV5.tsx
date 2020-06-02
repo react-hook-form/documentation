@@ -1,11 +1,11 @@
 import * as React from "react"
-import generic from "../data/generic"
+import generic from "../../data/generic"
 import errorMessage from "./codeExamples/errorMessage"
 import errorsMessage from "./codeExamples/errorsMessage"
-import CodeArea from "./CodeArea"
-import TabGroup from "./TabGroup"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
+import CodeArea from "../CodeArea"
+import TabGroup from "../TabGroup"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
 
 export default ({
   api,

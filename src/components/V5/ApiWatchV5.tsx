@@ -1,10 +1,10 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
-import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
+import generic from "../../data/generic"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
 
 export default function ApiWatch({
   currentLanguage,
