@@ -39,6 +39,15 @@ const Layout = (props: {
 
   return (
     <>
+      <div style={{ textAlign: "center", margin: "20px 0 20px" }}>
+        Black Lives Matter.{" "}
+        <a
+          href="https://support.eji.org/give/153413/#!/donation/checkout"
+          target="_blank"
+        >
+          Support the Equal Justice Initiative.
+        </a>
+      </div>
       <a className="skip-main" href="#main">
         Skip to content
       </a>
