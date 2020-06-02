@@ -844,22 +844,6 @@ React.useEffect(() => {
         </tr>
         <tr>
           <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td>✓</td>
-          <td>
-            Controlled component. eg: <code>as="input"</code>,{" "}
-            <code>{`as={<TextInput />}`}</code> or{" "}
-            <code>{`as={TextInput}`}</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>control</code>
           </td>
           <td>
@@ -869,6 +853,73 @@ React.useEffect(() => {
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
             it's optional if you are using FormContext.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
+          </td>
+          <td></td>
+          <td>
+            Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
+            and <code>value</code> props into the component.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            This is a{" "}
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              render prop
+            </a>
+            . A function that returns a React element and provide the ability to
+            attach events and value into the component. This make it easy to
+            integrate with external controlled component with non-standard props
+            name: <code>onChange</code>, <code>onBlur</code> and{" "}
+            <code>value</code>.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -907,39 +958,26 @@ React.useEffect(() => {
           <td>
             Validation rules in the same format as for <code>register</code>.
             This <code>object</code> will be cached inside{" "}
-            <code>Controller</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            This prop allows you to customize the return value, make sure you
-            aware the shape of the external component <code>value</code> props.{" "}
-            <code>value</code> or <code>checked</code> attribute will be read
-            when payload's shape is an <code>object</code> which contains{" "}
-            <code>type</code> attribute.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            This prop allows you to target a specific event name for{" "}
-            <code>onChange</code>, eg: when <code>onChange</code> event is named{" "}
-            <code>onTextChange</code>
+            <code>Controller</code>, to update rules:
+            <ul>
+              <li>
+                Local state: <code>register</code> input with updated validation
+                rules or <code>unregister</code> input at <code>useEffect</code>{" "}
+                and let <code>Controller</code> re-register itself with updated{" "}
+                <code>rules</code>.
+              </li>
+              <li>
+                Input state: leverage <code>validate</code> function with{" "}
+                <code>getValues</code> to return your validation conditionally.
+              </li>
+            </ul>
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
+            />
           </td>
         </tr>
         <tr>
@@ -967,34 +1005,6 @@ React.useEffect(() => {
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            This prop allows you to target a specific event name for{" "}
-            <code>onBlur</code>, eg: when <code>onBlur</code> event is named{" "}
-            <code>onTextBlur</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            This prop allows you to support inputs that doesn't use a prop
-            called <code>value</code>. eg: <code>checked</code>,{" "}
-            <code>selected</code> and etc.
           </td>
         </tr>
       </tbody>

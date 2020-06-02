@@ -619,14 +619,65 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            受控组件。例如： <code>as="input"</code> or{" "}
-            <code>{`as={<TextInput />}`}</code>
+            控制器将注入<code>onChange</code>，<code>onBlur</code>和
+            <code>value</code>属性插入组件。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            这是一个
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              渲染道具
+            </a>
+            。返回React元素并提供以下功能的函数：
+            将事件和值附加到组件中。这很容易与带有非标准道具的外部控制组件集成
+            名称：<code>onChange</code>，<code>onBlur</code>和<code>value</code>
+            。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -675,37 +726,26 @@ export default {
           </td>
           <td></td>
           <td>
-            根据<code> register </code>的验证规则。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            这个<code> onChange </code>道具可让您自定义返回值,
-            确保您知道外部组件<code>value</code>props的形状。 当payload是
-            <code>object</code>时，将读取<code>value</code>或<code>check</code>
-            属性。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            该props可让您定位特定的事件名称，例如：<code>onChange</code>
-            事件被命名为<code> onTextChange </code>
+            根据<code>register</code>的验证规则。
+            <ul>
+              <li>
+                本地状态：具有更新的验证的<code>register</code>输入,在
+                <code>useEffect</code>处输入<code>unregister</code>
+                ，然后让<code>Controller</code>用更新的<code>规则</code>
+                重新注册自己。
+              </li>
+              <li>
+                输入状态：将<code> validate </code>函数与
+                <code> getValues </code>结合使用以有条件地返回您的验证。
+              </li>
+            </ul>
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
+            />
           </td>
         </tr>
         <tr>
@@ -732,33 +772,6 @@ export default {
               </a>
               。
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            该道具可让您为指定一个特定的事件名称<code>onBlur</code>，例如：当
-            <code>onBlur</code>事件被命名为时<code>onTextBlur</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            该属性允许您覆盖<code>value</code>属性， 支持其他不使用
-            <code>value</code>属性的组件。 例如：<code>选中</code>，
-            <code>选中</code>等...
           </td>
         </tr>
       </tbody>

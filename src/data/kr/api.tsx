@@ -612,14 +612,65 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            제어 컴포넌트. 예: <code>as="input"</code> 혹은{" "}
-            <code>{`as={<TextInput />}`}</code>
+            컨트롤러는 <code>onChange</code>, <code>onBlur</code> 을 (를)
+            삽입합니다. 및 <code>value</code>는 구성 요소에 포함됩니다.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            이것은
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              소품을 렌더링
+            </a>
+            . React 요소를 반환하는 기능을 제공하는 함수 구성 요소에 이벤트 및
+            값을 첨부하십시오. 이것은 쉽게 할 수 있습니다 비표준 소품으로 외부
+            제어 부품과 통합 이름 : <code> onChange </code>,{" "}
+            <code> onBlur </code> 및 <code>value</code>.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -671,43 +722,26 @@ export default {
           <td />
           <td>
             <code>register</code> 에 따른 유효성 검사 규칙.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td />
-          <td>
-            리턴 값을 커스터마이징 할 수 있습니다, 외부 컴포넌트의{" "}
-            <code>value</code> prop 이 어떤 형태를 가지고 있는지 알고 있어야
-            합니다. 이벤트 핸들러에 전달된 값이 <code>object</code> 형태이고{" "}
-            <code>type</code> 속성값을 포함하고 있는 경우 <code>value</code>{" "}
-            혹은 <code>checked</code> 속성값을 읽어올 수 있습니다.
+            <ul>
+              <li>
+                로컬 상태 : 업데이트 된 유효성 검사와 함께 <code>register</code>{" "}
+                입력
+                <code>useEffect</code>에서 규칙 또는 <code>unregister</code>{" "}
+                입력을 수행하고 <code>Controller</code>가 업데이트 된{" "}
+                <code>rules</code>으로 자체 등록하도록합니다.
+              </li>
+              <li>
+                입력 상태 : <code>getValues</code>와 함께 <code>validate</code>{" "}
+                함수를 활용하여 조건부 검증을 반환합니다.
+              </li>
+            </ul>
             <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ { checked } ]) => ({ checked })}}`}
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
             />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
-            수 있도록 합니다. 예: <code>onChange</code> 이벤트가{" "}
-            <code>onTextChange</code> 로 되어있는 경우.
           </td>
         </tr>
         <tr>
@@ -735,34 +769,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
-            수 있도록 합니다. 예: <code>onBlur</code> 이벤트가{" "}
-            <code>onTextBlur</code> 로 되어있는 경우.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 <code>value</code> prop 을 다시 정의하여(Override)
-            <code>value</code> prop 을 사용하지 않는 다른 컴포넌트에 사용할 수
-            있습니다. 예: <code>checked</code>, <code>selected</code> 등.
           </td>
         </tr>
       </tbody>

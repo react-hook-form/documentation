@@ -627,6 +627,88 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>control</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td>✓</td>
+          <td>
+            <code>control</code> オブジェクトは <code>useForm</code>{" "}
+            から呼び出されます。 ただし、 FormContext
+            を使用している場合は省略できます。
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
+          </td>
+          <td></td>
+          <td>
+            コントローラーは<code>onChange</code>、<code>onBlur</code>{" "}
+            を挿入します
+            <code>value</code>をコンポーネントにプロップします。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            これは
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              レンダリングプロップ
+            </a>
+            。 React要素を返し、次の機能を提供する関数
+            イベントと値をコンポーネントにアタッチします。これにより、
+            非標準の小道具で外部制御コンポーネントと統合する 名前：
+            <code>onChange</code>、<code>onBlur</code>および{""}
+            <code>value</code>。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
             <code>as</code>
           </td>
           <td>
@@ -638,20 +720,6 @@ export default {
           <td>
             制御されたコンポーネント。 例: <code>as="input"</code> または{" "}
             <code>{`as={<TextInput />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>control</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>Object</code>
-          </td>
-          <td>✓</td>
-          <td>
-            <code>control</code> オブジェクトは <code>useForm</code>{" "}
-            から呼び出されます。 ただし、 FormContext
-            を使用している場合は省略できます。
           </td>
         </tr>
         <tr>
@@ -690,44 +758,25 @@ export default {
           <td></td>
           <td>
             <code>register</code> によるバリデーションルール。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            この prop を使用すると、戻り値をカスタマイズすることができます。
-            外部 UI コンポーネントの <code>value</code> prop{" "}
-            の形状を確認してください。 ペイロードの形状が <code>type</code>{" "}
-            属性を含むオブジェクトの場合、<code>value</code> または{" "}
-            <code>checked</code> 属性が読み込まれます。
+            <ul>
+              <li>
+                ローカル状態：更新された検証で<code>register</code>入力
+                ルールまたは<code>useEffect</code>での入力を
+                <code>unregister</code>し、<code>Controller</code>
+                に更新された<code>rules</code>でそれ自体を再登録させます。
+              </li>
+              <li>
+                入力状態：<code>getValues</code>で<code>validate</code>
+                関数を活用して、条件付きで検証を返します。
+              </li>
+            </ul>
             <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ { checked } ]) => ({ checked })}}`}
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
             />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop{" "}
-            を使用すると、特定のイベント名をターゲットにすることができます。
-            例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
-            と命名されている場合。
           </td>
         </tr>
         <tr>
@@ -755,36 +804,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop{" "}
-            を使用すると、特定のイベント名をターゲットにすることができます。
-            例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
-            と命名されている場合。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop を使用すると、<code>value</code> prop をオーバーライドし、
-            <code>value</code> prop
-            を使用しない他のコンポーネントをサポートできます。 例えば、{" "}
-            <code>checked</code>, <code>selected</code> 等...
           </td>
         </tr>
       </tbody>

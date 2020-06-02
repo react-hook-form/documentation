@@ -630,21 +630,6 @@ export default {
         </tr>
         <tr>
           <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td>✓</td>
-          <td>
-            Componente controlado. ex: <code>as="input"</code> ou{" "}
-            <code>{`as={<TextInput />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>control</code>
           </td>
           <td>
@@ -654,6 +639,72 @@ export default {
           <td>
             <code>control</code> objeto é invocado do <code>useForm</code>. é
             opcional, se estiver usando o FormContext.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
+          </td>
+          <td></td>
+          <td>
+            O controlador injeta <code>onChange</code>, <code>onBlur</code> {""}
+            e <code>value</code> adota o componente.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            Este é um{" "}
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              render prop
+            </a>
+            . Uma função que retorna um elemento React e fornece a capacidade de
+            anexar eventos e valor ao componente. Isso facilita integrar com
+            componente controlado externo com acessórios não-padrão nome:{" "}
+            <code>onChange</code>, <code>onBlur</code> e <code>value</code>.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -691,35 +742,26 @@ export default {
           <td></td>
           <td>
             Regras de validação de acordo com o <code>register</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            A propriedade <code>onChange</code> lhe permite customizar o retorno
-            do valor, verifique se o formato do componente externo{" "}
-            <code>value</code> props.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            Este propridade lhe permite marcar eventos específicos, ex: quando{" "}
-            <code>onChange</code> evento é chamado <code>onTextChange</code>
+            <ul>
+              <li>
+                Estado local: entrada <code>register</code> com validação
+                atualizada regras ou <code>unregister</code> de entrada em{" "}
+                <code>useEffect</code> e deixe o <code>Controller</code> se
+                registrar novamente com <code>rules</code> atualizadas.
+              </li>
+              <li>
+                Estado de entrada: utilize a função <code>validate</code> com{" "}
+                <code>getValues​</code> para retornar sua validação
+                condicionalmente.
+              </li>
+            </ul>
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
+            />
           </td>
         </tr>
         <tr>
@@ -747,34 +789,6 @@ export default {
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            Esta propridade lhe permite marcar eventos específicos, ex: quando o{" "}
-            <code>onBlur</code> evento é chamado <code>onTextBlur</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            Esta propriedade lhe permite sobrescrever a propriedade{" "}
-            <code>value</code> e suporta outros componentes que não utilizam a
-            propriedade <code>value</code>. ex: <code>checked</code>,{" "}
-            <code>selected</code> e outros...
           </td>
         </tr>
       </tbody>

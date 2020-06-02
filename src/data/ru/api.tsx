@@ -864,14 +864,66 @@ React.useEffect(() => {
             <code>as</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            Контролируемый компонент, например: <code>as="input"</code> или{" "}
-            <code>{`as={<TextInput />}`}</code>
+            Контроллер вставит <code>onChange</code>, <code>onBlur</code> и{" "}
+            <code>value</code> вставляется в компонент.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            Это
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              оказывать опору
+            </a>
+            , Функция, которая возвращает элемент React и предоставляет
+            возможность прикрепить события и значения в компонент. Это позволяет
+            легко интегрировать с внешним контролируемым компонентом с
+            нестандартными опорами name: <code>onChange</code>,{" "}
+            <code>onBlur</code> и <code>value</code>..
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -922,39 +974,25 @@ React.useEffect(() => {
           <td />
           <td>
             Валидационные правила в соответствии с <code>register</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td />
-          <td>
-            Параметр <code>onChange</code> позволяет вам изменять возвращаемое
-            значение, убедитесь, что вы знаете форму реквизита{" "}
-            <code>value</code> внешнего компонента. Атрибут <code>value</code>{" "}
-            или <code>checked</code> будет считываться, когда форма полезных
-            данных представляет собой <code>object</code>, который содержит
-            атрибут type.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            Этот параметр позволяет вам настроить таргетинг на конкретное имя
-            события, например: когда событие <code>onChange</code> называется{" "}
-            <code>onTextChange</code>
+            <ul>
+              <Li>
+                Локальное состояние: ввод <code>register</code> с обновленной
+                проверкой правила или <code>unregister</code> на{" "}
+                <code>useEffect</code> и позволить <code>Controller</code>{" "}
+                перерегистрировать себя с обновленными <code>rules</code>.
+              </Li>
+              <Li>
+                Состояние ввода: используйте функцию <code>validate</code> с{" "}
+                <code>getValues​​</code> для условного возврата проверки.
+              </Li>
+            </ul>
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
+            />
           </td>
         </tr>
         <tr>
@@ -982,35 +1020,6 @@ React.useEffect(() => {
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            Этот параметр позволяет вам настроить таргетинг на конкретное имя
-            события, например: когда событие <code>onBlur</code> называется{" "}
-            <code>onTextBlur</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            Этот параметр позволяет переопределять свойство <code>value</code> и
-            поддерживает другие компоненты, которые не используют свойство{" "}
-            <code>value</code>, например: <code>checked</code>,{" "}
-            <code>selected</code> и т.д.
           </td>
         </tr>
       </tbody>
