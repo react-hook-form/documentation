@@ -5,35 +5,14 @@ import SideMenu from "./SideMenu"
 import { useStateMachine } from "little-state-machine"
 import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
-
-const links = [
-  {
-    title: "NestedValue",
-  },
-  {
-    title: "Resolver",
-  },
-  {
-    title: "SubmitHandler",
-  },
-  {
-    title: "Control",
-  },
-]
+import ts from "../data/en/ts"
 
 const enLinks = [
-  {
-    title: "NestedValue",
-  },
-  {
-    title: "Resolver",
-  },
-  {
-    title: "SubmitHandler",
-  },
-  {
-    title: "Control",
-  },
+  ts.nestedValue,
+  ts.resolver,
+  ts.submitHandler,
+  ts.control,
+  ts.useFormMethodsRef,
 ]
 
 export default ({ defaultLang }: { defaultLang: string }) => {
@@ -41,12 +20,46 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     state,
     state: { language },
   } = useStateMachine()
-  const [activeIndex, setActiveIndex] = React.useState(0)
+  const tsSectionsRef = React.useRef({
+    NestedValueRef: null,
+    ResolverRef: null,
+    SubmitHandlerRef: null,
+    ControlRef: null,
+    UseFormMethodsRef: null,
+  })
   // @ts-ignore
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+
+  React.useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => goToSection(location.hash.substr(1), false), 10)
+    }
+  }, [])
+
+  const goToSection = (name, animate = true) => {
+    const url = window.location.href
+    const hashIndex = url.indexOf("#")
+    const filterName = name.replace(/ |-/g, "")
+
+    history.pushState(
+      {},
+      null,
+      hashIndex < 0
+        ? `${url}#${filterName}`
+        : `${url.substr(0, hashIndex)}#${filterName}`
+    )
+
+    const refName = `${filterName}Ref`
+
+    console.log(refName)
+
+    if (tsSectionsRef.current[refName]) {
+      tsSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <div className={containerStyles.container}>
@@ -63,15 +76,14 @@ export default ({ defaultLang }: { defaultLang: string }) => {
         <SideMenu
           isStatic
           version={6}
-          links={links}
-          activeIndex={activeIndex}
+          links={enLinks}
           enLinks={enLinks}
-          goToSection={() => {}}
+          goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
 
         <main>
-          <section>
+          <section ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}>
             <code className={typographyStyles.codeHeading}>
               <h2>NestedValue</h2>
             </code>
@@ -168,7 +180,7 @@ errors?.key4?.message // no type error`}
 
           <hr />
 
-          <section>
+          <section ref={(ref) => (tsSectionsRef.current.ResolverRef = ref)}>
             <code className={typographyStyles.codeHeading}>
               <h2>Resolver</h2>
             </code>
@@ -222,7 +234,9 @@ export default function App() {
 
           <hr />
 
-          <section>
+          <section
+            ref={(ref) => (tsSectionsRef.current.SubmitHandlerRef = ref)}
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>SubmitHandler</h2>
             </code>
@@ -261,7 +275,7 @@ export default function App() {
 
           <hr />
 
-          <section>
+          <section ref={(ref) => (tsSectionsRef.current.ControlRef = ref)}>
             <code className={typographyStyles.codeHeading}>
               <h2>Control</h2>
 
@@ -310,7 +324,9 @@ export default function App() {
 
           <hr />
 
-          <section>
+          <section
+            ref={(ref) => (tsSectionsRef.current.UseFormMethodsRef = ref)}
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>UseFormMethods</h2>
             </code>
