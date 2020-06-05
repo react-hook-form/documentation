@@ -5,23 +5,25 @@ export default {
     title: "NestedValue",
     description: (
       <p>
-        This type will be useful when the input itself return nested data
-        object.
+        このタイプは、入力自体がネストされたデータを返す場合に役立ちます
+        オブジェクト。
       </p>
     ),
   },
   resolver: {
     title: "Resolver",
     description: (
-      <p>This type will support users to write custom validation resolver.</p>
+      <p>
+        このタイプは、ユーザーがカスタム検証リゾルバーを作成することをサポートします。
+      </p>
     ),
   },
   submitHandler: {
     title: "SubmitHandler",
     description: (
       <p>
-        This type is useful when submitted data is not matching with FormValues
-        type.
+        このタイプは、送信されたデータがFormValuesと一致しない場合に役立ちます
+        タイプ。
       </p>
     ),
   },
@@ -29,8 +31,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        This type support custom hook such as useFieldArray, useWatch and future
-        custom hooks in this library.
+        このタイプは、useFieldArray、useWatch、futureなどのカスタムフックをサポートします
+        このライブラリのカスタムフック。
       </p>
     ),
   },
@@ -38,8 +40,8 @@ export default {
     title: "UseFormMethodsRef",
     description: (
       <p>
-        This type is useful when you are using Context's Consumer instead of
-        useFormContext hook.
+        このタイプは、コンテキストのコンシューマを使用する代わりに便利です。
+        useFormContextフック。
       </p>
     ),
   },

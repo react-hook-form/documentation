@@ -5,23 +5,26 @@ export default {
     title: "NestedValue",
     description: (
       <p>
-        This type will be useful when the input itself return nested data
-        object.
+        Этот тип будет полезен, когда сам вход возвращает вложенные данные
+        объект.
       </p>
     ),
   },
   resolver: {
     title: "Resolver",
     description: (
-      <p>This type will support users to write custom validation resolver.</p>
+      <p>
+        Этот тип будет поддерживать пользователей для написания собственного
+        распознавателя проверки.
+      </p>
     ),
   },
   submitHandler: {
     title: "SubmitHandler",
     description: (
       <p>
-        This type is useful when submitted data is not matching with FormValues
-        type.
+        Этот тип полезен, когда отправленные данные не совпадают с FormValues
+        тип.
       </p>
     ),
   },
@@ -29,8 +32,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        This type support custom hook such as useFieldArray, useWatch and future
-        custom hooks in this library.
+        Этот тип поддерживает пользовательский хук, такой как useFieldArray,
+        useWatch и future пользовательские хуки в этой библиотеке.
       </p>
     ),
   },
@@ -38,8 +41,8 @@ export default {
     title: "UseFormMethodsRef",
     description: (
       <p>
-        This type is useful when you are using Context's Consumer instead of
-        useFormContext hook.
+        Этот тип полезен, когда вы используете Consumer вместо Context
+        перехватывай useFormContext.
       </p>
     ),
   },

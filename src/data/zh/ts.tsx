@@ -3,44 +3,24 @@ import * as React from "react"
 export default {
   nestedValue: {
     title: "NestedValue",
-    description: (
-      <p>
-        This type will be useful when the input itself return nested data
-        object.
-      </p>
-    ),
+    description: <p>当输入本身返回嵌套数据时类型是object或者array。</p>,
   },
   resolver: {
     title: "Resolver",
-    description: (
-      <p>This type will support users to write custom validation resolver.</p>
-    ),
+    description: <p>此类型将支持用户编写自定义验证解析器。</p>,
   },
   submitHandler: {
     title: "SubmitHandler",
-    description: (
-      <p>
-        This type is useful when submitted data is not matching with FormValues
-        type.
-      </p>
-    ),
+    description: <p>当提交的数据与FormValues不匹配时。</p>,
   },
   control: {
     title: "Control",
     description: (
-      <p>
-        This type support custom hook such as useFieldArray, useWatch and future
-        custom hooks in this library.
-      </p>
+      <p>此类型支持自定义钩子，例如useFieldArray，useWatch的自定义钩子。</p>
     ),
   },
   useFormMethodsRef: {
     title: "UseFormMethodsRef",
-    description: (
-      <p>
-        This type is useful when you are using Context's Consumer instead of
-        useFormContext hook.
-      </p>
-    ),
+    description: <p>当您使用Context的Consumer代替useFormContext钩子。</p>,
   },
 }
