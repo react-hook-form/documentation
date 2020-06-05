@@ -43,6 +43,7 @@ import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
 import { getNavLink } from "./Nav"
+import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
 
 const { useRef, useEffect } = React
 
@@ -589,6 +590,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.handleSubmit.description}
             <CodeArea
               rawData={handleSubmitCode}
+              tsRawData={handleSubmitCodeTs}
               url="https://codesandbox.io/s/yj07z1639"
             />
           </section>

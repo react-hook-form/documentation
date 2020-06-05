@@ -6,6 +6,7 @@ import { useStateMachine } from "little-state-machine"
 import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
 import ts from "../data/en/ts"
+import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
 
 const enLinks = [
   ts.nestedValue,
@@ -245,32 +246,7 @@ export default function App() {
               <code>FormValues</code> type.
             </p>
 
-            <CodeArea
-              rawData={`import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export default function App() {
-  const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = data => alert(JSON.stringify(data));
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
-      <input name="email" type="email" ref={register} />
-
-      <input type="submit" />
-    </form>
-  );
-}
-`}
-            />
+            <CodeArea rawData={handleSubmitCodeTs} />
           </section>
 
           <hr />

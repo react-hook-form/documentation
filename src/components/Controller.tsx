@@ -46,7 +46,7 @@ export default function Controller({
         <CodeArea
           rawData={reactNativeController}
           isExpo
-          url="https://snack.expo.io/@bluebill1049/react-hook-form---controller"
+          url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
         />
       </TabGroup>
     </>
