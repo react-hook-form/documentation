@@ -365,7 +365,24 @@ export default {
         </p>
       </>
     ),
-    dirty: "Set to true after a user interacted with any of the inputs.",
+    dirty: (
+      <>
+        Set to true after a user interacted with any of the inputs.
+        <p>
+          <b className={typographyStyles.note}>Note:</b> File typed input will
+          need to manage at app level due to the ability to cancel file
+          selection and{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/FileList"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FileList
+          </a>{" "}
+          object.
+        </p>
+      </>
+    ),
     isSubmitted:
       "Set true after a user submitted the form. After a form's submission, its' state will remain submitted until invoked with reset method.",
     dirtyFields: "An object containing all dirty fields.",
