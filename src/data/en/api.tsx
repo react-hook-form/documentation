@@ -110,7 +110,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
+          <code>defaultValues</code> is cached{" "}
+          <strong>at the first render</strong> within the custom hook, if you
           want to reset <code>defaultValues</code> please use{" "}
           <button
             className={buttonStyles.codeAsLink}
