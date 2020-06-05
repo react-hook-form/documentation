@@ -78,6 +78,52 @@ export default (
       <CodeArea withOutCopy rawData={validationSchema} />
 
       <code className={typographyStyles.codeHeading}>
+        <h2>Controller: </h2>
+      </code>
+      <p>
+        우리는 <code>Controller</code>의 API를 훨씬 간단하게 만들었습니다.
+        소품이 제거되었고 <code>렌더러</code> 소품으로 대체되었습니다.
+      </p>
+      <ul>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onChange</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onBlur</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onChangeName</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onBlueName</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>valueName</p>
+        </li>
+      </ul>
+      <CodeArea
+        withOutCopy
+        rawData={`- <Controller as={Input} 
+-   name="test"
+-   onChange={([_, value]) => value} 
+-   onChangeName="onTextChange"  
+-   onBlur={([_, value]) => value} 
+-   onBlurName="onTextChange"
+-   valueName="textValue"
+- />
+
++ <Controller as={Input} name="test"
++   render={({ onChange, onBlur, value }) => {
++     <Input 
++       valueName={value} 
++       onTextChange={(val) => onChange(value)} 
++       onTextBlur={(val) => onBlur(value)} 
++     />
++   }}
++ />`}
+      />
+
+      <code className={typographyStyles.codeHeading}>
         <h2>watch: </h2>
       </code>
 

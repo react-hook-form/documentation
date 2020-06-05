@@ -79,6 +79,52 @@ export default (
       <CodeArea withOutCopy rawData={validationSchema} />
 
       <code className={typographyStyles.codeHeading}>
+        <h2>Controller: </h2>
+      </code>
+      <p>
+        We made <code>Controller</code>'s API much simpler, and the following
+        props have been removed and replaced with <code>render</code> props.
+      </p>
+      <ul>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onChange</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onBlur</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onChangeName</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>onBlueName</p>
+        </li>
+        <li>
+          <p style={{ textDecoration: "line-through" }}>valueName</p>
+        </li>
+      </ul>
+      <CodeArea
+        withOutCopy
+        rawData={`- <Controller as={Input} 
+-   name="test"
+-   onChange={([_, value]) => value} 
+-   onChangeName="onTextChange"  
+-   onBlur={([_, value]) => value} 
+-   onBlurName="onTextChange"
+-   valueName="textValue"
+- />
+
++ <Controller as={Input} name="test"
++   render={({ onChange, onBlur, value }) => {
++     <Input 
++       valueName={value} 
++       onTextChange={(val) => onChange(value)} 
++       onTextBlur={(val) => onBlur(value)} 
++     />
++   }}
++ />`}
+      />
+
+      <code className={typographyStyles.codeHeading}>
         <h2>watch: </h2>
       </code>
 
