@@ -341,10 +341,10 @@ export default {
         </p>
         <ul>
           <li>
-            <p>
-              Import <PageLink to="/api#Controller">Controller</PageLink> to
-              wrap your component and let it manage register and unregister
-            </p>
+            <p>Toggle the input's viability</p>
+          </li>
+          <li>
+            <p>Building separate form for modal and pop up form</p>
           </li>
           <li>
             <p>
@@ -362,10 +362,10 @@ export default {
             </p>
           </li>
           <li>
-            <p>Toggle the input's viability.</p>
-          </li>
-          <li>
-            <p>Building separate form for modal and pop up form</p>
+            <p>
+              Import <PageLink to="/api#Controller">Controller</PageLink> to
+              wrap your component and let it manage register and unregister
+            </p>
           </li>
         </ul>
         <p> Here are the examples:</p>
