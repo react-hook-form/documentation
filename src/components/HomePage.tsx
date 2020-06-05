@@ -45,8 +45,10 @@ function HomePage({
   const [formUpdated, setFormUpdated] = useState(false)
   const [isPlayWatch, setWatchPlay] = useState(false)
   const {
+    state,
     state: { language },
   } = useStateMachine()
+  const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -146,7 +148,7 @@ function HomePage({
         currentLanguage={currentLanguage}
       />
 
-      <Watcher isPlayWatch={isPlayWatch} />
+      <Watcher lightMode={lightMode} isPlayWatch={isPlayWatch} />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}

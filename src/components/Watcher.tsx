@@ -10,9 +10,11 @@ import { useEffect } from "react"
 const WatchText = ({
   control,
   checked,
+  lightMode,
 }: {
   control: Control
   checked: boolean
+  lightMode: boolean
 }) => {
   const test = useWatch({
     control,
@@ -23,7 +25,7 @@ const WatchText = ({
   return checked ? (
     <p
       style={{
-        background: checked ? "none" : "#081229",
+        background: checked ? "none" : lightMode ? "white" : "#081229",
       }}
     >
       <span className="eye-solid icon" style={{ display: "in-block" }} />{" "}
@@ -32,7 +34,7 @@ const WatchText = ({
   ) : (
     <p
       style={{
-        background: "#081229",
+        background: lightMode ? "white" : "#081229",
       }}
     >
       <span
@@ -46,9 +48,11 @@ const WatchText = ({
 
 const WatchGroup = ({
   checked,
+  lightMode,
   control,
 }: {
   checked?: boolean
+  lightMode: boolean
   control: Control
 }) => {
   const [check, setChecked] = React.useState(checked)
@@ -58,13 +62,22 @@ const WatchGroup = ({
         type="checkbox"
         checked={check}
         onChange={() => setChecked(!check)}
+        style={{
+          ...(lightMode ? { background: "black" } : ""),
+        }}
       />
-      <WatchText control={control} checked={check} />
+      <WatchText lightMode={lightMode} control={control} checked={check} />
     </div>
   )
 }
 
-export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
+export default ({
+  isPlayWatch,
+  lightMode,
+}: {
+  isPlayWatch: boolean
+  lightMode: boolean
+}) => {
   let timer
   const { register, control, setValue } = useForm()
 
@@ -146,7 +159,7 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
                     style={style}
                     className="path"
                     fill="none"
-                    stroke="white"
+                    stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
                     d="M 0 18 H 500"
                   />
@@ -161,7 +174,7 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
                     style={style}
                     className="path"
                     fill="none"
-                    stroke="white"
+                    stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
                     d="M 0 18 H 80 V 68 H 500"
                   />
@@ -176,7 +189,7 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
                     style={style}
                     className="path"
                     fill="none"
-                    stroke="white"
+                    stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
                     d="M 0 18 H 80 V 118 H 500"
                   />
@@ -191,7 +204,7 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
                     style={style}
                     className="path"
                     fill="none"
-                    stroke="white"
+                    stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
                     d="M 0 18 H 80 V 168 H 500"
                   />
@@ -206,7 +219,7 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup control={control} checked />
+              <WatchGroup lightMode={lightMode} control={control} checked />
             </Animate>
 
             <Animate
@@ -214,21 +227,21 @@ export default ({ isPlayWatch }: { isPlayWatch: boolean }) => {
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup control={control} />
+              <WatchGroup lightMode={lightMode} control={control} />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup control={control} checked />
+              <WatchGroup lightMode={lightMode} control={control} checked />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup control={control} />
+              <WatchGroup lightMode={lightMode} control={control} />
             </Animate>
           </section>
         </div>
