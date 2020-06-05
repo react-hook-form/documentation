@@ -361,6 +361,12 @@ export default {
               with custom register
             </p>
           </li>
+          <li>
+            <p>Toggle the input's viability.</p>
+          </li>
+          <li>
+            <p>Building separate form for modal and pop up form</p>
+          </li>
         </ul>
         <p> Here are the examples:</p>
       </>

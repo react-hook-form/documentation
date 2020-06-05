@@ -4,6 +4,7 @@ import SideMenu from "./SideMenu"
 import Footer from "./Footer"
 import fieldArray from "./codeExamples/fieldArray"
 import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
+import conditionalComponent from "./codeExamples/conditionalComponent"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
@@ -260,7 +261,11 @@ function Advanced({ defaultLang, advanced }: Props) {
 
           {advanced.conditionalControlledComponent.description}
 
-          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+          <TabGroup buttonLabels={["Normal", "Controller", "Custom Register"]}>
+            <CodeArea
+              rawData={conditionalComponent}
+              url="https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r"
+            />
             <CodeArea rawData={unregisterWrapControlledComponent} />
             <CodeArea
               rawData={unregisterControlledComponent}
