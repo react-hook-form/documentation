@@ -522,7 +522,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     firstName: "bill",
     lastName: "luo",
     email: "bluebill1049@hotmail.com",
-    pets: [ 'dog', 'cat' ]
+    isDeveloper: true
   }
 })
 
@@ -530,11 +530,12 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 <input name="lastName" ref={() => register({ name: 'lastName' })} />
 // ❌ above example does not work with "defaultValues" due to its "ref" not being provided
 `}
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-ts-i497w"
               tsRawData={`type Inputs = {
   firstName: string;
   lastName: string;
   email: string;
-  pets: string[];
+  isDeveloper: boolean;
 }
   
 const { register } = useForm<Inputs>({
@@ -542,7 +543,7 @@ const { register } = useForm<Inputs>({
     firstName: "bill",
     lastName: "luo",
     email: "bluebill1049@hotmail.com",
-    pets: [ 'dog', 'cat' ]
+    isDeveloper: true
   }
 })
 
