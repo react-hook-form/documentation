@@ -22,6 +22,7 @@ import trigger from "../V5/codeExamples/trigger"
 import Footer from "../Footer"
 import FormContext from "../FormContext"
 import unregisterCode from "../V5/codeExamples/unregisterCode"
+import unregisterCodeTs from "../V5/codeExamples/unregisterCodeTs"
 import Popup from "../Popup"
 import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
@@ -697,8 +698,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.unregister.description}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
+              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
               rawData={unregisterCode}
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-7z4h8"
+              tsRawData={unregisterCodeTs}
             />
           </section>
 
