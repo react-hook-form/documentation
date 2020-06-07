@@ -485,14 +485,14 @@ export default {
       description: (
         <>
           <p>
-            It's important to understand React Hook Form embrace native form
-            behavior by store input state inside each input (except custom
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is when working with modal or tab forms, by mounting
-            and unmounting form/inputs that inputs state will remain. That's
-            incorrect implementation instead the correct solution should always
-            building a new form for your form inside modal or each tab and
-            capture your submission data in local or global state.
+            了解React Hook Form接受本机形式非常重要
+            通过在每个输入内部存储输入状态来进行行为（自定义除外） 在
+            <code> useEffect </code>处进行<code> register </code>）。常见的之一
+            误解是在使用模态或制表符形式时，通过安装
+            并保留输入状态的卸载形式/输入。那是
+            错误的实现，而正确的解决方案应始终
+            在模式或每个选项卡中为您的表单构建一个新表单，以及
+            以本地或全局状态捕获您的提交数据。
           </p>
 
           <ul>

@@ -520,14 +520,13 @@ export default {
       description: (
         <>
           <p>
-            It's important to understand React Hook Form embrace native form
-            behavior by store input state inside each input (except custom
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is when working with modal or tab forms, by mounting
-            and unmounting form/inputs that inputs state will remain. That's
-            incorrect implementation instead the correct solution should always
-            building a new form for your form inside modal or each tab and
-            capture your submission data in local or global state.
+            React Hook Form 기본 형식을 이해하는 것이 중요합니다. 각 입력 내부의
+            상점 입력 상태 별 동작 (사용자 정의 제외)
+            <code> useEffect </code>에서 <code> register </code>로 이동하십시오.
+            공통 중 하나 오해는 모달 또는 탭 양식으로 작업 할 때 입력 상태를
+            유지하는 마운트 해제 양식 / 입력은 그대로 유지됩니다. 그게 잘못된
+            구현 대신 올바른 솔루션은 항상 모달 또는 각 탭 내에 양식에 대한 새
+            양식 작성 제출 데이터를 로컬 또는 글로벌 상태로 캡처하십시오.
           </p>
 
           <ul>

@@ -531,14 +531,15 @@ export default {
       description: (
         <>
           <p>
-            It's important to understand React Hook Form embrace native form
-            behavior by store input state inside each input (except custom
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is when working with modal or tab forms, by mounting
-            and unmounting form/inputs that inputs state will remain. That's
-            incorrect implementation instead the correct solution should always
-            building a new form for your form inside modal or each tab and
-            capture your submission data in local or global state.
+            React Hook
+            Formがネイティブフォームを受け入れることを理解することが重要です
+            各入力内に入力状態を保存することによる動作（カスタムを除く）
+            <code> register </code> at <code> useEffect </code>）。一般的な
+            誤解は、マウントによってモーダルまたはタブフォームを操作するときです
+            状態を入力するフォーム/入力のアンマウントは残ります。それは
+            間違った実装ではなく、正しい解決策は常に
+            モーダルまたは各タブ内でフォームの新しいフォームを作成し、
+            ローカルまたはグローバルな状態で提出データをキャプチャします。
           </p>
 
           <ul>

@@ -541,14 +541,17 @@ export default {
       description: (
         <>
           <p>
-            It's important to understand React Hook Form embrace native form
-            behavior by store input state inside each input (except custom
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is when working with modal or tab forms, by mounting
-            and unmounting form/inputs that inputs state will remain. That's
-            incorrect implementation instead the correct solution should always
-            building a new form for your form inside modal or each tab and
-            capture your submission data in local or global state.
+            Es importante entender que React Hook Form abraza la forma nativa
+            comportamiento por estado de entrada de la tienda dentro de cada
+            entrada (excepto personalizado
+            <code> registrarse </code> en <code> useEffect </code>). Uno de los
+            comunes conceptos erróneos es cuando se trabaja con formularios
+            modales o tabuladores, al montar y desmontando la forma / entradas
+            que permanecerá el estado de las entradas. Eso es implementación
+            incorrecta, en cambio, la solución correcta siempre debe
+            construyendo un nuevo formulario para su formulario dentro de modal
+            o cada pestaña y capturar sus datos de envío en estado local o
+            global.
           </p>
 
           <ul>
