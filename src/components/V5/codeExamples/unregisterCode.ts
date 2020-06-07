@@ -1,9 +1,12 @@
-export default `import React from "react";
+export default `import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, unregister } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = data => {
+    alert(JSON.stringify(data));
+  };
   
   useEffect(() => {
     register({ name: "customRegister" }, { required: true });

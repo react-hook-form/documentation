@@ -1,13 +1,20 @@
 export default `import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
-  const { register, handleSubmit, unregister } = useForm();
+import "./styles.css";
 
-  const onSubmit = data => {
+interface IFormInputs {
+  firstName: string;
+  lastName?: string;
+}
+
+export default function App() {
+  const { register, handleSubmit, unregister } = useForm<IFormInputs>();
+
+  const onSubmit = (data: IFormInputs) => {
     alert(JSON.stringify(data));
   };
-  
+
   useEffect(() => {
     register({ name: "customRegister" }, { required: true });
     
@@ -22,4 +29,6 @@ export default function App() {
       <input type="submit" />
     </form>
   );
-}`
+};
+
+`
