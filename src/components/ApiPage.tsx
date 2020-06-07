@@ -13,6 +13,8 @@ import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
 import getValuesTs from "./codeExamples/getValuesTs"
+import defaultValues from "./codeExamples/defaultValues"
+import defaultValuesTs from "./codeExamples/defaultValuesTs"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
@@ -429,40 +431,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
-              rawData={`const { register } = useForm({
-  defaultValues: {
-    firstName: "bill",
-    lastName: "luo",
-    email: "bluebill1049@hotmail.com",
-    isDeveloper: true
-  }
-})
-
-<input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} />
-// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
-`}
+              rawData={defaultValues}
               tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-ts-i497w"
-              tsRawData={`type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  isDeveloper: boolean;
-}
-  
-const { register } = useForm<Inputs>({
-  defaultValues: {
-    firstName: "bill",
-    lastName: "luo",
-    email: "bluebill1049@hotmail.com",
-    isDeveloper: true
-  }
-})
-
-<input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} />
-// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
-`}
+              tsRawData={defaultValuesTs}
             />
 
             <ValidationResolver api={api} />
