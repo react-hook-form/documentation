@@ -121,7 +121,15 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @github
         </a>
-        ️ ]
+        ️ ] [ Help make these doc's better{" "}
+        <a
+          href="https://github.com/react-hook-form/website"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          @github
+        </a>{" "}
+        ]
       </p>
       <p
         style={{
@@ -132,7 +140,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           borderRadius: 4,
         }}
       >
-        Hosted on ▲ ZEIT Now
+        Hosted on ▲ Vercel Now
       </p>
     </footer>
   )
