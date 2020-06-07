@@ -32,7 +32,7 @@ export default function ({ api }) {
         />
         <CodeArea
           rawData={joiResolver}
-          url="https://codesandbox.io/s/react-hook-form-v6-joiresolver-nuvg5"
+          url="https://codesandbox.io/s/react-hook-form-joiresolver-v6-yejqe"
         />
         <CodeArea
           rawData={superStructResolver}
