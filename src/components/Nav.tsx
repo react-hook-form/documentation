@@ -30,7 +30,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       <div className={styles.iconGroup}>
         <span className={styles.icon}>
           <a
-            href="https://github.com/bluebill1049/react-hook-form"
+            href="https://github.com/react-hook-form"
             target="_blank"
             rel="noopener noreferrer"
             title="React Hook Form Github"
