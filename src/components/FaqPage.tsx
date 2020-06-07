@@ -57,6 +57,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
     question13: null,
     question14: null,
     question15: null,
+    question16: null,
   })
 
   const goToSection = (name) => {
@@ -330,6 +331,17 @@ const Faq = ({ defaultLang, faq }: Props) => {
           </h2>
 
           {faq.questions[15].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (sectionsRef.current.question16 = ref)}
+          >
+            {faq.questions[16].title}
+          </h2>
+
+          {faq.questions[16].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 
