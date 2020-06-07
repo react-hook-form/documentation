@@ -2,6 +2,7 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
 import joiResolver from "./codeExamples/joiResolver"
+import joiResolverTs from "./codeExamples/joiResolverTs"
 import superStructResolver from "./codeExamples/superStructResolver"
 import validationResolverTs from "./codeExamples/validationResolverTs"
 import TabGroup from "./TabGroup"
@@ -32,7 +33,9 @@ export default function ({ api }) {
         />
         <CodeArea
           rawData={joiResolver}
+          tsRawData={joiResolverTs}
           url="https://codesandbox.io/s/react-hook-form-joiresolver-v6-yejqe"
+          tsUrl="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-jwg5g"
         />
         <CodeArea
           rawData={superStructResolver}
