@@ -28,6 +28,7 @@ export default function ({ api }) {
           rawData={validationSchema}
           tsRawData={validationSchemaTs}
           url="https://codesandbox.io/s/react-hook-form-validationschema-v6-2l77g"
+          tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
         />
         <CodeArea
           rawData={joiResolver}
