@@ -28,8 +28,8 @@ Thanks goes to these wonderful people. [[Become a contributor](https://github.co
     <img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
 </a>
     
-#### Thanks to 
+#### Thanks to
 
-* WebStorm for IDE license
-* ZEIT for free hosting 
-* React ❤️
+- WebStorm for IDE license
+- Vercel for free hosting
+- React ❤️

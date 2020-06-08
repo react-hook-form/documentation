@@ -389,7 +389,7 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `value => value === '1'`
-          : `value => value === '1' || 'error message';  // <p>error message</p>`
+          : `value => value === '1' || 'error message'  // <p>error message</p>`
       }
     })
   }
@@ -421,7 +421,7 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `async value => await fetch(url)`
-          : `async value => await fetch(url) || 'error message';  // <p>error message</p>`
+          : `async value => await fetch(url) || 'error message'  // <p>error message</p>`
       }
     })
   }
