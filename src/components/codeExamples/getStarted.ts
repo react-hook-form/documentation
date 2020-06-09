@@ -145,7 +145,6 @@ function App() {
       <Controller
         as={<Checkbox name="SomeName"/>}
         name="MyCheckbox"
-        value="test"
         control={control}
         defaultValue={false}
       />
