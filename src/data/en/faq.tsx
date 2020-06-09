@@ -121,7 +121,8 @@ export default {
         <p>
           React Hook Form needs <code>ref</code> to collect the input value,
           however, you may want to use <code>ref</code> for other purposes (e.g.
-          scroll into the view, or focus). The following example will show you how.
+          scroll into the view, or focus). The following example will show you
+          how.
         </p>
       ),
     },
