@@ -489,7 +489,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -521,7 +521,7 @@ export default {
             If you find difficult to make the autofocus with external controlled
             component. It is possible to disable the "autofocus on error"
             feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            some cases. <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
         </>
       ),

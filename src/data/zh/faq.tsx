@@ -445,7 +445,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -475,7 +475,7 @@ export default {
 
           <p>
             如果您发现很难通过外部控制使自动对焦。可以禁用“错误时自动对焦”特征。也许这种行为会带来更好的用户体验。{" "}
-            <code>{`useForm（{ submitFocusError：false });`}</code>
+            <code>{`useForm（{ shouldFocusError：false });`}</code>
           </p>
         </>
       ),

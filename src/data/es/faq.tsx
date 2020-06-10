@@ -496,7 +496,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -531,7 +531,7 @@ export default {
             externo componente. Es posible deshabilitar el "enfoque automático
             en caso de error" característica. Tal vez este comportamiento traerá
             una mejor experiencia de usuario en algunos casos.{" "}
-            <code>{`useForm ({submitFocusError: false});`}</code>
+            <code>{`useForm ({shouldFocusError: false});`}</code>
           </p>
         </>
       ),

@@ -491,7 +491,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -526,7 +526,7 @@ export default {
             Есть возможность отключить «автофокус при ошибке» особенность. Может
             быть, такое поведение принесет лучший пользовательский опыт в
             некоторые случаи.
-            <code> {`useForm ({submitFocusError: false});`} </code>
+            <code> {`useForm ({shouldFocusError: false});`} </code>
           </p>
         </>
       ),

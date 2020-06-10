@@ -343,7 +343,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   resolver: undefined,
   context: undefined,
   criteriaMode: "firstErrorDetected",
-  submitFocusError: true,
+  shouldFocusError: true,
 })`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
@@ -352,7 +352,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   resolver: undefined,
   context: undefined,
   criteriaMode: "firstErrorDetected",
-  submitFocusError: true,
+  shouldFocusError: true,
 })`}
             />
 
@@ -495,7 +495,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                         }}
                       >
                         <code>
-                          submitFocusError: <br />
+                          shouldFocusError: <br />
                           <span className={styles.mobileTypeText}>
                             boolean = true
                           </span>
