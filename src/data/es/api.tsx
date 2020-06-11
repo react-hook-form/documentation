@@ -178,26 +178,13 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    shouldUnregister: (
       <p>
-        Seteando esta opción en <code>true</code> habilitará la validación
-        nativa del navegador. Puedes{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-        >
-          Puedes obtener más información sobre la validación nativa del
-          navegador
-        </a>
-        , y consultar la sección de{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("nativeValidation")}
-        >
-          nativeValidation
-        </button>{" "}
-        para mas detalles y ejemplos.
+        By default, when inputs gets removed, React Hook Form use
+        <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
+        those inputs which gets unmounted. However, you can set{" "}
+        <code>shouldUnregister</code> to <code>false</code> to prevent input
+        state from loss due to unmount.
       </p>
     ),
   },

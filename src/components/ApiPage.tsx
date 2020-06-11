@@ -344,6 +344,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   context: undefined,
   criteriaMode: "firstErrorDetected",
   shouldFocusError: true,
+  shouldUnregister: true,
 })`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
@@ -353,6 +354,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   context: undefined,
   criteriaMode: "firstErrorDetected",
   shouldFocusError: true,
+  shouldUnregister: true,
 })`}
             />
 
@@ -503,6 +505,31 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                       </h5>
                     </td>
                     <td>{api.useForm.submitFocusError}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5
+                        className={typographyStyles.h5}
+                        style={{
+                          border: "none",
+                          marginTop: 20,
+                        }}
+                      >
+                        <code>
+                          shouldUnregister: <br />
+                          <span className={styles.mobileTypeText}>
+                            boolean = true
+                          </span>
+                        </code>
+                      </h5>
+                    </td>
+                    <td>
+                      {api.useForm.shouldUnregister}
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/autounregister-4e91k"
+                      />
+                    </td>
                   </tr>
                 </tbody>
               </table>

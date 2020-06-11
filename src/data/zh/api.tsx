@@ -879,22 +879,15 @@ validate: (value) => value === getValues('firstName');"
       ),
     },
   },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          下面的示例演示了如何利用浏览器的验证。 您只需要将本机验证
-          <code>nativeValidation</code>设置为<code>true</code>
-          ，其余语法与标准验证相同。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意</b>:
-          此功能已被由于使用率较低，已在V4中将其删除，但您仍可以在V3中使用它。
-        </p>
-      </>
-    ),
-  },
+  shouldUnregister: (
+    <p>
+      By default, when inputs gets removed, React Hook Form use
+      <code>MutationObserver</code> to detect and <code>unregister</code> those
+      inputs which gets unmounted. However, you can set{" "}
+      <code>shouldUnregister</code> to <code>false</code> to prevent input state
+      from loss due to unmount.
+    </p>
+  ),
   useFieldArray: {
     title: "useFieldArray",
     description: (
