@@ -881,11 +881,10 @@ validate: (value) => value === getValues('firstName');"
   },
   shouldUnregister: (
     <p>
-      By default, when inputs gets removed, React Hook Form use
-      <code>MutationObserver</code> to detect and <code>unregister</code> those
-      inputs which gets unmounted. However, you can set{" "}
-      <code>shouldUnregister</code> to <code>false</code> to prevent input state
-      from loss due to unmount.
+      默认情况下，当输入被删除时，React Hook Form使用
+      <code> MutationObserver </code>来检测并<code>注销</code>
+      那些已卸载的输入。但是，您可以将<code> shouldUnregister </code>设置为
+      <code> false </code>，以防止由于卸载而丢失输入状态。
     </p>
   ),
   useFieldArray: {

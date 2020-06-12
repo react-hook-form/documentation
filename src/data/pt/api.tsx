@@ -178,11 +178,12 @@ export default {
     ),
     shouldUnregister: (
       <p>
-        By default, when inputs gets removed, React Hook Form use
-        <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
-        those inputs which gets unmounted. However, you can set{" "}
-        <code>shouldUnregister</code> to <code>false</code> to prevent input
-        state from loss due to unmount.
+        Por padrão, quando as entradas são removidas, o React Hook Form usa{" "}
+        <code> MutationObserver </code> para detectar e{" "}
+        <code> cancelar o registro </code> daquelas entradas que são
+        desmontadas. No entanto, você pode definir{" "}
+        <code> shouldUnregister </code> como <code> false </code> para impedir a
+        perda do estado de entrada devido à desmontagem.
       </p>
     ),
   },

@@ -22,25 +22,26 @@ export default {
     validationResolver: (goToSection) => (
       <>
         <p>
-          This callback function allow you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
+          Эта функция обратного вызова позволяет запускать любую схему или
+          пользовательские Проверка. Функция имеет всю форму{" "}
+          <code> values ​​</code> как аргумент, и вам нужно будет проверить
+          результат и вернуть оба <code> значения </code> и{" "}
+          <code> ошибки </code>. Узнайте больше на кнопка
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("validationResolver")}
           >
             validationResolver
           </button>{" "}
-          section.
+          раздел.
         </p>
       </>
     ),
     validateContext: (
       <>
         <p>
-          This context object will be injected into <code>resolver</code>'s
-          second argument or{" "}
+          Этот контекстный объект будет внедрен в <code> resolver </code>
+          Второй аргумент или{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -48,7 +49,7 @@ export default {
           >
             Yup
           </a>{" "}
-          validation's context object.
+          объект контекста проверки.
         </p>
       </>
     ),
@@ -177,11 +178,12 @@ export default {
     ),
     shouldUnregister: (
       <p>
-        By default, when inputs gets removed, React Hook Form use
-        <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
-        those inputs which gets unmounted. However, you can set{" "}
-        <code>shouldUnregister</code> to <code>false</code> to prevent input
-        state from loss due to unmount.
+        По умолчанию, когда входные данные удаляются, React Hook Form использует{" "}
+        <code> MutationObserver </code> для обнаружения и{" "}
+        <code> отмены регистрации </code> тех входных данных, которые
+        отключаются. Однако вы можете установить для{" "}
+        <code> shouldUnregister </code> значение <code> false </code>, чтобы
+        предотвратить потерю состояния ввода из-за размонтирования.
       </p>
     ),
   },
@@ -629,9 +631,10 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation behind this hook is to provide better user
-          experience and form performance. You can watch{" "}
+          Пользовательский хук для работы с неуправляемыми массивами полей
+          (динамический входы). Мотивация этого крючка состоит в том, чтобы
+          обеспечить лучшего пользователя опыт и форма исполнения. Вы можете
+          посмотреть{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"
@@ -639,43 +642,45 @@ export default {
           >
             this short video
           </a>{" "}
-          to compare controlled vs uncontrolled Field Array.
+          {""}
+          сравнить контролируемый и неконтролируемый массив полей.
         </p>
 
-        <p>This hook provides the following object and functions.</p>
+        <p>Этот хук предоставляет следующий объект и функции.</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
           <b className={typographyStyles.note}>Important: </b>{" "}
-          <code>useFieldArray</code> is built on top of uncontrolled components.
-          The following notes will help you aware and be mindful of its
-          behaviour during implementation.
+          <code>useFieldArray</code> построен на основе неконтролируемых
+          компонентов. Следующие заметки помогут вам осознать и помнить его
+          поведение во время реализации.
         </p>
 
         <ul>
           <li>
             <p>
-              you can populate the <code>fields</code> by supply{" "}
-              <code>defaultValues</code> at <code>useForm</code> hook.
+              Вы можете заполнить поля <code> </code>, указав {""}
+              <code> defaultValues ​​</code> в ловушке <code> useForm </code>.
             </p>
           </li>
           <li>
             <p>
-              make sure you assign <code>id</code> from <code>fields</code>{" "}
-              object as your component key.
+              убедитесь, что вы присвоили <code> id </code> из{" "}
+              <code> fields </code> {""}
+              объект как ключ компонента.
             </p>
           </li>
           <li>
             <p>
-              set <code>defaultValue</code> when you want to set default value
-              or reset with inputs.
+              установите <code> defaultValue </code>, если вы хотите установить
+              значение по умолчанию или сброс с помощью входов.
             </p>
           </li>
           <li>
             <p>
-              you can not call actions one after another. Actions need to be
-              triggered per render.
+              Вы не можете называть действия одно за другим. Действия должны
+              быть срабатывает при рендере.
             </p>
             <CodeArea
               withOutCopy
@@ -701,11 +706,12 @@ React.useEffect(() => {
             />
           </li>
           <li>
-            It's <strong>important</strong> to apply{" "}
-            <code>{`ref={register()}`}</code> instead of{" "}
-            <code>{`ref={register}`}</code> when working with{" "}
-            <code>useFieldArray</code> so <code>register</code> will get invoked
-            during <code>map</code>.
+            <strong> важно </strong> подать заявку {""}
+            <code> {`ref = {register ()}`} </code> вместо {""}
+            <code> {`ref = {register}`} </code> при работе с {""}
+            <code> useFieldArray </code>, поэтому будет вызван{" "}
+            <code> register </code>
+            во время <code> map </code>.
           </li>
           <li>
             <p>
@@ -728,12 +734,14 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            Этот объект является источником правды для отображения и отображения
+            входных данных.
             <p>
-              <b className={typographyStyles.note}>Important: </b> because each
-              inputs can be uncontrolled, <code>id</code> is required with
-              mapped components to help React identify which items have changed,
-              are added, or are removed.
+              <b className={typographyStyles.note}>Important: </b>
+              потому что каждый входы могут быть неуправляемыми,{" "}
+              <code> id </code> требуется с сопоставленные компоненты, чтобы
+              помочь React определить, какие элементы были изменены, добавлены
+              или удалены.
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -751,7 +759,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields</td>
+          <td>Добавьте ввод / ввод в конец ваших полей</td>
         </tr>
         <tr>
           <td>
@@ -764,7 +772,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields</td>
+          <td>Pповторить ввод / ввод в начало ваших полей</td>
         </tr>
         <tr>
           <td>
@@ -778,7 +786,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Insert input/inputs at particular position.</td>
+          <td>Вставьте вход / вход в определенную позицию.</td>
         </tr>
         <tr>
           <td>
@@ -791,7 +799,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Swap input/inputs position.</td>
+          <td>Поменяйте местами вход / выход.</td>
         </tr>
         <tr>
           <td>
@@ -805,12 +813,13 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            Move input/inputs to another position.
+            Переместите вход / вход в другую позицию.
             <p>
-              <b className={typographyStyles.note}>Note:</b> difference between{" "}
-              <code>move</code> and <code>swap</code>, keep calling{" "}
-              <code>move</code> will push input/inputs in a loop, while{" "}
-              <code>swap</code> only change two input/inputs' position.
+              <b className={typographyStyles.note}> Примечание. </b> разница
+              между <code> move </code> и <code> swap </code>, продолжайте
+              звонить <code> move </code> будет помещать ввод / ввод в цикл,
+              тогда как <code> swap </code> меняет только две позиции ввода /
+              ввода.
             </p>
           </td>
         </tr>
@@ -826,8 +835,8 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            Удалить вход / вход в определенной позиции или удалить все, когда
+            нет индекс предоставляется.
           </td>
         </tr>
       </>
@@ -945,10 +954,10 @@ React.useEffect(() => {
               <code>defaultValues</code> для <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note</b>: if your form will
-              invoke <code>reset</code> with different values, you will need to
-              provide <code>defaultValues</code> at useForm level instead of set
-              inline <code>defaultValue</code>.
+              <b className={typographyStyles.note}>Note</b>: если ваша форма
+              будет вызовите <code> reset </code> с другими значениями, вам
+              нужно предоставить <code> defaultValues ​​</code> на уровне
+              useForm вместо набора встроенный <code> defaultValue</code>.
             </p>
           </td>
         </tr>
@@ -1136,8 +1145,8 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
-          as{" "}
+          Эта функция позволяет запускать любые внешние методы проверки, такие
+          как в виде{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -1161,10 +1170,11 @@ validate: (value) => value === getValues('firstName');"
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          и т. д. На самом деле цель не ограничивается только Yup, как наши
+          внешние (схема) проверки библиотеки. Мы хотели бы поддержать многие
+          другие проверочные библиотеки для работы с React Hook Form. Вы даже
+          можете написать Ваша пользовательская логика проверки для
+          подтверждения.
         </p>
 
         <p>
@@ -1196,31 +1206,34 @@ validate: (value) => value === getValues('firstName');"
         <ul>
           <li>
             <p>
-              make sure you are returning object which contains{" "}
-              <code>values</code> and <code>errors</code>, and their default
-              value should be <code>{`{}`}</code>.
+              убедитесь, что вы возвращаете объект, который содержит {""}
+              <code> values ​​</code> и <code> error </code> и их значения по
+              умолчанию значение должно быть <code> {`{}`} </code>.
             </p>
           </li>
 
           <li>
             <p>
-              returning errors object's key should be relevant to your inputs.
+              возвращающий ошибки ключ объекта должен соответствовать вашим
+              входам.
             </p>
           </li>
 
           <li>
             <p>
-              this function will be cached inside the custom hook, while{" "}
-              <code>context</code> is a mutable object which can be changed on
-              each re-render.
+              эта функция будет кэшироваться внутри пользовательского хука, а{" "}
+              {""}
+              <code> context </code> - это изменяемый объект, который можно
+              изменить каждый рендер.
             </p>
           </li>
 
           <li>
             <p>
-              re-validate input will only occur one field at time during user’s
-              interaction, because the lib itself will evaluate the error object
-              to the specific field and trigger re-render accordingly.
+              повторная проверка ввода будет происходить только одно поле за раз
+              в течение взаимодействие, потому что сама библиотека будет
+              оценивать объект ошибки в конкретное поле и триггер рендеринга
+              соответственно.
             </p>
           </li>
         </ul>

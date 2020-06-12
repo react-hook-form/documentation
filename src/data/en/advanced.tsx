@@ -430,7 +430,7 @@ export default {
 
         <p>
           To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          programmatically set the value of the field.
         </p>
 
         <p>
