@@ -14,6 +14,7 @@ export default function App() {
         onClick={() => {
           const values = getValues();
           const singleValue = getValues("test");
+          const singleValue = getValues(["test", "test1"]);
         }}
       >
         Get Values

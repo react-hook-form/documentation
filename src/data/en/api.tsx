@@ -605,9 +605,30 @@ export default {
     description: (
       <>
         <p>
-          This function will return the entire form data, and it's useful when
-          you want to retrieve form values.
+          This function will help you to read form values. The difference
+          between <code>watch</code> is <code>getValues</code> will not trigger
+          re-render or subscribed to input changes. The functions covers:
         </p>
+
+        <ul>
+          <li>
+            <p>
+              <code>getValues()</code>: Read entire form values.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues('test')</code>: Read individual input value by
+              name.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
+              names. value
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
