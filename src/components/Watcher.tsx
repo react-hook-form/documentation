@@ -124,9 +124,9 @@ export default ({
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>Subscribe Input Change</h1>
           <p>
-            Performance is an important aspect of user experience. You will have
-            the ability to subscribe to input change without re-render the
-            entire form.
+            Performance is an important aspect of user experience in terms of
+            building forms. You will have the ability to subscribe to individual
+            input change without re-render the entire form.
           </p>
         </div>
 
