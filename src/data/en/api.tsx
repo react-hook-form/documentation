@@ -963,26 +963,10 @@ React.useEffect(() => {
           <td></td>
           <td>
             Validation rules in the same format as for <code>register</code>.
-            This <code>object</code> will be cached inside{" "}
-            <code>Controller</code>, to update rules:
-            <ul>
-              <li>
-                Local state: <code>register</code> input with updated validation
-                rules or <code>unregister</code> input at <code>useEffect</code>{" "}
-                and let <code>Controller</code> re-register itself with updated{" "}
-                <code>rules</code>.
-              </li>
-              <li>
-                Input state: leverage <code>validate</code> function with{" "}
-                <code>getValues</code> to return your validation conditionally.
-              </li>
-            </ul>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
-              rawData="
-register('name', { required: state })
-validate: (value) => value === getValues('firstName');"
+              rawData="rules={{ required: true }}"
             />
           </td>
         </tr>

@@ -6,6 +6,7 @@ import generic from "../data/generic"
 import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import controllerTs from "./codeExamples/controllerTs"
 
 export default function Controller({
   currentLanguage,
@@ -41,6 +42,8 @@ export default function Controller({
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={controller}
+          tsRawData={controllerTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
           url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
         />
         <CodeArea
