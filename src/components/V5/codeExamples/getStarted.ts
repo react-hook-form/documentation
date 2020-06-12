@@ -148,6 +148,7 @@ function App() {
         value="test"
         control={control}
         defaultValue={false}
+        rules={{ required: true }}
       />
 
       <button>Submit</button>

@@ -106,15 +106,15 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
+      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" rules={{ required: true }} />
       <Controller
-        as={Select}
         name="reactSelect"
+        options={[
+          { value: "chocolate", label: "Chocolate" },
+          { value: "strawberry", label: "Strawberry" },
+          { value: "vanilla", label: "Vanilla" }
+        ]}
         control={control}
-        onChange={(selected) => {
-          // React Select return object instead of value for selection
-          return { value: selected };
-        }}
         defaultValue={{}}
       />
 
@@ -148,6 +148,7 @@ function App() {
         value="test"
         control={control}
         defaultValue={false}
+        rules={{ required: true }}
       />
 
       <button>Submit</button>
