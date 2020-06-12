@@ -25,6 +25,18 @@ export default ({
 
       {api.ErrorMessage.description}
 
+      <code
+        style={{
+          fontSize: 16,
+          padding: 15,
+          background: "#191d3a",
+          borderRadius: 4,
+          display: "block",
+        }}
+      >
+        npm install @hookform/error-message
+      </code>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <thead>
