@@ -17,10 +17,10 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" name="firstName" ref={register} />
-      {errors.firstName && <p>{errors.firstName.message}</p>}
+      <p>{errors.firstName?.message}</p>
         
       <input type="text" name="age" ref={register} />
-      {errors.age && <p>{errors.age.message}</p>}
+      <p>{errors.age?.message}</p>
       
       <input type="submit" />
     </form>

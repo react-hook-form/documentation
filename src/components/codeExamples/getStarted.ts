@@ -61,32 +61,20 @@ import { Input as InputField } from "antd";
 export default function App() {
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = data => console.log(data);
-  const [values, setReactSelectValue] = useState({ selectedOption: [] });
-
-  const handleMultiChange = selectedOption => {
-    setValue("reactSelect", selectedOption);
-    setReactSelectValue({ selectedOption });
-  }
   
   const handleChange = (e) => {
     setValue("AntdInput", e.target.value);
   }
   
   React.useEffect(() => {
-    register({ name: "reactSelect" }); // custom register react-select 
-    register({ name: "AntdInput" }); // custom register antd input
+    register("AntdInput"); // custom register Antd input
   }, [register])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="HelloWorld" inputRef={register} />
       <InputField name="AntdInput" onChange={handleChange} />
-      <Select
-        value={values.selectedOption}
-        options={options}
-        onChange={handleMultiChange}
-        isMulti
-      />
+      
       <input type="submit" />
     </form>
   );
@@ -106,7 +94,7 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" rules={{ required: true }} />
+      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
       <Controller
         name="reactSelect"
         options={[
@@ -116,6 +104,7 @@ export default function App() {
         ]}
         control={control}
         defaultValue={{}}
+        rules={{ required: true }}
       />
 
       <input type="submit" />
@@ -136,22 +125,17 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* Option 1 (preferred): pass a component to the Controller. */}
+      {/* Option 1: pass a component to the Controller. */}
       <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
-      {/* Option 2: pass a JSX element to the Controller. */}
-      {/* Note that any prop passed to the element will be overriden. */}
-      {/* In this case, "SomeName" will be changed to "MyCheckbox". */}
+      {/* Option 2: use render props to assign events and value */}
       <Controller
-        as={<Checkbox name="SomeName"/>}
         name="MyCheckbox"
-        value="test"
         control={control}
         defaultValue={false}
         rules={{ required: true }}
+        render=(props => <Checkbox {...props} />) // props contains: onChange, onBlur and value
       />
-
-      <button>Submit</button>
     </form>
   );
 }
