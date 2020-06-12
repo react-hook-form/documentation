@@ -619,13 +619,13 @@ export default {
           <li>
             <p>
               <code>getValues('test')</code>: Read individual input value by
-              name.
+              <strong>name</strong>.
             </p>
           </li>
           <li>
             <p>
               <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
-              names. value
+              <strong>names</strong>.
             </p>
           </li>
         </ul>

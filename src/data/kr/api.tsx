@@ -562,9 +562,30 @@ export default {
     description: (
       <>
         <p>
-          이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는
-          경우에 유용합니다.
+          This function will help you to read form values. The difference
+          between <code>watch</code> is <code>getValues</code> will not trigger
+          re-render or subscribed to input changes. The functions covers:
         </p>
+
+        <ul>
+          <li>
+            <p>
+              <code>getValues()</code>: Read entire form values.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues('test')</code>: Read individual input value by
+              <strong>name</strong>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
+              <strong>names</strong>.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
