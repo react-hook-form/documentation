@@ -50,7 +50,7 @@
   content: "</> ";
 }
 
-.codeHeading button {
+.codeHeading .videoLink {
   font-size: 14px;
   margin-bottom: -5px;
   margin-left: 15px;

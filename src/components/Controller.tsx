@@ -23,7 +23,12 @@ export default function Controller({
         <h2>
           Controller:{" "}
           <span className={typographyStyles.typeText}>Component</span>
-          <button onClick={() => setPlay(!play)}>Videos</button>
+          <button
+            className={typographyStyles.videoLink}
+            onClick={() => setPlay(!play)}
+          >
+            Videos
+          </button>
         </h2>
       </code>
 

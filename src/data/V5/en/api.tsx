@@ -229,7 +229,7 @@ export default {
       <>
         <p>
           This method allows you to register input/select <code>Ref</code> and
-          validation rules into React Hook Form.
+          apply validation rules into React Hook Form.
         </p>
         <p>
           Validation rules are all based on HTML standard and also allow custom
@@ -421,7 +421,7 @@ export default {
       <>
         This is useful when you want to return all validation errors for a
         single input. For instance, a password field that is required to have a
-        minimum length AND contain a special character. Note that you need to
+        minimum length and contain a special character. Note that you need to
         set <code>validateCriteriaMode</code> to
         <code>'all'</code> for this option to work properly.
       </>

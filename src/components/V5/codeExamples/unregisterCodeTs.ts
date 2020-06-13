@@ -1,8 +1,6 @@
 export default `import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-import "./styles.css";
-
 interface IFormInputs {
   firstName: string;
   lastName?: string;
@@ -10,16 +8,7 @@ interface IFormInputs {
 
 export default function App() {
   const { register, handleSubmit, unregister } = useForm<IFormInputs>();
-
-  const onSubmit = (data: IFormInputs) => {
-    alert(JSON.stringify(data));
-  };
-
-  useEffect(() => {
-    register({ name: "customRegister" }, { required: true });
-    
-    return () => unregister("customRegister"); // unregister input after component unmount
-  }, [register])
+  const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

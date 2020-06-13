@@ -3,16 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, unregister } = useForm();
-
-  const onSubmit = data => {
-    alert(JSON.stringify(data));
-  };
-  
-  useEffect(() => {
-    register({ name: "customRegister" }, { required: true });
-    
-    return () => unregister("customRegister"); // unregister input after component unmount
-  }, [register])
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

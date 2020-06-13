@@ -182,15 +182,21 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> Only registered fields
-          with a <code>ref</code> will work. Manually registered inputs won't
-          work. eg: <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          <b className={typographyStyles.note}>Note:</b> only registered fields
+          with <code>ref</code> will work. Custom <code>register</code> inputs
+          do not apply. eg:{" "}
+          <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> focus error input order
+          based on <code>register</code> order.
         </p>
       </>
     ),
     shouldUnregister: (
       <p>
-        By default, when inputs gets removed, React Hook Form use
+        By default, when inputs gets removed, React Hook Form use{" "}
         <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
         those inputs which gets unmounted. However, you can set{" "}
         <code>shouldUnregister</code> to <code>false</code> to prevent input
@@ -204,9 +210,7 @@ export default {
       <>
         <p>
           This method will allow you to <code>unregister</code> a single input
-          or an array of inputs. This is useful when you used a custom register
-          in <code>useEffect</code> and want to unregister it when the component
-          unmounts.
+          or an array of inputs.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> When you unregister an
@@ -222,7 +226,7 @@ export default {
       <>
         <p>
           This method allows you to register input/select <code>Ref</code> and
-          validation rules into React Hook Form.
+          apply validation rules into React Hook Form.
         </p>
         <p>
           Validation rules are all based on HTML standard and also allow custom
@@ -232,7 +236,6 @@ export default {
           <b className={typographyStyles.note}>Important:</b> <code>name</code>{" "}
           is <b>required</b> and <b>unique</b>. Input name also supports dot and
           bracket syntax, which allows you to easily create nested form fields.
-          Example table is below:
         </p>
       </>
     ),
@@ -243,7 +246,7 @@ export default {
           borderLeft: `4px solid ${colors.lightPink}`,
         }}
       >
-        If you working on <code>arrays/array fields</code>, you can assign an
+        If you working on simple <code>Array Fields</code>, you can assign an
         input name as <code>name[index]</code>.{" "}
         <a
           className={buttonStyles.links}
@@ -252,7 +255,8 @@ export default {
         >
           Check out the Field Array example
         </a>
-        .
+        . For more advance usage, make sure to checkout{" "}
+        <code>useFieldArray</code>.
       </p>
     ),
     example: "Submit Result",
@@ -278,19 +282,26 @@ export default {
             >
               react-select
             </a>
-            .
+            . We do provide a component{" "}
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("Controller")}
+            >
+              Controller
+            </button>{" "}
+            to take care this process for you.
           </p>
 
           <p>
-            By using a custom register call, you will need to update the input
-            value with{" "}
+            By using custom register, you will need to update the input value
+            with{" "}
             <button
               className={buttonStyles.codeAsLink}
               onClick={() => goToSection("setValue")}
             >
               setValue
             </button>
-            , because input is no longer registered with its ref.
+            .
           </p>
 
           <p>
@@ -402,14 +413,19 @@ export default {
     ),
     types: (
       <>
-        This is useful when you want to return all validation errors for a
-        single input. For instance, a password field that is required to have a
-        minimum length AND contain a special character. Note that you need to
-        set <code>validateCriteriaMode</code> to
-        <code>'all'</code> for this option to work properly.
+        <p style={{ marginTop: 0 }}>
+          This is useful when you want to return all validation errors for a
+          single input. For instance, a password field that is required to have
+          a minimum length and contain a special character.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> that you need to set{" "}
+          <code>validateCriteriaMode</code> to <code>all</code> for this option
+          to work.
+        </p>
       </>
     ),
-    message: `If you registered your input with an error message, then it will be put in this field. Otherwise it's an empty string by default.`,
+    message: `If you registered your input with an error message, then it will be put in this field, otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
   },
   watch: {
@@ -427,7 +443,7 @@ export default {
               When <code>defaultValue</code> is not defined, the first render of{" "}
               <code>watch</code> will return <code>undefined</code> because it
               is called before <code>register</code>, but you can set the{" "}
-              <code>defaultValue</code> as the second argument to return value.
+              <code>defaultValue</code> as the second argument.
             </p>
           </li>
           <li>
@@ -529,7 +545,7 @@ export default {
         <p>The function allows you to manually set one or multiple errors.</p>
         <p>
           <b className={typographyStyles.note}>Note:</b> This method will not
-          persist the error and block the submit action. It's more useful during{" "}
+          persist the error and block the submit action. It's useful during{" "}
           <code>handleSubmit</code> function when you want to give error
           feedback to the users after async validation.
         </p>

@@ -15,10 +15,7 @@ export default function App() {
         setValue("test", "bill")
         
         // set multiple values
-        setValue([
-          { test : "1", },
-          { test1 : "2", },
-        ])
+        setValue([ { test : "1", }, { test1 : "2", } ]);
         
         // set value as object or array
         setValue("object", { firstName: "test" })

@@ -11,18 +11,9 @@ export default () => {
       <input name="lastName" ref={register({ required: true })} />
       {errors.lastName && "This is required"}
 
-      <button type="button" onClick={() => clearError("firstName")}>
-        Clear
-      </button>
-      <button
-        type="button"
-        onClick={() => clearError(["firstName", "lastName"])}
-      >
-        Clear Multiple
-      </button>
-      <button type="button" onClick={() => clearError()}>
-        Clear All
-      </button>
+      <button type="button" onClick={() => clearError("firstName")}>Clear</button>
+      <button type="button" onClick={() => clearError(["firstName", "lastName"])}>Clear Multiple</button>
+      <button type="button" onClick={() => clearError()}>Clear All</button>
     </form>
   );
 };

@@ -331,7 +331,12 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 useForm:{" "}
                 <span className={typographyStyles.typeText}>Function</span>
-                <button onClick={() => setPlay(!play)}>Videos</button>
+                <button
+                  className={typographyStyles.videoLink}
+                  onClick={() => setPlay(!play)}
+                >
+                  Videos
+                </button>
               </h2>
             </code>
 
@@ -675,13 +680,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             {api.reset(goToSection).description}
 
-            <TabGroup
-              buttonLabels={[
-                "Uncontrolled",
-                "Controller",
-                "Controlled / React Native",
-              ]}
-            >
+            <TabGroup buttonLabels={["Uncontrolled", "Controller"]}>
               <CodeArea
                 rawData={resetCode}
                 url="https://codesandbox.io/s/jjm3wyqmjy"
@@ -689,10 +688,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <CodeArea
                 rawData={resetController}
                 url="https://codesandbox.io/s/react-hook-form-controller-079xx"
-              />
-              <CodeArea
-                rawData={resetCodeControlled}
-                url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
               />
             </TabGroup>
           </section>
@@ -706,9 +701,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                setError: <br />
+                setError:
                 <span className={typographyStyles.typeText}>
-                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string | React.ReactElement) => void`}
+                  {`(name: string, type?: string | Object, message?: string) => void`}
                 </span>
               </h2>
             </code>
