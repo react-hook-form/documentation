@@ -34,7 +34,7 @@ export default {
           <strong>
             <code>register</code>
           </strong>{" "}
-          your uncontrolled component into the Hook. This will make its value
+          your uncontrolled component into the hook. This will make its value
           available for both the form validation and submission.
         </p>
 
@@ -49,8 +49,7 @@ export default {
           require you to either use a manual register command:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or a{" "}
           <Link to="/api#Controller">Controller</Link> to wrap and register your
-          component automatically. Learn more in the dedicated section for{" "}
-          <Link to="/api/#ReactNative">React Native</Link>.
+          component.
         </p>
       </>
     ),
@@ -162,8 +161,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Option 1:</b> The best way is to
-          check if the component you wish to use exposes an{" "}
-          <code>innerRef</code> or <code>ref</code> that can be used to{" "}
+          check if the component you wish to use exposes an <code>ref</code>{" "}
+          that can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -174,11 +173,7 @@ export default {
           <code>register</code> to it.
         </p>
         <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
+          <code>{'<TextField ref={register} name="FirstName"/>'}</code>
         </p>
         <p>
           <b className={typographyStyles.note}>Option 2:</b> Sometimes
@@ -214,7 +209,13 @@ export default {
   },
   globalState: {
     title: "Integrate global state",
-    description: `React Hook Form doesn't require you to rely on a state management library such as Redux to store your data, but you can easily integrate with it:`,
+    description: (
+      <p>
+        React Hook Form doesn't require you to rely on a state management
+        library such as Redux to store your data, but you can easily integrate
+        with it:
+      </p>
+    ),
   },
   reactNative: {
     title: "React Native",
@@ -223,8 +224,8 @@ export default {
         You will get the same performance enhancement from an Uncontrolled
         Component. However, there are certain APIs which are not compatible with
         React Native (due to the API differences between web and native). You
-        will have to use a <b>manual register</b> as shown in the following
-        example.
+        will have to use <code>Controller</code> or <b>custom register</b> as
+        shown in the following example.
       </p>
     ),
   },
@@ -291,10 +292,10 @@ export default {
   errors: {
     title: "Handle errors",
     description: (
-      <>
+      <p>
         React Hook Form provides an <code>errors</code> object to show you the
         errors in the form.
-      </>
+      </p>
     ),
   },
 }

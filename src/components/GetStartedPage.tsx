@@ -287,24 +287,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.schema.step1}
 
           <span className={getStartedStyles.installCode}>
-            npm install yup
+            npm install @hookform/resolvers yup
             <button
               className={getStartedStyles.copyButton}
               onClick={() => {
                 copyClipBoard("npm install yup")
-                alert("Code copied into your clipboard.")
-              }}
-            >
-              {generic.copy[currentLanguage]}
-            </button>
-          </span>
-
-          <span className={getStartedStyles.installCode}>
-            npm install @hookform/resolvers
-            <button
-              className={getStartedStyles.copyButton}
-              onClick={() => {
-                copyClipBoard("npm install @hookform/resolvers")
                 alert("Code copied into your clipboard.")
               }}
             >

@@ -138,6 +138,42 @@ export default {
       authorUrl: "https://thewebdev.info/author/admin/",
       author: "John Au-Yeung",
     },
+    {
+      url:
+        "https://www.carlrippon.com/getting-started-with-react-hook-form-with-typeScript/",
+      title: "Getting started with React Hook Form with TypeScript",
+      authorUrl: "https://www.carlrippon.com/",
+      author: "Carl Rippon",
+    },
+    {
+      url:
+        "https://medium.com/popcodemobile/criando-formul%C3%A1rios-em-react-native-utilizando-react-hook-form-e-yup-55ee36563063",
+      title:
+        "Criando formulários em React Native utilizando React Hook Form e Yup",
+      authorUrl: "https://medium.com/@gabrielkabral",
+      author: "Gabriel Menezes",
+    },
+    {
+      url:
+        "https://medium.com/@austinhowardtech/ionic-react-firebase-react-hook-form-14dfbf72078a",
+      title: "Ionic React + Firebase: React Hook Form",
+      authorUrl: "https://medium.com/@austinhowardtech",
+      author: "Austin Howard Tech",
+    },
+    {
+      url:
+        "https://medium.com/@BhargavThakrar/testing-react-component-that-uses-react-hook-form-ad0162d440e",
+      title: "Testing react component that uses react-hook-form",
+      authorUrl: "https://medium.com/@BhargavThakrar",
+      author: "Bhargav Thakrar",
+    },
+    {
+      url:
+        "https://medium.com/@ankita.singh170190/authentication-using-fetch-queries-and-react-hook-form-205f5d4064a",
+      title: "Authentication using Fetch and react-hook-form",
+      authorUrl: "https://medium.com/@ankita.singh170190",
+      author: "Ankita Singh",
+    },
   ],
   newsletters: [],
   videos: [

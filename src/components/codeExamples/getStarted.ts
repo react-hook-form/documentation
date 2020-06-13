@@ -114,9 +114,7 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="HelloWorld" inputRef={register} />
-      <InputField name="AntdInput" onChange={handleChange} />
-      
+      <InputField onChange={handleChange} />
       <input type="submit" />
     </form>
   );
