@@ -1,6 +1,7 @@
 export default `import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
+import * as yup from "yup";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -9,7 +10,7 @@ const schema = yup.object().shape({
 
 const App = () => {
   const { register, handleSubmit } = useForm({
-    resolver: yupResolver(schema), // yup, joi and even your own.
+    resolver: yupResolver(schema),
   });
 
   return (

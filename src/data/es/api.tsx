@@ -38,9 +38,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into <code>resolver</code>'s
-          second argument or Este objeto de contexto se inyectará en El segundo
-          argumento de <code>resolver</code> o
+          Este objeto de contexto se inyectará en el segundo argumento del
+          resolutor o en el objeto de contexto de validación{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -48,7 +47,7 @@ export default {
           >
             Yup
           </a>
-          objeto de contexto de validación.
+          .
         </p>
       </>
     ),

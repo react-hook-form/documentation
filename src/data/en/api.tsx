@@ -25,16 +25,20 @@ export default {
       </p>
     ),
     validateCriteriaMode: (
-      <>
-        <p>
-          When set to <code>firstError</code> (default), only first error from
-          each field will be gathered.
-        </p>
-        <p>
-          When set to <code>all</code>, all errors from each field will be
-          gathered.
-        </p>
-      </>
+      <ul style={{ marginLeft: 0, paddingLeft: 15 }}>
+        <li>
+          <p>
+            When set to <code>firstError</code> (default), only first error from
+            each field will be gathered.
+          </p>
+        </li>
+        <li>
+          <p>
+            When set to <code>all</code>, all errors from each field will be
+            gathered.
+          </p>
+        </li>
+      </ul>
     ),
     validationResolver: (goToSection) => (
       <>
@@ -61,8 +65,8 @@ export default {
     validateContext: (
       <>
         <p>
-          This context object will be injected into <code>resolver</code>'s
-          second argument or{" "}
+          This context <code>object</code> is mutable and will be injected into{" "}
+          <code>resolver</code>'s second argument or{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -138,7 +142,7 @@ export default {
           <b className={typographyStyles.note}>Note:</b>{" "}
           <code>defaultValues</code> doesn't auto populate with the manually
           registered input (eg: <code>{`register({ name: 'test' })`}</code>)
-          because the manual <code>register</code> field does not provide the{" "}
+          because the custom <code>register</code> field does not provide the{" "}
           <code>ref</code> to React Hook Form.
         </p>
       </>
@@ -1205,7 +1209,7 @@ React.useEffect(() => {
         <ul>
           <li>
             <p>
-              make sure you are returning object which contains{" "}
+              Make sure you are returning object which contains{" "}
               <code>values</code> and <code>errors</code>, and their default
               value should be <code>{`{}`}</code>.
             </p>
@@ -1213,23 +1217,23 @@ React.useEffect(() => {
 
           <li>
             <p>
-              returning errors object's key should be relevant to your inputs.
+              Returning errors object's key should be relevant to your inputs.
             </p>
           </li>
 
           <li>
             <p>
-              this function will be cached inside the custom hook, while{" "}
-              <code>context</code> is a mutable object which can be changed on
-              each re-render.
+              This function will be cached inside the custom hook, while{" "}
+              <code>context</code> is a mutable <code>object</code> which can be
+              changed on each re-render.
             </p>
           </li>
 
           <li>
             <p>
-              re-validate input will only occur one field at time during user’s
-              interaction, because the lib itself will evaluate the error object
-              to the specific field and trigger re-render accordingly.
+              Re-validate input will only occur one field at time during user’s
+              interaction, the lib itself will evaluate the error object to
+              trigger re-render accordingly.
             </p>
           </li>
         </ul>

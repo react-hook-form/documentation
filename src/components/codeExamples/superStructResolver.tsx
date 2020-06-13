@@ -18,7 +18,6 @@ const App = () => {
       <label>Test</label>
       <input name="name" ref={register} />
       <input name="age" type="number" ref={register} />
-    
       <input type="submit" />
     </form>
   );

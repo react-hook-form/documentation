@@ -436,7 +436,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 <code>
                   reValidateMode:{" "}
                   <span className={typographyStyles.typeText}>
-                    onChange | onBlur | onSubmit = 'onSubmit'
+                    onChange | onBlur | onSubmit = 'onChange'
                   </span>
                 </code>
                 <Popup
