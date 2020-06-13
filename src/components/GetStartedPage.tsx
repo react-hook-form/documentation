@@ -10,6 +10,7 @@ import {
   globalState,
   errors,
   applyValidation,
+  applyValidationTs,
   controlledComponent,
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
@@ -193,7 +194,12 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.applyValidation.description(currentLanguage)}
 
-          <CodeArea rawData={applyValidation} />
+          <CodeArea
+            rawData={applyValidation}
+            url="https://codesandbox.io/s/react-hook-form-apply-validation-px4jp"
+            tsRawData={applyValidationTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-apply-validation-ts-sbstd"
+          />
 
           <h2
             className={typographyStyles.title}
