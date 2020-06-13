@@ -1,6 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import CodeArea from "../../components/CodeArea"
+import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
@@ -656,11 +656,7 @@ export default {
     title: "trigger",
     description: (
       <>
-        <p>To manually trigger an input/select validation in the form.</p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> When validation fails,
-          the <code>errors</code> object will be updated.
-        </p>
+        <p>To manually trigger validation in the form.</p>
       </>
     ),
   },
@@ -911,8 +907,19 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
-            and <code>value</code> props into the component.
+            <p style={{ marginTop: 0 }}>
+              Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
+              and <code>value</code> props into the component.
+            </p>
+
+            <p>
+              Every prop you pass to the Controller component will be forwarded
+              to the component instance you provided with the <code>as</code>{" "}
+              prop. For instance, if you have a custom <code>Switch</code>{" "}
+              component that requires a <code>label</code> prop, you can pass it
+              to the Controller component directly and it will take care of
+              forwarding the prop for you.
+            </p>
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
@@ -1020,22 +1027,21 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            <p>
+            <p style={{ marginTop: 0 }}>
               This callback allows the custom hook to focus on the input when
               there is an error. This function is applicable for both React and
               React-Native components as long as they can be focused.
             </p>
-            <p>
-              Here is a{" "}
-              <a
-                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                working example with MUI
-              </a>
-              .
-            </p>
+
+            <CodeSandBoxLink
+              style={{
+                position: "relative",
+                left: 0,
+                float: "right",
+                display: "flex",
+              }}
+              url="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+            />
           </td>
         </tr>
       </tbody>
@@ -1071,15 +1077,6 @@ React.useEffect(() => {
           </a>
           . This wrapper component will make it easier for you to work with
           them.
-        </p>
-        <p>
-          Every prop you pass to the Controller component will be forwarded to
-          the component instance you provided with the <code>as</code> prop. For
-          instance, if you have a custom <code>Switch</code> component that
-          requires a <code>label</code> prop, you can pass it to the Controller
-          component directly and it will take care of forwarding the prop for
-          you. The <code>name</code> prop will be used mainly to access the
-          value through the form later.
         </p>
       </>
     ),
