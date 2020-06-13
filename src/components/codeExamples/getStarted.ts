@@ -38,7 +38,7 @@ export default function App() {
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    console.log(data);
+    alert(JSON.stringify(data));
   };
 
   return (
