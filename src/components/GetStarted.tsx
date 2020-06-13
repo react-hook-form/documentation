@@ -50,7 +50,7 @@ export default function GetStarted({
           lightMode ? styles.lightInstallCode : ""
         }`}
       >
-        yarn add react-hook-form
+        npm install react-hook-form
         <button
           className={styles.copyButton}
           onClick={() => {
