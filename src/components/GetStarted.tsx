@@ -45,6 +45,26 @@ export default function GetStarted({
         </button>
       </span>
 
+      <span
+        className={`${styles.installCode} ${
+          lightMode ? styles.lightInstallCode : ""
+        }`}
+      >
+        npm install react-hook-form
+        <button
+          className={styles.copyButton}
+          onClick={() => {
+            copyClipBoard("yarn add react-hook-form")
+            alert(generic.copied[currentLanguage])
+          }}
+        >
+          <span className={codeAreaStyles.copyIcon}>
+            <span />
+          </span>{" "}
+          {generic.copy[currentLanguage]}
+        </button>
+      </span>
+
       <h2
         style={{
           marginTop: 50,
@@ -56,7 +76,8 @@ export default function GetStarted({
       <CodeArea
         rawData={code}
         tsRawData={codeTs}
-        url="https://codesandbox.io/s/kw7z2q2n15"
+        url="https://codesandbox.io/s/react-hook-form-get-started-75ijs"
+        tsUrl="https://codesandbox.io/s/react-hook-form-get-started-ts-resrg"
       />
     </>
   )
