@@ -7,6 +7,7 @@ import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import controllerTs from "./codeExamples/controllerTs"
+import VideoList from "./VideoList"
 
 export default function Controller({
   currentLanguage,
@@ -15,14 +16,34 @@ export default function Controller({
   currentLanguage: string
   api: any
 }) {
+  const [play, setPlay] = React.useState(false)
   return (
     <>
       <code className={typographyStyles.codeHeading}>
         <h2>
           Controller:{" "}
           <span className={typographyStyles.typeText}>Component</span>
+          <button onClick={() => setPlay(!play)}>Videos</button>
         </h2>
       </code>
+
+      <VideoList
+        play={play}
+        lists={[
+          {
+            title: "How to Use React-Hook-Form With Material UI",
+            url: "https://www.youtube.com/watch?v=PquWexbGcVc",
+          },
+          {
+            title: "React Hook Form - React Forms Episode II",
+            url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
+          },
+          {
+            title: "Using React Hook Form with Ionic React Components",
+            url: "https://www.youtube.com/watch?v=5MsXpmh3Un8",
+          },
+        ]}
+      />
 
       {api.Controller.description}
 

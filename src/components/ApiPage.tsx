@@ -45,6 +45,7 @@ import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
 import { getNavLink } from "./Nav"
 import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
+import VideoList from "./VideoList"
 
 const { useRef, useEffect } = React
 
@@ -95,6 +96,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
       ? language
       : { currentLanguage: defaultLang }
   const [activeIndex, setActiveIndex] = React.useState(0)
+  const [play, setPlay] = React.useState(false)
   const links = [
     {
       ...api.useForm,
@@ -329,8 +331,38 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 useForm:{" "}
                 <span className={typographyStyles.typeText}>Function</span>
+                <button onClick={() => setPlay(!play)}>Videos</button>
               </h2>
             </code>
+
+            <VideoList
+              lists={[
+                {
+                  url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
+                  title:
+                    "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=bQRIBpKN8-s",
+                  title:
+                    "React Hook Form Tutorial - How to Create a Custom Input",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=XlAs-Lid-TA",
+                  title: "How To Upload Files Using React Hook Form",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=oSIHZ9zKzVA",
+                  title: "Make React Forms EASY with React Hook Form!",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=lHclVxcborY",
+                  title:
+                    "Does this library make Redux Form obsolete? | React Hook Form Tutorial | React Tutorials",
+                },
+              ]}
+              play={play}
+            />
 
             {api.useForm.description}
 

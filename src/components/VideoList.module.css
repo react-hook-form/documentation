@@ -1,0 +1,16 @@
+.list > span {
+  border: 1px solid white;
+}
+
+.list:hover > span {
+  transition: 0.3s;
+  color: var(--color-light-pink);
+}
+
+.list a {
+  text-decoration: none;
+}
+
+.list:hover a {
+  text-decoration: underline;
+}
