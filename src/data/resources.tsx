@@ -1,3 +1,5 @@
+import * as React from "react"
+
 export default {
   articles: [
     {
@@ -129,7 +131,174 @@ export default {
       authorUrl: "https://dev.to/aaronksaunders",
       author: "Aaron K Saunders",
     },
+    {
+      url:
+        "https://thewebdev.info/2020/04/29/react-hook-form-a-good-react-form-validation-library/",
+      title: "React Hook Form – a Good React Form Validation Library",
+      authorUrl: "https://thewebdev.info/author/admin/",
+      author: "John Au-Yeung",
+    },
   ],
   newsletters: [],
-  videos: [],
+  videos: [
+    {
+      title: "React Hook Form - custom hook for forms validation.",
+      url: "https://www.youtube.com/watch?v=-mFXqOaqgZk",
+      authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
+      author: "Bill Luo",
+      description: (
+        <p>
+          In this video tutorial, I am demonstrating how you can use
+          react-hook-form to easily validate your forms.
+        </p>
+      ),
+    },
+    {
+      title: "React Hook Form - persist multiple steps forms (Form Wizard).",
+      url: "https://www.youtube.com/watch?v=CeAkxVwsyMU",
+      authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
+      author: "Bill Luo",
+      description: (
+        <p>Building persist multiple steps form with React Hook Form.</p>
+      ),
+    },
+    {
+      title: "React Hook Form - React Forms Episode II",
+      url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
+      authorUrl: "https://www.youtube.com/user/jherr2006",
+      author: "Jack Herrington",
+      description: (
+        <p>
+          Let's get back into forms and look at your recommendation
+          `react-hook-form`!
+        </p>
+      ),
+    },
+    {
+      title: "The best way to create forms in React",
+      url: "https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description: (
+        <>
+          <p>How to create forms in React.</p>
+          <p>
+            Right now the best way to create forms in React is to use React Form
+            Hook library.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Easy Way of Form Validation with React Hook Form",
+      url: "https://www.youtube.com/watch?v=oXY_sSfjlSw",
+      authorUrl: "https://www.youtube.com/channel/UCS3-MF_4ADqglU2OSly4vIw",
+      author: "For Those Who Code",
+      description: (
+        <p>
+          In this video we will cover basics on how to validate form fields in
+          React with React hook forms which is performant and really easy
+          library to use.
+        </p>
+      ),
+    },
+    {
+      title:
+        "React Hook Form で簡単にフォームバリデーション: TypeScriptでReact.js入門#07",
+      url: "https://www.youtube.com/watch?v=jpkHSn6SRLU",
+      authorUrl: "https://www.youtube.com/channel/UCcDY8GkKPSOK_6frk9zZuHA",
+      author: "WEBOTV / WEBプログラム学習チャンネル",
+      description: (
+        <p>
+          TypeScriptでReact.js入門をする講座 第7回目です。 今回はReact Hook
+          Formというライブラリを使用して入力フォームのチェック（バリデーション）を設定する方法をご紹介します。
+        </p>
+      ),
+    },
+    {
+      title: "Make React Forms EASY with React Hook Form!",
+      url: "https://www.youtube.com/watch?v=oSIHZ9zKzVA",
+      authorUrl: "https://www.youtube.com/channel/UC5KDiSAFxrDWhmysBcNqtMA",
+      author: "Eric Murphy",
+      description: (
+        <p>
+          Are you tired of the slow, painful process of setting up forms in
+          React, building out form state, validation, errors, and more? Worry no
+          more! With React Hook Form, create forms in a matter of minutes! It'll
+          be the easiest, fastest way you've ever built a form in React! Replace
+          your old, boring
+        </p>
+      ),
+    },
+    {
+      title: "How to test react hook form using react testing library",
+      url: "https://www.youtube.com/watch?v=hP0h2P3BdEE",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description: (
+        <p>How to test react hook form using react testing library:</p>
+      ),
+    },
+    {
+      title: "React Hook Form Tutorial - How to Create a Custom Input",
+      url: "https://www.youtube.com/watch?v=bQRIBpKN8-s",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description: (
+        <p>
+          Let's learn how to create a custom input for react-hook-form. We will
+          use a simple login form as an example React application.
+        </p>
+      ),
+    },
+    {
+      title: "How To Upload Files Using React Hook Form",
+      url: "https://www.youtube.com/watch?v=XlAs-Lid-TA",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description: (
+        <p>
+          React-hook-form supports file uploads. In this video I'll show you how
+          to upload files using react-hook-form. And also we'll update the
+          firebase file upload example with react-hook-form
+        </p>
+      ),
+    },
+    {
+      title: "Using React Hook Form with Ionic React Components",
+      url: "https://www.youtube.com/watch?v=5MsXpmh3Un8",
+      authorUrl: "https://www.youtube.com/channel/UCMCcqbJpyL3LAv3PJeYz2bg",
+      author: "Aaron Saunders",
+      description: (
+        <p>
+          Using React Hook Form with Ionic Framework React Components - this is
+          based on the blog post
+        </p>
+      ),
+    },
+    {
+      title:
+        "React Hook Form Talk and Demo by its Author Bill Luo aka@bluebill1049",
+      url: "https://www.youtube.com/watch?v=fpwnCGgc9A8",
+      authorUrl: "https://www.youtube.com/channel/UCorlLn2oZfgOJ-FUcF2eZ1A",
+      author: "ReactEurope",
+      description: "",
+    },
+    {
+      title: "#04 Curso de React Hooks [ React Hook Form ]",
+      url:
+        "https://www.youtube.com/watch?list=PLPl81lqbj-4KswGEN6o4lF0cscQalpycD&v=wgutyeQTGDA",
+      authorUrl: "https://www.youtube.com/user/Bluuweb",
+      author: "Bluuweb !",
+      description: "",
+    },
+    {
+      title:
+        "Does this library make Redux Form obsolete? | React Hook Form Tutorial | React Tutorials",
+      url: "https://www.youtube.com/watch?v=lHclVxcborY",
+      authorUrl: "https://www.youtube.com/channel/UCTD_PLq3KAUwkIIs9fk3pAA",
+      author: "Better Coding Academy",
+      description: "",
+    },
+  ],
 }

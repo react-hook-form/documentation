@@ -81,6 +81,27 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </ul>
 
         <h2 className={typographyStyles.title}>
+          {generic.video[currentLanguage]}
+        </h2>
+        <ul className={styles.contentList}>
+          {data.videos.map(({ title, url, authorUrl, author, description }) => (
+            <li>
+              <article className={styles.article}>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <h3>{title}</h3>
+                </a>
+                <p>
+                  <a href={authorUrl} target="_blank" rel="noopener noreferrer">
+                    {author}
+                  </a>
+                </p>
+                {description}
+              </article>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className={typographyStyles.title}>
           {generic.newsletter[currentLanguage]}
         </h2>
 
@@ -224,256 +245,6 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   building or refactoring forms. GitHub repo.
                 </p>
               </a>
-            </article>
-          </li>
-        </ul>
-
-        <h2 className={typographyStyles.title}>
-          {generic.video[currentLanguage]}
-        </h2>
-        <ul className={styles.contentList}>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=-mFXqOaqgZk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form - custom hook for forms validation.</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-              <p>
-                In this video tutorial, I am demonstrating how you can use
-                react-hook-form to easily validate your forms.
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=CeAkxVwsyMU"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form - persist multiple steps forms (Form Wizard).
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-              <p>Building persist multiple steps form with React Hook Form.</p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=0nDGeQKLFjo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form - React Forms Episode II</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/user/jherr2006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jack Herrington
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>The best way to create forms in React</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/user/satansdeer1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Maksim Ivanov
-                </a>
-              </p>
-              <p>How to create forms in React.</p>
-              <p>
-                Right now the best way to create forms in React is to use React
-                Form Hook library.
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/bettercodingacademy/i-m-a-professional-react-developer-and-here-s-how-i-build-a-production-ready-react-node-js-app-using-typescript-and-graphql-ga8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Build a production-ready React/Node.js app using TypeScript
-                  and GraphQL (React Hook Form).
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://dev.to/bettercodingacademy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lucas Chen
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=lHclVxcborY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Does this library make Redux Form obsolete? | React Hook Form
-                  Tutorial | React Tutorials
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCTD_PLq3KAUwkIIs9fk3pAA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Better Coding Academy
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=lHclVxcborY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook form tutorials</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCbaiPi4-JPvIlzR4_7-kAfA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  HicoTek
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=fpwnCGgc9A8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form Talk and Demo by its Author Bill Luo aka
-                  @bluebill1049
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCorlLn2oZfgOJ-FUcF2eZ1A"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ReactEurope
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=5MsXpmh3Un8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Using React Hook Form with Ionic React Components</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCMCcqbJpyL3LAv3PJeYz2bg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Aaron Saunders
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=oXY_sSfjlSw"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Easy Way of Form Validation with React Hook Form</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCS3-MF_4ADqglU2OSly4vIw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  For Those Who Code
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=jpkHSn6SRLU"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form で簡単にフォームバリデーション :
-                  TypeScriptでReact.js入門#07
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCcDY8GkKPSOK_6frk9zZuHA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WEBOTV / WEBプログラム学習チャンネル
-                </a>
-              </p>
             </article>
           </li>
         </ul>
