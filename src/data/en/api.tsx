@@ -692,26 +692,25 @@ export default {
         <ul>
           <li>
             <p>
-              you can populate the <code>fields</code> by supply{" "}
+              You can populate the <code>fields</code> by supply{" "}
               <code>defaultValues</code> at <code>useForm</code> hook.
             </p>
           </li>
           <li>
             <p>
-              make sure you assign <code>id</code> from <code>fields</code>{" "}
+              Make sure you assign <code>id</code> from <code>fields</code>{" "}
               object as your component key.
             </p>
           </li>
           <li>
             <p>
-              make sure to set <code>defaultValue</code> to{" "}
-              <code>fields[index]</code> when you want to set default value,
-              remove or reset with inputs.
+              Make sure to set <code>defaultValue</code> to{" "}
+              <code>fields[index]</code>.
             </p>
           </li>
           <li>
             <p>
-              you can not call actions one after another. Actions need to be
+              You can not call actions one after another. Actions need to be
               triggered per render.
             </p>
             <CodeArea
@@ -842,15 +841,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>
-            Move input/inputs to another position.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> difference between{" "}
-              <code>move</code> and <code>swap</code>, keep calling{" "}
-              <code>move</code> will push input/inputs in a circle, while{" "}
-              <code>swap</code> only change two input/inputs' position.
-            </p>
-          </td>
+          <td>Move input/inputs to another position.</td>
         </tr>
         <tr>
           <td>
@@ -865,7 +856,7 @@ React.useEffect(() => {
           </td>
           <td>
             Remove input/inputs at particular position, or remove all when no
-            index is provided.
+            index provided.
           </td>
         </tr>
       </>
@@ -1097,13 +1088,7 @@ React.useEffect(() => {
         </p>
       </>
     ),
-    description: (
-      <p>
-        <b className={typographyStyles.note}>Note:</b> invoking{" "}
-        <code>useFormContext</code> will give you all of the{" "}
-        <code>useForm</code> hook functions.
-      </p>
-    ),
+    description: "",
   },
   control: {
     title: "control",

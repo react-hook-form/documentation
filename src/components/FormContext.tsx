@@ -44,10 +44,6 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.description}
 
-      <CodeArea
-        rawData={`const methods = useFormContext() // methods contain all useForm functions`}
-      />
-
       <TabGroup buttonLabels={["Hook", "Consumer"]}>
         <CodeArea
           rawData={formContext}
