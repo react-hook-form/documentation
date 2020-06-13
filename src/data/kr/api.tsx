@@ -562,27 +562,30 @@ export default {
     description: (
       <>
         <p>
-          This function will help you to read form values. The difference
-          between <code>watch</code> is <code>getValues</code> will not trigger
-          re-render or subscribed to input changes. The functions covers:
+          이 기능은 양식 값을 읽는 데 도움이됩니다. 차이점
+          <code> watch </code> 사이에 <code> getValues ​​</code>가 트리거되지
+          않음 입력 변경 사항을 다시 렌더링하거나 구독했습니다. 기능은 다음과
+          같습니다.
         </p>
 
         <ul>
           <li>
             <p>
-              <code>getValues()</code>: Read entire form values.
+              <code> getValues​​()</code> : 전체 양식 값을 읽습니다.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues('test')</code>: Read individual input value by
+              <code>getValues​​('test')</code> : 다음을 통해 개별 입력 값을
+              읽습니다.
               <strong>name</strong>.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
-              <strong>names</strong>.
+              <code>getValues​​(['test', 'test1'])</code> : 다음을 통해 여러
+              입력을 읽습니다.
+              <strong>name</strong>.
             </p>
           </li>
         </ul>

@@ -583,26 +583,28 @@ export default {
     description: (
       <>
         <p>
-          This function will help you to read form values. The difference
-          between <code>watch</code> is <code>getValues</code> will not trigger
-          re-render or subscribed to input changes. The functions covers:
+          Esta função irá ajudá-lo a ler os valores do formulário. A diferença
+          entre <code> watch </code> é <code> getValues ​​</code> não será
+          acionado renderize novamente ou inscrito nas alterações de entrada. As
+          funções abrangem:
         </p>
 
         <ul>
           <li>
             <p>
-              <code>getValues()</code>: Read entire form values.
+              <code>getValues()</code>: lê valores inteiros do formulário.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues('test')</code>: Read individual input value by
+              <code>getValues('test')</code>: lê o valor de entrada individual
+              por
               <strong>name</strong>.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
+              <code>getValues(['test', 'test1'])</code>: lê várias entradas por
               <strong>names</strong>.
             </p>
           </li>

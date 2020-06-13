@@ -587,27 +587,27 @@ export default {
     description: (
       <>
         <p>
-          This function will help you to read form values. The difference
-          between <code>watch</code> is <code>getValues</code> will not trigger
-          re-render or subscribed to input changes. The functions covers:
+          この関数は、フォームの値を読み取るのに役立ちます。違い
+          <code> watch </code>の間は<code> getValues </code>はトリガーされません
+          入力の変更を再レンダリングまたはサブスクライブします。機能は次のとおりです。
         </p>
 
         <ul>
           <li>
             <p>
-              <code>getValues()</code>: Read entire form values.
+              <code>getValues()</code>：フォームの値全体を読み取ります。
             </p>
           </li>
           <li>
             <p>
-              <code>getValues('test')</code>: Read individual input value by
-              <strong>name</strong>.
+              <code>getValues('test'</code>：個々の入力値を読み取ります
+              <strong>name</strong>。
             </p>
           </li>
           <li>
             <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
-              <strong>names</strong>.
+              <code>getValues(['test', 'test1'])</code>
+              ：複数の入力を読み取ります<strong>name</strong>。
             </p>
           </li>
         </ul>
