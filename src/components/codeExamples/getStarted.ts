@@ -17,6 +17,48 @@ export default function App() {
   );
 }`
 
+export const registerCodeTs = `import React from "react";
+import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
+
+import "./styles.css";
+
+// There are two genders here, but there can be many more!
+enum GenderEnum {
+  male = "male",
+  female = "female"
+}
+
+interface IFormInput {
+  firstName: String;
+  gender: GenderEnum;
+}
+
+export default function App() {
+  const { register, handleSubmit } = useForm<IFormInput>();
+
+  const onSubmit = (data: IFormInput) => {
+    alert(JSON.stringify(data));
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>First Name</label>
+      <input name="firstName" ref={register} />
+      <label>Gender Selection</label>
+      <select name="gender" ref={register}>
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </select>
+      <input type="submit" />
+    </form>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+`
+
 export const migrateCode = `import React from "react";
 import { useForm } from "react-hook-form";
 

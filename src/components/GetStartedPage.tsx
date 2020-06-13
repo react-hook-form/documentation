@@ -4,6 +4,7 @@ import SideMenu from "../components/SideMenu"
 import CodeArea from "../components/CodeArea"
 import {
   registerCode,
+  registerCodeTs,
   migrateCode,
   uiLibrary,
   globalState,
@@ -174,7 +175,12 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.register.description}
 
-          <CodeArea rawData={registerCode} />
+          <CodeArea
+            rawData={registerCode}
+            tsRawData={registerCodeTs}
+            url="https://codesandbox.io/s/react-hook-form-register-field-u9zjt"
+            tsUrl="https://codesandbox.io/s/react-hook-form-register-field-ts-ownvk"
+          />
 
           <h2
             className={typographyStyles.title}
