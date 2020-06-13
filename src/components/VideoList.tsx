@@ -15,7 +15,7 @@ export default ({
     easeType="ease-in"
     play={play}
   >
-    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 0 8px" }}>
       {lists.map(({ url, title }) => (
         <li>
           <p className={styles.list}>
@@ -28,7 +28,6 @@ export default ({
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: "50%",
-                marginRight: 10,
               }}
             >
               ▸
@@ -38,6 +37,7 @@ export default ({
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              title={title}
             >
               {title}
             </a>

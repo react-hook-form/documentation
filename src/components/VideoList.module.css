@@ -1,5 +1,12 @@
+.list {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .list > span {
   border: 1px solid white;
+  margin-right: 20px;
 }
 
 .list:hover > span {
