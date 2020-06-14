@@ -918,11 +918,6 @@ React.useEffect(() => {
   as={<TextInput />} 
   control={control} 
   name="test" 
-/>
-<Controller 
-  as={TextInput} 
-  control={control} 
-  name="test" 
 />`}
             />
           </td>

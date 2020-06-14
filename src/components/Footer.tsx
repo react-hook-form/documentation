@@ -97,7 +97,8 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
       </p>
       {currentLanguage === "pt" && (
         <p>
-          <a href="https://github.com/kevenleone">@kevenleone</a>
+          <a href="https://github.com/kevenleone">@kevenleone</a> and{" "}
+          <a href="https://github.com/vitorboccio">@vitorboccio</a>
         </p>
       )}
       {currentLanguage === "kr" && (
@@ -124,7 +125,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @github
         </a>
-        ️ ] [ Help make these doc's better{" "}
+        ️ ] [ Help make these docs better{" "}
         <a
           href="https://github.com/react-hook-form/website"
           target="_blank"
