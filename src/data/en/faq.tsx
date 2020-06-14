@@ -119,8 +119,7 @@ export default {
         <p>
           React Hook Form needs <code>ref</code> to collect the input value,
           however, you may want to use <code>ref</code> for other purposes (e.g.
-          scroll into the view, or focus). The following example will show you
-          how.
+          scroll into the view, or focus).
         </p>
       ),
     },
@@ -212,8 +211,8 @@ export default {
             <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                  <th width={200} />
-                  <th>
+                  <th width={100} />
+                  <th width={250}>
                     <p>React Hook Form</p>
                   </th>
                   <th>
@@ -291,27 +290,27 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@4.0.0
+                      react-hook-form@6.0.0
                       <br />
-                      <b className={typographyStyles.note}>6.2KB</b>
+                      <b className={typographyStyles.note}>8.9KB</b>
                     </code>
                   </td>
                   <td>
                     Medium
                     <br />
                     <code>
-                      formik@2.0.1
+                      formik@2.1.4
                       <br />
-                      <b className={typographyStyles.note}>14.4KB</b>
+                      <b className={typographyStyles.note}>15KB</b>
                     </code>
                   </td>
                   <td>
                     Large
                     <br />
                     <code>
-                      redux-form@8.2.6
+                      redux-form@8.3.6
                       <br />
-                      <b className={typographyStyles.note}>27KB</b>
+                      <b className={typographyStyles.note}>26.4KB</b>
                     </code>
                   </td>
                 </tr>
@@ -320,10 +319,27 @@ export default {
                     <b>Validation</b>
                   </td>
                   <td>
-                    Built-in &{" "}
+                    Built-in,{" "}
                     <a href="https://github.com/jquense/yup" target="_blank">
                       Yup
                     </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/hapijs/joi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Joi
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/ianstormtaylor/superstruct"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Superstruct
+                    </a>{" "}
+                    and build your own.
                   </td>
                   <td>
                     Build yourself or{" "}
@@ -345,7 +361,7 @@ export default {
                   <td>
                     <b>Status</b>
                   </td>
-                  <td>Medium Community: New lib and growing</td>
+                  <td>Medium Community and growing</td>
                   <td>
                     Large Community: Well established form lib in the community
                   </td>

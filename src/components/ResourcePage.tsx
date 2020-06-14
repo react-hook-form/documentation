@@ -59,11 +59,16 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                 render={({ style }) => (
                   <li style={style}>
                     <article className={styles.article}>
-                      <a href={url} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={title}
+                      >
                         <h3>{title}</h3>
                       </a>
 
-                      <p>
+                      <p className={styles.author}>
                         <a
                           href={authorUrl}
                           target="_blank"
@@ -87,10 +92,15 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           {data.videos.map(({ title, url, authorUrl, author, description }) => (
             <li>
               <article className={styles.article}>
-                <a href={url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={title}
+                >
                   <h3>{title}</h3>
                 </a>
-                <p>
+                <p className={styles.author}>
                   <a href={authorUrl} target="_blank" rel="noopener noreferrer">
                     {author}
                   </a>
