@@ -25,7 +25,6 @@ export default function App() {
 
   return (
     <FormContext {...methods}>
-      {/* pass all methods into the context */}
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInputContainer />
         <input type="submit" />

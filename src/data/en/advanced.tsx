@@ -185,8 +185,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Step 2:</b> Create your pages,
-          collect and submit the data to the store and show the next page of
-          your form.
+          collect and submit the data to the store and push to the next
+          form/page.
         </p>
         <CodeArea
           rawData={step2}
@@ -229,9 +229,9 @@ export default {
 
         <p>Let's have a look what's in each of those components.</p>
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </div>
+        </code>
 
         <p>
           The <code>Form</code> component's responsibility is to inject all{" "}
@@ -243,9 +243,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </div>
+        </code>
 
         <p>
           Those input components' responsibility is to registering them into{" "}
@@ -311,12 +311,12 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#useFormContext">FormContext</a> comes in very handy.
-        However, we can further improve the Developer Experience by creating a{" "}
+        <a href="/api#useFormContext">FormContext</a> comes in handy. However,
+        we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit of such a component is you can connect your input with React
-        Hook Form from anywhere.
+        The benefit is you can connect your input with React Hook Form from much
+        easier.
       </p>
     ),
   },
@@ -394,21 +394,27 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "Custom Hook with Resolver",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integrate with yup/Joi/Superstruct as a validation method,
-          and to be used inside validation resolver.
+          You can build a custom hook as a resolver. A custom hook can easily
+          integrate with yup/Joi/Superstruct as a validation method, and to be
+          used inside validation resolver.
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            <p>
+              Define a memoized validation schema (or define it outside your
+              component if you don't have any dependencies)
+            </p>
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>
+            <p>Use the custom hook, by passing the validation schema</p>
+          </li>
+          <li>
+            <p>Pass the validation resolver to the useForm hook</p>
+          </li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
