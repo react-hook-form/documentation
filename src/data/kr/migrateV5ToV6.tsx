@@ -212,6 +212,24 @@ export default (
 + const { isDirty } = formState;
 + dirtyFields.test;`}
       />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>ErrorMessage: </h2>
+      </code>
+
+      <p>핵심 라이브러리에서 멀리 떨어지십시오.</p>
+
+      <code
+        style={{
+          fontSize: 16,
+          padding: 15,
+          background: "#191d3a",
+          borderRadius: 4,
+          display: "block",
+        }}
+      >
+        npm install @hookform/error-message
+      </code>
     </main>
   </>
 )

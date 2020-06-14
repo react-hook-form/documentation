@@ -216,6 +216,24 @@ export default (
 + const { isDirty } = formState;
 + dirtyFields.test;`}
       />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>ErrorMessage: </h2>
+      </code>
+
+      <p>Aléjese de la biblioteca central.</p>
+
+      <code
+        style={{
+          fontSize: 16,
+          padding: 15,
+          background: "#191d3a",
+          borderRadius: 4,
+          display: "block",
+        }}
+      >
+        npm install @hookform/error-message
+      </code>
     </main>
   </>
 )
