@@ -367,7 +367,7 @@ type FormValues = {
 };
 
 export default function App() {
-  const onSubmit = (data: FormValues) => alert(JSON.stringify(data));
+  const onSubmit = (data: FormValues) => console.log(data);
 
   return (
     <Form<FormValues> onSubmit={onSubmit}>

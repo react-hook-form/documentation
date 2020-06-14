@@ -9,7 +9,7 @@ type FormValues = {
 
 export default function App() {
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = data => alert(JSON.stringify(data));
+  const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

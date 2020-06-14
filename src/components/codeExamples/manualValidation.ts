@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, setValue, setError } = useForm();
-  const onSubmit = data => alert(JSON.stringify(data));
+  const onSubmit = data => console.log(data);
 
   useEffect(() => {
     register({ name: "firstName" }, { required: true });

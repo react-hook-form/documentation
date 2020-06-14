@@ -9,7 +9,7 @@ export default function App() {
       email: "bluebill1049@hotmail.com"
     }
   });
-  const onSubmit = data => alert(JSON.stringify(data));
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -21,11 +21,11 @@ export default {
         <p>
           Performance is one of the primary goals for building this custom hook.
           React Hook Form relies on uncontrolled component, hence the reason why
-          the register function occurs at the ref. This approach will reduce the
-          amount of re-rendering occurring due to user typing or value changing.
-          Components mount to the page is much quicker as well because they are
-          not controlled. For mounting speed, I have completed a quick
-          comparison test which you can refer to by{" "}
+          the <code>register</code> function occurs at the <code>ref</code>.
+          This approach will reduce the amount of re-rendering occurring due to
+          user typing or value changing. Components mount to the page is much
+          quicker as well because they are not controlled. For mounting speed, I
+          have completed a quick comparison test which you can refer to by{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -110,7 +110,6 @@ export default {
           component, you can specify a <code>defaultValue</code> or{" "}
           <code>defaultChecked</code> to an individual field. However, the hook
           itself does provide an easier way to initialise all input values too.
-          Example below:
         </p>
       ),
     },

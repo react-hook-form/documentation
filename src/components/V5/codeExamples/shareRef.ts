@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 export default function App() {
   const { register, handleSubmit } = useForm();
   const firstNameRef = useRef();
-  const onSubmit = data => alert(JSON.stringify(data));
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

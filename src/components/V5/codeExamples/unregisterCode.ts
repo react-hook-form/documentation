@@ -5,7 +5,7 @@ export default function App() {
   const { register, handleSubmit, unregister } = useForm();
 
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    console.log(data);
   };
   
   useEffect(() => {

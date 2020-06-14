@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm({ nativeValidation: true });
-  const onSubmit = async data => { alert(JSON.stringify(data)); };
+  const onSubmit = async data => { console.log(data); };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

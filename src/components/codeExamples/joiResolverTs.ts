@@ -18,7 +18,7 @@ const App = () => {
   });
 
   const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
+    console.log(data);
   };
 
   return (

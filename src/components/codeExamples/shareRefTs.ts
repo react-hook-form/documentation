@@ -9,7 +9,7 @@ type Inputs = {
 export default function App() {
   const { register, handleSubmit } = useForm<Inputs>();
   const firstNameRef = useRef<HTMLInputElement | null>(null);
-  const onSubmit = data => alert(JSON.stringify(data));
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
