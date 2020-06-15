@@ -410,6 +410,20 @@ export default {
           <ul>
             <li>
               <p>
+                Why is testing not working with React Native (
+                <code>react-native-testing-library</code>)?
+              </p>
+
+              <p>
+                React Hook Form doesn't register input during server side
+                render, which means testing in react native could result{" "}
+                <code>window</code> object been <code>undefined</code>, quick
+                fix would be just stub <code>window</code> object to enable the
+                registration progress.
+              </p>
+            </li>
+            <li>
+              <p>
                 Why am I getting <code>act</code> warning?
               </p>
 
