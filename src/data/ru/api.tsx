@@ -84,6 +84,14 @@ export default {
         считается, что это ухудшает производительность.
       </>
     ),
+    validationOnAll: (
+      <>
+        Валидация активируется в событиях <code>blur</code> и{" "}
+        <code>change</code>. Предупреждение: как и в режиме{" "}
+        <code>onChange</code>, <code>all</code>
+        может оказать существенное влияние на производительность.
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

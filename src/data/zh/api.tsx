@@ -87,6 +87,13 @@ export default {
         的事件上触发，并导致多个重新renders。 不推荐这个方法的实践性能。
       </>
     ),
+    validationOnAll: (
+      <>
+        验证将在<code>blur</code>和<code>change</code>
+        事件上触发。警告：与<code>onChange</code>
+        模式一样，<code>all</code>可能会对性能产生重大影响。
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

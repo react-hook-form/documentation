@@ -84,6 +84,14 @@ export default {
         非推奨: これをパフォーマンスの悪い習慣と考えてください。
       </>
     ),
+    validationOnAll: (
+      <>
+        検証は<code>blur</code>および<code>change</code>
+        イベントでトリガーされます。 警告：<code>onChange</code>モードと同様に、
+        <code>all</code>
+        はパフォーマンスに大きな影響を与える可能性があります
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

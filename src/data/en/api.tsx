@@ -94,7 +94,14 @@ export default {
       <>
         Validation will trigger on the <code>change</code> event with each
         input, and lead to multiple re-renders. Warning: this often comes with a
-        significant impact on performances.
+        significant impact on performance.
+      </>
+    ),
+    validationOnAll: (
+      <>
+        Validation will trigger on the <code>blur</code> and <code>change</code>{" "}
+        events. Warning: as with the <code>onChange</code> mode,{" "}
+        <code>all</code> can have a significant impact on performance.
       </>
     ),
     defaultValues: (goToSection) => (
