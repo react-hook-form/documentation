@@ -747,7 +747,10 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It doesn't work with custom register at <code>useEffect</code>.
+              It doesn't work with custom register at <code>useEffect</code> or
+              conditional render. For conditional render consider using style to
+              toggle the viability and `validate` function for conditional
+              validation.
             </p>
           </li>
         </ul>
