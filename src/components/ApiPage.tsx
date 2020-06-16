@@ -348,6 +348,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                     "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
                 },
                 {
+                  url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
+                  title: "React Hook Form Tutorial | Why It's Useful",
+                },
+                {
                   url: "https://www.youtube.com/watch?v=bQRIBpKN8-s",
                   title:
                     "React Hook Form Tutorial - How to Create a Custom Input",

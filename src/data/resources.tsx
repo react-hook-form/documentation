@@ -199,6 +199,19 @@ export default {
       ),
     },
     {
+      title: "React Hook Form Tutorial | Why It's Useful",
+      url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
+      authorUrl: "https://www.youtube.com/user/Redhwann1",
+      author: "Redhwan Nacef",
+      description: (
+        <p>
+          I feel like forms in react can get quite complicated. React hook form
+          makes it slightly easier. This is a tutorial on how and why to use
+          react hook form.
+        </p>
+      ),
+    },
+    {
       title: "React Hook Form - React Forms Episode II",
       url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
       authorUrl: "https://www.youtube.com/user/jherr2006",
