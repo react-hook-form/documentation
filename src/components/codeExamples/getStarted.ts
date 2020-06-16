@@ -196,36 +196,6 @@ export default function App() {
 }
 `
 
-export const uiLibraryTs = `import React from "react";
-import { useForm } from "react-hook-form";
-import Select from "react-select";
-import Input from "@material-ui/core/Input";
-import { Input as InputField } from "antd";
-
-interface IFormInput {
-  name: string
-}
-
-export default function App() {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = data => console.log(data);
-  
-  const handleChange = (e) => {
-    setValue("AntdInput", e.target.value);
-  }
-  
-  React.useEffect(() => {
-    register("AntdInput"); // custom register Antd input
-  }, [register])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <InputField name="name" onChange={handleChange} />
-      <input type="submit" />
-    </form>
-  );
-}`
-
 export const uiLibraryHookInput = `import React from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
@@ -236,7 +206,7 @@ const App = () => {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = data => {
-    console.log(data)
+    alert(JSON.stringify(data));
   };
 
   return (
@@ -286,7 +256,7 @@ const App = () => {
   const { control, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    console.log(data)
+    alert(JSON.stringify(data));
   };
 
   return (
