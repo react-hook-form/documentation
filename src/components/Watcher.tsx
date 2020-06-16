@@ -120,7 +120,7 @@ export default ({
 
   return (
     <AnimateGroup play={isPlayWatch}>
-      <div className={styles.watcher} id={"watch"}>
+      <div className={styles.watcher} id="watch">
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>Subscribe Input Change</h1>
           <p>

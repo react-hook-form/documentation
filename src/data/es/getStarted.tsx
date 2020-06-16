@@ -3,7 +3,10 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -178,7 +181,12 @@ export default {
           <Link to="/api#Controller">Controller</Link>, cuando utilizas este
           componente, él se encarga de realizar el proceso de registro por ti.
         </p>
-        <CodeArea rawData={uiLibraryHookInput} />
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
         <p>
           <b className={typographyStyles.note}>Opción 3:</b> Por último, puedes
           configurar un registro personalizado utilizando el hook{" "}

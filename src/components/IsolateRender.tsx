@@ -137,7 +137,7 @@ function IsolateRender({
           end={{
             opacity: 1,
           }}
-          easeType={"ease-in"}
+          easeType="ease-in"
           render={({ style }) => {
             return (
               <section style={style} id="isolate">
@@ -168,7 +168,7 @@ function IsolateRender({
             opacity: 1,
           }}
           delay={0.25}
-          easeType={"ease-in"}
+          easeType="ease-in"
         >
           <p>VS</p>
           <div className={styles.line} />
@@ -182,7 +182,7 @@ function IsolateRender({
           end={{
             opacity: 1,
           }}
-          easeType={"ease-in"}
+          easeType="ease-in"
           render={({ style }) => {
             return <ControlledInputs style={style} />
           }}

@@ -197,36 +197,97 @@ export default function App() {
 `
 
 export const uiLibraryHookInput = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
-import Input from "@material-ui/core/Input";
-import { Input as InputField } from "antd";
+import { useForm, Controller } from "react-hook-form";
+import MaterialUIInput from "@material-ui/core/Input";
+import { Input as AntdInput } from "antd";
 
-export default function App() {
+const App = () => {
   const { control, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+
+  const onSubmit = data => {
+    alert(JSON.stringify(data));
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
       <Controller
-        name="reactSelect"
+        as={MaterialUIInput}
+        name="firstName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        as={AntdInput}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        name="iceCreamType"
+        as={Select}
         options={[
           { value: "chocolate", label: "Chocolate" },
           { value: "strawberry", label: "Strawberry" },
           { value: "vanilla", label: "Vanilla" }
         ]}
         control={control}
-        defaultValue={{}}
         rules={{ required: true }}
       />
-
       <input type="submit" />
     </form>
   );
-}
+};
 `
+
+export const uiLibraryHookInputTs = `import React from "react";
+import Select from "react-select";
+import { useForm, Controller } from "react-hook-form";
+import MaterialUIInput from "@material-ui/core/Input";
+import { Input as AntdInput } from "antd";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  iceCreamType: string;
+}
+
+const App = () => {
+  const { control, handleSubmit } = useForm<IFormInput>();
+
+  const onSubmit = (data: IFormInput) => {
+    alert(JSON.stringify(data));
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        as={MaterialUIInput}
+        name="firstName"
+        control={control}
+        defaultValue=""
+        className="materialUIInput"
+      />
+      <Controller
+        as={AntdInput}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        name="iceCreamType"
+        as={Select}
+        options={[
+          { value: "chocolate", label: "Chocolate" },
+          { value: "strawberry", label: "Strawberry" },
+          { value: "vanilla", label: "Vanilla" }
+        ]}
+        control={control}
+      />
+      <input type="submit" />
+    </form>
+  );
+};`
 
 export const controlledComponent = `import React from "react";
 import { useForm, Controller } from "react-hook-form";

@@ -37,7 +37,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
               opacity: "0",
             }}
             delay={0.1}
-            easeType={"ease-in"}
+            easeType="ease-in"
             render={({ style }) => {
               return (
                 <>
@@ -61,7 +61,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
               transform: "translate(130px, 80px) scale(1.3)",
             }}
             delay={0.2}
-            easeType={"ease-in"}
+            easeType="ease-in"
             render={({ style }) => (
               <div className={styles.cake} style={style}>
                 <svg viewBox="0 0 100 80">
@@ -103,7 +103,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
               opacity: "0",
             }}
             delay={0.1}
-            easeType={"ease-in"}
+            easeType="ease-in"
             render={({ style }) => {
               return (
                 <div className={styles.achievement} style={style}>
@@ -119,7 +119,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                             transform: "translateX(10px)",
                             opacity: 0,
                           }}
-                          easeType={"ease-in"}
+                          easeType="ease-in"
                           duration={0.15}
                           delay={index === 0 ? 0.2 : 0.01}
                           render={({ style }) => <li style={style}>{item}</li>}
