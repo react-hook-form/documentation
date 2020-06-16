@@ -8,6 +8,7 @@ import {
   migrateCode,
   migrateCodeTs,
   uiLibrary,
+  uiLibraryTs,
   globalState,
   errors,
   applyValidation,
@@ -233,7 +234,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={uiLibrary}
-            url="https://codesandbox.io/s/72j69vnk1x"
+            url="https://codesandbox.io/s/react-hook-form-custom-input-w4zwg"
+            tsRawData={uiLibraryTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-custom-input-ts-nzi1f"
           />
 
           <h2
