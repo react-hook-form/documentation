@@ -38,7 +38,7 @@ export default function App() {
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
+    console.log(data)
   };
 
   return (
@@ -156,7 +156,7 @@ const App = () => {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit = (data: IFormValues) => {
-    alert(JSON.stringify(data));
+    console.log(data)
   };
 
   return (
@@ -236,7 +236,7 @@ const App = () => {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    console.log(data)
   };
 
   return (
@@ -286,7 +286,7 @@ const App = () => {
   const { control, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    alert(JSON.stringify(data));
+    console.log(data)
   };
 
   return (
