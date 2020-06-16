@@ -291,7 +291,7 @@ export default {
           >
             по этой ссылке.
           </a>{" "}
-          с <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          с <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
     ),

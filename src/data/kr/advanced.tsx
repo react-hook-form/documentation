@@ -295,7 +295,7 @@ export default {
           >
             link for such implementation.
           </a>{" "}
-          with <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          with <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
     ),

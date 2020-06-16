@@ -38,7 +38,7 @@ export default function App() {
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
-    console.log(data);
+    console.log(data)
   };
 
   return (
@@ -94,6 +94,81 @@ export default function App() {
   );
 }`
 
+export const migrateCodeTs = `import React from "react";
+import { useForm } from "react-hook-form";
+
+type RefReturn =
+  | string
+  | ((instance: HTMLInputElement | null) => void)
+  | React.RefObject<HTMLInputElement>
+  | null
+  | undefined;
+
+type InputProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> & {
+  label: string;
+  register: ({ required }: { required?: boolean }) => RefReturn;
+};
+
+interface IInputProps {
+  label: string;
+}
+
+// The following component is an example of your existing Input Component
+const Input: React.FC<InputProps> = ({ label, register, required }) => (
+  <>
+    <label>{label}</label>
+    <input name={label} ref={register({ required })} />
+  </>
+);
+
+type Option = {
+  label: React.ReactNode;
+  value: string | number | string[];
+};
+
+type SelectProps = React.DetailedHTMLProps<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  HTMLSelectElement
+> & { options: Option[] } & HTMLSelectElement;
+
+// you can use React.forwardRef to pass the ref too
+const Select = React.forwardRef<SelectProps, { label: string }>(
+  ({ label }, ref) => (
+    <>
+      <label>{label}</label>
+      <select name={label} ref={ref}>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </>
+  )
+);
+
+interface IFormValues {
+  "First Name": string;
+  Age: number;
+}
+
+const App = () => {
+  const { register, handleSubmit } = useForm<IFormValues>();
+
+  const onSubmit = (data: IFormValues) => {
+    console.log(data)
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input label="First Name" register={register} required />
+      <Select label="Age" ref={register} />
+      <input type="submit" />
+    </form>
+  );
+};
+`
+
 export const uiLibrary = `import React from "react";
 import { useForm } from "react-hook-form";
 import Select from "react-select";
@@ -114,44 +189,135 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputField onChange={handleChange} />
+      <InputField name="name" onChange={handleChange} />
       <input type="submit" />
     </form>
   );
 }
 `
 
-export const uiLibraryHookInput = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const uiLibraryTs = `import React from "react";
+import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from "antd";
 
+interface IFormInput {
+  name: string
+}
+
 export default function App() {
-  const { control, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const onSubmit = data => console.log(data);
+  
+  const handleChange = (e) => {
+    setValue("AntdInput", e.target.value);
+  }
+  
+  React.useEffect(() => {
+    register("AntdInput"); // custom register Antd input
+  }, [register])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller as={Input} name="HelloWorld" control={control} defaultValue="" />
-      <Controller as={InputField} name="AntdInput" control={control} defaultValue="" />
+      <InputField name="name" onChange={handleChange} />
+      <input type="submit" />
+    </form>
+  );
+}`
+
+export const uiLibraryHookInput = `import React from "react";
+import Select from "react-select";
+import { useForm, Controller } from "react-hook-form";
+import MaterialUIInput from "@material-ui/core/Input";
+import { Input as AntdInput } from "antd";
+
+const App = () => {
+  const { control, handleSubmit } = useForm();
+
+  const onSubmit = data => {
+    console.log(data)
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        name="reactSelect"
+        as={MaterialUIInput}
+        name="firstName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        as={AntdInput}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        name="iceCreamType"
+        as={Select}
         options={[
           { value: "chocolate", label: "Chocolate" },
           { value: "strawberry", label: "Strawberry" },
           { value: "vanilla", label: "Vanilla" }
         ]}
         control={control}
-        defaultValue={{}}
         rules={{ required: true }}
       />
-
       <input type="submit" />
     </form>
   );
-}
+};
 `
+
+export const uiLibraryHookInputTs = `import React from "react";
+import Select from "react-select";
+import { useForm, Controller } from "react-hook-form";
+import MaterialUIInput from "@material-ui/core/Input";
+import { Input as AntdInput } from "antd";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  iceCreamType: string;
+}
+
+const App = () => {
+  const { control, handleSubmit } = useForm<IFormInput>();
+
+  const onSubmit = (data: IFormInput) => {
+    console.log(data)
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        as={MaterialUIInput}
+        name="firstName"
+        control={control}
+        defaultValue=""
+        className="materialUIInput"
+      />
+      <Controller
+        as={AntdInput}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+      <Controller
+        name="iceCreamType"
+        as={Select}
+        options={[
+          { value: "chocolate", label: "Chocolate" },
+          { value: "strawberry", label: "Strawberry" },
+          { value: "vanilla", label: "Vanilla" }
+        ]}
+        control={control}
+      />
+      <input type="submit" />
+    </form>
+  );
+};`
 
 export const controlledComponent = `import React from "react";
 import { useForm, Controller } from "react-hook-form";

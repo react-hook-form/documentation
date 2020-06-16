@@ -53,7 +53,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
               <Animate
                 key={url}
                 play
-                easeType={"ease-in"}
+                easeType="ease-in"
                 delay={delay}
                 start={{ transform: "translate(20px, 20px)", opacity: 0 }}
                 render={({ style }) => (

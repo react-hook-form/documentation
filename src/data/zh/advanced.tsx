@@ -274,7 +274,7 @@ export default {
             实现的链接
           </a>
           混合了
-          <PageLink to={"/api#Controller"}>Controller</PageLink>。
+          <PageLink to="/api#Controller">Controller</PageLink>。
         </p>
       </>
     ),

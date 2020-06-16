@@ -6,7 +6,9 @@ import {
   registerCode,
   registerCodeTs,
   migrateCode,
+  migrateCodeTs,
   uiLibrary,
+  uiLibraryTs,
   globalState,
   errors,
   applyValidation,
@@ -214,7 +216,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={migrateCode}
-            url="https://codesandbox.io/s/adapting-existing-form-3mspt"
+            url="https://codesandbox.io/s/react-hook-form-adapting-existing-form-j1n32"
+            tsRawData={migrateCodeTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-f3kt1"
           />
 
           <h2
@@ -230,7 +234,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={uiLibrary}
-            url="https://codesandbox.io/s/72j69vnk1x"
+            url="https://codesandbox.io/s/react-hook-form-custom-input-w4zwg"
+            tsRawData={uiLibraryTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-custom-input-ts-nzi1f"
           />
 
           <h2

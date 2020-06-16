@@ -302,7 +302,7 @@ export default {
           >
             link para esta implementação.
           </a>{" "}
-          com <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          com <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
     ),
