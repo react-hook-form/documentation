@@ -45,26 +45,6 @@ export default function GetStarted({
         </button>
       </span>
 
-      <span
-        className={`${styles.installCode} ${
-          lightMode ? styles.lightInstallCode : ""
-        }`}
-      >
-        yarn add react-hook-form
-        <button
-          className={styles.copyButton}
-          onClick={() => {
-            copyClipBoard("yarn add react-hook-form")
-            alert(generic.copied[currentLanguage])
-          }}
-        >
-          <span className={codeAreaStyles.copyIcon}>
-            <span />
-          </span>{" "}
-          {generic.copy[currentLanguage]}
-        </button>
-      </span>
-
       <h2
         style={{
           marginTop: 50,
