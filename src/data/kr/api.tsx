@@ -89,6 +89,13 @@ export default {
         않습니다.
       </>
     ),
+    validationOnAll: (
+      <>
+        유효성 검사는 <code>blur</code> 및 <code>change</code>
+        이벤트에서 트리거됩니다. 경고 : <code>onChange</code>
+        모드와 마찬가지로 <code>all</code> 은 성능에 큰 영향을 줄 수 있습니다.
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

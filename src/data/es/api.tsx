@@ -86,6 +86,13 @@ export default {
         Considera que es una mala práctica de performance.
       </>
     ),
+    validationOnAll: (
+      <>
+        La validación se activará en <code>blur</code> y <code>change</code>{" "}
+        eventos. Advertencia: como con el <code>onChange</code> modo,{" "}
+        <code>all</code> puede tener un impacto significativo en el rendimiento.
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

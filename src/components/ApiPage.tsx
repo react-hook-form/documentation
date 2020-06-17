@@ -403,7 +403,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
-                  onChange | onBlur | onSubmit = 'onSubmit'
+                  onChange | onBlur | onSubmit = 'onSubmit' | all
                 </span>
               </code>
               <Popup top={3} />
@@ -437,6 +437,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                       <span className={typographyStyles.typeText}>string</span>
                     </td>
                     <td>{api.useForm.validateOnChange}</td>
+                  </tr>
+                  <tr>
+                    <td>all</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validationOnAll}</td>
                   </tr>
                 </tbody>
               </table>
