@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import generic from "../generic"
 
 export default {
   title: "Документация по API",
@@ -957,10 +958,7 @@ React.useEffect(() => {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td />
-          <td>
-            <code>control</code> объект - это вызов формой <code>useForm</code>.
-            Это необязательно, если вы используете FormContext.
-          </td>
+          <td>{generic.control.ru}</td>
         </tr>
         <tr>
           <td>

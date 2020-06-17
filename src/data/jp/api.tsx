@@ -4,6 +4,8 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import tableStyles from "../../styles/table.module.css"
+import generic from "../generic"
 
 export default {
   title: "API ドキュメント",
@@ -649,11 +651,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            <code>control</code> オブジェクトは <code>useForm</code>{" "}
-            から呼び出されます。 ただし、 FormContext
-            を使用している場合は省略できます。
-          </td>
+          <td>{generic.control.jp}</td>
         </tr>
         <tr>
           <td>
@@ -962,6 +960,59 @@ validate: (value) => value === getValues('firstName');"
           </a>
           で、制御されたフィールド配列と非制御フィールド配列を比較できます。
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.jp}</th>
+                <th width="140px">{generic.type.jp}</th>
+                <th width="90px">{generic.required.jp}</th>
+                <th>{generic.description.jp}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>関連するフィールド名</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.jp}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  フィールド配列の<code> key </code>
+                  値、デフォルトは「id」、次のことができます
+                  キー名を変更します。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>このフックは、次のオブジェクトと関数を提供します。</p>
 

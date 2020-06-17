@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import generic from "../generic"
 
 export default {
   title: "API文档",
@@ -712,10 +713,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            <code>control</code>对象来自调用<code>useForm</code>的对象。
-            如果您使用的是FormContext，则为可选。
-          </td>
+          <td>{generic.control.zh}</td>
         </tr>
         <tr>
           <td>

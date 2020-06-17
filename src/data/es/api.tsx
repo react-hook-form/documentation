@@ -4,6 +4,8 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import tableStyles from "../../styles/table.module.css"
+import generic from "../generic"
 
 export default {
   title: "Documentación de la API",
@@ -651,10 +653,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            El objeto <code>control</code> es obtenido al invocar{" "}
-            <code>useForm</code>.
-          </td>
+          <td>{generic.control.es}</td>
         </tr>
         <tr>
           <td>
@@ -938,6 +937,60 @@ validate: (value) => value === getValues('firstName');"
           </a>{" "}
           para comparar Field Arrays controlados vs. no-controlados.
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th width="140px">{generic.type.es}</th>
+                <th width="90px">{generic.required.es}</th>
+                <th>{generic.description.es}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>
+                    <>Nombre de campo asociado.</>
+                  </>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.es}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  campo matriz <code> key </code> valor, predeterminado en "id",
+                  puede cambiar el nombre de la clave
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>Este hook provee el siguiente objeto y funciones.</p>
 

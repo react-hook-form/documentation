@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import generic from "../generic"
 
 export default {
   title: "API 설명서",
@@ -692,11 +693,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            <code>control</code> 객체는 <code>useForm</code> 을 호출하여 나온
-            것을 넣어주면 됩니다. FormContext 를 사용하고 있다면 필수는
-            아닙니다.
-          </td>
+          <td>{generic.control.kr}</td>
         </tr>
         <tr>
           <td>

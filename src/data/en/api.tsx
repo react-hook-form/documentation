@@ -2,8 +2,10 @@ import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "API Documentation",
@@ -677,6 +679,59 @@ export default {
           </a>{" "}
           to compare controlled vs uncontrolled Field Array.
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th width="140px">{generic.type.en}</th>
+                <th width="90px">{generic.required.en}</th>
+                <th>{generic.description.en}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <code>errors</code> object from React Hook Form. It's optional
+                  if you are using <code>FormContext</code>.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.en}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  field array <code>key</code> value, default to "id", you can
+                  change the key name.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>This hook provides the following object and functions.</p>
 

@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import generic from "../generic"
 
 export default {
   title: "API Documentação",
@@ -648,10 +649,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            <code>control</code> objeto é invocado do <code>useForm</code>. é
-            opcional, se estiver usando o FormContext.
-          </td>
+          <td>{generic.control.pt}</td>
         </tr>
         <tr>
           <td>
