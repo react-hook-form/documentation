@@ -1086,7 +1086,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object) => void
             </code>
           </td>
           <td>Agregue input/inputs al final de los campos</td>
@@ -1097,7 +1097,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object) => void
             </code>
           </td>
           <td>Antepone input/inputs al comienzo de tus campos</td>

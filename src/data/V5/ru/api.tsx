@@ -812,7 +812,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object) => void
               </code>
             </code>
           </td>
@@ -825,7 +825,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[]) => void
+                (obj: object) => void
               </code>
             </code>
           </td>

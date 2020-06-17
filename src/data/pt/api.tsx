@@ -1100,7 +1100,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[], shouldFocus?: boolean = true) => void
+              (obj: object, shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>Append input/inputs no final de seus campos.</td>
@@ -1111,7 +1111,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[], shouldFocus?: boolean = true) => void
+              (obj: object, shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>Prepend input/inputs no começo de seus campos.</td>

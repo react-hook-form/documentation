@@ -1083,7 +1083,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
@@ -1094,7 +1094,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
