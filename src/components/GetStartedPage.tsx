@@ -14,6 +14,7 @@ import {
   applyValidation,
   applyValidationTs,
   controlledComponent,
+  controlledComponentTs,
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
@@ -269,6 +270,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <CodeArea
             rawData={controlledComponent}
             url="https://codesandbox.io/s/react-hook-form-controller-079xx"
+            tsRawData={controlledComponentTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-wr80q"
           />
 
           <h2

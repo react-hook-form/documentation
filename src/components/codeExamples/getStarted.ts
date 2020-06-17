@@ -347,6 +347,39 @@ function App() {
 }
 `
 
+export const controlledComponentTs = `import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import ReactSelect from "react-select";
+import { TextField, Checkbox } from "@material-ui/core";
+
+interface IFormInputs {
+  TextField: string
+  MyCheckbox: boolean
+}
+
+function App() {
+  const methods = useForm<IFormInputs>();
+  const { handleSubmit, control, reset } = methods;
+  const onSubmit = (data: IFormInputs) => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* Option 1: pass a component to the Controller. */}
+      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
+      
+      {/* Option 2: use render props to assign events and value */}
+      <Controller
+        name="MyCheckbox"
+        control={control}
+        defaultValue={false}
+        rules={{ required: true }}
+        render=(props => <Checkbox {...props} />) // props contains: onChange, onBlur and value
+      />
+    </form>
+  );
+}
+`
+
 export const globalState = `import React from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
