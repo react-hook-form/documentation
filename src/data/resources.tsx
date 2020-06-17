@@ -174,6 +174,13 @@ export default {
       authorUrl: "https://medium.com/@ankita.singh170190",
       author: "Ankita Singh",
     },
+    {
+      url:
+        "https://blog.bitsrc.io/react-hook-form-vs-formik-form-builder-library-for-react-23ed559fdae",
+      title: "React Hook Form VS Formik",
+      authorUrl: "https://blog.bitsrc.io/@nathansebhastian",
+      author: "Nathan Sebhastian",
+    },
   ],
   newsletters: [],
   videos: [
@@ -199,7 +206,7 @@ export default {
       ),
     },
     {
-      title: "React Hook Form Tutorial | Why It's Useful",
+      title: "React Hook Form Tutorial | Why it's Useful",
       url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
       authorUrl: "https://www.youtube.com/user/Redhwann1",
       author: "Redhwan Nacef",

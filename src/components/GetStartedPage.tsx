@@ -29,6 +29,7 @@ import generic from "../data/generic"
 import getStartedStyles from "./GetStarted.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
+import VideoList from "./VideoList"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -165,6 +166,21 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+          />
+
+          <VideoList
+            lists={[
+              {
+                url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
+                title:
+                  "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
+              },
+              {
+                url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
+                title: "React Hook Form Tutorial | Why It's Useful",
+              },
+            ]}
+            play
           />
 
           <h2
