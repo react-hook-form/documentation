@@ -33,6 +33,7 @@ import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetController from "./codeExamples/resetController"
+import resetControllerTs from "./codeExamples/resetControllerTs"
 import control from "./codeExamples/control"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
@@ -699,6 +700,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <CodeArea
                 rawData={resetController}
                 url="https://codesandbox.io/s/react-hook-form-controller-079xx"
+                tsRawData={resetControllerTs}
+                tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-wr80q"
               />
             </TabGroup>
           </section>
