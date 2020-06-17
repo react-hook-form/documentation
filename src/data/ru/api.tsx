@@ -2,9 +2,10 @@ import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import generic from "../generic"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "Документация по API",
@@ -673,7 +674,57 @@ export default {
           сравнить контролируемый и неконтролируемый массив полей.
         </p>
 
-        <p>Этот хук предоставляет следующий объект и функции.</p>
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.ru}</th>
+                <th width="140px">{generic.type.ru}</th>
+                <th width="90px">{generic.required.ru}</th>
+                <th>{generic.description.ru}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>имя связанного поля.</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.ru}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  массив <code> ключ </code>, значение по умолчанию «id», вы
+                  можете измените имя ключа.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <CodeArea rawData={useFieldArrayArgument} />
 

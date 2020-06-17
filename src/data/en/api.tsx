@@ -700,8 +700,7 @@ export default {
                 </td>
                 <td></td>
                 <td>
-                  <code>errors</code> object from React Hook Form. It's optional
-                  if you are using <code>FormContext</code>.
+                  <>associated field name.</>
                 </td>
               </tr>
               <tr>
@@ -732,8 +731,6 @@ export default {
             </tbody>
           </table>
         </div>
-
-        <p>This hook provides the following object and functions.</p>
 
         <CodeArea rawData={useFieldArrayArgument} />
 

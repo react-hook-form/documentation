@@ -2,9 +2,10 @@ import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import generic from "../generic"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "API 설명서",
@@ -905,7 +906,57 @@ validate: (value) => value === getValues('firstName');"
           제어 vs 비제어 필드 배열을 비교할 수 있습니다.
         </p>
 
-        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.kr}</th>
+                <th width="140px">{generic.type.kr}</th>
+                <th width="90px">{generic.required.kr}</th>
+                <th>{generic.description.kr}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>연결할 필드 이름.</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.kr}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  필드 배열 <code> key </code> 값, 기본값은 "id"입니다. 키
+                  이름을 변경하십시오.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <CodeArea rawData={useFieldArrayArgument} />
 

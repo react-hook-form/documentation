@@ -2,9 +2,10 @@ import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import generic from "../generic"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "API Documentação",
@@ -941,7 +942,58 @@ validate: (value) => value === getValues('firstName');"
           </a>{" "}
           para comparar arrays controlados e não controlados.
         </p>
-        <p>Esse hook fornece os seguintes objetos e funções:</p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.pt}</th>
+                <th width="140px">{generic.type.pt}</th>
+                <th width="90px">{generic.required.pt}</th>
+                <th>{generic.description.pt}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>campo name associado.</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.pt}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  valor da <code>key</code> da matriz de campos, o padrão é
+                  "id", você pode mude o nome da chave.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
