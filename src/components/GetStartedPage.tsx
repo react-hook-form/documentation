@@ -11,6 +11,7 @@ import {
   uiLibraryTs,
   globalState,
   errors,
+  errorsTs,
   applyValidation,
   applyValidationTs,
   controlledComponent,
@@ -25,6 +26,7 @@ import reactNative from "./codeExamples/reactNative"
 import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
 import schemaValidation from "./codeExamples/schemaValidation"
+import schemaValidationTs from "./codeExamples/schemaValidationTs"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
 import getStartedStyles from "./GetStarted.module.css"
@@ -298,7 +300,12 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.errors.description}
 
-          <CodeArea rawData={errors} />
+          <CodeArea
+            rawData={errors}
+            url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
+            tsRawData={errorsTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-jk43e"
+          />
 
           <h2
             className={typographyStyles.title}
@@ -329,6 +336,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <CodeArea
             rawData={schemaValidation}
             url="https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
+            tsRawData={schemaValidationTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
           />
 
           <h2
