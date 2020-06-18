@@ -387,8 +387,8 @@ export default {
         <>
           <p>
             Tú tienes la habilidad de aislar el re-render de un componente lo
-            que conducirá a un menor impacto en el redimiento de tu aplicacion o
-            sitio web. El siguiente ejemplo lo demuestra.
+            que conducirá a un menor impacto en el rendimiento de tu aplicación
+            o sitio web. El siguiente ejemplo lo demuestra.
           </p>
 
           <p style={{ fontSize: 14 }}>
