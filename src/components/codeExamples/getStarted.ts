@@ -421,6 +421,29 @@ export default function App() {
 }
 `
 
+export const errorsTs = `import React from "react";
+import { useForm } from "react-hook-form";
+
+interface IFormInputs {
+  firstName: string
+  lastName: string
+}
+
+export default function App() {
+  const { register, errors, handleSubmit } = useForm<IFormInputs>();
+  
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input name="firstName" ref={register({ required: true })} />
+      {errors.firstName && "First name is required"}
+      <Input name="lastName" ref={register({ required: true })} />
+      {errors.lastName && "Last name is required"}
+      <input type="submit" />
+    </form>
+  );
+}
+`
+
 export const applyValidation = `import React from "react";
 import { useForm } from "react-hook-form";
 

@@ -11,6 +11,7 @@ import {
   uiLibraryTs,
   globalState,
   errors,
+  errorsTs,
   applyValidation,
   applyValidationTs,
   controlledComponent,
@@ -298,7 +299,12 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.errors.description}
 
-          <CodeArea rawData={errors} />
+          <CodeArea
+            rawData={errors}
+            url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
+            tsRawData={errorsTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-jk43e"
+          />
 
           <h2
             className={typographyStyles.title}
