@@ -617,15 +617,24 @@ export default {
           </li>
         </ul>
         <p>
-          <b className={typographyStyles.note}>Note:</b> By invoking this
-          method, <code>formState</code> will set the input to{" "}
-          <code>touched</code>.
-        </p>
-        <p>
           You can also set the <code>shouldValidate</code> parameter to{" "}
-          <code>true</code> in order to trigger a field validation. eg:{" "}
-          <code>setValue('name', 'value', true)</code>
+          <code>true</code> in order to trigger a field validation.
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          You can also set the <code>shouldDirty</code> parameter to{" "}
+          <code>true</code> in order to set field to dirty.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },

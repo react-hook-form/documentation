@@ -773,17 +773,14 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             }}
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>setValue: </h2>
+              <h2>
+                setValue:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name: string, value: any, shouldValidate?: boolean, config:
+                  Object) => void
+                </span>
+              </h2>
             </code>
-            <p>
-              <span className={typographyStyles.typeText}>
-                (name: string, value: any, shouldValidate?: boolean) => void
-              </span>
-              <br />
-              <span className={typographyStyles.typeText}>
-                {`(Record<Name, any>[], shouldValidate?: boolean) => void`}
-              </span>
-            </p>
 
             {api.setValue.description}
 

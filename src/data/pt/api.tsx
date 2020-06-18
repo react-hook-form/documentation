@@ -582,8 +582,22 @@ export default {
         <p>
           Você pode também setar <code>shouldValidate</code> para{" "}
           <code>true</code> e vai acionar a validação do campo. ex:{" "}
-          <code>setValue('name', 'value', true)</code>
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          Você também pode definir o parâmetro <code> shouldDirty </code> como{" "}
+          <code> true </code> para definir o campo como sujo.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },

@@ -586,9 +586,23 @@ export default {
         </p>
         <p>
           <code>shouldValidate</code> を <code>true</code> に設定すると、
-          フィールドのバリデーションがトリガーされます。 例：{" "}
-          <code>setValue('name', 'value', true)</code>
+          フィールドのバリデーションがトリガーされます。
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          フィールドをダーティに設定するために、<code> shouldDirty </code>
+          パラメータを<code> true </code>に設定することもできます。
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },

@@ -307,17 +307,20 @@ export default {
             input registrado.
           </p>
 
-          <p>
-            <code
-              className={typographyStyles.codeBlock}
-            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
-          </p>
+          <CodeArea
+            rawData={`setValue('name', 'value', { shouldValidate: true })`}
+            withOutCopy
+          />
 
           <p>
-            <b className={typographyStyles.note}>Nota:</b>múltiples radio input
-            con el mismo nombre, desea registrar la validación hasta el último
-            input para que el hook entienda validarlos como un grupo al final.
+            También puede establecer el parámetro <code> shouldDirty </code> en
+            <code> true </code> para configurar el campo como sucio.
           </p>
+
+          <CodeArea
+            rawData={`setValue('name', 'value', { shouldDirty: true })`}
+            withOutCopy
+          />
         </>
       ),
     },

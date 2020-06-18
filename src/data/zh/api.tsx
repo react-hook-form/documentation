@@ -565,8 +565,22 @@ export default {
           <code>shouldValidate</code>设置为<code>true</code>
           ，并将触发字段验证。例如：
           <br />
-          <code>setValue('name', 'value', true)</code>
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          您也可以将<code> shouldDirty </code>参数设置为<code> true </code>
+          ，以将字段设置为dirty。
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },

@@ -588,8 +588,22 @@ export default {
         <p>
           Также вы можете установать <code>shouldValidate</code> в{" "}
           <code>true</code>и это вызовет валидацию поля, например:{" "}
-          <code>setValue('name', 'value', true)</code>
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          Вы также можете установить для параметра <code> shouldDirty </code>{" "}
+          значение <code> true </code>, чтобы задать для поля значение dirty.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },

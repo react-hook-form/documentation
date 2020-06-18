@@ -561,8 +561,22 @@ export default {
         <p>
           <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
           유효성 검사를 트리거할 수 도 있습니다. 예 :{" "}
-          <code>setValue('name', 'value', true)</code>
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          필드를 더티로 설정하기 위해 <code> shouldDirty </code> 매개 변수를{" "}
+          <code> true </code>로 설정할 수도 있습니다.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },
