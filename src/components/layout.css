@@ -351,7 +351,9 @@ table {
   font-size: 0.9rem;
 }
 
-.scrollToTop {
+.scrollToTop,
+.scrollToTop:focus {
+  border: 1px solid var(--color-light-grey);
   display: none;
 }
 

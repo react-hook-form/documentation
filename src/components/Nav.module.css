@@ -238,6 +238,10 @@
     display: inline-block;
   }
 
+  span.tools:focus {
+    outline: none;
+  }
+
   .tools:focus ~ div .menuExpand,
   .tools:hover ~ div .menuExpand {
     transform: translateY(0px);
