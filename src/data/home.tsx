@@ -382,13 +382,13 @@ export default {
       ),
     },
     es: {
-      title: "Isolate Component Re-render",
+      title: "Aislar el Re-render de un componente",
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            Tú tienes la habilidad de aislar el re-render de un componente lo
+            que conducirá a un menor impacto en el rendimiento de tu aplicación
+            o sitio web. El siguiente ejemplo lo demuestra.
           </p>
 
           <p style={{ fontSize: 14 }}>
