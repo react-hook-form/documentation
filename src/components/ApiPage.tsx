@@ -732,15 +732,15 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             >
               <CodeArea
                 rawData={setError}
-                url="https://codesandbox.io/s/o7rxyym3q5"
+                url="https://codesandbox.io/s/react-hook-form-v6-set-error-clear-error-wj2kh"
               />
               <CodeArea
                 rawData={setMultipleErrors}
-                url="https://codesandbox.io/s/o7rxyym3q5"
+                url="https://codesandbox.io/s/react-hook-form-v6-set-error-clear-error-wj2kh"
               />
               <CodeArea
                 rawData={setAllErrors}
-                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-40y2v"
+                url="https://codesandbox.io/s/react-hook-form-v6-set-single-field-with-multiple-errors-kz9zc"
               />
             </TabGroup>
           </section>
@@ -787,7 +787,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             <CodeArea
               rawData={setValue}
               tsRawData={setValueTs}
-              url="https://codesandbox.io/s/react-hook-form-set-inputselect-value-c46ly"
+              url="https://codesandbox.io/s/react-hook-form-v6-set-inputselect-value-sq5c7"
             />
           </section>
 
