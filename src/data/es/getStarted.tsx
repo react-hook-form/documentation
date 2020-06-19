@@ -292,7 +292,7 @@ export default {
     title: "Manejo de errores",
     description: (
       <>
-        React Hook Form proporciona el objeto <code> errors </code>
+        React Hook Form proporciona el objeto <code>errors</code>
         para exponer los errores que hayan en el formulario.
       </>
     ),

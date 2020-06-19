@@ -512,7 +512,7 @@ export default {
       <>
         <p>
           Essa função irá limpar o valor dos campos, e erros dentro do
-          formulário. Ao fornecer <code> omitResetState </code>, você tem a
+          formulário. Ao fornecer <code>omitResetState </code>, você tem a
           liberdade de redefina apenas parte específica do estado. Você pode
           passar <code>values</code> como valor opcional para resetar o
           formulário assinado com o valor padrão.
@@ -539,9 +539,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Você vai precisar
-          fornecer <code> defaultValues ​​</code> durante <code> useForm </code>
-          ou<code> reset </code> com valor para redefinir no
-          <code> Controller </code>o valor dos componentes.
+          fornecer <code>defaultValues ​​</code> durante <code>useForm </code>
+          ou<code>reset</code>com valor para redefinir no
+          <code>Controller </code>o valor dos componentes.
         </p>
       </>
     ),
@@ -750,9 +750,9 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: se o seu formulário
-              invocar <code> reset </code> com valores diferentes, você
-              precisará fornecer <code>defaultValues</code> no nível useForm em
-              vez de definido inline <code>defaultValue</code>..
+              invocar <code>reset</code>com valores diferentes, você precisará
+              fornecer <code>defaultValues</code> no nível useForm em vez de
+              definido inline <code>defaultValue</code>..
             </p>
           </td>
         </tr>

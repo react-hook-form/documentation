@@ -20,7 +20,6 @@ export default function App() {
         type="button"
         onClick={() =>
           setError("username", {
-            type: 'multiple',
             types: {
               required: "This is required",
               minLength: "This is minLength"

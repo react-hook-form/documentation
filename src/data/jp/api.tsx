@@ -187,9 +187,9 @@ export default {
     shouldUnregister: (
       <p>
         デフォルトでは、入力が削除されると、React Hook Formは
-        <code> MutationObserver </code>
+        <code>MutationObserver</code>
         を使用して、マウント解除された入力を検出および<code>登録解除</code>
-        します。ただし、<code> shouldUnregister </code>を<code> false </code>
+        します。ただし、<code>shouldUnregister</code>を<code>false</code>
         に設定して、マウント解除による入力状態の損失を防ぐことができます。
       </p>
     ),
@@ -518,12 +518,27 @@ export default {
     description: (
       <>
         <p>単一または複数の input のエラーを手動で設定できます。</p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          このメソッドはエラーを保存せず、フォームの送信をブロックしません。
-          非同期バリデーション後にユーザーへエラーをフィードバックしたい場合は、{" "}
-          <code>handleSubmit</code> 関数内で使用してください。
-        </p>
+
+        <ul>
+          <li>
+            <p>
+              このメソッドは、入力された場合、関連する入力エラーを永続化しません
+              検証に合格します。
+            </p>
+          </li>
+          <li>
+            <p>
+              入力フィールドに関連付けられていないエラーを設定します 永続化し、
+              <code>clearError</code>で手動で削除する必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>handleSubmit</code>関数の実行時に役立ちます。
+              非同期検証後にユーザーにエラーフィードバックを提供したい。
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -595,8 +610,8 @@ export default {
         />
 
         <p>
-          フィールドをダーティに設定するために、<code> shouldDirty </code>
-          パラメータを<code> true </code>に設定することもできます。
+          フィールドをダーティに設定するために、<code>shouldDirty</code>
+          パラメータを<code>true</code>に設定することもできます。
         </p>
 
         <CodeArea
@@ -612,7 +627,7 @@ export default {
       <>
         <p>
           この関数は、フォームの値を読み取るのに役立ちます。違い
-          <code> watch </code>の間は<code> getValues </code>はトリガーされません
+          <code>watch</code>の間は<code>getValues</code>はトリガーされません
           入力の変更を再レンダリングまたはサブスクライブします。機能は次のとおりです。
         </p>
 
@@ -1027,7 +1042,7 @@ validate: (value) => value === getValues('firstName');"
                 </td>
                 <td></td>
                 <td>
-                  フィールド配列の<code> key </code>
+                  フィールド配列の<code>key</code>
                   値、デフォルトは「id」、次のことができます
                   キー名を変更します。
                 </td>

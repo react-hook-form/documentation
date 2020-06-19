@@ -148,7 +148,7 @@ export default {
     ),
     validationSchema: (goToSection) => (
       <p>
-        Aplica reglas de validación de formularios con <code> Yup </code>
+        Aplica reglas de validación de formularios con <code>Yup </code>
         en el nivel de esquema, por favor refiérase a la sección{" "}
         <button
           className={buttonStyles.codeAsLink}
@@ -874,7 +874,7 @@ export default {
         Form context está destinado a resolver el problema cuando hay inputs
         anidados profundamente en el árbol de componentes y pasar métodos hasta
         el fondo como {""}
-        <code> propiedades </code> se vuelve tedioso.
+        <code>propiedades</code>se vuelve tedioso.
       </p>
     ),
     description: (
@@ -1072,7 +1072,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Importante: </b> debido a que
               las entradas pueden ser no-controladas, se requiere{" "}
-              <code> id </code> con componentes mapeados para ayudar a React a
+              <code>id</code>con componentes mapeados para ayudar a React a
               identificar qué elementos se han cambiado, agregado o eliminado.
             </p>
             <p>
@@ -1194,7 +1194,7 @@ React.useEffect(() => {
           <b className={typographyStyles.note}>Nota:</b> asegúrate de que eres
           devolver objeto que contiene <code>values</code> y <code>errors</code>
           , y su valor predeterminado debe ser un objeto vacío{" "}
-          <code> {`{}`} </code>.
+          <code>{`{}`}</code>.
         </p>
 
         <p>

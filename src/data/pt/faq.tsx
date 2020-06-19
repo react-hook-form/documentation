@@ -536,13 +536,13 @@ export default {
             É importante entender que o React Hook Form adota a forma nativa
             comportamento pelo estado de entrada da loja dentro de cada entrada
             (exceto
-            <code> registre-se </code> em <code> useEffect </code>). Um dos
-            comuns equívocos é quando se trabalha com formulários modais ou de
-            guias, montando e desmontar formulário / entradas que o estado das
-            entradas permanecerá. Isso é implementação incorreta, em vez disso,
-            a solução correta deve sempre criando um novo formulário para o
-            formulário dentro do modal ou de cada guia e capture seus dados de
-            envio no estado local ou global.
+            <code>registre-se</code> em <code>useEffect</code>). Um dos comuns
+            equívocos é quando se trabalha com formulários modais ou de guias,
+            montando e desmontar formulário / entradas que o estado das entradas
+            permanecerá. Isso é implementação incorreta, em vez disso, a solução
+            correta deve sempre criando um novo formulário para o formulário
+            dentro do modal ou de cada guia e capture seus dados de envio no
+            estado local ou global.
           </p>
 
           <ul>

@@ -552,12 +552,27 @@ export default {
     description: (
       <>
         <p>The function allows you to manually set one or multiple errors.</p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> This method will not
-          persist the error and block the submit action. It's useful during{" "}
-          <code>handleSubmit</code> function when you want to give error
-          feedback to the users after async validation.
-        </p>
+        <ul>
+          <li>
+            <p>
+              This method will not persist the associated input error if input
+              pass validation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Set an error which doesn't associated with an input field will be
+              persist and required to removed manually with{" "}
+              <code>clearError</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              It's useful during <code>handleSubmit</code> function when you
+              want to give error feedback to the users after async validation.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },

@@ -8,26 +8,32 @@ export default function App() {
     <form>
       <input name="username" ref={register} />
       {errors.username && errors.username.message}
-      
+
       <input name="lastName" ref={register} />
       {errors.lastName && errors.lastName.message}
-      
-      <button type="button" onClick={() => {
-        [
-          {
-            type: "required",
-            name: "lastName",
-            message: "This is required.",
-          },
-          {
-            type: "minLength",
-            name: "username",
-            message: "Minlength is 10",
-          },
-        ].forEach(({ name, type, message }) => setError(name, { type, message }));
-      }}>
+
+      <button
+        type="button"
+        onClick={() => {
+          [
+            {
+              type: "required",
+              name: "lastName",
+              message: "This is required.",
+            },
+            {
+              type: "minLength",
+              name: "username",
+              message: "Minlength is 10",
+            },
+          ].forEach(({ name, type, message }) =>
+            setError(name, { type, message })
+          );
+        }}
+      >
         Set Errors for a single field
       </button>
     </form>
   );
-}`
+}
+`

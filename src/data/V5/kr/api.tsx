@@ -493,7 +493,7 @@ export default {
       <>
         <p>
           이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다.{" "}
-          <code> omitResetState </code>를 제공하면 자유롭게 특정 상태 만
+          <code>omitResetState</code>를 제공하면 자유롭게 특정 상태 만
           재설정합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본
           값으로 재설정 할 수 있습니다.
         </p>
@@ -518,8 +518,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 당신은해야합니다
-          <code> useForm </code> 또는중 <code> defaultValues ​​</code>제공
-          <code> 컨트롤러 </code>를 재설정하기위한 값으로<code> 재설정 </code>
+          <code>useForm</code> 또는중 <code>defaultValues​</code>제공
+          <code>컨트롤러</code>를 재설정하기위한 값으로<code>재설정</code>
           구성 요소의 가치.
         </p>
       </>

@@ -186,10 +186,10 @@ export default {
     shouldUnregister: (
       <p>
         기본적으로 입력이 제거되면 React Hook Form은{" "}
-        <code> MutationObserver </code>를 사용하여 마운트 해제 된 입력을
-        감지하고 <code> 등록 취소 </code>합니다. 그러나 마운트 해제로 인해 입력
-        상태가 손실되지 않도록 <code> shouldUnregister </code>를{" "}
-        <code> false </code>로 설정할 수 있습니다.
+        <code>MutationObserver</code>를 사용하여 마운트 해제 된 입력을 감지하고{" "}
+        <code>등록 취소</code>합니다. 그러나 마운트 해제로 인해 입력 상태가
+        손실되지 않도록 <code>shouldUnregister</code>를 <code>false</code>로
+        설정할 수 있습니다.
       </p>
     ),
   },
@@ -455,7 +455,7 @@ export default {
       <>
         <p>
           이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다.{" "}
-          <code> omitResetState </code>를 제공하면 자유롭게 특정 상태 만
+          <code>omitResetState</code>를 제공하면 자유롭게 특정 상태 만
           재설정합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본
           값으로 재설정 할 수 있습니다.
         </p>
@@ -480,8 +480,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 당신은해야합니다
-          <code> useForm </code> 또는중 <code> defaultValues ​​</code>제공
-          <code> 컨트롤러 </code>를 재설정하기위한 값으로<code> 재설정 </code>
+          <code>useForm</code> 또는중 <code>defaultValues ​​</code>제공
+          <code>컨트롤러</code>를 재설정하기위한 값으로<code>재설정</code>
           구성 요소의 가치.
         </p>
       </>
@@ -495,12 +495,26 @@ export default {
           이 함수를 사용하면 한개 혹은 그 이상의 입력값 에러를 수동으로 설정할
           수 있습니다.
         </p>
-        <p>
-          <b className={typographyStyles.note}>참고</b> :이 방법은 오류와 차단을
-          지속하지 않습니다 제출 조치. <code>handleSubmit</code> 함수 중에 더
-          유용합니다. 비동기 유효성 검사 후 사용자에게 오류 피드백을
-          제공하려고합니다.
-        </p>
+        <ul>
+          <li>
+            <p>
+              이 방법은 입력시 관련 입력 오류를 지속시키지 않습니다. 유효성
+              검사를 통과하십시오.
+            </p>
+          </li>
+          <li>
+            <p>
+              입력 필드와 관련이없는 오류를 설정하십시오.
+              <code>clearError</code>를 사용하여 수동으로 제거해야합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>handleSubmit</code> 기능 중에 유용합니다. 비동기 유효성 검사
+              후 사용자에게 오류 피드백을 제공하려고합니다.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -569,8 +583,8 @@ export default {
         />
 
         <p>
-          필드를 더티로 설정하기 위해 <code> shouldDirty </code> 매개 변수를{" "}
-          <code> true </code>로 설정할 수도 있습니다.
+          필드를 더티로 설정하기 위해 <code>shouldDirty</code> 매개 변수를{" "}
+          <code>true</code>로 설정할 수도 있습니다.
         </p>
 
         <CodeArea
@@ -586,15 +600,15 @@ export default {
       <>
         <p>
           이 기능은 양식 값을 읽는 데 도움이됩니다. 차이점
-          <code> watch </code> 사이에 <code> getValues ​​</code>가 트리거되지
-          않음 입력 변경 사항을 다시 렌더링하거나 구독했습니다. 기능은 다음과
+          <code>watch</code> 사이에 <code>getValues ​​</code>가 트리거되지 않음
+          입력 변경 사항을 다시 렌더링하거나 구독했습니다. 기능은 다음과
           같습니다.
         </p>
 
         <ul>
           <li>
             <p>
-              <code> getValues​​()</code> : 전체 양식 값을 읽습니다.
+              <code>getValues​​()</code> : 전체 양식 값을 읽습니다.
             </p>
           </li>
           <li>
@@ -687,8 +701,8 @@ export default {
             </a>
             . React 요소를 반환하는 기능을 제공하는 함수 구성 요소에 이벤트 및
             값을 첨부하십시오. 이것은 쉽게 할 수 있습니다 비표준 소품으로 외부
-            제어 부품과 통합 이름 : <code> onChange </code>,{" "}
-            <code> onBlur </code> 및 <code>value</code>.
+            제어 부품과 통합 이름 : <code>onChange</code>, <code>onBlur</code>{" "}
+            및 <code>value</code>.
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
@@ -971,8 +985,8 @@ validate: (value) => value === getValues('firstName');"
                 </td>
                 <td></td>
                 <td>
-                  필드 배열 <code> key </code> 값, 기본값은 "id"입니다. 키
-                  이름을 변경하십시오.
+                  필드 배열 <code>key</code> 값, 기본값은 "id"입니다. 키 이름을
+                  변경하십시오.
                 </td>
               </tr>
             </tbody>
@@ -1259,7 +1273,7 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        그러나 <code> watch </code> API와 동일한 기능을 공유하십시오. 컴포넌트
+        그러나 <code>watch</code> API와 동일한 기능을 공유하십시오. 컴포넌트
         레벨에서 다시 렌더링을 분리하여 결과적으로 애플리케이션 성능 향상.
       </p>
     ),

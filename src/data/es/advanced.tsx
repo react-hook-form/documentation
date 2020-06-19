@@ -219,8 +219,8 @@ export default {
       <>
         <p>
           La idea aquí es que puedas componer fácilmente tu formulario con
-          entradas. Vamos a crear un componente de <code> Formulario </code>{" "}
-          para recopilar automáticamente los datos del formulario.
+          entradas. Vamos a crear un componente de <code>Formulario</code> para
+          recopilar automáticamente los datos del formulario.
         </p>
 
         <CodeArea
@@ -252,7 +252,7 @@ export default {
 
         <p>
           La responsabilidad de los componentes Input es registrarse en {""}
-          <code> react-hook-form </code>.
+          <code>react-hook-form</code>.
         </p>
         <CodeArea
           rawData={input}

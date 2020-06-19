@@ -188,11 +188,11 @@ export default {
     shouldUnregister: (
       <p>
         Por padrão, quando as entradas são removidas, o React Hook Form usa{" "}
-        <code> MutationObserver </code> para detectar e{" "}
-        <code> cancelar o registro </code> daquelas entradas que são
-        desmontadas. No entanto, você pode definir{" "}
-        <code> shouldUnregister </code> como <code> false </code> para impedir a
-        perda do estado de entrada devido à desmontagem.
+        <code>MutationObserver</code> para detectar e{" "}
+        <code>cancelar o registro</code> daquelas entradas que são desmontadas.
+        No entanto, você pode definir <code>shouldUnregister</code> como{" "}
+        <code>false</code> para impedir a perda do estado de entrada devido à
+        desmontagem.
       </p>
     ),
   },
@@ -473,7 +473,7 @@ export default {
       <>
         <p>
           Essa função irá limpar o valor dos campos, e erros dentro do
-          formulário. Ao fornecer <code> omitResetState </code>, você tem a
+          formulário. Ao fornecer <code>omitResetState</code>, você tem a
           liberdade de redefina apenas parte específica do estado. Você pode
           passar <code>values</code> como valor opcional para resetar o
           formulário assinado com o valor padrão.
@@ -500,9 +500,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Você vai precisar
-          fornecer <code> defaultValues ​​</code> durante <code> useForm </code>
-          ou<code> reset </code> com valor para redefinir no
-          <code> Controller </code>o valor dos componentes.
+          fornecer <code>defaultValues ​​</code> durante <code>useForm</code>
+          ou<code>reset</code> com valor para redefinir no
+          <code>Controller</code>o valor dos componentes.
         </p>
       </>
     ),
@@ -513,12 +513,28 @@ export default {
       <>
         <p>A função permite você manualmente setar um ou múltiplos erros.</p>
 
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> este método não
-          persistirá o erro e bloqueará a ação de envio. É mais útil durante a
-          função <code>handleSubmit</code> quando você deseja fornecer feedback
-          de erro aos usuários após a validação assíncrona.
-        </p>
+        <ul>
+          <li>
+            <p>
+              Este método não persistirá o erro de entrada associado se a
+              entrada passe na validação.
+            </p>
+          </li>
+          <li>
+            <p>
+              Defina um erro que não esteja associado a um campo de entrada.
+              persistir e necessário para remoção manual com{" "}
+              <code>clearError</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              É útil durante a função <code>handleSubmit</code> quando você
+              deseja fornecer feedback de erro aos usuários após a validação
+              assíncrona.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -590,8 +606,8 @@ export default {
         />
 
         <p>
-          Você também pode definir o parâmetro <code> shouldDirty </code> como{" "}
-          <code> true </code> para definir o campo como sujo.
+          Você também pode definir o parâmetro <code>shouldDirty</code> como{" "}
+          <code>true</code> para definir o campo como sujo.
         </p>
 
         <CodeArea
@@ -607,9 +623,9 @@ export default {
       <>
         <p>
           Esta função irá ajudá-lo a ler os valores do formulário. A diferença
-          entre <code> watch </code> é <code> getValues ​​</code> não será
-          acionado renderize novamente ou inscrito nas alterações de entrada. As
-          funções abrangem:
+          entre <code>watch</code> é <code>getValues ​​</code> não será acionado
+          renderize novamente ou inscrito nas alterações de entrada. As funções
+          abrangem:
         </p>
 
         <ul>
@@ -758,9 +774,9 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: se o seu formulário
-              invocar <code> reset </code> com valores diferentes, você
-              precisará fornecer <code>defaultValues</code> no nível useForm em
-              vez de definido inline <code>defaultValue</code>..
+              invocar <code>reset</code> com valores diferentes, você precisará
+              fornecer <code>defaultValues</code> no nível useForm em vez de
+              definido inline <code>defaultValue</code>..
             </p>
           </td>
         </tr>
@@ -1296,7 +1312,7 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        Compartilhe a mesma funcionalidade que a API <code> watch </code>, no
+        Compartilhe a mesma funcionalidade que a API <code>watch</code>, no
         entanto, isso isolará a nova renderização no nível do componente e
         resultará potencialmente em melhor desempenho para sua aplicação.
       </p>

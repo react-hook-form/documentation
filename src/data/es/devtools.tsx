@@ -17,7 +17,7 @@ export default {
     <>
       <b className={typographyStyles.note}>Paso 2: </b>
       Integrate con tu React La aplicación es tan simple como importar un
-      Componente a su aplicación / Formulario y pasar<code> control </code>{" "}
+      Componente a su aplicación / Formulario y pasar<code>control</code>{" "}
       apuntalarlo.
     </>
   ),

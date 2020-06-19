@@ -512,7 +512,7 @@ export default {
       <>
         <p>
           Эта функция сбрасывает значения полей и ошибки формы. Поставив{" "}
-          <code> omitResetState </code>, вы можете свободно только сбросить
+          <code>omitResetState </code>, вы можете свободно только сбросить
           конкретный кусок состояния. Вы можете передать <code>values</code> в
           качестве необязательного аргумента для сброса формы в присвоенные
           значения по умолчанию.
@@ -539,9 +539,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Примечание:</b> Вам нужно будет
-          укажите <code> defaultValues ​​</code> во время <code> useForm </code>
-          или<code> reset </code> со значением для сброса
-          <code> Controller </code>стоимость компонентов.
+          укажите <code>defaultValues ​​</code> во время <code>useForm </code>
+          или<code>reset</code>со значением для сброса
+          <code>Controller </code>стоимость компонентов.
         </p>
       </>
     ),

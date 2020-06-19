@@ -80,7 +80,7 @@ export default {
               <p>
                 フォームのリセットボタンのクリックと同等の効果を持つメソッドです。
                 フォーム内の
-                <code> input/select/checkbox </code>
+                <code>input/select/checkbox</code>
                 要素の値のみリセットします。
               </p>
             </li>
@@ -534,7 +534,7 @@ export default {
             React Hook
             Formがネイティブフォームを受け入れることを理解することが重要です
             各入力内に入力状態を保存することによる動作（カスタムを除く）
-            <code> register </code> at <code> useEffect </code>）。一般的な
+            <code>register</code> at <code>useEffect</code>）。一般的な
             誤解は、マウントによってモーダルまたはタブフォームを操作するときです
             状態を入力するフォーム/入力のアンマウントは残ります。それは
             間違った実装ではなく、正しい解決策は常に

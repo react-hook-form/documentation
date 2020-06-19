@@ -107,8 +107,8 @@ export default {
         <p>
           React Hook Form se basa en componentes no controlados. En un
           componente no controlado, puedes especificar el valor por defecto de
-          un campo individual mediante <code> defaultValue </code> o{" "}
-          <code> defaultChecked </code>. Sin embargo, el Hook proporciona una
+          un campo individual mediante <code>defaultValue</code> o{" "}
+          <code>defaultChecked</code>. Sin embargo, el Hook proporciona una
           manera más fácil de inicializar todos los valores de entrada. Ejemplo
           a continuación:
         </p>
@@ -477,7 +477,7 @@ export default {
             React Hook Form no controla todo el formulario y las entradas, es la
             razón por la cual React no reconocería la entrada real que ha sido
             intercambiado o cambiado. Como solución, puede resolver esto
-            problema al dar un apoyo único de <code> key </code> a su entrada.
+            problema al dar un apoyo único de <code>key</code> a su entrada.
             También puede leer más sobre los accesorios clave de{" "}
             <a
               target="_blank"
@@ -544,7 +544,7 @@ export default {
             Es importante entender que React Hook Form abraza la forma nativa
             comportamiento por estado de entrada de la tienda dentro de cada
             entrada (excepto personalizado
-            <code> registrarse </code> en <code> useEffect </code>). Uno de los
+            <code>registrarse</code> en <code>useEffect</code>). Uno de los
             comunes conceptos erróneos es cuando se trabaja con formularios
             modales o tabuladores, al montar y desmontando la forma / entradas
             que permanecerá el estado de las entradas. Eso es implementación

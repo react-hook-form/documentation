@@ -30,8 +30,8 @@ export default {
       <>
         <p>
           该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
-          <code> values </code>作为 参数，您将需要验证结果并返回两者
-          <code> values </code>和<code> errors </code>。
+          <code>values </code>作为 参数，您将需要验证结果并返回两者
+          <code>values </code>和<code>errors </code>。
         </p>
 
         <p>
@@ -54,7 +54,7 @@ export default {
     validateContext: (
       <>
         <p>
-          该上下文对象将被注入<code> validationResolver </code>的第二个参数或
+          该上下文对象将被注入<code>validationResolver </code>的第二个参数或
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -73,7 +73,7 @@ export default {
           所有字段的验证，并收集所有遇到的第一个错误。
         </p>
         <p>
-          设置为<code> all </code>时，所有字段的验证将是
+          设置为<code>all </code>时，所有字段的验证将是
           运行并收集遇到的所有错误。
         </p>
       </>
@@ -209,7 +209,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
           取消注册输入时，其值将不再被包含在被提交的表单数据中。当您手动在
-          <code> useEffect </code>
+          <code>useEffect </code>
           注册输入时会有用，同时当组件卸载时你也可以用它来取消注册。
         </p>
       </>
@@ -344,7 +344,7 @@ export default {
           </a>
           一起包装以提高渲染性能，因此请使您在渲染前先调用/读取它，以启用状态更新。
           这个减少重新渲染功能功能由于缺少而仅适用于Web平台React Native上的
-          <code> Proxy </code>支持。
+          <code>Proxy </code>支持。
         </p>
       </>
     ),
@@ -517,7 +517,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b> 您将需要在
           <code>useForm</code>提供<code>defaultValues</code>或者
-          <code>reset</code>带价值，来重置<code> Controller </code>
+          <code>reset</code>带价值，来重置<code>Controller </code>
           组件的价值。
         </p>
       </>
@@ -716,9 +716,9 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>注意</b>: 如果您的表格会
-              使用不同的值调用<code> reset </code>，您将需要
-              在useForm级别而不是set上提供<code> defaultValues </code>
-              内联<code> defaultValue </code>。
+              使用不同的值调用<code>reset </code>，您将需要
+              在useForm级别而不是set上提供<code>defaultValues </code>
+              内联<code>defaultValue </code>。
             </p>
           </td>
         </tr>
@@ -731,7 +731,7 @@ export default {
           </td>
           <td></td>
           <td>
-            根据<code> register </code>的验证规则。
+            根据<code>register </code>的验证规则。
           </td>
         </tr>
         <tr>
@@ -745,8 +745,8 @@ export default {
           </td>
           <td></td>
           <td>
-            这个<code> onChange </code>道具可让您自定义返回值,
-            确保您知道外部组件<code>value</code>props的形状。 当payload是
+            这个<code>onChange </code>道具可让您自定义返回值, 确保您知道外部组件
+            <code>value</code>props的形状。 当payload是
             <code>object</code>时，将读取<code>value</code>或<code>check</code>
             属性。
           </td>
@@ -761,7 +761,7 @@ export default {
           <td></td>
           <td>
             该props可让您定位特定的事件名称，例如：<code>onChange</code>
-            事件被命名为<code> onTextChange </code>
+            事件被命名为<code>onTextChange </code>
           </td>
         </tr>
         <tr>
@@ -891,7 +891,7 @@ export default {
       name: <>关联的表格名称。</>,
       errors: (
         <>
-          React Hook表单中的<code> errors </code>
+          React Hook表单中的<code>errors </code>
           对象。如果您使用的是FormContext，则为可选。
         </>
       ),
@@ -950,7 +950,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>注意: </b>{" "}
-          <code> useFieldArray </code>建立在不受控制的组件之上。
+          <code>useFieldArray </code>建立在不受控制的组件之上。
           以下说明将帮助您了解并牢记其实施过程中的行为。
         </p>
 

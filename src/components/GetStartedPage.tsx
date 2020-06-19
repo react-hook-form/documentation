@@ -351,18 +351,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.reactNative.description}
 
-          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
-            <CodeArea
-              isExpo
-              rawData={reactNativeController}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
-            />
-            <CodeArea
-              isExpo
-              rawData={reactNative}
-              url="https://snack.expo.io/@bluebill1049/react-hook-form"
-            />
-          </TabGroup>
+          <CodeArea
+            isExpo
+            rawData={reactNativeController}
+            url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
+          />
 
           <h2
             className={typographyStyles.title}

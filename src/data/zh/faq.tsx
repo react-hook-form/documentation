@@ -328,7 +328,7 @@ export default {
             React-hook-form不建议您建立受控的表单， 但是您仍然可以轻松实现。
           </p>
           <p>
-            使用<code> watch </code> API监视每个输入的更改并分配给价值道具。
+            使用<code>watch</code> API监视每个输入的更改并分配给价值道具。
           </p>
           <p>
             或者，您可以使用我们的包装器组件
@@ -350,7 +350,7 @@ export default {
           <ul>
             <li>
               <p>
-                为什么我会收到<code> act </code>警告？
+                为什么我会收到<code>act</code>警告？
               </p>
 
               <p>
@@ -371,9 +371,9 @@ export default {
               <p>为什么输入更改不是触发事件？</p>
 
               <p>
-                React Hook Form 使用<code> input </code>
+                React Hook Form 使用<code>input</code>
                 事件作为输入来响应。您可以轻松切换到
-                <code> fireEvent.input </code>用于react-testing-library。
+                <code>fireEvent.input</code>用于react-testing-library。
               </p>
             </li>
           </ul>
@@ -487,7 +487,7 @@ export default {
           <p>
             了解React Hook Form接受本机形式非常重要
             通过在每个输入内部存储输入状态来进行行为（自定义除外） 在
-            <code> useEffect </code>处进行<code> register </code>）。常见的之一
+            <code>useEffect</code>处进行<code>register</code>）。常见的之一
             误解是在使用模态或制表符形式时，通过安装
             并保留输入状态的卸载形式/输入。那是
             错误的实现，而正确的解决方案应始终

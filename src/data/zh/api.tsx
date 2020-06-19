@@ -24,8 +24,8 @@ export default {
       <>
         <p>
           该回调函数使您可以运行任何模式或自定义验证。该函数的完整形式为
-          <code> values </code>作为 参数，您将需要验证结果并返回两者
-          <code> values </code>和<code> errors </code>。
+          <code>values</code>作为 参数，您将需要验证结果并返回两者
+          <code>values</code>和<code>errors</code>。
         </p>
 
         <p>
@@ -48,7 +48,7 @@ export default {
     validateContext: (
       <>
         <p>
-          该上下文对象将被注入<code> resolver </code>的第二个参数或
+          该上下文对象将被注入<code>resolver</code>的第二个参数或
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -67,7 +67,7 @@ export default {
           所有字段的验证，并收集所有遇到的第一个错误。
         </p>
         <p>
-          设置为<code> all </code>时，所有字段的验证将是
+          设置为<code>all</code>时，所有字段的验证将是
           运行并收集遇到的所有错误。
         </p>
       </>
@@ -209,7 +209,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b>{" "}
           取消注册输入时，其值将不再被包含在被提交的表单数据中。当您手动在
-          <code> useEffect </code>
+          <code>useEffect</code>
           注册输入时会有用，同时当组件卸载时你也可以用它来取消注册。
         </p>
       </>
@@ -344,7 +344,7 @@ export default {
           </a>
           一起包装以提高渲染性能，因此请使您在渲染前先调用/读取它，以启用状态更新。
           这个减少重新渲染功能功能由于缺少而仅适用于Web平台React Native上的
-          <code> Proxy </code>支持。
+          <code>Proxy</code>支持。
         </p>
       </>
     ),
@@ -487,7 +487,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b> 您将需要在
           <code>useForm</code>提供<code>defaultValues</code>或者
-          <code>reset</code>带价值，来重置<code> Controller </code>
+          <code>reset</code>带价值，来重置<code>Controller</code>
           组件的价值。
         </p>
       </>
@@ -498,12 +498,23 @@ export default {
     description: (
       <>
         <p>允许您手动设置输入单个和多项错误。</p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          此方法将不会保留错误并阻止提交动作。适用于在
-          <code>handleSubmit</code>
-          函数中，当您想要在异步验证后向用户提供错误反馈。
-        </p>
+        <ul>
+          <li>
+            <p>如果输入，此方法将不会保留相关的输入错误 通过验证。</p>
+          </li>
+          <li>
+            <p>
+              设置与输入字段不相关的错误将是 持续存在，需要使用
+              <code>clearError</code>手动删除。
+            </p>
+          </li>
+          <li>
+            <p>
+              当您在<code>handleSubmit</code>函数期间，此功能很有用
+              想要在异步验证后向用户提供错误反馈。
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -573,7 +584,7 @@ export default {
         />
 
         <p>
-          您也可以将<code> shouldDirty </code>参数设置为<code> true </code>
+          您也可以将<code>shouldDirty</code>参数设置为<code>true</code>
           ，以将字段设置为dirty。
         </p>
 
@@ -589,9 +600,8 @@ export default {
     description: (
       <>
         <p>
-          此功能将帮助您读取表单值。区别<code> watch </code>之间是
-          <code> getValues </code>之间不会触发
-          重新呈现或订阅输入更改。功能包括：
+          此功能将帮助您读取表单值。区别<code>watch</code>之间是
+          <code>getValues</code>之间不会触发 重新呈现或订阅输入更改。功能包括：
         </p>
 
         <ul>
@@ -608,7 +618,7 @@ export default {
           </li>
           <li>
             <p>
-              <code> getValues(['test'，'test1'])</code>：通过读取多个输入
+              <code>getValues(['test'，'test1'])</code>：通过读取多个输入
               <strong>名称</strong>。
             </p>
           </li>
@@ -755,9 +765,9 @@ export default {
             </p>
             <p>
               <b className={typographyStyles.note}>注意</b>: 如果您的表格会
-              使用不同的值调用<code> reset </code>，您将需要
-              在useForm级别而不是set上提供<code> defaultValues </code>
-              内联<code> defaultValue </code>。
+              使用不同的值调用<code>reset</code>，您将需要
+              在useForm级别而不是set上提供<code>defaultValues</code>
+              内联<code>defaultValue</code>。
             </p>
           </td>
         </tr>
@@ -779,8 +789,8 @@ export default {
                 重新注册自己。
               </li>
               <li>
-                输入状态：将<code> validate </code>函数与
-                <code> getValues </code>结合使用以有条件地返回您的验证。
+                输入状态：将<code>validate</code>函数与
+                <code>getValues</code>结合使用以有条件地返回您的验证。
               </li>
             </ul>
             <CodeArea
@@ -892,7 +902,7 @@ validate: (value) => value === getValues('firstName');"
       name: <>关联的表格名称。</>,
       errors: (
         <>
-          React Hook表单中的<code> errors </code>
+          React Hook表单中的<code>errors</code>
           对象。如果您使用的是FormContext，则为可选。
         </>
       ),
@@ -926,9 +936,9 @@ validate: (value) => value === getValues('firstName');"
   shouldUnregister: (
     <p>
       默认情况下，当输入被删除时，React Hook Form使用
-      <code> MutationObserver </code>来检测并<code>注销</code>
-      那些已卸载的输入。但是，您可以将<code> shouldUnregister </code>设置为
-      <code> false </code>，以防止由于卸载而丢失输入状态。
+      <code>MutationObserver</code>来检测并<code>注销</code>
+      那些已卸载的输入。但是，您可以将<code>shouldUnregister</code>设置为
+      <code>false</code>，以防止由于卸载而丢失输入状态。
     </p>
   ),
   useFieldArray: {
@@ -995,7 +1005,7 @@ validate: (value) => value === getValues('firstName');"
 
         <p>
           <b className={typographyStyles.note}>注意: </b>{" "}
-          <code> useFieldArray </code>建立在不受控制的组件之上。
+          <code>useFieldArray</code>建立在不受控制的组件之上。
           以下说明将帮助您了解并牢记其实施过程中的行为。
         </p>
 
@@ -1266,7 +1276,7 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        与<code> watch </code> API共享相同的功能，但是，
+        与<code>watch</code> API共享相同的功能，但是，
         会在您的组件级别隔离重新渲染，并可能导致 为您的应用程序提供更好的性能。
       </p>
     ),

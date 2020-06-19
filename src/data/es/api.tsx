@@ -146,7 +146,7 @@ export default {
     ),
     validationSchema: (goToSection) => (
       <p>
-        Aplica reglas de validación de formularios con <code> Yup </code>
+        Aplica reglas de validación de formularios con <code>Yup</code>
         en el nivel de esquema, por favor refiérase a la sección{" "}
         <button
           className={buttonStyles.codeAsLink}
@@ -189,10 +189,10 @@ export default {
     shouldUnregister: (
       <p>
         De forma predeterminada, cuando se eliminan las entradas, React Hook
-        Form utiliza <code> MutationObserver </code> para detectar y{" "}
-        <code> anular el registro </code> aquellas entradas que se desmontan.
-        Sin embargo, puede establecer <code> shouldUnregister </code> en{" "}
-        <code> false </code> para evitar la pérdida del estado de entrada debido
+        Form utiliza <code>MutationObserver</code> para detectar y{" "}
+        <code>anular el registro</code> aquellas entradas que se desmontan. Sin
+        embargo, puede establecer <code>shouldUnregister</code> en{" "}
+        <code>false</code> para evitar la pérdida del estado de entrada debido
         al desmontaje.
       </p>
     ),
@@ -313,8 +313,8 @@ export default {
           />
 
           <p>
-            También puede establecer el parámetro <code> shouldDirty </code> en
-            <code> true </code> para configurar el campo como sucio.
+            También puede establecer el parámetro <code>shouldDirty</code> en
+            <code>true</code> para configurar el campo como sucio.
           </p>
 
           <CodeArea
@@ -519,13 +519,28 @@ export default {
     description: (
       <>
         <p>La función te permite setear manualmente uno o varios errores.</p>
-        <p>
-          <b className={typographyStyles.note}> Nota:</b>: Este método no
-          persistirá el error y bloqueará La acción de envío. Es más útil
-          durante la función <code>handleSubmit</code> cuando desea dar
-          comentarios de error a los usuarios después de la validación
-          asíncrona.
-        </p>
+        <ul>
+          <li>
+            <p>
+              Este método no persistirá el error de entrada asociado si la
+              entrada pasar validación.
+            </p>
+          </li>
+          <li>
+            <p>
+              Establecer un error que no esté asociado con un campo de entrada
+              será persiste y es necesario eliminarlo manualmente con{" "}
+              <code>clearError</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Es útil durante la función <code>handleSubmit</code> cuando desea
+              dar comentarios de error a los usuarios después de la validación
+              asíncrona.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -599,9 +614,9 @@ export default {
       <>
         <p>
           Esta función lo ayudará a leer los valores de los formularios. La
-          diferencia entre <code> watch </code> es <code> getValues ​​</code> no
-          se activará volver a procesar o suscribirse a los cambios de entrada.
-          Las funciones cubren:
+          diferencia entre <code>watch</code> es <code>getValues ​​</code> no se
+          activará volver a procesar o suscribirse a los cambios de entrada. Las
+          funciones cubren:
         </p>
 
         <ul>
@@ -612,7 +627,7 @@ export default {
           </li>
           <li>
             <p>
-              <code> getValues​​('test')</code>: lea el valor de entrada
+              <code>getValues​​('test')</code>: lea el valor de entrada
               individual por <strong>name</strong>.
             </p>
           </li>
@@ -675,7 +690,7 @@ export default {
           <td></td>
           <td>
             El controlador inyectará <code>onChange</code>, <code>onBlur</code>{" "}
-            y <code> value </code> apoyos en el componente.
+            y <code>value</code> apoyos en el componente.
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
@@ -861,7 +876,7 @@ validate: (value) => value === getValues('firstName');"
         Form context está destinado a resolver el problema cuando hay inputs
         anidados profundamente en el árbol de componentes y pasar métodos hasta
         el fondo como {""}
-        <code> propiedades </code> se vuelve tedioso.
+        <code>propiedades</code> se vuelve tedioso.
       </p>
     ),
     description: (
@@ -994,7 +1009,7 @@ validate: (value) => value === getValues('firstName');"
                 </td>
                 <td></td>
                 <td>
-                  campo matriz <code> key </code> valor, predeterminado en "id",
+                  campo matriz <code>key</code> valor, predeterminado en "id",
                   puede cambiar el nombre de la clave
                 </td>
               </tr>
@@ -1095,7 +1110,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Importante: </b> debido a que
               las entradas pueden ser no-controladas, se requiere{" "}
-              <code> id </code> con componentes mapeados para ayudar a React a
+              <code>id</code> con componentes mapeados para ayudar a React a
               identificar qué elementos se han cambiado, agregado o eliminado.
             </p>
             <p>
@@ -1254,7 +1269,7 @@ React.useEffect(() => {
               <b className={typographyStyles.note}>Nota:</b> asegúrate de que
               eres devolver objeto que contiene <code>values</code> y{" "}
               <code>errors</code>, y su valor predeterminado debe ser un objeto
-              vacío <code> {`{}`} </code>.
+              vacío <code>{`{}`}</code>.
             </p>
           </li>
 
@@ -1290,7 +1305,7 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        Comparta la misma funcionalidad que la API <code> watch </code>, sin
+        Comparta la misma funcionalidad que la API <code>watch</code>, sin
         embargo, esto aislará el renderizado en el nivel de su componente y
         potencialmente resultará en Mejor rendimiento para su aplicación.
       </p>
