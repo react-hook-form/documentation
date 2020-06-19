@@ -740,7 +740,7 @@ const { register } = useForm<Inputs>({
               <h2>
                 handleSubmit:{" "}
                 <span className={typographyStyles.typeText}>
-                  (data: Object, e: Event) => () => void
+                  ((data: Object, e?: Event) => void) => (e?: Event) => void
                 </span>
               </h2>
             </code>
