@@ -36,9 +36,7 @@ function Popup({
           }}
           render={({ style }) => (
             <span style={{ ...style, top }}>
-              {message || (
-                <>React Native: only compatible with by using Controller</>
-              )}
+              {message || <>React Native: only compatible with Controller</>}
             </span>
           )}
         />

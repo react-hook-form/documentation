@@ -8,7 +8,7 @@ export default {
   step1: (
     <>
       <b className={typographyStyles.note}>步骤 1: </b>安装{" "}
-      <code>react-hook-form-devtools</code>作为开发依赖包.
+      <code>@hookform/devtools</code>作为开发依赖包.
     </>
   ),
   step2: (

@@ -1,9 +1,10 @@
 export default `import React from "react";
-import { useForm, ErrorMessage } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm({
-    validateCriteriaMode: "all"
+    criteriaMode "all"
   });
   const onSubmit = data => console.log(data);
 

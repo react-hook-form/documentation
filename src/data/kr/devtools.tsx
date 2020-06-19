@@ -9,8 +9,8 @@ export default {
   step1: (
     <>
       <b className={typographyStyles.note}>1단계: </b>{" "}
-      <code>react-hook-form-devtools</code> 를 개발 의존성(dev dependency)
-      패키지로 설치하세요.
+      <code>@hookform/devtools</code> 를 개발 의존성(dev dependency) 패키지로
+      설치하세요.
     </>
   ),
   step2: (

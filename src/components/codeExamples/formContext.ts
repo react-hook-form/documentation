@@ -1,17 +1,17 @@
 export default `import React from "react";
-import { useForm, FormContext, useFormContext } from "react-hook-form";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 
 export default function App() {
   const methods = useForm();
   const onSubmit = data => console.log(data);
 
   return (
-    <FormContext {...methods} > // pass all methods into the context
+    <FormProvider {...methods} > // pass all methods into the context
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInput />
         <input type="submit" />
       </form>
-    </FormContext>
+    </FormProvider>
   );
 }
 

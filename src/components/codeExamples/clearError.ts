@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default () => {
-  const { clearError, errors, register } = useForm();
+  const { clearErrors, errors, register } = useForm();
 
   return (
     <form>
@@ -11,18 +11,9 @@ export default () => {
       <input name="lastName" ref={register({ required: true })} />
       {errors.lastName && "This is required"}
 
-      <button type="button" onClick={() => clearError("firstName")}>
-        Clear
-      </button>
-      <button
-        type="button"
-        onClick={() => clearError(["firstName", "lastName"])}
-      >
-        Clear Multiple
-      </button>
-      <button type="button" onClick={() => clearError()}>
-        Clear All
-      </button>
+      <button type="button" onClick={() => clearErrors("firstName")}>Clear</button>
+      <button type="button" onClick={() => clearErrors(["firstName", "lastName"])}>Clear Multiple</button>
+      <button type="button" onClick={() => clearErrors()}>Clear All</button>
     </form>
   );
 };

@@ -844,7 +844,7 @@ export default {
     },
   },
   validationResolver: {
-    title: "validationResolver",
+    title: "resolver",
     description: (
       <>
         <p>

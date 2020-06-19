@@ -12,9 +12,9 @@ const Faq = ({
     pathname: string
   }
 }) => (
-  <Layout location={location} defaultLang={"zh"}>
+  <Layout location={location} defaultLang="zh">
     <Seo title={faq.title} location={location} />
-    <FaqPage defaultLang="zh" />
+    <FaqPage defaultLang="zh" faq={faq} />
   </Layout>
 )
 

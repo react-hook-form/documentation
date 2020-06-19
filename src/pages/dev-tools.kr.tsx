@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import DevTools from "../components/DevTools"
 import api from "../data/en/api"
+import content from "../data/kr/devtools"
 
 const Api = ({
   location,
@@ -14,7 +15,7 @@ const Api = ({
 }) => (
   <Layout location={location} defaultLang="kr">
     <Seo title={api.title} location={location} />
-    <DevTools defaultLang="en" />
+    <DevTools defaultLang="kr" content={content} />
   </Layout>
 )
 

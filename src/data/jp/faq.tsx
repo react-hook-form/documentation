@@ -128,7 +128,7 @@ export default {
           <p>
             実は<code>ref</code>を使わずとも<code>register</code>
             は使用出来ます。 加えて<code>setValue</code>と<code>setError</code>
-            、<code>triggerValidation</code>
+            、<code>trigger</code>
             の手動での使用も出来ます。
           </p>
 
@@ -489,7 +489,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -521,8 +521,47 @@ export default {
             If you find difficult to make the autofocus with external controlled
             component. It is possible to disable the "autofocus on error"
             feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            some cases. <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            React Hook
+            Formがネイティブフォームを受け入れることを理解することが重要です
+            各入力内に入力状態を保存することによる動作（カスタムを除く）
+            <code> register </code> at <code> useEffect </code>）。一般的な
+            誤解は、マウントによってモーダルまたはタブフォームを操作するときです
+            状態を入力するフォーム/入力のアンマウントは残ります。それは
+            間違った実装ではなく、正しい解決策は常に
+            モーダルまたは各タブ内でフォームの新しいフォームを作成し、
+            ローカルまたはグローバルな状態で提出データをキャプチャします。
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

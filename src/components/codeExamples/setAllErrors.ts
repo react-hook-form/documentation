@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, setError } = useForm({
-    validateCriteriaMode: "all" // you will need to enable validate all criteria mode
+    criteriaMode "all" // you will need to enable validate all criteria mode
   });
 
   return (
@@ -20,8 +20,11 @@ export default function App() {
         type="button"
         onClick={() =>
           setError("username", {
-            required: "This is required",
-            minLength: "This is minLength"
+            type: 'multiple',
+            types: {
+              required: "This is required",
+              minLength: "This is minLength"
+            }
           })
         }
       >

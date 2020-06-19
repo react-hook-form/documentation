@@ -1,7 +1,5 @@
 import * as React from "react"
 import ApiRefTable from "./ApiRefTable"
-import validationSchemaCode from "./codeExamples/validationSchema"
-import validationSchemaNative from "./codeExamples/validationSchemaNative"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
@@ -15,15 +13,18 @@ import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
 import getValuesTs from "./codeExamples/getValuesTs"
+import defaultValues from "./codeExamples/defaultValues"
+import defaultValuesTs from "./codeExamples/defaultValuesTs"
 import trigger from "./codeExamples/trigger"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import unregisterCode from "./codeExamples/unregisterCode"
+import unregisterCodeTs from "./codeExamples/unregisterCodeTs"
 import Popup from "./Popup"
 import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import apiContent from "../data/api"
+import apiEn from "../data/en/api"
 import Controller from "./Controller"
 import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
@@ -32,20 +33,23 @@ import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
 import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetController from "./codeExamples/resetController"
+import resetControllerTs from "./codeExamples/resetControllerTs"
 import control from "./codeExamples/control"
-import nativeValidation from "./codeExamples/nativeValidation"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
+import UseWatch from "./UseWatch"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
+import { getNavLink } from "./Nav"
+import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
+import VideoList from "./VideoList"
 
 const { useRef, useEffect } = React
 
-const apiEn = apiContent["en"]
 const enLinks = [
   apiEn.useForm,
   apiEn.register,
@@ -58,16 +62,14 @@ const enLinks = [
   apiEn.clearError,
   apiEn.setValue,
   apiEn.getValues,
-  apiEn.triggerValidation,
+  apiEn.trigger,
   apiEn.control,
   apiEn.formState,
   apiEn.Controller,
   apiEn.ErrorMessage,
   apiEn.useFormContext,
+  apiEn.useWatch,
   apiEn.useFieldArray,
-  apiEn.validationResolver,
-  apiEn.validationSchema,
-  apiEn.NativeValidation,
 ]
 
 const codeSandBoxStyle = {
@@ -76,27 +78,31 @@ const codeSandBoxStyle = {
   float: "right",
 }
 
-function ApiPage({
-  formData,
-  defaultLang,
-}: {
+interface Props {
   formData?: any
   defaultLang: string
-}) {
+  api: any
+}
+
+function ApiPage({ formData, defaultLang, api }: Props) {
   const {
     state,
     state: { language },
   } = useStateMachine()
+  // @ts-ignore
   const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const api = apiContent[currentLanguage]
   const [activeIndex, setActiveIndex] = React.useState(0)
+  const [play, setPlay] = React.useState(false)
   const links = [
-    api.useForm,
+    {
+      ...api.useForm,
+      size: "5KB",
+    },
     api.register,
     api.unregister,
     api.errors,
@@ -107,16 +113,29 @@ function ApiPage({
     api.clearError,
     api.setValue,
     api.getValues,
-    api.triggerValidation,
+    api.trigger,
     api.control,
     api.formState,
-    api.Controller,
-    api.ErrorMessage,
-    api.useFormContext,
-    api.useFieldArray,
-    api.validationResolver,
-    api.validationSchema,
-    api.NativeValidation,
+    {
+      ...api.Controller,
+      size: "1.2KB",
+    },
+    {
+      ...api.ErrorMessage,
+      size: "649B",
+    },
+    {
+      ...api.useFormContext,
+      size: "100B",
+    },
+    {
+      ...api.useWatch,
+      size: "1KB",
+    },
+    {
+      ...api.useFieldArray,
+      size: "3KB",
+    },
   ]
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
@@ -131,16 +150,14 @@ function ApiPage({
     clearErrorRef: null,
     setValueRef: null,
     getValuesRef: null,
-    triggerValidationRef: null,
+    triggerRef: null,
     controlRef: null,
     formStateRef: null,
     ControllerRef: null,
     ErrorMessageRef: null,
     useFormContextRef: null,
     useFieldArrayRef: null,
-    validationResolverRef: null,
-    validationSchemaRef: null,
-    BrowserbuiltinvalidationRef: null,
+    useWatchRef: null,
   })
   copyFormData.current = formData
 
@@ -234,7 +251,7 @@ function ApiPage({
     <div className={containerStyles.container}>
       <div className={styles.hiddenMenu}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          API
+          API.<span style={{ fontWeight: 400, fontSize: 20 }}>V6</span>
         </h1>
         <div
           className={`${styles.quickSelect} ${
@@ -263,41 +280,9 @@ function ApiPage({
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 
-      {/*<div*/}
-      {/*  style={{*/}
-      {/*    textAlign: "center",*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <div*/}
-      {/*    className={headerStyles.toggleGroup}*/}
-      {/*    role="tablist"*/}
-      {/*    aria-label="Select video"*/}
-      {/*    style={{*/}
-      {/*      marginBottom: 10*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    <button*/}
-      {/*      aria-label="show v5 doc"*/}
-      {/*      aria-selected="true"*/}
-      {/*      aria-controls="tabPanel-1"*/}
-      {/*      role="tab"*/}
-      {/*    >*/}
-      {/*      V5*/}
-      {/*    </button>*/}
-      {/*    <button*/}
-      {/*      disabled*/}
-      {/*      role="tab"*/}
-      {/*      aria-label="show v6 doc"*/}
-      {/*      aria-selected="false"*/}
-      {/*      aria-controls="tabPanel-2"*/}
-      {/*    >*/}
-      {/*      V6 <span style={{fontSize: 11}}>(coming)</span>*/}
-      {/*    </button>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
       <div className={containerStyles.wrapper}>
         <SideMenu
+          version={6}
           links={links}
           activeIndex={activeIndex}
           enLinks={enLinks}
@@ -306,6 +291,38 @@ function ApiPage({
         />
 
         <main>
+          <div className={styles.versionToggle}>
+            <div
+              className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
+              role="tablist"
+              aria-label="Select video"
+              style={{
+                marginBottom: 10,
+              }}
+            >
+              <button
+                disabled
+                role="tab"
+                aria-label="show v6 doc"
+                aria-selected="false"
+                aria-controls="tabPanel-2"
+              >
+                V6
+              </button>
+              <button
+                aria-label="show v5 doc"
+                aria-selected="true"
+                aria-controls="tabPanel-1"
+                role="tab"
+                onClick={() => {
+                  navigate(getNavLink(`v5/api`, currentLanguage))
+                }}
+              >
+                V5
+              </button>
+            </div>
+          </div>
+
           <section
             ref={(ref) => {
               apiSectionsRef.current.useFormRef = ref
@@ -315,102 +332,47 @@ function ApiPage({
               <h2>
                 useForm:{" "}
                 <span className={typographyStyles.typeText}>Function</span>
+                <button
+                  className={typographyStyles.videoLink}
+                  onClick={() => setPlay(!play)}
+                >
+                  Videos
+                </button>
               </h2>
             </code>
-            <p>
-              {api.useForm.intro}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("register")}
-              >
-                register
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("unregister")}
-              >
-                unregister
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("errors")}
-              >
-                errors
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("watch")}
-              >
-                watch
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("handleSubmit")}
-              >
-                handleSubmit
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("reset")}
-              >
-                reset
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("setError")}
-              >
-                setError
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("clearError")}
-              >
-                clearError
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("setValue")}
-              >
-                setValue
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("getValues")}
-              >
-                getValues
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("triggerValidation")}
-              >
-                triggerValidation
-              </code>
-              ,{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("control")}
-              >
-                control
-              </code>{" "}
-              and{" "}
-              <code
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("formState")}
-              >
-                formState
-              </code>
-              .
-            </p>
+
+            <VideoList
+              lists={[
+                {
+                  url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
+                  title:
+                    "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
+                  title: "React Hook Form Tutorial | Why It's Useful",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=bQRIBpKN8-s",
+                  title:
+                    "React Hook Form Tutorial - How to Create a Custom Input",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=XlAs-Lid-TA",
+                  title: "How To Upload Files Using React Hook Form",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=oSIHZ9zKzVA",
+                  title: "Make React Forms EASY with React Hook Form!",
+                },
+                {
+                  url: "https://www.youtube.com/watch?v=lHclVxcborY",
+                  title:
+                    "Does this library make Redux Form obsolete? | React Hook Form Tutorial | React Tutorials",
+                },
+              ]}
+              play={play}
+            />
 
             {api.useForm.description}
 
@@ -420,23 +382,21 @@ function ApiPage({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
-  validationResolver: undefined,
-  validationContext: undefined,
-  validateCriteriaMode: "firstError",
-  submitFocusError: true,
-  nativeValidation: false, // Note: version 3 only
+  resolver: undefined,
+  context: undefined,
+  criteriaMode: "firstErrorDetected",
+  shouldFocusError: true,
+  shouldUnregister: true,
 })`}
               rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
-  validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
-  validationResolver: undefined,
-  validationContext: undefined,
-  validateCriteriaMode: "firstError",
-  submitFocusError: true,
-  nativeValidation: false, // Note: version 3 only
+  resolver: undefined,
+  context: undefined,
+  criteriaMode: "firstErrorDetected",
+  shouldFocusError: true,
+  shouldUnregister: true,
 })`}
             />
 
@@ -444,7 +404,7 @@ function ApiPage({
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
-                  string = 'onSubmit'
+                  onChange | onBlur | onSubmit = 'onSubmit' | all
                 </span>
               </code>
               <Popup top={3} />
@@ -479,6 +439,34 @@ function ApiPage({
                     </td>
                     <td>{api.useForm.validateOnChange}</td>
                   </tr>
+                  <tr>
+                    <td>all</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validationOnAll}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+                <code>
+                  reValidateMode:{" "}
+                  <span className={typographyStyles.typeText}>
+                    onChange | onBlur | onSubmit = 'onChange'
+                  </span>
+                </code>
+                <Popup
+                  top={3}
+                  message="React Native: Custom register or using Controller"
+                />
+              </h5>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <td>{api.useForm.reValidateMode}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -490,50 +478,18 @@ function ApiPage({
                   {`Record<string, any>`} = {`{}`}
                 </span>
               </code>
-              <Popup
-                top={3}
-                message="React Native: Custom register or using Controller"
-              />
             </h5>
 
             {api.useForm.defaultValues(goToSection)}
 
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
-              rawData={`const { register } = useForm({
-  defaultValues: {
-    firstName: "bill",
-    lastName: "luo",
-    email: "bluebill1049@hotmail.com",
-    pets: [ 'dog', 'cat' ]
-  }
-})
-
-<input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} />
-// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
-`}
-              tsRawData={`type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  pets: string[];
-}
-  
-const { register } = useForm<Inputs>({
-  defaultValues: {
-    firstName: "bill",
-    lastName: "luo",
-    email: "bluebill1049@hotmail.com",
-    pets: [ 'dog', 'cat' ]
-  }
-})
-
-<input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} />
-// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
-`}
+              rawData={defaultValues}
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-ts-i497w"
+              tsRawData={defaultValuesTs}
             />
+
+            <ValidationResolver api={api} />
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
@@ -548,50 +504,8 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
-                          validationSchema: <br />
-                          <span className={styles.mobileTypeText}>Object</span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>
-                      {api.useForm.validationSchema(goToSection)}
-                      <CodeSandBoxLink
-                        style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/928po918qr"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          validationResolver: <br />
-                          <span className={styles.mobileTypeText}>
-                            Function
-                          </span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>{api.useForm.validationResolver(goToSection)}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          validationContext: <br />
-                          <span className={styles.mobileTypeText}>Object</span>
+                          context: <br />
+                          <span className={styles.mobileTypeText}>object</span>
                         </code>
                       </h5>
                     </td>
@@ -607,7 +521,7 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
-                          validateCriteriaMode: <br />
+                          criteriaMode <br />
                           <span className={styles.mobileTypeText}>
                             firstError | all
                           </span>
@@ -618,7 +532,7 @@ const { register } = useForm<Inputs>({
                       {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+                        url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-z60r2"
                       />
                     </td>
                   </tr>
@@ -632,14 +546,14 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
-                          reValidateMode: <br />
+                          shouldFocusError: <br />
                           <span className={styles.mobileTypeText}>
-                            onChange | onBlur | onSubmit
+                            boolean = true
                           </span>
                         </code>
                       </h5>
                     </td>
-                    <td>{api.useForm.reValidateMode}</td>
+                    <td>{api.useForm.submitFocusError}</td>
                   </tr>
                   <tr>
                     <td>
@@ -651,14 +565,20 @@ const { register } = useForm<Inputs>({
                         }}
                       >
                         <code>
-                          submitFocusError: <br />
+                          shouldUnregister: <br />
                           <span className={styles.mobileTypeText}>
                             boolean = true
                           </span>
                         </code>
                       </h5>
                     </td>
-                    <td>{api.useForm.submitFocusError}</td>
+                    <td>
+                      {api.useForm.shouldUnregister}
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/autounregister-4e91k"
+                      />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -708,8 +628,10 @@ const { register } = useForm<Inputs>({
             {api.unregister.description}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-unregister-zjvr1"
+              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
               rawData={unregisterCode}
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-7z4h8"
+              tsRawData={unregisterCodeTs}
             />
           </section>
 
@@ -747,6 +669,7 @@ const { register } = useForm<Inputs>({
             {api.handleSubmit.description}
             <CodeArea
               rawData={handleSubmitCode}
+              tsRawData={handleSubmitCodeTs}
               url="https://codesandbox.io/s/yj07z1639"
             />
           </section>
@@ -769,13 +692,7 @@ const { register } = useForm<Inputs>({
 
             {api.reset(goToSection).description}
 
-            <TabGroup
-              buttonLabels={[
-                "Uncontrolled",
-                "Controller",
-                "Controlled / React Native",
-              ]}
-            >
+            <TabGroup buttonLabels={["Uncontrolled", "Controller"]}>
               <CodeArea
                 rawData={resetCode}
                 url="https://codesandbox.io/s/jjm3wyqmjy"
@@ -783,10 +700,8 @@ const { register } = useForm<Inputs>({
               <CodeArea
                 rawData={resetController}
                 url="https://codesandbox.io/s/react-hook-form-controller-079xx"
-              />
-              <CodeArea
-                rawData={resetCodeControlled}
-                url="https://codesandbox.io/s/sharp-grothendieck-42mjo"
+                tsRawData={resetControllerTs}
+                tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-wr80q"
               />
             </TabGroup>
           </section>
@@ -800,9 +715,9 @@ const { register } = useForm<Inputs>({
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                setError: <br />
+                setError:
                 <span className={typographyStyles.typeText}>
-                  {`(name: string | ManualFieldError[], type?: string | Object, message?: string) => void`}
+                  {`(name: string, error: { type: string, types: object, message?: string }) => void`}
                 </span>
               </h2>
             </code>
@@ -839,7 +754,7 @@ const { register } = useForm<Inputs>({
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                clearError:{" "}
+                clearErrors:{" "}
                 <span className={typographyStyles.typeText}>
                   (name?: string | string[]) => void
                 </span>
@@ -858,17 +773,14 @@ const { register } = useForm<Inputs>({
             }}
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>setValue: </h2>
+              <h2>
+                setValue:{" "}
+                <span className={typographyStyles.typeText}>
+                  (name: string, value: any, shouldValidate?: boolean, config:
+                  Object) => void
+                </span>
+              </h2>
             </code>
-            <p>
-              <span className={typographyStyles.typeText}>
-                (name: string, value: any, shouldValidate?: boolean) => void
-              </span>
-              <br />
-              <span className={typographyStyles.typeText}>
-                {`(Record<Name, any>[], shouldValidate?: boolean) => void`}
-              </span>
-            </p>
 
             {api.setValue.description}
 
@@ -891,7 +803,7 @@ const { register } = useForm<Inputs>({
                 getValues:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(payload?: { nest: boolean } | string) => Object`}</span>
+                >{`(payload?: string | string[]) => Object`}</span>
               </h2>
             </code>
 
@@ -900,7 +812,7 @@ const { register } = useForm<Inputs>({
             <CodeArea
               rawData={getValues}
               tsRawData={getValuesTs}
-              url="https://codesandbox.io/s/get-form-values-xjepz"
+              url="https://codesandbox.io/s/react-hook-form-v6-get-form-values-80c2g"
             />
           </section>
 
@@ -908,22 +820,22 @@ const { register } = useForm<Inputs>({
 
           <section
             ref={(ref) => {
-              apiSectionsRef.current.triggerValidationRef = ref
+              apiSectionsRef.current.triggerRef = ref
             }}
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                triggerValidation:{" "}
+                trigger:{" "}
                 <span className={typographyStyles.typeText}>
                   {`(payload?: string | string[]) => Promise<boolean>`}
                 </span>
               </h2>
             </code>
-            {api.triggerValidation.description}
+            {api.trigger.description}
 
             <CodeArea
               rawData={trigger}
-              url="https://codesandbox.io/s/react-hook-form-trigger-validation-w1g0m"
+              url="https://codesandbox.io/s/react-hook-form-v6-trigger-validation-5v9xf"
             />
           </section>
 
@@ -987,6 +899,12 @@ const { register } = useForm<Inputs>({
 
           <hr />
 
+          <section ref={(ref) => (apiSectionsRef.current.useWatchRef = ref)}>
+            <UseWatch currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
           <section
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
           >
@@ -994,56 +912,6 @@ const { register } = useForm<Inputs>({
           </section>
 
           <hr />
-
-          <section
-            ref={(ref) => (apiSectionsRef.current.validationResolverRef = ref)}
-          >
-            <ValidationResolver currentLanguage={currentLanguage} api={api} />
-          </section>
-
-          <hr />
-
-          <section
-            ref={(ref) => {
-              apiSectionsRef.current.validationSchemaRef = ref
-            }}
-          >
-            <code className={typographyStyles.codeHeading}>
-              <h2>
-                validationSchema:{" "}
-                <span className={typographyStyles.typeText}>Object</span>
-              </h2>
-            </code>
-
-            {api.validationSchema.description}
-
-            <TabGroup buttonLabels={["Web", "React Native"]}>
-              <CodeArea
-                rawData={validationSchemaCode}
-                url="https://codesandbox.io/s/928po918qr"
-              />
-              <CodeArea rawData={validationSchemaNative} />
-            </TabGroup>
-          </section>
-
-          <hr />
-
-          <section
-            ref={(ref) => {
-              apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
-            }}
-          >
-            <h2 className={typographyStyles.codeHeading}>
-              Browser built-in validation (V3 only)
-            </h2>
-
-            {api.NativeValidation.description}
-
-            <CodeArea
-              rawData={nativeValidation}
-              url="https://codesandbox.io/s/react-hook-form-native-validation-ez5ww"
-            />
-          </section>
 
           <div
             className={containerStyles.centerContent}

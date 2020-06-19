@@ -14,7 +14,7 @@ export default function App() {
         onClick={() => {
           const values = getValues();
           const singleValue = getValues("test");
-          const nestedObjectValue = getValues({ nest: true });
+          const singleValue = getValues(["test", "test1"]);
         }}
       >
         Get Values

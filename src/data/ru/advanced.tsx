@@ -291,40 +291,9 @@ export default {
           >
             по этой ссылке.
           </a>{" "}
-          с <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          с <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Валидация по схеме",
-    description: (
-      <>
-        <p>
-          React Hook Form поддерживает валидацию формы по схеме с{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , где вы можете передать <code>validationSchema</code> в{" "}
-          <a href="/api#useForm">useForm</a> как опциональную настройку. React
-          Hook Form будет валидировать ваши поля ввода по схеме и возвращать
-          либо <a href="/api#errors">ошибки</a>, либо валидный результат.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Шаг 1:</b> Установите{" "}
-          <code>Yup</code> в проект.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Шаг 2:</b> Настройте схему данных
-        для валидации и зарегистрируйте поля ввода в React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -437,22 +406,22 @@ export default {
     description: (
       <>
         <p>
-          Imagine um cenário em que você tenha uma tabela de dados. Esta tabela
-          pode contém centenas ou milhares de linhas e cada linha terá entradas.
-          Uma prática comum é renderizar apenas os itens que estão no viewport,
-          no entanto, isso causará problemas quando os itens forem removidos do
-          o DOM quando estão fora de vista e adicionados novamente. Isso causará
-          itens para redefinir seus valores padrão quando eles entrarem
-          novamente na janela de exibição.
+          Представьте себе сценарий, в котором у вас есть таблица данных. Эта
+          таблица может содержат сотни или тысячи строк, и каждая строка будет
+          иметь входные данные. Обычной практикой является визуализация только
+          тех элементов, которые находятся в область просмотра, однако это
+          вызовет проблемы при удалении элементов из DOM, когда они вне поля
+          зрения, и снова добавлены. Это приведет к пунктам сбросить их значения
+          по умолчанию при повторном входе в область просмотра.
         </p>
 
         <p>
-          Para contornar isso, você pode registrar manualmente os campos e, em
-          seguida, definir programaticamente o valor do campo.
+          Чтобы обойти это, вы можете вручную зарегистрировать поля, а затем
+          программно установить значение поля.
         </p>
 
         <p>
-          Um exemplo é mostrado abaixo usando{" "}
+          Пример показан ниже с использованием{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

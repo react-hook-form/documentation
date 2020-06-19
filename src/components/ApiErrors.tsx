@@ -65,7 +65,9 @@ export default React.memo(
                   <code>message</code>
                 </td>
                 <td>
-                  <span className={typographyStyles.typeText}>string</span>
+                  <span className={typographyStyles.typeText}>
+                    string | React.ReactElement
+                  </span>
                 </td>
                 <td>{api.errors.message}</td>
               </tr>
@@ -93,7 +95,7 @@ export default React.memo(
           />
           <CodeArea
             rawData={multipleErrorCode}
-            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+            url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-z60r2"
           />
         </TabGroup>
 

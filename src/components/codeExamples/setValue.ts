@@ -11,16 +11,10 @@ export default function App() {
       <input name="object.firstName" ref={register} />
       <input name="array[0].firstName" ref={register} />
       <button type="button" onClick={() => {
-        // manually set the "test" field with value "bill"
-        setValue("test", "bill")
+        setValue("test", "bill");
+        setValue("test", "bill", { shouldValidate: true });
+        setValue("test", "bill", { shouldDirty: true });
         
-        // set multiple values
-        setValue([
-          { test : "1", },
-          { test1 : "2", },
-        ])
-        
-        // set value as object or array
         setValue("object", { firstName: "test" })
         setValue("array", [{ firstName: "test" }])
       }}>SetValue</button>

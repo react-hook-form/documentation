@@ -114,7 +114,7 @@ export default {
           <p>
             您实际上可以在没有<code>ref</code>的情况下注册
             <code>register</code>输入。 事实上，您可以手动设置值，设置错误
-            <code>setError</code>和触发验证<code>triggerValidation</code>。
+            <code>setError</code>和触发验证<code>trigger</code>。
           </p>
 
           <p>
@@ -445,7 +445,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -475,8 +475,46 @@ export default {
 
           <p>
             如果您发现很难通过外部控制使自动对焦。可以禁用“错误时自动对焦”特征。也许这种行为会带来更好的用户体验。{" "}
-            <code>{`useForm（{ submitFocusError：false });`}</code>
+            <code>{`useForm（{ shouldFocusError：false });`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            了解React Hook Form接受本机形式非常重要
+            通过在每个输入内部存储输入状态来进行行为（自定义除外） 在
+            <code> useEffect </code>处进行<code> register </code>）。常见的之一
+            误解是在使用模态或制表符形式时，通过安装
+            并保留输入状态的卸载形式/输入。那是
+            错误的实现，而正确的解决方案应始终
+            在模式或每个选项卡中为您的表单构建一个新表单，以及
+            以本地或全局状态捕获您的提交数据。
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

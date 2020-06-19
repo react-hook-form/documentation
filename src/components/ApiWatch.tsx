@@ -20,7 +20,7 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[] | { nest : boolean }) => any`}</span>
+          >{`(names?: string | string[]) => any`}</span>
         </h2>
       </code>
 
@@ -94,22 +94,6 @@ export default function ApiWatch({
                 <code>watch()</code>
                 <br />
                 <code>{`watch(undefined, { field: 'value1' })`}</code>
-              </td>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ nest: boolean }`}</code>
-              </td>
-              <td>{api.watch.tableTitle.nest}</td>
-              <td>
-                <code>{`watch({ nest: true })`}</code>
               </td>
               <td>
                 <code

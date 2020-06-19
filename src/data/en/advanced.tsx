@@ -185,8 +185,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Step 2:</b> Create your pages,
-          collect and submit the data to the store and show the next page of
-          your form.
+          collect and submit the data to the store and push to the next
+          form/page.
         </p>
         <CodeArea
           rawData={step2}
@@ -229,9 +229,9 @@ export default {
 
         <p>Let's have a look what's in each of those components.</p>
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </div>
+        </code>
 
         <p>
           The <code>Form</code> component's responsibility is to inject all{" "}
@@ -243,9 +243,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </div>
+        </code>
 
         <p>
           Those input components' responsibility is to registering them into{" "}
@@ -300,40 +300,9 @@ export default {
           >
             link for such implementation.
           </a>{" "}
-          with <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          with <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Schema Validation",
-    description: (
-      <>
-        <p>
-          React Hook Form supports schema-based form validation with{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , where you can pass your <code>validationSchema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. React Hook
-          Form will validate your input data against the schema and return with
-          either <a href="/api#errors">errors</a> or a valid result.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Step 1:</b> Install{" "}
-          <code>Yup</code> into your project.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Step 2:</b> Prepare your schema for
-        validation and register inputs with React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -342,12 +311,12 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#useFormContext">FormContext</a> comes in very handy.
-        However, we can further improve the Developer Experience by creating a{" "}
+        <a href="/api#useFormContext">FormContext</a> comes in handy. However,
+        we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit of such a component is you can connect your input with React
-        Hook Form from anywhere.
+        The benefit is you can connect your input with React Hook Form from much
+        easier.
       </p>
     ),
   },
@@ -372,10 +341,10 @@ export default {
         </p>
         <ul>
           <li>
-            <p>
-              Import <PageLink to="/api#Controller">Controller</PageLink> to
-              wrap your component and let it manage register and unregister
-            </p>
+            <p>Toggle the input's viability</p>
+          </li>
+          <li>
+            <p>Building separate form for modal and pop up form</p>
           </li>
           <li>
             <p>
@@ -390,6 +359,12 @@ export default {
                 </a>
               </code>{" "}
               with custom register
+            </p>
+          </li>
+          <li>
+            <p>
+              Import <PageLink to="/api#Controller">Controller</PageLink> to
+              wrap your component and let it manage register and unregister
             </p>
           </li>
         </ul>
@@ -419,21 +394,27 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "Custom Hook with Resolver",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integrate with yup/Joi/Superstruct as a validation method,
-          and to be used inside validation resolver.
+          You can build a custom hook as a resolver. A custom hook can easily
+          integrate with yup/Joi/Superstruct as a validation method, and to be
+          used inside validation resolver.
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            <p>
+              Define a memoized validation schema (or define it outside your
+              component if you don't have any dependencies)
+            </p>
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>
+            <p>Use the custom hook, by passing the validation schema</p>
+          </li>
+          <li>
+            <p>Pass the validation resolver to the useForm hook</p>
+          </li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -455,7 +436,7 @@ export default {
 
         <p>
           To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          programmatically set the value of the field.
         </p>
 
         <p>

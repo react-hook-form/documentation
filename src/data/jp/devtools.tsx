@@ -9,8 +9,7 @@ export default {
   step1: (
     <>
       <b className={typographyStyles.note}>ステップ1: </b>devDependencies{" "}
-      パッケージとして <code>react-hook-form-devtools</code>{" "}
-      をインストールします。
+      パッケージとして <code>@hookform/devtools</code> をインストールします。
     </>
   ),
   step2: (

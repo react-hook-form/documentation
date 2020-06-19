@@ -3,7 +3,10 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -181,7 +184,12 @@ export default {
           과정을 대신 처리해 줍니다.
         </p>
 
-        <CodeArea rawData={uiLibraryHookInput} />
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
         <p>
           <b className={typographyStyles.note}>옵션 3:</b>마지막으로 the{" "}
           <a
@@ -233,6 +241,58 @@ export default {
         React Hook Form 은 폼 안의 에러를 보여주는 <code>errors</code> 객체를
         제공합니다.
       </>
+    ),
+  },
+  schema: {
+    title: "스키마 유효성 검사",
+    description: (
+      <>
+        <p>
+          React Hook Form 은{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          을 활용하여 스키마 기반의 폼 유효성 검사를 제공합니다.{" "}
+          <code>validationSchema</code> 를 <a href="/api#useForm">useForm</a> 에
+          넘겨주어 추가 설정을 할 수 있습니다. React Hook Form 은 입력된
+          데이터를 스키마와 비교하여 <a href="/api#errors">에러</a> 혹은 알맞은
+          결과를 표시합니다.
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>1단계:</b> <code>Yup</code> 을
+          프로젝트에 설치합니다.
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>2단계:</b> 유효성 검사를 위한
+        스키마를 작성하고 React Hook Form 을 사용하여 인풋을 등록합니다.
+      </p>
     ),
   },
 }

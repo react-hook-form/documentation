@@ -133,7 +133,7 @@ export default {
             Puedes <code>registrar</code> un input sin una{" "}
             <code>referencia</code>. De hecho, puedes configurar el valor
             manualmente con <code>setValue</code>, <code>setError </code> y
-            <code>triggerValidation</code>.
+            <code>trigger</code>.
           </p>
           <p>
             <b className={typographyStyles.note}> Nota: </b> Debido a que la{" "}
@@ -528,11 +528,52 @@ export default {
 
           <p>
             Si le resulta difícil hacer el enfoque automático con control
-            externo componente. Es posible deshabilitar la caracteristica de
-            "enfoque automático en caso de error". Tal vez este comportamiento
-            traerá una mejor experiencia de usuario en algunos casos.{" "}
-            <code>{`useForm ({submitFocusError: false});`}</code>
+            externo componente. Es posible deshabilitar el "enfoque automático
+            en caso de error" característica. Tal vez este comportamiento traerá
+            una mejor experiencia de usuario en algunos casos.{" "}
+            <code>{`useForm ({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            Es importante entender que React Hook Form abraza la forma nativa
+            comportamiento por estado de entrada de la tienda dentro de cada
+            entrada (excepto personalizado
+            <code> registrarse </code> en <code> useEffect </code>). Uno de los
+            comunes conceptos erróneos es cuando se trabaja con formularios
+            modales o tabuladores, al montar y desmontando la forma / entradas
+            que permanecerá el estado de las entradas. Eso es implementación
+            incorrecta, en cambio, la solución correcta siempre debe
+            construyendo un nuevo formulario para su formulario dentro de modal
+            o cada pestaña y capturar sus datos de envío en estado local o
+            global.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

@@ -1,12 +1,11 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
+import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
+import tableStyles from "../../styles/table.module.css"
 
 export default {
   title: "API 설명서",
@@ -41,8 +40,7 @@ export default {
     validateContext: (
       <>
         <p>
-          이 컨텍스트 객체는 <code>validationResolver</code> 의 두 번째 인자로
-          주입되거나{" "}
+          이 컨텍스트 객체는 <code>resolver</code> 의 두 번째 인자로 주입되거나{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -89,6 +87,13 @@ export default {
         유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번
         다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로 추천하지
         않습니다.
+      </>
+    ),
+    validationOnAll: (
+      <>
+        유효성 검사는 <code>blur</code> 및 <code>change</code>
+        이벤트에서 트리거됩니다. 경고 : <code>onChange</code>
+        모드와 마찬가지로 <code>all</code> 은 성능에 큰 영향을 줄 수 있습니다.
       </>
     ),
     defaultValues: (goToSection) => (
@@ -156,7 +161,6 @@ export default {
       <p>
         이 옵션을 사용하여 입력의 재유효성 검사를 언제 할지 설정 할 수 있습니다.
         (기본적으로 입력이 변경될 때 유효성 검사가 트리거 됩니다. )
-        <Popup />
       </p>
     ),
     validationFields: (
@@ -179,26 +183,13 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    shouldUnregister: (
       <p>
-        이 옵션을 <code>true</code> 로 설정하면 브라우저의 기본 유효성 검사가
-        활성화됩니다.
-        {"  "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-        >
-          브라우저 기본 유효성 검사
-        </a>
-        에 대한 내용을 확인하시고 좀 더 자세한 내용과 예시는{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("nativeValidation")}
-        >
-          nativeValidation
-        </button>{" "}
-        에서 참고하실 수 있습니다.
+        기본적으로 입력이 제거되면 React Hook Form은{" "}
+        <code> MutationObserver </code>를 사용하여 마운트 해제 된 입력을
+        감지하고 <code> 등록 취소 </code>합니다. 그러나 마운트 해제로 인해 입력
+        상태가 손실되지 않도록 <code> shouldUnregister </code>를{" "}
+        <code> false </code>로 설정할 수 있습니다.
       </p>
     ),
   },
@@ -375,41 +366,13 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3 과 V4 의 차이점:
-        </p>
-        <ul>
-          <li>
-            <p>V4: 중첩된 객체</p>
-            <p>
-              <strong>사용 이유:</strong> 옵셔널 체이닝이 커뮤니티 사이에서 많이
-              알려졌고, 더 나은 타입 지원을 합니다.
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: 평탄한 객체</p>
-            <p>
-              <strong>사용 이유:</strong> 단순하고 에러에 접근하기 쉽습니다.
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
       <>
         여러 종류의 에러가 하나의 필드에 적용되어야 하는 비밀번호 규칙 같은
         입력의 유효성 검사를 할 때 유용합니다. 이 기능을 활성화하려면,{" "}
-        <code>validateCriteriaMode: 'all'</code> 으로 설정해두는 것을 잊지
-        마세요.
+        <code>criteriaMode 'all'</code> 으로 설정해두는 것을 잊지 마세요.
       </>
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
@@ -459,7 +422,6 @@ export default {
       ),
       multiple: "여러 입력을 확인",
       all: "모든 입력을 확인",
-      nest: "모든 입력을보고 중첩 된 객체를 반환",
     },
   },
   handleSubmit: {
@@ -599,8 +561,22 @@ export default {
         <p>
           <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
           유효성 검사를 트리거할 수 도 있습니다. 예 :{" "}
-          <code>setValue('name', 'value', true)</code>
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          필드를 더티로 설정하기 위해 <code> shouldDirty </code> 매개 변수를{" "}
+          <code> true </code>로 설정할 수도 있습니다.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },
@@ -609,31 +585,38 @@ export default {
     description: (
       <>
         <p>
-          이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는
-          경우에 유용합니다.
+          이 기능은 양식 값을 읽는 데 도움이됩니다. 차이점
+          <code> watch </code> 사이에 <code> getValues ​​</code>가 트리거되지
+          않음 입력 변경 사항을 다시 렌더링하거나 구독했습니다. 기능은 다음과
+          같습니다.
         </p>
+
         <ul>
           <li>
             <p>
-              기본적으로, <code>getValues()</code>는 폼 데이터를 flat
-              structure로 반환합니다. 예 :{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+              <code> getValues​​()</code> : 전체 양식 값을 읽습니다.
             </p>
           </li>
           <li>
             <p>
-              정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는{" "}
-              <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로
-              반환됩니다. 예 :{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+              <code>getValues​​('test')</code> : 다음을 통해 개별 입력 값을
+              읽습니다.
+              <strong>name</strong>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues​​(['test', 'test1'])</code> : 다음을 통해 여러
+              입력을 읽습니다.
+              <strong>name</strong>.
             </p>
           </li>
         </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>폼의 입력/선택 유효성 검사를 수동으로 트리거합니다.</p>
@@ -642,25 +625,6 @@ export default {
           <code>errors</code> 객체가 업데이트됩니다.
         </p>
       </>
-    ),
-  },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
-        <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로
-        적용 할 수 있습니다. React Hook Form의 객체 스키마 유효성 검사에서는{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        을 지원합니다.
-      </p>
     ),
   },
   Controller: {
@@ -682,14 +646,65 @@ export default {
             <code>as</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
           </td>
-          <td>✓</td>
+          <td></td>
           <td>
-            제어 컴포넌트. 예: <code>as="input"</code> 혹은{" "}
-            <code>{`as={<TextInput />}`}</code>
+            컨트롤러는 <code>onChange</code>, <code>onBlur</code> 을 (를)
+            삽입합니다. 및 <code>value</code>는 구성 요소에 포함됩니다.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            이것은
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              소품을 렌더링
+            </a>
+            . React 요소를 반환하는 기능을 제공하는 함수 구성 요소에 이벤트 및
+            값을 첨부하십시오. 이것은 쉽게 할 수 있습니다 비표준 소품으로 외부
+            제어 부품과 통합 이름 : <code> onChange </code>,{" "}
+            <code> onBlur </code> 및 <code>value</code>.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -700,11 +715,7 @@ export default {
             <code className={typographyStyles.typeText}>Object</code>
           </td>
           <td>✓</td>
-          <td>
-            <code>control</code> 객체는 <code>useForm</code> 을 호출하여 나온
-            것을 넣어주면 됩니다. FormContext 를 사용하고 있다면 필수는
-            아닙니다.
-          </td>
+          <td>{generic.control.kr}</td>
         </tr>
         <tr>
           <td>
@@ -741,43 +752,26 @@ export default {
           <td />
           <td>
             <code>register</code> 에 따른 유효성 검사 규칙.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td />
-          <td>
-            리턴 값을 커스터마이징 할 수 있습니다, 외부 컴포넌트의{" "}
-            <code>value</code> prop 이 어떤 형태를 가지고 있는지 알고 있어야
-            합니다. 이벤트 핸들러에 전달된 값이 <code>object</code> 형태이고{" "}
-            <code>type</code> 속성값을 포함하고 있는 경우 <code>value</code>{" "}
-            혹은 <code>checked</code> 속성값을 읽어올 수 있습니다.
+            <ul>
+              <li>
+                로컬 상태 : 업데이트 된 유효성 검사와 함께 <code>register</code>{" "}
+                입력
+                <code>useEffect</code>에서 규칙 또는 <code>unregister</code>{" "}
+                입력을 수행하고 <code>Controller</code>가 업데이트 된{" "}
+                <code>rules</code>으로 자체 등록하도록합니다.
+              </li>
+              <li>
+                입력 상태 : <code>getValues</code>와 함께 <code>validate</code>{" "}
+                함수를 활용하여 조건부 검증을 반환합니다.
+              </li>
+            </ul>
             <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ { checked } ]) => ({ checked })}}`}
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
             />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
-            수 있도록 합니다. 예: <code>onChange</code> 이벤트가{" "}
-            <code>onTextChange</code> 로 되어있는 경우.
           </td>
         </tr>
         <tr>
@@ -805,34 +799,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 특정한 이벤트 이름을 지정하여 그 이벤트의 변화를 바라볼
-            수 있도록 합니다. 예: <code>onBlur</code> 이벤트가{" "}
-            <code>onTextBlur</code> 로 되어있는 경우.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td />
-          <td>
-            이 prop 은 <code>value</code> prop 을 다시 정의하여(Override)
-            <code>value</code> prop 을 사용하지 않는 다른 컴포넌트에 사용할 수
-            있습니다. 예: <code>checked</code>, <code>selected</code> 등.
           </td>
         </tr>
       </tbody>
@@ -910,100 +876,39 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
     description: (
       <p>입력값의 에러 메세지를 랜더링하기 위한 간단한 컴포넌트입니다.</p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>연결할 필드 이름.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td />
-          <td>
-            <code>errors</code> 객체는 React Hook Form 에서 전달된 것입니다.
-            FormContext 를 쓴다면 필수 값은 아닙니다.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>인라인 오류 메시지.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td />
-          <td>
-            감싸질 컴포넌트나 HTML 태그. 예: <code>as="span"</code> 나{" "}
-            <code>{`as={<Text />}`}</code> 등.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
-            </code>
-          </td>
-          <td />
-          <td>
-            에러 메세지나 일반 메세지를 랜더링하기 위한{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            입니다.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-              validateCriteriaMode to 'all' for using <code>messages</code>.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          다음 예제는 브라우저의 유효성 검사를 활용하는 방법입니다.{" "}
-          <code>nativeValidation</code> 을 <code>true</code>로 설정하고, 나머지
-          문법은 표준과 같습니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note</b>: This feature has been
-          removed in V4 due to low usage, but you can still use it in V3
-        </p>
-      </>
-    ),
+    table: {
+      name: <>연결할 필드 이름.</>,
+      errors: (
+        <>
+          <code>errors</code> 객체는 React Hook Form 에서 전달된 것입니다.
+          FormContext 를 쓴다면 필수 값은 아닙니다.
+        </>
+      ),
+      message: <>인라인 오류 메시지.</>,
+      as: (
+        <>
+          감싸질 컴포넌트나 HTML 태그. 예: <code>as="span"</code> 나{" "}
+          <code>{`as={<Text />}`}</code> 등.
+        </>
+      ),
+      render: (
+        <>
+          에러 메세지나 일반 메세지를 랜더링하기 위한{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          입니다.
+          <p>
+            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
+            validateCriteriaMode to 'all' for using <code>messages</code>.
+          </p>
+        </>
+      ),
+    },
   },
   useFieldArray: {
     title: "useFieldArray",
@@ -1022,7 +927,57 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           제어 vs 비제어 필드 배열을 비교할 수 있습니다.
         </p>
 
-        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.kr}</th>
+                <th width="140px">{generic.type.kr}</th>
+                <th width="90px">{generic.required.kr}</th>
+                <th>{generic.description.kr}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>연결할 필드 이름.</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.kr}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  필드 배열 <code> key </code> 값, 기본값은 "id"입니다. 키
+                  이름을 변경하십시오.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <CodeArea rawData={useFieldArrayArgument} />
 
@@ -1128,7 +1083,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object, shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
@@ -1139,7 +1094,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object, shouldFocus?: boolean = true) => void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
@@ -1150,7 +1105,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object, shouldFocus?: boolean = true) =>
+              void
             </code>
           </td>
           <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
@@ -1203,12 +1159,20 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           이 함수는
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1230,29 +1194,74 @@ React.useEffect(() => {
           React Hook Form 과 함께 동작할 수 있도록 지원하려 합니다. 심지어
           유효성 검사를 위해 직접 커스터마이징할 수도 있습니다.
         </p>
+
         <p>
-          <b className={typographyStyles.note}>참고:</b> 반드시{" "}
-          <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
-          리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체 <code>{`{}`}</code>{" "}
-          가 되어야 합니다.
+          우리는 공식적으로 Yup, Joi 및 Superstruct를{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            표준 리졸버
+          </a>
+          .
         </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> errors 객체의 키 값은
-          반드시 인풋 값과 연결되어야 합니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 이 함수는
-          <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
-          캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
-          변경할 수있는 변경 가능한 객체입니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는
-          것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다. 왜냐하면
-          라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고 그에 따라
-          리랜더링을 실행하기 때문입니다.
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
+
+        <p>사용자 정의 리졸버 빌드에 대한 참고 사항 :</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> 반드시{" "}
+              <code>values</code> 와 <code>errors</code> 객체를 모두 포함하여
+              리턴시키세요, 그리고 이 객체들의 기본값은 빈 객체{" "}
+              <code>{`{}`}</code> 가 되어야 합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> errors 객체의 키
+              값은 반드시 인풋 값과 연결되어야 합니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b>이 기능은
+              <code>context</code>는 다시 렌더링 할 때마다 변경할 수있는 변경
+              가능한 객체.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>참고:</b> 입력값을 다시
+              검사하는 것은 사용자의 행동에 따라 한 필드당 하나씩만 동작합니다.
+              왜냐하면 라이브러리 자체에서 에러 객체의 특정 필드를 대조해보고
+              그에 따라 리랜더링을 실행하기 때문입니다.
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        그러나 <code> watch </code> API와 동일한 기능을 공유하십시오. 컴포넌트
+        레벨에서 다시 렌더링을 분리하여 결과적으로 애플리케이션 성능 향상.
+      </p>
     ),
   },
 }
