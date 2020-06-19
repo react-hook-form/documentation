@@ -717,7 +717,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 setError:
                 <span className={typographyStyles.typeText}>
-                  {`(name: string, type?: string | Object, message?: string) => void`}
+                  {`(name: string, error: { type: string, types: object, message?: string }) => void`}
                 </span>
               </h2>
             </code>
@@ -754,7 +754,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                clearError:{" "}
+                clearErrors:{" "}
                 <span className={typographyStyles.typeText}>
                   (name?: string | string[]) => void
                 </span>

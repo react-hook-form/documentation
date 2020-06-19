@@ -231,6 +231,72 @@ export default (
       >
         npm install @hookform/error-message
       </code>
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>clearError: </h2>
+
+        <p>
+          Rename function to <code>clearErrors</code>.
+        </p>
+
+        <CodeArea
+          withOutCopy
+          rawData={`- clearError('test')
++ clearError('test')`}
+        />
+      </code>
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>setError: </h2>
+      </code>
+
+      <p>Syntax update and no longer support multiple errors.</p>
+
+      <CodeArea
+        withOutCopy
+        rawData={`- setError('test', 'required', 'message')
++ setError('test', { type: 'required', message: 'message' })
+
+- setError([ { name: 'test1', type: "max", }, { name: 'test', type: "min", } ])
++ [ 
++   { name: 'test1', type: "max" }, 
++   { name: 'test', type: "min" } 
++ ].forEach(({ name, type }) => setError(name, { type }))
+`}
+      />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>setValue: </h2>
+      </code>
+
+      <p>
+        Syntax update and no longer dirty field by default and stop supporting
+        multiple errors.
+      </p>
+
+      <CodeArea
+        withOutCopy
+        rawData={`- setValue('test', 'data')
++ setError('test', 'data', { shouldDirty: true })
+
+- setValue([ { test: "1", }, { test1: "2", } ])
++ [ { name: 'test', value: 'data' } ].forEach(({ name, value }) => setValue(name, value))
+`}
+      />
+
+      <code className={typographyStyles.codeHeading}>
+        <h2>clearError: </h2>
+
+        <p>
+          Rename function to <code>clearErrors</code>.
+        </p>
+
+        <CodeArea
+          withOutCopy
+          rawData={`- clearError('test')
++ clearError('test')`}
+        />
+      </code>
     </main>
   </>
 )

@@ -13,7 +13,7 @@ export default function App() {
       {errors.lastName && errors.lastName.message}
       
       <button type="button" onClick={() => {
-        setError([
+        [
           {
             type: "required",
             name: "lastName",
@@ -24,7 +24,7 @@ export default function App() {
             name: "username",
             message: "Minlength is 10",
           },
-        ]);
+        ].forEach(({ name, type, message }) => setError(name, { type, message }));
       }}>
         Set Errors for a single field
       </button>

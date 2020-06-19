@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, setError, clearError } = useForm();
+  const { register, errors, setError } = useForm();
 
   return (
     <form>
@@ -11,7 +11,7 @@ export default function App() {
         onChange={e => {
           if (e.target.value === 'bill') {
             // set an error with type and message
-            setError("username", "notMatch", "please choose a different username");
+            setError("username", { type: "notMatch", message: "please choose a different username" });
           }
         }}
         ref={register}
