@@ -246,7 +246,10 @@ export default function App() {
               <code>FormValues</code> type.
             </p>
 
-            <CodeArea rawData={handleSubmitCodeTs} />
+            <CodeArea
+              rawData={handleSubmitCodeTs}
+              url="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-994mz"
+            />
           </section>
 
           <hr />
