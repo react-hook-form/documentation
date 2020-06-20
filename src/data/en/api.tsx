@@ -624,12 +624,6 @@ export default {
               <code>dirty</code> is set to true
             </p>
           </li>
-          <li>
-            <p>
-              When setValue is invoked and formState <code>touched</code> is
-              updated
-            </p>
-          </li>
         </ul>
         <p>
           You can also set the <code>shouldValidate</code> parameter to{" "}
