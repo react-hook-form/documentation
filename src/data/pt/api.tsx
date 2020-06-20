@@ -583,12 +583,6 @@ export default {
               <code>dirty</code> é marcado como verdadeiro (true)
             </p>
           </li>
-          <li>
-            <p>
-              Quando setValue é invocado e formState <code>touched</code> é
-              atualizado
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Ao chamar este método,{" "}

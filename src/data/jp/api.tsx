@@ -586,12 +586,6 @@ export default {
               true に設定されたとき
             </p>
           </li>
-          <li>
-            <p>
-              setValue が実行され、 formState の <code>touched</code>{" "}
-              が更新されたとき
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>注意：</b>{" "}

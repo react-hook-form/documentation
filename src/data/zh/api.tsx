@@ -560,11 +560,6 @@ export default {
               首次调用并触发表单<code>dirty</code>
             </p>
           </li>
-          <li>
-            <p>
-              更新表格状态<code>touched</code>
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>注意:</b> 通过调用此方法，

@@ -583,12 +583,6 @@ export default {
               <code>dirty</code> установлен в true
             </p>
           </li>
-          <li>
-            <p>
-              Когда вызван setValue и обновлено значение свойства{" "}
-              <code>touched</code> из formState
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>Примечание:</b> При вызове этого

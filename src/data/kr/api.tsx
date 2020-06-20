@@ -561,11 +561,6 @@ export default {
               맨 처음 실행되어 폼이 <code>dirty</code> 상태가 되도록 했을 때
             </p>
           </li>
-          <li>
-            <p>
-              formState 를 <code>touched</code> 로 업데이트 했을 때
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>참고:</b> 이 함수를 호출함으로써,{" "}
