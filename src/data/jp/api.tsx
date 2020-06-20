@@ -1,7 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
-import { navigate } from "gatsby"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
@@ -470,21 +469,6 @@ export default {
             handleSubmit(async (data) => await fetchAPI(data))
           </code>
         </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          TypeScriptを使用すると、{" "}
-          <code>
-            import {"{ "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => navigate("/ts#SubmitHandler")}
-            >
-              SubmitHandler
-            </button>
-            {" }"} from ‘react-hook-form’
-          </code>
-          でフォームの onSubmit 関数の型検証を簡単に処理できます。
-        </p>
       </>
     ),
   },
@@ -559,7 +543,7 @@ export default {
     ),
   },
   clearError: {
-    title: "clearError",
+    title: "clearErrors",
     description: (
       <ul>
         <li>

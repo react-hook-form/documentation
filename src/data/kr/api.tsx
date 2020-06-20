@@ -1,7 +1,6 @@
 import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
-import { navigate } from "gatsby"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
@@ -447,20 +446,6 @@ export default {
             handleSubmit(async (data) => await fetchAPI(data))
           </code>
         </p>
-        <p>
-          <b className={typographyStyles.note}>참고:</b> TypeScript를 사용하면{" "}
-          <code>
-            import {"{ "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => navigate("/ts#SubmitHandler")}
-            >
-              SubmitHandler
-            </button>
-            {" }"} from ‘react-hook-form’
-          </code>
-          함수의 형식 유효성 검사를 쉽게 처리 할 수 ​​있습니다.
-        </p>
       </>
     ),
   },
@@ -534,7 +519,7 @@ export default {
     ),
   },
   clearError: {
-    title: "clearError",
+    title: "clearErrors",
     description: (
       <ul>
         <li>
