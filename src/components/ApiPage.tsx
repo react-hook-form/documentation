@@ -671,6 +671,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               rawData={handleSubmitCode}
               tsRawData={handleSubmitCodeTs}
               url="https://codesandbox.io/s/yj07z1639"
+              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-994mz"
             />
           </section>
 

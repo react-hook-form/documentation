@@ -1,6 +1,7 @@
 import * as React from "react"
 import colors from "../../styles/colors"
 import CodeArea from "../../components/CodeArea"
+import { navigate } from "gatsby"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
@@ -470,6 +471,22 @@ export default {
           <code className={typographyStyles.codeBlock}>
             handleSubmit(async (data) => await fetchAPI(data))
           </code>
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Nota:</b> Al usar TypeScript
+          puede{" "}
+          <code>
+            import {"{ "}
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => navigate("/ts#SubmitHandler")}
+            >
+              SubmitHandler
+            </button>
+            {" }"} from ‘react-hook-form’
+          </code>
+          para manejar fácilmente la validación de tipo para la función onSubmit
+          de sus formularios
         </p>
       </>
     ),
