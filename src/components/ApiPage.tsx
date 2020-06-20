@@ -671,6 +671,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               rawData={handleSubmitCode}
               tsRawData={handleSubmitCodeTs}
               url="https://codesandbox.io/s/yj07z1639"
+              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-994mz"
             />
           </section>
 
@@ -701,7 +702,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 rawData={resetController}
                 url="https://codesandbox.io/s/react-hook-form-controller-079xx"
                 tsRawData={resetControllerTs}
-                tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-wr80q"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               />
             </TabGroup>
           </section>

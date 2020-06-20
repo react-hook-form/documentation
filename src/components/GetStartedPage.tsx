@@ -273,7 +273,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             rawData={controlledComponent}
             url="https://codesandbox.io/s/react-hook-form-controller-079xx"
             tsRawData={controlledComponentTs}
-            tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-wr80q"
+            tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
           />
 
           <h2
