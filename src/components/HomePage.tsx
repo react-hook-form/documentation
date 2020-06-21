@@ -148,7 +148,11 @@ function HomePage({
         currentLanguage={currentLanguage}
       />
 
-      <Watcher lightMode={lightMode} isPlayWatch={isPlayWatch} />
+      <Watcher
+        lightMode={lightMode}
+        isPlayWatch={isPlayWatch}
+        currentLanguage={currentLanguage}
+      />
 
       <CodePerfCompareSection
         isPlayRender={isPlayRender}
