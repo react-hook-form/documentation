@@ -550,7 +550,7 @@ export default {
           </p>
 
           <p>
-            However, for some 3rd party controlled Components like{" "}
+            However, for some 3rd party controlled Components (like{" "}
             <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
             from AntD) it's very difficult to predict his ref because the
             formats changes, so React Hook Form will properly detect the
