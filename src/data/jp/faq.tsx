@@ -523,7 +523,7 @@ export default {
       ),
     },
     {
-      title: "How to work with modal or tab forms?",
+      title: "モーダルまたはタブ付きのフォームではどのように動作しますか?",
       description: (
         <>
           <p>
