@@ -233,12 +233,12 @@ export default (
         npm install @hookform/error-message
       </code>
       <code className={typographyStyles.codeHeading}>
-        <h2>clearError: </h2>
+        <h2>clearErrors: </h2>
 
         <CodeArea
           withOutCopy
           rawData={`- clearError('test')
-+ clearError('test')`}
++ clearErrors('test')`}
         />
       </code>
 
@@ -272,16 +272,6 @@ export default (
 + [ { name: 'test', value: 'data' } ].forEach(({ name, value }) => setValue(name, value))
 `}
       />
-
-      <code className={typographyStyles.codeHeading}>
-        <h2>clearError: </h2>
-
-        <CodeArea
-          withOutCopy
-          rawData={`- clearError('test')
-+ clearError('test')`}
-        />
-      </code>
     </main>
   </>
 )

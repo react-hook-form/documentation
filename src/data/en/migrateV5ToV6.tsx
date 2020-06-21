@@ -233,7 +233,7 @@ export default (
       </code>
 
       <code className={typographyStyles.codeHeading}>
-        <h2>clearError: </h2>
+        <h2>clearErrors: </h2>
 
         <p>
           Rename function to <code>clearErrors</code>.
@@ -242,7 +242,7 @@ export default (
         <CodeArea
           withOutCopy
           rawData={`- clearError('test')
-+ clearError('test')`}
++ clearErrors('test')`}
         />
       </code>
 
@@ -283,20 +283,6 @@ export default (
 + [ { name: 'test', value: 'data' } ].forEach(({ name, value }) => setValue(name, value))
 `}
       />
-
-      <code className={typographyStyles.codeHeading}>
-        <h2>clearError: </h2>
-
-        <p>
-          Rename function to <code>clearErrors</code>.
-        </p>
-
-        <CodeArea
-          withOutCopy
-          rawData={`- clearError('test')
-+ clearError('test')`}
-        />
-      </code>
     </main>
   </>
 )
