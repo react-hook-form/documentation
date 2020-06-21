@@ -480,6 +480,78 @@ export default {
       ),
     },
   },
+  watcher: {
+    en: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    es: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    pt: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    kr: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    jp: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    zh: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+    ru: {
+      title: "Subscribe Input Change",
+      description: (
+        <p>
+          Performance is an important aspect of user experience in terms of
+          building forms. You will have the ability to subscribe to individual
+          input change without re-render the entire form.
+        </p>
+      ),
+    },
+  },
   rendering: {
     en: {
       title: "Reduce Rendering",

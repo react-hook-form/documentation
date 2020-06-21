@@ -6,6 +6,7 @@ import formStyles from "./Form.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./Watcher.module.css"
 import { useEffect } from "react"
+import home from "../data/home"
 
 const WatchText = ({
   control,
@@ -74,9 +75,11 @@ const WatchGroup = ({
 export default ({
   isPlayWatch,
   lightMode,
+  currentLanguage,
 }: {
   isPlayWatch: boolean
   lightMode: boolean
+  currentLanguage: string
 }) => {
   let timer
   const { register, control, setValue } = useForm()
@@ -122,12 +125,10 @@ export default ({
     <AnimateGroup play={isPlayWatch}>
       <div className={styles.watcher} id="watch">
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>Subscribe Input Change</h1>
-          <p>
-            Performance is an important aspect of user experience in terms of
-            building forms. You will have the ability to subscribe to individual
-            input change without re-render the entire form.
-          </p>
+          <h1 className={typographyStyles.h1}>
+            {home.watcher[currentLanguage].title}
+          </h1>
+          {home.watcher[currentLanguage].description}
         </div>
 
         <div className={styles.root}>
