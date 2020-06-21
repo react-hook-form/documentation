@@ -522,12 +522,11 @@ export default {
       ),
     },
     jp: {
-      title: "Subscribe Input Change",
+      title: "入力の変更を監視",
       description: (
         <p>
-          Performance is an important aspect of user experience in terms of
-          building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          フォームを実装する用件の中でパフォーマンスはユーザー体験において重要なものです。
+          あなたは個別のinput要素の変更をフォーム全体の再レンダリングなしに監視することができます。
         </p>
       ),
     },
