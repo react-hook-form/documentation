@@ -31,22 +31,21 @@ import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
 import setAllErrors from "./codeExamples/setAllErrors"
-import resetCodeControlled from "./codeExamples/resetCodeControlled"
 import resetController from "./codeExamples/resetController"
 import resetControllerTs from "./codeExamples/resetControllerTs"
 import control from "./codeExamples/control"
 import UseFieldArray from "./UseFieldArray"
 import ValidationResolver from "./ValidationResolver"
 import UseWatch from "./UseWatch"
+import { getNavLink } from "./Nav"
+import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
+import VideoList from "./VideoList"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
-import { getNavLink } from "./Nav"
-import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
-import VideoList from "./VideoList"
 
 const { useRef, useEffect } = React
 
@@ -315,7 +314,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 aria-controls="tabPanel-1"
                 role="tab"
                 onClick={() => {
-                  navigate(getNavLink(`v5/api`, currentLanguage))
+                  navigate(getNavLink(`/v5/api`, currentLanguage))
                 }}
               >
                 V5
