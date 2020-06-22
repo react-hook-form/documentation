@@ -146,7 +146,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     handleSubmitRef: null,
     resetRef: null,
     setErrorRef: null,
-    clearErrorRef: null,
+    clearErrorsRef: null,
     setValueRef: null,
     getValuesRef: null,
     triggerRef: null,
@@ -749,7 +749,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => {
-              apiSectionsRef.current.clearErrorRef = ref
+              apiSectionsRef.current.clearErrorsRef = ref
             }}
           >
             <code className={typographyStyles.codeHeading}>
