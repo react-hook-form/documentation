@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import CodeArea from "../../../components/CodeArea"
@@ -13,6 +14,13 @@ export default {
     description:
       "сфокусирован на предоставлении лучшего опыта разработки за счет упрощения API.",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form V6 выпущен. Если
+      вы планируете выполнить обновление, ознакомьтесь с{" "}
+      <Link to="/migrate-v5-to-v6">Руководство по миграции на V6</Link>.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
@@ -432,6 +440,19 @@ export default {
     ),
     message: `Сообщение является пустой строкой по умолчанию. Однако, если вы зарегистрируете валидацию с сообщением об ошибке, то затем она будет возвращена.`,
     ref: `Ссылка на ваш элемент поля.`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>Примечание:</b> вы можете
+        использовать{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        чтобы помочь обработать ваши ошибки.
+      </p>
+    ),
   },
   watch: {
     title: "watch",

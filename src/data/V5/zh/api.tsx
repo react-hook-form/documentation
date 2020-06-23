@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -6,13 +7,19 @@ import CodeArea from "../../../components/CodeArea"
 import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"
-import code from "../../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
   header: {
     description: "专注于通过简化API提供最佳开发者体验",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form
+      V6已发布。如果您打算升级，请通读{" "}
+      <Link to="/migrate-v5-to-v6">V6迁移指南</Link>。
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
@@ -418,6 +425,18 @@ export default {
     ),
     message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
     ref: `输入元素的参考。`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>注意：</b> 您可以使用{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        帮助处理错误状态。
+      </p>
+    ),
   },
   watch: {
     title: "watch",

@@ -377,6 +377,18 @@ export default {
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
     ref: `입력 엘레먼트에 대한 ref`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>참고: </b>{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        를 사용하여 오류 상태를 처리 할 수 ​​있습니다.
+      </p>
+    ),
   },
   watch: {
     title: "watch",

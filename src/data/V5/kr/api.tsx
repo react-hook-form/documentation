@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -13,6 +14,14 @@ export default {
   header: {
     description: "은 API 단순화를 통해 최고의 DX를 제공합니다.",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> 리 액트 훅 폼 V6이 출시되었습니다.
+      업그레이드를 계획하고 있다면{" "}
+      <Link to="/migrate-v5-to-v6">V6으로의 ​​마이그레이션 안내서</Link> 을
+      읽어보십시오.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
@@ -414,6 +423,18 @@ export default {
     ),
     message: `메시지는 기본적으로 빈 문자열입니다. 하지만 에러 메시지와 함께 유효성 검사를 함께 등록하면, 이 값이 반환됩니다.`,
     ref: `입력 엘레먼트에 대한 ref`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>참고: </b>{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        를 사용하여 오류 상태를 처리 할 수 ​​있습니다.
+      </p>
+    ),
   },
   watch: {
     title: "watch",

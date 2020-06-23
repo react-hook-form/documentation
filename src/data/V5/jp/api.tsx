@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -14,6 +15,13 @@ export default {
     description:
       "は API をシンプルにすることにより、最高な DX を提供することに焦点を当てています。",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form
+      V6がリリースされました。アップグレードを計画している場合は、{" "}
+      <Link to="/migrate-v5-to-v6">V6への移行ガイド</Link> に目を通してください.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
@@ -441,6 +449,18 @@ export default {
     ),
     message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで登録するとエラーメッセージが返されます。`,
     ref: `input 要素の参照。`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>注意: </b>{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        を使用すると、エラー状態の処理に役立ちます。
+      </p>
+    ),
   },
   watch: {
     title: "watch",

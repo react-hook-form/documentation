@@ -1,13 +1,13 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
-import errorCode from "./codeExamples/errorCode"
-import errorCodeTs from "./codeExamples/errorCodeTs"
-import generic from "../data/generic"
+import CodeArea from "../CodeArea"
+import errorCode from "../codeExamples/errorCode"
+import errorCodeTs from "../codeExamples/errorCodeTs"
+import generic from "../../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import multipleErrorCodeTs from "./codeExamples/multipleErrorCodeTs"
-import TabGroup from "./TabGroup"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
+import TabGroup from "../TabGroup"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
 
 export default React.memo(
   ({
@@ -100,14 +100,14 @@ export default React.memo(
           <CodeArea
             rawData={errorCode}
             tsRawData={errorCodeTs}
-            url="https://codesandbox.io/s/react-hook-form-error-v6-rcpm8"
-            tsUrl="https://codesandbox.io/s/react-hook-form-error-ts-v6-500eo"
+            url="https://codesandbox.io/s/react-hook-form-error-v5-4fkrm"
+            tsUrl="https://codesandbox.io/s/react-hook-form-error-ts-v5-ih2h0"
           />
           <CodeArea
             rawData={multipleErrorCode}
             tsRawData={multipleErrorCodeTs}
-            url="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v6-tixtl"
-            tsUrl="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v6-ts-r51li"
+            url="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v5-w37ef"
+            tsUrl="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v5-ts-4zp8y"
           />
         </TabGroup>
 

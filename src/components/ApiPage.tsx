@@ -641,7 +641,11 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
-            <ApiErrors currentLanguage={currentLanguage} api={api} />
+            <ApiErrors
+              currentLanguage={currentLanguage}
+              api={api}
+              goToSection={goToSection}
+            />
           </section>
 
           <section

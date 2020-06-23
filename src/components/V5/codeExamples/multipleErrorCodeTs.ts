@@ -1,20 +1,29 @@
-export default `import React from "react";
+export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
+interface IFormInputs {
+  password: string
+}
+
 export default function App() {
-  const { register, errors, handleSubmit } = useForm({
-    // by setting validateCriteriaMode to 'all', 
+  const { register, errors, handleSubmit } = useForm<IFormInputs>({
+    // by setting validateCriteriaMode to 'all',
     // all validation errors for single field will display at once
-    criteriaMode: "all"
+    validateCriteriaMode: "all",
+    mode: "onChange"
   });
-  const onSubmit = data => console.log(data);
+
+  const onSubmit = (data: IFormInputs) => {
+    console.log(data)
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Password</label>
       <input
         type="password"
         name="password"
-        ref={register({ required: true, minLength: 10, pattern: /\\d+/ })}
+        ref={register({ required: true, minLength: 10, pattern: /\d+/gi })}
       />
       {/* without enter data for the password input will result both messages to appear */}
       {errors?.password?.types?.required && <p>password required</p>}

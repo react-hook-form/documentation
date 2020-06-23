@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import CodeArea from "../../../components/CodeArea"
@@ -11,6 +12,13 @@ export default {
   header: {
     description: "focuses on providing the best DX by simplifying the API.",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form V6 is released. If
+      you are planning to upgrade, please read through the{" "}
+      <Link to="/migrate-v5-to-v6">Migration Guide to V6</Link>.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
@@ -428,6 +436,18 @@ export default {
     ),
     message: `If you registered your input with an error message, then it will be put in this field. Otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>Note:</b> You can use{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        to help handle your error states
+      </p>
+    ),
   },
   watch: {
     title: "watch",

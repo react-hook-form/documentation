@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import ApiRefTable from "../ApiRefTable"
 import validationSchemaCode from "../V5/codeExamples/validationSchema"
 import validationSchemaNative from "../V5/codeExamples/validationSchemaNative"
@@ -8,7 +7,7 @@ import SideMenu from "../SideMenu"
 import ApiFormState from "./ApiFormStateV5"
 import resetCode from "../V5/codeExamples/resetCode"
 import ApiWatch from "./ApiWatchV5"
-import ApiErrors from "../ApiErrors"
+import ApiErrors from "./ApiErrorsV5"
 import handleSubmitCode from "../V5/codeExamples/handleSubmitCode"
 import setError from "../V5/codeExamples/setError"
 import clearError from "../V5/codeExamples/clearError"
@@ -285,11 +284,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               borderRadius: 4,
             }}
           >
-            <p>
-              <span style={{ fontSize: 12 }}>►</span> React Hook Form V6 is
-              released. If you are planning to upgrade, please read through the{" "}
-              <Link to="/migrate-v5-to-v6">Migration Guide to V6</Link>.
-            </p>
+            {api.v5upgradeAlert}
           </div>
 
           <div
@@ -713,7 +708,11 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               apiSectionsRef.current.errorsRef = ref
             }}
           >
-            <ApiErrors currentLanguage={currentLanguage} api={api} />
+            <ApiErrors
+              currentLanguage={currentLanguage}
+              api={api}
+              goToSection={goToSection}
+            />
           </section>
 
           <section
