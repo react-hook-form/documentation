@@ -1,6 +1,5 @@
 export default `import * as React from "react";
 import { useForm } from "react-hook-form";
-import "./styles.css";
 import * as Joi from "@hapi/joi";
 
 const validationSchema = Joi.object({

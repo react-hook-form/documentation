@@ -1,6 +1,5 @@
 export default `import * as React from "react";
 import { useForm } from "react-hook-form";
-import "./styles.css";
 import * as Joi from "@hapi/joi";
 
 interface IFormInputs {
@@ -43,7 +42,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>resolver</h1>
-      
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
         <input type="text" name="username" ref={register} />

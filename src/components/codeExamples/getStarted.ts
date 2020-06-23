@@ -21,8 +21,6 @@ export const registerCodeTs = `import React from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 
-import "./styles.css";
-
 // There are two genders here, but there can be many more!
 enum GenderEnum {
   male = "male",
@@ -54,9 +52,6 @@ export default function App() {
     </form>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 `
 
 export const migrateCode = `import React from "react";
