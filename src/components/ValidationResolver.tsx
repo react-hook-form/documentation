@@ -45,7 +45,7 @@ export default function ({ api }) {
           rawData={validationResolver}
           tsRawData={validationResolverTs}
           url="https://codesandbox.io/s/react-hook-form-customresoliver-v6-h4ti6"
-          tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
+          tsUrl="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v6-ecoxh"
         />
       </TabGroup>
     </>
