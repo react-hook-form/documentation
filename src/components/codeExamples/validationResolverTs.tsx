@@ -37,13 +37,13 @@ const App = () => {
   });
 
   const onSubmit = (data: IFormInputs) => {
-    alert(JSON.stringify(data));
+    console.log(data)
   };
 
   return (
     <div className="App">
-      <h1>validationResolver</h1>
-
+      <h1>resolver</h1>
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
         <input type="text" name="username" ref={register} />
