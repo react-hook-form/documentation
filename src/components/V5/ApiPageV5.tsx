@@ -520,9 +520,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.useForm.defaultValues(goToSection)}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
+              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v5-5s1d8"
               rawData={defaultValues}
-              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-ts-i497w"
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v5-ts-q1ws6"
               tsRawData={defaultValuesTs}
             />
 
@@ -699,9 +699,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.unregister.description}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
+              url="https://codesandbox.io/s/react-hook-form-unregister-v5-cy6ls"
               rawData={unregisterCode}
-              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-7z4h8"
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v5-ts-7z4h8"
               tsRawData={unregisterCodeTs}
             />
           </section>
