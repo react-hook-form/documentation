@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -14,6 +15,13 @@ export default {
     description:
       "foca em prover a melhor experiência para o desenvolvedor com uma API Simplificada",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> O formulário de gancho de reação
+      V6 é liberado. Se você está planejando atualizar, leia o{" "}
+      <Link to="/migrate-v5-to-v6">Guia de migração para V6</Link>.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (

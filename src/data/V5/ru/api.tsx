@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import CodeArea from "../../../components/CodeArea"
@@ -13,6 +14,13 @@ export default {
     description:
       "сфокусирован на предоставлении лучшего опыта разработки за счет упрощения API.",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form V6 выпущен. Если
+      вы планируете выполнить обновление, ознакомьтесь с{" "}
+      <Link to="/migrate-v5-to-v6">Руководство по миграции на V6</Link>.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (

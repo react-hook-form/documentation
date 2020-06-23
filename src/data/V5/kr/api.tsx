@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -13,6 +14,14 @@ export default {
   header: {
     description: "은 API 단순화를 통해 최고의 DX를 제공합니다.",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> 리 액트 훅 폼 V6이 출시되었습니다.
+      업그레이드를 계획하고 있다면{" "}
+      <Link to="/migrate-v5-to-v6">V6으로의 ​​마이그레이션 안내서</Link> 을
+      읽어보십시오.
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (

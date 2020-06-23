@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
 import generic from "../../generic"
@@ -6,13 +7,19 @@ import CodeArea from "../../../components/CodeArea"
 import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"
-import code from "../../../components/codeExamples/defaultExample"
 
 export default {
   title: "API文档",
   header: {
     description: "专注于通过简化API提供最佳开发者体验",
   },
+  v5upgradeAlert: (
+    <p>
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form
+      V6已发布。如果您打算升级，请通读{" "}
+      <Link to="/migrate-v5-to-v6">V6迁移指南</Link>。
+    </p>
+  ),
   useForm: {
     title: "useForm",
     intro: (
