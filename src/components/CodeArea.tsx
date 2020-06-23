@@ -93,7 +93,7 @@ export default function CodeArea({
           <button
             className={`${styles.button} ${styles.copyButton}`}
             onClick={() => {
-              copyClipBoard(rawData || generateCode(data))
+              copyClipBoard((isTS ? tsRawData : rawData) || generateCode(data))
               alert(generic.copied[currentLanguage])
             }}
             aria-label={generic.copied[currentLanguage]}
