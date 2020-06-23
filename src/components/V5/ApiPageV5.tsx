@@ -520,9 +520,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.useForm.defaultValues(goToSection)}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-defaultvalues-n5gvx"
+              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v5-5s1d8"
               rawData={defaultValues}
-              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-ts-i497w"
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v5-ts-q1ws6"
               tsRawData={defaultValuesTs}
             />
 
