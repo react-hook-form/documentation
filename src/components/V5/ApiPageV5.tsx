@@ -699,9 +699,9 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {api.unregister.description}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
+              url="https://codesandbox.io/s/react-hook-form-unregister-v5-cy6ls"
               rawData={unregisterCode}
-              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-7z4h8"
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v5-ts-7z4h8"
               tsRawData={unregisterCodeTs}
             />
           </section>
