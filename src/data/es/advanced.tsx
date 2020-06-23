@@ -281,8 +281,8 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> we have also build a
-          custom hook for complex scenario:{" "}
+          <b className={typographyStyles.note}>Nota:</b> tambien hemos
+          construido a custom hook for complex scenario:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
@@ -386,7 +386,7 @@ export default {
         . Resuelve el problema donde los datos pasan a través de un árbol de
         componentes sin tener que pasar propiedades manualmente en todos los
         niveles. Esto hace que el árbol de componentes active una nueva
-        renderización cuando React Hookv Form dispara una actualización de
+        renderización cuando React Hook Form dispara una actualización de
         estado, pero aún podemos optimizar nuestra aplicación si es necesario
         como en el ejemplo a continuación.
       </p>
@@ -416,7 +416,7 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "Trabajando con listas vitualizadas",
     description: (
       <>
         <p>
