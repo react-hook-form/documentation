@@ -421,6 +421,18 @@ export default {
     ),
     message: `Message es un string vacio por defecto. Sin embargo, si registra la validación con un mensaje de error, se devolverá.`,
     ref: `Referencia del input.`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>Nota:</b> puede usar{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        para ayudar a manejar sus estados de erro
+      </p>
+    ),
   },
   watch: {
     title: "watch",

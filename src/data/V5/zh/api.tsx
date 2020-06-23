@@ -418,6 +418,18 @@ export default {
     ),
     message: `默认情况下消息是空字符串。 但是，如果您使用错误消息注册验证，那么它将被返回。`,
     ref: `输入元素的参考。`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>注意：</b> 您可以使用{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        帮助处理错误状态。
+      </p>
+    ),
   },
   watch: {
     title: "watch",

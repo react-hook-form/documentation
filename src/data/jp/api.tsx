@@ -401,6 +401,18 @@ export default {
     ),
     message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで登録するとエラーメッセージが返されます。`,
     ref: `input 要素の参照。`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>注意: </b>{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        を使用すると、エラー状態の処理に役立ちます。
+      </p>
+    ),
   },
   watch: {
     title: "watch",

@@ -428,6 +428,18 @@ export default {
     ),
     message: `If you registered your input with an error message, then it will be put in this field. Otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>Note:</b> You can use{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        to help handle your error states
+      </p>
+    ),
   },
   watch: {
     title: "watch",

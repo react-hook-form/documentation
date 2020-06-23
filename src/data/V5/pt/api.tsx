@@ -432,6 +432,18 @@ export default {
     ),
     message: `'Message' é um campo string e vazio por padrão. Entretanto, se você registrar a validação com mensagem de erro, ele será retornado.`,
     ref: `Referência para o elemento do campo.`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>Nota:</b> você pode usar o{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        para ajudar a lidar com seus estados de erro.
+      </p>
+    ),
   },
   watch: {
     title: "watch",

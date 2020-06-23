@@ -9,7 +9,15 @@ import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 
 export default React.memo(
-  ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
+  ({
+    api,
+    currentLanguage,
+    goToSection,
+  }: {
+    api: any
+    currentLanguage: string
+    goToSection: Function
+  }) => {
     return (
       <>
         <code className={typographyStyles.codeHeading}>
@@ -84,13 +92,14 @@ export default React.memo(
               </tr>
             </tbody>
           </table>
+          {api.errors.note(goToSection)}
         </div>
 
         <TabGroup buttonLabels={["First error detected", "Display all errors"]}>
           <CodeArea
             rawData={errorCode}
             tsRawData={errorCodeTs}
-            url="https://codesandbox.io/s/nrr4n9p8n4"
+            url="https://codesandbox.io/s/react-hook-form-error-v6-rcpm8"
             tsUrl="https://codesandbox.io/s/xenodochial-albattani-tcx0n?file=/src/App.tsx"
           />
           <CodeArea
