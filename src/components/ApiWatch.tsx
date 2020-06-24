@@ -107,7 +107,8 @@ export default function ApiWatch({
       <CodeArea
         rawData={watchCode}
         tsRawData={watchCodeTs}
-        url="https://codesandbox.io/s/pp1l40q7wx"
+        url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
+        tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
       />
 
       <hr />
