@@ -1,6 +1,5 @@
 import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
-import generateCode from "./logic/generateCode"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import styles from "./CodeArea.module.css"
@@ -38,7 +37,6 @@ export const CodeSandBoxLink = ({
 export default function CodeArea({
   rawData,
   tsRawData,
-  data,
   url,
   tsUrl,
   withOutCopy,
@@ -48,7 +46,6 @@ export default function CodeArea({
   tsRawData?: string
   tsUrl?: string
   rawData?: string
-  data?: string
   url?: string
   withOutCopy?: boolean
   isExpo?: boolean
@@ -93,7 +90,7 @@ export default function CodeArea({
           <button
             className={`${styles.button} ${styles.copyButton}`}
             onClick={() => {
-              copyClipBoard((isTS ? tsRawData : rawData) || generateCode(data))
+              copyClipBoard(isTS ? tsRawData : rawData)
               alert(generic.copied[currentLanguage])
             }}
             aria-label={generic.copied[currentLanguage]}
@@ -112,7 +109,7 @@ export default function CodeArea({
           <code
             className={`language-javascript ${!isTS ? styles.showCode : ""}`}
           >
-            {rawData || generateCode(data)}
+            {rawData}
           </code>
 
           <code
