@@ -96,7 +96,7 @@ export default {
     defaultValues: (goToSection) => (
       <>
         <p>
-          Puedes setear el valor por defecto del input con{" "}
+          Puedes configurar el valor por defecto del input con{" "}
           <code>defaultValue/defaultChecked</code>{" "}
           <a
             className={buttonStyles.links}
@@ -110,9 +110,10 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
+          <b className={typographyStyles.note}>Importante:</b>{" "}
+          <code>defaultValues</code> es cacheado dentro del custom hook, si tú
+          quieres reciniciar los valores <code>defaultValues</code> por favor
+          usa{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
@@ -180,7 +181,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Nota:</b> Solo funcionará con los
-          inputs registrados con <code>ref</code>. En los inputos registrados
+          inputs registrados con <code>ref</code>. En los inputs registrados
           manualmente no funcionará. ej:{" "}
           <code>{`register({ name: 'test' }) // no funciona`}</code>{" "}
         </p>
@@ -335,7 +336,7 @@ export default {
       max: "El valor máximo a aceptar para este input.",
       min: "El valor mínimo a aceptar para este input.",
       pattern: "El patrón regex para este input.",
-      validate: `Puedes pasar una función callback commo argumento para validar, o puedes pasar un objeto de funciones callback para validar todas ellas. (consulta los ejemplos)`,
+      validate: `Puedes pasar una función callback como argumento para validar, o puedes pasar un objeto de funciones callback para validar todas ellas. (consulta los ejemplos)`,
     },
   },
   formState: {
@@ -345,8 +346,8 @@ export default {
         <p>Este objeto contiene informacioón sobre el estado del formulario.</p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
+          <b className={typographyStyles.note}>Importante:</b>{" "}
+          <code>formState</code> es envuelto con{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -354,28 +355,28 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make you have invoke/read it before
-          <code>render</code> in order to enable the state update. Esta La
-          función de reducción de la función de renderizado solo se aplica a la
-          plataforma web debido a una falta de soporte en <code>Proxy</code> en
-          React Native.
+          para mejorar el rendimiento, tambien se puede hacer invocando antes un
+          <code>render</code> con este orden es capaz de actualizar el estado.
+          Esta es una función de la reducción del renderizado solo se aplica a
+          la plataforma web debido a una falta de soporte en <code>Proxy</code>{" "}
+          en React Native.
         </p>
       </>
     ),
     dirty:
-      "Se setea en verdader luego que el usuario haya interactuado con algún input.",
+      "Se configura un verdader luego que el usuario haya interactuado con algún input.",
     dirtyFields: "Un conjunto único de campos modificados por el usuario.",
     isSubmitted:
-      "Se setea a verdadero luego que el usuario envia el formulario. Después del envío de un formulario, su estado permanecerá enviado hasta que se invoque con el método de reinicio.",
+      "Se configura a verdadero luego que el usuario envia el formulario. Después del envío de un formulario, su estado permanecerá enviado hasta que se invoque con el método de reinicio.",
     touched: "Un objeto con todos los inputs con los que se interactuó.",
     isSubmitting: (
       <>
-        Durante el envio del formulario se setea en <code>verdadero</code> y
-        luego del envio se setea en <code>falso</code>
+        Durante el envio del formulario se configura en <code>verdadero</code> y
+        luego del envio se configura en <code>falso</code>
       </>
     ),
     submitCount: "Número de envios de formulario.",
-    isValid: "Se setea en verdadero si no tiene ningún error.",
+    isValid: "Se configura un verdadero si no tiene ningún error.",
   },
   errors: {
     title: "errors",
@@ -452,7 +453,7 @@ export default {
       <>
         <p>
           Esta función pasará los datos del formulario cuando la validación haya
-          sido exitosa Y puede ser invocada remotamente también.
+          sido exitosa y puede ser invocada remotamente también.
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
@@ -500,7 +501,7 @@ export default {
           >
             Controller
           </button>{" "}
-          para wrappear tu componente controlado.
+          para envolver tu componente controlado.
         </p>
         <p>
           <b className={typographyStyles.note}>Nota:</b> Necesitaras proporcione
@@ -553,7 +554,7 @@ export default {
     description: (
       <>
         <p>
-          Esta función te permite setear dinámicamente los valores de
+          Esta función te permite configurar dinámicamente los valores de
           input/select. Al mismo tiempo, trata de evitar renderizaciones cuando
           no son necesarias y solo bajo las siguientes condiciones:
         </p>
@@ -750,8 +751,7 @@ export default {
               <b className={typographyStyles.note}>Note</b>: si tu formulario lo
               hará invoque <code>reset</code> con diferentes valores, deberá
               proporcionar <code>defaultValues​​</code> en el nivel useForm en
-              lugar de set
-              <code>defaultValue</code> en línea.
+              lugar de set <code>defaultValue</code> en línea.
             </p>
           </td>
         </tr>
@@ -864,8 +864,8 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          Una vez que el formulario es wrappeado con <code>FormContext</code>,
-          la <code className={typographyStyles.typeText}>function</code>{" "}
+          Una vez que el formulario es envuelto con <code>FormContext</code>, la{" "}
+          <code className={typographyStyles.typeText}>function</code>{" "}
           <code>useFormContext</code>
           puede ser invocada desde sus componentes hijos.
         </p>
@@ -910,7 +910,7 @@ validate: (value) => value === getValues('firstName');"
       ),
       render: (
         <>
-          This is a{" "}
+          Esto es un{" "}
           <a
             href="https://reactjs.org/docs/render-props.html"
             target="_blank"
@@ -918,10 +918,10 @@ validate: (value) => value === getValues('firstName');"
           >
             render prop
           </a>{" "}
-          for rendering error message or messages.
+          para rendericación de mensajes o errores.
           <p>
-            <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-            validateCriteriaMode to 'all' for using <code>messages</code>.
+            <b className={typographyStyles.note}>Nota:</b> Necesitas usar{" "}
+            validateCriteriaMode para 'all' para usar <code>messages</code>.
           </p>
         </>
       ),
@@ -1004,7 +1004,7 @@ validate: (value) => value === getValues('firstName');"
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Important: </b>
+          <b className={typographyStyles.note}>Importante: </b>
           <code>useFieldArray</code> está construido sobre componentes no
           controlados. Las siguientes notas lo ayudarán a conocer y tener en
           cuenta su comportamiento durante la implementación.
@@ -1013,7 +1013,7 @@ validate: (value) => value === getValues('firstName');"
         <ul>
           <li>
             <p>
-              puedes inicializar los (campos) <code>fields</code> seteando{" "}
+              puedes inicializar los (campos) <code>fields</code> configurado{" "}
               <code>defaultValues</code> en <code>useForm</code> hook.
             </p>
           </li>
@@ -1026,8 +1026,8 @@ validate: (value) => value === getValues('firstName');"
           <li>
             <p>
               make sure to set <code>defaultValue</code> to{" "}
-              <code>fields[index]</code> when you want to set default value,
-              remove or reset with inputs.
+              <code>fields[index]</code> Cuando se quieren configurar los
+              valores por defecto, remover o setear con inputs.
             </p>
           </li>
           <li>
@@ -1060,10 +1060,10 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFieldArray</code> so <code>register</code> will get
+              Es <strong>importante</strong> aplicar{" "}
+              <code>{`ref={register()}`}</code> en lugar de{" "}
+              <code>{`ref={register}`}</code> cuando se trabaja con{" "}
+              <code>useFieldArray</code> entonces <code>register</code> will get
               invoked during <code>map</code>.
             </p>
           </li>
@@ -1175,7 +1175,7 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            Elimina input/inputs en una posición en particular, or elimina todos
+            Elimina input/inputs en una posición en particular, o elimina todos
             cuando no se proporciona un index.
           </td>
         </tr>
@@ -1212,7 +1212,7 @@ React.useEffect(() => {
           >
             Superstruct
           </a>{" "}
-          y etc. De hecho, el objetivo no es solo limitado Sí como nuestro
+          y etc. De hecho, el objetivo no es solo limitado sí como nuestro
           externo (esquema) biblioteca de validación. Nos gustaría apoyar a
           muchos otros bibliotecas de validación para trabajar con React Hook
           Form. Incluso puedes escribir su lógica de validación personalizada
