@@ -17,7 +17,7 @@ export default ({
   >
     <ul style={{ listStyle: "none", padding: 0, margin: "0 0 0 8px" }}>
       {lists.map(({ url, title }) => (
-        <li>
+        <li key={title}>
           <p className={styles.list}>
             <span
               style={{

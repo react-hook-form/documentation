@@ -1,6 +1,6 @@
 import * as React from "react"
+import _ from "lodash/fp"
 import copyClipBoard from "./utils/copyClipBoard"
-import generateCode from "./logic/generateCode"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import styles from "./CodeArea.module.css"
@@ -38,18 +38,18 @@ export const CodeSandBoxLink = ({
 export default function CodeArea({
   rawData,
   tsRawData,
-  data,
+  rawTypes,
   url,
   tsUrl,
   withOutCopy,
   isExpo,
   style,
 }: {
-  tsRawData?: string
-  tsUrl?: string
   rawData?: string
-  data?: string
+  tsRawData?: string
+  rawTypes?: string
   url?: string
+  tsUrl?: string
   withOutCopy?: boolean
   isExpo?: boolean
   style?: any
@@ -57,7 +57,9 @@ export default function CodeArea({
   const {
     state: { language },
   } = useStateMachine()
-  const [isTS, setIsTS] = React.useState(false)
+  const [currentData, setData] = React.useState(
+    rawData || tsRawData || rawTypes
+  )
 
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
@@ -69,31 +71,41 @@ export default function CodeArea({
       }}
     >
       <div className={styles.buttonWrapper}>
+        {rawData && (
+          <button
+            onClick={() => setData(rawData)}
+            className={`${styles.button} ${styles.copyButton} ${
+              _.isEqual(currentData, rawData) ? styles.active : ""
+            }`}
+          >
+            JS
+          </button>
+        )}
         {tsRawData && (
-          <>
-            <button
-              onClick={() => setIsTS(false)}
-              className={`${styles.button} ${styles.copyButton} ${
-                !isTS ? styles.active : ""
-              }`}
-            >
-              JS
-            </button>
-            <button
-              onClick={() => setIsTS(true)}
-              className={`${styles.button} ${styles.copyButton} ${
-                isTS ? styles.active : ""
-              }`}
-            >
-              TS
-            </button>
-          </>
+          <button
+            onClick={() => setData(tsRawData)}
+            className={`${styles.button} ${styles.copyButton} ${
+              _.isEqual(currentData, tsRawData) ? styles.active : ""
+            }`}
+          >
+            TS
+          </button>
+        )}
+        {rawTypes && (
+          <button
+            onClick={() => setData(rawTypes)}
+            className={`${styles.button} ${styles.copyButton} ${
+              _.isEqual(currentData, rawTypes) ? styles.active : ""
+            }`}
+          >
+            Types
+          </button>
         )}
         {!withOutCopy && (
           <button
             className={`${styles.button} ${styles.copyButton}`}
             onClick={() => {
-              copyClipBoard((isTS ? tsRawData : rawData) || generateCode(data))
+              copyClipBoard(currentData)
               alert(generic.copied[currentLanguage])
             }}
             aria-label={generic.copied[currentLanguage]}
@@ -102,23 +114,36 @@ export default function CodeArea({
           </button>
         )}
 
-        {!isTS && url && <CodeSandBoxLink isExpo={isExpo} url={url} />}
-
-        {isTS && tsUrl && <CodeSandBoxLink isExpo={isExpo} url={tsUrl} />}
+        {(url || tsUrl) && (
+          <CodeSandBoxLink
+            isExpo={isExpo}
+            url={_.isEqual(currentData, rawData) ? url : tsUrl}
+          />
+        )}
       </div>
 
       <div className={styles.wrapper}>
         <pre style={style} className="raw-code">
           <code
-            className={`language-javascript ${!isTS ? styles.showCode : ""}`}
+            className={`language-javascript ${
+              _.isEqual(currentData, rawData) ? styles.showCode : ""
+            }`}
           >
-            {rawData || generateCode(data)}
+            {rawData}
           </code>
-
           <code
-            className={`language-javascript ${isTS ? styles.showCode : ""}`}
+            className={`language-javascript ${
+              _.isEqual(currentData, tsRawData) ? styles.showCode : ""
+            }`}
           >
             {tsRawData}
+          </code>
+          <code
+            className={`language-javascript ${
+              _.isEqual(currentData, rawTypes) ? styles.showCode : ""
+            }`}
+          >
+            {rawTypes}
           </code>
         </pre>
       </div>
