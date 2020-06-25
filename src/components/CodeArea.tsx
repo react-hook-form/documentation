@@ -1,5 +1,4 @@
 import * as React from "react"
-import _ from "lodash/fp"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
@@ -71,31 +70,31 @@ export default function CodeArea({
       }}
     >
       <div className={styles.buttonWrapper}>
-        {rawData && tsRawData && (
+        {((rawData && tsRawData) || (rawData && rawTypes)) && (
           <button
             onClick={() => setData(rawData)}
             className={`${styles.button} ${styles.codeLink} ${
-              _.isEqual(currentData, rawData) ? styles.active : ""
+              currentData === rawData ? styles.active : ""
             }`}
           >
             JS
           </button>
         )}
-        {tsRawData && (
+        {((tsRawData && rawData) || (tsRawData && rawTypes)) && (
           <button
             onClick={() => setData(tsRawData)}
             className={`${styles.button} ${styles.codeLink} ${
-              _.isEqual(currentData, tsRawData) ? styles.active : ""
+              currentData === tsRawData ? styles.active : ""
             }`}
           >
             TS
           </button>
         )}
-        {rawTypes && (
+        {((rawTypes && rawData) || (rawTypes && tsRawData)) && (
           <button
             onClick={() => setData(rawTypes)}
             className={`${styles.button} ${styles.codeLink} ${
-              _.isEqual(currentData, rawTypes) ? styles.active : ""
+              currentData === rawTypes ? styles.active : ""
             }`}
           >
             Types
@@ -117,7 +116,7 @@ export default function CodeArea({
         {(url || tsUrl) && (
           <CodeSandBoxLink
             isExpo={isExpo}
-            url={_.isEqual(currentData, rawData) ? url : tsUrl}
+            url={currentData === rawData ? url : tsUrl}
           />
         )}
       </div>
@@ -126,21 +125,21 @@ export default function CodeArea({
         <pre style={style} className="raw-code">
           <code
             className={`language-javascript ${
-              _.isEqual(currentData, rawData) ? styles.showCode : ""
+              currentData === rawData ? styles.showCode : ""
             }`}
           >
             {rawData}
           </code>
           <code
             className={`language-javascript ${
-              _.isEqual(currentData, tsRawData) ? styles.showCode : ""
+              currentData === tsRawData ? styles.showCode : ""
             }`}
           >
             {tsRawData}
           </code>
           <code
             className={`language-javascript ${
-              _.isEqual(currentData, rawTypes) ? styles.showCode : ""
+              currentData === rawTypes ? styles.showCode : ""
             }`}
           >
             {rawTypes}
