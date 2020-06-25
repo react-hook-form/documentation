@@ -356,5 +356,14 @@ export default {
       author: "Better Coding Academy",
       description: "",
     },
+    {
+      title:
+        "React Hook Form File Upload Tutorial - Upload Files to NodeJS API",
+      url: "https://www.youtube.com/watch?v=PEGUFi9Sx-U",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description:
+        "React Hook Form tutorial on how to upload files to an ExpressJS API.",
+    },
   ],
 }
