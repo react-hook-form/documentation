@@ -2,6 +2,7 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import errorCodeTs from "./codeExamples/errorCodeTs"
+import errorCodeTypes from "./codeExamples/ErrorCodeTypes"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import multipleErrorCodeTs from "./codeExamples/multipleErrorCodeTs"
@@ -100,6 +101,7 @@ export default React.memo(
           <CodeArea
             rawData={errorCode}
             tsRawData={errorCodeTs}
+            rawTypes={errorCodeTypes}
             url="https://codesandbox.io/s/react-hook-form-error-v6-rcpm8"
             tsUrl="https://codesandbox.io/s/react-hook-form-error-ts-v6-500eo"
           />
