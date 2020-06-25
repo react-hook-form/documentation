@@ -1,5 +1,4 @@
 import * as React from "react"
-import _ from "lodash/fp"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
