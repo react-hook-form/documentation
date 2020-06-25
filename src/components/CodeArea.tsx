@@ -74,7 +74,7 @@ export default function CodeArea({
         {rawData && (
           <button
             onClick={() => setData(rawData)}
-            className={`${styles.button} ${styles.copyButton} ${
+            className={`${styles.button} ${styles.codeLink} ${
               _.isEqual(currentData, rawData) ? styles.active : ""
             }`}
           >
@@ -84,7 +84,7 @@ export default function CodeArea({
         {tsRawData && (
           <button
             onClick={() => setData(tsRawData)}
-            className={`${styles.button} ${styles.copyButton} ${
+            className={`${styles.button} ${styles.codeLink} ${
               _.isEqual(currentData, tsRawData) ? styles.active : ""
             }`}
           >
@@ -94,7 +94,7 @@ export default function CodeArea({
         {rawTypes && (
           <button
             onClick={() => setData(rawTypes)}
-            className={`${styles.button} ${styles.copyButton} ${
+            className={`${styles.button} ${styles.codeLink} ${
               _.isEqual(currentData, rawTypes) ? styles.active : ""
             }`}
           >
