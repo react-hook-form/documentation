@@ -71,7 +71,7 @@ export default function CodeArea({
       }}
     >
       <div className={styles.buttonWrapper}>
-        {rawData && (
+        {rawData && tsRawData && (
           <button
             onClick={() => setData(rawData)}
             className={`${styles.button} ${styles.codeLink} ${
