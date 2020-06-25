@@ -23,7 +23,7 @@ function App() {
         {/* based on yes selection to display Age Input*/}
         {watchShowAge && (
           <>
-            <input type="number" name="Age" ref={register({ min: 50 })} />
+            <input type="number" name="age" ref={register({ min: 50 })} />
           </>
         )}
         <input type="submit" />
