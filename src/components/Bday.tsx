@@ -53,7 +53,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                       marginBottom: 0,
                     }}
                   >
-                    V6
+                    V6 <span>is Live!</span>
                   </h1>
 
                   <Animate
