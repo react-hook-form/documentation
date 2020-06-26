@@ -509,7 +509,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -784,7 +784,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
+              (args: any | EventTarget) =&gt; any
             </code>
           </td>
           <td></td>
@@ -813,7 +813,7 @@ export default {
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>
@@ -1105,7 +1105,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object) => void
+              (obj: object) =&gt; void
             </code>
           </td>
           <td>Agregue input/inputs al final de los campos</td>
@@ -1116,7 +1116,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object) => void
+              (obj: object) =&gt; void
             </code>
           </td>
           <td>Antepone input/inputs al comienzo de tus campos</td>
@@ -1127,7 +1127,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object) =&gt; void
             </code>
           </td>
           <td>Inserta input/inputs en una posición en particular.</td>
@@ -1138,7 +1138,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>Intercambia las posiciones de los input/inputs.</td>
@@ -1149,7 +1149,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>
@@ -1169,7 +1169,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number | number[]) => void
+              (index?: number | number[]) =&gt; void
             </code>
           </td>
           <td>

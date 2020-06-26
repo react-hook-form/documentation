@@ -18,7 +18,7 @@ export default React.memo(
   }: {
     api: any
     currentLanguage: string
-    goToSection: Function
+    goToSection: (name: any, animate?: boolean) => void
   }) => {
     return (
       <>

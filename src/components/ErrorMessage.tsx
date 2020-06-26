@@ -100,7 +100,7 @@ export default ({
                 <code className={typographyStyles.typeText}>
                   (
                   {`{ message: string | React.ReactElement, messages?: Object}`}
-                  ) => any
+                  ) =&gt; any
                 </code>
               </td>
               <td></td>

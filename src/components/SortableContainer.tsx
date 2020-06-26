@@ -14,12 +14,12 @@ export default function SortableContainer({
   reset,
   currentLanguage,
 }: {
-  updateFormData: Function
+  updateFormData: () => void
   formData: any
   editIndex: number
-  setEditIndex: Function
-  setFormData: Function
-  reset: Function
+  setEditIndex: () => void
+  setFormData: () => void
+  reset: () => void
   currentLanguage: string
 }) {
   return (

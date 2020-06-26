@@ -502,7 +502,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -770,7 +770,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
+              (args: any | EventTarget) =&gt; any
             </code>
           </td>
           <td />
@@ -806,7 +806,7 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>
@@ -1104,7 +1104,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object) => void
+              (obj: object) =&gt; void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
@@ -1115,7 +1115,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object) => void
+              (obj: object) =&gt; void
             </code>
           </td>
           <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
@@ -1126,7 +1126,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object) =&gt; void
             </code>
           </td>
           <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
@@ -1137,7 +1137,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
@@ -1148,7 +1148,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>
@@ -1168,7 +1168,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number | number[]) => void
+              (index?: number | number[]) =&gt; void
             </code>
           </td>
           <td>

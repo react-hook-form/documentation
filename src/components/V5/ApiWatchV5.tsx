@@ -20,7 +20,7 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[] | { nest : boolean }) => any`}</span>
+          >{`(names?: string | string[] | { nest : boolean }) =&gt; any`}</span>
         </h2>
       </code>
 

@@ -732,7 +732,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 handleSubmit:{" "}
                 <span className={typographyStyles.typeText}>
-                  (data: Object, e: Event) => () => void
+                  (data: Object, e: Event) =&gt; () =&gt; void
                 </span>
               </h2>
             </code>
@@ -835,7 +835,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 clearError:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name?: string | string[]) => void
+                  (name?: string | string[]) =&gt; void
                 </span>
               </h2>
             </code>
@@ -856,7 +856,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             </code>
             <p>
               <span className={typographyStyles.typeText}>
-                (name: string, value: any, shouldValidate?: boolean) => void
+                (name: string, value: any, shouldValidate?: boolean) =&gt; void
               </span>
               <br />
               <span className={typographyStyles.typeText}>
@@ -946,7 +946,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => {
-              // @ts-ignore
               apiSectionsRef.current.formStateRef = ref
             }}
           >

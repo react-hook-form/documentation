@@ -478,7 +478,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -872,7 +872,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object, shouldFocus?: boolean = true) => void
+                (obj: object, shouldFocus?: boolean = true) =&gt; void
               </code>
             </code>
           </td>
@@ -885,7 +885,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object, shouldFocus?: boolean = true) => void
+                (obj: object, shouldFocus?: boolean = true) =&gt; void
               </code>
             </code>
           </td>
@@ -898,8 +898,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object, shouldFocus?: boolean = true) =>
-                void
+                (index: number, value: object, shouldFocus?: boolean = true)
+                =&gt; void
               </code>
             </code>
           </td>
@@ -912,7 +912,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (from: number, to: number) => void
+                (from: number, to: number) =&gt; void
               </code>
             </code>
           </td>
@@ -925,7 +925,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (from: number, to: number) => void
+                (from: number, to: number) =&gt; void
               </code>
             </code>
           </td>
@@ -946,7 +946,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number | number[]) => void
+                (index?: number | number[]) =&gt; void
               </code>
             </code>
           </td>
@@ -1110,7 +1110,7 @@ validate: (value) => value === getValues('firstName');"
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>

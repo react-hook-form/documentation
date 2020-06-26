@@ -1,4 +1,4 @@
-export default function goToBuilder(toggle: boolean = true) {
+export default function goToBuilder(toggle = true) {
   const title = " | React hook form - Simple React form validation"
 
   if (toggle) {

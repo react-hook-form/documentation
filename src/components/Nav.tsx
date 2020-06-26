@@ -8,7 +8,6 @@ import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
-// @ts-ignore
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
@@ -94,9 +93,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       >
         <select
           aria-label="Select a language"
-          onChange={(e) => {
+          onChange={(e: any) => {
             const selectedLanguage = e.target.value
-            // @ts-ignore
             action(e.target.value)
 
             let url = location.pathname.substr(1)

@@ -135,6 +135,9 @@ export default React.memo(
                     <code
                       className={buttonStyles.codeAsLink}
                       onClick={() => goToSection("useForm", sectionsRef)}
+                      onKeyDown={() => goToSection("useForm", sectionsRef)}
+                      role="button"
+                      tabIndex={0}
                     >
                       mode
                     </code>
