@@ -30,11 +30,11 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
-}: // isCardPlay,
-{
+  isCardPlay,
+}: {
   homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
-  // isCardPlay: boolean
+  isCardPlay: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
@@ -158,7 +158,7 @@ export default function Header({
           <div style={{ position: "relative" }}>
             <Animate
               sequenceIndex={4}
-              delay={0.7}
+              delay={0.1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
               duration={0.4}
@@ -234,7 +234,7 @@ export default function Header({
         </div>
       </AnimateGroup>
 
-      {/*<Bday isCardPlay={isCardPlay} />*/}
+      <Bday isCardPlay={isCardPlay} />
     </>
   )
 }

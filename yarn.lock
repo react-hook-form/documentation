@@ -11491,6 +11491,8 @@ npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
   integrity sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=
+  dependencies:
+    path-key "^2.0.0"
 
 npm-run-path@^4.0.0:
   version "4.0.0"
@@ -12218,7 +12220,7 @@ path-is-inside@^1.0.1, path-is-inside@^1.0.2:
   resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
   integrity sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=
 
-path-key@^2.0.1:
+path-key@^2.0.0, path-key@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
@@ -13370,6 +13372,11 @@ react-simple-animate@^3.3.8:
   version "3.3.8"
   resolved "https://registry.yarnpkg.com/react-simple-animate/-/react-simple-animate-3.3.8.tgz#f06cf7dd2a95d800d045eb16283bd08ef894ec44"
   integrity sha512-DR/UvAFb2YDk6CIBvGpkcI49Q19aNz6/AQG4QWTZRIZOH+t5ox9NgrugiRIH924vecRDbBqaJBuxmLiZW/id8Q==
+
+react-simple-animate@^3.3.9:
+  version "3.3.9"
+  resolved "https://registry.yarnpkg.com/react-simple-animate/-/react-simple-animate-3.3.9.tgz#5ec5f475321ab1ff1db9ffb8d51276fe3f740438"
+  integrity sha512-ADzN2NT5jD0G2Rwdw8jSTPLlKvtX2QyqW2MTUmQhh8dTBxKP39/kSjju6uVLUlYIMk93JyGpJDulsZ/p1Z9fDQ==
 
 react-simple-img@2.3.7:
   version "2.3.7"

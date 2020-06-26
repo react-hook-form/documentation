@@ -475,6 +475,14 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 <span className={typographyStyles.typeText}>
                   {`Record<string, any>`} = {`{}`}
                 </span>
+                <a
+                  className={typographyStyles.videoLink}
+                  href="https://www.youtube.com/watch?v=jHQC2NY0A-k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Video
+                </a>
               </code>
             </h5>
 

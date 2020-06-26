@@ -8,9 +8,7 @@
     margin: 0 auto 0px;
     align-items: inherit;
     grid-template-areas:
-      "d d e"
-      "a b e"
-      "c b e";
+      "d e";
     border: 1px solid var(--color-light-blue);
     padding: 0 40px 40px;
     border-radius: 7px;
