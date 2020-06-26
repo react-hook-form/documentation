@@ -151,7 +151,9 @@ export default ({ defaultLang, content }: Props) => {
               {...{
                 onSubmit,
                 submitData: {},
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 toggleBuilder: () => {},
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 formUpdated: () => {},
                 currentLanguage: "en",
                 methods,

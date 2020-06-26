@@ -2,9 +2,7 @@ import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
 import Bday from "./Bday"
-// @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
-// @ts-ignore
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
@@ -34,7 +32,7 @@ export default function Header({
   defaultLang,
 }: // isCardPlay,
 {
-  homeRef: React.Ref<HTMLDivElement>
+  homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
   // isCardPlay: boolean
 }) {
@@ -134,7 +132,6 @@ export default function Header({
                 <button
                   className={buttonStyles.primaryButton}
                   onClick={() => {
-                    // @ts-ignore
                     homeRef.current.scrollIntoView({ behavior: "smooth" })
                   }}
                 >

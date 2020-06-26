@@ -41,11 +41,11 @@ function SideMenu({
   version,
 }: {
   links: any
-  goToSection: Function
+  goToSection: (name: any, animate?: boolean) => void
   isStatic?: boolean
   enLinks: any
   currentLanguage: string
-  activeIndex: number
+  activeIndex?: number
   version?: number
 }) {
   const { state } = useStateMachine()

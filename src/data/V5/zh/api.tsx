@@ -498,7 +498,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -759,7 +759,7 @@ export default {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
+              (args: any | EventTarget) =&gt; any
             </code>
           </td>
           <td></td>
@@ -788,7 +788,7 @@ export default {
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>
@@ -797,7 +797,7 @@ export default {
               只要可以专注于组件。
             </p>
             <p>
-              这是一个" "}
+              这是一个
               <a
                 href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
                 target="_blank"
@@ -1062,7 +1062,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object) => void
+                (obj: object) =&gt; void
               </code>
             </code>
           </td>
@@ -1075,7 +1075,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object) => void
+                (obj: object) =&gt; void
               </code>
             </code>
           </td>
@@ -1088,7 +1088,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object) => void
+                (index: number, value: object) =&gt; void
               </code>
             </code>
           </td>
@@ -1101,7 +1101,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (from: number, to: number) => void
+                (from: number, to: number) =&gt; void
               </code>
             </code>
           </td>
@@ -1114,7 +1114,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (from: number, to: number) => void
+                (from: number, to: number) =&gt; void
               </code>
             </code>
           </td>
@@ -1135,7 +1135,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number | number[]) => void
+                (index?: number | number[]) =&gt; void
               </code>
             </code>
           </td>

@@ -28,7 +28,6 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     ControlRef: null,
     UseFormMethodsRef: null,
   })
-  // @ts-ignore
   const { currentLanguage } =
     language && language.currentLanguage
       ? language

@@ -36,7 +36,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
 
         <ul className={styles.contentList}>
           {data.articles.map(({ url, title, author, authorUrl }, i) => {
-            let index = i + 1
+            const index = i + 1
             let delay = 0
 
             if (index === 1) {
@@ -90,7 +90,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
         <ul className={styles.contentList}>
           {data.videos.map(({ title, url, authorUrl, author, description }) => (
-            <li>
+            <li key={title}>
               <article className={styles.article}>
                 <a
                   href={url}

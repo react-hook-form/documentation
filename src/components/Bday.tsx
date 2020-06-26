@@ -3,20 +3,20 @@ import { AnimateKeyframes, Animate, AnimateGroup } from "react-simple-animate"
 import styles from "./Bday.module.css"
 
 const list = [
-  <p>
+  <p key="1">
     ★ OS Awards: nominated as <br />
     <strong>Breakthrough of the year</strong>
   </p>,
-  <p>
+  <p key="2">
     ★ NPM downloads: <strong>1.5M</strong>
   </p>,
-  <p>
+  <p key="3">
     ★ Github stars: <strong>7.5K</strong>
   </p>,
-  <p>
+  <p key="4">
     ★ Github commit: <strong>1.6K</strong>
   </p>,
-  <p>
+  <p key="5">
     ★ Github issues resolved <strong>600+</strong>
   </p>,
 ]
@@ -114,6 +114,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                     <ul>
                       {list.map((item, index) => (
                         <Animate
+                          key={item}
                           sequenceIndex={index + 3}
                           start={{
                             transform: "translateX(10px)",

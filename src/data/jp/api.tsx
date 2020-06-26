@@ -478,7 +478,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -841,7 +841,7 @@ validate: (value) => value === getValues('firstName');"
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>
@@ -1163,7 +1163,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object, shouldFocus?: boolean = true) => void
+              (obj: object, shouldFocus?: boolean = true) =&gt; void
             </code>
           </td>
           <td>フィールドの最後に input を追加します。</td>
@@ -1174,7 +1174,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object, shouldFocus?: boolean = true) => void
+              (obj: object, shouldFocus?: boolean = true) =&gt; void
             </code>
           </td>
           <td>フィールドの先頭に input を追加します。</td>
@@ -1185,7 +1185,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object, shouldFocus?: boolean = true) =>
+              (index: number, value: object, shouldFocus?: boolean = true) =&gt;
               void
             </code>
           </td>
@@ -1197,7 +1197,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>input の位置を入れ替えます。</td>
@@ -1208,7 +1208,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>
@@ -1228,7 +1228,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number | number[]) => void
+              (index?: number | number[]) =&gt; void
             </code>
           </td>
           <td>

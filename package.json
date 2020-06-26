@@ -36,6 +36,13 @@
     "sortablejs": "1.10.2"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
     "gatsby-plugin-offline": "^3.2.9",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.9",
@@ -49,11 +56,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{ts,tsx}",
+    "format": "prettier --write src/**/*.{ts,tsx} ",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "now-build": "npm run build",
-    "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc"
+    "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "repository": {
     "type": "git",
@@ -70,7 +78,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run format",
-      "npm run prettier"
+      "npm run lint"
     ]
   }
 }

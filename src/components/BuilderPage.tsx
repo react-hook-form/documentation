@@ -53,7 +53,7 @@ function BuilderPage({
   defaultLang,
 }: {
   showBuilder?: boolean
-  toggleBuilder?: Function
+  toggleBuilder?: (state: boolean) => void
   HomeRef?: any
   isStatic?: boolean
   defaultLang: string

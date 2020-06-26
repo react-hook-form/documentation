@@ -12,7 +12,7 @@ export default function ApiRefTable({
   currentLanguage,
 }: {
   api: any
-  goToSection: Function
+  goToSection: (name: any, animate?: boolean) => void
   currentLanguage: string
 }) {
   const [isStandard, toggleOption] = React.useState(true)

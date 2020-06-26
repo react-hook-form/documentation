@@ -88,7 +88,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     state,
     state: { language },
   } = useStateMachine()
-  // @ts-ignore
   const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
@@ -665,7 +664,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 handleSubmit:{" "}
                 <span className={typographyStyles.typeText}>
-                  ((data: Object, e?: Event) => void) => (e?: Event) => void
+                  ((data: Object, e?: Event) =&gt; void) =&gt; (e?: Event) =&gt;
+                  void
                 </span>
               </h2>
             </code>
@@ -760,7 +760,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <h2>
                 clearErrors:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name?: string | string[]) => void
+                  (name?: string | string[]) =&gt; void
                 </span>
               </h2>
             </code>
@@ -781,7 +781,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 setValue:{" "}
                 <span className={typographyStyles.typeText}>
                   (name: string, value: any, shouldValidate?: boolean, config:
-                  Object) => void
+                  Object) =&gt; void
                 </span>
               </h2>
             </code>
@@ -868,7 +868,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => {
-              // @ts-ignore
               apiSectionsRef.current.formStateRef = ref
             }}
           >
