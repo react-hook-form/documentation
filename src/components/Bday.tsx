@@ -65,7 +65,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                     easeType="ease-in"
                     render={({ style }) => (
                       <div>
-                        <p>Thanks to the following team members:</p>
+                        <p>Thanks to the team members:</p>
                         <div style={style} className={styles.avatars}>
                           <img src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4" />
                           <img src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4" />
