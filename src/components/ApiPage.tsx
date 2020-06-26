@@ -673,8 +673,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             <CodeArea
               rawData={handleSubmitCode}
               tsRawData={handleSubmitCodeTs}
-              url="https://codesandbox.io/s/yj07z1639"
-              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-994mz"
+              url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
+              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
             />
           </section>
 

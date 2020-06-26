@@ -2,6 +2,7 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
+import watchCodeTypes from "./codeExamples/watchCodeTypes"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
@@ -107,6 +108,7 @@ export default function ApiWatch({
       <CodeArea
         rawData={watchCode}
         tsRawData={watchCodeTs}
+        rawTypes={watchCodeTypes}
         url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
         tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
       />
