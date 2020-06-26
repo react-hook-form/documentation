@@ -47,7 +47,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                 <div style={style}>
                   <h1
                     style={{
-                      fontSize: 140,
+                      fontSize: 110,
                       marginTop: 20,
                       marginLeft: 0,
                       marginBottom: 0,
