@@ -10,7 +10,7 @@
     grid-template-areas:
       "d e";
     border: 1px solid var(--color-light-blue);
-    padding: 0 40px 40px;
+    padding: 0 40px 50px;
     border-radius: 7px;
     box-shadow: 0 0 20px var(--color-primary);
     display: grid;
@@ -93,6 +93,7 @@
   font-size: 30px;
   font-weight: 400;
   margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .achievementList h4 span {
@@ -135,4 +136,15 @@
   background-color: white;
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
+}
+
+.avatars {
+  margin-right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.avatars img {
+  height: 60px;
+  margin: 2px;
 }

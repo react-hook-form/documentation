@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AnimateKeyframes, Animate, AnimateGroup } from "react-simple-animate"
+import { Animate, AnimateGroup } from "react-simple-animate"
 import styles from "./Bday.module.css"
 
 const list = [
@@ -11,7 +11,10 @@ const list = [
   </p>,
   <p key="3">★ API Refinements</p>,
   <p key="4">
-    ★ Improved <strong>resolver</strong> support schemas
+    ★ Improved <strong>resolver</strong>
+  </p>,
+  <p key="4">
+    ★ Improved <strong>Controller</strong>
   </p>,
   <p key="4">
     ★ useForm <strong>shouldUnregister</strong>
@@ -34,36 +37,50 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
           <Animate
             sequenceIndex={1}
             start={{
+              transform: "translate(20px, 0px)",
               opacity: "0",
             }}
             delay={0.1}
             easeType="ease-in"
             render={({ style }) => {
               return (
-                <>
+                <div style={style}>
                   <h1
                     style={{
-                      ...style,
                       fontSize: 140,
                       marginTop: 20,
-                      marginLeft: 20,
+                      marginLeft: 0,
+                      marginBottom: 0,
                     }}
                   >
                     V6
                   </h1>
-                </>
+
+                  <Animate
+                    sequenceIndex={2}
+                    duration={0.2}
+                    start={{
+                      transform: "translate(0px, 20px) scale(1.1)",
+                    }}
+                    easeType="ease-in"
+                    render={({ style }) => (
+                      <div>
+                        <p>Thanks to the following team members:</p>
+                        <div style={style} className={styles.avatars}>
+                          <img src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4" />
+                          <img src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4" />
+                          <img src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4" />
+                          <img src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4" />
+                          <img src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4" />
+                          <img src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4" />
+                          <img src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4" />
+                        </div>
+                      </div>
+                    )}
+                  />
+                </div>
               )
             }}
-          />
-
-          <Animate
-            sequenceIndex={2}
-            start={{
-              transform: "translate(130px, 80px) scale(1.3)",
-            }}
-            delay={0.2}
-            easeType="ease-in"
-            render={({ style }) => <div style={style}></div>}
           />
 
           <Animate
