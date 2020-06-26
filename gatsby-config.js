@@ -1,4 +1,5 @@
-import languages from "./src/data/languages"
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
