@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import styles from "./Bday.module.css"
+import { Link } from "gatsby"
 
 const list = [
   <p key="1">
@@ -113,6 +114,10 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                         />
                       ))}
                     </ul>
+
+                    <Link to="/api" className={styles.link}>
+                      Check out API
+                    </Link>
                   </div>
                 </div>
               )
