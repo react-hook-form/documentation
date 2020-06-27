@@ -459,16 +459,15 @@ export default {
     ),
   },
   testingForm: {
-    title: "Testing Form",
+    title: "フォームをテストする",
     description: (
       <>
         <p>
-          Test is very important because it preserve code from bugs or mistakes
-          and guarantee code of safety when you refactor code or improve
-          performance.
+          テストはバグやミスを防いだり、
+          コードをリファクタリングしたりパフォーマンスを改善する時にコードの安全性を保証するため、
+          とても重要なものです。
           <br />
-          When you write test code, you will use something testing library. Then
-          we recommend to use{" "}
+          テストコードを書くとき、何らかのテストライブラリーを使います。その時に{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -476,26 +475,26 @@ export default {
           >
             testing-library
           </a>{" "}
-          because it is simple and it can perform user side testing.
+          を使うことをお勧めします。なぜなら、シンプルにそしてユーザーサイドのテストを行うことができるからです。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
-          environment.
+          <b className={typographyStyles.note}>Step 1:</b> テスト環境を設定する
         </p>
 
         <p>
-          You have to install <code>mutationobserver-shim</code> because{" "}
-          react-hook-form use <code>MutationObserver</code>.
+          react-hook-form は <code>MutationObserver</code> を使うため{" "}
+          <code>mutationobserver-shim</code>{" "}
+          をインストールしなければなりません。
         </p>
 
         <CodeArea rawData={"yarn add -D mutationobserver-shim"} />
 
         <p>
-          And you have to create <code>setup.js</code> then you have to import{" "}
-          <code>mutationobserver-shim</code>.
+          そして <code>setup.js</code> を作成し、
+          <code>mutationobserver-shim</code> をインポートする必要があります。
         </p>
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
@@ -503,8 +502,8 @@ export default {
         />
 
         <p>
-          Finally, you have to load <code>setup.js</code> in{" "}
-          <code>jest.config.js</code>.
+          最後に、<code>setup.js</code> を <code>jest.config.js</code>{" "}
+          で読み込む必要があります。
         </p>
 
         <CodeArea
@@ -513,14 +512,21 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
-          submit the data.
+          <b className={typographyStyles.note}>Step 2:</b>{" "}
+          ログインページを作成し、 データを送信する
         </p>
 
         <p>
-          Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because it is library
-          to perform the test like users use actual features.
+          role 属性を正しく設定していることに注意してください。それらの role
+          属性はテストを書く時に役に立ちます。 なぜなら{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          はユーザーが実際の機能を使うようにテストを行うためのライブラリーだからです。
         </p>
 
         <CodeArea
@@ -529,20 +535,20 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> Write test code to
-          login page.
+          <b className={typographyStyles.note}>Step 3:</b> ログインページの
+          テストを書く
         </p>
 
         <p>
-          Note that you have to wait for finishing submission by using{" "}
-          <code>waitFor</code> or <code>find*</code> method. Because{" "}
-          <code>handleSubmit</code> method is invoked with asynchronous. And you
-          are as possible as use <code>*ByRole</code> method when you want to
-          query element. Because users recognize role(like button, textbox) that
-          UI have it when users use your features.
+          <code>waitFor</code> や <code>find*</code>{" "}
+          メソッドを使って、送信が終わるまで
+          待たなければならないことに注意してください。なぜなら{" "}
+          <code>handleSubmit</code>{" "}
+          メソッドは非同期で呼び出されるからです。そして要素を検索するときは、できる限り{" "}
+          <code>*ByRole</code>{" "}
+          メソッドを使うようにしてください。なぜなら、ユーザーが機能を利用するとき、
+          UIが持っている(button、textboxのような)役割を認識するからです。
         </p>
-
-        <p></p>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
