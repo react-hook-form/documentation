@@ -515,8 +515,15 @@ export default {
 
         <p>
           Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because it is library
-          to perform the test like users use actual features.
+          attribute is helpful when you will write test. Because{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          is library to perform the test like users use actual features.
         </p>
 
         <CodeArea
