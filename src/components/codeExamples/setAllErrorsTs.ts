@@ -1,10 +1,14 @@
 export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
+type FormInputs = {
+  lastName: string;
+};
+
 const App = () => {
-  const { register, handleSubmit, setError, errors } = useForm();
+  const { register, handleSubmit, setError, errors } = useForm<FormInputs>();
   
-  const onSubmit = data => {
+  const onSubmit = (data: FormInputs) => {
     console.log(data)
   };
 
