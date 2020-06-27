@@ -377,7 +377,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <CodeArea
               withOutCopy
-              tsRawData={`const { register } = useForm<{ firstName: string, lastName: string }>({
+              rawData={`
+const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -387,7 +388,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
-              rawData={`const { register } = useForm({
+              tsRawData={`
+type FormInputs = {
+  firstName: string;
+  lastName: string;
+};
+
+const { register } = useForm<FormInputs>({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
