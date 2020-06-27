@@ -563,18 +563,18 @@ export default {
     title: "setError",
     description: (
       <>
-        <p>The function allows you to manually set one or multiple errors.</p>
+        <p>The function allows you to manually set one or more errors.</p>
         <ul>
           <li>
             <p>
-              This method will not persist the associated input error if input
-              pass validation.
+              This method will not persist the associated input error if the
+              input passes validation.
             </p>
           </li>
           <li>
             <p>
-              Set an error which doesn't associated with an input field will be
-              persist and required to removed manually with{" "}
+              Set an error which doesn't associated with an input field and will
+              be persisted. This error must be removed manually with{" "}
               <code>clearError</code>.
             </p>
           </li>

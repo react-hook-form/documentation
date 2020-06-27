@@ -8,6 +8,7 @@ import ApiWatch from "./ApiWatch"
 import ApiErrors from "./ApiErrors"
 import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
+import setErrorTs from "./codeExamples/setErrorTs"
 import clearError from "./codeExamples/clearError"
 import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
@@ -30,7 +31,9 @@ import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
 import setMultipleErrors from "./codeExamples/setMultipleErrors"
+import setMultipleErrorsTs from "./codeExamples/setMultipleErrorsTs"
 import setAllErrors from "./codeExamples/setAllErrors"
+import setAllErrorsTs from "./codeExamples/setAllErrorsTs"
 import resetController from "./codeExamples/resetController"
 import resetControllerTs from "./codeExamples/resetControllerTs"
 import control from "./codeExamples/control"
@@ -377,7 +380,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <CodeArea
               withOutCopy
-              tsRawData={`const { register } = useForm<{ firstName: string, lastName: string }>({
+              rawData={`
+const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -387,7 +391,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
-              rawData={`const { register } = useForm({
+              tsRawData={`
+type FormInputs = {
+  firstName: string;
+  lastName: string;
+};
+
+const { register } = useForm<FormInputs>({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -747,15 +757,21 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             >
               <CodeArea
                 rawData={setError}
-                url="https://codesandbox.io/s/react-hook-form-v6-set-error-clear-error-wj2kh"
+                tsRawData={setErrorTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
               />
               <CodeArea
                 rawData={setMultipleErrors}
-                url="https://codesandbox.io/s/react-hook-form-v6-set-error-clear-error-wj2kh"
+                tsRawData={setMultipleErrorsTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
               />
               <CodeArea
                 rawData={setAllErrors}
-                url="https://codesandbox.io/s/react-hook-form-v6-set-single-field-with-multiple-errors-kz9zc"
+                tsRawData={setAllErrorsTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
               />
             </TabGroup>
           </section>
