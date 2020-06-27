@@ -22,12 +22,10 @@ export default function Form() {
 
       <input type="submit" />
       <input
-        style={{ display: "block", marginTop: 20 }}
         type="reset"
         value="Standard Reset Field Values"
       />
       <input
-        style={{ display: "block", marginTop: 20 }}
         type="button"
         onClick={() => reset()}
         value="Custom Reset Field Values & Errors"
