@@ -543,8 +543,6 @@ export default {
           UI have it when users use your features.
         </p>
 
-        <p></p>
-
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
