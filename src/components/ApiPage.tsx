@@ -46,6 +46,7 @@ import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
+import resetCodeTs from "./codeExamples/resetCodeTs"
 
 const { useRef, useEffect } = React
 
@@ -707,12 +708,14 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             <TabGroup buttonLabels={["Uncontrolled", "Controller"]}>
               <CodeArea
                 rawData={resetCode}
-                url="https://codesandbox.io/s/jjm3wyqmjy"
+                tsRawData={resetCodeTs}
+                url="https://codesandbox.io/s/react-hook-form-reset-v6-ndwid"
+                tsUrl="https://codesandbox.io/s/react-hook-form-reset-v6-ts-3ocgd"
               />
               <CodeArea
                 rawData={resetController}
-                url="https://codesandbox.io/s/react-hook-form-controller-079xx"
                 tsRawData={resetControllerTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
                 tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               />
             </TabGroup>
