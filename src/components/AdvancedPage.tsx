@@ -31,6 +31,7 @@ const enLinks = [
   advancedEn.controlledMixedWithUnControlled,
   advancedEn.customHookWithValidationResolver,
   advancedEn.workingWithVirtualizedList,
+  advancedEn.testingForm,
 ]
 
 interface Props {
@@ -51,6 +52,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     ControlledmixedwithUncontrolledComponents: null,
     CustomHookwithValidationResolver: null,
     Workingwithvirtualizedlists: null,
+    TestingForm: null,
   })
 
   const {
@@ -73,6 +75,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.controlledMixedWithUnControlled,
     advanced.customHookWithValidationResolver,
     advanced.workingWithVirtualizedList,
+    advanced.testingForm,
   ]
 
   const goToSection = (name) => {
@@ -319,6 +322,32 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.workingWithVirtualizedList.description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (pageContentRef.current.TestingForm = ref)}
+          >
+            {advanced.testingForm.title}
+          </h2>
+
+          <p>
+            In this video tutorial, I have demonstrated how to test with React
+            Hook Form.
+          </p>
+
+          <iframe
+            width="100%"
+            height="528"
+            title="The way of testing with React Hook Form - video tutorial"
+            src="https://www.youtube.com/embed/CeAkxVwsyMU"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
+          {advanced.testingForm.description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

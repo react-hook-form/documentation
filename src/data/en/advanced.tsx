@@ -4,6 +4,7 @@ import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -454,6 +455,99 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          Test is very important because it preserve code from bugs or mistakes
+          and guarantee code of safety when you refactor code or improve
+          performance.
+          <br />
+          When you write test code, you will use something testing library. Then
+          we recommend to use{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          because it is simple and it can perform user side testing.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
+          environment.
+        </p>
+
+        <p>
+          You have to install <code>mutationobserver-shim</code> because{" "}
+          react-hook-form use <code>MutationObserver</code>.
+        </p>
+
+        <CodeArea rawData={"yarn add -D mutationobserver-shim"} />
+
+        <p>
+          And you have to create <code>setup.js</code> then you have to import{" "}
+          <code>mutationobserver-shim</code>.
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          Finally, you have to load <code>setup.js</code> in{" "}
+          <code>jest.config.js</code>.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
+          submit the data.
+        </p>
+
+        <p>
+          Note that we have set the role attribute correctly. These role
+          attribute is helpful when you will write test. Because it is library
+          to perform the test like users use actual features.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> Write test code to
+          login page.
+        </p>
+
+        <p>
+          Note that you have to wait for finishing submission by using{" "}
+          <code>waitFor</code> or <code>find*</code> method. Because{" "}
+          <code>handleSubmit</code> method is invoked with asynchronous. And you
+          are as possible as use <code>*ByRole</code> method when you want to
+          query element. Because users recognize role(like button, textbox) that
+          UI have it when users use your features.
+        </p>
+
+        <p></p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),
