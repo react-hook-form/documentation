@@ -55,25 +55,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </a>
         </span>
 
-        <span className={styles.icon}>
-          <a
-            href="https://spectrum.chat/react-hook-form"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="React Hook Form Spectrum"
-          >
-            <svg
-              strokeLinejoin="round"
-              strokeMiterlimit="1.414"
-              aria-label="Spectrum logo"
-              viewBox="2 2 28 28"
-            >
-              <g>
-                <path d="M6,14.5c0,0.828 0.672,1.5 1.5,1.5l1.5,0c3.866,0 7,3.134 7,7l0,1.5c0,0.828 0.672,1.5 1.5,1.5l7,0c0.828,0 1.5,-0.672 1.5,-1.5l0,-1.5c0,-9.389 -7.611,-17 -17,-17l-1.5,0c-0.828,0 -1.5,0.672 -1.5,1.5l0,7Z" />
-              </g>
-            </svg>
-          </a>
-        </span>
         <Toggle />
       </div>
 
