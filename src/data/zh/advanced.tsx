@@ -471,7 +471,7 @@ export default {
 
         <p>
           Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because{" "}
+          attribute is helpful when you write tests and improve accessibility.
           <a
             target="_blank"
             rel="noopener noreferrer"

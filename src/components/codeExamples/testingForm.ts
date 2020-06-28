@@ -4,7 +4,7 @@ export const step1 = `module.exports = {
 };`
 
 export const step2 = `import React from "react";
-import { useForm } from "./src";
+import { useForm } from "react-hook-form";
 
 export default function App({ login }) {
   const { register, handleSubmit, errors, reset } = useForm();

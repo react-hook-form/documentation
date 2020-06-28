@@ -465,21 +465,19 @@ export default {
       <>
         <p>
           Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor code or improve
-          performance.
+          mistakes and guarantee code safety when you refactor the codebase.
         </p>
 
         <p>
-          When you write test code, you will use something testing library. Then
-          we recommend using{" "}
+          We recommend using{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
             testing-library
-          </a>{" "}
-          because it is simple and it can perform user side testing.
+          </a>
+          , because it is simple and tests are more focused on user behavior.
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
@@ -490,8 +488,9 @@ export default {
         </p>
 
         <p>
-          You have to install <code>mutationobserver-shim</code> because{" "}
-          react-hook-form use <code>MutationObserver</code>.
+          Please install <code>mutationobserver-shim</code> because
+          react-hook-form use <code>MutationObserver</code> to detect inputs get
+          unmounted from the DOM.
         </p>
 
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
@@ -506,8 +505,8 @@ export default {
         />
 
         <p>
-          Finally, you have to load <code>setup.js</code> in{" "}
-          <code>jest.config.js</code>.
+          Finally, you have to update <code>setup.js</code> in{" "}
+          <code>jest.config.js</code> to include the file.
         </p>
 
         <CodeArea
@@ -516,13 +515,13 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
-          submit the data.
+          <b className={typographyStyles.note}>Step 2:</b> Create login form.
         </p>
 
         <p>
-          Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because{" "}
+          We have set the role attribute accordingly. These attributes are
+          helpful when you will write tests and improve accessibility. For more
+          information, you can refer to the{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -530,7 +529,7 @@ export default {
           >
             testing-library
           </a>{" "}
-          is library to perform the test like users use actual features.
+          documentation.
         </p>
 
         <CodeArea
@@ -539,18 +538,33 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> Write test code to
-          login page.
+          <b className={typographyStyles.note}>Step 3:</b> Write tests.
         </p>
 
-        <p>
-          Note that you have to wait for finishing submission by using{" "}
-          <code>waitFor</code> or <code>find*</code> method. Because{" "}
-          <code>handleSubmit</code> method is invoked with asynchronous. And you
-          are as possible as use <code>*ByRole</code> method when you want to
-          query element. Because users recognize role(like button, textbox) that
-          UI have it when users use your features.
-        </p>
+        <p>The following criteria are what we try to cover with the tests:</p>
+
+        <ul>
+          <li>
+            <p>Test submission failure.</p>
+
+            <p>
+              We are using <code>waitFor</code> and <code>find*</code> method to
+              detect submission feedback because <code>handleSubmit</code>{" "}
+              method is executed asynchronously.
+            </p>
+          </li>
+          <li>
+            <p>Test validation associated with each inputs.</p>
+
+            <p>
+              We are using <code>*ByRole</code> method when querying different
+              elements because that's how users recognize your UI component.
+            </p>
+          </li>
+          <li>
+            <p>Test successful submission.</p>
+          </li>
+        </ul>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
