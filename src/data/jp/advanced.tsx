@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -453,6 +454,107 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "フォームをテストする",
+    description: (
+      <>
+        <p>
+          テストはバグやミスを防いだり、
+          コードをリファクタリングしたりパフォーマンスを改善する時にコードの安全性を保証するため、
+          とても重要なものです。
+        </p>
+
+        <p>
+          テストコードを書くとき、何らかのテストライブラリーを使います。その時に{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          を使うことをお勧めします。なぜなら、シンプルにそしてユーザーサイドのテストを行うことができるからです。
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> テスト環境を設定する
+        </p>
+
+        <p>
+          react-hook-form は <code>MutationObserver</code> を使うため{" "}
+          <code>mutationobserver-shim</code>{" "}
+          をインストールしなければなりません。
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          そして <code>mutationobserver-shim</code> をインポートするために{" "}
+          <code>setup.js</code> を作成してください。
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          最後に、<code>setup.js</code> を <code>jest.config.js</code>{" "}
+          で読み込む必要があります。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b>{" "}
+          ログインページを作成し、 データを送信する
+        </p>
+
+        <p>
+          role 属性を正しく設定していることに注意してください。それらの role
+          属性はテストを書く時に役に立ちます。 なぜなら{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          はユーザーが実際の機能を使うようにテストを行うためのライブラリーだからです。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> ログインページの
+          テストを書く
+        </p>
+
+        <p>
+          <code>waitFor</code> や <code>find*</code>{" "}
+          メソッドを使って、送信が終わるまで
+          待たなければならないことに注意してください。なぜなら{" "}
+          <code>handleSubmit</code>{" "}
+          メソッドは非同期で呼び出されるからです。そして要素を検索するときは、できる限り{" "}
+          <code>*ByRole</code>{" "}
+          メソッドを使うようにしてください。なぜなら、ユーザーが機能を利用するとき、
+          UIが持っている(button、textboxのような)役割を認識するからです。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),
