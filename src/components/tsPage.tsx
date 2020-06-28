@@ -5,15 +5,15 @@ import SideMenu from "./SideMenu"
 import { useStateMachine } from "little-state-machine"
 import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
-import ts from "../data/en/ts"
+import * as TS from "../data/ts"
 import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
 
 const enLinks = [
-  ts.nestedValue,
-  ts.resolver,
-  ts.submitHandler,
-  ts.control,
-  ts.useFormMethodsRef,
+  TS.en.nestedValue,
+  TS.en.resolver,
+  TS.en.submitHandler,
+  TS.en.control,
+  TS.en.useFormMethodsRef,
 ]
 
 export default ({ defaultLang }: { defaultLang: string }) => {
@@ -54,8 +54,6 @@ export default ({ defaultLang }: { defaultLang: string }) => {
 
     const refName = `${filterName}Ref`
 
-    console.log(refName)
-
     if (tsSectionsRef.current[refName]) {
       tsSectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
@@ -85,13 +83,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
         <main>
           <section ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}>
             <code className={typographyStyles.codeHeading}>
-              <h2>NestedValue</h2>
+              <h2>{TS[currentLanguage].nestedValue.title}</h2>
             </code>
 
-            <p>
-              This type will be useful when the input itself return nested data
-              object.
-            </p>
+            {TS[currentLanguage].nestedValue.description}
 
             <TabGroup buttonLabels={["Code Example", "Type"]}>
               <CodeArea
@@ -182,12 +177,10 @@ errors?.key4?.message // no type error`}
 
           <section ref={(ref) => (tsSectionsRef.current.ResolverRef = ref)}>
             <code className={typographyStyles.codeHeading}>
-              <h2>Resolver</h2>
+              <h2>{TS[currentLanguage].resolver.title}</h2>
             </code>
 
-            <p>
-              This type will support users to write custom validation resolver.
-            </p>
+            {TS[currentLanguage].resolver.description}
 
             <CodeArea
               rawData={`import React from 'react';
@@ -238,12 +231,9 @@ export default function App() {
             ref={(ref) => (tsSectionsRef.current.SubmitHandlerRef = ref)}
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>SubmitHandler</h2>
+              <h2>{TS[currentLanguage].submitHandler.title}</h2>
             </code>
-            <p>
-              This type is useful when submitted data is not matching with{" "}
-              <code>FormValues</code> type.
-            </p>
+            {TS[currentLanguage].submitHandler.description}
 
             <CodeArea
               rawData={handleSubmitCodeTs}
@@ -255,13 +245,9 @@ export default function App() {
 
           <section ref={(ref) => (tsSectionsRef.current.ControlRef = ref)}>
             <code className={typographyStyles.codeHeading}>
-              <h2>Control</h2>
-
-              <p>
-                This type support custom hook such as <code>useFieldArray</code>
-                , <code>useWatch</code> and future custom hooks in this library.
-              </p>
+              <h2>{TS[currentLanguage].control.title}</h2>
             </code>
+            {TS[currentLanguage].control.description}
 
             <CodeArea
               rawData={`import React from "react";
@@ -306,13 +292,9 @@ export default function App() {
             ref={(ref) => (tsSectionsRef.current.UseFormMethodsRef = ref)}
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>UseFormMethods</h2>
+              <h2>{TS[currentLanguage].useFormMethodsRef.title}</h2>
             </code>
-
-            <p>
-              This type is useful when you are using <code>Context</code>'s{" "}
-              <code>Consumer</code> instead of <code>useFormContext</code> hook.
-            </p>
+            {TS[currentLanguage].useFormMethodsRef.description}
 
             <CodeArea
               rawData={`import React from "react";

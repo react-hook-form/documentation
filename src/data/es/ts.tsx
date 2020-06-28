@@ -23,7 +23,8 @@ export default {
     title: "SubmitHandler",
     description: (
       <p>
-        Este tipo es útil cuando los datos enviados no coinciden con FormValues
+        Este tipo es útil cuando los datos enviados no coinciden con{" "}
+        <code>FormValues</code>
         tipo.
       </p>
     ),
@@ -32,8 +33,9 @@ export default {
     title: "Control",
     description: (
       <p>
-        Este tipo admite enlaces personalizados como useFieldArray, useWatch y
-        future ganchos personalizados en esta biblioteca.
+        Este tipo admite enlaces personalizados como <code>useFieldArray</code>,{" "}
+        <code>useWatch</code> y future ganchos personalizados en esta
+        biblioteca.
       </p>
     ),
   },
@@ -42,7 +44,7 @@ export default {
     description: (
       <p>
         Este tipo es útil cuando está utilizando el consumidor de contexto en
-        lugar de useFormContext hook.
+        lugar de <code>useFormContext</code> hook.
       </p>
     ),
   },

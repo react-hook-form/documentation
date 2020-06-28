@@ -23,7 +23,8 @@ export default {
     title: "SubmitHandler",
     description: (
       <p>
-        Этот тип полезен, когда отправленные данные не совпадают с FormValues
+        Этот тип полезен, когда отправленные данные не совпадают с{" "}
+        <code>FormValues</code>
         тип.
       </p>
     ),
@@ -32,8 +33,9 @@ export default {
     title: "Control",
     description: (
       <p>
-        Этот тип поддерживает пользовательский хук, такой как useFieldArray,
-        useWatch и future пользовательские хуки в этой библиотеке.
+        Этот тип поддерживает пользовательский хук, такой как{" "}
+        <code>useFieldArray</code>,<code>useWatch</code> и future
+        пользовательские хуки в этой библиотеке.
       </p>
     ),
   },
@@ -41,8 +43,9 @@ export default {
     title: "UseFormMethodsRef",
     description: (
       <p>
-        Этот тип полезен, когда вы используете Consumer вместо Context
-        перехватывай useFormContext.
+        Этот тип полезен, когда вы используете <code>Consumer</code> вместо{" "}
+        <code>Context</code>
+        перехватывай <code>useFormContext</code>.
       </p>
     ),
   },

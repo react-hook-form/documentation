@@ -24,7 +24,7 @@ export default {
     description: (
       <p>
         Esse tipo é útil quando os dados enviados não correspondem aos
-        FormValues tipo.
+        <code>FormValues</code> tipo.
       </p>
     ),
   },
@@ -32,8 +32,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        Esse tipo suporta gancho personalizado, como useFieldArray, useWatch e
-        future ganchos personalizados nesta biblioteca.
+        Esse tipo suporta gancho personalizado, como <code>useFieldArray</code>,{" "}
+        <code>useWatch</code> e future ganchos personalizados nesta biblioteca.
       </p>
     ),
   },
@@ -42,7 +42,7 @@ export default {
     description: (
       <p>
         Esse tipo é útil quando você está usando o consumidor do contexto em vez
-        de gancho useFormContext.
+        de gancho <code>useFormContext</code>.
       </p>
     ),
   },

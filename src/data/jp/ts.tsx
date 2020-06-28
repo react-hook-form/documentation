@@ -22,8 +22,8 @@ export default {
     title: "SubmitHandler",
     description: (
       <p>
-        このタイプは、送信されたデータがFormValuesと一致しない場合に役立ちます
-        タイプ。
+        このタイプは、送信されたデータが<code>FormValues</code>
+        と一致しない場合に役立ちます タイプ。
       </p>
     ),
   },
@@ -31,7 +31,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        このタイプは、useFieldArray、useWatch、futureなどのカスタムフックをサポートします
+        このタイプは、<code>useFieldArray</code>、<code>useWatch</code>
+        、futureなどのカスタムフックをサポートします
         このライブラリのカスタムフック。
       </p>
     ),
@@ -41,7 +42,7 @@ export default {
     description: (
       <p>
         このタイプは、コンテキストのコンシューマを使用する代わりに便利です。
-        useFormContextフック。
+        <code>useFormContext</code>フック。
       </p>
     ),
   },

@@ -20,7 +20,8 @@ export default {
     title: "SubmitHandler",
     description: (
       <p>
-        This type is useful when submitted data is not matching with FormValues
+        This type is useful when submitted data is not matching with{" "}
+        <code>FormValues</code>
         type.
       </p>
     ),
@@ -29,8 +30,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        This type support custom hook such as useFieldArray, useWatch and future
-        custom hooks in this library.
+        This type support custom hook such as <code>useFieldArray</code>,{" "}
+        <code>useWatch</code> and future custom hooks in this library.
       </p>
     ),
   },
@@ -38,8 +39,9 @@ export default {
     title: "UseFormMethods",
     description: (
       <p>
-        This type is useful when you are using Context's Consumer instead of
-        useFormContext hook.
+        This type is useful when you are using <code>Context</code>'s{" "}
+        <code>Consumer</code> instead of
+        <code>useFormContext</code> hook.
       </p>
     ),
   },
