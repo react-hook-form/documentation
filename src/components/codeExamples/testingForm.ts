@@ -15,39 +15,32 @@ export default function App({ login }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <section>
-        <h1>Login</h1>
-        <label htmlFor="email">email</label>
-        <input
-          id="email"
-          name="email"
-          ref={register({
-            required: "required",
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Entered value does not match email format"
-            }
-          })}
-          type="email"
-          placeholder="example@mail.com"
-        />
-        {errors.email && <span role="alert">{errors.email.message}</span>}
-        <label htmlFor="password">password</label>
-        <input
-          id="password"
-          name="password"
-          ref={register({
-            required: "required",
-            minLength: {
-              value: 5,
-              message: "min length is 5"
-            }
-          })}
-          type="password"
-          placeholder="password"
-        />
-        {errors.password && <span role="alert">{errors.password.message}</span>}
-      </section>
+      <label htmlFor="email">email</label>
+      <input
+        name="email"
+        ref={register({
+          required: "required",
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Entered value does not match email format"
+          }
+        })}
+        type="email"
+      />
+      {errors.email && <span role="alert">{errors.email.message}</span>}
+      <label htmlFor="password">password</label>
+      <input
+        name="password"
+        ref={register({
+          required: "required",
+          minLength: {
+            value: 5,
+            message: "min length is 5"
+          }
+        })}
+        type="password"
+      />
+      {errors.password && <span role="alert">{errors.password.message}</span>}
       <button type="submit">SUBMIT</button>
     </form>
   );
@@ -137,4 +130,5 @@ describe("App", () => {
     expect(screen.getByRole("textbox", { name: /email/i }).value).toBe("");
     expect(screen.getByLabelText("password").value).toBe("");
   });
-});`
+});
+`
