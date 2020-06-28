@@ -488,19 +488,34 @@ export default {
         </p>
 
         <p>
-          Please install <code>mutationobserver-shim</code> because
-          react-hook-form use <code>MutationObserver</code> to detect inputs get
-          unmounted from the DOM.
+          Please install{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          with the latest version of <code>jest</code> because react-hook-form
+          use <code>MutationObserver</code> to detect inputs get unmounted from
+          the DOM.
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
           Create <code>setup.js</code> to import{" "}
-          <code>mutationobserver-shim</code>.
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
         </p>
         <CodeArea
-          rawData={'import "mutationobserver-shim";'}
+          rawData={'import "@testing-library/jest-dom";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
         />
 
