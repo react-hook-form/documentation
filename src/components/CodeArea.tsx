@@ -34,6 +34,12 @@ export const CodeSandBoxLink = ({
   </a>
 )
 
+const ToggleTypes = {
+  js: "JS",
+  ts: "TS",
+  types: "TYPES",
+} as const
+
 export default function CodeArea({
   rawData,
   tsRawData,
@@ -56,9 +62,24 @@ export default function CodeArea({
   const {
     state: { language },
   } = useStateMachine()
-  const [currentData, setData] = React.useState(
-    rawData || tsRawData || rawTypes
+  const [currentType, setType] = React.useState<
+    typeof ToggleTypes[keyof typeof ToggleTypes]
+  >(
+    (rawData && ToggleTypes.js) ||
+      (tsRawData && ToggleTypes.ts) ||
+      ToggleTypes.types
   )
+
+  const getData = () => {
+    switch (currentType) {
+      case ToggleTypes.js:
+        return rawData
+      case ToggleTypes.ts:
+        return tsRawData
+      default:
+        return rawTypes
+    }
+  }
 
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
@@ -72,9 +93,9 @@ export default function CodeArea({
       <div className={styles.buttonWrapper}>
         {((rawData && tsRawData) || (rawData && rawTypes)) && (
           <button
-            onClick={() => setData(rawData)}
+            onClick={() => setType(ToggleTypes.js)}
             className={`${styles.button} ${styles.codeLink} ${
-              currentData === rawData ? styles.active : ""
+              currentType === ToggleTypes.js ? styles.active : ""
             }`}
           >
             JS
@@ -82,9 +103,9 @@ export default function CodeArea({
         )}
         {((tsRawData && rawData) || (tsRawData && rawTypes)) && (
           <button
-            onClick={() => setData(tsRawData)}
+            onClick={() => setType(ToggleTypes.ts)}
             className={`${styles.button} ${styles.codeLink} ${
-              currentData === tsRawData ? styles.active : ""
+              currentType === ToggleTypes.ts ? styles.active : ""
             }`}
           >
             TS
@@ -92,9 +113,9 @@ export default function CodeArea({
         )}
         {((rawTypes && rawData) || (rawTypes && tsRawData)) && (
           <button
-            onClick={() => setData(rawTypes)}
+            onClick={() => setType(ToggleTypes.types)}
             className={`${styles.button} ${styles.codeLink} ${
-              currentData === rawTypes ? styles.active : ""
+              currentType === ToggleTypes.types ? styles.active : ""
             }`}
           >
             Types
@@ -104,7 +125,7 @@ export default function CodeArea({
           <button
             className={`${styles.button} ${styles.copyButton}`}
             onClick={() => {
-              copyClipBoard(currentData)
+              copyClipBoard(getData())
               alert(generic.copied[currentLanguage])
             }}
             aria-label={generic.copied[currentLanguage]}
@@ -116,7 +137,7 @@ export default function CodeArea({
         {(url || tsUrl) && (
           <CodeSandBoxLink
             isExpo={isExpo}
-            url={currentData === rawData ? url : tsUrl}
+            url={currentType === ToggleTypes.js ? url : tsUrl}
           />
         )}
       </div>
@@ -125,21 +146,21 @@ export default function CodeArea({
         <pre style={style} className="raw-code">
           <code
             className={`language-javascript ${
-              currentData === rawData ? styles.showCode : ""
+              currentType === ToggleTypes.js ? styles.showCode : ""
             }`}
           >
             {rawData}
           </code>
           <code
             className={`language-javascript ${
-              currentData === tsRawData ? styles.showCode : ""
+              currentType === ToggleTypes.ts ? styles.showCode : ""
             }`}
           >
             {tsRawData}
           </code>
           <code
             className={`language-javascript ${
-              currentData === rawTypes ? styles.showCode : ""
+              currentType === ToggleTypes.types ? styles.showCode : ""
             }`}
           >
             {rawTypes}
