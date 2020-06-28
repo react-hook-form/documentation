@@ -134,7 +134,8 @@ export default function CodeArea({
           </button>
         )}
 
-        {(url || tsUrl) && (
+        {((url && currentData === rawData) ||
+          (tsUrl && currentData === tsRawData)) && (
           <CodeSandBoxLink
             isExpo={isExpo}
             url={currentType === ToggleTypes.js ? url : tsUrl}
