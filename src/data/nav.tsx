@@ -67,7 +67,7 @@ export default {
     builder: "폼 빌더",
     faqs: "FAQs",
     releases: "릴리즈",
-    resources: "자원",
+    resources: "외부 리소스",
   },
   jp: {
     home: "ホーム",

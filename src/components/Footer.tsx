@@ -103,10 +103,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
       )}
       {currentLanguage === "kr" && (
         <p>
-          에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
+          <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
           <a href="https://github.com/iamchanii">@iamchanii</a>,{" "}
-          <a href="https://github.com/purelledhand">@purelledhand</a> and{" "}
-          <a href="https://github.com/adhrinae">@adhrinae</a>
+          <a href="https://github.com/purelledhand">@purelledhand</a>, 그리고{" "}
+          <a href="https://github.com/adhrinae">@adhrinae</a>의 도움으로
+          번역되었습니다.
         </p>
       )}
       {currentLanguage === "jp" && (

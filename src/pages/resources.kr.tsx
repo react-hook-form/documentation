@@ -13,7 +13,7 @@ const ResourcesEn = ({
 }) => {
   return (
     <Layout location={location} defaultLang="kr">
-      <Seo title="자원" location={location} />
+      <Seo title="외부 리소스" location={location} />
       <ResourcePage defaultLang="kr" />
     </Layout>
   )
