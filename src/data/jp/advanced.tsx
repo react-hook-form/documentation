@@ -489,18 +489,32 @@ export default {
         <p>
           react-hook-form は DOM からアンマウントされた input
           要素を検出するために <code>MutationObserver</code> を使うため{" "}
-          <code>mutationobserver-shim</code>
-          をインストールしてください。
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          を <code>jest</code>{" "}
+          の最新バージョンとともにインストールしてください。
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
-          そして <code>mutationobserver-shim</code> をインポートするために{" "}
-          <code>setup.js</code> を作成してください。
+          そして{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          をインポートするために <code>setup.js</code> を作成してください。
         </p>
         <CodeArea
-          rawData={'import "mutationobserver-shim";'}
+          rawData={'import "@testing-library/jest-dom";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
         />
 
