@@ -464,12 +464,12 @@ export default {
       <>
         <p>
           テストはバグやミスを防いだり、
-          コードをリファクタリングしたりパフォーマンスを改善する時にコードの安全性を保証するため、
+          コードをリファクタリングする時にコードの安全性を保証するため、
           とても重要なものです。
         </p>
 
         <p>
-          テストコードを書くとき、何らかのテストライブラリーを使います。その時に{" "}
+          私たちは{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -477,7 +477,7 @@ export default {
           >
             testing-library
           </a>{" "}
-          を使うことをお勧めします。なぜなら、シンプルにそしてユーザーサイドのテストを行うことができるからです。
+          を使うことをお勧めします。なぜなら、テストコードはシンプルで、そしてテストはよりユーザーの行動にフォーカスしています。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
@@ -487,9 +487,10 @@ export default {
         </p>
 
         <p>
-          react-hook-form は <code>MutationObserver</code> を使うため{" "}
-          <code>mutationobserver-shim</code>{" "}
-          をインストールしなければなりません。
+          react-hook-form は DOM からアンマウントされた input
+          要素を検出するために <code>MutationObserver</code> を使うため{" "}
+          <code>mutationobserver-shim</code>
+          をインストールしてください。
         </p>
 
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
@@ -514,13 +515,14 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b>{" "}
-          ログインページを作成し、 データを送信する
+          <b className={typographyStyles.note}>Step 2:</b>
+          ログインフォームを作成する
         </p>
 
         <p>
-          role 属性を正しく設定していることに注意してください。それらの role
-          属性はテストを書く時に役に立ちます。 なぜなら{" "}
+          私たちは、role
+          属性を設定しています。それらの属性はテストを書いたり、アクセシビリティーを改善する時に役に立ちます。
+          詳しくは{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -528,7 +530,7 @@ export default {
           >
             testing-library
           </a>{" "}
-          はユーザーが実際の機能を使うようにテストを行うためのライブラリーだからです。
+          のドキュメントを参照してください。
         </p>
 
         <CodeArea
@@ -537,20 +539,33 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> ログインページの
-          テストを書く
+          <b className={typographyStyles.note}>Step 3:</b> テストを書く
         </p>
 
-        <p>
-          <code>waitFor</code> や <code>find*</code>{" "}
-          メソッドを使って、送信が終わるまで
-          待たなければならないことに注意してください。なぜなら{" "}
-          <code>handleSubmit</code>{" "}
-          メソッドは非同期で呼び出されるからです。そして要素を検索するときは、できる限り{" "}
-          <code>*ByRole</code>{" "}
-          メソッドを使うようにしてください。なぜなら、ユーザーが機能を利用するとき、
-          UIが持っている(button、textboxのような)役割を認識するからです。
-        </p>
+        <p>テストでカバーしようとしているのは以下の条件です:</p>
+
+        <ul>
+          <li>
+            <p>送信時のテストに失敗</p>
+
+            <p>
+              <code>handleSubmit</code> は非同期で実行されるので、
+              送信したことを検出するために <code>waitFor</code> や{" "}
+              <code>find*</code> メソッドを使います。
+            </p>
+          </li>
+          <li>
+            <p>それぞれの入力に関するバリデーションをテストする</p>
+
+            <p>
+              異なる要素を探す時に <code>*ByRole</code>{" "}
+              を使います。なぜなら、このようにしてユーザーはUIコンポーネントを認識するからです。
+            </p>
+          </li>
+          <li>
+            <p>送信時のテストに成功</p>
+          </li>
+        </ul>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
