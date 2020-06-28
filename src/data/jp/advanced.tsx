@@ -466,7 +466,9 @@ export default {
           テストはバグやミスを防いだり、
           コードをリファクタリングしたりパフォーマンスを改善する時にコードの安全性を保証するため、
           とても重要なものです。
-          <br />
+        </p>
+
+        <p>
           テストコードを書くとき、何らかのテストライブラリーを使います。その時に{" "}
           <a
             target="_blank"
@@ -490,11 +492,11 @@ export default {
           をインストールしなければなりません。
         </p>
 
-        <CodeArea rawData={"yarn add -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
-          そして <code>setup.js</code> を作成し、
-          <code>mutationobserver-shim</code> をインポートする必要があります。
+          そして <code>mutationobserver-shim</code> をインポートするために{" "}
+          <code>setup.js</code> を作成してください。
         </p>
         <CodeArea
           rawData={'import "mutationobserver-shim";'}

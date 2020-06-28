@@ -444,12 +444,14 @@ export default {
     description: (
       <>
         <p>
-          Test is very important because it preserve code from bugs or mistakes
-          and guarantee code of safety when you refactor code or improve
+          Testing is very important because it preserve code from bugs or
+          mistakes and guarantee code safety when you refactor code or improve
           performance.
-          <br />
+        </p>
+
+        <p>
           When you write test code, you will use something testing library. Then
-          we recommend to use{" "}
+          we recommend using{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -472,10 +474,10 @@ export default {
           react-hook-form use <code>MutationObserver</code>.
         </p>
 
-        <CodeArea rawData={"yarn add -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
-          And you have to create <code>setup.js</code> then you have to import{" "}
+          Create <code>setup.js</code> to import{" "}
           <code>mutationobserver-shim</code>.
         </p>
         <CodeArea
