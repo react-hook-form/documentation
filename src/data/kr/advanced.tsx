@@ -444,41 +444,39 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor code or improve
-          performance.
+          테스트는 버그 나 코드로부터 코드를 보존하기 때문에 매우 중요합니다.
+          코드베이스를 리팩토링 할 때 실수와 코드 안전성을 보장합니다.
         </p>
 
         <p>
-          When you write test code, you will use something testing library. Then
-          we recommend using{" "}
+          사용을 권장합니다
           <a
-            target="_blank"
+            target="_ blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
-            testing-library
-          </a>{" "}
-          because it is simple and it can perform user side testing.
+            테스트 라이브러리
+          </a>
+          테스트는 단순하고 테스트는 사용자 행동에 더 초점을 맞추기 때문입니다.
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
-          environment.
+          <b className={typographyStyles.note}>Step 1:</b> 테스트 설정 환경.
         </p>
 
         <p>
-          You have to install <code>mutationobserver-shim</code> because{" "}
-          react-hook-form use <code>MutationObserver</code>.
+          <code> mutationobserver-shim </code>을 설치하십시오. react-hook-form{" "}
+          <code> MutationObserver </code>를 사용하여 입력을 감지하십시오.
+          DOM에서 마운트 해제되었습니다.
         </p>
 
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
-          Create <code>setup.js</code> to import{" "}
-          <code>mutationobserver-shim</code>.
+          가져 오려면 <code> setup.js </code>를 만드십시오 {""}
+          <code> mutationobserver-shim </code>입니다.
         </p>
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
@@ -486,8 +484,8 @@ export default {
         />
 
         <p>
-          Finally, you have to load <code>setup.js</code> in{" "}
-          <code>jest.config.js</code>.
+          마지막으로 {""}에서 <code> setup.js </code>를 업데이트해야합니다.
+          파일을 포함하려면 <code> jest.config.js </code>입니다.
         </p>
 
         <CodeArea
@@ -496,21 +494,21 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
-          submit the data.
+          <b className={typographyStyles.note}>Step 2:</b> 로그인 양식을
+          작성하십시오.
         </p>
 
         <p>
-          Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because{" "}
+          그에 따라 역할 속성을 설정했습니다. 이 속성들은 테스트를 작성하고
+          접근성을 향상시킬 때 도움이됩니다. 이상 정보는 {""}
           <a
-            target="_blank"
+            target="_ blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
-            testing-library
+            테스트 라이브러리
           </a>{" "}
-          is library to perform the test like users use actual features.
+          선적 서류 비치.
         </p>
 
         <CodeArea
@@ -519,18 +517,34 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> Write test code to
-          login page.
+          <b className={typographyStyles.note}>Step 3:</b> 테스트를
+          작성하십시오.
         </p>
 
-        <p>
-          Note that you have to wait for finishing submission by using{" "}
-          <code>waitFor</code> or <code>find*</code> method. Because{" "}
-          <code>handleSubmit</code> method is invoked with asynchronous. And you
-          are as possible as use <code>*ByRole</code> method when you want to
-          query element. Because users recognize role(like button, textbox) that
-          UI have it when users use your features.
-        </p>
+        <p>다음 기준은 테스트에서 다루려고하는 것입니다.</p>
+
+        <ul>
+          <li>
+            <p>테스트 제출 실패</p>
+
+            <p>
+              <code> waitFor </code> 및 <code> find * </code> 메소드를 사용하여
+              <code> handleSubmit </code> {""} 때문에 제출 피드백 감지 메소드는
+              비동기 적으로 실행됩니다.
+            </p>
+          </li>
+          <li>
+            <p>각 입력과 관련된 테스트 유효성 검사</p>
+
+            <p>
+              다른 쿼리를 할 때 <code> * ByRole </code> 메소드를 사용하고
+              있습니다 사용자가 UI 구성 요소를 인식하는 방식이기 때문입니다.
+            </p>
+          </li>
+          <li>
+            <p>성공적인 제출을 테스트하십시오.</p>
+          </li>
+        </ul>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}

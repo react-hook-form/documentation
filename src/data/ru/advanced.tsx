@@ -445,40 +445,41 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor code or improve
-          performance.
+          Тестирование очень важно, потому что оно сохраняет код от ошибок или
+          ошибки и гарантируют безопасность кода при рефакторинге кодовой базы.
         </p>
 
         <p>
-          When you write test code, you will use something testing library. Then
-          we recommend using{" "}
+          Мы рекомендуем использовать{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
             testing-library
-          </a>{" "}
-          because it is simple and it can perform user side testing.
+          </a>
+          , потому что она проста и тесты больше ориентированы на поведение
+          пользователей.
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
-          environment.
+          <b className={typographyStyles.note}>Step 1:</b> Настройте вашу
+          тестовую среду.
         </p>
 
         <p>
-          You have to install <code>mutationobserver-shim</code> because{" "}
-          react-hook-form use <code>MutationObserver</code>.
+          Пожалуйста, установите <code>mutationobserver-shim</code>, потому что
+          повторное использование крючкообразной формы{" "}
+          <code>MutationObserver</code> для обнаружения входов получает не
+          смонтированный из МДМ.
         </p>
 
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
-          Create <code>setup.js</code> to import{" "}
+          Создайте <code>setup.js</code> для импорта ".
           <code>mutationobserver-shim</code>.
         </p>
         <CodeArea
@@ -487,8 +488,8 @@ export default {
         />
 
         <p>
-          Finally, you have to load <code>setup.js</code> in{" "}
-          <code>jest.config.js</code>.
+          Наконец, вы должны обновить <code>setup.js</code> в ".
+          <code>jest.config.js</code> для включения файла.
         </p>
 
         <CodeArea
@@ -497,13 +498,14 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
-          submit the data.
+          <b className={typographyStyles.note}>Step 2:</b> Создайте форму входа
+          в систему.
         </p>
 
         <p>
-          Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because{" "}
+          Мы установили атрибут роли соответственно. Этими атрибутами являются
+          Полезно, когда вы будете писать тесты и улучшать доступность.
+          Подробнее информация, вы можете сослаться на " ".
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -511,7 +513,8 @@ export default {
           >
             testing-library
           </a>{" "}
-          is library to perform the test like users use actual features.
+          Документация. Переведено с помощью www.DeepL.com/Translator
+          (бесплатная версия)
         </p>
 
         <CodeArea
@@ -520,18 +523,34 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> Write test code to
-          login page.
+          <b className={typographyStyles.note}>Step 3:</b> Пишите тесты.
         </p>
 
-        <p>
-          Note that you have to wait for finishing submission by using{" "}
-          <code>waitFor</code> or <code>find*</code> method. Because{" "}
-          <code>handleSubmit</code> method is invoked with asynchronous. And you
-          are as possible as use <code>*ByRole</code> method when you want to
-          query element. Because users recognize role(like button, textbox) that
-          UI have it when users use your features.
-        </p>
+        <p>Следующие критерии мы пытаемся покрыть испытаниями:</p>
+
+        <ul>
+          <li>
+            <p>Сбой подачи теста.</p>
+
+            <p>
+              Мы используем метод <code>waitFor</code> и <code>find*</code> для
+              того, чтобы обнаружить обратную связь, потому что{" "}
+              <code>handleSubmit</code> метод выполняется асинхронно.
+            </p>
+          </li>
+          <li>
+            <p>Проверка тестов, связанных с каждым входом.</p>
+
+            <p>
+              Мы используем метод <code>*ByRole</code> при запросе различный
+              элементы, потому что именно так пользователи узнают ваш компонент
+              пользовательского интерфейса.
+            </p>
+          </li>
+          <li>
+            <p>Успешная подача теста.</p>
+          </li>
+        </ul>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}

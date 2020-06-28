@@ -459,41 +459,42 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor code or improve
-          performance.
+          Las pruebas son muy importantes porque preservan el código de los
+          bichos o y garantizar la seguridad del código cuando se refactoriza la
+          base del código.
         </p>
 
         <p>
-          When you write test code, you will use something testing library. Then
-          we recommend using{" "}
+          Recomendamos el uso de la{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
             testing-library
-          </a>{" "}
-          because it is simple and it can perform user side testing.
+          </a>
+          , porque es simple y las pruebas se centran más en el comportamiento
+          del usuario.
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
-          environment.
+          <b className={typographyStyles.note}>Step 1:</b> Prepare su entorno de
+          pruebas.
         </p>
 
         <p>
-          You have to install <code>mutationobserver-shim</code> because{" "}
-          react-hook-form use <code>MutationObserver</code>.
+          Por favor instale <code>mutationobserver-shim</code> porque
+          react-hook-form use <code>MutationObserver</code> para detectar las
+          entradas obtenidas desmontado del DOM.
         </p>
 
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
-          Create <code>setup.js</code> to import{" "}
-          <code>mutationobserver-shim</code>.
+          Crear <code>setup.js</code> para importar{" "}
+          <code>mutaciónobservador-shim</code>.
         </p>
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
@@ -501,8 +502,8 @@ export default {
         />
 
         <p>
-          Finally, you have to load <code>setup.js</code> in{" "}
-          <code>jest.config.js</code>.
+          Finalmente, tienes que actualizar <code>setup.js</code> en{" "}
+          <code>jest.config.js</code> para incluir el archivo.
         </p>
 
         <CodeArea
@@ -511,21 +512,23 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> Create login pages,{" "}
-          submit the data.
+          <b className={typographyStyles.note}>Step 2:</b> Crear un formulario
+          de acceso.
         </p>
 
         <p>
-          Note that we have set the role attribute correctly. These role
-          attribute is helpful when you will write test. Because{" "}
+          Hemos establecido el atributo del papel en consecuencia. Estos
+          atributos son útiles cuando se escriben pruebas y se mejora la
+          accesibilidad. Para más información, puedes consultar la documentación
+          de la{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://testing-library.com/"
           >
             testing-library
-          </a>{" "}
-          is library to perform the test like users use actual features.
+          </a>
+          .
         </p>
 
         <CodeArea
@@ -534,18 +537,38 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 3:</b> Write test code to
-          login page.
+          <b className={typographyStyles.note}>Step 3:</b> Write tests.
         </p>
 
         <p>
-          Note that you have to wait for finishing submission by using{" "}
-          <code>waitFor</code> or <code>find*</code> method. Because{" "}
-          <code>handleSubmit</code> method is invoked with asynchronous. And you
-          are as possible as use <code>*ByRole</code> method when you want to
-          query element. Because users recognize role(like button, textbox) that
-          UI have it when users use your features.
+          Los siguientes criterios son los que intentamos cubrir con las
+          pruebas:
         </p>
+
+        <ul>
+          <li>
+            <p>Fallo en la presentación de la prueba.</p>
+
+            <p>
+              Estamos usando el método <code>esperaPor</code> y{" "}
+              <code>encuentra*</code> para detectar la retroalimentación de la
+              presentación porque <code>manejarSometer</code> se ejecuta
+              asincrónicamente.
+            </p>
+          </li>
+          <li>
+            <p>Validación de la prueba asociada a cada entrada.</p>
+
+            <p>
+              Estamos usando el método <cdoe>*ByRole</cdoe> cuando buscamos
+              diferentes elementos porque así es como los usuarios reconocen su
+              componente de UI.
+            </p>
+          </li>
+          <li>
+            <p>Prueba de presentación exitosa.</p>
+          </li>
+        </ul>
 
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
