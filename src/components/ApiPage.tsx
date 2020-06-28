@@ -10,6 +10,7 @@ import handleSubmitCode from "./codeExamples/handleSubmitCode"
 import setError from "./codeExamples/setError"
 import setErrorTs from "./codeExamples/setErrorTs"
 import clearError from "./codeExamples/clearError"
+import clearErrorTs from "./codeExamples/clearErrorTs"
 import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
 import getValues from "./codeExamples/getValues"
@@ -793,7 +794,12 @@ const { register } = useForm<FormInputs>({
             </code>
             {api.clearError.description}
 
-            <CodeArea rawData={clearError} />
+            <CodeArea
+              rawData={clearError}
+              url="https://codesandbox.io/s/react-hook-form-v6-clearerrors-887rh"
+              tsRawData={clearErrorTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-clearerrors-0zry5"
+            />
           </section>
 
           <hr />
