@@ -15,7 +15,7 @@ export default {
     en: "React hook for form validation without the hassle",
     es: "React hook para validación de formularios sin molestias",
     pt: "React hook para validação de formulário sem aborrecimento",
-    kr: "번거로움 없이 폼 검증을 위한 React hook",
+    kr: "번거로움 없는 폼 검증을 위한 React hook",
     jp: "手間がかからないフォームバリデーションのための React フック",
     zh: "React hook用于表单验证，无需麻烦",
     ru: "React hook для валидации форм без хлопот",
@@ -304,12 +304,12 @@ export default {
         <>
           <p id="codeComparison">
             작성하는 코드 양을 줄이는 것은 React Hook Form의 주요 목표 중
-            하나입니다. 이를 설명하기 위해 가장 인기있는 폼 유효성 검사
-            라이브러리들을 사용한 간단한 폼을 살펴보세요.
+            하나입니다. 인기있는 폼 유효성 검사 라이브러리와 아주 간단한 비교를
+            해 보겠습니다.
           </p>
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ 참고:</b>아래의 Formik 및
-            Redux-Form 코드는 다음과 같습니다. 공식 문서에서 복사。
+            <b className={typographyStyles.note}>⚠ 참고:</b> 아래의 Formik 및
+            Redux-Form 공식 문서에서 가져온 것입니다.
           </p>
         </>
       ),
@@ -421,7 +421,7 @@ export default {
         <>
           <p>
             페이지나 앱의 퍼포먼스에 부정적인 영향을 줄 수 있는 리랜더링을
-            분리할 수 있습니다. 아래의 예제는 그 방법을 보여줍니다.
+            분리할 수 있습니다. 아래의 예제는 그 차이를 보여줍니다.
           </p>
 
           <p style={{ fontSize: 14 }}>
@@ -515,9 +515,8 @@ export default {
       title: "Subscribe Input Change",
       description: (
         <p>
-          Performance is an important aspect of user experience in terms of
-          building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          퍼포먼스는 폼을 만들 때 사용자 경험에 큰 영향을 주는 요소입니다. 전체
+          폼이 리랜더링되지 않으면서도 각각의 입력값 변화를 관찰할 수 있습니다.
         </p>
       ),
     },
