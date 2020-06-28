@@ -17,6 +17,7 @@ export default function App({ login }) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="email">email</label>
       <input
+        id="email"
         name="email"
         ref={register({
           required: "required",
@@ -30,6 +31,7 @@ export default function App({ login }) {
       {errors.email && <span role="alert">{errors.email.message}</span>}
       <label htmlFor="password">password</label>
       <input
+        id="password"
         name="password"
         ref={register({
           required: "required",
