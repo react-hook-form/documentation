@@ -10,7 +10,7 @@
 
 ## Install
 
-    $ yarn && yarn start
+    npm i && npm start
 
 ## Backers
 
@@ -27,9 +27,3 @@ Thanks goes to these wonderful people. [[Become a contributor](https://github.co
 <a href="https://github.com/react-hook-form/react-hook-form/graphs/contributors">
     <img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
 </a>
-    
-#### Thanks to
-
-- WebStorm for IDE license
-- Vercel for free hosting
-- React ❤️
