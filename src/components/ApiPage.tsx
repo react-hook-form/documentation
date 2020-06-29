@@ -13,6 +13,7 @@ import clearError from "./codeExamples/clearError"
 import clearErrorTs from "./codeExamples/clearErrorTs"
 import setValue from "./codeExamples/setValue"
 import setValueTs from "./codeExamples/setValueTs"
+import setValueTypes from "./codeExamples/setValueTypes"
 import getValues from "./codeExamples/getValues"
 import getValuesTs from "./codeExamples/getValuesTs"
 import defaultValues from "./codeExamples/defaultValues"
@@ -823,8 +824,10 @@ const { register } = useForm<FormInputs>({
 
             <CodeArea
               rawData={setValue}
+              url="https://codesandbox.io/s/react-hook-form-v6-setvalue-wjplb"
               tsRawData={setValueTs}
-              url="https://codesandbox.io/s/react-hook-form-v6-set-inputselect-value-sq5c7"
+              rawTypes={setValueTypes}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-setvalue-4nq5e"
             />
           </section>
 
