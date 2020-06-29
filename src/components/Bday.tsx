@@ -12,11 +12,9 @@ const list = [
   </p>,
   <p key="3">★ API Refinements</p>,
   <p key="4">
-    ★ Improved <strong>resolver</strong>
-  </p>,
-  <p key="4">
     ★ Improved <strong>Controller</strong>
   </p>,
+  <p key="4">★ Support Yup, SuperStruct & Joi</p>,
   <p key="4">
     ★ useForm <strong>shouldUnregister</strong>
   </p>,
