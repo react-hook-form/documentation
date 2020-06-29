@@ -13,7 +13,7 @@ const props = {
     { 70: "transform: scale(0.8)" },
     { 100: "transform: scale(1)" },
   ],
-  fillMode: "forwards" as "forwards",
+  fillMode: "forwards" as const,
   duration: 0.3,
 }
 

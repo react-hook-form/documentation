@@ -2,14 +2,9 @@ export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 import * as Joi from "@hapi/joi";
 
-type Inputs = {
+interface IFormInputs {
   username: string;
-};
-
-type Context = {
-  test: string;
-};
-
+}
 
 const validationSchema = Joi.object({
   username: Joi.string()
@@ -19,10 +14,12 @@ const validationSchema = Joi.object({
     .required()
 });
 
-export default function App() {
-  const { register, handleSubmit, errors } = useForm<Inputs, Context>({
-    validationResolver: (data, validationContext) => {
-      const { error, value: values } = validationSchema.validate(data, { abortEarly: false });
+const App = () => {
+  const { register, handleSubmit, errors } = useForm<IFormInputs>({
+    resolver: async data => {
+      const { error, value: values } = validationSchema.validate(data, {
+        abortEarly: false
+      });
 
       return {
         values: error ? {} : values,
@@ -35,20 +32,24 @@ export default function App() {
             }, {})
           : {}
       };
-    },
-    validationContext: { test: "test" }
+    }
   });
+
+  const onSubmit = (data: IFormInputs) => {
+    console.log(data)
+  };
 
   return (
     <div className="App">
-      <h1>validationResolver</h1>
+      <h1>resolver</h1>
 
-      <form onSubmit={handleSubmit(d => console.log(d))}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Username</label>
         <input type="text" name="username" ref={register} />
+        {errors.username && <p>errors.username.message</p>}
         <input type="submit" />
       </form>
     </div>
   );
-}
-
+};
 `

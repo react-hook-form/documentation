@@ -1,17 +1,11 @@
 import * as React from "react"
 import { SimpleImg } from "react-simple-img"
 import { AnimateGroup, Animate } from "react-simple-animate"
-// @ts-ignore
 import formik from "../images/formik.min.png"
-// @ts-ignore
 import hookFrom from "../images/hookform.min.png"
-// @ts-ignore
 import reduxForm from "../images/reduxform.min.png"
-// @ts-ignore
 import reactHookFormVideo from "../images/react-hook-form-test.min.mp4"
-// @ts-ignore
 import formikVideo from "../images/formik-test.min.mp4"
-// @ts-ignore
 import reduxFormVideo from "../images/redux-form-test.min.mp4"
 import home from "../data/home"
 import containerStyles from "../styles/container.module.css"

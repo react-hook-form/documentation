@@ -22,6 +22,11 @@
   margin: 0 3px;
 }
 
+.codeLink {
+  background: var(--color-light-blue);
+  border: 1px solid transparent;
+}
+
 .button:hover {
   background: var(--color-secondary);
   color: white;
@@ -34,7 +39,7 @@
 }
 
 .copyButton {
-  background: var(--color-light-blue);
+  background: none;
   border: 1px solid transparent;
 }
 

@@ -31,7 +31,7 @@ function Form({
   devTool,
 }: {
   onSubmit: any
-  submitData: Object
+  submitData: unknown
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
   currentLanguage: string

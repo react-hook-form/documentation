@@ -20,14 +20,12 @@ function App() {
           </li>
         ))}
       </ul>
-      <section>
-        <button type="button" onClick={() => append({ name: "test" })} >
-          append
-        </button>
-        <button type="button" onClick={() => prepend({ name: "test1" })}>
-          prepend
-        </button>
-      </section>
+      <button type="button" onClick={() => append({ name: "test" })} >
+        append
+      </button>
+      <button type="button" onClick={() => prepend({ name: "test1" })}>
+        prepend
+      </button>
     </form>
   );
 }

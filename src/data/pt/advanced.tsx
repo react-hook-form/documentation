@@ -4,6 +4,7 @@ import { Link as PageLink } from "gatsby"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -302,41 +303,9 @@ export default {
           >
             link para esta implementação.
           </a>{" "}
-          com <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          com <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Validação de formulário",
-    description: (
-      <>
-        <p>
-          React Hook Form suporta esquema baseado na validação do formulário com{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , aqui você utiliza o <code>validationSchema</code> para{" "}
-          <a href="/api#useForm">useForm</a> como configuração opcional. React
-          Hook Form irá validar o campo com base no esquema e retornará com{" "}
-          <a href="/api#errors">errors</a> ou um valor válido.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Passo 1:</b> Instale o{" "}
-          <code>Yup</code> em seu projeto.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Passo 2:</b> Crie um esquema para
-        validação e registre (<code>register</code>) os campos com React Hook
-        Form.
-      </p>
     ),
   },
   connectForm: {
@@ -485,6 +454,125 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          Os testes são muito importantes porque preservam o código de bugs ou
+          erros e garantir a segurança do código quando você refatorar a base de
+          código.
+        </p>
+
+        <p>
+          Recomendamos o uso do{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          , porque é simples e os testes são mais focados no comportamento do
+          usuário.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Prepare seus testes
+          ambiente.
+        </p>
+
+        <p>
+          Favor instalar <code>mutationobserver-shim</code> porque uso de forma
+          de reação <code>MutationObserver</code> para detectar entradas obter
+          não montado desde o DOM.
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          Criar <code>setup.js</code> para importar{" "}
+          <code>mutationobserver-shim</code>.
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          Finalmente, você tem que atualizar <code>setup.js</code> in{" "}
+          <code>jest.config.js</code> para incluir o arquivo.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> Criar formulário de
+          login.
+        </p>
+
+        <p>
+          Estabelecemos o atributo do papel de acordo. Estes atributos são útil
+          quando você vai escrever testes e melhorar a acessibilidade. Para mais
+          informações, você pode se referir ao{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          documentação. Traduzido com a versão gratuita do tradutor -
+          www.DeepL.com/Translator
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> Escrever testes.
+        </p>
+
+        <p>Os critérios a seguir são o que tentamos cobrir com os testes:</p>
+
+        <ul>
+          <li>
+            <p>Falha na submissão de testes.</p>
+
+            <p>
+              Estamos usando o método <code>waitFor</code> e <code>find*</code>{" "}
+              para detectar feedback de apresentação porque{" "}
+              <code>handleSubmit</code> é executado de forma assíncrona.
+            </p>
+          </li>
+          <li>
+            <p>Validação de teste associada a cada entrada.</p>
+
+            <p>
+              Estamos usando o método <code>*ByRole</code> ao consultar
+              diferentes elementos porque é assim que os usuários reconhecem seu
+              componente UI.
+            </p>
+          </li>
+          <li>
+            <p>Testar a submissão com sucesso.</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

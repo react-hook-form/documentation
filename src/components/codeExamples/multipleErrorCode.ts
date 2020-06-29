@@ -5,7 +5,7 @@ export default function App() {
   const { register, errors, handleSubmit } = useForm({
     // by setting validateCriteriaMode to 'all', 
     // all validation errors for single field will display at once
-    validateCriteriaMode: "all"
+    criteriaMode: "all"
   });
   const onSubmit = data => console.log(data);
 

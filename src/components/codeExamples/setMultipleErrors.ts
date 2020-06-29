@@ -1,33 +1,54 @@
-export default `import React from "react";
+export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
-  const { register, errors, setError } = useForm();
+const App = () => {
+  const { register, handleSubmit, setError, errors } = useForm();
+
+  const onSubmit = data => {
+    console.log(data)
+  };
 
   return (
-    <form>
-      <input name="username" ref={register} />
-      {errors.username && errors.username.message}
-      
-      <input name="lastName" ref={register} />
-      {errors.lastName && errors.lastName.message}
-      
-      <button type="button" onClick={() => {
-        setError([
-          {
-            type: "required",
-            name: "lastName",
-            message: "This is required.",
-          },
-          {
-            type: "minLength",
-            name: "username",
-            message: "Minlength is 10",
-          },
-        ]);
-      }}>
-        Set Errors for a single field
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Username</label>
+      <input
+        name="username"
+        type="text"
+        onChange={() => {
+          setError("username", {
+            type: "manual",
+            message: "Dont Forget Your Username Should Be Cool!"
+          });
+        }}
+        ref={register}
+      />
+      {errors.username && <p>{errors.username.message}</p>}
+      <label>First Name</label>
+      <input name="firstName" type="text" ref={register} />
+      {errors.firstName && <p>{errors.firstName.message}</p>}
+      <button
+        type="button"
+        onClick={() => {
+          [
+            {
+              type: "manual",
+              name: "username",
+              message: "Double Check This"
+            },
+            {
+              type: "manual",
+              name: "firstName",
+              message: "Triple Check This"
+            }
+          ].forEach(({ name, type, message }) =>
+            setError(name, { type, message })
+          );
+        }}
+      >
+        Trigger Name Errors
       </button>
+      <input type="submit" />
     </form>
   );
-}`
+};
+`

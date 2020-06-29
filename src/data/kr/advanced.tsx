@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -50,19 +51,38 @@ export default {
     title: "에러 메세지",
     description: (
       <p>
-        에러 메세지는 입력값에 관하여 문제가 있을 때 사용자에게 시각적으로
-        피드백을 주는 것입니다. React Hook Form 은 쉽게 에러를 되짚을 수 있도록
-        에러 객체를 제공합니다. 하지만 더 나은 방식으로 에러를 스크린에
-        랜더링하기 위해 몇 가지 다른 방법이 있습니다.
+        에러 메세지는 입력값에 관하여 문제가 있을 때 사용자에게 시각적인
+        피드백을 줍니다. React Hook Form 은 쉽게 에러를 되짚을 수 있도록 에러
+        객체를 제공합니다. 하지만 더 나은 방식으로 에러를 스크린에 랜더링하기
+        위해 몇 가지 다른 방법이 있습니다.
       </p>
     ),
     register: (
       <>
         <code>register</code> 하면서 에러 메세지를 심어보세요. 쉽게{" "}
-        <code>value</code> 속성에 에러 메세지를 넣을 수 있습니다. 예:
+        <code>value</code> 속성에 에러 메세지를 넣을 수 있습니다.
       </>
     ),
     component: "에러 출력을 돕기 위해 ErrorMessage 컴포넌트를 만들어보세요.",
+    optionalChaining: (
+      <>
+        <p>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+          >
+            옵셔널 체이닝
+          </a>{" "}
+          접근자 <code>?.</code> 는 <code>errors</code> 객체를 읽을 때{" "}
+          <code>null</code> 이나 <code>undefined</code> 인 속성 때문에 에러가
+          발생할 걱정을 하지 않고 객체의 속성에 접근할 수 있습니다.
+        </p>
+        <p>
+          <code>{`errors?.firstName?.message`}</code>
+        </p>
+      </>
+    ),
     get: (
       <p>
         만약 여러분의 프로젝트가{" "}
@@ -84,25 +104,6 @@ export default {
         <br />
         <code>{`get(errors, 'firstName.message')`}</code>
       </p>
-    ),
-    optionalChaining: (
-      <>
-        <p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
-          >
-            옵셔널 체이닝
-          </a>{" "}
-          접근자 <code>?.</code> 는 <code>errors</code> 객체를 읽을 때{" "}
-          <code>null</code> 이나 <code>undefined</code> 인 속성 때문에 에러가
-          발생할 걱정을 하지 않고 속성에 접근할 수 있습니다.
-        </p>
-        <p>
-          <code>{`errors?.firstName?.message`}</code>
-        </p>
-      </>
     ),
   },
   accessibility: {
@@ -131,8 +132,8 @@ export default {
             target="_blank"
           >
             ARIA
-          </a>
-          를 활용하여 향상된 접근성을 제공합니다.
+          </a>{" "}
+          속성을 활용하여 향상된 접근성을 제공합니다.
         </p>
         <CodeArea rawData={accessibleCodeFinal} />
 
@@ -193,7 +194,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>3단계:</b> 스토어에 모아진 모든
-          데이터를 사용하여 마지막 폼을 제출하거나 결과물을 출력하세요.
+          데이터를 사용하여 최종 폼을 제출하거나 결과물을 출력하세요.
         </p>
         <CodeArea
           rawData={step3}
@@ -226,9 +227,9 @@ export default {
 
         <p>각각의 컴포넌트가 어떻게 이루어져 있는지 살펴보겠습니다.</p>
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </div>
+        </code>
 
         <p>
           <code>Form</code> 컴포넌트가 하는 일은 모든{" "}
@@ -240,9 +241,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </div>
+        </code>
 
         <p>
           인풋 컴포넌트의 역할은 자기 자신을 <code>react-hook-form</code> 에
@@ -266,16 +267,16 @@ export default {
     description: (
       <>
         <p>
-          이 기능은 React Hook Form 이 제공하는 제일 좋은 기능 중 하나입니다. 이
-          기능을 구현하기 위해 (다른 라이브러리같은) 컴포넌트를 불러오는 대신에
-          이미 있는 HTML 마크업을 활용할 수 있습니다. 핵심은 그 안에 있는{" "}
+          이 기능은 React Hook Form 이 제공하는 제일 유용한 기능 중 하나입니다.
+          이 기능을 구현하기 위해 (다른 라이브러리 등의) 컴포넌트를 불러오는
+          대신에 이미 있는 HTML 마크업을 활용할 수 있습니다. 핵심은 그 안에 있는{" "}
           <code>name</code> 속성입니다. React Hook Form 에서는 <code>name</code>{" "}
-          속성이 여러분이 사용하고자 하는 자료 구조를 대변합니다.
+          속성이 여러분이 사용하고자 하는 자료 구조를 반영합니다.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> we have also build a
-          custom hook for complex scenario:{" "}
+          <b className={typographyStyles.note}>참고:</b> 더 복잡한 시나리오에
+          대응하기 위한 커스텀 훅도 있습니다:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
@@ -285,64 +286,32 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> if your application
-          requires functionality such as: Delete, Insert, Append, Preprend. Here
-          is the{" "}
+          <b className={typographyStyles.note}>참고:</b> 여러분의 애플리케이션이
+          삭제, 삽입, 앞에 붙이기(Prepend), 뒤에 붙이기(Append)를 지원해야
+          한다면 <PageLink to="/api#Controller">Controller</PageLink> 로
+          만들어진{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
             target="_blank"
             rel="noreferrer noopener"
           >
-            link for such implementation.
+            구현체를 확인해보세요.
           </a>{" "}
-          with <PageLink to={"/api#Controller"}>Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "스키마 유효성 검사",
-    description: (
-      <>
-        <p>
-          React Hook Form 은{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          을 활용하여 스키마 기반의 폼 유효성 검사를 제공합니다.{" "}
-          <code>validationSchema</code> 를 <a href="/api#useForm">useForm</a> 에
-          넘겨주어 추가 설정을 할 수 있습니다. React Hook Form 은 입력된
-          데이터를 스키마와 비교하여 <a href="/api#errors">에러</a> 혹은 알맞은
-          결과를 표시합니다.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>1단계:</b> <code>Yup</code> 을
-          프로젝트에 설치합니다.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>2단계:</b> 유효성 검사를 위한
-        스키마를 작성하고 React Hook Form 을 사용하여 인풋을 등록합니다.
-      </p>
     ),
   },
   connectForm: {
     title: "폼 연결하기",
     description: (
       <p>
-        폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 남아있어야 하는
-        때가 있습니다. 그럴 때 <a href="/api#useFormContext">FormContext</a> 가
-        아주 유용합니다. 하지만 <code>ConnectForm</code> 을 만들고 리액트의{" "}
+        폼을 만들 때, 인풋이 아주 깊게 중첩된 컴포넌트 트리 안에 있어야 할 때가
+        있습니다. 그럴 때 <a href="/api#useFormContext">FormContext</a> 가 아주
+        유용합니다. 하지만 <code>ConnectForm</code> 을 만들어 리액트의{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>{" "}
         패턴을 활용하여 개발자 경험을 향상시킬 수 있습니다. 이러한 컴포넌트를
-        사용할 때의 이점은 어디서나 인풋을 React Hook Form과 연결할 수 있다는
-        것입니다.
+        만들어 사용할 때의 이점은 어디서나 인풋을 React Hook Form과 연결할 수
+        있다는 것입니다.
       </p>
     ),
   },
@@ -361,16 +330,16 @@ export default {
           >
             여기 예제가 있습니다.
           </a>{" "}
-          하지만 이러한 동작은 제어 컴포넌트에는 적용하기 어려운데,{" "}
+          하지만 이 작동방식은 제어 컴포넌트에는 잘 작동하지 않는데,{" "}
           <code>ref</code> 가 등록되어있지 않기 때문입니다. 이럴 때는 아래의
           방법을 사용할 수 있습니다.
         </p>
         <ul>
           <li>
-            <p>
-              <PageLink to="/api#Controller">Controller</PageLink> 를 불러와서
-              컴포넌트를 감싸면 알아서 register 와 unregister 처리를 합니다.
-            </p>
+            <p>인풋을 활성 상태를 토글하기</p>
+          </li>
+          <li>
+            <p>모달과 팝업 폼을 위한 별도의 폼을 만들기</p>
           </li>
           <li>
             <p>
@@ -383,7 +352,13 @@ export default {
                   useEffect
                 </a>
               </code>
-              를 활용할 수 있습니다.
+              를 활용하여 커스텀 등록을 구현하기
+            </p>
+          </li>
+          <li>
+            <p>
+              <PageLink to="/api#Controller">Controller</PageLink> 를 불러와서
+              컴포넌트를 감싸면 알아서 register 와 unregister 처리하기
             </p>
           </li>
         </ul>
@@ -423,11 +398,17 @@ export default {
         </p>
         <ul>
           <li>
-            메모이즈 된 유효성 검사 스키마(혹은 컴포펀트 바깥에 선언하여
-            의존성이 생기지 않도록)를 정의하세요
+            <p>
+              메모이즈 된 유효성 검사 스키마(혹은 컴포펀트 바깥에 선언하여
+              의존성이 생기지 않도록)를 정의하기
+            </p>
           </li>
-          <li>커스텀 훅을 호출하면서 유효성 검사 스키마를 전달하세요</li>
-          <li>useForm 훅에 유효성 검사 리졸버를 전달하세요</li>
+          <li>
+            <p>커스텀 훅을 호출하면서 유효성 검사 스키마를 전달하기</p>
+          </li>
+          <li>
+            <p>useForm 훅에 유효성 검사 리졸버를 전달하기</p>
+          </li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -466,6 +447,122 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "폼을 테스트하기",
+    description: (
+      <>
+        <p>
+          테스트는 아주 중요합니다. 코드에서 발생하는 버그나 실수를 줄이고,
+          코드베이스를 리팩토링 할 때 안정성을 보장하기 때문입니다.
+        </p>
+
+        <p>
+          우리는{" "}
+          <a
+            target="_ blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          사용을 권장합니다. 단순하고 사용자 행동에 더 초점을 맞추어 테스트를
+          작성할 수 있기 때문입니다.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>1단계:</b> 테스트 환경을
+          설정합니다.
+        </p>
+
+        <p>
+          <code>mutationobserver-shim</code>을 설치하세요. react-hook-form 은
+          <code>MutationObserver</code>를 사용하여 인풋이 DOM 으로부터 언마운트
+          되었는지 감지하기 때문입니다.
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          <code>setup.js</code> 파일을 만들어 <code>mutationobserver-shim</code>{" "}
+          를 가져옵니다.
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          마지막으로 <code>jest.config.js</code> 파일에서 <code>setup.js</code>{" "}
+          를 가져오도록 설정합니다.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>2단계:</b> 로그인 폼을
+          작성해봅시다.
+        </p>
+
+        <p>
+          폼에 맞는 role 속성을 설정했습니다. 이 속성들은 테스트를 작성할 때와
+          접근성을 향상시킬 때 도움이됩니다. 더 자세한 정보는{" "}
+          <a
+            target="_ blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          의 문서를 확인하세요.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>3단계:</b> 테스트를 작성합니다.
+        </p>
+
+        <p>테스트를 작성할 때 아래의 기준을 따릅니다.</p>
+
+        <ul>
+          <li>
+            <p>실패하는 테스트를 작성해봅니다.</p>
+
+            <p>
+              <code>waitFor</code> 및 <code>find*</code> 메소드를 사용하여 폼이
+              제출되는 것을 감지합니다. <code>handleSubmit</code> 메서드는
+              비동기적으로 실행되기 때문입니다.
+            </p>
+          </li>
+          <li>
+            <p>각 인풋에 대응하는 유효성 검사를 테스트합니다.</p>
+
+            <p>
+              <code>*ByRole</code> 메서드를 사용하여 각기 다른 엘리먼트를
+              가져옵니다. 사용자가 실제로 이런 방식으로 여러분의 UI 컴포넌트를
+              인지하기 때문입니다.
+            </p>
+          </li>
+          <li>
+            <p>성공하는 테스트를 실행시켜봅니다.</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

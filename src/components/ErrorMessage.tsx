@@ -25,6 +25,18 @@ export default ({
 
       {api.ErrorMessage.description}
 
+      <code
+        style={{
+          fontSize: 16,
+          padding: 15,
+          background: "#191d3a",
+          borderRadius: 4,
+          display: "block",
+        }}
+      >
+        npm install @hookform/error-message
+      </code>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <thead>
@@ -35,7 +47,66 @@ export default ({
               <th>{generic.description[currentLanguage]}</th>
             </tr>
           </thead>
-          {api.ErrorMessage.table}
+          <tbody>
+            <tr>
+              <td>
+                <code>name</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>✓</td>
+              <td>{api.ErrorMessage.table.name}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>errors</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>object</code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.errors}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>message</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  string | React.ReactElement
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.message}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>as</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  React.ElementType | string
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.as}</td>
+            </tr>
+            <tr>
+              <td>
+                <code>render</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  (
+                  {`{ message: string | React.ReactElement, messages?: Object}`}
+                  ) =&gt; any
+                </code>
+              </td>
+              <td></td>
+              <td>{api.ErrorMessage.table.render}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
 
@@ -48,7 +119,7 @@ export default ({
         />
         <CodeArea
           rawData={errorsMessage}
-          url="https://codesandbox.io/s/react-hook-form-errormessage-multiple-error-messages-cis2m"
+          url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
         />
       </TabGroup>
     </div>

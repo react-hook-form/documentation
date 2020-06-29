@@ -1,12 +1,11 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import Popup from "../../components/Popup"
-import generic from "../generic"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import code from "../../components/codeExamples/defaultExample"
+import tableStyles from "../../styles/table.module.css"
+import generic from "../generic"
 
 export default {
   title: "API ドキュメント",
@@ -16,12 +15,6 @@ export default {
   },
   useForm: {
     title: "useForm",
-    intro: (
-      <>
-        <code>useForm</code>{" "}
-        を呼び出すことにより、次のメソッドを受け取ることができます。{" "}
-      </>
-    ),
     description: (
       <p>
         <code>useForm</code> は<b>省略可能</b>な引数もあります。
@@ -93,6 +86,14 @@ export default {
         非推奨: これをパフォーマンスの悪い習慣と考えてください。
       </>
     ),
+    validationOnAll: (
+      <>
+        検証は<code>blur</code>および<code>change</code>
+        イベントでトリガーされます。 警告：<code>onChange</code>モードと同様に、
+        <code>all</code>
+        はパフォーマンスに大きな影響を与える可能性があります
+      </>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>
@@ -160,7 +161,6 @@ export default {
       <p>
         このオプションを使用すると、エラーのある入力が再度バリデーションされるタイミングを設定することができます。{" "}
         (デフォルトでは、入力変更時にバリデーションがトリガーされます。){" "}
-        <Popup />
       </p>
     ),
     validationFields: (
@@ -184,25 +184,13 @@ export default {
         </p>
       </>
     ),
-    nativeValidation: (goToSection) => (
+    shouldUnregister: (
       <p>
-        このオプションを <code>true</code>{" "}
-        に設定すると、ブラウザーネイティブバリデーションが有効になります。
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation"
-        >
-          ビルトインブラウザーバリデーションの詳細を確認
-        </a>
-        できます。詳細と例については{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("nativeValidation")}
-        >
-          nativeValidation
-        </button>{" "}
-        セクションを参照してください。
+        デフォルトでは、入力が削除されると、React Hook Formは
+        <code>MutationObserver</code>
+        を使用して、マウント解除された入力を検出および<code>登録解除</code>
+        します。ただし、<code>shouldUnregister</code>を<code>false</code>
+        に設定して、マウント解除による入力状態の損失を防ぐことができます。
       </p>
     ),
   },
@@ -401,46 +389,30 @@ export default {
           オブジェクトには、各 input{" "}
           のフォームのエラーまたはエラーメッセージが含まれています。
         </p>
-        <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3 と V4 の違い:
-        </p>
-
-        <ul>
-          <li>
-            <p>V4: ネストされたオブジェクト</p>
-            <p>
-              <strong>理由:</strong> Optional chaining{" "}
-              はコミュニティの間でより一般的になり、型のサポートが向上するため。
-            </p>
-            <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
-            </p>
-          </li>
-          <li>
-            <p>V3: フラットなオブジェクト</p>
-            <p>
-              <strong>理由:</strong> エラーがシンプルでアクセスしやすいため。
-            </p>
-            <p>
-              <code>{`errors['yourDetail.firstName'];`}</code>
-            </p>
-          </li>
-        </ul>
       </>
     ),
     types: (
       <>
         これは、単一のフィールドで複数のエラーを返す必要がある、
         パスワードのルールのような input のバリデーションに役立ちます。
-        この機能を有効にするには、 <code>validateCriteriaMode: 'all'</code>{" "}
+        この機能を有効にするには、 <code>criteriaMode 'all'</code>{" "}
         を設定してください。
       </>
     ),
     message: `メッセージはデフォルトでは空文字です。ただし、バリデーションとエラーメッセージで登録するとエラーメッセージが返されます。`,
     ref: `input 要素の参照。`,
+    note: (goToSection) => (
+      <p>
+        <b className={typographyStyles.note}>注意: </b>{" "}
+        <button
+          className={buttonStyles.codeAsLink}
+          onClick={() => goToSection("ErrorMessage")}
+        >
+          ErrorMessage
+        </button>{" "}
+        を使用すると、エラー状態の処理に役立ちます。
+      </p>
+    ),
   },
   watch: {
     title: "watch",
@@ -485,7 +457,6 @@ export default {
       ),
       multiple: "複数の input を監視します",
       all: "全ての input を監視します",
-      nest: "すべての入力を監視し、ネストされたオブジェクトを返します",
     },
   },
   handleSubmit: {
@@ -507,7 +478,7 @@ export default {
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) => await fetchAPI(data))
+            handleSubmit(async (data) =&gt; await fetchAPI(data))
           </code>
         </p>
       </>
@@ -559,17 +530,32 @@ export default {
     description: (
       <>
         <p>単一または複数の input のエラーを手動で設定できます。</p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          このメソッドはエラーを保存せず、フォームの送信をブロックしません。
-          非同期バリデーション後にユーザーへエラーをフィードバックしたい場合は、{" "}
-          <code>handleSubmit</code> 関数内で使用してください。
-        </p>
+
+        <ul>
+          <li>
+            <p>
+              このメソッドは、入力された場合、関連する入力エラーを永続化しません
+              検証に合格します。
+            </p>
+          </li>
+          <li>
+            <p>
+              入力フィールドに関連付けられていないエラーを設定します 永続化し、
+              <code>clearError</code>で手動で削除する必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>handleSubmit</code>関数の実行時に役立ちます。
+              非同期検証後にユーザーにエラーフィードバックを提供したい。
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
   clearError: {
-    title: "clearError",
+    title: "clearErrors",
     description: (
       <ul>
         <li>
@@ -612,12 +598,6 @@ export default {
               true に設定されたとき
             </p>
           </li>
-          <li>
-            <p>
-              setValue が実行され、 formState の <code>touched</code>{" "}
-              が更新されたとき
-            </p>
-          </li>
         </ul>
         <p>
           <b className={typographyStyles.note}>注意：</b>{" "}
@@ -627,9 +607,23 @@ export default {
         </p>
         <p>
           <code>shouldValidate</code> を <code>true</code> に設定すると、
-          フィールドのバリデーションがトリガーされます。 例：{" "}
-          <code>setValue('name', 'value', true)</code>
+          フィールドのバリデーションがトリガーされます。
         </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldValidate: true })`}
+          withOutCopy
+        />
+
+        <p>
+          フィールドをダーティに設定するために、<code>shouldDirty</code>
+          パラメータを<code>true</code>に設定することもできます。
+        </p>
+
+        <CodeArea
+          rawData={`setValue('name', 'value', { shouldDirty: true })`}
+          withOutCopy
+        />
       </>
     ),
   },
@@ -637,31 +631,36 @@ export default {
     title: "getValues",
     description: (
       <>
-        <p>この関数は、フォーム全体のデータを返します。</p>
+        <p>
+          この関数は、フォームの値を読み取るのに役立ちます。違い
+          <code>watch</code>の間は<code>getValues</code>はトリガーされません
+          入力の変更を再レンダリングまたはサブスクライブします。機能は次のとおりです。
+        </p>
 
         <ul>
           <li>
             <p>
-              デフォルトでは、<code>getValues()</code>{" "}
-              はフォームデータをフラットな構造で返します。 例：{" "}
-              <code>{`{ test: 'data', test1: 'data1'}`}</code>
+              <code>getValues()</code>：フォームの値全体を読み取ります。
             </p>
           </li>
           <li>
             <p>
-              定義されたフォームフィールドで、
-              <code>getValues({`{ nest: true }`})</code> は input の{" "}
-              <code>name</code>{" "}
-              属性に基づいてネストされた構造でデータを返します。 例：{" "}
-              <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
+              <code>getValues('test'</code>：個々の入力値を読み取ります
+              <strong>name</strong>。
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues(['test', 'test1'])</code>
+              ：複数の入力を読み取ります<strong>name</strong>。
             </p>
           </li>
         </ul>
       </>
     ),
   },
-  triggerValidation: {
-    title: "triggerValidation",
+  trigger: {
+    title: "trigger",
     description: (
       <>
         <p>フォームで input/select のバリデーションを手動でトリガーします。</p>
@@ -671,26 +670,6 @@ export default {
           オブジェクトが更新されます。
         </p>
       </>
-    ),
-  },
-  validationSchema: {
-    title: "validationSchema",
-    description: (
-      <p>
-        外部バリデーションスキーマでバリデーションルールを一元管理したい場合は、
-        省略可能な引数として <code>useForm</code> に{" "}
-        <code>validationSchema</code> を適用できます。 React Hook Form
-        は現在、オブジェクトスキーマバリデーションで{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/jquense/yup"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Yup
-        </a>{" "}
-        をサポートしています。
-      </p>
     ),
   },
   Controller: {
@@ -709,6 +688,84 @@ export default {
         </tr>
         <tr>
           <td>
+            <code>control</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td>✓</td>
+          <td>{generic.control.jp}</td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
+          </td>
+          <td></td>
+          <td>
+            コントローラーは<code>onChange</code>、<code>onBlur</code>{" "}
+            を挿入します
+            <code>value</code>をコンポーネントにプロップします。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>
+<Controller 
+  as={TextInput} 
+  control={control} 
+  name="test" 
+/>`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            これは
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              レンダリングプロップ
+            </a>
+            。 React要素を返し、次の機能を提供する関数
+            イベントと値をコンポーネントにアタッチします。これにより、
+            非標準の小道具で外部制御コンポーネントと統合する 名前：
+            <code>onChange</code>、<code>onBlur</code>および{""}
+            <code>value</code>。
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render(({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  ))
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
             <code>as</code>
           </td>
           <td>
@@ -720,20 +777,6 @@ export default {
           <td>
             制御されたコンポーネント。 例: <code>as="input"</code> または{" "}
             <code>{`as={<TextInput />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>control</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>Object</code>
-          </td>
-          <td>✓</td>
-          <td>
-            <code>control</code> オブジェクトは <code>useForm</code>{" "}
-            から呼び出されます。 ただし、 FormContext
-            を使用している場合は省略できます。
           </td>
         </tr>
         <tr>
@@ -772,44 +815,25 @@ export default {
           <td></td>
           <td>
             <code>register</code> によるバリデーションルール。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChange</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (args: any | EventTarget) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            この prop を使用すると、戻り値をカスタマイズすることができます。
-            外部 UI コンポーネントの <code>value</code> prop{" "}
-            の形状を確認してください。 ペイロードの形状が <code>type</code>{" "}
-            属性を含むオブジェクトの場合、<code>value</code> または{" "}
-            <code>checked</code> 属性が読み込まれます。
+            <ul>
+              <li>
+                ローカル状態：更新された検証で<code>register</code>入力
+                ルールまたは<code>useEffect</code>での入力を
+                <code>unregister</code>し、<code>Controller</code>
+                に更新された<code>rules</code>でそれ自体を再登録させます。
+              </li>
+              <li>
+                入力状態：<code>getValues</code>で<code>validate</code>
+                関数を活用して、条件付きで検証を返します。
+              </li>
+            </ul>
             <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
-              rawData={`onChange={{([ event ]) => event.target.value}}
-onChange={{([ { checked } ]) => ({ checked })}}`}
+              rawData="
+register('name', { required: state })
+validate: (value) => value === getValues('firstName');"
             />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onChangeName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop{" "}
-            を使用すると、特定のイベント名をターゲットにすることができます。
-            例えば、 <code>onChange</code> イベントが <code>onTextChange</code>{" "}
-            と命名されている場合。
           </td>
         </tr>
         <tr>
@@ -817,7 +841,7 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             <code>onFocus</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>() => void</code>
+            <code className={typographyStyles.typeText}>() =&gt; void</code>
           </td>
           <td></td>
           <td>
@@ -837,36 +861,6 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
               </a>
               .
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onBlurName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop{" "}
-            を使用すると、特定のイベント名をターゲットにすることができます。
-            例えば、 <code>onBlur</code> イベントが <code>onTextBlur</code>{" "}
-            と命名されている場合。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>valueName</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>
-            この prop を使用すると、<code>value</code> prop をオーバーライドし、
-            <code>value</code> prop
-            を使用しない他のコンポーネントをサポートできます。 例えば、{" "}
-            <code>checked</code>, <code>selected</code> 等...
           </td>
         </tr>
       </tbody>
@@ -959,101 +953,39 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
         のエラーメッセージを表示するためのシンプルなコンポーネント。
       </p>
     ),
-    table: (
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td>✓</td>
-          <td>関連するフィールド名</td>
-        </tr>
-        <tr>
-          <td>
-            <code>errors</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>object</code>
-          </td>
-          <td>✓</td>
-          <td>
-            React Hook Form の <code>errors</code> オブジェクト
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>message</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
-          </td>
-          <td></td>
-          <td>インラインエラーメッセージ。</td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              React.ElementType | string
-            </code>
-          </td>
-          <td></td>
-          <td>
-            ラッパーコンポーネント、または HTML タグ。 例:{" "}
-            <code>as="span"</code> または <code>{`as={<Text />}`}</code>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>children</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              ({`{ message: string, messages?: string[]}`}) => any
-            </code>
-          </td>
-          <td></td>
-          <td>
-            これは、単一または複数のエラーメッセージをレンダリングするための{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>{" "}
-            です。
-            <p>
-              <b className={typographyStyles.note}>注意:</b>{" "}
-              <code>messages</code> を使用するためには、 validateCriteriaMode を{" "}
-              'all' に設定する必要があります。
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    ),
-  },
-  NativeValidation: {
-    title: "Browser built-in validation",
-    description: (
-      <>
-        <p>
-          下記の例は、ブラウザバリデーションを活用する方法を示しています。
-          <code>nativeValidation</code> を <code>true</code> に設定するだけで、
-          残りの構文は標準のバリデーションと同じになります。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意</b>:
-          この機能は使用率が低いため V4 で削除されましたが、 V3{" "}
-          では引き続き使用できます。
-        </p>
-      </>
-    ),
+    table: {
+      name: <>関連するフィールド名</>,
+      errors: (
+        <>
+          React Hook Form の <code>errors</code> オブジェクト
+        </>
+      ),
+      message: <>インラインエラーメッセージ。</>,
+      as: (
+        <>
+          ラッパーコンポーネント、または HTML タグ。 例: <code>as="span"</code>{" "}
+          または <code>{`as={<Text />}`}</code>
+        </>
+      ),
+      render: (
+        <>
+          これは、単一または複数のエラーメッセージをレンダリングするための{" "}
+          <a
+            href="https://reactjs.org/docs/render-props.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            render prop
+          </a>{" "}
+          です。
+          <p>
+            <b className={typographyStyles.note}>注意:</b> <code>messages</code>{" "}
+            を使用するためには、 validateCriteriaMode を 'all'
+            に設定する必要があります。
+          </p>
+        </>
+      ),
+    },
   },
   useFieldArray: {
     title: "useFieldArray",
@@ -1071,6 +1003,59 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </a>
           で、制御されたフィールド配列と非制御フィールド配列を比較できます。
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.jp}</th>
+                <th width="140px">{generic.type.jp}</th>
+                <th width="90px">{generic.required.jp}</th>
+                <th>{generic.description.jp}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td></td>
+                <td>
+                  <>関連するフィールド名</>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>control</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>{generic.control.jp}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keyName</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string = 'id'
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  フィールド配列の<code>key</code>
+                  値、デフォルトは「id」、次のことができます
+                  キー名を変更します。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>このフックは、次のオブジェクトと関数を提供します。</p>
 
@@ -1178,7 +1163,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object, shouldFocus?: boolean = true) =&gt; void
             </code>
           </td>
           <td>フィールドの最後に input を追加します。</td>
@@ -1189,7 +1174,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[]) => void
+              (obj: object, shouldFocus?: boolean = true) =&gt; void
             </code>
           </td>
           <td>フィールドの先頭に input を追加します。</td>
@@ -1200,7 +1185,8 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index: number, value: object) => void
+              (index: number, value: object, shouldFocus?: boolean = true) =&gt;
+              void
             </code>
           </td>
           <td>特定の位置に input を挿入します。</td>
@@ -1211,7 +1197,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>input の位置を入れ替えます。</td>
@@ -1222,7 +1208,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (from: number, to: number) => void
+              (from: number, to: number) =&gt; void
             </code>
           </td>
           <td>
@@ -1242,7 +1228,7 @@ React.useEffect(() => {
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (index?: number | number[]) => void
+              (index?: number | number[]) =&gt; void
             </code>
           </td>
           <td>
@@ -1253,12 +1239,20 @@ React.useEffect(() => {
       </>
     ),
   },
-  validationResolver: {
-    title: "validationResolver",
+  resolver: {
+    title: "resolver",
     description: (
       <>
         <p>
           この関数を使用すると、
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1280,32 +1274,78 @@ React.useEffect(() => {
           で動作する多くのバリデーションライブラリをサポートしたいと思っています。
           カスタムバリデーションロジックを作成して検証することもできます。
         </p>
+
         <p>
-          <b className={typographyStyles.note}>注意:</b> <code>values</code> と{" "}
-          <code>errors</code>{" "}
-          を含むオブジェクトを返していることを確認してください。
-          デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
-          である必要があります。
+          Yup、Joi、Superstructを正式にサポートしています{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            標準リゾルバー
+          </a>
+          。
         </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b> 返す{" "}
-          <code>errors</code> オブジェクトのキーは、フォーム内の input（
-          <code>name</code>属性）に関連させる必要があります。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b> この関数は{" "}
-          <code>validationSchema</code>{" "}
-          と同様にカスタムフック内にキャッシュされますが、{" "}
-          <code>validationContext</code>{" "}
-          は再レンダリングのたびに変更できるミュータブルなオブジェクトです。
-        </p>
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
-          それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
-          input の再検証が発生します。
-        </p>
+
+        <code
+          style={{
+            fontSize: 16,
+            padding: 15,
+            background: "#191d3a",
+            borderRadius: 4,
+            display: "block",
+          }}
+        >
+          npm install @hookform/resolvers
+        </code>
+
+        <p>カスタムリゾルバの構築に関する注意：</p>
+
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b> <code>values</code>{" "}
+              と <code>errors</code>{" "}
+              を含むオブジェクトを返していることを確認してください。
+              デフォルト値は空のオブジェクト <code>{`{}`}</code>{" "}
+              である必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b> 返す{" "}
+              <code>errors</code> オブジェクトのキーは、フォーム内の input（
+              <code>name</code>属性）に関連させる必要があります。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>この関数は
+              カスタムフック内にキャッシュされますが、
+              <code>context</code>は
+              再レンダリングのたびに変更できる可変オブジェクト。
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>注意:</b>{" "}
+              ライブラリ自体が特定のフィールドに対してエラーオブジェクトを評価し、
+              それに応じて再レンダリングをトリガーするため、ユーザーの入力中、一度に一つのフィールドでのみ{" "}
+              input の再検証が発生します。
+            </p>
+          </li>
+        </ul>
       </>
+    ),
+  },
+  useWatch: {
+    title: "useWatch",
+    description: (
+      <p>
+        <code>watch</code> APIと同じ機能を共有しますが、これは
+        コンポーネントレベルで再レンダリングを分離し、結果的に
+        アプリケーションのパフォーマンスが向上します。
+      </p>
     ),
   },
 }

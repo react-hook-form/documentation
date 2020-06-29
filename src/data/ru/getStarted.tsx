@@ -3,7 +3,10 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -198,7 +201,14 @@ export default {
           компонента-обёртки <Link to="/api#Controller">Controller</Link>,
           который сам позаботится о регистрации.
         </p>
-        <CodeArea rawData={uiLibraryHookInput} />
+
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
+
         <p>
           <b className={typographyStyles.note}>Вариант 3:</b> И, наконец, мы
           можем создать кастомную регистрацию с помощью{" "}
@@ -254,6 +264,37 @@ export default {
         React Hook Form предоставляет объект <code>errors</code> демонстрации
         ошибок внутри формы.
       </>
+    ),
+  },
+  schema: {
+    title: "Валидация по схеме",
+    description: (
+      <>
+        <p>
+          React Hook Form поддерживает валидацию формы по схеме с{" "}
+          <a href="https://github.com/jquense/yup" target="_blank">
+            Yup
+          </a>
+          , где вы можете передать <code>validationSchema</code> в{" "}
+          <a href="/api#useForm">useForm</a> как опциональную настройку. React
+          Hook Form будет валидировать ваши поля ввода по схеме и возвращать
+          либо <a href="/api#errors">ошибки</a>, либо валидный результат.
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>Шаг 1:</b> Установите{" "}
+          <code>Yup</code> в проект.
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>Шаг 2:</b> Настройте схему данных
+        для валидации и зарегистрируйте поля ввода в React Hook Form.
+      </p>
     ),
   },
 }

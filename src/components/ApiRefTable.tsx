@@ -12,7 +12,7 @@ export default function ApiRefTable({
   currentLanguage,
 }: {
   api: any
-  goToSection: Function
+  goToSection: (name: any, animate?: boolean) => void
   currentLanguage: string
 }) {
   const [isStandard, toggleOption] = React.useState(true)
@@ -152,7 +152,7 @@ export default function ApiRefTable({
                     : `string |
 {
   value: boolean,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                 </code>
               </td>
@@ -186,7 +186,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                   </code>
                 </code>
@@ -224,7 +224,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                   </code>
                 </code>
@@ -262,7 +262,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                   </code>
                 </code>
@@ -300,7 +300,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                   </code>
                 </code>
@@ -338,7 +338,7 @@ export default function ApiRefTable({
                       ? "RegExp"
                       : `{
   value: RegExp,
-  message: string | JSX
+  message: string | React.ReactElement
 }`}
                   </code>
                 </code>

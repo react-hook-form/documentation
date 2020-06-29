@@ -14,7 +14,6 @@ const WindowedRow = React.memo(({ index, style, data, getValues, setValue }) => 
 
   return (
     <div>
-      <span>{data[index].title}</span>
       <input
         // Rather than ref={register}, we use defaultValue and setValue
         defaultValue={qty}
@@ -35,20 +34,16 @@ export default React.memo(({ items }) => {
 
   // We manually call register here for each field.
   React.useEffect(() => {
-    if (items) {
-      items.forEach((item, idx) => {
-        formMethods.register("[\${idx}].quantity");
-      });
-    }
+    items.forEach((item, idx) => {
+      formMethods.register("[\${idx}].quantity");
+    });
   }, [formMethods, items]);
 
   return (
     <form onSubmit={formMethods.handleSubmit(onSubmit)}>
       <List
-        height={300}
         itemCount={items.length}
         itemSize={() => 50}
-        width={300}
         itemData={items}
         {{ ...formMethods }}
       >

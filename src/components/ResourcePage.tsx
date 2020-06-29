@@ -1,8 +1,10 @@
 import * as React from "react"
 import Footer from "./Footer"
+import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import generic from "../data/generic"
+import data from "../data/resources"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyle from "../styles/container.module.css"
 import styles from "./ResourcePage.module.css"
@@ -15,6 +17,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const animationBase = 0.05
 
   return (
     <div className={containerStyle.container}>
@@ -32,437 +35,80 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
 
         <ul className={styles.contentList}>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://blog.logrocket.com/react-hook-form-vs-formik-a-technical-and-performance-comparison/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form vs. Formik: A technical and performance
-                  comparison
-                </h3>
-              </a>
+          {data.articles.map(({ url, title, author, authorUrl }, i) => {
+            const index = i + 1
+            let delay = 0
 
-              <p>
+            if (index === 1) {
+              delay = animationBase
+            } else if (index % 3 === 0) {
+              delay = animationBase * (Math.floor(index / 12) * 3 + 3)
+            } else if (index % 3 === 1) {
+              delay = animationBase * (Math.floor(index / 16) * 3 + 3)
+            } else if (index % 3 === 2) {
+              delay = animationBase * (Math.floor(index / 8) * 3 + 2)
+            }
+
+            return (
+              <Animate
+                key={url}
+                play
+                easeType="ease-in"
+                delay={delay}
+                start={{ transform: "translate(20px, 20px)", opacity: 0 }}
+                render={({ style }) => (
+                  <li style={style}>
+                    <article className={styles.article}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={title}
+                      >
+                        <h3>{title}</h3>
+                      </a>
+
+                      <p className={styles.author}>
+                        <a
+                          href={authorUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {author}
+                        </a>
+                      </p>
+                    </article>
+                  </li>
+                )}
+              />
+            )
+          })}
+        </ul>
+
+        <h2 className={typographyStyles.title}>
+          {generic.video[currentLanguage]}
+        </h2>
+        <ul className={styles.contentList}>
+          {data.videos.map(({ title, url, authorUrl, author, description }) => (
+            <li key={title}>
+              <article className={styles.article}>
                 <a
-                  href="https://blog.logrocket.com/author/siegfriedgrimbeek/"
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={title}
                 >
-                  Siegfried Grimbeek
+                  <h3>{title}</h3>
                 </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://blog.bitsrc.io/react-hook-form-an-elegant-solution-to-forms-in-react-4db64505b0cd"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form — An Elegant Solution to Forms in React</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://blog.bitsrc.io/@haldar.mahesh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Mahesh Haldar
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://elazizi.com/forms-in-react-native-the-right-way"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Forms in React Native, The right way</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://twitter.com/ElaziziYoussouf/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Youssouf El Azizi
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://seifi.org/reactjs/build-a-contact-form-in-gatsby-part-2-react-hook-form.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Build a contact form in Gatsby - Part 2 - React Hook Form
-                </h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://seifi.org/about/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Joe Seifi
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/matfrana/react-hook-form-the-best-form-library-1o1l"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form: the best form library?</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://twitter.com/matfrana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Matteo Frana
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/jodylecompte/hookify-your-react-forms-154o"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Hookify Your React Forms</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://dev.to/jodylecompte"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jody LeCompte
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://itnext.io/is-react-hook-form-the-future-57c6f94a2665"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Is React Hook Form the future?</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://itnext.io/@gapur.kassym"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Gapur Kassym
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://medium.com/@angular_evan/yup-you-should-use-react-hook-form-9864d8bc80ef"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Yup, you should use React Hook Form</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://medium.com/@angular_evan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Evan Williams
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://medium.com/better-programming/build-the-next-generation-of-forms-with-react-hooks-forms-b4f2039e51c1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Build the Next Generation of Forms With React Hooks Forms
-                </h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://medium.com/@riccardogiorato"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Riccardo Giorato
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://nordschool.com/react-hook-form/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Pain-Free Forms with React Hook Form</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://mansour.blog/about"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ahmed Mansour
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://cloud.tencent.com/developer/article/1520536"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook form 表单校验</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://cloud.tencent.com/developer/user/5206638"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  我已经洗完澡了
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://medium.com/the-existing/%E0%B8%97%E0%B8%B3-multi-step-forms-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-react-hook-form-%E0%B9%81%E0%B8%A5%E0%B8%B0-usecontext-b3c2137836e2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>ทำ Multi-Step Forms ด้วย React Hook Form และ useContext</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://medium.com/@jidapapattanang"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jidapa Pattanang
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://velog.io/@iamchanii/react-hooks-form-%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4-54k0rrj6m7"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>라이브러리 추천: react-hook-form</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://velog.io/@iamchanii"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  이찬희
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://blog.logrocket.com/popular-react-hook-libraries/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Popular React Hook libraries</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://blog.logrocket.com/author/raphaelugwu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Raphael Ugwu
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/bluebill1049/form-validation-with-hook-in-3kb-3d0l"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React form validation with Hook in 5kB</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://dev.to/bluebill1049"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/bluebill1049/uncontrolled-form-for-react-2b3n"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>⛓ Uncontrolled form validation with React</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://dev.to/bluebill1049"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-            </article>
-          </li>
-
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://qiita.com/yhosok/items/7dd1963ee7138ec0642f"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form 入門</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://qiita.com/yhosok"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Yasunori Hosokawa
-                </a>
-              </p>
-            </article>
-          </li>
-
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://qiita.com/seira/items/63c801a9ed2d1b9eb401"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React-Hook-Formがイケてるって聞いたので触ってみた</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://qiita.com/seira"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  seira
-                </a>
-              </p>
-            </article>
-          </li>
-
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://qiita.com/akihiro_FE/items/b2295e6b98e8e8c881ed"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React-hook-formで簡単にバリデーションフォーム作る</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://qiita.com/akihiro_FE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  akihiro_FE
-                </a>
-              </p>
-            </article>
-          </li>
-
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/aaronksaunders/using-react-hook-form-with-ionic-react-components-2aab"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Using React Hook Form with Ionic React Components</h3>
-              </a>
-
-              <p>
-                <a
-                  href="https://dev.to/aaronksaunders"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Aaron K Saunders
-                </a>
-              </p>
-            </article>
-          </li>
+                <p className={styles.author}>
+                  <a href={authorUrl} target="_blank" rel="noopener noreferrer">
+                    {author}
+                  </a>
+                </p>
+                {description}
+              </article>
+            </li>
+          ))}
         </ul>
 
         <h2 className={typographyStyles.title}>
@@ -609,233 +255,6 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   building or refactoring forms. GitHub repo.
                 </p>
               </a>
-            </article>
-          </li>
-        </ul>
-
-        <h2 className={typographyStyles.title}>
-          {generic.video[currentLanguage]}
-        </h2>
-        <ul className={styles.contentList}>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=-mFXqOaqgZk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form - custom hook for forms validation.</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-              <p>
-                In this video tutorial, I am demonstrating how you can use
-                react-hook-form to easily validate your forms.
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=CeAkxVwsyMU"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form - persist multiple steps forms (Form Wizard).
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bill Luo
-                </a>
-              </p>
-              <p>Building persist multiple steps form with React Hook Form.</p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=0nDGeQKLFjo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook Form - React Forms Episode II</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/user/jherr2006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jack Herrington
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>The best way to create forms in React</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/user/satansdeer1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Maksim Ivanov
-                </a>
-              </p>
-              <p>How to create forms in React.</p>
-              <p>
-                Right now the best way to create forms in React is to use React
-                Form Hook library.
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://dev.to/bettercodingacademy/i-m-a-professional-react-developer-and-here-s-how-i-build-a-production-ready-react-node-js-app-using-typescript-and-graphql-ga8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Build a production-ready React/Node.js app using TypeScript
-                  and GraphQL (React Hook Form).
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://dev.to/bettercodingacademy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lucas Chen
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=lHclVxcborY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  Does this library make Redux Form obsolete? | React Hook Form
-                  Tutorial | React Tutorials
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCTD_PLq3KAUwkIIs9fk3pAA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Better Coding Academy
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=lHclVxcborY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>React Hook form tutorials</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCbaiPi4-JPvIlzR4_7-kAfA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  HicoTek
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=fpwnCGgc9A8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>
-                  React Hook Form Talk and Demo by its Author Bill Luo aka
-                  @bluebill1049
-                </h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCorlLn2oZfgOJ-FUcF2eZ1A"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ReactEurope
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=5MsXpmh3Un8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Using React Hook Form with Ionic React Components</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCMCcqbJpyL3LAv3PJeYz2bg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Aaron Saunders
-                </a>
-              </p>
-            </article>
-          </li>
-          <li>
-            <article className={styles.article}>
-              <a
-                href="https://www.youtube.com/watch?v=oXY_sSfjlSw"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3>Easy Way of Form Validation with React Hook Form</h3>
-              </a>
-              <p>
-                <a
-                  href="https://www.youtube.com/channel/UCS3-MF_4ADqglU2OSly4vIw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  For Those Who Code
-                </a>
-              </p>
             </article>
           </li>
         </ul>

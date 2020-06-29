@@ -4,6 +4,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -298,7 +299,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意：</b>{" "}
           アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
-          <PageLink to={"/api#Controller"}>Controller</PageLink> を使用した
+          <PageLink to="/api#Controller">Controller</PageLink> を使用した
           <a
             href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
             target="_blank"
@@ -309,39 +310,6 @@ export default {
           を参照して下さい。
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "スキーマバリデーション",
-    description: (
-      <>
-        <p>
-          React Hook Form は、{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>{" "}
-          を活用してスキーマベースのフォームバリデーションをサポートしています。
-          省略可能な引数として <code>validationSchema</code> を{" "}
-          <a href="/api#useForm">useForm</a> に渡すことができます。 React Hook
-          Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
-          <a href="/api#errors">errors</a> や妥当な結果を返します。
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>ステップ1：</b> <code>Yup</code>{" "}
-          をプロジェクトにインストールします。
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>ステップ2：</b>{" "}
-        バリデーション用のスキーマを作成し、 React Hook Form を使用して input
-        を登録します。
-      </p>
     ),
   },
   connectForm: {
@@ -486,6 +454,136 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "フォームをテストする",
+    description: (
+      <>
+        <p>
+          テストはバグやミスを防いだり、
+          コードをリファクタリングする時にコードの安全性を保証するため、
+          とても重要なものです。
+        </p>
+
+        <p>
+          私たちは{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          を使うことをお勧めします。なぜなら、テストコードはシンプルで、そしてテストはよりユーザーの行動にフォーカスしています。
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> テスト環境を設定する
+        </p>
+
+        <p>
+          react-hook-form は DOM からアンマウントされた input
+          要素を検出するために <code>MutationObserver</code> を使うため{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          を <code>jest</code>{" "}
+          の最新バージョンとともにインストールしてください。
+        </p>
+
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+
+        <p>
+          そして{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          をインポートするために <code>setup.js</code> を作成してください。
+        </p>
+        <CodeArea
+          rawData={'import "@testing-library/jest-dom";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          最後に、<code>setup.js</code> を <code>jest.config.js</code>{" "}
+          で読み込む必要があります。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b>
+          ログインフォームを作成する
+        </p>
+
+        <p>
+          私たちは、role
+          属性を設定しています。それらの属性はテストを書いたり、アクセシビリティーを改善する時に役に立ちます。
+          詳しくは{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          のドキュメントを参照してください。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> テストを書く
+        </p>
+
+        <p>テストでカバーしようとしているのは以下の条件です:</p>
+
+        <ul>
+          <li>
+            <p>送信時のテストに失敗</p>
+
+            <p>
+              <code>handleSubmit</code> は非同期で実行されるので、
+              送信したことを検出するために <code>waitFor</code> や{" "}
+              <code>find*</code> メソッドを使います。
+            </p>
+          </li>
+          <li>
+            <p>それぞれの入力に関するバリデーションをテストする</p>
+
+            <p>
+              異なる要素を探す時に <code>*ByRole</code>{" "}
+              を使います。なぜなら、このようにしてユーザーはUIコンポーネントを認識するからです。
+            </p>
+          </li>
+          <li>
+            <p>送信時のテストに成功</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

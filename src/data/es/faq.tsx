@@ -107,8 +107,8 @@ export default {
         <p>
           React Hook Form se basa en componentes no controlados. En un
           componente no controlado, puedes especificar el valor por defecto de
-          un campo individual mediante <code> defaultValue </code> o{" "}
-          <code> defaultChecked </code>. Sin embargo, el Hook proporciona una
+          un campo individual mediante <code>defaultValue</code> o{" "}
+          <code>defaultChecked</code>. Sin embargo, el Hook proporciona una
           manera más fácil de inicializar todos los valores de entrada. Ejemplo
           a continuación:
         </p>
@@ -131,9 +131,9 @@ export default {
         <>
           <p>
             Puedes <code>registrar</code> un input sin una{" "}
-            <code>referencia</code>. De hecho, puedes setear el valor
+            <code>referencia</code>. De hecho, puedes configurar el valor
             manualmente con <code>setValue</code>, <code>setError </code> y
-            <code>triggerValidation</code>.
+            <code>trigger</code>.
           </p>
           <p>
             <b className={typographyStyles.note}> Nota: </b> Debido a que la{" "}
@@ -270,11 +270,11 @@ export default {
                   <td>renderizado mínimo</td>
                   <td>
                     renderizado de acuerdo a cambios de estado locales, mientras
-                    tipeas en el input.
+                    escribes en el input.
                   </td>
                   <td>
                     renderizado de acuerdo a cambios en librerías de
-                    administración de estado (Redux), mientras tipeas en el
+                    administración de estado (Redux), mientras escribes en el
                     input.
                   </td>
                 </tr>
@@ -378,14 +378,14 @@ export default {
             cada cambio en los input y asignar la propiedad value.
           </p>
           <p>
-            Alternativamente, puedes utilizar nuestro componente wrapper{" "}
+            De formar alterna, puedes utilizar nuestro componente wrapper{" "}
             <a
               href="https://www.react-hook-form.com/api#Controller"
               title="React Hook Form Controller"
             >
               Controller
             </a>{" "}
-            el que se encargará de realizar el registro por ti.
+            es el encargado de realizar el registro por ti.
           </p>
         </>
       ),
@@ -402,7 +402,7 @@ export default {
 
               <p>
                 Todos los métodos de validación en React Hook Form son tratados
-                como funciones async, es importante que wrappees con async tu{" "}
+                como funciones async, es importante que wrappees con async{" "}
                 <a
                   className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
@@ -419,7 +419,7 @@ export default {
 
               <p>
                 React Hook Form utiliza el evento <code>input</code> para los
-                cambios en input, para solucionarlo puedes switchear a{" "}
+                cambios en input, para solucionarlo puedes cambiar a{" "}
                 <code>fireEvent.input</code> para react-testing-library
               </p>
             </li>
@@ -434,10 +434,10 @@ export default {
           <ul>
             <li>
               <p>
-                <b className={typographyStyles.note}> watch: </b> suscríbase a
-                cambio de entrada a través del detector de eventos y renderizado
-                en función de qué campos que están suscritos. Renderizar en
-                función de qué entrada es visto / suscrito revisa{" "}
+                <b className={typographyStyles.note}> watch: </b> puede
+                suscríbirse a cambios en entradas a través del detector de
+                eventos y renderizado en función de los campos suscritos.
+                Renderizar en función de qué entrada es vista / suscrito revisa{" "}
                 <a
                   href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
                   rel="noopener noreferrer"
@@ -470,15 +470,15 @@ export default {
     },
     {
       title:
-        "Why is default value not changing correctly with ternary operator?",
+        "¿Por qué los valores por defecto no cambian correctamente con un operador ternario?",
       description: (
         <>
           <p>
-            React Hook Form no controla todo el formulario y las entradas, que
-            es la razón por la cual React no reconocería la entrada real que
-            tiene sido intercambiado o cambiado. Como solución, puede resolver
-            esto problema al dar un apoyo único de <code> key </code> a su
-            entrada. Tú también puede leer más sobre los accesorios clave de{" "}
+            React Hook Form no controla todo el formulario y las entradas, es la
+            razón por la cual React no reconocería la entrada real que ha sido
+            intercambiado o cambiado. Como solución, puede resolver esto
+            problema al dar un apoyo único de <code>key</code> a su entrada.
+            También puede leer más sobre los accesorios clave de{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -496,7 +496,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "¿la validación no funciona con submitFocusError?",
       description: (
         <>
           <p>
@@ -512,16 +512,16 @@ export default {
           <p>
             Sin embargo, para algunos Componentes controlados por terceros como
             <code>{`<Autocomplete>`}</code> de MUI o <code>{`<XX>`}</code>
-            de AntD) es muy difícil predecir su referencia porque el los cambios
-            de formato, por lo que React Hook Form detectará correctamente el
-            error de validación pero no podrá enfocar automáticamente eso tipo
-            de componentes.
+            de AntD) es muy difícil predecir su referencia por los cambios de
+            formato, por lo que React Hook Form detectará correctamente el error
+            de validación pero no podrá enfocar automáticamente eso tipo de
+            componentes.
           </p>
 
           <p>
-            Como solución alternativa, después del error de validación, puede
+            Como solución alternativa, después del error de validación, se puede
             enfocar manualmente en el componente controlado por terceros (si
-            puede obtener el real entrada interna ref), por ejemplo:
+            puede obtener la real entrada interna ref), por ejemplo:
           </p>
 
           <CodeArea rawData={focusController} />
@@ -531,8 +531,49 @@ export default {
             externo componente. Es posible deshabilitar el "enfoque automático
             en caso de error" característica. Tal vez este comportamiento traerá
             una mejor experiencia de usuario en algunos casos.{" "}
-            <code>{`useForm ({submitFocusError: false});`}</code>
+            <code>{`useForm ({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            Es importante entender que React Hook Form abraza la forma nativa
+            comportamiento por estado de entrada de la tienda dentro de cada
+            entrada (excepto personalizado
+            <code>registrarse</code> en <code>useEffect</code>). Uno de los
+            comunes conceptos erróneos es cuando se trabaja con formularios
+            modales o tabuladores, al montar y desmontando la forma / entradas
+            que permanecerá el estado de las entradas. Eso es implementación
+            incorrecta, en cambio, la solución correcta siempre debe
+            construyendo un nuevo formulario para su formulario dentro de modal
+            o cada pestaña y capturar sus datos de envío en estado local o
+            global.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

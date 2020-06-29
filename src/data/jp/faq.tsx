@@ -80,7 +80,7 @@ export default {
               <p>
                 フォームのリセットボタンのクリックと同等の効果を持つメソッドです。
                 フォーム内の
-                <code> input/select/checkbox </code>
+                <code>input/select/checkbox</code>
                 要素の値のみリセットします。
               </p>
             </li>
@@ -128,7 +128,7 @@ export default {
           <p>
             実は<code>ref</code>を使わずとも<code>register</code>
             は使用出来ます。 加えて<code>setValue</code>と<code>setError</code>
-            、<code>triggerValidation</code>
+            、<code>trigger</code>
             の手動での使用も出来ます。
           </p>
 
@@ -460,26 +460,24 @@ export default {
         </div>
       ),
     },
-    // todo: jp translation please
     {
-      title:
-        "Why is default value not changing correctly with ternary operator?",
+      title: "なぜデフォルト値は三項演算子で正しく変更されないのですか？",
       description: (
         <>
           <p>
-            React Hook Form doesn't control your entire form and inputs, which
-            is the reason why React wouldn't recognise the actual input that has
-            been exchanged or swopped. As a solution, you can resolve this
-            problem by giving a unique <code>key</code> prop to your input. You
-            can also read more about the key props from{" "}
+            React Hook Form はフォーム全体と全ての input
+            要素を制御しません。理由は、React が入れ替えられた input
+            要素を認識しないからです。 解決策として、input 要素に一意な{" "}
+            <code>key</code> props を渡すことでこの問題を解決できます。key props
+            について{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
             >
               this article written by Kent C. Dodds
-            </a>
-            .
+            </a>{" "}
+            から詳しく読むことができます。
           </p>
           <CodeArea
             rawData={toggleFields}
@@ -489,40 +487,77 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller は shouldFocusErrorで動作しませんか？",
       description: (
         <>
           <p>
-            After a validation error, React Hook Form will automatically focus
-            on the invalids elements of which have their proper ref, like the
-            native inputs (eg: <code>{`<input />`}</code>) or some 3rd party
-            Components that correctly export his ref (eg: from MUI{" "}
+            バリデーションエラーのあと、React Hook Form はネイティブの input
+            要素(例: <code>{`<input />`}</code>) または正しく ref
+            が公開されているいくつかのサードパーティコンポーネント(例: MUI の{" "}
             <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
-            )
+            )のような適切な ref を持つ無効な要素に自動でフォーカスを当てます。
           </p>
 
           <p>
-            However, for some 3rd party controlled Components like{" "}
-            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
-            from AntD) it's very difficult to predict his ref because the
-            formats changes, so React Hook Form will properly detect the
-            validation error but will not be able to automatically focus that
-            kind of Components.
+            しかし、いくつかの(MUI の <code>{`<Autocomplete>`} </code> や AntD
+            の <code>{`<XX>`}</code>のような)
+            サードパーティ制御コンポーネントでは、フォーマットが変更されるため
+            ref を予見することはとても難しいです。 そのため、React Hook Form
+            はバリデーションエラーを正しく見つけますがほとんどのコンポーネントに自動でフォーカスを当てることができません。
           </p>
 
           <p>
-            As a workaround, after the validation error, you can manually focus
-            on the 3rd party controlled Component (if you can get the actual
-            internal input ref), for example:
+            回避策として、(もし実際の内部の input 要素の ref
+            を取得できるなら)バリデーションエラーの後に、
+            手動でサードパーティ制御コンポーネントにフォーカスを当てることができます。例えば:
           </p>
           <CodeArea rawData={focusController} />
 
           <p>
-            If you find difficult to make the autofocus with external controlled
-            component. It is possible to disable the "autofocus on error"
-            feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            もし外部の制御コンポーネントを使って自動でフォーカスを当てることが難しいと感じるなら、
+            「エラー時の自動フォーカス」機能を無効にすることが可能です。おそらくこの機能は
+            いくつかのケースでより良いユーザー体験をもたらします。
+            <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "モーダルまたはタブ付きのフォームではどのように動作しますか?",
+      description: (
+        <>
+          <p>
+            React Hook
+            Formがネイティブフォームを受け入れることを理解することが重要です
+            各入力内に入力状態を保存することによる動作（カスタムを除く）
+            <code>register</code> at <code>useEffect</code>）。一般的な
+            誤解は、マウントによってモーダルまたはタブフォームを操作するときです
+            状態を入力するフォーム/入力のアンマウントは残ります。それは
+            間違った実装ではなく、正しい解決策は常に
+            モーダルまたは各タブ内でフォームの新しいフォームを作成し、
+            ローカルまたはグローバルな状態で提出データをキャプチャします。
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

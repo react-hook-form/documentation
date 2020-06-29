@@ -19,7 +19,7 @@ export default function LearnMore({
       <button
         className={buttonStyles.primaryButton}
         onClick={() => {
-          navigate(translateLink("api", currentLanguage))
+          navigate(translateLink("/api", currentLanguage))
         }}
         style={{ margin: "40px auto" }}
       >

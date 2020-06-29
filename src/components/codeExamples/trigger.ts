@@ -19,7 +19,7 @@ export default function App() {
           if (result) { console.log("valid input") }
         }}
       >
-        Trigger with result
+        Trigger Result
       </button>
     </form>
   );

@@ -18,7 +18,7 @@ const IndexPage = ({
       description={home.description.zh}
       location={location}
     />
-    <Home location={location} defaultLang={"zh"} />
+    <Home location={location} defaultLang="zh" />
   </Layout>
 )
 

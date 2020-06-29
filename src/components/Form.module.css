@@ -20,7 +20,8 @@
 }
 
 .demoForm > select,
-.demoForm > input {
+.demoForm > input,
+.input {
   display: block;
   box-sizing: border-box;
   width: 100%;

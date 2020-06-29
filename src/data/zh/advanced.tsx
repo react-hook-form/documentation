@@ -3,6 +3,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -274,41 +275,9 @@ export default {
             实现的链接
           </a>
           混合了
-          <PageLink to={"/api#Controller"}>Controller</PageLink>。
+          <PageLink to="/api#Controller">Controller</PageLink>。
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "架构验证",
-    description: (
-      <>
-        <p>
-          React Hook Form支持使用
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          进行基于模式的表单验证，您可以在<a href="/api#useForm">useForm</a>
-          其中通过
-          <code>validationSchema</code>将表单用作可选配置。 React Hook
-          Form将根据模式验证您的输入数据，并返回<a href="/api#errors">错误</a>
-          或有效结果。
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>步骤1:</b> 将<code>Yup</code>
-          安装到您的项目中。
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>步骤2:</b>{" "}
-        准备您的架构以进行验证和注册 输入到React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -394,7 +363,7 @@ export default {
       <>
         <p>
           您可以构建一个自定义钩子作为验证解析器。定制挂钩
-          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(validationResolver)中使用。
+          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(resolver)中使用。
         </p>
         <ul>
           <li>
@@ -435,6 +404,115 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          测试是非常重要的，因为它可以保护代码免受错误或
+          错误，保证代码安全，当你重构代码库时。
+        </p>
+
+        <p>
+          我们建议使用。
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          因为它很简单，而且测试更注重用户行为。
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> 设置您的测试 环境。
+        </p>
+
+        <p>
+          请安装 <code>mutationobserver-shim</code>，因为 react-hook-form使用
+          <code>MutationObserver</code>来检测输入，获得 从DOM中卸载。
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          创建<code>setup.js</code>来导入 。<code>mutationobserver-shim</code>。
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          最后，你必须在中更新<code>setup.js</code>。<code>jest.config.js</code>
+          来包含该文件。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> 创建登录表格。
+        </p>
+
+        <p>
+          我们对角色属性进行了相应的设置。这些属性是
+          在您编写测试和提高可访问性的时候很有帮助。更多 的信息，您可以参考 。
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          文件。
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> 编写测试。
+        </p>
+
+        <p>以下标准是我们在测试中试图涵盖的内容。</p>
+
+        <ul>
+          <li>
+            <p>测试提交失败。</p>
+
+            <p>
+              我们使用<code>waitFor</code>和<code>find*</code>方法来实现
+              检测提交反馈，因为<code>handleSubmit</code>。 方法是异步执行的。
+            </p>
+          </li>
+          <li>
+            <p>与每个输入相关的测试验证。</p>
+
+            <p>
+              我们使用<code>*ByRole</code>方法查询不同的
+              元素，因为这是用户识别你的UI组件的方式。
+            </p>
+          </li>
+          <li>
+            <p>测试成功提交。</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

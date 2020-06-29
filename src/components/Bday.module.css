@@ -2,15 +2,19 @@
   display: none;
 }
 
+.root h1 > span {
+  font-size: 30px;
+  display: inline;
+  font-weight: 400;
+  margin-left: -15px;
+}
+
 @media (min-width: 768px) {
   .root {
     width: 630px;
     margin: 0 auto 0px;
     align-items: inherit;
-    grid-template-areas:
-      "d d e"
-      "a b e"
-      "c b e";
+    grid-template-areas: "d e";
     border: 1px solid var(--color-light-blue);
     padding: 0 40px 40px;
     border-radius: 7px;
@@ -95,6 +99,7 @@
   font-size: 30px;
   font-weight: 400;
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .achievementList h4 span {
@@ -137,4 +142,15 @@
   background-color: white;
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
+}
+
+.avatars {
+  margin-right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.avatars img {
+  height: 60px;
+  margin: 2px;
 }

@@ -16,24 +16,22 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" ref={register({ required: true })} />
       <input name="lastName" ref={register} />
-      <input type="submit" />
       <input type="reset" /> // standard reset button
       <input type="button" onClick={reset} />
       <input type="button" onClick={() => reset({ firstName: "bill" }); }} /> // reset form with values
       <input type="button" onClick={() => {
-          reset({
-            firstName: "bill"
-          }, {
-            errors: true, // errors will not be reset 
-            dirtyFields: true, // dirtyFields will not be reset
-            dirty: true, // dirty will not be reset
-            isSubmitted: false,
-            touched: false,
-            isValid: false,
-            submitCount: false,
-          });
-        }}
-      />
+        reset({
+          firstName: "bill"
+        }, {
+          errors: true, // errors will not be reset 
+          dirtyFields: true, // dirtyFields will not be reset
+          dirty: true, // dirty will not be reset
+          isSubmitted: false,
+          touched: false,
+          isValid: false,
+          submitCount: false,
+        });
+      }} />
     </form>
   );
 }

@@ -3,7 +3,6 @@ import colors from "../../styles/colors"
 import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
 import CodeArea from "../../components/CodeArea"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
@@ -22,11 +21,11 @@ export default {
         <p>
           Performance is one of the primary goals for building this custom hook.
           React Hook Form relies on uncontrolled component, hence the reason why
-          the register function occurs at the ref. This approach will reduce the
-          amount of re-rendering occurring due to user typing or value changing.
-          Components mount to the page is much quicker as well because they are
-          not controlled. For mounting speed, I have completed a quick
-          comparison test which you can refer to by{" "}
+          the <code>register</code> function occurs at the <code>ref</code>.
+          This approach will reduce the amount of re-rendering occurring due to
+          user typing or value changing. Components mount to the page is much
+          quicker as well because they are not controlled. For mounting speed, I
+          have completed a quick comparison test which you can refer to by{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -111,7 +110,6 @@ export default {
           component, you can specify a <code>defaultValue</code> or{" "}
           <code>defaultChecked</code> to an individual field. However, the hook
           itself does provide an easier way to initialise all input values too.
-          Example below:
         </p>
       ),
     },
@@ -121,8 +119,7 @@ export default {
         <p>
           React Hook Form needs <code>ref</code> to collect the input value,
           however, you may want to use <code>ref</code> for other purposes (e.g.
-          scroll into the view, or focus). The following example will show you
-          how.
+          scroll into the view, or focus).
         </p>
       ),
     },
@@ -133,7 +130,7 @@ export default {
           <p>
             You can actually <code>register</code> an input without a{" "}
             <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-            <code>setError</code> and <code>triggerValidation</code>.
+            <code>setError</code> and <code>trigger</code>.
           </p>
 
           <p>
@@ -214,8 +211,8 @@ export default {
             <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                  <th width={200} />
-                  <th>
+                  <th width={100} />
+                  <th width={250}>
                     <p>React Hook Form</p>
                   </th>
                   <th>
@@ -293,27 +290,27 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@4.0.0
+                      react-hook-form@6.0.0
                       <br />
-                      <b className={typographyStyles.note}>6.2KB</b>
+                      <b className={typographyStyles.note}>8.9KB</b>
                     </code>
                   </td>
                   <td>
                     Medium
                     <br />
                     <code>
-                      formik@2.0.1
+                      formik@2.1.4
                       <br />
-                      <b className={typographyStyles.note}>14.4KB</b>
+                      <b className={typographyStyles.note}>15KB</b>
                     </code>
                   </td>
                   <td>
                     Large
                     <br />
                     <code>
-                      redux-form@8.2.6
+                      redux-form@8.3.6
                       <br />
-                      <b className={typographyStyles.note}>27KB</b>
+                      <b className={typographyStyles.note}>26.4KB</b>
                     </code>
                   </td>
                 </tr>
@@ -322,10 +319,27 @@ export default {
                     <b>Validation</b>
                   </td>
                   <td>
-                    Built-in &{" "}
+                    Built-in,{" "}
                     <a href="https://github.com/jquense/yup" target="_blank">
                       Yup
                     </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/hapijs/joi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Joi
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/ianstormtaylor/superstruct"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Superstruct
+                    </a>{" "}
+                    and build your own.
                   </td>
                   <td>
                     Build yourself or{" "}
@@ -347,7 +361,7 @@ export default {
                   <td>
                     <b>Status</b>
                   </td>
-                  <td>Medium Community: New lib and growing</td>
+                  <td>Medium Community and growing</td>
                   <td>
                     Large Community: Well established form lib in the community
                   </td>
@@ -394,6 +408,20 @@ export default {
       description: (
         <div>
           <ul>
+            <li>
+              <p>
+                Why is testing not working with React Native (
+                <code>react-native-testing-library</code>)?
+              </p>
+
+              <p>
+                React Hook Form doesn't register input during server side
+                render, which means testing in react native could result{" "}
+                <code>window</code> object been <code>undefined</code>, quick
+                fix would be just stub <code>window</code> object to enable the
+                registration progress.
+              </p>
+            </li>
             <li>
               <p>
                 Why am I getting <code>act</code> warning?
@@ -509,7 +537,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -522,7 +550,7 @@ export default {
           </p>
 
           <p>
-            However, for some 3rd party controlled Components like{" "}
+            However, for some 3rd party controlled Components (like{" "}
             <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
             from AntD) it's very difficult to predict his ref because the
             formats changes, so React Hook Form will properly detect the
@@ -541,8 +569,46 @@ export default {
             If you find difficult to make the autofocus with external controlled
             component. It is possible to disable the "autofocus on error"
             feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            some cases. <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            It's important to understand React Hook Form embrace native form
+            behavior by store input state inside each input (except custom
+            <code>register</code> at <code>useEffect</code>). One of the common
+            misconceptions is when working with modal or tab forms, by mounting
+            and unmounting form/inputs that inputs state will remain. That's
+            incorrect implementation instead the correct solution should always
+            building a new form for your form inside modal or each tab and
+            capture your submission data in local or global state.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },
