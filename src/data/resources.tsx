@@ -365,5 +365,14 @@ export default {
       description:
         "React Hook Form tutorial on how to upload files to an ExpressJS API.",
     },
+    {
+      title: "React: Forms and Validations with React Hook Form",
+      url:
+        "https://www.webdevdrops.com/en/react-forms-and-validations-react-hook-form",
+      authorUrl: "https://www.webdevdrops.com/",
+      author: "Douglas Matoso",
+      description:
+        "Hey, folks! In this post I will show you how to work with forms and validation in React, in a simple and efficient way, using the React Hook Form library.",
+    },
   ],
 }
