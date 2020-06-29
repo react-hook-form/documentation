@@ -60,7 +60,7 @@ export default React.memo(
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>{api.formState.dirty}</td>
+                <td>{api.formState.isDirty}</td>
               </tr>
               <tr>
                 <td>
