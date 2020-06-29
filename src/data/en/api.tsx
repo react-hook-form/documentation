@@ -367,7 +367,7 @@ export default {
         </p>
       </>
     ),
-    dirty: "Set to <code>true</code> after the user modified any of the inputs.",
+    isDirty: "Set to <code>true</code> after the user modified any of the inputs.",
     isSubmitted:
       "Set to <code>true</code> after the user submitted the form. Iits state will remain submitted until the <code>reset</code> method is invoked.",
     dirtyFields: "An object with the user-modified fields.",
