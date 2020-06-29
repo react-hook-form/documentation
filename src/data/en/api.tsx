@@ -359,7 +359,7 @@ export default {
     title: "formState",
     description: (
       <>
-        <p>This object contain information about the form state.</p>
+        <p>This object contains information about the form state.</p>
 
         <p>
           <b className={typographyStyles.note}>Important:</b>{" "}
@@ -373,14 +373,14 @@ export default {
           </a>{" "}
           to improve render performance, so make sure you invoke or read it
           before <code>render</code> in order to enable the state update. This
-          reduces re-render feature only applies to the Web platform due to a
-          lack of support on Proxy at React Native.
+          reduced re-render feature only applies to the Web platform due to a
+          lack of support for Proxy in React Native.
         </p>
       </>
     ),
-    dirty: (
+    isDirty: (
       <>
-        Set to true after a user interacted with any of the inputs.
+        Set to <code>true</code> after the user modified any of the inputs.
         <p>
           <b className={typographyStyles.note}>Note:</b> File typed input will
           need to manage at app level due to the ability to cancel file
@@ -397,8 +397,8 @@ export default {
       </>
     ),
     isSubmitted:
-      "Set true after a user submitted the form. After a form's submission, its' state will remain submitted until invoked with reset method.",
-    dirtyFields: "An object containing all dirty fields.",
+      "Set to <code>true</code> after the user submitted the form. Iits state will remain submitted until the <code>reset</code> method is invoked.",
+    dirtyFields: "An object with the user-modified fields.",
     touched:
       "An object containing all the inputs the user has interacted with.",
     isSubmitting: (
@@ -408,7 +408,7 @@ export default {
       </>
     ),
     submitCount: "Number of times the form was submitted.",
-    isValid: "Set to true if the form doesn't have any error.",
+    isValid: "Set to <code>true</code> if the form doesn't have any errors.",
   },
   errors: {
     title: "errors",
