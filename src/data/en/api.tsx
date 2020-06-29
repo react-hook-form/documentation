@@ -396,8 +396,12 @@ export default {
         </p>
       </>
     ),
-    isSubmitted:
-      "Set to <code>true</code> after the user submitted the form. Iits state will remain submitted until the <code>reset</code> method is invoked.",
+    isSubmitted: (
+      <>
+        Set to <code>true</code> after the user submitted the form. Iits state
+        will remain submitted until the <code>reset</code> method is invoked.
+      </>
+    ),
     dirtyFields: "An object with the user-modified fields.",
     touched:
       "An object containing all the inputs the user has interacted with.",
@@ -408,7 +412,11 @@ export default {
       </>
     ),
     submitCount: "Number of times the form was submitted.",
-    isValid: "Set to <code>true</code> if the form doesn't have any errors.",
+    isValid: (
+      <>
+        Set to <code>true</code> if the form doesn't have any errors.
+      </>
+    ),
   },
   errors: {
     title: "errors",

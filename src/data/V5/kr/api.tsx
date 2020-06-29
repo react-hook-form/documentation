@@ -12,7 +12,8 @@ import code from "../../../components/codeExamples/defaultExample"
 export default {
   title: "API 설명서",
   header: {
-    description: "은 API 단순화를 통해 최고의 DX를 제공합니다.",
+    description:
+      "단순화된 API 를 통해 최고의 DX 를 제공하는데 초점을 맞추었습니다.",
   },
   v5upgradeAlert: (
     <p>
