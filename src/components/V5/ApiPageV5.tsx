@@ -805,7 +805,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             <TabGroup
               buttonLabels={[
                 "Single Error",
-                "Multiple Error",
+                "Multiple Errors",
                 "Single Field Errors",
               ]}
             >

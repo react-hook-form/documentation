@@ -752,7 +752,7 @@ const { register } = useForm<FormInputs>({
             <TabGroup
               buttonLabels={[
                 "Single Error",
-                "Multiple Error",
+                "Multiple Errors",
                 "Single Field Errors",
               ]}
             >
