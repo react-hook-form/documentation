@@ -11,11 +11,8 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" type="text" ref={register({ required: true })} />
-      {errors.firstName && <p>This Field is Required</p>}
       <input name="lastName" type="text" ref={register({ required: true })} />
-      {errors.lastName && <p>This Field is Required</p>}
       <input name="username" type="text" ref={register({ required: true })} />
-      {errors.username && <p>This Field is Required</p>}
       <button type="button" onClick={() => clearErrors("firstName")}>
         Clear First Name Errors
       </button>
