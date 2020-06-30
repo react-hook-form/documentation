@@ -135,7 +135,8 @@ export default function CodeArea({
         )}
 
         {((url && currentType === ToggleTypes.js) ||
-          (tsUrl && currentType === ToggleTypes.ts)) && (
+          (tsUrl && currentType === ToggleTypes.ts) ||
+          (tsUrl && currentType === ToggleTypes.types)) && (
           <CodeSandBoxLink
             isExpo={isExpo}
             url={currentType === ToggleTypes.js ? url : tsUrl}
