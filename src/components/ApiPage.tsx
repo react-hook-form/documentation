@@ -510,6 +510,62 @@ const { register } = useForm<FormInputs>({
 
             <ValidationResolver api={api} />
 
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                shouldUnregister:{" "}
+                <span className={typographyStyles.typeText}>
+                  boolean = true
+                </span>
+              </code>
+              <Popup
+                top={3}
+                message="React Native: Custom register or using Controller"
+              />
+            </h5>
+
+            {api.useForm.shouldUnregister}
+
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table} style={{ marginTop: 0 }}>
+                <thead>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <code>true</code>
+                    </td>
+                    <td>
+                      <code>false</code>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Value remained when input unmount?</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                  </tr>
+                  <tr>
+                    <td>Can you unregister an input?</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Is form state gets updated? <br />
+                      eg: <code>errors, dirty, touched</code>
+                    </td>
+                    <td>✅</td>
+                    <td>❌ you will need to clear error manually</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <CodeSandBoxLink
+              style={codeSandBoxStyle}
+              url="https://codesandbox.io/s/autounregister-4e91k"
+            />
+
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
@@ -573,31 +629,6 @@ const { register } = useForm<FormInputs>({
                       </h5>
                     </td>
                     <td>{api.useForm.submitFocusError}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
-                        <code>
-                          shouldUnregister: <br />
-                          <span className={styles.mobileTypeText}>
-                            boolean = true
-                          </span>
-                        </code>
-                      </h5>
-                    </td>
-                    <td>
-                      {api.useForm.shouldUnregister}
-                      <CodeSandBoxLink
-                        style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/autounregister-4e91k"
-                      />
-                    </td>
                   </tr>
                 </tbody>
               </table>
