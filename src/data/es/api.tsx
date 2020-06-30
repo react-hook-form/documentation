@@ -10,7 +10,7 @@ import generic from "../generic"
 export default {
   title: "Documentación de la API",
   header: {
-    description: "se enfoca en proveer la mejor DX simplificando la API.",
+    description: "Se enfoca en proveer la mejor DX simplificando la API.",
   },
   useForm: {
     title: "useForm",
@@ -61,8 +61,8 @@ export default {
           encontrados.
         </p>
         <p>
-          Con la configuración seteada en <code>all</code>, se correran todas
-          las validaciones de los campos y reunirá todos los errores
+          Con la configuración configurada en <code>all</code>, se correran
+          todas las validaciones de los campos y reunirá todos los errores
           encontrados.
         </p>
       </>
@@ -112,8 +112,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Importante:</b>{" "}
           <code>defaultValues</code> es cacheado dentro del custom hook, si tú
-          quieres reciniciar los valores <code>defaultValues</code> por favor
-          usa{" "}
+          quieres reiniciar los valores <code>defaultValues</code> por favor usa{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
@@ -176,7 +175,7 @@ export default {
       <>
         <p>
           Por defecto cuando un usuario envia un formulario y este contiene
-          errores, el primer campo con un error sera el que obtenga el foco.
+          errores, el primer campo con un error será el que obtenga el foco.
         </p>
 
         <p>
@@ -343,7 +342,7 @@ export default {
     title: "formState",
     description: (
       <>
-        <p>Este objeto contiene informacioón sobre el estado del formulario.</p>
+        <p>Este objeto contiene información sobre el estado del formulario.</p>
 
         <p>
           <b className={typographyStyles.note}>Importante:</b>{" "}
@@ -414,8 +413,8 @@ export default {
               Cuando <code>defaultValue</code> no es definido, el primer
               renderizado de <code>watch</code> retornará <code>undefined</code>{" "}
               porque es llamado antes de <code>register</code>, pero puedes
-              setear el <code>defaultValue</code> como segundo argumento para
-              retornar el valor.
+              configurar el <code>defaultValue</code> como segundo argumento
+              para retornar el valor.
             </p>
           </li>
           <li>
@@ -568,7 +567,7 @@ export default {
           <li>
             <p>
               Cuando setValue es invocado por primera vez y formState{" "}
-              <code>dirty</code> está seteado en verdadero
+              <code>dirty</code> está configurado en verdadero
             </p>
           </li>
           <li>
@@ -678,15 +677,15 @@ export default {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller 
-  as={<TextInput />} 
-  control={control} 
-  name="test" 
-/>
-<Controller 
-  as={TextInput} 
-  control={control} 
-  name="test" 
-/>`}
+                        as={<TextInput />} 
+                        control={control} 
+                        name="test" 
+                      />
+                      <Controller 
+                        as={TextInput} 
+                        control={control} 
+                        name="test" 
+                      />`}
             />
           </td>
         </tr>
@@ -716,17 +715,17 @@ export default {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller
-  control={control} 
-  name="test" 
-  render(({ onChange, onBlur, value }) => (
-    <Input 
-      onTextChange={onChange} 
-      onTextBlur={onBlur} 
-      textValue={value} 
-    />
-  ))
-/>
-<Controller render={props => <Input {...props} />} />`}
+                          control={control} 
+                          name="test" 
+                          render(({ onChange, onBlur, value }) => (
+                            <Input 
+                              onTextChange={onChange} 
+                              onTextBlur={onBlur} 
+                              textValue={value} 
+                            />
+                          ))
+                        />
+                        <Controller render={props => <Input {...props} />} />`}
             />
           </td>
         </tr>
@@ -782,8 +781,8 @@ export default {
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
               rawData="
-register('name', { required: state })
-validate: (value) => value === getValues('firstName');"
+                register('name', { required: state })
+                validate: (value) => value === getValues('firstName');"
             />
           </td>
         </tr>
@@ -1038,23 +1037,23 @@ validate: (value) => value === getValues('firstName');"
             <CodeArea
               withOutCopy
               rawData={`// ❌ The following is not correct
-handleChange={() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-  append({ test: 'test' });
-}}
+                        handleChange={() => {
+                          if (fields.length === 2) {
+                            remove(0);
+                          }
+                          append({ test: 'test' });
+                        }}
 
-// ✅ The following is correct and second action is triggered after next render
-handleChange={() => {
-  append({ test: 'test' });
-}}
+                        // ✅ The following is correct and second action is triggered after next render
+                        handleChange={() => {
+                          append({ test: 'test' });
+                        }}
 
-React.useEffect(() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-}, fields)
+                        React.useEffect(() => {
+                          if (fields.length === 2) {
+                            remove(0);
+                          }
+                        }, fields)
             `}
             />
           </li>
