@@ -52,6 +52,7 @@ import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
 import resetCodeTs from "./codeExamples/resetCodeTs"
+import getValuesTypes from "./codeExamples/getValuesTypes"
 
 const { useRef, useEffect } = React
 
@@ -882,8 +883,10 @@ const { register } = useForm<FormInputs>({
 
             <CodeArea
               rawData={getValues}
+              url="https://codesandbox.io/s/react-hook-form-v6-getvalues-v2gc7"
               tsRawData={getValuesTs}
-              url="https://codesandbox.io/s/react-hook-form-v6-get-form-values-80c2g"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-getvalues-u7xb1"
+              rawTypes={getValuesTypes}
             />
           </section>
 
