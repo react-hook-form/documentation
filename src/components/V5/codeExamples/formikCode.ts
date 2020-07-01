@@ -1,51 +1,43 @@
-export default `import React from "react";
-import { Formik, Form, Field } from "formik";
+export default `import React from "react"
+import { useFormik } from "formik"
+import * as Yup from 'yup';
 
-function validateEmail(value) {
-  let error;
-  
-  if (!value) {
-    error = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i.test(value)) {
-    error = "Invalid email address";
-  }
-  
-  return error;
-}
-
-function validateUsername(value) {
-  let error;
-  
-  if (value === "admin") {
-    error = "Nice try!";
-  }
-  
-  return error;
-}
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required("Required").email("invalid email address"),
+  username: Yup.string().notOneOf(["admin"], "Nice try!")
+});
 
 const Example = () => {
   const onSubmit = values => console.log(values);
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      username: '',
+    },
+    onSubmit,
+    validationSchema,
+  });
 
   return (
-    <Formik
-      initialValues={{
-        username: "",
-        email: ""
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <Field name="email" validate={validateEmail} />
-          {errors.email && touched.email && errors.email}
+    <form onSubmit={formik.handleSubmit}>
+      <input
+        id="email"
+        name="email"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.email}
 
-          <Field name="username" validate={validateUsername} />
-          {errors.username && touched.username && errors.username}
+      <input
+        id="username"
+        name="username"
+        value={formik.values.username}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.username}
 
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    </Formik>
-  );
+      <button type="submit">Submit</button>
+    </form>
+  )
 };
 `
