@@ -335,7 +335,7 @@ function App() {
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render=(props => <Checkbox {...props} />) // props contains: onChange, onBlur and value
+        render={props => <Checkbox {...props} />} // props contains: onChange, onBlur and value
       />
     </form>
   );
@@ -368,7 +368,7 @@ function App() {
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render=(props => <Checkbox {...props} />) // props contains: onChange, onBlur and value
+        render={props => <Checkbox {...props} />} // props contains: onChange, onBlur and value
       />
     </form>
   );
