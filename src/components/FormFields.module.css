@@ -3,6 +3,6 @@
   margin-bottom: 20px;
 }
 
-.radioGroup > label:first-child {
+.radioGroup > label:not(:last-child) {
   margin-right: 20px;
 }
