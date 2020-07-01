@@ -277,7 +277,7 @@ export default (
       <CodeArea
         withOutCopy
         rawData={`- setValue('test', 'data')
-+ setError('test', 'data', { shouldDirty: true })
++ setValue('test', 'data', { shouldDirty: true })
 
 - setValue([ { test: "1", }, { test1: "2", } ])
 + [ { name: 'test', value: 'data' } ].forEach(({ name, value }) => setValue(name, value))
