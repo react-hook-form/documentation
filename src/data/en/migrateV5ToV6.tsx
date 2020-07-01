@@ -210,7 +210,7 @@ export default (
         withOutCopy
         rawData={`- const { dirtyFields } = formState;
 - dirtyFields.has('test');
-+ const { isDirty } = formState;
++ const { dirtyFields } = formState;
 + dirtyFields.test;`}
       />
 
