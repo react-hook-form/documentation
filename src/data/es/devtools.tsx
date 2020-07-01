@@ -9,7 +9,7 @@ export default {
   step1: (
     <>
       <b className={typographyStyles.note}>Paso 1: </b>Instalar en pc{" "}
-      <code>react-hook-form-devtools</code>como un paquete de dependencia de
+      <code>@hookform/devtools</code>como un paquete de dependencia de
       desarrollo.
     </>
   ),
@@ -17,7 +17,7 @@ export default {
     <>
       <b className={typographyStyles.note}>Paso 2: </b>
       Integrate con tu React La aplicación es tan simple como importar un
-      Componente a su aplicación / Formulario y pasar<code> control </code>{" "}
+      Componente a su aplicación / Formulario y pasar<code>control</code>{" "}
       apuntalarlo.
     </>
   ),

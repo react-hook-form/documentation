@@ -13,7 +13,7 @@ const ResourcesEn = ({
 }) => {
   return (
     <Layout location={location} defaultLang="jp">
-      <Seo title="資源" location={location} />
+      <Seo title="リソース" location={location} />
       <ResourcePage defaultLang="jp" />
     </Layout>
   )

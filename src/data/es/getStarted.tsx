@@ -3,7 +3,10 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -178,7 +181,12 @@ export default {
           <Link to="/api#Controller">Controller</Link>, cuando utilizas este
           componente, él se encarga de realizar el proceso de registro por ti.
         </p>
-        <CodeArea rawData={uiLibraryHookInput} />
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
         <p>
           <b className={typographyStyles.note}>Opción 3:</b> Por último, puedes
           configurar un registro personalizado utilizando el hook{" "}
@@ -227,11 +235,64 @@ export default {
       </p>
     ),
   },
+  schema: {
+    title: "Validación del Schema",
+    description: (
+      <>
+        <p>
+          React Hook Form soporta validación de formularios basada en esquemas
+          con{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          , donde puedes pasar tu <code>validationSchema</code> a{" "}
+          <a href="/api#useForm">useForm</a> como configuración opcional. React
+          Hook Form validará los datos de tus inputs contra el esquema y
+          retornará los <a href="/api#errors">errores</a> o el resultado válido
+          según corresponda.
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>Paso 1:</b> Agregá{" "}
+          <code>Yup</code> en tu proyecto.
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>Paso 2:</b>Crea tu esquema de
+        validación y registra los inputs en React Hook Form.
+      </p>
+    ),
+  },
   errors: {
     title: "Manejo de errores",
     description: (
       <>
-        React Hook Form proporciona el objeto <code> errors </code>
+        React Hook Form proporciona el objeto <code>errors</code>
         para exponer los errores que hayan en el formulario.
       </>
     ),

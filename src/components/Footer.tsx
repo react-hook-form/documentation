@@ -29,13 +29,11 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           <Link to={translateLink("/api", currentLanguage)}>API</Link>
         </li>
         <li>
-          <Link to={translateLink("/advanced-usage", currentLanguage)}>
-            {nav[currentLanguage].advanced}
-          </Link>
+          <Link to={translateLink("/ts", currentLanguage)}>TS</Link>
         </li>
         <li>
-          <Link to={translateLink("/form-builder", currentLanguage)}>
-            {nav[currentLanguage].builder}
+          <Link to={translateLink("/advanced-usage", currentLanguage)}>
+            {nav[currentLanguage].advanced}
           </Link>
         </li>
         <li>
@@ -44,13 +42,18 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           </Link>
         </li>
         <li>
-          <Link to={translateLink("/resources", currentLanguage)}>
-            {nav[currentLanguage].resources}
+          <Link to={translateLink("/form-builder", currentLanguage)}>
+            {nav[currentLanguage].builder}
           </Link>
         </li>
         <li>
           <Link to={translateLink("/dev-tools", currentLanguage)}>
             DevTools
+          </Link>
+        </li>
+        <li>
+          <Link to={translateLink("/resources", currentLanguage)}>
+            {nav[currentLanguage].resources}
           </Link>
         </li>
       </ul>
@@ -94,15 +97,17 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
       </p>
       {currentLanguage === "pt" && (
         <p>
-          <a href="https://github.com/kevenleone">@kevenleone</a>
+          <a href="https://github.com/kevenleone">@kevenleone</a> and{" "}
+          <a href="https://github.com/vitorboccio">@vitorboccio</a>
         </p>
       )}
       {currentLanguage === "kr" && (
         <p>
-          에 의해 번역 <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
+          <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
           <a href="https://github.com/iamchanii">@iamchanii</a>,{" "}
-          <a href="https://github.com/purelledhand">@purelledhand</a> and{" "}
-          <a href="https://github.com/adhrinae">@adhrinae</a>
+          <a href="https://github.com/purelledhand">@purelledhand</a>, 그리고{" "}
+          <a href="https://github.com/adhrinae">@adhrinae</a>의 도움으로
+          번역되었습니다.
         </p>
       )}
       {currentLanguage === "jp" && (
@@ -121,7 +126,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @github
         </a>
-        ️ ] [ Help make these doc's better{" "}
+        ️ ] [ Help make these docs better{" "}
         <a
           href="https://github.com/react-hook-form/website"
           target="_blank"

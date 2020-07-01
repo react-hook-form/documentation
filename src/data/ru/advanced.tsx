@@ -3,6 +3,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -291,40 +292,9 @@ export default {
           >
             по этой ссылке.
           </a>{" "}
-          с <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          с <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Валидация по схеме",
-    description: (
-      <>
-        <p>
-          React Hook Form поддерживает валидацию формы по схеме с{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , где вы можете передать <code>validationSchema</code> в{" "}
-          <a href="/api#useForm">useForm</a> как опциональную настройку. React
-          Hook Form будет валидировать ваши поля ввода по схеме и возвращать
-          либо <a href="/api#errors">ошибки</a>, либо валидный результат.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Шаг 1:</b> Установите{" "}
-          <code>Yup</code> в проект.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Шаг 2:</b> Настройте схему данных
-        для валидации и зарегистрируйте поля ввода в React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -437,22 +407,22 @@ export default {
     description: (
       <>
         <p>
-          Imagine um cenário em que você tenha uma tabela de dados. Esta tabela
-          pode contém centenas ou milhares de linhas e cada linha terá entradas.
-          Uma prática comum é renderizar apenas os itens que estão no viewport,
-          no entanto, isso causará problemas quando os itens forem removidos do
-          o DOM quando estão fora de vista e adicionados novamente. Isso causará
-          itens para redefinir seus valores padrão quando eles entrarem
-          novamente na janela de exibição.
+          Представьте себе сценарий, в котором у вас есть таблица данных. Эта
+          таблица может содержат сотни или тысячи строк, и каждая строка будет
+          иметь входные данные. Обычной практикой является визуализация только
+          тех элементов, которые находятся в область просмотра, однако это
+          вызовет проблемы при удалении элементов из DOM, когда они вне поля
+          зрения, и снова добавлены. Это приведет к пунктам сбросить их значения
+          по умолчанию при повторном входе в область просмотра.
         </p>
 
         <p>
-          Para contornar isso, você pode registrar manualmente os campos e, em
-          seguida, definir programaticamente o valor do campo.
+          Чтобы обойти это, вы можете вручную зарегистрировать поля, а затем
+          программно установить значение поля.
         </p>
 
         <p>
-          Um exemplo é mostrado abaixo usando{" "}
+          Пример показан ниже с использованием{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -466,6 +436,125 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          Тестирование очень важно, потому что оно сохраняет код от ошибок или
+          ошибки и гарантируют безопасность кода при рефакторинге кодовой базы.
+        </p>
+
+        <p>
+          Мы рекомендуем использовать{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          , потому что она проста и тесты больше ориентированы на поведение
+          пользователей.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Настройте вашу
+          тестовую среду.
+        </p>
+
+        <p>
+          Пожалуйста, установите <code>mutationobserver-shim</code>, потому что
+          повторное использование крючкообразной формы{" "}
+          <code>MutationObserver</code> для обнаружения входов получает не
+          смонтированный из МДМ.
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          Создайте <code>setup.js</code> для импорта ".
+          <code>mutationobserver-shim</code>.
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          Наконец, вы должны обновить <code>setup.js</code> в ".
+          <code>jest.config.js</code> для включения файла.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> Создайте форму входа
+          в систему.
+        </p>
+
+        <p>
+          Мы установили атрибут роли соответственно. Этими атрибутами являются
+          Полезно, когда вы будете писать тесты и улучшать доступность.
+          Подробнее информация, вы можете сослаться на " ".
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          Документация. Переведено с помощью www.DeepL.com/Translator
+          (бесплатная версия)
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> Пишите тесты.
+        </p>
+
+        <p>Следующие критерии мы пытаемся покрыть испытаниями:</p>
+
+        <ul>
+          <li>
+            <p>Сбой подачи теста.</p>
+
+            <p>
+              Мы используем метод <code>waitFor</code> и <code>find*</code> для
+              того, чтобы обнаружить обратную связь, потому что{" "}
+              <code>handleSubmit</code> метод выполняется асинхронно.
+            </p>
+          </li>
+          <li>
+            <p>Проверка тестов, связанных с каждым входом.</p>
+
+            <p>
+              Мы используем метод <code>*ByRole</code> при запросе различный
+              элементы, потому что именно так пользователи узнают ваш компонент
+              пользовательского интерфейса.
+            </p>
+          </li>
+          <li>
+            <p>Успешная подача теста.</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

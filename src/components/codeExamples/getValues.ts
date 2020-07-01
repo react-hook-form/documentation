@@ -12,9 +12,10 @@ export default function App() {
       <button
         type="button"
         onClick={() => {
-          const values = getValues();
-          const singleValue = getValues("test");
-          const nestedObjectValue = getValues({ nest: true });
+          const values = getValues(); // { test: "test-input", test1: "test1-input" }
+          const singleValue = getValues("test"); // "test-input"
+          const singleValue = getValues(["test", "test1"]); 
+          // { test: "test-input", test1: "test1-input" }
         }}
       >
         Get Values

@@ -1,23 +1,34 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App(props) {
-  const { register, watch } = useForm();
-  const watchYes = watch("yes", props.yes); // supply default value as second argument
-  const watchAllFields = watch(); // watching every fields in the form
-  const watchFields = watch(["yes", "number"]); // target specific fields by their names
-  // watch array fields by the key, pet[0] and pet[1] will both be watched and returns values
-  const pets = watch("pet"); 
-  
+function App() {
+  const { register, watch, errors, handleSubmit } = useForm();
+  const watchShowAge = watch("showAge", false); // you can supply default value as second argument
+  const watchAllFields = watch(); // when pass nothing as argument, you are watching everything
+  const watchFields = watch(["showAge", "number"]); // you can also target specific fields by their names
+
+  const onSubmit = data => {
+    console.log(data)
+  };
+
   return (
-    <form>
-      <input name="textInput" ref={register({ required: true, maxLength: 50 })} />
-      <input type="checkbox" name="yes" ref={register} />
-      <input name="pet[0]" ref={register} />
-      <input name="pet[1]" ref={register} />
-      
-      {watchYes && <input type="number" name="numberInput" ref={register({ min: 50 })} />}
-      {/* based on yes selection to display numberInput */}
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          type="text"
+          name="name"
+          ref={register({ required: true, maxLength: 50 })}
+        />
+        <input type="checkbox" name="showAge" ref={register} />
+        {/* based on yes selection to display Age Input*/}
+        {watchShowAge && (
+          <>
+            <input type="number" name="age" ref={register({ min: 50 })} />
+          </>
+        )}
+        <input type="submit" />
+      </form>
+    </>
   );
-}`
+}
+`

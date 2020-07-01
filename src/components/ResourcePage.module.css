@@ -10,7 +10,7 @@
 }
 
 .article {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .article img {
@@ -26,13 +26,36 @@
   color: white;
 }
 
+.article > a:hover {
+  color: var(--color-secondary);
+}
+
 .article h3 {
   margin: 5px 0;
   font-size: 18px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .article p {
   margin: 5px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+p.author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @media (min-width: 768px) {

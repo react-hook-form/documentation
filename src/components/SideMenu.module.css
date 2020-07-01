@@ -17,6 +17,12 @@
   border-left: 1px solid #ec5990;
 }
 
+.size {
+  font-size: 10px;
+  margin-left: 5px;
+  color: currentColor;
+}
+
 @media (min-width: 768px) {
   .menu {
     display: block;
@@ -98,8 +104,9 @@
 .code {
   color: var(--color-light-pink);
   position: relative;
-  font-size: 14px;
-  top: -2px;
+  font-size: 12px;
+  top: 2px;
+  display: inline-table;
 }
 
 @media (min-width: 1024px) {

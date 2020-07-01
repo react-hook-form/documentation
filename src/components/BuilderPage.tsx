@@ -5,7 +5,8 @@ import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
 import { navigate } from "@reach/router"
 import colors from "../styles/colors"
-import CodeArea from "./CodeArea"
+import generateCode from "./logic/generateCode"
+import copyClipBoard from "./utils/copyClipBoard"
 import Footer from "./Footer"
 import Popup from "./Popup"
 import LearnMore from "./learnMore"
@@ -52,7 +53,7 @@ function BuilderPage({
   defaultLang,
 }: {
   showBuilder?: boolean
-  toggleBuilder?: Function
+  toggleBuilder?: (state: boolean) => void
   HomeRef?: any
   isStatic?: boolean
   defaultLang: string
@@ -137,7 +138,7 @@ function BuilderPage({
         {builder.builder[currentLanguage].description}
       </p>
 
-      <div className={styles.wrapper}>
+      <div className={styles.pageWrapper}>
         <section>
           <h2 className={typographyStyles.title}>
             {builder.layout[currentLanguage].title}
@@ -395,7 +396,31 @@ function BuilderPage({
             {builder.code[currentLanguage].description}
           </p>
 
-          <CodeArea data={formData} />
+          <section
+            style={{
+              position: "relative",
+            }}
+          >
+            <div className={styles.buttonWrapper}>
+              <button
+                className={`${styles.button} ${styles.copyButton}`}
+                onClick={() => {
+                  copyClipBoard(generateCode(formData))
+                  alert(generic.copied[currentLanguage])
+                }}
+                aria-label={generic.copied[currentLanguage]}
+              >
+                {generic.copy[currentLanguage]}
+              </button>
+            </div>
+            <div className={styles.wrapper}>
+              <pre className="raw-code">
+                <code className={`language-javascript ${styles.showCode}`}>
+                  {generateCode(formData)}
+                </code>
+              </pre>
+            </div>
+          </section>
         </section>
       </div>
 

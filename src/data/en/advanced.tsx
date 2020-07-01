@@ -4,6 +4,7 @@ import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -185,8 +186,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Step 2:</b> Create your pages,
-          collect and submit the data to the store and show the next page of
-          your form.
+          collect and submit the data to the store and push to the next
+          form/page.
         </p>
         <CodeArea
           rawData={step2}
@@ -229,9 +230,9 @@ export default {
 
         <p>Let's have a look what's in each of those components.</p>
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Form</h2>
-        </div>
+        </code>
 
         <p>
           The <code>Form</code> component's responsibility is to inject all{" "}
@@ -243,9 +244,9 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
         />
 
-        <div className={typographyStyles.codeHeading}>
+        <code className={typographyStyles.codeHeading}>
           <h2>Input / Select</h2>
-        </div>
+        </code>
 
         <p>
           Those input components' responsibility is to registering them into{" "}
@@ -300,40 +301,9 @@ export default {
           >
             link for such implementation.
           </a>{" "}
-          with <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          with <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Schema Validation",
-    description: (
-      <>
-        <p>
-          React Hook Form supports schema-based form validation with{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , where you can pass your <code>validationSchema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. React Hook
-          Form will validate your input data against the schema and return with
-          either <a href="/api#errors">errors</a> or a valid result.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Step 1:</b> Install{" "}
-          <code>Yup</code> into your project.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Step 2:</b> Prepare your schema for
-        validation and register inputs with React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -342,12 +312,12 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#useFormContext">FormContext</a> comes in very handy.
-        However, we can further improve the Developer Experience by creating a{" "}
+        <a href="/api#useFormContext">FormContext</a> comes in handy. However,
+        we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit of such a component is you can connect your input with React
-        Hook Form from anywhere.
+        The benefit is you can connect your input with React Hook Form from much
+        easier.
       </p>
     ),
   },
@@ -372,10 +342,10 @@ export default {
         </p>
         <ul>
           <li>
-            <p>
-              Import <PageLink to="/api#Controller">Controller</PageLink> to
-              wrap your component and let it manage register and unregister
-            </p>
+            <p>Toggle the input's viability</p>
+          </li>
+          <li>
+            <p>Building separate form for modal and pop up form</p>
           </li>
           <li>
             <p>
@@ -390,6 +360,12 @@ export default {
                 </a>
               </code>{" "}
               with custom register
+            </p>
+          </li>
+          <li>
+            <p>
+              Import <PageLink to="/api#Controller">Controller</PageLink> to
+              wrap your component and let it manage register and unregister
             </p>
           </li>
         </ul>
@@ -419,21 +395,27 @@ export default {
     ),
   },
   customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+    title: "Custom Hook with Resolver",
     description: (
       <>
         <p>
-          You can build a custom hook as a validation resolver. A custom hook
-          can easily integrate with yup/Joi/Superstruct as a validation method,
-          and to be used inside validation resolver.
+          You can build a custom hook as a resolver. A custom hook can easily
+          integrate with yup/Joi/Superstruct as a validation method, and to be
+          used inside validation resolver.
         </p>
         <ul>
           <li>
-            Define a memoized validation schema (or define it outside your
-            component if you don't have any dependencies)
+            <p>
+              Define a memoized validation schema (or define it outside your
+              component if you don't have any dependencies)
+            </p>
           </li>
-          <li>Use the custom hook, by passing the validation schema</li>
-          <li>Pass the validation resolver to the useForm hook</li>
+          <li>
+            <p>Use the custom hook, by passing the validation schema</p>
+          </li>
+          <li>
+            <p>Pass the validation resolver to the useForm hook</p>
+          </li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -455,7 +437,7 @@ export default {
 
         <p>
           To work around this, you can manually register the fields, and then
-          programatically set the value of the field.
+          programmatically set the value of the field.
         </p>
 
         <p>
@@ -473,6 +455,135 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          Testing is very important because it preserve code from bugs or
+          mistakes and guarantee code safety when you refactor the codebase.
+        </p>
+
+        <p>
+          We recommend using{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          , because it is simple and tests are more focused on user behavior.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Set up your testing
+          environment.
+        </p>
+
+        <p>
+          Please install{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          with the latest version of <code>jest</code> because react-hook-form
+          use <code>MutationObserver</code> to detect inputs get unmounted from
+          the DOM.
+        </p>
+
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+
+        <p>
+          Create <code>setup.js</code> to import{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+        <CodeArea
+          rawData={'import "@testing-library/jest-dom";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          Finally, you have to update <code>setup.js</code> in{" "}
+          <code>jest.config.js</code> to include the file.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> Create login form.
+        </p>
+
+        <p>
+          We have set the role attribute accordingly. These attributes are
+          helpful when you will write tests and improve accessibility. For more
+          information, you can refer to the{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>{" "}
+          documentation.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> Write tests.
+        </p>
+
+        <p>The following criteria are what we try to cover with the tests:</p>
+
+        <ul>
+          <li>
+            <p>Test submission failure.</p>
+
+            <p>
+              We are using <code>waitFor</code> and <code>find*</code> method to
+              detect submission feedback because <code>handleSubmit</code>{" "}
+              method is executed asynchronously.
+            </p>
+          </li>
+          <li>
+            <p>Test validation associated with each inputs.</p>
+
+            <p>
+              We are using <code>*ByRole</code> method when querying different
+              elements because that's how users recognize your UI component.
+            </p>
+          </li>
+          <li>
+            <p>Test successful submission.</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

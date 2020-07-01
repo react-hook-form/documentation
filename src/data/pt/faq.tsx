@@ -131,8 +131,7 @@ export default {
           <p>
             Você pode atualmente usar o <code>register</code> em um campo sem o{" "}
             <code>ref</code>. De fato, você pode manualmente usar{" "}
-            <code>setValue</code>, <code>setError</code> e{" "}
-            <code>triggerValidation</code>.
+            <code>setValue</code>, <code>setError</code> e <code>trigger</code>.
           </p>
 
           <p>
@@ -492,7 +491,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -505,7 +504,7 @@ export default {
           </p>
 
           <p>
-            However, for some 3rd party controlled Components like{" "}
+            However, for some 3rd party controlled Components (like{" "}
             <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
             from AntD) it's very difficult to predict his ref because the
             formats changes, so React Hook Form will properly detect the
@@ -524,8 +523,48 @@ export default {
             If you find difficult to make the autofocus with external controlled
             component. It is possible to disable the "autofocus on error"
             feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            some cases. <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            É importante entender que o React Hook Form adota a forma nativa
+            comportamento pelo estado de entrada da loja dentro de cada entrada
+            (exceto
+            <code>registre-se</code> em <code>useEffect</code>). Um dos comuns
+            equívocos é quando se trabalha com formulários modais ou de guias,
+            montando e desmontar formulário / entradas que o estado das entradas
+            permanecerá. Isso é implementação incorreta, em vez disso, a solução
+            correta deve sempre criando um novo formulário para o formulário
+            dentro do modal ou de cada guia e capture seus dados de envio no
+            estado local ou global.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

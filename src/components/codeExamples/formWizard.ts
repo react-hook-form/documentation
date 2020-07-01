@@ -5,8 +5,6 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Result from "./Result";
 
-import "./styles.css";
-
 createStore({
   data: {}
 });
@@ -14,8 +12,6 @@ createStore({
 export default function App() {
   return (
     <StateMachineProvider>
-      <h1>Page Form Wizard</h1>
-
       <Router>
         <Route exact path="/" component={Step1} />
         <Route path="/step2" component={Step2} />
@@ -42,15 +38,8 @@ const Step1 = props => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Step 1</h2>
-      <label>
-        First Name:
-        <input name="firstName" ref={register} />
-      </label>
-      <label>
-        Last Name:
-        <input name="lastName" ref={register} />
-      </label>
+      <input name="firstName" ref={register} />
+      <input name="lastName" ref={register} />
       <input type="submit" />
     </form>
   );
@@ -66,10 +55,5 @@ import updateAction from "./updateAction";
 const Step1 = props => {
   const { state } = useStateMachine(updateAction);
 
-  return (
-    <>
-      <h2>Result:</h2>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
-    </>
-  );
+  return <pre>{JSON.stringify(state, null, 2)}</pre>;
 };`

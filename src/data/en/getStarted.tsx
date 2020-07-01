@@ -3,8 +3,12 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
+import VideoList from "../../components/VideoList"
 
 export default {
   title: "Get Started",
@@ -34,7 +38,7 @@ export default {
           <strong>
             <code>register</code>
           </strong>{" "}
-          your uncontrolled component into the Hook. This will make its value
+          your uncontrolled component into the hook. This will make its value
           available for both the form validation and submission.
         </p>
 
@@ -49,8 +53,7 @@ export default {
           require you to either use a manual register command:{" "}
           <code>{`register({ name: 'test' }, { required: true })`}</code> or a{" "}
           <Link to="/api#Controller">Controller</Link> to wrap and register your
-          component automatically. Learn more in the dedicated section for{" "}
-          <Link to="/api/#ReactNative">React Native</Link>.
+          component.
         </p>
       </>
     ),
@@ -150,20 +153,27 @@ export default {
       <>
         <p>
           React Hook Form has made it easy to integrate with external UI
-          component libraries. You can check out{" "}
-          <a
-            href="https://www.youtube.com/watch?v=0nDGeQKLFjo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            this video tutorial
-          </a>{" "}
-          on how to work with MUI.
+          component libraries. You can check out the follow videos.
         </p>
+
+        <VideoList
+          lists={[
+            {
+              url: "https://www.youtube.com/watch?v=PquWexbGcVc",
+              title: "How to Use React-Hook-Form With Material UI",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
+              title: "React Hook Form - React Forms Episode II",
+            },
+          ]}
+          play
+        />
+
         <p>
           <b className={typographyStyles.note}>Option 1:</b> The best way is to
-          check if the component you wish to use exposes an{" "}
-          <code>innerRef</code> or <code>ref</code> that can be used to{" "}
+          check if the component you wish to use exposes an <code>ref</code>{" "}
+          that can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -174,11 +184,7 @@ export default {
           <code>register</code> to it.
         </p>
         <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
+          <code>{'<TextField ref={register} name="FirstName"/>'}</code>
         </p>
         <p>
           <b className={typographyStyles.note}>Option 2:</b> Sometimes
@@ -190,7 +196,12 @@ export default {
           <Link to="/api#Controller">Controller</Link> wrapper component, which
           will take care of the registration process for you.
         </p>
-        <CodeArea rawData={uiLibraryHookInput} />
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
         <p>
           <b className={typographyStyles.note}>Option 3:</b> Lastly we can set
           up a custom register using the{" "}
@@ -214,7 +225,13 @@ export default {
   },
   globalState: {
     title: "Integrate global state",
-    description: `React Hook Form doesn't require you to rely on a state management library such as Redux to store your data, but you can easily integrate with it:`,
+    description: (
+      <p>
+        React Hook Form doesn't require you to rely on a state management
+        library such as Redux to store your data, but you can easily integrate
+        with it:
+      </p>
+    ),
   },
   reactNative: {
     title: "React Native",
@@ -223,8 +240,8 @@ export default {
         You will get the same performance enhancement from an Uncontrolled
         Component. However, there are certain APIs which are not compatible with
         React Native (due to the API differences between web and native). You
-        will have to use a <b>manual register</b> as shown in the following
-        example.
+        will have to use <code>Controller</code> or <b>custom register</b> as
+        shown in the following example.
       </p>
     ),
   },
@@ -237,13 +254,64 @@ export default {
       </p>
     ),
   },
+  schema: {
+    title: "Schema Validation",
+    description: (
+      <>
+        <p>
+          React Hook Form supports schema-based form validation with{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>
+          , where you can pass your <code>schema</code> to{" "}
+          <a href="/api#useForm">useForm</a> as an optional config. React Hook
+          Form will validate your input data against the schema and return with
+          either <a href="/api#errors">errors</a> or a valid result.
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Install{" "}
+          <code>Yup</code> into your project.
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>Step 2:</b> Prepare your schema for
+        validation and register inputs with React Hook Form.
+      </p>
+    ),
+  },
   errors: {
     title: "Handle errors",
     description: (
-      <>
+      <p>
         React Hook Form provides an <code>errors</code> object to show you the
         errors in the form.
-      </>
+      </p>
     ),
   },
 }

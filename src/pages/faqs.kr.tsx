@@ -14,7 +14,7 @@ const Faq = ({
 }) => (
   <Layout location={location} defaultLang="kr">
     <Seo title={faq.title} location={location} />
-    <FaqPage defaultLang="kr" />
+    <FaqPage defaultLang="kr" faq={faq} />
   </Layout>
 )
 

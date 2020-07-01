@@ -4,30 +4,37 @@ import { useForm, Controller } from "react-hook-form";
 
 export default function App() {
   const { control, handleSubmit, errors } = useForm();
-  const onSubmit = data => Alert.alert(
-    "Form Data",
-    JSON.stringify(data),
-  );
+  const onSubmit = data => console.log(data);
 
   return (
     <View>
-      <Text>First name</Text>
       <Controller
-        as={TextInput}
         control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={value => onChange(value)}
+            value={value}
+          />
+        )}
         name="firstName"
-        onChange={args => args[0].nativeEvent.text}
         rules={{ required: true }}
         defaultValue=""
       />
       {errors.firstName && <Text>This is required.</Text>}
 
-      <Text>Last name</Text>
       <Controller
-        as={TextInput}
         control={control}
+        render={({ onChange, onBlur, value }) => (
+          <TextInput
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={value => onChange(value)}
+            value={value}
+          />
+        )}
         name="lastName"
-        onChange={args => args[0].nativeEvent.text}
         defaultValue=""
       />
 

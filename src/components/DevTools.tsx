@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useForm } from "react-hook-form"
-import { DevTool } from "react-hook-form-devtools"
+import { DevTool } from "@hookform/devtools/dist/devtools"
 import { Animate } from "react-simple-animate"
 import Form from "./Form"
 import Footer from "./Footer"
@@ -10,7 +10,6 @@ import code from "./codeExamples/devTool"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
-import content from "../data/devtools"
 import devTool from "../images/dev-tool.png"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -19,7 +18,12 @@ import codeAreaStyles from "./CodeArea.module.css"
 import getStartedStyle from "./GetStarted.module.css"
 import styles from "./DevTools.module.css"
 
-export default ({ defaultLang }: { defaultLang: string }) => {
+interface Props {
+  defaultLang: string
+  content: any
+}
+
+export default ({ defaultLang, content }: Props) => {
   const methods = useForm({
     mode: "onChange",
   })
@@ -46,11 +50,9 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     <div className={containerStyles.container}>
       <main style={{ margin: "0 20px" }}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          {content[currentLanguage].title}
+          {content.title}
         </h1>
-        <p className={typographyStyles.subHeading}>
-          {content[currentLanguage].description}
-        </p>
+        <p className={typographyStyles.subHeading}>{content.description}</p>
 
         <Animate
           play
@@ -70,27 +72,31 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           )}
         />
 
-        <DevToolFeaturesList isPlayFeature currentLanguage={currentLanguage} />
+        <DevToolFeaturesList
+          isPlayFeature
+          currentLanguage={currentLanguage}
+          content={content}
+        />
 
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>
-            {`</>`} {content[currentLanguage].install}
+            {`</>`} {content.install}
           </h1>
         </div>
 
         <div className={containerStyles.subContainer}>
-          <p>{content[currentLanguage].step1}</p>
+          <p>{content.step1}</p>
 
           <span
             className={`${getStartedStyle.installCode} ${
               lightMode ? getStartedStyle.lightInstallCode : ""
             }`}
           >
-            npm install react-hook-form-devtools -D
+            npm install @hookform/devtools -D
             <button
               className={getStartedStyle.copyButton}
               onClick={() => {
-                copyClipBoard("npm install react-hook-form-devtools -D")
+                copyClipBoard("npm install @hookform/devtools -D")
                 alert(generic.copied["en"])
               }}
             >
@@ -101,7 +107,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             </button>
           </span>
 
-          <p>{content[currentLanguage].step2}</p>
+          <p>{content.step2}</p>
 
           <CodeArea rawData={code} />
         </div>
@@ -110,7 +116,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <h1 className={typographyStyles.h1}>
             {generic.liveDemo[currentLanguage]}
           </h1>
-          <p>{content[currentLanguage].demoDescription}</p>
+          <p>{content.demoDescription}</p>
 
           <div
             className={buttonStyles.buttonsGroup}
@@ -145,7 +151,9 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               {...{
                 onSubmit,
                 submitData: {},
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 toggleBuilder: () => {},
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 formUpdated: () => {},
                 currentLanguage: "en",
                 methods,
@@ -160,9 +168,9 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               }}
               className={typographyStyles.title}
             >
-              {content[currentLanguage].function}
+              {content.function}
             </h3>
-            <ul>{content[currentLanguage].functionDetail}</ul>
+            <ul>{content.functionDetail}</ul>
           </div>
         </div>
 

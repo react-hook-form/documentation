@@ -4,6 +4,8 @@ import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import TabGroup from "./TabGroup"
+import formContextConsumer from "./codeExamples/formContextConsumer"
 
 export default function FormContext({ currentLanguage, api }) {
   return (
@@ -42,14 +44,13 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.description}
 
-      <CodeArea
-        rawData={`const methods = useFormContext() // methods contain all useForm functions`}
-      />
-
-      <CodeArea
-        rawData={formContext}
-        url="https://codesandbox.io/s/sad-sutherland-zvfok"
-      />
+      <TabGroup buttonLabels={["Hook", "Consumer"]}>
+        <CodeArea
+          rawData={formContext}
+          url="https://codesandbox.io/s/react-hook-form-v6-form-context-sl3b5"
+        />
+        <CodeArea rawData={formContextConsumer} />
+      </TabGroup>
     </>
   )
 }

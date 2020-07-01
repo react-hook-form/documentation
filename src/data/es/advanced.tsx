@@ -3,6 +3,7 @@ import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -219,8 +220,8 @@ export default {
       <>
         <p>
           La idea aquí es que puedas componer fácilmente tu formulario con
-          entradas. Vamos a crear un componente de <code> Formulario </code>{" "}
-          para recopilar automáticamente los datos del formulario.
+          entradas. Vamos a crear un componente de <code>Formulario</code> para
+          recopilar automáticamente los datos del formulario.
         </p>
 
         <CodeArea
@@ -252,7 +253,7 @@ export default {
 
         <p>
           La responsabilidad de los componentes Input es registrarse en {""}
-          <code> react-hook-form </code>.
+          <code>react-hook-form</code>.
         </p>
         <CodeArea
           rawData={input}
@@ -281,8 +282,8 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> we have also build a
-          custom hook for complex scenario:{" "}
+          <b className={typographyStyles.note}>Nota:</b> tambien hemos
+          construido a custom hook for complex scenario:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
@@ -302,42 +303,9 @@ export default {
           >
             link para esa implementación.
           </a>{" "}
-          con <PageLink to={"/api#Controller"}>Controller</PageLink>.
+          con <PageLink to="/api#Controller">Controller</PageLink>.
         </p>
       </>
-    ),
-  },
-  schema: {
-    title: "Validación del Schema",
-    description: (
-      <>
-        <p>
-          React Hook Form soporta validación de formularios basada en esquemas
-          con{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
-            Yup
-          </a>
-          , donde puedes pasar tu <code>validationSchema</code> a{" "}
-          <a href="/api#useForm">useForm</a> como configuración opcional. React
-          Hook Form validará los datos de tus inputs contra el esquema y
-          retornará los <a href="/api#errors">errores</a> o el resultado válido
-          según corresponda.
-        </p>
-      </>
-    ),
-    step1: (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Paso 1:</b> Agregá{" "}
-          <code>Yup</code> en tu proyecto.
-        </p>
-      </>
-    ),
-    step2: (
-      <p>
-        <b className={typographyStyles.note}>Paso 2:</b>Crea tu esquema de
-        validación y registra los inputs en React Hook Form.
-      </p>
     ),
   },
   connectForm: {
@@ -419,7 +387,7 @@ export default {
         . Resuelve el problema donde los datos pasan a través de un árbol de
         componentes sin tener que pasar propiedades manualmente en todos los
         niveles. Esto hace que el árbol de componentes active una nueva
-        renderización cuando React Hookv Form dispara una actualización de
+        renderización cuando React Hook Form dispara una actualización de
         estado, pero aún podemos optimizar nuestra aplicación si es necesario
         como en el ejemplo a continuación.
       </p>
@@ -449,7 +417,7 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "Trabajando con listas vitualizadas",
     description: (
       <>
         <p>
@@ -482,6 +450,129 @@ export default {
         <CodeArea
           rawData={virtualizedList}
           url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+        />
+      </>
+    ),
+  },
+  testingForm: {
+    title: "Testing Form",
+    description: (
+      <>
+        <p>
+          Las pruebas son muy importantes porque preservan el código de los
+          bichos o y garantizar la seguridad del código cuando se refactoriza la
+          base del código.
+        </p>
+
+        <p>
+          Recomendamos el uso de la{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          , porque es simple y las pruebas se centran más en el comportamiento
+          del usuario.
+        </p>
+
+        <p style={{ textAlign: "center" }}>♦</p>
+
+        <p>
+          <b className={typographyStyles.note}>Step 1:</b> Prepare su entorno de
+          pruebas.
+        </p>
+
+        <p>
+          Por favor instale <code>mutationobserver-shim</code> porque
+          react-hook-form use <code>MutationObserver</code> para detectar las
+          entradas obtenidas desmontado del DOM.
+        </p>
+
+        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+
+        <p>
+          Crear <code>setup.js</code> para importar{" "}
+          <code>mutaciónobservador-shim</code>.
+        </p>
+        <CodeArea
+          rawData={'import "mutationobserver-shim";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          Finalmente, tienes que actualizar <code>setup.js</code> en{" "}
+          <code>jest.config.js</code> para incluir el archivo.
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step1}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 2:</b> Crear un formulario
+          de acceso.
+        </p>
+
+        <p>
+          Hemos establecido el atributo del papel en consecuencia. Estos
+          atributos son útiles cuando se escriben pruebas y se mejora la
+          accesibilidad. Para más información, puedes consultar la documentación
+          de la{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://testing-library.com/"
+          >
+            testing-library
+          </a>
+          .
+        </p>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step2}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.js"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Step 3:</b> Write tests.
+        </p>
+
+        <p>
+          Los siguientes criterios son los que intentamos cubrir con las
+          pruebas:
+        </p>
+
+        <ul>
+          <li>
+            <p>Fallo en la presentación de la prueba.</p>
+
+            <p>
+              Estamos usando el método <code>esperaPor</code> y{" "}
+              <code>encuentra*</code> para detectar la retroalimentación de la
+              presentación porque <code>manejarSometer</code> se ejecuta
+              asincrónicamente.
+            </p>
+          </li>
+          <li>
+            <p>Validación de la prueba asociada a cada entrada.</p>
+
+            <p>
+              Estamos usando el método <cdoe>*ByRole</cdoe> cuando buscamos
+              diferentes elementos porque así es como los usuarios reconocen su
+              componente de UI.
+            </p>
+          </li>
+          <li>
+            <p>Prueba de presentación exitosa.</p>
+          </li>
+        </ul>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.step3}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
         />
       </>
     ),

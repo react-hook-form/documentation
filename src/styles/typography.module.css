@@ -50,6 +50,21 @@
   content: "</> ";
 }
 
+.h5 .videoLink,
+.codeHeading .videoLink {
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: -5px;
+  margin-left: 15px;
+  background: none;
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid var(--color-secondary);
+  padding: 5px 10px;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 .h1 {
   font-size: 24px;
   display: inline-block;

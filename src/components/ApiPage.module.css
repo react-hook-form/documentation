@@ -47,6 +47,11 @@
   color: black;
 }
 
+.versionToggle {
+  position: absolute;
+  right: 20px;
+}
+
 @media (min-width: 768px) {
   .hiddenMenu > h1 {
     display: block;

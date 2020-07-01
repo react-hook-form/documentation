@@ -2,6 +2,7 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
+import watchCodeTypes from "./codeExamples/watchCodeTypes"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
@@ -20,7 +21,7 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[] | { nest : boolean }) => any`}</span>
+          >{`(names?: string | string[]) =&gt; any`}</span>
         </h2>
       </code>
 
@@ -101,29 +102,15 @@ export default function ApiWatch({
                 >{`{ [key:string] : any }`}</code>
               </td>
             </tr>
-            <tr>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ nest: boolean }`}</code>
-              </td>
-              <td>{api.watch.tableTitle.nest}</td>
-              <td>
-                <code>{`watch({ nest: true })`}</code>
-              </td>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
       <CodeArea
         rawData={watchCode}
         tsRawData={watchCodeTs}
-        url="https://codesandbox.io/s/pp1l40q7wx"
+        rawTypes={watchCodeTypes}
+        url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
+        tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
       />
 
       <hr />

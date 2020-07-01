@@ -1,87 +1,48 @@
-export default `import React from "react";
+export default `import * as React from 'react'
 import { useForm } from "react-hook-form";
 
-type Inputs = {
-  a: number;
-  b: string;
-  c: Date;
-  d: {
-    e: string;
-  };
-  f: {
-    g: number[];
-    h: string[];
-    i: { j: string }[];
-  };
-  k: any;
-  l: any[];
-  m: unknown;
-  n: unknown[];
-  o: object;
-  p: object[];
-  q: {
-    r: any;
-    s: {
-      t: any[];
-      u: unknown;
-      v: object;
-    }[];
-    w: Date[];
-    x: {
-      y: {
-        z: object[];
-      };
-    };
-  };
-};
+interface IFormInputs {
+  singleErrorInput: string
+  multipleErrorInput: string
+  numberInput: string
+}
 
-export default function App() {
-  const { errors } = useForm<Inputs>();
+function App() {
+  const { register, errors, handleSubmit } = useForm<IFormInputs>();
 
-  console.log(errors?.a?.message);
-  console.log(errors?.b?.message);
-  console.log(errors?.c?.message);
-  console.log(errors?.d?.e?.message);
-  console.log(errors?.f?.g && errors.f.g[0] && errors.f.g[0].message
-  );
-  console.log(errors?.f?.h && errors.f.h[0] && errors.f.h[0].message
-  );
-  console.log(
-      errors?.f?.i &&
-      errors?.f?.i[0] &&
-      errors.f.i[0].j &&
-      errors.f.i[0].j.message
-  );
-  console.log(errors?.k?.message);
-  console.log(errors?.l?.message);
-  console.log(errors?.m?.message);
-  console.log(errors?.n && errors.n[0] && errors.n[0].message);
-  console.log(errors?.o?.message);
-  console.log(errors?.p && errors.p[0] && errors.p[0].message);
-  console.log(errors?.q?.r?.message);
-  console.log(
-    errors?.q?.s && errors.q.s[0] && errors.q.s[0].t.message
-  );
-  console.log(
-      errors?.q?.s &&
-      errors.q.s[0] &&
-      errors.q.s[0].u &&
-      errors.q.s[0].u.message
-  );
-  console.log(
-      errors?.q?.s &&
-      errors.q.s[0] &&
-      errors.q.s[0].v &&
-      errors.q.s[0].v.message
-  );
-  console.log(errors?.q?.w && errors.q.w[0] && errors.q.w[0].message
-  );
-  console.log(
-      errors?.q?.x?.y?.z &&
-      errors.q.x.y.z[0] &&
-      errors.q.x.y.z[0].message
-  );
+  const onSubmit = (data: IFormInputs) => {
+    console.log(data)
+  };
 
-  return <form />;
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Error</label>
+      <input
+        type="text"
+        name="singleErrorInput"
+        ref={register({ required: true })}
+      />
+      {errors.singleErrorInput && <p>Your input is required</p>}
+
+      <label>Error with type check</label>
+      <input
+        type="text"
+        name="multipleErrorInput"
+        ref={register({ required: true, minLength: 5 })}
+      />
+      {errors.multipleErrorInput?.type === "required" && (
+        <p>Your input is required</p>
+      )}
+      {errors.multipleErrorInput?.type === "minLength" && (
+        <p>Your input must be larger then 3 characters</p>
+      )}
+
+      <label>Error with value</label>
+      <input type="number" name="numberInput" ref={register({ min: 50 })} />
+      {errors.numberInput && <p>Your input required to be more than 50</p>}
+
+      <input type="submit" />
+    </form>
+  );
 }
 `

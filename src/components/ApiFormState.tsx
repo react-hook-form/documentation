@@ -55,21 +55,30 @@ export default React.memo(
               </tr>
               <tr>
                 <td>
-                  <code>dirty</code>
+                  <code>isDirty</code>
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>{api.formState.dirty}</td>
+                <td>{api.formState.isDirty}</td>
               </tr>
               <tr>
                 <td>
                   <code>dirtyFields</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>Set</code>
+                  <code className={typographyStyles.typeText}>object</code>
                 </td>
                 <td>{api.formState.dirtyFields}</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>touched</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>object</code>
+                </td>
+                <td>{api.formState.touched}</td>
               </tr>
               <tr>
                 <td>
@@ -92,15 +101,6 @@ export default React.memo(
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>touched</code>
-                </td>
-                <td>
-                  <code className={typographyStyles.typeText}>object</code>
-                </td>
-                <td>{api.formState.touched}</td>
               </tr>
               <tr>
                 <td>
@@ -135,6 +135,9 @@ export default React.memo(
                     <code
                       className={buttonStyles.codeAsLink}
                       onClick={() => goToSection("useForm", sectionsRef)}
+                      onKeyDown={() => goToSection("useForm", sectionsRef)}
+                      role="button"
+                      tabIndex={0}
                     >
                       mode
                     </code>
@@ -146,7 +149,7 @@ export default React.memo(
             </tbody>
           </table>
           <CodeArea
-            url="https://codesandbox.io/s/7o2wrp86k6"
+            url="https://codesandbox.io/s/react-hook-form-v6-formstate-dirty-touched-submitted-prvpy"
             rawData={formState}
           />
         </div>

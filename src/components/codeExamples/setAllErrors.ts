@@ -1,32 +1,37 @@
-export default `import React from "react";
+export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
-  const { register, setError } = useForm({
-    validateCriteriaMode: "all" // you will need to enable validate all criteria mode
-  });
+const App = () => {
+  const { register, handleSubmit, setError, errors } = useForm();
+  
+  const onSubmit = data => {
+    console.log(data)
+  };
 
   return (
-    <form>
-      <input name="username" ref={register} />
-      {errors.username && errors.username.types && (
-        <p>{errors.username.types.required}</p>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Last Name</label>
+      <input
+        name="lastName"
+        type="text"
+        ref={register}
+        onChange={() => {
+          setError("lastName", {
+            types: {
+              required: "This is required",
+              minLength: "This is minLength"
+            }
+          });
+        }}
+      />
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.required}</p>
       )}
-      {errors.username && errors.username.types && (
-        <p>{errors.username.types.minLength}</p>
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.minLength}</p>
       )}
-
-      <button
-        type="button"
-        onClick={() =>
-          setError("username", {
-            required: "This is required",
-            minLength: "This is minLength"
-          })
-        }
-      >
-        Trigger
-      </button>
+      <input type="submit" />
     </form>
   );
-}`
+};
+`

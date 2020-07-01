@@ -2,14 +2,24 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import errorCodeTs from "./codeExamples/errorCodeTs"
+import errorCodeTypes from "./codeExamples/ErrorCodeTypes"
 import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
+import multipleErrorCodeTs from "./codeExamples/multipleErrorCodeTs"
 import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 
 export default React.memo(
-  ({ api, currentLanguage }: { api: any; currentLanguage: string }) => {
+  ({
+    api,
+    currentLanguage,
+    goToSection,
+  }: {
+    api: any
+    currentLanguage: string
+    goToSection: (name: any, animate?: boolean) => void
+  }) => {
     return (
       <>
         <code className={typographyStyles.codeHeading}>
@@ -65,7 +75,9 @@ export default React.memo(
                   <code>message</code>
                 </td>
                 <td>
-                  <span className={typographyStyles.typeText}>string</span>
+                  <span className={typographyStyles.typeText}>
+                    string | React.ReactElement
+                  </span>
                 </td>
                 <td>{api.errors.message}</td>
               </tr>
@@ -82,18 +94,22 @@ export default React.memo(
               </tr>
             </tbody>
           </table>
+          {api.errors.note(goToSection)}
         </div>
 
         <TabGroup buttonLabels={["First error detected", "Display all errors"]}>
           <CodeArea
             rawData={errorCode}
             tsRawData={errorCodeTs}
-            url="https://codesandbox.io/s/nrr4n9p8n4"
-            tsUrl="https://codesandbox.io/s/xenodochial-albattani-tcx0n?file=/src/App.tsx"
+            rawTypes={errorCodeTypes}
+            url="https://codesandbox.io/s/react-hook-form-error-v6-rcpm8"
+            tsUrl="https://codesandbox.io/s/react-hook-form-error-ts-v6-500eo"
           />
           <CodeArea
             rawData={multipleErrorCode}
-            url="https://codesandbox.io/s/react-hook-form-errors-validatecriteriamode-all-qbskc"
+            tsRawData={multipleErrorCodeTs}
+            url="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v6-tixtl"
+            tsUrl="https://codesandbox.io/s/react-hook-form-validatecriteriamode-v6-ts-r51li"
           />
         </TabGroup>
 

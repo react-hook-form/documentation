@@ -3,7 +3,7 @@
   display: flex;
   left: 10px;
   top: 15px;
-  width: 140px;
+  width: 110px;
 }
 
 .icon {
@@ -49,7 +49,8 @@
 .actionButtonGroup a:nth-child(6),
 .actionButtonGroup a:nth-child(7),
 .actionButtonGroup a:nth-child(8),
-.actionButtonGroup a:nth-child(9) {
+.actionButtonGroup a:nth-child(9),
+.actionButtonGroup a:nth-child(10) {
   display: none;
 }
 
@@ -137,7 +138,7 @@
 }
 
 .mobileMenu {
-  width: 50%;
+  width: 66.99%;
   right: 0;
   left: auto;
   z-index: 2;
@@ -159,11 +160,12 @@
   .actionButtonGroup a:nth-child(6),
   .actionButtonGroup a:nth-child(7),
   .actionButtonGroup a:nth-child(8),
-  .actionButtonGroup a:nth-child(9) {
+  .actionButtonGroup a:nth-child(9),
+  .actionButtonGroup a:nth-child(10) {
     display: block;
   }
 
-  .actionButtonGroup a:nth-child(11) {
+  .actionButtonGroup a:nth-child(12) {
     display: none;
   }
 }
@@ -181,7 +183,7 @@
   }
 
   .menuExpandLink:hover span {
-    color: var(--color-light-pink)
+    color: var(--color-light-pink);
   }
 
   .lightActionButtonWrapper {
@@ -234,6 +236,10 @@
   .tools {
     height: 29px;
     display: inline-block;
+  }
+
+  span.tools:focus {
+    outline: none;
   }
 
   .tools:focus ~ div .menuExpand,

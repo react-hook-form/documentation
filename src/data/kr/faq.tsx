@@ -1,11 +1,12 @@
 import * as React from "react"
 import colors from "../../styles/colors"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import tableStyles from "../../styles/table.module.css"
-import CodeArea from "../../components/CodeArea"
+import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
+import CodeArea from "../../components/CodeArea"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "자주 묻는 질문",
@@ -129,7 +130,7 @@ export default {
           <p>
             사실 <code>ref</code> 없이 <code>register</code> 를 할 수 있습니다.
             수동으로 <code>setValue</code>, <code>setError</code> 그리고{" "}
-            <code>triggerValidation</code> 를 사용하면 됩니다.
+            <code>trigger</code> 를 사용하면 됩니다.
           </p>
 
           <p>
@@ -198,20 +199,20 @@ export default {
           <p>
             먼저, 모든 라이브러리들은 폼을 만드는 과정을 쉽고 좋게 만들겠다는
             공통의 문제를 해결하려고 합니다. 하지만 세 라이브러리는 약간
-            근본적인 차이를 가지고 있고, react-hook-form 은 비제어 입력을
-            기본으로 삼고 있습니다. 그리하여 여러분의 폼이 최대한의 퍼포먼스를
-            내고 최소한의 리랜더링만 발생하도록 합니다. 그 위에 react-hook-form
-            은 리액트 훅을 기반으로 만들어졌으며 훅으로 사용됩니다. 따라서
-            별도의 컴포넌트를 불러올 필요가 없습니다. 아래에 더 자세한 차이점을
-            표기했습니다.
+            근본적인 차이를 가지고 있고, react-hook-form 는 기본적으로 비제어
+            컴포넌트를 활용하고 있습니다. 그리하여 여러분의 폼이 최대한의
+            퍼포먼스를 내고 최소한의 리랜더링만 발생하도록 합니다. 그 위에
+            react-hook-form 은 리액트 훅을 기반으로 만들어졌으며 훅으로
+            사용됩니다. 따라서 별도의 컴포넌트를 불러올 필요가 없습니다. 아래에
+            더 자세한 차이점을 표기했습니다.
           </p>
 
           <div className={tableStyles.tableWrapper}>
             <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                  <th width={200} />
-                  <th>
+                  <th width={100} />
+                  <th width={250}>
                     <p>React Hook Form</p>
                   </th>
                   <th>
@@ -228,13 +229,18 @@ export default {
                     <b>컴포넌트</b>
                   </td>
                   <td>
-                    <a>
-                      <a
-                        href="https://ko.reactjs.org/docs/uncontrolled-components.html"
-                        target="_blank"
-                      >
-                        비제어
-                      </a>
+                    <a
+                      href="https://ko.reactjs.org/docs/uncontrolled-components.html"
+                      target="_blank"
+                    >
+                      비제어
+                    </a>{" "}
+                    &{" "}
+                    <a
+                      href="https://ko.reactjs.org/docs/forms.html"
+                      target="_blank"
+                    >
+                      제어
                     </a>
                   </td>
                   <td>
@@ -281,28 +287,27 @@ export default {
                     작음
                     <br />
                     <code>
-                      react-hook-form@3.26.2
+                      react-hook-form@6.0.0
                       <br />
-                      <b className={typographyStyles.note} />
-                      <b className={typographyStyles.note}>5.3KB</b>
+                      <b className={typographyStyles.note}>8.9KB</b>
                     </code>
                   </td>
                   <td>
                     중간
                     <br />
                     <code>
-                      formik@2.0.1
+                      formik@2.1.4
                       <br />
-                      <b className={typographyStyles.note}>14.4KB</b>
+                      <b className={typographyStyles.note}>15KB</b>
                     </code>
                   </td>
                   <td>
                     큼
                     <br />
                     <code>
-                      redux-form@8.2.6
+                      redux-form@8.3.6
                       <br />
-                      <b className={typographyStyles.note}>27KB</b>
+                      <b className={typographyStyles.note}>26.4KB</b>
                     </code>
                   </td>
                 </tr>
@@ -311,18 +316,35 @@ export default {
                     <b>유효성 검사</b>
                   </td>
                   <td>
-                    내장됨 &{" "}
+                    내장됨,{" "}
                     <a href="https://github.com/jquense/yup" target="_blank">
                       Yup
                     </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/hapijs/joi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Joi
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/ianstormtaylor/superstruct"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Superstruct
+                    </a>{" "}
+                    혹은 직접 제작 가능
                   </td>
                   <td>
-                    직접 만들어야 함 &{" "}
+                    직접 만들어야 하거나{" "}
                     <a href="https://github.com/jquense/yup" target="_blank">
                       Yup
                     </a>
                   </td>
-                  <td>직접 만들어야 함 & 플러그인</td>
+                  <td>직접 만들어야 하거나 플러그인</td>
                 </tr>
                 <tr>
                   <td>
@@ -336,7 +358,7 @@ export default {
                   <td>
                     <b>현황</b>
                   </td>
-                  <td>작은 커뮤니티: 새로운 라이브러리이며 성장 중</td>
+                  <td>중간 수준의 커뮤니티이며 성장 중</td>
                   <td>큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리</td>
                   <td>큰 커뮤니티: 커뮤니티 안에서 잘 정립된 폼 라이브러리</td>
                 </tr>
@@ -351,7 +373,7 @@ export default {
       description: (
         <>
           <p>
-            짧게 말씀드리면 <b>할 수 있습니다.</b>
+            짧게 답변드리면, <b>할 수 있습니다.</b>
           </p>
           <p>
             React-hook-form 은 사용자가 제어되는 폼을 만들도록 권장하진 않지만{" "}
@@ -381,12 +403,27 @@ export default {
           <ul>
             <li>
               <p>
+                왜 리액트 네이티브 환경(
+                <code>react-native-testing-library</code>)에서 테스트가 되지
+                않나요?
+              </p>
+
+              <p>
+                React Hook Form 은 서버 사이드 랜더링 중에는 인풋을 등록할 수
+                없습니다. 따라서 리액트 네이티브 환경에서 테스트 할 때{" "}
+                <code>window</code> 객체가 <code>undefined</code> 가 됩니다.
+                간단히 고치는 방법으로 <code>window</code> 객체를 스텁(stub)으로
+                만들면 등록이 가능합니다.
+              </p>
+            </li>
+            <li>
+              <p>
                 왜 <code>act</code> 경고가 뜨나요?
               </p>
 
               <p>
-                React Hook Form 의 모든 유효선 검사 방법은 비동기 함수로
-                다루어집니다. 따라서{" "}
+                React Hook Form 의 모든 유효성 검사 메서드는 async 함수로
+                처리됩니다. 따라서{" "}
                 <a
                   className={buttonStyles.codeAsLink}
                   href="https://reactjs.org/docs/test-utils.html#act"
@@ -395,18 +432,33 @@ export default {
                 >
                   act
                 </a>{" "}
-                부분을 <code>async</code> 로 감싸주는게 중요합니다.
+                함수 실행 시 <code>async</code> 를 감싸주는 것이 중요합니다.
               </p>
             </li>
             <li>
-              <p>왜 입력값이 바뀔 때 이벤트가 발생하나요?</p>
+              <p>왜 입력값을 바꿀 때 이벤트가 발생하지 않나요?</p>
 
               <p>
-                React Hook Form 은 입력값이 변화할 때 <code>input</code>{" "}
-                이벤트를 사용합니다. 따라서 <code>react-testing-library</code>{" "}
-                의 <code>fireEvent.input</code> 을 사용하면 쉽게 문제를 해결할
-                수 있습니다.
+                React Hook Form 은 입력값이 바뀔 때 <code>input</code> 이벤트를
+                사용합니다. 만약 <strong>react-testing-library</strong> 를
+                사용하고 계시다면, 손쉽게
+                <code>fireEvent.input</code> 로 바꾸면 됩니다. 여기{" "}
+                <a
+                  className={buttonStyles.codeAsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://codesandbox.io/s/react-hook-form-test-s4j7c?from-embed"
+                >
+                  예제 링크가 있습니다
+                </a>
+                .
               </p>
+              <p>
+                만약 <strong>enzyme</strong> 를 사용하고 계시다면, 인풋의 DOM
+                노드에 수동으로 <code>value</code> 를 설정해주시고, input
+                이벤트를 실행하셔야 합니다.
+              </p>
+              <CodeArea rawData={enzymeInput} />
             </li>
           </ul>
         </div>
@@ -435,7 +487,7 @@ export default {
             <li>
               <p>
                 <b className={typographyStyles.note}>getValues</b>: 커스텀 훅
-                안에 레퍼런스로 저장되어있는 값을 가져옵니다. 빠르고 리소스를
+                안에 저장되어있는 값을 레퍼런스로 가져옵니다. 빠르고 리소스를
                 적게 먹습니다. 이 메서드는 리랜더링을 일으키지 않습니다.
               </p>
             </li>
@@ -479,7 +531,7 @@ export default {
     },
     {
       title:
-        "submitFocusError 옵션을 주어도 Controller 한테는 동작하지 않는데요?",
+        "shouldFocusError 옵션을 주어도 Controller 에는 동작하지 않는데요?",
       description: (
         <>
           <p>
@@ -507,11 +559,51 @@ export default {
           <CodeArea rawData={focusController} />
 
           <p>
-            If you find difficult to make the autofocus with external controlled
-            component. It is possible to disable the "autofocus on error"
-            feature. Maybe this behavior will bring a better user experience in
-            some cases. <code>{`useForm({submitFocusError: false});`}</code>
+            제어되는 외부 컴포넌트에 자동으로 포커스를 맞추는 기능을 구현하는
+            것이 어렵다면, "에러 발생 시 자동으로 포커스 옮기기" 기능을 비활성화
+            할 수도 있습니다. 아마도 이렇게 만드는 것이 어떤 경우에는 더 나은
+            사용자 경험을 제공해 줄 수도 있습니다. 사용 예:{" "}
+            <code>{`useForm({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "모달이나 탭 폼을 다룰 때는 어떻게 하나요?",
+      description: (
+        <>
+          <p>
+            React Hook Form 은 각각의 input 안의 상태를 담아두는 방식으로
+            네이티브 폼의 동작을 활용하는 기본 원리를 가지고 있습니다. 이 원리를
+            이해하는 것이 중요합니다(커스텀 <code>register</code> 를{" "}
+            <code>useEffect</code> 안에서 실행하는 경우 제외). 모달이나 탭의
+            폼을 다룰 때 흔히 잘못 이해하는 부분 중 하나가 폼/인풋 을 마운트하고
+            언마운트할 때 입력 상태가 그대로 남아있으리라 생각하는 것입니다.
+            대신 올바르게 구현하려면 모달이나 각각의 탭 안에 폼을 새로이
+            만들면서 각각의 단계별 데이터를 지역 상태나 전역 상태로 보존하셔야
+            합니다.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                모달 폼과 토글 인풋 예제
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                탭 폼 예제
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },

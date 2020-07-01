@@ -1,28 +1,31 @@
-export default `import React from "react";
+export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
-export default () => {
-  const { clearError, errors, register } = useForm();
+const App = () => {
+  const { register, errors, handleSubmit, clearErrors } = useForm();
+
+  const onSubmit = data => {
+    console.log(data)
+  };
 
   return (
-    <form>
-      <input name="firstName" ref={register({ required: true })} />
-      {errors.firstName && "This is required"}
-      <input name="lastName" ref={register({ required: true })} />
-      {errors.lastName && "This is required"}
-
-      <button type="button" onClick={() => clearError("firstName")}>
-        Clear
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input name="firstName" type="text" ref={register({ required: true })} />
+      <input name="lastName" type="text" ref={register({ required: true })} />
+      <input name="username" type="text" ref={register({ required: true })} />
+      <button type="button" onClick={() => clearErrors("firstName")}>
+        Clear First Name Errors
       </button>
       <button
         type="button"
-        onClick={() => clearError(["firstName", "lastName"])}
+        onClick={() => clearErrors(["firstName", "lastName"])}
       >
-        Clear Multiple
+        Clear First and Last Name Errors
       </button>
-      <button type="button" onClick={() => clearError()}>
-        Clear All
+      <button type="button" onClick={() => clearErrors()}>
+        Clear All Errors
       </button>
+      <input type="submit" />
     </form>
   );
 };

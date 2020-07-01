@@ -2,9 +2,7 @@ import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
 import Bday from "./Bday"
-// @ts-ignore
 import video from "../images/react-hook-form-demo-video.mp4"
-// @ts-ignore
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
@@ -32,11 +30,11 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
-}: // isCardPlay,
-{
-  homeRef: React.Ref<HTMLDivElement>
+  isCardPlay,
+}: {
+  homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
-  // isCardPlay: boolean
+  isCardPlay: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
@@ -70,7 +68,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={0}
+            sequenceIndex={1}
             duration={0.2}
             start={{
               transform: "translateY(20px)",
@@ -94,7 +92,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={1}
+            sequenceIndex={2}
             start={{
               transform: "translateY(20px)",
               opacity: 0,
@@ -114,7 +112,7 @@ export default function Header({
           />
 
           <Animate
-            sequenceIndex={2}
+            sequenceIndex={3}
             start={{
               transform: "translateY(20px)",
               opacity: 0,
@@ -134,7 +132,6 @@ export default function Header({
                 <button
                   className={buttonStyles.primaryButton}
                   onClick={() => {
-                    // @ts-ignore
                     homeRef.current.scrollIntoView({ behavior: "smooth" })
                   }}
                 >
@@ -160,7 +157,7 @@ export default function Header({
         >
           <div style={{ position: "relative" }}>
             <Animate
-              sequenceIndex={3}
+              sequenceIndex={4}
               delay={0.1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
@@ -237,7 +234,7 @@ export default function Header({
         </div>
       </AnimateGroup>
 
-      {/*<Bday isCardPlay={isCardPlay} />*/}
+      <Bday isCardPlay={isCardPlay} />
     </>
   )
 }

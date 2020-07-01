@@ -8,7 +8,6 @@ import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
-// @ts-ignore
 import styles from "./Nav.module.css"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
@@ -56,25 +55,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </a>
         </span>
 
-        <span className={styles.icon}>
-          <a
-            href="https://spectrum.chat/react-hook-form"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="React Hook Form Spectrum"
-          >
-            <svg
-              strokeLinejoin="round"
-              strokeMiterlimit="1.414"
-              aria-label="Spectrum logo"
-              viewBox="2 2 28 28"
-            >
-              <g>
-                <path d="M6,14.5c0,0.828 0.672,1.5 1.5,1.5l1.5,0c3.866,0 7,3.134 7,7l0,1.5c0,0.828 0.672,1.5 1.5,1.5l7,0c0.828,0 1.5,-0.672 1.5,-1.5l0,-1.5c0,-9.389 -7.611,-17 -17,-17l-1.5,0c-0.828,0 -1.5,0.672 -1.5,1.5l0,7Z" />
-              </g>
-            </svg>
-          </a>
-        </span>
         <Toggle />
       </div>
 
@@ -94,9 +74,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       >
         <select
           aria-label="Select a language"
-          onChange={(e) => {
+          onChange={(e: any) => {
             const selectedLanguage = e.target.value
-            // @ts-ignore
             action(e.target.value)
 
             let url = location.pathname.substr(1)
@@ -147,12 +126,12 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           >
             <Link
               activeClassName="active"
-              to={translateLink("/dev-tools", currentLanguage)}
+              to={translateLink("/faqs", currentLanguage)}
             >
               <div className={styles.iconWrapper}>
-                <div className="laptop icon" />
+                <div className="eye icon" />
               </div>
-              <span>DevTools</span>
+              <span>{nav[currentLanguage].faqs}</span>
             </Link>
 
             <Link
@@ -163,6 +142,16 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 <div className="tag icon" />
               </div>
               <span>Resources</span>
+            </Link>
+
+            <Link
+              activeClassName="active"
+              to={translateLink("/dev-tools", currentLanguage)}
+            >
+              <div className={styles.iconWrapper}>
+                <div className="laptop icon" />
+              </div>
+              <span>DevTools</span>
             </Link>
 
             <Link
@@ -214,6 +203,31 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Link
             activeClassName="active"
+            to={translateLink("/ts", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <span
+                style={{
+                  border: "1px solid white",
+                  display: "inline-block",
+                  lineHeight: 1.8,
+                  width: 16,
+                  height: 16,
+                  fontSize: 8,
+                  marginTop: 2,
+                  background: "white",
+                  color: "black",
+                  fontWeight: 600,
+                }}
+              >
+                TS
+              </span>
+            </div>
+            <span>TS</span>
+          </Link>
+
+          <Link
+            activeClassName="active"
             to={translateLink("/advanced-usage", currentLanguage)}
           >
             <div className={styles.iconWrapper}>
@@ -261,7 +275,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 position: "absolute",
                 overflow: "hidden",
                 marginLeft: -10,
-                // paddingTop: 5,
                 zIndex: 4,
               }}
             >
@@ -348,7 +361,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   )
 }
 
-function getNavLink(path: string, selectedLanguage: string) {
+export function getNavLink(path: string, selectedLanguage: string) {
   const i18nPagePathRegex = /^([a-z]{2})(\/\S+|\?.+)/
   const i18nHomePageRegex = /^[a-z]{2}$/
   const i18nPageMatched = path.match(i18nPagePathRegex)

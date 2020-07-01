@@ -1,23 +1,29 @@
-export default `import React from "react";
+export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
-  const { register, errors, setError, clearError } = useForm();
+const App = () => {
+  const { register, handleSubmit, setError, errors } = useForm();
+
+  const onSubmit = data => {
+    console.log(data)
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Username</label>
       <input
         name="username"
-        onChange={e => {
-          const value = e.target.value;
-          // this will clear error by only pass the name of field
-          if (value === "bill") return clearError("username");
-          // set an error with type and message
-          setError("username", "notMatch", "please choose a different username");
+        type="text"
+        onChange={() => {
+          setError("username", {
+            type: "manual",
+            message: "Dont Forget Your Username Should Be Cool!"
+          });
         }}
         ref={register}
       />
-      {errors.username && errors.username.message}
+      {errors.username && <p>{errors.username.message}</p>}
+      <input type="submit" />
     </form>
   );
-}`
+};`

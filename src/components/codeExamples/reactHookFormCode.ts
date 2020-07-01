@@ -12,7 +12,7 @@ const Example = () => {
         ref={register({
           required: "Required",
           pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i,
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$/i,
             message: "invalid email address"
           }
         })}

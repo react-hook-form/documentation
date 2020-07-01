@@ -1,13 +1,7 @@
 export default `import React from "react";
-import Select from "react-select";
+import ReactDatePicker from "react-datepicker";
 import { TextField } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
-
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
 
 function App() {
   const { handleSubmit, control } = useForm();
@@ -17,20 +11,20 @@ function App() {
       {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
       <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
-      {* // Another possibility, any potential props passed to <Checkbox/> will be overrided. SomeName => Checkbox *}
+      {* // Another approach is using render props to customise event and value *}
       <Controller
-        as={<Select options={options} />}
         control={control}
-        rules={{ required: true }}
-        onChange={([selected]) => {
-          // Place your logic here
-          return selected;
-        }}
-        name="reactSelect"
-        defaultValue={{ value: "chocolate" }}
+        name="ReactDatepicker"
+        render={({ onChange, onBlur, value}) => (
+          <ReactDatePicker
+            onChange={onChange}
+            onBlur={onBlur}
+            selected={value}
+          />
+        )}
       />
       
-      <button>submit</button>
+      <input type="submit" />
     </form>
   );
 }

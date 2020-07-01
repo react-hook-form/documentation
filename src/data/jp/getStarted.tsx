@@ -3,7 +3,10 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
 import CodeArea from "../../components/CodeArea"
-import { uiLibraryHookInput } from "../../components/codeExamples/getStarted"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
 import typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -187,7 +190,12 @@ export default {
           このコンポーネントはカスタム登録処理を行います。
         </p>
 
-        <CodeArea rawData={uiLibraryHookInput} />
+        <CodeArea
+          rawData={uiLibraryHookInput}
+          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+          tsRawData={uiLibraryHookInputTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
         <p>
           <b className={typographyStyles.note}>オプション3：</b> 最後に{" "}
           <a
@@ -233,6 +241,59 @@ export default {
         React Hook Form は <code>Typescript</code>{" "}
         を使用して構築されているため、フォームの値をサポートするための{" "}
         <code>FormData</code> 型を定義することができます。
+      </p>
+    ),
+  },
+  schema: {
+    title: "スキーマバリデーション",
+    description: (
+      <>
+        <p>
+          React Hook Form は、{" "}
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yup
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ianstormtaylor/superstruct"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Superstruct
+          </a>{" "}
+          &{" "}
+          <a
+            href="https://github.com/hapijs/joi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Joi
+          </a>{" "}
+          を活用してスキーマベースのフォームバリデーションをサポートしています。
+          省略可能な引数として <code>validationSchema</code> を{" "}
+          <a href="/api#useForm">useForm</a> に渡すことができます。 React Hook
+          Form は、入力されたデータをスキーマに対してバリデーションを行い、{" "}
+          <a href="/api#errors">errors</a> や妥当な結果を返します。
+        </p>
+      </>
+    ),
+    step1: (
+      <>
+        <p>
+          <b className={typographyStyles.note}>ステップ1：</b> <code>Yup</code>{" "}
+          をプロジェクトにインストールします。
+        </p>
+      </>
+    ),
+    step2: (
+      <p>
+        <b className={typographyStyles.note}>ステップ2：</b>{" "}
+        バリデーション用のスキーマを作成し、 React Hook Form を使用して input
+        を登録します。
       </p>
     ),
   },

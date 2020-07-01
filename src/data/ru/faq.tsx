@@ -119,7 +119,7 @@ export default {
         <p>
           React Hook Form needs <code>ref</code> to collect the input value,
           however, you may want to use <code>ref</code> for other purposes (eg.
-          scroll into the view). The following example will show you how.
+          scroll into the view).
         </p>
       ),
     },
@@ -130,7 +130,7 @@ export default {
           <p>
             You can actually <code>register</code> an input without a{" "}
             <code>ref</code>. In fact, you can manually <code>setValue</code>,{" "}
-            <code>setError</code> and <code>triggerValidation</code>.
+            <code>setError</code> and <code>trigger</code>.
           </p>
 
           <p>
@@ -472,8 +472,8 @@ export default {
             которые является причиной, почему React не распознает фактический
             вклад, который имеет были обменены или отпущены. Как решение, вы
             можете решить эту проблему проблема, предоставляя уникальный ввод{" "}
-            <code> key </code> для вашего ввода. Вы также можете прочитать
-            больше о ключевых реквизитах от {""}
+            <code>key</code> для вашего ввода. Вы также можете прочитать больше
+            о ключевых реквизитах от {""}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -491,7 +491,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with submitFocusError?",
+      title: "Controller not working with shouldFocusError?",
       description: (
         <>
           <p>
@@ -526,8 +526,48 @@ export default {
             Есть возможность отключить «автофокус при ошибке» особенность. Может
             быть, такое поведение принесет лучший пользовательский опыт в
             некоторые случаи.
-            <code> {`useForm ({submitFocusError: false});`} </code>
+            <code>{`useForm ({shouldFocusError: false});`}</code>
           </p>
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            Важно понимать, что React Hook Form охватывает нативную форму.
+            поведение по состоянию входа магазина внутри каждого входа (кроме
+            пользовательских
+            <code>зарегистрируйтесь</code> в <code>useEffect</code>). Один из
+            общих заблуждение при работе с модальными или вкладками, путем
+            монтирования и размонтирование формы / входов, которые останутся в
+            состоянии ввода. Это неправильная реализация вместо правильного
+            решения всегда должна создание новой формы для вашей формы внутри
+            модальной или каждой вкладки и захватить ваши данные представления в
+            локальном или глобальном состоянии.
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Modal form and toggle inputs Example
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://codesandbox.io/s/tabs-760h9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tab Form Example
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },
