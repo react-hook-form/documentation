@@ -518,11 +518,16 @@ const { register } = useForm<FormInputs>({
             {api.useForm.shouldUnregister}
 
             <div className={tableStyles.tableWrapper}>
-              <table className={tableStyles.table} style={{ marginTop: 0 }}>
+              <table
+                className={tableStyles.table}
+                style={{ marginTop: 0, width: "100%" }}
+              >
                 <thead>
-                  <tr>
-                    <td></td>
-                    <td>
+                  <tr style={{ borderBottom: "1px solid rgb(236, 89, 144)" }}>
+                    <td width={320}>
+                      <code>shouldUnregister</code>
+                    </td>
+                    <td width={200}>
                       <code>true</code>
                     </td>
                     <td>
@@ -532,14 +537,14 @@ const { register } = useForm<FormInputs>({
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Value remained when input unmount?</td>
-                    <td>❌</td>
-                    <td>✅</td>
-                  </tr>
-                  <tr>
                     <td>Can you unregister an input?</td>
                     <td>✅</td>
                     <td>❌</td>
+                  </tr>
+                  <tr>
+                    <td>Value remained when input unmount?</td>
+                    <td>❌</td>
+                    <td>✅</td>
                   </tr>
                   <tr>
                     <td>
@@ -547,7 +552,7 @@ const { register } = useForm<FormInputs>({
                       eg: <code>errors, dirty, touched</code>
                     </td>
                     <td>✅</td>
-                    <td>❌ you will need to clear error manually</td>
+                    <td>❌ you will need to clear manually</td>
                   </tr>
                 </tbody>
               </table>
