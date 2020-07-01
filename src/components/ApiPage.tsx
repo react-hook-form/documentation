@@ -363,17 +363,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                     "React Hook Form Tutorial - How to Create a Custom Input",
                 },
                 {
-                  url: "https://www.youtube.com/watch?v=XlAs-Lid-TA",
-                  title: "How To Upload Files Using React Hook Form",
-                },
-                {
                   url: "https://www.youtube.com/watch?v=oSIHZ9zKzVA",
                   title: "Make React Forms EASY with React Hook Form!",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=lHclVxcborY",
-                  title:
-                    "Does this library make Redux Form obsolete? | React Hook Form Tutorial | React Tutorials",
                 },
               ]}
               play={play}

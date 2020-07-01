@@ -181,6 +181,15 @@ export default {
       authorUrl: "https://blog.bitsrc.io/@nathansebhastian",
       author: "Nathan Sebhastian",
     },
+    {
+      title: "React: Forms and Validations with React Hook Form",
+      url:
+        "https://www.webdevdrops.com/en/react-forms-and-validations-react-hook-form",
+      authorUrl: "https://www.webdevdrops.com/",
+      author: "Douglas Matoso",
+      description:
+        "Hey, folks! In this post I will show you how to work with forms and validation in React, in a simple and efficient way, using the React Hook Form library.",
+    },
   ],
   newsletters: [],
   videos: [
@@ -366,13 +375,19 @@ export default {
         "React Hook Form tutorial on how to upload files to an ExpressJS API.",
     },
     {
-      title: "React: Forms and Validations with React Hook Form",
-      url:
-        "https://www.webdevdrops.com/en/react-forms-and-validations-react-hook-form",
-      authorUrl: "https://www.webdevdrops.com/",
-      author: "Douglas Matoso",
+      title: "How to Validate File Uploads With React Hook Form",
+      url: "https://www.youtube.com/watch?v=tYGTjxhzrqY",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
       description:
-        "Hey, folks! In this post I will show you how to work with forms and validation in React, in a simple and efficient way, using the React Hook Form library.",
+        "In this video I show how to validate the file field in React using Yup and React Hook Form.",
+    },
+    {
+      title: "Form validation with Next.js/React part 2",
+      url: "https://www.youtube.com/watch?v=-scXzb-F_3k",
+      authorUrl: "https://www.youtube.com/channel/UCBA_4Q-Gk4bJxRrtpfdvTzw",
+      author: "EinCode",
+      description: "",
     },
   ],
 }
