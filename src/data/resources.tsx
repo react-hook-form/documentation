@@ -383,6 +383,13 @@ export default {
         "In this video I show how to validate the file field in React using Yup and React Hook Form.",
     },
     {
+      title: "React Hook Form - Dependent Fields Using Watch",
+      url: "https://www.youtube.com/watch?v=vNrUPktDT7o",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description: "How to implement dependent fields using react hook form.",
+    },
+    {
       title: "Form validation with Next.js/React part 2",
       url: "https://www.youtube.com/watch?v=-scXzb-F_3k",
       authorUrl: "https://www.youtube.com/channel/UCBA_4Q-Gk4bJxRrtpfdvTzw",

@@ -21,7 +21,15 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[]) =&gt; any`}</span>
+          >{`(names?: string | string[]) => any`}</span>
+          <a
+            className={typographyStyles.videoLink}
+            href="https://www.youtube.com/watch?v=vNrUPktDT7o"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Video
+          </a>
         </h2>
       </code>
 
