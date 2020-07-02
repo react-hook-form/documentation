@@ -46,6 +46,15 @@ const Layout = (props: {
       {props.children}
       <Animate play={show} start={{ opacity: 0 }} end={{ opacity: 1 }}>
         <button
+          className="editPage"
+          aria-label="Edit Page"
+          onClick={() => {
+            console.log("link to github")
+          }}
+        >
+          Edit
+        </button>
+        <button
           className="scrollToTop"
           aria-label="Scroll back to top"
           onClick={() => window.scrollTo(0, 0)}
