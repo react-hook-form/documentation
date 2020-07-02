@@ -825,7 +825,7 @@ export default {
             </p>
             <p>
               <a
-                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                href="https://codesandbox.io/s/react-hook-form-controllerautofocus-v5-un45f"
                 target="_blank"
                 rel="noopener noreferrer"
               >

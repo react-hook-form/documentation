@@ -1,13 +1,13 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
-import controller from "./codeExamples/controller"
-import reactNativeController from "./codeExamples/reactNativeController"
-import generic from "../data/generic"
-import TabGroup from "./TabGroup"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import controllerTs from "./codeExamples/controllerTs"
-import VideoList from "./VideoList"
+import CodeArea from "../CodeArea"
+import controller from "../codeExamples/controller"
+import reactNativeController from "../codeExamples/reactNativeController"
+import generic from "../../data/generic"
+import TabGroup from "../TabGroup"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import controllerTs from "../codeExamples/controllerTs"
+import VideoList from "../VideoList"
 
 export default function Controller({
   currentLanguage,
@@ -68,14 +68,14 @@ export default function Controller({
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={controller}
-          url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+          url="https://codesandbox.io/s/react-hook-form-controller-v5-ii1vs"
           tsRawData={controllerTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+          tsUrl="https://codesandbox.io/s/react-hook-form-controller-ts-v5-g2gmc"
         />
         <CodeArea
           rawData={reactNativeController}
           isExpo
-          url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
+          url="https://snack.expo.io/@bluebill1049/react-hook-form---controller"
         />
       </TabGroup>
     </>

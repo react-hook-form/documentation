@@ -708,7 +708,7 @@ export default {
             e <code>value</code> adota o componente.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller 
   as={<TextInput />} 
   control={control} 
@@ -745,7 +745,7 @@ export default {
             <code>onChange</code>, <code>onBlur</code> e <code>value</code>.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller
   control={control} 
   name="test" 
@@ -835,7 +835,7 @@ validate: (value) => value === getValues('firstName');"
             </p>
             <p>
               <a
-                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                href="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
                 target="_blank"
                 rel="noopener noreferrer"
               >

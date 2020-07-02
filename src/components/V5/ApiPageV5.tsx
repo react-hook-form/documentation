@@ -27,7 +27,7 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../../data/generic"
 import apiEn from "../../data/V5/en/api"
-import Controller from "../Controller"
+import ControllerV5 from "./ControllerV5"
 import ErrorMessage from "./ErrorMessageV5"
 import translateLink from "../logic/translateLink"
 import TabGroup from "../TabGroup"
@@ -959,7 +959,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
           <hr />
 
           <section ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}>
-            <Controller currentLanguage={currentLanguage} api={api} />
+            <ControllerV5 currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

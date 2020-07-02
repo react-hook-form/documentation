@@ -1015,7 +1015,7 @@ React.useEffect(() => {
             </p>
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller 
   as={<TextInput />} 
   control={control} 
@@ -1048,7 +1048,7 @@ React.useEffect(() => {
             <code>value</code>.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller
   control={control} 
   name="test" 
@@ -1128,7 +1128,7 @@ React.useEffect(() => {
                 float: "right",
                 display: "flex",
               }}
-              url="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
             />
           </td>
         </tr>

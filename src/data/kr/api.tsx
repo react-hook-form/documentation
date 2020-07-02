@@ -991,7 +991,7 @@ React.useEffect(() => {
             </p>
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller 
   as={<TextInput />} 
   control={control} 
@@ -1023,7 +1023,7 @@ React.useEffect(() => {
             사용하지 않는 외부 컴포넌트에 쉽게 적용할 수 있습니다.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller
   control={control} 
   name="test" 
@@ -1104,7 +1104,7 @@ React.useEffect(() => {
                 float: "right",
                 display: "flex",
               }}
-              url="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
             />
           </td>
         </tr>
