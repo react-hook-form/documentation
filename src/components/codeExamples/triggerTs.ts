@@ -1,8 +1,13 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 
+type FormInputs = {
+  firstName: string
+  lastName: string
+}
+
 export default function App() {
-  const { register, triggerValidation, errors } = useForm();
+  const { register, triggerValidation, errors } = useForm<FormInputs>();
 
   return (
     <form>
