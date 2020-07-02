@@ -19,6 +19,7 @@ import getValuesTs from "./codeExamples/getValuesTs"
 import defaultValues from "./codeExamples/defaultValues"
 import defaultValuesTs from "./codeExamples/defaultValuesTs"
 import trigger from "./codeExamples/trigger"
+import triggerTs from "./codeExamples/triggerTs"
 import Footer from "./Footer"
 import FormContext from "./FormContext"
 import unregisterCode from "./codeExamples/unregisterCode"
@@ -905,7 +906,9 @@ const { register } = useForm<FormInputs>({
 
             <CodeArea
               rawData={trigger}
-              url="https://codesandbox.io/s/react-hook-form-v6-trigger-validation-5v9xf"
+              url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-b6j5h"
+              tsRawData={triggerTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-xj8gk"
             />
           </section>
 
