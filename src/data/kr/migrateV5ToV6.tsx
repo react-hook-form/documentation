@@ -41,13 +41,13 @@ export default (
           rawData={`const { register } = useForm({
   - validationResolver: undefined,
   + resolver: undefined,
-  
+
   - validationContext: undefined,
   + context: undefined,
-  
+
   - validationContext: undefined,
   + context: undefined,
-  
+
   - validateCriteriaMode: "firstError",
   + criteriaMode: "firstError",
 })`}
@@ -103,21 +103,21 @@ export default (
       </ul>
       <CodeArea
         withOutCopy
-        rawData={`- <Controller as={Input} 
+        rawData={`- <Controller as={Input}
 -   name="test"
--   onChange={([_, value]) => value} 
--   onChangeName="onTextChange"  
--   onBlur={([_, value]) => value} 
+-   onChange={([_, value]) => value}
+-   onChangeName="onTextChange"
+-   onBlur={([_, value]) => value}
 -   onBlurName="onTextChange"
 -   valueName="textValue"
 - />
 
-+ <Controller as={Input} name="test"
++ <Controllername="test"
 +   render={({ onChange, onBlur, value }) => {
-+     <Input 
-+       valueName={value} 
-+       onTextChange={(val) => onChange(value)} 
-+       onTextBlur={(val) => onBlur(value)} 
++     <Input
++       valueName={value}
++       onTextChange={(val) => onChange(value)}
++       onTextBlur={(val) => onBlur(value)}
 +     />
 +   }}
 + />`}
@@ -250,9 +250,9 @@ export default (
 + setError('test', { type: 'required', message: 'message' })
 
 - setError([ { name: 'test1', type: "max", }, { name: 'test', type: "min", } ])
-+ [ 
-+   { name: 'test1', type: "max" }, 
-+   { name: 'test', type: "min" } 
++ [
++   { name: 'test1', type: "max" },
++   { name: 'test', type: "min" }
 + ].forEach(({ name, type }) => setError(name, { type }))
 `}
       />
