@@ -518,6 +518,11 @@ const { register } = useForm<FormInputs>({
 
             {api.useForm.shouldUnregister}
 
+            <CodeSandBoxLink
+              style={codeSandBoxStyle}
+              url="https://codesandbox.io/s/autounregister-4e91k"
+            />
+
             <div className={tableStyles.tableWrapper}>
               <table
                 className={tableStyles.table}
@@ -558,11 +563,6 @@ const { register } = useForm<FormInputs>({
                 </tbody>
               </table>
             </div>
-
-            <CodeSandBoxLink
-              style={codeSandBoxStyle}
-              url="https://codesandbox.io/s/autounregister-4e91k"
-            />
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
