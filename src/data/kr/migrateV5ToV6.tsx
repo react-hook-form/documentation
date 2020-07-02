@@ -114,7 +114,7 @@ export default (
 
 + <Controller name="test"
 +   render={({ onChange, onBlur, value }) => {
-+     <Input
++     return <Input
 +       valueName={value}
 +       onTextChange={(val) => onChange(value)}
 +       onTextBlur={(val) => onBlur(value)}
