@@ -690,7 +690,7 @@ export default {
             <code>value</code>属性插入组件。
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller 
   as={<TextInput />} 
   control={control} 
@@ -727,7 +727,7 @@ export default {
             。
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller
   control={control} 
   name="test" 
@@ -824,7 +824,7 @@ validate: (value) => value === getValues('firstName');"
             <p>
               这是一个
               <a
-                href="https://codesandbox.io/s/react-hook-form-controller-auto-focus-5tru5"
+                href="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
                 target="_blank"
                 rel="noopener noreferrer"
               >
