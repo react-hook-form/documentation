@@ -116,7 +116,7 @@ export default (
 -   valueName="textValue"
 - />
 
-+ <Controllername="test"
++ <Controller name="test"
 +   render={({ onChange, onBlur, value }) => {
 +     <Input
 +       valueName={value}
