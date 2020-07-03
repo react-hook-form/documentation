@@ -374,11 +374,12 @@ export default {
     ),
   },
   formContext: {
-    title: "FormContext Performance",
+    title: "FormProvider Performance",
     description: (
       <p>
         React Hook Form's{" "}
-        <PageLink to="/api/#useFormContext">FormContext</PageLink> is built upon{" "}
+        <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
+        upon{" "}
         <a
           href="https://reactjs.org/docs/context.html"
           target="_blank"
