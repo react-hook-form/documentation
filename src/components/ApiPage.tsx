@@ -54,6 +54,7 @@ import headerStyles from "./Header.module.css"
 import styles from "./ApiPage.module.css"
 import resetCodeTs from "./codeExamples/resetCodeTs"
 import getValuesTypes from "./codeExamples/getValuesTypes"
+import controlTs from "./codeExamples/controlTs"
 
 const { useRef, useEffect } = React
 
@@ -929,7 +930,9 @@ const { register } = useForm<FormInputs>({
 
             <CodeArea
               rawData={control}
-              url="https://codesandbox.io/s/react-hook-form-controller-5xi7n"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              tsRawData={controlTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
             />
           </section>
 
