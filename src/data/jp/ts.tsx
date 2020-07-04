@@ -46,4 +46,8 @@ export default {
       </p>
     ),
   },
+  validationRules: {
+    title: "ValidationRules",
+    description: "",
+  },
 }

@@ -15,6 +15,7 @@ function App() {
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
+            {/* important: useFieldArray only works with ref={register()} */}
             <input name={\`test[\${index}].name\`} defaultValue={item.name} ref={register()} />
             <button onClick={() => remove(index)}>Delete</button>
           </li>
