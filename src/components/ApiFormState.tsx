@@ -5,6 +5,7 @@ import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import buttonStyles from "../styles/button.module.css"
 import formState from "./codeExamples/formState"
+import formStateTs from "./codeExamples/formStateTs"
 
 const goToSection = (name, sectionsRef) => {
   const url = window.location.href
@@ -149,8 +150,10 @@ export default React.memo(
             </tbody>
           </table>
           <CodeArea
-            url="https://codesandbox.io/s/react-hook-form-v6-formstate-dirty-touched-submitted-prvpy"
             rawData={formState}
+            url="https://codesandbox.io/s/react-hook-form-v6-formstate-ht098"
+            tsRawData={formStateTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-zblw3"
           />
         </div>
       </>
