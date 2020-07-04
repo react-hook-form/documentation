@@ -383,7 +383,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           オブジェクトには、各 input{" "}

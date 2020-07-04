@@ -375,7 +375,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
       </>

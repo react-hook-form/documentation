@@ -1,5 +1,3 @@
-import * as React from "react"
-
 export default {
   title: {
     en: "Form Builder",

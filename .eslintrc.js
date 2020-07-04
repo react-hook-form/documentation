@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const OFF = 0
 const WARN = 1
 const ERROR = 2
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
 module.exports = {
   parser: "@typescript-eslint/parser",
@@ -31,7 +33,6 @@ module.exports = {
     // react
     "react/display-name": OFF,
     "react/prop-types": OFF,
-    "react/jsx-no-target-blank": WARN,
-    "react/no-unescaped-entities": WARN,
+    "react/no-unescaped-entities": OFF,
   },
 }

@@ -101,7 +101,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
                   <h3>{title}</h3>
                 </a>
                 <p className={styles.author}>
-                  <a href={authorUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={authorUrl} target="_blank" rel="noreferrer">
                     {author}
                   </a>
                 </p>

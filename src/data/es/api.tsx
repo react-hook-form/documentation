@@ -382,7 +382,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           Objeto que contiene los errores de formulario o los mensajes de error

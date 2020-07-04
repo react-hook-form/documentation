@@ -36,11 +36,11 @@ export default ({ defaultLang }: { defaultLang: string }) => {
 
   React.useEffect(() => {
     if (location.hash) {
-      setTimeout(() => goToSection(location.hash.substr(1), false), 10)
+      setTimeout(() => goToSection(location.hash.substr(1)), 10)
     }
   }, [])
 
-  const goToSection = (name, animate = true) => {
+  const goToSection = (name) => {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ |-/g, "")

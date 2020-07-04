@@ -189,7 +189,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
         (entries) => {
           let index = 0
           const allTops = []
-          for (const entrie of entries) {
+          entries.forEach(() => {
             try {
               for (const key in apiSectionsRef.current) {
                 const { top } = apiSectionsRef.current[
@@ -199,7 +199,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 index++
               }
             } catch {}
-          }
+          })
 
           index = 0
           let foundIndex = 0

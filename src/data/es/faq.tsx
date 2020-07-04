@@ -235,6 +235,7 @@ export default {
                     <a
                       href="https://reactjs.org/docs/uncontrolled-components.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       no controlado
                     </a>{" "}
@@ -242,6 +243,7 @@ export default {
                     <a
                       href="https://reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       controlado
                     </a>
@@ -250,6 +252,7 @@ export default {
                     <a
                       href="https://reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       controlado
                     </a>
@@ -258,6 +261,7 @@ export default {
                     <a
                       href="https://reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       controlado
                     </a>
@@ -324,13 +328,21 @@ export default {
                   </td>
                   <td>
                     Incorporada &{" "}
-                    <a href="https://github.com/jquense/yup" target="_blank">
+                    <a
+                      href="https://github.com/jquense/yup"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Yup
                     </a>
                   </td>
                   <td>
                     Construye tu propia &{" "}
-                    <a href="https://github.com/jquense/yup" target="_blank">
+                    <a
+                      href="https://github.com/jquense/yup"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Yup
                     </a>
                   </td>

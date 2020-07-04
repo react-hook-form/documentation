@@ -147,6 +147,7 @@ export default {
             className={buttonStyles.links}
             href="https://github.com/bluebill1049/little-state-machine"
             target="_blank"
+            rel="noopener noreferrer"
           >
             little state machine
           </a>
@@ -155,6 +156,7 @@ export default {
             className={buttonStyles.links}
             href="https://github.com/reduxjs/redux"
             target="_blank"
+            rel="noopener noreferrer"
           >
             redux
           </a>
