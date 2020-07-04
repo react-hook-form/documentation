@@ -282,7 +282,7 @@ function BuilderPage({
                 <input type="checkbox" name="required" ref={register} />
                 Required
               </label>
-              <label>Max</label>
+              <label htmlFor="max">Max</label>
               <input
                 defaultValue={editFormData.max}
                 aria-label="max"
@@ -291,7 +291,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>Min</label>
+              <label htmlFor="min">Min</label>
               <input
                 defaultValue={editFormData.min}
                 autoComplete="false"
@@ -300,7 +300,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>MaxLength</label>
+              <label htmlFor="maxLength">MaxLength</label>
               <input
                 defaultValue={editFormData.maxLength}
                 autoComplete="false"
@@ -309,7 +309,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>Pattern</label>
+              <label htmlFor="pattern">Pattern</label>
               <input
                 autoComplete="false"
                 defaultValue={editFormData.pattern}

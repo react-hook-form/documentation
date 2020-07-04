@@ -133,8 +133,11 @@ export default React.memo(
                     <b className={typographyStyles.note}>Note:</b>{" "}
                     <code>isValid</code> is affected by{" "}
                     <code
+                      role="link"
+                      tabIndex={0}
                       className={buttonStyles.codeAsLink}
                       onClick={() => goToSection("useForm", sectionsRef)}
+                      onKeyDown={() => goToSection("useForm", sectionsRef)}
                     >
                       mode
                     </code>

@@ -16,7 +16,7 @@ module.exports = {
   extends: [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    // "plugin:jsx-a11y/recommended", // TODO
+    "plugin:jsx-a11y/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
@@ -34,5 +34,7 @@ module.exports = {
     "react/display-name": OFF,
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
+    // jsx-ally
+    "jsx-a11y/no-onchange": WARN,
   },
 }
