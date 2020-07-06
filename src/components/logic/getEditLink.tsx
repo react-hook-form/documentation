@@ -8,7 +8,7 @@ export const getEditLink = (
   if (!pathname) return ""
 
   if (pathname === "/" || pathname === "") {
-    return preFix + "src/data/home.tsx"
+    return preFix + "home.tsx"
   } else if (pathname.includes("get-started")) {
     return `${preFix}${currentLanguage}/getStarted.tsx`
   } else if (pathname.includes("api")) {
