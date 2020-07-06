@@ -351,12 +351,14 @@ table {
   font-size: 0.9rem;
 }
 
+.editPage,
 .scrollToTop,
 .scrollToTop:focus {
   border: 1px solid var(--color-light-grey);
   display: none;
 }
 
+.editPage:hover,
 .scrollToTop:hover {
   border-color: var(--color-secondary);
 }
@@ -394,6 +396,7 @@ a.active {
     background: var(--color-light-pink);
   }
 
+  .editPage,
   .scrollToTop {
     display: block;
     background: var(--color-primary);
@@ -401,11 +404,24 @@ a.active {
     right: 30px;
     color: white;
     bottom: 60px;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     z-index: 10;
-    border-radius: 5px;
+    padding-left: 0;
+    padding-right: 0;
   }
+}
+
+.editPage {
+  text-align: center;
+  bottom: 75px;
+  font-size: 10px;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.editPage:hover {
+  color: white;
 }
 
 @media (min-width: 1040px) {
