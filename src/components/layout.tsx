@@ -29,7 +29,7 @@ const Layout = (props: {
       setShow(false)
     }
   }
-  const editLink = getEditLink(currentLanguage, location.pathname)
+  const editLink = getEditLink(currentLanguage, props.location?.pathname)
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)

@@ -4,6 +4,8 @@ export const getEditLink = (
   currentLanguage: string,
   pathname: string
 ): string => {
+  if (!pathname) return ""
+
   if (pathname === "/" || pathname === "") {
     return preFix + "src/data/home.tsx"
   } else if (pathname.includes("get-started")) {
