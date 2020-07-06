@@ -14,11 +14,11 @@ const enLinks = [
   TS.en.submitHandler,
   TS.en.control,
   TS.en.useFormMethodsRef,
+  TS.en.validationRules,
 ]
 
 export default ({ defaultLang }: { defaultLang: string }) => {
   const {
-    state,
     state: { language },
   } = useStateMachine()
   const tsSectionsRef = React.useRef({
@@ -27,6 +27,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     SubmitHandlerRef: null,
     ControlRef: null,
     UseFormMethodsRef: null,
+    ValidationRulesRef: null,
   })
   const { currentLanguage } =
     language && language.currentLanguage
@@ -373,6 +374,30 @@ export default function App() {
     </Form>
   );
 }
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.ValidationRulesRef = ref)}
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].validationRules.title}</h2>
+            </code>
+            {TS[currentLanguage].validationRules.description}
+
+            <CodeArea
+              rawData={`export type ValidationRules = Partial<{
+  required: Message | ValidationRule<boolean>;
+  min: ValidationRule<number | string>;
+  max: ValidationRule<number | string>;
+  maxLength: ValidationRule<number | string>;
+  minLength: ValidationRule<number | string>;
+  pattern: ValidationRule<RegExp>;
+  validate: Validate | Record<string, Validate>;
+}>;
 `}
             />
           </section>

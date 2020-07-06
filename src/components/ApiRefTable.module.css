@@ -12,6 +12,7 @@
 .fieldset > label {
   padding-bottom: 15px;
   display: block;
+  cursor: pointer;
 }
 
 .fieldset > label:nth-child(2) {

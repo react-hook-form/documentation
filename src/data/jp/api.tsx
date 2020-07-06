@@ -846,20 +846,19 @@ validate: (value) => value === getValues('firstName');"
           <td></td>
           <td>
             <p>
-              This callback allows the custom hook to focus on the input when
-              there is an error. This function is applicable for both React and
-              React-Native components as long as they can be focused.
+              このコールバック関数により、エラーが発生した場合にカスタムフックが入力フィールドにフォーカスさせることができます。
+              この関数は、React と React-Native
+              どちらでも、フォーカスできるコンポーネントであれば適用可能です。
             </p>
             <p>
-              Here is a{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                working example with MUI
+                こちら
               </a>
-              .
+              の Material-UI を使用した実装例を参考にしてください。
             </p>
           </td>
         </tr>

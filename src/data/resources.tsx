@@ -190,6 +190,14 @@ export default {
       description:
         "Hey, folks! In this post I will show you how to work with forms and validation in React, in a simple and efficient way, using the React Hook Form library.",
     },
+    {
+      title: "How to Use React-Hook-Form for Dead-Simple Forms",
+      url:
+        "https://reedbarger.com/how-to-use-react-hook-form-for-dead-simple-forms/",
+      authorUrl: "https://twitter.com/codeartistryio",
+      author: "Reed Barger",
+      description: "",
+    },
   ],
   newsletters: [],
   videos: [

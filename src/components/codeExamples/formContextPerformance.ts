@@ -1,5 +1,5 @@
 export default `import React, { memo } from "react";
-import { useForm, FormContext, useFormContext } from "react-hook-form";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 
 // we can use React.memo to prevent re-render except dirty state changed
 const NestedInput = memo(
@@ -24,7 +24,7 @@ export default function App() {
   const onSubmit = data => console.log(data);
 
   return (
-    <FormContext {...methods}>
+    <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInputContainer />
         <input type="submit" />

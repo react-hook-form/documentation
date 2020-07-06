@@ -46,7 +46,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     SmartFormComponent: null,
     FieldArrays: null,
     ConnectForm: null,
-    FormContextPerformance: null,
+    FormProviderPerformance: null,
     ErrorMessages: null,
     ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
@@ -242,7 +242,9 @@ function Advanced({ defaultLang, advanced }: Props) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.FormContextPerformance = ref)}
+            ref={(ref) =>
+              (pageContentRef.current.FormProviderPerformance = ref)
+            }
           >
             {advanced.formContext.title}
           </h2>
