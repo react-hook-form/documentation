@@ -16,9 +16,12 @@ export default function ApiRefTable({
   currentLanguage: string
 }) {
   const [isStandard, toggleOption] = React.useState(true)
+  const highlightContainer = React.useRef<HTMLTableElement | null>(null)
 
   React.useEffect(() => {
-    Prism.highlightAll()
+    if (highlightContainer.current) {
+      Prism.highlightAllUnder(highlightContainer.current)
+    }
   }, [isStandard])
 
   return (
@@ -97,7 +100,7 @@ export default function ApiRefTable({
       </fieldset>
 
       <div className={tableStyles.tableWrapper}>
-        <table className={tableStyles.table}>
+        <table className={tableStyles.table} ref={highlightContainer}>
           <tbody>
             <tr>
               <th
