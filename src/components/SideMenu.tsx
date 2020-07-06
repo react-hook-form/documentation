@@ -148,7 +148,11 @@ function SideMenu({
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                     role="link"
                     onClick={() => goToSection(enLink, index)}
-                    onKeyDown={() => goToSection(enLink, index)}
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        goToSection(enLink, index)
+                      }
+                    }}
                     style={{
                       ...(index > 0
                         ? {

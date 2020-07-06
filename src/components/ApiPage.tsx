@@ -275,7 +275,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {links.map((option) => {
               const title =
                 typeof option === "function" ? option().title : option.title
-              console.log("the title:")
               return (
                 <option value={title} key={title}>
                   {title}
