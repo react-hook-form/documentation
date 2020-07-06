@@ -414,7 +414,8 @@ a.active {
 
 .editPage {
   text-align: center;
-  bottom: 75px;
+  font-weight: 500;
+  bottom: 105px;
   font-size: 10px;
   text-decoration: none;
   line-height: 3;
@@ -431,6 +432,10 @@ a.active {
 
   a.active {
     background: none;
+  }
+
+  .editPage {
+    bottom: 75px;
   }
 
   .scrollToTop {
