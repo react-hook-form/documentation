@@ -40,7 +40,6 @@ const Layout = (props: {
       document.querySelector("body").classList.remove("light")
     }
 
-    Prism.highlightAll()
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [lightMode])
 
