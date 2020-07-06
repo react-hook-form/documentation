@@ -413,8 +413,15 @@ a.active {
 }
 
 .editPage {
+  text-align: center;
   bottom: 75px;
   font-size: 10px;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.editPage:hover {
+  color: white;
 }
 
 @media (min-width: 1040px) {
