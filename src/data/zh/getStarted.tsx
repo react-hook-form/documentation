@@ -3,6 +3,12 @@ import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import typographyStyles from "../../styles/typography.module.css"
+import CodeArea from "../../components/CodeArea"
+import {
+  uiLibraryHookInput,
+  uiLibraryHookInputTs,
+} from "../../components/codeExamples/getStarted"
+import VideoList from "../../components/VideoList"
 
 export default {
   title: "起步",
@@ -35,8 +41,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>注意：</b>每个表单项都需要
-          <strong>唯一</strong>
-          的<code>name</code>作为注册的键
+          <strong>唯一</strong>的<code>name</code>作为注册的键
         </p>
 
         <p>
@@ -90,54 +95,62 @@ export default {
     title: "适配已有表单",
     description: (
       <>
-        处理已有表单很简单。关键步骤是将<code>register</code>应用到已有组件的<code>ref</code>中。
+        处理已有表单很简单。关键步骤是将<code>register</code>应用到已有组件的
+        <code>ref</code>中。
       </>
     ),
   },
   controlledInput: {
     title: "受控输入",
-    description: (
-      <p>
-        React Hook
-        Form拥抱非受控组件和HTML输入框，但是很难避免使用外部受控组件，比如
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/JedWatson/react-select"
-        >
-          React-Select
-        </a>
-        ,{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/ant-design/ant-design"
-        >
-          AntD
-        </a>{" "}
-        和{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://material-ui.com/"
-        >
-          Material-UI
-        </a>
-        ，因此我们提供了一个包装组件:{" "}
-        <Link to="/api#Controller">Controller</Link>{" "}
-        来简化集成过程，同时仍然可以自由地使用自定义register满足你的需求。
-      </p>
-      <p>
-          了解更多 <Link to={translateLink("api#Controller", currentLanguage)}>Controller</Link>{" "}
+    description: (currentLanguage) => (
+      <>
+        <p>
+          React Hook
+          Form拥抱非受控组件和HTML输入框，但是很难避免使用外部受控组件，比如
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/JedWatson/react-select"
+          >
+            React-Select
+          </a>
+          ,{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ant-design/ant-design"
+          >
+            AntD
+          </a>{" "}
+          和{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://material-ui.com/"
+          >
+            Material-UI
+          </a>
+          ，因此我们提供了一个包装组件:{" "}
+          <Link to="/api#Controller">Controller</Link>{" "}
+          来简化集成过程，同时仍然可以自由地使用自定义register满足你的需求。
+        </p>
+        <p>
+          了解更多{" "}
+          <Link to={translateLink("api#Controller", currentLanguage)}>
+            Controller
+          </Link>{" "}
           组件的内容.
         </p>
+      </>
     ),
   },
   workWithUI: {
     title: "使用UI库",
     description: (currentLanguage) => (
       <>
-        <p>React Hook Form 与第三方UI组件库一起使用非常方便。你可以观看下方视频</p>
+        <p>
+          React Hook Form 与第三方UI组件库一起使用非常方便。你可以观看下方视频
+        </p>
         <VideoList
           lists={[
             {
@@ -153,27 +166,30 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>使用方法 1:</b> 最好的方式是检查你想要使用的组件是否暴露了 <code>ref</code>{" "}
-            可以用于{" "}
-            <code>
-              <Link to={translateLink("api#register", currentLanguage)}>
-                register
-              </Link>
-            </code>
-            。例如: Material-UI 的 <code>TextField</code> 的 props 就包含了{" "}
-            <code>inputRef</code> 。 你可以直接将{" "}
-            <code>register</code> 传递给它。
+          <b className={typographyStyles.note}>使用方法 1:</b>{" "}
+          最好的方式是检查你想要使用的组件是否暴露了 <code>ref</code> 可以用于{" "}
+          <code>
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register
+            </Link>
+          </code>
+          。例如: Material-UI 的 <code>TextField</code> 的 props 就包含了{" "}
+          <code>inputRef</code> 。 你可以直接将 <code>register</code> 传递给它。
         </p>
         <p>
           <code>{'<TextField ref={register} name="FirstName"/>'}</code>
         </p>
         <p>
-          <b className={typographyStyles.note}>使用方法 2:</b> 有时组件没有暴露 prop 用来注册, 例如{" "}
-          <code>react-select</code> 或者 <code>react-datepicker</code>。
+          <b className={typographyStyles.note}>使用方法 2:</b> 有时组件没有暴露
+          prop 用来注册, 例如 <code>react-select</code> 或者{" "}
+          <code>react-datepicker</code>。
         </p>
         <p>
           第二种方法是使用{" "}
-          <Link to={translateLink("/api#Controller", currentLanguage)}>Controller</Link> 包裹组件，他会帮你处理注册过程。
+          <Link to={translateLink("/api#Controller", currentLanguage)}>
+            Controller
+          </Link>{" "}
+          包裹组件，他会帮你处理注册过程。
         </p>
         <CodeArea
           rawData={uiLibraryHookInput}
@@ -209,8 +225,8 @@ export default {
     description: (
       <p>
         你将从受控组件中获得相同的性能增强。 但是，有一些与React
-        Native不兼容的Api（出于web和native的API差异）。
-        你将不得不使用<code>Controller</code> 或 <b>custom register</b>，如下面的示例所示。
+        Native不兼容的Api（出于web和native的API差异）。 你将不得不使用
+        <code>Controller</code> 或 <b>custom register</b>，如下面的示例所示。
       </p>
     ),
   },
@@ -219,18 +235,21 @@ export default {
     description: (
       <p>
         React Hook Form是使用<code>Typescript</code>
-        构建的，因此你可以定义一个<code>FormData</code>类型
-        来表达表单值。
+        构建的，因此你可以定义一个<code>FormData</code>类型 来表达表单值。
       </p>
     ),
   },
   errors: {
     title: "处理错误",
-    description: <>React Hook Form提供了一个<code>errors</code>对象显示表单中的错误。</>,
+    description: (
+      <>
+        React Hook Form提供了一个<code>errors</code>对象显示表单中的错误。
+      </>
+    ),
   },
   schema: {
     title: "数据格式校验",
-    description: (
+    description: (currentLanguage) => (
       <>
         <p>
           React Hook Form支持使用
@@ -257,9 +276,13 @@ export default {
           >
             Joi
           </a>
-          进行基于数据格式的表单校验，你可以将<code>schema</code>用作可选配置传给<Link to={translateLink("/api#useForm", currentLanguage)}>useForm</Link>
-          。 React Hook
-          Form将根据数据格式校验你的输入数据，并返回<Link to={translateLink("/api#errors", currentLanguage)}>错误</Link>
+          进行基于数据格式的表单校验，你可以将<code>schema</code>
+          用作可选配置传给
+          <Link to={translateLink("/api#useForm", currentLanguage)}>
+            useForm
+          </Link>
+          。 React Hook Form将根据数据格式校验你的输入数据，并返回
+          <Link to={translateLink("/api#errors", currentLanguage)}>错误</Link>
           或有效结果。
         </p>
       </>
