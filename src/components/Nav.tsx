@@ -102,7 +102,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
             navigate(getNavLink(url, selectedLanguage))
           }}
-          defaultValue={currentLanguage}
+          value={currentLanguage}
         >
           <option value="en">English</option>
           <option value="zh">简体中文</option>
