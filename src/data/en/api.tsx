@@ -1060,13 +1060,13 @@ React.useEffect(() => {
               rawData={`<Controller
   control={control} 
   name="test" 
-  render(({ onChange, onBlur, value }) => (
+  render={({ onChange, onBlur, value }) => (
     <Input 
       onTextChange={onChange} 
       onTextBlur={onBlur} 
       textValue={value} 
     />
-  ))
+  )}
 />
 <Controller render={props => <Input {...props} />} />`}
             />
