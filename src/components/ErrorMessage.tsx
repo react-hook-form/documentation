@@ -7,6 +7,7 @@ import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import errorMessageTs from "./codeExamples/errorMessageTs"
+import errorsMessageTs from "./codeExamples/errorsMessageTs"
 
 export default ({
   api,
@@ -122,7 +123,9 @@ export default ({
         />
         <CodeArea
           rawData={errorsMessage}
-          url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
+          url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-2n2d2"
+          tsRawData={errorsMessageTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-tv0fk"
         />
       </TabGroup>
     </div>
