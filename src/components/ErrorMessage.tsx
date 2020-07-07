@@ -6,6 +6,7 @@ import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import errorMessageTs from "./codeExamples/errorMessageTs"
 
 export default ({
   api,
@@ -115,7 +116,9 @@ export default ({
       >
         <CodeArea
           rawData={errorMessage}
-          url="https://codesandbox.io/s/react-hook-form-errormessage-pc2b6"
+          url="https://codesandbox.io/s/react-hook-form-v6-errormessage-dn4y8"
+          tsRawData={errorMessageTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-errormessage-dn4y8"
         />
         <CodeArea
           rawData={errorsMessage}
