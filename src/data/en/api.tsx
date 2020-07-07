@@ -567,6 +567,13 @@ export default {
           supply <code>defaultValues</code> at <code>useForm</code> to{" "}
           <code>reset</code> <code>Controller</code> components' value.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> You will need to pass{" "}
+          <code>register()</code> during <code>reset</code> to re-register
+          input, or you can <code>reset</code> the form with with values. eg:{" "}
+          <code>reset({`{}`})</code>.
+        </p>
       </>
     ),
   }),
