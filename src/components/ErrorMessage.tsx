@@ -119,7 +119,7 @@ export default ({
           rawData={errorMessage}
           url="https://codesandbox.io/s/react-hook-form-v6-errormessage-dn4y8"
           tsRawData={errorMessageTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-v6-errormessage-dn4y8"
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-869k1"
         />
         <CodeArea
           rawData={errorsMessage}
