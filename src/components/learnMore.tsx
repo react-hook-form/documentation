@@ -4,7 +4,6 @@ import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
 import containerStyles from "../styles/container.module.css"
 import buttonStyles from "../styles/button.module.css"
-import typographyStyles from "../styles/typography.module.css"
 
 export default function LearnMore({
   currentLanguage,

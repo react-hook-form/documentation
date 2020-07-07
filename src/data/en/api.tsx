@@ -423,7 +423,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           Object containing form errors and error messages corresponding to each

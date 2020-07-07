@@ -210,7 +210,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
         (entries) => {
           let index = 0
           const allTops = []
-          for (const entrie of entries) {
+          entries.forEach(() => {
             try {
               for (const key in apiSectionsRef.current) {
                 const { top } = apiSectionsRef.current[
@@ -220,7 +220,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 index++
               }
             } catch {}
-          }
+          })
 
           index = 0
           let foundIndex = 0
@@ -275,7 +275,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             {links.map((option) => {
               const title =
                 typeof option === "function" ? option().title : option.title
-
               return (
                 <option value={title} key={title}>
                   {title}
@@ -545,21 +544,45 @@ const { register } = useForm<FormInputs>({
                 <tbody>
                   <tr>
                     <td>Can you unregister an input?</td>
-                    <td>✅</td>
-                    <td>❌</td>
+                    <td>
+                      <span role="img" aria-label="approving-checkbox">
+                        ✅
+                      </span>
+                    </td>
+                    <td>
+                      <span role="img" aria-label="unapproving-cancel">
+                        ❌
+                      </span>
+                    </td>
                   </tr>
                   <tr>
                     <td>Value remained when input unmount?</td>
-                    <td>❌</td>
-                    <td>✅</td>
+                    <td>
+                      <span role="img" aria-label="unapproving-cancel">
+                        ❌
+                      </span>
+                    </td>
+                    <td>
+                      <span role="img" aria-label="approving-checkbox">
+                        ✅
+                      </span>
+                    </td>
                   </tr>
                   <tr>
                     <td>
                       Is form state gets updated? <br />
                       eg: <code>errors, dirty, touched</code>
                     </td>
-                    <td>✅</td>
-                    <td>❌ you will need to clear manually</td>
+                    <td>
+                      <span role="img" aria-label="approving-checkbox">
+                        ✅
+                      </span>
+                    </td>
+                    <td>
+                      <span role="img" aria-label="unapproving-cancel">
+                        ❌ you will need to clear manually
+                      </span>
+                    </td>
                   </tr>
                 </tbody>
               </table>

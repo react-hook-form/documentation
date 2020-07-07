@@ -5,7 +5,6 @@ import useWatchTs from "./codeExamples/useWatchTs"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
-import language from "../state/language"
 
 export default function UseFieldArray({
   api,

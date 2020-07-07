@@ -22,7 +22,10 @@ export default (
     </p>
 
     <p>
-      ❤️ <i>React hook Form Team</i>
+      <span role="img" aria-label="pequeño-corazón">
+        ❤️{" "}
+      </span>
+      <i>React hook Form Team</i>
     </p>
 
     <hr />

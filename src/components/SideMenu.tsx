@@ -145,7 +145,14 @@ function SideMenu({
                 delay={index * 0.01}
                 render={({ style }) => (
                   <li
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                    role="link"
                     onClick={() => goToSection(enLink, index)}
+                    onKeyDown={(e) => {
+                      if (e.keyCode === 13) {
+                        goToSection(enLink, index)
+                      }
+                    }}
                     style={{
                       ...(index > 0
                         ? {

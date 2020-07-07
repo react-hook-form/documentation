@@ -66,13 +66,34 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                       <div>
                         <p>Thanks to the team members:</p>
                         <div style={style} className={styles.avatars}>
-                          <img src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4" />
-                          <img src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4" />
-                          <img src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4" />
-                          <img src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4" />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4"
+                            alt="RHF team member"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4"
+                            alt="RHF team member"
+                          />
                         </div>
                       </div>
                     )}
@@ -94,12 +115,14 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                 <div className={styles.achievement} style={style}>
                   <div className={styles.achievementList}>
                     <h4>
-                      🏅<span>Achievements</span>
+                      <span role="img" aria-label="achievement-medal">
+                        🏅Achievements
+                      </span>
                     </h4>
                     <ul>
                       {list.map((item, index) => (
                         <Animate
-                          key={item}
+                          key={index}
                           sequenceIndex={index + 3}
                           start={{
                             transform: "translateX(10px)",

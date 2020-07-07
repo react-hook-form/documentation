@@ -200,7 +200,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>API</span>
           </Link>
-
           <Link
             activeClassName="active"
             to={translateLink("/ts", currentLanguage)}
@@ -225,7 +224,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>TS</span>
           </Link>
-
           <Link
             activeClassName="active"
             to={translateLink("/advanced-usage", currentLanguage)}
@@ -235,7 +233,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].advanced}</span>
           </Link>
-
           <Link
             activeClassName="active"
             to={translateLink("/faqs", currentLanguage)}
@@ -245,9 +242,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
-
           <span className="desktopOnly">
-            <span className={styles.tools} tabIndex={0}>
+            <span className={styles.tools}>
               <span
                 style={{
                   position: "relative",
@@ -301,7 +297,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               </div>
             </div>
           </span>
-
           <Link
             activeClassName="active"
             className={styles.mobileNav}
@@ -312,7 +307,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>DevTools</span>
           </Link>
-
           <Link
             activeClassName="active"
             className={styles.mobileNav}
@@ -323,7 +317,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].builder}</span>
           </Link>
-
           <Link
             activeClassName="active"
             to={translateLink("/resources", currentLanguage)}
@@ -333,7 +326,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].resources}</span>
           </Link>
-
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"
             target="_blank"
@@ -342,7 +334,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           >
             {nav[currentLanguage].releases}
           </a>
-
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             href="#"
             onClick={(e) => {

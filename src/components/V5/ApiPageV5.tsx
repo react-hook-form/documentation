@@ -189,7 +189,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
         (entries) => {
           let index = 0
           const allTops = []
-          for (const entrie of entries) {
+          entries.forEach(() => {
             try {
               for (const key in apiSectionsRef.current) {
                 const { top } = apiSectionsRef.current[
@@ -199,7 +199,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 index++
               }
             } catch {}
-          }
+          })
 
           index = 0
           let foundIndex = 0
@@ -338,6 +338,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("register")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("register")
+                  }
+                }}
+                tabIndex={0}
               >
                 register
               </code>
@@ -345,6 +352,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("unregister")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("unregister")
+                  }
+                }}
+                tabIndex={0}
               >
                 unregister
               </code>
@@ -352,6 +366,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("errors")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("errors")
+                  }
+                }}
+                tabIndex={0}
               >
                 errors
               </code>
@@ -359,6 +380,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("watch")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("watch")
+                  }
+                }}
+                tabIndex={0}
               >
                 watch
               </code>
@@ -366,6 +394,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("handleSubmit")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("handleSubmit")
+                  }
+                }}
+                tabIndex={0}
               >
                 handleSubmit
               </code>
@@ -373,6 +408,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("reset")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("reset")
+                  }
+                }}
+                tabIndex={0}
               >
                 reset
               </code>
@@ -380,6 +422,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("setError")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("setError")
+                  }
+                }}
+                tabIndex={0}
               >
                 setError
               </code>
@@ -387,6 +436,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("clearError")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("clearError")
+                  }
+                }}
+                tabIndex={0}
               >
                 clearError
               </code>
@@ -394,6 +450,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("setValue")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("setValue")
+                  }
+                }}
+                tabIndex={0}
               >
                 setValue
               </code>
@@ -401,6 +464,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("getValues")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("getValues")
+                  }
+                }}
+                tabIndex={0}
               >
                 getValues
               </code>
@@ -408,6 +478,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("triggerValidation")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("triggerValidation")
+                  }
+                }}
+                tabIndex={0}
               >
                 triggerValidation
               </code>
@@ -415,6 +492,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("control")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("control")
+                  }
+                }}
+                tabIndex={0}
               >
                 control
               </code>{" "}
@@ -422,6 +506,13 @@ function ApiPage({ formData, defaultLang, api }: Props) {
               <code
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("formState")}
+                role="link"
+                onKeyPress={(e) => {
+                  if (e.keyCode === 13) {
+                    goToSection("formState")
+                  }
+                }}
+                tabIndex={0}
               >
                 formState
               </code>
