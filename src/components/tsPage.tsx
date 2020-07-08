@@ -14,6 +14,11 @@ const enLinks = [
   TS.en.submitHandler,
   TS.en.control,
   TS.en.useFormMethodsRef,
+  TS.en.useFormOptions,
+  TS.en.useFieldArrayOptions,
+  TS.en.fieldError,
+  TS.en.field,
+  TS.en.mode,
   TS.en.validationRules,
 ]
 
@@ -28,6 +33,11 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     ControlRef: null,
     UseFormMethodsRef: null,
     ValidationRulesRef: null,
+    UseFormOptionsRef: null,
+    UseFieldArrayOptionsRef: null,
+    FieldErrorRef: null,
+    FieldRef: null,
+    ModeRef: null,
   })
   const { currentLanguage } =
     language && language.currentLanguage
@@ -381,6 +391,112 @@ export default function App() {
           <hr />
 
           <section
+            ref={(ref) => (tsSectionsRef.current.UseFormOptionsRef = ref)}
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].useFormOptions.title}</h2>
+            </code>
+            {TS[currentLanguage].useFormOptions.description}
+
+            <CodeArea
+              rawData={`type UseFormOptions<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> = Partial<{
+  mode: Mode;
+  reValidateMode: Mode;
+  defaultValues: UnpackNestedValue<DeepPartial<TFieldValues>>;
+  resolver: Resolver<TFieldValues, TContext>;
+  context: TContext;
+  shouldFocusError: boolean;
+  shouldUnregister: boolean;
+  criteriaMode: 'firstError' | 'all';
+}>;
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.UseFieldArrayOptionsRef = ref)}
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
+            </code>
+            {TS[currentLanguage].useFieldArrayOptions.description}
+
+            <CodeArea
+              rawData={`export type UseFieldArrayOptions<
+  TKeyName extends string = 'id',
+  TControl extends Control = Control
+> = {
+  name: string;
+  keyName?: TKeyName;
+  control?: TControl;
+};`}
+            />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (tsSectionsRef.current.FieldErrorRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].fieldError.title}</h2>
+            </code>
+            {TS[currentLanguage].fieldError.description}
+
+            <CodeArea
+              rawData={`type FieldError = {
+  type: string;
+  ref?: Ref;
+  types?: MultipleFieldErrors;
+  message?: Message;
+};
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (tsSectionsRef.current.FieldRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].field.title}</h2>
+            </code>
+            {TS[currentLanguage].field.description}
+
+            <CodeArea
+              rawData={`type Field = {
+  ref: Ref;
+  mutationWatcher?: MutationWatcher;
+  options?: RadioOrCheckboxOption[];
+} & ValidationRules;
+}>;
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (tsSectionsRef.current.ModeRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].mode.title}</h2>
+            </code>
+            {TS[currentLanguage].mode.description}
+
+            <CodeArea
+              rawData={`type Mode = {
+  onBlur: 'onBlur';
+  onChange: 'onChange';
+  onSubmit: 'onSubmit';
+  all: 'all';
+};`}
+            />
+          </section>
+
+          <hr />
+
+          <section
             ref={(ref) => (tsSectionsRef.current.ValidationRulesRef = ref)}
           >
             <code className={typographyStyles.codeHeading}>
@@ -389,7 +505,7 @@ export default function App() {
             {TS[currentLanguage].validationRules.description}
 
             <CodeArea
-              rawData={`export type ValidationRules = Partial<{
+              rawData={`type ValidationRules = Partial<{
   required: Message | ValidationRule<boolean>;
   min: ValidationRule<number | string>;
   max: ValidationRule<number | string>;
