@@ -5,6 +5,7 @@ import useWatchTs from "./codeExamples/useWatchTs"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import useWatchTypes from "./codeExamples/useWatchTypes"
 
 export default function UseFieldArray({
   api,
@@ -76,8 +77,10 @@ export default function UseFieldArray({
 
       <CodeArea
         rawData={useWatch}
+        url="https://codesandbox.io/s/react-hook-form-v6-usewatch-09qvt"
         tsRawData={useWatchTs}
-        url="https://codesandbox.io/s/react-hook-form-v6-usewatch-nxmlb"
+        tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-usewatch-4jln6"
+        rawTypes={useWatchTypes}
       />
     </>
   )
