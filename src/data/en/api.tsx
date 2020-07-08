@@ -121,39 +121,64 @@ export default {
           default values for the entire form.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached{" "}
-          <strong>at the first render</strong> within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("reset")}
-          >
-            reset
-          </button>{" "}
-          api.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> Values defined in{" "}
-          <code>defaultValues</code> will be injected into{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("watch")}
-          >
-            watch
-          </button>{" "}
-          as <code>defaultValue</code>.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b>{" "}
-          <code>defaultValues</code> doesn't auto populate with the manually
-          registered input (eg: <code>{`register({ name: 'test' })`}</code>)
-          because the custom <code>register</code> field does not provide the{" "}
-          <code>ref</code> to React Hook Form.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Important:</b>{" "}
+              <code>defaultValues</code> is cached{" "}
+              <strong>at the first render</strong> within the custom hook, if
+              you want to reset <code>defaultValues</code> please use{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("reset")}
+              >
+                reset
+              </button>{" "}
+              api.
+            </p>
+          </li>
+          <li>
+            <p>
+              Values defined in <code>defaultValues</code> will be injected into{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("watch")}
+              >
+                watch
+              </button>{" "}
+              as <code>defaultValue</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              it doesn't auto populate with the manually registered input (eg:{" "}
+              <code
+                style={{
+                  whiteSpace: "nowrap",
+                }}
+              >{`register({ name: 'test' })`}</code>
+              ) because the custom <code>register</code> field does not provide
+              the <code>ref</code> to React Hook Form.
+            </p>
+          </li>
+          <li>
+            <p>
+              Its not default state for the form, to include additional form
+              values:
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Register hidden input:{" "}
+                  <code>{`<input type="hidden" ref={register} name="test" />`}</code>
+                </p>
+              </li>
+              <li>
+                <p>Combine values at onSubmit callback.</p>
+              </li>
+            </ol>
+          </li>
+        </ul>
       </>
     ),
     validationSchema: (goToSection) => (
