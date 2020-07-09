@@ -7,19 +7,17 @@ export default function Form({ defaultValues, children, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {Array.isArray(children)
-        ? children.map(child => {
-            return child.props.name
-              ? React.createElement(child.type, {
-                  ...{
-                    ...child.props,
-                    register: methods.register,
-                    key: child.props.name
-                  }
-                })
-              : child;
-          })
-        : children}
+      {React.Children.map(children, child => {
+        return child.props.name
+          ? React.createElement(child.type, {
+              ...{
+                ...child.props,
+                register: methods.register,
+                key: child.props.name
+              }
+            })
+          : child;
+       })}
     </form>
   );
 }
