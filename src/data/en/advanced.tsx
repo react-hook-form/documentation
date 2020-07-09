@@ -225,7 +225,7 @@ export default {
 
         <CodeArea
           rawData={smartForm}
-          url="https://codesandbox.io/s/react-hook-form-smart-form-component-eqb3n"
+          url="https://codesandbox.io/s/react-hook-form-smart-form-component-zq4ew"
         />
 
         <p style={{ textAlign: "center" }}>♦</p>
