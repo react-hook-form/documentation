@@ -96,22 +96,22 @@ export default {
     ),
   },
   adapting: {
-    title: "Adapting existing form",
+    title: "Integrating an existing form",
     description: (
       <>
-        Working on an existing form is simple. The important step is to apply{" "}
-        <code>register</code> into existing component's <code>ref</code>.
+        Integrating an existing form is simple. The important step is to apply{" "}
+        <code>register</code> into the existing component's <code>ref</code>.
       </>
     ),
   },
   controlledInput: {
-    title: "Controlled Input",
+    title: "Integrating Controlled Inputs",
     description: (
       <>
         <p>
-          React Hook Form embrace uncontrolled components and native HTML
-          inputs, however it's hard to avoid working with external controlled
-          component such as{" "}
+          React Hook Form embraces uncontrolled components and native HTML
+          inputs, however, it's hard to avoid working with external controlled
+          components such as{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -135,10 +135,10 @@ export default {
           >
             Material-UI
           </a>
-          , hence we have built a wrapper component:{" "}
+          . To make this simple, we provide a wrapper component:{" "}
           <Link to="/api#Controller">Controller</Link> to streamline the
-          integration process while still giving you the freedom to use custom
-          register with your needs.
+          integration process while still giving you the freedom to use a custom
+          register as needed.
         </p>
         <p>
           Read more about the <Link to="/api#Controller">Controller</Link>{" "}
@@ -148,7 +148,7 @@ export default {
     ),
   },
   workWithUI: {
-    title: "Work with UI library",
+    title: "Integrating with UI libraries",
     description: (currentLanguage) => (
       <>
         <p>
@@ -172,8 +172,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Option 1:</b> The best way is to
-          check if the component you wish to use exposes an <code>ref</code>{" "}
-          that can be used to{" "}
+          check if the component you wish to use exposes a <code>ref</code> that
+          can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
@@ -192,7 +192,7 @@ export default {
           <code>react-select</code> or <code>react-datepicker</code>.
         </p>
         <p>
-          The second easiest way is to use the{" "}
+          In this case, you should use the{" "}
           <Link to="/api#Controller">Controller</Link> wrapper component, which
           will take care of the registration process for you.
         </p>
@@ -203,8 +203,8 @@ export default {
           tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
         />
         <p>
-          <b className={typographyStyles.note}>Option 3:</b> Lastly we can set
-          up a custom register using the{" "}
+          <b className={typographyStyles.note}>Option 3:</b> As a last resort,
+          we can set up a custom register using the{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -224,7 +224,7 @@ export default {
     ),
   },
   globalState: {
-    title: "Integrate global state",
+    title: "Integrating with global state",
     description: (
       <p>
         React Hook Form doesn't require you to rely on a state management
