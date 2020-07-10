@@ -359,7 +359,7 @@ export default {
         </p>
       </>
     ),
-    dirty: "ユーザが入力操作した後 true に設定します。",
+    isDirty: "ユーザが入力操作した後 true に設定します。",
     dirtyFields: (
       <>
         ユーザーが変更したフィールドの一意の <code>Set</code> オブジェクト。
@@ -594,7 +594,7 @@ export default {
           </li>
           <li>
             <p>
-              setValue が初めて実行され、 formState の <code>dirty</code> が
+              setValue が初めて実行され、 formState の <code>isDirty</code> が
               true に設定されたとき
             </p>
           </li>
