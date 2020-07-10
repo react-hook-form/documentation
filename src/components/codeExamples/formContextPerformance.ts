@@ -1,16 +1,16 @@
 export default `import React, { memo } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 
-// we can use React.memo to prevent re-render except dirty state changed
+// we can use React.memo to prevent re-render except isDirty state changed
 const NestedInput = memo(
-  ({ register, formState: { dirty } }) => (
+  ({ register, formState: { isDirty } }) => (
     <div>
       <input name="test" ref={register} />
-      {dirty && <p>This field is dirty</p>}
+      {isDirty && <p>This field is dirty</p>}
     </div>
   ),
   (prevProps, nextProps) =>
-    prevProps.formState.dirty === nextProps.formState.dirty
+    prevProps.formState.isDirty === nextProps.formState.isDirty
 );
 
 export const NestedInputContainer = ({ children }) => {

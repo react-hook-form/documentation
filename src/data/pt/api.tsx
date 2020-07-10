@@ -360,7 +360,7 @@ export default {
         </p>
       </>
     ),
-    dirty: "Marcado como true após o usuário interagir com algum dos campos.",
+    isDirty: "Marcado como true após o usuário interagir com algum dos campos.",
     dirtyFields: "Um conjunto exclusivo de campos modificados pelo usuário.",
     isSubmitted:
       "Marcado como true após o usuário submeter o formulário. Após o envio de um formulário, seu estado permanecerá enviado até ser chamado com o método de redefinição.",
@@ -592,7 +592,7 @@ export default {
           <li>
             <p>
               quando 'setValue' é invocado pela primeira vez e formState{" "}
-              <code>dirty</code> é marcado como verdadeiro (true)
+              <code>isDirty</code> é marcado como verdadeiro (true)
             </p>
           </li>
         </ul>

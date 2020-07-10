@@ -25,7 +25,7 @@ export default function App() {
         }, {
           errors: true, // errors will not be reset 
           dirtyFields: true, // dirtyFields will not be reset
-          dirty: true, // dirty will not be reset
+          isDirty: true, // dirty will not be reset
           isSubmitted: false,
           touched: false,
           isValid: false,

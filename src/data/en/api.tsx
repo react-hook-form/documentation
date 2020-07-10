@@ -23,7 +23,7 @@ export default {
     description: (
       <p>
         <code>useForm</code> also takes <b>optional</b> arguments. The following
-        example demonstrates all of the default values.
+        example demonstrates all of the arguments with their default values.
       </p>
     ),
     validateCriteriaMode: (
@@ -152,7 +152,7 @@ export default {
           </li>
           <li>
             <p>
-              it doesn't auto populate with the manually registered input (eg:{" "}
+              It doesn't auto populate with the manually registered input (eg:{" "}
               <code
                 style={{
                   whiteSpace: "nowrap",
@@ -1055,39 +1055,6 @@ React.useEffect(() => {
         </tr>
         <tr>
           <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>React.ElementType</code>
-          </td>
-          <td></td>
-          <td>
-            <p style={{ marginTop: 0 }}>
-              Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
-              and <code>value</code> props into the component.
-            </p>
-
-            <p>
-              Every prop you pass to the Controller component will be forwarded
-              to the component instance you provided with the <code>as</code>{" "}
-              prop. For instance, if you have a custom <code>Switch</code>{" "}
-              component that requires a <code>label</code> prop, you can pass it
-              to the Controller component directly and it will take care of
-              forwarding the prop for you.
-            </p>
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
-              rawData={`<Controller 
-  as={<TextInput />} 
-  control={control} 
-  name="test" 
-/>`}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>render</code>
           </td>
           <td>
@@ -1123,6 +1090,46 @@ React.useEffect(() => {
   )}
 />
 <Controller render={props => <Input {...props} />} />`}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>as</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>React.ElementType</code>
+          </td>
+          <td></td>
+          <td>
+            <p style={{ marginTop: 0 }}>
+              Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
+              and <code>value</code> props into the component.
+            </p>
+
+            <p>
+              Every prop you pass to the Controller component will be forwarded
+              to the component instance you provided with the <code>as</code>{" "}
+              prop. For instance, if you have a custom <code>Switch</code>{" "}
+              component that requires a <code>label</code> prop, you can pass it
+              to the Controller component directly and it will take care of
+              forwarding the prop for you.
+            </p>
+
+            <p>
+              <b className={typographyStyles.note}>Note:</b> The following props
+              will be passed into your component: <code>onChange</code>,{" "}
+              <code>onBlur</code>, <code>value</code>.
+            </p>
+
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              rawData={`<Controller 
+  as={<TextInput />} 
+  control={control} 
+  name="test" 
+/>`}
             />
           </td>
         </tr>
