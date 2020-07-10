@@ -18,6 +18,7 @@ import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./BuilderPage.module.css"
+import CodeArea from "./CodeArea"
 
 const { useState, useRef, useEffect } = React
 
@@ -413,13 +414,7 @@ function BuilderPage({
                 {generic.copy[currentLanguage]}
               </button>
             </div>
-            <div className={styles.wrapper}>
-              <pre className="raw-code">
-                <code className={`language-javascript ${styles.showCode}`}>
-                  {generateCode(formData)}
-                </code>
-              </pre>
-            </div>
+            <CodeArea rawData={generateCode(formData)} />
           </section>
         </section>
       </div>

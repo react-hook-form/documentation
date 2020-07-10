@@ -780,7 +780,13 @@ export default {
                 </td>
                 <td></td>
                 <td>
-                  <>associated field name.</>
+                  <p>
+                    associated field name.{" "}
+                    <b className={typographyStyles.note}>Important: </b> make
+                    sure name is in object shape:{" "}
+                    <code>name={`test[index].name`}</code> as we don't support
+                    flat array.
+                  </p>
                 </td>
               </tr>
               <tr>
