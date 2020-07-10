@@ -8,6 +8,14 @@
   line-height: 1.4;
 }
 
+.table td > p:first-child {
+  margin-top: 0;
+}
+
+.table td > p:last-child {
+  margin-bottom: 0;
+}
+
 .table td:last-child {
   padding-right: 0;
 }

@@ -803,7 +803,13 @@ export default {
                 </td>
                 <td></td>
                 <td>
-                  <>Name of the field.</>
+                  <p>
+                    Name of the field.{" "}
+                    <b className={typographyStyles.note}>Important: </b> make
+                    sure name is in object shape:{" "}
+                    <code>name={`test[index].name`}</code> as we don't support
+                    flat arrays.
+                  </p>
                 </td>
               </tr>
               <tr>
