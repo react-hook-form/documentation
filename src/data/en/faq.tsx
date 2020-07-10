@@ -433,7 +433,7 @@ export default {
                 render, which means testing in react native could result in the{" "}
                 <code>window</code> object being <code>undefined</code>. A quick
                 fix would be to stub the <code>window</code> object to enable
-                the registration progress.
+                the registration process.
               </p>
             </li>
             <li>
