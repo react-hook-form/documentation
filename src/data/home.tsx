@@ -53,7 +53,7 @@ export default {
   },
   findInteresting: {
     en: {
-      heading: "Find it useful and interesting?",
+      heading: "Ready to get started?",
       description: `Form handling doesn't have to be painful. React Hook Form will help you write less code while achieving better performance.`,
     },
     es: {
