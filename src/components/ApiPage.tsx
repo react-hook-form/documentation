@@ -568,7 +568,7 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       Is form state updated? <br />
-                      eg: <code>errors, dirty, touched</code>
+                      eg: <code>isValid, isDirty, touched</code>
                     </td>
                     <td>
                       <span role="img" aria-label="approving-checkbox">
