@@ -31,6 +31,7 @@ import getStartedStyles from "./GetStarted.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import VideoList from "./VideoList"
+import getStarted from "../data/en/getStarted"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -55,7 +56,7 @@ interface Props {
     hash: string
   }
   defaultLang: string
-  getStarted: any
+  getStarted: typeof getStarted
 }
 
 const Faq = ({ location, defaultLang, getStarted }: Props) => {
@@ -85,15 +86,14 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
   const getRefNameFromTitle = (name) => name.replace(/ /g, "").toLowerCase()
 
   const refsFromTitles = Object.entries(getStartedEn).reduce(
-    (acc = {}, curr) => {
-      const [key, entry] = curr
-      if (typeof entry === "string") {
-        return
+    (acc, [, entry]) => {
+      if (typeof entry === "object" && "title" in entry) {
+        const refName = getRefNameFromTitle(entry.title)
+        if (!acc[refName]) {
+          acc[refName] = null
+        }
       }
-      const refName = getRefNameFromTitle(entry.title)
-      if (!acc[refName]) {
-        acc[refName] = null
-      }
+
       return acc
     },
     {}
