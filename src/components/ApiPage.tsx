@@ -510,18 +510,17 @@ const { register } = useForm<FormInputs>({
                   boolean = true
                 </span>
               </code>
-              <Popup
-                top={3}
-                message="React Native: Custom register or using Controller"
+
+              <CodeSandBoxLink
+                style={{
+                  ...codeSandBoxStyle,
+                  top: 0,
+                }}
+                url="https://codesandbox.io/s/autounregister-4e91k"
               />
             </h5>
 
             {api.useForm.shouldUnregister}
-
-            <CodeSandBoxLink
-              style={codeSandBoxStyle}
-              url="https://codesandbox.io/s/autounregister-4e91k"
-            />
 
             <div className={tableStyles.tableWrapper}>
               <table
@@ -530,9 +529,7 @@ const { register } = useForm<FormInputs>({
               >
                 <thead>
                   <tr style={{ borderBottom: "1px solid rgb(236, 89, 144)" }}>
-                    <td width={320}>
-                      <code>shouldUnregister</code>
-                    </td>
+                    <td width={320}></td>
                     <td width={200}>
                       <code>true</code>
                     </td>
