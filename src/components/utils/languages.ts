@@ -1,13 +1,13 @@
 import { has, get } from "lodash"
 
-export const SUPPORTED_LANGUAGES = {
-  en: "en", // English
-  es: "es", // Español - Spanish
-  jp: "jp", // 日本人 - Japanese
-  kr: "kr", // 한국어 - Korean
-  pt: "pt", // Português - Portuguese
-  ru: "ru", // русский - Russian
-  zh: "zh", // 中文 - Chinese
+export enum SUPPORTED_LANGUAGES {
+  en = "en", // English
+  es = "es", // Español - Spanish
+  jp = "jp", // 日本人 - Japanese
+  kr = "kr", // 한국어 - Korean
+  pt = "pt", // Português - Portuguese
+  ru = "ru", // русский - Russian
+  zh = "zh", // 中文 - Chinese
 }
 
 export const chooseTranslation = (
