@@ -125,7 +125,7 @@
 }
 
 .link {
-  border: 1px solid white;
+  border: 1px solid currentColor;
   margin-left: 40px;
   text-decoration: none;
   text-align: center;
@@ -134,7 +134,7 @@
   display: inline-block;
   border-radius: 25px;
   font-size: 14px;
-  color: white;
+  color: currentColor;
   width: 150px;
 }
 

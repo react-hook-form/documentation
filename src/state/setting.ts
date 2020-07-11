@@ -1,3 +1,5 @@
 export default {
-  lightMode: false,
+  lightMode:
+    !window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
 }

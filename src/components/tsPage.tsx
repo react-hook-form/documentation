@@ -471,7 +471,6 @@ export default function App() {
   mutationWatcher?: MutationWatcher;
   options?: RadioOrCheckboxOption[];
 } & ValidationRules;
-}>;
 `}
             />
           </section>

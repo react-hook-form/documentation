@@ -41,6 +41,7 @@
 .copyButton {
   background: none;
   border: 1px solid transparent;
+  color: currentColor;
 }
 
 .active,
