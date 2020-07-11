@@ -31,6 +31,7 @@ import getStartedStyles from "./GetStarted.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import VideoList from "./VideoList"
+import getStarted from "../data/en/getStarted"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -55,7 +56,7 @@ interface Props {
     hash: string
   }
   defaultLang: string
-  getStarted: any
+  getStarted: typeof getStarted
 }
 
 const Faq = ({ location, defaultLang, getStarted }: Props) => {
@@ -82,23 +83,25 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
     getStarted.typeScript,
   ]
 
-  const sectionsRef = useRef({
-    quickstart: null,
-    videotutorial: null,
-    adaptingexistingform: null,
-    workwithuilibrary: null,
-    controlledinput: null,
-    integrateglobalstate: null,
-    handleerrors: null,
-    registerfields: null,
-    applyvalidation: null,
-    schemavalidation: null,
-    reactnative: null,
-    typescript: null,
-  })
+  const getRefNameFromTitle = (name) => name.replace(/ /g, "").toLowerCase()
+
+  const refsFromTitles = Object.entries(getStartedEn).reduce(
+    (acc, [, entry]) => {
+      if (typeof entry === "object" && "title" in entry) {
+        const refName = getRefNameFromTitle(entry.title)
+        if (!acc[refName]) {
+          acc[refName] = null
+        }
+      }
+
+      return acc
+    },
+    {}
+  )
+
+  const sectionsRef = useRef(refsFromTitles)
 
   const goToSection = (name) => {
-    console.log(name)
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/ /g, "")
@@ -109,7 +112,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
       history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
-    const refName = name.replace(/ /g, "").toLowerCase()
+    const refName = getRefNameFromTitle(name)
     if (sectionsRef.current[refName]) {
       sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
     }
@@ -141,7 +144,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <GetStarted
             getStarted={getStarted}
             quickStartRef={(ref) => {
-              sectionsRef.current.quickstart = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.install.title)
+              ] = ref
             }}
             currentLanguage={currentLanguage}
           />
@@ -154,7 +159,13 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             ♦
           </p>
 
-          <h2 ref={(ref) => (sectionsRef.current.videotutorial = ref)}>
+          <h2
+            ref={(ref) =>
+              (sectionsRef.current[
+                getRefNameFromTitle(getStarted.video.title)
+              ] = ref)
+            }
+          >
             {getStarted.video.title}
           </h2>
           <p>{getStarted.video.description}</p>
@@ -186,9 +197,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <h2
             className={typographyStyles.title}
-            ref={(ref) => {
-              sectionsRef.current.registerfields = ref
-            }}
+            ref={(ref) =>
+              (sectionsRef.current[
+                getRefNameFromTitle(getStarted.register.title)
+              ] = ref)
+            }
           >
             {getStarted.register.title}
           </h2>
@@ -204,9 +217,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <h2
             className={typographyStyles.title}
-            ref={(ref) => {
-              sectionsRef.current.applyvalidation = ref
-            }}
+            ref={(ref) =>
+              (sectionsRef.current[
+                getRefNameFromTitle(getStarted.applyValidation.title)
+              ] = ref)
+            }
           >
             {getStarted.applyValidation.title}
           </h2>
@@ -222,9 +237,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <h2
             className={typographyStyles.title}
-            ref={(ref) => {
-              sectionsRef.current.adaptingexistingform = ref
-            }}
+            ref={(ref) =>
+              (sectionsRef.current[
+                getRefNameFromTitle(getStarted.adapting.title)
+              ] = ref)
+            }
           >
             {getStarted.adapting.title}
           </h2>
@@ -241,7 +258,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.workwithuilibrary = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.workWithUI.title)
+              ] = ref
             }}
           >
             {getStarted.workWithUI.title}
@@ -259,7 +278,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.controlledinput = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.controlledInput.title)
+              ] = ref
             }}
           >
             {getStarted.controlledInput.title}
@@ -277,7 +298,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.integrateglobalstate = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.globalState.title)
+              ] = ref
             }}
           >
             {getStarted.globalState.title}
@@ -290,7 +313,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.handleerrors = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.errors.title)
+              ] = ref
             }}
           >
             {getStarted.errors.title}
@@ -307,7 +332,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <h2
             className={typographyStyles.title}
-            ref={(ref) => (sectionsRef.current.schemavalidation = ref)}
+            ref={(ref) => {
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.schema.title)
+              ] = ref
+            }}
           >
             {getStarted.schema.title}
           </h2>
@@ -341,7 +370,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.reactnative = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.reactNative.title)
+              ] = ref
             }}
           >
             React Native
@@ -358,7 +389,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             className={typographyStyles.title}
             ref={(ref) => {
-              sectionsRef.current.typescript = ref
+              sectionsRef.current[
+                getRefNameFromTitle(getStarted.typeScript.title)
+              ] = ref
             }}
           >
             TypeScript

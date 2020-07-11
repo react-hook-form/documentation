@@ -553,7 +553,7 @@ const { register } = useForm<FormInputs>({
                     </td>
                   </tr>
                   <tr>
-                    <td>Value remained when input unmount?</td>
+                    <td>Value remains when input unmounts?</td>
                     <td>
                       <span role="img" aria-label="unapproving-cancel">
                         ❌
@@ -567,7 +567,7 @@ const { register } = useForm<FormInputs>({
                   </tr>
                   <tr>
                     <td>
-                      Is form state gets updated? <br />
+                      Is form state updated? <br />
                       eg: <code>isValid, isDirty, touched</code>
                     </td>
                     <td>
