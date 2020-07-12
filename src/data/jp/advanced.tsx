@@ -502,6 +502,19 @@ export default {
           の最新バージョンとともにインストールしてください。
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>注意:</b> React Native
+          を使用している場合は{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          は必要ありません。
+        </p>
+
         <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
@@ -515,6 +528,20 @@ export default {
           </a>{" "}
           をインポートするために <code>setup.js</code> を作成してください。
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>注意:</b> React Native
+          を使用している場合は{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          を作成し、<code>window</code> オブジェクトを定義する必要があります。
+        </p>
+
         <CodeArea
           rawData={'import "@testing-library/jest-dom";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"

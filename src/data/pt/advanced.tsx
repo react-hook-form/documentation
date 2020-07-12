@@ -496,12 +496,39 @@ export default {
           não montado desde o DOM.
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Se você estiver usando
+          React Nativo, você não precisa instalar{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
           Criar <code>setup.js</code> para importar{" "}
           <code>mutationobserver-shim</code>.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Se você estiver usando
+          React Native, você precisa criar{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          , e definir <code>window</code> object.
+        </p>
+
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"

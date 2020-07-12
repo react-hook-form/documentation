@@ -504,6 +504,19 @@ export default {
           the DOM.
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>Note:</b> If you are using React
+          Native, you don't need to install{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+
         <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
@@ -517,6 +530,20 @@ export default {
           </a>
           .
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> If you are using React
+          Native, you need to create{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          , and define <code>window</code> object.
+        </p>
+
         <CodeArea
           rawData={'import "@testing-library/jest-dom";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"

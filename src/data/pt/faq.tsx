@@ -473,24 +473,23 @@ export default {
         </div>
       ),
     },
-    // todo: pt translation please
     {
       title:
         "Why is default value not changing correctly with ternary operator?",
       description: (
         <>
           <p>
-            React Hook Form doesn't control your entire form and inputs, which
-            is the reason why React wouldn't recognise the actual input that has
-            been exchanged or swopped. As a solution, you can resolve this
-            problem by giving a unique <code>key</code> prop to your input. You
-            can also read more about the key props from{" "}
+            React Hook Form não controla toda sua forma e insumos, o que é a
+            razão pela qual Reagir não reconheceria a real contribuição que tem
+            foram trocados ou trocados. Como solução, você pode resolver isto
+            problema ao dar um único <code>key</code> adereço a sua entrada.
+            Você também pode ler mais sobre os principais adereços de{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
             >
-              this article written by Kent C. Dodds
+              este artigo escrito por Kent C. Dodds
             </a>
             .
           </p>

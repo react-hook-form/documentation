@@ -478,12 +478,39 @@ export default {
           смонтированный из МДМ.
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Если вы используете
+          React Native, тебе не нужно устанавливать{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
           Создайте <code>setup.js</code> для импорта ".
           <code>mutationobserver-shim</code>.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Если вы используете
+          Реакцию Родной, тебе нужно создать{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          , и определять <code>window</code> object.
+        </p>
+
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"

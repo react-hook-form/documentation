@@ -442,11 +442,38 @@ export default {
           <code>MutationObserver</code>来检测输入，获得 从DOM中卸载。
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          Native，你不需要安装{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
           创建<code>setup.js</code>来导入 。<code>mutationobserver-shim</code>。
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          Native，你需要创建{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          , 并定义 <code>window</code> object.
+        </p>
+
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
