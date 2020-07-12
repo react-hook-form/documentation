@@ -232,6 +232,7 @@ export default {
                     <a
                       href="https://ko.reactjs.org/docs/uncontrolled-components.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       비제어
                     </a>{" "}
@@ -239,6 +240,7 @@ export default {
                     <a
                       href="https://ko.reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       제어
                     </a>
@@ -247,6 +249,7 @@ export default {
                     <a
                       href="https://ko.reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       제어
                     </a>
@@ -255,6 +258,7 @@ export default {
                     <a
                       href="https://ko.reactjs.org/docs/forms.html"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       제어
                     </a>
@@ -317,7 +321,11 @@ export default {
                   </td>
                   <td>
                     내장됨,{" "}
-                    <a href="https://github.com/jquense/yup" target="_blank">
+                    <a
+                      href="https://github.com/jquense/yup"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Yup
                     </a>
                     ,{" "}
@@ -340,7 +348,11 @@ export default {
                   </td>
                   <td>
                     직접 만들어야 하거나{" "}
-                    <a href="https://github.com/jquense/yup" target="_blank">
+                    <a
+                      href="https://github.com/jquense/yup"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Yup
                     </a>
                   </td>

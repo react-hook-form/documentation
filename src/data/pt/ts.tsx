@@ -46,6 +46,26 @@ export default {
       </p>
     ),
   },
+  useFormOptions: {
+    title: "UseFormOptions",
+    description: "",
+  },
+  useFieldArrayOptions: {
+    title: "UseFieldArrayOptions",
+    description: "",
+  },
+  fieldError: {
+    title: "FieldError",
+    description: "",
+  },
+  field: {
+    title: "Field",
+    description: "",
+  },
+  mode: {
+    title: "Mode",
+    description: "",
+  },
   validationRules: {
     title: "ValidationRules",
     description: "",

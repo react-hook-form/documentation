@@ -33,7 +33,7 @@ export default ({
               ▸
             </span>
             <a
-              style={{ color: "white" }}
+              style={{ color: "currentColor" }}
               href={url}
               target="_blank"
               rel="noopener noreferrer"

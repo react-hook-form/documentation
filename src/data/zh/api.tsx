@@ -348,7 +348,7 @@ export default {
         </p>
       </>
     ),
-    dirty: (
+    isDirty: (
       <>
         在用户与任何输入互动后设置为<code>true</code>。
       </>
@@ -375,7 +375,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>对象包含属于每个输入的表单错误或错误消息。</p>
       </>
@@ -568,7 +568,7 @@ export default {
           </li>
           <li>
             <p>
-              首次调用并触发表单<code>dirty</code>
+              首次调用并触发表单<code>isDirty</code>
             </p>
           </li>
         </ul>

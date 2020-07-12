@@ -22,16 +22,16 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> also has <b>optional</b> arguments. The following
-        example demonstrates all options' default value.
+        <code>useForm</code> also takes <b>optional</b> arguments. The following
+        example demonstrates all of the arguments with their default values.
       </p>
     ),
     validateCriteriaMode: (
       <ul style={{ marginLeft: 0, paddingLeft: 15 }}>
         <li>
           <p>
-            When set to <code>firstError</code> (default), only first error from
-            each field will be gathered.
+            When set to <code>firstError</code> (default), only the first error
+            from each field will be gathered.
           </p>
         </li>
         <li>
@@ -109,7 +109,7 @@ export default {
     defaultValues: (goToSection) => (
       <>
         <p>
-          You can set the input's default value with{" "}
+          You can set an input's default value with{" "}
           <code>defaultValue/defaultChecked</code>{" "}
           <a
             className={buttonStyles.links}
@@ -118,42 +118,68 @@ export default {
             (read more from the React doc for Default Values)
           </a>{" "}
           or pass <code>defaultValues</code> as an optional argument to populate
-          default values for the entire form.
+          the default values for the entire form.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached{" "}
-          <strong>at the first render</strong> within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("reset")}
-          >
-            reset
-          </button>{" "}
-          api.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> Values defined in{" "}
-          <code>defaultValues</code> will be injected into{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("watch")}
-          >
-            watch
-          </button>{" "}
-          as <code>defaultValue</code>.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b>{" "}
-          <code>defaultValues</code> doesn't auto populate with the manually
-          registered input (eg: <code>{`register({ name: 'test' })`}</code>)
-          because the custom <code>register</code> field does not provide the{" "}
-          <code>ref</code> to React Hook Form.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Important:</b>{" "}
+              <code>defaultValues</code> is cached{" "}
+              <strong>at the first render</strong> within the custom hook. If
+              you want to reset the <code>defaultValues</code>, you should use
+              the{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("reset")}
+              >
+                reset
+              </button>{" "}
+              api.
+            </p>
+          </li>
+          <li>
+            <p>
+              Values defined in <code>defaultValues</code> will be injected into{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("watch")}
+              >
+                watch
+              </button>{" "}
+              as <code>defaultValue</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              It doesn't auto populate with the manually registered input (eg:{" "}
+              <code
+                style={{
+                  whiteSpace: "nowrap",
+                }}
+              >{`register({ name: 'test' })`}</code>
+              ) because the custom <code>register</code> field does not provide
+              the <code>ref</code> to React Hook Form.
+            </p>
+          </li>
+          <li>
+            <p>
+              Its not default state for the form, to include additional form
+              values:
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Register hidden input:{" "}
+                  <code>{`<input type="hidden" ref={register} name="test" />`}</code>
+                </p>
+              </li>
+              <li>
+                <p>Combine values at onSubmit callback.</p>
+              </li>
+            </ol>
+          </li>
+        </ul>
       </>
     ),
     validationSchema: (goToSection) => (
@@ -172,8 +198,8 @@ export default {
     reValidateMode: (
       <p>
         This option allows you to configure when inputs with errors get
-        re-validated after submit (by default, validation is triggered during an
-        input change.)
+        re-validated after submit. By default, validation is only triggered
+        during an input change.
       </p>
     ),
     validationFields: (
@@ -198,19 +224,19 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> focus error input order
-          based on <code>register</code> order.
+          <b className={typographyStyles.note}>Note:</b> the focus order is
+          based on the <code>register</code> order.
         </p>
       </>
     ),
     shouldUnregister: (
       <>
         <p>
-          By default, when inputs gets removed, React Hook Form use{" "}
+          By default, when an input is removed, React Hook Form uses{" "}
           <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
-          those inputs which gets unmounted. However, you can set{" "}
-          <code>shouldUnregister</code> to <code>false</code> to prevent input
-          state from loss due to unmount.
+          the input(s) that are unmounted. However, you can set{" "}
+          <code>shouldUnregister</code> to false to maintain the input state
+          even when unmounting occurs.
         </p>
       </>
     ),
@@ -220,11 +246,11 @@ export default {
     description: (
       <>
         <p>
-          This method will allow you to <code>unregister</code> a single input
-          or an array of inputs.
+          This method allows you to <code>unregister</code> a single input or an
+          array of inputs.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> When you unregister an
+          <b className={typographyStyles.note}>Note:</b> when you unregister an
           input, its value will no longer be included in the form data that gets
           submitted.
         </p>
@@ -236,8 +262,8 @@ export default {
     description: (
       <>
         <p>
-          This method allows you to register input/select <code>Ref</code> and
-          apply validation rules into React Hook Form.
+          This method allows you to register an input/select <code>Ref</code>{" "}
+          and apply validation rules into React Hook Form.
         </p>
         <p>
           Validation rules are all based on HTML standard and also allow custom
@@ -285,8 +311,8 @@ export default {
           <p>
             You can also register inputs manually, which is useful when working
             with custom components and <code>Ref</code> is not accessible. This
-            is actually the case when you are working with React Native or
-            custom component like{" "}
+            is common when you are working with React Native or custom
+            components like{" "}
             <a
               href="https://github.com/JedWatson/react-select"
               target="_blank"
@@ -294,19 +320,19 @@ export default {
             >
               react-select
             </a>
-            . We do provide a component{" "}
+            . To make this easier, we provide a{" "}
             <button
               className={buttonStyles.codeAsLink}
               onClick={() => goToSection("Controller")}
             >
               Controller
             </button>{" "}
-            to take care this process for you.
+            component to take care this process for you.
           </p>
 
           <p>
-            By using custom register, you will need to update the input value
-            with{" "}
+            If you choose to not use <code>Controller</code> and manually
+            register fields, you will need to update the input value with{" "}
             <button
               className={buttonStyles.codeAsLink}
               onClick={() => goToSection("setValue")}
@@ -335,9 +361,10 @@ export default {
           </p>
 
           <p>
-            <b className={typographyStyles.note}>Note:</b> multiple radio inputs
-            with the same name, you want to register the validation to the last
-            input so the hook understand validate them as a group at the end.
+            <b className={typographyStyles.note}>Note:</b> If you have multiple
+            radio inputs with the same name, you need to register the validation
+            to the last input so the hook knows to validate them as a group at
+            the end.
           </p>
         </>
       ),
@@ -383,7 +410,7 @@ export default {
     ),
     isDirty: (
       <>
-        Set to <code>true</code> after the user modified any of the inputs.
+        Set to <code>true</code> after the user modifies any of the inputs.
         <p>
           <b className={typographyStyles.note}>Note:</b> File typed input will
           need to manage at app level due to the ability to cancel file
@@ -401,8 +428,8 @@ export default {
     ),
     isSubmitted: (
       <>
-        Set to <code>true</code> after the user submitted the form. Iits state
-        will remain submitted until the <code>reset</code> method is invoked.
+        Set to <code>true</code> after the form is submitted. Will remain{" "}
+        <code>true</code> until the <code>reset</code> method is invoked.
       </>
     ),
     dirtyFields: "An object with the user-modified fields.",
@@ -411,7 +438,7 @@ export default {
     isSubmitting: (
       <>
         <code>true</code> if the form is currently being submitted.{" "}
-        <code>false</code> otherwise.
+        <code>false</code> if otherwise.
       </>
     ),
     submitCount: "Number of times the form was submitted.",
@@ -423,11 +450,11 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           Object containing form errors and error messages corresponding to each
-          input.
+          field.
         </p>
       </>
     ),
@@ -439,7 +466,7 @@ export default {
           a minimum length and contain a special character.
         </p>
         <p>
-          <b className={typographyStyles.note}>Note:</b> that you need to set{" "}
+          <b className={typographyStyles.note}>Note:</b> You need to set{" "}
           <code>validateCriteriaMode</code> to <code>all</code> for this option
           to work.
         </p>
@@ -448,16 +475,27 @@ export default {
     message: `If you registered your input with an error message, then it will be put in this field, otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
     note: (goToSection) => (
-      <p>
-        <b className={typographyStyles.note}>Note:</b> You can use{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("ErrorMessage")}
-        >
-          ErrorMessage
-        </button>{" "}
-        to help handle your error states
-      </p>
+      <>
+        <p>
+          <b className={typographyStyles.note}>Important:</b> Avoid using error
+          object key names to avoid data overwrite. <br />
+          eg:{" "}
+          <code>
+            register('user'); register('user.type'); ❌ // error's type will get
+            overwritten.
+          </code>
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> You can use the{" "}
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("ErrorMessage")}
+          >
+            ErrorMessage
+          </button>{" "}
+          component to help display your error states
+        </p>
+      </>
     ),
   },
   watch: {
@@ -481,7 +519,7 @@ export default {
           <li>
             <p>
               However, if <code>defaultValues</code> was initialised in{" "}
-              <code>useForm</code> as argument, then the first render will
+              <code>useForm</code> as an argument, then the first render will
               return what's provided in <code>defaultValues</code>.
             </p>
           </li>
@@ -537,35 +575,42 @@ export default {
       <>
         <p>
           This function will reset the fields' values and errors within the
-          form. By supply <code>omitResetState</code>, you have the freedom to
-          only reset specific piece of state. You can pass <code>values</code>{" "}
-          as an optional argument to reset your form into assigned default
-          values.
+          form. By supplying <code>omitResetState</code>, you have the freedom
+          to only reset specific parts of the state. You can pass{" "}
+          <code>values</code> as an optional argument to reset your form into
+          the assigned default values.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> For controlled
-          components like <code>React-Select</code> which don't expose{" "}
-          <code>ref</code>, you will have to reset the input value manually
-          through{" "}
+          components like <code>React-Select</code> which do not expose a{" "}
+          <code>ref</code> prop, you will have to reset the input value manually
+          with{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("setValue")}
           >
             setValue
           </button>{" "}
-          or using{" "}
+          or by wrapping your comonent with{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("Controller")}
           >
             Controller
-          </button>{" "}
-          to wrap around your controlled component.
+          </button>
+          .
         </p>
         <p>
-          <b className={typographyStyles.note}>Note: </b> You will need to
-          supply <code>defaultValues</code> at <code>useForm</code> to{" "}
-          <code>reset</code> <code>Controller</code> components' value.
+          <b className={typographyStyles.note}>Note: </b> You will need to pass{" "}
+          <code>defaultValues</code> to <code>useForm</code> in order to{" "}
+          <code>reset</code> the <code>Controller</code> components' value.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note: </b> You will need to pass{" "}
+          <code>register()</code> during <code>reset</code> to re-register
+          input, or you can <code>reset</code> the form with with values. eg:{" "}
+          <code>reset({`{}`})</code>.
         </p>
       </>
     ),
@@ -584,15 +629,16 @@ export default {
           </li>
           <li>
             <p>
-              Set an error which doesn't associated with an input field and will
-              be persisted. This error must be removed manually with{" "}
+              Allows you to set an error that is not associated with an input
+              field that will be persisted until it is manually cleared with{" "}
               <code>clearError</code>.
             </p>
           </li>
           <li>
             <p>
-              It's useful during <code>handleSubmit</code> function when you
-              want to give error feedback to the users after async validation.
+              Can be useful in the <code>handleSubmit</code> method when you
+              want to give error feedback to a user after async validation. (ex:
+              API returns validation errors)
             </p>
           </li>
         </ul>
@@ -610,12 +656,12 @@ export default {
         </li>
         <li>
           <p>
-            <code>string</code>: reset single error
+            <code>string</code>: reset the error on a single field
           </p>
         </li>
         <li>
           <p>
-            <code>string[]</code>: reset multiple errors
+            <code>string[]</code>: reset errors on the given fields
           </p>
         </li>
       </ul>
@@ -626,13 +672,12 @@ export default {
     description: (
       <>
         <p>
-          This function allows you to dynamically set{" "}
+          This function allows you to dynamically set the value of a{" "}
           <strong>
             <code>registered</code>
           </strong>{" "}
-          input/select value. At the same time, it tries to avoid re-rendering
-          when it's not necessary. Only the following conditions will trigger a
-          re-render:
+          field. At the same time, it tries to avoid unnecessary re-rerenders.
+          Only the following conditions will trigger a re-render:
         </p>
         <ul>
           <li>
@@ -643,8 +688,8 @@ export default {
           </li>
           <li>
             <p>
-              When setValue is invoked for the first time and formState{" "}
-              <code>dirty</code> is set to true
+              When setValue is invoked for the first time and{" "}
+              <code>formState.dirty</code> is set to true
             </p>
           </li>
         </ul>
@@ -675,27 +720,28 @@ export default {
     description: (
       <>
         <p>
-          This function will help you to read form values. The difference
-          between <code>watch</code> is <code>getValues</code> will not trigger
-          re-render or subscribed to input changes. The functions covers:
+          An optimized helper for reading form values. The difference between{" "}
+          <code>watch</code> and <code>getValues</code> is that{" "}
+          <code>getValues</code> <i>will not</i> trigger re-renders or subscribe
+          to input changes.
         </p>
 
         <ul>
           <li>
             <p>
-              <code>getValues()</code>: Read entire form values.
+              <code>getValues()</code>: Read all form values.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues('test')</code>: Read individual input value by
+              <code>getValues('test')</code>: Read an individual field value by{" "}
               <strong>name</strong>.
             </p>
           </li>
           <li>
             <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple inputs by
-              <strong>names</strong>.
+              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
+              <strong>name</strong>.
             </p>
           </li>
         </ul>
@@ -706,7 +752,27 @@ export default {
     title: "trigger",
     description: (
       <>
-        <p>To manually trigger validation in the form.</p>
+        <p>Manually triggers form validation.</p>
+
+        <ul>
+          <li>
+            <p>
+              <code>trigger()</code>: Triggers validation on all fields.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>trigger('test')</code>: Triggers validation on a specific
+              field value by <strong>name</strong>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>trigger(['test', 'test1'])</code>: Triggers validation on
+              multiple fields by <strong>name</strong>.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -748,7 +814,13 @@ export default {
                 </td>
                 <td></td>
                 <td>
-                  <>associated field name.</>
+                  <p>
+                    Name of the field.{" "}
+                    <b className={typographyStyles.note}>Important: </b> make
+                    sure name is in object shape:{" "}
+                    <code>name={`test[index].name`}</code> as we don't support
+                    flat arrays.
+                  </p>
                 </td>
               </tr>
               <tr>
@@ -989,7 +1061,47 @@ React.useEffect(() => {
           <td></td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
-            it's optional if you are using FormContext.
+            Optional when using <code>FormContext</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>render</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Function</code>
+          </td>
+          <td></td>
+          <td>
+            This is a{" "}
+            <a
+              href="https://reactjs.org/docs/render-props.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              render prop
+            </a>
+            . A function that returns a React element and provides the ability
+            to attach events and value into the component. This simplifies
+            integrating with external controlled components with non-standard
+            prop names. Provides <code>onChange</code>, <code>onBlur</code> and{" "}
+            <code>value</code> to the child component.
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              rawData={`<Controller
+  control={control} 
+  name="test" 
+  render={({ onChange, onBlur, value }) => (
+    <Input 
+      onTextChange={onChange} 
+      onTextBlur={onBlur} 
+      textValue={value} 
+    />
+  )}
+/>
+<Controller render={props => <Input {...props} />} />`}
+            />
           </td>
         </tr>
         <tr>
@@ -1014,6 +1126,13 @@ React.useEffect(() => {
               to the Controller component directly and it will take care of
               forwarding the prop for you.
             </p>
+
+            <p>
+              <b className={typographyStyles.note}>Note:</b> The following props
+              will be passed into your component: <code>onChange</code>,{" "}
+              <code>onBlur</code>, <code>value</code>.
+            </p>
+
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
@@ -1027,46 +1146,6 @@ React.useEffect(() => {
         </tr>
         <tr>
           <td>
-            <code>render</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>Function</code>
-          </td>
-          <td></td>
-          <td>
-            This is a{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>
-            . A function that returns a React element and provide the ability to
-            attach events and value into the component. This make it easy to
-            integrate with external controlled component with non-standard props
-            name: <code>onChange</code>, <code>onBlur</code> and{" "}
-            <code>value</code>.
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
-              rawData={`<Controller
-  control={control} 
-  name="test" 
-  render(({ onChange, onBlur, value }) => (
-    <Input 
-      onTextChange={onChange} 
-      onTextBlur={onBlur} 
-      textValue={value} 
-    />
-  ))
-/>
-<Controller render={props => <Input {...props} />} />`}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>defaultValue</code>
           </td>
           <td>
@@ -1074,19 +1153,19 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            The same as uncontrolled component's <code>defaultValue</code>, when
-            supply <code>boolean</code> value, it will be treated as checkbox
-            input.
+            The same as an uncontrolled component's <code>defaultValue</code>.
+            When passing a <code>boolean</code> value, it will be treated as
+            checkbox input.
             <p>
-              <b className={typographyStyles.note}>Note:</b> you will need to
-              supply either <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>
+              <b className={typographyStyles.note}>Note:</b> You need to either
+              set <code>defaultValue</code> at the field-level or call{" "}
+              <code>useForm</code> with <code>defaultValues</code>.
             </p>
             <p>
               <b className={typographyStyles.note}>Note</b>: if your form will
               invoke <code>reset</code> with default values, you will need to
-              provide <code>defaultValues</code> at useForm level instead of set
-              inline <code>defaultValue</code>.
+              call <code>useForm</code> with <code>defaultValues</code> instead
+              of setting the <code>defaultValue</code> on individual fields.
             </p>
           </td>
         </tr>
@@ -1193,7 +1272,7 @@ React.useEffect(() => {
     description: (
       <p>
         This object is made for React Hook Form's Controller component, which
-        contains methods for registering controlled component into React Hook
+        contains methods for registering a controlled component into React Hook
         Form.
       </p>
     ),
@@ -1204,14 +1283,14 @@ React.useEffect(() => {
       <p>A simple component to render associated input's error message.</p>
     ),
     table: {
-      name: <>associated field name.</>,
+      name: <>Name of the field.</>,
       errors: (
         <>
-          <code>errors</code> object from React Hook Form. It's optional if you
-          are using <code>FormContext</code>.
+          <code>errors</code> object from React Hook Form. Optional if you are
+          using <code>FormContext</code>.
         </>
       ),
-      message: <>inline error message.</>,
+      message: <>Inline error message.</>,
       as: (
         <>
           Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
@@ -1231,7 +1310,8 @@ React.useEffect(() => {
           for rendering error message or messages.
           <p>
             <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-            validateCriteriaMode to 'all' for using <code>messages</code>.
+            <code>validateCriteriaMode</code> to 'all' for using{" "}
+            <code>messages</code>.
           </p>
         </>
       ),
@@ -1242,7 +1322,7 @@ React.useEffect(() => {
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
+          This function allows you to use any external validation library such
           as{" "}
           <a
             href="https://github.com/jquense/yup"
@@ -1267,22 +1347,21 @@ React.useEffect(() => {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
-          (schema) validation library. We would like to support many other
-          validation libraries to work with React Hook Form. You can even write
-          your custom validation logic to validate.
+          and many others. Our goal is to make sure you can seamlessly integrate
+          whichever validation library you prefer. If you're not using a
+          library, you can always write your own logic to validate your forms.
         </p>
 
         <p>
-          We support Yup, Joi and Superstruct officially as{" "}
+          At this time, we offer{" "}
           <a
             href="https://github.com/react-hook-form/react-hook-form-resolvers"
             target="_blank"
             rel="noopener noreferrer"
           >
-            standard resolvers
-          </a>
-          .
+            officially supported resolvers
+          </a>{" "}
+          for: Yup, Joi and Superstruct.
         </p>
 
         <code
@@ -1298,22 +1377,23 @@ React.useEffect(() => {
         </code>
 
         <p>
-          <b className={typographyStyles.note}>Notes</b> on building custom
+          <b className={typographyStyles.note}>Notes</b> on building a custom
           resolver:
         </p>
 
         <ul>
           <li>
             <p>
-              Make sure you are returning object which contains{" "}
-              <code>values</code> and <code>errors</code>, and their default
-              value should be <code>{`{}`}</code>.
+              Make sure you are returning an object that has <code>values</code>{" "}
+              and <code>errors</code> properties. Their default values should be{" "}
+              <code>{`{}`}</code>.
             </p>
           </li>
 
           <li>
             <p>
-              Returning errors object's key should be relevant to your inputs.
+              The keys of the <code>error</code> object should match the{" "}
+              <code>name</code> value of your fields.
             </p>
           </li>
 
@@ -1327,9 +1407,10 @@ React.useEffect(() => {
 
           <li>
             <p>
-              Re-validate input will only occur one field at time during user’s
-              interaction, the lib itself will evaluate the error object to
-              trigger re-render accordingly.
+              Re-validation of an input will only occur one field at time during
+              a user’s interaction. The lib itself will evaluate the{" "}
+              <code>error</code>
+              object to trigger a re-render accordingly.
             </p>
           </li>
         </ul>
@@ -1340,8 +1421,8 @@ React.useEffect(() => {
     title: "useWatch",
     description: (
       <p>
-        Share the same functionality as <code>watch</code> API, however, this
-        will isolate re-render at your component level and potentially result in
+        Behaves similarly to the <code>watch</code> API, however, this will
+        isolate re-rendering at the component level and potentially result in
         better performance for your application.
       </p>
     ),

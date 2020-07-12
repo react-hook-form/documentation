@@ -272,7 +272,11 @@ export default {
       <>
         <p>
           React Hook Form поддерживает валидацию формы по схеме с{" "}
-          <a href="https://github.com/jquense/yup" target="_blank">
+          <a
+            href="https://github.com/jquense/yup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Yup
           </a>
           , где вы можете передать <code>validationSchema</code> в{" "}

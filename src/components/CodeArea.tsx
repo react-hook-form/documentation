@@ -2,6 +2,7 @@ import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
+import Prism from "prismjs"
 import styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -69,6 +70,7 @@ export default function CodeArea({
       (tsRawData && ToggleTypes.ts) ||
       ToggleTypes.types
   )
+  const codeAreaRef = React.useRef<HTMLDivElement | null>(null)
 
   const getData = () => {
     switch (currentType) {
@@ -83,6 +85,15 @@ export default function CodeArea({
 
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
+
+  React.useEffect(() => {
+    const highlight = async () => {
+      if (codeAreaRef.current) {
+        Prism.highlightAllUnder(codeAreaRef.current)
+      }
+    }
+    highlight()
+  }, [])
 
   return (
     <section
@@ -144,7 +155,7 @@ export default function CodeArea({
         )}
       </div>
 
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={codeAreaRef}>
         <pre style={style} className="raw-code">
           <code
             className={`language-javascript ${

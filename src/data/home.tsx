@@ -53,8 +53,8 @@ export default {
   },
   findInteresting: {
     en: {
-      heading: "Find it useful and interesting?",
-      description: `Form validation should be much simpler. React Hook Form will lead you to less code and better performances. Check out the Get Started section and learn more on the API documentation page.`,
+      heading: "Ready to get started?",
+      description: `Form handling doesn't have to be painful. React Hook Form will help you write less code while achieving better performance.`,
     },
     es: {
       heading: "Te pareció útil e interesante?",
@@ -365,12 +365,12 @@ export default {
   },
   isolateRender: {
     en: {
-      title: "Isolate Component Re-render",
+      title: "Isolate Component Re-renders",
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which leads to
-            better performances on your page or app. The following example
+            You have the ability to isolate components re-renders which leads to
+            better performance on your page or app. The following example
             demonstrates this behaviour.
           </p>
 
@@ -448,7 +448,7 @@ export default {
       ),
     },
     zh: {
-      title: "Isolate Component Re-render",
+      title: "Isolate Component Re-renders",
       description: (
         <>
           <p>
@@ -463,11 +463,11 @@ export default {
       ),
     },
     ru: {
-      title: "Isolate Component Re-render",
+      title: "Isolate Component Re-renders",
       description: (
         <>
           <p>
-            You have the ability to isolate components re-render which lead to
+            You have the ability to isolate components re-renders which lead to
             less performance impact on your page or app. The following example
             demonstrate such behaviour.
           </p>
@@ -482,37 +482,37 @@ export default {
   },
   watcher: {
     en: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          input changes without re-rendering the entire form.
         </p>
       ),
     },
     es: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          input changes without re-rendering the entire form.
         </p>
       ),
     },
     pt: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          input changes without re-rendering the entire form.
         </p>
       ),
     },
     kr: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           퍼포먼스는 폼을 만들 때 사용자 경험에 큰 영향을 주는 요소입니다. 전체
@@ -530,22 +530,22 @@ export default {
       ),
     },
     zh: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          input changes without re-rendering the entire form.
         </p>
       ),
     },
     ru: {
-      title: "Subscribe Input Change",
+      title: "Input Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input change without re-render the entire form.
+          input changes without re-rendering the entire form.
         </p>
       ),
     },
@@ -593,8 +593,8 @@ export default {
       title: "Faster Mounting",
       description: (
         <p>
-          The following screenshots demonstrate how much components mounting is
-          faster with React Hook Form. Mounting and rendering the{" "}
+          The following screenshots demonstrate how much faster component
+          mounting is with React Hook Form. Mounting and rendering the{" "}
           <a href="#codeComparison">Library Code Comparison</a> is ~13% faster
           than Formik and ~25% faster than Redux Form.
           <span style={{ fontSize: 14, display: "block" }}>

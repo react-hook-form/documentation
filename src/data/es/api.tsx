@@ -365,7 +365,7 @@ export default {
         </p>
       </>
     ),
-    dirty:
+    isDirty:
       "Se configura un verdader luego que el usuario haya interactuado con algún input.",
     dirtyFields: "Un conjunto único de campos modificados por el usuario.",
     isSubmitted:
@@ -382,7 +382,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           Objeto que contiene los errores de formulario o los mensajes de error
@@ -597,7 +597,7 @@ export default {
           <li>
             <p>
               Cuando setValue es invocado por primera vez y formState{" "}
-              <code>dirty</code> está configurado en verdadero
+              <code>isDirty</code> está configurado en verdadero
             </p>
           </li>
         </ul>

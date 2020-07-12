@@ -18,6 +18,7 @@ import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./BuilderPage.module.css"
+import CodeArea from "./CodeArea"
 
 const { useState, useRef, useEffect } = React
 
@@ -282,7 +283,7 @@ function BuilderPage({
                 <input type="checkbox" name="required" ref={register} />
                 Required
               </label>
-              <label>Max</label>
+              <label htmlFor="max">Max</label>
               <input
                 defaultValue={editFormData.max}
                 aria-label="max"
@@ -291,7 +292,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>Min</label>
+              <label htmlFor="min">Min</label>
               <input
                 defaultValue={editFormData.min}
                 autoComplete="false"
@@ -300,7 +301,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>MaxLength</label>
+              <label htmlFor="maxLength">MaxLength</label>
               <input
                 defaultValue={editFormData.maxLength}
                 autoComplete="false"
@@ -309,7 +310,7 @@ function BuilderPage({
                 type="number"
                 ref={register}
               />
-              <label>Pattern</label>
+              <label htmlFor="pattern">Pattern</label>
               <input
                 autoComplete="false"
                 defaultValue={editFormData.pattern}
@@ -413,13 +414,7 @@ function BuilderPage({
                 {generic.copy[currentLanguage]}
               </button>
             </div>
-            <div className={styles.wrapper}>
-              <pre className="raw-code">
-                <code className={`language-javascript ${styles.showCode}`}>
-                  {generateCode(formData)}
-                </code>
-              </pre>
-            </div>
+            <CodeArea rawData={generateCode(formData)} />
           </section>
         </section>
       </div>

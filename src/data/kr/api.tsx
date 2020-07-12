@@ -415,7 +415,7 @@ export default {
   },
   errors: {
     title: "errors",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>각 인풋에 대응되는 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
       </>
