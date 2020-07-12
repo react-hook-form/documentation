@@ -478,10 +478,9 @@ export default {
           смонтированный из МДМ.
         </p>
 
-        {/* todo: translate into ru */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you don't need to install{" "}
+          <b className={typographyStyles.note}>Note:</b> Если вы используете
+          React Native, тебе не нужно устанавливать{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -499,10 +498,9 @@ export default {
           <code>mutationobserver-shim</code>.
         </p>
 
-        {/* todo: translate into ru */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
+          <b className={typographyStyles.note}>Note:</b> Если вы используете
+          Реакцию Родной, тебе нужно создать{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -510,7 +508,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , and define <code>window</code> object.
+          , и определять <code>window</code> object.
         </p>
 
         <CodeArea

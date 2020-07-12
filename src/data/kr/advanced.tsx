@@ -488,10 +488,9 @@ export default {
           되었는지 감지하기 때문입니다.
         </p>
 
-        {/* todo: translate into kr */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you don't need to install{" "}
+          <b className={typographyStyles.note}>Note:</b> React Native 사용하는
+          경우 기본, 당신은 설치할 필요가 없습니다{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -509,10 +508,9 @@ export default {
           를 가져옵니다.
         </p>
 
-        {/* todo: translate into kr */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
+          <b className={typographyStyles.note}>Note:</b> React Native 사용하는
+          경우 네이티브, 당신은 만들어야합니다
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -520,7 +518,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , and define <code>window</code> object.
+          , 정의 <code>window</code> object.
         </p>
 
         <CodeArea

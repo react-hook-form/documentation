@@ -442,10 +442,9 @@ export default {
           <code>MutationObserver</code>来检测输入，获得 从DOM中卸载。
         </p>
 
-        {/* todo: translate into zh */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you don't need to install{" "}
+          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          Native，你不需要安装{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -462,10 +461,9 @@ export default {
           创建<code>setup.js</code>来导入 。<code>mutationobserver-shim</code>。
         </p>
 
-        {/* todo: translate into zh */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
+          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          Native，你需要创建{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -473,7 +471,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , and define <code>window</code> object.
+          , 并定义 <code>window</code> object.
         </p>
 
         <CodeArea

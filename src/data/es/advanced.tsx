@@ -492,10 +492,9 @@ export default {
           entradas obtenidas desmontado del DOM.
         </p>
 
-        {/* todo: translate into es */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you don't need to install{" "}
+          <b className={typographyStyles.note}>Note:</b> Si usted está usando
+          React Nativo, no necesitas instalar{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -513,10 +512,9 @@ export default {
           <code>mutaciónobservador-shim</code>.
         </p>
 
-        {/* todo: translate into es */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
+          <b className={typographyStyles.note}>Note:</b> Si usted está usando
+          React Nativo, necesitas crear{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -524,7 +522,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , and define <code>window</code> object.
+          , y definir <code>window</code> object.
         </p>
 
         <CodeArea

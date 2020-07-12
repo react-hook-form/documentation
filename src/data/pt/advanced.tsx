@@ -496,10 +496,9 @@ export default {
           não montado desde o DOM.
         </p>
 
-        {/* todo: translate into pt */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you don't need to install{" "}
+          <b className={typographyStyles.note}>Note:</b> Se você estiver usando
+          React Nativo, você não precisa instalar{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -517,10 +516,9 @@ export default {
           <code>mutationobserver-shim</code>.
         </p>
 
-        {/* todo: translate into pt */}
         <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
+          <b className={typographyStyles.note}>Note:</b> Se você estiver usando
+          React Native, você precisa criar{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -528,7 +526,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , and define <code>window</code> object.
+          , e definir <code>window</code> object.
         </p>
 
         <CodeArea
