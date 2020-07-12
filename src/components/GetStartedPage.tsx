@@ -382,7 +382,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             width="100%"
             height="528"
             title="react hook form - React Native video tutorial"
-            src="https://www.youtube.com/watch?v=FNnSqP2rWis"
+            src="https://www.youtube.com/embed/FNnSqP2rWis"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
