@@ -440,11 +440,40 @@ export default {
           <code>MutationObserver</code>来检测输入，获得 从DOM中卸载。
         </p>
 
+        {/* todo: translate into zh */}
+        <p>
+          <b className={typographyStyles.note}>Note:</b> If you are using React
+          Native, you don't need to install{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          .
+        </p>
+
         <CodeArea rawData={"npm install -D mutationobserver-shim"} />
 
         <p>
           创建<code>setup.js</code>来导入 。<code>mutationobserver-shim</code>。
         </p>
+
+        {/* todo: translate into zh */}
+        <p>
+          <b className={typographyStyles.note}>Note:</b> If you are using React
+          Native, you need to create{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+          >
+            setup.js
+          </a>{" "}
+          , and define <code>window</code> object.
+        </p>
+
         <CodeArea
           rawData={'import "mutationobserver-shim";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
