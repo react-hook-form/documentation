@@ -591,7 +591,7 @@ export default {
           >
             setValue
           </button>{" "}
-          or by wrapping your comonent with{" "}
+          or by wrapping your component with{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("Controller")}
