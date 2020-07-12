@@ -17,7 +17,7 @@ export default {
     description: "Simple form validation with React Hook Form.",
   },
   video: {
-    title: "Video Tutorial",
+    title: "React Web Video Tutorial",
     description: `This video tutorial illustrates the basic usage and concepts of React Hook Form.`,
   },
   install: {

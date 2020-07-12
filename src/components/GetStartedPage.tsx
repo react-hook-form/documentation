@@ -378,6 +378,16 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             React Native
           </h2>
 
+          <iframe
+            width="100%"
+            height="528"
+            title="react hook form - React Native video tutorial"
+            src="https://www.youtube.com/watch?v=FNnSqP2rWis"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
           {getStarted.reactNative.description}
 
           <CodeArea
