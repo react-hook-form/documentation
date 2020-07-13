@@ -184,7 +184,7 @@ export default {
           <code>register</code> to it.
         </p>
         <p>
-          <code>{'<TextField ref={register} name="FirstName"/>'}</code>
+          <code>{'<TextField inputRef={register} name="FirstName"/>'}</code>
         </p>
         <p>
           <b className={typographyStyles.note}>Option 2:</b> Sometimes
