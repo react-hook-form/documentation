@@ -1104,7 +1104,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object, shouldFocus?: boolean = true) =&gt; void
+                (obj: object | object[], shouldFocus?: boolean = true) =&gt;
+                void
               </code>
             </code>
           </td>
@@ -1117,7 +1118,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object, shouldFocus?: boolean = true) =&gt; void
+                (obj: object | object[], shouldFocus?: boolean = true) =&gt;
+                void
               </code>
             </code>
           </td>
