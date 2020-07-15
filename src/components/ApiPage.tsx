@@ -1017,7 +1017,7 @@ const { register } = useForm<FormInputs>({
             <button
               className={buttonStyles.primaryButton}
               onClick={() => {
-                navigate(translateLink("advanced-usage", currentLanguage))
+                navigate(translateLink("/advanced-usage", currentLanguage))
               }}
               style={{ margin: "40px auto" }}
             >
