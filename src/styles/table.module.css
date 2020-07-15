@@ -8,8 +8,11 @@
   line-height: 1.4;
 }
 
-.table td > p:first-child {
-  margin-top: 0;
+.table td > h5:first-child,
+.table td > p:first-child,
+.table td > ul:first-child,
+.table td > ul li:first-child > p {
+  margin-top: 0 !important;
 }
 
 .table td > p:last-child {
