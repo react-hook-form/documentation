@@ -689,7 +689,7 @@ export default {
           <li>
             <p>
               When setValue is invoked for the first time and{" "}
-              <code>formState.dirty</code> is set to true
+              <code>formState.isDirty</code> is set to true
             </p>
           </li>
         </ul>
