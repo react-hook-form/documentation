@@ -163,8 +163,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     ControllerRef: null,
     ErrorMessageRef: null,
     useFormContextRef: null,
-    useFieldArrayRef: null,
     useWatchRef: null,
+    useFieldArrayRef: null,
   })
   copyFormData.current = formData
 
@@ -207,34 +207,26 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     if (isUnmount.current) return
     try {
       const observer = new IntersectionObserver(
-        (entries) => {
-          let index = 0
-          const allTops = []
-          entries.forEach(() => {
-            try {
-              for (const key in apiSectionsRef.current) {
-                const { top } = apiSectionsRef.current[
-                  key
-                ].getBoundingClientRect()
-                allTops.push(top)
-                index++
+        () => {
+          const allTops = Object.keys(apiSectionsRef.current).reduce(
+            (acc, cur) => {
+              if (apiSectionsRef.current[cur]) {
+                acc.push(
+                  apiSectionsRef.current[cur].getBoundingClientRect().top
+                )
               }
-            } catch {}
-          })
+              return acc
+            },
+            []
+          )
 
-          index = 0
-          let foundIndex = 0
-          let temp
-
-          for (const top of allTops) {
-            if (temp === undefined || Math.abs(top) < Math.abs(temp)) {
-              temp = top
-              foundIndex = index
-            }
-            index++
-          }
-
-          setActiveIndex(foundIndex)
+          const smallestAbsoluteTop = Math.min(
+            ...allTops.map((top) => Math.abs(top))
+          )
+          const smallestAbsoluteTopIndex = allTops.findIndex(
+            (top) => Math.abs(top) === smallestAbsoluteTop
+          )
+          setActiveIndex(smallestAbsoluteTopIndex)
         },
         {
           rootMargin: "100px",
