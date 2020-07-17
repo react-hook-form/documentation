@@ -377,7 +377,8 @@ export default function App() {
             ref={register}
             options={[
               { label: "Female", value: "female" },
-              { label: "Male", value: "male" }
+              { label: "Male", value: "male" },
+              { label: "Other", value: "other" }
             ]}
           />
           <Input type="submit" />

@@ -8,7 +8,7 @@ export default function App() {
     <Form onSubmit={onSubmit}>
       <Input name="firstName" />
       <Input name="lastName" />
-      <Select name="sex" options={["female", "male"]} />
+      <Select name="gender" options={["female", "male", "other"]} />
 
       <Input type="submit" value="Submit" />
     </Form>

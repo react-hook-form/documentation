@@ -9,8 +9,9 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" ref={register} />
       <select name="gender" ref={register}>
-        <option value="male">male</option>
         <option value="female">female</option>
+        <option value="male">male</option>
+        <option value="other">other</option>
       </select>
       <input type="submit" />
     </form>
@@ -21,10 +22,10 @@ export const registerCodeTs = `import React from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 
-// There are two genders here, but there can be many more!
 enum GenderEnum {
+  female = "female",
   male = "male",
-  female = "female"
+  other = "other"
 }
 
 interface IFormInput {
@@ -45,8 +46,9 @@ export default function App() {
       <input name="firstName" ref={register} />
       <label>Gender Selection</label>
       <select name="gender" ref={register}>
-        <option value="male">male</option>
         <option value="female">female</option>
+        <option value="male">male</option>
+        <option value="other">other</option>
       </select>
       <input type="submit" />
     </form>
