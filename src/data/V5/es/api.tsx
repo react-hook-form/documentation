@@ -268,7 +268,7 @@ export default {
         un nombre de input como <code>name[index]</code>.{" "}
         <a
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/main/examples/FieldArray.tsx"
           title="Ejemplo de Field Array"
         >
           Consulta el ejemplo de Field Array

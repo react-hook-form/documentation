@@ -258,7 +258,7 @@ export default {
         <code>name[index]</code> 형태로 지정할 수 있습니다.
         <a
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/main/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           여기서 배열 필드 예제를 확인하세요

@@ -263,7 +263,7 @@ export default {
         assinar um campo name com <code>name[index]</code>.{" "}
         <a
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/main/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           Confira o exemplo com campo Matriz(Array)

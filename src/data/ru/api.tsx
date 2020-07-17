@@ -249,7 +249,7 @@ export default {
         задать имя поля как <code>name[index]</code>.{" "}
         <a
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/main/examples/FieldArray.tsx"
           title="пример массива полей"
         >
           Посмотреть пример с массивом полей

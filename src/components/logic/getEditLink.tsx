@@ -1,5 +1,5 @@
 const preFix =
-  "https://github.com/react-hook-form/documentation/edit/master/src/data/"
+  "https://github.com/react-hook-form/documentation/edit/main/src/data/"
 
 export const getEditLink = (
   currentLanguage: string,

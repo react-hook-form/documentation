@@ -535,7 +535,7 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+            href="https://github.com/react-hook-form/react-hook-form/blob/main/setup.native.ts"
           >
             setup.js
           </a>{" "}

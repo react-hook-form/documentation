@@ -266,7 +266,7 @@ export default {
         <code>name[index]</code> のように割り当てることができます。
         <a
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          href="https://github.com/react-hook-form/react-hook-form/blob/main/examples/FieldArray.tsx"
           title="example for Field Array"
         >
           フィールド配列の例をご覧ください
