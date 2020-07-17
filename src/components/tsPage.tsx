@@ -18,6 +18,7 @@ const enLinks = [
   TS.en.useFieldArrayOptions,
   TS.en.fieldError,
   TS.en.field,
+  TS.en.arrayField,
   TS.en.mode,
   TS.en.validationRules,
 ]
@@ -37,6 +38,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     UseFieldArrayOptionsRef: null,
     FieldErrorRef: null,
     FieldRef: null,
+    ArrayFieldRef: null,
     ModeRef: null,
   })
   const { currentLanguage } =
@@ -399,7 +401,7 @@ export default function App() {
             {TS[currentLanguage].useFormOptions.description}
 
             <CodeArea
-              rawData={`type UseFormOptions<
+              rawData={`export type UseFormOptions<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object
 > = Partial<{
@@ -447,7 +449,7 @@ export default function App() {
             {TS[currentLanguage].fieldError.description}
 
             <CodeArea
-              rawData={`type FieldError = {
+              rawData={`export type FieldError = {
   type: string;
   ref?: Ref;
   types?: MultipleFieldErrors;
@@ -466,11 +468,28 @@ export default function App() {
             {TS[currentLanguage].field.description}
 
             <CodeArea
-              rawData={`type Field = {
+              rawData={`export type Field = {
   ref: Ref;
   mutationWatcher?: MutationWatcher;
   options?: RadioOrCheckboxOption[];
 } & ValidationRules;
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (tsSectionsRef.current.ArrayFieldRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].arrayField.title}</h2>
+            </code>
+            {TS[currentLanguage].arrayField.description}
+
+            <CodeArea
+              rawData={`export type ArrayField<
+  TFieldArrayValues extends FieldValues = FieldValues,
+  TKeyName extends string = 'id'
+> = TFieldArrayValues & Record<TKeyName, string>;
 `}
             />
           </section>
@@ -484,7 +503,7 @@ export default function App() {
             {TS[currentLanguage].mode.description}
 
             <CodeArea
-              rawData={`type Mode = {
+              rawData={`export type Mode = {
   onBlur: 'onBlur';
   onChange: 'onChange';
   onSubmit: 'onSubmit';
@@ -504,7 +523,7 @@ export default function App() {
             {TS[currentLanguage].validationRules.description}
 
             <CodeArea
-              rawData={`type ValidationRules = Partial<{
+              rawData={`export type ValidationRules = Partial<{
   required: Message | ValidationRule<boolean>;
   min: ValidationRule<number | string>;
   max: ValidationRule<number | string>;
