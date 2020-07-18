@@ -374,7 +374,7 @@ const { register } = useForm({
   defaultValues: {},
   resolver: undefined,
   context: undefined,
-  criteriaMode: "firstErrorDetected",
+  criteriaMode: "firstError",
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
@@ -390,7 +390,7 @@ const { register } = useForm<FormInputs>({
   defaultValues: {},
   resolver: undefined,
   context: undefined,
-  criteriaMode: "firstErrorDetected",
+  criteriaMode: "firstError",
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
