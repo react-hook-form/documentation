@@ -1088,15 +1088,15 @@ React.useEffect(() => {
             <code>value</code> to the child component.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller
   control={control} 
   name="test" 
   render={({ onChange, onBlur, value }) => (
-    <Input 
-      onTextChange={onChange} 
-      onTextBlur={onBlur} 
-      textValue={value} 
+    <Checkbox
+      onBlur={onBlur}
+      onChange={e => props.onChange(e.target.checked)}
+      checked={value}
     />
   )}
 />
