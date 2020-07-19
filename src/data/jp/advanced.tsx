@@ -303,7 +303,7 @@ export default {
           アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
           <PageLink to="/api#Controller">Controller</PageLink> を使用した
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
+            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
             target="_blank"
             rel="noreferrer noopener"
           >

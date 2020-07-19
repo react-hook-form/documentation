@@ -270,7 +270,7 @@ export default {
           <b className={typographyStyles.note}>注意:</b>
           如果您的应用程序需要功能，例如：删除，插入，追加，前置。 这里是这种
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
+            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
             target="_blank"
             rel="noreferrer noopener"
           >

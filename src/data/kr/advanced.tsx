@@ -293,7 +293,7 @@ export default {
           한다면 <PageLink to="/api#Controller">Controller</PageLink> 로
           만들어진{" "}
           <a
-            href="https://codesandbox.io/s/react-hook-form-field-array-advanced-with-delete-insert-append-edit-gvgg4"
+            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
             target="_blank"
             rel="noreferrer noopener"
           >
