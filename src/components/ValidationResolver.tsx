@@ -17,7 +17,7 @@ export default function ({ api }) {
         <code>
           resolver:{" "}
           <span className={typographyStyles.typeText}>
-            {`(values: any, context?: object) => { values: object, errors: object }`}
+            {`(values: any, context?: object) => Promise<{ values: object, errors: object }>`}
           </span>
         </code>
       </h5>
