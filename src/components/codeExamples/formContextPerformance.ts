@@ -22,6 +22,7 @@ export const NestedInputContainer = ({ children }) => {
 export default function App() {
   const methods = useForm();
   const onSubmit = data => console.log(data);
+  console.log(methods.formState.isDirty); // make sure formState is read before render to enable the Proxy
 
   return (
     <FormProvider {...methods}>

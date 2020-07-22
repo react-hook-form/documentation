@@ -251,7 +251,10 @@ function Advanced({ defaultLang, advanced }: Props) {
 
           {advanced.formContext.description}
 
-          <CodeArea rawData={formContextPerformance} />
+          <CodeArea
+            url="https://codesandbox.io/s/provider-perf-25m85"
+            rawData={formContextPerformance}
+          />
 
           <hr />
 
