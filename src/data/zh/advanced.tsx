@@ -359,8 +359,8 @@ export default {
       </p>
     ),
   },
-  customHookWithValidationResolver: {
-    title: "Custom Hook with Validation Resolver",
+  customHookwithResolver: {
+    title: "带有验证解析器的自定义挂钩",
     description: (
       <>
         <p>
@@ -380,7 +380,7 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "使用虚拟列表",
     description: (
       <>
         <p>
@@ -411,7 +411,7 @@ export default {
     ),
   },
   testingForm: {
-    title: "Testing Form",
+    title: "测试表格",
     description: (
       <>
         <p>

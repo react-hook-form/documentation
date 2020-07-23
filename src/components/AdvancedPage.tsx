@@ -29,7 +29,7 @@ const enLinks = [
   advancedEn.formContext,
   advancedEn.conditionalControlledComponent,
   advancedEn.controlledMixedWithUnControlled,
-  advancedEn.customHookWithValidationResolver,
+  advancedEn.customHookwithResolver,
   advancedEn.workingWithVirtualizedList,
   advancedEn.testingForm,
 ]
@@ -50,7 +50,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     ErrorMessages: null,
     ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
-    CustomHookwithValidationResolver: null,
+    CustomHookwithResolver: null,
     Workingwithvirtualizedlists: null,
     TestingForm: null,
   })
@@ -73,7 +73,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.formContext,
     advanced.conditionalControlledComponent,
     advanced.controlledMixedWithUnControlled,
-    advanced.customHookWithValidationResolver,
+    advanced.customHookwithResolver,
     advanced.workingWithVirtualizedList,
     advanced.testingForm,
   ]
@@ -82,6 +82,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/[^\w\s]| /g, "")
+    console.log({ name, filterName, hashIndex, pageContentRef })
 
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
@@ -306,14 +307,12 @@ function Advanced({ defaultLang, advanced }: Props) {
 
           <h2
             className={typographyStyles.questionTitle}
-            ref={(ref) =>
-              (pageContentRef.current.CustomHookwithValidationResolver = ref)
-            }
+            ref={(ref) => (pageContentRef.current.CustomHookwithResolver = ref)}
           >
-            {advanced.customHookWithValidationResolver.title}
+            {advanced.customHookwithResolver.title}
           </h2>
 
-          {advanced.customHookWithValidationResolver.description}
+          {advanced.customHookwithResolver.description}
 
           <hr />
 
