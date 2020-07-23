@@ -925,6 +925,13 @@ React.useEffect(() => {
               validation.
             </p>
           </li>
+          <li>
+            <p>
+              When <code>watch</code> the entire Field Array, it's important to
+              supply a default value with <code>fields</code> to avoid empty
+              values gets returned. eg: <code>watch('fieldArray', fields)</code>
+            </p>
+          </li>
         </ul>
       </>
     ),
