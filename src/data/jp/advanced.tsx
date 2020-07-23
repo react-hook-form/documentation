@@ -399,7 +399,7 @@ export default {
       </p>
     ),
   },
-  customHookWithValidationResolver: {
+  customHookwithResolver: {
     title: "バリデーションリゾルバーを使ったカスタムフック",
     description: (
       <>

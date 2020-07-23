@@ -397,7 +397,7 @@ export default {
       </p>
     ),
   },
-  customHookWithValidationResolver: {
+  customHookwithResolver: {
     title: "Custom Hook with Resolver",
     description: (
       <>

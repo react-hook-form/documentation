@@ -389,7 +389,7 @@ export default {
       </p>
     ),
   },
-  customHookWithValidationResolver: {
+  customHookwithResolver: {
     title: "Validation Resolver 를 커스텀 훅으로 정의하기",
     description: (
       <>
