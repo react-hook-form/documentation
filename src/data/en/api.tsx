@@ -284,7 +284,7 @@ export default {
           borderLeft: `4px solid ${colors.lightPink}`,
         }}
       >
-        If you working on simple <code>Array Fields</code>, you can assign an
+        If you're working on simple <code>Array Fields</code>, you can assign an
         input name as <code>name[index]</code>.{" "}
         <a
           className={buttonStyles.links}
