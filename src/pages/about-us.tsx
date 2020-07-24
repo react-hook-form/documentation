@@ -16,7 +16,7 @@ const data = [
     interests: [],
   },
   {
-    name: "Kotaro Sugawara",
+    name: "Keiya Sasaki",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
     url: "",
