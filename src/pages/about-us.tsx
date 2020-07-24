@@ -11,7 +11,7 @@ const data = [
     name: "Kotaro Sugawara",
     imgUrl:
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
-    url: "",
+    url: "https://github.com/kotarella1110",
     bio: "xxx",
     interests: [],
   },
@@ -19,7 +19,7 @@ const data = [
     name: "Keiya Sasaki",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
-    url: "",
+    url: "https://github.com/keiya01",
     bio: "xxx",
     interests: [],
   },
@@ -43,7 +43,7 @@ const data = [
     name: "Beier(Bill) Luo",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
-    url: "",
+    url: "https://github.com/bluebill1049",
 	bio: "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars"],
   },
