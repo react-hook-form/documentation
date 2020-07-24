@@ -59,8 +59,7 @@ export default ({ location }) => {
             Who we are?
           </h1>
           <p className={typographyStyles.subHeading}>
-            Passionated engineers who wants to contribute and help many others
-            in the community.
+Passionate engineers who want to contribute to the community and help others.
           </p>
 
           <ul
