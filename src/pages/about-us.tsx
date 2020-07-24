@@ -13,6 +13,7 @@ const data = [
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
     url: "",
     bio: "xxx",
+    interests: [],
   },
   {
     name: "Kotaro Sugawara",
@@ -20,6 +21,7 @@ const data = [
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
     url: "",
     bio: "xxx",
+    interests: [],
   },
   {
     name: "Phillip ED Maier",
@@ -27,6 +29,7 @@ const data = [
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
     url: "",
     bio: "xxx",
+    interests: [],
   },
   {
     name: "Jerome De Leon",
@@ -41,6 +44,7 @@ const data = [
     url: "",
     bio:
       "I started my career as a Designer/Developer, and I am always passionate about building stuff since I was little. Building open source projects is become my hobbit and interests to help thousands of developers around the world. It's a dream come true.",
+    interests: ["🎮 games", "🚗 cars"],
   },
 ]
 
