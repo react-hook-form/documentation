@@ -102,8 +102,7 @@ export default {
     validationOnAll: (
       <>
         Validation will trigger on the <code>blur</code> and <code>change</code>{" "}
-        events. Warning: as with the <code>onChange</code> mode,{" "}
-        <code>all</code> can have a significant impact on performance.
+        events.
       </>
     ),
     defaultValues: (goToSection) => (
