@@ -58,6 +58,14 @@ p.author {
   -webkit-box-orient: vertical;
 }
 
+.name {
+  font-weight: 600;
+}
+
+.contentList img {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   .contentList {
     display: grid;

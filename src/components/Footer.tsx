@@ -56,6 +56,9 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
             {nav[currentLanguage].resources}
           </Link>
         </li>
+        <li>
+          <Link to="/about-us">About us</Link>
+        </li>
       </ul>
       <p>
         Design and Build by{" "}
