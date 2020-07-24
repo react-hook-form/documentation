@@ -27,9 +27,9 @@ const data = [
     name: "Phillip ED Maier",
     imgUrl:
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
-    url: "",
-    bio: "xxx",
-    interests: [],
+	url: "https://phillip-maier.com/",
+    bio: "A Software Engineer with a passion for helping others 😄.",
+    interests: ["🚣 rowing", "🌳 growing trees", "🎿 skiing"],
   },
   {
     name: "Jerome De Leon",
