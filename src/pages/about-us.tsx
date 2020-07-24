@@ -44,8 +44,7 @@ const data = [
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
     url: "",
-    bio:
-      "I started my career as a Designer/Developer, and I am always passionate about building stuff since I was little. Building open source projects is become my hobbit and interests to help thousands of developers around the world. It's a dream come true.",
+	bio: "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars"],
   },
 ]
