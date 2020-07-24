@@ -34,7 +34,7 @@ const data = [
   {
     name: "Jerome De Leon",
     imgUrl: "https://avatars3.githubusercontent.com/u/32805276?s=460&v=4",
-    url: "",
+    url: "https://github.com/JeromeDeLeon",
     bio:
       "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
     interests: ["🎮 games", "💻 source code", "🍛 foods"],
