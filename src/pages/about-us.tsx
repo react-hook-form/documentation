@@ -37,7 +37,7 @@ const data = [
     url: "https://github.com/JeromeDeLeon",
     bio:
       "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
-    interests: ["🎮 games", "💻 source code", "🍛 foods"],
+    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
   },
   {
     name: "Beier(Bill) Luo",
