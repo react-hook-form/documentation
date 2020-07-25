@@ -22,7 +22,7 @@ const data = [
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
     url: "https://github.com/keiya01",
     bio:
-      "I am developer who loves Front-End. I want to deliver the best UX for users all over the world.",
+      "I am a developer who loves Front-End. I want to deliver the best UX for users all over the world.",
     interests: ["📕 manga", "📺 anime", "♨️ onsen"],
   },
   {
