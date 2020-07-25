@@ -20,14 +20,15 @@ const data = [
     imgUrl:
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
     url: "https://github.com/keiya01",
-    bio: "xxx",
-    interests: [],
+    bio:
+      "I am developer who loves Front-End. I want to deliver the best UX for users all over the world.",
+    interests: ["📕 manga", "📺 anime", "♨️ onsen"],
   },
   {
     name: "Phillip ED Maier",
     imgUrl:
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
-	url: "https://phillip-maier.com/",
+    url: "https://phillip-maier.com/",
     bio: "A Software Engineer with a passion for helping others 😄.",
     interests: ["🚣 rowing", "🌳 growing trees", "🎿 skiing"],
   },
@@ -44,7 +45,8 @@ const data = [
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
     url: "https://github.com/bluebill1049",
-	bio: "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
+    bio:
+      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars"],
   },
 ]
@@ -59,7 +61,8 @@ export default ({ location }) => {
             Who we are?
           </h1>
           <p className={typographyStyles.subHeading}>
-Passionate engineers who want to contribute to the community and help others.
+            Passionate engineers who want to contribute to the community and
+            help others.
           </p>
 
           <ul
