@@ -72,7 +72,7 @@ export default ({ location }) => {
             }}
           >
             {data.map(({ url, imgUrl, name, bio }) => (
-              <li>
+              <li key={imgUrl}>
                 <section>
                   <a
                     href={url}
@@ -81,7 +81,7 @@ export default ({ location }) => {
                       display: "block",
                     }}
                   >
-                    <img src={imgUrl} />
+                    <img src={imgUrl} alt="avatar" />
                   </a>
                   <p className={styles.name}>{name}</p>
                   <p>{bio}</p>
