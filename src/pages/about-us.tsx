@@ -41,6 +41,21 @@ const data = [
     interests: ["🎮 games", "💻 source codes", "🍛 foods"],
   },
   {
+    name: "Dohyung Ahn",
+    imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
+    url: "https://github.com/adhrinae",
+    bio: "",
+    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+  },
+  {
+    name: "Michael Stramel",
+    imgUrl:
+      "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
+    url: "https://github.com/JeromeDeLeon",
+    bio: "",
+    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+  },
+  {
     name: "Beier(Bill) Luo",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
