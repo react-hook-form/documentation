@@ -74,7 +74,7 @@ export default ({ location }) => {
       <div className={containerStyle.container}>
         <main className={styles.root}>
           <h1 className={typographyStyles.headingWithTopMargin} id="main">
-            Who we are?
+            About Us
           </h1>
           <p className={typographyStyles.subHeading}>
             Passionate engineers who want to contribute to the community and
