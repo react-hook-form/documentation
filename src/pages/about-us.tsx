@@ -78,7 +78,7 @@ export default ({ location }) => {
           </h1>
           <p className={typographyStyles.subHeading}>
             Passionate engineers who want to contribute to the community and
-            help others.
+            help developers around the world.
           </p>
 
           <ul
