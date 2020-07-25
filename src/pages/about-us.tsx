@@ -1,10 +1,11 @@
 import * as React from "react"
+import { AnimateKeyframes, Animate } from "react-simple-animate"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
+import Footer from "../components/Footer"
 import containerStyle from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "../components/ResourcePage.module.css"
-import Footer from "../components/Footer"
 
 const data = [
   {
@@ -25,14 +26,6 @@ const data = [
     interests: ["📕 manga", "📺 anime", "♨️ onsen"],
   },
   {
-    name: "Phillip ED Maier",
-    imgUrl:
-      "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
-    url: "https://phillip-maier.com/",
-    bio: "A Software Engineer with a passion for helping others 😄.",
-    interests: ["🚣 rowing", "🌳 growing trees", "🎿 skiing"],
-  },
-  {
     name: "Jerome De Leon",
     imgUrl: "https://avatars3.githubusercontent.com/u/32805276?s=460&v=4",
     url: "https://github.com/JeromeDeLeon",
@@ -41,17 +34,25 @@ const data = [
     interests: ["🎮 games", "💻 source codes", "🍛 foods"],
   },
   {
-    name: "Dohyung Ahn",
-    imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
-    url: "https://github.com/adhrinae",
-    bio: "",
-    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+    name: "Phillip ED Maier",
+    imgUrl:
+      "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
+    url: "https://phillip-maier.com/",
+    bio: "A Software Engineer with a passion for helping others 😄.",
+    interests: ["🚣 rowing", "🌳 growing trees", "🎿 skiing"],
   },
   {
     name: "Michael Stramel",
     imgUrl:
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
     url: "https://github.com/JeromeDeLeon",
+    bio: "",
+    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+  },
+  {
+    name: "Dohyung Ahn",
+    imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
+    url: "https://github.com/adhrinae",
     bio: "",
     interests: ["🎮 games", "💻 source codes", "🍛 foods"],
   },
@@ -86,20 +87,71 @@ export default ({ location }) => {
               marginTop: 50,
             }}
           >
-            {data.map(({ url, imgUrl, name, bio }) => (
+            {data.map(({ url, imgUrl, name, bio }, i) => (
               <li key={imgUrl}>
+                <AnimateKeyframes
+                  play
+                  keyframes={[
+                    {
+                      transform: "translateY(0px)",
+                    },
+                    {
+                      transform: "translateY(70%)",
+                      opacity: 0.7,
+                    },
+                    {
+                      transform: "translateY(50%)",
+                      opacity: 0,
+                    },
+                  ]}
+                  easeType="ease-out"
+                  duration={1}
+                  fillMode={"both"}
+                  delay={0.3 * i + 0.4}
+                  render={({ style }) => {
+                    return (
+                      <svg
+                        style={style}
+                        viewBox="0 0 100 100"
+                        width="100%"
+                        height="100%"
+                        preserveAspectRatio="none"
+                      >
+                        <path d="M0,0 100,0 100,100 0,100" />
+                      </svg>
+                    )
+                  }}
+                />
                 <section>
-                  <a
-                    href={url}
-                    style={{
-                      position: "relative",
-                      display: "block",
+                  <Animate
+                    play
+                    start={{
+                      transform: "translateY(200px)",
                     }}
-                  >
-                    <img src={imgUrl} alt="avatar" />
-                  </a>
-                  <p className={styles.name}>{name}</p>
-                  <p>{bio}</p>
+                    end={{
+                      transform: "translateY(0px)",
+                    }}
+                    easeType="ease-in"
+                    duration={0.5}
+                    delay={0.3 * i + 0.4}
+                    render={({ style }) => {
+                      return (
+                        <div style={style}>
+                          <a
+                            href={url}
+                            style={{
+                              position: "relative",
+                              display: "block",
+                            }}
+                          >
+                            <img src={imgUrl} alt="avatar" />
+                          </a>
+                          <p className={styles.name}>{name}</p>
+                          <p>{bio}</p>
+                        </div>
+                      )
+                    }}
+                  />
                 </section>
               </li>
             ))}

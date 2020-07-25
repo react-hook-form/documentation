@@ -66,6 +66,19 @@ p.author {
   width: 100%;
 }
 
+.contentList li {
+  position: relative;
+  overflow: hidden;
+}
+
+.contentList svg {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  fill: #091129;
+}
+
 @media (min-width: 768px) {
   .contentList {
     display: grid;
