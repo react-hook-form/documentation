@@ -63,12 +63,14 @@ p.author {
 }
 
 .contentList img {
-  transition: 0.3s all;
+  transition: 0.3s all ease-in;
   width: 100%;
 }
 
 .contentList img:hover {
-  opacity: 0.7;
+  transition: 0.3s all ease-out;
+  opacity: 0.8;
+  border: 13px solid var(--color-light-blue);
 }
 
 .contentList li {
