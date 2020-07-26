@@ -55,8 +55,8 @@ const data = [
     imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
     url: "https://github.com/adhrinae",
     bio:
-      "I am a Software Engineer (mostly frontend) who loves open source and their community. He likes translating documentation of open source projects and useful dev articles in Korean.",
-    interests: ["🎮 games", "💻 code", "🍛 foods"],
+      "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
+    interests: ["🎮 games", "💻 code", "🎹 piano"],
   },
   {
     name: "Beier(Bill) Luo",
