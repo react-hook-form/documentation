@@ -141,6 +141,8 @@ export default ({ location }) => {
                         <div style={style}>
                           <a
                             href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             style={{
                               position: "relative",
                               display: "block",
