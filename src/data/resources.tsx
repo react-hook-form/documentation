@@ -248,6 +248,30 @@ export default {
       ),
     },
     {
+      title: "Flexible Forms with React Hook Form",
+      url: "https://www.youtube.com/watch?v=hHXzchWLoqw",
+      authorUrl: "https://www.youtube.com/user/jherr2006",
+      author: "Jack Herrington",
+      description: (
+        <p>
+          Learn about how to make forms with flexible sections, and also to use
+          Module Federation to load in those form sections via dependency
+          injection.
+        </p>
+      ),
+    },
+    {
+      title: "Expando Forms in React Hook Form",
+      url: "https://www.youtube.com/watch?v=kh27J3nI_oY",
+      authorUrl: "https://www.youtube.com/user/jherr2006",
+      author: "Jack Herrington",
+      description: (
+        <p>
+          Learn how to make forms that expand to add new sections dynamically.
+        </p>
+      ),
+    },
+    {
       title: "The best way to create forms in React",
       url: "https://www.youtube.com/watch?v=bU_eq8qyjic&t=38s",
       authorUrl: "https://www.youtube.com/user/satansdeer1",
@@ -396,6 +420,14 @@ export default {
       authorUrl: "https://www.youtube.com/user/satansdeer1",
       author: "Maksim Ivanov",
       description: "How to implement dependent fields using react hook form.",
+    },
+    {
+      title: "Multi Step Wizard Form Using React Hook Form and Redux Toolkit",
+      url: "https://www.youtube.com/watch?v=evDxlqnsxXc",
+      authorUrl: "https://www.youtube.com/user/satansdeer1",
+      author: "Maksim Ivanov",
+      description:
+        "We'll use Redux Toolkit and React Hook Form to create a multi step react form to order pizza.",
     },
     {
       title: "Form validation with Next.js/React part 2",
