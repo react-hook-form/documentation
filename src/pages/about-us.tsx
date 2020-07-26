@@ -13,8 +13,9 @@ const data = [
     imgUrl:
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
     url: "https://github.com/kotarella1110",
-    bio: "xxx",
-    interests: [],
+    bio:
+      "I am a developer who loves Front-End. I want to deliver the best UX for users all over the world.",
+    interests: ["📕 manga", "📺 anime", "♨️ onsen"],
   },
   {
     name: "Keiya Sasaki",
@@ -31,7 +32,7 @@ const data = [
     url: "https://github.com/JeromeDeLeon",
     bio:
       "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
-    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+    interests: ["🎮 games", "💻 code", "🍛 foods"],
   },
   {
     name: "Phillip ED Maier",
@@ -39,7 +40,7 @@ const data = [
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
     url: "https://phillip-maier.com/",
     bio: "A Software Engineer with a passion for helping others 😄.",
-    interests: ["🚣 rowing", "🌳 growing trees", "🎿 skiing"],
+    interests: ["🚣 rowing", "🌳 trees", "🎿 skiing"],
   },
   {
     name: "Michael Stramel",
@@ -47,14 +48,14 @@ const data = [
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
     url: "https://github.com/JeromeDeLeon",
     bio: "",
-    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+    interests: ["🎮 games", "💻 source", "🍛 foods"],
   },
   {
     name: "Dohyung Ahn",
     imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
     url: "https://github.com/adhrinae",
     bio: "",
-    interests: ["🎮 games", "💻 source codes", "🍛 foods"],
+    interests: ["🎮 games", "💻 code", "🍛 foods"],
   },
   {
     name: "Beier(Bill) Luo",
@@ -63,7 +64,7 @@ const data = [
     url: "https://github.com/bluebill1049",
     bio:
       "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
-    interests: ["🎮 games", "🚗 cars"],
+    interests: ["🎮 games", "🚗 cars", "🐟 fish"],
   },
 ]
 
@@ -87,7 +88,7 @@ export default ({ location }) => {
               marginTop: 50,
             }}
           >
-            {data.map(({ url, imgUrl, name, bio }, i) => (
+            {data.map(({ url, imgUrl, name, bio, interests }, i) => (
               <li key={imgUrl}>
                 <AnimateKeyframes
                   play
@@ -96,8 +97,8 @@ export default ({ location }) => {
                       transform: "translateY(0px)",
                     },
                     {
-                      transform: "translateY(70%)",
-                      opacity: 0.7,
+                      transform: "translateY(50%)",
+                      opacity: 0.8,
                     },
                     {
                       transform: "translateY(50%)",
@@ -147,6 +148,15 @@ export default ({ location }) => {
                             <img src={imgUrl} alt="avatar" />
                           </a>
                           <p className={styles.name}>{name}</p>
+
+                          <section className={styles.interests}>
+                            <ul>
+                              {interests.map((interest) => (
+                                <li>{interest}</li>
+                              ))}
+                            </ul>
+                          </section>
+
                           <p>{bio}</p>
                         </div>
                       )
