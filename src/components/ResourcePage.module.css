@@ -63,7 +63,12 @@ p.author {
 }
 
 .contentList img {
+  transition: 0.3s all;
   width: 100%;
+}
+
+.contentList img:hover {
+  opacity: 0.7;
 }
 
 .contentList li {

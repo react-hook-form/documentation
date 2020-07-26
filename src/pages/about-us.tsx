@@ -54,7 +54,8 @@ const data = [
     name: "Dohyung Ahn",
     imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
     url: "https://github.com/adhrinae",
-    bio: "",
+    bio:
+      "I am a Software Engineer (mostly frontend) who loves open source and their community. He likes translating documentation of open source projects and useful dev articles in Korean.",
     interests: ["🎮 games", "💻 code", "🍛 foods"],
   },
   {
