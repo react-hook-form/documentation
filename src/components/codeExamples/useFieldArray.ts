@@ -19,7 +19,7 @@ function App() {
           return (
             <li key={item.id}>
               <input
-                name={`test[{\$index}].firstName`}
+                name={`test[{$index}].firstName`}
                 defaultValue={item.firstName} // make sure to set up defaultValue
                 ref={register()}
               />
