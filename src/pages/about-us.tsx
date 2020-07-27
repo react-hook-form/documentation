@@ -14,8 +14,8 @@ const data = [
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
     url: "https://github.com/kotarella1110",
     bio:
-      "I am a developer who loves Front-End. I want to deliver the best UX for users all over the world.",
-    interests: ["📕 manga", "📺 anime", "♨️ onsen"],
+      "I'm a software engineer who loves beer and TypeScript. Open source software that offers the best DX excites me. I want to provide developers all over the world the same excitement as me.",
+    interests: ["🍺 beer", "💻 code", "♨️ onsen"],
   },
   {
     name: "Keiya Sasaki",
