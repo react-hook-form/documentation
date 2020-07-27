@@ -26,7 +26,7 @@ function App() {
 
               <Controller
                 as={<input />}
-                name={`test[{\$index}].lastName`}
+                name={`test[{$index}].lastName`}
                 control={control}
                 defaultValue={item.lastName} // make sure to set up defaultValue
               />
