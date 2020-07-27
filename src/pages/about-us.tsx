@@ -46,9 +46,9 @@ const data = [
     name: "Michael Stramel",
     imgUrl:
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
-    url: "https://github.com/JeromeDeLeon",
+    url: "https://github.com/stramel",
     bio: "",
-    interests: ["🎮 games", "💻 source", "🍛 foods"],
+    interests: ["🎮 games", "💻 code", "🍛 food", "🏋🏻‍♂️ powerlifting"],
   },
   {
     name: "Dohyung Ahn",
