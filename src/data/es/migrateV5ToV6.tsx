@@ -55,6 +55,9 @@ export default (
 
   - validateCriteriaMode: "firstError",
   + criteriaMode: "firstError",
+  
+  - submitFocusError: true,
+  + shouldFocusError: true,
 })`}
         />
       </section>

@@ -102,8 +102,7 @@ export default {
     validationOnAll: (
       <>
         Validation will trigger on the <code>blur</code> and <code>change</code>{" "}
-        events. Warning: as with the <code>onChange</code> mode,{" "}
-        <code>all</code> can have a significant impact on performance.
+        events.
       </>
     ),
     defaultValues: (goToSection) => (
@@ -607,9 +606,11 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note: </b> You will need to pass{" "}
-          <code>register()</code> during <code>reset</code> to re-register
-          input, or you can <code>reset</code> the form with with values. eg:{" "}
+          <b className={typographyStyles.note}>Note:</b> if you invoke{" "}
+          <code>reset</code> with empty argument, then you will need to pass{" "}
+          <code>{`ref={register()}`}</code> at input instead of{" "}
+          <code>{`ref={register}`}</code>. Alternatively, you can{" "}
+          <code>reset</code> the form with values. eg:{" "}
           <code>reset({`{}`})</code>.
         </p>
       </>
