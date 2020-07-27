@@ -19,13 +19,14 @@ function App() {
           return (
             <li key={item.id}>
               <input
+                name={\`test[{\$index}].firstName\`}
                 defaultValue={item.firstName} // make sure to set up defaultValue
                 ref={register()}
               />
 
               <Controller
                 as={<input />}
-                name={"test[{index}].lastName"}
+                name={\`test[{\$index}].lastName\`}
                 control={control}
                 defaultValue={item.lastName} // make sure to set up defaultValue
               />
