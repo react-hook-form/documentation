@@ -78,7 +78,7 @@ p.author {
   overflow: hidden;
 }
 
-.contentList svg {
+.contentList li > svg {
   position: absolute;
   z-index: 2;
   height: 100%;
@@ -108,6 +108,10 @@ p.author {
 
 .interests li:last-child {
   border: none;
+}
+
+.twitter:hover > svg {
+  fill: var(--color-secondary);
 }
 
 @media (min-width: 768px) {
