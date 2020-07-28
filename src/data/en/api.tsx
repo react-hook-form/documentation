@@ -607,9 +607,9 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> if you invoke{" "}
-          <code>reset</code> with empty argument, then you will need to pass{" "}
-          <code>{`ref={register()}`}</code> at input instead of{" "}
-          <code>{`ref={register}`}</code>. Alternatively, you can{" "}
+          <code>reset</code> with empty argument or memorised defaultValues,
+          then you will need to pass <code>{`ref={register()}`}</code> at input
+          instead of <code>{`ref={register}`}</code>. Alternatively, you can{" "}
           <code>reset</code> the form with values. eg:{" "}
           <code>reset({`{}`})</code>.
         </p>
