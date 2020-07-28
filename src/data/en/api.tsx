@@ -723,8 +723,14 @@ export default {
         <p>
           An optimized helper for reading form values. The difference between{" "}
           <code>watch</code> and <code>getValues</code> is that{" "}
-          <code>getValues</code> <i>will not</i> trigger re-renders or subscribe
-          to input changes.
+          <code>getValues</code> <strong>will not</strong> trigger re-renders or
+          subscribe to input changes.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> This method will return{" "}
+          <code>defaultValues</code> when there is none input registered with
+          value.
         </p>
 
         <ul>
