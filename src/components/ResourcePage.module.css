@@ -63,8 +63,9 @@ p.author {
 }
 
 .contentList img {
-  transition: 0.3s all ease-in;
-  width: 100%;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
 }
 
 .contentList img:hover {
@@ -73,9 +74,10 @@ p.author {
   border: 13px solid var(--color-light-blue);
 }
 
-.contentList li {
+.contentList > li {
   position: relative;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .contentList li > svg {
@@ -98,11 +100,13 @@ p.author {
   font-size: 14px;
   display: flex;
   border: 1px solid var(--color-light-blue);
+  flex-direction: row;
+  text-align: center;
 }
 
 .interests li {
   flex: 1;
-  text-align: center;
+  list-style: none;
   border-right: 1px solid var(--color-light-blue);
 }
 
@@ -121,5 +125,33 @@ p.author {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
     margin: 0 auto;
+  }
+
+  .interests > ul {
+    flex-direction: column;
+    text-align: left;
+    padding: 8px 20px;
+  }
+
+  .interests > ul > li {
+    border-right: 0;
+  }
+
+  .contentList img {
+    transition: 0.3s all ease-in;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .interests > ul {
+    flex-direction: row;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .interests > ul > li {
+    border-right: 1px solid var(--color-light-blue);
   }
 }
