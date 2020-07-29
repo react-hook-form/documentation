@@ -940,6 +940,14 @@ React.useEffect(() => {
               values gets returned. eg: <code>watch('fieldArray', fields)</code>
             </p>
           </li>
+          <li>
+            <p>
+              When all inputs get removed from the Field Array,{" "}
+              <code>watch</code> will return <code>defaultValues</code>. You can
+              use <code>fields.length</code> to avoid this behaviour. eg{" "}
+              <code>fields.length ? watch('fieldArray', fields) : []</code>
+            </p>
+          </li>
         </ul>
       </>
     ),
