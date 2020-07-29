@@ -73,9 +73,9 @@ const data = [
     imgUrl:
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
     url: "https://github.com/stramel",
-    bio: "",
+    bio: "I'm a Software Engineer who enjoys contributing and improving the open source community in my spare time.",
     twitterName: "stramel89",
-    interests: ["🎮 games", "💻 code", "🍛 food"],
+    interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
   },
   {
     name: "Dohyung Ahn",
