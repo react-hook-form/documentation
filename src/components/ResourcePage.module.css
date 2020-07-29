@@ -108,6 +108,7 @@ p.author {
   flex: 1;
   list-style: none;
   border-right: 1px solid var(--color-light-blue);
+  font-size: 13px;
 }
 
 .interests li:last-child {
