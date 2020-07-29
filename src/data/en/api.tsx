@@ -517,9 +517,16 @@ export default {
           </li>
           <li>
             <p>
-              However, if <code>defaultValues</code> was initialised in{" "}
+              If <code>defaultValues</code> was initialised in{" "}
               <code>useForm</code> as an argument, then the first render will
               return what's provided in <code>defaultValues</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <code>useFieldArray</code>, when all inputs get removed will
+              return <code>defaultValues</code>, you can walk around this issue
+              by checking <code>fields.length</code>.
             </p>
           </li>
         </ul>
