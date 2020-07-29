@@ -734,12 +734,6 @@ export default {
           subscribe to input changes.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Note:</b> This method will return{" "}
-          <code>defaultValues</code> when there is none input registered with
-          value.
-        </p>
-
         <ul>
           <li>
             <p>
