@@ -400,7 +400,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
-                  onChange | onBlur | onSubmit = 'onSubmit' | all
+                  onChange | onBlur | onSubmit | all = 'onSubmit'
                 </span>
               </code>
               <Popup top={3} />

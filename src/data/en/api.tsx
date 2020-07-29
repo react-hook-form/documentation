@@ -517,9 +517,16 @@ export default {
           </li>
           <li>
             <p>
-              However, if <code>defaultValues</code> was initialised in{" "}
+              If <code>defaultValues</code> was initialised in{" "}
               <code>useForm</code> as an argument, then the first render will
               return what's provided in <code>defaultValues</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <code>useFieldArray</code>, when all inputs get removed will
+              return <code>defaultValues</code>, you can walk around this issue
+              by checking <code>fields.length</code>.
             </p>
           </li>
         </ul>
@@ -607,9 +614,9 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> if you invoke{" "}
-          <code>reset</code> with empty argument, then you will need to pass{" "}
-          <code>{`ref={register()}`}</code> at input instead of{" "}
-          <code>{`ref={register}`}</code>. Alternatively, you can{" "}
+          <code>reset</code> with empty argument or memorised defaultValues,
+          then you will need to pass <code>{`ref={register()}`}</code> at input
+          instead of <code>{`ref={register}`}</code>. Alternatively, you can{" "}
           <code>reset</code> the form with values. eg:{" "}
           <code>reset({`{}`})</code>.
         </p>
@@ -723,8 +730,8 @@ export default {
         <p>
           An optimized helper for reading form values. The difference between{" "}
           <code>watch</code> and <code>getValues</code> is that{" "}
-          <code>getValues</code> <i>will not</i> trigger re-renders or subscribe
-          to input changes.
+          <code>getValues</code> <strong>will not</strong> trigger re-renders or
+          subscribe to input changes.
         </p>
 
         <ul>
@@ -931,6 +938,14 @@ React.useEffect(() => {
               When <code>watch</code> the entire Field Array, it's important to
               supply a default value with <code>fields</code> to avoid empty
               values gets returned. eg: <code>watch('fieldArray', fields)</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              When all inputs get removed from the Field Array,{" "}
+              <code>watch</code> will return <code>defaultValues</code>. You can
+              use <code>fields.length</code> to avoid this behaviour. eg{" "}
+              <code>fields.length ? watch('fieldArray', fields) : []</code>
             </p>
           </li>
         </ul>
