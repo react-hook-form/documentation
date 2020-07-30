@@ -352,7 +352,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <a
             href="https://opencollective.com/react-hook-form"
             target="_blank"
-            className="desktopOnly"
+            className="desktopOnly donation"
             rel="noreferrer noopener"
             title="Donate to the project"
             style={{

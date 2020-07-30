@@ -925,6 +925,19 @@ pre[data-line] .line-highlight[data-end]:after {
   bottom: 0.4em;
 }
 
+@keyframes heart {
+  0% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.donation:hover {
+  animation: heart 1s ease infinite;
+}
+
 /* Light theme */
 body.light {
   background-color: white;
