@@ -65,36 +65,38 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                     render={({ style }) => (
                       <div>
                         <p>Thanks to the team members:</p>
-                        <div style={style} className={styles.avatars}>
-                          <img
-                            src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                          <img
-                            src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4"
-                            alt="RHF team member"
-                          />
-                        </div>
+                        <Link to="/about-us">
+                          <div style={style} className={styles.avatars}>
+                            <img
+                              src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                            <img
+                              src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4"
+                              alt="RHF team member"
+                            />
+                          </div>
+                        </Link>
                       </div>
                     )}
                   />

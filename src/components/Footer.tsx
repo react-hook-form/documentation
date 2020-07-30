@@ -56,6 +56,9 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
             {nav[currentLanguage].resources}
           </Link>
         </li>
+        <li>
+          <Link to="/about-us">About us</Link>
+        </li>
       </ul>
       <p>
         Design and Build by{" "}
@@ -118,7 +121,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         </p>
       )}
       <p style={{ fontSize: 12 }}>
-        [ {generic.support[currentLanguage]}{" "}
+        {generic.support[currentLanguage]}{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
           target="_blank"
@@ -126,15 +129,6 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @github
         </a>
-        ️ ] [ Help make these docs better{" "}
-        <a
-          href="https://github.com/react-hook-form/website"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          @github
-        </a>{" "}
-        ]
       </p>
       <p
         style={{
