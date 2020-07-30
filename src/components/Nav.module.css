@@ -212,7 +212,7 @@
     background: var(--color-button-blue);
     height: auto;
     max-width: 610px;
-    padding: 13px 10px;
+    padding: 13px 8px;
   }
 
   .darkActionButtonGroup {

@@ -9,6 +9,7 @@ import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import styles from "./Nav.module.css"
+import colors from "../styles/colors"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
@@ -346,6 +347,21 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               <div className="more icon"></div>
             </div>
             More
+          </a>
+
+          <a
+            href="https://opencollective.com/react-hook-form"
+            target="_blank"
+            className="desktopOnly"
+            rel="noreferrer noopener"
+            title="Donate to the project"
+            style={{
+              color: colors.secondary,
+              minWidth: 20,
+              marginLeft: -10,
+            }}
+          >
+            ♥
           </a>
         </nav>
       </div>
