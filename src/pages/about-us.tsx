@@ -37,7 +37,7 @@ const data = [
     url: "https://github.com/kotarella1110",
     twitterName: "kotarella1110",
     bio:
-      "I'm a software engineer who loves beer and TypeScript. Open source software that offers the best DX excites me. I want to provide developers all over the world the same excitement as me.",
+      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
     interests: ["🍺 beer", "💻 code", "♨️ onsen"],
   },
   {
@@ -73,7 +73,8 @@ const data = [
     imgUrl:
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
     url: "https://github.com/stramel",
-    bio: "I'm a Software Engineer who enjoys contributing and improving the open source community in my spare time.",
+    bio:
+      "I'm a Software Engineer who enjoys contributing and improving the open source community in my spare time.",
     twitterName: "stramel89",
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
   },
