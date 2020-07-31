@@ -856,8 +856,7 @@ const { register } = useForm<FormInputs>({
               <h2>
                 setValue:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name: string, value: any, shouldValidate?: boolean, config:
-                  Object) =&gt; void
+                  (name: string, value: any, config: Object) =&gt; void
                 </span>
               </h2>
             </code>
