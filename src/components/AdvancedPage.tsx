@@ -32,6 +32,7 @@ const enLinks = [
   advancedEn.customHookwithResolver,
   advancedEn.workingWithVirtualizedList,
   advancedEn.testingForm,
+  advancedEn.strictlyTyped,
 ]
 
 interface Props {
@@ -53,6 +54,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     CustomHookwithResolver: null,
     Workingwithvirtualizedlists: null,
     TestingForm: null,
+    StrictlyTyped: null,
   })
 
   const {
@@ -76,6 +78,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.customHookwithResolver,
     advanced.workingWithVirtualizedList,
     advanced.testingForm,
+    advanced.strictlyTyped,
   ]
 
   const goToSection = (name) => {
@@ -354,6 +357,17 @@ function Advanced({ defaultLang, advanced }: Props) {
           /> */}
 
           {advanced.testingForm.description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (pageContentRef.current.StrictlyTyped = ref)}
+          >
+            {advanced.strictlyTyped.title}
+          </h2>
+
+          {advanced.strictlyTyped.description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

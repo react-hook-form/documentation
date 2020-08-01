@@ -12,6 +12,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "고급 사용법",
@@ -592,6 +593,30 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          등록시 유연한 이름 속성의 특성으로 인해 엄격하게 입력 된 입력 / 양식을
+          작성하는 것은 어려운 일입니다. 이를 가능하게하기 위해 추가 플러그인을
+          구축했습니다.
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          <code>TypedController</code>로 입력을 래핑해야합니다. 입력 문자열
+          이름을 배열 모양으로 변환하십시오.
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

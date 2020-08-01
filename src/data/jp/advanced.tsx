@@ -12,6 +12,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "高度な使用法",
@@ -613,6 +614,28 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          厳密な入力フォームを構築することは、登録時に柔軟な名前属性の性質上、困難な場合があります。これを可能にするためのプラグインを追加しました。
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          入力を <code>TypedController</code> でラップする必要があります。
+          入力された文字列名を配列の形に変換します。
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

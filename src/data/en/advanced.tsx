@@ -12,6 +12,7 @@ import virtualizedList from "../../components/codeExamples/virtualizedList"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Advanced Usage",
@@ -614,6 +615,30 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          Building strictly typed input/form can be a challenge due to the
+          nature of flexible name attribute during registration. We have build
+          an extra plug-in to make this possible.
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          We will have to wrap our inputs with <code>TypedController</code> and
+          convert input string name into array shape.
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

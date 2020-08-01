@@ -12,6 +12,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Uso Avançado",
@@ -602,6 +603,32 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          A construção de um formulário/entrada estritamente datilografado pode
+          ser um desafio devido à natureza do atributo flexível do nome durante
+          o registo. Temos construído um plug-in extra para tornar isto
+          possível.
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          Teremos de envolver as nossas entradas com{" "}
+          <code>TipedController</code> e converter o nome da cadeia de entrada
+          em forma de matriz.
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),
