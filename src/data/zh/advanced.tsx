@@ -12,6 +12,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "高级用法",
@@ -542,6 +543,28 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          在注册时，由于灵活的名称属性的性质，建立严格的输入/表单是一个挑战。我们已经建立了一个额外的插件，使之成为可能。
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          我们将不得不用<code>TypedController</code>来包装我们的输入。
+          将输入的字符串名称转换成数组形状。
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

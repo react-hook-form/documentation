@@ -12,6 +12,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import virtualizedList from "../../components/codeExamples/virtualizedList"
+import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Uso avanzado",
@@ -602,6 +603,32 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+      </>
+    ),
+  },
+  strictlyTyped: {
+    title: "Strictly Typed",
+    description: (
+      <>
+        <p>
+          La elaboración de un formulario/entrada estrictamente mecanografiado
+          puede ser un reto debido a la naturaleza del atributo de nombre
+          flexible durante el registro. Hemos construido un plug-in extra para
+          hacer esto posible.
+        </p>
+
+        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+
+        <p>
+          Tendremos que envolver nuestras entradas con{" "}
+          <code>TypedController</code> y convertir el nombre de la cadena de
+          entrada en una forma de matriz.
+        </p>
+
+        <CodeArea
+          tsRawData={strictlyTyped}
+          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),
