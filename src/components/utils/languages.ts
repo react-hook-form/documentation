@@ -11,11 +11,11 @@ export enum SUPPORTED_LANGUAGES {
 }
 
 export const chooseTranslation = (
-  translation,
-  language,
-  path,
+  translation: { [Key in SUPPORTED_LANGUAGES]?: any },
+  language: string,
+  path: string,
   defaultLanguage = "en"
-) =>
+): any =>
   has(translation, `${language}.${path}`)
     ? get(translation, `${language}.${path}`)
     : get(translation, `${defaultLanguage}.${path}`)
