@@ -11,11 +11,11 @@ export enum SUPPORTED_LANGUAGES {
 }
 
 export const chooseTranslation = (
-  translation: { [Key in SUPPORTED_LANGUAGES]?: any },
+  translation: { [Key in SUPPORTED_LANGUAGES]?: React.ReactNode | string },
   language: string,
   path: string,
   defaultLanguage = "en"
-): any =>
+): React.ReactNode | string =>
   has(translation, `${language}.${path}`)
     ? get(translation, `${language}.${path}`)
     : get(translation, `${defaultLanguage}.${path}`)
