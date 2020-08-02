@@ -6,7 +6,7 @@ import useWatchTypes from "./codeExamples/useWatchTypes"
 import useWatchTs from "./codeExamples/useWatchTs"
 import generic from "../../../data/generic"
 import translation from "./useWatch.translations"
-import { chooseTranslation } from "../../utils/languages"
+import { chooseTranslation, SUPPORTED_LANGUAGES } from "../../utils/languages"
 
 import typographyStyles from "../../../styles/typography.module.css"
 import tableStyles from "../../../styles/table.module.css"
@@ -14,7 +14,7 @@ import tableStyles from "../../../styles/table.module.css"
 const useWatchApiDescription = ({
   currentLanguage,
 }: {
-  currentLanguage: string
+  currentLanguage: SUPPORTED_LANGUAGES
 }) => (
   <>
     <code className={typographyStyles.codeHeading}>

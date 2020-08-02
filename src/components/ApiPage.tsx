@@ -986,7 +986,7 @@ const { register } = useForm<FormInputs>({
           <hr />
 
           <section ref={(ref) => (apiSectionsRef.current.useWatchRef = ref)}>
-            <UseWatch currentLanguage={currentLanguage} api={api} />
+            <UseWatch currentLanguage={currentLanguage} />
           </section>
 
           <hr />
