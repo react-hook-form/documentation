@@ -12,7 +12,7 @@ export enum SUPPORTED_LANGUAGES {
 
 export const chooseTranslation = (
   translation: { [Key in SUPPORTED_LANGUAGES]?: React.ReactNode | string },
-  language: string,
+  language: SUPPORTED_LANGUAGES,
   path: string,
   defaultLanguage = "en"
 ): React.ReactNode | string =>
