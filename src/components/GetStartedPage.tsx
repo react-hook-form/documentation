@@ -145,7 +145,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             getStarted={getStarted}
             quickStartRef={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.install.title)
+                getRefNameFromTitle(getStartedEn.install.title)
               ] = ref
             }}
             currentLanguage={currentLanguage}
@@ -162,7 +162,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <h2
             ref={(ref) =>
               (sectionsRef.current[
-                getRefNameFromTitle(getStarted.video.title)
+                getRefNameFromTitle(getStartedEn.video.title)
               ] = ref)
             }
           >
@@ -199,7 +199,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) =>
               (sectionsRef.current[
-                getRefNameFromTitle(getStarted.register.title)
+                getRefNameFromTitle(getStartedEn.register.title)
               ] = ref)
             }
           >
@@ -219,7 +219,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) =>
               (sectionsRef.current[
-                getRefNameFromTitle(getStarted.applyValidation.title)
+                getRefNameFromTitle(getStartedEn.applyValidation.title)
               ] = ref)
             }
           >
@@ -239,7 +239,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) =>
               (sectionsRef.current[
-                getRefNameFromTitle(getStarted.adapting.title)
+                getRefNameFromTitle(getStartedEn.adapting.title)
               ] = ref)
             }
           >
@@ -259,7 +259,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.workWithUI.title)
+                getRefNameFromTitle(getStartedEn.workWithUI.title)
               ] = ref
             }}
           >
@@ -279,7 +279,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.controlledInput.title)
+                getRefNameFromTitle(getStartedEn.controlledInput.title)
               ] = ref
             }}
           >
@@ -299,7 +299,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.globalState.title)
+                getRefNameFromTitle(getStartedEn.globalState.title)
               ] = ref
             }}
           >
@@ -314,7 +314,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.errors.title)
+                getRefNameFromTitle(getStartedEn.errors.title)
               ] = ref
             }}
           >
@@ -334,7 +334,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.schema.title)
+                getRefNameFromTitle(getStartedEn.schema.title)
               ] = ref
             }}
           >
@@ -371,7 +371,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.reactNative.title)
+                getRefNameFromTitle(getStartedEn.reactNative.title)
               ] = ref
             }}
           >
@@ -400,7 +400,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             className={typographyStyles.title}
             ref={(ref) => {
               sectionsRef.current[
-                getRefNameFromTitle(getStarted.typeScript.title)
+                getRefNameFromTitle(getStartedEn.typeScript.title)
               ] = ref
             }}
           >
