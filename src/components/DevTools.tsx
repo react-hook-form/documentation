@@ -40,9 +40,7 @@ export default ({ defaultLang, content }: Props) => {
 
   const { control, formState } = methods
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
+  const onSubmit = (data) => console.log(data)
 
   console.log(formState.isValid)
 

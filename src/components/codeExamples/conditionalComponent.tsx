@@ -19,9 +19,7 @@ export default function App() {
     setValue("mail", modalFormData);
   }, [setValue, modalFormData]);
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
-  };
+  const onSubmit = (data: FormValues) => console.log(data);
 
   return (
     <>

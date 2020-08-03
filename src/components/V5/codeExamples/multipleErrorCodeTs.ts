@@ -13,9 +13,7 @@ export default function App() {
     mode: "onChange"
   });
 
-  const onSubmit = (data: IFormInputs) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

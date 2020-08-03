@@ -35,9 +35,7 @@ const App = () => {
     }
   });
 
-  const onSubmit = (data: IFormInputs) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <div className="App">

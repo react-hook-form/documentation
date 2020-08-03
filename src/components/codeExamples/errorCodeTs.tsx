@@ -10,9 +10,7 @@ interface IFormInputs {
 function App() {
   const { register, errors, handleSubmit } = useForm<IFormInputs>();
 
-  const onSubmit = (data: IFormInputs) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

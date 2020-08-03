@@ -7,9 +7,7 @@ function App() {
   const watchAllFields = watch(); // when pass nothing as argument, you are watching everything
   const watchFields = watch(["showAge", "number"]); // you can also target specific fields by their names
 
-  const onSubmit = data => {
-    console.log(data)
-  };
+  const onSubmit = data => console.log(data);
 
   return (
     <>
