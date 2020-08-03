@@ -422,7 +422,10 @@ export default {
           </li>
         </ul>
 
-        <CodeArea rawData={customHookWithValidationResolver} />
+        <CodeArea
+          rawData={customHookWithValidationResolver}
+          url="https://codesandbox.io/s/custom-hook-with-resolver-v5-potl4?file=/src/App.js"
+        />
       </>
     ),
   },

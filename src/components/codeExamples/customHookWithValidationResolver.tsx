@@ -1,5 +1,6 @@
-export default `import { useCallback, useMemo } from "react";
+export default `import React, { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
 const useYupValidationResolver = validationSchema =>
   useCallback(
@@ -32,16 +33,25 @@ const useYupValidationResolver = validationSchema =>
     [validationSchema]
   );
 
-const validationSchema = useMemo(
-  () =>
-    yup.object({
-      firstName: yup.string().required("Required"),
-      lastName: yup.string().required("Required")
-    }),
-  []
-);
+export default function App() {
+  const validationSchema = useMemo(
+    () =>
+      yup.object({
+        firstName: yup.string().required("Required"),
+        lastName: yup.string().required("Required")
+      }),
+    []
+  );
+  const resolver = useYupValidationResolver(validationSchema);
+  const { handleSubmit, register } = useForm({ resolver });
 
-const validationResolver = useYupValidationResolver(validationSchema);
+  return (
+    <form onSubmit={handleSubmit(data => console.log(data))}>
+      <input name="firstName" ref={register} />
+      <input name="lastName" ref={register} />
+      <input type="submit" />
+    </form>
+  );
+}
 
-const form = useForm({ validationResolver });
 `
