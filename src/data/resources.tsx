@@ -436,5 +436,13 @@ export default {
       author: "EinCode",
       description: "",
     },
+    {
+      title: "Creating a User Registration form with react-hook-form",
+      url: "https://www.youtube.com/watch?v=mrTPrbSoAx0",
+      authorUrl: "https://www.youtube.com/user/leighhalliday",
+      author: "Leigh Halliday",
+      description:
+        "We'll create a User Registration Form in Next.js using react-hook-form, testing its validation with react testing library.",
+    },
   ],
 }

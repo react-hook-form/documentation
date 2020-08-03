@@ -188,6 +188,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                   "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
               },
               {
+                url: "https://www.youtube.com/watch?v=mrTPrbSoAx0",
+                title:
+                  "Creating a User Registration form with react-hook-form (comprehensive tutorial include Testing)",
+              },
+              {
                 url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
                 title: "React Hook Form Tutorial | Why It's Useful",
               },
