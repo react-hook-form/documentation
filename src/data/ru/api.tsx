@@ -1027,17 +1027,17 @@ React.useEffect(() => {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
               rawData={`<Controller
-  control={control} 
-  name="test" 
-  render(({ onChange, onBlur, value }) => (
-    <Input 
-      onTextChange={onChange} 
-      onTextBlur={onBlur} 
-      textValue={value} 
-    />
-  ))
-/>
-<Controller render={props => <Input {...props} />} />`}
+                  control={control}
+                  name='test'
+                  render={({ onChange, onBlur, value }) => (
+                    <Input
+                      onTextChange={onChange}
+                      onTextBlur={onBlur}
+                      textValue={value}
+                    />
+                  )}
+                />
+                <Controller render={props => <Input {...props} />} />`}
             />
           </td>
         </tr>
