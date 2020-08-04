@@ -30,7 +30,7 @@ export default {
     kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
     jp:
       "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
-    zh: "高性能、灵活、易拓展、易于使用的表单校验库。",
+    zh: "高性能、灵活、易扩展、易于校验的表单库。",
     ru: "Эффективные, гибкие и расширяемые формы с простой валидацией.",
   },
   getStarted: {
@@ -48,7 +48,7 @@ export default {
     pt: "Demonstração",
     kr: "데모",
     jp: "デモ",
-    zh: "演示",
+    zh: "示例",
     ru: "Демонстрация",
   },
   findInteresting: {
@@ -73,8 +73,8 @@ export default {
       description: `フォームバリデーションはより簡単にする必要があります。React Hook Form を使用すると、コードの記述が少なくなり、パフォーマンスが向上します。はじめるセクションを見て、API ドキュメントページで詳細を確認してください。`,
     },
     zh: {
-      heading: "发现它有用又有趣?",
-      description: `表单验证应该更简单。 React Hook Form将使您编写更少的代码并具有更好的性能。 查看"入门"部分，也可以在API文档页面了解更多信息。`,
+      heading: "尝试一下?",
+      description: `表单构建不应该充满痛苦。React Hook Form 将使您编写更少的代码并具有更好的性能。`,
     },
     ru: {
       heading: "Это было полезным и интересным для вас?",
@@ -196,24 +196,23 @@ export default {
     zh: [
       {
         title: "开发体验",
-        description:
-          "直观的功能和完整的API在构建表单时为开发人员提供最好的体验。",
+        description: `直观且完备的API为开发人员提供最好的表单构建体验。`,
       },
       {
         title: "HTML标准",
-        description: `利用现有的HTML，并直接开始使用验证API来验证您的表单。`,
+        description: `利用现有的HTML，并使用基于约束的API来校验您的表单。`,
       },
       {
-        title: "超轻",
-        description: `性能很重要，尺寸也重要。 它是一个很小的库，并且没有任何依赖关系。`,
+        title: "超轻量",
+        description: `包的体积同样重要。React Hook Form是无任何依赖的超轻量库。`,
       },
       {
         title: "高性能",
-        description: `最大限度地减少render的数量和更快的安装，努力提供最佳的用户体验。`,
+        description: `最大程度减少重渲染次数、更快速的挂载以提供最佳的用户体验。`,
       },
       {
         title: "适应性强",
-        description: `由于表单的状态是基于本地的，因此可以轻松地在没有其他依赖关系的情况下采用它。`,
+        description: `由于表单的状态就在本地，因此无须任何依赖即可应用状态。`,
       },
     ],
     ru: [
@@ -323,7 +322,7 @@ export default {
             これを説明するために、最も一般的なフォームバリデーションライブラリを使用した非常にシンプルなコードを見てみましょう。
           </p>
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ 注意：</b>下記の Formik と
+            <b className={typographyStyles.note}>⚠ 注意:</b>下記の Formik と
             Redux-Form のコードは公式ドキュメントからコピーされています。
           </p>
         </>
@@ -334,12 +333,12 @@ export default {
       description: (
         <>
           <p id="codeComparison">
-            减少您必须编写的代码量是React Hook Form的主要目标之一。
-            为了说明这一点，让我们来看看一些最流行的表单验证库中非常简单的验证形式，同时加以对比。
+            减少您必须编写的代码量是 React Hook Form 的主要目标之一。
+            为了说明这一点，让我们来简单对比下目前最流行的表单校验库。
           </p>
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ 注意:</b>
-            下面的Formik和Redux-Form代码都是 从官方文件复制。
+            <b className={typographyStyles.note}>⚠ 注意：</b>
+            以下 Formik 和 Redux-Form 代码片段都引用自官方文档。
           </p>
         </>
       ),
@@ -448,16 +447,16 @@ export default {
       ),
     },
     zh: {
-      title: "Isolate Component Re-renders",
+      title: "区隔组件的重渲染",
       description: (
         <>
           <p>
-            您可以隔离重新渲染的组件，从而导致对网页或应用的性能影响较小。下面的例子表现出这种行为。
+            您可以区隔组件的重渲染，从而为网页或应用提供更好的性能。下面的例子展示了这种行为。
           </p>
 
           <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b>
-            在输入框中输入查看渲染行为。
+            <b className={typographyStyles.note}>注意：</b>
+            在输入框中输入，以查看渲染行为。
           </p>
         </>
       ),
@@ -530,12 +529,10 @@ export default {
       ),
     },
     zh: {
-      title: "Input Change Subscriptions",
+      title: "监听输入值变化",
       description: (
         <p>
-          Performance is an important aspect of user experience in terms of
-          building forms. You will have the ability to subscribe to individual
-          input changes without re-rendering the entire form.
+          构建表单时，性能对用户体验是非常重要的一部分。您可以监听的独立的输入值变化而无须重渲染整个表单。
         </p>
       ),
     },
@@ -577,9 +574,9 @@ export default {
       totalReRender: "合計再レンダリング数： ",
     },
     zh: {
-      title: "减少Rendering",
-      description: `你有没有想过用户触发了多少组件的重新render？ React Hook Form注重不受控制的表单验证，以减少不必要的性能影响。`,
-      totalReRender: "Total re-renders:",
+      title: "减少渲染次数",
+      description: `您曾经考虑过用户会触发多少次组件的重渲染吗？React Hook Form 拥抱非受控的表单验证，以减少不必要的性能损耗。`,
+      totalReRender: "共计重渲染次数:",
     },
     ru: {
       title: "Сокращение повторных рендеров",
@@ -735,12 +732,16 @@ export default {
       ),
     },
     zh: {
-      title: "更快的安装",
+      title: "更快的挂载",
       description: (
         <p>
-          以下结果说明了安装组件需要多长时间。 结果是在6x
-          CPU下捕获应用程序，从Chrome DevTools的性能选项卡开始减速。
-          运行的代码来自上面的<a href="#codeComparison">库代码</a>的比较部分。
+          下方的截图展示了使用 React Hook Form 时的组件挂载会快多少。在
+          <a href="#codeComparison">库代码对比中</a>
+          ，它的挂载和渲染速度比使用 Formik 大约快13%，比 Redux Form 大约快25%。
+          <span style={{ fontSize: 14, display: "block" }}>
+            <b className={typographyStyles.note}>⚠ 注意：</b> 跑分是在6x
+            CPU下的Chrome开发工具模拟得到的。
+          </span>
         </p>
       ),
       totalMount: "安装的次数(s)",
@@ -748,12 +749,12 @@ export default {
       totalTime: "总时间",
       performanceTests: (
         <>
-          希望看到更激烈的性能测试？
+          <span style={{ fontSize: 20 }}>⚠</span> 希望看到更深层的性能测试？
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
           >
-            在这里查看表单中1000个表格的结果
+            点击查看包含1000个表单域的表单渲染结果
           </a>
           。
         </>
@@ -882,17 +883,18 @@ export default {
       title: "现场演示",
       description: (
         <>
-          下面的表单演示了表单验证的操作。 每列表示在自定义挂接中捕获的内容。
-          您也可以通过单击<strong>编辑</strong>按钮来更改表单中的表格。
+          下面的表单演示了表单校验的操作。
+          每一列都展示了自定义hook中捕获到的数据。 您也可以通过单击
+          <strong>编辑</strong>按钮来更改表单域。
         </>
       ),
       submit: "提交",
-      watchTitle: "观察",
+      watchTitle: "监听",
       errorTitle: "错误",
-      touchedTitle: "接触过的",
-      watch: "更改输入值以查看观看值的变化",
-      error: "验证错误将出现在这里",
-      touched: "触摸的表格将显示在这里",
+      touchedTitle: "触碰过的",
+      watch: "更改输入值以监听值的变化",
+      error: "校验的错误将出现在这里",
+      touched: "触碰过的表单域名称展示在这里",
     },
     ru: {
       title: "Живой пример",
