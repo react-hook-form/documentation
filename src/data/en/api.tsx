@@ -1118,7 +1118,7 @@ React.useEffect(() => {
   render={({ onChange, onBlur, value }) => (
     <Checkbox
       onBlur={onBlur}
-      onChange={e => props.onChange(e.target.checked)}
+      onChange={e => onChange(e.target.checked)}
       checked={value}
     />
   )}
