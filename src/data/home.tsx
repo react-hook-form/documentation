@@ -754,7 +754,7 @@ export default {
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             rel="noopener noreferrer"
           >
-            点击查看包含1000个表单域的表单渲染结果
+            点击查看包含1000个表单项的表单渲染结果
           </a>
           。
         </>
@@ -885,7 +885,7 @@ export default {
         <>
           下面的表单演示了表单校验的操作。
           每一列都展示了自定义hook中捕获到的数据。 您也可以通过单击
-          <strong>编辑</strong>按钮来更改表单域。
+          <strong>编辑</strong>按钮来更改表单项。
         </>
       ),
       submit: "提交",
@@ -894,7 +894,7 @@ export default {
       touchedTitle: "触碰过的",
       watch: "更改输入值以监听值的变化",
       error: "校验的错误将出现在这里",
-      touched: "触碰过的表单域名称展示在这里",
+      touched: "触碰过的表单项名称展示在这里",
     },
     ru: {
       title: "Живой пример",
