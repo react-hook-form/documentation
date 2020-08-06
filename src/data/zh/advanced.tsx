@@ -15,17 +15,17 @@ import virtualizedList from "../../components/codeExamples/virtualizedList"
 import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
-  title: "高级用法",
+  title: "进阶",
   header: {
-    title: "高级",
+    title: "进阶",
     description: "使用 React Hook Form 建设复杂且易于访问的表单.",
   },
   controlledMixedWithUnControlled: {
-    title: "受控制与不受控制的组件同存",
+    title: "受控组件与非控制组件共存",
     description: (
       <p>
-        React Hook Form 拥护你们使用不受控制的组件，与此同时也兼容受控制的组件。
-        大多数UI库的构建仅限于支持受控组件，如
+        React Hook Form 拥抱非受控组件，与此同时也兼容受控组件。
+        大多数UI库仅限于支持受控组件，如
         <a
           href="https://github.com/mui-org/material-ui"
           target="_blank"
@@ -41,8 +41,8 @@ export default {
         >
           And
         </a>
-        。此外,我们也优化了受控组件的多次render.
-        以下这是一个我们结合受控和不受控制的表单验证的例子。
+        。此外,受控组件的重渲染 React Hook Form 也做了优化。
+        以下表单验证的例子包含了受控组件和非受控组件。
       </p>
     ),
   },
@@ -50,25 +50,24 @@ export default {
     title: "错误信息",
     description: (
       <p>
-        当有问题时，错误消息是对我们的用户的可视化反馈。 在react hook
-        form，我们提供的错误对象让你轻松地检索错误。 然而，有几个
-        不同的方式ra让我们减少render错误。
+        错误信息是对用户非正确输入的可视化反馈。React Hook Form
+        提供的错误对象可以让你轻松地定位错误。有很多不同的方式更好地在屏幕上展示错误。
       </p>
     ),
     register: (
       <>
-        Embed error message during <code>register</code>, you can easily insert
-        your error message in the <code>value</code> attribute. Eg:
+        你可以通过校验规则对象中的<code>message</code>属性将错误信息传递给
+        <code>register</code>, 就像这样:
       </>
     ),
     component: "Create a ErrorMessage component to help your print out error.",
     get: (
       <p>
-        If your project is using{" "}
+        如果你的项目中引入了{" "}
         <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">
           lodash
         </a>
-        , then you can leverage what lodash{" "}
+        , 那么可以使用{" "}
         <code>
           <a
             href="https://lodash.com/docs/4.17.15#get"
@@ -78,7 +77,7 @@ export default {
             get
           </a>
         </code>{" "}
-        function. Eg:
+        函数。例如:
         <br />
         <br />
         <code>{`get(errors, 'firstName.message')`}</code>
@@ -110,15 +109,15 @@ export default {
       <>
         <p>
           React Hook Form
-          支持本机表单验证。可是因为我们大多数人都必须在自定义设计和布局中构建表单，于此同时这也变成我们的责任去确保表单形式是有可访问性的（A11y）。
+          支持表单本地校验，它也允许你使用自定义的规则校验输入组件的值。由于我们大多数人都必须在自定义设计和布局中构建表单，因此我们有责任去确保表单校验过程具有可访问性（A11y）。
         </p>
 
-        <p>下面的代码示例可用于验证；但是, 它可以改善可访问性。</p>
+        <p>下面的代码示例展示了如何校验；但是, 它可以提高可访问性。</p>
 
         <CodeArea rawData={accessibleCodeBase} />
 
         <p>
-          下面的代码示例是通过利用
+          下面的代码示例是利用
           <a
             rel="noopener noreferrer"
             href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
@@ -126,23 +125,24 @@ export default {
           >
             ARIA
           </a>
-          改进的版本。
+          后的改进版本。
         </p>
         <CodeArea rawData={accessibleCodeFinal} />
 
         <p>
-          这种改进后，屏幕阅读器会说: <i>"名称，编辑是必需的。”</i>
+          改进后，屏幕阅读器会念出:{" "}
+          <i>"Name, edit, invalid entry, This is required.”</i>
         </p>
       </>
     ),
   },
   wizard: {
-    title: "向导形式表格",
+    title: "多步骤表单/漏斗",
     description: (
       <>
         <p>
           通过不同的页面和部分收集用户信息是很常见的。
-          我们建议使用状态管理库通过不同的页面/部分去存储用户输入。
+          我们建议使用状态管理库通过不同的页面/部分去存储用户输入的值。
           在这个例子中，我们将使用
           <a
             className={buttonStyles.links}
@@ -152,7 +152,7 @@ export default {
           >
             little state machine
           </a>
-          作为我们的状态管理库（如果您更熟悉它，您可以用
+          作为我们的状态管理库（如果您更熟悉
           <a
             className={buttonStyles.links}
             href="https://github.com/reduxjs/redux"
@@ -161,7 +161,7 @@ export default {
           >
             redux
           </a>
-          替换它）。
+          ，可以直接替代）。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
@@ -177,7 +177,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>步骤2:</b>{" "}
-          创建您的网页，让他们收集数据，提交该数据存储并推送到下一页你的表格。
+          创建页面，收集、提交数据到 store 中，并推送到下一个表单/页面。
         </p>
         <CodeArea
           rawData={step2}
@@ -185,8 +185,8 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>步骤3:</b>{" "}
-          让您的最终提交所有的数据存储并且显示生成的数据。
+          <b className={typographyStyles.note}>步骤3:</b> 最终提交 store
+          里的所有数据，或者展示出来。
         </p>
         <CodeArea
           rawData={step3}
@@ -194,7 +194,7 @@ export default {
         />
 
         <p>
-          按照上述模式，您应该能够构建向导表单收集来自多个页面的用户输入数据。
+          按照上述模式，您应该能够构建多步骤表单/漏斗以收集来自多个页面的用户输入数据。
         </p>
       </>
     ),
@@ -204,7 +204,7 @@ export default {
     description: (
       <>
         <p>
-          这里的想法是，你可以很容易地用输入来组合你的表单。
+          它的思想是，你可以很容易地用输入组件来组合你的表单。
           我们将创建一个表单组件来自动收集表单数据。
         </p>
 
@@ -215,14 +215,15 @@ export default {
 
         <p style={{ textAlign: "center" }}>♦</p>
 
-        <p>让我们来看看这些组件中的每个组件。</p>
+        <p>让我们来逐个看下这些组件。</p>
 
         <div className={typographyStyles.codeHeading}>
           <h2>Form</h2>
         </div>
 
         <p>
-          这个组件的责任是将所有<code>react-hook-form</code>方法注入到子组件中
+          <code>Form</code>组件的职责是将<code>react-hook-form</code>
+          所有的方法注入到子组件中
         </p>
 
         <CodeArea
@@ -235,7 +236,7 @@ export default {
         </div>
 
         <p>
-          这个输入组件的责任是将它们注册到 <code>react-hook-form</code>.
+          这些输入组件的职责是将它们注册到 <code>react-hook-form</code>中。
         </p>
         <CodeArea
           rawData={input}
@@ -243,42 +244,45 @@ export default {
         />
 
         <p>
-          随着<code>Form</code>组件将<code>react-hook-form</code>
-          的功能注入到child组件中，您可以轻松地在应用中创建和撰写复杂的表单。
+          随着<code>Form</code>组件将<code>react-hook-form's props</code>
+          注入到子组件中，您可以轻松地在应用中组合各种复杂的表单。
         </p>
       </>
     ),
   },
   fieldArrays: {
-    title: "自动生成表单",
+    title: "列表式表单项",
     description: (
       <>
         <p>
           这是React Hook
-          Form的最佳功能之一：您可以利用现有的HTML，而不需要导入其他的组件来实现此功能。
-          键位于name属性中。 在React Hook Form中，name属性表示要使用的数据结构。
+          Form的最佳功能之一：您可以利用现有的HTML，而不需要引入其他的组件来实现此功能。
+          关键在于name属性，在 React Hook Form
+          中，name属性代表了要使用的数据结构。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          我们还建立自定义挂钩了为了复杂的情况:{" "}
+          <b className={typographyStyles.note}>注意:</b> 我们还提供了自定义 hook
+          用于复杂场景:{" "}
           <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
         </p>
 
-        <p>下面的示例演示如何通过操作输入名称属性来创建自动生成表单。</p>
+        <p>
+          下面的示例演示了如何通过操作输入组件的 name 属性来创建列表式表单。
+        </p>
 
         <p>
           <b className={typographyStyles.note}>注意:</b>
-          如果您的应用程序需要功能，例如：删除，插入，追加，前置。 这里是这种
+          如果您的应用需要一些功能，例如：删除，插入，追加，前置， 此处是结合了
+          <PageLink to="/api#Controller">Controller</PageLink>
           <a
             href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
             target="_blank"
             rel="noreferrer noopener"
           >
-            实现的链接
+            的实现链接
           </a>
-          混合了
-          <PageLink to="/api#Controller">Controller</PageLink>。
+          。
         </p>
       </>
     ),
@@ -287,35 +291,42 @@ export default {
     title: "连接表单",
     description: (
       <p>
-        当我们构建表单时，有时候我们的输入会在深度嵌套的组件树中，而这时
-        <a href="/api#useFormContext">FormContext</a>让一切变得非常方便。
-        但是，我们可以通过创建连接表单组件并利用React的
+        当我们构建表单时，有时输入组件在组件树中嵌套的很深，这正是
+        <a href="/api#useFormContext">FormContext</a>的使用场景。
+        然而，我们可以通过创建 ConnectionForm 组件并利用React的
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>
-        来进一步改善开发人员体验。
-        这样一个组件的好处是你可以从任何地方连接你的输入与React Hook Form。
+        来进一步改善开发体验。它的好处是可以更简单地连接输入组件与 React Hook
+        Form。
       </p>
     ),
   },
   conditionalControlledComponent: {
-    title: "条件控制组件",
+    title: "条件式受控组件",
     description: (
       <>
         <p>
-          在条件显示表格方面，React Hook
-          Form对我们来说非常简单，因为当你删除了组件树的输入时，它会自动取消注册，这里就有一个
+          React Hook
+          Form处理条件式表单项非常简单，因为当你从组件树中移除了输入组件，它会自动变为
+          <code>unregistered</code>，
           <a
             href="https://codesandbox.io/s/13ykqx4wx7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            例子
+            查看示例
           </a>
-          。 但是，由于没有注册ref，因此受控组件不是同一种情况，以下有两个方案
+          。但是，由于没有注册ref，对受控组件来说并不一样。这种情况下，我们可以用下列方式：
         </p>
         <ul>
           <li>
+            <p>折叠起输入组件</p>
+          </li>
+          <li>
+            <p>为遮罩或弹出框构建分离的表单</p>
+          </li>
+          <li>
             <p>
-              我们可以利用
+              利用
               <code>
                 <a
                   href="https://reactjs.org/docs/hooks-effect.html"
@@ -325,14 +336,14 @@ export default {
                   useEffect
                 </a>
               </code>
-              的使用来实现。
+              和自定义注册来实现。
             </p>
           </li>
           <li>
             <p>
               使用
               <PageLink to="/api#Controller">Controller</PageLink>
-              来包裹您的受控组件从而做到自动注册于取消注册功能
+              来包裹您的组件，让它管理注册与取消注册。
             </p>
           </li>
         </ul>
@@ -341,11 +352,11 @@ export default {
     ),
   },
   formContext: {
-    title: "FormContext 性能优化",
+    title: "FormProvider 性能优化",
     description: (
       <p>
         React Hook Form的
-        <PageLink to="/api/#useFormContext">FormContext</PageLink>
+        <PageLink to="/api/#FormProviderPerformance">FormProvider</PageLink>
         是建立在React的
         <a
           href="https://reactjs.org/docs/context.html"
@@ -354,26 +365,27 @@ export default {
         >
           Context
         </a>
-        API上。 它解决了数据通过组件树传递而不必在每个级别手动传递的问题。
-        这也会导致组件树在React Hook
-        Form触发状态更新时触发重新render，但如果需要通过示例，我们仍然可以优化我们的应用程序。
+        API上。它解决了在组件树中数据需要逐级手动传递的问题。
+        但是同时它也会导致组件树在 React Hook Form
+        状态更新时触发重渲染，而下方的示例展示了——如果需要，我们仍然可以继续优化它。
       </p>
     ),
   },
   customHookwithResolver: {
-    title: "带有验证解析器的自定义挂钩",
+    title: "Resolver 与自定义Hook",
     description: (
       <>
         <p>
-          您可以构建一个自定义钩子作为验证解析器。定制挂钩
-          可以轻松地与yup/Joi/Superstruct集成为验证方法，并在验证解析器(resolver)中使用。
+          您可以构建一个自定义hook 作为
+          resolver。作为校验方法，yup/Joi/Superstruct可以非常方便地集成到自定义hook中
+          ，并在校验 resolver 中使用。
         </p>
         <ul>
           <li>
-            定义一个记忆化的验证模式或在您的外部定义它组件如果您没有任何依赖性）
+            定义一个缓存的校验结构（或者在没有任何依赖的前提下定义在组件外部）
           </li>
-          <li>通过传递验证模式来使用自定义钩子</li>
-          <li>将验证解析器传递给useForm钩子</li>
+          <li>传入校验结构，使用自定义hook</li>
+          <li>将校验 resolver 传递给 useForm hook</li>
         </ul>
 
         <CodeArea rawData={customHookWithValidationResolver} />
@@ -385,12 +397,12 @@ export default {
     description: (
       <>
         <p>
-          想象一下您有一个数据表的情况。该表可能包含数百或数千行，并且每一行都有输入。
-          一种常见的做法是仅渲染位于视口，但是这将导致问题，因为从当DOM不在视野中时，并重新添加。这会导致物品
-          重新进入视口时重置为默认值。
+          想象一下您有一个表。该表可能包含数百或数千行，并且每一行都可以输入。
+          一种常见的做法是仅渲染视窗内的部分，但是这会引起问题，因为这些表格会在脱离视窗时被移出DOM，反之则重新添加。这样就会导致这些表格
+          在进入视窗时被重置为默认值。
         </p>
 
-        <p>若要解决此问题，您可以手动注册字段，然后以编程方式设置字段的值。</p>
+        <p>若要解决此问题，您可以手动注册字段，然后命令式地设置字段的值。</p>
 
         <p>
           下面是一个使用示例{" "}
@@ -412,16 +424,16 @@ export default {
     ),
   },
   testingForm: {
-    title: "测试表格",
+    title: "测试表单",
     description: (
       <>
         <p>
-          测试是非常重要的，因为它可以保护代码免受错误或
-          错误，保证代码安全，当你重构代码库时。
+          测试是非常重要的，因为它避免代码错误或
+          人为错误，并在重构时确保代码的安全性。
         </p>
 
         <p>
-          我们建议使用。
+          我们建议使用
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -429,22 +441,30 @@ export default {
           >
             testing-library
           </a>
-          因为它很简单，而且测试更注重用户行为。
+          ，因为它很简单，而且更聚焦用户的行为。
         </p>
 
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> 设置您的测试 环境。
+          <b className={typographyStyles.note}>步骤 1:</b> 设置您的测试环境。
         </p>
 
         <p>
-          请安装 <code>mutationobserver-shim</code>，因为 react-hook-form使用
-          <code>MutationObserver</code>来检测输入，获得 从DOM中卸载。
+          请安装
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          ，以及<code>jest</code>的最新版本，因为 react-hook-form 使用{" "}
+          <code>MutationObserver</code> 来探测输入组件是否从DOM中移除。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          <b className={typographyStyles.note}>注意：</b> 如果您使用的是React
           Native，你不需要安装{" "}
           <a
             target="_blank"
@@ -456,14 +476,22 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
-          创建<code>setup.js</code>来导入 。<code>mutationobserver-shim</code>。
+          创建<code>setup.js</code>来导入
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>
+          。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> 如果您使用的是React
+          <b className={typographyStyles.note}>注意:</b> 如果您使用的是React
           Native，你需要创建{" "}
           <a
             target="_blank"
@@ -472,7 +500,7 @@ export default {
           >
             setup.js
           </a>{" "}
-          , 并定义 <code>window</code> object.
+          , 并定义 <code>window</code>对象。
         </p>
 
         <CodeArea
@@ -481,7 +509,7 @@ export default {
         />
 
         <p>
-          最后，你必须在中更新<code>setup.js</code>。<code>jest.config.js</code>
+          最后，你必须更新<code>jest.config.js</code>中的<code>setup.js</code>
           来包含该文件。
         </p>
 
@@ -491,12 +519,12 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Step 2:</b> 创建登录表格。
+          <b className={typographyStyles.note}>步骤 2:</b> 创建登录表单。
         </p>
 
         <p>
-          我们对角色属性进行了相应的设置。这些属性是
-          在您编写测试和提高可访问性的时候很有帮助。更多 的信息，您可以参考 。
+          我们已经针对性地设置了 role 的属性。
+          在您编写测试和提高可访问性时，这些属性很有帮助。您可以参考。
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -504,7 +532,7 @@ export default {
           >
             testing-library
           </a>
-          文件。
+          文档获取更多信息。
         </p>
 
         <CodeArea
@@ -523,20 +551,20 @@ export default {
             <p>测试提交失败。</p>
 
             <p>
-              我们使用<code>waitFor</code>和<code>find*</code>方法来实现
-              检测提交反馈，因为<code>handleSubmit</code>。 方法是异步执行的。
+              我们使用<code>waitFor</code>和<code>find*</code>方法来
+              检测提交反馈，因为<code>handleSubmit</code>方法是异步执行的。
             </p>
           </li>
           <li>
-            <p>与每个输入相关的测试验证。</p>
+            <p>测试每个输入组件的校验。</p>
 
             <p>
               我们使用<code>*ByRole</code>方法查询不同的
-              元素，因为这是用户识别你的UI组件的方式。
+              元素，因为这就是用户使用你的UI组件的方式。
             </p>
           </li>
           <li>
-            <p>测试成功提交。</p>
+            <p>测试提交成功。</p>
           </li>
         </ul>
 
@@ -548,18 +576,19 @@ export default {
     ),
   },
   strictlyTyped: {
-    title: "Strictly Typed",
+    title: "严格类型",
     description: (
       <>
         <p>
-          在注册时，由于灵活的名称属性的性质，建立严格的输入/表单是一个挑战。我们已经建立了一个额外的插件，使之成为可能。
+          由于注册过程中天然松散的 name
+          属性，为输入组件/表单构建严格的类型非常具有挑战。我们创建了一个额外的插件，使之成为可能。
         </p>
 
         <CodeArea rawData={"npm install @hookform/strictly-typed"} />
 
         <p>
-          我们将不得不用<code>TypedController</code>来包装我们的输入。
-          将输入的字符串名称转换成数组形状。
+          必须使用<code>TypedController</code>
+          来包装输入组件，才可以将输入的 name 字符串转换成数组形状。
         </p>
 
         <CodeArea
