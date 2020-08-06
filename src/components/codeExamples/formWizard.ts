@@ -52,7 +52,7 @@ export const step3 = `import React from "react";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
-const Step1 = props => {
+const Result = props => {
   const { state } = useStateMachine(updateAction);
 
   return <pre>{JSON.stringify(state, null, 2)}</pre>;
