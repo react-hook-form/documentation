@@ -589,5 +589,51 @@ export default {
         </>
       ),
     },
+    {
+      title: "React Native typescript build errors",
+      description: (
+        <>
+          <p>
+            Debido a la naturaleza de la Forma de Gancho de Reacción, el apoyo
+            tanto de la Web como de Reacción Nativo. Ciertos tipos deben ser
+            incluidos u omitidos. Hay dos soluciones para superar este problema:
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                Incluir <code>dom</code> como parte de la configuración de la
+                liberación.
+              </p>
+              <CodeArea
+                rawData={`{
+  "compilerOptions": {
+  "lib": ["dom"],
+}`}
+              />
+            </li>
+            <li>
+              <p>
+                Define los siguientes tipos para evitar que falte{" "}
+                <code>Tipos</code>:
+              </p>
+              <CodeArea
+                rawData={`type FileList = any;
+type VoidFunction = () => void;
+type Node = any;
+type MutationObserverInit = any;
+type HTMLOptionsCollection = any;
+
+// superstruct is pending from external library update: 
+// https://github.com/react-hook-form/resolvers/issues/16
+declare module 'superstruct' {
+  export type Struct = any;
+}`}
+              />
+            </li>
+          </ul>
+        </>
+      ),
+    },
   ],
 }

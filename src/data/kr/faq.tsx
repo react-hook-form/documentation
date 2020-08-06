@@ -619,5 +619,49 @@ export default {
         </>
       ),
     },
+    {
+      title: "React Native typescript build errors",
+      description: (
+        <>
+          <p>
+            React Hook Form의 특성으로 인해 Web과 React 모두 지원 원주민. 특정
+            유형은 포함하거나 생략해야합니다. 두 가지가있다 이 문제를
+            극복하기위한 솔루션 :
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                lib 구성의 일부로 <code> dom </code>을 포함합니다.
+              </p>
+              <CodeArea
+                rawData={`{
+  "compilerOptions": {
+  "lib": ["dom"],
+}`}
+              />
+            </li>
+            <li>
+              <p>
+                <code> 유형 </code>이 누락되지 않도록 다음 유형을 정의하십시오.
+              </p>
+              <CodeArea
+                rawData={`type FileList = any;
+type VoidFunction = () => void;
+type Node = any;
+type MutationObserverInit = any;
+type HTMLOptionsCollection = any;
+
+// superstruct is pending from external library update: 
+// https://github.com/react-hook-form/resolvers/issues/16
+declare module 'superstruct' {
+  export type Struct = any;
+}`}
+              />
+            </li>
+          </ul>
+        </>
+      ),
+    },
   ],
 }

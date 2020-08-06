@@ -572,5 +572,50 @@ export default {
         </>
       ),
     },
+    {
+      title: "React Native typescript build errors",
+      description: (
+        <>
+          <p>
+            React Hook Formの性質上、WebとReactの両方をサポートしています。
+            ネイティブです。特定のタイプは含まれているか省略されている必要があります。以下の2つがあります。
+            この問題を克服するための解決策
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                lib設定の一部として<code>dom</code>を含めます。
+              </p>
+              <CodeArea
+                rawData={`{
+  "compilerOptions": {
+  "lib": ["dom"],
+}`}
+              />
+            </li>
+            <li>
+              <p>
+                <code>Types</code>
+                の欠落を避けるために、以下のタイプを定義します。
+              </p>
+              <CodeArea
+                rawData={`type FileList = any;
+type VoidFunction = () => void;
+type Node = any;
+type MutationObserverInit = any;
+type HTMLOptionsCollection = any;
+
+// superstruct is pending from external library update: 
+// https://github.com/react-hook-form/resolvers/issues/16
+declare module 'superstruct' {
+  export type Struct = any;
+}`}
+              />
+            </li>
+          </ul>
+        </>
+      ),
+    },
   ],
 }
