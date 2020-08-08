@@ -611,15 +611,6 @@ export default {
           <code>defaultValues</code> to <code>useForm</code> in order to{" "}
           <code>reset</code> the <code>Controller</code> components' value.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> if you invoke{" "}
-          <code>reset</code> with empty argument or memorised defaultValues,
-          then you will need to pass <code>{`ref={register()}`}</code> at input
-          instead of <code>{`ref={register}`}</code>. Alternatively, you can{" "}
-          <code>reset</code> the form with values. eg:{" "}
-          <code>reset({`{}`})</code>.
-        </p>
       </>
     ),
   }),
