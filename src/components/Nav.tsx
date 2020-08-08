@@ -59,15 +59,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         <Toggle />
       </div>
 
-      <div className={styles.gitHubButtonWrap}>
-        <GitHubButton
-          href="https://github.com/bluebill1049/react-hook-form"
-          data-size="large"
-          data-show-count
-          aria-label="Star bluebill1049/react-hook-form on GitHub"
-        />
-      </div>
-
       <div
         className={`${styles.langSelect} ${
           lightMode ? styles.lightLangSelect : ""
@@ -105,14 +96,23 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           }}
           value={currentLanguage}
         >
-          <option value="en">English</option>
-          <option value="zh">简体中文</option>
-          <option value="jp">日本語</option>
-          <option value="kr">한국어</option>
-          <option value="pt">Português</option>
-          <option value="es">Español</option>
-          <option value="ru">Русский</option>
+          <option value="en">🇦🇺English</option>
+          <option value="zh">🇨🇳简体中文</option>
+          <option value="jp">🇯🇵日本語</option>
+          <option value="kr">🇰🇷한국어</option>
+          <option value="pt">🇧🇷Português</option>
+          <option value="es">🇪🇸Español</option>
+          <option value="ru">🇷🇺Русский</option>
         </select>
+      </div>
+
+      <div className={styles.gitHubButtonWrap}>
+        <GitHubButton
+          href="https://github.com/bluebill1049/react-hook-form"
+          data-size="large"
+          data-show-count
+          aria-label="Star bluebill1049/react-hook-form on GitHub"
+        />
       </div>
 
       {showMenu && (

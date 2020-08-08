@@ -95,10 +95,10 @@
 
 .langSelect > select {
   width: 100%;
-  margin-top: 15px;
-  line-height: 20px;
-  min-height: 28px;
-  font-size: 14px;
+  margin-top: 13px;
+  line-height: 1.2;
+  min-height: 30px;
+  font-size: 16px;
   display: block;
   background: none;
   appearance: none;
@@ -146,11 +146,16 @@
 
 @media (min-width: 768px) {
   .gitHubButtonWrap {
-    right: 110px;
+    right: 10px;
   }
 
   .langSelect {
-    right: 10px;
+    right: 120px;
+  }
+
+  .langSelect > select {
+    font-size: 15px;
+    margin-top: 14px;
   }
 
   .langSelect:after {
@@ -280,7 +285,7 @@
   }
 
   .gitHubButtonWrap {
-    right: 140px;
+    right: 20px;
   }
 
   .actionButtonGroup {
@@ -292,7 +297,7 @@
   }
 
   .langSelect {
-    right: 20px;
+    right: 130px;
     min-width: 100px;
   }
 
