@@ -108,6 +108,11 @@
   display: inline-block;
 }
 
+.members img:hover {
+  transition: 0.3s all;
+  opacity: 0.5;
+}
+
 .achievementList ul {
   list-style: none;
   margin: 0;

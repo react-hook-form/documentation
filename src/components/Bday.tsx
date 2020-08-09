@@ -65,7 +65,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                     render={({ style }) => (
                       <div>
                         <p>Thanks to the team members:</p>
-                        <Link to="/about-us">
+                        <Link className={styles.members} to="/about-us">
                           <div style={style} className={styles.avatars}>
                             <img
                               src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4"
