@@ -3,7 +3,7 @@ import * as React from "react"
 export default {
   nestedValue: {
     title: "NestedValue",
-    description: <p>当输入本身返回嵌套数据时类型是object或者array。</p>,
+    description: <p>此类型适用于输入组件返回值为嵌套对象的场景。</p>,
   },
   resolver: {
     title: "Resolver",
@@ -13,7 +13,7 @@ export default {
     title: "SubmitHandler",
     description: (
       <p>
-        当提交的数据与<code>FormValues</code>不匹配时。
+        此类型适用于提交数据与<code>FormValues</code>不匹配的场景。
       </p>
     ),
   },
@@ -21,8 +21,8 @@ export default {
     title: "Control",
     description: (
       <p>
-        此类型支持自定义钩子，例如<code>useFieldArray</code>，
-        <code>useWatch</code>的自定义钩子。
+        此类型支撑了诸如<code>useFieldArray</code>，<code>useWatch</code>
+        以及未来其他的自定义hook。
       </p>
     ),
   },
@@ -30,8 +30,8 @@ export default {
     title: "UseFormMethodsRef",
     description: (
       <p>
-        当您使用<code>Context</code>的<code>Consumer</code>代替
-        <code>useFormContext</code>钩子。
+        此类型适用于<code>Context</code>的<code>Consumer</code>替代
+        <code>useFormContext</code>hook的场景。
       </p>
     ),
   },
