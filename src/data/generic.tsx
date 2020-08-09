@@ -89,9 +89,9 @@ export default {
       buttonText: `高度な使用法を学ぶ`,
     },
     zh: {
-      title: "高级用法",
+      title: "进阶",
       description: `了解如何使用React Hook Form构建复杂且易于访问的表单。`,
-      buttonText: `学习高级用法`,
+      buttonText: `进阶`,
     },
     ru: {
       title: "Продвинутое использование",
@@ -370,8 +370,7 @@ export default {
     ),
     zh: (
       <>
-        <code>control</code>对象来自调用<code>useForm</code>的对象。
-        如果您使用的是FormContext，则为可选。
+        通过调用<code>useForm</code>得到的对象。使用FormContext时可选。
       </>
     ),
     ru: (
