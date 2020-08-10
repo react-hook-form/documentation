@@ -536,7 +536,7 @@ export default {
       <>
         <p>
           此函数将重置表单中的字段值和错误。通过提供<code>omitResetState</code>
-          ，您就可以充值部分状态。可以将<code>values</code>
+          ，您就可以 部分状态。可以将<code>values</code>
           作为可选参数传递，以将表单重置为默认值。
         </p>
         <p>
@@ -682,7 +682,7 @@ export default {
           <li>
             <p>
               <code>getValues(['test'，'test1'])</code>：通过
-              <strong>名称</strong>读取多个输入组件值。
+              <strong>name</strong>读取多个输入组件值。
             </p>
           </li>
         </ul>
@@ -893,7 +893,7 @@ export default {
           <td>
             <p>
               此回调允许自定义hook在有错误情况聚焦到对应的输入组件。无论React和React-Native
-              只要可以组件聚焦，它都可以使用。
+              只要组件可以聚焦，它都可以使用。
             </p>
             <CodeSandBoxLink
               style={{
@@ -963,7 +963,7 @@ export default {
     description: (
       <p>
         为React Hook Form的Controller组件提供的对象，包含了 React Hook Form
-        注册受控组件的方法。
+        注册受控组件所需的方法。
       </p>
     ),
   },
@@ -1053,7 +1053,7 @@ export default {
                   <>
                     表单项名称。
                     <b className={typographyStyles.note}>重要：</b>{" "}
-                    确保名称为对象减结构: <code>name={`test[index].name`}</code>{" "}
+                    确保名称为对象键结构: <code>name={`test[index].name`}</code>{" "}
                     因为我们不支持扁平数组。
                   </>
                 </td>
@@ -1159,7 +1159,7 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              当所有的输入组件都从表单式列表移除时，
+              当所有的输入组件都从表单项列表移除时，
               <code>watch</code> 将返回 <code>defaultValues</code>。你可以使用
               <code>fields.length</code>来避免这个行为。例如；
               <code>fields.length ? watch('fieldArray', fields) : []</code>
@@ -1180,11 +1180,11 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            此对象是映射和render染输入组件的数据来源
+            此对象是映射和渲染输入组件的数据来源
             <p>
               <b className={typographyStyles.note}>重要: </b>
-              因为每个输入可以非受控的, <code>id</code>
-              对React来确认组件是已更改、添加或删除是必须的。
+              由于每个输入可以是非受控的, 因此<code>id</code>
+              对React确认组件是已更改、添加或删除来说是必须的。
             </p>
             <p>
               eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
@@ -1203,7 +1203,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>将单个/多个输入组件追加到表单式列表的末尾并聚焦。</td>
+          <td>将单个/多个输入组件追加到表单项列表的末尾并聚焦。</td>
         </tr>
         <tr>
           <td>
@@ -1217,7 +1217,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>将单个/多个输入组件插入到表单式列表的头部并聚焦。</td>
+          <td>将单个/多个输入组件插入到表单项列表的头部并聚焦。</td>
         </tr>
         <tr>
           <td>
@@ -1231,7 +1231,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>将单个/多个输入组件插入到表单式列表的特定位置并聚焦。</td>
+          <td>将单个/多个输入组件插入到表单项列表的特定位置并聚焦。</td>
         </tr>
         <tr>
           <td>
@@ -1353,7 +1353,7 @@ React.useEffect(() => {
           <li>
             <p>
               该函数将被缓存在的自定义hook中，而
-              <code>context</code>则是每次重渲染都会变更的 可变对象。
+              <code>context</code>则是每次重渲染都会变更的可变对象。
             </p>
           </li>
           <li>
