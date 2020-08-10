@@ -90,7 +90,7 @@ export default {
   zh: {
     home: "首页",
     getStarted: "起步",
-    advanced: "高级使用",
+    advanced: "进阶",
     tools: {
       nav: "Tools",
       devTools: "DevTools",
