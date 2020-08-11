@@ -11,6 +11,14 @@ export default {
       authorUrl: "https://blog.logrocket.com/author/siegfriedgrimbeek/",
     },
     {
+      title: "Why react-hook-form is my new favorite form library",
+      url:
+        "https://swizec.com/blog/why-react-hook-form-is-my-new-favorite-form-library/swizec/9467",
+      authorUrl: "https://twitter.com/Swizec",
+      author: "Swizec Teller",
+      description: "",
+    },
+    {
       url:
         "https://blog.bitsrc.io/react-hook-form-an-elegant-solution-to-forms-in-react-4db64505b0cd",
       title: "React Hook Form — An Elegant Solution to Forms in React",
@@ -196,6 +204,32 @@ export default {
         "https://reedbarger.com/how-to-use-react-hook-form-for-dead-simple-forms/",
       authorUrl: "https://twitter.com/codeartistryio",
       author: "Reed Barger",
+      description: "",
+    },
+    {
+      title: "How to test react-hook-form with react-native-testing-library",
+      url:
+        "https://www.albertgao.xyz/2020/07/19/how-to-test-react-hook-form-with-react-native-testing-library/",
+      authorUrl: "https://twitter.com/albertgao",
+      author: "Albert Gao",
+      description: "",
+    },
+    {
+      title: "Getting started with react-hook-form",
+      url:
+        "https://medium.com/javascript-in-plain-english/getting-started-with-react-hook-form-1dcaa73a172c",
+      authorUrl: "https://medium.com/@aayush.acharya",
+      author: "Aayush Acharya",
+      description:
+        "React-hook-form is a library which helps us to validate forms in React",
+    },
+    {
+      title:
+        "Building a simple login form with Material UI and React Hook Form",
+      url:
+        "https://www.williamkurniawan.com/blog/building-a-simple-login-form-with-material-ui-and-react-hook-form",
+      authorUrl: "https://www.williamkurniawan.com",
+      author: "William Kurniawan",
       description: "",
     },
   ],
