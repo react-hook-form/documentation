@@ -147,12 +147,13 @@ export default {
       title: "Browser Support?",
       description: (
         <>
-          <p>React Hook Form supports all major browsers.</p>
-
           <p>
-            For legacy IE11 support, you can import react-hook-form IE 11
-            version.
+            React Hook Form supports all major browsers. For legacy IE11
+            support, you can import react-hook-form IE 11 version. Make sure you
+            install <code>@babel/runtime-corejs3</code> as well.
           </p>
+
+          <CodeArea rawData={`npm i @babel/runtime-corejs3`} />
         </>
       ),
     },
