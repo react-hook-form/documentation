@@ -271,8 +271,8 @@ export default {
         <p>
           <b className={typographyStyles.note}>Important:</b> <code>name</code>{" "}
           is <b>required</b> and <b>unique</b> (can not start with a number or
-          use it as key name). Input name also supports dot and bracket syntax,
-          which allows you to easily create nested form fields.
+          use number as key name). Input name also supports dot and bracket
+          syntax, which allows you to easily create nested form fields.
         </p>
       </>
     ),
