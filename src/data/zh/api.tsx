@@ -89,6 +89,7 @@ export default {
         事件上触发，会导致大量的重渲染。警告：这样通常会对性能造成影响。
       </>
     ),
+    validationOnTouched: <>直到输入被触动，才会触发验证。</>,
     validationOnAll: (
       <>
         校验将在<code>blur</code>和<code>change</code>

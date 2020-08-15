@@ -86,6 +86,9 @@ export default {
         como uma prática não performática.
       </>
     ),
+    validationOnTouched: (
+      <>A validação será acionada até que a entrada seja tocada.</>
+    ),
     validationOnAll: (
       <>
         A validação será acionada nos eventos <code>blur</code> e{" "}
