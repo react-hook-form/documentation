@@ -107,6 +107,7 @@ export default {
         수 있습니다.
       </>
     ),
+    validationOnTouched: <>입력이 터치 될 때까지 유효성 검사가 트리거됩니다.</>,
     defaultValues: (goToSection) => (
       <>
         <p>

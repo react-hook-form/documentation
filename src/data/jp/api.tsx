@@ -94,6 +94,9 @@ export default {
         はパフォーマンスに大きな影響を与える可能性があります
       </>
     ),
+    validationOnTouched: (
+      <>入力がタッチされるまでバリデーションが発生します。</>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

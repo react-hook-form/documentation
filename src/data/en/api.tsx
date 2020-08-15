@@ -105,6 +105,7 @@ export default {
         events.
       </>
     ),
+    validationOnTouched: <>Validation will trigger until input are touched.</>,
     defaultValues: (goToSection) => (
       <>
         <p>
@@ -1098,19 +1099,20 @@ React.useEffect(() => {
             . A function that returns a React element and provides the ability
             to attach events and value into the component. This simplifies
             integrating with external controlled components with non-standard
-            prop names. Provides <code>onChange</code>, <code>onBlur</code> and{" "}
-            <code>value</code> to the child component.
+            prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
+            <code>name</code> and <code>value</code> to the child component.
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller
   control={control} 
   name="test" 
-  render={({ onChange, onBlur, value }) => (
+  render={({ onChange, onBlur, value, name }) => (
     <Checkbox
       onBlur={onBlur}
       onChange={e => onChange(e.target.checked)}
       checked={value}
+      name={name}
     />
   )}
 />

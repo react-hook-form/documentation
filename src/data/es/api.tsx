@@ -93,6 +93,9 @@ export default {
         <code>all</code> puede tener un impacto significativo en el rendimiento.
       </>
     ),
+    validationOnTouched: (
+      <>La validación se activará hasta que se toque la entrada.</>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>

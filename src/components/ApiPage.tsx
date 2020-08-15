@@ -400,7 +400,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
-                  onChange | onBlur | onSubmit | all = 'onSubmit'
+                  onChange | onBlur | onSubmit | onTouched | all = 'onSubmit'
                 </span>
               </code>
               <Popup top={3} />
@@ -434,6 +434,13 @@ const { register } = useForm<FormInputs>({
                       <span className={typographyStyles.typeText}>string</span>
                     </td>
                     <td>{api.useForm.validateOnChange}</td>
+                  </tr>
+                  <tr>
+                    <td>onTouched</td>
+                    <td>
+                      <span className={typographyStyles.typeText}>string</span>
+                    </td>
+                    <td>{api.useForm.validationOnTouched}</td>
                   </tr>
                   <tr>
                     <td>all</td>
@@ -725,10 +732,10 @@ const { register } = useForm<FormInputs>({
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
-                handleSubmit:{" "}
+                handleSubmit: <br />
                 <span className={typographyStyles.typeText}>
-                  ((data: Object, e?: Event) =&gt; void) =&gt; (e?: Event) =&gt;
-                  void
+                  ((data: Object, e?: Event) =&gt; void, (errors: Object, e?:
+                  Event) => void) =&gt; Function
                 </span>
               </h2>
             </code>
