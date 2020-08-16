@@ -467,7 +467,7 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You need to set{" "}
-          <code>validateCriteriaMode</code> to <code>all</code> for this option
+          <code>criteriaMode</code> to <code>'all'</code> for this option
           to work.
         </p>
       </>
