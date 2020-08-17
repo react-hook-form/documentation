@@ -770,13 +770,13 @@ const { register } = useForm<FormInputs>({
               <CodeArea
                 rawData={resetCode}
                 tsRawData={resetCodeTs}
-                url="https://codesandbox.io/s/react-hook-form-reset-v6-ndwid"
-                tsUrl="https://codesandbox.io/s/react-hook-form-reset-v6-ts-3ocgd"
+                url="https://codesandbox.io/s/react-hook-form-reset-v6-forked-1g2vu"
+                tsUrl="https://codesandbox.io/s/react-hook-form-reset-v6-ts-forked-7wy3r"
               />
               <CodeArea
                 rawData={resetController}
                 tsRawData={resetControllerTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+                url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
                 tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               />
             </TabGroup>
@@ -948,7 +948,7 @@ const { register } = useForm<FormInputs>({
 
             <CodeArea
               rawData={control}
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               tsRawData={controlTs}
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
             />

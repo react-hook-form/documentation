@@ -702,7 +702,7 @@ export default {
             y <code>value</code> apoyos en el componente.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               rawData={`<Controller 
                         as={<TextInput />} 
                         control={control} 
@@ -740,7 +740,7 @@ export default {
             <code>onBlur</code> y<code>value</code>.
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-24gcl"
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               rawData={`<Controller
                   control={control}
                   name='test'
