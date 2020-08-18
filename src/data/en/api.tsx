@@ -105,7 +105,9 @@ export default {
         events.
       </>
     ),
-    validationOnTouched: <>Validation will trigger until input are touched.</>,
+    validationOnTouched: (
+      <>Validation will trigger until input is touched (has been focused).</>
+    ),
     defaultValues: (goToSection) => (
       <>
         <p>
