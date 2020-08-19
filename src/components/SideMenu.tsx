@@ -217,7 +217,7 @@ function SideMenu({
                 <code className={styles.code}>{`</>`}</code>
                 <a
                   rel="noopener noreferrer"
-                  href="https://github.com/bluebill1049/react-hook-form/tree/master/examples"
+                  href="https://github.com/react-hook-form/react-hook-form/tree/master/examples"
                   target="_blank"
                 >
                   {generic.codeExample[currentLanguage]}
