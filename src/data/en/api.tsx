@@ -240,6 +240,10 @@ export default {
           <code>shouldUnregister</code> to false to maintain the input state
           even when unmounting occurs.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> this feature is not
+          working with <code>useFieldArray</code> yet.
+        </p>
       </>
     ),
   },
@@ -425,6 +429,10 @@ export default {
             FileList
           </a>{" "}
           object.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Native inputs will only
+          return <code>string</code> type in React Hook Form.
         </p>
       </>
     ),
