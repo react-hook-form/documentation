@@ -11,9 +11,7 @@ export default function App() {
       <input name="singleErrorInput" ref={register({ required: "This is required." })} />
       <ErrorMessage errors={errors} name="singleErrorInput" />
       
-      <ErrorMessage errors={errors} name="singleErrorInput">
-        {({ message }) => <p>{message}</p>}
-      </ErrorMessage>
+      <ErrorMessage errors={errors} name="singleErrorInput" render={() => ({ message }) => <p>{message}</p>} />
       
       <input name="name" ref={register({ required: true })} />
       <ErrorMessage errors={errors} name="name" message="This is required" />
