@@ -106,7 +106,7 @@ export default {
       </>
     ),
     validationOnTouched: (
-      <>Validation will trigger until input is touched (has been focused).</>
+      <>Validation won't trigger until input is touched (has lost focus).</>
     ),
     defaultValues: (goToSection) => (
       <>
