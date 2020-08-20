@@ -34,7 +34,7 @@ export default function Header({
 {
   homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
-  isCardPlay: boolean
+  // isCardPlay: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
