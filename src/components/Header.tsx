@@ -1,12 +1,12 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
-import Bday from "./Bday"
-import video from "../images/react-hook-form-demo-video.mp4"
-import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
+// import Bday from "./Bday"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
+import video from "../images/react-hook-form-demo-video.mp4"
+import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import typographyStyles from "../styles/typography.module.css"
 import buttonStyles from "../styles/button.module.css"
 import styles from "./Header.module.css"
@@ -30,8 +30,8 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
-  isCardPlay,
-}: {
+}: // isCardPlay,
+{
   homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
   isCardPlay: boolean
@@ -234,7 +234,7 @@ export default function Header({
         </div>
       </AnimateGroup>
 
-      <Bday isCardPlay={isCardPlay} />
+      {/*<Bday isCardPlay={isCardPlay} />*/}
     </>
   )
 }
