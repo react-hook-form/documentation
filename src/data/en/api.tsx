@@ -1158,6 +1158,11 @@ React.useEffect(() => {
               will be passed into your component: <code>onChange</code>,{" "}
               <code>onBlur</code>, <code>value</code>.
             </p>
+            
+             <p>
+              <b className={typographyStyles.note}>Note:</b> For Typescript user, if you are using custom component with required fields: <code>onChange</code>,{" "}
+              <code>onBlur</code>, <code>value</code>, It will complain about missing declared field. Please use <code>render</code> instead of <code>as</code>.
+            </p>
 
             <CodeArea
               withOutCopy
