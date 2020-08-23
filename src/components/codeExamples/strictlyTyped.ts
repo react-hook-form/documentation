@@ -34,7 +34,13 @@ export default function App() {
       <TypedController
         name={['nested', 'array', 0, 'test']}
         defaultValue={false}
-        render={(props) => <Checkbox {...props} />}
+        render={({ onChange, value, ...rest }) => (
+          <Checkbox
+            {...rest}
+            onChange={e => onChange(e.target.checked)}
+            checked={value}
+          />
+        )}
       />
 
       {/* ❌: Type '"notExists"' is not assignable to type 'DeepPath<FormValues, "notExists">'. */}
