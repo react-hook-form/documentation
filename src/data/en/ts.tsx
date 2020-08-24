@@ -40,7 +40,7 @@ export default {
     description: (
       <p>
         This type is useful when you are using <code>Context</code>'s{" "}
-        <code>Consumer</code> instead of
+        <code>Consumer</code> instead of&nbsp;
         <code>useFormContext</code> hook.
       </p>
     ),
