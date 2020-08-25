@@ -59,6 +59,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         <Toggle />
       </div>
 
+      <input id="doc-search" />
+
       <div
         className={`${styles.langSelect} ${
           lightMode ? styles.lightLangSelect : ""
@@ -96,6 +98,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           }}
           value={currentLanguage}
         >
+          {/* eslint-disable jsx-a11y/accessible-emoji */}
           <option value="en">🇦🇺 English</option>
           <option value="zh">🇨🇳 简体中文</option>
           <option value="jp">🇯🇵 日本語</option>
@@ -103,6 +106,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <option value="pt">🇧🇷 Português</option>
           <option value="es">🇪🇸 Español</option>
           <option value="ru">🇷🇺 Русский</option>
+          {/* eslint-enable jsx-a11y/accessible-emoji */}
         </select>
       </div>
 

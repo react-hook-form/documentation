@@ -190,7 +190,7 @@ export default ({ location }) => {
                             <section className={styles.interests}>
                               <ul>
                                 {interests.map((interest) => (
-                                  <li>{interest}</li>
+                                  <li key={interest}>{interest}</li>
                                 ))}
                               </ul>
                             </section>
