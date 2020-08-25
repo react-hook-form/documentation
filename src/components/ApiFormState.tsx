@@ -147,6 +147,13 @@ export default React.memo(
                   </p>
                 </td>
               </tr>
+              <tr>
+                <td>errors</td>
+                <td>
+                  <code className={typographyStyles.typeText}>object</code>
+                </td>
+                <td>An object with field errors.</td>
+              </tr>
             </tbody>
           </table>
           <CodeArea
