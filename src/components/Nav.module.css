@@ -1,9 +1,18 @@
-.iconGroup {
+.iconSearchGroup {
   position: absolute;
   display: flex;
+  flex-direction: column;
   left: 10px;
   top: 15px;
+}
+
+.iconGroup {
+  display: flex;
   width: 110px;
+}
+
+.searchBar {
+  height: 24px;
 }
 
 .icon {
@@ -199,7 +208,7 @@
     display: none;
   }
 
-  .iconGroup {
+  .iconSearchGroup {
     left: 20px;
   }
 
