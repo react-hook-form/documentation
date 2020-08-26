@@ -38,11 +38,9 @@ export default ({ defaultLang, content }: Props) => {
       : { currentLanguage: defaultLang }
   const lightMode = state?.setting?.lightMode
 
-  const { control, formState } = methods
+  const { control } = methods
 
   const onSubmit = (data) => console.log(data)
-
-  console.log(formState.isValid)
 
   return (
     <div className={containerStyles.container}>
