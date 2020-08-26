@@ -30,13 +30,14 @@ export default ({ defaultLang, content }: Props) => {
   const [showDevTool, setShowDevTool] = React.useState(false)
   const {
     state,
-    state: { language },
+    state: { language, setting },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const lightMode = state?.setting?.lightMode
+  const lightMode = setting?.lightMode
+  console.log("the state:", state)
 
   const { control } = methods
 
@@ -83,11 +84,7 @@ export default ({ defaultLang, content }: Props) => {
         <div className={containerStyles.subContainer}>
           <p>{content.step1}</p>
 
-          <span
-            className={`${getStartedStyle.installCode} ${
-              lightMode ? getStartedStyle.lightInstallCode : ""
-            }`}
-          >
+          <span>
             npm install @hookform/devtools -D
             <button
               className={getStartedStyle.copyButton}
