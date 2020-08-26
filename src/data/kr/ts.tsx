@@ -52,8 +52,16 @@ export default {
     title: "FieldError",
     description: "",
   },
+  fieldErrors: {
+    title: "FieldErrors",
+    description: "",
+  },
   field: {
     title: "Field",
+    description: "",
+  },
+  fieldValues: {
+    title: "FieldValues",
     description: "",
   },
   mode: {
@@ -66,6 +74,10 @@ export default {
   },
   arrayField: {
     title: "ArrayField",
+    description: "",
+  },
+  formStateProxy: {
+    title: "FormStateProxy",
     description: "",
   },
 }
