@@ -84,7 +84,11 @@ export default ({ defaultLang, content }: Props) => {
         <div className={containerStyles.subContainer}>
           <p>{content.step1}</p>
 
-          <span>
+          <span
+            className={`${getStartedStyle.installCode} ${
+              lightMode ? getStartedStyle.lightInstallCode : ""
+            }`}
+          >
             npm install @hookform/devtools -D
             <button
               className={getStartedStyle.copyButton}
@@ -93,7 +97,7 @@ export default ({ defaultLang, content }: Props) => {
                 alert(generic.copied["en"])
               }}
             >
-              <span className={codeAreaStyles.copyIcon}>
+              <span style={lightMode ? { color: "black" } : { color: "white" }}>
                 <span />
               </span>{" "}
               {generic.copy["en"]}
