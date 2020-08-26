@@ -17,10 +17,13 @@ const enLinks = [
   TS.en.useFormOptions,
   TS.en.useFieldArrayOptions,
   TS.en.fieldError,
+  TS.en.fieldErrors,
   TS.en.field,
+  TS.en.fieldValues,
   TS.en.arrayField,
   TS.en.mode,
   TS.en.validationRules,
+  TS.en.formStateProxy,
 ]
 
 export default ({ defaultLang }: { defaultLang: string }) => {
@@ -37,9 +40,12 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     UseFormOptionsRef: null,
     UseFieldArrayOptionsRef: null,
     FieldErrorRef: null,
+    FieldErrorsRef: null,
     FieldRef: null,
+    FieldValuesRef: null,
     ArrayFieldRef: null,
     ModeRef: null,
+    FormStateProxyRef: null,
   })
   const { currentLanguage } =
     language && language.currentLanguage
@@ -462,6 +468,22 @@ export default function App() {
 
           <hr />
 
+          <section ref={(ref) => (tsSectionsRef.current.FieldErrorsRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].fieldErrors.title}</h2>
+            </code>
+            {TS[currentLanguage].fieldErrors.description}
+
+            <CodeArea
+              rawData={`export type FieldErrors<
+  TFieldValues extends FieldValues = FieldValues
+> = DeepMap<TFieldValues, FieldError>;
+`}
+            />
+          </section>
+
+          <hr />
+
           <section ref={(ref) => (tsSectionsRef.current.FieldRef = ref)}>
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].field.title}</h2>
@@ -475,6 +497,19 @@ export default function App() {
   options?: RadioOrCheckboxOption[];
 } & ValidationRules;
 `}
+            />
+          </section>
+
+          <hr />
+
+          <section ref={(ref) => (tsSectionsRef.current.FieldValuesRef = ref)}>
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].fieldValues.title}</h2>
+            </code>
+            {TS[currentLanguage].fieldValues.description}
+
+            <CodeArea
+              rawData={`export type FieldValues = Record<string, any>;`}
             />
           </section>
 
@@ -533,6 +568,31 @@ export default function App() {
   pattern: ValidationRule<RegExp>;
   validate: Validate | Record<string, Validate>;
 }>;
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.FormStateProxyRef = ref)}
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].formStateProxy.title}</h2>
+            </code>
+            {TS[currentLanguage].formStateProxy.description}
+
+            <CodeArea
+              rawData={`export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
+  isDirty: boolean;
+  dirtyFields: Dirtied<TFieldValues>;
+  isSubmitted: boolean;
+  submitCount: number;
+  touched: FieldNames<TFieldValues>;
+  isSubmitting: boolean;
+  isValid: boolean;
+  errors: FieldErrors<TFieldValues>;
+};
 `}
             />
           </section>
