@@ -97,7 +97,7 @@ export default ({ defaultLang, content }: Props) => {
                 alert(generic.copied["en"])
               }}
             >
-              <span style={lightMode ? { color: "black" } : { color: "white" }}>
+              <span className={codeAreaStyles.copyIcon}>
                 <span />
               </span>{" "}
               {generic.copy["en"]}
