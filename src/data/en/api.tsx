@@ -1158,10 +1158,13 @@ React.useEffect(() => {
               will be passed into your component: <code>onChange</code>,{" "}
               <code>onBlur</code>, <code>value</code>.
             </p>
-            
-             <p>
-              <b className={typographyStyles.note}>Note:</b> For Typescript user, if you are using custom component with required fields: <code>onChange</code>,{" "}
-              <code>onBlur</code>, <code>value</code>, It will complain about missing declared field. Please use <code>render</code> instead of <code>as</code>.
+
+            <p>
+              <b className={typographyStyles.note}>Note:</b> For Typescript
+              user, if you are using custom component with required fields:{" "}
+              <code>onChange</code>, <code>onBlur</code>, <code>value</code>, It
+              will complain about missing declared field. Please use{" "}
+              <code>render</code> instead of <code>as</code>.
             </p>
 
             <CodeArea
@@ -1230,6 +1233,14 @@ React.useEffect(() => {
               This callback allows the custom hook to focus on the input when
               there is an error. This function is applicable for both React and
               React-Native components as long as they can be focused.
+            </p>
+
+            <p>
+              <b className={typographyStyles.note}>Note:</b> Input focus order
+              is according to registration order, which means native input
+              registered with <code>ref</code> will be the first to be focused
+              on the error due to <code>Controller</code> registration occurred
+              during <code>useEffect</code>.
             </p>
 
             <CodeSandBoxLink
