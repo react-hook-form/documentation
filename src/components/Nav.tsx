@@ -27,7 +27,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
   return (
     <>
-      <div className={styles.iconSearchGroup}>
+      <div className={styles.iconSearchBarGroup}>
         <div className={styles.iconGroup}>
           <span className={styles.icon}>
             <a
@@ -59,7 +59,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
           <Toggle />
         </div>
-        <input id="doc-search" className={styles.searchBar} />
+        <input
+          id="doc-search"
+          placeholder="Search ..."
+          className={styles.searchBar}
+        />
       </div>
 
       <div

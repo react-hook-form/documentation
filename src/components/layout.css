@@ -444,18 +444,18 @@ a.active {
 }
 
 a.skip-main {
+  top: 50px;
   left: -999px;
   position: absolute;
-  top: auto;
   width: 110px;
   overflow: hidden;
   z-index: -999;
 }
 a.skip-main:focus,
 a.skip-main:active {
-  top: 20px;
+  top: 50px;
   width: 110px;
-  left: 160px;
+  left: 95px;
   height: auto;
   overflow: auto;
   font-size: 15px;

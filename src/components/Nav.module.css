@@ -1,18 +1,40 @@
-.iconSearchGroup {
+.iconSearchBarGroup {
   position: absolute;
   display: flex;
-  flex-direction: column;
   left: 10px;
   top: 15px;
 }
 
+.searchBar {
+  height: 24px;
+}
+
 .iconGroup {
   display: flex;
-  width: 110px;
+  width: 115px;
+  margin-right: 15px;
 }
 
 .searchBar {
   height: 24px;
+  width: 115px;
+  border-radius: 3px; 
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+  "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+}
+.searchBar:focus {
+  outline: none;
+}
+
+@media (max-width: 1140px) {
+  .iconSearchBarGroup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    top: 15px;
+  }
 }
 
 .icon {
@@ -298,7 +320,7 @@
   }
 
   .actionButtonGroup {
-    max-width: 800px;
+    max-width: 750px;
   }
 
   .actionButtonGroup a:nth-child(8) {
