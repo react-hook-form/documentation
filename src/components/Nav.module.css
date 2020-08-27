@@ -11,31 +11,8 @@
 
 .iconGroup {
   display: flex;
-  width: 115px;
+  width: 105px;
   margin-right: 15px;
-}
-
-.searchBar {
-  height: 24px;
-  width: 115px;
-  border-radius: 3px; 
-  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  z-index: 1;
-}
-.searchBar:focus {
-  outline: none;
-}
-
-@media (max-width: 1140px) {
-  .iconSearchBarGroup {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: 10px;
-    top: 15px;
-  }
 }
 
 .icon {

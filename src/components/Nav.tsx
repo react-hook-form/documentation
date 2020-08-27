@@ -8,6 +8,7 @@ import { updateCurrentLanguage } from "../actions/languageActions"
 import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
+import Search from "./Search"
 import styles from "./Nav.module.css"
 import colors from "../styles/colors"
 
@@ -56,14 +57,9 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               </svg>
             </a>
           </span>
-
           <Toggle />
         </div>
-        <input
-          id="doc-search"
-          placeholder="Search ..."
-          className={styles.searchBar}
-        />
+        <Search />
       </div>
 
       <div

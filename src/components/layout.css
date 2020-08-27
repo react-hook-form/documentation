@@ -444,7 +444,7 @@ a.active {
 }
 
 a.skip-main {
-  top: 50px;
+  top: 70px;
   left: -999px;
   position: absolute;
   width: 110px;
@@ -453,9 +453,9 @@ a.skip-main {
 }
 a.skip-main:focus,
 a.skip-main:active {
-  top: 50px;
+  top: 70px;
   width: 110px;
-  left: 95px;
+  left: 50px;
   height: auto;
   overflow: auto;
   font-size: 15px;
