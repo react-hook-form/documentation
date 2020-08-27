@@ -5,7 +5,7 @@ import searchStyles from "./Search.module.css"
 // const searchBarBreakWidth = 1100
 
 const Search = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const searchInput = useRef(null)
 
   // useEffect(() => {
