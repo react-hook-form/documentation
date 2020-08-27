@@ -5,7 +5,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        "first-contentful-paint": ["error", { maxNumericValue: 2500 }],
+        "first-contentful-paint": ["error", { maxNumericValue: 3000 }],
       },
     },
   },
