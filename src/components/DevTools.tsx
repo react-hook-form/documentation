@@ -84,7 +84,7 @@ export default ({ defaultLang, content }: Props) => {
         <div className={containerStyles.subContainer}>
           <p>{content.step1}</p>
 
-          {/* <span
+          <span
             className={`${getStartedStyle.installCode} ${
               lightMode ? getStartedStyle.lightInstallCode : ""
             }`}
@@ -102,7 +102,7 @@ export default ({ defaultLang, content }: Props) => {
               </span>{" "}
               {generic.copy["en"]}
             </button>
-          </span> */}
+          </span>
 
           <p>{content.step2}</p>
 
