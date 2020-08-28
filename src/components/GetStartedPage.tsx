@@ -165,6 +165,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.video.title)
               ] = ref)
             }
+            id={getRefNameFromTitle(getStartedEn.video.title)}
           >
             {getStarted.video.title}
           </h2>
@@ -207,6 +208,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.register.title)
               ] = ref)
             }
+            id={getRefNameFromTitle(getStartedEn.register.title)}
           >
             {getStarted.register.title}
           </h2>
@@ -227,6 +229,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.applyValidation.title)
               ] = ref)
             }
+            id={getRefNameFromTitle(getStartedEn.applyValidation.title)}
           >
             {getStarted.applyValidation.title}
           </h2>
@@ -247,6 +250,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.adapting.title)
               ] = ref)
             }
+            id={getRefNameFromTitle(getStartedEn.adapting.title)}
           >
             {getStarted.adapting.title}
           </h2>
@@ -267,6 +271,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.workWithUI.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.workWithUI.title)}
           >
             {getStarted.workWithUI.title}
           </h2>
@@ -287,6 +292,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.controlledInput.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.controlledInput.title)}
           >
             {getStarted.controlledInput.title}
           </h2>
@@ -307,6 +313,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.globalState.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.globalState.title)}
           >
             {getStarted.globalState.title}
           </h2>
@@ -322,6 +329,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.errors.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.errors.title)}
           >
             {getStarted.errors.title}
           </h2>
@@ -342,6 +350,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.schema.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.schema.title)}
           >
             {getStarted.schema.title}
           </h2>
@@ -379,6 +388,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.reactNative.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.reactNative.title)}
           >
             React Native
           </h2>
@@ -408,6 +418,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.typeScript.title)
               ] = ref
             }}
+            id={getRefNameFromTitle(getStartedEn.typeScript.title)}
           >
             TypeScript
           </h2>

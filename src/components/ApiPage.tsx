@@ -325,6 +325,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.useFormRef = ref
             }}
+            id="useFormRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -659,6 +660,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.registerRef = ref
             }}
+            id="registerRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -683,6 +685,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.unregisterRef = ref
             }}
+            id="unregisterRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -709,6 +712,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.errorsRef = ref
             }}
+            id="errorsRef"
           >
             <ApiErrors
               currentLanguage={currentLanguage}
@@ -721,6 +725,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.watchRef = ref
             }}
+            id="watchRef"
           >
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
@@ -729,6 +734,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.handleSubmitRef = ref
             }}
+            id="handleSubmitRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -754,6 +760,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.resetRef = ref
             }}
+            id="resetRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -788,6 +795,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.setErrorRef = ref
             }}
+            id="setErrorRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -833,6 +841,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.clearErrorsRef = ref
             }}
+            id="clearErrorsRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -858,6 +867,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.setValueRef = ref
             }}
+            id="setValueRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -885,6 +895,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.getValuesRef = ref
             }}
+            id="getValuesRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -912,6 +923,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.triggerRef = ref
             }}
+            id="triggerRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -937,6 +949,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.controlRef = ref
             }}
+            id="controlRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -960,6 +973,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => {
               apiSectionsRef.current.formStateRef = ref
             }}
+            id="formStateRef"
           >
             <ApiFormState
               currentLanguage={currentLanguage}
@@ -970,7 +984,10 @@ const { register } = useForm<FormInputs>({
 
           <hr />
 
-          <section ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}
+            id="ControllerRef"
+          >
             <Controller currentLanguage={currentLanguage} api={api} />
           </section>
 
@@ -978,6 +995,7 @@ const { register } = useForm<FormInputs>({
 
           <section
             ref={(ref) => (apiSectionsRef.current.ErrorMessageRef = ref)}
+            id="ErrorMessageRef"
           >
             <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
@@ -986,13 +1004,17 @@ const { register } = useForm<FormInputs>({
 
           <section
             ref={(ref) => (apiSectionsRef.current.useFormContextRef = ref)}
+            id="useFormContextRef"
           >
             <FormContext currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
 
-          <section ref={(ref) => (apiSectionsRef.current.useWatchRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.useWatchRef = ref)}
+            id="useWatchRef"
+          >
             <UseWatch currentLanguage={currentLanguage} api={api} />
           </section>
 
@@ -1000,6 +1022,7 @@ const { register } = useForm<FormInputs>({
 
           <section
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
+            id="useFieldArrayRef"
           >
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
           </section>
