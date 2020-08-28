@@ -23,7 +23,9 @@
   border: none;
   padding: 0;
   height: 24px;
+  z-index: 1;
 }
+
 .searchButton:focus {
   outline: none;
   box-shadow: none;
@@ -36,4 +38,26 @@
   display: flex;
   color: white;
   align-self: center;
+}
+
+@media (max-width: 1100px) {
+  .searchBar {
+    height: 24px;
+    width: 85px;
+    border-radius: 3px; 
+    font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .lightActionButtonWrapper {
+    height: 100px;
+  }
+
+  .searchBar {
+    width: 105px;
+  }
 }
