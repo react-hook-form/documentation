@@ -100,7 +100,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
         />
 
         <main>
-          <section ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}
+            id="NestedValueRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].nestedValue.title}</h2>
             </code>
@@ -194,7 +197,10 @@ errors?.key4?.message // no type error`}
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.ResolverRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.ResolverRef = ref)}
+            id="ResolverRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].resolver.title}</h2>
             </code>
@@ -248,6 +254,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.SubmitHandlerRef = ref)}
+            id="SubmitHandlerRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].submitHandler.title}</h2>
@@ -262,7 +269,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.ControlRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.ControlRef = ref)}
+            id="ControlRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].control.title}</h2>
             </code>
@@ -309,6 +319,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.UseFormMethodsRef = ref)}
+            id="UseFormMethodsRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].useFormMethodsRef.title}</h2>
@@ -401,6 +412,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.UseFormOptionsRef = ref)}
+            id="UseFormOptionsRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].useFormOptions.title}</h2>
@@ -429,6 +441,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.UseFieldArrayOptionsRef = ref)}
+            id="UseFieldArrayOptionsRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
@@ -449,7 +462,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.FieldErrorRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldErrorRef = ref)}
+            id="FieldErrorRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].fieldError.title}</h2>
             </code>
@@ -468,7 +484,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.FieldErrorsRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldErrorsRef = ref)}
+            id="FieldErrorsRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].fieldErrors.title}</h2>
             </code>
@@ -484,7 +503,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.FieldRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldRef = ref)}
+            id="FieldRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].field.title}</h2>
             </code>
@@ -502,7 +524,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.FieldValuesRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldValuesRef = ref)}
+            id="FieldValuesRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].fieldValues.title}</h2>
             </code>
@@ -515,7 +540,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.ArrayFieldRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.ArrayFieldRef = ref)}
+            id="ArrayFieldRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].arrayField.title}</h2>
             </code>
@@ -532,7 +560,10 @@ export default function App() {
 
           <hr />
 
-          <section ref={(ref) => (tsSectionsRef.current.ModeRef = ref)}>
+          <section
+            ref={(ref) => (tsSectionsRef.current.ModeRef = ref)}
+            id="ModeRef"
+          >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].mode.title}</h2>
             </code>
@@ -552,6 +583,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.ValidationRulesRef = ref)}
+            id="ValidationRulesRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].validationRules.title}</h2>
@@ -576,6 +608,7 @@ export default function App() {
 
           <section
             ref={(ref) => (tsSectionsRef.current.FormStateProxyRef = ref)}
+            id="FormStateProxyRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS[currentLanguage].formStateProxy.title}</h2>

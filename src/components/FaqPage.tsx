@@ -115,6 +115,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question0 = ref)}
+            id="question0"
           >
             {faq.questions[0].title}
           </h2>
@@ -125,6 +126,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question1 = ref)}
+            id="question1"
           >
             {faq.questions[1].title}
           </h2>
@@ -136,6 +138,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question2 = ref)}
+            id="question2"
           >
             {faq.questions[2].title}
           </h2>
@@ -147,6 +150,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question3 = ref)}
+            id="question3"
           >
             {faq.questions[3].title}
           </h2>
@@ -157,6 +161,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question4 = ref)}
+            id="question4"
           >
             {faq.questions[4].title}
           </h2>
@@ -169,6 +174,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question5 = ref)}
+            id="question5"
           >
             {faq.questions[5].title}
           </h2>
@@ -181,6 +187,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question6 = ref)}
+            id="question6"
           >
             {faq.questions[6].title}
           </h2>
@@ -193,6 +200,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question7 = ref)}
+            id="question7"
           >
             {faq.questions[7].title}
           </h2>
@@ -222,6 +230,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question8 = ref)}
+            id="question8"
           >
             {faq.questions[8].title}
           </h2>
@@ -233,6 +242,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question9 = ref)}
+            id="question9"
           >
             {faq.questions[9].title}
           </h2>
@@ -264,6 +274,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question10 = ref)}
+            id="question10"
           >
             {faq.questions[10].title}
           </h2>
@@ -275,6 +286,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question11 = ref)}
+            id="question11"
           >
             {faq.questions[11].title}
           </h2>
@@ -294,6 +306,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question12 = ref)}
+            id="question12"
           >
             {faq.questions[12].title}
           </h2>
@@ -305,6 +318,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question13 = ref)}
+            id="question13"
           >
             {faq.questions[13].title}
           </h2>
@@ -316,6 +330,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question14 = ref)}
+            id="question14"
           >
             {faq.questions[14].title}
           </h2>
@@ -327,6 +342,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question15 = ref)}
+            id="question15"
           >
             {faq.questions[15].title}
           </h2>
@@ -338,6 +354,7 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (sectionsRef.current.question16 = ref)}
+            id="question16"
           >
             {faq.questions[16].title}
           </h2>
