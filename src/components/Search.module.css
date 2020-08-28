@@ -1,3 +1,8 @@
+.searchForm {
+  display: flex;
+  flex: 0 0 auto;
+}
+
 .searchBar {
   height: 24px;
   width: 115px;
@@ -13,7 +18,7 @@
 
 .searchButton {
   display: flex;
-  background-color:rgba(0, 0, 0, 0);
+  background: transparent;
   border-radius: 3px;
   border: none;
   padding: 0;
