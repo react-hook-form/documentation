@@ -60,6 +60,7 @@
   .searchBar {
     width: 105px;
     height: auto;
-    border-radius: auto; 
+    -webkit-appearance: none;
+    border-radius: 3px;
   }
 }
