@@ -11,7 +11,6 @@ const Search = () => {
         aria-label="search input"
         id="algolia-doc-search"
         placeholder="Search ..."
-        type="search"
       />
     </form>
   )

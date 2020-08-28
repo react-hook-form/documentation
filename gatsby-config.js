@@ -71,7 +71,6 @@ module.exports = {
         apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
         indexName: "react-hook-form",
         inputSelector: "#algolia-doc-search",
-        debug: true,
       },
     },
   ],
