@@ -326,6 +326,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.useFormRef = ref
             }}
+            id="useFormRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -748,6 +749,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.registerRef = ref
             }}
+            id="registerRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -772,6 +774,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.unregisterRef = ref
             }}
+            id="unregisterRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -798,6 +801,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.errorsRef = ref
             }}
+            id="errorsRef"
           >
             <ApiErrors
               currentLanguage={currentLanguage}
@@ -810,6 +814,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.watchRef = ref
             }}
+            id="watchRef"
           >
             <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
@@ -818,6 +823,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.handleSubmitRef = ref
             }}
+            id="handleSubmitRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -840,6 +846,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.resetRef = ref
             }}
+            id="resetRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -882,6 +889,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.setErrorRef = ref
             }}
+            id="setErrorRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -921,6 +929,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.clearErrorRef = ref
             }}
+            id="clearErrorRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -941,6 +950,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.setValueRef = ref
             }}
+            id="setValueRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>setValue: </h2>
@@ -970,6 +980,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.getValuesRef = ref
             }}
+            id="getValuesRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -995,6 +1006,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.triggerValidationRef = ref
             }}
+            id="triggerValidationRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -1018,6 +1030,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.controlRef = ref
             }}
+            id="controlRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -1039,6 +1052,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.formStateRef = ref
             }}
+            id="formStateRef"
           >
             <ApiFormState
               currentLanguage={currentLanguage}
@@ -1049,7 +1063,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <hr />
 
-          <section ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}>
+          <section
+            ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}
+            id="ControllerRef"
+          >
             <ControllerV5 currentLanguage={currentLanguage} api={api} />
           </section>
 
@@ -1057,6 +1074,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => (apiSectionsRef.current.ErrorMessageRef = ref)}
+            id="ErrorMessageRef"
           >
             <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
@@ -1065,6 +1083,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => (apiSectionsRef.current.useFormContextRef = ref)}
+            id="useFormContextRef"
           >
             <FormContext currentLanguage={currentLanguage} api={api} />
           </section>
@@ -1073,6 +1092,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
+            id="useFieldArrayRef"
           >
             <UseFieldArray currentLanguage={currentLanguage} api={api} />
           </section>
@@ -1081,6 +1101,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
           <section
             ref={(ref) => (apiSectionsRef.current.validationResolverRef = ref)}
+            id="validationResolverRef"
           >
             <ValidationResolver currentLanguage={currentLanguage} api={api} />
           </section>
@@ -1091,6 +1112,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.validationSchemaRef = ref
             }}
+            id="validationSchemaRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>
@@ -1116,6 +1138,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => {
               apiSectionsRef.current.BrowserbuiltinvalidationRef = ref
             }}
+            id="BrowserbuiltinvalidationRef"
           >
             <h2 className={typographyStyles.codeHeading}>
               Browser built-in validation (V3 only)

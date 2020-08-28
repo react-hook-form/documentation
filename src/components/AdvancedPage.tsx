@@ -125,6 +125,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.AccessibilityA11y = ref)}
+            id="AccessibilityA11y"
           >
             {advanced.accessibility.title}
           </h2>
@@ -136,6 +137,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.WizardFormFunnel = ref)}
+            id="WizardFormFunnel"
           >
             {advanced.wizard.title}
           </h2>
@@ -162,6 +164,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.SmartFormComponent = ref)}
+            id="SmartFormComponent"
           >
             {advanced.smartForm.title}
           </h2>
@@ -173,6 +176,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.FieldArrays = ref)}
+            id="FieldArrays"
           >
             {advanced.fieldArrays.title}
           </h2>
@@ -195,6 +199,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.ErrorMessages = ref)}
+            id="ErrorMessages"
           >
             {advanced.errorMessage.title}
           </h2>
@@ -234,6 +239,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.ConnectForm = ref)}
+            id="ConnectForm"
           >
             {advanced.connectForm.title}
           </h2>
@@ -249,6 +255,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             ref={(ref) =>
               (pageContentRef.current.FormProviderPerformance = ref)
             }
+            id="FormProviderPerformance"
           >
             {advanced.formContext.title}
           </h2>
@@ -267,6 +274,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             ref={(ref) =>
               (pageContentRef.current.ConditionalControlledComponent = ref)
             }
+            id="ConditionalControlledComponent"
           >
             {advanced.conditionalControlledComponent.title}
           </h2>
@@ -292,6 +300,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             ref={(ref) =>
               (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
             }
+            id="ControlledmixedwithUncontrolledComponents"
           >
             {advanced.controlledMixedWithUnControlled.title}
           </h2>
@@ -311,6 +320,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.CustomHookwithResolver = ref)}
+            id="CustomHookwithResolver"
           >
             {advanced.customHookwithResolver.title}
           </h2>
@@ -324,6 +334,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             ref={(ref) =>
               (pageContentRef.current.Workingwithvirtualizedlists = ref)
             }
+            id="Workingwithvirtualizedlists"
           >
             {advanced.workingWithVirtualizedList.title}
           </h2>
@@ -335,6 +346,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.TestingForm = ref)}
+            id="TestingForm"
           >
             {advanced.testingForm.title}
           </h2>
@@ -363,6 +375,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) => (pageContentRef.current.StrictlyTyped = ref)}
+            id="StrictlyTyped"
           >
             {advanced.strictlyTyped.title}
           </h2>
