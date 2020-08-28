@@ -59,5 +59,7 @@
 
   .searchBar {
     width: 105px;
+    height: auto;
+    border-radius: auto; 
   }
 }
