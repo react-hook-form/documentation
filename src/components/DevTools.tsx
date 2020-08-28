@@ -37,7 +37,6 @@ export default ({ defaultLang, content }: Props) => {
       ? language
       : { currentLanguage: defaultLang }
   const lightMode = setting?.lightMode
-  console.log("the state:", state)
 
   const { control } = methods
 

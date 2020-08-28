@@ -85,7 +85,6 @@ function Advanced({ defaultLang, advanced }: Props) {
     const url = window.location.href
     const hashIndex = url.indexOf("#")
     const filterName = name.replace(/[^\w\s]| /g, "")
-    console.log({ name, filterName, hashIndex, pageContentRef })
 
     if (hashIndex < 0) {
       history.pushState({}, null, `${url}#${filterName}`)
