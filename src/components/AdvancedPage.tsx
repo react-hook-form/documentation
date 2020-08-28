@@ -339,23 +339,6 @@ function Advanced({ defaultLang, advanced }: Props) {
             {advanced.testingForm.title}
           </h2>
 
-          {/* TODO: record a video */}
-
-          {/* <p>
-            In this video tutorial, I have demonstrated how to test with React
-            Hook Form.
-          </p> */}
-
-          {/* <iframe
-            width="100%"
-            height="528"
-            title="The way of testing with React Hook Form - video tutorial"
-            src="https://www.youtube.com/embed/CeAkxVwsyMU"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          /> */}
-
           {advanced.testingForm.description}
 
           <hr />
