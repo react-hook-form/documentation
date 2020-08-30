@@ -847,7 +847,7 @@ const { register } = useForm<FormInputs>({
               <h2>
                 clearErrors:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name?: string | string[]) =&gt; void
+                  (name?: string | string[], config?: Object) =&gt; void
                 </span>
               </h2>
             </code>
