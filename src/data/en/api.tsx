@@ -658,23 +658,40 @@ export default {
   clearError: {
     title: "clearErrors",
     description: (
-      <ul>
-        <li>
-          <p>
-            <code>undefined</code>: reset all errors
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>string</code>: reset the error on a single field
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>string[]</code>: reset errors on the given fields
-          </p>
-        </li>
-      </ul>
+      <>
+        <p>
+          By default <code>clearErrors</code> will clear exact error by field
+          name. You have the option set exact to <code>false</code> and clear
+          errors by object key. Example below:
+        </p>
+
+        <CodeArea
+          rawData={`register('test.firstName', { required: true });
+register('test.lastName', { required: true });
+clearErrors('test', { exact: false }); // will clear both errors from test.firstName and test.lastName
+clearErrors('test.firstName'); // for clear single input error
+`}
+          withOutCopy
+        />
+
+        <ul>
+          <li>
+            <p>
+              <code>undefined</code>: reset all errors
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>string</code>: reset the error on a single field
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>string[]</code>: reset errors on the given fields
+            </p>
+          </li>
+        </ul>
+      </>
     ),
   },
   setValue: {
