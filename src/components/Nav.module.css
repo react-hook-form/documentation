@@ -1,9 +1,18 @@
-.iconGroup {
+.iconSearchBarGroup {
   position: absolute;
   display: flex;
   left: 10px;
   top: 15px;
-  width: 110px;
+}
+
+.searchBar {
+  height: 24px;
+}
+
+.iconGroup {
+  display: flex;
+  width: 105px;
+  margin-right: 10px;
 }
 
 .icon {
@@ -144,6 +153,33 @@
   z-index: 2;
 }
 
+@media (max-width: 767px) {
+  .lightActionButtonWrapper {
+    height: 85px;
+  }
+
+  .iconSearchBarGroup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    top: 15px;
+  }
+
+  .gitHubButtonWrap {
+    top: 45px;
+  }
+
+  .langSelect {
+    top: -3px;
+    right: 10px;
+  }
+
+  .iconSearchBarGroup {
+    top: 13px;
+  }
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 10px;
@@ -199,7 +235,7 @@
     display: none;
   }
 
-  .iconGroup {
+  .iconSearchGroup {
     left: 20px;
   }
 
@@ -289,7 +325,7 @@
   }
 
   .actionButtonGroup {
-    max-width: 800px;
+    max-width: 750px;
   }
 
   .actionButtonGroup a:nth-child(8) {

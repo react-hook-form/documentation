@@ -491,8 +491,11 @@ export default {
           object key names to avoid data overwrite. <br />
           eg:{" "}
           <code>
-            register('user'); register('user.type'); ❌ // error's type will get
-            overwritten.
+            register('user'); register('user.type');{" "}
+            <span role="img" aria-label="Big Red X">
+              ❌
+            </span>
+            {" // error's type will get overwritten."}
           </code>
         </p>
         <p>

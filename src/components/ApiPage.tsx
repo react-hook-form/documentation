@@ -741,7 +741,7 @@ const { register } = useForm<FormInputs>({
                 handleSubmit: <br />
                 <span className={typographyStyles.typeText}>
                   ((data: Object, e?: Event) =&gt; void, (errors: Object, e?:
-                  Event) => void) =&gt; Function
+                  Event) =&gt; void) =&gt; Function
                 </span>
               </h2>
             </code>
