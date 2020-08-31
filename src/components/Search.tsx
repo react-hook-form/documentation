@@ -15,6 +15,10 @@ const Search = () => {
       inputSelector: "#algolia-doc-search",
     })
 
+    action({
+      isFocusOnSearch: false,
+    })
+
     return () => {
       clearTimeout(timer.current)
       action({
