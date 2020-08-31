@@ -31,13 +31,17 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   React.useEffect(() => {
     if (setting.isFocusOnSearch && window.innerWidth < 767) {
       setLang(false)
-    } else {
+    } else if (!setting.isFocusOnSearch) {
       setLang(true)
     }
 
-    if (setting.isFocusOnSearch && window.innerWidth < 1240) {
+    if (
+      setting.isFocusOnSearch &&
+      window.innerWidth < 767 &&
+      window.innerWidth < 1240
+    ) {
       setShowLargeMenu(false)
-    } else {
+    } else if (!setting.isFocusOnSearch) {
       setShowLargeMenu(true)
     }
   }, [setting.isFocusOnSearch])

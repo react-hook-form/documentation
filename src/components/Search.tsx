@@ -1,7 +1,7 @@
 import * as React from "react"
-import searchStyles from "./Search.module.css"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
+import searchStyles from "./Search.module.css"
 
 const Search = () => {
   const timer = React.useRef<any>({})
@@ -31,7 +31,11 @@ const Search = () => {
         type="search"
         aria-label="search input"
         id="algolia-doc-search"
-        placeholder="Search ..."
+        {...(state.setting?.isFocusOnSearch
+          ? {
+              placeholder: "Search ...",
+            }
+          : {})}
         onFocus={() =>
           action({
             isFocusOnSearch: true,
