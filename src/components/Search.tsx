@@ -29,6 +29,7 @@ const Search = () => {
 
   return (
     <form className={searchStyles.searchForm}>
+      <input type="hidden" id="fakeSearch" />
       <input
         className={searchStyles.searchBar}
         spellCheck="false"
