@@ -1,5 +1,6 @@
 .searchForm {
   margin-right: 12px;
+  position: relative;
 }
 
 .searchBar {
@@ -11,7 +12,6 @@
   height: 24px;
   z-index: 1;
   cursor: pointer;
-  position: relative;
 }
 
 .searchBar:focus {
