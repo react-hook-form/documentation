@@ -10,9 +10,6 @@ createStore({
   setting,
 })
 
-// input global styles
-require("./src/styles/algolia.css")
-
 export const wrapRootElement = ({ element }) => (
   <StateMachineProvider>{element}</StateMachineProvider>
 )

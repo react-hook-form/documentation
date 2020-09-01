@@ -1027,3 +1027,27 @@ body.light {
     background: black;
   }
 }
+
+.ds-dataset-3 {
+  width: 355px !important;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .ds-dataset-3 {
+    width: 550px !important;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ds-dataset-3 {
+    width: auto;
+  }
+}
+
+@media (min-width: 1240px) {
+  .ds-dataset-3 {
+    height: auto;
+  }
+}
