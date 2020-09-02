@@ -1,6 +1,6 @@
 .iconGroup {
-  position: absolute;
   display: flex;
+  position: absolute;
   left: 10px;
   top: 15px;
 }
@@ -11,10 +11,11 @@
   max-width: 50px;
   min-width: 35px;
   flex: 1;
+  margin-right: 5px;
 }
 
 .icon svg {
-  height: 24px;
+  height: 28px;
   fill: white;
 }
 
@@ -72,6 +73,7 @@
   right: 10px;
   top: 15px;
   z-index: 1;
+  display: flex;
 }
 
 .gitHubButtonWrap > span > span {
@@ -86,18 +88,13 @@
 }
 
 .langSelect {
-  position: absolute;
-  right: calc(100% - 50% - 68px);
-  z-index: 5;
-  top: 0;
   min-width: 90px;
 }
 
 .langSelect > select {
   width: 100%;
-  margin-top: 13px;
   line-height: 1.2;
-  min-height: 30px;
+  min-height: 28px;
   font-size: 16px;
   display: block;
   background: none;
@@ -108,6 +105,7 @@
   border-radius: 3px;
   padding-left: 10px;
   cursor: pointer;
+  position: relative;
 }
 
 .langSelect > select:hover {
@@ -122,7 +120,7 @@
   content: "▼";
   font-size: 10px;
   right: 5px;
-  top: 16px;
+  top: 2px;
   position: absolute;
   pointer-events: none;
 }
@@ -149,13 +147,8 @@
     right: 10px;
   }
 
-  .langSelect {
-    right: 120px;
-  }
-
   .langSelect > select {
     font-size: 14px;
-    margin-top: 14px;
   }
 
   .langSelect:after {
@@ -294,11 +287,6 @@
 
   .actionButtonGroup a:nth-child(8) {
     display: block;
-  }
-
-  .langSelect {
-    right: 130px;
-    min-width: 100px;
   }
 
   .actionButtonGroup a {

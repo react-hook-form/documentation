@@ -51,6 +51,62 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       <div className={styles.iconGroup}>
         <Search />
 
+        <Toggle />
+
+        {showLang && (
+          <div
+            className={`${styles.langSelect} ${
+              lightMode ? styles.lightLangSelect : ""
+            }`}
+          >
+            {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
+            <select
+              aria-label="Select a language"
+              onChange={(e: any) => {
+                const selectedLanguage = e.target.value
+                action(e.target.value)
+
+                let url = location.pathname.substr(1)
+
+                switch (url) {
+                  case "jp/":
+                    url = "jp"
+                    break
+                  case "zh/":
+                    url = "zh"
+                    break
+                  case "kr/":
+                    url = "kr"
+                    break
+                  case "pt/":
+                    url = "pt"
+                    break
+                  case "ru/":
+                    url = "ru"
+                  case "es/":
+                    url = "es"
+                    break
+                }
+
+                navigate(getNavLink(url, selectedLanguage))
+              }}
+              value={currentLanguage}
+            >
+              {/* eslint-disable jsx-a11y/accessible-emoji */}
+              <option value="en">🇦🇺 English</option>
+              <option value="zh">🇨🇳 简体中文</option>
+              <option value="jp">🇯🇵 日本語</option>
+              <option value="kr">🇰🇷 한국어</option>
+              <option value="pt">🇧🇷 Português</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="ru">🇷🇺 Русский</option>
+              {/* eslint-enable jsx-a11y/accessible-emoji */}
+            </select>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.gitHubButtonWrap}>
         <span className={styles.icon}>
           <a
             href="https://twitter.com/HookForm"
@@ -66,62 +122,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </a>
         </span>
 
-        <Toggle />
-      </div>
-
-      {showLang && (
-        <div
-          className={`${styles.langSelect} ${
-            lightMode ? styles.lightLangSelect : ""
-          }`}
-        >
-          {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
-          <select
-            aria-label="Select a language"
-            onChange={(e: any) => {
-              const selectedLanguage = e.target.value
-              action(e.target.value)
-
-              let url = location.pathname.substr(1)
-
-              switch (url) {
-                case "jp/":
-                  url = "jp"
-                  break
-                case "zh/":
-                  url = "zh"
-                  break
-                case "kr/":
-                  url = "kr"
-                  break
-                case "pt/":
-                  url = "pt"
-                  break
-                case "ru/":
-                  url = "ru"
-                case "es/":
-                  url = "es"
-                  break
-              }
-
-              navigate(getNavLink(url, selectedLanguage))
-            }}
-            value={currentLanguage}
-          >
-            {/* eslint-disable jsx-a11y/accessible-emoji */}
-            <option value="en">🇦🇺 English</option>
-            <option value="zh">🇨🇳 简体中文</option>
-            <option value="jp">🇯🇵 日本語</option>
-            <option value="kr">🇰🇷 한국어</option>
-            <option value="pt">🇧🇷 Português</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="ru">🇷🇺 Русский</option>
-            {/* eslint-enable jsx-a11y/accessible-emoji */}
-          </select>
-        </div>
-      )}
-
-      <div className={styles.gitHubButtonWrap}>
         <GitHubButton
           href="https://github.com/bluebill1049/react-hook-form"
           data-size="large"

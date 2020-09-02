@@ -9,11 +9,11 @@
 
 .searchBar {
   padding: 0 10px;
-  width: 24px;
+  width: 26px;
   border-radius: 25px;
   font-size: 16px;
   line-height: 24px;
-  height: 24px;
+  height: 26px;
   z-index: 1;
   cursor: pointer;
 }
@@ -29,8 +29,8 @@
 .icon {
   color: black !important;
   position: absolute;
-  left: 6px;
+  left: 7px;
   z-index: 22;
-  top: 4px;
+  top: 5px;
   pointer-events: none;
 }
