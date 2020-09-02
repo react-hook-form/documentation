@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label for="name">Name</label>
+      <label htmlFor="name">Name</label>
       <input type="text" id="name" ref={register({ required: true, maxLength: 30 })} />
       {errors.name && errors.name.type === "required" && <span>This is required</span>}
       {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }

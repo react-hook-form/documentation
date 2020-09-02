@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label for="name">Name</label>
+      <label htmlFor="name">Name</label>
       
       {/* use aria-invalid to indicate field contain error */}
       <input
