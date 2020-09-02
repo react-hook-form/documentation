@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.whiteText {
+  color: white !important;
+}
+
 .searchBar {
   padding: 0 10px;
   width: 24px;

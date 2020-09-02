@@ -235,34 +235,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
   return (
     <div className={containerStyles.container}>
-      <div className={styles.hiddenMenu}>
+      <div>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
           API.<span style={{ fontWeight: 400, fontSize: 20 }}>V5</span>
         </h1>
-        <div
-          className={`${styles.quickSelect} ${
-            lightMode ? styles.lightQuickSelect : ""
-          }`}
-        >
-          <select
-            aria-label={`${generic.select[currentLanguage]} API`}
-            onChange={(e) => {
-              goToSection(e.target.value)
-            }}
-          >
-            <option>{generic.select[currentLanguage]} API</option>
-            {links.map((option) => {
-              const title =
-                typeof option === "function" ? option().title : option.title
-
-              return (
-                <option value={title} key={title}>
-                  {title}
-                </option>
-              )
-            })}
-          </select>
-        </div>
       </div>
       <p className={typographyStyles.subHeading}>{api.header.description}</p>
 

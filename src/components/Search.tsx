@@ -40,7 +40,11 @@ const Search = () => {
             ? {
                 placeholder: "Search ...",
               }
-            : {})}
+            : {
+                style: {
+                  color: "white",
+                },
+              })}
           onFocus={() =>
             action({
               isFocusOnSearch: true,
