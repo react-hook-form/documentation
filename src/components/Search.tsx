@@ -28,39 +28,41 @@ const Search = () => {
   }, [])
 
   return (
-    <form className={searchStyles.searchForm}>
+    <>
+      <form className={searchStyles.searchForm}>
+        <input
+          className={searchStyles.searchBar}
+          spellCheck="false"
+          type="search"
+          aria-label="search input"
+          id="algolia-doc-search"
+          {...(state.setting?.isFocusOnSearch
+            ? {
+                placeholder: "Search ...",
+              }
+            : {})}
+          onFocus={() =>
+            action({
+              isFocusOnSearch: true,
+            })
+          }
+          onBlur={() => {
+            timer.current && clearTimeout(timer.current)
+            timer.current = setTimeout(
+              () =>
+                action({
+                  isFocusOnSearch: false,
+                }),
+              310
+            )
+          }}
+        />
+        {!state.setting?.isFocusOnSearch && (
+          <span className={`search icon ${searchStyles.icon}`} />
+        )}
+      </form>
       <input type="hidden" id="fakeSearch" />
-      <input
-        className={searchStyles.searchBar}
-        spellCheck="false"
-        type="search"
-        aria-label="search input"
-        id="algolia-doc-search"
-        {...(state.setting?.isFocusOnSearch
-          ? {
-              placeholder: "Search ...",
-            }
-          : {})}
-        onFocus={() =>
-          action({
-            isFocusOnSearch: true,
-          })
-        }
-        onBlur={() => {
-          timer.current && clearTimeout(timer.current)
-          timer.current = setTimeout(
-            () =>
-              action({
-                isFocusOnSearch: false,
-              }),
-            310
-          )
-        }}
-      />
-      {!state.setting?.isFocusOnSearch && (
-        <span className={`search icon ${searchStyles.icon}`} />
-      )}
-    </form>
+    </>
   )
 }
 export default Search
