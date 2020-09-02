@@ -444,18 +444,18 @@ a.active {
 }
 
 a.skip-main {
+  top: 70px;
   left: -999px;
   position: absolute;
-  top: auto;
   width: 110px;
   overflow: hidden;
   z-index: -999;
 }
 a.skip-main:focus,
 a.skip-main:active {
-  top: 20px;
+  top: 70px;
   width: 110px;
-  left: 160px;
+  left: 50px;
   height: auto;
   overflow: auto;
   font-size: 15px;
@@ -1025,5 +1025,51 @@ body.light {
 
   .light ::-webkit-scrollbar-thumb:hover {
     background: black;
+  }
+}
+
+.ds-dataset-3 {
+  width: 355px !important;
+  height: 300px;
+  font-size: 16px !important;
+}
+
+.algolia-docsearch-suggestion {
+  text-decoration: none;
+}
+
+.algolia-docsearch-suggestion--category-header {
+  background: var(--color-light-blue);
+  color: white !important;
+  padding: 5px 10px !important;
+  font-weight: 500 !important;
+  border-radius: 4px;
+  transition: 0.3s all;
+}
+
+.algolia-docsearch-suggestion--category-header:hover {
+  opacity: 0.8;
+}
+
+.algolia-docsearch-footer--logo {
+  filter: grayscale(1);
+}
+
+@media (min-width: 768px) {
+  .ds-dataset-3 {
+    width: 550px !important;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ds-dataset-3 {
+    width: auto;
+  }
+}
+
+@media (min-width: 1240px) {
+  .ds-dataset-3 {
+    height: auto;
   }
 }

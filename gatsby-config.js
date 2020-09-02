@@ -65,5 +65,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-algolia-docsearch`,
+      options: {
+        apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
+        indexName: "react-hook-form",
+        inputSelector: "#fakeSearch",
+      },
+    },
   ],
 }

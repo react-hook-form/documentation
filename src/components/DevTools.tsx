@@ -30,19 +30,17 @@ export default ({ defaultLang, content }: Props) => {
   const [showDevTool, setShowDevTool] = React.useState(false)
   const {
     state,
-    state: { language },
+    state: { language, setting },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const lightMode = state?.setting?.lightMode
+  const lightMode = setting?.lightMode
 
-  const { control, formState } = methods
+  const { control } = methods
 
   const onSubmit = (data) => console.log(data)
-
-  console.log(formState.isValid)
 
   return (
     <div className={containerStyles.container}>

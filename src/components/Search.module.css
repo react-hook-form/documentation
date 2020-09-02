@@ -1,0 +1,32 @@
+.searchForm {
+  margin-right: 12px;
+  position: relative;
+}
+
+.searchBar {
+  padding: 0 10px;
+  width: 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  line-height: 24px;
+  height: 24px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.searchBar:focus {
+  outline: none;
+  width: 150px;
+  border: 1px solid var(--color-light-pink);
+  padding: 3px 14px;
+  cursor: default;
+}
+
+.icon {
+  color: black !important;
+  position: absolute;
+  left: 6px;
+  z-index: 22;
+  top: 4px;
+  pointer-events: none;
+}
