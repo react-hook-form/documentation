@@ -1031,6 +1031,28 @@ body.light {
 .ds-dataset-3 {
   width: 355px !important;
   height: 300px;
+  font-size: 16px !important;
+}
+
+.algolia-docsearch-suggestion {
+  text-decoration: none;
+}
+
+.algolia-docsearch-suggestion--category-header {
+  background: var(--color-light-blue);
+  color: white !important;
+  padding: 5px 10px !important;
+  font-weight: 500 !important;
+  border-radius: 4px;
+  transition: 0.3s all;
+}
+
+.algolia-docsearch-suggestion--category-header:hover {
+  opacity: 0.8;
+}
+
+.algolia-docsearch-footer--logo {
+  filter: grayscale(1);
 }
 
 @media (min-width: 768px) {
