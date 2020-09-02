@@ -153,6 +153,10 @@
     display: none;
     margin-bottom: 0;
   }
+
+  .logoHeading {
+    margin-top: 70px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -162,7 +166,7 @@
   }
 
   .logoHeading {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 }
 
@@ -170,9 +174,5 @@
   .video {
     width: 980px;
     height: 600px;
-  }
-
-  .logoHeading {
-    margin-top: 50px;
   }
 }

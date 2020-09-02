@@ -37,8 +37,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
     if (
       setting.isFocusOnSearch &&
-      window.innerWidth < 767 &&
-      window.innerWidth < 1240
+      ((window.innerWidth > 1040 && window.innerWidth < 1500) ||
+        window.innerWidth < 767)
     ) {
       setShowLargeMenu(false)
     } else if (!setting.isFocusOnSearch) {
