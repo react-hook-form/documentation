@@ -171,4 +171,8 @@
     width: 980px;
     height: 600px;
   }
+
+  .logoHeading {
+    margin-top: 50px;
+  }
 }
