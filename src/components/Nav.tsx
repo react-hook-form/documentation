@@ -187,6 +187,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         play={showLargeMenu}
         start={{ opacity: 0 }}
         end={{ opacity: 1 }}
+        duration={showLargeMenu ? 0 : 0.3}
         render={({ style }) => (
           <div
             className={lightMode ? styles.lightActionButtonWrapper : ""}
