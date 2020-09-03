@@ -18,8 +18,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     state,
     state: { language, setting = {} },
   } = useStateMachine(updateCurrentLanguage)
-  const [showLang, setLang] = React.useState(true)
-  const [showLargeMenu, setShowLargeMenu] = React.useState(true)
+  const [showLang, setLang] = React.useState(null)
   const [showMenu, setShowMenu] = React.useState(false)
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
@@ -29,20 +28,10 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   const location = globalHistory.location
 
   React.useEffect(() => {
-    if (setting.isFocusOnSearch && window.innerWidth < 767) {
+    if (setting.isFocusOnSearch) {
       setLang(false)
     } else if (!setting.isFocusOnSearch) {
       setLang(true)
-    }
-
-    if (
-      setting.isFocusOnSearch &&
-      ((window.innerWidth > 1040 && window.innerWidth < 1500) ||
-        window.innerWidth < 767)
-    ) {
-      setShowLargeMenu(false)
-    } else if (!setting.isFocusOnSearch) {
-      setShowLargeMenu(true)
     }
   }, [setting.isFocusOnSearch])
 
@@ -51,58 +40,59 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       <div className={styles.iconGroup}>
         <Search />
 
-        <Toggle />
-
         {showLang && (
-          <div
-            className={`${styles.langSelect} ${
-              lightMode ? styles.lightLangSelect : ""
-            }`}
-          >
-            {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
-            <select
-              aria-label="Select a language"
-              onChange={(e: any) => {
-                const selectedLanguage = e.target.value
-                action(e.target.value)
-
-                let url = location.pathname.substr(1)
-
-                switch (url) {
-                  case "jp/":
-                    url = "jp"
-                    break
-                  case "zh/":
-                    url = "zh"
-                    break
-                  case "kr/":
-                    url = "kr"
-                    break
-                  case "pt/":
-                    url = "pt"
-                    break
-                  case "ru/":
-                    url = "ru"
-                  case "es/":
-                    url = "es"
-                    break
-                }
-
-                navigate(getNavLink(url, selectedLanguage))
-              }}
-              value={currentLanguage}
+          <>
+            <Toggle />
+            <div
+              className={`${styles.langSelect} ${
+                lightMode ? styles.lightLangSelect : ""
+              }`}
             >
-              {/* eslint-disable jsx-a11y/accessible-emoji */}
-              <option value="en">🇦🇺 English</option>
-              <option value="zh">🇨🇳 简体中文</option>
-              <option value="jp">🇯🇵 日本語</option>
-              <option value="kr">🇰🇷 한국어</option>
-              <option value="pt">🇧🇷 Português</option>
-              <option value="es">🇪🇸 Español</option>
-              <option value="ru">🇷🇺 Русский</option>
-              {/* eslint-enable jsx-a11y/accessible-emoji */}
-            </select>
-          </div>
+              {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
+              <select
+                aria-label="Select a language"
+                onChange={(e: any) => {
+                  const selectedLanguage = e.target.value
+                  action(e.target.value)
+
+                  let url = location.pathname.substr(1)
+
+                  switch (url) {
+                    case "jp/":
+                      url = "jp"
+                      break
+                    case "zh/":
+                      url = "zh"
+                      break
+                    case "kr/":
+                      url = "kr"
+                      break
+                    case "pt/":
+                      url = "pt"
+                      break
+                    case "ru/":
+                      url = "ru"
+                    case "es/":
+                      url = "es"
+                      break
+                  }
+
+                  navigate(getNavLink(url, selectedLanguage))
+                }}
+                value={currentLanguage}
+              >
+                {/* eslint-disable jsx-a11y/accessible-emoji */}
+                <option value="en">🇦🇺 English</option>
+                <option value="zh">🇨🇳 简体中文</option>
+                <option value="jp">🇯🇵 日本語</option>
+                <option value="kr">🇰🇷 한국어</option>
+                <option value="pt">🇧🇷 Português</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="ru">🇷🇺 Русский</option>
+                {/* eslint-enable jsx-a11y/accessible-emoji */}
+              </select>
+            </div>
+          </>
         )}
       </div>
 
@@ -183,214 +173,203 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </Animate>
       )}
 
-      <Animate
-        play={showLargeMenu}
-        start={{ opacity: 0 }}
-        end={{ opacity: 1 }}
-        duration={showLargeMenu ? 0 : 0.3}
-        render={({ style }) => (
-          <div
-            className={lightMode ? styles.lightActionButtonWrapper : ""}
-            style={style}
+      <div className={lightMode ? styles.lightActionButtonWrapper : ""}>
+        <nav
+          className={`${styles.actionButtonGroup} ${
+            lightMode ? styles.darkActionButtonGroup : ""
+          }`}
+        >
+          <Link
+            activeClassName="active"
+            to={translateLink("/", currentLanguage)}
           >
-            <nav
-              className={`${styles.actionButtonGroup} ${
-                lightMode ? styles.darkActionButtonGroup : ""
-              }`}
-            >
-              <Link
-                activeClassName="active"
-                to={translateLink("/", currentLanguage)}
+            <div className={styles.iconWrapper}>
+              <div className="flag icon" />
+            </div>
+            <span>{nav[currentLanguage].home}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/get-started", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="shutdown icon" />
+            </div>
+            <span>{nav[currentLanguage].getStarted}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/api", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="keyboard icon" />
+            </div>
+            <span>API</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/ts", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <span
+                style={{
+                  border: "1px solid white",
+                  display: "inline-block",
+                  lineHeight: 1.8,
+                  width: 16,
+                  height: 16,
+                  fontSize: 8,
+                  marginTop: 2,
+                  background: "white",
+                  color: "black",
+                  fontWeight: 600,
+                }}
               >
-                <div className={styles.iconWrapper}>
-                  <div className="flag icon" />
-                </div>
-                <span>{nav[currentLanguage].home}</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/get-started", currentLanguage)}
+                TS
+              </span>
+            </div>
+            <span>TS</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/advanced-usage", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="search icon" />
+            </div>
+            <span>{nav[currentLanguage].advanced}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/faqs", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="eye icon" />
+            </div>
+            <span>{nav[currentLanguage].faqs}</span>
+          </Link>
+          <span className="desktopOnly">
+            <span className={styles.tools}>
+              <span
+                style={{
+                  position: "relative",
+                  top: 2,
+                }}
               >
-                <div className={styles.iconWrapper}>
-                  <div className="shutdown icon" />
-                </div>
-                <span>{nav[currentLanguage].getStarted}</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/api", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="keyboard icon" />
-                </div>
-                <span>API</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/ts", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
+                <span className={styles.menuExpandLink}>
+                  {nav[currentLanguage].tools.nav}{" "}
                   <span
                     style={{
-                      border: "1px solid white",
-                      display: "inline-block",
-                      lineHeight: 1.8,
-                      width: 16,
-                      height: 16,
-                      fontSize: 8,
-                      marginTop: 2,
-                      background: "white",
-                      color: "black",
-                      fontWeight: 600,
-                    }}
-                  >
-                    TS
-                  </span>
-                </div>
-                <span>TS</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/advanced-usage", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="search icon" />
-                </div>
-                <span>{nav[currentLanguage].advanced}</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/faqs", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="eye icon" />
-                </div>
-                <span>{nav[currentLanguage].faqs}</span>
-              </Link>
-              <span className="desktopOnly">
-                <span className={styles.tools}>
-                  <span
-                    style={{
+                      fontSize: 10,
+                      display: "inline",
+                      marginLeft: 2,
+                      top: -1,
                       position: "relative",
-                      top: 2,
                     }}
                   >
-                    <span className={styles.menuExpandLink}>
-                      {nav[currentLanguage].tools.nav}{" "}
-                      <span
-                        style={{
-                          fontSize: 10,
-                          display: "inline",
-                          marginLeft: 2,
-                          top: -1,
-                          position: "relative",
-                        }}
-                      >
-                        ▼
-                      </span>
-                    </span>
+                    ▼
                   </span>
                 </span>
-                <div
-                  style={{
-                    position: "absolute",
-                    overflow: "hidden",
-                    marginLeft: -10,
-                    zIndex: 4,
-                  }}
-                >
-                  <div
-                    style={{
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div className={styles.menuExpand}>
-                      <Link
-                        activeClassName="active"
-                        to={translateLink("/dev-tools", currentLanguage)}
-                      >
-                        {nav[currentLanguage].tools.devTools}
-                      </Link>
-
-                      <Link
-                        activeClassName="active"
-                        to={translateLink("/form-builder", currentLanguage)}
-                      >
-                        {nav[currentLanguage].tools.formBuilder}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
               </span>
-              <Link
-                activeClassName="active"
-                className={styles.mobileNav}
-                to={translateLink("/dev-tools", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="laptop icon" />
-                </div>
-                <span>DevTools</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                className={styles.mobileNav}
-                to={translateLink("/form-builder", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="edit icon" />
-                </div>
-                <span>{nav[currentLanguage].builder}</span>
-              </Link>
-              <Link
-                activeClassName="active"
-                to={translateLink("/resources", currentLanguage)}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="tag icon" />
-                </div>
-                <span>{nav[currentLanguage].resources}</span>
-              </Link>
-              <a
-                href="https://github.com/react-hook-form/react-hook-form/releases"
-                target="_blank"
-                className="desktopOnly"
-                rel="noreferrer noopener"
-              >
-                {nav[currentLanguage].releases}
-              </a>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setShowMenu(!showMenu)
-                }}
-              >
-                <div className={styles.iconWrapper}>
-                  <div className="more icon"></div>
-                </div>
-                More
-              </a>
-
-              <a
-                href="https://opencollective.com/react-hook-form"
-                target="_blank"
-                className="desktopOnly donation"
-                rel="noreferrer noopener"
-                title="Donate to the project"
+            </span>
+            <div
+              style={{
+                position: "absolute",
+                overflow: "hidden",
+                marginLeft: -10,
+                zIndex: 4,
+              }}
+            >
+              <div
                 style={{
-                  color: colors.secondary,
-                  minWidth: 20,
-                  marginLeft: -10,
+                  overflow: "hidden",
                 }}
               >
-                ♥
-              </a>
-            </nav>
-          </div>
-        )}
-      ></Animate>
+                <div className={styles.menuExpand}>
+                  <Link
+                    activeClassName="active"
+                    to={translateLink("/dev-tools", currentLanguage)}
+                  >
+                    {nav[currentLanguage].tools.devTools}
+                  </Link>
+
+                  <Link
+                    activeClassName="active"
+                    to={translateLink("/form-builder", currentLanguage)}
+                  >
+                    {nav[currentLanguage].tools.formBuilder}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </span>
+          <Link
+            activeClassName="active"
+            className={styles.mobileNav}
+            to={translateLink("/dev-tools", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="laptop icon" />
+            </div>
+            <span>DevTools</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            className={styles.mobileNav}
+            to={translateLink("/form-builder", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="edit icon" />
+            </div>
+            <span>{nav[currentLanguage].builder}</span>
+          </Link>
+          <Link
+            activeClassName="active"
+            to={translateLink("/resources", currentLanguage)}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="tag icon" />
+            </div>
+            <span>{nav[currentLanguage].resources}</span>
+          </Link>
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/releases"
+            target="_blank"
+            className="desktopOnly"
+            rel="noreferrer noopener"
+          >
+            {nav[currentLanguage].releases}
+          </a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setShowMenu(!showMenu)
+            }}
+          >
+            <div className={styles.iconWrapper}>
+              <div className="more icon"></div>
+            </div>
+            More
+          </a>
+
+          <a
+            href="https://opencollective.com/react-hook-form"
+            target="_blank"
+            className="desktopOnly donation"
+            rel="noreferrer noopener"
+            title="Donate to the project"
+            style={{
+              color: colors.secondary,
+              minWidth: 20,
+              marginLeft: -10,
+            }}
+          >
+            ♥
+          </a>
+        </nav>
+      </div>
     </>
   )
 }
