@@ -55,6 +55,7 @@ import styles from "./ApiPage.module.css"
 import resetCodeTs from "./codeExamples/resetCodeTs"
 import getValuesTypes from "./codeExamples/getValuesTypes"
 import controlTs from "./codeExamples/controlTs"
+import setValueUseFieldArray from "./codeExamples/setValueUseFieldArray"
 
 const { useRef, useEffect } = React
 
@@ -857,13 +858,19 @@ const { register } = useForm<FormInputs>({
 
             {api.setValue.description}
 
-            <CodeArea
-              rawData={setValue}
-              url="https://codesandbox.io/s/react-hook-form-v6-setvalue-wjplb"
-              tsRawData={setValueTs}
-              rawTypes={setValueTypes}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-setvalue-4nq5e"
-            />
+            <TabGroup buttonLabels={["basic", "useFieldArray set value"]}>
+              <CodeArea
+                rawData={setValue}
+                url="https://codesandbox.io/s/react-hook-form-v6-setvalue-wjplb"
+                tsRawData={setValueTs}
+                rawTypes={setValueTypes}
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-setvalue-4nq5e"
+              />
+              <CodeArea
+                rawData={setValueUseFieldArray}
+                url="https://codesandbox.io/s/usefieldarray-with-setvalue-l6rct"
+              />
+            </TabGroup>
           </section>
 
           <hr />
