@@ -776,8 +776,9 @@ const { register } = useForm<FormInputs>({
             <code className={typographyStyles.codeHeading}>
               <h2>
                 setError:
+                <br />
                 <span className={typographyStyles.typeText}>
-                  {`(name: string, error: { type: string, types: object, message?: string }) => void`}
+                  {`(name: string, error: { type?: string, types?: object, message?: string, shouldFocus?: boolean }) => void`}
                 </span>
               </h2>
             </code>
@@ -823,7 +824,7 @@ const { register } = useForm<FormInputs>({
               <h2>
                 clearErrors:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name?: string | string[], config?: Object) =&gt; void
+                  (name?: string | string[]) =&gt; void
                 </span>
               </h2>
             </code>

@@ -363,6 +363,7 @@ export default {
       </>
     ),
     isDirty: "ユーザが入力操作した後 true に設定します。",
+    isSubmitSuccessful: <p>フォームが正常に送信されたことを示します。</p>,
     dirtyFields: (
       <>
         ユーザーが変更したフィールドの一意の <code>Set</code> オブジェクト。

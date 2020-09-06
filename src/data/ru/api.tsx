@@ -369,6 +369,7 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: <p>Укажите, что форма успешно заполнена.</p>,
     isDirty: "Устанавливается в true после изменения любого поля.",
     dirtyFields: "Уникальный набор пользовательских полей.",
     isSubmitted:
