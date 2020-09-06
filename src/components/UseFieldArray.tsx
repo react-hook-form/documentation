@@ -4,6 +4,8 @@ import CodeArea from "./CodeArea"
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import TabGroup from "./TabGroup"
+import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 
 export default function UseFieldArray({
   currentLanguage,
@@ -47,10 +49,16 @@ export default function UseFieldArray({
         </table>
       </div>
 
-      <CodeArea
-        rawData={useFieldArray}
-        url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
-      />
+      <TabGroup buttonLabels={["useFieldArray", "conditional Field Array"]}>
+        <CodeArea
+          rawData={useFieldArray}
+          url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
+        />
+        <CodeArea
+          rawData={useFieldArrayConditional}
+          url="https://codesandbox.io/s/usefieldarray-conditional-znizl"
+        />
+      </TabGroup>
     </>
   )
 }
