@@ -172,7 +172,7 @@ export default {
         </p>
         <CodeArea
           rawData={step1}
-          url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
+          url="https://codesandbox.io/s/react-hook-form-wizard-form-gxvvc"
         />
 
         <p>
@@ -181,7 +181,7 @@ export default {
         </p>
         <CodeArea
           rawData={step2}
-          url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
+          url="https://codesandbox.io/s/react-hook-form-wizard-form-gxvvc"
         />
 
         <p>
@@ -190,7 +190,7 @@ export default {
         </p>
         <CodeArea
           rawData={step3}
-          url="https://codesandbox.io/s/form-wizard-pages-kkg7m"
+          url="https://codesandbox.io/s/react-hook-form-wizard-form-gxvvc"
         />
 
         <p>
