@@ -414,7 +414,7 @@ export default {
         </p>
       </>
     ),
-    isSubmitSuccessful: <p>Indicate the form is successfully submitted.</p>,
+    isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
     isDirty: (
       <>
         Set to <code>true</code> after the user modifies any of the inputs.
