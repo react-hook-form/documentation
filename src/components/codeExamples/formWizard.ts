@@ -28,7 +28,7 @@ import { withRouter } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
-const Step1 = props => {
+const Step2 = props => {
   const { register, handleSubmit } = useForm();
   const { action } = useStateMachine(updateAction);
   const onSubmit = data => {
@@ -45,7 +45,7 @@ const Step1 = props => {
   );
 };
 
-export default withRouter(Step1);
+export default withRouter(Step2);
 `
 
 export const step3 = `import React from "react";
