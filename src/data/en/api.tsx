@@ -1240,7 +1240,6 @@ React.useEffect(() => {
             >
               useForm
             </button>.
-            </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> You need to either
               set <code>defaultValue</code> at the field-level or call{" "}
