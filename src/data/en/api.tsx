@@ -111,6 +111,23 @@ export default {
     defaultValues: (goToSection) => (
       <>
         <p>
+          The <code>defaultValue</code> for an input is used as the initial value
+          when a component is first rendered, before a user interacts with it.
+          The main difference between the input's <code>defaultValue</code> and
+          <code>value</code> properties is that the <code>value</code> indicates
+          the input from the user, whereas the <code>defaultValue</code> indicates
+          the initial value as set by your application code.  The
+          <code>defaultValue</code> might reflect some "business logic" for your form
+          (e.g. the default value for the field <em>color</em> is set to
+          <em>purple</em>) or if your app allows editing previously saved form
+          data it could be the previously saved value for the field of this input.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> It is encouraged that you set
+          a <code>defaultValue</code> for all inputs to something non-`undefined`
+          such as the empty string (<code>''</code>) or <code>null</code>.
+        </p>
+        <p>
           You can set an input's default value with{" "}
           <code>defaultValue/defaultChecked</code>{" "}
           <a
@@ -118,9 +135,16 @@ export default {
             href="https://reactjs.org/docs/uncontrolled-components.html"
           >
             (read more from the React doc for Default Values)
-          </a>{" "}
-          or pass <code>defaultValues</code> as an optional argument to populate
-          the default values for the entire form.
+          </a>,{" "}
+          pass <code>defaultValues</code> as an optional argument to
+          <code>useForm()</code> to populate the default values for the entire form,
+          or set values on an individual
+          <button
+            className={buttonStyles.codeAsLink}
+            onClick={() => goToSection("Controller")}
+          >
+            Controller
+          </button> component via its <code>defaultValue</code> property.
         </p>
 
         <ul>
@@ -1209,7 +1233,13 @@ React.useEffect(() => {
           <td>
             The same as an uncontrolled component's <code>defaultValue</code>.
             When passing a <code>boolean</code> value, it will be treated as
-            checkbox input.
+            checkbox input.  For more details, see
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("useForm")}
+            >
+              useForm
+            </button>.
             <p>
               <b className={typographyStyles.note}>Note:</b> You need to either
               set <code>defaultValue</code> at the field-level or call{" "}
