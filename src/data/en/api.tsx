@@ -123,9 +123,9 @@ export default {
           data it could be the previously saved value for the field of this input.
         </p>
         <p>
-          NOTE: It is encouraged that you set a <code>defaultValue</code> for
-          all inputs to something non-`undefined` such as the empty string
-          (<code>''</code>) or <code>null</code>.
+          <b className={typographyStyles.note}>Note:</b> It is encouraged that you set
+          a <code>defaultValue</code> for all inputs to something non-`undefined`
+          such as the empty string (<code>''</code>) or <code>null</code>.
         </p>
         <p>
           You can set an input's default value with{" "}
@@ -1233,7 +1233,14 @@ React.useEffect(() => {
           <td>
             The same as an uncontrolled component's <code>defaultValue</code>.
             When passing a <code>boolean</code> value, it will be treated as
-            checkbox input.
+            checkbox input.  For more details, see
+            <button
+              className={buttonStyles.codeAsLink}
+              onClick={() => goToSection("useForm")}
+            >
+              useForm
+            </button>.
+            </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> You need to either
               set <code>defaultValue</code> at the field-level or call{" "}
