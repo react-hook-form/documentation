@@ -225,6 +225,40 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
             to the top of your app.js
           </p>
 
+          <h4>Version ^6.7.0</h4>
+
+          <p>
+            <b className={typographyStyles.note}>Important: </b>from version
+            6.7.0 onwards we are dropping babel, and using Typescript to
+            transpile to es5. You can refer to this{" "}
+            <a
+              href="https://github.com/react-hook-form/react-hook-form/issues/2775"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              issue
+            </a>{" "}
+            for more detail.
+          </p>
+
+          <p>
+            The following polyfills are necessary, and feel free to let us know
+            or update the doc to reflect other missing polyfills
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                <code>Object.values</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Object.entries</code>
+              </p>
+            </li>
+          </ul>
+
           <hr />
 
           <h2

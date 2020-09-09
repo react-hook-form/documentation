@@ -744,7 +744,7 @@ const { register } = useForm<FormInputs>({
                 reset:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(values?: Record<string, any>, omitResetState: OmitResetState = {}) => void`}</span>
+                >{`(values?: Record<string, any>, omitResetState?: Record<string, boolean>) => void`}</span>
               </h2>
             </code>
 
