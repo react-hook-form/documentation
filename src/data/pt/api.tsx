@@ -363,6 +363,9 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: (
+      <p>Indicar que o formulário foi submetido com sucesso.</p>
+    ),
     isDirty: "Marcado como true após o usuário interagir com algum dos campos.",
     dirtyFields: "Um conjunto exclusivo de campos modificados pelo usuário.",
     isSubmitted:

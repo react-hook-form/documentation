@@ -375,6 +375,7 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: <p>양식이 성공적으로 제출되었음을 나타냅니다.</p>,
     isDirty: (
       <>
         사용자가 어떤 인풋이라도 수정했다면 <code>true</code> 가 됩니다.

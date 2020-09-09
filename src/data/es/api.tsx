@@ -368,6 +368,9 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: (
+      <p>Indique que el formulario se ha presentado con éxito.</p>
+    ),
     isDirty:
       "Se configura un verdader luego que el usuario haya interactuado con algún input.",
     dirtyFields: "Un conjunto único de campos modificados por el usuario.",

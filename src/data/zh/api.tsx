@@ -380,6 +380,7 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: <p>表示表格已成功提交。</p>,
     isDirty: (
       <>
         在用户与任何输入组件交互后设置为<code>true</code>。

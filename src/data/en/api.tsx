@@ -440,6 +440,7 @@ export default {
         </p>
       </>
     ),
+    isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
     isDirty: (
       <>
         Set to <code>true</code> after the user modifies any of the inputs.
@@ -688,21 +689,6 @@ export default {
     title: "clearErrors",
     description: (
       <>
-        <p>
-          By default <code>clearErrors</code> will clear exact error by field
-          name. You have the option set exact to <code>false</code> and clear
-          errors by object key. Example below:
-        </p>
-
-        <CodeArea
-          rawData={`register('test.firstName', { required: true });
-register('test.lastName', { required: true });
-clearErrors('test', { exact: false }); // will clear both errors from test.firstName and test.lastName
-clearErrors('test.firstName'); // for clear single input error
-`}
-          withOutCopy
-        />
-
         <ul>
           <li>
             <p>
@@ -711,8 +697,18 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
           <li>
             <p>
-              <code>string</code>: reset the error on a single field
+              <code>string</code>: reset the error on a single field or by key
+              name.
             </p>
+
+            <CodeArea
+              rawData={`register('test.firstName', { required: true });
+register('test.lastName', { required: true });
+clearErrors('test'); // will clear both errors from test.firstName and test.lastName
+clearErrors('test.firstName'); // for clear single input error
+`}
+              withOutCopy
+            />
           </li>
           <li>
             <p>
@@ -971,14 +967,6 @@ React.useEffect(() => {
               <code>{`ref={register}`}</code> when working with{" "}
               <code>useFieldArray</code> so <code>register</code> will get
               invoked during <code>map</code>.
-            </p>
-          </li>
-          <li>
-            <p>
-              It doesn't work with custom register at <code>useEffect</code> or
-              conditional render. For conditional render consider using style to
-              toggle the viability and `validate` function for conditional
-              validation.
             </p>
           </li>
           <li>
