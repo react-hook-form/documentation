@@ -97,7 +97,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       </div>
 
       <div className={styles.gitHubButtonWrap}>
-        <span className={styles.icon}>
+        <span className={`${styles.icon} desktopOnly`}>
           <a
             href="https://discord.com/channels/754891658327359538/754891658327359541"
             target="_blank"
