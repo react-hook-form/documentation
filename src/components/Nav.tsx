@@ -99,7 +99,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       <div className={styles.gitHubButtonWrap}>
         <span className={`${styles.icon} desktopOnly`}>
           <a
-            href="https://discord.com/channels/754891658327359538/754891658327359541"
+            href="https://discord.gg/hU6c4X"
             target="_blank"
             rel="noopener noreferrer"
             title="React Hook Form Discord"
