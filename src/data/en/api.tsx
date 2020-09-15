@@ -126,7 +126,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> It is encouraged that
           you set a <code>defaultValue</code> for all inputs to something
-          non-`undefined` such as the empty string or <code>null</code>.
+          non-<code>undefined</code> such as the empty string or <code>null</code>.
         </p>
         <p>
           You can set an input's default value with{" "}
