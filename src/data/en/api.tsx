@@ -125,8 +125,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> It is encouraged that
-          you set a <code>defaultValue</code> for all inputs to something
-          non-<code>undefined</code> such as the empty string or <code>null</code>.
+          you set a <code>defaultValue</code> for all inputs to something non-
+          <code>undefined</code> such as the empty string or <code>null</code>.
         </p>
         <p>
           You can set an input's default value with{" "}
@@ -672,6 +672,18 @@ export default {
               Allows you to set an error that is not associated with an input
               field that will be persisted until it is manually cleared with{" "}
               <code>clearError</code>.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Note:</b> for TypeScript
+              users, please consider{" "}
+              <a
+                href="https://www.carlrippon.com/react-hook-form-server-validation/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                this approach
+              </a>{" "}
+              for setting server-side error or outside declared field type.
             </p>
           </li>
           <li>
