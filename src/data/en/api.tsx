@@ -106,7 +106,14 @@ export default {
       </>
     ),
     validationOnTouched: (
-      <>Validation won't trigger until input is touched (has lost focus).</>
+      <>
+        <p>Validation won't trigger until input is touched (has lost focus).</p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> when using with{" "}
+          <code>Controller</code>, make sure to wire up <code>onBlur</code> with{" "}
+          <code>render</code> prop.
+        </p>
+      </>
     ),
     defaultValues: (goToSection) => (
       <>
