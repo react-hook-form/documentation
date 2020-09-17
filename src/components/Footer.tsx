@@ -70,7 +70,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @Bill Luo
         </a>{" "}
-        with{" "}
+        ✚{" "}
         <a
           href="https://github.com/bluebill1049/react-simple-animate"
           target="_blank"
@@ -79,7 +79,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           React Simple Animate
         </a>{" "}
-        +{" "}
+        ✚{" "}
         <a
           href="https://github.com/bluebill1049/react-simple-img"
           target="_blank"
@@ -88,7 +88,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           React Simple Img
         </a>{" "}
-        +{" "}
+        ✚{" "}
         <a
           rel="noopener noreferrer"
           href="https://github.com/bluebill1049/little-state-machine"
@@ -120,7 +120,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           によって翻訳されました。
         </p>
       )}
-      <p style={{ fontSize: 12 }}>
+      <p>
         {generic.support[currentLanguage]}{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
@@ -128,6 +128,14 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           rel="noreferrer noopener"
         >
           @github
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://openbase.io/js/react-hook-form"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Feedback
         </a>
       </p>
       <p
