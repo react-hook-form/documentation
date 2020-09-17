@@ -572,10 +572,26 @@ export default {
           </li>
           <li>
             <p>
-              For <code>useFieldArray</code>, when all inputs get removed will
-              return <code>defaultValues</code>, you can walk around this issue
-              by checking <code>fields.length</code>.
+              <b className={typographyStyles.note}>Note:</b> when watching{" "}
+              <code>useFieldArray</code>
             </p>
+
+            <ul>
+              <li>
+                <p>
+                  When all inputs removed, it will return{" "}
+                  <code>defaultValues</code>, you can work around this issue by
+                  checking <code>fields.length</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Input state live inside each field with uncontrolled form, and
+                  hence it's important to leave <code>defaultValue</code> for
+                  watch API. <code>watch('fieldArray', fields)</code>
+                </p>
+              </li>
+            </ul>
           </li>
         </ul>
       </>
@@ -1516,11 +1532,20 @@ React.useEffect(() => {
   useWatch: {
     title: "useWatch",
     description: (
-      <p>
-        Behaves similarly to the <code>watch</code> API, however, this will
-        isolate re-rendering at the component level and potentially result in
-        better performance for your application.
-      </p>
+      <>
+        <p>
+          Behaves similarly to the <code>watch</code> API, however, this will
+          isolate re-rendering at the component level and potentially result in
+          better performance for your application.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> when watching{" "}
+          <code>useFieldArray</code>, It's important to assign a{" "}
+          <code>defaultValue</code> when you watching a specific field or entire
+          field array get appended or removed. eg:{" "}
+          <code>useWatch('fieldArray', field)</code>
+        </p>
+      </>
     ),
   },
 }
