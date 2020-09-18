@@ -1,6 +1,7 @@
 export default `import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
+import * as yup from "yup";
 
 type Inputs = {
   name: string;
