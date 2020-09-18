@@ -208,8 +208,10 @@ const Faq = ({ defaultLang, faq }: Props) => {
           {faq.questions[7].description}
 
           <CodeArea
-            rawData={`import { useForm } from 'react-hook-form/dist/index.ie11'; // V6
-import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'`}
+            tsRawData={`import { useForm } from 'react-hook-form/dist/index.ie11'; // V6
+import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'
+// Resolvers
+import { yupResolver } from '@hookform/resolvers/dist/ie11';`}
             withOutCopy
           />
           <p>If you encounter: </p>
