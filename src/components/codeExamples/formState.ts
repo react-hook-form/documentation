@@ -6,11 +6,13 @@ export default function App() {
   const onSubmit = data => console.log(data);
   
   // Read the formState before render to subscribe the form state through Proxy
-  const { isDirty, isSubmitting, touched, submitCount } = formState;
+  const { isDirty, isSubmitting } = formState;
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="test" ref={register} />
+      {isDirty && <p>Form is dirty.</p>}
+      {isSubmitting && <span>Submitting...</span>}
       <input type="submit" />
     </form>
   );
