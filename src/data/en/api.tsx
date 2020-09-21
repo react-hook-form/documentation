@@ -1034,16 +1034,26 @@ React.useEffect(() => {
             </code>
           </td>
           <td>
-            This object is the source of truth to map and render inputs.
+            This <code>object</code> contains the <code>defaultValue</code> and{" "}
+            <code>key</code> for all your inputs. So it's important to assign{" "}
+            <code>defaultValue</code> to each of your inputs.
             <p>
-              <b className={typographyStyles.note}>Important: </b> because each
-              inputs can be uncontrolled, <code>id</code> is required with
-              mapped components to help React identify which items have changed,
-              are added, or are removed.
+              <b className={typographyStyles.note}>Important: </b> Because each
+              input can be uncontrolled, <code>id</code> is required with mapped
+              components to help React to identify which items have changed, are
+              added, or are removed.
             </p>
-            <p>
-              eg: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
-            </p>
+            <CodeArea
+              rawData={`{
+  fields.map((data, index) => 
+    <input 
+      key={data.id} 
+      defaultValue={\`data[\${index}].value\`} 
+    />;
+  );
+}`}
+              withOutCopy
+            />
           </td>
         </tr>
         <tr>
