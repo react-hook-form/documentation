@@ -68,7 +68,7 @@ const Input = ({ label, register, required }) => (
 );
 
 // you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ label, register }, ref) => ( 
+const Select = React.forwardRef(({ label }, ref) => ( 
   <>
     <label>{label}</label>
     <select name={label} ref={ref}>
