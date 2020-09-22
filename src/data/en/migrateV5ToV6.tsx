@@ -48,9 +48,6 @@ export default (
   - validationContext: undefined,
   + context: undefined,
 
-  - validationContext: undefined,
-  + context: undefined,
-
   - validateCriteriaMode: "firstError",
   + criteriaMode: "firstError",
   
