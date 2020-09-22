@@ -598,4 +598,34 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          React Hook Form的一个优点是它的原始和
+          简单的API，这导致了更好的开发者体验和轻量级。
+          为库。还有另一个隐藏的宝石是你可以很容易地
+          组成这些API，使现有的功能更加强大，甚至是。
+          从这些原始API衍生出你的组件。在这个
+          部分，让我们来看看Controller组件，并尝试一下 扩大其功能。
+        </p>
+
+        <p>
+          以下是标准<code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code>道具将道具传递给你的子组件。 其中
+          <code>onChange, onBlur, value</code>。我们可以扩展
+          的功能，同时传递下来 。<code>isDirty, isTouched, warning</code>
+          ，通过构建一个包装器来实现。 包裹<code>Controller</code>的组件。
+        </p>
+      </>
+    ),
+  },
 }

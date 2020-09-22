@@ -33,6 +33,7 @@ const enLinks = [
   advancedEn.workingWithVirtualizedList,
   advancedEn.testingForm,
   advancedEn.strictlyTyped,
+  advancedEn.extendController,
 ]
 
 interface Props {
@@ -55,6 +56,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     Workingwithvirtualizedlists: null,
     TestingForm: null,
     StrictlyTyped: null,
+    ExtendController: null,
   })
 
   const {
@@ -79,6 +81,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.workingWithVirtualizedList,
     advanced.testingForm,
     advanced.strictlyTyped,
+    advanced.extendController,
   ]
 
   const goToSection = (name) => {
@@ -363,6 +366,54 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.strictlyTyped.description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (pageContentRef.current.ExtendController = ref)}
+            id="ExtendController"
+          >
+            {advanced.extendController.title}
+          </h2>
+
+          <iframe
+            width="100%"
+            height="528"
+            src="https://www.youtube.com/embed/Vkiyg_KfNK4"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
+          {advanced.extendController.description}
+
+          <CodeArea
+            tsRawData={`
+const PowerController = (props: Props) => {
+  const { formState } = useFormContext(); // we are reading formState from context or you can pass down props too
+  const isDirty = !!formState.dirtyFields[props.name];
+  const isTouched = !!formState.touched[props.name];
+  
+  return (
+    <Controller
+      control={props.control}
+      name={props.name}
+      defaultValue={props.defaultValue}
+      render={(innerProps) => {
+        return props.render({
+          ...innerProps,
+          isDirty, // new isDirty prop
+          isTouched,  // new isTouched prop
+          warning: props.warn(innerProps.value) // include warning message user 
+        });
+      }}
+    />
+  );
+};
+`}
+            tsUrl="https://codesandbox.io/s/extend-controller-zuuol"
+          />
 
           <StarRepo currentLanguage={currentLanguage} />
 

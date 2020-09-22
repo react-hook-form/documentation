@@ -640,4 +640,37 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          React Hook Formの強みは、プリミティブであることと シンプルな API
+          を使用することで、より良い開発者体験と軽量化を実現します。
+          図書館のために。別の隠された宝石もあります。
+          既存の機能をより強力なものにするために、それらのAPIをコンパイルします。
+          を使用して、これらのプリミティブ API
+          から派生したコンポーネントをビルドします。この中では
+          セクションで、Controller コンポーネントを見てみましょう。
+          機能を拡張します。
+        </p>
+
+        <p>
+          以下は標準的なものです<code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code> プロップは子コンポーネントにプロップを渡します。
+          これらは <code>onChange, onBlur, value</code>{" "}
+          です。を拡張することができます。 の機能を継承しています。
+          <code>isDirty, isTouched, warning</code> のラッパーを構築することで
+          <code>Controller</code>をラップするコンポーネント。
+        </p>
+      </>
+    ),
+  },
 }

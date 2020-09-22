@@ -646,4 +646,36 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          One of the strengths about React Hook Form is it's primitive and
+          simple API, this leads to better developer experience and lightweight
+          for the library. There is also another hidden gem is you can easily
+          compose those API to make the existing function more powerful or even
+          build your component derived from those primitive API. In this
+          section, let's take a look at the Controller component and try to
+          extend its functionality.
+        </p>
+
+        <p>
+          The following is standard <code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code> props pass down props to your child component,
+          which are <code>onChange, onBlur, value</code>. We can extend the
+          functionality by also passing down{" "}
+          <code>isDirty, isTouched, warning</code>, by building a wrapper
+          component which wraps <code>Controller</code>.
+        </p>
+      </>
+    ),
+  },
 }

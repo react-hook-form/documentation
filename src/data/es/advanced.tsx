@@ -633,4 +633,38 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          Uno de los puntos fuertes de la forma de gancho de reacción es que es
+          primitiva y API simple, esto lleva a una mejor experiencia de
+          desarrollo y a un peso ligero para la biblioteca. También hay otra
+          gema oculta que puede fácilmente componer esas API para hacer la
+          función existente más potente o incluso construir su componente
+          derivado de esas primitivas API. En este sección, echemos un vistazo
+          al componente del Controlador e intentemos extender su funcionalidad.
+          Traducción realizada con la versión gratuita del traductor
+          www.DeepL.com/Translator
+        </p>
+
+        <p>
+          Lo siguiente es estándar <code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code> puntales pasar abajo puntales a su componente
+          infantil, que son <code>enCambio, enBlur, valor</code>. Podemos
+          extender el funcionalidad pasando también por abajo...
+          <code>esSucio, isTouchado, advertencia</code>, construyendo un
+          envoltorio componente que envuelve <code>Controlador</code>..
+        </p>
+      </>
+    ),
+  },
 }

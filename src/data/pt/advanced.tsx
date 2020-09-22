@@ -633,4 +633,37 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          Um dos pontos fortes do React Hook Form é que ele é primitivo e API
+          simples, isto leva a uma melhor experiência do desenvolvedor e peso
+          leve para a biblioteca. Há também outra jóia oculta é que você pode
+          facilmente compõem essas API para tornar a função existente mais
+          poderosa ou até construir seu componente derivado daquelas API
+          primitivas. Nisso, o vamos dar uma olhada no componente Controlador e
+          tentar ampliar sua funcionalidade. Traduzido com a versão gratuita do
+          tradutor - www.DeepL.com/Translator
+        </p>
+
+        <p>
+          O seguinte é o padrão <code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code> adereços passam adereços para baixo ao componente
+          infantil, que são <code>sobreAlterar, onBlur, valor</code>. Podemos
+          estender o funcionalidade também passando para baixo
+          <code>sujo, isTocado, aviso</code>, através da construção de um
+          invólucro componente que envolve <code>Controlador</code>.
+        </p>
+      </>
+    ),
+  },
 }

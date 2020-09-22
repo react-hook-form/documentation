@@ -621,4 +621,33 @@ export default {
       </>
     ),
   },
+  extendController: {
+    title: "Extend Controller",
+    description: (
+      <>
+        <p>
+          React Hook Form의 강점 중 하나는 기본적이고 간단한 API로 더 나은
+          개발자 경험과 경량화 도서관을 위해. 또 다른 숨겨진 보석이 있습니다.
+          이러한 API를 구성하여 기존 기능을 더 강력하게 만들거나 이러한 기본
+          API에서 파생 된 구성 요소를 빌드합니다. 이것에 섹션에서 Controller
+          구성 요소를 살펴보고 기능을 확장합니다.
+        </p>
+
+        <p>
+          다음은 표준입니다<code>Controller</code>:
+        </p>
+
+        <CodeArea
+          rawData={`<Controller name="test" control={control} render={props => <input {...props} />} />>`}
+        />
+
+        <p>
+          <code>render</code> props는 props를 자식 컴포넌트로 전달합니다.
+          <code>onChange, onBlur, value</code>입니다. 우리는 전달하여 기능
+          <code>isDirty, isTouched, warning</code>, 래퍼 빌드
+          <code>Controller</code>를 감싸는 컴포넌트.
+        </p>
+      </>
+    ),
+  },
 }
