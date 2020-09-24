@@ -1455,6 +1455,14 @@ React.useEffect(() => {
           </a>
           ,{" "}
           <a
+            href="https://github.com/vriad/zod"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zod
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/hapijs/joi"
             target="_blank"
             rel="noopener noreferrer"
@@ -1477,13 +1485,13 @@ React.useEffect(() => {
         <p>
           At this time, we offer{" "}
           <a
-            href="https://github.com/react-hook-form/react-hook-form-resolvers"
+            href="https://github.com/react-hook-form/resolvers"
             target="_blank"
             rel="noopener noreferrer"
           >
             officially supported resolvers
           </a>{" "}
-          for: Yup, Joi and Superstruct.
+          for: Yup, Zod, Joi and Superstruct.
         </p>
 
         <code
