@@ -1553,7 +1553,7 @@ React.useEffect(() => {
           <code>useFieldArray</code>, It's important to assign a{" "}
           <code>defaultValue</code> when you watching a specific field or entire
           field array get appended or removed. eg:{" "}
-          <code>useWatch('fieldArray', field)</code>
+          <code>useWatch({`{ name: 'fieldArray', defaultValue: field }`})</code>
         </p>
       </>
     ),
