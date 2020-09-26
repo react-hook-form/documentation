@@ -1330,6 +1330,7 @@ React.useEffect(() => {
             </p>
             <CodeArea
               withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-disabled-k1of4"
               rawData={`<Controller 
   onFocus={() => {
     inputRef.current.disabled = false;
