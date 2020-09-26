@@ -1331,10 +1331,10 @@ React.useEffect(() => {
             <CodeArea
               withOutCopy
               rawData={`<Controller 
-onFocus={() => {
-  inputRef.current.disabled = false;
-  inputRef.current?.focus();
-}}
+  onFocus={() => {
+    inputRef.current.disabled = false;
+    inputRef.current?.focus();
+  }}
 />`}
             />
             <CodeSandBoxLink
