@@ -1326,7 +1326,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Note:</b> If your input disabled
               based on <code>form.formState.isSubmitting</code>, you must enabled it
-              before invoid focus method.
+              before invoke focus method.
             </p>
             <CodeArea
               withOutCopy
