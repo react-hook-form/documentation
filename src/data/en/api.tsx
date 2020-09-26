@@ -1323,6 +1323,20 @@ React.useEffect(() => {
               during <code>useEffect</code>.
             </p>
 
+            <p>
+              <b className={typographyStyles.note}>Note:</b> If your input disabled
+              based on <code>form.formState.isSubmitting</code>, you must enabled it
+              before invoid focus method. <code>
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`<Controller 
+onFocus={() => {
+  inputRef.current.disabled = false;
+  inputRef.current?.focus();
+}}
+/>`}
+            />
             <CodeSandBoxLink
               style={{
                 position: "relative",
