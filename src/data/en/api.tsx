@@ -1323,6 +1323,21 @@ React.useEffect(() => {
               during <code>useEffect</code>.
             </p>
 
+            <p>
+              <b className={typographyStyles.note}>Note:</b> If your input disabled
+              based on <code>form.formState.isSubmitting</code>, you must enabled it
+              before invoke focus method.
+            </p>
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-disabled-k1of4"
+              rawData={`<Controller 
+  onFocus={() => {
+    inputRef.current.disabled = false;
+    inputRef.current?.focus();
+  }}
+/>`}
+            />
             <CodeSandBoxLink
               style={{
                 position: "relative",

@@ -19,7 +19,7 @@ export default function App() {
         onClick={() => {
           const values = getValues(); // { test: "test-input", test1: "test1-input" }
           const singleValue = getValues("test"); // "test-input"
-          const singleValue = getValues(["test", "test1"]); 
+          const multipleValues = getValues(["test", "test1"]);
           // { test: "test-input", test1: "test1-input" }
         }}
       >

@@ -279,6 +279,7 @@ export default function App() {
             {TS[currentLanguage].control.description}
 
             <CodeArea
+              tsUrl="https://codesandbox.io/s/control-dzl0y"
               rawData={`import React from "react";
 import { useForm, useWatch, Control } from "react-hook-form";
 
