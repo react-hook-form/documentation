@@ -56,6 +56,7 @@ import resetCodeTs from "./codeExamples/resetCodeTs"
 import getValuesTypes from "./codeExamples/getValuesTypes"
 import controlTs from "./codeExamples/controlTs"
 import setValueUseFieldArray from "./codeExamples/setValueUseFieldArray"
+import submitReset from "./codeExamples/submitReset"
 
 const { useRef, useEffect } = React
 
@@ -750,7 +751,9 @@ const { register } = useForm<FormInputs>({
 
             {api.reset(goToSection).description}
 
-            <TabGroup buttonLabels={["Uncontrolled", "Controller"]}>
+            <TabGroup
+              buttonLabels={["Uncontrolled", "Controller", "Submit with rest"]}
+            >
               <CodeArea
                 rawData={resetCode}
                 tsRawData={resetCodeTs}
@@ -762,6 +765,10 @@ const { register } = useForm<FormInputs>({
                 tsRawData={resetControllerTs}
                 url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
                 tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              />
+              <CodeArea
+                rawData={submitReset}
+                url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               />
             </TabGroup>
           </section>
