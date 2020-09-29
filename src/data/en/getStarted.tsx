@@ -171,21 +171,21 @@ export default {
         />
 
         <p>
-          <b className={typographyStyles.note}>Option 1:</b> The best way is to
-          check if the component you wish to use exposes a <code>ref</code> that
-          can be used to{" "}
+          <b className={typographyStyles.note}>Option 1:</b> The simplest way is
+          to check if the component you wish to use exposes a <code>ref</code>{" "}
+          that can be used to{" "}
           <code>
             <Link to={translateLink("api#register", currentLanguage)}>
               register
             </Link>
           </code>
-          . For example: Material-UI's <code>TextField</code> accepts{" "}
-          <code>inputRef</code> as one of its props. You can simply pass{" "}
+          . For example: Material-UI and Reactstrap's <code>TextField</code>{" "}
+          accepts <code>inputRef</code> as one of its props. You can simply pass{" "}
           <code>register</code> to it.
         </p>
-        <p>
-          <code>{'<TextField inputRef={register} name="FirstName"/>'}</code>
-        </p>
+        <CodeArea
+          rawData={'<TextField inputRef={register} name="FirstName"/>'}
+        />
         <p>
           <b className={typographyStyles.note}>Option 2:</b> Sometimes
           components don't expose a prop to register, for example{" "}

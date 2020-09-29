@@ -650,31 +650,47 @@ export default {
           <code>values</code> as an optional argument to reset your form into
           the assigned default values.
         </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> For controlled
-          components like <code>React-Select</code> which do not expose a{" "}
-          <code>ref</code> prop, you will have to reset the input value manually
-          with{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("setValue")}
-          >
-            setValue
-          </button>{" "}
-          or by wrapping your component with{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("Controller")}
-          >
-            Controller
-          </button>
-          .
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note: </b> You will need to pass{" "}
-          <code>defaultValues</code> to <code>useForm</code> in order to{" "}
-          <code>reset</code> the <code>Controller</code> components' value.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Note:</b> For controlled
+              components like <code>React-Select</code> which do not expose a{" "}
+              <code>ref</code> prop, you will have to reset the input value
+              manually with{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("setValue")}
+              >
+                setValue
+              </button>{" "}
+              or by wrapping your component with{" "}
+              <button
+                className={buttonStyles.codeAsLink}
+                onClick={() => goToSection("Controller")}
+              >
+                Controller
+              </button>
+              .
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Note: </b> You will need to
+              pass <code>defaultValues</code> to <code>useForm</code> in order
+              to <code>reset</code> the <code>Controller</code> components'
+              value.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Note: </b>When you are
+              subscribed/read the <code>formState</code>, it's important to
+              decouple <code>reset</code> with <code>handleSubmit</code>, both
+              are update <code>formState</code> and <code>handleSubmit</code> is
+              async by default. You can check out a working example below:
+            </p>
+          </li>
+        </ul>
       </>
     ),
   }),
@@ -1232,19 +1248,26 @@ React.useEffect(() => {
               forwarding the prop for you.
             </p>
 
-            <p>
-              <b className={typographyStyles.note}>Note:</b> The following props
-              will be passed into your component: <code>onChange</code>,{" "}
-              <code>onBlur</code>, <code>value</code>.
-            </p>
+            <ul>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> The following
+                  props will be passed into your component:{" "}
+                  <code>onChange</code>, <code>onBlur</code>, <code>value</code>
+                  .
+                </p>
+              </li>
 
-            <p>
-              <b className={typographyStyles.note}>Note:</b> For Typescript
-              user, if you are using custom component with required fields:{" "}
-              <code>onChange</code>, <code>onBlur</code>, <code>value</code>, It
-              will complain about missing declared field. Please use{" "}
-              <code>render</code> instead of <code>as</code>.
-            </p>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> For Typescript
+                  user, if you are using custom component with required fields:{" "}
+                  <code>onChange</code>, <code>onBlur</code>, <code>value</code>
+                  , It will complain about missing declared field. Please use{" "}
+                  <code>render</code> instead of <code>as</code>.
+                </p>
+              </li>
+            </ul>
 
             <CodeArea
               withOutCopy
@@ -1270,17 +1293,24 @@ React.useEffect(() => {
             When passing a <code>boolean</code> value, it will be treated as
             checkbox input. For more details, see useForm's{" "}
             <code>defaultValues</code> section.
-            <p>
-              <b className={typographyStyles.note}>Note:</b> You need to either
-              set <code>defaultValue</code> at the field-level or call{" "}
-              <code>useForm</code> with <code>defaultValues</code>.
-            </p>
-            <p>
-              <b className={typographyStyles.note}>Note</b>: if your form will
-              invoke <code>reset</code> with default values, you will need to
-              call <code>useForm</code> with <code>defaultValues</code> instead
-              of setting the <code>defaultValue</code> on individual fields.
-            </p>
+            <ul>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> You need to
+                  either set <code>defaultValue</code> at the field-level or
+                  call <code>useForm</code> with <code>defaultValues</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note</b>: if your form
+                  will invoke <code>reset</code> with default values, you will
+                  need to call <code>useForm</code> with{" "}
+                  <code>defaultValues</code> instead of setting the{" "}
+                  <code>defaultValue</code> on individual fields.
+                </p>
+              </li>
+            </ul>
           </td>
         </tr>
         <tr>
@@ -1315,19 +1345,25 @@ React.useEffect(() => {
               React-Native components as long as they can be focused.
             </p>
 
-            <p>
-              <b className={typographyStyles.note}>Note:</b> Input focus order
-              is according to registration order, which means native input
-              registered with <code>ref</code> will be the first to be focused
-              on the error due to <code>Controller</code> registration occurred
-              during <code>useEffect</code>.
-            </p>
+            <ul>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> Input focus
+                  order is according to registration order, which means native
+                  input registered with <code>ref</code> will be the first to be
+                  focused on the error due to <code>Controller</code>{" "}
+                  registration occurred during <code>useEffect</code>.
+                </p>
+              </li>
 
-            <p>
-              <b className={typographyStyles.note}>Note:</b> If your input disabled
-              based on <code>form.formState.isSubmitting</code>, you must enabled it
-              before invoke focus method.
-            </p>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> If your input
+                  disabled based on <code>form.formState.isSubmitting</code>,
+                  you must enabled it before invoke focus method.
+                </p>
+              </li>
+            </ul>
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-disabled-k1of4"
