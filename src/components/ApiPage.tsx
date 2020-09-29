@@ -768,7 +768,7 @@ const { register } = useForm<FormInputs>({
               />
               <CodeArea
                 rawData={submitReset}
-                url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+                url="https://codesandbox.io/s/react-hook-form-handlesubmit-with-reset-xrh0t"
               />
             </TabGroup>
           </section>
