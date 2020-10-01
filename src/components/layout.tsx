@@ -50,7 +50,11 @@ const Layout = (props: {
       </a>
       <Nav defaultLang={props.defaultLang} />
       {props.children}
-      <Animate play={show} start={{ opacity: 0 }} end={{ opacity: 1 }}>
+      <Animate
+        play={show}
+        start={{ opacity: 0, visibility: "hidden" }}
+        end={{ opacity: 1, visibility: "visible" }}
+      >
         {editLink && (
           <a
             target="_blank"
