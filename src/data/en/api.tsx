@@ -420,7 +420,15 @@ export default {
       minLength: "The minimum length of the value to accept for this input.",
       max: "The maximum value to accept for this input.",
       min: "The minimum value to accept for this input.",
-      pattern: "The regex pattern for the input.",
+      pattern: (
+        <>
+          <p>The regex pattern for the input.</p>
+          <p>
+            <b className={typographyStyles.note}>Note:</b> A RegExp object with
+            the /g flag keeps track of the lastIndex where a match occurred.
+          </p>
+        </>
+      ),
       validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
     },
   },
