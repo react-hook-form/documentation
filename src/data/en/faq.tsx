@@ -158,7 +158,7 @@ export default {
       ),
     },
     {
-      title: "Why is first keystroke is not working?",
+      title: "Why is the first keystroke not working?",
       description: (
         <>
           <p>

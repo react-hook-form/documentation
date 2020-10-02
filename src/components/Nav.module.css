@@ -93,7 +93,6 @@
 
 .langSelect > select {
   width: 100%;
-  line-height: 1.2;
   min-height: 28px;
   font-size: 16px;
   display: block;
@@ -101,9 +100,9 @@
   appearance: none;
   color: white;
   border: 1px solid var(--color-light-blue);
-  text-align: center;
   border-radius: 3px;
   padding-left: 10px;
+  padding-right: 15px;
   cursor: pointer;
   position: relative;
 }
