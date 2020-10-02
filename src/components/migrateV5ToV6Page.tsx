@@ -6,7 +6,7 @@ import migrateV5ToV6 from "../data/en/migrateV5ToV6"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 
-const MigrateV5ToV6 = ({ defaultLang }) => {
+const MigrateV5ToV6 = ({ defaultLang, content = migrateV5ToV6 }) => {
   const {
     state: { language },
   } = useStateMachine()
@@ -41,7 +41,7 @@ const MigrateV5ToV6 = ({ defaultLang }) => {
             opacity: 1,
           }}
         >
-          {migrateV5ToV6}
+          {content}
         </Animate>
       </div>
 
