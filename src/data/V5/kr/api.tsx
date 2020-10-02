@@ -17,9 +17,9 @@ export default {
   },
   v5upgradeAlert: (
     <p>
-      <span style={{ fontSize: 12 }}>►</span> 리 액트 훅 폼 V6이 출시되었습니다.
-      업그레이드를 계획하고 있다면{" "}
-      <Link to="/migrate-v5-to-v6">V6으로의 ​​마이그레이션 안내서</Link> 을
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form V6이
+      출시되었습니다. 업그레이드를 계획하고 있다면{" "}
+      <Link to="/kr/migrate-v5-to-v6">V6 마이그레이션 안내서</Link> 를
       읽어보십시오.
     </p>
   ),
