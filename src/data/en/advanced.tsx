@@ -628,7 +628,7 @@ export default {
       <>
         <p>
           Building strictly typed input/form can be a challenge due to the
-          nature of flexible name attribute during registration. We have build
+          nature of flexible name attribute during registration. We have built
           an extra plug-in to make this possible.
         </p>
 
