@@ -36,8 +36,8 @@ export default function ({ api }) {
         <CodeArea
           rawData={zodResolver}
           tsRawData={zodResolverTs}
-          url="https://codesandbox.io/s/react-hook-form-zod-resolver-example-hsmwu"
-          tsUrl="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-x5q37"
+          url="https://codesandbox.io/s/react-hook-form-zod-resolver-example-forked-ko5ll"
+          tsUrl="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-hrjdh"
         />
         <CodeArea
           rawData={joiResolver}
