@@ -88,6 +88,15 @@ const data = [
     interests: ["🎮 games", "💻 code", "🎹 piano"],
   },
   {
+    name: "Joris",
+    imgUrl:
+      "https://pbs.twimg.com/profile_images/956560048762904577/XmJEqOJm_400x400.jpg",
+    url: "https://twitter.com/Jor1s_",
+    twitterName: "Jor1s_",
+    bio: "",
+    interests: ["", "", ""],
+  },
+  {
     name: "Beier(Bill) Luo",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
