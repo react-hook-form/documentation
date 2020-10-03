@@ -1,6 +1,6 @@
 export default `import React from 'react';
 import { useForm } from 'react-hook-form';
-import { joiResolver } from '@hookform/resolvers';
+import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from "@hapi/joi";
 
 const schema = Joi.object({

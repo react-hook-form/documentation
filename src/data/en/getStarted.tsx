@@ -269,6 +269,14 @@ export default {
           </a>
           ,{" "}
           <a
+            href="https://github.com/vriad/zod"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zod
+          </a>{" "}
+          ,{" "}
+          <a
             href="https://github.com/ianstormtaylor/superstruct"
             target="_blank"
             rel="noopener noreferrer"

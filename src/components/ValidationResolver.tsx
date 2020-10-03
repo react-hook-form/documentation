@@ -8,6 +8,8 @@ import validationResolverTs from "./codeExamples/validationResolverTs"
 import TabGroup from "./TabGroup"
 import validationSchema from "./codeExamples/validationSchema"
 import validationSchemaTs from "./codeExamples/validationSchemaTs"
+import zodResolver from "./codeExamples/zodResolver"
+import zodResolverTs from "./codeExamples/zodResolverTs"
 import typographyStyles from "../styles/typography.module.css"
 
 export default function ({ api }) {
@@ -24,12 +26,18 @@ export default function ({ api }) {
 
       {api.resolver.description}
 
-      <TabGroup buttonLabels={["Yup", "Joi", "Superstruct", "Custom"]}>
+      <TabGroup buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Custom"]}>
         <CodeArea
           rawData={validationSchema}
           tsRawData={validationSchemaTs}
           url="https://codesandbox.io/s/react-hook-form-validationschema-v6-2l77g"
           tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
+        />
+        <CodeArea
+          rawData={zodResolver}
+          tsRawData={zodResolverTs}
+          url="https://codesandbox.io/s/react-hook-form-zod-resolver-example-hsmwu"
+          tsUrl="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-x5q37"
         />
         <CodeArea
           rawData={joiResolver}
