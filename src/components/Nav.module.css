@@ -3,6 +3,7 @@
   position: absolute;
   left: 10px;
   top: 15px;
+  z-index: 2;
 }
 
 .icon {
@@ -101,8 +102,8 @@
   color: white;
   border: 1px solid var(--color-light-blue);
   border-radius: 3px;
-  padding-left: 10px;
-  padding-right: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   cursor: pointer;
   position: relative;
 }
