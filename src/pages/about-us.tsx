@@ -86,15 +86,15 @@ const data = [
     bio:
       "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
     interests: ["🎮 games", "💻 code", "🎹 piano"],
-  },
+  }, 
   {
     name: "Joris",
     imgUrl:
-      "https://pbs.twimg.com/profile_images/956560048762904577/XmJEqOJm_400x400.jpg",
+      "https://avatars1.githubusercontent.com/u/7545547?v=4",
     url: "https://twitter.com/Jor1s_",
     twitterName: "Jor1s_",
-    bio: "",
-    interests: ["", "", ""],
+    bio: "I'm a passionate front-end engineer who love to trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
+    interests: ["💻  Code", "⚛️  React", "🥑  Food"],
   },
   {
     name: "Beier(Bill) Luo",
