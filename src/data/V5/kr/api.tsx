@@ -2,24 +2,21 @@ import * as React from "react"
 import { Link } from "gatsby"
 import colors from "../../../styles/colors"
 import Popup from "../../../components/Popup"
-import generic from "../../generic"
 import CodeArea from "../../../components/CodeArea"
 import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"
-import code from "../../../components/codeExamples/defaultExample"
 
 export default {
   title: "API 설명서",
   header: {
-    description:
-      "단순화된 API 를 통해 최고의 DX 를 제공하는데 초점을 맞추었습니다.",
+    description: "단순화된 API 로 최고의 DX 를 제공하는데 초점을 맞추었습니다.",
   },
   v5upgradeAlert: (
     <p>
-      <span style={{ fontSize: 12 }}>►</span> 리 액트 훅 폼 V6이 출시되었습니다.
-      업그레이드를 계획하고 있다면{" "}
-      <Link to="/migrate-v5-to-v6">V6으로의 ​​마이그레이션 안내서</Link> 을
+      <span style={{ fontSize: 12 }}>►</span> React Hook Form V6이
+      출시되었습니다. 업그레이드를 계획하고 있다면{" "}
+      <Link to="/kr/migrate-v5-to-v6">V6 마이그레이션 안내서</Link> 를
       읽어보십시오.
     </p>
   ),
@@ -28,6 +25,23 @@ export default {
     intro: (
       <>
         <code>useForm</code> 을 호출하여 다음의 메소드들을 사용할 수 있습니다..{" "}
+      </>
+    ),
+    description: (
+      <p>
+        <code>useForm</code> 은 또한 <b>선택적으로(optional)</b> 인자를
+        받습니다. 아래의 예제는 모든 옵션과 그 기본값을 나타냅니다.
+      </p>
+    ),
+    validateCriteriaMode: (
+      <>
+        <p>
+          <code>firstError</code> (기본값)으로 설정 시, 각 필드의 첫 번째 에러만
+          모아집니다.
+        </p>
+        <p>
+          <code>all</code> 로 설정 시, 각 필드의 모든 에러가 모아집니다.
+        </p>
       </>
     ),
     validationResolver: (goToSection) => (
@@ -45,6 +59,11 @@ export default {
             validationResolver
           </button>{" "}
           섹션에서 확인하세요.
+        </p>
+        <p>
+          <b className={typographyStyles.note}>참고:</b> 이 함수는 훅 안에서
+          캐쉬됩니다. 따라서 이 함수를 컴포넌트 바깥으로 이동시키거나 메모이즈
+          처리를 해야 합니다.
         </p>
       </>
     ),
@@ -64,24 +83,6 @@ export default {
         </p>
       </>
     ),
-    description: (
-      <p>
-        <code>useForm</code> 에서는 <b>옵셔널</b>한 인수도 있습니다. 다음 예제는
-        모든 옵션의 기본값을 보여줍니다.
-      </p>
-    ),
-    validateCriteriaMode: (
-      <>
-        <p>
-          기본값으로 설정 된 <code>firstError</code> 는 모든 필드 유효성 검사를
-          실행하고 처음 발견하는 모든 에러를 모읍니다.
-        </p>
-        <p>
-          <code>all</code> 로 설정하면, 모든 필드의 유효성 검사가 실행되면서
-          발생하는 필드의 모든 에러를 모읍니다.
-        </p>
-      </>
-    ),
     validateOnSubmit: (
       <>
         유효성 검사는 <code>submit</code> 이벤트에서 트리거되며, 유효하지 않은
@@ -97,8 +98,7 @@ export default {
     validateOnChange: (
       <>
         유효성 검사는 각 입력창의 <code>change</code> 이벤트로 시작되어, 여러번
-        다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로 추천하지
-        않습니다.
+        다시 렌더링합니다. 이 방법은 랜더링 성능을 떨어뜨리므로 주의하십시오.
       </>
     ),
     defaultValues: (goToSection) => (
@@ -112,21 +112,21 @@ export default {
           >
             (기본값에 대한 React 문서를 읽어보세요)
           </a>
-          , <code>defaultValues</code> 를 옵셔널 인수로 전달 하여 전체 폼의
-          기본값을 채울 수 있습니다.
+          , <code>defaultValues</code> 를 선택적인(optional) 인수로 전달 하여
+          전체 폼의 기본값을 채울 수 있습니다.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>defaultValues</code> is cached within the custom hook, if you
-          want to reset <code>defaultValues</code> please use{" "}
+          <b className={typographyStyles.note}>중요:</b>{" "}
+          <code>defaultValues</code> 는 훅 안에서 캐시됩니다. 만약{" "}
+          <code>defaultValues</code> 를 초기화하고 싶다면,{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("reset")}
           >
             reset
           </button>{" "}
-          api.
+          api 를 사용해주세요.
         </p>
 
         <p>
@@ -152,7 +152,7 @@ export default {
     ),
     validationSchema: (goToSection) => (
       <p>
-        <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용 하세요.{" "}
+        <code>Yup</code> 의 스키마 레벨 폼 유효성 검사 규칙을 적용해 보세요.{" "}
         <button
           className={buttonStyles.codeAsLink}
           onClick={() => goToSection("validationSchema")}
@@ -234,18 +234,18 @@ export default {
     description: (
       <>
         <p>
-          이 함수에서 입력/선택(input/select) <code>Ref</code> 와 유효성 검사
-          규칙을 등록(register)할 수 있습니다.
+          이 함수에서 input/select <code>Ref</code> 와 유효성 검사 규칙을
+          등록(register)할 수 있습니다.
         </p>
         <p>
           유효성 검사 규칙은 모두 HTML 표준을 기반으로 하며, 커스텀 유효성
           검사도 가능합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>중요:</b> <code>name</code>은{" "}
-          <b>필수</b>이며 <b>유니크</b>
-          해야합니다. name은 점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를
-          쉽게 만들 수 있습니다. 예제는 다음과 같습니다.
+          <b className={typographyStyles.note}>중요:</b> <code>name</code> 은{" "}
+          <b>필수</b>이며 <b>고유의(unique)</b> 값이어야 합니다. 인풋의 name 은
+          점(dot)과 괄호 구문도 지원하므로, 중첩 된 폼 필드를 쉽게 만들 수
+          있습니다. 예제는 다음과 같습니다.
         </p>
       </>
     ),
@@ -270,7 +270,7 @@ export default {
     ),
     example: "제출 결과",
     selectHelp:
-      "등록 옵션(Register Options)을 선택하면, 아래의 API 테이블이 업데이트됩니다.",
+      "등록 옵션(Register Options)을 선택하면, 아래의 API 테이블이 변경됩니다.",
     options: {
       title: "Register Options",
       registerWithValidation: "유효성 검사와 함께 등록",
@@ -292,7 +292,7 @@ export default {
           </p>
 
           <p>
-            Custome register를 사용하면, 입력은 더이상 ref로 등록되지 않으므로,{" "}
+            Custome register를 사용하면, 입력은 더이상 ref 로 등록되지 않으므로,{" "}
             <button
               className={buttonStyles.codeAsLink}
               onClick={() => goToSection("setValue")}
@@ -321,9 +321,9 @@ export default {
           </p>
 
           <p>
-            <b className={typographyStyles.note}>Nota:</b> multiple radio inputs
-            with the same name, you want to register the validation to the last
-            input so the hook understand validate them as a group at the end.
+            <b className={typographyStyles.note}>참고:</b> 같은 name 을 가진
+            여러개의 라디오 인풋의 경우, 마지막 인풋에 유효성 검사 규칙을
+            등록해야 React Hook Form 이 같은 라디오 그룹을 인지할 수 있습니다.
           </p>
         </>
       ),
@@ -339,7 +339,7 @@ export default {
       minLength: "입력에 허용되는 최소 길이입니다.",
       max: "입력에 허용되는 최대 값입니다.",
       min: "입력에 허용되는 최소 값입니다.",
-      pattern: "입력에 대한 정규식 패턴입니다.",
+      pattern: "입력에 대한 정규표현식 패턴입니다.",
       validate: `콜백 함수를 인수로 전달하거나 콜백 함수의 객체를 전달하여 검증할 수 있습니다. (예제 참조)`,
     },
   },
@@ -361,24 +361,24 @@ export default {
           </a>{" "}
           로 감싸져 있습니다. 그러니 상태를 업데이트 하려면 <code>render</code>{" "}
           전에 읽거나 실행해야 합니다. 이 다시 렌더링 기능 생략 기능은 웹
-          플랫폼에만 적용됩니다. React Native에서 <code>Proxy</code>를
-          지원합니다.
+          플랫폼에만 적용됩니다. React Native에서는 <code>Proxy</code> 가 잘
+          지원되지 않기 때문입니다.
         </p>
       </>
     ),
-    dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정하십시오.",
-    dirtyFields: "고유 한 사용자 수정 필드 세트.",
+    dirty: "사용자가 어떠한 입력이라도 했다면, true로 설정됩니다.",
     isSubmitted:
-      "사용자가 폼을 제출 한 후 true로 설정하십시오. 양식을 제출 한 후 reset 메소드로 호출 될 때까지 해당 상태가 제출 된 상태로 유지됩니다.",
-    touched: "상호 작용된 모든 입력의 배열입니다.",
+      "사용자가 폼을 제출 한 후 true로 설정됩니다. 양식을 제출 한 후 reset 메소드가 호출 될 때까지 해당 상태가 제출 된 상태로 유지됩니다.",
+    dirtyFields: "사용자가 수정한 필드의 모음",
+    touched: "상호 작용된 모든 입력 필드의 배열입니다.",
     isSubmitting: (
       <>
-        폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>로
-        설정합니다.
+        폼 제출하는 동안은 <code>true</code> 로, 그 후에는 <code>false</code>가
+        됩니다.
       </>
     ),
     submitCount: "제출 한 폼의 수",
-    isValid: "에러가 없다면, true로 설정하세요.",
+    isValid: "에러가 없다면, true로 설정됩니다.",
   },
   errors: {
     title: "errors",
@@ -386,10 +386,7 @@ export default {
       <>
         <p>각 입력에 대한 폼 에러 혹은 에러 메시지를 가진 객체입니다.</p>{" "}
         <p>
-          <b className={typographyStyles.note}>
-            {generic.note[currentLanguage]}:
-          </b>{" "}
-          V3 과 V4 의 차이점:
+          <b className={typographyStyles.note}>참고:</b> V3 과 V4 의 차이점:
         </p>
         <ul>
           <li>
@@ -433,7 +430,7 @@ export default {
         >
           ErrorMessage
         </button>{" "}
-        를 사용하여 오류 상태를 처리 할 수 ​​있습니다.
+        를 사용하여 오류 상태를 처리 할 수 있습니다.
       </p>
     ),
   },
@@ -445,6 +442,7 @@ export default {
           지정된 입력을 확인(watch)하고, 그 값들을 반환하며, 렌더링 할 대상을
           결정할 때 유용합니다.
         </p>
+
         <ul>
           <li>
             <p>
@@ -457,9 +455,9 @@ export default {
           </li>
           <li>
             <p>
-              <code>useForm</code> 에서 <code>defaultValues</code>로 정의가 되어
-              있다면, 첫번째 렌더링에서 <code>defaultValues</code>에 적용된
-              내용을 반환합니다.
+              하지만 <code>useForm</code> 에서 <code>defaultValues</code> 가
+              정의되어 있다면, 첫번째 렌더링에서 <code>defaultValues</code> 에
+              적용된 내용을 반환합니다.
             </p>
           </li>
         </ul>
@@ -468,7 +466,7 @@ export default {
     tableTitle: {
       single: (
         <>
-          name으로 입력값 확인 (lodash{" "}
+          주어진 name 에 해당하는 입력값을 관찰합니다. (lodash{" "}
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -476,12 +474,12 @@ export default {
           >
             get
           </a>{" "}
-          기능과 유사)
+          함수와 유사)
         </>
       ),
-      multiple: "여러 입력을 확인",
-      all: "모든 입력을 확인",
-      nest: "모든 입력을보고 중첩 된 객체를 반환",
+      multiple: "여러 입력을 관찰",
+      all: "모든 입력을 관찰",
+      nest: "모든 입력을 관찰하고 중첩 된 객체를 반환",
     },
   },
   handleSubmit: {
@@ -489,8 +487,8 @@ export default {
     description: (
       <>
         <p>
-          이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를
-          전달합니다원격으로도 호출 할 수 있습니다.
+          이 함수는 유효성 검사가 완료 되었을 때 폼 데이터를 전달합니다.
+          원격으로도 호출 할 수 있습니다.
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
@@ -499,7 +497,7 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 비동기 유효성 검사를
-          위한 <code>async</code> 함수를 전달할 수 있습니다 . 예 :{" "}
+          위한 <code>async</code> 함수를 전달할 수 있습니다. 예 :{" "}
         </p>
         <p>
           <code className={typographyStyles.codeBlock}>
@@ -515,9 +513,9 @@ export default {
       <>
         <p>
           이 함수는 폼 내의 필드 값과 에러를 재설정(reset) 합니다.{" "}
-          <code>omitResetState</code>를 제공하면 자유롭게 특정 상태 만
-          재설정합니다. <code>values</code>를 옵셔널 인수로 전달하면 폼의 기본
-          값으로 재설정 할 수 있습니다.
+          <code>omitResetState</code> 를 제공하면 자유롭게 특정 상태만
+          재설정합니다. <code>values</code> 를 선택적(optional) 인수로 전달하면
+          폼의 기본 값으로 재설정 할 수 있습니다.
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b>{" "}
@@ -528,21 +526,21 @@ export default {
             onClick={() => goToSection("setValue")}
           >
             setValue
-          </button>
+          </button>{" "}
           를 통해 수동으로 입력값을 재설정해주어야 합니다. 또는{" "}
           <button
             className={buttonStyles.codeAsLink}
             onClick={() => goToSection("Controller")}
           >
             Controller
-          </button>
+          </button>{" "}
           을 사용하여 제어 컴포넌트를 감싸 처리할 수 있습니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b> 당신은해야합니다
-          <code>useForm</code> 또는중 <code>defaultValues​</code>제공
-          <code>컨트롤러</code>를 재설정하기위한 값으로<code>재설정</code>
-          구성 요소의 가치.
+          <b className={typographyStyles.note}>참고:</b> <code>Controller</code>{" "}
+          컴포넌트의 값을 <code>reset</code> 처리할 때를 위해,{" "}
+          <code>useForm</code> 호출 시 <code>defaultValues</code> 를 입력해야 할
+          수도 있습니다.
         </p>
       </>
     ),
@@ -556,10 +554,10 @@ export default {
           수 있습니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고</b> :이 방법은 오류와 차단을
-          지속하지 않습니다 제출 조치. <code>handleSubmit</code> 함수 중에 더
-          유용합니다. 비동기 유효성 검사 후 사용자에게 오류 피드백을
-          제공하려고합니다.
+          <b className={typographyStyles.note}>참고:</b> 이 메서드는 에러를
+          유지하거나 폼 제출을 막지 않습니다. 비동기로 유효성 검사를 실행하고
+          나서 <code>handleSubmit</code> 함수가 실행되는 중에 에러를 표시하고
+          싶을 때 활용하기 좋습니다.
         </p>
       </>
     ),
@@ -591,9 +589,9 @@ export default {
     description: (
       <>
         <p>
-          이 함수를 통해 동적으로 입력/선택 값을 설정할 수 있습니다. 그와
-          동시에, 아래의 조건이 충족할 때만 다시 랜더링되어 불필요한 리랜더링을
-          피하려 합니다.
+          이 함수를 통해 동적으로 <strong>등록된</strong> input/select 값을
+          설정할 수 있습니다. 그와 동시에, 아래의 조건이 충족할 때만 다시
+          랜더링되어 불필요한 리랜더링을 피하려 합니다.
         </p>
         <ul>
           <li>
@@ -615,11 +613,11 @@ export default {
         </ul>
         <p>
           <b className={typographyStyles.note}>참고:</b> 이 함수를 호출함으로써,{" "}
-          <code>formState</code>는 이 입력의 <code>name</code>을{" "}
-          <code>touched</code>로 설정하게 됩니다.
+          <code>formState</code>는 이 해당 인풋을 <code>touched</code>로
+          설정하게 됩니다.
         </p>
         <p>
-          <code>shouldValidate</code>를 <code>true</code>로 설정하여, 필드
+          <code>shouldValidate</code> 를 <code>true</code> 로 설정하여, 필드
           유효성 검사를 트리거할 수 도 있습니다. 예 :{" "}
           <code>setValue('name', 'value', true)</code>
         </p>
@@ -631,20 +629,20 @@ export default {
     description: (
       <>
         <p>
-          이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 내 값을 검색하려는
-          경우에 유용합니다.
+          이 함수는 전체 폼 데이터를 반환하는 함수이며, 폼 안의 값을 가져올 때
+          유용합니다.
         </p>
         <ul>
           <li>
             <p>
-              기본적으로, <code>getValues()</code>는 폼 데이터를 flat
-              structure로 반환합니다. 예 :{" "}
+              기본적으로, <code>getValues()</code>는 폼 데이터를 평탄한
+              구조(flat structure)로 반환합니다. 예 :{" "}
               <code>{`{ test: 'data', test1: 'data1'}`}</code>
             </p>
           </li>
           <li>
             <p>
-              정의된 폼 필드에서 <code>getValues({`{ nest: true }`})</code> 는{" "}
+              <code>getValues({`{ nest: true }`})</code> 로 호출할 경우는{" "}
               <code>name</code> 입력 값에 따라 중첩된 구조의 데이터로
               반환됩니다. 예 :{" "}
               <code>{`{ test: [1, 2], test1: { data: '23' } }`}</code>
@@ -658,7 +656,7 @@ export default {
     title: "triggerValidation",
     description: (
       <>
-        <p>폼의 입력/선택 유효성 검사를 수동으로 트리거합니다.</p>
+        <p>폼의 input/select 유효성 검사를 수동으로 트리거합니다.</p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 유효성 검사에 실패하면{" "}
           <code>errors</code> 객체가 업데이트됩니다.
@@ -670,9 +668,9 @@ export default {
     title: "validationSchema",
     description: (
       <p>
-        외부 스키마와 유효성 검사 규칙을 함께 사용하고 싶을 경우,{" "}
-        <code>useForm</code>의 <code>validationSchema</code>를 옵셔널 인자로
-        적용 할 수 있습니다. React Hook Form의 객체 스키마 유효성 검사에서는{" "}
+        유효성 검사 규칙을 외부의 유효성 검사 도구로 집중시키고 싶다면,{" "}
+        <code>validationSchema</code> 패러매터를 적용 할 수 있습니다. 현재 React
+        Hook Form 은 객체 스키마 유효성 검사를 위해{" "}
         <a
           className={buttonStyles.links}
           href="https://github.com/jquense/yup"
@@ -683,6 +681,216 @@ export default {
         </a>{" "}
         을 지원합니다.
       </p>
+    ),
+  },
+  useFieldArray: {
+    title: "useFieldArray",
+    description: (
+      <>
+        <p>
+          비제어 필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이
+          훅은 더 나은 사용자 경험과 폼 퍼포먼스를 제공하기 위해서 태어났습니다.{" "}
+          <a
+            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            이 짧은 비디오를 보고
+          </a>{" "}
+          제어 vs 비제어 필드 배열을 비교할 수 있습니다.
+        </p>
+
+        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
+
+        <CodeArea rawData={useFieldArrayArgument} />
+
+        <p>
+          <b className={typographyStyles.note}>중요: </b>
+          <code>useFieldArray</code>는 비제어 컴포넌트 기반으로 구성됩니다.
+          아래의 참고 사항은 폼을 구현하면서 비제어 컴포넌트의 특성 상 유념해야
+          하는 점을 새겨둘 수 있도록 돕습니다.
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              <code>useForm</code> hook 에 있는 <code>defaultValues</code> 를
+              전달하여 <code>fields</code> 를 생성할 수 있습니다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>fields</code> 객체의 <code>id</code> 값을 컴포넌트의 key 로
+              전달하는 것을 잊지 마세요.
+            </p>
+          </li>
+          <li>
+            <p>
+              기본값을 설하거나, 제거하거나, 재설정하려는 경우{" "}
+              <code>defaultValue</code>를 <code>fields[index]</code> 로
+              설정하십시오.
+            </p>
+          </li>
+          <li>
+            <p>
+              액션을 연속하여 호출할 수 없습니다. 액션은 매 랜더링마다
+              수행되어야 합니다.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
+
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
+
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, fields)
+            `}
+            />
+          </li>
+          <li>
+            <p>
+              만약 <code>useFieldArray</code> 를 사용하는 경우, 배열 인풋을
+              등록할 때 <code>{`ref={register}`}</code> 대신{" "}
+              <code>{`ref={register()}`}</code> 형태로 사용하는 것이 중요합니다.
+              그래야 <code>register</code> 가 배열의 <code>map</code> 함수
+              안에서 수행됩니다.
+            </p>
+          </li>
+          <li>
+            <code>useEffect</code> 안에서 임의로 <code>register</code> 를
+            호출하는 방식으로는 작동하지 않습니다.
+          </li>
+        </ul>
+      </>
+    ),
+    table: (
+      <>
+        <tr>
+          <td>
+            <code>fields</code>
+          </td>
+          <td width={320}>
+            <code className={typographyStyles.typeText}>
+              object & {`{ id: string }`}
+            </code>
+          </td>
+          <td>
+            이 객체는 input 을 생성하고 랜더링하기 위한 주요 객체(source of
+            truth)입니다.
+            <p>
+              <b className={typographyStyles.note}>중요: </b> 모든 입력 필드는
+              비제어 상태이기 떄문에, <code>map</code> 으로 생성되는 컴포넌트에
+              <code>id</code> 값을 필수로 전달해주어야 합니다. 그래야 리액트가
+              어떤 아이템이 추가되고, 변경되고, 제거되는지 파악할 수 있습니다.
+            </p>
+            <p>
+              예: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>append</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (obj: object) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prepend</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (obj: object) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>insert</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (index: number, value: object) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>swap</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>move</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (from: number, to: number) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>
+            입력 필드(들)를 다른 위치로 이동합니다.
+            <p>
+              <b className={typographyStyles.note}>참고:</b> <code>move</code>{" "}
+              와 <code>swap</code> 의 차이점을 설명하자면, <code>move</code> 를
+              계속 호출하는 것은 입력 필드(들)를 임의의 공간 안에 집어넣는 것과
+              비슷하고, <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는
+              것입니다.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (index?: number | number[]) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>
+            특정 위치에 있는 입력 필드(들)를 제거합니다. 인덱스를 넣지 않았다면
+            전체를 제거합니다.
+          </td>
+        </tr>
+      </>
     ),
   },
   Controller: {
@@ -710,7 +918,7 @@ export default {
           </td>
           <td>✓</td>
           <td>
-            제어 컴포넌트. 예: <code>as="input"</code> 혹은{" "}
+            제어 컴포넌트. 예: <code>{`as={TextInput}`}</code> 혹은{" "}
             <code>{`as={<TextInput />}`}</code>
           </td>
         </tr>
@@ -762,7 +970,8 @@ export default {
           </td>
           <td />
           <td>
-            <code>register</code> 에 따른 유효성 검사 규칙.
+            <code>register</code> 에 따른 유효성 검사 규칙입니다. 이{" "}
+            <code>object</code> 는 <code>Controller</code> 안에서 캐시됩니다.
           </td>
         </tr>
         <tr>
@@ -852,9 +1061,9 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           </td>
           <td />
           <td>
-            이 prop 은 <code>value</code> prop 을 다시 정의하여(Override)
-            <code>value</code> prop 을 사용하지 않는 다른 컴포넌트에 사용할 수
-            있습니다. 예: <code>checked</code>, <code>selected</code> 등.
+            이 prop 은 <code>value</code> 라는 이름의 prop 을 사용하지 않는
+            컴포넌트에 사용할 수 있습니다. 예: <code>checked</code>,{" "}
+            <code>selected</code> 등.
           </td>
         </tr>
       </tbody>
@@ -890,31 +1099,39 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와 쉽게
           조합하여 사용할 수 있도록 도와주는 역할을 합니다.
         </p>
+        <p>
+          컨트롤러 컴포넌트에 넘겨주는 모든 props 는 <code>as</code> prop 에
+          할당한 컴포넌트로 전달됩니다. 예를 들어 커스텀 <code>Switch</code>{" "}
+          컴포넌트가 <code>label</code> prop 을 받아야 하는 경우, 컨트롤러
+          컴포넌트에 직접 그 prop 을 전달하여 알아서 전달되도록 만들 수
+          있습니다. <code>name</code> prop 은 나중에 주로 폼을 통해 값을 가져올
+          때 사용하게 됩니다.
+        </p>
       </>
     ),
   },
   useFormContext: {
     title: "useFormContext",
     introduction: (
-      <p>
-        폼 컨텍스트(Form Context)는 입력들이 컴포넌트 트리에서 깊이 중첩되었을
-        때 생기는 문제를 해결하고, <code>props</code>를 더 깊이 전달하기 위해
-        사용합니다.
-      </p>
-    ),
-    description: (
       <>
         <p>
-          <code>FormContext</code>으로 폼을 감싸면, <code>useFormContext</code>:{" "}
-          <code className={typographyStyles.typeText}>function</code> 이 하위
-          컴포넌트에서 호출 될 수 있습니다.
+          폼 컨텍스트에 접근할 때 호출하는 훅 함수입니다.{" "}
+          <code>useFormContext</code> 는 입력들이 컴포넌트 트리에서 깊이
+          중첩되었을 때 생기는 문제를 해결하고, <code>props</code>를 더 깊이
+          전달하기 위해 사용합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b>{" "}
-          <code>useFormContext</code> 를 통해 모든 <code>useForm</code> 의 hook
-          function이 제공됩니다.
+          <code>useFormContext</code> 훅이 제대로 동작하려면 폼을{" "}
+          <code>FormContext</code> 프로바이더 컴포넌트로 감싸주어야 합니다.
         </p>
       </>
+    ),
+    description: (
+      <p>
+        <b className={typographyStyles.note}>참고:</b>{" "}
+        <code>useFormContext</code> 를 통해 모든 <code>useForm</code> 의 hook
+        function이 제공됩니다.
+      </p>
     ),
   },
   control: {
@@ -967,7 +1184,7 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
     },
   },
   NativeValidation: {
-    title: "Browser built-in validation",
+    title: "브라우저 내장 유효성 검사",
     description: (
       <>
         <p>
@@ -982,210 +1199,12 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
       </>
     ),
   },
-  useFieldArray: {
-    title: "useFieldArray",
-    description: (
-      <>
-        <p>
-          비제어 필드 배열 (동적 입력값) 에 대응하기 위한 커스텀 훅입니다. 이
-          훅은 더 나은 사용자 경험과 폼 퍼포먼스를 제공하기 위해서 태어났습니다.{" "}
-          <a
-            href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            이 짧은 비디오를 보고
-          </a>{" "}
-          제어 vs 비제어 필드 배열을 비교할 수 있습니다.
-        </p>
-
-        <p>이 훅은 아래의 객체와 함수를 제공합니다.</p>
-
-        <CodeArea rawData={useFieldArrayArgument} />
-
-        <p>
-          <b className={typographyStyles.note}>중요: </b>
-          <code>useFieldArray</code>는 비제어 컴포넌트 기반으로 구성됩니다.
-          아래의 참고 사항은 폼을 구현하면서 비제어 컴포넌트의 특성 상 유념해야
-          하는 점을 새겨둘 수 있도록 돕습니다.
-        </p>
-
-        <ul>
-          <li>
-            <p>
-              <code>useForm</code> hook 에 있는 <code>defaultValues</code> 를
-              전달하여 <code>fields</code> 를 생성할 수 있습니다.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>fields</code> 객체의 <code>id</code> 값을 컴포넌트의 key 로
-              전달하는 것을 잊지 마세요.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>defaultValue</code>를으로 설정하십시오. 기본값을 설정하려는
-              경우 <code>fields[index]</code>
-              입력을 제거하거나 재설정하십시오.
-            </p>
-          </li>
-          <li>
-            <p>
-              액션을 연속하여 호출할 수 없습니다. 액션은 매 랜더링마다
-              수행되어야 합니다.
-            </p>
-            <CodeArea
-              withOutCopy
-              rawData={`// ❌ The following is not correct
-handleChange={() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-  append({ test: 'test' });
-}}
-
-// ✅ The following is correct and second action is triggered after next render
-handleChange={() => {
-  append({ test: 'test' });
-}}
-
-React.useEffect(() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-}, fields)
-            `}
-            />
-          </li>
-          <li>
-            <p>
-              만약 <code>useFieldArray</code> 를 사용하는 경우, 배열 인풋을
-              등록할 때 <code>{`ref={register}`}</code> 대신{" "}
-              <code>{`ref={register()}`}</code> 형태로 사용하는 것이 중요합니다.
-              그래야 <code>register</code> 가 배열의 <code>map</code> 함수
-              안에서 수행됩니다.
-            </p>
-          </li>
-          <li>
-            <code>useEffect</code>의 사용자 정의 레지스터에서는 작동하지
-            않습니다.
-          </li>
-        </ul>
-      </>
-    ),
-    table: (
-      <>
-        <tr>
-          <td>
-            <code>fields</code>
-          </td>
-          <td width={320}>
-            <code className={typographyStyles.typeText}>
-              object & {`{ id: string }`}
-            </code>
-          </td>
-          <td>
-            이 객체는 input 을 생성하고 랜더링하기 위한 주요 객체(source of
-            truth)입니다.
-            <p>
-              <b className={typographyStyles.note}>중요: </b> 모든 입력 필드는
-              비제어 상태이기 떄문에, <code>map</code> 으로 생성되는 컴포넌트에
-              <code>id</code> 값을 필수로 전달해주어야 합니다. 그래야 리액트가
-              어떤 아이템이 추가되고, 변경되고, 제거되는지 파악할 수 있습니다.
-            </p>
-            <p>
-              예: <code>{`{fields.map(d => <input key={d.id} />)}`}</code>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>append</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (obj: object) =&gt; void
-            </code>
-          </td>
-          <td>입력 필드(들)를 현재 필드들 마지막에 추가합니다.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>prepend</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (obj: object) =&gt; void
-            </code>
-          </td>
-          <td>입력 필드(들)를 현재 필드들 맨 앞에 추가합니다.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>insert</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (index: number, value: object) =&gt; void
-            </code>
-          </td>
-          <td>입력 필드(들)를 특정 위치에 추가합니다.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>swap</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (from: number, to: number) =&gt; void
-            </code>
-          </td>
-          <td>입력 필드(들)의 위치를 서로 교체합니다.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>move</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (from: number, to: number) =&gt; void
-            </code>
-          </td>
-          <td>
-            입력 필드(들)를 다른 위치로 이동합니다.
-            <p>
-              <b className={typographyStyles.note}>참고:</b> <code>move</code>{" "}
-              와 <code>swap</code> 의 차이점을 설명하자면, <code>move</code> 를
-              계속 호출하는 것은 입력 필드(들)를 임의의 공간 안에 집어넣는 것과
-              비슷하고, <code>swap</code> 은 두 입력 필드들의 위치만 바꾸는
-              것입니다.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>remove</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>
-              (index?: number | number[]) =&gt; void
-            </code>
-          </td>
-          <td>
-            특정 위치에 있는 입력 필드(들)를 제거합니다. 인덱스를 넣지 않았다면
-            전체를 제거합니다.
-          </td>
-        </tr>
-      </>
-    ),
-  },
   validationResolver: {
     title: "validationResolver",
     description: (
       <>
         <p>
-          이 함수는
+          이 함수는{" "}
           <a
             href="https://github.com/hapijs/joi"
             target="_blank"
@@ -1218,10 +1237,10 @@ React.useEffect(() => {
           반드시 인풋 값과 연결되어야 합니다.
         </p>
         <p>
-          <b className={typographyStyles.note}>참고:</b> 이 함수는
-          <code>validationSchema</code>와 유사한 사용자 정의 후크 내부에
-          캐시되며, <code>validationContext</code>는 다시 렌더링 할 때마다
-          변경할 수있는 변경 가능한 객체입니다.
+          <b className={typographyStyles.note}>참고:</b> 이 함수는{" "}
+          <code>validationSchema</code> 와 유사한 커스텀 훅 안에 캐시되며,{" "}
+          <code>validationContext</code> 는 매번 리랜더링 될 때마다 바뀔 수 있는
+          변경 가능한(mutable) 객체입니다.
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 입력값을 다시 검사하는
