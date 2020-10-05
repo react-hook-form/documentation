@@ -24,7 +24,7 @@ export default {
     title: "受控组件与非控制组件共存",
     description: (
       <p>
-        React Hook Form 拥抱非受控组件，与此同时也兼容受控组件。
+        React Hook Form 优先采用非受控组件，与此同时也兼容受控组件。
         大多数UI库仅限于支持受控组件，如
         <a
           href="https://github.com/mui-org/material-ui"

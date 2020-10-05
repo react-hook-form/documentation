@@ -106,7 +106,7 @@ export default {
       <>
         <p>
           React Hook
-          Form拥抱非受控组件和HTML输入框，但是很难避免使用外部受控组件，比如
+          Form优先采用非受控组件和HTML输入框，但是很难避免使用外部受控组件，比如
           <a
             target="_blank"
             rel="noopener noreferrer"

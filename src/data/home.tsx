@@ -575,7 +575,7 @@ export default {
     },
     zh: {
       title: "减少渲染次数",
-      description: `您曾经考虑过用户会触发多少次组件的重渲染吗？React Hook Form 拥抱非受控的表单验证，以减少不必要的性能损耗。`,
+      description: `您曾经考虑过用户会触发多少次组件的重渲染吗？React Hook Form 优先采用非受控的表单验证，以减少不必要的性能损耗。`,
       totalReRender: "共计重渲染次数:",
     },
     ru: {
