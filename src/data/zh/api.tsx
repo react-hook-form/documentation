@@ -916,7 +916,7 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form拥抱非受控组件和原生的输入组件，
+          React Hook Form优先采用非受控组件和原生的输入组件，
           然而难以避免使用到第三方的受控组件，如
           <a
             target="_blank"
