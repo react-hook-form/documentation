@@ -5,8 +5,7 @@ export default {
     title: "NestedValue",
     description: (
       <p>
-        このタイプは、入力自体がネストされたデータを返す場合に役立ちます
-        オブジェクト。
+        このタイプは、インプット自体がネストされたオブジェクトデータを返す場合に役立ちます。
       </p>
     ),
   },
@@ -14,7 +13,7 @@ export default {
     title: "Resolver",
     description: (
       <p>
-        このタイプは、ユーザーがカスタム検証リゾルバーを作成することをサポートします。
+        このタイプは、ユーザーがカスタムバリデーションリゾルバーを作成することをサポートします。
       </p>
     ),
   },
@@ -23,7 +22,7 @@ export default {
     description: (
       <p>
         このタイプは、送信されたデータが<code>FormValues</code>
-        と一致しない場合に役立ちます タイプ。
+        と一致しない場合に役立ちます。
       </p>
     ),
   },
@@ -31,9 +30,9 @@ export default {
     title: "Control",
     description: (
       <p>
-        このタイプは、<code>useFieldArray</code>、<code>useWatch</code>
-        、futureなどのカスタムフックをサポートします
-        このライブラリのカスタムフック。
+        このタイプは、このライブラリにある
+        <code>useFieldArray</code>、<code>useWatch</code>
+        、そして将来のカスタムフックなどをサポートします。
       </p>
     ),
   },
@@ -41,8 +40,8 @@ export default {
     title: "UseFormMethodsRef",
     description: (
       <p>
-        このタイプは、コンテキストのコンシューマを使用する代わりに便利です。
-        <code>useFormContext</code>フック。
+        このタイプは、<code>useFormContext</code>フックの代わりに
+        <code>Context</code>の<code>Consumer</code>を使う際に便利です。
       </p>
     ),
   },
