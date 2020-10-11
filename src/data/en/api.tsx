@@ -107,7 +107,10 @@ export default {
     ),
     validationOnTouched: (
       <>
-        <p>Validation won't trigger until input is touched (has lost focus).</p>
+        <p>
+          Validation will trigger on the first <code>blur</code> event. After
+          that, it will trigger on every <code>change</code> event.
+        </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> when using with{" "}
           <code>Controller</code>, make sure to wire up <code>onBlur</code> with{" "}
