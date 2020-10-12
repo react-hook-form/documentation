@@ -276,10 +276,6 @@ export default {
           <code>shouldUnregister</code> to false to maintain the input state
           even when unmounting occurs.
         </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> this feature is not
-          working with <code>useFieldArray</code> yet.
-        </p>
       </>
     ),
   },
@@ -926,7 +922,7 @@ clearErrors('test.firstName'); // for clear single input error
                 <td>
                   <code className={typographyStyles.typeText}>string</code>
                 </td>
-                <td></td>
+                <td>✓</td>
                 <td>
                   <p>
                     Name of the field.{" "}
@@ -1617,13 +1613,6 @@ React.useEffect(() => {
           isolate re-rendering at the component level and potentially result in
           better performance for your application.
         </p>
-        {/*<p>*/}
-        {/*  <b className={typographyStyles.note}>Note:</b> when watching{" "}*/}
-        {/*  <code>useFieldArray</code>, It's important to assign a{" "}*/}
-        {/*  <code>defaultValue</code> when you watching a specific field or entire*/}
-        {/*  field array get appended or removed. eg:{" "}*/}
-        {/*  <code>useWatch({`{ name: 'fieldArray', defaultValue: field }`})</code>*/}
-        {/*</p>*/}
       </>
     ),
   },

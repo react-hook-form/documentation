@@ -33,7 +33,7 @@ export default function UseFieldArray({
             <tr>
               <th>{generic.name[currentLanguage]}</th>
               <th>{generic.type[currentLanguage]}</th>
-              <th width="90px">{generic.required[currentLanguage]}</th>
+              {/*<th width="90px">{generic.required[currentLanguage]}</th>*/}
               <th>{generic.description[currentLanguage]}</th>
             </tr>
           </thead>
@@ -43,9 +43,10 @@ export default function UseFieldArray({
                 <code>name</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>string</code>
+                <code className={typographyStyles.typeText}>
+                  string | string[]
+                </code>
               </td>
-              <td></td>
               <td>{api.ErrorMessage.table.name}</td>
             </tr>
             <tr>
@@ -55,7 +56,6 @@ export default function UseFieldArray({
               <td>
                 <code className={typographyStyles.typeText}>Object</code>
               </td>
-              <td></td>
               <td>{generic.control[currentLanguage]}</td>
             </tr>
             <tr>
@@ -65,7 +65,6 @@ export default function UseFieldArray({
               <td>
                 <code className={typographyStyles.typeText}>any</code>
               </td>
-              <td></td>
               <td>
                 default value for `useWatch` to return before the initial
                 render.
