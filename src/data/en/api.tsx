@@ -660,10 +660,9 @@ export default {
         <ul>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note:</b> For controlled
-              components like <code>React-Select</code> which do not expose a{" "}
-              <code>ref</code> prop, you will have to reset the input value
-              manually with{" "}
+              For controlled components like <code>React-Select</code> which do
+              not expose a <code>ref</code> prop, you will have to reset the
+              input value manually with{" "}
               <button
                 className={buttonStyles.codeAsLink}
                 onClick={() => goToSection("setValue")}
@@ -682,19 +681,26 @@ export default {
           </li>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note: </b> You will need to
-              pass <code>defaultValues</code> to <code>useForm</code> in order
-              to <code>reset</code> the <code>Controller</code> components'
-              value.
+              You will need to pass <code>defaultValues</code> to{" "}
+              <code>useForm</code> in order to <code>reset</code> the{" "}
+              <code>Controller</code> components' value.
             </p>
           </li>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note: </b>When you are
-              subscribed/read the <code>formState</code>, it's important to
-              decouple <code>reset</code> with <code>handleSubmit</code>, both
-              are update <code>formState</code> and <code>handleSubmit</code> is
-              async by default. You can check out a working example below:
+              When you are subscribed/read the <code>formState</code>, it's
+              important to decouple <code>reset</code> with{" "}
+              <code>handleSubmit</code>, both are update <code>formState</code>{" "}
+              and <code>handleSubmit</code> is async by default. You can check
+              out a working example below:
+            </p>
+          </li>
+          <li>
+            <p>
+              When invoking <code>{`reset({ value })`}</code> without supply{" "}
+              <code>defaultValues</code> at <code>useForm</code>, hook form will
+              replace <code>defaultValues</code> with <code>value</code> object
+              which you have supplied.
             </p>
           </li>
         </ul>
