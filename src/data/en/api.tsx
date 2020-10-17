@@ -1118,8 +1118,8 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object, shouldFocus: boolean = true)
-                =&gt; void
+                (index: number, value: object | object[], shouldFocus: boolean =
+                true) =&gt; void
               </code>
             </code>
           </td>
