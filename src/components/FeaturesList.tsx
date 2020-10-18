@@ -167,7 +167,7 @@ function FeaturesList({
           </article>
 
           <article>
-            <AnimateKeyframes {...props} sequenceIndex={4}>
+            <AnimateKeyframes {...props} sequenceIndex={5}>
               <svg viewBox="0 0 512 512">
                 <title>{home.features[currentLanguage][5].title}</title>
                 <path
