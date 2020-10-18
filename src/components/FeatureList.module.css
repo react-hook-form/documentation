@@ -62,9 +62,9 @@
 
 @media (min-width: 1280px) {
   .featuresContent {
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 35px;
-    max-width: 1235px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 25px;
+    max-width: 1240px;
   }
 
   .featuresContent > article {

@@ -104,6 +104,10 @@ export default {
         title: "Adoptable",
         description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
       },
+      {
+        title: "Award",
+        description: `Winner of 2020 GitNation React OS Award for Productivity Booster.`,
+      },
     ],
     es: [
       {
@@ -125,6 +129,10 @@ export default {
       {
         title: "Adoptable",
         description: `Dado que el estado del formulario es inherentemente local, se puede adoptar fácilmente sin otras dependencias.`,
+      },
+      {
+        title: "Premio",
+        description: `Ganador del premio GitNation React OS 2020 por el aumento de la productividad.`,
       },
     ],
     pt: [
@@ -148,6 +156,10 @@ export default {
         title: "Adotável",
         description: `Desde que o estado é inerentemente local, possibilita a fácil adoção, sem utilizar nenhuma outra dependência.`,
       },
+      {
+        title: "Award",
+        description: `Winner of 2020 GitNation React OS Award for Productivity Booster.`,
+      },
     ],
     kr: [
       {
@@ -169,6 +181,10 @@ export default {
       {
         title: "사용성",
         description: `폼 상태는 로컬에서 관리되기 때문에 다른 의존성 없이 쉽게 사용할 수 있습니다.`,
+      },
+      {
+        title: "장학금",
+        description: `생산성 부스터 부문 2020 GitNation React OS Award 수상.`,
       },
     ],
     jp: [
@@ -192,6 +208,10 @@ export default {
         title: "適応性",
         description: `フォームの状態は、ローカルで管理されるため、他に依存せず簡単に使用することができます。`,
       },
+      {
+        title: "授賞式",
+        description: `2020年GitNation React OS AwardのProductivity Boosterを受賞しました。`,
+      },
     ],
     zh: [
       {
@@ -213,6 +233,10 @@ export default {
       {
         title: "适应性强",
         description: `由于表单的状态就在本地，因此无须任何依赖即可应用状态。`,
+      },
+      {
+        title: "奖状",
+        description: `荣获2020年GitNation React OS Productivity Booster奖。`,
       },
     ],
     ru: [
@@ -240,6 +264,10 @@ export default {
         title: "Оптимизированность",
         description:
           "Поскольку состояние формы по своей природе является локальным, его можно легко оптимизировать без сторонних зависимостей.",
+      },
+      {
+        title: "Награда",
+        description: `Победитель премии GitNation React OS 2020 за повышение производительности.`,
       },
     ],
   },
