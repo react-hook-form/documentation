@@ -64,7 +64,7 @@
   .featuresContent {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 25px;
-    max-width: 1240px;
+    max-width: 1280px;
   }
 
   .featuresContent > article {
