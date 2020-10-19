@@ -1074,10 +1074,10 @@ React.useEffect(() => {
             </p>
             <CodeArea
               rawData={`{
-  fields.map((data, index) => 
-    <input 
-      key={data.id} 
-      defaultValue={\`data[\${index}].value\`} 
+  fields.map((data, index) =>
+    <input
+      key={data.id}
+      defaultValue={\`data[\${index}].value\`}
     />;
   );
 }`}
@@ -1223,8 +1223,8 @@ React.useEffect(() => {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller
-  control={control} 
-  name="test" 
+  control={control}
+  name="test"
   render={({ onChange, onBlur, value, name }) => (
     <Checkbox
       onBlur={onBlur}
@@ -1285,10 +1285,10 @@ React.useEffect(() => {
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
-              rawData={`<Controller 
-  as={<TextInput />} 
-  control={control} 
-  name="test" 
+              rawData={`<Controller
+  as={<TextInput />}
+  control={control}
+  name="test"
 />`}
             />
           </td>
@@ -1316,7 +1316,7 @@ React.useEffect(() => {
               </li>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note</b>: if your form
+                  <b className={typographyStyles.note}>Note</b>: If your form
                   will invoke <code>reset</code> with default values, you will
                   need to call <code>useForm</code> with{" "}
                   <code>defaultValues</code> instead of setting the{" "}
@@ -1380,7 +1380,7 @@ React.useEffect(() => {
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-disabled-k1of4"
-              rawData={`<Controller 
+              rawData={`<Controller
   onFocus={() => {
     inputRef.current.disabled = false;
     inputRef.current?.focus();
