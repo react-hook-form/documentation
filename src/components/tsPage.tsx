@@ -208,6 +208,7 @@ errors?.key4?.message // no type error`}
             {TS[currentLanguage].resolver.description}
 
             <CodeArea
+              url={"https://codesandbox.io/s/react-hook-form-resolver-juwui"}
               rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -279,7 +280,7 @@ export default function App() {
             {TS[currentLanguage].control.description}
 
             <CodeArea
-              tsUrl="https://codesandbox.io/s/control-dzl0y"
+              url="https://codesandbox.io/s/control-dzl0y"
               rawData={`import React from "react";
 import { useForm, useWatch, Control } from "react-hook-form";
 
@@ -328,6 +329,9 @@ export default function App() {
             {TS[currentLanguage].useFormMethodsRef.description}
 
             <CodeArea
+              url={
+                "https://codesandbox.io/s/react-hook-form-useformmethods-mycp2"
+              }
               rawData={`import React from "react";
 import { useForm, UseFormMethods, SubmitHandler } from "react-hook-form";
 
