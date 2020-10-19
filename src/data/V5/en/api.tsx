@@ -974,7 +974,7 @@ React.useEffect(() => {
               <code>defaultValues</code> at <code>useForm</code>
             </p>
             <p>
-              <b className={typographyStyles.note}>Note</b>: if your form will
+              <b className={typographyStyles.note}>Note</b>: If your form will
               invoke <code>reset</code> with default values, you will need to
               provide <code>defaultValues</code> at useForm level instead of set
               inline <code>defaultValue</code>.
