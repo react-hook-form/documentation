@@ -1,5 +1,5 @@
 export const step1 = `module.exports = {
-  setupFilesAfterEnv: ["<rootDir>/setup.ts"]
+  setupFilesAfterEnv: ["<rootDir>/setup.js"] // or .ts for TypeScript App
   // ...other settings
 };`
 
