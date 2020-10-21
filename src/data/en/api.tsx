@@ -457,7 +457,9 @@ export default {
     isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
     isDirty: (
       <>
-        Set to <code>true</code> after the user modifies any of the inputs.
+        <p>
+          Set to <code>true</code> after the user modifies any of the inputs.
+        </p>
         <ul>
           <li>
             Make sure to provide all inputs' defaultValues at the useForm, so
