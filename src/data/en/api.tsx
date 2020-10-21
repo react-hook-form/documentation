@@ -458,23 +458,33 @@ export default {
     isDirty: (
       <>
         Set to <code>true</code> after the user modifies any of the inputs.
-        <p>
-          <b className={typographyStyles.note}>Note:</b> File typed input will
-          need to manage at app level due to the ability to cancel file
-          selection and{" "}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/API/FileList"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            FileList
-          </a>{" "}
-          object.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> Native inputs will only
-          return <code>string</code> type in React Hook Form.
-        </p>
+        <ul>
+          <li>
+            Make sure to provide all inputs' defaultValues at the useForm, so
+            hook form can have a single source of truth to compare whether the
+            form is dirty.
+          </li>
+          <li>
+            <p>
+              File typed input will need to manage at app level due to the
+              ability to cancel file selection and{" "}
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/FileList"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                FileList
+              </a>{" "}
+              object.
+            </p>
+          </li>
+          <li>
+            <p>
+              Native inputs will only return <code>string</code> type in React
+              Hook Form.
+            </p>
+          </li>
+        </ul>
       </>
     ),
     isSubmitted: (
