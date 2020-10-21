@@ -29,7 +29,7 @@ enum GenderEnum {
 }
 
 interface IFormInput {
-  firstName: String;
+  firstName: string;
   gender: GenderEnum;
 }
 
