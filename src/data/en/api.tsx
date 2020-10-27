@@ -1276,8 +1276,7 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> The following
-                  props will be passed into your component:{" "}
+                  The following props will be passed into your component:{" "}
                   <code>onChange</code>, <code>onBlur</code>, <code>value</code>
                   .
                 </p>
@@ -1285,11 +1284,11 @@ React.useEffect(() => {
 
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> For Typescript
-                  user, if you are using custom component with required fields:{" "}
-                  <code>onChange</code>, <code>onBlur</code>, <code>value</code>
-                  , It will complain about missing declared field. Please use{" "}
-                  <code>render</code> instead of <code>as</code>.
+                  For Typescript user, if you are using custom component with
+                  required fields: <code>onChange</code>, <code>onBlur</code>,{" "}
+                  <code>value</code>, It will complain about missing declared
+                  field. Please use <code>render</code> instead of{" "}
+                  <code>as</code>.
                 </p>
               </li>
             </ul>
@@ -1321,16 +1320,15 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> You need to
-                  either set <code>defaultValue</code> at the field-level or
-                  call <code>useForm</code> with <code>defaultValues</code>.
+                  You need to either set <code>defaultValue</code> at the
+                  field-level or call <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
                 </p>
               </li>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note</b>: If your form
-                  will invoke <code>reset</code> with default values, you will
-                  need to call <code>useForm</code> with{" "}
+                  If your form will invoke <code>reset</code> with default
+                  values, you will need to call <code>useForm</code> with{" "}
                   <code>defaultValues</code> instead of setting the{" "}
                   <code>defaultValue</code> on individual fields.
                 </p>
