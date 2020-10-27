@@ -370,7 +370,7 @@ export default {
                       Yup
                     </a>
                   </td>
-                  <td>Build your yourself or Plugins</td>
+                  <td>Build yourself or Plugins</td>
                 </tr>
                 <tr>
                   <td>
