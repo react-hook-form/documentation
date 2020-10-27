@@ -1373,19 +1373,19 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> Input focus
-                  order is according to registration order, which means native
-                  input registered with <code>ref</code> will be the first to be
-                  focused on the error due to <code>Controller</code>{" "}
-                  registration occurred during <code>useEffect</code>.
+                  Input focus order is according to registration order, which
+                  means native input registered with <code>ref</code> will be
+                  the first to be focused on the error due to{" "}
+                  <code>Controller</code> registration occurred during{" "}
+                  <code>useEffect</code>.
                 </p>
               </li>
 
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> If your input
-                  disabled based on <code>form.formState.isSubmitting</code>,
-                  you must enabled it before invoke focus method.
+                  If your input disabled based on{" "}
+                  <code>form.formState.isSubmitting</code>, you must enabled it
+                  before invoke focus method.
                 </p>
               </li>
             </ul>
@@ -1394,7 +1394,7 @@ React.useEffect(() => {
               url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-disabled-k1of4"
               rawData={`<Controller
   onFocus={() => {
-    inputRef.current.disabled = false;
+    inputRef.current.disabled = false; // when input is been disabled.
     inputRef.current?.focus();
   }}
 />`}
