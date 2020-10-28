@@ -1230,18 +1230,20 @@ React.useEffect(() => {
             to attach events and value into the component. This simplifies
             integrating with external controlled components with non-standard
             prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
-            <code>name</code> and <code>value</code> to the child component.
+            <code>name</code>, <code>ref</code> and <code>value</code> to the
+            child component.
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
               rawData={`<Controller
   control={control}
   name="test"
-  render={({ onChange, onBlur, value, name }) => (
+  render={({ onChange, onBlur, value, name, ref }) => (
     <Checkbox
       onBlur={onBlur}
       onChange={e => onChange(e.target.checked)}
       checked={value}
+      inputRef={ref}
       name={name}
     />
   )}
@@ -1276,9 +1278,9 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  The following props will be passed into your component:{" "}
+                  The following props will be passed into your component: <br />
                   <code>onChange</code>, <code>onBlur</code>, <code>value</code>
-                  .
+                  , <code>name</code>, <code>ref</code>
                 </p>
               </li>
 
@@ -1297,7 +1299,7 @@ React.useEffect(() => {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               rawData={`<Controller
-  as={<TextInput />}
+  as={<TextInput />} // props: onChange, onBlur, ref, name, value
   control={control}
   name="test"
 />`}
