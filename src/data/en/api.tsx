@@ -1299,7 +1299,8 @@ React.useEffect(() => {
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
               rawData={`<Controller
-  as={<TextInput />} // props: onChange, onBlur, ref, name, value
+  // props: onChange, onBlur, ref, name, value
+  as={<TextInput />}
   control={control}
   name="test"
 />`}
@@ -1394,7 +1395,8 @@ React.useEffect(() => {
               url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
               rawData={`<Controller
   onFocus={() => {
-    inputRef.current.disabled = false; // when input is been disabled.
+    // when input is been disabled.
+    inputRef.current.disabled = false;
     inputRef.current?.focus();
   }}
 />`}
