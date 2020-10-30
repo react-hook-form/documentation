@@ -450,6 +450,21 @@ const ControllerPlus = ({
     )}
   />
 );
+
+// usage below:
+<ControllerPlus<string, number>
+  transform={{
+    input: (value) =>
+      isNaN(value) || value === 0 ? "" : value.toString(),
+    output: (e) => {
+      const output = parseInt(e.target.value, 10);
+      return isNaN(output) ? 0 : output;
+    }
+  }}
+  control={control}
+  name="number"
+  defaultValue=""
+/>
 `}
             tsUrl="https://codesandbox.io/s/ecstatic-waterfall-yfsqe"
           />
