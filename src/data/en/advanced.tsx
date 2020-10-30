@@ -646,6 +646,31 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "Transform and Parse",
+    description: (
+      <>
+        <p>
+          The native input return value is normally in <code>string</code>{" "}
+          format unless invoked with <code>valueAsNumber</code> or{" "}
+          <code>valueAsDate</code>, you can read more under{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            this section
+          </a>
+          . However, it's not perfect, we still has to deal with{" "}
+          <code>isNaN</code> or <code>null</code> value. So it's better to leave
+          the transform at the Component level. In the following example, we are
+          using the <code>Controller</code> to include the functionality of
+          transform value's input and output. You can also achieve similar
+          result with custom <code>register</code>.
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (

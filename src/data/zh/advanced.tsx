@@ -598,6 +598,29 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "转换和解析",
+    description: (
+      <>
+        <p>
+          原生输入的返回值通常为<code>string</code> 。 格式，除非使用
+          <code>valueAsNumber</code>或 调用。
+          <code>valueAsDate</code>，您可以在 下阅读更多信息。
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            本节
+          </a>
+          . 但是，这并不完美，我们还是要处理 。<code>isNaN</code>或
+          <code>null</code>值。所以最好留下 的变换。在下面的例子中，我们是 使用
+          <code>Controller</code>来包含<code>Controller</code>的功能。
+          转换值的输入和输出。您也可以实现类似的 结果与自定义<code>注册</code>。
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (

@@ -34,6 +34,7 @@ const enLinks = [
   advancedEn.testingForm,
   advancedEn.strictlyTyped,
   advancedEn.extendController,
+  advancedEn.transformAndParse,
 ]
 
 interface Props {
@@ -57,6 +58,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     TestingForm: null,
     StrictlyTyped: null,
     ExtendController: null,
+    TransformandParse: null,
   })
 
   const {
@@ -82,6 +84,7 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.testingForm,
     advanced.strictlyTyped,
     advanced.extendController,
+    advanced.transformAndParse,
   ]
 
   const goToSection = (name) => {
@@ -413,6 +416,42 @@ const PowerController = (props: Props) => {
 };
 `}
             tsUrl="https://codesandbox.io/s/extend-controller-zuuol"
+          />
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (pageContentRef.current.TransformandParse = ref)}
+            id="Transform"
+          >
+            {advanced.transformAndParse.title}
+          </h2>
+
+          {advanced.transformAndParse.description}
+
+          <CodeArea
+            tsRawData={`
+const ControllerPlus = ({
+  control,
+  transform,
+  name,
+  defaultValue
+}) => (
+  <Controller
+    defaultValue={defaultValue}
+    control={control}
+    name={name}
+    render={(props) => (
+      <input
+        onChange={(e) => props.onChange(transform.output(e))}
+        value={transform.input(props.value)}
+      />
+    )}
+  />
+);
+`}
+            tsUrl="https://codesandbox.io/s/ecstatic-waterfall-yfsqe"
           />
 
           <StarRepo currentLanguage={currentLanguage} />

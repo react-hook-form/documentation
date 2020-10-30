@@ -633,6 +633,32 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "Transformar e Parse",
+    description: (
+      <>
+        <p>
+          O valor de retorno de entrada nativo está normalmente em{" "}
+          <code>string</code> formato, a menos que seja invocado com{" "}
+          <code>valueAsNumber</code> ou <code>valueAsDate</code>, você pode ler
+          mais em{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            esta seção
+          </a>
+          . No entanto, não é perfeito, ainda temos que lidar com{" "}
+          <code>isNaN</code> ou <code>null</code>valor. Portanto, é melhor
+          deixar a transformação no nível do Componente. No exemplo a seguir,
+          estamos usando o <code>Controller</code> para incluir a funcionalidade
+          de transformam a entrada e saída do valor. Você também pode alcançar
+          valores similares resultado com custom <code>register</code>.
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (
