@@ -640,6 +640,33 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "変換と解析",
+    description: (
+      <>
+        <p>
+          ネイティブ入力の戻り値は通常 <code>string</code> です。
+          形式で呼び出されない限り、<code>valueAsNumber</code>または{" "}
+          を使用します。
+          <code>valueAsDate</code>の下で詳細を読むことができます 。
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            本節
+          </a>
+          . しかし、完璧ではありません。
+          <code>isNaN</code>または<code>null</code>
+          の値です。のままにしておいた方が良いでしょう。
+          をコンポーネントレベルで変換します。次の例では の機能を含むように、
+          <code>Controller</code>を使用して
+          値の入力と出力を変換します。また、同様の の結果は、カスタムの
+          <code>register</code>を使用しています。
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (

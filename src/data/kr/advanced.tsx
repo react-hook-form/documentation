@@ -621,6 +621,31 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "변환 및 구문 분석",
+    description: (
+      <>
+        <p>
+          기본 입력 반환 값은 일반적으로 <code>string</code> 입니다.
+          <code>valueAsNumber</code> 또는 로 호출하지 않는 한 형식
+          <code>valueAsDate</code>, 자세한 내용은에서 확인할 수 있습니다.
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            이번 장
+          </a>
+          . 그러나 완벽하지는 않습니다. 여전히 처리해야합니다 <code>isNaN</code>{" "}
+          또는 <code>null</code> 값. 그래서 떠나는 것이 낫습니다 구성 요소
+          수준의 변환. 다음 예에서 우리는
+          <code>Controller</code>를 사용하여 값의 입력 및 출력을 변환합니다.
+          비슷한 결과를 얻을 수도 있습니다. 사용자 정의 <code>register</code>
+          가있는 결과.
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (

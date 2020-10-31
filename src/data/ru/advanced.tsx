@@ -613,6 +613,33 @@ export default {
       </>
     ),
   },
+  transformAndParse: {
+    title: "Transform and Parse",
+    description: (
+      <>
+        <p>
+          Родное входное возвращаемое значение обычно находится в{" "}
+          <code>string</code> ". если не вызывается с помощью{" "}
+          <code>valueAsNumber</code> или ".
+          <code>valueAsDate</code>, подробнее можно прочитать в разделе ".
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+          >
+            эта секция
+          </a>
+          . Однако, это не идеально, нам все равно придется иметь дело с " ".
+          <code>isNaN</code> или <code>null</code>значение. Так что лучше
+          оставить преобразование на уровне компонентов. В следующем примере мы
+          используя <code>Controller</code> для включения функциональности
+          преобразовывать входное и выходное значение. Вы также можете достичь
+          аналогичного результат с помощью пользовательского{" "}
+          <code>register</code>.
+        </p>
+      </>
+    ),
+  },
   extendController: {
     title: "Extend Controller",
     description: (
