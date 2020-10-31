@@ -1297,7 +1297,7 @@ React.useEffect(() => {
 
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              url="https://codesandbox.io/s/react-hook-form-controller-as-prop-k90yy"
               rawData={`<Controller
   // props: onChange, onBlur, ref, name, value
   as={<TextInput />}
