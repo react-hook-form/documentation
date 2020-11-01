@@ -1218,20 +1218,22 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            This is a{" "}
-            <a
-              href="https://reactjs.org/docs/render-props.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              render prop
-            </a>
-            . A function that returns a React element and provides the ability
-            to attach events and value into the component. This simplifies
-            integrating with external controlled components with non-standard
-            prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
-            <code>name</code>, <code>ref</code> and <code>value</code> to the
-            child component.
+            <p>
+              This is a{" "}
+              <a
+                href="https://reactjs.org/docs/render-props.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                render prop
+              </a>
+              . A function that returns a React element and provides the ability
+              to attach events and value into the component. This simplifies
+              integrating with external controlled components with non-standard
+              prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
+              <code>name</code>, <code>ref</code> and <code>value</code> to the
+              child component.
+            </p>
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
@@ -1244,11 +1246,32 @@ React.useEffect(() => {
       onChange={e => onChange(e.target.checked)}
       checked={value}
       inputRef={ref}
-      name={name}
     />
   )}
 />
 <Controller render={props => <Input {...props} />} />`}
+            />
+            <p>
+              After version 6.10.0, we have include <code>ref</code> as part of
+              the render props, so you can make your input's focus more
+              accessible for users.
+            </p>
+
+            <CodeArea
+              withOutCopy
+              url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
+              rawData={`<Controller
+  control={control}
+  name="test"
+  render={({ onChange, onBlur, value, name, ref }) => (
+    <TextField
+      onBlur={onBlur}
+      onChange={onChange}
+      checked={value}
+      inputRef={ref}
+    />
+  )}
+/>`}
             />
           </td>
         </tr>
