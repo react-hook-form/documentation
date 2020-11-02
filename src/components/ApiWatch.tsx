@@ -6,6 +6,8 @@ import watchCodeTypes from "./codeExamples/watchCodeTypes"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
+import TabGroup from "./TabGroup"
+import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 
 export default function ApiWatch({
   currentLanguage,
@@ -41,7 +43,7 @@ export default function ApiWatch({
             <tr>
               <th
                 style={{
-                  minWidth: 180,
+                  minWidth: 100,
                 }}
               >
                 {generic.type[currentLanguage]}
@@ -53,10 +55,16 @@ export default function ApiWatch({
               >
                 {generic.description[currentLanguage]}
               </th>
-              <th>{generic.example[currentLanguage]}</th>
               <th
                 style={{
-                  minWidth: 250,
+                  minWidth: 340,
+                }}
+              >
+                {generic.example[currentLanguage]}
+              </th>
+              <th
+                style={{
+                  minWidth: 200,
                 }}
               >
                 {generic.return[currentLanguage]}
@@ -73,9 +81,7 @@ export default function ApiWatch({
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`string | string[] | { [key:string] : any } | undefined`}</code>
+                <code className={typographyStyles.typeText}>{`any`}</code>
               </td>
             </tr>
             <tr>
@@ -102,7 +108,7 @@ export default function ApiWatch({
               <td>
                 <code>watch()</code>
                 <br />
-                <code>{`watch(undefined, { field: 'value1' })`}</code>
+                <code>{`watch(undefined, { field: '1' })`}</code>
               </td>
               <td>
                 <code
@@ -113,13 +119,19 @@ export default function ApiWatch({
           </tbody>
         </table>
       </div>
-      <CodeArea
-        rawData={watchCode}
-        tsRawData={watchCodeTs}
-        rawTypes={watchCodeTypes}
-        url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
-        tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
-      />
+      <TabGroup buttonLabels={["Form", "Field Array"]}>
+        <CodeArea
+          rawData={watchCode}
+          tsRawData={watchCodeTs}
+          rawTypes={watchCodeTypes}
+          url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
+          tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
+        />
+        <CodeArea
+          rawData={watchFieldArrayCode}
+          url="https://codesandbox.io/s/watch-with-usefieldarray-542bu?file=/src/App.tsx"
+        />
+      </TabGroup>
 
       <hr />
     </>
