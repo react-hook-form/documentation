@@ -119,7 +119,7 @@ export default function ApiWatch({
           </tbody>
         </table>
       </div>
-      <TabGroup buttonLabels={["Form", "Field Array"]}>
+      <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea
           rawData={watchCode}
           tsRawData={watchCodeTs}

@@ -6,6 +6,8 @@ import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import useWatchTypes from "./codeExamples/useWatchTypes"
+import TabGroup from "./TabGroup"
+import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
 
 export default function UseFieldArray({
   api,
@@ -74,13 +76,19 @@ export default function UseFieldArray({
         </table>
       </div>
 
-      <CodeArea
-        rawData={useWatch}
-        url="https://codesandbox.io/s/react-hook-form-v6-usewatch-09qvt"
-        tsRawData={useWatchTs}
-        tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-usewatch-4jln6"
-        rawTypes={useWatchTypes}
-      />
+      <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
+        <CodeArea
+          rawData={useWatch}
+          url="https://codesandbox.io/s/react-hook-form-v6-usewatch-09qvt"
+          tsRawData={useWatchTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-usewatch-4jln6"
+          rawTypes={useWatchTypes}
+        />
+        <CodeArea
+          rawData={useWatchFieldArray}
+          url="https://codesandbox.io/s/watchusewatch-calc-tckxm"
+        />
+      </TabGroup>
     </>
   )
 }
