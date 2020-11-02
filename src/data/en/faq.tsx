@@ -376,7 +376,7 @@ export default {
                   <td>
                     <b>Learning curve</b>
                   </td>
-                  <td>Low</td>
+                  <td>Low to Medium</td>
                   <td>Medium</td>
                   <td>Medium</td>
                 </tr>
