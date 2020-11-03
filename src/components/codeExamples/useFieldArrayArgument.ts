@@ -9,7 +9,7 @@ export default `function Test() {
   return (
     {fields.map((field, index) => (
       {/* important: using id from to track item added or removed */}
-      <input key={field.id} name={\`test[\${index}].value\`} ref={register()} />
+      <input key={field.id} name={\`test[\${index}].value\`} ref={register()} defaultValue={field.value} />
     ))}
   );
 }
