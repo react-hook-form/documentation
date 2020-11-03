@@ -984,28 +984,33 @@ clearErrors('test.firstName'); // for clear single input error
 
         <p>
           <b className={typographyStyles.note}>Important: </b>{" "}
-          <code>useFieldArray</code> is built on top of uncontrolled components.
-          The following notes will help you aware and be mindful of its
-          behaviour during implementation.
+          To be able to efficiently manipulate arrays of uncontrolled components <code>useFieldArray</code> has some quirks you need to be aware of:
         </p>
 
         <ul>
           <li>
             <p>
-              You can populate the <code>fields</code> by supply{" "}
-              <code>defaultValues</code> at <code>useForm</code> hook.
+              The <code>field.id</code> (and not `index`) must be added as the component key to prevent rerenders breaking the fields:
+              <CodeArea
+              withOutCopy
+              rawData={`// ✅ correct:
+{fields.map((field, index) => (
+  <div key={field.id}>
+    <input ... />
+  </div>
+))}
+
+// ✅ correct:
+{fields.map((field, index) => <input key={field.id} ... />)}
+
+// ❌ incorrect:
+{fields.map((field, index) => <input key={index} ... />)}
+`} />
             </p>
           </li>
           <li>
             <p>
-              Make sure you assign <code>id</code> from <code>fields</code>{" "}
-              object as your component key.
-            </p>
-          </li>
-          <li>
-            <p>
-              Make sure to set <code>defaultValue</code> to{" "}
-              <code>fields[index]</code>.
+              <code>defaultValue</code> must be set for all inputs to <code>fields[index].</code>. This is required even if you supplied <code>defaultValues</code> in the <code>useForm</code> hook.
             </p>
           </li>
           <li>
@@ -1047,14 +1052,14 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              When <code>watch</code> the entire Field Array, it's important to
+              When <code>watch</code>-ing the entire Field Array, it's important to
               supply a default value with <code>fields</code> to avoid empty
-              values gets returned. eg: <code>watch('fieldArray', fields)</code>
+              values from getting returned. eg: <code>watch('fieldArray', fields)</code>
             </p>
           </li>
           <li>
             <p>
-              When all inputs get removed from the Field Array,{" "}
+              When all inputs are removed from the Field Array,{" "}
               <code>watch</code> will return <code>defaultValues</code>. You can
               use <code>fields.length</code> to avoid this behaviour. eg{" "}
               <code>fields.length ? watch('fieldArray', fields) : []</code>
