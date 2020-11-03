@@ -983,17 +983,20 @@ clearErrors('test.firstName'); // for clear single input error
         <CodeArea rawData={useFieldArrayArgument} />
 
         <p>
-          <b className={typographyStyles.note}>Important: </b>{" "}
-          To be able to efficiently manipulate arrays of uncontrolled components <code>useFieldArray</code> has some quirks you need to be aware of:
+          <b className={typographyStyles.note}>Important: </b>To be able to
+          efficiently manipulate arrays of uncontrolled components{" "}
+          <code>useFieldArray</code> has some rules you need to be aware of:
         </p>
 
         <ul>
           <li>
             <p>
-              The <code>field.id</code> (and not `index`) must be added as the component key to prevent rerenders breaking the fields:
+              The <code>field.id</code> (and not <code>index</code>) must be
+              added as the component key to prevent re-renders breaking the
+              fields:
               <CodeArea
-              withOutCopy
-              rawData={`// ✅ correct:
+                withOutCopy
+                rawData={`// ✅ correct:
 {fields.map((field, index) => (
   <div key={field.id}>
     <input ... />
@@ -1005,12 +1008,16 @@ clearErrors('test.firstName'); // for clear single input error
 
 // ❌ incorrect:
 {fields.map((field, index) => <input key={index} ... />)}
-`} />
+`}
+              />
             </p>
           </li>
           <li>
             <p>
-              <code>defaultValue</code> must be set for all inputs to <code>fields[index].</code>. This is required even if you supplied <code>defaultValues</code> in the <code>useForm</code> hook.
+              <code>defaultValue</code> <strong>must</strong> be set for all
+              inputs. Supplied <code>defaultValues</code> in the{" "}
+              <code>useForm</code> hook will prepare the <code>fields</code>{" "}
+              object with default value.
             </p>
           </li>
           <li>
@@ -1052,9 +1059,10 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              When <code>watch</code>-ing the entire Field Array, it's important to
-              supply a default value with <code>fields</code> to avoid empty
-              values from getting returned. eg: <code>watch('fieldArray', fields)</code>
+              When <code>watch</code>-ing the entire Field Array, it's important
+              to supply a default value with <code>fields</code> to avoid empty
+              values from getting returned. eg:{" "}
+              <code>watch('fieldArray', fields)</code>
             </p>
           </li>
           <li>
