@@ -8,8 +8,12 @@ export default `function Test() {
 
   return (
     {fields.map((field, index) => (
-      {/* important: make sure supply key and defaultValue for your inputs */}
-      <input key={field.id} name={\`test[\${index}].value\`} ref={register()} defaultValue={field.value} />
+      <input
+        key={field.id} // important to include key with field's id
+        name={\`test[\${index}].value\`}
+        ref={register()} // register() when there is no validation rules 
+        defaultValue={field.value} // make sure to include defaultValue
+      />
     ))}
   );
 }
