@@ -7,12 +7,14 @@ import styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
   url,
+  isJS,
   style,
   isExpo,
 }: {
   url: string
   style?: any
   isExpo?: boolean
+  isJS?: boolean
 }) => (
   <a
     className={`${styles.button} ${styles.linkToSandBox}`}
@@ -31,7 +33,17 @@ export const CodeSandBoxLink = ({
         </g>
       </svg>
     )}{" "}
-    {isExpo ? "Expo" : "CodeSandbox"}
+    {isExpo ? "Expo" : "CodeSandbox"}{" "}
+    {typeof isJS === "boolean" && (
+      <sup
+        style={{
+          marginLeft: 5,
+          fontSize: 10,
+        }}
+      >
+        {isJS ? "JS" : "TS"}
+      </sup>
+    )}
   </a>
 )
 
@@ -150,6 +162,7 @@ export default function CodeArea({
           (tsUrl && currentType === ToggleTypes.types)) && (
           <CodeSandBoxLink
             isExpo={isExpo}
+            isJS={url && currentType === ToggleTypes.js && url && tsUrl}
             url={currentType === ToggleTypes.js ? url : tsUrl}
           />
         )}
