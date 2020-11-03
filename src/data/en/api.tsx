@@ -1010,7 +1010,7 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
           <li>
             <p>
-              <code>defaultValue</code> must be set for all inputs to <code>fields[index].<input name></code>. This is required even if you supplied <code>defaultValues</code> in the <code>useForm</code> hook.
+              <code>defaultValue</code> must be set for all inputs to <code>fields[index].</code>. This is required even if you supplied <code>defaultValues</code> in the <code>useForm</code> hook.
             </p>
           </li>
           <li>
