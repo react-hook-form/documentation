@@ -90,10 +90,10 @@ const data = [
   {
     name: "Joris",
     imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
-    url: "https://twitter.com/Jor1s_",
-    twitterName: "Jor1s_",
+    url: "https://twitter.com/_jorisre",
+    twitterName: "_jorisre",
     bio:
-      "I'm a passionate front-end engineer who love to trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
+      "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
     interests: ["💻  Code", "⚛️  React", "🥑  Food"],
   },
   {
