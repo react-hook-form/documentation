@@ -856,9 +856,8 @@ clearErrors('test.firstName'); // for clear single input error
 
         <p>
           <b className={typographyStyles.note}>Important: </b>You shouldn't use
-          this method inside react render of your component with the form. This
-          is only suitable for reading values outside rendering-in an event
-          handler for example.
+          this method inside render. This is suitable for reading values in an
+          event handler. You can refer to the example below.
         </p>
 
         <ul>
