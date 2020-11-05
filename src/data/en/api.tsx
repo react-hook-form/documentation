@@ -851,9 +851,14 @@ clearErrors('test.firstName'); // for clear single input error
           An optimized helper for reading form values. The difference between{" "}
           <code>watch</code> and <code>getValues</code> is that{" "}
           <code>getValues</code> <strong>will not</strong> trigger re-renders or
-          subscribe to input changes. You shouldn't use this method inside react 
-          render of your component with the form. This is only suitable for reading 
-          values outside rendering-in an event handler for example.
+          subscribe to input changes.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Important: </b>You shouldn't use
+          this method inside react render of your component with the form. This
+          is only suitable for reading values outside rendering-in an event
+          handler for example.
         </p>
 
         <ul>
