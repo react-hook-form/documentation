@@ -57,6 +57,7 @@ import getValuesTypes from "./codeExamples/getValuesTypes"
 import controlTs from "./codeExamples/controlTs"
 import setValueUseFieldArray from "./codeExamples/setValueUseFieldArray"
 import submitReset from "./codeExamples/submitReset"
+import handleSubmitAsyncCode from "./codeExamples/handleSubmitAsyncCode"
 
 const { useRef, useEffect } = React
 
@@ -730,12 +731,18 @@ const { register } = useForm<FormInputs>({
               </h2>
             </code>
             {api.handleSubmit.description}
-            <CodeArea
-              rawData={handleSubmitCode}
-              tsRawData={handleSubmitCodeTs}
-              url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
-              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
-            />
+            <TabGroup buttonLabels={["sync", "async"]}>
+              <CodeArea
+                rawData={handleSubmitCode}
+                tsRawData={handleSubmitCodeTs}
+                url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
+                tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
+              />
+              <CodeArea
+                rawData={handleSubmitAsyncCode}
+                url="https://codesandbox.io/s/xrjv48o0qp"
+              />
+            </TabGroup>
           </section>
 
           <hr />
