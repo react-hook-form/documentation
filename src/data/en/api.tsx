@@ -1108,6 +1108,7 @@ React.useEffect(() => {
   <input
     key={data.id}
     defaultValue={\`data[\${index}].value\`}
+    name={\`data[\${index}].value\`}
   />;
 );}`}
               withOutCopy
