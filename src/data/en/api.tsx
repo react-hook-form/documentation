@@ -1107,7 +1107,7 @@ React.useEffect(() => {
               rawData={`{fields.map((data, index) =>
   <input
     key={data.id}
-    defaultValue={\`data[\${index}].value\`}
+    name={\`data[\${index}].value\`}
   />;
 );}`}
               withOutCopy
