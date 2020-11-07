@@ -1104,14 +1104,12 @@ React.useEffect(() => {
               added, or are removed.
             </p>
             <CodeArea
-              rawData={`{
-  fields.map((data, index) =>
-    <input
-      key={data.id}
-      defaultValue={\`data[\${index}].value\`}
-    />;
-  );
-}`}
+              rawData={`{fields.map((data, index) =>
+  <input
+    key={data.id}
+    defaultValue={\`data[\${index}].value\`}
+  />;
+);}`}
               withOutCopy
             />
           </td>

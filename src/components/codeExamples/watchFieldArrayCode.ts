@@ -8,10 +8,8 @@ function App() {
     control
   });
   const onSubmit = (data: FormValues) => console.log(data);
-
-  console.log(watch("test", fields)); 
-  // important to fill defaultValue with fields, so when input 
-  // get removed next render will return updated fields value
+  
+  console.log(watch("test")); 
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
