@@ -23,7 +23,7 @@
     "gatsby-source-filesystem": "2.3.26",
     "gatsby-transformer-sharp": "2.5.13",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
-    "little-state-machine": "^3.0.2",
+    "little-state-machine": "3.0.1",
     "prismjs": "^1.21.0",
     "ptz-i18n": "^1.0.0",
     "react": "16.13.1",
