@@ -715,6 +715,14 @@ export default {
               which you have supplied.
             </p>
           </li>
+          <li>
+            <p>
+              It's <b className={typographyStyles.note}>important</b> to invoke{" "}
+              <code>reset</code> after initializing <code>useFieldArray</code>{" "}
+              the order matters. The <code>reset</code> API needs to aware of
+              the field array shape before performing a reset properly.
+            </p>
+          </li>
         </ul>
       </>
     ),
