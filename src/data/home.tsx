@@ -509,7 +509,7 @@ export default {
   },
   watcher: {
     en: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -519,7 +519,7 @@ export default {
       ),
     },
     es: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -529,7 +529,7 @@ export default {
       ),
     },
     pt: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -539,7 +539,7 @@ export default {
       ),
     },
     kr: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           퍼포먼스는 폼을 만들 때 사용자 경험에 큰 영향을 주는 요소입니다. 전체
@@ -565,7 +565,7 @@ export default {
       ),
     },
     ru: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
