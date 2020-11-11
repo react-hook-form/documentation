@@ -1669,6 +1669,13 @@ React.useEffect(() => {
               object to trigger a re-render accordingly.
             </p>
           </li>
+
+          <li>
+            <p>
+              Resolver can not be used with built-in (eg: required, min and etc)
+              validator, and stick with either usage.
+            </p>
+          </li>
         </ul>
       </>
     ),
