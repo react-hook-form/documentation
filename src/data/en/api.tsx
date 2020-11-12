@@ -579,7 +579,9 @@ export default {
               When <code>defaultValue</code> is not defined, the first render of{" "}
               <code>watch</code> will return <code>undefined</code> because it
               is called before <code>register</code>, but you can set the{" "}
-              <code>defaultValue</code> as the second argument.
+              <code>defaultValue</code> as the second argument or provide{" "}
+              <code>defaultValues</code> at <code>useForm</code> to avoid this
+              behaviour.
             </p>
           </li>
           <li>
