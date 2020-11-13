@@ -7,6 +7,11 @@
   order: 1;
 }
 
+.gridView iframe {
+  display: none;
+  box-shadow: 0 0 20px #010817;
+}
+
 .fullScreen {
   background: none;
   color: white;
@@ -30,8 +35,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 40px;
-    max-width: 2000px;
+    max-width: 1024px;
     margin: 0 auto;
+  }
+
+  .gridView iframe {
+    display: block;
   }
 
   .gridView > div:first-child {
@@ -40,5 +49,9 @@
 
   .fullScreen {
     display: block;
+  }
+
+  .static {
+    display: none;
   }
 }

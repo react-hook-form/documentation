@@ -273,21 +273,13 @@ export default {
   },
   codeComparison: {
     en: {
-      title: "Library Code Comparison",
+      title: "Less code. More performant",
       description: (
-        <>
-          <p id="codeComparison">
-            Reducing the amount of code that you have to write is one of the
-            primary goals of React Hook Form. To illustrate that, let's look at
-            this very simple comparison between the most popular form validation
-            libraries.
-          </p>
-          <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ Note:</b> Both Formik and
-            Redux-Form snippets below were copied from the official
-            documentation.
-          </p>
-        </>
+        <p id="codeComparison">
+          Reducing the amount of code that you have to write is one of the
+          primary goals of React Hook Form. To illustrate that, let's look at
+          this following code example.
+        </p>
       ),
     },
     es: {
