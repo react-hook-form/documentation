@@ -384,7 +384,7 @@ export default {
   },
   isolateRender: {
     en: {
-      title: "Isolate Component Re-renders",
+      title: "Isolate Re-renders",
       description: (
         <>
           <p>
@@ -482,7 +482,7 @@ export default {
       ),
     },
     ru: {
-      title: "Isolate Component Re-renders",
+      title: "Isolate Re-renders",
       description: (
         <>
           <p>
