@@ -48,7 +48,7 @@ function CodeCompareSection({
             src="https://codesandbox.io/embed/react-hook-form-js-tpzo4?autoresize=1&fontsize=13&hidenavigation=1&theme=dark"
             style={{
               width: "100%",
-              height: 600,
+              height: 565,
               border: 0,
               borderRadius: 4,
               overflow: "hidden",
