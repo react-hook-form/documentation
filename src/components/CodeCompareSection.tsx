@@ -45,7 +45,7 @@ function CodeCompareSection({
           }}
         >
           <iframe
-            src="https://codesandbox.io/embed/nice-kapitsa-mu884?autoresize=1&fontsize=13&hidenavigation=1&moduleview=1&theme=dark"
+            src="https://codesandbox.io/embed/react-hook-form-js-tpzo4?autoresize=1&fontsize=13&hidenavigation=1&theme=dark"
             style={{
               width: "100%",
               height: 600,
@@ -57,16 +57,6 @@ function CodeCompareSection({
             allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
             sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           />
-
-          {/* following is the JS version */}
-          {/*<iframe src="https://codesandbox.io/embed/react-hook-form-js-tpzo4?autoresize=1&fontsize=13&hidenavigation=1&theme=dark"*/}
-          {/*        style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"*/}
-          {/*        title="React Hook Form (JS)"*/}
-          {/*        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"*/}
-          {/*        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"*/}
-          {/*></iframe>*/}
-
-          {/* todo: add a toggle just like the video one */}
 
           <Animate
             {...props}
