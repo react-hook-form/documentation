@@ -769,7 +769,7 @@ const { register } = useForm<FormInputs>({
               buttonLabels={[
                 "Uncontrolled",
                 "Controller",
-                "Submit with rest",
+                "Submit with reset",
                 "Field Array",
               ]}
             >
