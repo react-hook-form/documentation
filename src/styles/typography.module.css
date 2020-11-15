@@ -111,6 +111,7 @@
 @media (min-width: 768px) {
   .h1 {
     font-size: 36px;
+    font-weight: bold;
   }
 
   .heading,
