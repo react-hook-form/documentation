@@ -276,9 +276,9 @@ export default {
       title: "Less code. More performant",
       description: (
         <p id="codeComparison">
-          Reducing the amount of code that you have to write is one of the
-          primary goals of React Hook Form. To illustrate that, let's look at
-          this following code example.
+          Reducing the amount of code you need to write, and removing
+          unnecessary re-renders are some of the primary goals of React Hook
+          Form. Now dive in and explore with the following example:
         </p>
       ),
     },
