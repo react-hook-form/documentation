@@ -288,7 +288,7 @@ export default {
           <li>
             <p>
               Inputs will no longer be able to <code>unregister</code>, this
-              will disable <cdoe>unregister</cdoe> method as well.
+              will disable <code>unregister</code> method as well.
             </p>
           </li>
         </ul>
