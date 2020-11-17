@@ -276,6 +276,22 @@ export default {
           <code>shouldUnregister</code> to false to maintain the input state
           even when unmounting occurs.
         </p>
+
+        <ul>
+          <li>
+            <p>
+              Inputs state will have remained when unmounted and fall back to{" "}
+              <code>defaultValues</code> when the value is{" "}
+              <code>undefined</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Inputs will no longer be able to <code>unregister</code>, this
+              will disable <cdoe>unregister</cdoe> method as well.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
