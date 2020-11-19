@@ -8,11 +8,12 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Name</label>
-      
+
       {/* use aria-invalid to indicate field contain error */}
       <input
         type="text"
         id="name"
+        name="name"
         aria-invalid={errors.name ? "true" : "false"}
         ref={register({ required: true, maxLength: 30 })}
       />

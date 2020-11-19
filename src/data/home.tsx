@@ -273,21 +273,13 @@ export default {
   },
   codeComparison: {
     en: {
-      title: "Library Code Comparison",
+      title: "Less code. More performant",
       description: (
-        <>
-          <p id="codeComparison">
-            Reducing the amount of code that you have to write is one of the
-            primary goals of React Hook Form. To illustrate that, let's look at
-            this very simple comparison between the most popular form validation
-            libraries.
-          </p>
-          <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>⚠ Note:</b> Both Formik and
-            Redux-Form snippets below were copied from the official
-            documentation.
-          </p>
-        </>
+        <p id="codeComparison">
+          Reducing the amount of code you need to write, and removing
+          unnecessary re-renders are some of the primary goals of React Hook
+          Form. Now dive in and explore with the following example:
+        </p>
       ),
     },
     es: {
@@ -392,7 +384,7 @@ export default {
   },
   isolateRender: {
     en: {
-      title: "Isolate Component Re-renders",
+      title: "Isolate Re-renders",
       description: (
         <>
           <p>
@@ -490,7 +482,7 @@ export default {
       ),
     },
     ru: {
-      title: "Isolate Component Re-renders",
+      title: "Isolate Re-renders",
       description: (
         <>
           <p>
@@ -509,7 +501,7 @@ export default {
   },
   watcher: {
     en: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -519,7 +511,7 @@ export default {
       ),
     },
     es: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -529,7 +521,7 @@ export default {
       ),
     },
     pt: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -539,7 +531,7 @@ export default {
       ),
     },
     kr: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           퍼포먼스는 폼을 만들 때 사용자 경험에 큰 영향을 주는 요소입니다. 전체
@@ -565,7 +557,7 @@ export default {
       ),
     },
     ru: {
-      title: "Input Change Subscriptions",
+      title: "Change Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of

@@ -23,8 +23,6 @@ function CodeCompareSection({
   isPlayCodeCompare: boolean
   currentLanguage: string
 }) {
-  const [showFullScreen, setFullScreen] = React.useState(false)
-
   return (
     <AnimateGroup play={isPlayCodeCompare}>
       <div
@@ -43,35 +41,39 @@ function CodeCompareSection({
         <section
           className={styles.gridView}
           style={{
-            marginTop: 20,
+            marginTop: 40,
           }}
         >
-          {!showFullScreen && (
-            <Animate {...props} sequenceIndex={0}>
-              <h2 className={typographyStyles.title}>Formik</h2>
-              <CodeArea rawData={formikCode} withOutCopy />
-            </Animate>
-          )}
+          <iframe
+            src="https://codesandbox.io/embed/react-hook-form-js-tpzo4?autoresize=1&fontsize=13&hidenavigation=1&theme=dark"
+            style={{
+              width: "100%",
+              height: 565,
+              border: 0,
+              borderRadius: 4,
+              overflow: "hidden",
+              transition: "0.3s all 0.5s",
+              opacity: isPlayCodeCompare ? 1 : 0,
+              transform: isPlayCodeCompare
+                ? "translateY(0)"
+                : "translateY(100px)",
+            }}
+            title="React Hook Form codesandbox demo"
+            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          />
 
           <Animate
             {...props}
-            sequenceIndex={1}
+            sequenceIndex={0}
             render={({ style }) => (
               <div
+                className={styles.static}
                 style={{
                   ...style,
-                  ...(showFullScreen
-                    ? { margin: "0 auto", maxWidth: 750 }
-                    : null),
                 }}
               >
                 <h2 className={typographyStyles.title}>React Hook Form</h2>
-                <button
-                  className={styles.fullScreen}
-                  onClick={() => setFullScreen(!showFullScreen)}
-                >
-                  {showFullScreen ? "Show Comparison" : "Full Screen"}
-                </button>
                 <CodeArea
                   style={{
                     border: `1px solid ${colors.secondary}`,
@@ -82,13 +84,6 @@ function CodeCompareSection({
               </div>
             )}
           />
-
-          {!showFullScreen && (
-            <Animate {...props} sequenceIndex={2}>
-              <h2 className={typographyStyles.title}>Redux Form</h2>
-              <CodeArea rawData={reduxFormCode} withOutCopy />
-            </Animate>
-          )}
         </section>
       </div>
     </AnimateGroup>

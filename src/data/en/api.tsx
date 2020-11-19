@@ -276,6 +276,22 @@ export default {
           <code>shouldUnregister</code> to false to maintain the input state
           even when unmounting occurs.
         </p>
+
+        <ul>
+          <li>
+            <p>
+              Inputs state will have remained when unmounted and fall back to{" "}
+              <code>defaultValues</code> when the value is{" "}
+              <code>undefined</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Inputs will no longer be able to <code>unregister</code>, this
+              will disable <code>unregister</code> method as well.
+            </p>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -579,7 +595,9 @@ export default {
               When <code>defaultValue</code> is not defined, the first render of{" "}
               <code>watch</code> will return <code>undefined</code> because it
               is called before <code>register</code>, but you can set the{" "}
-              <code>defaultValue</code> as the second argument.
+              <code>defaultValue</code> as the second argument or provide{" "}
+              <code>defaultValues</code> at <code>useForm</code> to avoid this
+              behaviour.
             </p>
           </li>
           <li>
@@ -713,6 +731,14 @@ export default {
               <code>defaultValues</code> at <code>useForm</code>, hook form will
               replace <code>defaultValues</code> with <code>value</code> object
               which you have supplied.
+            </p>
+          </li>
+          <li>
+            <p>
+              It's <b className={typographyStyles.note}>important</b> to invoke{" "}
+              <code>reset</code> after initializing <code>useFieldArray</code>{" "}
+              the order matters. The <code>reset</code> API needs to aware of
+              the field array shape before performing a reset properly.
             </p>
           </li>
         </ul>
@@ -852,6 +878,12 @@ clearErrors('test.firstName'); // for clear single input error
           <code>watch</code> and <code>getValues</code> is that{" "}
           <code>getValues</code> <strong>will not</strong> trigger re-renders or
           subscribe to input changes.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Important: </b>You shouldn't use
+          this method inside render. This is suitable for reading values in an
+          event handler. You can refer to the example below.
         </p>
 
         <ul>
@@ -1098,14 +1130,13 @@ React.useEffect(() => {
               added, or are removed.
             </p>
             <CodeArea
-              rawData={`{
-  fields.map((data, index) =>
-    <input
-      key={data.id}
-      defaultValue={\`data[\${index}].value\`}
-    />;
-  );
-}`}
+              rawData={`{fields.map((data, index) =>
+  <input
+    key={data.id}
+    defaultValue={\`data[\${index}].value\`}
+    name={\`data[\${index}].value\`}
+  />;
+);}`}
               withOutCopy
             />
           </td>
@@ -1654,6 +1685,13 @@ React.useEffect(() => {
               a user’s interaction. The lib itself will evaluate the{" "}
               <code>error</code>
               object to trigger a re-render accordingly.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Resolver can not be used with built-in (eg: required, min and etc)
+              validator, and stick with either usage.
             </p>
           </li>
         </ul>

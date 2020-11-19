@@ -232,8 +232,52 @@ export default {
       author: "William Kurniawan",
       description: "",
     },
+    {
+      title: "Testing React Hook Form With React Testing Library",
+      url:
+        "https://claritydev.net/blog/testing-react-hook-form-with-react-testing-library/",
+      authorUrl: "https://twitter.com/Clarity_89",
+      author: "Alex Khomenko",
+      description: "",
+    },
+    {
+      title: "Managing forms with React Hook Form",
+      url: "https://claritydev.net/blog/managing-forms-with-react-hook-form/",
+      authorUrl: "https://twitter.com/Clarity_89",
+      author: "Alex Khomenko",
+      description: "",
+    },
+    {
+      title: "How to Build Forms in React with the react-hook-form Library",
+      url:
+        "https://www.freecodecamp.org/news/build-forms-in-react-with-react-hook-form-library",
+      authorUrl: "https://twitter.com/myogeshchavan97",
+      author: "Yogesh Chavan",
+      description: "",
+    },
+    {
+      title: "How to use React Hook Form with Material UI",
+      url: "https://seanconnolly.dev/react-hook-form-material-ui",
+      authorUrl: "https://twitter.com/seanconnollydev",
+      author: "Sean Connolly",
+      description: "",
+    },
+    {
+      title: "フォームバリデーションを体験 - React Hook Form 入門",
+      url: "https://zenn.dev/izuchy/articles/70f124d29c41e7cebd2c",
+      authorUrl: "https://twitter.com/izuchy",
+      author: "izuchy / IMPATH",
+      description: "",
+    },
+    {
+      title:
+        "【React Native + Expo】React Hook Formでバリデーションを簡易実装してみる",
+      url: "https://qiita.com/garmi/items/9d20c7d4181bc0ad28fe",
+      authorUrl: "https://twitter.com/garmigarmi",
+      author: "がーみ",
+      description: "",
+    },
   ],
-  newsletters: [],
   videos: [
     {
       title: "React Hook Form - custom hook for forms validation.",
@@ -478,5 +522,23 @@ export default {
       description:
         "We'll create a User Registration Form in Next.js using react-hook-form, testing its validation with react testing library.",
     },
+    {
+      title:
+        "How to use React Hook Form with Material UI (and every other external library)",
+      url: "https://www.youtube.com/watch?v=NxYUYcGBaOI",
+      authorUrl: "https://www.youtube.com/channel/UC5KDiSAFxrDWhmysBcNqtMA",
+      author: "Eric Murphy",
+      description:
+        "Adding in fields from external libraries isn't as easy as just copy & pasting it in with React Hook Form. Here's how to add external libraries like Material UI,  Ant Design, react-datepicker, react-select, and more with React Hook Form's Controller element. Also, how to fix stupid bugs with the Controller since React Hook Form v6.",
+    },
+    {
+      title: "Tutorial React Hook Form 🇮🇩",
+      url: "https://www.youtube.com/watch?v=oYvMYV05kzo",
+      authorUrl: "https://www.youtube.com/user/sastranababan",
+      author: "Sastra Nababan",
+      description:
+        "Di video kita mencoba intergrasi library react hook form dengan register form.",
+    },
   ],
+  newsletters: [],
 }

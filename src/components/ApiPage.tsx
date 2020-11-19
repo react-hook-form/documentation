@@ -57,6 +57,8 @@ import getValuesTypes from "./codeExamples/getValuesTypes"
 import controlTs from "./codeExamples/controlTs"
 import setValueUseFieldArray from "./codeExamples/setValueUseFieldArray"
 import submitReset from "./codeExamples/submitReset"
+import handleSubmitAsyncCode from "./codeExamples/handleSubmitAsyncCode"
+import fieldArrayReset from "./codeExamples/fieldArrayReset"
 
 const { useRef, useEffect } = React
 
@@ -730,12 +732,18 @@ const { register } = useForm<FormInputs>({
               </h2>
             </code>
             {api.handleSubmit.description}
-            <CodeArea
-              rawData={handleSubmitCode}
-              tsRawData={handleSubmitCodeTs}
-              url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
-              tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
-            />
+            <TabGroup buttonLabels={["sync", "async"]}>
+              <CodeArea
+                rawData={handleSubmitCode}
+                tsRawData={handleSubmitCodeTs}
+                url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
+                tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
+              />
+              <CodeArea
+                rawData={handleSubmitAsyncCode}
+                url="https://codesandbox.io/s/xrjv48o0qp"
+              />
+            </TabGroup>
           </section>
 
           <hr />
@@ -758,7 +766,12 @@ const { register } = useForm<FormInputs>({
             {api.reset(goToSection).description}
 
             <TabGroup
-              buttonLabels={["Uncontrolled", "Controller", "Submit with rest"]}
+              buttonLabels={[
+                "Uncontrolled",
+                "Controller",
+                "Submit with reset",
+                "Field Array",
+              ]}
             >
               <CodeArea
                 rawData={resetCode}
@@ -775,6 +788,10 @@ const { register } = useForm<FormInputs>({
               <CodeArea
                 rawData={submitReset}
                 url="https://codesandbox.io/s/react-hook-form-handlesubmit-with-reset-xrh0t"
+              />
+              <CodeArea
+                rawData={fieldArrayReset}
+                url="https://codesandbox.io/s/react-hook-form-reset-usefieldarray-p111q"
               />
             </TabGroup>
           </section>
