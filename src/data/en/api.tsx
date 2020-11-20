@@ -451,7 +451,21 @@ export default {
     title: "formState",
     description: (
       <>
-        <p>This object contains information about the form state.</p>
+        <p>
+          This object contains information about the form state. If you are want
+          to subscribed to <code>formState</code> update at{" "}
+          <code>useEffect</code>, make sure that you place the entire{" "}
+          <code>formState</code> in the optional array.
+        </p>
+
+        <CodeArea
+          rawData={`useEffect(() => {
+  if (formState.errors.firstName) {
+    // do the your logic here
+  }
+}, [formState]); // ❌ formState.errors will not trigger the useEffect        
+`}
+        />
 
         <p>
           <b className={typographyStyles.note}>Important:</b>{" "}
