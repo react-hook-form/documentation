@@ -295,7 +295,7 @@ export default {
           <p>
             <code
               className={typographyStyles.codeBlock}
-            >{`register({ name: 'firstName' }, { required: true, min: 8 })`}</code>
+            >{`register('firstName', { required: true, min: 8 })`}</code>
           </p>
 
           <p>
