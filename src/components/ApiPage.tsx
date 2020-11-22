@@ -132,7 +132,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     },
     {
       ...api.ErrorMessage,
-      size: "649B",
+      size: "483B",
     },
     {
       ...api.useFormContext,
