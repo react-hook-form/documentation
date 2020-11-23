@@ -512,8 +512,7 @@ export default {
           </li>
           <li>
             <p>
-              Native inputs will only return <code>string</code> type in React
-              Hook Form.
+              Native inputs will return <code>string</code> type by default.
             </p>
           </li>
         </ul>

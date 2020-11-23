@@ -47,14 +47,6 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>name="firstName[0]"</code>
-              </td>
-              <td>
-                <code>{`{ firstName: [ 'value' ] }`}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <code>name="name.firstName"</code>
               </td>
               <td>
@@ -64,6 +56,8 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>name="name.firstName[0]"</code>
+                <br />
+                <code>name="name.firstName.0"</code>
               </td>
               <td>
                 <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
@@ -373,10 +367,8 @@ export default function ApiRefTable({
               <td>
                 <code>validate</code>
                 <br />
-                <code>
-                  <code className={typographyStyles.typeText}>
-                    Function | Object
-                  </code>
+                <code className={typographyStyles.typeText}>
+                  Function | Object
                 </code>
               </td>
               <td>{api.register.validation.validate}</td>
@@ -430,6 +422,88 @@ export default function ApiRefTable({
   }
 />
 `}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                valueAsNumber:
+                <br />
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Return input value as Number, beware of <code>NaN</code> will
+                  return when the conversion is impossible.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  type="number"
+  ref={
+    register({
+      valueAsNumber: true,
+    })
+  }
+/>`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                valueAsDate:
+                <br />
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Return input value as Date, beware of <code>null</code> will
+                  return when the conversion is impossible.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  type="date"
+  ref={
+    register({
+      valueAsDate: true,
+    })
+  }
+/>`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                setValueAs:
+                <br />
+                <code
+                  className={typographyStyles.typeText}
+                >{`<T>(value: any) => T`}</code>
+              </td>
+              <td>
+                <p>Return input value by running through the function.</p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  ref={
+    register({
+      setValueAs: (value) => parseInt(value),
+    })
+  }
+/>`}
                 />
               </td>
             </tr>

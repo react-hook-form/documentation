@@ -98,7 +98,6 @@ interface Props {
 
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
-    state,
     state: { language },
   } = useStateMachine()
   const isUnmount = useRef(false)
@@ -348,8 +347,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <CodeArea
               withOutCopy
-              rawData={`
-const { register } = useForm({
+              rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -359,8 +357,7 @@ const { register } = useForm({
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
-              tsRawData={`
-type FormInputs = {
+              tsRawData={`type FormInputs = {
   firstName: string;
   lastName: string;
 };
@@ -653,7 +650,7 @@ const { register } = useForm<FormInputs>({
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, validateRule?) => void`}</span>
+                >{`(Ref, RegisterOptions?) => void`}</span>
                 <Popup message="React Native: Custom register or using Controller" />
               </h2>
             </code>
