@@ -708,9 +708,9 @@ export default {
     description: (
       <>
         <p>
-          A custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation behind this hook is to provide better user
-          experience and form performance. You can watch{" "}
+          Custom hook for working with uncontrolled Field Arrays (dynamic
+          inputs). The motivation is to provide better user experience and form
+          performance. You can watch{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"

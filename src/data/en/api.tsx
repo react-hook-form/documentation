@@ -135,7 +135,7 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> It is encouraged that
-          you set a <code>defaultValue</code> for all inputs to something non-
+          you set a <code>defaultValue</code> for all inputs to non-
           <code>undefined</code> such as the empty string or <code>null</code>.
         </p>
         <p>
@@ -694,11 +694,10 @@ export default {
     description: (
       <>
         <p>
-          This function will reset the fields' values and errors within the
-          form. By supplying <code>omitResetState</code>, you have the freedom
-          to only reset specific parts of the state. You can pass{" "}
-          <code>values</code> as an optional argument to reset your form into
-          the assigned default values.
+          Reset the fields' values and errors. By supplying{" "}
+          <code>omitResetState</code>, you have the freedom to only reset
+          specific parts of the state. You can pass <code>values</code> as an
+          optional argument to reset your form into the assigned default values.
         </p>
         <ul>
           <li>
@@ -772,9 +771,8 @@ export default {
           </li>
           <li>
             <p>
-              Allows you to set an error that is not associated with an input
-              field that will be persisted until it is manually cleared with{" "}
-              <code>clearError</code>.
+              Set an error that is not associated with an input field that will
+              be persisted until it is cleared with <code>clearError</code>.
             </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> for TypeScript
@@ -896,7 +894,7 @@ clearErrors('test.firstName'); // for clear single input error
         <p>
           <b className={typographyStyles.note}>Important: </b>You shouldn't use
           this method inside render. This is suitable for reading values in an
-          event handler. You can refer to the example below.
+          event handler.
         </p>
 
         <ul>
@@ -954,9 +952,9 @@ clearErrors('test.firstName'); // for clear single input error
     description: (
       <>
         <p>
-          A custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation behind this hook is to provide better user
-          experience and form performance. You can watch{" "}
+          Custom hook for working with uncontrolled Field Arrays (dynamic
+          inputs). The motivation is to provide better user experience and form
+          performance. You can watch{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"
@@ -1047,10 +1045,8 @@ clearErrors('test.firstName'); // for clear single input error
     <input ... />
   </div>
 ))}
-
 // ✅ correct:
 {fields.map((field, index) => <input key={field.id} ... />)}
-
 // ❌ incorrect:
 {fields.map((field, index) => <input key={index} ... />)}
 `}
@@ -1134,8 +1130,8 @@ React.useEffect(() => {
           </td>
           <td>
             This <code>object</code> contains the <code>defaultValue</code> and{" "}
-            <code>key</code> for all your inputs. So it's important to assign{" "}
-            <code>defaultValue</code> to each of your inputs.
+            <code>key</code> for all your inputs. It's important to assign{" "}
+            <code>defaultValue</code> to the inputs.
             <p>
               <b className={typographyStyles.note}>Important: </b> Because each
               input can be uncontrolled, <code>id</code> is required with mapped
@@ -1291,9 +1287,14 @@ React.useEffect(() => {
               <code>name</code>, <code>ref</code> and <code>value</code> to the
               child component.
             </p>
+            <p>
+              After version 6.10.0, we have include <code>ref</code> as part of
+              the render props, so you can make your input's focus more
+              accessible for users.
+            </p>
             <CodeArea
               withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+              url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
               rawData={`<Controller
   control={control}
   name="test"
@@ -1307,28 +1308,6 @@ React.useEffect(() => {
   )}
 />
 <Controller render={props => <Input {...props} />} />`}
-            />
-            <p>
-              After version 6.10.0, we have include <code>ref</code> as part of
-              the render props, so you can make your input's focus more
-              accessible for users.
-            </p>
-
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
-              rawData={`<Controller
-  control={control}
-  name="test"
-  render={({ onChange, onBlur, value, name, ref }) => (
-    <TextField
-      onBlur={onBlur}
-      onChange={onChange}
-      checked={value}
-      inputRef={ref}
-    />
-  )}
-/>`}
             />
           </td>
         </tr>
@@ -1686,9 +1665,9 @@ React.useEffect(() => {
 
           <li>
             <p>
-              This function will be cached inside the custom hook, while{" "}
-              <code>context</code> is a mutable <code>object</code> which can be
-              changed on each re-render.
+              This function will be cached, while <code>context</code> is a
+              mutable <code>object</code> which can be changed on each
+              re-render.
             </p>
           </li>
 

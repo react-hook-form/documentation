@@ -132,10 +132,7 @@ export default function ApiRefTable({
                 <CodeArea
                   withOutCopy
                   style={{ marginTop: -10 }}
-                  rawData={`<input
-  name="test"
-  ref={register}
-/>`}
+                  rawData={`<input name="test" ref={register} />`}
                 />
               </td>
             </tr>
@@ -376,8 +373,7 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`// callback function
-<input
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -398,25 +394,15 @@ export default function ApiRefTable({
         isStandard
           ? `{
         positive: value => parseInt(value, 10) > 0,
-        lessThanTen: value => parseInt(value, 10) < 10
+        lessThanTen: value => parseInt(value, 10) < 10,
+        asyncValidate: async value => await fetch(url)
       }`
           : `{
         positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
-        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10'
+        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
+        // you can do asynchronous validation as well
+        asyncValidate: async value => await fetch(url) || 'error message'  // <p>error message</p> 
       }`
-      }
-    })
-  }
-/>
-// you can do asynchronous validation as well
-<input
-  name="test2"
-  ref={
-    register({
-      validate: ${
-        isStandard
-          ? `async value => await fetch(url)`
-          : `async value => await fetch(url) || 'error message'  // <p>error message</p>`
       }
     })
   }
