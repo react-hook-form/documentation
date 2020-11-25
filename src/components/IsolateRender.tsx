@@ -170,7 +170,14 @@ function IsolateRender({
           delay={0.25}
           easeType="ease-in"
         >
-          <p>VS</p>
+          <p
+            style={{
+              background: "#0e101c",
+              color: "white",
+            }}
+          >
+            VS
+          </p>
           <div className={styles.line} />
         </Animate>
         <Animate
