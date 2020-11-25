@@ -452,8 +452,8 @@ export default {
     description: (
       <>
         <p>
-          This object contains information about the form state. If you are want
-          to subscribed to <code>formState</code> update at{" "}
+          This object contains information about the form state. If you want
+          to subscribe to <code>formState</code> update at{" "}
           <code>useEffect</code>, make sure that you place the entire{" "}
           <code>formState</code> in the optional array.
         </p>
