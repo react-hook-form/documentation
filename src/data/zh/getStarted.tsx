@@ -177,7 +177,7 @@ export default {
           <code>inputRef</code> 。 你可以直接将 <code>register</code> 传递给它。
         </p>
         <p>
-          <code>{'<TextField ref={register} name="FirstName"/>'}</code>
+          <code>{'<TextField inputRef={register} name="FirstName"/>'}</code>
         </p>
         <p>
           <b className={typographyStyles.note}>使用方法 2:</b> 有时组件没有暴露
