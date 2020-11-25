@@ -172,7 +172,7 @@ function IsolateRender({
         >
           <p
             style={{
-              background: "#0e101c",
+              background: "#081229",
               color: "white",
             }}
           >
