@@ -4,11 +4,16 @@ import formData from "./src/state/formData"
 import language from "./src/state/language"
 import setting from "./src/state/setting"
 
-createStore({
-  formData,
-  language,
-  setting,
-})
+createStore(
+  {
+    formData,
+    language,
+    setting,
+  },
+  {
+    storageType: window.localStorage,
+  }
+)
 
 export const wrapRootElement = ({ element }) => (
   <StateMachineProvider>{element}</StateMachineProvider>
