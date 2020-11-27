@@ -447,8 +447,8 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>
-                  Return input value as Date, beware of <code>null</code> will
-                  return when the conversion is impossible.
+                  Returns a Date normally.
+                  If something goes wrong <code>null</code> will be returned.
                 </p>
               </td>
               <td>
