@@ -56,8 +56,6 @@ export default function ApiRefTable({
             <tr>
               <td>
                 <code>name="name.firstName[0]"</code>
-                <br />
-                <code>name="name.firstName.0"</code>
               </td>
               <td>
                 <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
