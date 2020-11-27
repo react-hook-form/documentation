@@ -6,6 +6,9 @@ import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
+import controller from "../../components/codeExamples/controller"
+import controllerTs from "../../components/codeExamples/controllerTs"
+import TabGroup from "../../components/TabGroup"
 
 export default {
   title: "API Documentation",
@@ -452,10 +455,10 @@ export default {
     description: (
       <>
         <p>
-          This object contains information about the form state. If you want
-          to subscribe to <code>formState</code> update at{" "}
-          <code>useEffect</code>, make sure that you place the entire{" "}
-          <code>formState</code> in the optional array.
+          This object contains information about the form state. If you want to
+          subscribe to <code>formState</code> update at <code>useEffect</code>,
+          make sure that you place the entire <code>formState</code> in the
+          optional array.
         </p>
 
         <CodeArea
@@ -1720,6 +1723,19 @@ React.useEffect(() => {
           Behaves similarly to the <code>watch</code> API, however, this will
           isolate re-rendering at the component level and potentially result in
           better performance for your application.
+        </p>
+      </>
+    ),
+  },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          This custom hook is what powers <code>Controller</code>, and shares
+          the same props and methods as <code>Controller</code>. It's useful to
+          create reusable Controlled input, while <code>Controller</code> is the
+          flexible option to drop into your page or form.
         </p>
       </>
     ),

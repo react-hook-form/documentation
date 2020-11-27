@@ -30,6 +30,7 @@ import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import apiEn from "../data/en/api"
 import Controller from "./Controller"
+import UseController from "./UseController"
 import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
@@ -78,6 +79,7 @@ const enLinks = [
   apiEn.control,
   apiEn.formState,
   apiEn.Controller,
+  apiEn.useController,
   apiEn.ErrorMessage,
   apiEn.useFormContext,
   apiEn.useWatch,
@@ -98,7 +100,6 @@ interface Props {
 
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
-    state,
     state: { language },
   } = useStateMachine()
   const isUnmount = useRef(false)
@@ -131,6 +132,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
       size: "1.2KB",
     },
     {
+      ...api.useController,
+      size: "0KB",
+    },
+    {
       ...api.ErrorMessage,
       size: "483B",
     },
@@ -150,6 +155,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     useFormRef: null,
+    useControllerRef: null,
     registerRef: null,
     unregisterRef: null,
     errorsRef: null,
@@ -1003,6 +1009,15 @@ const { register } = useForm<FormInputs>({
             id="ControllerRef"
           >
             <Controller currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (apiSectionsRef.current.useControllerRef = ref)}
+            id="ControllerRef"
+          >
+            <UseController currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
