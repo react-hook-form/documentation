@@ -2,7 +2,7 @@ export default `import React from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import Joi from "@hapi/joi";
+import Joi from "joi";
 
 interface IFormInput {
   username: string;
