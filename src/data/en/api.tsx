@@ -771,8 +771,8 @@ export default {
           </li>
           <li>
             <p>
-              Set an error that is not associated with an input field that will
-              be persisted until it is cleared with <code>clearError</code>.
+              An error that is not associated with an input field will
+              be persisted until cleared with <code>clearError</code>.
             </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> for TypeScript
