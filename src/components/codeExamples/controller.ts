@@ -21,7 +21,7 @@ function App() {
         )}
       />
       
-      {* // Preferred syntax on most cases. If you need props, pass TextField props to Controller props (forwarded) *}
+      {* // This is the preferred syntax for most cases. If you need props, pass TextField props to Controller props (forwarded) *}
       <Controller as={TextField} name="TextField" control={control} defaultValue="" />
       
       <input type="submit" />
