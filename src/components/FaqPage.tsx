@@ -244,8 +244,8 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
           </p>
 
           <p>
-            The following polyfills are necessary, and feel free to let us know
-            or update the doc to reflect other missing polyfills
+            The following polyfills are necessary. Feel free to let us know or
+            update the doc to reflect other missing polyfills.
           </p>
 
           <ul>
@@ -257,6 +257,21 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             <li>
               <p>
                 <code>Object.entries</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Array.find</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Array.includes</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>String.startsWith</code>
               </p>
             </li>
           </ul>
