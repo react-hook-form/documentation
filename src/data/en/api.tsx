@@ -697,7 +697,7 @@ export default {
           Reset the fields' values and errors. By supplying{" "}
           <code>omitResetState</code>, you have the freedom to only reset
           specific parts of the state. You can pass <code>values</code> as an
-          optional argument to reset your form into the assigned default values.
+          optional argument to reset your form to the assigned default values.
         </p>
         <ul>
           <li>
