@@ -3,7 +3,7 @@ import { TextField } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 
 function Input({ control, name }) {
-  const { field, state } = useController({
+  const { field } = useController({
     name,
     control,
     rules: { required: true }
