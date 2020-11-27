@@ -419,8 +419,8 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>
-                  Return input value as Number, beware of <code>NaN</code> will
-                  return when the conversion is impossible.
+                  Returns a Number normally. 
+                  If something goes wrong <code>NaN</code> will be returned.
                 </p>
               </td>
               <td>
