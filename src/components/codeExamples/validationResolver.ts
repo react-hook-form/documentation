@@ -1,6 +1,6 @@
 export default `import * as React from "react";
 import { useForm } from "react-hook-form";
-import * as Joi from "@hapi/joi";
+import * as Joi from "joi";
 
 const validationSchema = Joi.object({
   username: Joi.string()
