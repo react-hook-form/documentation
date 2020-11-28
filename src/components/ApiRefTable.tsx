@@ -47,14 +47,6 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>name="firstName[0]"</code>
-              </td>
-              <td>
-                <code>{`{ firstName: [ 'value' ] }`}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <code>name="name.firstName"</code>
               </td>
               <td>
@@ -138,10 +130,7 @@ export default function ApiRefTable({
                 <CodeArea
                   withOutCopy
                   style={{ marginTop: -10 }}
-                  rawData={`<input
-  name="test"
-  ref={register}
-/>`}
+                  rawData={`<input name="test" ref={register} />`}
                 />
               </td>
             </tr>
@@ -373,10 +362,8 @@ export default function ApiRefTable({
               <td>
                 <code>validate</code>
                 <br />
-                <code>
-                  <code className={typographyStyles.typeText}>
-                    Function | Object
-                  </code>
+                <code className={typographyStyles.typeText}>
+                  Function | Object
                 </code>
               </td>
               <td>{api.register.validation.validate}</td>
@@ -384,8 +371,7 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`// callback function
-<input
+                  rawData={`<input
   name="test"
   ref={
     register({
@@ -406,30 +392,102 @@ export default function ApiRefTable({
         isStandard
           ? `{
         positive: value => parseInt(value, 10) > 0,
-        lessThanTen: value => parseInt(value, 10) < 10
+        lessThanTen: value => parseInt(value, 10) < 10,
+        asyncValidate: async value => await fetch(url)
       }`
           : `{
         positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
-        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10'
+        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
+        // you can do asynchronous validation as well
+        asyncValidate: async value => await fetch(url) || 'error message'  // <p>error message</p> 
       }`
-      }
-    })
-  }
-/>
-// you can do asynchronous validation as well
-<input
-  name="test2"
-  ref={
-    register({
-      validate: ${
-        isStandard
-          ? `async value => await fetch(url)`
-          : `async value => await fetch(url) || 'error message'  // <p>error message</p>`
       }
     })
   }
 />
 `}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                valueAsNumber:
+                <br />
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Returns a Number normally. 
+                  If something goes wrong <code>NaN</code> will be returned.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  type="number"
+  ref={
+    register({
+      valueAsNumber: true,
+    })
+  }
+/>`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                valueAsDate:
+                <br />
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Returns a Date normally.
+                  If something goes wrong <code>null</code> will be returned.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  type="date"
+  ref={
+    register({
+      valueAsDate: true,
+    })
+  }
+/>`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                setValueAs:
+                <br />
+                <code
+                  className={typographyStyles.typeText}
+                >{`<T>(value: any) => T`}</code>
+              </td>
+              <td>
+                <p>Return input value by running through the function.</p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  ref={
+    register({
+      setValueAs: (value) => parseInt(value),
+    })
+  }
+/>`}
                 />
               </td>
             </tr>

@@ -732,7 +732,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, validateRule?) => void`}</span>
+                >{`(Ref, RegisterOptions?) => void`}</span>
                 <Popup message="React Native: Custom register or using Controller" />
               </h2>
             </code>

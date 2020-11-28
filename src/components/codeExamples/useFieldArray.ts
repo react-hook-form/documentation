@@ -10,12 +10,6 @@ function App() {
     name: "test"
   });
   
-  // trigger validation at the field array level
-  // useEffect(() => {
-  //   if (fields) trigger('test'); // with resolver
-  //   if (!fields.length) setError('miniLength, 'at least 1 field array item'); // build-in validator
-  // }, [trigger, fields])
-
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
       <ul>
@@ -26,14 +20,12 @@ function App() {
               ref={register()}
               defaultValue={item.firstName} // make sure to set up defaultValue
             />
-
             <Controller
               as={<input />}
               name={\`test[\${index}].lastName\`}
               control={control}
               defaultValue={item.lastName} // make sure to set up defaultValue
             />
-
             <button type="button" onClick={() => remove(index)}>Delete</button>
           </li>
         ))}
@@ -43,12 +35,6 @@ function App() {
         onClick={() => append({ firstName: "appendBill", lastName: "appendLuo" })}
       >
         append
-      </button>
-      <button
-        type="button"
-        onClick={() => prepend({ firstName: "prependFirstName", lastName: "prependLastName" })}
-      >
-        prepend
       </button>
       <input type="submit" />
     </form>

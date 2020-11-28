@@ -12,12 +12,12 @@ const App = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input name="firstName" type="text" ref={register} />
       <input name="lastName" type="text" ref={register} />
-      <button onClick={() => setValue("firstName", "Grace")}>
+      <button onClick={() => setValue("firstName", "Bill")}>
         Set First Name Value
       </button>
       <button
         onClick={() =>
-          setValue("lastName", "Hopper", {
+          setValue("lastName", "Luo", {
             shouldValidate: true,
             shouldDirty: true
           })
