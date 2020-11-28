@@ -834,8 +834,7 @@ const { register } = useForm<FormInputs>({
               <CodeArea
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-w18sx"
               />
             </TabGroup>
           </section>
