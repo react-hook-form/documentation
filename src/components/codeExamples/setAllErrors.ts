@@ -2,7 +2,9 @@ export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register, handleSubmit, setError, errors } = useForm();
+  const { register, handleSubmit, setError, errors } = useForm({
+    criteriaMode: 'all',
+  });
   
   const onSubmit = data => {
     console.log(data)
