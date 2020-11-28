@@ -452,10 +452,10 @@ export default {
     description: (
       <>
         <p>
-          This object contains information about the form state. If you want
-          to subscribe to <code>formState</code> update at{" "}
-          <code>useEffect</code>, make sure that you place the entire{" "}
-          <code>formState</code> in the optional array.
+          This object contains information about the form state. If you want to
+          subscribe to <code>formState</code> update at <code>useEffect</code>,
+          make sure that you place the entire <code>formState</code> in the
+          optional array.
         </p>
 
         <CodeArea
@@ -771,8 +771,8 @@ export default {
           </li>
           <li>
             <p>
-              An error that is not associated with an input field will
-              be persisted until cleared with <code>clearError</code>.
+              An error that is not associated with an input field will be
+              persisted until cleared with <code>clearError</code>.
             </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> for TypeScript
@@ -1568,8 +1568,7 @@ React.useEffect(() => {
           for rendering error message or messages.
           <p>
             <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-            <code>validateCriteriaMode</code> to 'all' for using{" "}
-            <code>messages</code>.
+            <code>criteriaMode</code> to 'all' for using <code>messages</code>.
           </p>
         </>
       ),

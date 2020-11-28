@@ -1003,7 +1003,7 @@ export default {
           用于呈现单个或多个错误信息。
           <p>
             <b className={typographyStyles.note}>注意:</b>
-            您需要设置将<code>validateCriteriaMode</code>设置为“all”以使用
+            您需要设置将<code>criteriaMode</code>设置为“all”以使用
             <code>message</code>.
           </p>
         </>

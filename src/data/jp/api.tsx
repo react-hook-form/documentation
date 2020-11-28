@@ -983,7 +983,7 @@ validate: (value) => value === getValues('firstName');"
           です。
           <p>
             <b className={typographyStyles.note}>注意:</b> <code>messages</code>{" "}
-            を使用するためには、 validateCriteriaMode を 'all'
+            を使用するためには、 criteriaMode を 'all'
             に設定する必要があります。
           </p>
         </>

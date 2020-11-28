@@ -968,7 +968,7 @@ validate: (value) => value === getValues('firstName');"
           para renderizar mensagem de erro ou mensagens.
           <p>
             <b className={typographyStyles.note}>Note:</b> you need to set{" "}
-            validateCriteriaMode to 'all' for using <code>messages</code>.
+            criteriaMode to 'all' for using <code>messages</code>.
           </p>
         </>
       ),

@@ -417,8 +417,8 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>
-                  Returns a Number normally. 
-                  If something goes wrong <code>NaN</code> will be returned.
+                  Returns a Number normally. If something goes wrong{" "}
+                  <code>NaN</code> will be returned.
                 </p>
               </td>
               <td>
@@ -445,8 +445,8 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>
-                  Returns a Date normally.
-                  If something goes wrong <code>null</code> will be returned.
+                  Returns a Date normally. If something goes wrong{" "}
+                  <code>null</code> will be returned.
                 </p>
               </td>
               <td>

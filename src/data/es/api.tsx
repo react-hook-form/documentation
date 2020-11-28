@@ -950,7 +950,7 @@ export default {
           para rendericación de mensajes o errores.
           <p>
             <b className={typographyStyles.note}>Nota:</b> Necesitas usar{" "}
-            validateCriteriaMode para 'all' para usar <code>messages</code>.
+            criteriaMode para 'all' para usar <code>messages</code>.
           </p>
         </>
       ),

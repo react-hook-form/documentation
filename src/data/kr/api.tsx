@@ -431,8 +431,8 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>참고:</b> 이 옵션을 사용하기
-          위해서 <code>validateCriteriaMode</code> 옵션을 <code>all</code> 로
-          설정해야 합니다.
+          위해서 <code>criteriaMode</code> 옵션을 <code>all</code> 로 설정해야
+          합니다.
         </p>
       </>
     ),
@@ -1206,8 +1206,8 @@ React.useEffect(() => {
           입니다.
           <p>
             <b className={typographyStyles.note}>참고:</b> <code>messages</code>{" "}
-            속성을 사용하기 위해 validateCriteriaMode 가 'all' 로 설정되어
-            있어야 합니다.
+            속성을 사용하기 위해 criteriaMode 가 'all' 로 설정되어 있어야
+            합니다.
           </p>
         </>
       ),
