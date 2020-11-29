@@ -75,7 +75,7 @@ export default {
     description: "",
   },
   validationRules: {
-    title: "ValidationRules",
+    title: "RegisterOptions",
     description: "",
   },
   arrayField: {
