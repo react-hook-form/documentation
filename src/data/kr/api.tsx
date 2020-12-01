@@ -966,7 +966,7 @@ React.useEffect(() => {
           <td></td>
           <td>
             <code>control</code> 객체는 <code>useForm</code> 호출 후 리턴된 값
-            중 하나입니다. 만약 <code>FormContext</code> 를 사용한다면 넣지
+            중 하나입니다. 만약 <code>FormProvider</code> 를 사용한다면 넣지
             않아도 됩니다.
           </td>
         </tr>
@@ -1157,7 +1157,7 @@ React.useEffect(() => {
         </p>
         <p>
           <code>useFormContext</code> 를 사용하려면 폼 컴포넌트를{" "}
-          <code>FormContext</code> Provider 로 감싸야 합니다.
+          <code>FormProvider</code> Provider 로 감싸야 합니다.
         </p>
       </>
     ),
@@ -1182,8 +1182,8 @@ React.useEffect(() => {
       name: <>연결할 필드 이름.</>,
       errors: (
         <>
-          <code>useForm</code> 에서 리턴된 <code>errors</code> 객체. FormContext
-          를 쓴다면 필수 값은 아닙니다.
+          <code>useForm</code> 에서 리턴된 <code>errors</code> 객체.
+          FormProvider 를 쓴다면 필수 값은 아닙니다.
         </>
       ),
       message: <>인라인 오류 메시지.</>,

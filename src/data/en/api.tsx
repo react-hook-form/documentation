@@ -1519,7 +1519,7 @@ React.useEffect(() => {
           a prop.
         </p>
         <p>
-          You need to wrap your form with the <code>FormProvider</code>
+          You need to wrap your form with the <code>FormProvider</code>{" "}
           component for <code>useFormContext</code> to work properly.
         </p>
       </>
