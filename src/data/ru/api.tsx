@@ -1198,7 +1198,7 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          Как только ваша форма обёрнута в <code>FormContext</code>, то{" "}
+          Как только ваша форма обёрнута в <code>FormProvider</code>, то{" "}
           <code>useFormContext</code>:{" "}
           <code className={typographyStyles.typeText}>function</code> может быть
           вызвана внутри вложенного компонента.
@@ -1233,7 +1233,7 @@ validate: (value) => value === getValues('firstName');"
       errors: (
         <>
           <code>errors</code> объект из React Hook Form. Необязательно, если вы
-          используете FormContext.
+          используете FormProvider.
         </>
       ),
       message: <>встроенное сообщение об ошибке.</>,

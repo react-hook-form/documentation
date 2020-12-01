@@ -925,7 +925,7 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          フォームが <code>FormContext</code> でラップされると、
+          フォームが <code>FormProvider</code> でラップされると、
           ラップされた子コンポーネントで <code>useFormContext</code> を使用して{" "}
           <code className={typographyStyles.typeText}>function</code>{" "}
           を呼び出すことができます。

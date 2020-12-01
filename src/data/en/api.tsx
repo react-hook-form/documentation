@@ -1259,7 +1259,7 @@ React.useEffect(() => {
           <td></td>
           <td>
             <code>control</code> object is from invoking <code>useForm</code>.
-            Optional when using <code>FormContext</code>.
+            Optional when using <code>FormProvider</code>.
           </td>
         </tr>
         <tr>
@@ -1519,7 +1519,7 @@ React.useEffect(() => {
           a prop.
         </p>
         <p>
-          You need to wrap your form with the <code>FormContext</code> provider
+          You need to wrap your form with the <code>FormProvider</code>{" "}
           component for <code>useFormContext</code> to work properly.
         </p>
       </>
@@ -1545,7 +1545,7 @@ React.useEffect(() => {
       errors: (
         <>
           <code>errors</code> object from React Hook Form. Optional if you are
-          using <code>FormContext</code>.
+          using <code>FormProvider</code>.
         </>
       ),
       message: <>Inline error message.</>,
