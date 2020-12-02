@@ -909,7 +909,7 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          Uma vez que seu formulário utiliza <code>FormContext</code>, o{" "}
+          Uma vez que seu formulário utiliza <code>FormProvider</code>, o{" "}
           <code>useFormContext</code>:{" "}
           <code className={typographyStyles.typeText}>function</code> pode ser
           chamado como componente filho.
@@ -945,7 +945,7 @@ validate: (value) => value === getValues('firstName');"
       errors: (
         <>
           <code>errors</code> objeto do React Hook Form. é opcional se estiver
-          usando FormContext.
+          usando FormProvider.
         </>
       ),
       message: <>mensagem de erro em linha.</>,

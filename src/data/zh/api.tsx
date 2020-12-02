@@ -956,7 +956,7 @@ export default {
           用于那些难以传递context作为属性的嵌套结构很深的场景。
         </p>
         <p>
-          使用<code>useFormContext</code>需要用<code>FormContext</code>
+          使用<code>useFormContext</code>需要用<code>FormProvider</code>
           包装表单。
         </p>
       </>
@@ -980,7 +980,7 @@ export default {
       errors: (
         <>
           React Hook Form中的<code>errors</code>
-          对象。如果您使用的是FormContext，则为可选。
+          对象。如果您使用的是FormProvider，则为可选。
         </>
       ),
       message: <>内联错误信息。</>,
