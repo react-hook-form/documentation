@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
-import Prism from "prismjs"
 import { getEditLink } from "./logic/getEditLink"
 import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"

@@ -140,7 +140,7 @@ function Form({
                   {Object.keys(errors).length > 0 &&
                     JSON.stringify(
                       Object.entries(errors).reduce(
-                        (previous, [key, { ref, ...rest }]) => {
+                        (previous, [key, ...rest]) => {
                           previous[key] = rest
                           return previous
                         },

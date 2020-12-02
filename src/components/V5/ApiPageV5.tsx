@@ -91,7 +91,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     state,
     state: { language },
   } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
