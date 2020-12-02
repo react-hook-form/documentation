@@ -730,6 +730,14 @@ export default {
           </li>
           <li>
             <p>
+              Since <code>defaultValues</code> are cached, if they{" "}
+              change while the component is mounted, pass in the new{" "}
+              <code>defaultValues</code> to the reset method{" "}
+              <code>reset({ newDefaultValues })</code>.
+            </p>
+          </li>
+          <li>
+            <p>
               When you are subscribed/read the <code>formState</code>, it's
               important to decouple <code>reset</code> with{" "}
               <code>handleSubmit</code>, both are update <code>formState</code>{" "}
