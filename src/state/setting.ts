@@ -1,4 +1,4 @@
 export default {
-  lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
+  lightMode: null,
   isFocusOnSearch: false,
 }
