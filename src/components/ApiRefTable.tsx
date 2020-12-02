@@ -160,7 +160,7 @@ export default function ApiRefTable({
       ${
         isStandard
           ? "required: true"
-          : `required: 'error message' // <p>error message</p>`
+          : `required: 'error message' // JS only: <p>error message</p> TS only support string`
       }
     })
   }
@@ -197,7 +197,7 @@ export default function ApiRefTable({
           ? "maxLength: 2"
           : `maxLength : {
         value: 2,
-        message: 'error message' // <p>error message</p>
+        message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
     })
@@ -235,7 +235,7 @@ export default function ApiRefTable({
           ? 1
           : `{
         value: 1,
-        message: 'error message' // <p>error message</p>
+        message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
     })
@@ -273,7 +273,7 @@ export default function ApiRefTable({
           ? 3
           : `{
         value: 3,
-        message: 'error message' // <p>error message</p>
+        message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
     })
@@ -311,7 +311,7 @@ export default function ApiRefTable({
           ? 3
           : `{
         value: 3,
-        message: 'error message' // <p>error message</p>
+        message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
     })
@@ -349,7 +349,7 @@ export default function ApiRefTable({
           ? "/[A-Za-z]{3}/"
           : `{
         value: /[A-Za-z]{3}/,
-        message: 'error message' // <p>error message</p>
+        message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
     })
@@ -378,7 +378,7 @@ export default function ApiRefTable({
       validate: ${
         isStandard
           ? `value => value === '1'`
-          : `value => value === '1' || 'error message'  // <p>error message</p>`
+          : `value => value === '1' || 'error message'  // JS only: <p>error message</p> TS only support string`
       }
     })
   }
@@ -399,7 +399,7 @@ export default function ApiRefTable({
         positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
         lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
         // you can do asynchronous validation as well
-        asyncValidate: async value => await fetch(url) || 'error message'  // <p>error message</p> 
+        asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
       }`
       }
     })
