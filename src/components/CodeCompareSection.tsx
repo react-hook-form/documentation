@@ -1,7 +1,5 @@
 import * as React from "react"
-import formikCode from "./codeExamples/formikCode"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
-import reduxFormCode from "./codeExamples/reduxFormCode"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"

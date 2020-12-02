@@ -381,6 +381,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           <iframe
+            title="A video detailing how the Controller component works"
             width="100%"
             height="528"
             src="https://www.youtube.com/embed/Vkiyg_KfNK4"

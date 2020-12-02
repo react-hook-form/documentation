@@ -29,7 +29,6 @@ export default ({ defaultLang, content }: Props) => {
   })
   const [showDevTool, setShowDevTool] = React.useState(false)
   const {
-    state,
     state: { language, setting },
   } = useStateMachine()
   const { currentLanguage } =
