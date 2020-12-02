@@ -3,6 +3,7 @@ import { Animate } from "react-simple-animate"
 import { getEditLink } from "./logic/getEditLink"
 import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"
+import { updateSetting } from "../actions/settingActions"
 import "./layout.css"
 
 const Layout = (props: {
@@ -14,9 +15,10 @@ const Layout = (props: {
   defaultLang: string
 }) => {
   const {
+    actions,
     state,
     state: { language },
-  } = useStateMachine()
+  } = useStateMachine({ updateSetting })
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
   const lightMode = state?.setting?.lightMode
@@ -33,14 +35,20 @@ const Layout = (props: {
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
 
-    if (lightMode) {
-      document.querySelector("body").classList.add("light")
-    } else {
-      document.querySelector("body").classList.remove("light")
+    if (lightMode === null && window.matchMedia) {
+      actions.updateSetting({
+        lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
+      })
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
-  }, [lightMode])
+  }, [])
+
+  if (lightMode) {
+    document.querySelector("body").classList.add("light")
+  } else {
+    document.querySelector("body").classList.remove("light")
+  }
 
   return (
     <>
