@@ -733,7 +733,7 @@ export default {
               Since <code>defaultValues</code> are cached, if they{" "}
               change while the component is mounted, pass in the new{" "}
               <code>defaultValues</code> to the reset method{" "}
-              <code>reset({ newDefaultValues })</code>.
+              <code>reset({ defaultValues })</code>.
             </p>
           </li>
           <li>
