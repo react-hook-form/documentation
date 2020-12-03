@@ -34,11 +34,14 @@ const Layout = (props: {
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
-    console.log("lightMode", lightMode)
 
     if (lightMode === null && window.matchMedia) {
       actions.updateSetting({
         lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
+      })
+    } else {
+      actions.updateSetting({
+        lightMode,
       })
     }
 
