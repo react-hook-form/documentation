@@ -23,21 +23,20 @@ const Layout = (props: {
     language && language.currentLanguage ? language : { currentLanguage: "en" }
   const lightMode = state?.setting?.lightMode
   const [show, setShow] = React.useState(false)
-  const scrollHandler = () => {
+  const scrollHandler = React.useCallback(() => {
     if (window.scrollY > 75) {
       setShow(true)
     } else {
       setShow(false)
     }
-  }
+  }, [])
   const editLink = getEditLink(currentLanguage, props.location?.pathname)
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
-    debugger
+    console.log("lightMode", lightMode)
 
     if (lightMode === null && window.matchMedia) {
-      debugger
       actions.updateSetting({
         lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
       })
