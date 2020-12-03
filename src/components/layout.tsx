@@ -44,11 +44,13 @@ const Layout = (props: {
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [])
 
-  if (lightMode) {
-    document.querySelector("body").classList.add("light")
-  } else {
-    document.querySelector("body").classList.remove("light")
-  }
+  React.useEffect(() => {
+    if (lightMode) {
+      document.querySelector("body").classList.add("light")
+    } else {
+      document.querySelector("body").classList.remove("light")
+    }
+  }, [lightMode])
 
   return (
     <>
