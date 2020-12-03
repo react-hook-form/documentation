@@ -39,12 +39,6 @@ const Layout = (props: {
       actions.updateSetting({
         lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
       })
-    } else {
-      setTimeout(() => {
-        actions.updateSetting({
-          lightMode,
-        })
-      }, 500)
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
@@ -56,6 +50,9 @@ const Layout = (props: {
     } else {
       document.querySelector("body").classList.remove("light")
     }
+    actions.updateSetting({
+      lightMode,
+    })
   }, [lightMode])
 
   return (
