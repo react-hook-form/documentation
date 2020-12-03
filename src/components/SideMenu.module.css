@@ -57,7 +57,7 @@
 
   .menu > div > ul > li > a,
   .menu > div > ul > li > button {
-    color: white;
+    color: currentColor;
     transition: 0.3s all;
     background: none;
     border: none;
