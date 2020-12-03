@@ -48,6 +48,8 @@ function Form({
     state: { formData },
   } = useStateMachine()
 
+  console.log(errors)
+
   return (
     <>
       {!devTool && (
@@ -140,7 +142,7 @@ function Form({
                   {Object.keys(errors).length > 0 &&
                     JSON.stringify(
                       Object.entries(errors).reduce(
-                        (previous, [key, ...rest]) => {
+                        (previous, [key, { ref, ...rest }]) => {
                           previous[key] = rest
                           return previous
                         },
