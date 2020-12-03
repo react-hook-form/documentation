@@ -45,14 +45,17 @@ const Layout = (props: {
   }, [])
 
   React.useEffect(() => {
+    setTimeout(() => {
+      actions.updateSetting({
+        lightMode,
+      })
+    }, 1000)
+
     if (lightMode) {
       document.querySelector("body").classList.add("light")
     } else {
       document.querySelector("body").classList.remove("light")
     }
-    actions.updateSetting({
-      lightMode,
-    })
   }, [lightMode])
 
   return (

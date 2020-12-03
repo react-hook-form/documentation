@@ -27,8 +27,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
   const location = globalHistory.location
 
-  console.log("lightMode", lightMode)
-
   React.useEffect(() => {
     if (setting.isFocusOnSearch) {
       setLang(false)
