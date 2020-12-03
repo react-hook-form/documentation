@@ -40,9 +40,11 @@ const Layout = (props: {
         lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
       })
     } else {
-      actions.updateSetting({
-        lightMode,
-      })
+      setTimeout(() => {
+        actions.updateSetting({
+          lightMode,
+        })
+      }, 500)
     }
 
     return () => window.removeEventListener("scroll", scrollHandler)
