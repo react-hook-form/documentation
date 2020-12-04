@@ -446,11 +446,6 @@ export default {
           </a>{" "}
           를 사용할 때의 예제는 다음과 같습니다.
         </p>
-
-        <CodeArea
-          rawData={virtualizedList}
-          url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
-        />
       </>
     ),
   },

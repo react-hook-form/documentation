@@ -7,24 +7,21 @@ const items = Array.from(Array(1000).keys()).map((i) => ({
   quantity: Math.floor(Math.random() * 10),
 }));
 
-const WindowedRow = React.memo(({ index, style, data, getValues, setValue }) => {
-  const values = getValues();
+const WindowedRow = React.memo(({ index, style, data, setValue }) => {
   const qtyKey = "[\${index}].quantity";
-  const qty = values[qtyKey];
+  const qty = getValues()[index].quantity ?? items[index].quantity;
 
   return (
-    <div>
-      <input
-        // Rather than ref={register}, we use defaultValue and setValue
-        defaultValue={qty}
-        onChange={(e) => {
-          setValue(
-            qtyKey,
-            isNaN(Number(e.target.value)) ? 0 : Number(e.target.value)
-          );
-        }}
-      />
-    </div>
+    <input
+      // Rather than ref={register}, we use defaultValue and setValue
+      defaultValue={qty}
+      onChange={(e) => {
+        setValue(
+          qtyKey,
+          isNaN(Number(e.target.value)) ? 0 : Number(e.target.value)
+        );
+      }}
+    />
   );
 });
 

@@ -17,6 +17,7 @@ import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUnco
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
+import virtualizedList from "./codeExamples/virtualizedList"
 
 const { useRef } = React
 const enLinks = [
@@ -345,6 +346,11 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.workingWithVirtualizedList.description}
+
+          <CodeArea
+            rawData={virtualizedList}
+            url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+          />
 
           <hr />
 
