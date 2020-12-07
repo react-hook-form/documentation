@@ -18,6 +18,7 @@ import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import virtualizedList from "./codeExamples/virtualizedList"
+import virtualizedListFieldArray from "./codeExamples/virtualizedListFieldArray"
 
 const { useRef } = React
 const enLinks = [
@@ -347,10 +348,16 @@ function Advanced({ defaultLang, advanced }: Props) {
 
           {advanced.workingWithVirtualizedList.description}
 
-          <CodeArea
-            rawData={virtualizedList}
-            url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
-          />
+          <TabGroup buttonLabels={["Form", "Field Array"]}>
+            <CodeArea
+              rawData={virtualizedList}
+              url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+            />
+            <CodeArea
+              rawData={virtualizedListFieldArray}
+              url="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-1r8ip"
+            />
+          </TabGroup>
 
           <hr />
 
