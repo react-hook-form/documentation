@@ -251,7 +251,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form создан с использованием <code>Typescript</code>, поэтому
+        React Hook Form создан с использованием <code>TypeScript</code>, поэтому
         вы можете создать тип <code>FormData</code> для поддержки значений полей
         формы.
       </p>
