@@ -52,8 +52,6 @@ function SideMenu({
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 
-  console.log(activeIndex)
-
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>

@@ -1372,4 +1372,17 @@ validate: (value) => value === getValues('firstName');"
       </p>
     ),
   },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          This custom hook is what powers <code>Controller</code>, and shares
+          the same props and methods as <code>Controller</code>. It's useful to
+          create reusable Controlled input, while <code>Controller</code> is the
+          flexible option to drop into your page or form.
+        </p>
+      </>
+    ),
+  },
 }
