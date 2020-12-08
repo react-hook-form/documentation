@@ -155,7 +155,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
   const copyFormData = useRef([])
   const apiSectionsRef = useRef({
     useFormRef: null,
-    useControllerRef: null,
     registerRef: null,
     unregisterRef: null,
     errorsRef: null,
@@ -170,6 +169,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     controlRef: null,
     formStateRef: null,
     ControllerRef: null,
+    useControllerRef: null,
     ErrorMessageRef: null,
     useFormContextRef: null,
     useWatchRef: null,
@@ -1015,7 +1015,7 @@ const { register } = useForm<FormInputs>({
 
           <section
             ref={(ref) => (apiSectionsRef.current.useControllerRef = ref)}
-            id="ControllerRef"
+            id="useControllerRef"
           >
             <UseController currentLanguage={currentLanguage} api={api} />
           </section>
