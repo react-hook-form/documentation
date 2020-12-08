@@ -229,7 +229,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form está programado en <code>Typecript</code>, por lo que
+        React Hook Form está programado en <code>TypeScript</code>, por lo que
         puedes definir un tipo <code>FormData</code> para admitir valores de
         formulario.
       </p>
