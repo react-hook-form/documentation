@@ -1,9 +1,9 @@
 export default `import React from "react";
 import { TextField } from "@material-ui/core";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, useController } from "react-hook-form";
 
 function Input({ control, name }) {
-  const { field } = useController({
+  const { field, state: { invalid, isTouched, isDirty } } = useController({
     name,
     control,
     rules: { required: true }

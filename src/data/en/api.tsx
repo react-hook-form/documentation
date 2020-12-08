@@ -1295,33 +1295,30 @@ React.useEffect(() => {
               <code>name</code>, <code>ref</code> and <code>value</code> to the
               child component.
             </p>
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
-              rawData={`<Controller
+            <TabGroup buttonLabels={["Standard", "With Focus"]}>
+              <CodeArea
+                withOutCopy
+                url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+                rawData={`<Controller
   control={control}
   name="test"
-  render={({ onChange, onBlur, value, name, ref }) => (
+  render={(
+    { onChange, onBlur, value, name, ref },
+    { state: { invalid, isTouched, isDirty } }
+  ) => (
     <Checkbox
       onBlur={onBlur}
-      onChange={e => onChange(e.target.checked)}
+      onChange={(e) => onChange(e.target.checked)}
       checked={value}
       inputRef={ref}
     />
   )}
-/>
-<Controller render={props => <Input {...props} />} />`}
-            />
-            <p>
-              After version 6.10.0, we have include <code>ref</code> as part of
-              the render props, so you can make your input's focus more
-              accessible for users.
-            </p>
-
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
-              rawData={`<Controller
+/>`}
+              />
+              <CodeArea
+                withOutCopy
+                url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
+                rawData={`<Controller
   control={control}
   name="test"
   render={({ onChange, onBlur, value, name, ref }) => (
@@ -1333,7 +1330,8 @@ React.useEffect(() => {
     />
   )}
 />`}
-            />
+              />
+            </TabGroup>
           </td>
         </tr>
         <tr>
