@@ -231,7 +231,7 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
 
           <p>
             <b className={typographyStyles.note}>Important: </b>from version
-            6.7.0 onwards we are dropping babel, and using Typescript to
+            6.7.0 onwards we are dropping babel, and using TypeScript to
             transpile to es5. You can refer to this{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form/issues/2775"
