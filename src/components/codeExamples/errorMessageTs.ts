@@ -21,9 +21,6 @@ export default function App() {
         render={({ message }) => <p>{message}</p>}
       />
       
-      <input name="name" ref={register({ required: true })} />
-      <ErrorMessage errors={errors} name="name" message="This is required" />
-      
       <input type="submit" />
     </form>
   );
