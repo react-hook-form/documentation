@@ -245,7 +245,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form is built with <code>Typescript</code>, so you can define
+        React Hook Form is built with <code>TypeScript</code>, so you can define
         a <code>FormData</code> type to support form values.
       </p>
     ),

@@ -238,7 +238,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form は <code>Typescript</code>{" "}
+        React Hook Form は <code>TypeScript</code>{" "}
         を使用して構築されているため、フォームの値をサポートするための{" "}
         <code>FormData</code> 型を定義することができます。
       </p>
