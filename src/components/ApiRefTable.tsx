@@ -165,6 +165,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-required-w69ts?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -203,6 +204,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-maxlength-ctgiu?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -241,6 +243,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-minlength-0v69v?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -266,6 +269,7 @@ export default function ApiRefTable({
                   withOutCopy
                   rawData={`<input
   name="test"
+  type="number"
   ref={
     register({
       max: ${
@@ -279,6 +283,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-max-yg19e?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -304,6 +309,7 @@ export default function ApiRefTable({
                   withOutCopy
                   rawData={`<input
   name="test"
+  type="number"
   ref={
     register({
       min: ${
@@ -317,6 +323,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-min-lxjr7?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -355,6 +362,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-pattern-zgbut?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -434,6 +442,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-valueasnumber-8v2t3?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -462,6 +471,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-valueasdate-700wc?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -488,6 +498,7 @@ export default function ApiRefTable({
     })
   }
 />`}
+                  url="https://codesandbox.io/s/react-hook-form-validation-setvalueas-6lirl?file=/src/App.jsx"
                 />
               </td>
             </tr>
