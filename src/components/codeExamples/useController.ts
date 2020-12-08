@@ -3,16 +3,16 @@ import { TextField } from "@material-ui/core";
 import { useController } from "react-hook-form";
 
 function Input({ control, name }) {
-  const { field, state: { invalid, isTouched, isDirty } } = useController({
+  const {
+    field: { ref, ...inputProps },
+    state: { invalid, isTouched, isDirty },
+  } = useController({
     name,
     control,
-    rules: { required: true }
-    defaultValue: '',
+    rules: { required: true },
+    defaultValue: "",
   });
 
-  return (
-    // field object contains onChange, onBlur, value and ref props  
-    <TextField {...field} inputRef={ref} />
-  );
+  return <TextField {...inputProps} inputRef={ref} />;
 }
 `
