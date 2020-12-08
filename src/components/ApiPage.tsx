@@ -354,8 +354,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <CodeArea
               withOutCopy
-              rawData={`
-const { register } = useForm({
+              rawData={`const { register } = useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -365,8 +364,7 @@ const { register } = useForm({
   shouldFocusError: true,
   shouldUnregister: true,
 })`}
-              tsRawData={`
-type FormInputs = {
+              tsRawData={`type FormInputs = {
   firstName: string;
   lastName: string;
 };
@@ -659,7 +657,7 @@ const { register } = useForm<FormInputs>({
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, validateRule?) => void`}</span>
+                >{`(Ref, RegisterOptions?) => void`}</span>
                 <Popup message="React Native: Custom register or using Controller" />
               </h2>
             </code>
@@ -843,8 +841,7 @@ const { register } = useForm<FormInputs>({
               <CodeArea
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-w18sx"
               />
             </TabGroup>
           </section>

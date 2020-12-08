@@ -1,6 +1,6 @@
 export default {
-  lightMode:
-    window.matchMedia &&
-    !window.matchMedia("(prefers-color-scheme: dark)").matches,
+  lightMode: false, // default to dark mode
+  // TODO: inherit mode choice from the user such as below
+  // !window.matchMedia("(prefers-color-scheme: light)").matches
   isFocusOnSearch: false,
 }

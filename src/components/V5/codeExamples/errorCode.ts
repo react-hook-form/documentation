@@ -15,10 +15,8 @@ export default function App() {
         name="multipleErrorInput"
         ref={register({ required: true, maxLength: 50 })}
       />
-      {errors.multipleErrorInput?.type === "required" &&
-        "Your input is required"}
-      {errors.multipleErrorInput?.type === "maxLength" &&
-        "Your input exceed maxLength"}
+      {errors.multipleErrorInput?.type === "required" && "Your input is required"}
+      {errors.multipleErrorInput?.type === "maxLength" && "Your input exceed maxLength"}
 
       {/* register with validation */}
       <input type="number" name="numberInput" ref={register({ min: 50 })} />

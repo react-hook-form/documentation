@@ -17,7 +17,6 @@ export default function App() {
       <input name="firstName" ref={register({ required: true })} />
       <input name="lastName" ref={register} />
       <input type="reset" /> // standard reset button
-      <input type="button" onClick={reset} />
       <input type="button" onClick={() => reset({ firstName: "bill" }); }} /> // reset form with values
       <input type="button" onClick={() => {
         reset({

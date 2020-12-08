@@ -43,8 +43,8 @@ export default {
           Antd
         </a>{" "}
         Besides, with React Hook Form the re-rendering of controlled component
-        is also optimized. Here is an example that combines controlled and
-        uncontrolled form validation.
+        is also optimized. Here is an example that combines them both with
+        validation.
       </p>
     ),
   },
@@ -458,11 +458,6 @@ export default {
           </a>
           .
         </p>
-
-        <CodeArea
-          rawData={virtualizedList}
-          url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
-        />
       </>
     ),
   },

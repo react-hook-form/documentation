@@ -100,7 +100,7 @@ export default {
     description: (
       <>
         Integrating an existing form is simple. The important step is to apply{" "}
-        <code>register</code> into the existing component's <code>ref</code>.
+        <code>register</code> into the component's <code>ref</code>.
       </>
     ),
   },
@@ -138,11 +138,7 @@ export default {
           . To make this simple, we provide a wrapper component:{" "}
           <Link to="/api#Controller">Controller</Link> to streamline the
           integration process while still giving you the freedom to use a custom
-          register as needed.
-        </p>
-        <p>
-          Read more about the <Link to="/api#Controller">Controller</Link>{" "}
-          component.
+          register.
         </p>
       </>
     ),

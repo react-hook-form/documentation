@@ -893,8 +893,8 @@ export default {
     description: (
       <>
         <p>
-          Una vez que el formulario es envuelto con <code>FormContext</code>, la{" "}
-          <code className={typographyStyles.typeText}>function</code>{" "}
+          Una vez que el formulario es envuelto con <code>FormProvider</code>,
+          la <code className={typographyStyles.typeText}>function</code>{" "}
           <code>useFormContext</code>
           puede ser invocada desde sus componentes hijos.
         </p>
@@ -950,7 +950,7 @@ export default {
           para rendericación de mensajes o errores.
           <p>
             <b className={typographyStyles.note}>Nota:</b> Necesitas usar{" "}
-            validateCriteriaMode para 'all' para usar <code>messages</code>.
+            criteriaMode para 'all' para usar <code>messages</code>.
           </p>
         </>
       ),

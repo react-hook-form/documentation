@@ -48,6 +48,8 @@ function Form({
     state: { formData },
   } = useStateMachine()
 
+  console.log(errors)
+
   return (
     <>
       {!devTool && (

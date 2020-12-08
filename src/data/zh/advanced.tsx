@@ -415,11 +415,6 @@ export default {
           </a>
           .
         </p>
-
-        <CodeArea
-          rawData={virtualizedList}
-          url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
-        />
       </>
     ),
   },

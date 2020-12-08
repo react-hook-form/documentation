@@ -3,8 +3,8 @@ import colors from "../styles/colors"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import { Animate } from "react-simple-animate"
-import typographyStyles from "../styles/typography.module.css"
 import styles from "./SideMenu.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 const activateStyle = { borderBottom: `1px solid ${colors.lightPink}` }
 

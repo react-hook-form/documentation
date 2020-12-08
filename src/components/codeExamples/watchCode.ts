@@ -12,18 +12,11 @@ function App() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="text"
-          name="name"
-          ref={register({ required: true, maxLength: 50 })}
-        />
         <input type="checkbox" name="showAge" ref={register} />
+        
         {/* based on yes selection to display Age Input*/}
-        {watchShowAge && (
-          <>
-            <input type="number" name="age" ref={register({ min: 50 })} />
-          </>
-        )}
+        {watchShowAge && <input type="number" name="age" ref={register({ min: 50 })} />}
+        
         <input type="submit" />
       </form>
     </>

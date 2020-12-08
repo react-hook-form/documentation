@@ -453,11 +453,6 @@ export default {
           </a>{" "}
           を使用した例を示します。
         </p>
-
-        <CodeArea
-          rawData={virtualizedList}
-          url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
-        />
       </>
     ),
   },

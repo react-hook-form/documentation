@@ -36,7 +36,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     SubmitHandlerRef: null,
     ControlRef: null,
     UseFormMethodsRef: null,
-    ValidationRulesRef: null,
+    RegisterOptionsRef: null,
     UseFormOptionsRef: null,
     UseFieldArrayOptionsRef: null,
     FieldErrorRef: null,
@@ -522,7 +522,7 @@ export default function App() {
   ref: Ref;
   mutationWatcher?: MutationWatcher;
   options?: RadioOrCheckboxOption[];
-} & ValidationRules;
+} & RegisterOptions;
 `}
             />
           </section>
@@ -587,7 +587,7 @@ export default function App() {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.ValidationRulesRef = ref)}
+            ref={(ref) => (tsSectionsRef.current.RegisterOptionsRef = ref)}
             id="ValidationRulesRef"
           >
             <code className={typographyStyles.codeHeading}>
@@ -596,7 +596,7 @@ export default function App() {
             {TS[currentLanguage].validationRules.description}
 
             <CodeArea
-              rawData={`export type ValidationRules = Partial<{
+              rawData={`export type RegisterOptions = Partial<{
   required: Message | ValidationRule<boolean>;
   min: ValidationRule<number | string>;
   max: ValidationRule<number | string>;

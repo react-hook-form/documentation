@@ -91,7 +91,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     state,
     state: { language },
   } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -732,7 +731,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, validateRule?) => void`}</span>
+                >{`(Ref, RegisterOptions?) => void`}</span>
                 <Popup message="React Native: Custom register or using Controller" />
               </h2>
             </code>

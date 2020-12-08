@@ -6,7 +6,9 @@ type FormInputs = {
 };
 
 const App = () => {
-  const { register, handleSubmit, setError, errors } = useForm<FormInputs>();
+  const { register, handleSubmit, setError, errors } = useForm<FormInputs>({
+    criteriaMode: 'all',
+  });
   
   const onSubmit = (data: FormInputs) => console.log(data);
 

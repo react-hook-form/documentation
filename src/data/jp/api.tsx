@@ -925,7 +925,7 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          フォームが <code>FormContext</code> でラップされると、
+          フォームが <code>FormProvider</code> でラップされると、
           ラップされた子コンポーネントで <code>useFormContext</code> を使用して{" "}
           <code className={typographyStyles.typeText}>function</code>{" "}
           を呼び出すことができます。
@@ -983,7 +983,7 @@ validate: (value) => value === getValues('firstName');"
           です。
           <p>
             <b className={typographyStyles.note}>注意:</b> <code>messages</code>{" "}
-            を使用するためには、 validateCriteriaMode を 'all'
+            を使用するためには、 criteriaMode を 'all'
             に設定する必要があります。
           </p>
         </>
