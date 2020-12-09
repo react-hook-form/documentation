@@ -58,6 +58,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
     question14: null,
     question15: null,
     question16: null,
+    question17: null,
   })
 
   const goToSection = (name) => {
@@ -411,6 +412,18 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
           </h2>
 
           {faq.questions[16].description}
+
+          <hr />
+
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (sectionsRef.current.question17 = ref)}
+            id="question16"
+          >
+            {faq.questions[17].title}
+          </h2>
+
+          {faq.questions[17].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

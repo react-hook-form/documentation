@@ -578,5 +578,28 @@ export default {
         </>
       ),
     },
+    {
+      title: "Aviso de componente não montado?",
+      description: (
+        <>
+          <p>
+            Executar a função de submissão de assimetria enquanto{" "}
+            <code>useFormulário</code> obtém não montado resultará no seguinte
+            aviso de Reagir em <b>dev build</b>.
+          </p>
+          <blockquote>
+            Não é possível realizar uma atualização do estado Reage em um
+            componente não montado.
+          </blockquote>
+          <p>
+            Este não é o mesmo caso na construção de produtos, tal comportamento
+            é feito de modo que nós são compatíveis com o Reage fast refresh.
+            Inputs' <code>ref</code> não será executado novamente durante a
+            atualização rápida, por isso temos desativou a verificação do gancho
+            de desmontagem apenas no dev.
+          </p>
+        </>
+      ),
+    },
   ],
 }
