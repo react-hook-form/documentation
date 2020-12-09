@@ -1345,7 +1345,7 @@ React.useEffect(() => {
 
               <li>
                 <p>
-                  For Typescript user, if you are using custom component with
+                  For TypeScript user, if you are using custom component with
                   required fields: <code>onChange</code>, <code>onBlur</code>,{" "}
                   <code>value</code>, It will complain about missing declared
                   field. Please use <code>render</code> instead of{" "}

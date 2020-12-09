@@ -234,7 +234,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form是使用<code>Typescript</code>
+        React Hook Form是使用<code>TypeScript</code>
         构建的，因此你可以定义一个<code>FormData</code>类型 来表达表单值。
       </p>
     ),

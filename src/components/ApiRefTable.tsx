@@ -429,6 +429,10 @@ export default function ApiRefTable({
                   Returns a Number normally. If something goes wrong{" "}
                   <code>NaN</code> will be returned.
                 </p>
+                <p>
+                  <b className={typographyStyles.note}>Note</b>:{" "}
+                  <code>valueAs</code> process is happening after validation.
+                </p>
               </td>
               <td>
                 <CodeArea
@@ -458,6 +462,10 @@ export default function ApiRefTable({
                   Returns a Date normally. If something goes wrong{" "}
                   <code>null</code> will be returned.
                 </p>
+                <p>
+                  <b className={typographyStyles.note}>Note</b>:{" "}
+                  <code>valueAs</code> process is happening after validation.
+                </p>
               </td>
               <td>
                 <CodeArea
@@ -486,6 +494,10 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>Return input value by running through the function.</p>
+                <p>
+                  <b className={typographyStyles.note}>Note</b>:{" "}
+                  <code>valueAs</code> process is happening after validation.
+                </p>
               </td>
               <td>
                 <CodeArea
