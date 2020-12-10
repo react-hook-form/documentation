@@ -76,14 +76,29 @@ export default {
         </p>
 
         <p>List of validation rules supported:</p>
+
         <ul>
-          <li>required</li>
-          <li>min</li>
-          <li>max</li>
-          <li>minLength</li>
-          <li>maxLength</li>
-          <li>pattern</li>
-          <li>validate</li>
+          <li>
+            <p>required</p>
+          </li>
+          <li>
+            <p>min</p>
+          </li>
+          <li>
+            <p>max</p>
+          </li>
+          <li>
+            <p>minLength</p>
+          </li>
+          <li>
+            <p>maxLength</p>
+          </li>
+          <li>
+            <p>pattern</p>
+          </li>
+          <li>
+            <p>validate</p>
+          </li>
         </ul>
         <p>
           You can read more detail on each rule in the{" "}
