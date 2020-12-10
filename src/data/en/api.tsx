@@ -1729,6 +1729,11 @@ React.useEffect(() => {
           create reusable Controlled input, while <code>Controller</code> is the
           flexible option to drop into your page or form.
         </p>
+        <p>
+          Please refer <code>Controller</code> section for this hook's
+          arguments. It share the same arguments except <code>as</code> and{" "}
+          <code>render</code>.
+        </p>
       </>
     ),
   },
