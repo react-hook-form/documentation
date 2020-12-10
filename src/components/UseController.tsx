@@ -40,7 +40,7 @@ export default function UseController({
           </tr>
           <tr>
             <td>
-              <code>input</code>
+              <code>field</code>
             </td>
             <td>
               <code>onChange</code>

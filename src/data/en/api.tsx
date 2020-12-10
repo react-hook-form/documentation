@@ -1299,7 +1299,7 @@ React.useEffect(() => {
   name="test"
   render={(
     { onChange, onBlur, value, name, ref },
-    { state: { invalid, isTouched, isDirty } }
+    { invalid, isTouched, isDirty }
   ) => (
     <Checkbox
       onBlur={onBlur}
