@@ -1335,10 +1335,16 @@ React.useEffect(() => {
     description: (
       <>
         <p>
-          This custom hook is what powers <code>Controller</code>, and shares
-          the same props and methods as <code>Controller</code>. It's useful to
-          create reusable Controlled input, while <code>Controller</code> is the
-          flexible option to drop into your page or form.
+          Este gancho personalizado é o que potencia <code>Controller</code>, e
+          compartilha os mesmos adereços e métodos que <code>Controller</code>.
+          É útil para criar entrada controlável reutilizável, enquanto{" "}
+          <code>Controller</code> é o opção flexível para cair em sua página ou
+          formulário.
+        </p>
+        <p>
+          Favor consultar a seção <code>Controller</code> para este gancho
+          argumentos. Ele compartilha os mesmos argumentos, exceto{" "}
+          <code>como</code> e <code>rendas</code>.
         </p>
       </>
     ),

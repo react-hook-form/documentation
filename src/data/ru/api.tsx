@@ -1377,10 +1377,17 @@ validate: (value) => value === getValues('firstName');"
     description: (
       <>
         <p>
-          This custom hook is what powers <code>Controller</code>, and shares
-          the same props and methods as <code>Controller</code>. It's useful to
-          create reusable Controlled input, while <code>Controller</code> is the
-          flexible option to drop into your page or form.
+          Этот пользовательский крючок является то, что полномочия{" "}
+          <code>Controller</code>, и акции те же реквизиты и методы, что и{" "}
+          <code>Controller</code>. Полезно создать многократно используемый
+          управляемый вход, в то время как <code>Controller</code> - это гибкая
+          опция, позволяющая перейти на вашу страницу или форму.
+        </p>
+        <p>
+          Пожалуйста, обратитесь к разделу <code>Controller</code> для этого
+          крючка аргументы. Он разделяет одни и те же аргументы, за исключением{" "}
+          <code>as</code> и ".
+          <code>рендеры</code>.
         </p>
       </>
     ),

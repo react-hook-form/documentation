@@ -1731,8 +1731,8 @@ React.useEffect(() => {
         </p>
         <p>
           Please refer <code>Controller</code> section for this hook's
-          arguments. It share the same arguments except <code>as</code> and{" "}
-          <code>render</code>.
+          arguments. It shares the same arguments except <code>as</code> and{" "}
+          <code>renders</code>.
         </p>
       </>
     ),

@@ -1325,10 +1325,15 @@ React.useEffect(() => {
     description: (
       <>
         <p>
-          This custom hook is what powers <code>Controller</code>, and shares
-          the same props and methods as <code>Controller</code>. It's useful to
-          create reusable Controlled input, while <code>Controller</code> is the
-          flexible option to drop into your page or form.
+          이 커스텀 후크는 <code> Controller </code>를 구동하고
+          <code> Controller </code>와 동일한 props 및 method. 유용합니다 재사용
+          가능한 제어 입력을 생성하고, <code> Controller </code>는 페이지 또는
+          양식에 드롭 할 수있는 유연한 옵션입니다.
+        </p>
+        <p>
+          이 후크에 대해서는 <code> Controller </code> 섹션을 참조하십시오.
+          인수. <code> as </code> 및를 제외하고 동일한 인수를 공유합니다.
+          <code> 렌더링 </code>.
         </p>
       </>
     ),
