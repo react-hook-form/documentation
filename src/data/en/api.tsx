@@ -744,9 +744,20 @@ export default {
             <p>
               When invoking <code>{`reset({ value })`}</code> without supply{" "}
               <code>defaultValues</code> at <code>useForm</code>, hook form will
-              replace <code>defaultValues</code> with <code>value</code> object
-              which you have supplied.
+              replace <code>defaultValues</code> with shallow clone{" "}
+              <code>value</code> object which you have supplied (not deepClone).
             </p>
+            <CodeArea
+              rawData={`// ❌ avoid the following with deep nested default values
+const defaultValues = { object: { deepNest: { file: new File() } } };
+useForm({ defaultValues });
+reset(defaultValues); // share the same reference
+
+// ✅ it's safer with the following, as we only doing shallow clone with defaultValues
+useForm({ deepNest: { file: new File() } });
+reset({ deepNest: { file: new File() } });
+`}
+            />
           </li>
           <li>
             <p>
