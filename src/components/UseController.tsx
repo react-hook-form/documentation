@@ -1,14 +1,10 @@
 import * as React from "react"
 import CodeArea from "./CodeArea"
-import controller from "./codeExamples/controller"
-import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../data/generic"
-import TabGroup from "./TabGroup"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import controllerTs from "./codeExamples/controllerTs"
-import VideoList from "./VideoList"
 import useController from "./codeExamples/useController"
+import useControllerTs from "./codeExamples/useControllerTs"
+import tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 export default function UseController({
   api,
@@ -144,7 +140,9 @@ export default function UseController({
 
       <CodeArea
         rawData={useController}
-        url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+        tsRawData={useControllerTs}
+        tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
+        url="https://codesandbox.io/s/fancy-darkness-i0ywh"
       />
     </>
   )
