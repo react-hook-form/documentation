@@ -638,28 +638,28 @@ export default {
         </>
       ),
     },
-    {
-      title: "Unmounted component warning?",
-      description: (
-        <>
-          <p>
-            Execute async submit function while <code>useForm</code> gets
-            unmounted will result in the following warning from React at{" "}
-            <b>dev build</b>.
-          </p>
-
-          <blockquote>
-            Can't perform a React state update on an unmounted component.
-          </blockquote>
-
-          <p>
-            This is not the same case at prod build, such behavior is made so we
-            are compatible with React fast refresh. Inputs' <code>ref</code>{" "}
-            callback will not get executed again during fast refresh, so we have
-            disabled the hook unmount check at dev only.
-          </p>
-        </>
-      ),
-    },
+    // {
+    //   title: "Unmounted component warning?",
+    //   description: (
+    //     <>
+    //       <p>
+    //         Execute async submit function while <code>useForm</code> gets
+    //         unmounted will result in the following warning from React at{" "}
+    //         <b>dev build</b>.
+    //       </p>
+    //
+    //       <blockquote>
+    //         Can't perform a React state update on an unmounted component.
+    //       </blockquote>
+    //
+    //       <p>
+    //         This is not the same case at prod build, such behavior is made so we
+    //         are compatible with React fast refresh. Inputs' <code>ref</code>{" "}
+    //         callback will not get executed again during fast refresh, so we have
+    //         disabled the hook unmount check at dev only.
+    //       </p>
+    //     </>
+    //   ),
+    // },
   ],
 }

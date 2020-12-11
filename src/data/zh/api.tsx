@@ -1379,4 +1379,22 @@ React.useEffect(() => {
       </p>
     ),
   },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          这个自定义的钩子是<code>Controller</code>的动力，并且分享了 和
+          <code>Controller</code>一样的道具和方法。这对于
+          创建可重用的Controller输入，而<code>Controller</code>是
+          灵活的选项，可以放到您的页面或表单中。
+        </p>
+        <p>
+          请参考<code>Controller</code>部分，了解这个钩子的功能。 参数。除了
+          <code>as</code>和 之外，它与其他参数相同。
+          <code>渲染</code>。
+        </p>
+      </>
+    ),
+  },
 }

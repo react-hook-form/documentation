@@ -1351,4 +1351,24 @@ React.useEffect(() => {
       </p>
     ),
   },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          このカスタムフックは <code>Controller</code>{" "}
+          を動かし、共有するものです。
+          <code>Controller</code>
+          と同じプロップスやメソッドを使用しています。これは便利なことに
+          再利用可能なControlled入力を作成し、<code>Controller</code>は
+          ページやフォームにドロップするための柔軟なオプションです。
+        </p>
+        <p>
+          このフックの の引数を共有しています。<code>as</code>と{" "}
+          以外は同じ引数を共有しています。
+          <code>レンダリング</code>。
+        </p>
+      </>
+    ),
+  },
 }

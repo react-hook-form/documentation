@@ -1330,4 +1330,23 @@ React.useEffect(() => {
       </p>
     ),
   },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          Este gancho personalizado é o que potencia <code>Controller</code>, e
+          compartilha os mesmos adereços e métodos que <code>Controller</code>.
+          É útil para criar entrada controlável reutilizável, enquanto{" "}
+          <code>Controller</code> é o opção flexível para cair em sua página ou
+          formulário.
+        </p>
+        <p>
+          Favor consultar a seção <code>Controller</code> para este gancho
+          argumentos. Ele compartilha os mesmos argumentos, exceto{" "}
+          <code>como</code> e <code>rendas</code>.
+        </p>
+      </>
+    ),
+  },
 }

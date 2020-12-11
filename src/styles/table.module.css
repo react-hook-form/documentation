@@ -1,10 +1,10 @@
 .table {
-  margin-top: 20px;
+  margin-top: 15px;
   border-collapse: collapse;
 }
 
 .table td {
-  padding: 10px 20px 10px 0;
+  padding: 6px 15px 6px 0;
   line-height: 1.4;
 }
 

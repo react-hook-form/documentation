@@ -1322,4 +1322,23 @@ export default {
       </p>
     ),
   },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          Este gancho personalizado es lo que impulsa <code>Controller</code>, y
+          comparte los mismos accesorios y métodos que <code>Controller</code>.
+          Es útil para crear una entrada controlada reutilizable, mientras que{" "}
+          <code>Controller</code> es el opción flexible de caer en su página o
+          formulario.
+        </p>
+        <p>
+          Por favor, refiérase a la sección <code>Controller</code> para la
+          sección de este gancho argumentos. Comparte los mismos argumentos,
+          excepto <code>as</code> y <code>rendimientos</code>.
+        </p>
+      </>
+    ),
+  },
 }

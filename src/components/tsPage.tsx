@@ -1,12 +1,12 @@
 import * as React from "react"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
 import SideMenu from "./SideMenu"
 import { useStateMachine } from "little-state-machine"
 import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
 import * as TS from "../data/ts"
 import handleSubmitCodeTs from "./codeExamples/handleSubmitCodeTs"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 
 const enLinks = [
   TS.en.nestedValue,
@@ -15,7 +15,10 @@ const enLinks = [
   TS.en.control,
   TS.en.useFormMethodsRef,
   TS.en.useFormOptions,
+  TS.en.useFieldArrayMethods,
   TS.en.useFieldArrayOptions,
+  TS.en.useControllerMethods,
+  TS.en.useControllerOptions,
   TS.en.fieldError,
   TS.en.fieldErrors,
   TS.en.field,
@@ -38,7 +41,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     UseFormMethodsRef: null,
     RegisterOptionsRef: null,
     UseFormOptionsRef: null,
+    UseFieldArrayMethodsRef: null,
     UseFieldArrayOptionsRef: null,
+    UseControllerMethodsRef: null,
+    UseControllerOptionsRef: null,
     FieldErrorRef: null,
     FieldErrorsRef: null,
     FieldRef: null,
@@ -445,6 +451,44 @@ export default function App() {
           <hr />
 
           <section
+            ref={(ref) => (tsSectionsRef.current.UseFieldArrayMethodsRef = ref)}
+            id="UseFieldArrayMethodsRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].useFieldArrayMethods.title}</h2>
+            </code>
+            {TS[currentLanguage].useFieldArrayMethods.description}
+
+            <CodeArea
+              rawData={`export type UseFieldArrayMethods<
+  TFieldArrayValues extends FieldValues = FieldValues,
+  TKeyName extends string = 'id'
+> = {
+  swap: (indexA: number, indexB: number) => void;
+  move: (indexA: number, indexB: number) => void;
+  prepend: (
+    value: Partial<TFieldArrayValues> | Partial<TFieldArrayValues>[],
+    shouldFocus?: boolean,
+  ) => void;
+  append: (
+    value: Partial<TFieldArrayValues> | Partial<TFieldArrayValues>[],
+    shouldFocus?: boolean,
+  ) => void;
+  remove: (index?: number | number[]) => void;
+  insert: (
+    index: number,
+    value: Partial<TFieldArrayValues> | Partial<TFieldArrayValues>[],
+    shouldFocus?: boolean,
+  ) => void;
+  fields: Partial<ArrayField<TFieldArrayValues, TKeyName>>[];
+};
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section
             ref={(ref) => (tsSectionsRef.current.UseFieldArrayOptionsRef = ref)}
             id="UseFieldArrayOptionsRef"
           >
@@ -462,6 +506,53 @@ export default function App() {
   keyName?: TKeyName;
   control?: TControl;
 };`}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.UseControllerMethodsRef = ref)}
+            id="UseControllerMethodsRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
+            </code>
+            {TS[currentLanguage].useFieldArrayOptions.description}
+
+            <CodeArea
+              rawData={`export type UseControllerMethods<
+  TFieldValues extends FieldValues = FieldValues
+> = {
+  field: ControllerRenderProps<TFieldValues>;
+  meta: InputState;
+};
+`}
+            />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.UseControllerOptionsRef = ref)}
+            id="UseControllerOptionsRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
+            </code>
+            {TS[currentLanguage].useFieldArrayOptions.description}
+
+            <CodeArea
+              rawData={`export type UseControllerOptions<
+  TFieldValues extends FieldValues = FieldValues
+> = {
+  name: FieldName<TFieldValues>;
+  rules?: Exclude<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' >;
+  onFocus?: () => void;
+  defaultValue?: unknown;
+  control?: Control<TFieldValues>;
+};
+`}
             />
           </section>
 

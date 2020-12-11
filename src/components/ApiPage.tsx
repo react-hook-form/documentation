@@ -30,6 +30,7 @@ import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import apiEn from "../data/en/api"
 import Controller from "./Controller"
+import UseController from "./UseController"
 import ErrorMessage from "./ErrorMessage"
 import translateLink from "./logic/translateLink"
 import TabGroup from "./TabGroup"
@@ -78,6 +79,7 @@ const enLinks = [
   apiEn.control,
   apiEn.formState,
   apiEn.Controller,
+  apiEn.useController,
   apiEn.ErrorMessage,
   apiEn.useFormContext,
   apiEn.useWatch,
@@ -130,6 +132,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
       size: "1.2KB",
     },
     {
+      ...api.useController,
+      size: "0KB",
+    },
+    {
       ...api.ErrorMessage,
       size: "483B",
     },
@@ -163,6 +169,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     controlRef: null,
     formStateRef: null,
     ControllerRef: null,
+    useControllerRef: null,
     ErrorMessageRef: null,
     useFormContextRef: null,
     useWatchRef: null,
@@ -999,6 +1006,15 @@ const { register } = useForm<FormInputs>({
             id="ControllerRef"
           >
             <Controller currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (apiSectionsRef.current.useControllerRef = ref)}
+            id="useControllerRef"
+          >
+            <UseController currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

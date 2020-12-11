@@ -6,6 +6,9 @@ import generic from "../generic"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
+import controller from "../../components/codeExamples/controller"
+import controllerTs from "../../components/codeExamples/controllerTs"
+import TabGroup from "../../components/TabGroup"
 
 export default {
   title: "API Documentation",
@@ -741,9 +744,20 @@ export default {
             <p>
               When invoking <code>{`reset({ value })`}</code> without supply{" "}
               <code>defaultValues</code> at <code>useForm</code>, hook form will
-              replace <code>defaultValues</code> with <code>value</code> object
-              which you have supplied.
+              replace <code>defaultValues</code> with shallow clone{" "}
+              <code>value</code> object which you have supplied (not deepClone).
             </p>
+            <CodeArea
+              rawData={`// ❌ avoid the following with deep nested default values
+const defaultValues = { object: { deepNest: { file: new File() } } };
+useForm({ defaultValues });
+reset(defaultValues); // share the same reference
+
+// ✅ it's safer with the following, as we only doing shallow clone with defaultValues
+useForm({ deepNest: { file: new File() } });
+reset({ deepNest: { file: new File() } });
+`}
+            />
           </li>
           <li>
             <p>
@@ -1287,15 +1301,30 @@ React.useEffect(() => {
               <code>name</code>, <code>ref</code> and <code>value</code> to the
               child component.
             </p>
-            <p>
-              After version 6.10.0, we have include <code>ref</code> as part of
-              the render props, so you can make your input's focus more
-              accessible for users.
-            </p>
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
-              rawData={`<Controller
+            <TabGroup buttonLabels={["Standard", "With Focus"]}>
+              <CodeArea
+                withOutCopy
+                url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+                rawData={`<Controller
+  control={control}
+  name="test"
+  render={(
+    { onChange, onBlur, value, name, ref },
+    { invalid, isTouched, isDirty }
+  ) => (
+    <Checkbox
+      onBlur={onBlur}
+      onChange={(e) => onChange(e.target.checked)}
+      checked={value}
+      inputRef={ref}
+    />
+  )}
+/>`}
+              />
+              <CodeArea
+                withOutCopy
+                url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
+                rawData={`<Controller
   control={control}
   name="test"
   render={({ onChange, onBlur, value, name, ref }) => (
@@ -1306,9 +1335,9 @@ React.useEffect(() => {
       inputRef={ref}
     />
   )}
-/>
-<Controller render={props => <Input {...props} />} />`}
-            />
+/>`}
+              />
+            </TabGroup>
           </td>
         </tr>
         <tr>
@@ -1697,6 +1726,24 @@ React.useEffect(() => {
           Behaves similarly to the <code>watch</code> API, however, this will
           isolate re-rendering at the component level and potentially result in
           better performance for your application.
+        </p>
+      </>
+    ),
+  },
+  useController: {
+    title: "useController",
+    description: (
+      <>
+        <p>
+          This custom hook is what powers <code>Controller</code>, and shares
+          the same props and methods as <code>Controller</code>. It's useful to
+          create reusable Controlled input, while <code>Controller</code> is the
+          flexible option to drop into your page or form.
+        </p>
+        <p>
+          Please refer <code>Controller</code> section for this hook's
+          arguments. It shares the same arguments except <code>as</code> and{" "}
+          <code>renders</code>.
         </p>
       </>
     ),

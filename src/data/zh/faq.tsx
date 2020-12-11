@@ -567,26 +567,26 @@ export default {
         </>
       ),
     },
-    {
-      title: "未安装的组件警告？",
-      description: (
-        <>
-          <p>
-            在<code>useForm</code>获取时，执行异步提交函数。
-            unmounted将导致React发出以下警告。
-            <b>dev build</b>。
-          </p>
-
-          <blockquote>无法在未安装的组件上执行 React 状态更新。</blockquote>
-
-          <p>
-            在prod构建时，情况就不一样了，这样的行为是为了让我们
-            与React快速刷新兼容。Inputs' <code>ref</code> 。
-            回调在快速刷新时不会再被执行，所以我们有了
-            仅在开发阶段禁用钩子卸载检查。
-          </p>
-        </>
-      ),
-    },
+    // {
+    //   title: "未安装的组件警告？",
+    //   description: (
+    //     <>
+    //       <p>
+    //         在<code>useForm</code>获取时，执行异步提交函数。
+    //         unmounted将导致React发出以下警告。
+    //         <b>dev build</b>。
+    //       </p>
+    //
+    //       <blockquote>无法在未安装的组件上执行 React 状态更新。</blockquote>
+    //
+    //       <p>
+    //         在prod构建时，情况就不一样了，这样的行为是为了让我们
+    //         与React快速刷新兼容。Inputs' <code>ref</code> 。
+    //         回调在快速刷新时不会再被执行，所以我们有了
+    //         仅在开发阶段禁用钩子卸载检查。
+    //       </p>
+    //     </>
+    //   ),
+    // },
   ],
 }
