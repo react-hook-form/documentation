@@ -589,28 +589,28 @@ export default {
         </>
       ),
     },
-    {
-      title: "¿Aviso de componente desmontado?",
-      description: (
-        <>
-          <p>
-            Ejecutar la función de envío de sincronización mientras que{" "}
-            <code>usarForma</code> obtiene sin montar resultará en la siguiente
-            advertencia de React at <b>dev build</b>.
-          </p>
-          <blockquote>
-            No se puede realizar una actualización del estado de Reacción en un
-            componente sin montar.
-          </blockquote>
-          <p>
-            Este no es el mismo caso en la construcción de la picana, tal
-            comportamiento se hace para que son compatibles con la actualización
-            rápida de React. Entradas' <code>ref</code> la llamada de retorno no
-            se ejecutará de nuevo durante el refresco rápido, así que tenemos
-            deshabilitó el control de desmontaje del gancho sólo en Dev.
-          </p>
-        </>
-      ),
-    },
+    // {
+    //   title: "¿Aviso de componente desmontado?",
+    //   description: (
+    //     <>
+    //       <p>
+    //         Ejecutar la función de envío de sincronización mientras que{" "}
+    //         <code>usarForma</code> obtiene sin montar resultará en la siguiente
+    //         advertencia de React at <b>dev build</b>.
+    //       </p>
+    //       <blockquote>
+    //         No se puede realizar una actualización del estado de Reacción en un
+    //         componente sin montar.
+    //       </blockquote>
+    //       <p>
+    //         Este no es el mismo caso en la construcción de la picana, tal
+    //         comportamiento se hace para que son compatibles con la actualización
+    //         rápida de React. Entradas' <code>ref</code> la llamada de retorno no
+    //         se ejecutará de nuevo durante el refresco rápido, así que tenemos
+    //         deshabilitó el control de desmontaje del gancho sólo en Dev.
+    //       </p>
+    //     </>
+    //   ),
+    // },
   ],
 }
