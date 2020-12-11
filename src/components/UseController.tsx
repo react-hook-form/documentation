@@ -20,7 +20,7 @@ export default function UseController({
           useController:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`({ name: string, control: object }) => object`}</span>
+          >{`(arguments: UseControllerProps) => { field: object, meta: object }`}</span>
         </h2>
       </code>
 

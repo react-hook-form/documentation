@@ -80,4 +80,16 @@ export default {
     title: "FormStateProxy",
     description: "",
   },
+  useFieldArrayMethods: {
+    title: "UseFieldArrayMethods",
+    description: "",
+  },
+  useControllerOptions: {
+    title: "UseControllerOptions",
+    description: "",
+  },
+  useControllerMethods: {
+    title: "UseControllerMethods",
+    description: "",
+  },
 }
