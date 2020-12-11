@@ -76,14 +76,29 @@ export default {
         </p>
 
         <p>Lista de regras validações suportadas:</p>
+
         <ul>
-          <li>required</li>
-          <li>min</li>
-          <li>max</li>
-          <li>minLength</li>
-          <li>maxLength</li>
-          <li>pattern</li>
-          <li>validate</li>
+          <li>
+            <p>required</p>
+          </li>
+          <li>
+            <p>min</p>
+          </li>
+          <li>
+            <p>max</p>
+          </li>
+          <li>
+            <p>minLength</p>
+          </li>
+          <li>
+            <p>maxLength</p>
+          </li>
+          <li>
+            <p>pattern</p>
+          </li>
+          <li>
+            <p>validate</p>
+          </li>
         </ul>
         <p>
           Você pode ler mais detalhes em cada uma das regras em{" "}
@@ -228,7 +243,7 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form é construído com <code>Typescript</code>, então você
+        React Hook Form é construído com <code>TypeScript</code>, então você
         pode definir um tipo <code>FormData</code> para suportar os valores do
         formulário.
       </p>

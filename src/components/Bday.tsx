@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 const list = [
   <p key="1">
-    ★ Better <strong>Typescript</strong> Support
+    ★ Better <strong>TypeScript</strong> Support
   </p>,
   <p key="2">
     ★ <strong>Smaller</strong> Package Size
