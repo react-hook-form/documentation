@@ -1,15 +1,16 @@
 export default `import React from "react";
-import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
 
 interface IFormInput {
-  username: string;
+  name: string;
+  age: number;
 }
 
 const schema = Joi.object({
-  username: Joi.string().required()
+  name: Joi.string().required(),
+  age: Joi.number().required()
 });
 
 const App = () => {
@@ -23,8 +24,8 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label>username</label>
-      <input name="username" ref={register} />
+      <input name="name" ref={register} />
+      <input name="age" type="number" ref={register} />
       <input type="submit" />
     </form>
   );
