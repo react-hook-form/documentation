@@ -32,24 +32,6 @@ export default function Controller({
         </h2>
       </code>
 
-      <VideoList
-        play={play}
-        lists={[
-          {
-            title: "How to Use React-Hook-Form With Material UI",
-            url: "https://www.youtube.com/watch?v=PquWexbGcVc",
-          },
-          {
-            title: "React Hook Form - React Forms Episode II",
-            url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
-          },
-          {
-            title: "Using React Hook Form with Ionic React Components",
-            url: "https://www.youtube.com/watch?v=5MsXpmh3Un8",
-          },
-        ]}
-      />
-
       {api.Controller.description}
 
       <div className={tableStyles.tableWrapper}>

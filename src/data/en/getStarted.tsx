@@ -167,20 +167,6 @@ export default {
           component libraries. You can check out the follow videos.
         </p>
 
-        <VideoList
-          lists={[
-            {
-              url: "https://www.youtube.com/watch?v=PquWexbGcVc",
-              title: "How to Use React-Hook-Form With Material UI",
-            },
-            {
-              url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
-              title: "React Hook Form - React Forms Episode II",
-            },
-          ]}
-          play
-        />
-
         <p>
           <b className={typographyStyles.note}>Option 1:</b> The simplest way is
           to check if the component you wish to use exposes a <code>ref</code>{" "}

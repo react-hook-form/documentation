@@ -32,6 +32,9 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import VideoList from "./VideoList"
 import getStarted from "../data/en/getStarted"
+import TabGroup from "./TabGroup"
+import useController from "./codeExamples/useController"
+import useControllerTs from "./codeExamples/useControllerTs"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -299,12 +302,20 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.controlledInput.description}
 
-          <CodeArea
-            rawData={controlledComponent}
-            url="https://codesandbox.io/s/react-hook-form-controller-079xx"
-            tsRawData={controlledComponentTs}
-            tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
-          />
+          <TabGroup buttonLabels={["Component", "hook"]}>
+            <CodeArea
+              rawData={controlledComponent}
+              url="https://codesandbox.io/s/react-hook-form-controller-079xx"
+              tsRawData={controlledComponentTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+            />
+            <CodeArea
+              rawData={useController}
+              tsRawData={useControllerTs}
+              tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
+              url="https://codesandbox.io/s/fancy-darkness-i0ywh"
+            />
+          </TabGroup>
 
           <h2
             className={typographyStyles.title}

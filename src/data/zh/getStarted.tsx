@@ -165,19 +165,6 @@ export default {
         <p>
           React Hook Form 与第三方UI组件库一起使用非常方便。你可以观看下方视频
         </p>
-        <VideoList
-          lists={[
-            {
-              url: "https://www.youtube.com/watch?v=PquWexbGcVc",
-              title: "如何在 Material UI 中使用 React-Hook-Form",
-            },
-            {
-              url: "https://www.youtube.com/watch?v=0nDGeQKLFjo",
-              title: "React Hook Form - React 表单第二章",
-            },
-          ]}
-          play
-        />
 
         <p>
           <b className={typographyStyles.note}>使用方法 1:</b>{" "}

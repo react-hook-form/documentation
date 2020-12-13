@@ -1,6 +1,6 @@
 export default `import React from "react";
 import { TextField } from "@material-ui/core";
-import { useController } from "react-hook-form";
+import { useController, control } from "react-hook-form";
 
 function Input({ control, name }) {
   const {
@@ -14,5 +14,11 @@ function Input({ control, name }) {
   });
 
   return <TextField {...inputProps} inputRef={ref} />;
+}
+
+function App() {
+  const { control } = useForm();
+  
+  return <Input name="firstName" control={control} />;
 }
 `

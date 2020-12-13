@@ -226,40 +226,32 @@ export default function App() {
 export const uiLibraryHookInput = `import React from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import MaterialUIInput from "@material-ui/core/Input";
-import { Input as AntdInput } from "antd";
+import Input from "@material-ui/core/Input";
 
 const App = () => {
   const { control, handleSubmit } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = (data: IFormInput) => {
     console.log(data)
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        as={MaterialUIInput}
         name="firstName"
         control={control}
         defaultValue=""
-      />
-      <Controller
-        as={AntdInput}
-        name="lastName"
-        control={control}
-        defaultValue=""
+        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
       />
       <Controller
         name="iceCreamType"
-        as={Select}
+        control={control}
         options={[
           { value: "chocolate", label: "Chocolate" },
           { value: "strawberry", label: "Strawberry" },
           { value: "vanilla", label: "Vanilla" }
         ]}
-        control={control}
-        rules={{ required: true }}
+        as={Select}
       />
       <input type="submit" />
     </form>
@@ -270,8 +262,7 @@ const App = () => {
 export const uiLibraryHookInputTs = `import React from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import MaterialUIInput from "@material-ui/core/Input";
-import { Input as AntdInput } from "antd";
+import Input from "@material-ui/core/Input";
 
 interface IFormInput {
   firstName: string;
@@ -289,27 +280,20 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        as={MaterialUIInput}
         name="firstName"
         control={control}
         defaultValue=""
-        className="materialUIInput"
-      />
-      <Controller
-        as={AntdInput}
-        name="lastName"
-        control={control}
-        defaultValue=""
+        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
       />
       <Controller
         name="iceCreamType"
-        as={Select}
+        control={control}
         options={[
           { value: "chocolate", label: "Chocolate" },
           { value: "strawberry", label: "Strawberry" },
           { value: "vanilla", label: "Vanilla" }
         ]}
-        control={control}
+        as={Select}
       />
       <input type="submit" />
     </form>
