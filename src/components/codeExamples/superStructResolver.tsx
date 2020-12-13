@@ -15,7 +15,6 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit(d => console.log(d))}>
-      <label>Test</label>
       <input name="name" ref={register} />
       <input name="age" type="number" ref={register} />
       <input type="submit" />
