@@ -1325,16 +1325,16 @@ React.useEffect(() => {
                 withOutCopy
                 url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
                 rawData={`<Controller
-  control={control}
-  name="test"
-  render={({ onChange, onBlur, value, name, ref }) => (
-    <Checkbox
-      onBlur={onBlur}
-      onChange={e => onChange(e.target.checked)}
-      checked={value}
-      inputRef={ref}
+  render={(props) => (
+    <TextField
+      value={props.value}
+      onChange={props.onChange}
+      inputRef={props.ref} // wire up the input ref
     />
   )}
+  name="TextField"
+  control={control}
+  rules={{ required: true }}
 />`}
               />
             </TabGroup>
