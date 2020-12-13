@@ -15,8 +15,12 @@ const App = () => {
     resolver: zodResolver(schema)
   });
 
+  const onSubmit = (data: IFormInput) => {
+    console.log(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit((d) => console.log(d))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input name="name" ref={register} />
       <input name="age" type="number" ref={register} />
       <input type="submit" />

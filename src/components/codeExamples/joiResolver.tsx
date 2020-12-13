@@ -4,7 +4,8 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from "joi";
 
 const schema = Joi.object({
-  username: Joi.string().required()
+  name: Joi.string().required(),
+  age: Joi.string().required(),
 });
 
 const App = () => {
@@ -13,8 +14,7 @@ const App = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit(d => console.log(d))}>
-      <label>Test</label>
+    <form onSubmit={handleSubmit(d => console.log(d)}>
       <input name="name" ref={register} />
       <input name="age" type="number" ref={register} />
       <input type="submit" />
