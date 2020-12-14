@@ -808,6 +808,12 @@ reset({ deepNest: { file: new File() } });
               API returns validation errors)
             </p>
           </li>
+          <li>
+            <p>
+              <code>shouldFocusError</code> doesn't work with input been
+              disabled.
+            </p>
+          </li>
         </ul>
       </>
     ),
