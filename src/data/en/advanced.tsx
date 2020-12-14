@@ -5,7 +5,7 @@ import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFin
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
-import * as CodeExempleSetupReactNative from "../../components/codeExamples/setup.native"
+import CodeExempleSetupReactNative from "../../components/codeExamples/setup.native"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -539,7 +539,7 @@ export default {
           Native, you need to create setup.js , and define <code>window</code>{" "}
           object including the following lines in the setup file for react
           native:
-          <CodeArea rawData={CodeExempleSetupReactNative.default} />
+          <CodeArea rawData={CodeExempleSetupReactNative} />
         </p>
 
         <p>
