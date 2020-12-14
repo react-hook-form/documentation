@@ -168,23 +168,7 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Option 1:</b> The simplest way is
-          to check if the component you wish to use exposes a <code>ref</code>{" "}
-          that can be used to{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>
-          . For example: Material-UI and Reactstrap's <code>TextField</code>{" "}
-          accepts <code>inputRef</code> as one of its props. You can simply pass{" "}
-          <code>register</code> to it.
-        </p>
-        <CodeArea
-          rawData={'<TextField inputRef={register} name="FirstName"/>'}
-        />
-        <p>
-          <b className={typographyStyles.note}>Option 2:</b> Sometimes
+          <b className={typographyStyles.note}>Option 1:</b> Controlled
           components don't expose a prop to register, for example{" "}
           <code>react-select</code> or <code>react-datepicker</code>.
         </p>
@@ -198,6 +182,23 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
           tsRawData={uiLibraryHookInputTs}
           tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+        />
+
+        <p>
+          <b className={typographyStyles.note}>Option 2:</b> Check if the
+          component you wish to use exposes a <code>ref</code> that can be used
+          to{" "}
+          <code>
+            <Link to={translateLink("api#register", currentLanguage)}>
+              register
+            </Link>
+          </code>
+          . For example: Material-UI and Reactstrap's <code>TextField</code>{" "}
+          accepts <code>inputRef</code> as one of its props. You can simply pass{" "}
+          <code>register</code> to it.
+        </p>
+        <CodeArea
+          rawData={'<TextField inputRef={register} name="FirstName"/>'}
         />
         <p>
           <b className={typographyStyles.note}>Option 3:</b> As a last resort,
