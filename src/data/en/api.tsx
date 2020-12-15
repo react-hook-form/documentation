@@ -470,6 +470,17 @@ export default {
 `}
         />
 
+        <CodeArea
+          rawData={`// ❌ formState.isValid is accessed conditionally, 
+// so the Proxy does not subscribe to changes of that state
+return <button disabled={!formState.isDirty || !formState.isValid} />;
+  
+// ✅ read all formState values to subscribe to changes
+const { isDirty, isValid } = formState;
+return <button disabled={isDirty || isValid} />;
+`}
+        />
+
         <p>
           <b className={typographyStyles.note}>Important:</b>{" "}
           <code>formState</code> is wrapped with{" "}
