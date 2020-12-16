@@ -11,6 +11,7 @@ import validationSchemaTs from "./codeExamples/validationSchemaTs"
 import zodResolver from "./codeExamples/zodResolver"
 import zodResolverTs from "./codeExamples/zodResolverTs"
 import typographyStyles from "../styles/typography.module.css"
+import vestResolver from "./codeExamples/vestResolver"
 
 export default function ({ api }) {
   return (
@@ -26,7 +27,9 @@ export default function ({ api }) {
 
       {api.resolver.description}
 
-      <TabGroup buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Custom"]}>
+      <TabGroup
+        buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Vest", "Custom"]}
+      >
         <CodeArea
           rawData={validationSchema}
           tsRawData={validationSchemaTs}
@@ -48,6 +51,10 @@ export default function ({ api }) {
         <CodeArea
           rawData={superStructResolver}
           url="https://codesandbox.io/s/react-hook-form-v6-superstructresolver-ed67i"
+        />
+        <CodeArea
+          rawData={vestResolver}
+          url="https://codesandbox.io/s/vest-k6gbd"
         />
         <CodeArea
           rawData={validationResolver}
