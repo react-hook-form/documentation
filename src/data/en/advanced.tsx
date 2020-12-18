@@ -5,6 +5,7 @@ import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFin
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
 import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
+import CodeExempleSetupReactNative from "../../components/codeExamples/setup.native"
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
@@ -529,24 +530,17 @@ export default {
           </a>
           .
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
-          >
-            setup.js
-          </a>{" "}
-          , and define <code>window</code> object.
-        </p>
-
         <CodeArea
           rawData={'import "@testing-library/jest-dom";'}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
         />
+        <p>
+          <b className={typographyStyles.note}>Note:</b> If you are using React
+          Native, you need to create setup.js , and define <code>window</code>{" "}
+          object including the following lines in the setup file for react
+          native:
+          <CodeArea rawData={CodeExempleSetupReactNative} />
+        </p>
 
         <p>
           Finally, you have to update <code>setup.js</code> in{" "}
