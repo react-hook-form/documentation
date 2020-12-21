@@ -461,6 +461,22 @@ export default {
           optional array.
         </p>
 
+        <p>
+          <b className={typographyStyles.note}>Important:</b>{" "}
+          <code>formState</code> is wrapped with{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance, so make sure you invoke or read it
+          before <code>render</code> in order to enable the state update. This
+          reduced re-render feature only applies to the Web platform due to a
+          lack of support for Proxy in React Native.
+        </p>
+
         <CodeArea
           rawData={`useEffect(() => {
   if (formState.errors.firstName) {
@@ -480,22 +496,6 @@ const { isDirty, isValid } = formState;
 return <button disabled={isDirty || isValid} />;
 `}
         />
-
-        <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
-          <code>formState</code> is wrapped with{" "}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Proxy
-          </a>{" "}
-          to improve render performance, so make sure you invoke or read it
-          before <code>render</code> in order to enable the state update. This
-          reduced re-render feature only applies to the Web platform due to a
-          lack of support for Proxy in React Native.
-        </p>
       </>
     ),
     isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
