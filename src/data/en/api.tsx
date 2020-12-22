@@ -482,7 +482,8 @@ export default {
   if (formState.errors.firstName) {
     // do the your logic here
   }
-}, [formState]); // ❌ formState.errors will not trigger the useEffect        
+}, [formState]); // ✅ 
+// ❌ formState.errors will not trigger the useEffect        
 `}
         />
 
