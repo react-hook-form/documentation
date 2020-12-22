@@ -9,6 +9,8 @@ import tableStyles from "../../styles/table.module.css"
 import controller from "../../components/codeExamples/controller"
 import controllerTs from "../../components/codeExamples/controllerTs"
 import TabGroup from "../../components/TabGroup"
+import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
+import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
 
 export default {
   title: "API Documentation",
@@ -477,15 +479,21 @@ export default {
           lack of support for Proxy in React Native.
         </p>
 
-        <CodeArea
-          rawData={`useEffect(() => {
+        <TabGroup buttonLabels={["snippet", "example"]}>
+          <CodeArea
+            rawData={`useEffect(() => {
   if (formState.errors.firstName) {
     // do the your logic here
   }
 }, [formState]); // ✅ 
 // ❌ formState.errors will not trigger the useEffect        
 `}
-        />
+          />
+          <CodeArea
+            rawData={formStateUseEffect}
+            tsRawData={formStateUseEffectTs}
+          />
+        </TabGroup>
 
         <CodeArea
           rawData={`// ❌ formState.isValid is accessed conditionally, 
