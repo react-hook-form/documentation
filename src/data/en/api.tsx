@@ -1375,6 +1375,11 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> This prop is
+              getting deprecated in the next major version, use{" "}
+              <code>render</code> instead.
+            </p>
             <p style={{ marginTop: 0 }}>
               Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
               and <code>value</code> props into the component.
