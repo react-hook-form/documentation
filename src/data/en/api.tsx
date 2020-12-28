@@ -1758,6 +1758,13 @@ React.useEffect(() => {
           isolate re-rendering at the component level and potentially result in
           better performance for your application.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Note:</b> when{" "}
+          <code>useWatch</code> mounted, it will return{" "}
+          <code>defaultValue</code> or <code>defaultValues</code> from{" "}
+          <code>useForm</code> and then subscribe to the input changes.
+        </p>
       </>
     ),
   },
