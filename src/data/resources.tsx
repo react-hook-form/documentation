@@ -539,6 +539,14 @@ export default {
       description:
         "Di video kita mencoba intergrasi library react hook form dengan register form.",
     },
+    {
+      title: "How to Create and Handle NextJS form with React Hook Form",
+      url: "https://creativedesignsguru.com/how-to-create-and-handle-nextjs-form-with-react-hook-form/",
+      authorUrl: "https://creativedesignsguru.com/blog/",
+      author: "Creative Designs Guru",
+      description:
+        "Creating Next JS forms is a crucial part of an application or a website. A step-by-step tutorial to build a React form with hooks.",
+    },
   ],
   newsletters: [],
 }
