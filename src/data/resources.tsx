@@ -277,6 +277,13 @@ export default {
       author: "がーみ",
       description: "",
     },
+    {
+      title: "How to Create and Handle NextJS form with React Hook Form",
+      url: "https://creativedesignsguru.com/how-to-create-and-handle-nextjs-form-with-react-hook-form/",
+      authorUrl: "https://creativedesignsguru.com/blog/",
+      author: "Creative Designs Guru",
+      description: "",
+    },
   ],
   videos: [
     {
