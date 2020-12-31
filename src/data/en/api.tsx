@@ -562,6 +562,11 @@ return <button disabled={isDirty || isValid} />;
         Set to <code>true</code> if the form doesn't have any errors.
       </>
     ),
+    isValidating: (
+      <>
+        Set to <code>true</code> during validation.
+      </>
+    ),
   },
   errors: {
     title: "errors",
@@ -1757,13 +1762,6 @@ React.useEffect(() => {
           Behaves similarly to the <code>watch</code> API, however, this will
           isolate re-rendering at the component level and potentially result in
           better performance for your application.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> when{" "}
-          <code>useWatch</code> mounted, it will return{" "}
-          <code>defaultValue</code> or <code>defaultValues</code> from{" "}
-          <code>useForm</code> and then subscribe to the input changes.
         </p>
       </>
     ),

@@ -414,6 +414,11 @@ export default {
         에러가 없다면 <code>true</code> 가 됩니다.
       </>
     ),
+    isValidating: (
+      <>
+        유효성 검사 중에 <code> true </code>로 설정합니다.
+      </>
+    ),
   },
   errors: {
     title: "errors",

@@ -379,6 +379,11 @@ export default {
     ),
     submitCount: "Número de formulários submetidos.",
     isValid: "Marcado como verdadeiro se não tiver erro.",
+    isValidating: (
+      <>
+        Ajustar para <código>verdadeiro</código> durante a validação.
+      </>
+    ),
   },
   errors: {
     title: "errors",

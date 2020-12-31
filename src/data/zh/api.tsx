@@ -417,6 +417,11 @@ export default {
         如果没有任何错误，设置为<code>true</code>。
       </>
     ),
+    isValidating: (
+      <>
+        在验证期间设置为<code>true</code>。
+      </>
+    ),
   },
   errors: {
     title: "errors",

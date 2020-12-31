@@ -157,6 +157,15 @@ export default React.memo(
                 </td>
               </tr>
               <tr>
+                <td>
+                  <code>isValidating</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>{api.formState.isValidating}</td>
+              </tr>
+              <tr>
                 <td>errors</td>
                 <td>
                   <code className={typographyStyles.typeText}>object</code>

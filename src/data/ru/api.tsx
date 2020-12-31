@@ -384,6 +384,11 @@ export default {
     ),
     submitCount: "Количество отправлений формы.",
     isValid: "Устанавливается в true, если нет ошибок.",
+    isValidating: (
+      <>
+        Установите значение <code>true</code> во время проверки.
+      </>
+    ),
   },
   errors: {
     title: "errors",

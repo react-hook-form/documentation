@@ -384,6 +384,11 @@ export default {
     ),
     submitCount: "フォームの送信回数。",
     isValid: "エラーがない場合は true に設定します。",
+    isValidating: (
+      <>
+        検証中に<code>true</code>に設定します。
+      </>
+    ),
   },
   errors: {
     title: "errors",
