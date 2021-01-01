@@ -381,7 +381,7 @@ export default {
     isValid: "Marcado como verdadeiro se não tiver erro.",
     isValidating: (
       <>
-        Ajustar para <código>verdadeiro</código> durante a validação.
+        Ajustar para <code>verdadeiro</code> durante a validação.
       </>
     ),
   },
