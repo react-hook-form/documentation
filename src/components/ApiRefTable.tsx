@@ -497,6 +497,9 @@ export default function ApiRefTable({
                 <p>
                   <b className={typographyStyles.note}>Note</b>:{" "}
                   <code>valueAs</code> process is happening after validation.
+                  Also, <code>setValueAs</code> is ignored if either{" "}
+                  <code>valueAsNumber</code> or <code>valueAsDate</code> are{" "}
+                  <code>true</code>.
                 </p>
               </td>
               <td>
