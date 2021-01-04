@@ -1,6 +1,6 @@
 import * as React from "react"
 import colors from "../../../styles/colors"
-import CodeArea from "../../../components/V6/CodeArea"
+import CodeArea from "../../../components/CodeArea"
 import useFieldArrayArgument from "../../../components/V6/codeExamples/useFieldArrayArgument"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"

@@ -1,10 +1,10 @@
 import * as React from "react"
 import generic from "../../data/generic"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
-import TabGroup from "./TabGroup"
+import TabGroup from "../TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 
 export default function UseFieldArray({

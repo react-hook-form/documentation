@@ -1,12 +1,12 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
 import watchCodeTypes from "./codeExamples/watchCodeTypes"
 import generic from "../../data/generic"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
-import TabGroup from "./TabGroup"
+import TabGroup from "../TabGroup"
 import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 
 export default function ApiWatch({

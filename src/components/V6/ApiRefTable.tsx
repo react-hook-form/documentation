@@ -1,6 +1,6 @@
 import * as React from "react"
 import Prism from "prismjs"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import generic from "../../data/generic"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"

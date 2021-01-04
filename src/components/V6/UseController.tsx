@@ -1,5 +1,5 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import generic from "../../data/generic"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"

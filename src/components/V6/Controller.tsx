@@ -1,13 +1,12 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
+import CodeArea from "../CodeArea"
 import controller from "./codeExamples/controller"
 import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../../data/generic"
-import TabGroup from "./TabGroup"
+import TabGroup from "../TabGroup"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
 import controllerTs from "./codeExamples/controllerTs"
-import VideoList from "./VideoList"
 
 export default function Controller({
   currentLanguage,

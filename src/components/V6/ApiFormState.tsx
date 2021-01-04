@@ -1,5 +1,5 @@
 import * as React from "react"
-import CodeArea, { CodeSandBoxLink } from "./CodeArea"
+import CodeArea, { CodeSandBoxLink } from "../CodeArea"
 import generic from "../../data/generic"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
