@@ -516,9 +516,9 @@ export default function App() {
             id="UseControllerMethodsRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
+              <h2>{TS[currentLanguage].useControllerMethods.title}</h2>
             </code>
-            {TS[currentLanguage].useFieldArrayOptions.description}
+            {TS[currentLanguage].useControllerMethods.description}
 
             <CodeArea
               rawData={`export type UseControllerMethods<
@@ -538,9 +538,9 @@ export default function App() {
             id="UseControllerOptionsRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS[currentLanguage].useFieldArrayOptions.title}</h2>
+              <h2>{TS[currentLanguage].useControllerOptions.title}</h2>
             </code>
-            {TS[currentLanguage].useFieldArrayOptions.description}
+            {TS[currentLanguage].useControllerOptions.description}
 
             <CodeArea
               rawData={`export type UseControllerOptions<
