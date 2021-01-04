@@ -1,0 +1,83 @@
+.buttonWrapper {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.button {
+  border: none;
+  color: white;
+  border-radius: 0;
+  font-size: 13px;
+  padding: 0 10px;
+  right: 20px;
+  z-index: 1;
+  top: 10px;
+  display: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 34px;
+  align-items: center;
+  margin: 0 3px;
+}
+
+.codeLink {
+  background: var(--color-light-blue);
+  border: 1px solid transparent;
+}
+
+.button:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .button {
+    display: flex;
+  }
+}
+
+.copyButton {
+  background: none;
+  border: 1px solid transparent;
+  color: currentColor;
+}
+
+.active,
+.copyButton:hover {
+  background: none;
+  border: 1px solid var(--color-secondary);
+  color: white;
+}
+
+.active,
+.copyButton:hover span {
+  background: var(--color-primary);
+}
+
+.linkToSandBox {
+  text-decoration: none;
+  line-height: 2;
+  right: 115px;
+  color: inherit;
+}
+
+.linkToSandBox > svg {
+  display: inline-block;
+  height: 18px;
+  position: relative;
+  margin-right: 8px;
+}
+
+.wrapper pre {
+  line-height: 1.5 !important;
+}
+
+.wrapper pre code {
+  display: none;
+}
+
+.wrapper pre code.showCode {
+  display: block;
+}

@@ -1,0 +1,58 @@
+.footer {
+  padding: 40px 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.lightFooter a {
+  color: var(--color-black);
+}
+
+.footer a:hover {
+  color: var(--color-light-pink);
+  text-decoration: none;
+}
+
+.lightFooter a:hover {
+  color: var(--color-light-pink);
+}
+
+.footer > p {
+  font-size: 13px;
+}
+
+.links {
+  border-bottom: 1px solid var(--color-light-pink);
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 0 0 10px 0;
+  display: block;
+}
+
+.links > li {
+  display: inline-flex;
+}
+
+.links > li > a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 12px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.lightFooter .links > li > a {
+  color: var(--color-black);
+  font-weight: 500;
+}
+
+.lightFooter .links > li > a:hover {
+  color: var(--color-light-pink);
+}

@@ -1,0 +1,295 @@
+.iconGroup {
+  display: flex;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  z-index: 2;
+}
+
+.icon {
+  transition: 0.3s all;
+  z-index: 10;
+  max-width: 50px;
+  min-width: 35px;
+  flex: 1;
+  margin-right: 5px;
+}
+
+.icon svg {
+  height: 28px;
+  fill: white;
+}
+
+.icon svg:hover {
+  opacity: 0.5;
+}
+
+.actionButtonGroup {
+  display: flex;
+  bottom: 0;
+  z-index: 5;
+  left: 0;
+  background: var(--color-blue);
+  box-shadow: 0 0 5px 0 #000;
+  width: 100%;
+  position: fixed;
+  height: 43px;
+}
+
+.actionButtonGroup a {
+  flex: 1;
+  font-size: 0.5rem;
+  border-left: 1px solid var(--color-button-blue);
+  padding: 5px 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  min-width: 40px;
+}
+
+.actionButtonGroup a:nth-child(6),
+.actionButtonGroup a:nth-child(7),
+.actionButtonGroup a:nth-child(8),
+.actionButtonGroup a:nth-child(9),
+.actionButtonGroup a:nth-child(10) {
+  display: none;
+}
+
+.actionButtonGroup a:first-child {
+  border-left: 0;
+}
+
+.actionButtonGroup a:hover {
+  color: var(--color-light-pink);
+}
+
+.actionButtonGroup a > span {
+  display: block;
+  height: 20px;
+}
+
+.gitHubButtonWrap {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 1;
+  display: flex;
+}
+
+.gitHubButtonWrap > span > span {
+  display: flex;
+}
+
+.iconWrapper {
+  height: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.langSelect {
+  min-width: 90px;
+}
+
+.langSelect > select {
+  width: 100%;
+  min-height: 28px;
+  font-size: 16px;
+  display: block;
+  background: none;
+  appearance: none;
+  color: white;
+  border: 1px solid var(--color-light-blue);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.langSelect > select:hover {
+  border: 1px solid var(--color-secondary);
+}
+
+.langSelect > select > option {
+  color: black;
+}
+
+.langSelect:after {
+  content: "▼";
+  font-size: 10px;
+  right: 5px;
+  top: 2px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.lightLangSelect:after {
+  color: white;
+}
+
+.lightActionButtonWrapper {
+  height: 60px;
+  background: var(--color-primary);
+  border-bottom: 3px solid var(--color-light-pink);
+}
+
+.mobileMenu {
+  width: 66.99%;
+  right: 0;
+  left: auto;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .gitHubButtonWrap {
+    right: 10px;
+  }
+
+  .langSelect > select {
+    font-size: 14px;
+  }
+
+  .langSelect:after {
+    right: 8px;
+  }
+
+  .actionButtonGroup a:nth-child(6),
+  .actionButtonGroup a:nth-child(7),
+  .actionButtonGroup a:nth-child(8),
+  .actionButtonGroup a:nth-child(9),
+  .actionButtonGroup a:nth-child(10) {
+    display: block;
+  }
+
+  .actionButtonGroup a:nth-child(12) {
+    display: none;
+  }
+}
+
+@media (min-width: 1040px) {
+  .menuExpandLink {
+    font-size: 0.7rem;
+    position: relative;
+    top: -2px;
+    cursor: default;
+  }
+
+  .menuExpandLink span {
+    transition: 0.4s all;
+  }
+
+  .menuExpandLink:hover span {
+    color: var(--color-light-pink);
+  }
+
+  .lightActionButtonWrapper {
+    height: auto;
+  }
+
+  .iconWrapper {
+    display: none;
+  }
+
+  .iconGroup {
+    left: 20px;
+  }
+
+  .actionButtonGroup a.mobileNav {
+    display: none !important;
+  }
+
+  .actionButtonGroup {
+    z-index: 1;
+    justify-content: space-around;
+    position: inherit;
+    background: none;
+    border: none;
+    margin: 0 auto;
+    background: var(--color-button-blue);
+    height: auto;
+    max-width: 610px;
+    padding: 13px 8px;
+  }
+
+  .darkActionButtonGroup {
+    background: none;
+    box-shadow: none;
+    color: white;
+  }
+
+  .actionButtonGroup a {
+    font-size: 0.7rem;
+    flex: none;
+    border: none;
+    padding: 2px 0;
+  }
+
+  .darkActionButtonGroup a {
+    color: white;
+    font-weight: 500;
+  }
+
+  .tools {
+    height: 29px;
+    display: inline-block;
+  }
+
+  span.tools:focus {
+    outline: none;
+  }
+
+  .tools:focus ~ div .menuExpand,
+  .tools:hover ~ div .menuExpand {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: 0.35s all ease-in;
+  }
+
+  .menuExpand {
+    transition: 0.25s all ease-in;
+    padding: 6px 10px 0;
+    background: var(--color-button-blue);
+    transform: translateY(-80px);
+    opacity: 0;
+    width: max-content;
+    overflow: hidden;
+  }
+
+  .menuExpand:hover {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  .menuExpand a {
+    text-align: left;
+    padding: 2px 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menuExpandLink {
+    font-size: 0.8rem;
+    top: -1px;
+  }
+
+  .gitHubButtonWrap {
+    right: 20px;
+  }
+
+  .actionButtonGroup {
+    max-width: 800px;
+  }
+
+  .actionButtonGroup a:nth-child(8) {
+    display: block;
+  }
+
+  .actionButtonGroup a {
+    font-size: 0.8rem;
+  }
+}

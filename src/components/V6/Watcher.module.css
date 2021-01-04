@@ -1,0 +1,74 @@
+.root {
+  display: none;
+}
+
+.svgWrapper {
+  width: 200px;
+}
+
+.watchGroup {
+  display: flex;
+  height: 50px;
+}
+
+.watchGroup p {
+  margin-top: 5px;
+  padding: 0 0 0 50px;
+  background: none;
+}
+
+.watchGroup input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  margin-top: 8px;
+  margin-left: -60px;
+  height: 20px;
+  background: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  border-radius: 2px;
+}
+
+.watchGroup input[type="checkbox"]:checked {
+  border: 1px solid white;
+  background: white;
+}
+
+.svgWrapper svg {
+  width: 100%;
+}
+
+.svgWrapper svg path {
+  stroke-dasharray: 10;
+  animation: dash 10s linear normal infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 500;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .watcher {
+    display: block;
+  }
+
+  .root {
+    display: grid;
+    margin: 40px auto;
+    max-width: 800px;
+    grid-template-columns: 1fr 1fr 200px;
+  }
+
+  .svgWrapper {
+    display: block;
+    width: 300px;
+  }
+
+  .svgWrapper svg {
+    height: 200px;
+  }
+}
