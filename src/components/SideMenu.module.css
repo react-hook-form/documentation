@@ -38,7 +38,7 @@
     max-width: 230px;
     padding: 0;
     overflow-y: auto;
-    height: calc(100vh - 236px);
+    height: calc(100vh - 218px);
     overflow-y: auto;
   }
 
@@ -111,11 +111,10 @@
 
 @media (min-width: 1024px) {
   .menu {
-    margin-top: -65px;
+    margin-top: -125px;
   }
 
   .menu > div > ul {
-    margin-top: 0;
     max-width: 260px;
   }
 
