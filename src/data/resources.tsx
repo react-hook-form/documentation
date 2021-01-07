@@ -284,6 +284,14 @@ export default {
       author: "Creative Designs Guru",
       description: "",
     },
+    {
+      url:
+        "https://www.akashmittal.com/react-native-forms-using-react-hook-form/",
+      title:
+        "React native forms using react-hook-form - Beginners Guide",
+      author: "Akash Mittal",
+      authorUrl: "https://www.akashmittal.com/author/akamit/",
+    },
   ],
   videos: [
     {
