@@ -4,14 +4,6 @@ export default {
   articles: [
     {
       url:
-        "https://www.akashmittal.com/react-native-forms-using-react-hook-form/",
-      title:
-        "React native forms using react-hook-form - Beginners Guide",
-      author: "Akash Mittal",
-      authorUrl: "https://www.akashmittal.com/author/akamit/",
-    },
-    {
-      url:
         "https://blog.logrocket.com/react-hook-form-vs-formik-a-technical-and-performance-comparison/",
       title:
         "React Hook Form vs. Formik: A technical and performance comparison",
@@ -291,6 +283,14 @@ export default {
       authorUrl: "https://creativedesignsguru.com/blog/",
       author: "Creative Designs Guru",
       description: "",
+    },
+    {
+      url:
+        "https://www.akashmittal.com/react-native-forms-using-react-hook-form/",
+      title:
+        "React native forms using react-hook-form - Beginners Guide",
+      author: "Akash Mittal",
+      authorUrl: "https://www.akashmittal.com/author/akamit/",
     },
   ],
   videos: [
