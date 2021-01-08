@@ -275,6 +275,18 @@ export default {
     shouldUnregister: (
       <>
         <p>
+          <b className={typographyStyles.note}>Important:</b>This prop is
+          getting deprecated in the next major version. Join the{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            discussion
+          </a>
+          .
+        </p>
+        <p>
           By default, when an input is removed, React Hook Form uses{" "}
           <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
           the input(s) that are unmounted. However, you can set{" "}
@@ -1383,7 +1395,15 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Important:</b> This prop is
               getting deprecated in the next major version, use{" "}
-              <code>render</code> instead.
+              <code>render</code> instead. Join the{" "}
+              <a
+                href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                discussion
+              </a>
+              .
             </p>
             <p style={{ marginTop: 0 }}>
               Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
