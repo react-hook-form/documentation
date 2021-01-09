@@ -275,7 +275,7 @@ export default {
     shouldUnregister: (
       <>
         <p>
-          <b className={typographyStyles.note}>Important:</b>This prop is
+          <b className={typographyStyles.note}>Important:</b> This prop is
           getting deprecated in the next major version. Join the{" "}
           <a
             href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
