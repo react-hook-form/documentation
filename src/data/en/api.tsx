@@ -559,7 +559,20 @@ return <button disabled={isDirty || isValid} />;
         <code>true</code> until the <code>reset</code> method is invoked.
       </>
     ),
-    dirtyFields: "An object with the user-modified fields.",
+    dirtyFields: (
+      <>
+        <b className={typographyStyles.note}>Important:</b> This prop is renamed
+        to <code>dirty</code>. Join the{" "}
+        <a
+          href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          discussion
+        </a>
+        . An object with the user-modified fields.
+      </>
+    ),
     touched:
       "An object containing all the inputs the user has interacted with.",
     isSubmitting: (
@@ -584,6 +597,19 @@ return <button disabled={isDirty || isValid} />;
     title: "errors",
     description: () => (
       <>
+        <p>
+          <b className={typographyStyles.note}>Important:</b> This prop is
+          getting deprecated in the next major version and read from{" "}
+          <code>formState</code> instead. Join the{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            discussion
+          </a>
+          .
+        </p>
         <p>
           Object containing form errors and error messages corresponding to each
           field.
