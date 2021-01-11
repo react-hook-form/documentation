@@ -561,16 +561,22 @@ return <button disabled={isDirty || isValid} />;
     ),
     dirtyFields: (
       <>
-        <b className={typographyStyles.note}>Important:</b> This prop is renamed
-        to <code>dirty</code>. Join the{" "}
-        <a
-          href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          discussion
-        </a>
-        . An object with the user-modified fields.
+        <p>
+          <b className={typographyStyles.note}>Important:</b> This prop is
+          renamed to <code>dirty</code>. Join the{" "}
+          <a
+            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            discussion
+          </a>
+          . An object with the user-modified fields.{" "}
+          <p>
+            Make sure to provide all inputs' defaultValues at the useForm, so
+            hook form can compare with the <code>defaultValue</code>.
+          </p>
+        </p>
       </>
     ),
     touched:
