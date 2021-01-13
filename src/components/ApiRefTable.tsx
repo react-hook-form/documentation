@@ -139,13 +139,7 @@ export default function ApiRefTable({
                 <code>required</code>
                 <br />
                 <code className={typographyStyles.typeText}>
-                  {isStandard
-                    ? "boolean"
-                    : `string |
-{
-  value: boolean,
-  message: string | React.ReactElement
-}`}
+                  {`boolean | string | { value: boolean, message: string }`}
                 </code>
               </td>
               <td>{api.register.validation.required}</td>
@@ -407,7 +401,7 @@ export default function ApiRefTable({
         positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
         lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
         // you can do asynchronous validation as well
-        asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
+        asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string
       }`
       }
     })
