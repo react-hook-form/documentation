@@ -292,6 +292,12 @@ export default {
       author: "Akash Mittal",
       authorUrl: "https://www.akashmittal.com/author/akamit/",
     },
+    {
+      url: "https://bilir.me/blog/react-native-form-management-tutorial",
+      title: "React Native Form Management Tutorial - Building a credit card form",
+      author: "Halil Bilir",
+      authorUrl: "https://twitter.com/hbilirr",
+    },
   ],
   videos: [
     {
