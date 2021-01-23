@@ -262,6 +262,11 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             </li>
             <li>
               <p>
+                <code>Array.flat</code>
+              </p>
+            </li>
+            <li>
+              <p>
                 <code>Array.find</code>
               </p>
             </li>
