@@ -966,6 +966,17 @@ clearErrors('test.firstName'); // for clear single input error
           rawData={`setValue('name', 'value', { shouldDirty: true })`}
           withOutCopy
         />
+
+        <p>
+          It's recommended to target field name instead using second argument
+          with nested object.
+        </p>
+
+        <CodeArea
+          rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
+setValue('yourDetails', { firstName: 'value' }); // less performant `}
+          withOutCopy
+        />
       </>
     ),
   },
