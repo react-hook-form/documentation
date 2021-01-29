@@ -294,7 +294,8 @@ export default {
     },
     {
       url: "https://bilir.me/blog/react-native-form-management-tutorial",
-      title: "React Native Form Management Tutorial - Building a credit card form",
+      title:
+        "React Native Form Management Tutorial - Building a credit card form",
       author: "Halil Bilir",
       authorUrl: "https://twitter.com/hbilirr",
     },

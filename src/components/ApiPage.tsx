@@ -278,8 +278,6 @@ function ApiPage({ formData, defaultLang, api }: Props) {
           <div className={styles.versionToggle}>
             <div
               className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}
-              role="tablist"
-              aria-label="Select video"
               style={{
                 marginBottom: 10,
               }}
