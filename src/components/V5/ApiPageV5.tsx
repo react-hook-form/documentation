@@ -1,5 +1,5 @@
 import * as React from "react"
-import ApiRefTable from "../ApiRefTable"
+import ApiRefTable from "../v6/ApiRefTableV6"
 import validationSchemaCode from "../V5/codeExamples/validationSchema"
 import validationSchemaNative from "../V5/codeExamples/validationSchemaNative"
 import CodeArea, { CodeSandBoxLink } from "../CodeArea"

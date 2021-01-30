@@ -1,12 +1,12 @@
 import * as React from "react"
 import Prism from "prismjs"
-import CodeArea from "./CodeArea"
-import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import styles from "./ApiRefTable.module.css"
+import CodeArea from "../CodeArea"
+import generic from "../../data/generic"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import styles from "../ApiRefTable.module.css"
 
-export default function ApiRefTable({
+export default function ApiRefTableV6({
   goToSection,
   api,
   currentLanguage,
@@ -39,7 +39,7 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>register("firstName")</code>
+                <code>name="firstName"</code>
               </td>
               <td>
                 <code>{`{ firstName: 'value'}`}</code>
@@ -47,7 +47,7 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>register("name.firstName")</code>
+                <code>name="name.firstName"</code>
               </td>
               <td>
                 <code>{`{ name: { firstName: 'value' } }`}</code>
@@ -55,7 +55,7 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>register("name.firstName.0")</code>
+                <code>name="name.firstName[0]"</code>
               </td>
               <td>
                 <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
@@ -97,7 +97,7 @@ export default function ApiRefTable({
             <tr>
               <th
                 style={{
-                  minWidth: isStandard ? 140 : 240,
+                  minWidth: isStandard ? 100 : 240,
                 }}
               >
                 {generic.name[currentLanguage]}
@@ -111,7 +111,7 @@ export default function ApiRefTable({
               </th>
               <th
                 style={{
-                  minWidth: 250,
+                  minWidth: 320,
                 }}
               >
                 {generic.codeExample[currentLanguage]}
@@ -130,7 +130,7 @@ export default function ApiRefTable({
                 <CodeArea
                   withOutCopy
                   style={{ marginTop: -10 }}
-                  rawData={`<input {...register("test")} />`}
+                  rawData={`<input name="test" ref={register} />`}
                 />
               </td>
             </tr>
@@ -154,13 +154,16 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  {...register("test", {
-    ${
-      isStandard
-        ? "required: true"
-        : `required: 'error message' // JS only: <p>error message</p> TS only support string`
-    }
-  })}
+  name="test"
+  ref={
+    register({
+      ${
+        isStandard
+          ? "required: true"
+          : `required: 'error message' // JS only: <p>error message</p> TS only support string`
+      }
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-required-w69ts?file=/src/App.jsx"
                 />
@@ -187,7 +190,9 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  {...register("test", {
+  name="test"
+  ref={
+    register({
       ${
         isStandard
           ? "maxLength: 2"
@@ -196,7 +201,8 @@ export default function ApiRefTable({
         message: 'error message' // JS only: <p>error message</p> TS only support string
       }`
       }
-  })}
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-maxlength-ctgiu?file=/src/App.jsx"
                 />
@@ -223,16 +229,19 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  {...register("test", {
-    minLength: ${
-      isStandard
-        ? 1
-        : `{
-      value: 1,
-      message: 'error message' // JS only: <p>error message</p> TS only support string
-    }`
-    }
-  })}
+  name="test"
+  ref={
+    register({
+      minLength: ${
+        isStandard
+          ? 1
+          : `{
+        value: 1,
+        message: 'error message' // JS only: <p>error message</p> TS only support string
+      }`
+      }
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-minlength-0v69v?file=/src/App.jsx"
                 />
@@ -259,17 +268,20 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
+  name="test"
   type="number"
-  {...register('test', {
-    max: ${
-      isStandard
-        ? 3
-        : `{
-      value: 3,
-      message: 'error message' // JS only: <p>error message</p> TS only support string
-    }`
-    }
-  })}
+  ref={
+    register({
+      max: ${
+        isStandard
+          ? 3
+          : `{
+        value: 3,
+        message: 'error message' // JS only: <p>error message</p> TS only support string
+      }`
+      }
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-max-yg19e?file=/src/App.jsx"
                 />
@@ -296,17 +308,20 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
+  name="test"
   type="number"
-  {...register("test", {
-    min: ${
-      isStandard
-        ? 3
-        : `{
-      value: 3,
-      message: 'error message' // JS only: <p>error message</p> TS only support string
-    }`
-    }
-  })}
+  ref={
+    register({
+      min: ${
+        isStandard
+          ? 3
+          : `{
+        value: 3,
+        message: 'error message' // JS only: <p>error message</p> TS only support string
+      }`
+      }
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-min-lxjr7?file=/src/App.jsx"
                 />
@@ -333,16 +348,19 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  {...register("test", {
-    pattern: ${
-      isStandard
-        ? "/[A-Za-z]{3}/"
-        : `{
-      value: /[A-Za-z]{3}/,
-      message: 'error message' // JS only: <p>error message</p> TS only support string
-    }`
-    }
-  })}
+  name="test"
+  ref={
+    register({
+      pattern: ${
+        isStandard
+          ? "/[A-Za-z]{3}/"
+          : `{
+        value: /[A-Za-z]{3}/,
+        message: 'error message' // JS only: <p>error message</p> TS only support string
+      }`
+      }
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-pattern-zgbut?file=/src/App.jsx"
                 />
@@ -362,32 +380,38 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  {...register("test", {
-    validate: ${
-      isStandard
-        ? `value => value === '1'`
-        : `value => value === '1' || 'error message'  // JS only: <p>error message</p> TS only support string`
-    }
-  })}
+  name="test"
+  ref={
+    register({
+      validate: ${
+        isStandard
+          ? `value => value === '1'`
+          : `value => value === '1' || 'error message'  // JS only: <p>error message</p> TS only support string`
+      }
+    })
+  }
 />
 // object of callback functions
 <input
-  {...register("test1", {
-    validate: ${
-      isStandard
-        ? `{
-      positive: value => parseInt(value, 10) > 0,
-      lessThanTen: value => parseInt(value, 10) < 10,
-      asyncValidate: async value => await fetch(url)
-    }`
-        : `{
-      positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
-      lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
-      // you can do asynchronous validation as well
-      asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
-    }`
-    }
-  })}
+  name="test1"
+  ref={
+    register({
+      validate: ${
+        isStandard
+          ? `{
+        positive: value => parseInt(value, 10) > 0,
+        lessThanTen: value => parseInt(value, 10) < 10,
+        asyncValidate: async value => await fetch(url)
+      }`
+          : `{
+        positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
+        lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
+        // you can do asynchronous validation as well
+        asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
+      }`
+      }
+    })
+  }
 />
 `}
                   url="https://codesandbox.io/s/react-hook-form-validation-validate-yytzk?file=/src/App.jsx"
@@ -415,10 +439,13 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
+  name="test"
   type="number"
-  {...register("test", {
-    valueAsNumber: true,
-  })}
+  ref={
+    register({
+      valueAsNumber: true,
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-valueasnumber-8v2t3?file=/src/App.jsx"
                 />
@@ -445,10 +472,13 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
+  name="test"
   type="date"
-  {...register("test", {
-    valueAsDate: true,
-  })}
+  ref={
+    register({
+      valueAsDate: true,
+    })
+  }
 />`}
                   url="https://codesandbox.io/s/react-hook-form-validation-valueasdate-700wc?file=/src/App.jsx"
                 />

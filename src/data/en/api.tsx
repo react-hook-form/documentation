@@ -3,11 +3,10 @@ import colors from "../../styles/colors"
 import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"
+import { Link } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
-import controller from "../../components/codeExamples/controller"
-import controllerTs from "../../components/codeExamples/controllerTs"
 import TabGroup from "../../components/TabGroup"
 import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
@@ -333,19 +332,37 @@ export default {
     description: (
       <>
         <p>
-          This method allows you to register an input/select <code>Ref</code>{" "}
-          and apply validation rules into React Hook Form.
+          This method allows you to register an input/select and apply
+          validation rules into React Hook Form.
         </p>
         <p>
           Validation rules are all based on HTML standard and also allow custom
           validation.
         </p>
+
         <p>
-          <b className={typographyStyles.note}>Important:</b> <code>name</code>{" "}
-          is <b>required</b> and <b>unique</b> (can not start with a number or
-          use number as key name). Input name also supports dot and bracket
-          syntax, which allows you to easily create nested form fields.
+          <b className={typographyStyles.note}>Important</b> rules to follow for
+          name:{" "}
         </p>
+
+        <ul>
+          <li>
+            <p>
+              It is <b>required</b> and <b>unique</b> (except native radio and
+              checkbox). Input name also supports dot and bracket syntax, which
+              allows you to easily create nested form fields.
+            </p>
+          </li>
+          <li>
+            <p>It can not start with a number or use number as key name.</p>
+          </li>
+          <li>
+            <p>
+              To produce array fields, input should followed with dot syntax
+              with number. eg: <code>test.0.data</code>
+            </p>
+          </li>
+        </ul>
       </>
     ),
     fieldArray: (
@@ -356,16 +373,15 @@ export default {
         }}
       >
         If you're working on simple <code>Array Fields</code>, you can assign an
-        input name as <code>name[index]</code>.{" "}
-        <a
+        input name as <code>name.index</code>.{" "}
+        <Link
           className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
+          to="/api/usefieldarray"
           title="example for Field Array"
         >
-          Check out the Field Array example
-        </a>
-        . For more advance usage, make sure to checkout{" "}
-        <code>useFieldArray</code>.
+          Check out <code>useFieldArray</code>
+        </Link>
+        .
       </p>
     ),
     example: "Submit Result",
@@ -380,30 +396,17 @@ export default {
         <>
           <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
-            You can also register inputs manually, which is useful when working
-            with custom components and <code>Ref</code> is not accessible. This
-            is common when you are working with React Native or custom
-            components like{" "}
-            <a
-              href="https://github.com/JedWatson/react-select"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-select
-            </a>
-            . To make this easier, we provide a{" "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("Controller")}
-            >
-              Controller
-            </button>{" "}
+            You can also <code>register</code> inputs at <code>useEffect</code>{" "}
+            and treat them as virtual inputs. For controlled components, we
+            provide a custom hook{" "}
+            <Link to={"/api/usecontroller"}>useController</Link> and{" "}
+            <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
             component to take care this process for you.
           </p>
 
           <p>
-            If you choose to not use <code>Controller</code> and manually
-            register fields, you will need to update the input value with{" "}
+            If you choose to manually register fields, you will need to update
+            the input value with{" "}
             <button
               className={buttonStyles.codeAsLink}
               onClick={() => goToSection("setValue")}
@@ -417,18 +420,6 @@ export default {
             <code
               className={typographyStyles.codeBlock}
             >{`register('firstName', { required: true, min: 8 })`}</code>
-          </p>
-
-          <p>
-            <b className={typographyStyles.note}>Note:</b> If you want the
-            custom registered input to trigger a re-render during its value
-            update, then you should give a type to your registered input.
-          </p>
-
-          <p>
-            <code
-              className={typographyStyles.codeBlock}
-            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
           </p>
 
           <p>

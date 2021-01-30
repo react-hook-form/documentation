@@ -1,5 +1,5 @@
 import * as React from "react"
-import ApiRefTable from "./ApiRefTable"
+import ApiRefTable from "./v6/ApiRefTableV6"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import SideMenu from "./SideMenu"
 import ApiFormState from "./ApiFormState"
