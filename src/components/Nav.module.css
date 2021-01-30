@@ -116,15 +116,6 @@
   color: black;
 }
 
-.langSelect:after {
-  content: "▼";
-  font-size: 10px;
-  right: 5px;
-  top: 2px;
-  position: absolute;
-  pointer-events: none;
-}
-
 .lightLangSelect:after {
   color: white;
 }

@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import colors from "../styles/colors"
 import styles from "./SideMenu.module.css"
 import typographyStyles from "../styles/typography.module.css"
@@ -22,88 +23,84 @@ function Menu({ lightMode }) {
         <ul className="scrollArea">
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useForm</a>
+            <Link to={"/api/useform"}>useForm</Link>
 
             <ul>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">register</a>
+                <Link to={"/api/useform/register"}>register</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">unregister</a>
+                <Link to={"/api/useform/unregister"}>unregister</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">watch</a>
+                <Link to={"/api/useform/watch"}>watch</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">handleSubmit</a>
+                <Link to={"/api/useform/handlesubmit"}>handleSubmit</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">reset</a>
+                <Link to={"/api/useform/reset"}>reset</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">setError</a>
+                <Link to={"/api/useform/seterror"}>setError</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">clearErrors</a>
+                <Link to={"/api/useform/clearerrors"}>clearErrors</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">setValues</a>
+                <Link to={"/api/useform/setvalues"}>setValues</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">getValues</a>
+                <Link to={"/api/useform/getvalues"}>getValues</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">trigger</a>
+                <Link to={"/api/useform/trigger"}>trigger</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">control</a>
+                <Link to={"/api/useform/control"}>control</Link>
               </li>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">formState</a>
+                <Link to={"/api/useform/formstate"}>formState</Link>
               </li>
             </ul>
           </li>
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useController</a>
+            <Link to={"/api/usecontroller"}>useController</Link>
             <ul>
               <li>
                 <code className={styles.code}>{`</>`}</code>{" "}
-                <a href="#">❒ Controller</a>
+                <Link to={"/api/usecontroller/controller"}>Controller</Link>
               </li>
             </ul>
           </li>
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useFormContext</a>
+            <Link to={"/api/useformcontext"}>useFormContext</Link>
           </li>
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useWatch</a>
+            <Link to={"/api/usewatch"}>useWatch</Link>
           </li>
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useFormState</a>
+            <Link to={"/api/useformstate"}>useFormState</Link>
           </li>
           <li className={styles.menuItem}>
             <code className={styles.code}>{`</>`}</code>
-            <a href="#">♆ useFieldArray</a>
-          </li>
-          <li className={styles.menuItem}>
-            <code className={styles.code}>{`</>`}</code>
-            <a href="#">❒ ErrorMessage</a>
+            <Link to={"/api/usefieldarray"}>useFieldArray</Link>
           </li>
         </ul>
       </div>

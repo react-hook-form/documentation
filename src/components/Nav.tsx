@@ -92,6 +92,42 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 {/* eslint-enable jsx-a11y/accessible-emoji */}
               </select>
             </div>
+            <div
+              className={`${styles.langSelect} ${
+                lightMode ? styles.lightLangSelect : ""
+              }`}
+              style={{ marginLeft: 10 }}
+            >
+              <select
+                style={{
+                  width: 30,
+                }}
+                aria-label="Select version"
+                onChange={(e: any) => {
+                  const selectedLanguage = e.target.value
+                  action(e.target.value)
+
+                  let url = location.pathname.substr(1)
+
+                  switch (url) {
+                    case "7":
+                      url = "jp"
+                      break
+                    case "6":
+                      url = "zh"
+                      break
+                    case "5":
+                      url = "kr"
+                      break
+                  }
+                }}
+                value={currentLanguage}
+              >
+                <option value="7">V7</option>
+                <option value="6">V6</option>
+                <option value="5">V5</option>
+              </select>
+            </div>
           </>
         )}
       </div>
