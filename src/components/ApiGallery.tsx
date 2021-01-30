@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useStateMachine } from "little-state-machine"
+import { Link } from "gatsby"
 import Footer from "./Footer"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiGallery.module.css"
@@ -35,7 +36,7 @@ export default function ApiGallery({ defaultLang }) {
                 A powerful custom hook to validate your form with minimal
                 re-render.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/useform">Read More ▸</Link>
             </div>
           </li>
           <li>
@@ -47,7 +48,7 @@ export default function ApiGallery({ defaultLang }) {
                 It is the go-to hook for Controlled components and isolates its
                 re-render.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/usecontroller">Read More ▸</Link>
             </div>
           </li>
           <li>
@@ -59,7 +60,7 @@ export default function ApiGallery({ defaultLang }) {
                 Building large forms and would like to access useForm methods in
                 context.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/useformcontext">Read More ▸</Link>
             </div>
           </li>
           <li>
@@ -71,7 +72,7 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form input change without impacting the
                 root component's render.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/usewatch">Read More ▸</Link>
             </div>
           </li>
           <li>
@@ -83,7 +84,7 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form state update and isolate re-render
                 at the hook level.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/useformstate">Read More ▸</Link>
             </div>
           </li>
           <li>
@@ -95,7 +96,7 @@ export default function ApiGallery({ defaultLang }) {
                 Manage dynamically generate fields on the fly, shuffle, remove
                 and append fields.
               </p>
-              <a href="/api">Read more ▸</a>
+              <Link to="/api/usefieldarray">Read More ▸</Link>
             </div>
           </li>
         </ul>
