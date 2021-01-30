@@ -1,7 +1,7 @@
 import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
-import Register from "../../../components/useForm/Register"
+import Register from "../../../components/useForm/UnRegister"
 
 export default ({ location }: { location: any }) => {
   return (

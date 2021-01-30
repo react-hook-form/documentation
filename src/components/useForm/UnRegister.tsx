@@ -1,18 +1,19 @@
 import * as React from "react"
-import { useStateMachine } from "little-state-machine"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import Popup from "../Popup"
 import api from "../../data/en/api"
-import ApiRefTable from "../ApiRefTable"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
+import CodeArea from "../CodeArea"
+import unregisterCode from "../codeExamples/unregisterCode"
+import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
 
 export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        Register
+        unregister
       </h1>
       <p className={typographyStyles.subHeading}>
         Register uncontrolled/controlled inputs
@@ -22,18 +23,24 @@ export default ({ currentLanguage }) => {
         <Menu />
 
         <main>
-          <section id="registerRef">
+          <section id="unregisterRef">
             <code className={typographyStyles.codeHeading}>
               <h2>
-                register:{" "}
+                unregister:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, RegisterOptions?) => void`}</span>
-                <Popup message="React Native: Custom register or using Controller" />
+                >{`(name: string | string[]) => void`}</span>
               </h2>
             </code>
 
-            <ApiRefTable api={api} currentLanguage={currentLanguage} />
+            {api.unregister.description}
+
+            <CodeArea
+              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
+              rawData={unregisterCode}
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-0ocnw"
+              tsRawData={unregisterCodeTs}
+            />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

@@ -12,7 +12,7 @@ export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        Register
+        register
       </h1>
       <p className={typographyStyles.subHeading}>
         Register uncontrolled/controlled inputs
