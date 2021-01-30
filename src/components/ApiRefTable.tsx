@@ -5,6 +5,8 @@ import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import styles from "./ApiRefTable.module.css"
+import register from "./codeExamples/register"
+import registerTs from "./codeExamples/registerTs"
 
 export default function ApiRefTable({
   goToSection,
@@ -27,6 +29,13 @@ export default function ApiRefTable({
   return (
     <>
       {api.register.description}
+
+      <CodeArea
+        rawData={register}
+        url="https://codesandbox.io/s/react-hook-form-js-wbybv"
+        tsRawData={registerTs}
+        tsUrl="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
+      />
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
