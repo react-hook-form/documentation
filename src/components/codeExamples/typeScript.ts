@@ -15,9 +15,9 @@ export default function App() {
   return (
     <form onSubmit={onSubmit}>
       <label>First Name</label>
-      <input name="firstName" ref={register} />
+      <input {...register("firstName")} />
       <label>Last Name</label>
-      <input name="lastName" ref={register} />
+      <input {...register("lastName")} />
       <button
         type="button"
         onClick={() => {

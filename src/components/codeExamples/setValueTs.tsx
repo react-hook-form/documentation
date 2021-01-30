@@ -13,8 +13,8 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
       <button onClick={() => setValue("firstName", "Bill")}>
         Set First Name Value
       </button>

@@ -13,7 +13,7 @@ const WindowedRow = React.memo(({ index, style, data, setValue }) => {
 
   return (
     <input
-      // Rather than ref={register}, we use defaultValue and setValue
+      // Rather than register, we use defaultValue and setValue
       defaultValue={qty}
       onChange={(e) => {
         setValue(

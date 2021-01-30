@@ -10,14 +10,13 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        name="username"
         onChange={() => {
           setError("username", {
             type: "manual",
             message: "Dont Forget Your Username Should Be Cool!"
           });
         }}
-        ref={register}
+        {...register("username")}
       />
       {errors.username && <p>{errors.username.message}</p>}
       <input type="submit" />

@@ -35,9 +35,8 @@ function App() {
         {fields.map((item, index) => (
           <li key={item.id}>
             <input
-              name={\`names[\${index}].firstName\`}
               defaultValue={\`\${item.firstName}\`}
-              ref={register()}
+              {...register(\`names[\${index}].firstName\`)}
             />
 
             <Controller

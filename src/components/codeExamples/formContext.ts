@@ -17,6 +17,6 @@ export default function App() {
 
 function NestedInput() {
   const { register } = useFormContext(); // retrieve all hook methods
-  return <input name="test" ref={register} />;
+  return <input {...register("test")} />;
 }
 `

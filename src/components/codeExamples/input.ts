@@ -1,7 +1,7 @@
 export default `import React from "react";
 
 export function Input({ register, name, ...rest }) {
-  return <input name={name} ref={register} {...rest} />;
+  return <input {...register(name)} {...rest} />;
 }
 
 export function Select({ register, options, name, ...rest }) {

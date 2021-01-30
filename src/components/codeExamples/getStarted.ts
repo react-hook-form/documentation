@@ -117,7 +117,7 @@ interface IInputProps {
 const Input: React.FC<InputProps> = ({ label, register, required }) => (
   <>
     <label>{label}</label>
-    <input name={label} ref={register({ required })} />
+    <input {...register(label, { required })} />
   </>
 );
 
