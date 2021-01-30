@@ -36,7 +36,9 @@ export default function ApiGallery({ defaultLang }) {
                 A powerful custom hook to validate your form with minimal
                 re-render.
               </p>
-              <Link to="/api/useform">Read More ▸</Link>
+              <Link to="/api/useform" aria-label={"read more about useForm"}>
+                Read More ▸
+              </Link>
             </div>
           </li>
           <li>
@@ -48,7 +50,12 @@ export default function ApiGallery({ defaultLang }) {
                 It is the go-to hook for Controlled components and isolates its
                 re-render.
               </p>
-              <Link to="/api/usecontroller">Read More ▸</Link>
+              <Link
+                to="/api/usecontroller"
+                aria-label={"read more about useController"}
+              >
+                Read More ▸
+              </Link>
             </div>
           </li>
           <li>
@@ -60,7 +67,12 @@ export default function ApiGallery({ defaultLang }) {
                 Building large forms and would like to access useForm methods in
                 context.
               </p>
-              <Link to="/api/useformcontext">Read More ▸</Link>
+              <Link
+                to="/api/useformcontext"
+                aria-label={"read more about useformcontext"}
+              >
+                Read More ▸
+              </Link>
             </div>
           </li>
           <li>
@@ -72,7 +84,9 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form input change without impacting the
                 root component's render.
               </p>
-              <Link to="/api/usewatch">Read More ▸</Link>
+              <Link to="/api/usewatch" aria-label={"read more about usewatch"}>
+                Read More ▸
+              </Link>
             </div>
           </li>
           <li>
@@ -84,7 +98,12 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form state update and isolate re-render
                 at the hook level.
               </p>
-              <Link to="/api/useformstate">Read More ▸</Link>
+              <Link
+                to="/api/useformstate"
+                aria-label={"read more about useformstate"}
+              >
+                Read More ▸
+              </Link>
             </div>
           </li>
           <li>
@@ -96,7 +115,12 @@ export default function ApiGallery({ defaultLang }) {
                 Manage dynamically generate fields on the fly, shuffle, remove
                 and append fields.
               </p>
-              <Link to="/api/usefieldarray">Read More ▸</Link>
+              <Link
+                to="/api/usefieldarray"
+                aria-label={"read more about usefieldarray"}
+              >
+                Read More ▸
+              </Link>
             </div>
           </li>
         </ul>

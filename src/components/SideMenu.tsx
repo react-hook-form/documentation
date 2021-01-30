@@ -97,7 +97,7 @@ function SideMenu({
                   delay={index * 0.01}
                   render={({ style }) => (
                     <li style={style}>
-                      <code className={styles.code}>{`</>`}</code>
+                      <code aria-hidden className={styles.code}>{`</>`}</code>
                       {isStatic ? (
                         <button
                           onClick={() => {
@@ -189,7 +189,7 @@ function SideMenu({
                       )}
                     </span>
                     {link !== "Quick Start" && (
-                      <code className={styles.code}>{`</>`}</code>
+                      <code aria-hidden className={styles.code}>{`</>`}</code>
                     )}{" "}
                     <button
                       style={{
@@ -215,7 +215,7 @@ function SideMenu({
             delay={(links.length + 1) * 0.01}
             render={({ style }) => (
               <li style={style}>
-                <code className={styles.code}>{`</>`}</code>
+                <code aria-hidden className={styles.code}>{`</>`}</code>
                 <a
                   rel="noopener noreferrer"
                   href="https://github.com/react-hook-form/react-hook-form/tree/master/examples"
