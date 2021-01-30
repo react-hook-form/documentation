@@ -7,7 +7,7 @@ export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="TS Support" location={location} />
-      <UseForm />
+      <UseForm currentLanguage="en" />
     </Layout>
   )
 }

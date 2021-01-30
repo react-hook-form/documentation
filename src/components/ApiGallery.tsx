@@ -5,8 +5,6 @@ import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiGallery.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
-import { navigate } from "@reach/router"
-import { getNavLink } from "./Nav"
 
 export default function ApiGallery({ defaultLang }) {
   const {
@@ -26,7 +24,7 @@ export default function ApiGallery({ defaultLang }) {
         React Hook Form's API overview
       </p>
 
-      <div className={styles.root}>
+      <main className={styles.root}>
         <ul className={styles.gallery}>
           <li>
             <div>
@@ -134,7 +132,7 @@ export default function ApiGallery({ defaultLang }) {
             </button>
           </div>
         </div>
-      </div>
+      </main>
 
       <Footer currentLanguage={currentLanguage} />
     </div>

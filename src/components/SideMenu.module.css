@@ -139,3 +139,16 @@
     max-width: 270px;
   }
 }
+
+.menu li.menuItem {
+  display: block;
+}
+
+.menu li.menuItem > ul {
+  padding-left: 30px;
+}
+
+.menu li.menuItem > ul > li {
+  list-style: none;
+  padding-left: 0;
+}

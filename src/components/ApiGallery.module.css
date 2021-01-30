@@ -80,6 +80,10 @@
   padding-right: 20px;
 }
 
+.versionControl > div {
+  display: inline-block;
+}
+
 .versionControl > p {
   font-size: 14px;
   color: var(--color-light-grey);
