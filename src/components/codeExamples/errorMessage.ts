@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="singleErrorInput" ref={register({ required: "This is required." })} />
+      <input {...register("singleErrorInput", { required: "This is required." })} />
       <ErrorMessage errors={errors} name="singleErrorInput" />
       
       <ErrorMessage

@@ -11,8 +11,7 @@ const ChildComponent = ({ index, control, register }) => {
     {fields.map((item, i) => (
       <input
         key={item.id}
-        name={\`nest[$\{index\}].nestedArray[$\{i\}].value\`}
-        ref={control.register()}
+        {...register(\`nest[$\{index\}].nestedArray[$\{i\}].value\`)}
         defaultValue={item.value}
       />
     ))}
@@ -48,8 +47,7 @@ export default () => {
       {fields.map((item, i) => (
         <div key={item.id}>
           <input
-            name={\`nest[$\{i\}].value\`}
-            ref={register()}
+            {...register(\`nest[$\{i\}].value\`)}
             defaultValue={item.value}
           />
           <ChildComponent control={control} register={register} index={i} />

@@ -20,7 +20,7 @@ export default () => {
 
   return (
     <form>
-      <input name="test" ref={register({ required: "This is required." })} />
+      <input {...register("test", { required: "This is required." })} />
       <ErrorMessage errors={errors} name="test" />
     </form>
   );

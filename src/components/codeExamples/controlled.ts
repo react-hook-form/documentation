@@ -11,12 +11,11 @@ function App() {
   const { firstName, lastName } = watch();
 
   useEffect(() => {
-    register({ name: "firstName" });
-    register({ name: "lastName" });
+    register("firstName");
+    register("lastName");
   }, [register]);
 
-  const handleChange = (name, e) => {
-    e.persist();
+  const handleChange = (e, name) => {
     setValue(name, e.target.value);
   };
 
@@ -25,11 +24,11 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        onChange={handleChange.bind(null, "firstName")}
+        onChange={(e) => handleChange(e, "firstName")}
         value={firstName}
       />
 
-      <input onChange={handleChange.bind(null, "lastName")} value={lastName} />
+      <input onChange={(e) => handleChange("lastName", e)} value={lastName} />
       <input type="submit" />
     </form>
   );

@@ -7,7 +7,7 @@ export const step2 = `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App({ login }) {
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const onSubmit = async data => {
     await login(data.email, data.password);
     reset();
@@ -18,8 +18,7 @@ export default function App({ login }) {
       <label htmlFor="email">email</label>
       <input
         id="email"
-        name="email"
-        ref={register({
+        {...register("email", {
           required: "required",
           pattern: {
             value: /\S+@\S+\.\S+/,
@@ -32,8 +31,7 @@ export default function App({ login }) {
       <label htmlFor="password">password</label>
       <input
         id="password"
-        name="password"
-        ref={register({
+        {...register("password", {
           required: "required",
           minLength: {
             value: 5,

@@ -17,16 +17,14 @@ export default function App() {
           <>
             <label htmlFor="firstName">First Name</label>
             <input
-              name={\`firstName[\${index}]\`}
               placeholder="first name"
-              ref={register({ required: true })}
+              {...register(\`firstName[\${index}]\`, { required: true })}
             />
             
             <label htmlFor="lastName">Last Name</label>
             <input
-              name={\`lastName[\${index}]\`}
               placeholder="last name"
-              ref={register({ required: true })}
+              {...register(\`lastName[\${index}]\`, { required: true })}
             />
           </>
         );

@@ -7,12 +7,12 @@ interface FormInputs {
 }
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm<FormInputs>();
+  const { register, formState: { errors }, handleSubmit } = useForm<FormInputs>();
   const onSubmit = (data: FormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="singleErrorInput" ref={register({ required: "This is required." })} />
+      <input {...register("singleErrorInput", { required: "This is required." })} />
       <ErrorMessage errors={errors} name="singleErrorInput" />
       
       <ErrorMessage

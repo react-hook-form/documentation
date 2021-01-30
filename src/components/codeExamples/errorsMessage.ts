@@ -11,8 +11,7 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        name="multipleErrorInput"
-        ref={register({
+        {...register("multipleErrorInput", {
           required: "This is required.",
           pattern: {
             value: /\d+/,

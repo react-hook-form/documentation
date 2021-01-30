@@ -11,13 +11,13 @@ function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
 
       <label>Name:</label>
-      <input ref={register} name="name" />
+      <input {...register("name")} />
 
       <label>Conditional Field:</label>
       {name !== "bill" && (
         <Controller
           name="test" 
-          as={TextField}
+          render={({ field }) => <TextField {...field} />}
           control={control} 
           defaultValue=""
         />

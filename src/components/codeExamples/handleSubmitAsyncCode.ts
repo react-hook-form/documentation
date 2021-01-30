@@ -17,7 +17,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="username">User Name</label>
-      <input name="username" placeholder="Bill" ref={register} />
+      <input placeholder="Bill" {...register("username"} />
 
       <input type="submit" />
     </form>

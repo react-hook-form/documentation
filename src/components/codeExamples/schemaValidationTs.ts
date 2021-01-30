@@ -14,17 +14,17 @@ const schema = yup.object().shape({
 });
 
 export default function App() {
-  const { register, handleSubmit, errors } = useForm<IFormInputs>({
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: yupResolver(schema)
   });
   const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" name="firstName" ref={register} />
+      <input {...register("firstName")} />
       <p>{errors.firstName?.message}</p>
         
-      <input type="text" name="age" ref={register} />
+      <input {...register("age")} />
       <p>{errors.age?.message}</p>
       
       <input type="submit" />

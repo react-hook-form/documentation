@@ -11,7 +11,7 @@ const validationSchema = Joi.object({
 });
 
 const App = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: async data => {
       const { error, value: values } = validationSchema.validate(data, {
         abortEarly: false
@@ -41,7 +41,7 @@ const App = () => {
       
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
-        <input type="text" name="username" ref={register} />
+        <input {...register("username")} />
         {errors.username && <p>errors.username.message</p>}
         <input type="submit" />
       </form>

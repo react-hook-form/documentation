@@ -215,18 +215,12 @@ const { register } = useForm<FormInputs>({
                 <tbody>
                   <tr>
                     <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
+                      <p>
                         <code>
                           context: <br />
                           <span className={styles.mobileTypeText}>object</span>
                         </code>
-                      </h5>
+                      </p>
                     </td>
                     <td>
                       {api.useForm.validateContext}
@@ -238,20 +232,14 @@ const { register } = useForm<FormInputs>({
                   </tr>
                   <tr>
                     <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
+                      <p>
                         <code>
                           criteriaMode <br />
                           <span className={styles.mobileTypeText}>
                             firstError | all
                           </span>
                         </code>
-                      </h5>
+                      </p>
                     </td>
                     <td>
                       {api.useForm.validateCriteriaMode}
@@ -263,20 +251,14 @@ const { register } = useForm<FormInputs>({
                   </tr>
                   <tr>
                     <td>
-                      <h5
-                        className={typographyStyles.h5}
-                        style={{
-                          border: "none",
-                          marginTop: 20,
-                        }}
-                      >
+                      <p>
                         <code>
                           shouldFocusError: <br />
                           <span className={styles.mobileTypeText}>
                             boolean = true
                           </span>
                         </code>
-                      </h5>
+                      </p>
                     </td>
                     <td>{api.useForm.submitFocusError}</td>
                   </tr>

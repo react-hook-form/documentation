@@ -8,7 +8,7 @@ export const ConnectForm = ({ children }) => {
 
 export const DeepNest = () => (
   <ConnectForm>
-    {({ register }) => <input ref={register} name="deepNestedInput" />}
+    {({ register }) => <input {...register("deepNestedInput")} />}
   </ConnectForm>
 );
 

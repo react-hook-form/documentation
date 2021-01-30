@@ -10,16 +10,13 @@ export default function App() {
   const { register, handleSubmit } = useForm<Inputs>();
   const firstNameRef = useRef<HTMLInputElement | null>(null);
   const onSubmit = data => console.log(data);
+  const { ref, ...rest } = register('firstName);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={(e) => {
-        register(e)
+      <input {...rest} name="firstName" ref={(e) => {
+        ref(e)
         firstNameRef.current = e // you can still assign to ref
-      }} />
-      <input name="lastName" ref={(e) => {
-        // register's first argument is ref, and second is validation rules
-        register(e, { required: true })
       }} />
 
       <button>Submit</button>

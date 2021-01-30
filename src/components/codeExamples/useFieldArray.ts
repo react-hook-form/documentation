@@ -16,12 +16,11 @@ function App() {
         {fields.map((item, index) => (
           <li key={item.id}>
             <input
-              name={\`test[\${index}].firstName\`}
-              ref={register()}
+              {...register(\`test[\${index}].firstName\`)}
               defaultValue={item.firstName} // make sure to set up defaultValue
             />
             <Controller
-              as={<input />}
+              render={({ field }) => <input {...field} />}
               name={\`test[\${index}].lastName\`}
               control={control}
               defaultValue={item.lastName} // make sure to set up defaultValue

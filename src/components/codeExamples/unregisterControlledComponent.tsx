@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 const CustomInput = React.memo(({ register, unregister, setValue, name }) => {
   useEffect(() => {
-    register({ name });
+    register(name);
     return () => unregister(name);
   }, [name, register, unregister]);
   
@@ -20,7 +20,7 @@ function App() {
       <h1>Unregister Controlled Component</h1>
 
       <label>Name:</label>
-      <input ref={register} name="name" />
+      <input {...register("name")} />
 
       <label>Conditional Field:</label>
       {name !== "bill" && (

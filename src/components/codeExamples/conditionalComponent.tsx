@@ -24,21 +24,20 @@ export default function App() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="checkbox" name="toggle" ref={register} />
+        <input type="checkbox" {...register('toggle')} />
         {toggle && (
           <button type="button" onClick={() => setShowModal(!showModal)}>
             Show Modal
           </button>
         )}
 
-        <input name="mail" placeholder="mail" ref={register} />
+        <input  placeholder="mail" {...register('mail')} />
 
         <input
-          name="keepValue"
           placeholder="keepValue"
-          ref={register}
+          {...register('keepValue')}
           style={{
-            display: toggle ? "block" : "none" // toggle the visbility of an input
+            display: toggle ? "block" : "none" // toggle the visibility of an input
           }}
         />
 

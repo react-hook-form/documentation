@@ -47,8 +47,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <input type="submit" />
     </form>
   );

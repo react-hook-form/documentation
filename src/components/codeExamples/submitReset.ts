@@ -22,7 +22,7 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="something" ref={register} />
+      <input {...register("something")} />
       <input type="submit" />
     </form>
   );

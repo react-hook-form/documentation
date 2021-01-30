@@ -3,14 +3,13 @@ import { useForm } from "react-hook-form";
 
 const App = () => {
   const { register, errors, handleSubmit, clearErrors } = useForm();
-
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" type="text" ref={register({ required: true })} />
-      <input name="lastName" type="text" ref={register({ required: true })} />
-      <input name="username" type="text" ref={register({ required: true })} />
+      <input {...register('firstName', { required: true })} />
+      <input {...register('lastName', { required: true })} />
+      <input {...register('username', { required: true })} />
       <button type="button" onClick={() => clearErrors("firstName")}>
         Clear First Name Errors
       </button>

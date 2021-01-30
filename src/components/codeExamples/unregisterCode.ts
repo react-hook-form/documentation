@@ -7,8 +7,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" name="firstName" ref={register} />
-      <input type="text" name="lastName" ref={register} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <button type="button" onClick={() => unregister("lastName")}>unregister</button>
       <input type="submit" />
     </form>

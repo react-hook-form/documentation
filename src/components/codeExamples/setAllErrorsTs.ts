@@ -6,28 +6,25 @@ type FormInputs = {
 };
 
 const App = () => {
-  const { register, handleSubmit, setError, errors } = useForm<FormInputs>({
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<FormInputs>({
     criteriaMode: 'all',
   });
   
   const onSubmit = (data: FormInputs) => console.log(data);
+  
+  React.useEffect(() => {
+    setError("lastName", {
+      types: {
+        required: "This is required",
+        minLength: "This is minLength"
+      }
+    });
+  }, [setValue])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Last Name</label>
-      <input
-        name="lastName"
-        type="text"
-        ref={register}
-        onChange={() => {
-          setError("lastName", {
-            types: {
-              required: "This is required",
-              minLength: "This is minLength"
-            }
-          });
-        }}
-      />
+      <input {...register("lastName")} />
       {errors.lastName && errors.lastName.types && (
         <p>{errors.lastName.types.required}</p>
       )}

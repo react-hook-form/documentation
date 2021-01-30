@@ -14,8 +14,8 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        as={
-          <Select>
+        render={
+          ({ field }) => <Select {...field}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
           </Select>
@@ -25,7 +25,7 @@ function App() {
         defaultValue={10}
       />
       
-      <Input inputRef={register} name="input" />
+      <Input {...register("input")} />
 
       <button type="button" onClick={() => reset({ defaultValues })}>Reset</button>
       <input type="submit" />

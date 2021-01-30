@@ -18,7 +18,7 @@ function App() {
       <Controller
         control={control}
         name="ReactDatepicker"
-        render={({ onChange, onBlur, value }) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <ReactDatePicker
             onChange={onChange}
             onBlur={onBlur}

@@ -25,7 +25,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>First Name:</label>
-      <input ref={register} name="firstName" />
+      <input {...register("firstName")} />
       <input type="submit" />
       <FirstNameWatched control={control} />
     </form>

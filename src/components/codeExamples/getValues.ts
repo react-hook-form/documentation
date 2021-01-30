@@ -6,8 +6,8 @@ export default function App() {
 
   return (
     <form>
-      <input name="test" ref={register} />
-      <input name="test1" ref={register} />
+      <input {...register("test")} />
+      <input {...register("test1")} />
 
       <button
         type="button"

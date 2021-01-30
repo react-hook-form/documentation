@@ -10,17 +10,14 @@ export default function App() {
       <label htmlFor="firstName">First name</label>
       <input
         id="firstName"
-        type="text"
         aria-invalid={errors.firstName ? "true" : "false"}
-        name="firstName"
-        ref={register({ required: true })}
+        {...register('firstName', { required: true })}
       />
-      { errors.firstName && (
-          <span role="alert">
-            This field is required
-          </span>
-        )
-      }
+      {errors.firstName && (
+        <span role="alert">
+          This field is required
+        </span>
+      )}
 
       <input type="submit" />
     </form>
