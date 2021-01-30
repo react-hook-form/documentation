@@ -1,13 +1,13 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
-import watchCode from "./codeExamples/watchCode"
-import watchCodeTs from "./codeExamples/watchCodeTs"
-import watchCodeTypes from "./codeExamples/watchCodeTypes"
-import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import TabGroup from "./TabGroup"
-import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
+import CodeArea from "../CodeArea"
+import watchCode from "../codeExamples/watchCode"
+import watchCodeTs from "../codeExamples/watchCodeTs"
+import watchCodeTypes from "../codeExamples/watchCodeTypes"
+import generic from "../../data/generic"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import TabGroup from "../TabGroup"
+import watchFieldArrayCode from "../codeExamples/watchFieldArrayCode"
 
 export default function ApiWatch({
   currentLanguage,
@@ -23,7 +23,15 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[] | (data, options) => void) => unknown`}</span>
+          >{`(names?: string | string[]) => any`}</span>
+          <a
+            className={typographyStyles.videoLink}
+            href="https://www.youtube.com/watch?v=vNrUPktDT7o"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Video
+          </a>
         </h2>
       </code>
 
@@ -101,24 +109,6 @@ export default function ApiWatch({
                 <code>watch()</code>
                 <br />
                 <code>{`watch(undefined, { field: '1' })`}</code>
-              </td>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`(data: unknown, { name: string, type: string }) => void`}</code>
-              </td>
-              <td>{api.watch.tableTitle.all}</td>
-              <td>
-                <code>{`watch((data, { name, type }) => 
-  console.log(data, name, type)
-))`}</code>
               </td>
               <td>
                 <code

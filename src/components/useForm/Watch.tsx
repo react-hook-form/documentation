@@ -4,36 +4,26 @@ import Footer from "../Footer"
 import { Menu } from "../Menu"
 import Popup from "../Popup"
 import api from "../../data/en/api"
-import ApiRefTable from "../ApiRefTable"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
+import ApiWatch from "../ApiWatch"
 
 export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        Register
+        watch
       </h1>
       <p className={typographyStyles.subHeading}>
-        Register uncontrolled/controlled inputs
+        Trigger re-render only watched inputs
       </p>
 
       <div className={containerStyles.wrapper}>
         <Menu />
 
         <main>
-          <section id="registerRef">
-            <code className={typographyStyles.codeHeading}>
-              <h2>
-                register:{" "}
-                <span
-                  className={typographyStyles.typeText}
-                >{`(Ref, RegisterOptions?) => void`}</span>
-                <Popup message="React Native: Custom register or using Controller" />
-              </h2>
-            </code>
-
-            <ApiRefTable api={api} currentLanguage={currentLanguage} />
+          <section>
+            <ApiWatch currentLanguage={currentLanguage} api={api} />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

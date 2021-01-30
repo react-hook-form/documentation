@@ -5,9 +5,11 @@ import Popup from "../Popup"
 import api from "../../data/en/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
+import tableStyles from "../../styles/table.module.css"
 import CodeArea from "../CodeArea"
 import unregisterCode from "../codeExamples/unregisterCode"
 import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
+import generic from "../../data/generic"
 
 export default ({ currentLanguage }) => {
   return (
@@ -16,7 +18,7 @@ export default ({ currentLanguage }) => {
         unregister
       </h1>
       <p className={typographyStyles.subHeading}>
-        Register uncontrolled/controlled inputs
+        unregister uncontrolled/controlled inputs
       </p>
 
       <div className={containerStyles.wrapper}>
@@ -26,14 +28,125 @@ export default ({ currentLanguage }) => {
           <section id="unregisterRef">
             <code className={typographyStyles.codeHeading}>
               <h2>
-                unregister:{" "}
+                unregister:
+                <br />
                 <span
                   className={typographyStyles.typeText}
-                >{`(name: string | string[]) => void`}</span>
+                >{`(name: string | string[], options) => void`}</span>
               </h2>
             </code>
 
             {api.unregister.description}
+
+            <p>
+              It also provide a second optional argument to keep state after
+              unregister an input.
+            </p>
+
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
+                  <tr>
+                    <th>{generic.name[currentLanguage]}</th>
+                    <th>{generic.type[currentLanguage]}</th>
+                    <th>{generic.description[currentLanguage]}</th>
+                    <th>{generic.codeExample[currentLanguage]}</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepDirty</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      <p>
+                        <code>isDirty</code> and <code>dirtyFields</code> will
+                        be remained during this action. However, this is not
+                        going to guarantee the next user input will not update{" "}
+                        <code>isDirty</code> formState, because{" "}
+                        <code>isDirty</code> is measured against the{" "}
+                        <code>defaultValues</code>.
+                      </p>
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepDirty: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepTouched</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      <p>
+                        <code>touchedFields</code> will no longer remove that
+                        input after unregister.
+                      </p>
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepTouched: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepValid</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      <p>
+                        <code>isValid</code> will be remained during this
+                        action. However, this is not going to guarantee the next
+                        user input will not update <code>isValid</code> for
+                        schema validation, you will have to adjust the schema
+                        according with the unregister.
+                      </p>
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepValid: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepErrors</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      <code>errors</code> will not be updated.
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepError: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"

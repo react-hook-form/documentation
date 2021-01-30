@@ -685,26 +685,17 @@ return <button disabled={isDirty || isValid} />;
           </li>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note:</b> when watching{" "}
-              <code>useFieldArray</code>
+              default value will only get returned in the first invoke before{" "}
+              <code>render</code>, the subsequence invocation will always return
+              what's in the inputs.
             </p>
-
-            <ul>
-              <li>
-                <p>
-                  When all inputs removed, it will return{" "}
-                  <code>defaultValues</code>, you can work around this issue by
-                  checking <code>fields.length</code>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Input state live inside each field with uncontrolled form, and
-                  hence it's important to leave <code>defaultValue</code> for
-                  watch API. <code>watch('fieldArray', fields)</code>
-                </p>
-              </li>
-            </ul>
+          </li>
+          <li>
+            <p>
+              This API will trigger re-render at the root of your app or form,
+              consider to use <Link to={"api/usewatch"}>useWatch</Link> api if
+              that's going to be performance issue for you.
+            </p>
           </li>
         </ul>
       </>
