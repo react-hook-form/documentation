@@ -1,10 +1,64 @@
 import * as React from "react"
+import { useStateMachine } from "little-state-machine"
 import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 import colors from "../styles/colors"
 import styles from "./SideMenu.module.css"
 import typographyStyles from "../styles/typography.module.css"
+import { updateCurrentLanguage } from "../actions/languageActions"
 
-function Menu({ lightMode }) {
+const pages = [
+  {
+    pathname: "/api/useform",
+    name: "useForm",
+    pages: [
+      { pathname: "/api/useform/register", name: "register" },
+      { pathname: "/api/useform/unregister", name: "unregister" },
+      { pathname: "/api/useform/watch", name: "watch" },
+      { pathname: "/api/useform/handlesubmit", name: "handleSubmit" },
+      { pathname: "/api/useform/reset", name: "reset" },
+      { pathname: "/api/useform/seterror", name: "setError" },
+      { pathname: "/api/useform/clearerrors", name: "clearErrors" },
+      { pathname: "/api/useform/setvalues", name: "setValues" },
+      { pathname: "/api/useform/getvalues", name: "getValues" },
+      { pathname: "/api/useform/trigger", name: "trigger" },
+      { pathname: "/api/useform/control", name: "control" },
+      { pathname: "/api/useform/formstate", name: "formState" },
+    ],
+  },
+  {
+    pathname: "/api/usecontroller",
+    name: "useController",
+    pages: [
+      {
+        pathname: "/api/usecontroller/controller",
+        name: "Controller",
+      },
+    ],
+  },
+  {
+    pathname: "/api/useformcontext",
+    name: "useFormContext",
+  },
+  {
+    pathname: "/api/usewatch",
+    name: "useWatch",
+  },
+  {
+    pathname: "/api/useformstate",
+    name: "useFormState",
+  },
+  {
+    pathname: "/api/usefieldarray",
+    name: "useFieldArray",
+  },
+]
+
+function Menu() {
+  const { state } = useStateMachine(updateCurrentLanguage)
+  const lightMode = state?.setting?.lightMode
+  const { pathname } = useLocation()
+
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>
@@ -21,87 +75,44 @@ function Menu({ lightMode }) {
         </div>
 
         <ul className="scrollArea">
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/useform"}>useForm</Link>
+          {pages.map((page) => {
+            const isActive = pathname === page.pathname
 
-            <ul>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/register"}>register</Link>
+            return (
+              <li key={page.pathname} className={styles.menuItem}>
+                <code aria-hidden className={styles.code}>{`</>`}</code>
+                <Link
+                  className={isActive && styles.isActive}
+                  to={page.pathname}
+                >
+                  {page.name}
+                </Link>
+
+                {page.pages && (
+                  <ul>
+                    {page.pages.map((page) => {
+                      const isActive = pathname === page.pathname
+
+                      return (
+                        <li key={page.pathname} className={styles.menuItem}>
+                          <code
+                            aria-hidden
+                            className={styles.code}
+                          >{`</>`}</code>{" "}
+                          <Link
+                            className={isActive && styles.isActive}
+                            to={page.pathname}
+                          >
+                            {page.name}
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
               </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/unregister"}>unregister</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/watch"}>watch</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/handlesubmit"}>handleSubmit</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/reset"}>reset</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/seterror"}>setError</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/clearerrors"}>clearErrors</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/setvalues"}>setValues</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/getvalues"}>getValues</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/trigger"}>trigger</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/control"}>control</Link>
-              </li>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/useform/formstate"}>formState</Link>
-              </li>
-            </ul>
-          </li>
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/usecontroller"}>useController</Link>
-            <ul>
-              <li>
-                <code aria-hidden className={styles.code}>{`</>`}</code>{" "}
-                <Link to={"/api/usecontroller/controller"}>Controller</Link>
-              </li>
-            </ul>
-          </li>
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/useformcontext"}>useFormContext</Link>
-          </li>
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/usewatch"}>useWatch</Link>
-          </li>
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/useformstate"}>useFormState</Link>
-          </li>
-          <li className={styles.menuItem}>
-            <code aria-hidden className={styles.code}>{`</>`}</code>
-            <Link to={"/api/usefieldarray"}>useFieldArray</Link>
-          </li>
+            )
+          })}
         </ul>
       </div>
     </aside>

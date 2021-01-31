@@ -169,7 +169,7 @@
 }
 
 .menu li.menuItem > ul > li:last-child:after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0px;
   top: 0;
@@ -179,7 +179,7 @@
 }
 
 .menu li.menuItem > ul > li:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 12px;
   left: 0;
@@ -188,10 +188,19 @@
 }
 
 .menu li.menuItem > ul a {
-  color: white;
+  color: currentColor;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.menu li.menuItem > ul a:hover {
+  border-bottom: 1px solid var(--color-light-pink);
 }
 
 .menu li.menuItem > ul > li {
   list-style: none;
+}
+
+.menu ul li a.isActive {
+  border-bottom: 1px solid var(--color-secondary);
 }
