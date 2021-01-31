@@ -22,9 +22,8 @@ export default function App() {
         reset({
           firstName: "bill"
         }, {
-          keepErrors: true, // errors will not be reset 
-          keepDirtyFields: true, // dirtyFields will not be reset
-          keepIsDirty: true, // dirty will not be reset
+          keepErrors: true, 
+          keepDirty: true,
           keepIsSubmitted: false,
           keepTouched: false,
           keepIsValid: false,

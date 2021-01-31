@@ -1,14 +1,42 @@
 import * as React from "react"
-import CodeArea, { CodeSandBoxLink } from "./CodeArea"
-import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import { Link } from "gatsby"
-import formState from "./codeExamples/formState"
-import formStateTs from "./codeExamples/formStateTs"
+import CodeArea, { CodeSandBoxLink } from "../CodeArea"
+import generic from "../../data/generic"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
+import formState from "../codeExamples/formState"
+import formStateTs from "../codeExamples/formStateTs"
+
+const goToSection = (name, sectionsRef) => {
+  const url = window.location.href
+  const hashIndex = url.indexOf("#")
+  const filterName = name.replace(/ |-/g, "")
+
+  history.pushState(
+    {},
+    null,
+    hashIndex < 0
+      ? `${url}#${filterName}`
+      : `${url.substr(0, hashIndex)}#${filterName}`
+  )
+
+  const refName = `${filterName}Ref`
+
+  if (sectionsRef.current[refName]) {
+    sectionsRef.current[refName].scrollIntoView({ behavior: "smooth" })
+  }
+}
 
 export default React.memo(
-  ({ api, currentLanguage }: { currentLanguage: string; api: any }) => {
+  ({
+    api,
+    currentLanguage,
+    sectionsRef,
+  }: {
+    currentLanguage: string
+    api: any
+    sectionsRef: any
+  }) => {
     return (
       <>
         <code className={typographyStyles.codeHeading}>
@@ -46,7 +74,7 @@ export default React.memo(
               </tr>
               <tr>
                 <td>
-                  <code>touchedFields</code>
+                  <code>touched</code>
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>object</code>
@@ -113,10 +141,18 @@ export default React.memo(
                   <div>{api.formState.isValid}</div>
                   <p>
                     <b className={typographyStyles.note}>Note:</b>{" "}
-                    <code>isValid</code> is affected by <code>mode</code> at{" "}
-                    <Link to={"/api/useform"}>useForm</Link>. This state is only
-                    applicable with <code>onChange</code> and{" "}
-                    <code>onBlur</code> mode.
+                    <code>isValid</code> is affected by{" "}
+                    <code
+                      className={buttonStyles.codeAsLink}
+                      onClick={() => goToSection("useForm", sectionsRef)}
+                      onKeyDown={() => goToSection("useForm", sectionsRef)}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      mode
+                    </code>
+                    . This state is only applicable with <code>onChange</code>{" "}
+                    and <code>onBlur</code> mode.
                   </p>
                 </td>
               </tr>

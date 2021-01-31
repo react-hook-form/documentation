@@ -2,38 +2,66 @@ import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import Popup from "../Popup"
 import api from "../../data/en/api"
-import ApiRefTable from "../ApiRefTable"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
+import TabGroup from "../TabGroup"
+import CodeArea from "../CodeArea"
+import setError from "../codeExamples/setError"
+import setErrorTs from "../codeExamples/setErrorTs"
+import setMultipleErrors from "../codeExamples/setMultipleErrors"
+import setMultipleErrorsTs from "../codeExamples/setMultipleErrorsTs"
+import setAllErrors from "../codeExamples/setAllErrors"
+import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 
 export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        Register
+        setError
       </h1>
-      <p className={typographyStyles.subHeading}>
-        Register uncontrolled/controlled inputs
-      </p>
+      <p className={typographyStyles.subHeading}>Manually set an input error</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />
 
         <main>
-          <section id="registerRef">
+          <section>
             <code className={typographyStyles.codeHeading}>
               <h2>
-                register:{" "}
-                <span
-                  className={typographyStyles.typeText}
-                >{`(Ref, RegisterOptions?) => void`}</span>
-                <Popup message="React Native: Custom register or using Controller" />
+                setError:
+                <span className={typographyStyles.typeText}>
+                  {`(name: string, error: FieldError, { shouldFocus?: boolean }) => void`}
+                </span>
               </h2>
             </code>
+            {api.setError.description}
 
-            <ApiRefTable api={api} currentLanguage={currentLanguage} />
+            <TabGroup
+              buttonLabels={[
+                "Single Error",
+                "Multiple Errors",
+                "Single Field Errors",
+              ]}
+            >
+              <CodeArea
+                rawData={setError}
+                tsRawData={setErrorTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+              />
+              <CodeArea
+                rawData={setMultipleErrors}
+                tsRawData={setMultipleErrorsTs}
+                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+              />
+              <CodeArea
+                rawData={setAllErrors}
+                tsRawData={setAllErrorsTs}
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-w18sx"
+              />
+            </TabGroup>
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

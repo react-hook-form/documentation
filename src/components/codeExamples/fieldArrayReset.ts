@@ -13,24 +13,28 @@ function App() {
     name: "names"
   });
 
-  // it's import to invoke reset after useFieldArray
   useEffect(() => {
-    setTimeout(() => {
-      reset({
-        names: [
-          {
-            firstName: "Bill1",
-            lastName: "Luo1"
-          },
-        ]
-      });
-    }, 1000);
+    reset({
+      names: [
+        {
+          firstName: "Bob",
+          lastName: "Actually"
+        },
+        {
+          firstName: "Jane",
+          lastName: "Actually"
+        }
+      ]
+    });
   }, [reset]);
 
   const onSubmit = (data) => console.log("data", data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Field Array </h1>
+      <p>The following demo allow you to delete, append, prepend items</p>
+      <span className="counter">Render Count: {renderCount}</span>
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
@@ -40,11 +44,14 @@ function App() {
             />
 
             <Controller
-              as={<input />}
+              render={({ field }) => <input {...field} />}
               name={\`names[\${index}].lastName\`}
               control={control}
               defaultValue={item.lastName}
             />
+            <button type="button" onClick={() => remove(index)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
@@ -53,4 +60,8 @@ function App() {
     </form>
   );
 }
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
 `

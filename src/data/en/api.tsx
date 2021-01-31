@@ -476,10 +476,11 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make sure you invoke or read it
-          before <code>render</code> in order to enable the state update. This
-          reduced re-render feature only applies to the Web platform due to a
-          lack of support for Proxy in React Native.
+          to improve render performance and skip extra logic if specific state
+          is not subscribed, so make sure you invoke or read it before{" "}
+          <code>render</code> in order to enable the state update. This reduced
+          re-render feature only applies to the Web platform due to a lack of
+          support for Proxy in React Native.
         </p>
 
         <TabGroup buttonLabels={["snippet", "example"]}>
@@ -743,7 +744,7 @@ return <button disabled={isDirty || isValid} />;
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: {
     title: "reset",
     description: (
       <>
@@ -759,20 +760,9 @@ return <button disabled={isDirty || isValid} />;
               For controlled components like <code>React-Select</code> which do
               not expose a <code>ref</code> prop, you will have to reset the
               input value manually with{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("setValue")}
-              >
-                setValue
-              </button>{" "}
-              or by wrapping your component with{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("Controller")}
-              >
-                Controller
-              </button>
-              .
+              <Link to={"api/useform/api"}>setValue</Link> or hook your
+              component with <Link to={"api/usecontroller"}>useController</Link>{" "}
+              or <Link to={"api/usecontroller/controller"}>Controller</Link>.
             </p>
           </li>
           <li>
@@ -819,9 +809,135 @@ reset({ deepNest: { file: new File() } });
             </p>
           </li>
         </ul>
+
+        <p>
+          <code>Reset</code> have the ability remain formState update, here are
+          the options in detail:{" "}
+        </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th>{generic.type.en}</th>
+                <th>{generic.description.en}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>keepErrors</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    All errors will remain. This will not guarantee with further
+                    user actions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepDirty</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>DirtyFields</code> will remain, and{" "}
+                    <code>isDirty</code> will be temporarily remain as the
+                    current state until further user's action.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepValues</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>Form input values will be unchanged.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepDefaultValues</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    Keep the same defaultValues which is initialised at{" "}
+                    <code>useForm</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepIsSubmitted</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isSubmitted</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepTouched</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isSubmitted</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepIsValid</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isValid</code> will be temporarily remain as the
+                    current state until further user's action.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepSubmitCount</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>submitCount</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
-  }),
+  },
   setError: {
     title: "setError",
     description: (
@@ -873,6 +989,10 @@ reset({ deepNest: { file: new File() } });
     title: "clearErrors",
     description: (
       <>
+        <p>
+          This function can manually clear errors in the form. This will not
+          affect the validation rules attached to each inputs.
+        </p>
         <ul>
           <li>
             <p>
@@ -973,12 +1093,6 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           subscribe to input changes.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important: </b>You shouldn't use
-          this method inside render. This is suitable for reading values in an
-          event handler.
-        </p>
-
         <ul>
           <li>
             <p>
@@ -995,6 +1109,24 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
             <p>
               <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
               <strong>name</strong>.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          <b className={typographyStyles.note}>Important notes: </b>
+        </p>
+        <ul>
+          <li>
+            <p>
+              You shouldn't use this method inside render. This is suitable for
+              reading values in an event handler.
+            </p>
+          </li>
+          <li>
+            <p>
+              It will return <code>defaultValues</code> from{" "}
+              <code>useForm</code> before the <b>initial</b> render.
             </p>
           </li>
         </ul>
@@ -1639,10 +1771,18 @@ React.useEffect(() => {
   control: {
     title: "control",
     description: (
-      <p>
-        This object contains methods for registering components into React Hook
-        Form.
-      </p>
+      <>
+        <p>
+          This object contains methods for registering components into React
+          Hook Form.
+        </p>
+
+        <p>
+          <b className={typographyStyles.note}>Important:</b> do not access any
+          of the property inside this object directly, it's for internal usage
+          only.
+        </p>
+      </>
     ),
   },
   ErrorMessage: {

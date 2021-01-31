@@ -6,16 +6,18 @@ import api from "../../data/en/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
-import clearError from "../codeExamples/clearError"
-import clearErrorTs from "../codeExamples/clearErrorTs"
+import trigger from "../codeExamples/trigger"
+import triggerTs from "../codeExamples/triggerTs"
 
 export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        clearErrors
+        trigger
       </h1>
-      <p className={typographyStyles.subHeading}>Clear form errors</p>
+      <p className={typographyStyles.subHeading}>
+        trigger validation across the form
+      </p>
 
       <div className={containerStyles.wrapper}>
         <Menu />
@@ -24,19 +26,19 @@ export default ({ currentLanguage }) => {
           <section>
             <code className={typographyStyles.codeHeading}>
               <h2>
-                clearErrors:{" "}
+                trigger:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name?: string | string[]) =&gt; void
+                  {`(payload?: string | string[]) => Promise<boolean>`}
                 </span>
               </h2>
             </code>
-            {api.clearError.description}
+            {api.trigger.description}
 
             <CodeArea
-              rawData={clearError}
-              url="https://codesandbox.io/s/react-hook-form-v6-clearerrors-887rh"
-              tsRawData={clearErrorTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-clearerrors-0zry5"
+              rawData={trigger}
+              url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-b6j5h"
+              tsRawData={triggerTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-xj8gk"
             />
           </section>
 

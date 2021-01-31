@@ -6,8 +6,8 @@ import api from "../../data/en/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
-import clearError from "../codeExamples/clearError"
-import clearErrorTs from "../codeExamples/clearErrorTs"
+import control from "../codeExamples/control"
+import controlTs from "../codeExamples/controlTs"
 
 export default ({ currentLanguage }) => {
   return (
@@ -24,19 +24,17 @@ export default ({ currentLanguage }) => {
           <section>
             <code className={typographyStyles.codeHeading}>
               <h2>
-                clearErrors:{" "}
-                <span className={typographyStyles.typeText}>
-                  (name?: string | string[]) =&gt; void
-                </span>
+                control:{" "}
+                <span className={typographyStyles.typeText}>Object</span>
               </h2>
             </code>
-            {api.clearError.description}
+            {api.control.description}
 
             <CodeArea
-              rawData={clearError}
-              url="https://codesandbox.io/s/react-hook-form-v6-clearerrors-887rh"
-              tsRawData={clearErrorTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-clearerrors-0zry5"
+              rawData={control}
+              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              tsRawData={controlTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
             />
           </section>
 
