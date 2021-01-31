@@ -64,7 +64,7 @@ interface Props {
 
 const Faq = ({ location, defaultLang, getStarted }: Props) => {
   const {
-    state: { language },
+    state: { language, setting = {} },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
@@ -162,47 +162,51 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             ♦
           </p>
 
-          <h2
-            ref={(ref) =>
-              (sectionsRef.current[
-                getRefNameFromTitle(getStartedEn.video.title)
-              ] = ref)
-            }
-            id={getRefNameFromTitle(getStartedEn.video.title)}
-          >
-            {getStarted.video.title}
-          </h2>
-          <p>{getStarted.video.description}</p>
+          {setting.version !== 7 && (
+            <>
+              <h2
+                ref={(ref) =>
+                  (sectionsRef.current[
+                    getRefNameFromTitle(getStartedEn.video.title)
+                  ] = ref)
+                }
+                id={getRefNameFromTitle(getStartedEn.video.title)}
+              >
+                {getStarted.video.title}
+              </h2>
+              <p>{getStarted.video.description}</p>
 
-          <iframe
-            width="100%"
-            height="528"
-            title="react hook form video tutorial"
-            src="https://www.youtube.com/embed/-mFXqOaqgZk"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+              <iframe
+                width="100%"
+                height="528"
+                title="react hook form video tutorial"
+                src="https://www.youtube.com/embed/-mFXqOaqgZk"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
 
-          <VideoList
-            lists={[
-              {
-                url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
-                title:
-                  "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
-              },
-              {
-                url: "https://www.youtube.com/watch?v=mrTPrbSoAx0",
-                title:
-                  "Creating a User Registration form with react-hook-form (comprehensive tutorial include Testing)",
-              },
-              {
-                url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
-                title: "React Hook Form Tutorial | Why It's Useful",
-              },
-            ]}
-            play
-          />
+              <VideoList
+                lists={[
+                  {
+                    url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
+                    title:
+                      "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
+                  },
+                  {
+                    url: "https://www.youtube.com/watch?v=mrTPrbSoAx0",
+                    title:
+                      "Creating a User Registration form with react-hook-form (comprehensive tutorial include Testing)",
+                  },
+                  {
+                    url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
+                    title: "React Hook Form Tutorial | Why It's Useful",
+                  },
+                ]}
+                play
+              />
+            </>
+          )}
 
           <h2
             className={typographyStyles.title}
@@ -404,15 +408,17 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             React Native
           </h2>
 
-          <iframe
-            width="100%"
-            height="528"
-            title="react hook form - React Native video tutorial"
-            src="https://www.youtube.com/embed/FNnSqP2rWis"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {setting.version !== 7 && (
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form - React Native video tutorial"
+              src="https://www.youtube.com/embed/FNnSqP2rWis"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
 
           {getStarted.reactNative.description}
 

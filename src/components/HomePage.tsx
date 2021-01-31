@@ -46,7 +46,7 @@ function HomePage({
   const [isPlayWatch, setWatchPlay] = useState(false)
   const {
     state,
-    state: { language },
+    state: { language, setting = {} },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
@@ -141,6 +141,7 @@ function HomePage({
       <CodeCompareSection
         isPlayCodeCompare={isPlayCodeCompare}
         currentLanguage={currentLanguage}
+        setting={setting}
       />
 
       <IsolateRender
