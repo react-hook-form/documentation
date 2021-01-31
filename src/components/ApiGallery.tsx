@@ -6,15 +6,30 @@ import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiGallery.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
+import { updateSetting } from "../actions/settingActions"
+import { navigate } from "@reach/router"
 
 export default function ApiGallery({ defaultLang }) {
   const {
+    actions,
     state: { language },
-  } = useStateMachine()
+  } = useStateMachine({
+    updateSetting,
+  })
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+
+  const onChange = (e) => {
+    const version = parseInt(e.target.value)
+
+    navigate(`/v${version}/api/`)
+
+    actions.updateSetting({
+      version,
+    })
+  }
 
   return (
     <div className={containerStyles.container}>
@@ -133,13 +148,15 @@ export default function ApiGallery({ defaultLang }) {
             <button
               disabled
               role="tab"
-              aria-label="show v6 doc"
+              aria-label="show v7 doc"
               aria-selected="false"
               aria-controls="tabPanel-2"
             >
               V7
             </button>
             <button
+              onClick={onChange}
+              value={"6"}
               role="tab"
               aria-label="show v6 doc"
               aria-selected="false"
@@ -148,6 +165,8 @@ export default function ApiGallery({ defaultLang }) {
               V6
             </button>
             <button
+              onClick={onChange}
+              value={"5"}
               aria-label="show v5 doc"
               aria-selected="true"
               aria-controls="tabPanel-1"
