@@ -29,8 +29,8 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../../data/generic"
 import apiEn from "../../data/en/api"
-import Controller from "../Controller"
-import UseController from "../UseController"
+import ControllerContent from "../ControllerContent"
+import UseControllerContent from "../UseControllerContent"
 import ErrorMessage from "../ErrorMessage"
 import translateLink from "../logic/translateLink"
 import TabGroup from "../TabGroup"
@@ -41,9 +41,9 @@ import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import resetController from "../codeExamples/resetController"
 import resetControllerTs from "../codeExamples/resetControllerTs"
 import control from "../codeExamples/control"
-import UseFieldArray from "../UseFieldArray"
+import UseFieldArrayContent from "../UseFieldArrayContent"
 import ValidationResolver from "../ValidationResolver"
-import UseWatch from "../UseWatch"
+import UseWatch from "../UseWatchContent"
 import { getNavLink } from "../Nav"
 import handleSubmitCodeTs from "../codeExamples/handleSubmitCodeTs"
 import VideoList from "../VideoList"
@@ -1003,7 +1003,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}
             id="ControllerRef"
           >
-            <Controller currentLanguage={currentLanguage} api={api} />
+            <ControllerContent currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
@@ -1012,7 +1012,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => (apiSectionsRef.current.useControllerRef = ref)}
             id="useControllerRef"
           >
-            <UseController currentLanguage={currentLanguage} api={api} />
+            <UseControllerContent currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
@@ -1048,7 +1048,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
             id="useFieldArrayRef"
           >
-            <UseFieldArray currentLanguage={currentLanguage} api={api} />
+            <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

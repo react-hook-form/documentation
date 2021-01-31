@@ -38,7 +38,7 @@ import resetController from "../V5/codeExamples/resetController"
 import resetControllerTs from "../V5/codeExamples/resetControllerTs"
 import control from "../V5/codeExamples/control"
 import nativeValidation from "../V5/codeExamples/nativeValidation"
-import UseFieldArray from "../UseFieldArray"
+import UseFieldArrayContent from "../UseFieldArray"
 import colors from "../../styles/colors"
 import ValidationResolver from "./ValidationResolverV5"
 import headerStyles from "../Header.module.css"
@@ -1069,7 +1069,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
             id="useFieldArrayRef"
           >
-            <UseFieldArray currentLanguage={currentLanguage} api={api} />
+            <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
