@@ -11,13 +11,17 @@ import { Animate } from "react-simple-animate"
 import Search from "./Search"
 import styles from "./Nav.module.css"
 import colors from "../styles/colors"
+import { updateSetting } from "../actions/settingActions"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
-    action,
+    actions,
     state,
     state: { language, setting = {} },
-  } = useStateMachine(updateCurrentLanguage)
+  } = useStateMachine({
+    updateCurrentLanguage,
+    updateSetting,
+  })
   const [showLang, setLang] = React.useState(null)
   const [showMenu, setShowMenu] = React.useState(false)
   const lightMode = state?.setting?.lightMode
@@ -43,55 +47,57 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         {showLang && (
           <>
             <Toggle />
-            <div
-              className={`${styles.langSelect} ${
-                lightMode ? styles.lightLangSelect : ""
-              }`}
-            >
-              {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
-              <select
-                aria-label="Select a language"
-                onChange={(e: any) => {
-                  const selectedLanguage = e.target.value
-                  action(e.target.value)
-
-                  let url = location.pathname.substr(1)
-
-                  switch (url) {
-                    case "jp/":
-                      url = "jp"
-                      break
-                    case "zh/":
-                      url = "zh"
-                      break
-                    case "kr/":
-                      url = "kr"
-                      break
-                    case "pt/":
-                      url = "pt"
-                      break
-                    case "ru/":
-                      url = "ru"
-                    case "es/":
-                      url = "es"
-                      break
-                  }
-
-                  navigate(getNavLink(url, selectedLanguage))
-                }}
-                value={currentLanguage}
+            {setting.version !== 7 && (
+              <div
+                className={`${styles.langSelect} ${
+                  lightMode ? styles.lightLangSelect : ""
+                }`}
               >
-                {/* eslint-disable jsx-a11y/accessible-emoji */}
-                <option value="en">🇦🇺 English</option>
-                <option value="zh">🇨🇳 简体中文</option>
-                <option value="jp">🇯🇵 日本語</option>
-                <option value="kr">🇰🇷 한국어</option>
-                <option value="pt">🇧🇷 Português</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="ru">🇷🇺 Русский</option>
-                {/* eslint-enable jsx-a11y/accessible-emoji */}
-              </select>
-            </div>
+                {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
+                <select
+                  aria-label="Select a language"
+                  onChange={(e: any) => {
+                    const selectedLanguage = e.target.value
+                    actions.updateCurrentLanguage(e.target.value)
+
+                    let url = location.pathname.substr(1)
+
+                    switch (url) {
+                      case "jp/":
+                        url = "jp"
+                        break
+                      case "zh/":
+                        url = "zh"
+                        break
+                      case "kr/":
+                        url = "kr"
+                        break
+                      case "pt/":
+                        url = "pt"
+                        break
+                      case "ru/":
+                        url = "ru"
+                      case "es/":
+                        url = "es"
+                        break
+                    }
+
+                    navigate(getNavLink(url, selectedLanguage))
+                  }}
+                  value={currentLanguage}
+                >
+                  {/* eslint-disable jsx-a11y/accessible-emoji */}
+                  <option value="en">🇦🇺 English</option>
+                  <option value="zh">🇨🇳 简体中文</option>
+                  <option value="jp">🇯🇵 日本語</option>
+                  <option value="kr">🇰🇷 한국어</option>
+                  <option value="pt">🇧🇷 Português</option>
+                  <option value="es">🇪🇸 Español</option>
+                  <option value="ru">🇷🇺 Русский</option>
+                  {/* eslint-enable jsx-a11y/accessible-emoji */}
+                </select>
+              </div>
+            )}
             <div
               className={`${styles.langSelect} ${
                 lightMode ? styles.lightLangSelect : ""
@@ -104,24 +110,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
                 aria-label="Select version"
                 onChange={(e: any) => {
-                  const selectedLanguage = e.target.value
-                  action(e.target.value)
-
                   let url = location.pathname.substr(1)
+                  actions.updateSetting({
+                    version: parseInt(e.target.value),
+                  })
 
-                  switch (url) {
-                    case "7":
-                      url = "jp"
-                      break
-                    case "6":
-                      url = "zh"
-                      break
-                    case "5":
-                      url = "kr"
-                      break
-                  }
+                  url.includes("api") && navigate("/api/")
                 }}
-                value={currentLanguage}
+                value={setting.version}
               >
                 <option value="7">V7</option>
                 <option value="6">V6</option>
@@ -249,7 +245,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </Link>
           <Link
             activeClassName="active"
-            to={translateLink("/api", currentLanguage)}
+            to={
+              setting.version === 7
+                ? "/api"
+                : translateLink(`/v${setting.version}/api`, currentLanguage)
+            }
           >
             <div className={styles.iconWrapper}>
               <div className="keyboard icon" />
