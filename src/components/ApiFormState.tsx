@@ -134,7 +134,11 @@ export default React.memo(
                 <td>
                   <code className={typographyStyles.typeText}>object</code>
                 </td>
-                <td>An object with field errors.</td>
+                <td>
+                  An object with field errors. There is also an{" "}
+                  <a href="#errorMMessage">ErrorMessage</a> component to
+                  retrieve error message easily.
+                </td>
               </tr>
             </tbody>
           </table>

@@ -6,6 +6,7 @@ import api from "../../data/en/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 import ApiFormState from "../ApiFormState"
+import ErrorMessage from "../ErrorMessage"
 
 export default ({ currentLanguage }) => {
   return (
@@ -19,8 +20,12 @@ export default ({ currentLanguage }) => {
         <Menu />
 
         <main>
-          <section id="formStateRef">
+          <section>
             <ApiFormState currentLanguage={currentLanguage} api={api} />
+          </section>
+
+          <section id="errorMMessage">
+            <ErrorMessage currentLanguage={currentLanguage} api={api} />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />
