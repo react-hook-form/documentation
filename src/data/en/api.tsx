@@ -26,8 +26,9 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> also takes <b>optional</b> arguments. The following
-        example demonstrates all of the arguments with their default values.
+        <code>useForm</code> is custom hook for managing forms with ease, it
+        also takes <b>optional</b> arguments. The following example demonstrates
+        all of the arguments with their default values.
       </p>
     ),
     validateCriteriaMode: (
@@ -122,25 +123,15 @@ export default {
         </p>
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: (
       <>
         <p>
-          The <code>defaultValue</code> for an input is used as the initial
+          The <code>defaultValues</code> for inputs are used as the initial
           value when a component is first rendered, before a user interacts with
-          it. The main difference between the input's <code>defaultValue</code>{" "}
-          and <code>value</code> properties is that the <code>value</code>{" "}
-          indicates the input from the user, whereas the{" "}
-          <code>defaultValue</code> indicates the initial value as set by your
-          application code. The <code>defaultValue</code> might reflect some
-          "business logic" for your form (e.g. the default value for the field{" "}
-          <em>color</em> is set to <em>purple</em>) or if your app allows
-          editing previously saved form data it could be the previously saved
-          value for the field of this input.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> It is encouraged that
-          you set a <code>defaultValue</code> for all inputs to non-
-          <code>undefined</code> such as the empty string or <code>null</code>.
+          it. It is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
+          for all inputs to non-
+          <code>undefined</code> such as the empty <code>string</code> or{" "}
+          <code>null</code>.
         </p>
         <p>
           You can set an input's default value with{" "}
@@ -153,43 +144,29 @@ export default {
           </a>
           , pass <code>defaultValues</code> as an optional argument to{" "}
           <code>useForm()</code> to populate the default values for the entire
-          form, or set values on an individual
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("Controller")}
-          >
-            Controller
-          </button>{" "}
-          component via its <code>defaultValue</code> property.
+          form, or set values on an individual{" "}
+          <Link to={"/api/usecontroller/controller"}>Controller</Link> component
+          via its <code>defaultValue</code> property.
         </p>
 
         <ul>
           <li>
             <p>
-              <b className={typographyStyles.note}>Important:</b>{" "}
+              {" "}
               <code>defaultValues</code> is cached{" "}
               <strong>at the first render</strong> within the custom hook. If
               you want to reset the <code>defaultValues</code>, you should use
-              the{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("reset")}
-              >
-                reset
-              </button>{" "}
-              api.
+              the <Link to={"/api/reset"}>reset</Link> api.
             </p>
           </li>
           <li>
             <p>
-              Values defined in <code>defaultValues</code> will be injected into{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("watch")}
-              >
-                watch
-              </button>{" "}
-              as <code>defaultValue</code>.
+              <code>defaultValues</code> will be injected into{" "}
+              <Link to={"/api/watch"}>watch</Link>,{" "}
+              <Link to={"/api/useWatch"}>useWatch</Link>,{" "}
+              <Link to={"/api/controller"}>Controller</Link> and{" "}
+              <Link to={"/api/controller/usecontroller"}>useController</Link>'s{" "}
+              <code>defaultValue</code>.
             </p>
           </li>
           <li>
@@ -199,9 +176,9 @@ export default {
                 style={{
                   whiteSpace: "nowrap",
                 }}
-              >{`register({ name: 'test' })`}</code>
+              >{`register('test')`}</code>
               ) because the custom <code>register</code> field does not provide
-              the <code>ref</code> to React Hook Form.
+              the <code>ref</code>.
             </p>
           </li>
           <li>
@@ -218,6 +195,12 @@ export default {
               </li>
               <li>
                 <p>Combine values at onSubmit callback.</p>
+              </li>
+              <li>
+                <p>
+                  Register input with value{" "}
+                  <code>{`register('test')({ test: "test"})`}</code>
+                </p>
               </li>
             </ol>
           </li>
@@ -261,8 +244,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with <code>ref</code> will work. Custom <code>register</code> inputs
-          do not apply. eg:{" "}
-          <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
 
         <p>
@@ -1861,8 +1843,16 @@ React.useEffect(() => {
             rel="noopener noreferrer"
           >
             Superstruct
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ealush/vest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vest
           </a>{" "}
-          and many others. Our goal is to make sure you can seamlessly integrate
+          and many others. The goal is to make sure you can seamlessly integrate
           whichever validation library you prefer. If you're not using a
           library, you can always write your own logic to validate your forms.
         </p>

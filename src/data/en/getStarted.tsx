@@ -51,7 +51,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note: </b>React Native will
           require you to either use a manual register command:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code> or a{" "}
+          <code>{`register('test', { required: true })`}</code> or a{" "}
           <Link to="/api#Controller">Controller</Link> to wrap and register your
           component.
         </p>
@@ -160,7 +160,7 @@ export default {
   },
   workWithUI: {
     title: "Integrating with UI libraries",
-    description: (currentLanguage) => (
+    description: (
       <>
         <p>
           React Hook Form has made it easy to integrate with external UI
@@ -168,55 +168,13 @@ export default {
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Option 1:</b> Controlled
-          components don't expose a prop to register, for example{" "}
+          Controlled components don't expose a prop to register, for example{" "}
           <code>react-select</code> or <code>react-datepicker</code>.
         </p>
         <p>
           In this case, you should use the{" "}
           <Link to="/api#Controller">Controller</Link> wrapper component, which
           will take care of the registration process for you.
-        </p>
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
-
-        <p>
-          <b className={typographyStyles.note}>Option 2:</b> Check if the
-          component you wish to use exposes a <code>ref</code> that can be used
-          to{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>
-          . For example: Material-UI and Reactstrap's <code>TextField</code>{" "}
-          accepts <code>inputRef</code> as one of its props. You can simply pass{" "}
-          <code>register</code> to it.
-        </p>
-        <CodeArea
-          rawData={'<TextField inputRef={register} name="FirstName"/>'}
-        />
-        <p>
-          <b className={typographyStyles.note}>Option 3:</b> As a last resort,
-          we can set up a custom register using the{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          Hook and update the value via{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>
-          .
         </p>
       </>
     ),

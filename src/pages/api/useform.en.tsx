@@ -6,7 +6,7 @@ import UseForm from "../../components/UseForm"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="TS Support" location={location} />
+      <Seo title="useForm" location={location} />
       <UseForm currentLanguage="en" />
     </Layout>
   )

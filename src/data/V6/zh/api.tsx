@@ -147,7 +147,7 @@ export default {
           <li>
             <p>
               手动注册的输入组件不会自动填充（例如：
-              <code>{`register({ name: 'test' })`}</code>
+              <code>{`register('test')`}</code>
               ），因为React Hook Form没有自定义<code>register</code>表单项的
               <code>ref</code>。
             </p>
@@ -202,7 +202,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b> 只有具有
           <code>ref</code>的注册字段将工作。 手动注册的输入将无法正常工作。
-          比如: <code>{`register({ name: 'test' }) // 不会工作`}</code>{" "}
+          比如: <code>{`register('test') // 不会工作`}</code>{" "}
         </p>
       </>
     ),

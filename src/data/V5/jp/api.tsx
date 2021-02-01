@@ -146,8 +146,8 @@ export default {
           <b className={typographyStyles.note}>注意：</b> 手動で{" "}
           <code>register</code> を適用したフィールドでは React Hook Form に{" "}
           <code>ref</code> を提供しないため、 手動で登録した input (例:{" "}
-          <code>{`register({ name: 'test' })`}</code>) に{" "}
-          <code>defaultValues</code> は自動設定されません。
+          <code>{`register('test')`}</code>) に <code>defaultValues</code>{" "}
+          は自動設定されません。
         </p>
       </>
     ),
@@ -188,7 +188,7 @@ export default {
           <b className={typographyStyles.note}>注意：</b> <code>ref</code>{" "}
           を持つ登録したフィールドのみが機能します。 手動で登録した input
           では機能しません。例：{" "}
-          <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
       </>
     ),

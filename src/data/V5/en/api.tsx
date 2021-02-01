@@ -144,8 +144,8 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b>{" "}
           <code>defaultValues</code> doesn't auto populate with the manually
-          registered input (eg: <code>{`register({ name: 'test' })`}</code>)
-          because the manual <code>register</code> field does not provide the{" "}
+          registered input (eg: <code>{`register('test')`}</code>) because the
+          manual <code>register</code> field does not provide the{" "}
           <code>ref</code> to React Hook Form.
         </p>
       </>
@@ -187,7 +187,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> Only registered fields
           with a <code>ref</code> will work. Manually registered inputs won't
-          work. eg: <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          work. eg: <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
       </>
     ),

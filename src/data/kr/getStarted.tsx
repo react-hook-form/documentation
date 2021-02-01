@@ -51,7 +51,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>참고:</b> React Native 는
           수동으로 register 커맨드를 입력해야 합니다. (예:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code>
+          <code>{`register('test', { required: true })`}</code>
           또는 <Link to="/api#Controller">Controller</Link>을 사용하여 구성
           요소를 래핑합니다.
           <Link to="/api/#ReactNative">React Native</Link> 섹션에서 더 많은
@@ -163,64 +163,18 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>
-          React Hook Form 은 외부 UI 컴포넌트 라이브러리와 쉽게 연동할 수
-          있습니다.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>옵션 1: </b>제일 좋은 방법은
-          사용하려는 컴포넌트가 <code>innerRef</code> 혹은 <code>ref</code> 를
-          드러내는지 확인하여, 사용할 수 있다면{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>{" "}
-          로 등록하는 것입니다. 예를 들어 Material-UI 의 <code>TextField</code>{" "}
-          는 prop 중 하나로
-          <code>inputRef</code> 를 받습니다. 간단히 그 prop 에{" "}
-          <code>register</code> 를 전달하면 됩니다.
-        </p>
-        <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>옵션 2: </b>때때로 외부
-          컴포넌트는 등록을 위한 prop 을 지원하지 않을 수 있습니다. 예를 들어{" "}
-          <code>react-select</code> 나 <code>react-datepicker</code> 같은
-          라이브러리가 그렇습니다.
-        </p>
-        <p>
-          그 다음으로 쉬운 방법은 <Link to="/api#Controller">Controller</Link>{" "}
-          래퍼 컴포넌트를 사용하는 것입니다. 이 컴포넌트를 사용하면 커스텀 등록
-          과정을 대신 처리해 줍니다.
+          React Hook Form으로 외부 UI와 쉽게 통합 할 수 있습니다. 구성 요소
+          라이브러리. 팔로우 영상을 확인하실 수 있습니다.
         </p>
 
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
         <p>
-          <b className={typographyStyles.note}>옵션 3:</b>마지막으로 the{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          훅을 사용하여 커스텀 등록을 하고,{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>{" "}
-          로 값을 업데이트 할 수 있습니다.
+          제어 된 구성 요소는 등록 할 소품을 노출하지 않습니다 (예 : {""}).
+          <code> react-select </code> 또는 <code> react-datepicker </code>.
+        </p>
+        <p>
+          이 경우 {""}
+          <Link to="/ api # Controller"> Controller </Link> 래퍼 구성
+          요소입니다. 등록 과정을 처리해드립니다.
         </p>
       </>
     ),

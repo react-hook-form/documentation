@@ -145,8 +145,8 @@ export default {
           <b className={typographyStyles.note}>참고:</b> 수동{" "}
           <code>register</code> 필드는 React Hook Form의 <code>ref</code> 를
           제공하지 않기에, 수동 입력 필드(예를 들어,{" "}
-          <code>{`register({ name: 'test' })`}</code> )의{" "}
-          <code>defaultValues</code> 는 자동 완성 되지 않습니다.
+          <code>{`register('test')`}</code> )의 <code>defaultValues</code> 는
+          자동 완성 되지 않습니다.
         </p>
       </>
     ),
@@ -185,7 +185,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>참고:</b> <code>ref</code> 로
           등록된 필드만 작동합니다. 수동으로 등록하면 동작하지 않습니다. 예 :{" "}
-          <code>{`register({ name: 'test' }) // 동작하지 않음`}</code>{" "}
+          <code>{`register('test') // 동작하지 않음`}</code>{" "}
         </p>
       </>
     ),

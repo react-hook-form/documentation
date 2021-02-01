@@ -30,7 +30,7 @@ export default ({ currentLanguage }) => {
         useForm
       </h1>
       <p className={typographyStyles.subHeading}>
-        React Hook Form's API overview
+        Custom hook for form validation
       </p>
 
       <div className={containerStyles.wrapper}>
@@ -42,38 +42,8 @@ export default ({ currentLanguage }) => {
               <h2>
                 useForm:{" "}
                 <span className={typographyStyles.typeText}>Function</span>
-                <button
-                  className={typographyStyles.videoLink}
-                  onClick={() => setPlay(!play)}
-                >
-                  Videos
-                </button>
               </h2>
             </code>
-
-            <VideoList
-              lists={[
-                {
-                  url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
-                  title:
-                    "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
-                  title: "React Hook Form Tutorial | Why It's Useful",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=bQRIBpKN8-s",
-                  title:
-                    "React Hook Form Tutorial - How to Create a Custom Input",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=oSIHZ9zKzVA",
-                  title: "Make React Forms EASY with React Hook Form!",
-                },
-              ]}
-              play={play}
-            />
 
             {api.useForm.description}
 
@@ -123,7 +93,7 @@ const { register } = useForm<FormInputs>({
                     <th>{generic.description[currentLanguage]}</th>
                   </tr>
                   <tr>
-                    <td>onSubmit (Default)</td>
+                    <td>onSubmit</td>
                     <td>
                       <span className={typographyStyles.typeText}>string</span>
                     </td>
@@ -208,17 +178,15 @@ const { register } = useForm<FormInputs>({
               tsRawData={defaultValuesTs}
             />
 
-            <ValidationResolver api={api} />
-
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
                   <tr>
                     <td>
                       <p>
-                        <code>
-                          context: <br />
-                          <span className={styles.mobileTypeText}>object</span>
+                        <code>context:</code> <br />
+                        <code className={typographyStyles.typeText}>
+                          object
                         </code>
                       </p>
                     </td>
@@ -233,11 +201,9 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       <p>
-                        <code>
-                          criteriaMode <br />
-                          <span className={styles.mobileTypeText}>
-                            firstError | all
-                          </span>
+                        <code>criteriaMode</code> <br />
+                        <code className={typographyStyles.typeText}>
+                          firstError | all
                         </code>
                       </p>
                     </td>
@@ -252,11 +218,10 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       <p>
-                        <code>
-                          shouldFocusError: <br />
-                          <span className={styles.mobileTypeText}>
-                            boolean = true
-                          </span>
+                        <code>shouldFocusError:</code>
+                        <br />
+                        <code className={typographyStyles.typeText}>
+                          boolean = true
                         </code>
                       </p>
                     </td>
@@ -265,6 +230,11 @@ const { register } = useForm<FormInputs>({
                 </tbody>
               </table>
             </div>
+
+            <br />
+            <p style={{ textAlign: "center" }}>♦</p>
+
+            <ValidationResolver api={api} />
           </section>
 
           <Footer currentLanguage={currentLanguage} />

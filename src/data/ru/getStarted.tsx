@@ -52,11 +52,10 @@ export default {
         <p>
           <b className={typographyStyles.note}>Примечание: </b>В React Native
           нужно будет вручную ввести команду для регистрации:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code> или
-          использовать <Link to="/api#Controller">Controller</Link> для
-          оборачивания и автоматической регистрации вашего компонента. Вы можете
-          узнать больше в разделе{" "}
-          <Link to="/api/#ReactNative">React Native</Link>.
+          <code>{`register('test', { required: true })`}</code> или использовать{" "}
+          <Link to="/api#Controller">Controller</Link> для оборачивания и
+          автоматической регистрации вашего компонента. Вы можете узнать больше
+          в разделе <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
     ),
@@ -183,64 +182,19 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>
-          React Hook Form был создан для простой интеграции в компоненты
-          сторонних UI библиотек.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Вариант 1:</b> Лучший способ -
-          это проверить, содержит ли нужный вам компонент, <code>innerRef</code>{" "}
-          или <code>ref</code>, которые можно использовать для передачи свойства{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>
-          . Наример: <code>TextField</code> из Material-UI принимает{" "}
-          <code>inputRef</code> как одно из подобных свойств. Просто передайте{" "}
-          <code>register</code> в него.
-        </p>
-        <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Вариант 2:</b> Иногда компоненты
-          не имеют отдельного свойства для ригистрации, например{" "}
-          <code>react-select</code> или <code>react-datepicker</code>.
-        </p>
-        <p>
-          В этом случае, самый простой способ - это использование
-          компонента-обёртки <Link to="/api#Controller">Controller</Link>,
-          который сам позаботится о регистрации.
+          Форма React Hook облегчила интеграцию с внешним интерфейсом.
+          библиотеки компонентов. Вы можете посмотреть следующие видео.
         </p>
 
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
-
         <p>
-          <b className={typographyStyles.note}>Вариант 3:</b> И, наконец, мы
-          можем создать кастомную регистрацию с помощью{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          Hook(а) и обновить значение с использованием метода{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>
-          .
+          Контролируемые компоненты не подвергают реквизит регистрации, например{" "}
+          ".
+          <code>реакция-выберите</code> или <code>реакция-датепикер</code>.
+        </p>
+        <p>
+          В этом случае следует использовать " ".
+          <Link to="/api#Controller">Контроллер</Link> оберточного компонента,
+          который позаботится о процессе регистрации для вас.
         </p>
       </>
     ),

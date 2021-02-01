@@ -8,4 +8,5 @@ export default `const { register } = useForm({
 })
 
 <input {...register("firstName")} /> // ✅ working version
+<Controller name="lastName" render={({ field }) => <input {...field} />} />  // ✅ working version
 `

@@ -200,7 +200,7 @@ export default {
                 style={{
                   whiteSpace: "nowrap",
                 }}
-              >{`register({ name: 'test' })`}</code>
+              >{`register('test')`}</code>
               ) because the custom <code>register</code> field does not provide
               the <code>ref</code> to React Hook Form.
             </p>
@@ -262,8 +262,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with <code>ref</code> will work. Custom <code>register</code> inputs
-          do not apply. eg:{" "}
-          <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
 
         <p>

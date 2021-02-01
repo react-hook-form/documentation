@@ -1,17 +1,17 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
-import validationResolver from "./codeExamples/validationResolver"
-import joiResolver from "./codeExamples/joiResolver"
-import joiResolverTs from "./codeExamples/joiResolverTs"
-import superStructResolver from "./codeExamples/superStructResolver"
-import validationResolverTs from "./codeExamples/validationResolverTs"
-import TabGroup from "./TabGroup"
-import validationSchema from "./codeExamples/validationSchema"
-import validationSchemaTs from "./codeExamples/validationSchemaTs"
-import zodResolver from "./codeExamples/zodResolver"
-import zodResolverTs from "./codeExamples/zodResolverTs"
-import typographyStyles from "../styles/typography.module.css"
-import vestResolver from "./codeExamples/vestResolver"
+import CodeArea from "../CodeArea"
+import validationResolver from "../codeExamples/validationResolver"
+import joiResolver from "../codeExamples/joiResolver"
+import joiResolverTs from "../codeExamples/joiResolverTs"
+import superStructResolver from "../codeExamples/superStructResolver"
+import validationResolverTs from "../codeExamples/validationResolverTs"
+import TabGroup from "../TabGroup"
+import validationSchema from "../codeExamples/validationSchema"
+import validationSchemaTs from "../codeExamples/validationSchemaTs"
+import zodResolver from "../codeExamples/zodResolver"
+import zodResolverTs from "../codeExamples/zodResolverTs"
+import typographyStyles from "../../styles/typography.module.css"
+import vestResolver from "../codeExamples/vestResolver"
 
 export default function ({ api }) {
   return (
@@ -20,11 +20,7 @@ export default function ({ api }) {
         <code>
           resolver:{" "}
           <span className={typographyStyles.typeText}>
-            {`(values: any, context?: object, options: { 
-  criteriaMode?: 'firstError' | 'all', 
-  names?: string[],
-  fields: { [name]: field }
-}) => Promise<ResolverResult> | ResolverResult `}
+            {`(values: any, context?: object) => Promise<ResolverResult> | ResolverResult`}
           </span>
         </code>
       </h5>
