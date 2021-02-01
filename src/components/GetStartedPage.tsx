@@ -7,8 +7,6 @@ import {
   registerCodeTs,
   migrateCode,
   migrateCodeTs,
-  uiLibrary,
-  uiLibraryTs,
   globalState,
   errors,
   errorsTs,
@@ -41,7 +39,9 @@ import VideoList from "./VideoList"
 import getStarted from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
 import useController from "./codeExamples/useController"
+import useControllerV6 from "./codeExamples/v6/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
+import useControllerTsV6 from "./codeExamples/v6/useControllerTs"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -330,8 +330,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
             />
             <CodeArea
-              rawData={isV7 ? useController : v6Example.useController}
-              tsRawData={isV7 ? useControllerTs : v6Example.useControllerTs}
+              rawData={isV7 ? useController : useControllerV6}
+              tsRawData={isV7 ? useControllerTs : useControllerTsV6}
               tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
               url="https://codesandbox.io/s/fancy-darkness-i0ywh"
             />

@@ -18,7 +18,7 @@ export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        Reset
+        reset
       </h1>
       <p className={typographyStyles.subHeading}>Reset form state and values</p>
 

@@ -9,7 +9,6 @@ import register from "./codeExamples/register"
 import registerTs from "./codeExamples/registerTs"
 
 export default function ApiRefTable({
-  goToSection,
   api,
   currentLanguage,
 }: {
@@ -76,7 +75,7 @@ export default function ApiRefTable({
 
       {api.register.fieldArray}
 
-      {api.register.options.note(goToSection)}
+      {api.register.options.note}
 
       <fieldset className={styles.fieldset}>
         <legend>{api.register.options.title}</legend>

@@ -1,4 +1,4 @@
-export default (formData: any) => {
+export default (formData: any, isV7: boolean) => {
   return `import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -99,14 +99,18 @@ ${
             attributes += "})"
           }
 
+          const register = isV7
+            ? `{...register("register${attributes}")}`
+            : `name="${name}" ref={register${attributes}`
+
           if (type === "textarea") {
-            const select = `      <textarea name="${name}" ref={register${attributes}} />\n`
+            const select = `      <textarea ${register} />\n`
             return previous + select
           }
 
           return (
             previous +
-            `      <input type="${type}" placeholder="${name}" name="${name}" ref={register${attributes}} />\n`
+            `      <input type="${type}" placeholder="${name}" ${register} />\n`
           )
         },
         ""
