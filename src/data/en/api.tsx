@@ -47,28 +47,6 @@ export default {
         </li>
       </ul>
     ),
-    validationResolver: (goToSection) => (
-      <>
-        <p>
-          This callback function allows you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("validationResolver")}
-          >
-            validationResolver
-          </button>{" "}
-          section.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> This function will be
-          cached inside the hook, you will have to either move the function
-          outside of the component or memorise the function.
-        </p>
-      </>
-    ),
     validateContext: (
       <>
         <p>
@@ -206,19 +184,6 @@ export default {
           </li>
         </ul>
       </>
-    ),
-    validationSchema: (goToSection) => (
-      <p>
-        Apply form validation rules with <code>Yup</code> at the schema level,
-        please refer to the{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("validationSchema")}
-        >
-          validationSchema
-        </button>{" "}
-        section.
-      </p>
     ),
     reValidateMode: (
       <p>
@@ -374,7 +339,7 @@ export default {
       registerWithValidation: "Register with validation",
       registerWithValidationMessage:
         "Register with validation and error message",
-      note: (goToSection) => (
+      note: (
         <>
           <h2 className={typographyStyles.title}>Custom Register</h2>
           <p>
@@ -388,14 +353,7 @@ export default {
 
           <p>
             If you choose to manually register fields, you will need to update
-            the input value with{" "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("setValue")}
-            >
-              setValue
-            </button>
-            .
+            the input value with <Link to={"/api/setValue"}>setValue</Link>.
           </p>
 
           <p>
@@ -612,7 +570,7 @@ return <button disabled={isDirty || isValid} />;
     ),
     message: `If you registered your input with an error message, then it will be put in this field, otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
-    note: (goToSection) => (
+    note: (
       <>
         <p>
           <b className={typographyStyles.note}>Important:</b> Avoid using error
@@ -628,12 +586,7 @@ return <button disabled={isDirty || isValid} />;
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("ErrorMessage")}
-          >
-            ErrorMessage
-          </button>{" "}
+          <Link to={"/api/useform/formstate#ErrorMessage"}>ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>

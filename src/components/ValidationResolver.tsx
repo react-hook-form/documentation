@@ -16,7 +16,11 @@ import vestResolver from "./codeExamples/vestResolver"
 export default function ({ api }) {
   return (
     <>
-      <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+      <h5
+        className={typographyStyles.h5}
+        style={{ marginTop: 20 }}
+        id="validationResolver"
+      >
         <code>
           resolver:{" "}
           <span className={typographyStyles.typeText}>

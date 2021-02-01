@@ -6,8 +6,6 @@ import generic from "../../generic"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"
 import tableStyles from "../../../styles/table.module.css"
-import controller from "../../../components/codeExamples/controller"
-import controllerTs from "../../../components/codeExamples/controllerTs"
 import TabGroup from "../../../components/TabGroup"
 import formStateUseEffect from "../../../components/codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "../../../components/codeExamples/formStateUseEffectTs"
@@ -224,19 +222,6 @@ export default {
           </li>
         </ul>
       </>
-    ),
-    validationSchema: (goToSection) => (
-      <p>
-        Apply form validation rules with <code>Yup</code> at the schema level,
-        please refer to the{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("validationSchema")}
-        >
-          validationSchema
-        </button>{" "}
-        section.
-      </p>
     ),
     reValidateMode: (
       <p>
