@@ -7,6 +7,7 @@ import TabGroup from "./TabGroup"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import controllerTs from "./codeExamples/controllerTs"
+import UseControllerMethods from "./UseControllerMethods"
 
 export default function ControllerContent({
   currentLanguage,
@@ -26,6 +27,12 @@ export default function ControllerContent({
 
       {api.Controller.description}
 
+      <h4 className={typographyStyles.questionTitle}>Controller Arguments: </h4>
+      <p>
+        The following table contains information about all the arguments for{" "}
+        <code>useController</code>.
+      </p>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <thead>
@@ -39,6 +46,9 @@ export default function ControllerContent({
           {api.Controller.table}
         </table>
       </div>
+
+      <UseControllerMethods currentLanguage={currentLanguage} isController />
+
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={controller}

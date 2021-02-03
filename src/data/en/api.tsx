@@ -1732,15 +1732,14 @@ React.useEffect(() => {
     description: (
       <>
         <p>
-          This custom hook is what powers <code>Controller</code>, and shares
-          the same props and methods as <code>Controller</code>. It's useful to
-          create reusable Controlled input, while <code>Controller</code> is the
-          flexible option to drop into your page or form.
-        </p>
-        <p>
-          Please refer <code>Controller</code> section for this hook's
-          arguments. It shares the same arguments except <code>as</code> and{" "}
-          <code>renders</code>.
+          This custom hook is what powers{" "}
+          <Link to={"/api/usecontroller/controller"}>
+            <code>Controller</code>
+          </Link>
+          , and shares the same props and methods as <code>Controller</code>.
+          It's useful to create reusable Controlled input, while{" "}
+          <code>Controller</code> is the flexible option to drop into your page
+          or form.
         </p>
       </>
     ),

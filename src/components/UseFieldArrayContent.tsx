@@ -23,14 +23,6 @@ export default function UseFieldArrayContent({
           <span
             className={typographyStyles.typeText}
           >{`({ control?: any, name: string, keyName?: string = 'id' }) => object`}</span>
-          <a
-            className={typographyStyles.videoLink}
-            href="https://www.youtube.com/watch?v=LhIvi4XHIco"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Video
-          </a>
         </h2>
       </code>
 
