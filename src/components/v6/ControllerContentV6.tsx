@@ -1,26 +1,33 @@
 import * as React from "react"
-import CodeArea from "./CodeArea"
-import controller from "./codeExamples/controller"
-import reactNativeController from "./codeExamples/reactNativeController"
-import generic from "../data/generic"
-import TabGroup from "./TabGroup"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import controllerTs from "./codeExamples/controllerTs"
+import CodeArea from "../CodeArea"
+import controller from "../codeExamples/controller"
+import reactNativeController from "../codeExamples/reactNativeController"
+import generic from "../../data/generic"
+import TabGroup from "../TabGroup"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import controllerTs from "../codeExamples/controllerTs"
 
-export default function ControllerContent({
+export default function ControllerContentV6({
   currentLanguage,
   api,
 }: {
   currentLanguage: string
   api: any
 }) {
+  const [play, setPlay] = React.useState(false)
   return (
     <>
       <code className={typographyStyles.codeHeading}>
         <h2>
           Controller:{" "}
           <span className={typographyStyles.typeText}>Component</span>
+          <button
+            className={typographyStyles.videoLink}
+            onClick={() => setPlay(!play)}
+          >
+            Videos
+          </button>
         </h2>
       </code>
 

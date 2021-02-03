@@ -29,7 +29,7 @@ import { navigate } from "@reach/router"
 import { useStateMachine } from "little-state-machine"
 import generic from "../../data/generic"
 import apiEn from "../../data/en/api"
-import ControllerContent from "../ControllerContent"
+import ControllerContentV6 from "./ControllerContentV6"
 import UseControllerContent from "../UseControllerContent"
 import ErrorMessage from "../ErrorMessage"
 import translateLink from "../logic/translateLink"
@@ -41,7 +41,7 @@ import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import resetController from "../codeExamples/resetController"
 import resetControllerTs from "../codeExamples/resetControllerTs"
 import control from "../codeExamples/control"
-import UseFieldArrayContent from "../UseFieldArrayContent"
+import UseFieldArrayContentV6 from "./UseFieldArrayContentV6"
 import ValidationResolver from "./ValidationResolverV6"
 import UseWatch from "../UseWatchContent"
 import { getNavLink } from "../Nav"
@@ -1003,7 +1003,7 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => (apiSectionsRef.current.ControllerRef = ref)}
             id="ControllerRef"
           >
-            <ControllerContent currentLanguage={currentLanguage} api={api} />
+            <ControllerContentV6 currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />
@@ -1048,7 +1048,10 @@ const { register } = useForm<FormInputs>({
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
             id="useFieldArrayRef"
           >
-            <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
+            <UseFieldArrayContentV6
+              currentLanguage={currentLanguage}
+              api={api}
+            />
           </section>
 
           <hr />

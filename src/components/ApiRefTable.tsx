@@ -170,7 +170,6 @@ export default function ApiRefTable({
     }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-required-w69ts?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -206,7 +205,6 @@ export default function ApiRefTable({
       }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-maxlength-ctgiu?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -242,7 +240,6 @@ export default function ApiRefTable({
     }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-minlength-0v69v?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -279,7 +276,6 @@ export default function ApiRefTable({
     }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-max-yg19e?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -316,7 +312,6 @@ export default function ApiRefTable({
     }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-min-lxjr7?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -352,7 +347,6 @@ export default function ApiRefTable({
     }
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-pattern-zgbut?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -384,21 +378,20 @@ export default function ApiRefTable({
     validate: ${
       isStandard
         ? `{
-      positive: value => parseInt(value, 10) > 0,
-      lessThanTen: value => parseInt(value, 10) < 10,
-      asyncValidate: async value => await fetch(url)
+      positive: value => parseInt(value) > 0,
+      lessThanTen: value => parseInt(value) < 10,
+      asyncValidate: async () => await fetch(url)
     }`
         : `{
-      positive: value => parseInt(value, 10) > 0 || 'should be greater than 0',
-      lessThanTen: value => parseInt(value, 10) < 10 || 'should be lower than 10',
+      positive: value => parseInt(value) > 0 || 'should be greater than 0',
+      lessThanTen: value => parseInt(value) < 10 || 'should be lower than 10',
       // you can do asynchronous validation as well
-      asyncValidate: async value => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
+      asyncValidate: async () => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
     }`
     }
   })}
 />
 `}
-                  url="https://codesandbox.io/s/react-hook-form-validation-validate-yytzk?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -428,7 +421,6 @@ export default function ApiRefTable({
     valueAsNumber: true,
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-valueasnumber-8v2t3?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -458,7 +450,6 @@ export default function ApiRefTable({
     valueAsDate: true,
   })}
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-valueasdate-700wc?file=/src/App.jsx"
                 />
               </td>
             </tr>
@@ -492,7 +483,6 @@ export default function ApiRefTable({
     })
   }
 />`}
-                  url="https://codesandbox.io/s/react-hook-form-validation-setvalueas-6lirl?file=/src/App.jsx"
                 />
               </td>
             </tr>

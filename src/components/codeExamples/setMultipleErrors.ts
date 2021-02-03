@@ -11,15 +11,7 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Username</label>
-      <input
-        onChange={() => {
-          setError("username", {
-            type: "manual",
-            message: "Dont Forget Your Username Should Be Cool!"
-          });
-        }}
-        {...register("username")}
-      />
+      <input {...register("username")} />
       {errors.username && <p>{errors.username.message}</p>}
       <label>First Name</label>
       <input {...register("lastName")} />

@@ -326,7 +326,7 @@ function App() {
             onChange={e => field.onChange(e.target.checked)}
             checked={field.value}
           />
-        } // props contains: onChange, onBlur and value
+        }
       />
     </form>
   );
@@ -360,7 +360,7 @@ function App() {
             onChange={e => field.onChange(e.target.checked)}
             checked={field.value}
           />
-        } // props contains: onChange, onBlur and value
+        }
       />
     </form>
   );

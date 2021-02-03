@@ -6,7 +6,7 @@ import Register from "../../../components/useForm/HandleSubmit"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="UseForm - Register" location={location} />
+      <Seo title="useForm - handleSubmit" location={location} />
       <Register currentLanguage="en" />
     </Layout>
   )

@@ -6,7 +6,7 @@ import SetValue from "../../../components/useForm/SetValue"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="UseForm - SetValue" location={location} />
+      <Seo title="useForm - setValue" location={location} />
       <SetValue currentLanguage="en" />
     </Layout>
   )

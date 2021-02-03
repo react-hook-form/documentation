@@ -650,10 +650,8 @@ return <button disabled={isDirty || isValid} />;
     description: (
       <>
         <p>
-          Reset the fields' values and errors. By supplying{" "}
-          <code>omitResetState</code>, you have the freedom to only reset
-          specific parts of the state. You can pass <code>values</code> as an
-          optional argument to reset your form to the assigned default values.
+          Reset the entire form state, you also have the ability to only reset
+          specific parts of the state.
         </p>
         <ul>
           <li>
@@ -687,7 +685,8 @@ return <button disabled={isDirty || isValid} />;
               When invoking <code>{`reset({ value })`}</code> without supply{" "}
               <code>defaultValues</code> at <code>useForm</code>, hook form will
               replace <code>defaultValues</code> with shallow clone{" "}
-              <code>value</code> object which you have supplied (not deepClone).
+              <code>value</code> object which you have supplied{" "}
+              <b>(not deepClone)</b>.
             </p>
             <CodeArea
               rawData={`// ❌ avoid the following with deep nested default values
@@ -700,14 +699,6 @@ useForm({ deepNest: { file: new File() } });
 reset({ deepNest: { file: new File() } });
 `}
             />
-          </li>
-          <li>
-            <p>
-              It's <b className={typographyStyles.note}>important</b> to invoke{" "}
-              <code>reset</code> after initializing <code>useFieldArray</code>{" "}
-              the order matters. The <code>reset</code> API needs to aware of
-              the field array shape before performing a reset properly.
-            </p>
           </li>
         </ul>
 
@@ -1443,61 +1434,6 @@ React.useEffect(() => {
         </tr>
         <tr>
           <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>React.ElementType</code>
-          </td>
-          <td></td>
-          <td>
-            <p style={{ marginTop: 0 }}>
-              Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
-              and <code>value</code> props into the component.
-            </p>
-
-            <p>
-              Every prop you pass to the Controller component will be forwarded
-              to the component instance you provided with the <code>as</code>{" "}
-              prop. For instance, if you have a custom <code>Switch</code>{" "}
-              component that requires a <code>label</code> prop, you can pass it
-              to the Controller component directly and it will take care of
-              forwarding the prop for you.
-            </p>
-
-            <ul>
-              <li>
-                <p>
-                  The following props will be passed into your component: <br />
-                  <code>onChange</code>, <code>onBlur</code>, <code>value</code>
-                  , <code>name</code>, <code>ref</code>
-                </p>
-              </li>
-
-              <li>
-                <p>
-                  For TypeScript user, if you are using custom component with
-                  required fields: <code>onChange</code>, <code>onBlur</code>,{" "}
-                  <code>value</code>, It will complain about missing declared
-                  field. Please use <code>render</code> instead of{" "}
-                  <code>as</code>.
-                </p>
-              </li>
-            </ul>
-
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-controller-as-prop-k90yy"
-              rawData={`<Controller
-  // props: onChange, onBlur, ref, name, value
-  as={<TextInput />}
-  control={control}
-  name="test"
-/>`}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>defaultValue</code>
           </td>
           <td>
@@ -1542,62 +1478,6 @@ React.useEffect(() => {
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
               rawData="rules={{ required: true }}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onFocus</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>() =&gt; void</code>
-          </td>
-          <td></td>
-          <td>
-            <p style={{ marginTop: 0 }}>
-              This callback allows the custom hook to focus on the input when
-              there is an error. This function is applicable for both React and
-              React-Native components as long as they can be focused.
-            </p>
-
-            <ul>
-              <li>
-                <p>
-                  Input focus order is according to registration order, which
-                  means native input registered with <code>ref</code> will be
-                  the first to be focused on the error due to{" "}
-                  <code>Controller</code> registration occurred during{" "}
-                  <code>useEffect</code>.
-                </p>
-              </li>
-
-              <li>
-                <p>
-                  If your input disabled based on{" "}
-                  <code>form.formState.isSubmitting</code>, you must enabled it
-                  before invoke focus method.
-                </p>
-              </li>
-            </ul>
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
-              rawData={`<Controller
-  onFocus={() => {
-    // when input is been disabled.
-    inputRef.current.disabled = false;
-    inputRef.current?.focus();
-  }}
-/>`}
-            />
-            <CodeSandBoxLink
-              style={{
-                position: "relative",
-                left: 0,
-                float: "right",
-                display: "flex",
-              }}
-              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
             />
           </td>
         </tr>

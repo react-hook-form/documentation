@@ -6,7 +6,7 @@ import Control from "../../../components/useForm/Control"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="UseForm - Control" location={location} />
+      <Seo title="useForm - control" location={location} />
       <Control currentLanguage="en" />
     </Layout>
   )

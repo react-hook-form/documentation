@@ -1,7 +1,6 @@
 import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import Popup from "../Popup"
 import api from "../../data/en/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
@@ -140,6 +139,45 @@ export default ({ currentLanguage }) => {
                         withOutCopy
                         rawData={`unregister('test', 
   { keepError: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepValue</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      input's current <code>value</code> will not be updated.
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepValue: true }
+)`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>keepDefaultValue</code>
+                    </td>
+                    <td>
+                      <span className={typographyStyles.typeText}>boolean</span>
+                    </td>
+                    <td>
+                      input's <code>defaultValue</code> which defined in{" "}
+                      <code>useForm</code> will be remained.
+                    </td>
+                    <td>
+                      <CodeArea
+                        withOutCopy
+                        rawData={`unregister('test', 
+  { keepValue: true }
 )`}
                       />
                     </td>

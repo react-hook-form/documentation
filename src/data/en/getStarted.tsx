@@ -79,25 +79,25 @@ export default {
 
         <ul>
           <li>
-            <p>required</p>
+            <p style={{ margin: "2px 0" }}>required</p>
           </li>
           <li>
-            <p>min</p>
+            <p style={{ margin: "2px 0" }}>min</p>
           </li>
           <li>
-            <p>max</p>
+            <p style={{ margin: "2px 0" }}>max</p>
           </li>
           <li>
-            <p>minLength</p>
+            <p style={{ margin: "2px 0" }}>minLength</p>
           </li>
           <li>
-            <p>maxLength</p>
+            <p style={{ margin: "2px 0" }}>maxLength</p>
           </li>
           <li>
-            <p>pattern</p>
+            <p style={{ margin: "2px 0" }}>pattern</p>
           </li>
           <li>
-            <p>validate</p>
+            <p style={{ margin: "2px 0" }}>validate</p>
           </li>
         </ul>
         <p>
