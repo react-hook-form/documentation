@@ -53,7 +53,7 @@ export default function ApiGallery({ defaultLang }) {
           "formstate",
         ].includes(name)
       ) {
-        navigate(`/api/usecontroller/useform/${name}`)
+        navigate(`/api/useform/${name}`)
       } else if (
         ["controller", "useformcontext", "usefieldarray"].includes(name)
       ) {
