@@ -259,18 +259,6 @@ export default {
     shouldUnregister: (
       <>
         <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          getting deprecated in the next major version. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          .
-        </p>
-        <p>
           By default, when an input is removed, React Hook Form uses{" "}
           <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
           the input(s) that are unmounted. However, you can set{" "}
@@ -546,16 +534,7 @@ return <button disabled={isDirty || isValid} />;
     dirtyFields: (
       <>
         <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          renamed to <code>dirty</code>. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          . An object with the user-modified fields.{" "}
+          An object with the user-modified fields.{" "}
           <p>
             Make sure to provide all inputs' defaultValues at the useForm, so
             hook form can compare with the <code>defaultValue</code>.
@@ -586,25 +565,10 @@ return <button disabled={isDirty || isValid} />;
   errors: {
     title: "errors",
     description: () => (
-      <>
-        <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          getting deprecated in the next major version and read from{" "}
-          <code>formState</code> instead. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          .
-        </p>
-        <p>
-          Object containing form errors and error messages corresponding to each
-          field.
-        </p>
-      </>
+      <p>
+        Object containing form errors and error messages corresponding to each
+        field.
+      </p>
     ),
     types: (
       <>
@@ -1419,19 +1383,6 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            <p>
-              <b className={typographyStyles.note}>Important:</b> This prop is
-              getting deprecated in the next major version, use{" "}
-              <code>render</code> instead. Join the{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                discussion
-              </a>
-              .
-            </p>
             <p style={{ marginTop: 0 }}>
               Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
               and <code>value</code> props into the component.

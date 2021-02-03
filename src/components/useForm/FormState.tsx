@@ -7,6 +7,9 @@ import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 import ApiFormState from "../ApiFormState"
 import ErrorMessage from "../ErrorMessage"
+import CodeArea from "../CodeArea"
+import formState from "../codeExamples/formState"
+import formStateTs from "../codeExamples/formStateTs"
 
 export default ({ currentLanguage }) => {
   return (
@@ -22,6 +25,13 @@ export default ({ currentLanguage }) => {
         <main>
           <section>
             <ApiFormState currentLanguage={currentLanguage} api={api} />
+
+            <CodeArea
+              rawData={formState}
+              url="https://codesandbox.io/s/react-hook-form-v6-formstate-ht098"
+              tsRawData={formStateTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-zblw3"
+            />
           </section>
 
           <section id="errorMMessage">

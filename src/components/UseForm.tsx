@@ -1,8 +1,6 @@
 import * as React from "react"
-import { useStateMachine } from "little-state-machine"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
-import VideoList from "./VideoList"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import Popup from "./Popup"
 import generic from "../data/generic"
@@ -11,7 +9,6 @@ import defaultValuesTs from "./codeExamples/defaultValuesTs"
 import ValidationResolver from "./ValidationResolver"
 import api from "../data/en/api"
 import typographyStyles from "../styles/typography.module.css"
-import styles from "./ApiGallery.module.css"
 import containerStyles from "../styles/container.module.css"
 import tableStyles from "../styles/table.module.css"
 
@@ -22,8 +19,6 @@ const codeSandBoxStyle = {
 }
 
 export default ({ currentLanguage }) => {
-  const [play, setPlay] = React.useState(false)
-
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
