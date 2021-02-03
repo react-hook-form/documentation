@@ -68,8 +68,8 @@ export default function UseFieldArray({
                 <code className={typographyStyles.typeText}>any</code>
               </td>
               <td>
-                default value for `useWatch` to return before the initial
-                render.
+                default value for <code>useWatch</code> to return before the
+                initial render.
               </td>
             </tr>
           </tbody>
