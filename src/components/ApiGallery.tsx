@@ -31,6 +31,37 @@ export default function ApiGallery({ defaultLang }) {
     })
   }
 
+  React.useEffect(() => {
+    if (window.location.hash) {
+      const name = window.location.hash.toLowerCase().slice(1)
+
+      if (name === "controller") {
+        navigate(`/api/usecontroller/${name}`)
+      } else if (
+        [
+          "register",
+          "unregister",
+          "watch",
+          "handlesubmit",
+          "reset",
+          "setError",
+          "clearerrors",
+          "setvalues",
+          "getvalues",
+          "trigger",
+          "control",
+          "formstate",
+        ].includes(name)
+      ) {
+        navigate(`/api/usecontroller/useform/${name}`)
+      } else if (
+        ["controller", "useformcontext", "usefieldarray"].includes(name)
+      ) {
+        navigate(`/api/${name}`)
+      }
+    }
+  }, [])
+
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
