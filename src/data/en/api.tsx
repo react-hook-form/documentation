@@ -1095,8 +1095,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
                     Name of the field.{" "}
                     <b className={typographyStyles.note}>Important: </b> make
                     sure name is in object shape:{" "}
-                    <code>name={`test[index].name`}</code> as we don't support
-                    flat arrays.
+                    <code>name={`test.0.name`}</code> as we don't support flat
+                    arrays.
                   </p>
                 </td>
               </tr>
@@ -1195,31 +1195,6 @@ React.useEffect(() => {
             `}
             />
           </li>
-          <li>
-            <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFieldArray</code> so <code>register</code> will get
-              invoked during <code>map</code>.
-            </p>
-          </li>
-          <li>
-            <p>
-              When <code>watch</code>-ing the entire Field Array, it's important
-              to supply a default value with <code>fields</code> to avoid empty
-              values from getting returned. eg:{" "}
-              <code>watch('fieldArray', fields)</code>
-            </p>
-          </li>
-          <li>
-            <p>
-              When all inputs are removed from the Field Array,{" "}
-              <code>watch</code> will return <code>defaultValues</code>. You can
-              use <code>fields.length</code> to avoid this behaviour. eg{" "}
-              <code>fields.length ? watch('fieldArray', fields) : []</code>
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -1248,8 +1223,8 @@ React.useEffect(() => {
               rawData={`{fields.map((data, index) =>
   <input
     key={data.id}
-    defaultValue={\`data[\${index}].value\`}
-    name={\`data[\${index}].value\`}
+    defaultValue={data.value}
+    name={\`data.\${index}.value\`}
   />;
 );}`}
               withOutCopy
@@ -1263,7 +1238,9 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], shouldFocus: boolean = true) =&gt; void
+                (obj: object | object[],{" "}
+                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
+                ) =&gt; void
               </code>
             </code>
           </td>
@@ -1276,7 +1253,9 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], shouldFocus: boolean = true) =&gt; void
+                (obj: object | object[],{" "}
+                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
+                ) =&gt; void
               </code>
             </code>
           </td>
@@ -1289,8 +1268,7 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object | object[], shouldFocus: boolean =
-                true) =&gt; void
+                {`(index: number, value: object | object[], { shouldFocus?: boolean; focusIndex?: number; focusName?: string; }) => void`}
               </code>
             </code>
           </td>
