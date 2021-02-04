@@ -34,12 +34,16 @@ ${
             minLength,
             pattern,
           ].some(Boolean)
-          const ref = ` ref={register${
-            anyAttribute ? "({ required: true })" : ""
-          }}`
+          const ref = isV7
+            ? `{...register${
+                anyAttribute ? `("${name}", { required: true })` : ""
+              }}`
+            : ` ref={register${anyAttribute ? "({ required: true })" : ""}}`
 
           if (type === "select") {
-            const select = `      <select name="${name}"${ref}>\n${options
+            const select = `      <select ${
+              isV7 ? "" : `name="${name}"`
+            }${ref}>\n${options
               .split(";")
               .filter(Boolean)
               .reduce((temp, option) => {
@@ -59,7 +63,9 @@ ${
               .reduce((temp, option) => {
                 return (
                   temp +
-                  `      <input name="${name}" type="${type}" value="${option}"${ref}/>\n`
+                  `      <input ${
+                    isV7 ? "" : `name="${name}"`
+                  }${ref}type="${type}" value="${option}" />\n`
                 )
               }, "")}`
 
@@ -69,7 +75,7 @@ ${
           let attributes = ""
 
           if (anyAttribute) {
-            attributes += "({"
+            attributes += isV7 ? `("${name}", {` : "({"
 
             if (required) {
               attributes += "required: true"
@@ -100,7 +106,7 @@ ${
           }
 
           const register = isV7
-            ? `{...register("register${attributes}")}`
+            ? `{...register${attributes}}`
             : `name="${name}" ref={register${attributes}`
 
           if (type === "textarea") {

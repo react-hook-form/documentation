@@ -1,7 +1,6 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import "./App.css";
 
 export default () => {
   const { register, control, handleSubmit } = useForm({
