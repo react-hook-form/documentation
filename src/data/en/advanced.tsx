@@ -9,11 +9,9 @@ import CodeExempleSetupReactNative from "../../components/codeExamples/setup.nat
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
 import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Advanced Usage",
@@ -270,46 +268,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "Field Arrays",
-    description: (
-      <>
-        <p>
-          This is one of the best features about React Hook Form: instead of
-          importing components (like other libraries) to achieve this
-          functionality, you can leverage your existing HTML markup. The key is
-          within the <code>name</code> attribute. In React Hook Form, the{" "}
-          <code>name</code> attribute represents the data structure you want to
-          use.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> we have also built a
-          custom hook for complex scenario:{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
-        </p>
-
-        <p>
-          The following example demonstrates how you can create Field Arrays by
-          manipulating the input <code>name</code> attribute.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> if your application
-          requires functionality such as Delete, Insert, Append, Preprend, here
-          is the{" "}
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            link for such implementation.
-          </a>{" "}
-          with <PageLink to="/api#Controller">Controller</PageLink>.
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "Connect Form",
     description: (
@@ -323,58 +281,6 @@ export default {
         The benefit is you can connect your input with React Hook Form from much
         easier.
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "Conditional Controlled Component",
-    description: (
-      <>
-        <p>
-          React Hook Form makes dealing with conditional fields really simple
-          because when you remove the input from the component tree, it will get{" "}
-          <code>unregister</code>ed automatically.{" "}
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Here is an example
-          </a>{" "}
-          for such behavior. However, that's not the same case for controlled
-          components since <code>ref</code> is not been registered, and we can
-          do the following:
-        </p>
-        <ul>
-          <li>
-            <p>Toggle the input's viability</p>
-          </li>
-          <li>
-            <p>Building separate form for modal and pop up form</p>
-          </li>
-          <li>
-            <p>
-              Leverage the use of{" "}
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>{" "}
-              with custom register
-            </p>
-          </li>
-          <li>
-            <p>
-              Import <PageLink to="/api#Controller">Controller</PageLink> to
-              wrap your component and let it manage register and unregister
-            </p>
-          </li>
-        </ul>
-        <p> Here are the examples:</p>
-      </>
     ),
   },
   formContext: {
@@ -607,30 +513,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "Strictly Typed",
-    description: (
-      <>
-        <p>
-          Building strictly typed input/form can be a challenge due to the
-          nature of flexible name attribute during registration. We have built
-          an extra plug-in to make this possible.
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          We will have to wrap our inputs with <code>TypedController</code> and
-          convert input string name into array shape.
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

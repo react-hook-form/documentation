@@ -11,8 +11,6 @@ import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Сложные примеры",
@@ -267,39 +265,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "Field Arrays",
-    description: (
-      <>
-        <p>
-          Это одна из лучших особенностей React Hook Form: вместо подключения
-          сторонних библиотек, вы можете просто улучшить вашу существующую HTML
-          разметку, чтобы достичь желаемой функциональности. Вся суть в{" "}
-          <code>name</code> атрибуте. В React Hook Form, <code>name</code>{" "}
-          атрибут представляет структуру данных которую вы хотите использовать.
-        </p>
-
-        <p>
-          Следующий пример демонстрирует как вы можете создать Field Arrays
-          манипулируя <code>name</code> атрибутом на поле ввода.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Заметка:</b> если в вашем
-          приложении должна быть следующая функциональность: Delete, Insert,
-          Append, Preprend. Вы можете найти реализацию{" "}
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            по этой ссылке.
-          </a>{" "}
-          с <PageLink to="/api#Controller">Controller</PageLink>.
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "Connect Form",
     description: (
@@ -313,52 +278,6 @@ export default {
         React'a. Плюс такого компонента в том, что вы можете подключать ваши
         поля ввода к React Hook Form откуда угодно.
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "Условные управляемые компоненты",
-    description: (
-      <>
-        <p>
-          React Hook Form позволяет очень легко работать с условными полями,
-          потому что в момент, когда вы убираете поле ввода из дерева
-          компонентов - оно отпишется автоматически.
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            вот пример
-          </a>{" "}
-          для подобного поведения. Однако это не сработает для управляемых
-          компонентов, поскольку они не зарегистрирован с помощью{" "}
-          <code>ref</code>, но мы можем сделать следующее:
-        </p>
-        <ul>
-          <li>
-            <p>
-              Подключить <PageLink to="/api#Controller">Controller</PageLink>{" "}
-              чтобы обернуть компонент и позволить ему регистрацию и отписку.
-            </p>
-          </li>
-          <li>
-            <p>
-              Использовать{" "}
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>{" "}
-              с регистрацией.
-            </p>
-          </li>
-        </ul>
-        <p> Примеры использования:</p>
-      </>
     ),
   },
   formContext: {
@@ -580,30 +499,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "Strictly Typed",
-    description: (
-      <>
-        <p>
-          Построение строго набранного ввода/формы может быть проблематичным в
-          связи с характером гибкого атрибута имени во время регистрации. Мы
-          создали дополнительный плагин, чтобы сделать это возможным.
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          Нам придется обернуть наши вводы <code>TypedController</code> и
-          преобразовывает имя входной строки в форму массива.
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

@@ -11,8 +11,6 @@ import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "进阶",
@@ -250,43 +248,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "列表式表单项",
-    description: (
-      <>
-        <p>
-          这是React Hook
-          Form的最佳功能之一：您可以利用现有的HTML，而不需要引入其他的组件来实现此功能。
-          关键在于name属性，在 React Hook Form
-          中，name属性代表了要使用的数据结构。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意:</b> 我们还提供了自定义 hook
-          用于复杂场景:{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
-        </p>
-
-        <p>
-          下面的示例演示了如何通过操作输入组件的 name 属性来创建列表式表单。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意:</b>
-          如果您的应用需要一些功能，例如：删除，插入，追加，前置， 此处是结合了
-          <PageLink to="/api#Controller">Controller</PageLink>
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            的实现链接
-          </a>
-          。
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "连接表单",
     description: (
@@ -298,57 +259,6 @@ export default {
         来进一步改善开发体验。它的好处是可以更简单地连接输入组件与 React Hook
         Form。
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "条件式受控组件",
-    description: (
-      <>
-        <p>
-          React Hook
-          Form处理条件式表单项非常简单，因为当你从组件树中移除了输入组件，它会自动变为
-          <code>unregistered</code>，
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            查看示例
-          </a>
-          。但是，由于没有注册ref，对受控组件来说并不一样。这种情况下，我们可以用下列方式：
-        </p>
-        <ul>
-          <li>
-            <p>折叠起输入组件</p>
-          </li>
-          <li>
-            <p>为遮罩或弹出框构建分离的表单</p>
-          </li>
-          <li>
-            <p>
-              利用
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>
-              和自定义注册来实现。
-            </p>
-          </li>
-          <li>
-            <p>
-              使用
-              <PageLink to="/api#Controller">Controller</PageLink>
-              来包裹您的组件，让它管理注册与取消注册。
-            </p>
-          </li>
-        </ul>
-        <p>例子如下:</p>
-      </>
     ),
   },
   formContext: {
@@ -566,29 +476,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "严格类型",
-    description: (
-      <>
-        <p>
-          由于注册过程中天然松散的 name
-          属性，为输入组件/表单构建严格的类型非常具有挑战。我们创建了一个额外的插件，使之成为可能。
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          必须使用<code>TypedController</code>
-          来包装输入组件，才可以将输入的 name 字符串转换成数组形状。
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

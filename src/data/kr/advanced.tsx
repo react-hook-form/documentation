@@ -11,8 +11,6 @@ import input from "../../components/codeExamples/input"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "고급 사용법",
@@ -265,45 +263,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "필드 배열",
-    description: (
-      <>
-        <p>
-          이 기능은 React Hook Form 이 제공하는 제일 유용한 기능 중 하나입니다.
-          이 기능을 구현하기 위해 (다른 라이브러리 등의) 컴포넌트를 불러오는
-          대신에 이미 있는 HTML 마크업을 활용할 수 있습니다. 핵심은 그 안에 있는{" "}
-          <code>name</code> 속성입니다. React Hook Form 에서는 <code>name</code>{" "}
-          속성이 여러분이 사용하고자 하는 자료 구조를 반영합니다.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 더 복잡한 시나리오에
-          대응하기 위한 커스텀 훅도 있습니다:{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
-        </p>
-
-        <p>
-          아래의 예시는 인풋의 <code>name</code> 속성을 조작하여 어떻게 필드
-          배열을 만들 수 있는지 보여줍니다.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>참고:</b> 여러분의 애플리케이션이
-          삭제, 삽입, 앞에 붙이기(Prepend), 뒤에 붙이기(Append)를 지원해야
-          한다면 <PageLink to="/api#Controller">Controller</PageLink> 로
-          만들어진{" "}
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            구현체를 확인해보세요.
-          </a>{" "}
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "폼 연결하기",
     description: (
@@ -316,57 +275,6 @@ export default {
         만들어 사용할 때의 이점은 어디서나 인풋을 React Hook Form과 연결할 수
         있다는 것입니다.
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "조건부 제어 컴포넌트",
-    description: (
-      <>
-        <p>
-          React Hook Form 를 사용하면 조건부 필드를 다루기 무척 쉬워집니다.
-          인풋이 컴포넌트 트리에서 제거되는 순간 자동으로{" "}
-          <code>unregister</code> 되기 때문입니다.{" "}
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            여기 예제가 있습니다.
-          </a>{" "}
-          하지만 이 작동방식은 제어 컴포넌트에는 잘 작동하지 않는데,{" "}
-          <code>ref</code> 가 등록되어있지 않기 때문입니다. 이럴 때는 아래의
-          방법을 사용할 수 있습니다.
-        </p>
-        <ul>
-          <li>
-            <p>인풋을 활성 상태를 토글하기</p>
-          </li>
-          <li>
-            <p>모달과 팝업 폼을 위한 별도의 폼을 만들기</p>
-          </li>
-          <li>
-            <p>
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>
-              를 활용하여 커스텀 등록을 구현하기
-            </p>
-          </li>
-          <li>
-            <p>
-              <PageLink to="/api#Controller">Controller</PageLink> 를 불러와서
-              컴포넌트를 감싸면 알아서 register 와 unregister 처리하기
-            </p>
-          </li>
-        </ul>
-        <p>여기 활용 예제가 있습니다.</p>
-      </>
     ),
   },
   formContext: {
@@ -588,30 +496,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "Strictly Typed",
-    description: (
-      <>
-        <p>
-          등록시 유연한 이름 속성의 특성으로 인해 엄격하게 입력 된 입력 / 양식을
-          작성하는 것은 어려운 일입니다. 이를 가능하게하기 위해 추가 플러그인을
-          구축했습니다.
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          <code>TypedController</code>로 입력을 래핑해야합니다. 입력 문자열
-          이름을 배열 모양으로 변환하십시오.
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),
