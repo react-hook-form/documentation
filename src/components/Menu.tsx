@@ -47,6 +47,12 @@ const pages = [
   {
     pathname: "/api/useformstate",
     name: "useFormState",
+    pages: [
+      {
+        pathname: "/api/useformstate/errormessage",
+        name: "ErrorMessage",
+      },
+    ],
   },
   {
     pathname: "/api/usefieldarray",
