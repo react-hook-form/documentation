@@ -80,7 +80,12 @@ function Menu() {
           </h2>
         </div>
 
-        <ul className="scrollArea">
+        <ul
+          className="scrollArea"
+          style={{
+            paddingBottom: 40,
+          }}
+        >
           {pages.map((page) => {
             const isActive = pathname === page.pathname
 

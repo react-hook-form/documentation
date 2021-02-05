@@ -22,7 +22,7 @@ export default {
   title: "Advanced Usage",
   header: {
     title: "Advanced",
-    description: "Build complex and accessible forms with React Hook Form.",
+    description: "Build complex and accessible forms",
   },
   controlledMixedWithUnControlled: {
     title: "Controlled mixed with Uncontrolled Components",
