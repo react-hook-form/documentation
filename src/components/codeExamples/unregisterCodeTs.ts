@@ -10,10 +10,12 @@ export default function App() {
   const { register, handleSubmit, unregister } = useForm<IFormInputs>();
   const onSubmit = (data: IFormInputs) => console.log(data);
 
+  React.useEffect(() => {
+    register("lastName");
+  }, [register])
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName") />
-      <input {...register("lastName") />
       <button type="button" onClick={() => unregister("lastName")}>unregister</button>
       <input type="submit" />
     </form>

@@ -1137,7 +1137,7 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
     introduction: (
       <>
         <p>
-          Hook function that allows you to access the form context.{" "}
+          This custom hook allows you to access the form context.{" "}
           <code>useFormContext</code> is intended to be used in deeply nested
           structures, where it would become inconvenient to pass the context as
           a prop.

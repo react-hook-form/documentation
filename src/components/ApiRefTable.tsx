@@ -29,13 +29,6 @@ export default function ApiRefTable({
     <>
       {api.register.description}
 
-      <CodeArea
-        rawData={register}
-        url="https://codesandbox.io/s/react-hook-form-js-wbybv"
-        tsRawData={registerTs}
-        tsUrl="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
-      />
-
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>
@@ -73,11 +66,7 @@ export default function ApiRefTable({
         </table>
       </div>
 
-      {api.register.fieldArray}
-
-      {api.register.options.note}
-
-      <fieldset className={styles.fieldset}>
+      <fieldset className={styles.fieldset} style={{ marginTop: 40 }}>
         <legend>{api.register.options.title}</legend>
         <p>{api.register.selectHelp}</p>
         <label>
@@ -488,6 +477,15 @@ export default function ApiRefTable({
             </tr>
           </tbody>
         </table>
+
+        <CodeArea
+          rawData={register}
+          url="https://codesandbox.io/s/react-hook-form-js-wbybv"
+          tsRawData={registerTs}
+          tsUrl="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
+        />
+
+        {api.register.options.note}
       </div>
     </>
   )

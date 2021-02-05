@@ -37,11 +37,6 @@ export default ({ currentLanguage }) => {
 
             {api.unregister.description}
 
-            <p>
-              It also provide a second optional argument to keep state after
-              unregister an input.
-            </p>
-
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>

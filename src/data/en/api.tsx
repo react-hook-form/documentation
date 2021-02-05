@@ -149,18 +149,6 @@ export default {
           </li>
           <li>
             <p>
-              It doesn't auto populate with the manually registered input (eg:{" "}
-              <code
-                style={{
-                  whiteSpace: "nowrap",
-                }}
-              >{`register('test')`}</code>
-              ) because the custom <code>register</code> field does not provide
-              the <code>ref</code>.
-            </p>
-          </li>
-          <li>
-            <p>
               Its not default state for the form, to include additional form
               values:
             </p>
@@ -168,7 +156,7 @@ export default {
               <li>
                 <p>
                   Register hidden input:{" "}
-                  <code>{`<input type="hidden" ref={register} name="test" />`}</code>
+                  <code>{`<input type="hidden" {...register('test'} />`}</code>
                 </p>
               </li>
               <li>
@@ -181,6 +169,12 @@ export default {
                 </p>
               </li>
             </ol>
+          </li>
+          <li>
+            <p>
+              <code>defaultValues</code> will be shallow merged with form
+              submission data.
+            </p>
           </li>
         </ul>
       </>
@@ -252,12 +246,8 @@ export default {
       <>
         <p>
           This method allows you to <code>unregister</code> a single input or an
-          array of inputs.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> when you unregister an
-          input, its value will no longer be included in the form data that gets
-          submitted.
+          array of inputs. It also provide a second optional argument to keep
+          state after unregister an input.
         </p>
       </>
     ),
@@ -268,12 +258,72 @@ export default {
       <>
         <p>
           This method allows you to register an input/select and apply
-          validation rules into React Hook Form.
+          validation rules into React Hook Form. Validation rules are all based
+          on HTML standard and also allow custom validation.
         </p>
+
         <p>
-          Validation rules are all based on HTML standard and also allow custom
-          validation.
+          By invoking the register function and supply input's name, you will
+          receive the following methods:
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th>{generic.type.en}</th>
+                <th>{generic.description.en}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>onChange</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    ChangeHandler
+                  </code>
+                </td>
+                <td>
+                  <p>
+                    <code>onChange</code> prop to subscribe the input change
+                    event.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>onBlur</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    ChangeHandler
+                  </code>
+                </td>
+                <td>
+                  <p>
+                    <code>onBlur</code> prop to subscribe the input blur event.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>ref</code>
+                </td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`React.Ref<any>`}</code>
+                </td>
+                <td>
+                  <p>Input reference for hook form to register.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>
           <b className={typographyStyles.note}>Important</b> rules to follow for
@@ -297,27 +347,14 @@ export default {
               with number. eg: <code>test.0.data</code>
             </p>
           </li>
+          <li>
+            <p>
+              <b>TS</b>: array index type support is up to 99.{" "}
+              <code>test.99.test</code> ✅ <code>test.999.test</code> ❌
+            </p>
+          </li>
         </ul>
       </>
-    ),
-    fieldArray: (
-      <p
-        style={{
-          paddingLeft: 10,
-          borderLeft: `4px solid ${colors.lightPink}`,
-        }}
-      >
-        If you're working on simple <code>Array Fields</code>, you can assign an
-        input name as <code>name.index</code>.{" "}
-        <Link
-          className={buttonStyles.links}
-          to="/api/usefieldarray"
-          title="example for Field Array"
-        >
-          Check out <code>useFieldArray</code>
-        </Link>
-        .
-      </p>
     ),
     example: "Submit Result",
     selectHelp:
@@ -344,18 +381,14 @@ export default {
             the input value with <Link to={"/api/setValue"}>setValue</Link>.
           </p>
 
-          <p>
-            <code
-              className={typographyStyles.codeBlock}
-            >{`register('firstName', { required: true, min: 8 })`}</code>
-          </p>
+          <CodeArea
+            rawData={`register('firstName', { required: true, min: 8 });
+            
+const { onChange } = register('lastChange'); // this onChange method can update input value
 
-          <p>
-            <b className={typographyStyles.note}>Note:</b> If you have multiple
-            radio inputs with the same name, you need to register the validation
-            to the last input so the hook knows to validate them as a group at
-            the end.
-          </p>
+// This will work for React Native, except you can't reset input value
+<TextInput onTextChange={onChange} />`}
+          />
         </>
       ),
     },
@@ -1501,7 +1534,7 @@ React.useEffect(() => {
     introduction: (
       <>
         <p>
-          Hook function that allows you to access the form context.{" "}
+          This custom hook allows you to access the form context.{" "}
           <code>useFormContext</code> is intended to be used in deeply nested
           structures, where it would become inconvenient to pass the context as
           a prop.

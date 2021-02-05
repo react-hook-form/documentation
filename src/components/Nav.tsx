@@ -245,6 +245,13 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           </Link>
           <Link
             activeClassName="active"
+            style={
+              location.pathname.includes("/api")
+                ? {
+                    borderBottom: "1px solid #bf1650",
+                  }
+                : null
+            }
             to={
               setting.version === 7
                 ? "/api"

@@ -21,7 +21,7 @@ export default {
         <p>
           Performance is one of the primary reasons why this library was
           created. React Hook Form relies on uncontrolled components, which is
-          the reason why the <code>register</code> function occurs at the{" "}
+          the reason why the <code>register</code> function capture{" "}
           <code>ref</code>. This approach reduces the amount of re-rendering
           that occurs due to a user typing in an input or other form values
           changing. Components mount to the page faster than controlled
@@ -635,8 +635,11 @@ export default {
               </a>
             </li>
           </ul>
-          
-          <p>Alternatively you can use the _deprecated_ option <code>shouldUnregister: false</code> when calling `useForm`.</p>
+
+          <p>
+            Alternatively you can use the _deprecated_ option{" "}
+            <code>shouldUnregister: false</code> when calling `useForm`.
+          </p>
         </>
       ),
     },

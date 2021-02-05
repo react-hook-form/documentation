@@ -20,7 +20,7 @@ export default {
         <p>
           Performance is one of the primary goals for building this custom hook.
           React Hook Form relies on uncontrolled component, hence the reason why
-          the register function occurs at the ref. This approach will reduce the
+          the register function capture the ref. This approach will reduce the
           amount of re-rendering occurring due to user typing or value changing.
           Components mount to the page is much quicker as well because they are
           not controlled. For mounting speed, I have completed a quick

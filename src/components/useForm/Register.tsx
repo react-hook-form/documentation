@@ -1,8 +1,6 @@
 import * as React from "react"
-import { useStateMachine } from "little-state-machine"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import Popup from "../Popup"
 import api from "../../data/en/api"
 import ApiRefTable from "../ApiRefTable"
 import typographyStyles from "../../styles/typography.module.css"
@@ -28,8 +26,7 @@ export default ({ currentLanguage }) => {
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, RegisterOptions?) => void`}</span>
-                <Popup message="React Native: Custom register or using Controller" />
+                >{`(Ref, RegisterOptions?) => ({ onChange, onBlur, name, ref })`}</span>
               </h2>
             </code>
 
