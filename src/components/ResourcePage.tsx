@@ -11,10 +11,7 @@ import styles from "./ResourcePage.module.css"
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const {
-    state: {
-      language,
-      setting: { version },
-    },
+    state: { language, setting: { version = {} } = {} },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage

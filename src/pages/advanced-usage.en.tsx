@@ -16,9 +16,7 @@ const Api = ({
   }
 }) => {
   const {
-    state: {
-      setting: { version },
-    },
+    state: { setting: { version = {} } = {} },
   } = useStateMachine()
 
   return (
