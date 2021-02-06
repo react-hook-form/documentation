@@ -122,6 +122,32 @@ export default ({ currentLanguage, isController }) => {
               <p>Dirty state for current controlled input.</p>
             </td>
           </tr>
+          <tr>
+            <td></td>
+            <td>
+              <code>error</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>object</code>
+            </td>
+            <td>
+              <p>error for this specific input.</p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <code>isValidating</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>boolean</code>
+            </td>
+            <td>
+              <p>
+                return <code>true</code> when the input is validating.
+              </p>
+            </td>
+          </tr>
         </thead>
       </table>
     </>

@@ -1402,7 +1402,8 @@ React.useEffect(() => {
               integrating with external controlled components with non-standard
               prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
               <code>name</code>, <code>ref</code> and <code>value</code> to the
-              child component.
+              child component, and also a <code>meta</code> object which
+              contains specific input state.
             </p>
             <TabGroup buttonLabels={["Standard", "With Focus"]}>
               <CodeArea
@@ -1411,10 +1412,10 @@ React.useEffect(() => {
                 rawData={`<Controller
   control={control}
   name="test"
-  render={(
-    { onChange, onBlur, value, name, ref },
-    { invalid, isTouched, isDirty }
-  ) => (
+  render={({
+    field: { onChange, onBlur, value, name, ref },
+    meta: { invalid, isTouched, isDirty, error, isValidating },
+  }) => (
     <Checkbox
       onBlur={onBlur}
       onChange={(e) => onChange(e.target.checked)}
@@ -1428,7 +1429,10 @@ React.useEffect(() => {
                 withOutCopy
                 url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
                 rawData={`<Controller
-  render={(props) => (
+  render={({
+    field: { onChange, onBlur, value, name, ref },
+    meta: { invalid, isTouched, isDirty, error, isValidating },
+  }) => (
     <TextField
       value={props.value}
       onChange={props.onChange}
