@@ -60,6 +60,9 @@ import setValueUseFieldArray from "../codeExamples/v6/setValueUseFieldArray"
 import submitReset from "../codeExamples/v6/submitReset"
 import handleSubmitAsyncCode from "../codeExamples/v6/handleSubmitAsyncCode"
 import fieldArrayReset from "../codeExamples/v6/fieldArrayReset"
+import { Link } from "gatsby"
+import colors from "../../styles/colors"
+import { updateSetting } from "../../actions/settingActions"
 
 const { useRef, useEffect } = React
 
@@ -100,8 +103,11 @@ interface Props {
 
 function ApiPageV6({ formData, defaultLang, api }: Props) {
   const {
+    actions,
     state: { language },
-  } = useStateMachine()
+  } = useStateMachine({
+    updateSetting,
+  })
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -210,6 +216,10 @@ function ApiPageV6({ formData, defaultLang, api }: Props) {
     if (location.hash) {
       setTimeout(() => goToSection(location.hash.substr(1), false), 10)
     }
+
+    actions.updateSetting({
+      version: 6,
+    })
   }, [])
 
   useEffect(() => {
@@ -275,6 +285,20 @@ function ApiPageV6({ formData, defaultLang, api }: Props) {
         />
 
         <main>
+          <div
+            style={{
+              border: `1px solid ${colors.lightBlue}`,
+              marginBottom: 40,
+              padding: "0 20px",
+              borderRadius: 4,
+            }}
+          >
+            <p>
+              <span style={{ fontSize: 12 }}>►</span> React Hook Form V7 is
+              released. If you are planning to upgrade, please read through the{" "}
+              <Link to="/migrate-v6-to-v7">Migration Guide to V7</Link>.
+            </p>
+          </div>
           <div className={styles.versionToggle}>
             <div
               className={`${headerStyles.toggleGroup} ${headerStyles.smallToggleGroup}`}

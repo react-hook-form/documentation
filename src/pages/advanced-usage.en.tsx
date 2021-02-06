@@ -21,8 +21,6 @@ const Api = ({
     },
   } = useStateMachine()
 
-  console.log(version)
-
   return (
     <Layout location={location} defaultLang="en">
       <Seo title={advanced.title} location={location} />

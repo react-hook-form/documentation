@@ -47,6 +47,7 @@ import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import containerStyles from "../../styles/container.module.css"
 import styles from "../ApiPage.module.css"
+import { updateSetting } from "../../actions/settingActions"
 
 const { useRef, useEffect } = React
 
@@ -89,8 +90,11 @@ interface Props {
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
     state,
+    actions,
     state: { language },
-  } = useStateMachine()
+  } = useStateMachine({
+    updateSetting,
+  })
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -179,6 +183,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     if (location.hash) {
       setTimeout(() => goToSection(location.hash.substr(1), false), 10)
     }
+
+    actions.updateSetting({
+      version: 5,
+    })
   }, [])
 
   useEffect(() => {
@@ -281,7 +289,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 aria-label="show v6 doc"
                 aria-selected="false"
                 aria-controls="tabPanel-2"
-                onClick={() => navigate("/api")}
+                onClick={() => navigate("/v6/api")}
               >
                 V6
               </button>
