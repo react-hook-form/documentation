@@ -93,7 +93,7 @@ function Menu() {
               <li key={page.pathname} className={styles.menuItem}>
                 <code aria-hidden className={styles.code}>{`</>`}</code>
                 <Link
-                  className={isActive && styles.isActive}
+                  className={isActive ? styles.isActive : ""}
                   to={page.pathname}
                 >
                   {page.name}
@@ -111,7 +111,7 @@ function Menu() {
                             className={styles.code}
                           >{`</>`}</code>{" "}
                           <Link
-                            className={isActive && styles.isActive}
+                            className={isActive ? styles.isActive : ""}
                             to={page.pathname}
                           >
                             {page.name}
