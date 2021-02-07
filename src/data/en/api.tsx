@@ -1242,7 +1242,7 @@ React.useEffect(() => {
               rawData={`{fields.map((data, index) =>
   <input
     key={data.id}
-    defaultValue={\`data[\${index}].value\`}
+    defaultValue={data.value}
     name={\`data[\${index}].value\`}
   />;
 );}`}
