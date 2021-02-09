@@ -1,7 +1,7 @@
 import * as React from "react"
 import SideMenu from "../SideMenu"
 import { useStateMachine } from "little-state-machine"
-import TS from "../../data/v6/ts"
+import TS from "../../data/v6/ts.tsx"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 
