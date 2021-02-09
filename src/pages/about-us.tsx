@@ -82,7 +82,7 @@ const data = [
     active: true,
   },
   {
-    name: "Kotaro Sugawara",
+    name: "Bill Luo",
     imgUrl:
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
     url: "https://github.com/kotarella1110",
