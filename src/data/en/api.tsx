@@ -659,21 +659,18 @@ return <button disabled={isDirty || isValid} />;
       <>
         <p>
           This function will pass the form data when form validation is
-          successful and can be invoked remotely as well.
+          successful.
         </p>
+        <CodeArea
+          rawData={` // It can be invoked remotely as well
+handleSubmit(onSubmit)();
+
+// You can pass an async function for asynchronous validation.
+handleSubmit(async (data) => await fetchAPI(data))`}
+        />
         <p>
-          <code className={typographyStyles.codeBlock}>
-            handleSubmit(onSubmit)()
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> You can pass an{" "}
-          <code>async</code> function for asynchronous validation. eg:{" "}
-        </p>
-        <p>
-          <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) =&gt; await fetchAPI(data))
-          </code>
+          <b className={typographyStyles.note}>Note:</b> <code>disabled</code>{" "}
+          input will not be returned as submission result.
         </p>
       </>
     ),
