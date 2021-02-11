@@ -8,7 +8,7 @@ import typographyStyles from "../styles/typography.module.css"
 
 const activateStyle = { borderBottom: `1px solid ${colors.lightPink}` }
 
-const animateProps = {
+export const animateProps = {
   play: true,
   start: {
     opacity: 0,

@@ -6,6 +6,8 @@ import colors from "../styles/colors"
 import styles from "./SideMenu.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import { updateCurrentLanguage } from "../actions/languageActions"
+import { animateProps } from "./SideMenu"
+import { Animate } from "react-simple-animate"
 
 const pages = [
   {
@@ -64,6 +66,7 @@ function Menu() {
   const { state } = useStateMachine(updateCurrentLanguage)
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
+  let id = 0
 
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
@@ -86,42 +89,65 @@ function Menu() {
             paddingBottom: 40,
           }}
         >
-          {pages.map((page) => {
+          {pages.map((page, index) => {
             const isActive = pathname === page.pathname
+            id++
 
             return (
-              <li key={page.pathname} className={styles.menuItem}>
-                <code aria-hidden className={styles.code}>{`</>`}</code>
-                <Link
-                  className={isActive ? styles.isActive : ""}
-                  to={page.pathname}
-                >
-                  {page.name}
-                </Link>
+              <Animate
+                key={`${index}-link`}
+                {...animateProps}
+                delay={id * 0.01}
+                render={({ style }) => (
+                  <li
+                    key={page.pathname}
+                    className={styles.menuItem}
+                    style={style}
+                  >
+                    <code aria-hidden className={styles.code}>{`</>`}</code>
+                    <Link
+                      className={isActive ? styles.isActive : ""}
+                      to={page.pathname}
+                    >
+                      {page.name}
+                    </Link>
 
-                {page.pages && (
-                  <ul>
-                    {page.pages.map((page) => {
-                      const isActive = pathname === page.pathname
+                    {page.pages && (
+                      <ul>
+                        {page.pages.map((page) => {
+                          const isActive = pathname === page.pathname
+                          id++
 
-                      return (
-                        <li key={page.pathname} className={styles.menuItem}>
-                          <code
-                            aria-hidden
-                            className={styles.code}
-                          >{`</>`}</code>{" "}
-                          <Link
-                            className={isActive ? styles.isActive : ""}
-                            to={page.pathname}
-                          >
-                            {page.name}
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
+                          return (
+                            <Animate
+                              {...animateProps}
+                              delay={id * 0.01}
+                              render={({ style }) => (
+                                <li
+                                  style={style}
+                                  key={page.pathname}
+                                  className={styles.menuItem}
+                                >
+                                  <code
+                                    aria-hidden
+                                    className={styles.code}
+                                  >{`</>`}</code>{" "}
+                                  <Link
+                                    className={isActive ? styles.isActive : ""}
+                                    to={page.pathname}
+                                  >
+                                    {page.name}
+                                  </Link>
+                                </li>
+                              )}
+                            />
+                          )
+                        })}
+                      </ul>
+                    )}
+                  </li>
                 )}
-              </li>
+              />
             )
           })}
         </ul>

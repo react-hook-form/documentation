@@ -305,7 +305,17 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>{nav[currentLanguage].faqs}</span>
           </Link>
-          <span className="desktopOnly">
+          <span
+            className="desktopOnly"
+            style={
+              location.pathname.includes("dev-tools") ||
+              location.pathname.includes("form-builder")
+                ? {
+                    borderBottom: "1px solid #bf1650",
+                  }
+                : null
+            }
+          >
             <span className={styles.tools}>
               <span
                 style={{
