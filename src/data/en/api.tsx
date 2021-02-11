@@ -413,7 +413,22 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           </p>
         </>
       ),
-      validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+      validate: (
+        <>
+          <p>
+            You can pass a callback function as the argument to validate, or you
+            can pass an object of callback functions to validate all of them.
+            (refer to the examples)
+          </p>
+          <p>
+            <b className={typographyStyles.note}>Note:</b> <code>object</code>{" "}
+            or <code>array</code> input data, it's recommend to use{" "}
+            <code>validate</code> function to validate as the other rules are
+            mostly apply to <code>string</code>, <code>number</code> and{" "}
+            <code>boolean</code> data type.
+          </p>
+        </>
+      ),
     },
   },
   formState: {
