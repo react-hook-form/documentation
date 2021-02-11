@@ -35,7 +35,7 @@ export default function ApiWatch({
             <tr>
               <th
                 style={{
-                  minWidth: 100,
+                  minWidth: 180,
                 }}
               >
                 {generic.type[currentLanguage]}
@@ -56,7 +56,7 @@ export default function ApiWatch({
               </th>
               <th
                 style={{
-                  minWidth: 200,
+                  minWidth: 180,
                 }}
               >
                 {generic.return[currentLanguage]}
@@ -87,9 +87,7 @@ export default function ApiWatch({
                 <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
+                <code className={typographyStyles.typeText}>{`unknown[]`}</code>
               </td>
             </tr>
             <tr>
@@ -105,7 +103,7 @@ export default function ApiWatch({
               <td>
                 <code
                   className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
+                >{`{[key:string]: any}`}</code>
               </td>
             </tr>
             <tr>
@@ -123,7 +121,7 @@ export default function ApiWatch({
               <td>
                 <code
                   className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
+                >{`{[key:string]: any}`}</code>
               </td>
             </tr>
           </tbody>
