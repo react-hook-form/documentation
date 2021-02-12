@@ -25,9 +25,7 @@ export default function UseControllerContent({
         </h2>
       </code>
       {api.useController.description}
-      <h4 className={typographyStyles.questionTitle}>
-        useController Arguments:{" "}
-      </h4>
+      <h2 className={typographyStyles.title}>props</h2>
       <p>
         The following table contains information about all the arguments for{" "}
         <code>useController</code>.
@@ -42,7 +40,7 @@ export default function UseControllerContent({
               <th>{generic.description[currentLanguage]}</th>
             </tr>
           </thead>
-          {api.Controller.table}
+          {api.useController.table}
         </table>
       </div>
 

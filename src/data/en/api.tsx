@@ -799,6 +799,8 @@ reset({ deepNest: { file: new File() } });
           the options in detail:{" "}
         </p>
 
+        <h2 className={typographyStyles.title}>arguments</h2>
+
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
             <thead>
@@ -967,6 +969,8 @@ reset({ deepNest: { file: new File() } });
           </li>
         </ul>
 
+        <h2 className={typographyStyles.title}>arguments</h2>
+
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
             <tbody>
@@ -1114,6 +1118,8 @@ clearErrors('test.firstName'); // for clear single input error
 setValue('yourDetails', { firstName: 'value' }); // less performant `}
           withOutCopy
         />
+
+        <h2 className={typographyStyles.title}>arguments</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1288,6 +1294,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           </a>{" "}
           to compare controlled vs uncontrolled Field Array.
         </p>
+
+        <h2 className={typographyStyles.title}>props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1603,7 +1611,7 @@ React.useEffect(() => {
   }) => (
     <Checkbox
       onBlur={onBlur}
-      onChange={(e) => onChange(e.target.checked)}
+      onChange={onChange}
       checked={value}
       inputRef={ref}
     />
@@ -1936,6 +1944,82 @@ React.useEffect(() => {
   },
   useController: {
     title: "useController",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>string</code>
+          </td>
+          <td>✓</td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td></td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+            Optional when using <code>FormProvider</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>any</code>
+          </td>
+          <td></td>
+          <td>
+            The same as an uncontrolled component's <code>defaultValue</code>.
+            When passing a <code>boolean</code> value, it will be treated as
+            checkbox input. For more details, see useForm's{" "}
+            <code>defaultValues</code> section.
+            <ul>
+              <li>
+                <p>
+                  You need to either set <code>defaultValue</code> at the
+                  field-level or call <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If your form will invoke <code>reset</code> with default
+                  values, you will need to call <code>useForm</code> with{" "}
+                  <code>defaultValues</code> instead of setting the{" "}
+                  <code>defaultValue</code> on individual fields.
+                </p>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td></td>
+          <td>
+            Validation rules in the same format as for <code>register</code>.
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="rules={{ required: true }}"
+            />
+          </td>
+        </tr>
+      </tbody>
+    ),
     description: (
       <>
         <p>

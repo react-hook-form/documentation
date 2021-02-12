@@ -35,6 +35,7 @@ export default ({ currentLanguage }) => {
                 </span>
               </h2>
             </code>
+
             {api.setError.description}
 
             <TabGroup

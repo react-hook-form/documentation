@@ -28,6 +28,8 @@ export default function UseFieldArrayContent({
 
       {api.useFieldArray.description}
 
+      <h2 className={typographyStyles.title}>return</h2>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>

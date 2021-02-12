@@ -133,6 +133,10 @@
     line-height: 1.5;
   }
 
+  h2.title {
+    margin-top: 40px;
+  }
+
   .headingWithTopMargin {
     margin-top: 70px;
   }

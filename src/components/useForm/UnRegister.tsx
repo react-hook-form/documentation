@@ -37,7 +37,7 @@ export default ({ currentLanguage }) => {
 
             {api.unregister.description}
 
-            <hr />
+            <h2 className={typographyStyles.title}>arguments</h2>
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>

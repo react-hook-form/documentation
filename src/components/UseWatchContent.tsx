@@ -29,6 +29,8 @@ export default function UseFieldArray({
 
       {api.useWatch.description}
 
+      <h2 className={typographyStyles.title}>props</h2>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <thead>

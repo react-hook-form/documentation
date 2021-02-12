@@ -55,7 +55,7 @@ function SideMenu({
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>
         <div className={styles.titleList}>
-          <h2
+          <h4
             className={typographyStyles.title}
             style={{
               fontSize: 16,
@@ -63,7 +63,7 @@ function SideMenu({
             }}
           >
             {generic.menu[currentLanguage]}
-          </h2>
+          </h4>
         </div>
 
         <ul className="scrollArea">

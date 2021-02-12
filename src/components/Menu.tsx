@@ -69,7 +69,7 @@ function Menu() {
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>
         <div className={styles.titleList}>
-          <h2
+          <h4
             className={typographyStyles.title}
             style={{
               fontSize: 16,
@@ -77,7 +77,7 @@ function Menu() {
             }}
           >
             Menu
-          </h2>
+          </h4>
         </div>
 
         <ul
