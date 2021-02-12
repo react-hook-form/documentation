@@ -543,7 +543,7 @@ export default {
         <p className={typographyStyles.homeParagraph}>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input changes without re-rendering the entire form.
+          input and form State update without re-rendering the entire form.
         </p>
       ),
     },
