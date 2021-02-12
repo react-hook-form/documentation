@@ -249,6 +249,52 @@ export default {
           array of inputs. It also provide a second optional argument to keep
           state after unregister an input.
         </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <CodeArea
+            rawData={`<input {...register('yourDetails.firstName')} />
+<input {...register('yourDetails.lastName')} />
+`}
+          />
+
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>unregister</code> method.
+          </p>
+
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Input Name</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>unregister("yourDetails")</code>
+                </td>
+                <td>
+                  <code>{`{}`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>unregister("yourDetails.firstName")</code>
+                </td>
+                <td>
+                  <code>{`{ lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>unregister(["yourDetails.lastName"])</code>
+                </td>
+                <td>
+                  <code>{`{ firstName: '' }`}</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -643,8 +689,9 @@ return <button disabled={isDirty || isValid} />;
           <li>
             <p>
               This API will trigger re-render at the root of your app or form,
-              consider to use <Link to={"api/usewatch"}>useWatch</Link> api if
-              that's going to be performance issue for you.
+              consider to use callback or{" "}
+              <Link to={"api/usewatch"}>useWatch</Link> api if that's going to
+              be performance issue for you.
             </p>
           </li>
         </ul>
@@ -919,6 +966,57 @@ reset({ deepNest: { file: new File() } });
             </p>
           </li>
         </ul>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th width={"200px"}>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>input's name.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>error</code>
+                </td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`{ type: string, message?: string }`}</code>
+                </td>
+                <td>
+                  <p>Set an error with its type and message.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>shouldFocus</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    Should focus the input during setting an error. This only
+                    works when the input's reference is registered, it will not
+                    work for custom register as well.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -1016,6 +1114,38 @@ clearErrors('test.firstName'); // for clear single input error
 setValue('yourDetails', { firstName: 'value' }); // less performant `}
           withOutCopy
         />
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>shouldValidate</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  Should trigger validation during setting the input value.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>shouldDirty</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>Should set the input itself to dirty.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -1030,25 +1160,51 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           subscribe to input changes.
         </p>
 
-        <ul>
-          <li>
-            <p>
-              <code>getValues()</code>: Read all form values.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues('test')</code>: Read an individual field value by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
-        </ul>
+        <div className={tableStyles.tableWrapper}>
+          <CodeArea
+            rawData={`<input {...register('yourDetails.firstName')} />
+<input {...register('yourDetails.lastName')} />
+`}
+          />
+
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>getValues</code> method.
+          </p>
+
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Input Name</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues("yourDetails")</code>
+                </td>
+                <td>
+                  <code>{`{ firstName: '', lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues("yourDetails.firstName")</code>
+                </td>
+                <td>
+                  <code>{`{ lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues(["yourDetails.lastName"])</code>
+                </td>
+                <td>
+                  <code>{`[{ firstName: '' }]`}</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>
           <b className={typographyStyles.note}>Important notes: </b>
@@ -1064,6 +1220,23 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
             <p>
               It will return <code>defaultValues</code> from{" "}
               <code>useForm</code> before the <b>initial</b> render.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues()</code>: Read all form values.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues('test')</code>: Read an individual field value by{" "}
+              <strong>name</strong>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
+              <strong>name</strong>.
             </p>
           </li>
         </ul>

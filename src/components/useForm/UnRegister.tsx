@@ -17,7 +17,7 @@ export default ({ currentLanguage }) => {
         unregister
       </h1>
       <p className={typographyStyles.subHeading}>
-        unregister uncontrolled/controlled inputs
+        Unregister uncontrolled/controlled inputs
       </p>
 
       <div className={containerStyles.wrapper}>
@@ -36,6 +36,8 @@ export default ({ currentLanguage }) => {
             </code>
 
             {api.unregister.description}
+
+            <hr />
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>

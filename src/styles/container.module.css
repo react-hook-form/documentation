@@ -13,6 +13,10 @@
   max-width: 1024px;
 }
 
+.centerContent svg {
+  display: none;
+}
+
 .wrapper {
   max-width: 1235px;
   margin: 0 auto;
@@ -29,6 +33,13 @@
 @media (min-width: 768px) {
   .container {
     padding-top: 0;
+  }
+
+  .centerContent svg {
+    width: 85px;
+    display: block;
+    text-align: center;
+    margin: 100px auto -50px;
   }
 
   .wrapper {

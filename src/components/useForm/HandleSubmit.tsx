@@ -19,9 +19,7 @@ export default ({ currentLanguage }) => {
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
         handleSubmit
       </h1>
-      <p className={typographyStyles.subHeading}>
-        Ready to send to the server.
-      </p>
+      <p className={typographyStyles.subHeading}>Ready to send to the server</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />

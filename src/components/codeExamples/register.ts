@@ -7,9 +7,9 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName")} placeholder="First name" />
+      <input {...register("firstName", { required: true })} placeholder="First name" />
 
-      <input {...register("lastName")} placeholder="Last name" />
+      <input {...register("lastName", { minLength: 2 })} placeholder="Last name" />
 
       <select {...register("category")}>
         <option value="">Select...</option>

@@ -25,7 +25,7 @@ export default ({ currentLanguage }) => {
         useForm
       </h1>
       <p className={typographyStyles.subHeading}>
-        Custom hook for form validation
+        React hooks for form validation
       </p>
 
       <div className={containerStyles.wrapper}>

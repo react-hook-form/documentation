@@ -16,7 +16,7 @@ export default ({ currentLanguage }) => {
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
         getValues
       </h1>
-      <p className={typographyStyles.subHeading}>Get form value</p>
+      <p className={typographyStyles.subHeading}>Get form values</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />

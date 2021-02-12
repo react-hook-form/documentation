@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStateMachine } from "little-state-machine"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -13,9 +12,9 @@ export default ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        clearErrors
+        Control
       </h1>
-      <p className={typographyStyles.subHeading}>Clear form errors</p>
+      <p className={typographyStyles.subHeading}>Take control of the form</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />

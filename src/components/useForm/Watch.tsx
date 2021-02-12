@@ -14,9 +14,7 @@ export default ({ currentLanguage }) => {
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
         watch
       </h1>
-      <p className={typographyStyles.subHeading}>
-        Trigger re-render only watched inputs
-      </p>
+      <p className={typographyStyles.subHeading}>Subscribe to input changes</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />

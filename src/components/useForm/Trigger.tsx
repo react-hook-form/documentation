@@ -16,7 +16,7 @@ export default ({ currentLanguage }) => {
         trigger
       </h1>
       <p className={typographyStyles.subHeading}>
-        trigger validation across the form
+        Trigger validation across the form
       </p>
 
       <div className={containerStyles.wrapper}>

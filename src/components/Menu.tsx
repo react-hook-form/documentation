@@ -14,16 +14,16 @@ const pages = [
     pages: [
       { pathname: "/api/useform/register", name: "register" },
       { pathname: "/api/useform/unregister", name: "unregister" },
+      { pathname: "/api/useform/formstate", name: "formState" },
       { pathname: "/api/useform/watch", name: "watch" },
       { pathname: "/api/useform/handlesubmit", name: "handleSubmit" },
       { pathname: "/api/useform/reset", name: "reset" },
       { pathname: "/api/useform/seterror", name: "setError" },
       { pathname: "/api/useform/clearerrors", name: "clearErrors" },
-      { pathname: "/api/useform/setvalues", name: "setValues" },
+      { pathname: "/api/useform/setvalue", name: "setValue" },
       { pathname: "/api/useform/getvalues", name: "getValues" },
       { pathname: "/api/useform/trigger", name: "trigger" },
       { pathname: "/api/useform/control", name: "control" },
-      { pathname: "/api/useform/formstate", name: "formState" },
     ],
   },
   {

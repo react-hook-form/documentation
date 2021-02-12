@@ -43,7 +43,7 @@ export default function ApiRefTable({
                 <code>register("firstName")</code>
               </td>
               <td>
-                <code>{`{ firstName: 'value'}`}</code>
+                <code>{`{firstName: 'value'}`}</code>
               </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@ export default function ApiRefTable({
                 <code>register("name.firstName")</code>
               </td>
               <td>
-                <code>{`{ name: { firstName: 'value' } }`}</code>
+                <code>{`{name: { firstName: 'value' }}`}</code>
               </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@ export default function ApiRefTable({
                 <code>register("name.firstName.0")</code>
               </td>
               <td>
-                <code>{`{ name: { firstName: [ 'value' ] } }`}</code>
+                <code>{`{name: { firstName: [ 'value' ] }}`}</code>
               </td>
             </tr>
           </tbody>
