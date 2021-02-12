@@ -3,6 +3,30 @@
   position: relative;
 }
 
+.feedback {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+}
+
+.feedback > div {
+  border: 1px solid var(--color-light-blue);
+  border-radius: 15px;
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+.feedback > div > svg {
+  margin: 30px auto 0;
+  width: 60px;
+}
+
+.feedback > div > p {
+  font-size: 15px;
+  text-align: left;
+  padding: 20px;
+}
+
 @media (min-width: 1024px) {
   .root {
     padding: 0 50px;
