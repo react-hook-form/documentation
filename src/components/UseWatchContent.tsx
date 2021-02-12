@@ -29,7 +29,7 @@ export default function UseFieldArray({
 
       {api.useWatch.description}
 
-      <h2 className={typographyStyles.title}>props</h2>
+      <h2 className={typographyStyles.props}>Props</h2>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>

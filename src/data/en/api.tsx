@@ -799,7 +799,7 @@ reset({ deepNest: { file: new File() } });
           the options in detail:{" "}
         </p>
 
-        <h2 className={typographyStyles.title}>arguments</h2>
+        <h2 className={typographyStyles.props}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -969,7 +969,7 @@ reset({ deepNest: { file: new File() } });
           </li>
         </ul>
 
-        <h2 className={typographyStyles.title}>arguments</h2>
+        <h2 className={typographyStyles.props}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1119,7 +1119,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           withOutCopy
         />
 
-        <h2 className={typographyStyles.title}>arguments</h2>
+        <h2 className={typographyStyles.props}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1295,7 +1295,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           to compare controlled vs uncontrolled Field Array.
         </p>
 
-        <h2 className={typographyStyles.title}>props</h2>
+        <h2 className={typographyStyles.props}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>

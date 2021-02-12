@@ -6,7 +6,7 @@ import typographyStyles from "../styles/typography.module.css"
 export default ({ currentLanguage, isController }) => {
   return (
     <>
-      <h2 className={typographyStyles.title}>return</h2>
+      <h2 className={typographyStyles.props}>Return</h2>
       <p>
         The following table contains information about properties which{" "}
         <code>{isController ? "Controller" : "useController"}</code> produce.
