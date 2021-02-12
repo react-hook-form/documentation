@@ -230,10 +230,6 @@ function CodePerfCompareSection({
           alt="Redux Form performance"
         />
       </div>
-
-      <p style={{ marginBottom: 40, textAlign: "center" }}>
-        {home.mount[currentLanguage].performanceTests}
-      </p>
     </AnimateGroup>
   )
 }

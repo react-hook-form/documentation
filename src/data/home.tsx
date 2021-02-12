@@ -696,19 +696,6 @@ export default {
       totalMount: "No. of mount(s)",
       totalChange: "No. of committing change(s)",
       totalTime: "Total time",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-          performance tests?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Check out the result of 1000 fields within a form here
-          </a>
-          .
-        </>
-      ),
     },
     es: {
       title: "Montaje más rápido",
@@ -725,19 +712,6 @@ export default {
       totalMount: "No. de montajes",
       totalChange: "No. de cambios confirmados",
       totalTime: "Tiempo total",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> ¿Quieres ver pruebas de
-          rendimiento más intensas?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Mira el resultado de 1000 campos dentro de un formulario aquí
-          </a>
-          .
-        </>
-      ),
     },
     pt: {
       title: "Montagem rápida",
@@ -753,19 +727,6 @@ export default {
       totalMount: "N. de montagem",
       totalChange: "N. de mudanças commit(s)",
       totalTime: "Tempo total",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Gostaria de ver mais testes de
-          performance intensos?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Observe o resultado de 1000 campos dentro de um formulário aqui
-          </a>
-          .
-        </>
-      ),
     },
     kr: {
       title: "더욱 빠른 마운트 속도",
@@ -781,19 +742,6 @@ export default {
       totalMount: "마운트 횟수",
       totalChange: "변경 요청 횟수",
       totalTime: "전체 소요된 시간",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> 더 강도 높은 성능 테스트를
-          보고 싶으신가요?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            여기서 1000개 필드가 있는 폼의 결과를 확인할 수 있습니다
-          </a>
-          .
-        </>
-      ),
     },
     jp: {
       title: "高速なマウント",
@@ -810,19 +758,6 @@ export default {
       totalMount: "マウント数",
       totalChange: "変更コミット数",
       totalTime: "合計時間",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span>{" "}
-          より強力なパフォーマンステストを見たいですか？
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            こちらから1000フィールドを含むフォームのパフォーマンテスト結果をご覧ください
-          </a>
-          。
-        </>
-      ),
     },
     zh: {
       title: "更快的挂载",
@@ -840,18 +775,6 @@ export default {
       totalMount: "安装的次数(s)",
       totalChange: "提交更改的次数(s)",
       totalTime: "总时间",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> 希望看到更深层的性能测试？
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            点击查看包含1000个表单项的表单渲染结果
-          </a>
-          。
-        </>
-      ),
     },
     ru: {
       title: "Более быстрая сборка",
@@ -867,19 +790,6 @@ export default {
       totalMount: "Количество сборок",
       totalChange: "Количество совершаемых изменений",
       totalTime: "Общее время",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Хотите увидеть более тыжёлые
-          тесты производительности?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Проверьте здесь результат тестирования для формы с 1000 полей
-          </a>
-          .
-        </>
-      ),
     },
   },
   liveDemo: {
