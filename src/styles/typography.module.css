@@ -27,6 +27,8 @@
 .props {
   border-bottom: 2px solid var(--color-secondary);
   line-height: 1.8;
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 0;
 }
 
