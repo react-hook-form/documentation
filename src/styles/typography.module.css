@@ -33,7 +33,10 @@
 }
 
 .props:before {
-  content: "▸ ";
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+  content: "ⓘ ";
 }
 
 .title:before,

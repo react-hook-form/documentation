@@ -27,8 +27,7 @@ export default ({ currentLanguage }) => {
           <section id="unregisterRef">
             <code className={typographyStyles.codeHeading}>
               <h2>
-                unregister:
-                <br />
+                unregister:{" "}
                 <span
                   className={typographyStyles.typeText}
                 >{`(name: string | string[], options) => void`}</span>

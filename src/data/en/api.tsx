@@ -371,10 +371,7 @@ export default {
           </table>
         </div>
 
-        <p>
-          <b className={typographyStyles.note}>Important</b> rules to follow for
-          name:{" "}
-        </p>
+        <h2 className={typographyStyles.props}>Rules</h2>
 
         <ul>
           <li>
@@ -386,6 +383,11 @@ export default {
           </li>
           <li>
             <p>It can not start with a number or use number as key name.</p>
+          </li>
+          <li>
+            <p>
+              <code>disabled</code> input will result as <code>undefined</code>.
+            </p>
           </li>
           <li>
             <p>
@@ -732,7 +734,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
         />
         <p>
           <b className={typographyStyles.note}>Note:</b> <code>disabled</code>{" "}
-          input will not be returned as submission result.
+          input will be returned <code>undefined</code> as result.
         </p>
       </>
     ),
@@ -1212,9 +1214,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           </table>
         </div>
 
-        <p>
-          <b className={typographyStyles.note}>Important notes: </b>
-        </p>
+        <h2 className={typographyStyles.props}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -1357,11 +1358,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
 
         <CodeArea rawData={useFieldArrayArgument} />
 
-        <p>
-          <b className={typographyStyles.note}>Important: </b>To be able to
-          efficiently manipulate arrays of uncontrolled components{" "}
-          <code>useFieldArray</code> has some rules you need to be aware of:
-        </p>
+        <h2 className={typographyStyles.props}>Rules</h2>
 
         <ul>
           <li>
@@ -1421,6 +1418,16 @@ React.useEffect(() => {
             `}
             />
           </li>
+          <li>
+            <p>
+              TS: when register input <code>name</code>, you will have to cast
+              them as <code>const</code>
+            </p>
+          </li>
+          <CodeArea
+            withOutCopy
+            rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} defaultValue={field.test} />`}
+          />
         </ul>
       </>
     ),

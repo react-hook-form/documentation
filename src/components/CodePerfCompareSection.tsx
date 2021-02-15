@@ -6,7 +6,6 @@ import hookFrom from "../images/hookform.min.png"
 import reduxForm from "../images/reduxform.min.png"
 import reactHookFormVideo from "../images/react-hook-form-test.min.mp4"
 import formikVideo from "../images/formik-test.min.mp4"
-import reduxFormVideo from "../images/redux-form-test.min.mp4"
 import home from "../data/home"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
@@ -105,22 +104,6 @@ function CodePerfCompareSection({
       <section className={styles.videoWrapper}>
         <Animate
           {...props}
-          sequenceIndex={0}
-          render={({ style }) => (
-            <section style={style}>
-              <video controls autoPlay playsInline muted loop>
-                <source src={formikVideo} type="video/mp4" />
-              </video>
-              <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <b className={typographyStyles.note}>30+</b>
-              </p>
-            </section>
-          )}
-        />
-
-        <Animate
-          {...props}
           sequenceIndex={1}
           render={({ style }) => (
             <section style={style}>
@@ -134,14 +117,13 @@ function CodePerfCompareSection({
             </section>
           )}
         />
-
         <Animate
           {...props}
-          sequenceIndex={2}
+          sequenceIndex={0}
           render={({ style }) => (
             <section style={style}>
               <video controls autoPlay playsInline muted loop>
-                <source src={reduxFormVideo} type="video/mp4" />
+                <source src={formikVideo} type="video/mp4" />
               </video>
               <p>
                 {home.rendering[currentLanguage].totalReRender}{" "}

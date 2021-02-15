@@ -13,7 +13,7 @@ export default function FormContext({ currentLanguage, api }) {
       <code className={typographyStyles.codeHeading}>
         <h2>
           useFormContext:{" "}
-          <span className={typographyStyles.typeText}>Component</span>
+          <span className={typographyStyles.typeText}>Function</span>
         </h2>
       </code>
 

@@ -28,7 +28,7 @@ export default ({ currentLanguage }) => {
               <h2>
                 trigger:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`(payload?: string | string[]) => void`}
+                  {`(name?: string | string[]) => void`}
                 </span>
               </h2>
             </code>
