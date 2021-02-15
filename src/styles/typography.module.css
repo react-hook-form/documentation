@@ -24,7 +24,7 @@
   max-width: 600px;
 }
 
-.props {
+.subTitle {
   border-bottom: 2px solid var(--color-secondary);
   line-height: 1.8;
   font-size: 20px;
@@ -32,11 +32,12 @@
   margin-bottom: 0;
 }
 
-.props:before {
+.subTitle:before {
   font-size: 15px;
   position: relative;
+  margin-right: 8px;
   top: -2px;
-  content: "ⓘ ";
+  content: "ⓘ";
 }
 
 .title:before,

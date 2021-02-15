@@ -36,7 +36,7 @@ export default ({ currentLanguage }) => {
 
             {api.unregister.description}
 
-            <h2 className={typographyStyles.props}>Props</h2>
+            <h2 className={typographyStyles.subTitle}>Options</h2>
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>

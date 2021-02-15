@@ -19,6 +19,8 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.introduction}
 
+      <h2 className={typographyStyles.subTitle}>Props</h2>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>

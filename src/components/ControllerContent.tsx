@@ -27,7 +27,7 @@ export default function ControllerContent({
 
       {api.Controller.description}
 
-      <h2 className={typographyStyles.props}>Props</h2>
+      <h2 className={typographyStyles.subTitle}>Props</h2>
 
       <p>
         The following table contains information about all the arguments for{" "}

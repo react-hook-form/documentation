@@ -29,7 +29,7 @@ export default function ApiWatch({
 
       {api.watch.description}
 
-      <h2 className={typographyStyles.props}>Return</h2>
+      <h2 className={typographyStyles.subTitle}>Return</h2>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>

@@ -251,6 +251,13 @@ export default {
         </p>
 
         <div className={tableStyles.tableWrapper}>
+          <h2 className={typographyStyles.subTitle}>Props</h2>
+
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>unregister</code> method.
+          </p>
+
           <CodeArea
             rawData={`<input {...register('yourDetails.firstName')} />
 <input {...register('yourDetails.lastName')} />
@@ -265,10 +272,16 @@ export default {
           <table className={tableStyles.table}>
             <tbody>
               <tr>
+                <th>Type</th>
                 <th>Input Name</th>
                 <th>Example</th>
               </tr>
               <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string // as key name
+                  </code>
+                </td>
                 <td>
                   <code>unregister("yourDetails")</code>
                 </td>
@@ -278,6 +291,9 @@ export default {
               </tr>
               <tr>
                 <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>
                   <code>unregister("yourDetails.firstName")</code>
                 </td>
                 <td>
@@ -285,6 +301,9 @@ export default {
                 </td>
               </tr>
               <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>string[]</code>
+                </td>
                 <td>
                   <code>unregister(["yourDetails.lastName"])</code>
                 </td>
@@ -371,7 +390,7 @@ export default {
           </table>
         </div>
 
-        <h2 className={typographyStyles.props}>Rules</h2>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
@@ -490,8 +509,9 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           optional array.
         </p>
 
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
           <code>formState</code> is wrapped with{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
@@ -663,6 +683,8 @@ return <button disabled={isDirty || isValid} />;
           for determining what to render.
         </p>
 
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -736,6 +758,38 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           <b className={typographyStyles.note}>Note:</b> <code>disabled</code>{" "}
           input will be returned <code>undefined</code> as result.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>SubmitHandler</td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`(data: Object, e?: Event) => void`}</code>
+                </td>
+                <td>A successful callback.</td>
+              </tr>
+              <tr>
+                <td>SubmitErrorHandler</td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`(errors: Object, e?: Event) => void) => void`}</code>
+                </td>
+                <td>An error callback.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -796,12 +850,12 @@ reset({ deepNest: { file: new File() } });
           </li>
         </ul>
 
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
         <p>
           <code>Reset</code> have the ability remain formState update, here are
           the options in detail:{" "}
         </p>
-
-        <h2 className={typographyStyles.props}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -813,6 +867,17 @@ reset({ deepNest: { file: new File() } });
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>
+                  <code>values</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>object</code>
+                </td>
+                <td>
+                  <p>An optional object to reset from values.</p>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <code>keepErrors</code>
@@ -971,7 +1036,7 @@ reset({ deepNest: { file: new File() } });
           </li>
         </ul>
 
-        <h2 className={typographyStyles.props}>Props</h2>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1034,6 +1099,46 @@ reset({ deepNest: { file: new File() } });
           This function can manually clear errors in the form. This will not
           affect the validation rules attached to each inputs.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>undefined</code>
+              </td>
+              <td>Remove all errors.</td>
+              <td>
+                <code>clearErrors()</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>Remove single error.</td>
+              <td>
+                <code>clearErrors("yourDetails.firstName")</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>Remove multiple errors.</td>
+              <td>
+                <code>clearErrors(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
         <ul>
           <li>
             <p>
@@ -1121,7 +1226,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           withOutCopy
         />
 
-        <h2 className={typographyStyles.props}>Props</h2>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1214,7 +1319,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           </table>
         </div>
 
-        <h2 className={typographyStyles.props}>Rules</h2>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
@@ -1254,27 +1359,53 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
     title: "trigger",
     description: (
       <>
-        <p>Manually triggers form validation.</p>
+        <p>
+          Manually triggers form or input validation. This method is also useful
+          when you have depedant valdiation as react hook form{" "}
+        </p>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
-        <ul>
-          <li>
-            <p>
-              <code>trigger()</code>: Triggers validation on all fields.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>trigger('test')</code>: Triggers validation on a specific
-              field value by <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>trigger(['test', 'test1'])</code>: Triggers validation on
-              multiple fields by <strong>name</strong>.
-            </p>
-          </li>
-        </ul>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>undefined</code>
+              </td>
+              <td>Triggers validation on all fields.</td>
+              <td>
+                <code>trigger()</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>
+                Triggers validation on a specific field value by{" "}
+                <strong>name</strong>
+              </td>
+              <td>
+                <code>trigger("yourDetails.firstName")</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>
+                Triggers validation on multiple fields by <strong>name</strong>.
+              </td>
+              <td>
+                <code>trigger(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </>
     ),
   },
@@ -1296,7 +1427,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           to compare controlled vs uncontrolled Field Array.
         </p>
 
-        <h2 className={typographyStyles.props}>Props</h2>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1358,7 +1489,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
 
         <CodeArea rawData={useFieldArrayArgument} />
 
-        <h2 className={typographyStyles.props}>Rules</h2>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>

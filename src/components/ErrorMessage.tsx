@@ -55,6 +55,8 @@ export default ({
                 npm install @hookform/error-message
               </code>
 
+              <h2 className={typographyStyles.subTitle}>Props</h2>
+
               <div className={tableStyles.tableWrapper}>
                 <table className={tableStyles.table}>
                   <thead>

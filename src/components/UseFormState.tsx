@@ -56,8 +56,6 @@ formState.isDirty; // ❌ subscription will be one render behind.
 `}
             />
 
-            <h2 className={typographyStyles.props}>Return</h2>
-
             <FormStateTable currentLanguage={currentLanguage} api={api} />
 
             <CodeArea
