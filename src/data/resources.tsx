@@ -294,9 +294,20 @@ export default {
     },
     {
       url: "https://bilir.me/blog/react-native-form-management-tutorial",
-      title: "React Native Form Management Tutorial - Building a credit card form",
+      title:
+        "React Native Form Management Tutorial - Building a credit card form",
       author: "Halil Bilir",
       authorUrl: "https://twitter.com/hbilirr",
+    },
+    {
+      url:
+        "https://koprowski.it/react-native-form-validation-with-react-hook-form-usecontroller",
+      title:
+        "Handy form validation in React Native with useController hook from react-hook-form ",
+      author: "Daniel Koprowski",
+      authorUrl: "https://twitter.com/Koprowski_it",
+      description:
+        "Managing forms in React Native is different than in React. Custom components need callbacks or wrappers, which can make code hard to read. Here is a handy solution for React Native form validation. Without <Controller /> component!",
     },
   ],
   videos: [
