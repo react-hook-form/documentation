@@ -31,6 +31,16 @@ const Twitter = ({ twitterName }) => (
 
 const data = [
   {
+    name: "Joris",
+    imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
+    url: "https://twitter.com/_jorisre",
+    twitterName: "_jorisre",
+    bio:
+      "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
+    interests: ["💻  Code", "⚛️  React", "🥑  Food"],
+    active: true,
+  },
+  {
     name: "Phillip ED Maier",
     imgUrl:
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
@@ -41,14 +51,15 @@ const data = [
     active: true,
   },
   {
-    name: "Joris",
-    imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
-    url: "https://twitter.com/_jorisre",
-    twitterName: "_jorisre",
+    name: "kotarella",
+    imgUrl:
+      "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
+    url: "https://github.com/kotarella1110",
+    twitterName: "kotarella1110",
     bio:
-      "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
-    interests: ["💻  Code", "⚛️  React", "🥑  Food"],
-    active: true,
+      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
+    interests: ["🍺 beer", "💻 code", "♨️ onsen"],
+    active: false,
   },
   {
     name: "Dohyung Ahn",
@@ -80,17 +91,6 @@ const data = [
       "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars", "🐟 fish"],
     active: true,
-  },
-  {
-    name: "Bill Luo",
-    imgUrl:
-      "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
-    url: "https://github.com/kotarella1110",
-    twitterName: "kotarella1110",
-    bio:
-      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
-    interests: ["🍺 beer", "💻 code", "♨️ onsen"],
-    active: false,
   },
   {
     name: "Keiya Sasaki",

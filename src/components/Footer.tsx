@@ -70,7 +70,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         >
           @Bill Luo
         </a>{" "}
-        ✚{" "}
+        ={" "}
         <a
           href="https://github.com/bluebill1049/react-simple-animate"
           target="_blank"
@@ -78,15 +78,6 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           title="React Simple Animate Github"
         >
           React Simple Animate
-        </a>{" "}
-        ✚{" "}
-        <a
-          href="https://github.com/bluebill1049/react-simple-img"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="React Simple Img Github"
-        >
-          React Simple Img
         </a>{" "}
         ✚{" "}
         <a
