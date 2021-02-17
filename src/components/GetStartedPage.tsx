@@ -375,7 +375,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             <button
               className={getStartedStyles.copyButton}
               onClick={() => {
-                copyClipBoard("npm install yup")
+                copyClipBoard("npm install @hookform/resolvers yup")
                 alert("Code copied into your clipboard.")
               }}
             >
