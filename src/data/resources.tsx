@@ -2,7 +2,16 @@ import * as React from "react"
 
 export default {
   v7: {
-    articles: [],
+    articles: [
+      {
+        title: "What's coming in React Hook Form - Version 7",
+        url:
+          "https://dev.to/bluebill1049/what-s-coming-in-react-hook-form-version-7-4bfa",
+        authorUrl: "https://dev.to/bluebill1049",
+        author: "Bill Luo",
+        description: <p>Introduction to React Hook From V7.</p>,
+      },
+    ],
     videos: [
       {
         title: "React Hook Form V7 (Preview)",
