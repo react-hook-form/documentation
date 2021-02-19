@@ -437,7 +437,7 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to input type="text".</p>
+                    <p>only applies to text input.</p>
                   </li>
                 </ul>
               </td>
@@ -477,7 +477,7 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to input type="text".</p>
+                    <p>only applies to text input.</p>
                   </li>
                 </ul>
               </td>
@@ -518,7 +518,7 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to input type="text".</p>
+                    <p>only applies to text input.</p>
                   </li>
                 </ul>
               </td>
