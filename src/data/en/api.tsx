@@ -598,11 +598,9 @@ return <button disabled={isDirty || isValid} />;
     dirtyFields: (
       <>
         <p>
-          An object with the user-modified fields.{" "}
-          <p>
-            Make sure to provide all inputs' defaultValues at the useForm, so
-            hook form can compare with the <code>defaultValue</code>.
-          </p>
+          An object with the user-modified fields. Make sure to provide all
+          inputs' defaultValues at the useForm, so hook form can compare with
+          the <code>defaultValue</code>.
         </p>
       </>
     ),
@@ -1733,7 +1731,7 @@ React.useEffect(() => {
               integrating with external controlled components with non-standard
               prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
               <code>name</code>, <code>ref</code> and <code>value</code> to the
-              child component, and also a <code>meta</code> object which
+              child component, and also a <code>fieldState</code> object which
               contains specific input state.
             </p>
             <TabGroup buttonLabels={["Standard", "With Focus"]}>
@@ -1745,7 +1743,7 @@ React.useEffect(() => {
   name="test"
   render={({
     field: { onChange, onBlur, value, name, ref },
-    meta: { invalid, isTouched, isDirty, error, isValidating },
+    fieldState: { invalid, isTouched, isDirty, error, isValidating },
   }) => (
     <Checkbox
       onBlur={onBlur}
@@ -1762,7 +1760,7 @@ React.useEffect(() => {
                 rawData={`<Controller
   render={({
     field: { onChange, onBlur, value, name, ref },
-    meta: { invalid, isTouched, isDirty, error, isValidating },
+    fieldState: { invalid, isTouched, isDirty, error },
   }) => (
     <TextField
       value={props.value}

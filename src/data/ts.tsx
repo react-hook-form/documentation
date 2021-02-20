@@ -468,7 +468,7 @@ export default function App() {
   TFieldValues extends FieldValues = FieldValues
 > = {
   field: ControllerRenderProps<TFieldValues>;
-  meta: InputState;
+  fieldState: InputState;
 };
 `}
       />

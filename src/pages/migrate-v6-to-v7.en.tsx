@@ -147,7 +147,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 <li>
                   <p>
                     <code>render</code> prop will return an object which
-                    contains <code>field</code> and <code>meta</code>.
+                    contains <code>field</code> and <code>fieldState</code>.
                   </p>
                 </li>
               </ul>
@@ -158,7 +158,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + <Controller render={({ field }) => <input {...field} />}
 
 - <Controller render={(props) => <input {...props} />} />
-+ <Controller render={({ field, meta }) => <input {...field} />} />/>`}
++ <Controller render={({ field, fieldState }) => <input {...field} />} />/>`}
               />
             </section>
 

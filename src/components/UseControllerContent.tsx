@@ -21,7 +21,7 @@ export default function UseControllerContent({
           useController:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(arguments: UseControllerProps) => { field: object, meta: object }`}</span>
+          >{`(arguments: UseControllerProps) => { field: object, fieldState: object, formState: object }`}</span>
         </h2>
       </code>
       {api.useController.description}
