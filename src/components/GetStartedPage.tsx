@@ -235,8 +235,16 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <CodeArea
             rawData={isV7 ? registerCode : v6Example.registerCode}
             tsRawData={isV7 ? registerCodeTs : v6Example.registerCodeTs}
-            url="https://codesandbox.io/s/react-hook-form-register-field-u9zjt"
-            tsUrl="https://codesandbox.io/s/react-hook-form-register-field-ts-ownvk"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-get-started-smspp"
+                : "https://codesandbox.io/s/react-hook-form-register-field-u9zjt"
+            }
+            tsUrl={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-get-started-ts-4sfje"
+                : "https://codesandbox.io/s/react-hook-form-register-field-ts-ownvk"
+            }
           />
 
           <h2
@@ -255,9 +263,17 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? applyValidation : v6Example.applyValidation}
-            url="https://codesandbox.io/s/react-hook-form-apply-validation-px4jp"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-apply-validation-q5m00"
+                : "https://codesandbox.io/s/react-hook-form-apply-validation-px4jp"
+            }
             tsRawData={isV7 ? applyValidationTs : v6Example.applyValidationTs}
-            tsUrl="https://codesandbox.io/s/react-hook-form-apply-validation-ts-sbstd"
+            tsUrl={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
+                : "https://codesandbox.io/s/react-hook-form-apply-validation-ts-sbstd"
+            }
           />
 
           <h2
@@ -297,11 +313,19 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? uiLibraryHookInput : v6Example.uiLibraryHookInput}
-            url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-with-ui-library-forked-fp5r3"
+                : "https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
+            }
             tsRawData={
               isV7 ? uiLibraryHookInputTs : v6Example.uiLibraryHookInputTs
             }
-            tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+            tsUrl={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
+                : "https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
+            }
           />
 
           <h2
@@ -323,17 +347,33 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
               rawData={
                 isV7 ? controlledComponent : v6Example.controlledComponent
               }
-              url="https://codesandbox.io/s/react-hook-form-controller-079xx"
+              url={
+                isV7
+                  ? "https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+                  : "https://codesandbox.io/s/react-hook-form-controller-079xx"
+              }
               tsRawData={
                 isV7 ? controlledComponentTs : v6Example.controlledComponentTs
               }
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              tsUrl={
+                isV7
+                  ? "https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
+                  : "https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              }
             />
             <CodeArea
               rawData={isV7 ? useController : useControllerV6}
               tsRawData={isV7 ? useControllerTs : useControllerTsV6}
-              tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
-              url="https://codesandbox.io/s/fancy-darkness-i0ywh"
+              tsUrl={
+                isV7
+                  ? "https://codesandbox.io/s/usecontroller-forked-4t8cx"
+                  : "https://codesandbox.io/s/usecontroller-0o8px"
+              }
+              url={
+                isV7
+                  ? "https://codesandbox.io/s/usecontroller-tefsc"
+                  : "https://codesandbox.io/s/fancy-darkness-i0ywh"
+              }
             />
           </TabGroup>
 
@@ -369,9 +409,17 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? errors : v6Example.errors}
-            url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-3ur2z"
+                : "https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
+            }
             tsRawData={isV7 ? errorsTs : v6Example.errorsTs}
-            tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-jk43e"
+            tsUrl={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-multiple-error-messages-onj9p"
+                : "https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-jk43e"
+            }
           />
 
           <h2
