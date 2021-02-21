@@ -40,12 +40,12 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={handleSubmitCode}
                 tsRawData={handleSubmitCodeTs}
-                url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-uqmiy"
-                tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-994mz"
+                url="https://codesandbox.io/s/react-hook-form-handlesubmit-v6-forked-1ew2u"
+                tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v6-forked-zod64"
               />
               <CodeArea
                 rawData={handleSubmitAsyncCode}
-                url="https://codesandbox.io/s/xrjv48o0qp"
+                url="https://codesandbox.io/s/react-hook-form-async-submit-validation-forked-ver6e"
               />
             </TabGroup>
           </section>
