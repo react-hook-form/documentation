@@ -27,9 +27,9 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={formState}
-              url="https://codesandbox.io/s/react-hook-form-v6-formstate-ht098"
+              url="https://codesandbox.io/s/react-hook-form-v6-formstate-forked-tyqlp"
               tsRawData={formStateTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-zblw3"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-forked-5sxs3"
             />
           </section>
 
