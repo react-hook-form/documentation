@@ -183,9 +183,9 @@ export default ({ currentLanguage }) => {
             </div>
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-unregister-v6-9nyzn"
+              url="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
               rawData={unregisterCode}
-              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-0ocnw"
+              tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"
               tsRawData={unregisterCodeTs}
             />
           </section>
