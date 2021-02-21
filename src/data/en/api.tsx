@@ -1552,11 +1552,26 @@ React.useEffect(() => {
               TS: when register input <code>name</code>, you will have to cast
               them as <code>const</code>
             </p>
+            <CodeArea
+              withOutCopy
+              rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} defaultValue={field.test} />`}
+            />
           </li>
-          <CodeArea
-            withOutCopy
-            rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} defaultValue={field.test} />`}
-          />
+          <li>
+            <p>
+              TS: we do not support circular reference. Refer to this this{" "}
+              <a
+                href={
+                  "https://github.com/react-hook-form/react-hook-form/issues/4055"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github issue
+              </a>{" "}
+              for more detail.
+            </p>
+          </li>
         </ul>
       </>
     ),
