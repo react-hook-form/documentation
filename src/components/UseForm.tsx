@@ -159,9 +159,9 @@ const { register } = useForm<FormInputs>({
             {api.useForm.defaultValues}
 
             <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-09b8g"
+              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v7-vd85w"
               rawData={defaultValues}
-              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-ts-i497w"
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-ts-forked-7z3v0"
               tsRawData={defaultValuesTs}
             />
 
@@ -181,7 +181,7 @@ const { register } = useForm<FormInputs>({
                       {api.useForm.validateContext}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/resolver-context-sd2vj"
+                        url="https://codesandbox.io/s/resolver-context-d9jqy"
                       />
                     </td>
                   </tr>
@@ -198,7 +198,7 @@ const { register } = useForm<FormInputs>({
                       {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
-                        url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-z60r2"
+                        url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-p9xm6"
                       />
                     </td>
                   </tr>
