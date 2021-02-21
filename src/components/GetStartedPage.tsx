@@ -455,9 +455,17 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? schemaValidation : schemaValidationV6}
-            url="https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-v7-validationschema-rm35t"
+                : "https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
+            }
             tsRawData={isV7 ? schemaValidationTs : schemaValidationTsV6}
-            tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
+            tsUrl={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-validationschema-v7-ts-eb41q"
+                : "https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
+            }
           />
 
           <h2
@@ -489,7 +497,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           <CodeArea
             isExpo
             rawData={isV7 ? reactNativeController : reactNativeControllerV6}
-            url="https://snack.expo.io/@bluebill1049/react-hook-form-v6"
+            url={
+              isV7
+                ? "https://snack.expo.io/@bluebill1049/react-hook-form-v7---basic"
+                : "https://snack.expo.io/@bluebill1049/react-hook-form-v6"
+            }
           />
 
           <h2
@@ -508,7 +520,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? typeScript : typeScriptV6}
-            url="https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
+            url={
+              isV7
+                ? "https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
+                : "https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
+            }
           />
 
           <LearnMore currentLanguage={currentLanguage} />
