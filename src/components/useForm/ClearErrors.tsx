@@ -34,9 +34,9 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={clearError}
-              url="https://codesandbox.io/s/react-hook-form-v6-clearerrors-887rh"
+              url="https://codesandbox.io/s/react-hook-form-v7-clearerrors-w5tl6"
               tsRawData={clearErrorTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-clearerrors-0zry5"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-clearerrors-w3ymx"
             />
           </section>
 
