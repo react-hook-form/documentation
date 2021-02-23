@@ -49,18 +49,18 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={resetCode}
                 tsRawData={resetCodeTs}
-                url="https://codesandbox.io/s/react-hook-form-reset-v6-forked-1g2vu"
-                tsUrl="https://codesandbox.io/s/react-hook-form-reset-v6-ts-forked-7wy3r"
+                url="https://codesandbox.io/s/react-hook-form-reset-v7-r7m5s"
+                tsUrl="https://codesandbox.io/s/react-hook-form-reset-v7-ts-pu901"
               />
               <CodeArea
                 rawData={resetController}
                 tsRawData={resetControllerTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+                url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
               />
               <CodeArea
                 rawData={submitReset}
-                url="https://codesandbox.io/s/react-hook-form-handlesubmit-with-reset-xrh0t"
+                url="https://codesandbox.io/s/react-hook-form-handlesubmit-with-reset-xu1zu"
               />
               <CodeArea
                 rawData={fieldArrayReset}
