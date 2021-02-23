@@ -48,19 +48,19 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={setError}
                 tsRawData={setErrorTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+                url="https://codesandbox.io/s/react-hook-form-v7-seterror-btbf8"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-nfxxu"
               />
               <CodeArea
                 rawData={setMultipleErrors}
                 tsRawData={setMultipleErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-v6-seterror-9cebt"
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-seterror-h74dz"
+                url="https://codesandbox.io/s/react-hook-form-v7-seterror-3y1op"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-8h440"
               />
               <CodeArea
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-w18sx"
+                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-ogf20"
               />
             </TabGroup>
           </section>
