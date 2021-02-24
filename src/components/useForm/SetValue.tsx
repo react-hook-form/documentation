@@ -39,14 +39,14 @@ export default ({ currentLanguage }) => {
             <TabGroup buttonLabels={["basic", "useFieldArray set value"]}>
               <CodeArea
                 rawData={setValue}
-                url="https://codesandbox.io/s/react-hook-form-v6-setvalue-wjplb"
+                url="https://codesandbox.io/s/react-hook-form-v7-setvalue-h8wbk"
                 tsRawData={setValueTs}
                 rawTypes={setValueTypes}
-                tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-setvalue-4nq5e"
+                tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-setvalue-8z9hx"
               />
               <CodeArea
                 rawData={setValueUseFieldArray}
-                url="https://codesandbox.io/s/usefieldarray-with-setvalue-l6rct"
+                url="https://codesandbox.io/s/usefieldarray-with-setvalue-ykupr"
               />
             </TabGroup>
           </section>

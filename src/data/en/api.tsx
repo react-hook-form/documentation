@@ -1572,6 +1572,16 @@ React.useEffect(() => {
               for more detail.
             </p>
           </li>
+          <li>
+            <p>
+              TS: for nested field array, you will have to cast the field array
+              by its name.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`const { fields } = useFieldArray({ name: \`test.\${index}.keyValue\` as 'test.0.keyValue' });`}
+            />
+          </li>
         </ul>
       </>
     ),
