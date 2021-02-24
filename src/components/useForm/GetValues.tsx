@@ -36,9 +36,9 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={getValues}
-              url="https://codesandbox.io/s/react-hook-form-v6-getvalues-v2gc7"
+              url="https://codesandbox.io/s/react-hook-form-v7-getvalues-2eioh"
               tsRawData={getValuesTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-getvalues-u7xb1"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-getvalues-txsfg"
               rawTypes={getValuesTypes}
             />
           </section>
