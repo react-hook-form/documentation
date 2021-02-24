@@ -31,9 +31,9 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={control}
-              url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
               tsRawData={controlTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
             />
           </section>
 
