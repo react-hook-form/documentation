@@ -142,15 +142,15 @@ export default ({
               >
                 <CodeArea
                   rawData={errorMessage}
-                  url="https://codesandbox.io/s/react-hook-form-v6-errormessage-dn4y8"
+                  url="https://codesandbox.io/s/react-hook-form-v7-errormessage-jufsl"
                   tsRawData={errorMessageTs}
-                  tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-869k1"
+                  tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-d1ues"
                 />
                 <CodeArea
                   rawData={errorsMessage}
-                  url="https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-2n2d2"
+                  url="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-lnvkt"
                   tsRawData={errorsMessageTs}
-                  tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-tv0fk"
+                  tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-forked-sy5f0"
                 />
               </TabGroup>
             </div>
