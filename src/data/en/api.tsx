@@ -1762,7 +1762,7 @@ React.useEffect(() => {
             <TabGroup buttonLabels={["Standard", "With Focus"]}>
               <CodeArea
                 withOutCopy
-                url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+                url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
                 rawData={`<Controller
   control={control}
   name="test"
@@ -1781,7 +1781,7 @@ React.useEffect(() => {
               />
               <CodeArea
                 withOutCopy
-                url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
+                url="https://codesandbox.io/s/react-hook-form-focus-okzu8"
                 rawData={`<Controller
   render={({
     field: { onChange, onBlur, value, name, ref },
@@ -1844,7 +1844,7 @@ React.useEffect(() => {
           <td>
             Validation rules in the same format as for <code>register</code>.
             <CodeArea
-              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
               rawData="rules={{ required: true }}"
             />

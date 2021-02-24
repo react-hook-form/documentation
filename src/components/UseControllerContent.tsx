@@ -50,7 +50,7 @@ export default function UseControllerContent({
         rawData={useController}
         tsRawData={useControllerTs}
         tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
-        url="https://codesandbox.io/s/fancy-darkness-i0ywh"
+        url="https://codesandbox.io/s/usecontroller-i0ywh"
       />
     </>
   )
