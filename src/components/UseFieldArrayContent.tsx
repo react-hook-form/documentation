@@ -46,11 +46,11 @@ export default function UseFieldArrayContent({
       <TabGroup buttonLabels={["useFieldArray", "conditional Field Array"]}>
         <CodeArea
           rawData={useFieldArray}
-          url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
+          url="https://codesandbox.io/s/react-hook-form-usefieldarray-ssugn"
         />
         <CodeArea
           rawData={useFieldArrayConditional}
-          url="https://codesandbox.io/s/usefieldarray-conditional-znizl"
+          url="https://codesandbox.io/s/usefieldarray-conditional-2wi6f"
         />
       </TabGroup>
 
