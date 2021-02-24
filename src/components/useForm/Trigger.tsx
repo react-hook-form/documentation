@@ -36,9 +36,9 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={trigger}
-              url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-b6j5h"
+              url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-forked-8w9tn"
               tsRawData={triggerTs}
-              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-xj8gk"
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-forked-xs7hl"
             />
           </section>
 
