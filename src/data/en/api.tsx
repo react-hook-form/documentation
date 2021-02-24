@@ -855,7 +855,7 @@ reset({ deepNest: { file: new File() } });
           <li>
             <p>
               An error that is not associated with an input field will be
-              persisted until cleared with <code>clearError</code>.
+              persisted until cleared with <code>clearErrors</code>.
             </p>
             <p>
               <b className={typographyStyles.note}>Note:</b> for TypeScript
