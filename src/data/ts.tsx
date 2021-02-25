@@ -9,7 +9,7 @@ export default {
     description: (
       <TabGroup buttonLabels={["Code Example", "Type"]}>
         <CodeArea
-          url="https://codesandbox.io/s/react-hook-form-nestedvalue-dujyc"
+          url="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
           rawData={`import React from 'react';
 import { useForm, NestedValue } from 'react-hook-form';
 import { Autocomplete, TextField, Select } from '@material-ui/core';
@@ -96,7 +96,7 @@ errors?.key4?.message // no type error`}
     title: "Resolver",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-resolver-juwui"}
+        url={"https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"}
         rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -143,7 +143,7 @@ export default function App() {
     description: (
       <CodeArea
         rawData={handleSubmitCodeTs}
-        url="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-994mz"
+        url="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
       />
     ),
   },
@@ -151,7 +151,7 @@ export default function App() {
     title: "Control",
     description: (
       <CodeArea
-        url="https://codesandbox.io/s/control-dzl0y"
+        url="https://codesandbox.io/s/control-2mg07"
         rawData={`import React from "react";
 import { useForm, useWatch, Control } from "react-hook-form";
 
@@ -192,7 +192,9 @@ export default function App() {
     title: "UseFormReturn",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-useformmethods-mycp2"}
+        url={
+          "https://codesandbox.io/s/react-hook-form-useformmethods-forked-yl40u"
+        }
         rawData={`import React from "react";
 import { useForm, UseFormMethods, SubmitHandler } from "react-hook-form";
 
