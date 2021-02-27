@@ -590,7 +590,7 @@ export default {
           <li>
             <p>
               设置与输入组件字段无关的错误，并将在通过
-              <code>clearError</code>手动删除之前一直保留。
+              <code>clearErrors</code>手动删除之前一直保留。
             </p>
           </li>
           <li>

@@ -550,7 +550,7 @@ export default {
           <li>
             <p>
               入力フィールドに関連付けられていないエラーを設定します 永続化し、
-              <code>clearError</code>で手動で削除する必要があります。
+              <code>clearErrors</code>で手動で削除する必要があります。
             </p>
           </li>
           <li>

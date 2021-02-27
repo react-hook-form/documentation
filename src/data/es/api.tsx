@@ -552,7 +552,7 @@ export default {
             <p>
               Establecer un error que no esté asociado con un campo de entrada
               será persiste y es necesario eliminarlo manualmente con{" "}
-              <code>clearError</code>.
+              <code>clearErrors</code>.
             </p>
           </li>
           <li>

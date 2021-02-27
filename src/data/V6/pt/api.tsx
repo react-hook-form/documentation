@@ -546,7 +546,7 @@ export default {
             <p>
               Defina um erro que não esteja associado a um campo de entrada.
               persistir e necessário para remoção manual com{" "}
-              <code>clearError</code>.
+              <code>clearErrors</code>.
             </p>
           </li>
           <li>

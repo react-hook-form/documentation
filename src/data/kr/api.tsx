@@ -583,7 +583,7 @@ export default {
           <li>
             <p>
               인풋 필드와 연관되지 않은 에러를 지정한 경우 에러 값이 유지됩니다.
-              이 경우 반드시 <code>clearError</code>를 사용하여 수동으로
+              이 경우 반드시 <code>clearErrors</code>를 사용하여 수동으로
               제거해야합니다.
             </p>
           </li>
