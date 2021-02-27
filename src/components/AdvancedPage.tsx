@@ -27,7 +27,6 @@ const enLinks = [
   advancedEn.customHookwithResolver,
   advancedEn.workingWithVirtualizedList,
   advancedEn.testingForm,
-  advancedEn.extendController,
   advancedEn.transformAndParse,
 ]
 
@@ -48,7 +47,6 @@ function Advanced({ defaultLang, advanced }: Props) {
     CustomHookwithResolver: null,
     Workingwithvirtualizedlists: null,
     TestingForm: null,
-    ExtendController: null,
     TransformandParse: null,
   })
 
@@ -71,7 +69,6 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.customHookwithResolver,
     advanced.workingWithVirtualizedList,
     advanced.testingForm,
-    advanced.extendController,
     advanced.transformAndParse,
   ]
 
@@ -218,7 +215,7 @@ function Advanced({ defaultLang, advanced }: Props) {
           {advanced.formContext.description}
 
           <CodeArea
-            url="https://codesandbox.io/s/provider-perf-25m85"
+            url="https://codesandbox.io/s/provider-perf-forked-r24ho"
             rawData={formContextPerformance}
           />
 
@@ -240,7 +237,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             <CodeArea rawData={controlledMixedUncontrolledInput} />
             <CodeArea
               rawData={controlledMixedUncontrolled}
-              url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
+              url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
             />
           </TabGroup>
 
@@ -273,11 +270,11 @@ function Advanced({ defaultLang, advanced }: Props) {
           <TabGroup buttonLabels={["Form", "Field Array"]}>
             <CodeArea
               rawData={virtualizedList}
-              url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+              url="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
             />
             <CodeArea
               rawData={virtualizedListFieldArray}
-              url="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-1r8ip"
+              url="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-ghrey"
             />
           </TabGroup>
 
@@ -292,55 +289,6 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.testingForm.description}
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.ExtendController = ref)}
-            id="ExtendController"
-          >
-            {advanced.extendController.title}
-          </h2>
-
-          <iframe
-            title="A video detailing how the Controller component works"
-            width="100%"
-            height="528"
-            src="https://www.youtube.com/embed/Vkiyg_KfNK4"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-
-          {advanced.extendController.description}
-
-          <CodeArea
-            tsRawData={`
-const PowerController = (props: Props) => {
-  const { formState } = useFormContext(); // we are reading formState from context or you can pass down props too
-  const isDirty = !!formState.dirtyFields[props.name];
-  const isTouched = !!formState.touched[props.name];
-  
-  return (
-    <Controller
-      control={props.control}
-      name={props.name}
-      defaultValue={props.defaultValue}
-      render={({ field }) => {
-        return props.render({
-          ...innerProps,
-          isDirty, // new isDirty prop
-          isTouched,  // new isTouched prop
-          warning: props.warn(field.value) // include warning message user 
-        });
-      }}
-    />
-  );
-};
-`}
-            tsUrl="https://codesandbox.io/s/extend-controller-zuuol"
-          />
 
           <hr />
 
@@ -390,7 +338,7 @@ const ControllerPlus = ({
   defaultValue=""
 />
 `}
-            tsUrl="https://codesandbox.io/s/ecstatic-waterfall-yfsqe"
+            tsUrl="https://codesandbox.io/s/transform-vt3tm"
           />
 
           <StarRepo currentLanguage={currentLanguage} />
