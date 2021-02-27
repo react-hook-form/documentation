@@ -502,7 +502,7 @@ export default {
           </p>
           <CodeArea
             rawData={toggleFields}
-            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-3htr6"
           />
         </>
       ),

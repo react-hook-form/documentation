@@ -354,7 +354,7 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             <CodeArea rawData={control} />
             <CodeArea
               rawData={controlled}
-              url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
+              url="https://codesandbox.io/s/react-hook-form-controlled-input-forked-rl2v1"
             />
           </TabGroup>
 
@@ -417,18 +417,6 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
           </h2>
 
           {faq.questions[16].description}
-
-          {/*<hr />*/}
-
-          {/*<h2*/}
-          {/*  className={typographyStyles.questionTitle}*/}
-          {/*  ref={(ref) => (sectionsRef.current.question17 = ref)}*/}
-          {/*  id="question16"*/}
-          {/*>*/}
-          {/*  {faq.questions[17].title}*/}
-          {/*</h2>*/}
-
-          {/*{faq.questions[17].description}*/}
 
           <StarRepo currentLanguage={currentLanguage} />
 
