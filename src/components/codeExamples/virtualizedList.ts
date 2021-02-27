@@ -3,7 +3,7 @@ import { FormContext, useForm, useFormContext } from "react-hook-form";
 import { VariableSizeList as List } from "react-window";
 
 const items = Array.from(Array(1000).keys()).map((i) => ({
-  title: "List \${i}",
+  title: \`List \${i}\`,
   quantity: Math.floor(Math.random() * 10),
 }));
 
