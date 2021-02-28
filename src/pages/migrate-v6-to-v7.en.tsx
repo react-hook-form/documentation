@@ -112,7 +112,23 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 withOutCopy
                 rawData={`- <input ref={register, { required: true }} name="test" />
 + <input {...register('name', { required: true })} /> 
-+ <TextInput {...register('name', { required: true })} /> // This should work for react native as well, same API`}
++ <TextInput {...register('name', { required: true })} />`}
+              />
+
+              <p>
+                You can use this codemod library to speed up the process:{" "}
+                <a
+                  href="https://github.com/react-hook-form/codemod"
+                  target={"_blank"}
+                >
+                  https://github.com/react-hook-form/codemod
+                </a>{" "}
+                by running the following command:
+              </p>
+
+              <CodeArea
+                withOutCopy
+                rawData={`npx @hookform/codemod v7/update-register`}
               />
 
               <p>
@@ -125,7 +141,34 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 rawData={`- test[2].test
 + test.2.test`}
               />
+
+              <h3>Custom register</h3>
+
+              <p>
+                You will no longer need the name attribute for custom register,
+                you can supply the name of the input straight way.
+              </p>
+
+              <CodeArea
+                withOutCopy
+                rawData={`- register({ name: 'test' })
++ register('test') `}
+              />
+
+              <h3>ValueAs</h3>
+
+              <p>
+                <code>valueAs</code> will be invoked before{" "}
+                <code>validate</code> function.
+              </p>
+              <CodeArea
+                withOutCopy
+                rawData={`- <input ref={register, { valueAsNumber: true, validate: (value) => parseInt(value) === 2 ) }} name="test" />
++ <input {...register('test', { valueAsNumber: true, validate: (value) => value === 2 ) }} /> // no longer need to parse again`}
+              />
             </section>
+
+            <hr />
 
             <section>
               <code className={typographyStyles.codeHeading}>
@@ -157,10 +200,12 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 rawData={`- <Controller as={<input />} />
 + <Controller render={({ field }) => <input {...field} />}
 
-- <Controller render={(props) => <input {...props} />} />
+- <Controller render={(props, meta) => <input {...props} />} />
 + <Controller render={({ field, fieldState }) => <input {...field} />} />/>`}
               />
             </section>
+
+            <hr />
 
             <section>
               <code className={typographyStyles.codeHeading}>
@@ -184,6 +229,8 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + })`}
               />
 
+              <hr />
+
               <section>
                 <code className={typographyStyles.codeHeading}>
                   <h2>errors: </h2>
@@ -191,7 +238,8 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
                 <p>
                   <code>errors</code> object has been moved into formState
-                  object.
+                  object. This will info hook form that <code>errors</code>{" "}
+                  object is been subscribed.
                 </p>
 
                 <CodeArea
@@ -200,6 +248,27 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + const { formState: { errors } } = useForm();`}
                 />
               </section>
+
+              <hr />
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
+                  <h2>watch: </h2>
+                </code>
+
+                <p>
+                  watch an array of inputs will return <code>array</code>{" "}
+                  instead <code>object</code>
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`- const { test, test1 } = watch(['test', 'test1']);
++ const [test, test1] = watch(['test', 'test1']);`}
+                />
+              </section>
+
+              <hr />
 
               <section>
                 <code className={typographyStyles.codeHeading}>
@@ -218,6 +287,8 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 />
               </section>
 
+              <hr />
+
               <section>
                 <code className={typographyStyles.codeHeading}>
                   <h2>touched: </h2>
@@ -233,6 +304,8 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + const { touchedFields } = formState;`}
                 />
               </section>
+
+              <hr />
 
               <section>
                 <code className={typographyStyles.codeHeading}>
@@ -257,6 +330,26 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 +       fields: { [name]: field } // Support nested field
 +    }
 +  ) => Promise<ResolverResult> | ResolverResult `}
+                />
+              </section>
+
+              <hr />
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
+                  <h2>useFieldArray: </h2>
+                </code>
+
+                <p>
+                  We are offering better focus management in{" "}
+                  <code>useFieldArray</code>, so if you want to disable the
+                  focus behaviour, you will have to adjust the option as well.
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`- append({ test: 'test' }, false);
++ append({ test: 'test' }, { shouldFocus: false );`}
                 />
               </section>
             </section>
