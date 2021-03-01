@@ -21,7 +21,7 @@ const list = [
     ★ Github issues resolved <strong>1800+</strong>
   </p>,
   <p>
-    ★ V7: <strong>Release candidate</strong>
+    ★ V7: <strong>Release Candidate</strong>
   </p>,
 ]
 
