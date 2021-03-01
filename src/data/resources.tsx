@@ -11,6 +11,12 @@ export default {
         author: "Bill Luo",
         description: <p>Introduction to React Hook From V7.</p>,
       },
+      {
+        title: "React Hook Formのアップデート内容 - Version 7",
+        url: "https://qiita.com/bluebill1049/items/f838bae7f3ed29e81fff",
+        authorUrl: "https://qiita.com/bluebill1049",
+        author: "Bill Luo",
+      },
     ],
     videos: [
       {
