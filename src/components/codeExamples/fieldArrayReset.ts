@@ -32,9 +32,6 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Field Array </h1>
-      <p>The following demo allow you to delete, append, prepend items</p>
-      <span className="counter">Render Count: {renderCount}</span>
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
@@ -49,9 +46,7 @@ function App() {
               control={control}
               defaultValue={item.lastName}
             />
-            <button type="button" onClick={() => remove(index)}>
-              Delete
-            </button>
+            <button type="button" onClick={() => remove(index)}>Delete</button>
           </li>
         ))}
       </ul>
@@ -60,8 +55,4 @@ function App() {
     </form>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
-
 `

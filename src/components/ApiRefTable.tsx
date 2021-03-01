@@ -367,15 +367,15 @@ export default function ApiRefTable({
     validate: ${
       isStandard
         ? `{
-      positive: value => parseInt(value) > 0,
-      lessThanTen: value => parseInt(value) < 10,
-      asyncValidate: async () => await fetch(url)
+      positive: v => parseInt(v) > 0,
+      lessThanTen: v => parseInt(v) < 10,
+      checkUrl: async () => await fetch()
     }`
         : `{
-      positive: value => parseInt(value) > 0 || 'should be greater than 0',
-      lessThanTen: value => parseInt(value) < 10 || 'should be lower than 10',
+      positive: v => parseInt(v) > 0 || 'should be greater than 0',
+      lessThanTen: v => parseInt(v) < 10 || 'should be lower than 10',
       // you can do asynchronous validation as well
-      asyncValidate: async () => await fetch(url) || 'error message'  // JS only: <p>error message</p> TS only support string 
+      checkUrl: async () => await fetch() || 'error message'  // JS only: <p>error message</p> TS only support string 
     }`
     }
   })}
@@ -488,7 +488,7 @@ export default function ApiRefTable({
   name="test"
   ref={
     register({
-      setValueAs: (value) => parseInt(value),
+      setValueAs: v => parseInt(v),
     })
   }
 />`}

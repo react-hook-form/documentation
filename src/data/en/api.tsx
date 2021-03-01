@@ -414,12 +414,6 @@ export default {
               with number. eg: <code>test.0.data</code>
             </p>
           </li>
-          <li>
-            <p>
-              <b>TS</b>: array index type support is up to 99.{" "}
-              <code>test.99.test</code> ✅ <code>test.999.test</code> ❌
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -994,6 +988,9 @@ reset({ deepNest: { file: new File() } });
     description: (
       <>
         <p>The function allows you to manually set one or more errors.</p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -1005,18 +1002,6 @@ reset({ deepNest: { file: new File() } });
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>.
-            </p>
-            <p>
-              <b className={typographyStyles.note}>Note:</b> for TypeScript
-              users, please consider{" "}
-              <a
-                href="https://www.carlrippon.com/react-hook-form-server-validation/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                this approach
-              </a>{" "}
-              for setting server-side error or outside declared field type.
             </p>
           </li>
           <li>
@@ -1098,7 +1083,7 @@ reset({ deepNest: { file: new File() } });
           affect the validation rules attached to each inputs.
         </p>
 
-        <h2 className={typographyStyles.subTitle}>Props</h2>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <table className={tableStyles.table}>
           <tbody>
@@ -1176,9 +1161,12 @@ clearErrors('test.firstName'); // for clear single input error
           <strong>
             <code>registered</code>
           </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary re-rerenders.
-          Only the following conditions will trigger a re-render:
+          field. At the same time, it tries to avoid unnecessary re-rerender.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+        <p>Only the following conditions will trigger a re-render:</p>
+
         <ul>
           <li>
             <p>When an error is triggered by a value update</p>
@@ -1270,7 +1258,6 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           <code>getValues</code> <strong>will not</strong> trigger re-renders or
           subscribe to input changes.
         </p>
-
         <div className={tableStyles.tableWrapper}>
           <CodeArea
             rawData={`<input {...register('yourDetails.firstName')} />
@@ -1913,6 +1900,8 @@ React.useEffect(() => {
           This object contains methods for registering components into React
           Hook Form.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <p>
           <b className={typographyStyles.note}>Important:</b> do not access any

@@ -173,7 +173,7 @@ export default ({ currentLanguage }) => {
                       <CodeArea
                         withOutCopy
                         rawData={`unregister('test', 
-  { keepValue: true }
+  { keepDefaultValue: true }
 )`}
                       />
                     </td>
