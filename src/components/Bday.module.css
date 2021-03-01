@@ -2,19 +2,15 @@
   display: none;
 }
 
-.root h1 > span {
-  font-size: 30px;
-  display: inline;
-  font-weight: 400;
-  margin-left: -15px;
-}
-
 @media (min-width: 768px) {
   .root {
     width: 630px;
     margin: 0 auto 0px;
     align-items: inherit;
-    grid-template-areas: "d e";
+    grid-template-areas:
+      "d d e"
+      "a b e"
+      "c b e";
     border: 1px solid var(--color-light-blue);
     padding: 0 40px 40px;
     border-radius: 7px;
@@ -41,7 +37,7 @@
   grid-area: c;
   text-align: right;
   font-size: 50px;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   margin-top: -10px;
 }
@@ -97,20 +93,14 @@
 .achievementList h4 {
   margin-left: 12px;
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 20px;
-  margin-top: 40px;
 }
 
 .achievementList h4 span {
   border-bottom: 1px solid var(--color-light-blue);
   padding-bottom: 5px;
   display: inline-block;
-}
-
-.members img:hover {
-  transition: 0.3s all;
-  opacity: 0.5;
 }
 
 .achievementList ul {
@@ -130,7 +120,7 @@
 }
 
 .link {
-  border: 1px solid currentColor;
+  border: 1px solid white;
   margin-left: 40px;
   text-decoration: none;
   text-align: center;
@@ -139,7 +129,7 @@
   display: inline-block;
   border-radius: 25px;
   font-size: 14px;
-  color: currentColor;
+  color: white;
   width: 150px;
 }
 
@@ -147,15 +137,4 @@
   background-color: white;
   color: var(--color-primary);
   border: 1px solid var(--color-primary);
-}
-
-.avatars {
-  margin-right: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.avatars img {
-  height: 60px;
-  margin: 2px;
 }
