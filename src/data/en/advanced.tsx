@@ -296,7 +296,7 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> if your application
-          requires functionality such as Delete, Insert, Append, Preprend, here
+          requires functionality such as Delete, Insert, Append, Prepend, here
           is the{" "}
           <a
             href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
