@@ -1618,7 +1618,12 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields and focus.</td>
+          <td>
+            <p>
+              Append input/inputs to the end of your fields and focus. The input
+              value will be registered during this action.
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
@@ -1633,7 +1638,10 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields and focus.</td>
+          <td>
+            Prepend input/inputs to the start of your fields and focus. The
+            input value will be registered during this action.
+          </td>
         </tr>
         <tr>
           <td>
@@ -1646,7 +1654,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Insert input/inputs at particular position and focus.</td>
+          <td>Insert input/inputs at particular position and focus. </td>
         </tr>
         <tr>
           <td>
