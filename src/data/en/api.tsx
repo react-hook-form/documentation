@@ -1536,6 +1536,13 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
+              Each <code>useFieldArray</code> is unique and has its own state
+              update, which means you should not have multiple useFieldArray
+              with the same <code>name</code>.
+            </p>
+          </li>
+          <li>
+            <p>
               TS: when register input <code>name</code>, you will have to cast
               them as <code>const</code>
             </p>
