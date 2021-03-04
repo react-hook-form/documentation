@@ -1,6 +1,5 @@
 import * as React from "react"
-import colors from "../../styles/colors"
-import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
+import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"
 import { Link } from "gatsby"
@@ -1219,10 +1218,52 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
             <tbody>
               <tr>
                 <th>Name</th>
+                <th></th>
                 <th>Type</th>
                 <th>Description</th>
               </tr>
               <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td></td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      <p>Target on a single input by its name.</p>
+                    </li>
+                    <li>
+                      <p>
+                        Target on field array name, and it will update{" "}
+                        <code>fields</code> object and update entire field
+                        array's internal state.
+                      </p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>value</code>
+                </td>
+                <td></td>
+                <td>
+                  <code className={typographyStyles.typeText}>unknown</code>
+                </td>
+                <td>
+                  <p>
+                    value for the field, and make sure supply an entire array
+                    when you update <codep>useFieldArray</codep>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>config</code>
+                </td>
                 <td>
                   <code>shouldValidate</code>
                 </td>
@@ -1234,6 +1275,9 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
                 </td>
               </tr>
               <tr>
+                <td>
+                  <code>config</code>
+                </td>
                 <td>
                   <code>shouldDirty</code>
                 </td>

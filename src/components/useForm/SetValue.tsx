@@ -29,7 +29,7 @@ export default ({ currentLanguage }) => {
               <h2>
                 setValue:{" "}
                 <span className={typographyStyles.typeText}>
-                  (name: string, value: any, config?: Object) =&gt; void
+                  (name: string, value: unknown, config?: Object) =&gt; void
                 </span>
               </h2>
             </code>
