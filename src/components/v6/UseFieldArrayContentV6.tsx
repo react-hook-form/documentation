@@ -22,7 +22,7 @@ export default function UseFieldArrayContentV6({
           <br />
           <span
             className={typographyStyles.typeText}
-          >{`({ control?: any, name: string, keyName?: string = 'id' }) => object`}</span>
+          >{`({ control?: Control, name: string, keyName?: string = 'id' }) => object`}</span>
           <a
             className={typographyStyles.videoLink}
             href="https://www.youtube.com/watch?v=LhIvi4XHIco"

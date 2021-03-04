@@ -22,7 +22,7 @@ export default function UseFieldArrayContent({
           <br />
           <span
             className={typographyStyles.typeText}
-          >{`({ control?: any, name: string, keyName?: string = 'id' }) => object`}</span>
+          >{`({ control?: Control, name: string, keyName?: string = 'id' }) => object`}</span>
         </h2>
       </code>
 
