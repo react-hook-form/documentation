@@ -202,7 +202,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + <Controller render={({ field }) => <input {...field} />}
 
 - <Controller render={(props, meta) => <input {...props} />} />
-+ <Controller render={({ field, fieldState }) => <input {...field} />} />/>`}
++ <Controller render={({ field, fieldState }) => <input {...field} />} />`}
               />
             </section>
 
