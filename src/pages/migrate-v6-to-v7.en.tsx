@@ -120,6 +120,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 <a
                   href="https://github.com/react-hook-form/codemod"
                   target={"_blank"}
+                  rel="noreferrer"
                 >
                   https://github.com/react-hook-form/codemod
                 </a>{" "}
