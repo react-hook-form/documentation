@@ -12,7 +12,12 @@ import { navigate } from "@reach/router"
 export default function ApiGallery({ defaultLang }) {
   const {
     actions,
-    state: { language, setting = {} },
+    state: {
+      language,
+      setting = {
+        version: 7,
+      },
+    },
   } = useStateMachine({
     updateSetting,
   })
