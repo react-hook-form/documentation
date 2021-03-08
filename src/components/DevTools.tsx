@@ -87,7 +87,7 @@ export default ({ defaultLang, content }: Props) => {
               lightMode ? getStartedStyle.lightInstallCode : ""
             }`}
           >
-            npm install @hookform/devtools -D
+            npm install @hookform/devtools@next -D
             <button
               className={getStartedStyle.copyButton}
               onClick={() => {
