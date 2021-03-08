@@ -41,16 +41,6 @@ const data = [
     active: true,
   },
   {
-    name: "Phillip ED Maier",
-    imgUrl:
-      "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
-    url: "https://phillip-maier.com/",
-    twitterName: "pmaier983",
-    bio: "A Software Engineer with a passion for helping others 😄.",
-    interests: ["🚣 rowing", "🌳 grafting", "🎿 skiing"],
-    active: true,
-  },
-  {
     name: "kotarella",
     imgUrl:
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
@@ -62,13 +52,13 @@ const data = [
     active: false,
   },
   {
-    name: "Dohyung Ahn",
-    imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
-    url: "https://github.com/adhrinae",
-    twitterName: "adhrinae",
-    bio:
-      "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
-    interests: ["🎮 games", "💻 code", "🎹 piano"],
+    name: "Phillip ED Maier",
+    imgUrl:
+      "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
+    url: "https://phillip-maier.com/",
+    twitterName: "pmaier983",
+    bio: "A Software Engineer with a passion for helping others 😄.",
+    interests: ["🚣 rowing", "🌳 grafting", "🎿 skiing"],
     active: true,
   },
   {
@@ -82,14 +72,13 @@ const data = [
     active: true,
   },
   {
-    name: "Beier(Bill) Luo",
-    imgUrl:
-      "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
-    url: "https://github.com/bluebill1049",
-    twitterName: "bluebill1049",
+    name: "Dohyung Ahn",
+    imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
+    url: "https://github.com/adhrinae",
+    twitterName: "adhrinae",
     bio:
-      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
-    interests: ["🎮 games", "🚗 cars", "🐟 fish"],
+      "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
+    interests: ["🎮 games", "💻 code", "🎹 piano"],
     active: true,
   },
   {
@@ -113,6 +102,17 @@ const data = [
     twitterName: "stramel89",
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
     active: false,
+  },
+  {
+    name: "Beier(Bill) Luo",
+    imgUrl:
+      "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
+    url: "https://github.com/bluebill1049",
+    twitterName: "bluebill1049",
+    bio:
+      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
+    interests: ["🎮 games", "🚗 cars", "🐟 fish"],
+    active: true,
   },
 ]
 
