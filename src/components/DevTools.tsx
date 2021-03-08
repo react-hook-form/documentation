@@ -91,7 +91,7 @@ export default ({ defaultLang, content }: Props) => {
             <button
               className={getStartedStyle.copyButton}
               onClick={() => {
-                copyClipBoard("npm install @hookform/devtools -D")
+                copyClipBoard("npm install @hookform/devtools@next -D")
                 alert(generic.copied["en"])
               }}
             >
