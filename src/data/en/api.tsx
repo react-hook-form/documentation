@@ -514,7 +514,7 @@ return <button disabled={!formState.isDirty || !formState.isValid} />;
   
 // ✅ read all formState values to subscribe to changes
 const { isDirty, isValid } = formState;
-return <button disabled={isDirty || isValid} />;
+return <button disabled={!isDirty || !isValid} />;
 `}
         />
       </>
