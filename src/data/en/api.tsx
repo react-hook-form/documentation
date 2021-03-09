@@ -792,6 +792,9 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           Reset the entire form state, you also have the ability to only reset
           specific parts of the state.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -1082,7 +1085,7 @@ reset({ deepNest: { file: new File() } });
           affect the validation rules attached to each inputs.
         </p>
 
-        <h2 className={typographyStyles.subTitle}>Rules</h2>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <table className={tableStyles.table}>
           <tbody>
@@ -1164,52 +1167,85 @@ clearErrors('test.firstName'); // for clear single input error
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
-        <p>Only the following conditions will trigger a re-render:</p>
-
         <ul>
           <li>
-            <p>When an error is triggered by a value update</p>
-          </li>
-          <li>
-            <p>When an error is corrected by a value update</p>
+            <p>Only the following conditions will trigger a re-render:</p>
+            <ul>
+              <li>
+                <p>When an error is triggered by a value update</p>
+              </li>
+              <li>
+                <p>When an error is corrected by a value update</p>
+              </li>
+              <li>
+                <p>
+                  When setValue is invoked for the first time and{" "}
+                  <code>formState.isDirty</code> is set to true
+                </p>
+              </li>
+            </ul>
           </li>
           <li>
             <p>
-              When setValue is invoked for the first time and{" "}
-              <code>formState.isDirty</code> is set to true
+              You can also set the <code>shouldValidate</code> parameter to{" "}
+              <code>true</code> in order to trigger a field validation.
             </p>
+
+            <CodeArea
+              rawData={`setValue('name', 'value', { shouldValidate: true })`}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              You can also set the <code>shouldDirty</code> parameter to{" "}
+              <code>true</code> in order to set field to dirty.
+            </p>
+
+            <CodeArea
+              rawData={`setValue('name', 'value', { shouldDirty: true })`}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              It's recommended to target field name instead using second
+              argument with nested object.
+            </p>
+
+            <CodeArea
+              rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
+setValue('yourDetails', { firstName: 'value' }); // less performant `}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              It's recommended to register input name before invoke{" "}
+              <code>setValue</code>. However, the following usages are still
+              permitted.
+            </p>
+            <CodeArea
+              rawData={`// you can update an entire Field Array, 
+// this will trigger an entire field array to be remount and refresh with updated values.
+setValue('fieldArray', [{ test: '1' }, { test: '2' }]); // ✅
+
+// you can setValue to a unregistered input
+setValue('notRegisteredInput', 'value'); // ✅ prefer to be registered
+
+// the following will register a single input (without register) 
+// and update its value in case you expected to be two inputs
+setValue('notRegisteredInput', { test: '1', test2: '2' }); // 🤔
+
+// with registered inputs, the setValue will update both inputs correctly.
+register('notRegisteredInput.test', '1')
+register('notRegisteredInput.test2', '2')
+setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
+`}
+              withOutCopy
+            />
           </li>
         </ul>
-        <p>
-          You can also set the <code>shouldValidate</code> parameter to{" "}
-          <code>true</code> in order to trigger a field validation.
-        </p>
-
-        <CodeArea
-          rawData={`setValue('name', 'value', { shouldValidate: true })`}
-          withOutCopy
-        />
-
-        <p>
-          You can also set the <code>shouldDirty</code> parameter to{" "}
-          <code>true</code> in order to set field to dirty.
-        </p>
-
-        <CodeArea
-          rawData={`setValue('name', 'value', { shouldDirty: true })`}
-          withOutCopy
-        />
-
-        <p>
-          It's recommended to target field name instead using second argument
-          with nested object.
-        </p>
-
-        <CodeArea
-          rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
-setValue('yourDetails', { firstName: 'value' }); // less performant `}
-          withOutCopy
-        />
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
