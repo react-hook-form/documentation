@@ -385,6 +385,17 @@ export default {
                   <p>Input reference for hook form to register.</p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>{`string`}</code>
+                </td>
+                <td>
+                  <p>Input's name being registered.</p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
