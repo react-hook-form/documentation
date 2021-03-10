@@ -40,7 +40,7 @@ function HomePage({
   const [isPlayFeature, setFeaturePlay] = useState(false)
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isIsolatePlay, setIsolatePlay] = useState(false)
-  // const [isCardPlay, setCardPlay] = useState(false)
+  const [isCardPlay, setCardPlay] = useState(false)
   const [isPlayRender, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const [isPlayWatch, setWatchPlay] = useState(false)
@@ -99,9 +99,9 @@ function HomePage({
           if (entry.target === watch && !isPlayWatch) {
             setWatchPlay(true)
           }
-          // if (entry.target === card && !isCardPlay) {
-          //   setCardPlay(true)
-          // }
+          if (entry.target === card && !isCardPlay) {
+            setCardPlay(true)
+          }
         }
       })
     }, options)
@@ -111,7 +111,7 @@ function HomePage({
     observer.observe(rendering)
     observer.observe(isolate)
     observer.observe(watch)
-    // observer.observe(card)
+    observer.observe(card)
 
     return () => observer.disconnect()
   }, [])
@@ -128,7 +128,7 @@ function HomePage({
       )}
 
       <Header
-        // isCardPlay={isCardPlay}
+        isCardPlay={isCardPlay}
         homeRef={HomeRef}
         defaultLang={defaultLang}
       />
