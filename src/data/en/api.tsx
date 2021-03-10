@@ -1091,10 +1091,23 @@ reset({ deepNest: { file: new File() } });
     title: "clearErrors",
     description: (
       <>
-        <p>
-          This function can manually clear errors in the form. This will not
-          affect the validation rules attached to each inputs.
-        </p>
+        <p>This function can manually clear errors in the form.</p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <ul>
+          <li>
+            <p>
+              This will not affect the validation rules attached to each inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              This function will not update formState such as{" "}
+              <code>isValid</code> to true, it only clear errors.
+            </p>
+          </li>
+        </ul>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
