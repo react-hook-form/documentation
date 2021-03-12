@@ -56,11 +56,12 @@ export default function UseFieldArrayContent({
 
       <>
         <h2 className={typographyStyles.subTitle}>Tips</h2>
+        <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
         <p>
-          <b>Custom Register:</b> You can also <code>register</code> inputs at{" "}
-          <code>Controller</code> without the actual input. This makes{" "}
-          <code>useFieldArray</code> quick flexible to use with complex data
-          structure or the actual data is not stored inside an input.
+          You can also <code>register</code> inputs at <code>Controller</code>{" "}
+          without the actual input. This makes <code>useFieldArray</code> quick
+          flexible to use with complex data structure or the actual data is not
+          stored inside an input.
         </p>
 
         <CodeArea
@@ -98,7 +99,6 @@ function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field, index) => (
         <section key={field.id}>
-          <label htmlFor={id}>Show Input</label>
           <input
             type="checkbox"
             value="on"
@@ -120,6 +120,57 @@ function App() {
   );
 }
 `}
+        />
+
+        <h4 className={typographyStyles.questionTitle}>
+          Controlled Field Array
+        </h4>
+
+        <p>
+          There will be cases where you want to control the entire field array,
+          which means each onChange reflects on the <code>fields</code> object.
+          You can achieve this by merge with <code>useWatch</code> or{" "}
+          <code>watch</code>'s result.
+        </p>
+
+        <CodeArea
+          url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
+          rawData={`import * as React from "react";
+import { useForm, useFieldArray } from "react-hook-form";
+
+export default function App() {
+  const { register, handleSubmit, control, watch } = useForm<FormValues>();
+  const { fields, append } = useFieldArray({
+    control,
+    name: "fieldArray"
+  });
+  const watchFieldArray = watch("fieldArray");
+  const controlledFields = fields.map((field, index) => {
+    return {
+      ...field,
+      ...watchFieldArray[index]
+    };
+  });
+
+  return (
+    <form>
+      {controlledFields.map((field, index) => {
+        return <input {...register(\`fieldArray.\${index}.name\` as const)} />;
+      })}
+
+      <button
+        type="button"
+        onClick={() =>
+          append({
+            name: "bill"
+          })
+        }
+      >
+        Append
+      </button>
+    </form>
+  );
+}`}
         />
       </>
     </>

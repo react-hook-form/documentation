@@ -438,10 +438,13 @@ export default {
       note: (
         <>
           <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+          <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
+
           <p>
-            <b>Custom register</b>: You can also <code>register</code> inputs at{" "}
-            <code>useEffect</code> and treat them as virtual inputs. For
-            controlled components, we provide a custom hook{" "}
+            You can also <code>register</code> inputs at <code>useEffect</code>{" "}
+            and treat them as virtual inputs. For controlled components, we
+            provide a custom hook{" "}
             <Link to={"/api/usecontroller"}>useController</Link> and{" "}
             <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
             component to take care this process for you.
