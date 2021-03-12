@@ -437,11 +437,11 @@ export default {
         "Register with validation and error message",
       note: (
         <>
-          <h2 className={typographyStyles.title}>Custom Register</h2>
+          <h2 className={typographyStyles.subTitle}>Tips</h2>
           <p>
-            You can also <code>register</code> inputs at <code>useEffect</code>{" "}
-            and treat them as virtual inputs. For controlled components, we
-            provide a custom hook{" "}
+            <b>Custom register</b>: You can also <code>register</code> inputs at{" "}
+            <code>useEffect</code> and treat them as virtual inputs. For
+            controlled components, we provide a custom hook{" "}
             <Link to={"/api/usecontroller"}>useController</Link> and{" "}
             <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
             component to take care this process for you.
@@ -1645,10 +1645,15 @@ React.useEffect(() => {
               with the same <code>name</code>.
             </p>
           </li>
+        </ul>
+
+        <h2 className={typographyStyles.subTitle}>TypeScript</h2>
+
+        <ul>
           <li>
             <p>
-              TS: when register input <code>name</code>, you will have to cast
-              them as <code>const</code>
+              when register input <code>name</code>, you will have to cast them
+              as <code>const</code>
             </p>
             <CodeArea
               withOutCopy
@@ -1657,7 +1662,7 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              TS: we do not support circular reference. Refer to this this{" "}
+              we do not support circular reference. Refer to this this{" "}
               <a
                 href={
                   "https://github.com/react-hook-form/react-hook-form/issues/4055"
@@ -1672,8 +1677,8 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              TS: for nested field array, you will have to cast the field array
-              by its name.
+              for nested field array, you will have to cast the field array by
+              its name.
             </p>
             <CodeArea
               withOutCopy

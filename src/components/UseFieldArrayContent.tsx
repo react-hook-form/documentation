@@ -55,12 +55,12 @@ export default function UseFieldArrayContent({
       </TabGroup>
 
       <>
-        <h2 className={typographyStyles.title}>Custom Register</h2>
+        <h2 className={typographyStyles.subTitle}>Tips</h2>
         <p>
-          You can also <code>register</code> inputs at <code>Controller</code>{" "}
-          without the actual input. This makes <code>useFieldArray</code> quick
-          flexible to use with complex data structure or the actual data is not
-          stored inside an input.
+          <b>Custom Register:</b> You can also <code>register</code> inputs at{" "}
+          <code>Controller</code> without the actual input. This makes{" "}
+          <code>useFieldArray</code> quick flexible to use with complex data
+          structure or the actual data is not stored inside an input.
         </p>
 
         <CodeArea

@@ -93,8 +93,6 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
           <hr />
 
           <main>
-            <h2>APIs</h2>
-
             <section>
               <code className={typographyStyles.codeHeading}>
                 <h2>register: </h2>
@@ -242,6 +240,17 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   object. This will info hook form that <code>errors</code>{" "}
                   object is been subscribed.
                 </p>
+
+                <p>
+                  You can use this codemod library to speed up the process:
+                  https://github.com/react-hook-form/codemod by running the
+                  following command:
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`npx @hookform/codemod v7/move-errors-to-formState`}
+                />
 
                 <CodeArea
                   withOutCopy
