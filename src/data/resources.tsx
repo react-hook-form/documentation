@@ -12,6 +12,13 @@ export default {
         description: <p>Introduction to React Hook From V7.</p>,
       },
       {
+        title: "What's new in React Hook Form's resolvers V2",
+        url:
+          "https://dev.to/jorisre/what-s-new-in-react-hook-form-s-resolvers-v2-2a5o",
+        authorUrl: "https://dev.to/jorisre",
+        author: "Joris",
+      },
+      {
         title: "React Hook Formのアップデート内容 - Version 7",
         url: "https://qiita.com/bluebill1049/items/f838bae7f3ed29e81fff",
         authorUrl: "https://qiita.com/bluebill1049",
