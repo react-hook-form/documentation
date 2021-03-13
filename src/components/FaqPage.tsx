@@ -14,10 +14,8 @@ import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import control from "./codeExamples/control"
 import shareRefTs from "./codeExamples/shareRefTs"
-import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 
@@ -31,9 +29,10 @@ interface Props {
 const Faq = ({ defaultLang, faq }: Props) => {
   const {
     state,
-    state: { language },
+    state: { language, setting },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
+  const isV7 = setting.version === 7
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -56,6 +55,9 @@ const Faq = ({ defaultLang, faq }: Props) => {
     question12: null,
     question13: null,
     question14: null,
+    question15: null,
+    question16: null,
+    // question17: null,
   })
 
   const goToSection = (name) => {
@@ -104,7 +106,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
         <SideMenu
           enLinks={enLinks}
           isStatic
-          links={links}
+          links={isV7 ? links.slice(0, links.length - 5) : links}
           goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
@@ -268,6 +270,70 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
               url="https://codesandbox.io/s/react-hook-form-controlled-input-forked-rl2v1"
             />
           </TabGroup>
+
+          {isV7 ? null : (
+            <>
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question12 = ref)}
+                id="question12"
+              >
+                {faq.questions[12].title}
+              </h2>
+
+              {faq.questions[12].description}
+
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question13 = ref)}
+                id="question13"
+              >
+                {faq.questions[13].title}
+              </h2>
+
+              {faq.questions[13].description}
+
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question14 = ref)}
+                id="question14"
+              >
+                {faq.questions[14].title}
+              </h2>
+
+              {faq.questions[14].description}
+
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question15 = ref)}
+                id="question15"
+              >
+                {faq.questions[15].title}
+              </h2>
+
+              {faq.questions[15].description}
+
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question16 = ref)}
+                id="question16"
+              >
+                {faq.questions[16].title}
+              </h2>
+
+              {faq.questions[16].description}
+            </>
+          )}
 
           <StarRepo currentLanguage={currentLanguage} />
 
