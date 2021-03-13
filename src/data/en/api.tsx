@@ -126,6 +126,8 @@ export default {
           via its <code>defaultValue</code> property.
         </p>
 
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -2128,18 +2130,6 @@ React.useEffect(() => {
           library, you can always write your own logic to validate your forms.
         </p>
 
-        <p>
-          At this time, we offer{" "}
-          <a
-            href="https://github.com/react-hook-form/resolvers"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            officially supported resolvers
-          </a>{" "}
-          for: Yup, Zod, Joi and Superstruct.
-        </p>
-
         <code
           style={{
             fontSize: 16,
@@ -2152,10 +2142,7 @@ React.useEffect(() => {
           npm install @hookform/resolvers
         </code>
 
-        <p>
-          <b className={typographyStyles.note}>Notes</b> on building a custom
-          resolver:
-        </p>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
