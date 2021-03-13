@@ -144,20 +144,6 @@ export default {
       ),
     },
     {
-      title: "Browser Support?",
-      description: (
-        <>
-          <p>
-            React Hook Form supports all major browsers. For legacy IE11
-            support, you can import react-hook-form IE 11 version. Make sure you
-            install <code>@babel/runtime-corejs3</code> as well.
-          </p>
-
-          <CodeArea rawData={`npm i @babel/runtime-corejs3`} />
-        </>
-      ),
-    },
-    {
       title: "Why is the first keystroke not working?",
       description: (
         <>
@@ -174,24 +160,6 @@ export default {
             <code>defaultValue</code> for the initial input value.
           </p>
         </>
-      ),
-    },
-    {
-      title: "Testing failed due to MutationObserver?",
-      description: (
-        <p>
-          If you have difficulty during testing and the issue was caused by{" "}
-          <code>MutationObserver</code>. Make sure you install{" "}
-          <code>mutationobserver</code> and import this package in your test{" "}
-          <a
-            href="https://jestjs.io/docs/en/configuration"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            setup.js file
-          </a>
-          .
-        </p>
       ),
     },
     {
@@ -297,9 +265,9 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@6.0.0
+                      react-hook-form@7.0.0
                       <br />
-                      <b className={typographyStyles.note}>8.9KB</b>
+                      <b className={typographyStyles.note}>8KB</b>
                     </code>
                   </td>
                   <td>
@@ -384,7 +352,9 @@ export default {
                   <td>
                     <b>Status</b>
                   </td>
-                  <td>Medium Community and growing</td>
+                  <td>
+                    Large Community: Well established form lib in the community
+                  </td>
                   <td>
                     Large Community: Well established form lib in the community
                   </td>
@@ -396,102 +366,6 @@ export default {
             </table>
           </div>
         </>
-      ),
-    },
-    {
-      title: "Can it work with Controlled components?",
-      description: (
-        <>
-          <p>
-            Short answer: <b>Yes</b>
-          </p>
-          <p>
-            <code>react-hook-form</code> is not recommending you to build
-            controlled forms, however you can still achieve that easily.
-          </p>
-          <p>
-            The trick is to use the <code>watch</code> API to monitor each
-            input's change and assign it to the value prop.
-          </p>
-          <p>
-            Alternatively, you can use our wrapper component{" "}
-            <a
-              href="https://www.react-hook-form.com/api#Controller"
-              title="React Hook Form Controller"
-            >
-              Controller
-            </a>{" "}
-            which <code>register</code>s components for you.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "Testing React Hook Form",
-      description: (
-        <div>
-          <ul>
-            <li>
-              <p>
-                Why is testing not working with React Native (
-                <code>react-native-testing-library</code>)?
-              </p>
-
-              <p>
-                React Hook Form doesn't register inputs during server side
-                render, which means testing in react native could result in the{" "}
-                <code>window</code> object being <code>undefined</code>. A quick
-                fix would be to stub the <code>window</code> object to enable
-                the registration process.
-              </p>
-            </li>
-            <li>
-              <p>
-                Why am I getting an <code>act</code> warning?
-              </p>
-
-              <p>
-                All validation methods in React Hook Form will be treated as
-                async functions, so it's important to wrap <code>async</code>{" "}
-                around your{" "}
-                <a
-                  className={buttonStyles.codeAsLink}
-                  href="https://reactjs.org/docs/test-utils.html#act"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  act
-                </a>
-                .
-              </p>
-            </li>
-            <li>
-              <p>Why doesn't input change fire events?</p>
-
-              <p>
-                React Hook Form uses <code>input</code> events for input
-                changes. If you're using <strong>react-testing-library</strong>,
-                you can easily switch to <code>fireEvent.input</code>. Here is a
-                testing{" "}
-                <a
-                  className={buttonStyles.codeAsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://codesandbox.io/s/react-hook-form-test-s4j7c?from-embed"
-                >
-                  example at codesandbox
-                </a>
-                .
-              </p>
-              <p>
-                If you're using <strong>enzyme</strong>, you'll need to manually
-                set the <code>value</code> of your input's DOM node, then
-                dispatch an input event.
-              </p>
-              <CodeArea rawData={enzymeInput} />
-            </li>
-          </ul>
-        </div>
       ),
     },
     {
@@ -561,45 +435,6 @@ export default {
       ),
     },
     {
-      title: "Controller not working with shouldFocusError?",
-      description: (
-        <>
-          <p>
-            After a validation error, React Hook Form will automatically focus
-            the invalids elements that have a proper ref, like the native inputs
-            (eg: <code>{`<input />`}</code>) or some 3rd party Components that
-            correctly export a ref (eg: from MUI{" "}
-            <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
-            )
-          </p>
-
-          <p>
-            However, for some 3rd party controlled Components (like{" "}
-            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
-            from AntD) it's very difficult to predict its ref because the
-            formats vary. In this case, React Hook Form will properly detect the
-            validation error but <i>will not be able to</i> automatically focus
-            that kind of Component.
-          </p>
-
-          <p>
-            As a workaround, after the validation error, you can manually focus
-            the 3rd party controlled Component (if you can get the actual
-            internal input ref), for example:
-          </p>
-          <CodeArea rawData={focusController} />
-
-          <p>
-            If you find difficult to make the autofocus with external controlled
-            component work correctly, it is possible to disable the "autofocus
-            on error" feature. It is possible that this behavior will bring a
-            better user experience in some cases.{" "}
-            <code>{`useForm({shouldFocusError: false});`}</code>
-          </p>
-        </>
-      ),
-    },
-    {
       title: "How to work with modal or tab forms?",
       description: (
         <>
@@ -617,54 +452,30 @@ export default {
 
           <ul>
             <li>
-              <a
-                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Modal form and toggle inputs example
-              </a>
+              <p>
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Modal form and toggle inputs example
+                </a>
+              </p>
             </li>
             <li>
-              <a
-                href="https://codesandbox.io/s/tabs-760h9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Tab form example
-              </a>
+              <p>
+                <a
+                  href="https://codesandbox.io/s/tabs-760h9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Tab form example
+                </a>
+              </p>
             </li>
           </ul>
-
-          <p>
-            Alternatively you can use the _deprecated_ option{" "}
-            <code>shouldUnregister: false</code> when calling `useForm`.
-          </p>
         </>
       ),
     },
-    // {
-    //   title: "Unmounted component warning?",
-    //   description: (
-    //     <>
-    //       <p>
-    //         Execute async submit function while <code>useForm</code> gets
-    //         unmounted will result in the following warning from React at{" "}
-    //         <b>dev build</b>.
-    //       </p>
-    //
-    //       <blockquote>
-    //         Can't perform a React state update on an unmounted component.
-    //       </blockquote>
-    //
-    //       <p>
-    //         This is not the same case at prod build, such behavior is made so we
-    //         are compatible with React fast refresh. Inputs' <code>ref</code>{" "}
-    //         callback will not get executed again during fast refresh, so we have
-    //         disabled the hook unmount check at dev only.
-    //       </p>
-    //     </>
-    //   ),
-    // },
   ],
 }
