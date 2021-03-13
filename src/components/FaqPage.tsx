@@ -29,7 +29,7 @@ interface Props {
 const Faq = ({ defaultLang, faq }: Props) => {
   const {
     state,
-    state: { language, setting },
+    state: { language, setting = {} },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const isV7 = setting.version === 7
