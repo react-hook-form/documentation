@@ -165,6 +165,23 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 rawData={`- <input ref={register, { valueAsNumber: true, validate: (value) => parseInt(value) === 2 ) }} name="test" />
 + <input {...register('test', { valueAsNumber: true, validate: (value) => value === 2 ) }} /> // no longer need to parse again`}
               />
+
+              <h3>
+                Missing <code>ref</code>
+              </h3>
+
+              <p>
+                <code>register</code> works for any uncontrolled inputs ,
+                however, there are components which expose <code>ref</code> name
+                differently.
+              </p>
+
+              <CodeArea
+                withOutCopy
+                rawData={`const { ref, ...rest } = register('test') // invoke this before render
+                
+<Input {...rest} inputRef={ref} />`}
+              />
             </section>
 
             <hr />
@@ -360,6 +377,35 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   withOutCopy
                   rawData={`- append({ test: 'test' }, false);
 + append({ test: 'test' }, { shouldFocus: false );`}
+                />
+              </section>
+
+              <hr />
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
+                  <h2>useTypedController: </h2>
+                </code>
+
+                <p>
+                  This component is getting deprecated and using{" "}
+                  <code>useController</code> instead.
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`- <TypedController
+-   as="textarea"
+-   name={['nested', 'object', 'test']}
+-   defaultValue=""
+-   rules={{ required: true }}
+- />
++ <Controller
++   name={'nested.object.test'}
++   defaultValue=""
++   rules={{ required: true }}
++   render={({ field }) => <textarea {...field} />}
++ />);`}
                 />
               </section>
             </section>
