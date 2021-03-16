@@ -1650,6 +1650,9 @@ React.useEffect(() => {
               with the same <code>name</code>.
             </p>
           </li>
+          <li>
+            <p>Does not support flat field array.</p>
+          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>TypeScript</h2>
