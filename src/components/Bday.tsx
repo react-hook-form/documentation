@@ -13,10 +13,10 @@ const list = [
   <p key="3">
     ★ More <strong>performant</strong> than ever
   </p>,
-  <p key="4">★ API Refinements</p>,
   <p key="5">
     ★ New <strong>Resolver</strong> & <strong>DevTools</strong>
   </p>,
+  <p key="4">★ API Refinements</p>,
   <p key="8">
     ★ New custom hook <strong>useFormState</strong>
   </p>,
