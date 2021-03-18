@@ -268,9 +268,9 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@6.0.0
+                      react-hook-form@7.0.0
                       <br />
-                      <b className={typographyStyles.note}>8.9KB</b>
+                      <b className={typographyStyles.note}>8KB</b>
                     </code>
                   </td>
                   <td>
@@ -350,18 +350,6 @@ export default {
                   <td>Low to Medium</td>
                   <td>Medium</td>
                   <td>Medium</td>
-                </tr>
-                <tr>
-                  <td>
-                    <b>Status</b>
-                  </td>
-                  <td>Medium Community and growing</td>
-                  <td>
-                    Large Community: Well established form lib in the community
-                  </td>
-                  <td>
-                    Large Community: Well established form lib in the community
-                  </td>
                 </tr>
               </tbody>
             </table>
