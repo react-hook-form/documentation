@@ -32,16 +32,13 @@ const useYupValidationResolver = validationSchema =>
     },
     [validationSchema]
   );
+  
+const validationSchema = yup.object({
+  firstName: yup.string().required("Required"),
+  lastName: yup.string().required("Required")
+});
 
 export default function App() {
-  const validationSchema = useMemo(
-    () =>
-      yup.object({
-        firstName: yup.string().required("Required"),
-        lastName: yup.string().required("Required")
-      }),
-    []
-  );
   const resolver = useYupValidationResolver(validationSchema);
   const { handleSubmit, register } = useForm({ resolver });
 

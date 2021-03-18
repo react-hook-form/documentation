@@ -35,10 +35,7 @@ interface IFormInput {
 
 export default function App() {
   const { register, handleSubmit } = useForm<IFormInput>();
-
-  const onSubmit = (data: IFormInput) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInput) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -230,10 +227,7 @@ import Input from "@material-ui/core/Input";
 
 const App = () => {
   const { control, handleSubmit } = useForm();
-
-  const onSubmit = (data: IFormInput) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInput) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -306,12 +300,10 @@ const App = () => {
 
 export const controlledComponent = `import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
-  const methods = useForm();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
@@ -321,13 +313,9 @@ function App() {
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render={({ field }) =>
-          <Checkbox
-            onChange={e => field.onChange(e.target.checked)}
-            checked={field.value}
-          />
-        }
+        render={({ field }) => <Checkbox {...field} />}
       />
+      <input type="submit" />
     </form>
   );
 }
@@ -335,7 +323,6 @@ function App() {
 
 export const controlledComponentTs = `import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
 interface IFormInputs {
@@ -344,8 +331,7 @@ interface IFormInputs {
 }
 
 function App() {
-  const methods = useForm<IFormInputs>();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm<IFormInputs>();
   const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
@@ -355,13 +341,9 @@ function App() {
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render={({ field }) =>
-          <Checkbox
-            onChange={e => field.onChange(e.target.checked)}
-            checked={field.value}
-          />
-        }
+        render={({ field }) => <Checkbox {...field} />}
       />
+      <input type="submit" />
     </form>
   );
 }

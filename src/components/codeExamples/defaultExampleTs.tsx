@@ -15,7 +15,7 @@ export default function App() {
   return (
     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
     <form onSubmit={handleSubmit(onSubmit)}>
-    {/* register your input into the hook by invoking the "register" function */}
+      {/* register your input into the hook by invoking the "register" function */}
       <input defaultValue="test" {...register("example")} />
       
       {/* include validation with required or other standard HTML validation rules */}

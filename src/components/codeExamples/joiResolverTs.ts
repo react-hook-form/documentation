@@ -17,7 +17,6 @@ const App = () => {
   const { register, handleSubmit, errors } = useForm<IFormInput>({
     resolver: joiResolver(schema)
   });
-
   const onSubmit = (data: IFormInput) => {
     console.log(data);
   };

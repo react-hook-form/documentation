@@ -47,14 +47,6 @@ export default {
           <strong>required</strong> to have a unique <code>name</code> as a key
           for the registration process.
         </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note: </b>React Native will
-          require you to either use a manual register command:{" "}
-          <code>{`register('test', { required: true })`}</code> or a{" "}
-          <Link to="/api#Controller">Controller</Link> to wrap and register your
-          component.
-        </p>
       </>
     ),
   },
@@ -164,17 +156,10 @@ export default {
       <>
         <p>
           React Hook Form has made it easy to integrate with external UI
-          component libraries. You can check out the follow videos.
-        </p>
-
-        <p>
-          Controlled components don't expose a prop to register, for example{" "}
-          <code>react-select</code> or <code>react-datepicker</code>.
-        </p>
-        <p>
-          In this case, you should use the{" "}
-          <Link to="/api#Controller">Controller</Link> wrapper component, which
-          will take care of the registration process for you.
+          component libraries. If the component doesn't expose input's{" "}
+          <code>ref</code>, then you should use the{" "}
+          <Link to="/api#Controller">Controller</Link> component, which will
+          take care of the registration process.
         </p>
       </>
     ),

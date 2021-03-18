@@ -3,7 +3,7 @@ export default (formData: any, isV7: boolean) => {
 import { useForm } from 'react-hook-form';
 
 export default function App() {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
   console.log(errors);
   

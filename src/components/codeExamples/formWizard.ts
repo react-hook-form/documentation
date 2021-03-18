@@ -6,7 +6,10 @@ import Step2 from "./Step2";
 import Result from "./Result";
 
 createStore({
-  data: {}
+  data: {
+    firstName: '',
+    lastName: '',
+  }
 });
 
 export default function App() {

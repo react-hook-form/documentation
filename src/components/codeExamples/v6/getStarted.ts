@@ -306,8 +306,7 @@ import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
-  const methods = useForm();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
@@ -344,8 +343,7 @@ interface IFormInputs {
 }
 
 function App() {
-  const methods = useForm<IFormInputs>();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm<IFormInputs>();
   const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
