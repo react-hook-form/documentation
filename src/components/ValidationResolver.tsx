@@ -24,11 +24,7 @@ export default function ({ api }) {
         <code>
           resolver:{" "}
           <span className={typographyStyles.typeText}>
-            {`(values: any, context?: object, options: { 
-  criteriaMode?: 'firstError' | 'all', 
-  names?: string[],
-  fields: { [name]: field }
-}) => Promise<ResolverResult> | ResolverResult `}
+            {`(values: any, context?: object, options: Object) => Promise<ResolverResult> | ResolverResult `}
           </span>
         </code>
       </h5>

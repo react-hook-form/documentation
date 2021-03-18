@@ -1887,7 +1887,8 @@ React.useEffect(() => {
   name="test"
   render={({
     field: { onChange, onBlur, value, name, ref },
-    fieldState: { invalid, isTouched, isDirty, error, isValidating },
+    fieldState: { invalid, isTouched, isDirty, error },
+    formState,
   }) => (
     <Checkbox
       onBlur={onBlur}

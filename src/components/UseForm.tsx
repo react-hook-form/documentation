@@ -179,6 +179,9 @@ const { register } = useForm<FormInputs>({
                     </td>
                     <td>
                       {api.useForm.validateContext}
+                      <br />
+                    </td>
+                    <td>
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
                         url="https://codesandbox.io/s/resolver-context-d9jqy"
@@ -194,8 +197,8 @@ const { register } = useForm<FormInputs>({
                         </code>
                       </p>
                     </td>
+                    <td>{api.useForm.validateCriteriaMode}</td>
                     <td>
-                      {api.useForm.validateCriteriaMode}
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
                         url="https://codesandbox.io/s/react-hook-form-v6-errors-validatecriteriamode-all-p9xm6"
