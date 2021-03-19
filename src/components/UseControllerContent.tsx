@@ -52,6 +52,8 @@ export default function UseControllerContent({
         tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
         url="https://codesandbox.io/s/usecontroller-i0ywh"
       />
+
+      {api.useController.tips}
     </>
   )
 }

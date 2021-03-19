@@ -2288,6 +2288,42 @@ React.useEffect(() => {
         </tr>
       </tbody>
     ),
+    tips: (
+      <>
+        <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+        <ul>
+          <li>
+            <p>
+              Do not <code>register</code> input again. This custom hook is made
+              to take care the registration process.
+            </p>
+            <CodeArea
+              rawData={`const { field } = useController({ name: 'test' })
+
+<input {...field} /> // ✅ 
+<input {...field} {...register('test')} /> // ❌ double up the registration        
+`}
+            />
+          </li>
+          <li>
+            <p>
+              It's ideal to use single <code>useController</code> per component.
+              If you need to use more than one, make sure you rename the prop or
+              even consider to use <code>Controller</code> instead.
+            </p>
+            <CodeArea
+              rawData={`const { field: input } = useController({ name: 'test' })
+const { field: checkbox } = useController({ name: 'test1' })
+
+<input {...input} />
+<input {...checkbox} />        
+`}
+            />
+          </li>
+        </ul>
+      </>
+    ),
     description: (
       <>
         <p>
