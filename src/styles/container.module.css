@@ -39,7 +39,7 @@
     width: 85px;
     display: block;
     text-align: center;
-    margin: 100px auto -50px;
+    margin: 100px auto -30px;
   }
 
   .wrapper {
@@ -52,5 +52,9 @@
   .wrapper {
     display: grid;
     grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .centerContent svg {
+    margin: 100px auto -50px;
   }
 }

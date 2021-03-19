@@ -8,7 +8,7 @@ const list = [
     ★ Strictly <strong>typed</strong> form
   </p>,
   <p key="2">
-    ★ <strong>Smaller</strong> Package Size (-14%)
+    ★ <strong>Smaller</strong> Package Size (-13%)
   </p>,
   <p key="3">
     ★ More <strong>performant</strong> than ever
@@ -99,7 +99,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                     <ul>
                       {list.map((item, index) => (
                         <Animate
-                          key={item}
+                          key={`${index}-name`}
                           sequenceIndex={index + 3}
                           start={{
                             transform: "translateX(10px)",

@@ -795,12 +795,12 @@ export default {
   liveDemo: {
     en: {
       description: (
-        <p className={typographyStyles.homeParagraph}>
+        <>
           The following form demonstrates form validation in action. Each column
           represents what has been captured in the custom hook. You can also
           change fields in the form by clicking the <strong>EDIT</strong>{" "}
           button.
-        </p>
+        </>
       ),
       submit: "Submit",
       watchTitle: "Watch",
