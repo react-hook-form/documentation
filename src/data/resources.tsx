@@ -2,55 +2,8 @@ import * as React from "react"
 
 export default {
   v7: {
-    articles: [
-      {
-        title: "What's coming in React Hook Form - Version 7",
-        url:
-          "https://dev.to/bluebill1049/what-s-coming-in-react-hook-form-version-7-4bfa",
-        authorUrl: "https://dev.to/bluebill1049",
-        author: "Bill Luo",
-        description: <p>Introduction to React Hook From V7.</p>,
-      },
-      {
-        title: "What's new in React Hook Form's resolvers V2",
-        url:
-          "https://dev.to/jorisre/what-s-new-in-react-hook-form-s-resolvers-v2-2a5o",
-        authorUrl: "https://dev.to/jorisre",
-        author: "Joris",
-      },
-      {
-        title: "React Hook Formのアップデート内容 - Version 7",
-        url: "https://qiita.com/bluebill1049/items/f838bae7f3ed29e81fff",
-        authorUrl: "https://qiita.com/bluebill1049",
-        author: "Bill Luo",
-      },
-    ],
-    videos: [
-      {
-        title: "React Hook Form V7 - Get Started",
-        url: "https://www.youtube.com/watch?v=DN8v7_RbVlc",
-        authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
-        author: "Bill Luo",
-        description: (
-          <p>
-            Introduction to React Hook From V7 (preview). Hope you will enjoy
-            the next update!
-          </p>
-        ),
-      },
-      {
-        title: "React Hook Form V7 (Preview)",
-        url: "https://www.youtube.com/watch?v=ZBfBiwyR2HY",
-        authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
-        author: "Bill Luo",
-        description: (
-          <p>
-            Introduction to React Hook From V7 (preview). Hope you will enjoy
-            the next update!
-          </p>
-        ),
-      },
-    ],
+    articles: [],
+    videos: [],
   },
   v6: {
     articles: [
