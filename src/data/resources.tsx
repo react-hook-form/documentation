@@ -27,6 +27,18 @@ export default {
     ],
     videos: [
       {
+        title: "React Hook Form V7 - Get Started",
+        url: "https://www.youtube.com/watch?v=DN8v7_RbVlc",
+        authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
+        author: "Bill Luo",
+        description: (
+          <p>
+            Introduction to React Hook From V7 (preview). Hope you will enjoy
+            the next update!
+          </p>
+        ),
+      },
+      {
         title: "React Hook Form V7 (Preview)",
         url: "https://www.youtube.com/watch?v=ZBfBiwyR2HY",
         authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
