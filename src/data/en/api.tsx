@@ -1430,6 +1430,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             </p>
           </li>
           <li>
+            <p>Disabled input will be returned undefined as result.</p>
+          </li>
+          <li>
             <p>
               It will return <code>defaultValues</code> from{" "}
               <code>useForm</code> before the <b>initial</b> render.
