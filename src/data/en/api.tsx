@@ -419,7 +419,16 @@ export default {
             <p>
               <code>disabled</code> input will result as <code>undefined</code>,
               if you want to prevent users from update the input, you can use{" "}
-              <code>readOnly</code> or disable the entire {`<fieldset />`}.
+              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
+              is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
             </p>
           </li>
           <li>
@@ -778,11 +787,18 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </li>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note:</b>{" "}
               <code>disabled</code> input will be returned{" "}
               <code>undefined</code> as result, if you want to prevent users
               from update the input, you can use <code>readOnly</code> or
-              disable the entire {`<fieldset />`}.
+              disable the entire {`<fieldset />`}. Here is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
             </p>
           </li>
         </ul>
@@ -1447,7 +1463,16 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             <p>
               Disabled input will be returned undefined as result, if you want
               to prevent users from update the input, you can use{" "}
-              <code>readOnly</code> or disable the entire {`<fieldset />`}.
+              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
+              is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
             </p>
           </li>
           <li>
