@@ -426,6 +426,13 @@ export default {
               with number. eg: <code>test.0.data</code>
             </p>
           </li>
+          <li>
+            <p>
+              Changing name on each render will result <code>register</code> new
+              inputs. It's recommend to keep static name for each registered
+              input.
+            </p>
+          </li>
         </ul>
       </>
     ),
