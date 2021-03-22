@@ -417,7 +417,9 @@ export default {
           </li>
           <li>
             <p>
-              <code>disabled</code> input will result as <code>undefined</code>.
+              <code>disabled</code> input will result as <code>undefined</code>,
+              if you want to prevent users from update the input, you can use{" "}
+              <code>readOnly</code> or disable the entire {`<fieldset />`}.
             </p>
           </li>
           <li>
@@ -761,17 +763,29 @@ return <button disabled={!isDirty || !isValid} />;
           This function will pass the form data when form validation is
           successful.
         </p>
-        <CodeArea
-          rawData={` // It can be invoked remotely as well
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+        <ul>
+          <li>
+            <p>You can easily submit form async with handleSubmit.</p>
+            <CodeArea
+              rawData={`// It can be invoked remotely as well
 handleSubmit(onSubmit)();
 
 // You can pass an async function for asynchronous validation.
 handleSubmit(async (data) => await fetchAPI(data))`}
-        />
-        <p>
-          <b className={typographyStyles.note}>Note:</b> <code>disabled</code>{" "}
-          input will be returned <code>undefined</code> as result.
-        </p>
+            />
+          </li>
+          <li>
+            <p>
+              <b className={typographyStyles.note}>Note:</b>{" "}
+              <code>disabled</code> input will be returned{" "}
+              <code>undefined</code> as result, if you want to prevent users
+              from update the input, you can use <code>readOnly</code> or
+              disable the entire {`<fieldset />`}.
+            </p>
+          </li>
+        </ul>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
@@ -1430,7 +1444,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             </p>
           </li>
           <li>
-            <p>Disabled input will be returned undefined as result.</p>
+            <p>
+              Disabled input will be returned undefined as result, if you want
+              to prevent users from update the input, you can use{" "}
+              <code>readOnly</code> or disable the entire {`<fieldset />`}.
+            </p>
           </li>
           <li>
             <p>
