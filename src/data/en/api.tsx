@@ -1827,6 +1827,46 @@ React.useEffect(() => {
   },
   Controller: {
     title: "Controller",
+    tips: (
+      <>
+        <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+        <ul>
+          <li>
+            <p>
+              Do not <code>register</code> input again. This component is made
+              to take care the registration process.
+            </p>
+            <CodeArea
+              rawData={`<Controller 
+  name="test"
+  render={({ field }) => {
+    // return <input {...field} {...register('test')} />; ❌ double up the registration  
+    return <input {...field} />; // ✅  
+  }} 
+/>        
+`}
+            />
+          </li>
+          <li>
+            <p>
+              Customise what value gets send to hook form by transform the value
+              during <codee>onChange</codee>.
+            </p>
+            <CodeArea
+              rawData={`<Controller 
+  name="test"
+  render={({ field }) => {
+    // sending integer instead of string.
+    return <input {...field} onChange={(e) => field.onChange(parseInt(e.target.value))} />;  
+  }} 
+/>    
+`}
+            />
+          </li>
+        </ul>
+      </>
+    ),
     table: (
       <tbody>
         <tr>

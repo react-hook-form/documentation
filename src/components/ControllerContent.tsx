@@ -63,6 +63,8 @@ export default function ControllerContent({
           url="https://snack.expo.io/@bluebill1049/react-hook-form-v7---basic"
         />
       </TabGroup>
+
+      {api.Controller.tips}
     </>
   )
 }
