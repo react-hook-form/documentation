@@ -8,7 +8,7 @@ export default function App () {
     formState
   } = useForm();
 
-  const onSubmit = (data: FormInputs) => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   React.useEffect(() => {
     console.log("touched", formState.touched);
