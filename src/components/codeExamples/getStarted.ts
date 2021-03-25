@@ -77,7 +77,6 @@ const Select = React.forwardRef(({ label }, ref) => (
 
 const App = () => {
   const { register, handleSubmit } = useForm();
-
   const onSubmit = data => {
     alert(JSON.stringify(data));
   };
