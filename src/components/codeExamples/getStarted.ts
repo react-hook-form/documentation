@@ -56,16 +56,16 @@ export default function App() {
 export const migrateCode = `import React from "react";
 import { useForm } from "react-hook-form";
 
-// The following component is an example of your existing Input Component 
-const Input = ({ label, register, required }) => ( 
+// The following component is an example of your existing Input Component
+const Input = ({ label, register, required }) => (
   <>
     <label>{label}</label>
-    <input {...register(label, { required })} />
+    <input name={label} ref={register({ required })} />
   </>
 );
 
 // you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ label }, ref) => ( 
+const Select = React.forwardRef(({ label }, ref) => (
   <>
     <label>{label}</label>
     <select name={label} ref={ref}>
@@ -75,87 +75,69 @@ const Select = React.forwardRef(({ label }, ref) => (
   </>
 ));
 
-export default function App() {
+const App = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-   
+
+  const onSubmit = data => {
+    alert(JSON.stringify(data));
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
-      <Select label="Age" {...register("Age")} />
+      <Select label="Age" ref={register} />
       <input type="submit" />
     </form>
   );
-}`
+};
+`
 
 export const migrateCodeTs = `import React from "react";
-import { useForm } from "react-hook-form";
-
-type RefReturn =
-  | string
-  | ((instance: HTMLInputElement | null) => void)
-  | React.RefObject<HTMLInputElement>
-  | null
-  | undefined;
-
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> & {
-  label: string;
-  register: ({ required }: { required?: boolean }) => RefReturn;
-};
-
-interface IInputProps {
-  label: string;
-}
-
-// The following component is an example of your existing Input Component
-const Input: React.FC<InputProps> = ({ label, register, required }) => (
-  <>
-    <label>{label}</label>
-    <input {...register(label, { required })} />
-  </>
-);
-
-type Option = {
-  label: React.ReactNode;
-  value: string | number | string[];
-};
-
-type SelectProps = React.DetailedHTMLProps<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
-  HTMLSelectElement
-> & { options: Option[] } & HTMLSelectElement;
-
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef<SelectProps, { label: string }>(
-  ({ label }, ref) => (
-    <>
-      <label>{label}</label>
-      <select name={label} ref={ref}>
-        <option value="20">20</option>
-        <option value="30">30</option>
-      </select>
-    </>
-  )
-);
+import { Path, useForm, UseFormRegister } from "react-hook-form";
 
 interface IFormValues {
   "First Name": string;
   Age: number;
 }
 
+type InputProps = {
+  label: Path<IFormValues>;
+  register: UseFormRegister<IFormValues>;
+  required: boolean;
+};
+
+// The following component is an example of your existing Input Component
+const Input = ({ label, register, required }: InputProps) => (
+  <>
+    <label>{label}</label>
+    <input {...register(label, { required })} />
+  </>
+);
+
+// you can use React.forwardRef to pass the ref too
+const Select = React.forwardRef<
+  HTMLSelectElement,
+  { label: string } & ReturnType<UseFormRegister<IFormValues>>
+>(({ onChange, name, label }, ref) => (
+  <>
+    <label>{label}</label>
+    <select name={name} ref={ref} onChange={onChange}>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </>
+));
+
 const App = () => {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit = (data: IFormValues) => {
-    console.log(data)
+    alert(JSON.stringify(data));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="First Name" {...register("First Name")} required />
+      <Input label="First Name" register={register} required />
       <Select label="Age" {...register("Age")} />
       <input type="submit" />
     </form>

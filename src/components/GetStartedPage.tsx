@@ -294,9 +294,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <CodeArea
             rawData={isV7 ? migrateCode : v6Example.migrateCode}
-            url="https://codesandbox.io/s/react-hook-form-adapting-existing-form-j1n32"
+            url="https://codesandbox.io/s/react-hook-form-adapting-existing-form-llbnn"
             tsRawData={isV7 ? migrateCodeTs : v6Example.migrateCodeTs}
-            tsUrl="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-f3kt1"
+            tsUrl="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-uzfxm"
           />
 
           <h2
