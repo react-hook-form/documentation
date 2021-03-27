@@ -60,15 +60,15 @@ import { useForm } from "react-hook-form";
 const Input = ({ label, register, required }) => (
   <>
     <label>{label}</label>
-    <input name={label} ref={register({ required })} />
+    <input {...register(label, { required })} />
   </>
 );
 
 // you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ label }, ref) => (
+const Select = React.forwardRef(({ onChange, name, label }, ref) => (
   <>
     <label>{label}</label>
-    <select name={label} ref={ref}>
+    <select name={name} ref={ref} onChange={onChange}>
       <option value="20">20</option>
       <option value="30">30</option>
     </select>
@@ -77,14 +77,15 @@ const Select = React.forwardRef(({ label }, ref) => (
 
 const App = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => {
+
+  const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
-      <Select label="Age" ref={register} />
+      <Select label="Age" {...register("Age")} />
       <input type="submit" />
     </form>
   );
