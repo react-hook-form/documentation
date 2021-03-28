@@ -89,6 +89,22 @@ export default function UseFieldArray({
           url="https://codesandbox.io/s/watchusewatch-calc-4tpnh"
         />
       </TabGroup>
+
+      <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+      <ul>
+        <li>
+          <p>
+            The initial return value from <code>useWatch</code> will always
+            return what's inside of <code>defaultValue</code> or{" "}
+            <code>defaultValues</code> from <code>useForm</code>.
+          </p>
+        </li>
+        <li>
+          The only different between <code>useWatch</code> and{" "}
+          <cocde>watch</cocde> is at root level or component level update.
+        </li>
+      </ul>
     </>
   )
 }

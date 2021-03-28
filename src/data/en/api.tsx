@@ -2287,20 +2287,11 @@ React.useEffect(() => {
   useWatch: {
     title: "useWatch",
     description: (
-      <>
-        <p>
-          Behaves similarly to the <code>watch</code> API, however, this will
-          isolate re-rendering at the component level and potentially result in
-          better performance for your application.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> The initial return
-          value from <code>useWatch</code> will always return what's inside of{" "}
-          <code>defaultValue</code> or <code>defaultValues</code> from{" "}
-          <code>useForm</code>.
-        </p>
-      </>
+      <p>
+        Behaves similarly to the <code>watch</code> API, however, this will
+        isolate re-rendering at the component level and potentially result in
+        better performance for your application.
+      </p>
     ),
   },
   useController: {
