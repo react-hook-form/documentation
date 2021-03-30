@@ -18,10 +18,11 @@ export default function UseControllerContent({
     <>
       <code className={typographyStyles.codeHeading}>
         <h2>
-          useController:{" "}
+          useController:
+          <br />
           <span
             className={typographyStyles.typeText}
-          >{`(arguments: UseControllerProps) => { field: object, fieldState: object, formState: object }`}</span>
+          >{`(props?: UseControllerProps) => { field: object, fieldState: object, formState: object }`}</span>
         </h2>
       </code>
       {api.useController.description}
