@@ -1704,6 +1704,13 @@ React.useEffect(() => {
             </p>
           </li>
           <li>
+            <p>
+              Each input name needs to be unique, if you need to build checkbox
+              or radio with the same name then use it with{" "}
+              <code>useController</code> or <code>controller</code>.
+            </p>
+          </li>
+          <li>
             <p>Does not support flat field array.</p>
           </li>
         </ul>
