@@ -571,6 +571,14 @@ export default {
       description:
         "Di video kita mencoba intergrasi library react hook form dengan register form.",
     },
+    {
+      title: "Create powerful and flexible forms with React Hook Form",
+      url: "https://daily.dev/blog/create-powerful-and-flexible-forms-with-react-hook-form",
+      authorUrl: "https://twitter.com/vaibhav_khulbe",
+      author: "Vaibhav Khulbe",
+      description:
+        "Get to know why we need React Hook Form and how to use it to make powerful and flexible forms.",
+    },
   ],
   newsletters: [],
 }
