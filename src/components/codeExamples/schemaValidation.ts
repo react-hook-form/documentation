@@ -9,7 +9,7 @@ const schema = yup.object().shape({
 });
 
 export default function App() {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, formState:{ errors } } = useForm({
     resolver: yupResolver(schema)
   });
   const onSubmit = data => console.log(data);
