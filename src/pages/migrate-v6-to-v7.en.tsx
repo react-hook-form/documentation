@@ -167,7 +167,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
               </p>
               <CodeArea
                 withOutCopy
-                rawData={`- <input ref={register, { valueAsNumber: true, validate: (value) => parseInt(value) === 2 ) }} name="test" />
+                rawData={`- <input ref={register({ valueAsNumber: true, validate: (value) => parseInt(value) === 2 ) })} name="test" />
 + <input {...register('test', { valueAsNumber: true, validate: (value) => value === 2 ) }} /> // no longer need to parse again`}
               />
 
