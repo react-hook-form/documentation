@@ -304,6 +304,26 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <section>
                 <code className={typographyStyles.codeHeading}>
+                  <h2>trigger: </h2>
+                </code>
+
+                <p>
+                  Manually triggers form or input validation. This method is
+                  also useful when you have depedant validation as react hook
+                  form
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`- await trigger("test") // Returns true|false
++ await trigger("test") // Returns void`}
+                />
+              </section>
+
+              <hr />
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
                   <h2>setError: </h2>
                 </code>
 

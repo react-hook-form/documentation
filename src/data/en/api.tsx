@@ -1508,7 +1508,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
       <>
         <p>
           Manually triggers form or input validation. This method is also useful
-          when you have depedant valdiation as react hook form{" "}
+          when you have depedant validation as react hook form{" "}
         </p>
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
