@@ -113,7 +113,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <CodeArea
                 withOutCopy
-                rawData={`- <input ref={register, { required: true }} name="test" />
+                rawData={`- <input ref={register({ required: true })} name="test" />
 + <input {...register('name', { required: true })} /> 
 + <TextInput {...register('name', { required: true })} />`}
               />
