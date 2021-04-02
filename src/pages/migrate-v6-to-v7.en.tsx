@@ -241,7 +241,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <CodeArea
                 withOutCopy
-                rawData={`- reset(values, { isDIrty: true })
+                rawData={`- reset(values, { isDirty: true })
 + // second argument is still optional
 + reset(values, { 
 +   keepDefaultValues: true, // new
