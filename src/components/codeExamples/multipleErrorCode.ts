@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm({
+  const { register, formState: { errors }, handleSubmit } = useForm({
     // by setting criteriaMode to 'all', 
     // all validation errors for single field will display at once
     criteriaMode: "all"
@@ -13,8 +13,7 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
         type="password"
-        name="password"
-        ref={register({ required: true, minLength: 10, pattern: /\\d+/ })}
+        {...register("password", { required: true, minLength: 10, pattern: /\\d+/ })}
       />
       {/* without enter data for the password input will result both messages to appear */}
       {errors?.password?.types?.required && <p>password required</p>}

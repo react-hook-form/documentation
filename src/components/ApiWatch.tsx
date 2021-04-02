@@ -2,7 +2,6 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
-import watchCodeTypes from "./codeExamples/watchCodeTypes"
 import generic from "../data/generic"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
@@ -23,19 +22,13 @@ export default function ApiWatch({
           watch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`(names?: string | string[]) => any`}</span>
-          <a
-            className={typographyStyles.videoLink}
-            href="https://www.youtube.com/watch?v=vNrUPktDT7o"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Video
-          </a>
+          >{`(names?: string | string[] | (data, options) => void) => unknown`}</span>
         </h2>
       </code>
 
       {api.watch.description}
+
+      <h2 className={typographyStyles.subTitle}>Return</h2>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
@@ -43,7 +36,7 @@ export default function ApiWatch({
             <tr>
               <th
                 style={{
-                  minWidth: 100,
+                  minWidth: 180,
                 }}
               >
                 {generic.type[currentLanguage]}
@@ -64,7 +57,7 @@ export default function ApiWatch({
               </th>
               <th
                 style={{
-                  minWidth: 200,
+                  minWidth: 180,
                 }}
               >
                 {generic.return[currentLanguage]}
@@ -95,9 +88,7 @@ export default function ApiWatch({
                 <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
+                <code className={typographyStyles.typeText}>{`unknown[]`}</code>
               </td>
             </tr>
             <tr>
@@ -113,7 +104,25 @@ export default function ApiWatch({
               <td>
                 <code
                   className={typographyStyles.typeText}
-                >{`{ [key:string] : any }`}</code>
+                >{`{[key:string]: any}`}</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code
+                  className={typographyStyles.typeText}
+                >{`(data: unknown, { name: string, type: string }) => void`}</code>
+              </td>
+              <td>{api.watch.tableTitle.all}</td>
+              <td>
+                <code>{`watch((data, { name, type }) => 
+  console.log(data, name, type)
+))`}</code>
+              </td>
+              <td>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{[key:string]: any}`}</code>
               </td>
             </tr>
           </tbody>
@@ -123,13 +132,12 @@ export default function ApiWatch({
         <CodeArea
           rawData={watchCode}
           tsRawData={watchCodeTs}
-          rawTypes={watchCodeTypes}
-          url="https://codesandbox.io/s/react-hook-form-watch-v6-4usym"
-          tsUrl="https://codesandbox.io/s/react-hook-form-watch-v6-ts-16tvf"
+          url="https://codesandbox.io/s/react-hook-form-watch-v7-qbxd7"
+          tsUrl="https://codesandbox.io/s/react-hook-form-watch-v7-ts-8et1d"
         />
         <CodeArea
           rawData={watchFieldArrayCode}
-          url="https://codesandbox.io/s/watch-with-usefieldarray-542bu?file=/src/App.tsx"
+          url="https://codesandbox.io/s/watch-with-usefieldarray-e2d64"
         />
       </TabGroup>
 

@@ -1,7 +1,6 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import "./App.css";
 
 export default () => {
   const { register, control, handleSubmit } = useForm({
@@ -14,7 +13,7 @@ export default () => {
         <h1>React Hook Form DevTools</h1>
 
         <label>Test</label>
-        <input name="test" ref={register} />
+        <input {...register("test")} />
 
         <input type="submit" />
       </form>

@@ -45,7 +45,7 @@
   .menu > div > ul > li {
     line-height: 22px;
     padding-bottom: 8px;
-    font-size: 16px;
+    font-size: 15px;
     display: flex;
   }
 
@@ -111,7 +111,7 @@
 
 @media (min-width: 1024px) {
   .menu {
-    margin-top: -65px;
+    margin-top: -75px;
   }
 
   .menu > div > ul {
@@ -138,4 +138,69 @@
   .menu > ul {
     max-width: 270px;
   }
+}
+
+.menu li.menuItem {
+  display: block;
+}
+
+.menuItem code {
+  position: relative;
+  top: -1px;
+}
+
+.menuItem li {
+  padding: 3px 0;
+}
+
+.menu li.menuItem > ul {
+  padding-left: 10px;
+}
+
+.menu li.menuItem > ul > li {
+  padding-left: 20px;
+  border-left: 1px solid var(--color-light-pink);
+  position: relative;
+}
+
+.menu li.menuItem > ul > li:last-child {
+  border-left: none;
+  position: relative;
+}
+
+.menu li.menuItem > ul > li:last-child:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  top: 0;
+  left: 0;
+  height: 58%;
+  border-left: 1px solid var(--color-light-pink);
+}
+
+.menu li.menuItem > ul > li:before {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 10px;
+  border-bottom: 1px solid var(--color-light-pink);
+}
+
+.menu li.menuItem > ul a {
+  color: currentColor;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.menu li.menuItem > ul a:hover {
+  border-bottom: 1px solid var(--color-light-pink);
+}
+
+.menu li.menuItem > ul > li {
+  list-style: none;
+}
+
+.menu ul li a.isActive {
+  border-bottom: 1px solid var(--color-secondary);
 }

@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import ApiPage from "../components/ApiPage"
+import ApiPage from "../components/v6/ApiPageV6"
 import api from "../data/jp/api"
 
 const ApiZh = ({

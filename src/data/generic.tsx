@@ -65,7 +65,7 @@ export default {
   advanceUsage: {
     en: {
       title: "Advanced Usage",
-      description: `Learn how to build complex and accessible forms with React Hook Form.`,
+      description: `Learn how to build complex and accessible forms`,
       buttonText: `Learn Advanced Usage`,
     },
     es: {

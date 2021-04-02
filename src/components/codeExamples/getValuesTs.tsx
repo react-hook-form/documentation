@@ -11,8 +11,8 @@ export default function App() {
 
   return (
     <form>
-      <input name="test" ref={register} />
-      <input name="test1" ref={register} />
+      <input {...register("test")} />
+      <input {...register("test1")} />
 
       <button
         type="button"
@@ -20,7 +20,7 @@ export default function App() {
           const values = getValues(); // { test: "test-input", test1: "test1-input" }
           const singleValue = getValues("test"); // "test-input"
           const multipleValues = getValues(["test", "test1"]);
-          // { test: "test-input", test1: "test1-input" }
+          // [{ test: "test-input" }, { test1: "test1-input" }]
         }}
       >
         Get Values

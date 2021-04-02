@@ -24,9 +24,8 @@ function App() {
         <MenuItem value={10}>Ten</MenuItem>
         <MenuItem value={20}>Twenty</MenuItem>
       </Select>
-      <br />
-      <Input inputRef={register} name="input" />
-
+      <Input {...register("input")} />
+      
       <button type="button" onClick={() => reset({ ...defaultValues })}>Reset</button>
       <input type="submit" />
     </form>

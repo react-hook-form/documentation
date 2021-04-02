@@ -141,8 +141,8 @@ export default {
         <p>
           <b className={typographyStyles.note}>Примечание:</b>{" "}
           <code>defaultValues</code> не заполняется автоматически при
-          регистрации вручную (например:{" "}
-          <code>{`register({ name: 'test' })`}</code>) потому что поле,
+          регистрации вручную (например: <code>{`register('test')`}</code>)
+          потому что поле,
           <code>зарегистрированное</code> вручную, не передаёт <code>ref</code>{" "}
           в React Hook Form.
         </p>
@@ -186,7 +186,7 @@ export default {
           <b className={typographyStyles.note}>Примечание:</b> Только
           зарегистрированные поля с <code>ref</code> будут работать. Поля,
           зарегистрированные вручную, работать не будут. например:{" "}
-          <code>{`register({ name: 'test' }) // не работает`}</code>{" "}
+          <code>{`register('test') // не работает`}</code>{" "}
         </p>
       </>
     ),

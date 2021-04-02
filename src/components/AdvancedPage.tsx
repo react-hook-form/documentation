@@ -2,9 +2,6 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import SideMenu from "./SideMenu"
 import Footer from "./Footer"
-import fieldArray from "./codeExamples/fieldArray"
-import unregisterControlledComponent from "./codeExamples/unregisterControlledComponent"
-import conditionalComponent from "./codeExamples/conditionalComponent"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
@@ -12,9 +9,7 @@ import { useStateMachine } from "little-state-machine"
 import advancedEn from "../data/en/advanced"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
-import unregisterWrapControlledComponent from "./codeExamples/unregisterWrapControlledComponent"
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
-import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import virtualizedList from "./codeExamples/virtualizedList"
@@ -25,17 +20,13 @@ const enLinks = [
   advancedEn.accessibility,
   advancedEn.wizard,
   advancedEn.smartForm,
-  advancedEn.fieldArrays,
   advancedEn.errorMessage,
   advancedEn.connectForm,
   advancedEn.formContext,
-  advancedEn.conditionalControlledComponent,
   advancedEn.controlledMixedWithUnControlled,
   advancedEn.customHookwithResolver,
   advancedEn.workingWithVirtualizedList,
   advancedEn.testingForm,
-  advancedEn.strictlyTyped,
-  advancedEn.extendController,
   advancedEn.transformAndParse,
 ]
 
@@ -49,17 +40,13 @@ function Advanced({ defaultLang, advanced }: Props) {
     AccessibilityA11y: null,
     WizardFormFunnel: null,
     SmartFormComponent: null,
-    FieldArrays: null,
     ConnectForm: null,
     FormProviderPerformance: null,
     ErrorMessages: null,
-    ConditionalControlledComponent: null,
     ControlledmixedwithUncontrolledComponents: null,
     CustomHookwithResolver: null,
     Workingwithvirtualizedlists: null,
     TestingForm: null,
-    StrictlyTyped: null,
-    ExtendController: null,
     TransformandParse: null,
   })
 
@@ -75,17 +62,13 @@ function Advanced({ defaultLang, advanced }: Props) {
     advanced.accessibility,
     advanced.wizard,
     advanced.smartForm,
-    advanced.fieldArrays,
     advanced.errorMessage,
     advanced.connectForm,
     advanced.formContext,
-    advanced.conditionalControlledComponent,
     advanced.controlledMixedWithUnControlled,
     advanced.customHookwithResolver,
     advanced.workingWithVirtualizedList,
     advanced.testingForm,
-    advanced.strictlyTyped,
-    advanced.extendController,
     advanced.transformAndParse,
   ]
 
@@ -149,21 +132,6 @@ function Advanced({ defaultLang, advanced }: Props) {
             {advanced.wizard.title}
           </h2>
 
-          <p>
-            In this video tutorial, I have demonstrated the core concept of how
-            to build multiple steps funnel with React Hook Form.
-          </p>
-
-          <iframe
-            width="100%"
-            height="528"
-            title="react hook form persist multiple steps forms (Form Wizard) - video tutorial"
-            src="https://www.youtube.com/embed/CeAkxVwsyMU"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-
           {advanced.wizard.description}
 
           <hr />
@@ -177,29 +145,6 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.smartForm.description}
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.FieldArrays = ref)}
-            id="FieldArrays"
-          >
-            {advanced.fieldArrays.title}
-          </h2>
-
-          {advanced.fieldArrays.description}
-
-          <TabGroup buttonLabels={["Custom hook", "register"]}>
-            <CodeArea
-              rawData={useFieldArray}
-              url="https://codesandbox.io/s/react-hook-form-usefieldarray-vy8fv"
-            />
-            <CodeArea
-              rawData={fieldArray}
-              url="https://codesandbox.io/s/6j1760jkjk"
-            />
-          </TabGroup>
 
           <hr />
 
@@ -270,35 +215,9 @@ function Advanced({ defaultLang, advanced }: Props) {
           {advanced.formContext.description}
 
           <CodeArea
-            url="https://codesandbox.io/s/provider-perf-25m85"
+            url="https://codesandbox.io/s/provider-perf-forked-r24ho"
             rawData={formContextPerformance}
           />
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) =>
-              (pageContentRef.current.ConditionalControlledComponent = ref)
-            }
-            id="ConditionalControlledComponent"
-          >
-            {advanced.conditionalControlledComponent.title}
-          </h2>
-
-          {advanced.conditionalControlledComponent.description}
-
-          <TabGroup buttonLabels={["Normal", "Controller", "Custom Register"]}>
-            <CodeArea
-              rawData={conditionalComponent}
-              url="https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r"
-            />
-            <CodeArea rawData={unregisterWrapControlledComponent} />
-            <CodeArea
-              rawData={unregisterControlledComponent}
-              url="https://codesandbox.io/s/react-hook-fom-unregister-controlled-component-hu990"
-            />
-          </TabGroup>
 
           <hr />
 
@@ -318,7 +237,7 @@ function Advanced({ defaultLang, advanced }: Props) {
             <CodeArea rawData={controlledMixedUncontrolledInput} />
             <CodeArea
               rawData={controlledMixedUncontrolled}
-              url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-8vh3c"
+              url="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
             />
           </TabGroup>
 
@@ -351,11 +270,11 @@ function Advanced({ defaultLang, advanced }: Props) {
           <TabGroup buttonLabels={["Form", "Field Array"]}>
             <CodeArea
               rawData={virtualizedList}
-              url="https://codesandbox.io/s/react-hook-form-with-react-window-b4j8n"
+              url="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
             />
             <CodeArea
               rawData={virtualizedListFieldArray}
-              url="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-1r8ip"
+              url="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-ghrey"
             />
           </TabGroup>
 
@@ -370,67 +289,6 @@ function Advanced({ defaultLang, advanced }: Props) {
           </h2>
 
           {advanced.testingForm.description}
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.StrictlyTyped = ref)}
-            id="StrictlyTyped"
-          >
-            {advanced.strictlyTyped.title}
-          </h2>
-
-          {advanced.strictlyTyped.description}
-
-          <hr />
-
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (pageContentRef.current.ExtendController = ref)}
-            id="ExtendController"
-          >
-            {advanced.extendController.title}
-          </h2>
-
-          <iframe
-            title="A video detailing how the Controller component works"
-            width="100%"
-            height="528"
-            src="https://www.youtube.com/embed/Vkiyg_KfNK4"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-
-          {advanced.extendController.description}
-
-          <CodeArea
-            tsRawData={`
-const PowerController = (props: Props) => {
-  const { formState } = useFormContext(); // we are reading formState from context or you can pass down props too
-  const isDirty = !!formState.dirtyFields[props.name];
-  const isTouched = !!formState.touched[props.name];
-  
-  return (
-    <Controller
-      control={props.control}
-      name={props.name}
-      defaultValue={props.defaultValue}
-      render={(innerProps) => {
-        return props.render({
-          ...innerProps,
-          isDirty, // new isDirty prop
-          isTouched,  // new isTouched prop
-          warning: props.warn(innerProps.value) // include warning message user 
-        });
-      }}
-    />
-  );
-};
-`}
-            tsUrl="https://codesandbox.io/s/extend-controller-zuuol"
-          />
 
           <hr />
 
@@ -456,10 +314,10 @@ const ControllerPlus = ({
     defaultValue={defaultValue}
     control={control}
     name={name}
-    render={(props) => (
+    render={({ field }) => (
       <input
-        onChange={(e) => props.onChange(transform.output(e))}
-        value={transform.input(props.value)}
+        onChange={(e) => field.onChange(transform.output(e))}
+        value={transform.input(field.value)}
       />
     )}
   />
@@ -480,7 +338,7 @@ const ControllerPlus = ({
   defaultValue=""
 />
 `}
-            tsUrl="https://codesandbox.io/s/ecstatic-waterfall-yfsqe"
+            tsUrl="https://codesandbox.io/s/transform-vt3tm"
           />
 
           <StarRepo currentLanguage={currentLanguage} />

@@ -140,9 +140,8 @@ export default {
         <p>
           <b className={typographyStyles.note}>Nota:</b>{" "}
           <code>defaultValues</code> no se carga automáticamente con los inputs
-          registrados manualmente (ej:{" "}
-          <code>{`register({ name: 'test' })`}</code>) porque el input{" "}
-          <code>registrado</code> manualmente no provee la{" "}
+          registrados manualmente (ej: <code>{`register('test')`}</code>) porque
+          el input <code>registrado</code> manualmente no provee la{" "}
           <code>referencia</code> a React Hook Form.
         </p>
       </>
@@ -185,7 +184,7 @@ export default {
           <b className={typographyStyles.note}>Nota:</b> Solo funcionará con los
           inputs registrados con <code>ref</code>. En los inputs registrados
           manualmente no funcionará. ej:{" "}
-          <code>{`register({ name: 'test' }) // no funciona`}</code>{" "}
+          <code>{`register('test') // no funciona`}</code>{" "}
         </p>
       </>
     ),
@@ -553,7 +552,7 @@ export default {
             <p>
               Establecer un error que no esté asociado con un campo de entrada
               será persiste y es necesario eliminarlo manualmente con{" "}
-              <code>clearError</code>.
+              <code>clearErrors</code>.
             </p>
           </li>
           <li>

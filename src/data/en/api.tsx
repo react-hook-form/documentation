@@ -1,13 +1,11 @@
 import * as React from "react"
-import colors from "../../styles/colors"
-import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
+import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"
+import { Link } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import tableStyles from "../../styles/table.module.css"
-import controller from "../../components/codeExamples/controller"
-import controllerTs from "../../components/codeExamples/controllerTs"
 import TabGroup from "../../components/TabGroup"
 import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
@@ -27,8 +25,9 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> also takes <b>optional</b> arguments. The following
-        example demonstrates all of the arguments with their default values.
+        <code>useForm</code> is custom hook for managing forms with ease, it
+        also takes <b>optional</b> arguments. The following example demonstrates
+        all of the arguments with their default values.
       </p>
     ),
     validateCriteriaMode: (
@@ -46,28 +45,6 @@ export default {
           </p>
         </li>
       </ul>
-    ),
-    validationResolver: (goToSection) => (
-      <>
-        <p>
-          This callback function allows you to run through any schema or custom
-          validation. The function has the entire form <code>values</code> as
-          argument, and you will need to validate the result and return both{" "}
-          <code>values</code> and <code>errors</code>. Read more at{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("validationResolver")}
-          >
-            validationResolver
-          </button>{" "}
-          section.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> This function will be
-          cached inside the hook, you will have to either move the function
-          outside of the component or memorise the function.
-        </p>
-      </>
     ),
     validateContext: (
       <>
@@ -123,25 +100,15 @@ export default {
         </p>
       </>
     ),
-    defaultValues: (goToSection) => (
+    defaultValues: (
       <>
         <p>
-          The <code>defaultValue</code> for an input is used as the initial
+          The <code>defaultValues</code> for inputs are used as the initial
           value when a component is first rendered, before a user interacts with
-          it. The main difference between the input's <code>defaultValue</code>{" "}
-          and <code>value</code> properties is that the <code>value</code>{" "}
-          indicates the input from the user, whereas the{" "}
-          <code>defaultValue</code> indicates the initial value as set by your
-          application code. The <code>defaultValue</code> might reflect some
-          "business logic" for your form (e.g. the default value for the field{" "}
-          <em>color</em> is set to <em>purple</em>) or if your app allows
-          editing previously saved form data it could be the previously saved
-          value for the field of this input.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> It is encouraged that
-          you set a <code>defaultValue</code> for all inputs to non-
-          <code>undefined</code> such as the empty string or <code>null</code>.
+          it. It is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
+          for all inputs to non-
+          <code>undefined</code> such as the empty <code>string</code> or{" "}
+          <code>null</code>.
         </p>
         <p>
           You can set an input's default value with{" "}
@@ -154,55 +121,31 @@ export default {
           </a>
           , pass <code>defaultValues</code> as an optional argument to{" "}
           <code>useForm()</code> to populate the default values for the entire
-          form, or set values on an individual
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("Controller")}
-          >
-            Controller
-          </button>{" "}
-          component via its <code>defaultValue</code> property.
+          form, or set values on an individual{" "}
+          <Link to={"/api/usecontroller/controller"}>Controller</Link> component
+          via its <code>defaultValue</code> property.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
             <p>
-              <b className={typographyStyles.note}>Important:</b>{" "}
+              {" "}
               <code>defaultValues</code> is cached{" "}
               <strong>at the first render</strong> within the custom hook. If
               you want to reset the <code>defaultValues</code>, you should use
-              the{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("reset")}
-              >
-                reset
-              </button>{" "}
-              api.
+              the <Link to={"/api/reset"}>reset</Link> api.
             </p>
           </li>
           <li>
             <p>
-              Values defined in <code>defaultValues</code> will be injected into{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("watch")}
-              >
-                watch
-              </button>{" "}
-              as <code>defaultValue</code>.
-            </p>
-          </li>
-          <li>
-            <p>
-              It doesn't auto populate with the manually registered input (eg:{" "}
-              <code
-                style={{
-                  whiteSpace: "nowrap",
-                }}
-              >{`register({ name: 'test' })`}</code>
-              ) because the custom <code>register</code> field does not provide
-              the <code>ref</code> to React Hook Form.
+              <code>defaultValues</code> will be injected into{" "}
+              <Link to={"/api/watch"}>watch</Link>,{" "}
+              <Link to={"/api/useWatch"}>useWatch</Link>,{" "}
+              <Link to={"/api/controller"}>Controller</Link> and{" "}
+              <Link to={"/api/controller/usecontroller"}>useController</Link>'s{" "}
+              <code>defaultValue</code>.
             </p>
           </li>
           <li>
@@ -214,29 +157,28 @@ export default {
               <li>
                 <p>
                   Register hidden input:{" "}
-                  <code>{`<input type="hidden" ref={register} name="test" />`}</code>
+                  <code>{`<input type="hidden" {...register('test'} />`}</code>
                 </p>
               </li>
               <li>
                 <p>Combine values at onSubmit callback.</p>
               </li>
+              <li>
+                <p>
+                  Register input with value{" "}
+                  <code>{`register('test')({ test: "test"})`}</code>
+                </p>
+              </li>
             </ol>
+          </li>
+          <li>
+            <p>
+              <code>defaultValues</code> will be shallow merged with form
+              submission data.
+            </p>
           </li>
         </ul>
       </>
-    ),
-    validationSchema: (goToSection) => (
-      <p>
-        Apply form validation rules with <code>Yup</code> at the schema level,
-        please refer to the{" "}
-        <button
-          className={buttonStyles.codeAsLink}
-          onClick={() => goToSection("validationSchema")}
-        >
-          validationSchema
-        </button>{" "}
-        section.
-      </p>
     ),
     reValidateMode: (
       <p>
@@ -262,8 +204,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with <code>ref</code> will work. Custom <code>register</code> inputs
-          do not apply. eg:{" "}
-          <code>{`register({ name: 'test' }) // doesn't work`}</code>{" "}
+          do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
 
         <p>
@@ -274,18 +215,6 @@ export default {
     ),
     shouldUnregister: (
       <>
-        <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          getting deprecated in the next major version. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          .
-        </p>
         <p>
           By default, when an input is removed, React Hook Form uses{" "}
           <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
@@ -318,13 +247,74 @@ export default {
       <>
         <p>
           This method allows you to <code>unregister</code> a single input or an
-          array of inputs.
+          array of inputs. It also provide a second optional argument to keep
+          state after unregister an input.
         </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> when you unregister an
-          input, its value will no longer be included in the form data that gets
-          submitted.
-        </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <h2 className={typographyStyles.subTitle}>Props</h2>
+
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>unregister</code> method.
+          </p>
+
+          <CodeArea
+            rawData={`<input {...register('yourDetails.firstName')} />
+<input {...register('yourDetails.lastName')} />
+`}
+          />
+
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>unregister</code> method.
+          </p>
+
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Type</th>
+                <th>Input Name</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    string // as key name
+                  </code>
+                </td>
+                <td>
+                  <code>unregister("yourDetails")</code>
+                </td>
+                <td>
+                  <code>{`{}`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>
+                  <code>unregister("yourDetails.firstName")</code>
+                </td>
+                <td>
+                  <code>{`{ lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>string[]</code>
+                </td>
+                <td>
+                  <code>unregister(["yourDetails.lastName"])</code>
+                </td>
+                <td>
+                  <code>{`{ firstName: '' }`}</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -333,40 +323,129 @@ export default {
     description: (
       <>
         <p>
-          This method allows you to register an input/select <code>Ref</code>{" "}
-          and apply validation rules into React Hook Form.
+          This method allows you to register an input/select and apply
+          validation rules into React Hook Form. Validation rules are all based
+          on HTML standard and also allow custom validation.
         </p>
+
         <p>
-          Validation rules are all based on HTML standard and also allow custom
-          validation.
+          By invoking the register function and supply input's name, you will
+          receive the following methods:
         </p>
-        <p>
-          <b className={typographyStyles.note}>Important:</b> <code>name</code>{" "}
-          is <b>required</b> and <b>unique</b> (can not start with a number or
-          use number as key name). Input name also supports dot and bracket
-          syntax, which allows you to easily create nested form fields.
-        </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th>{generic.type.en}</th>
+                <th>{generic.description.en}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>onChange</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    ChangeHandler
+                  </code>
+                </td>
+                <td>
+                  <p>
+                    <code>onChange</code> prop to subscribe the input change
+                    event.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>onBlur</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    ChangeHandler
+                  </code>
+                </td>
+                <td>
+                  <p>
+                    <code>onBlur</code> prop to subscribe the input blur event.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>ref</code>
+                </td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`React.Ref<any>`}</code>
+                </td>
+                <td>
+                  <p>Input reference for hook form to register.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>{`string`}</code>
+                </td>
+                <td>
+                  <p>Input's name being registered.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <ul>
+          <li>
+            <p>
+              It is <b>required</b> and <b>unique</b> (except native radio and
+              checkbox). Input name also supports dot and bracket syntax, which
+              allows you to easily create nested form fields.
+            </p>
+          </li>
+          <li>
+            <p>It can not start with a number or use number as key name.</p>
+          </li>
+          <li>
+            <p>
+              <code>disabled</code> input will result as <code>undefined</code>,
+              if you want to prevent users from update the input, you can use{" "}
+              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
+              is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
+            </p>
+          </li>
+          <li>
+            <p>
+              To produce array fields, input should followed with dot syntax
+              with number. eg: <code>test.0.data</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              Changing name on each render will result <code>register</code> new
+              inputs. It's recommend to keep static name for each registered
+              input.
+            </p>
+          </li>
+        </ul>
       </>
-    ),
-    fieldArray: (
-      <p
-        style={{
-          paddingLeft: 10,
-          borderLeft: `4px solid ${colors.lightPink}`,
-        }}
-      >
-        If you're working on simple <code>Array Fields</code>, you can assign an
-        input name as <code>name[index]</code>.{" "}
-        <a
-          className={buttonStyles.links}
-          href="https://github.com/react-hook-form/react-hook-form/blob/master/examples/FieldArray.tsx"
-          title="example for Field Array"
-        >
-          Check out the Field Array example
-        </a>
-        . For more advance usage, make sure to checkout{" "}
-        <code>useFieldArray</code>.
-      </p>
     ),
     example: "Submit Result",
     selectHelp:
@@ -376,67 +455,34 @@ export default {
       registerWithValidation: "Register with validation",
       registerWithValidationMessage:
         "Register with validation and error message",
-      note: (goToSection) => (
+      note: (
         <>
-          <h2 className={typographyStyles.title}>Custom Register</h2>
+          <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+          <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
+
           <p>
-            You can also register inputs manually, which is useful when working
-            with custom components and <code>Ref</code> is not accessible. This
-            is common when you are working with React Native or custom
-            components like{" "}
-            <a
-              href="https://github.com/JedWatson/react-select"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              react-select
-            </a>
-            . To make this easier, we provide a{" "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("Controller")}
-            >
-              Controller
-            </button>{" "}
+            You can also <code>register</code> inputs at <code>useEffect</code>{" "}
+            and treat them as virtual inputs. For controlled components, we
+            provide a custom hook{" "}
+            <Link to={"/api/usecontroller"}>useController</Link> and{" "}
+            <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
             component to take care this process for you.
           </p>
 
           <p>
-            If you choose to not use <code>Controller</code> and manually
-            register fields, you will need to update the input value with{" "}
-            <button
-              className={buttonStyles.codeAsLink}
-              onClick={() => goToSection("setValue")}
-            >
-              setValue
-            </button>
-            .
+            If you choose to manually register fields, you will need to update
+            the input value with <Link to={"/api/setValue"}>setValue</Link>.
           </p>
 
-          <p>
-            <code
-              className={typographyStyles.codeBlock}
-            >{`register('firstName', { required: true, min: 8 })`}</code>
-          </p>
+          <CodeArea
+            rawData={`register('firstName', { required: true, min: 8 });
+            
+const { onChange } = register('lastChange'); // this onChange method can update input value
 
-          <p>
-            <b className={typographyStyles.note}>Note:</b> If you want the
-            custom registered input to trigger a re-render during its value
-            update, then you should give a type to your registered input.
-          </p>
-
-          <p>
-            <code
-              className={typographyStyles.codeBlock}
-            >{`register({ name: 'firstName', type: 'custom' }, { required: true, min: 8 })`}</code>
-          </p>
-
-          <p>
-            <b className={typographyStyles.note}>Note:</b> If you have multiple
-            radio inputs with the same name, you need to register the validation
-            to the last input so the hook knows to validate them as a group at
-            the end.
-          </p>
+// This will work for React Native, except you can't reset input value
+<TextInput onTextChange={onChange} />`}
+          />
         </>
       ),
     },
@@ -461,7 +507,22 @@ export default {
           </p>
         </>
       ),
-      validate: `You can pass a callback function as the argument to validate, or you can pass an object of callback functions to validate all of them. (refer to the examples)`,
+      validate: (
+        <>
+          <p>
+            You can pass a callback function as the argument to validate, or you
+            can pass an object of callback functions to validate all of them.
+            (refer to the examples)
+          </p>
+          <p>
+            <b className={typographyStyles.note}>Note:</b> <code>object</code>{" "}
+            or <code>array</code> input data, it's recommend to use{" "}
+            <code>validate</code> function to validate as the other rules are
+            mostly apply to <code>string</code>, <code>number</code> and{" "}
+            <code>boolean</code> data type.
+          </p>
+        </>
+      ),
     },
   },
   formState: {
@@ -475,8 +536,9 @@ export default {
           optional array.
         </p>
 
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <p>
-          <b className={typographyStyles.note}>Important:</b>{" "}
           <code>formState</code> is wrapped with{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
@@ -485,10 +547,11 @@ export default {
           >
             Proxy
           </a>{" "}
-          to improve render performance, so make sure you invoke or read it
-          before <code>render</code> in order to enable the state update. This
-          reduced re-render feature only applies to the Web platform due to a
-          lack of support for Proxy in React Native.
+          to improve render performance and skip extra logic if specific state
+          is not subscribed, so make sure you invoke or read it before{" "}
+          <code>render</code> in order to enable the state update. This reduced
+          re-render feature only applies to the Web platform due to a lack of
+          support for Proxy in React Native.
         </p>
 
         <TabGroup buttonLabels={["snippet", "example"]}>
@@ -562,20 +625,9 @@ return <button disabled={!isDirty || !isValid} />;
     dirtyFields: (
       <>
         <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          renamed to <code>dirty</code>. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          . An object with the user-modified fields.{" "}
-          <p>
-            Make sure to provide all inputs' defaultValues at the useForm, so
-            hook form can compare with the <code>defaultValue</code>.
-          </p>
+          An object with the user-modified fields. Make sure to provide all
+          inputs' defaultValues at the useForm, so hook form can compare with
+          the <code>defaultValue</code>.
         </p>
       </>
     ),
@@ -604,19 +656,6 @@ return <button disabled={!isDirty || !isValid} />;
     description: () => (
       <>
         <p>
-          <b className={typographyStyles.note}>Important:</b> This prop is
-          getting deprecated in the next major version and read from{" "}
-          <code>formState</code> instead. Join the{" "}
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            discussion
-          </a>
-          .
-        </p>
-        <p>
           Object containing form errors and error messages corresponding to each
           field.
         </p>
@@ -638,7 +677,7 @@ return <button disabled={!isDirty || !isValid} />;
     ),
     message: `If you registered your input with an error message, then it will be put in this field, otherwise it's an empty string by default.`,
     ref: `Reference for your input element.`,
-    note: (goToSection) => (
+    note: (
       <>
         <p>
           <b className={typographyStyles.note}>Important:</b> Avoid using error
@@ -654,12 +693,7 @@ return <button disabled={!isDirty || !isValid} />;
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <button
-            className={buttonStyles.codeAsLink}
-            onClick={() => goToSection("ErrorMessage")}
-          >
-            ErrorMessage
-          </button>{" "}
+          <Link to={"/api/useform/formstate#ErrorMessage"}>ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>
@@ -673,6 +707,8 @@ return <button disabled={!isDirty || !isValid} />;
           This will watch specified inputs and return their values. It is useful
           for determining what to render.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
@@ -694,26 +730,18 @@ return <button disabled={!isDirty || !isValid} />;
           </li>
           <li>
             <p>
-              <b className={typographyStyles.note}>Note:</b> when watching{" "}
-              <code>useFieldArray</code>
+              default value will only get returned in the first invoke before{" "}
+              <code>render</code>, the subsequence invocation will always return
+              what's in the inputs.
             </p>
-
-            <ul>
-              <li>
-                <p>
-                  When all inputs removed, it will return{" "}
-                  <code>defaultValues</code>, you can work around this issue by
-                  checking <code>fields.length</code>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Input state live inside each field with uncontrolled form, and
-                  hence it's important to leave <code>defaultValue</code> for
-                  watch API. <code>watch('fieldArray', fields)</code>
-                </p>
-              </li>
-            </ul>
+          </li>
+          <li>
+            <p>
+              This API will trigger re-render at the root of your app or form,
+              consider to use callback or{" "}
+              <Link to={"api/usewatch"}>useWatch</Link> api if that's going to
+              be performance issue for you.
+            </p>
           </li>
         </ul>
       </>
@@ -742,55 +770,93 @@ return <button disabled={!isDirty || !isValid} />;
       <>
         <p>
           This function will pass the form data when form validation is
-          successful and can be invoked remotely as well.
+          successful.
         </p>
-        <p>
-          <code className={typographyStyles.codeBlock}>
-            handleSubmit(onSubmit)()
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> You can pass an{" "}
-          <code>async</code> function for asynchronous validation. eg:{" "}
-        </p>
-        <p>
-          <code className={typographyStyles.codeBlock}>
-            handleSubmit(async (data) =&gt; await fetchAPI(data))
-          </code>
-        </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+        <ul>
+          <li>
+            <p>You can easily submit form async with handleSubmit.</p>
+            <CodeArea
+              rawData={`// It can be invoked remotely as well
+handleSubmit(onSubmit)();
+
+// You can pass an async function for asynchronous validation.
+handleSubmit(async (data) => await fetchAPI(data))`}
+            />
+          </li>
+          <li>
+            <p>
+              <code>disabled</code> input will be returned{" "}
+              <code>undefined</code> as result, if you want to prevent users
+              from update the input, you can use <code>readOnly</code> or
+              disable the entire {`<fieldset />`}. Here is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
+            </p>
+          </li>
+        </ul>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>SubmitHandler</td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`(data: Object, e?: Event) => void`}</code>
+                </td>
+                <td>A successful callback.</td>
+              </tr>
+              <tr>
+                <td>SubmitErrorHandler</td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`(errors: Object, e?: Event) => void) => void`}</code>
+                </td>
+                <td>An error callback.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
-  reset: (goToSection) => ({
+  reset: {
     title: "reset",
     description: (
       <>
         <p>
-          Reset the fields' values and errors. By supplying{" "}
-          <code>omitResetState</code>, you have the freedom to only reset
-          specific parts of the state. You can pass <code>values</code> as an
-          optional argument to reset your form to the assigned default values.
+          Reset the entire form state, you also have the ability to only reset
+          specific parts of the state.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
               For controlled components like <code>React-Select</code> which do
               not expose a <code>ref</code> prop, you will have to reset the
               input value manually with{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("setValue")}
-              >
-                setValue
-              </button>{" "}
-              or by wrapping your component with{" "}
-              <button
-                className={buttonStyles.codeAsLink}
-                onClick={() => goToSection("Controller")}
-              >
-                Controller
-              </button>
-              .
+              <Link to={"api/useform/api"}>setValue</Link> or hook your
+              component with <Link to={"api/usecontroller"}>useController</Link>{" "}
+              or <Link to={"api/usecontroller/controller"}>Controller</Link>.
             </p>
           </li>
           <li>
@@ -814,7 +880,8 @@ return <button disabled={!isDirty || !isValid} />;
               When invoking <code>{`reset({ value })`}</code> without supply{" "}
               <code>defaultValues</code> at <code>useForm</code>, hook form will
               replace <code>defaultValues</code> with shallow clone{" "}
-              <code>value</code> object which you have supplied (not deepClone).
+              <code>value</code> object which you have supplied{" "}
+              <b>(not deepClone)</b>.
             </p>
             <CodeArea
               rawData={`// ❌ avoid the following with deep nested default values
@@ -828,23 +895,157 @@ reset({ deepNest: { file: new File() } });
 `}
             />
           </li>
-          <li>
-            <p>
-              It's <b className={typographyStyles.note}>important</b> to invoke{" "}
-              <code>reset</code> after initializing <code>useFieldArray</code>{" "}
-              the order matters. The <code>reset</code> API needs to aware of
-              the field array shape before performing a reset properly.
-            </p>
-          </li>
         </ul>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <p>
+          <code>Reset</code> have the ability remain formState update, here are
+          the options in detail:{" "}
+        </p>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <thead>
+              <tr>
+                <th>{generic.name.en}</th>
+                <th>{generic.type.en}</th>
+                <th>{generic.description.en}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>values</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>object</code>
+                </td>
+                <td>
+                  <p>An optional object to reset from values.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepErrors</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    All errors will remain. This will not guarantee with further
+                    user actions.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepDirty</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>DirtyFields</code> will remain, and{" "}
+                    <code>isDirty</code> will be temporarily remain as the
+                    current state until further user's action.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepValues</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>Form input values will be unchanged.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepDefaultValues</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    Keep the same defaultValues which is initialised at{" "}
+                    <code>useForm</code>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepIsSubmitted</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isSubmitted</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepTouched</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isSubmitted</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepIsValid</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>isValid</code> will be temporarily remain as the
+                    current state until further user's action.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>keepSubmitCount</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>submitCount</code> state will be unchanged.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
-  }),
+  },
   setError: {
     title: "setError",
     description: (
       <>
         <p>The function allows you to manually set one or more errors.</p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
         <ul>
           <li>
             <p>
@@ -856,18 +1057,6 @@ reset({ deepNest: { file: new File() } });
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>.
-            </p>
-            <p>
-              <b className={typographyStyles.note}>Note:</b> for TypeScript
-              users, please consider{" "}
-              <a
-                href="https://www.carlrippon.com/react-hook-form-server-validation/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                this approach
-              </a>{" "}
-              for setting server-side error or outside declared field type.
             </p>
           </li>
           <li>
@@ -884,6 +1073,59 @@ reset({ deepNest: { file: new File() } });
             </p>
           </li>
         </ul>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th width={"200px"}>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>input's name.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>error</code>
+                </td>
+                <td>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`{ type: string, message?: string }`}</code>
+                </td>
+                <td>
+                  <p>Set an error with its type and message.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>shouldFocus</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    Should focus the input during setting an error. This only
+                    works when the input's reference is registered, it will not
+                    work for custom register as well.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -891,6 +1133,63 @@ reset({ deepNest: { file: new File() } });
     title: "clearErrors",
     description: (
       <>
+        <p>This function can manually clear errors in the form.</p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <ul>
+          <li>
+            <p>
+              This will not affect the validation rules attached to each inputs.
+            </p>
+          </li>
+          <li>
+            <p>
+              This function will not update formState such as{" "}
+              <code>isValid</code> to true, it only clear errors.
+            </p>
+          </li>
+        </ul>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>undefined</code>
+              </td>
+              <td>Remove all errors.</td>
+              <td>
+                <code>clearErrors()</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>Remove single error.</td>
+              <td>
+                <code>clearErrors("yourDetails.firstName")</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>Remove multiple errors.</td>
+              <td>
+                <code>clearErrors(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
         <ul>
           <li>
             <p>
@@ -930,53 +1229,168 @@ clearErrors('test.firstName'); // for clear single input error
           <strong>
             <code>registered</code>
           </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary re-rerenders.
-          Only the following conditions will trigger a re-render:
+          field. At the same time, it tries to avoid unnecessary re-rerender.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
         <ul>
           <li>
-            <p>When an error is triggered by a value update</p>
-          </li>
-          <li>
-            <p>When an error is corrected by a value update</p>
+            <p>Only the following conditions will trigger a re-render:</p>
+            <ul>
+              <li>
+                <p>When an error is triggered by a value update</p>
+              </li>
+              <li>
+                <p>When an error is corrected by a value update</p>
+              </li>
+              <li>
+                <p>
+                  When setValue is invoked for the first time and{" "}
+                  <code>formState.isDirty</code> is set to true
+                </p>
+              </li>
+            </ul>
           </li>
           <li>
             <p>
-              When setValue is invoked for the first time and{" "}
-              <code>formState.isDirty</code> is set to true
+              You can also set the <code>shouldValidate</code> parameter to{" "}
+              <code>true</code> in order to trigger a field validation.
             </p>
+
+            <CodeArea
+              rawData={`setValue('name', 'value', { shouldValidate: true })`}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              You can also set the <code>shouldDirty</code> parameter to{" "}
+              <code>true</code> in order to set field to dirty.
+            </p>
+
+            <CodeArea
+              rawData={`setValue('name', 'value', { shouldDirty: true })`}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              It's recommended to target field name instead using second
+              argument with nested object.
+            </p>
+
+            <CodeArea
+              rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
+setValue('yourDetails', { firstName: 'value' }); // less performant `}
+              withOutCopy
+            />
+          </li>
+          <li>
+            <p>
+              It's recommended to register input name before invoke{" "}
+              <code>setValue</code>. However, the following usages are still
+              permitted.
+            </p>
+            <CodeArea
+              rawData={`// you can update an entire Field Array, 
+// this will trigger an entire field array to be remount and refresh with updated values.
+setValue('fieldArray', [{ test: '1' }, { test: '2' }]); // ✅
+
+// you can setValue to a unregistered input
+setValue('notRegisteredInput', 'value'); // ✅ prefer to be registered
+
+// the following will register a single input (without register) 
+// and update its value in case you expected to be two inputs
+setValue('notRegisteredInput', { test: '1', test2: '2' }); // 🤔
+
+// with registered inputs, the setValue will update both inputs correctly.
+register('notRegisteredInput.test', '1')
+register('notRegisteredInput.test2', '2')
+setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
+`}
+              withOutCopy
+            />
           </li>
         </ul>
-        <p>
-          You can also set the <code>shouldValidate</code> parameter to{" "}
-          <code>true</code> in order to trigger a field validation.
-        </p>
 
-        <CodeArea
-          rawData={`setValue('name', 'value', { shouldValidate: true })`}
-          withOutCopy
-        />
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
-        <p>
-          You can also set the <code>shouldDirty</code> parameter to{" "}
-          <code>true</code> in order to set field to dirty.
-        </p>
-
-        <CodeArea
-          rawData={`setValue('name', 'value', { shouldDirty: true })`}
-          withOutCopy
-        />
-
-        <p>
-          It's recommended to target field name instead using second argument
-          with nested object.
-        </p>
-
-        <CodeArea
-          rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
-setValue('yourDetails', { firstName: 'value' }); // less performant `}
-          withOutCopy
-        />
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td></td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      <p>Target on a single input by its name.</p>
+                    </li>
+                    <li>
+                      <p>
+                        Target on field array name, and it will update{" "}
+                        <code>fields</code> object and update entire field
+                        array's internal state.
+                      </p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>value</code>
+                </td>
+                <td></td>
+                <td>
+                  <code className={typographyStyles.typeText}>unknown</code>
+                </td>
+                <td>
+                  <p>
+                    value for the field, and make sure supply an entire array
+                    when you update <codep>useFieldArray</codep>.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>config</code>
+                </td>
+                <td>
+                  <code>shouldValidate</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  Should trigger validation during setting the input value.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>config</code>
+                </td>
+                <td>
+                  <code>shouldDirty</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>Should set the input itself to dirty.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </>
     ),
   },
@@ -990,14 +1404,83 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           <code>getValues</code> <strong>will not</strong> trigger re-renders or
           subscribe to input changes.
         </p>
+        <div className={tableStyles.tableWrapper}>
+          <CodeArea
+            rawData={`<input {...register('yourDetails.firstName')} />
+<input {...register('yourDetails.lastName')} />
+`}
+          />
 
-        <p>
-          <b className={typographyStyles.note}>Important: </b>You shouldn't use
-          this method inside render. This is suitable for reading values in an
-          event handler.
-        </p>
+          <p>
+            Below example shows what to expect when you invoke{" "}
+            <code>getValues</code> method.
+          </p>
+
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Input Name</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues("yourDetails")</code>
+                </td>
+                <td>
+                  <code>{`{ firstName: '', lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues("yourDetails.firstName")</code>
+                </td>
+                <td>
+                  <code>{`{ lastName: '' }`}</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues(["yourDetails.lastName"])</code>
+                </td>
+                <td>
+                  <code>{`[{ firstName: '' }]`}</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
+          <li>
+            <p>
+              You shouldn't use this method inside render. This is suitable for
+              reading values in an event handler.
+            </p>
+          </li>
+          <li>
+            <p>
+              Disabled input will be returned undefined as result, if you want
+              to prevent users from update the input, you can use{" "}
+              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
+              is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
+            </p>
+          </li>
+          <li>
+            <p>
+              It will return <code>defaultValues</code> from{" "}
+              <code>useForm</code> before the <b>initial</b> render.
+            </p>
+          </li>
           <li>
             <p>
               <code>getValues()</code>: Read all form values.
@@ -1023,27 +1506,53 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
     title: "trigger",
     description: (
       <>
-        <p>Manually triggers form validation.</p>
+        <p>
+          Manually triggers form or input validation. This method is also useful
+          when you have depedant valdiation as react hook form{" "}
+        </p>
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
-        <ul>
-          <li>
-            <p>
-              <code>trigger()</code>: Triggers validation on all fields.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>trigger('test')</code>: Triggers validation on a specific
-              field value by <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>trigger(['test', 'test1'])</code>: Triggers validation on
-              multiple fields by <strong>name</strong>.
-            </p>
-          </li>
-        </ul>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>undefined</code>
+              </td>
+              <td>Triggers validation on all fields.</td>
+              <td>
+                <code>trigger()</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>
+                Triggers validation on a specific field value by{" "}
+                <strong>name</strong>
+              </td>
+              <td>
+                <code>trigger("yourDetails.firstName")</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>
+                Triggers validation on multiple fields by <strong>name</strong>.
+              </td>
+              <td>
+                <code>trigger(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </>
     ),
   },
@@ -1064,6 +1573,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           </a>{" "}
           to compare controlled vs uncontrolled Field Array.
         </p>
+
+        <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <div className={tableStyles.tableWrapper}>
           <table className={tableStyles.table}>
@@ -1089,8 +1600,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
                     Name of the field.{" "}
                     <b className={typographyStyles.note}>Important: </b> make
                     sure name is in object shape:{" "}
-                    <code>name={`test[index].name`}</code> as we don't support
-                    flat arrays.
+                    <code>name={`test.0.name`}</code> as we don't support flat
+                    arrays.
                   </p>
                 </td>
               </tr>
@@ -1125,11 +1636,7 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
 
         <CodeArea rawData={useFieldArrayArgument} />
 
-        <p>
-          <b className={typographyStyles.note}>Important: </b>To be able to
-          efficiently manipulate arrays of uncontrolled components{" "}
-          <code>useFieldArray</code> has some rules you need to be aware of:
-        </p>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
@@ -1191,28 +1698,60 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's <strong>important</strong> to apply{" "}
-              <code>{`ref={register()}`}</code> instead of{" "}
-              <code>{`ref={register}`}</code> when working with{" "}
-              <code>useFieldArray</code> so <code>register</code> will get
-              invoked during <code>map</code>.
+              Each <code>useFieldArray</code> is unique and has its own state
+              update, which means you should not have multiple useFieldArray
+              with the same <code>name</code>.
             </p>
           </li>
           <li>
             <p>
-              When <code>watch</code>-ing the entire Field Array, it's important
-              to supply a default value with <code>fields</code> to avoid empty
-              values from getting returned. eg:{" "}
-              <code>watch('fieldArray', fields)</code>
+              Each input name needs to be unique, if you need to build checkbox
+              or radio with the same name then use it with{" "}
+              <code>useController</code> or <code>controller</code>.
+            </p>
+          </li>
+          <li>
+            <p>Does not support flat field array.</p>
+          </li>
+        </ul>
+
+        <h2 className={typographyStyles.subTitle}>TypeScript</h2>
+
+        <ul>
+          <li>
+            <p>
+              when register input <code>name</code>, you will have to cast them
+              as <code>const</code>
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} defaultValue={field.test} />`}
+            />
+          </li>
+          <li>
+            <p>
+              we do not support circular reference. Refer to this this{" "}
+              <a
+                href={
+                  "https://github.com/react-hook-form/react-hook-form/issues/4055"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github issue
+              </a>{" "}
+              for more detail.
             </p>
           </li>
           <li>
             <p>
-              When all inputs are removed from the Field Array,{" "}
-              <code>watch</code> will return <code>defaultValues</code>. You can
-              use <code>fields.length</code> to avoid this behaviour. eg{" "}
-              <code>fields.length ? watch('fieldArray', fields) : []</code>
+              for nested field array, you will have to cast the field array by
+              its name.
             </p>
+            <CodeArea
+              withOutCopy
+              rawData={`const { fields } = useFieldArray({ name: \`test.\${index}.keyValue\` as 'test.0.keyValue' });`}
+            />
           </li>
         </ul>
       </>
@@ -1243,7 +1782,7 @@ React.useEffect(() => {
   <input
     key={data.id}
     defaultValue={data.value}
-    name={\`data[\${index}].value\`}
+    name={\`data.\${index}.value\`}
   />;
 );}`}
               withOutCopy
@@ -1257,11 +1796,18 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], shouldFocus: boolean = true) =&gt; void
+                (obj: object | object[],{" "}
+                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
+                ) =&gt; void
               </code>
             </code>
           </td>
-          <td>Append input/inputs to the end of your fields and focus.</td>
+          <td>
+            <p>
+              Append input/inputs to the end of your fields and focus. The input
+              value will be registered during this action.
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
@@ -1270,11 +1816,16 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], shouldFocus: boolean = true) =&gt; void
+                (obj: object | object[],{" "}
+                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
+                ) =&gt; void
               </code>
             </code>
           </td>
-          <td>Prepend input/inputs to the start of your fields and focus.</td>
+          <td>
+            Prepend input/inputs to the start of your fields and focus. The
+            input value will be registered during this action.
+          </td>
         </tr>
         <tr>
           <td>
@@ -1283,12 +1834,11 @@ React.useEffect(() => {
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index: number, value: object | object[], shouldFocus: boolean =
-                true) =&gt; void
+                {`(index: number, value: object | object[], { shouldFocus?: boolean; focusIndex?: number; focusName?: string; }) => void`}
               </code>
             </code>
           </td>
-          <td>Insert input/inputs at particular position and focus.</td>
+          <td>Insert input/inputs at particular position and focus. </td>
         </tr>
         <tr>
           <td>
@@ -1337,6 +1887,46 @@ React.useEffect(() => {
   },
   Controller: {
     title: "Controller",
+    tips: (
+      <>
+        <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+        <ul>
+          <li>
+            <p>
+              Do not <code>register</code> input again. This component is made
+              to take care the registration process.
+            </p>
+            <CodeArea
+              rawData={`<Controller 
+  name="test"
+  render={({ field }) => {
+    // return <input {...field} {...register('test')} />; ❌ double up the registration  
+    return <input {...field} />; // ✅  
+  }} 
+/>        
+`}
+            />
+          </li>
+          <li>
+            <p>
+              Customise what value gets send to hook form by transform the value
+              during <codee>onChange</codee>.
+            </p>
+            <CodeArea
+              rawData={`<Controller 
+  name="test"
+  render={({ field }) => {
+    // sending integer instead of string.
+    return <input {...field} onChange={(e) => field.onChange(parseInt(e.target.value))} />;  
+  }} 
+/>    
+`}
+            />
+          </li>
+        </ul>
+      </>
+    ),
     table: (
       <tbody>
         <tr>
@@ -1385,22 +1975,24 @@ React.useEffect(() => {
               integrating with external controlled components with non-standard
               prop names. Provides <code>onChange</code>, <code>onBlur</code>,{" "}
               <code>name</code>, <code>ref</code> and <code>value</code> to the
-              child component.
+              child component, and also a <code>fieldState</code> object which
+              contains specific input state.
             </p>
             <TabGroup buttonLabels={["Standard", "With Focus"]}>
               <CodeArea
                 withOutCopy
-                url="https://codesandbox.io/s/react-hook-form-v6-controller-qsd8r"
+                url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
                 rawData={`<Controller
   control={control}
   name="test"
-  render={(
-    { onChange, onBlur, value, name, ref },
-    { invalid, isTouched, isDirty }
-  ) => (
+  render={({
+    field: { onChange, onBlur, value, name, ref },
+    fieldState: { invalid, isTouched, isDirty, error },
+    formState,
+  }) => (
     <Checkbox
       onBlur={onBlur}
-      onChange={(e) => onChange(e.target.checked)}
+      onChange={onChange}
       checked={value}
       inputRef={ref}
     />
@@ -1409,9 +2001,12 @@ React.useEffect(() => {
               />
               <CodeArea
                 withOutCopy
-                url="https://codesandbox.io/s/react-hook-form-focus-74ecu"
+                url="https://codesandbox.io/s/react-hook-form-focus-okzu8"
                 rawData={`<Controller
-  render={(props) => (
+  render={({
+    field: { onChange, onBlur, value, name, ref },
+    fieldState: { invalid, isTouched, isDirty, error },
+  }) => (
     <TextField
       value={props.value}
       onChange={props.onChange}
@@ -1424,74 +2019,6 @@ React.useEffect(() => {
 />`}
               />
             </TabGroup>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>as</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>React.ElementType</code>
-          </td>
-          <td></td>
-          <td>
-            <p>
-              <b className={typographyStyles.note}>Important:</b> This prop is
-              getting deprecated in the next major version, use{" "}
-              <code>render</code> instead. Join the{" "}
-              <a
-                href="https://github.com/react-hook-form/react-hook-form/discussions/3714"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                discussion
-              </a>
-              .
-            </p>
-            <p style={{ marginTop: 0 }}>
-              Controller will inject <code>onChange</code>, <code>onBlur</code>{" "}
-              and <code>value</code> props into the component.
-            </p>
-
-            <p>
-              Every prop you pass to the Controller component will be forwarded
-              to the component instance you provided with the <code>as</code>{" "}
-              prop. For instance, if you have a custom <code>Switch</code>{" "}
-              component that requires a <code>label</code> prop, you can pass it
-              to the Controller component directly and it will take care of
-              forwarding the prop for you.
-            </p>
-
-            <ul>
-              <li>
-                <p>
-                  The following props will be passed into your component: <br />
-                  <code>onChange</code>, <code>onBlur</code>, <code>value</code>
-                  , <code>name</code>, <code>ref</code>
-                </p>
-              </li>
-
-              <li>
-                <p>
-                  For TypeScript user, if you are using custom component with
-                  required fields: <code>onChange</code>, <code>onBlur</code>,{" "}
-                  <code>value</code>, It will complain about missing declared
-                  field. Please use <code>render</code> instead of{" "}
-                  <code>as</code>.
-                </p>
-              </li>
-            </ul>
-
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-controller-as-prop-k90yy"
-              rawData={`<Controller
-  // props: onChange, onBlur, ref, name, value
-  as={<TextInput />}
-  control={control}
-  name="test"
-/>`}
-            />
           </td>
         </tr>
         <tr>
@@ -1537,65 +2064,9 @@ React.useEffect(() => {
           <td>
             Validation rules in the same format as for <code>register</code>.
             <CodeArea
-              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
               rawData="rules={{ required: true }}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>onFocus</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>() =&gt; void</code>
-          </td>
-          <td></td>
-          <td>
-            <p style={{ marginTop: 0 }}>
-              This callback allows the custom hook to focus on the input when
-              there is an error. This function is applicable for both React and
-              React-Native components as long as they can be focused.
-            </p>
-
-            <ul>
-              <li>
-                <p>
-                  Input focus order is according to registration order, which
-                  means native input registered with <code>ref</code> will be
-                  the first to be focused on the error due to{" "}
-                  <code>Controller</code> registration occurred during{" "}
-                  <code>useEffect</code>.
-                </p>
-              </li>
-
-              <li>
-                <p>
-                  If your input disabled based on{" "}
-                  <code>form.formState.isSubmitting</code>, you must enabled it
-                  before invoke focus method.
-                </p>
-              </li>
-            </ul>
-            <CodeArea
-              withOutCopy
-              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
-              rawData={`<Controller
-  onFocus={() => {
-    // when input is been disabled.
-    inputRef.current.disabled = false;
-    inputRef.current?.focus();
-  }}
-/>`}
-            />
-            <CodeSandBoxLink
-              style={{
-                position: "relative",
-                left: 0,
-                float: "right",
-                display: "flex",
-              }}
-              url="https://codesandbox.io/s/react-hook-form-controllerautofocus-v6-eeo66"
             />
           </td>
         </tr>
@@ -1641,7 +2112,7 @@ React.useEffect(() => {
     introduction: (
       <>
         <p>
-          Hook function that allows you to access the form context.{" "}
+          This custom hook allows you to access the form context.{" "}
           <code>useFormContext</code> is intended to be used in deeply nested
           structures, where it would become inconvenient to pass the context as
           a prop.
@@ -1657,10 +2128,20 @@ React.useEffect(() => {
   control: {
     title: "control",
     description: (
-      <p>
-        This object contains methods for registering components into React Hook
-        Form.
-      </p>
+      <>
+        <p>
+          This object contains methods for registering components into React
+          Hook Form.
+        </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <p>
+          <b className={typographyStyles.note}>Important:</b> do not access any
+          of the property inside this object directly, it's for internal usage
+          only.
+        </p>
+      </>
     ),
   },
   ErrorMessage: {
@@ -1739,22 +2220,18 @@ React.useEffect(() => {
             rel="noopener noreferrer"
           >
             Superstruct
-          </a>{" "}
-          and many others. Our goal is to make sure you can seamlessly integrate
-          whichever validation library you prefer. If you're not using a
-          library, you can always write your own logic to validate your forms.
-        </p>
-
-        <p>
-          At this time, we offer{" "}
+          </a>
+          ,{" "}
           <a
-            href="https://github.com/react-hook-form/resolvers"
+            href="https://github.com/ealush/vest"
             target="_blank"
             rel="noopener noreferrer"
           >
-            officially supported resolvers
+            Vest
           </a>{" "}
-          for: Yup, Zod, Joi and Superstruct.
+          and many others. The goal is to make sure you can seamlessly integrate
+          whichever validation library you prefer. If you're not using a
+          library, you can always write your own logic to validate your forms.
         </p>
 
         <code
@@ -1769,10 +2246,7 @@ React.useEffect(() => {
           npm install @hookform/resolvers
         </code>
 
-        <p>
-          <b className={typographyStyles.note}>Notes</b> on building a custom
-          resolver:
-        </p>
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <ul>
           <li>
@@ -1820,29 +2294,138 @@ React.useEffect(() => {
   useWatch: {
     title: "useWatch",
     description: (
-      <>
-        <p>
-          Behaves similarly to the <code>watch</code> API, however, this will
-          isolate re-rendering at the component level and potentially result in
-          better performance for your application.
-        </p>
-      </>
+      <p>
+        Behaves similarly to the <code>watch</code> API, however, this will
+        isolate re-rendering at the component level and potentially result in
+        better performance for your application.
+      </p>
     ),
   },
   useController: {
     title: "useController",
+    table: (
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>string</code>
+          </td>
+          <td>✓</td>
+          <td>Unique name of your input.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>control</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td></td>
+          <td>
+            <code>control</code> object is from invoking <code>useForm</code>.
+            Optional when using <code>FormProvider</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>any</code>
+          </td>
+          <td></td>
+          <td>
+            The same as an uncontrolled component's <code>defaultValue</code>.
+            When passing a <code>boolean</code> value, it will be treated as
+            checkbox input. For more details, see useForm's{" "}
+            <code>defaultValues</code> section.
+            <ul>
+              <li>
+                <p>
+                  You need to either set <code>defaultValue</code> at the
+                  field-level or call <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If your form will invoke <code>reset</code> with default
+                  values, you will need to call <code>useForm</code> with{" "}
+                  <code>defaultValues</code> instead of setting the{" "}
+                  <code>defaultValue</code> on individual fields.
+                </p>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>rules</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>Object</code>
+          </td>
+          <td></td>
+          <td>
+            Validation rules in the same format as for <code>register</code>.
+            <CodeArea
+              url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
+              withOutCopy
+              rawData="rules={{ required: true }}"
+            />
+          </td>
+        </tr>
+      </tbody>
+    ),
+    tips: (
+      <>
+        <h2 className={typographyStyles.subTitle}>Tips</h2>
+
+        <ul>
+          <li>
+            <p>
+              Do not <code>register</code> input again. This custom hook is made
+              to take care the registration process.
+            </p>
+            <CodeArea
+              rawData={`const { field } = useController({ name: 'test' })
+
+<input {...field} /> // ✅ 
+<input {...field} {...register('test')} /> // ❌ double up the registration        
+`}
+            />
+          </li>
+          <li>
+            <p>
+              It's ideal to use single <code>useController</code> per component.
+              If you need to use more than one, make sure you rename the prop or
+              even consider to use <code>Controller</code> instead.
+            </p>
+            <CodeArea
+              rawData={`const { field: input } = useController({ name: 'test' })
+const { field: checkbox } = useController({ name: 'test1' })
+
+<input {...input} />
+<input {...checkbox} />        
+`}
+            />
+          </li>
+        </ul>
+      </>
+    ),
     description: (
       <>
         <p>
-          This custom hook is what powers <code>Controller</code>, and shares
-          the same props and methods as <code>Controller</code>. It's useful to
-          create reusable Controlled input, while <code>Controller</code> is the
-          flexible option to drop into your page or form.
-        </p>
-        <p>
-          Please refer <code>Controller</code> section for this hook's
-          arguments. It shares the same arguments except <code>as</code> and{" "}
-          <code>renders</code>.
+          This custom hook is what powers{" "}
+          <Link to={"/api/usecontroller/controller"}>
+            <code>Controller</code>
+          </Link>
+          , and shares the same props and methods as <code>Controller</code>.
+          It's useful to create reusable Controlled input, while{" "}
+          <code>Controller</code> is the flexible option to drop into your page
+          or form.
         </p>
       </>
     ),

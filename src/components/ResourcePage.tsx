@@ -9,15 +9,51 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyle from "../styles/container.module.css"
 import styles from "./ResourcePage.module.css"
 
+const animationBase = 0.05
+
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const {
-    state: { language },
+    state: { language, setting: { version = 7 } = {} },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const animationBase = 0.05
+  const isV7 = version === 7
+  const [content, setContent] = React.useState(isV7 ? data.v7 : data.v6)
+  const [play, setPlay] = React.useState(false)
+
+  const getPost = async () => {
+    const result = await fetch(
+      "https://hook-form-resources.vercel.app/api/list",
+      {
+        method: "GET",
+      }
+    )
+
+    const documents = await result.json()
+    const content = {
+      articles: [],
+      videos: [],
+    }
+
+    documents.data.data.forEach(({ data }) => {
+      if (data.type === "article") {
+        content.articles = [...content.articles, { ...data }]
+      } else if (data.type === "video") {
+        content.videos = [...content.videos, { ...data }]
+      }
+    })
+
+    setContent(content)
+    setPlay(true)
+  }
+
+  React.useEffect(() => {
+    getPost()
+
+    if (!isV7) setPlay(true)
+  }, [isV7])
 
   return (
     <div className={containerStyle.container}>
@@ -35,7 +71,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
 
         <ul className={styles.contentList}>
-          {data.articles.map(({ url, title, author, authorUrl }, i) => {
+          {content.articles.map(({ url, title, author, authorUrl }, i) => {
             const index = i + 1
             let delay = 0
 
@@ -52,7 +88,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             return (
               <Animate
                 key={url}
-                play
+                play={play}
                 easeType="ease-in"
                 delay={delay}
                 start={{ transform: "translate(20px, 20px)", opacity: 0 }}
@@ -89,26 +125,32 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           {generic.video[currentLanguage]}
         </h2>
         <ul className={styles.contentList}>
-          {data.videos.map(({ title, url, authorUrl, author, description }) => (
-            <li key={title}>
-              <article className={styles.article}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={title}
-                >
-                  <h3>{title}</h3>
-                </a>
-                <p className={styles.author}>
-                  <a href={authorUrl} target="_blank" rel="noreferrer">
-                    {author}
+          {content.videos.map(
+            ({ title, url, authorUrl, author, description }) => (
+              <li key={title}>
+                <article className={styles.article}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={title}
+                  >
+                    <h3>{title}</h3>
                   </a>
-                </p>
-                {description}
-              </article>
-            </li>
-          ))}
+                  <p className={styles.author}>
+                    <a href={authorUrl} target="_blank" rel="noreferrer">
+                      {author}
+                    </a>
+                  </p>
+                  {typeof description === "string" ? (
+                    <p>{description}</p>
+                  ) : (
+                    description
+                  )}
+                </article>
+              </li>
+            )
+          )}
         </ul>
 
         <h2 className={typographyStyles.title}>

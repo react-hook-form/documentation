@@ -7,7 +7,7 @@ interface UseFormInputs {
 }
 
 export default function Form() {
-  const { register, handleSubmit, reset, errors } = useForm<UseFormInputs>();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<UseFormInputs>();
   const onSubmit = (data: UseFormInputs) => {
     console.log(data)
   };
@@ -15,10 +15,10 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>First name</label>
-      <input type="text" name="firstName" ref={register({ required: true })} />
+      <input {...register("firstName", { required: true })} />
 
       <label>Last name</label>
-      <input type="text" name="lastName" ref={register} />
+      <input {...register("lastName")} />
 
       <input type="submit" />
       <input

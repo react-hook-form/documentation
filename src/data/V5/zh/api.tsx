@@ -144,7 +144,7 @@ export default {
         <p>
           React Hook Form. 默认值<code>defaultValues</code>
           不会使用手动注册的输入（例如：注册
-          <code>{`register({ name: 'test' })`}</code>
+          <code>{`register('test')`}</code>
           ）自动填充，因为手动注册<code>register</code>字段不会提供
           <code>ref</code>到React Hook Form。
         </p>
@@ -183,7 +183,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意:</b> 只有具有
           <code>ref</code>的注册字段将工作。 手动注册的输入将无法正常工作。
-          比如: <code>{`register({ name: 'test' }) // 不会工作`}</code>{" "}
+          比如: <code>{`register('test') // 不会工作`}</code>{" "}
         </p>
       </>
     ),

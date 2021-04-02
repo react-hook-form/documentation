@@ -6,8 +6,8 @@ export default function App() {
 
   return (
     <form>
-      <input name="firstName" ref={register({ required: true })} />
-      <input name="lastName" ref={register({ required: true })} />
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
       <button type="button" onClick={() => { trigger("lastName"); }}>Trigger</button>
       <button type="button" onClick={() => { trigger(["firstName", "lastName"]); }}>Trigger Multiple</button>
       <button type="button" onClick={() => { trigger(); }}>Trigger All</button>

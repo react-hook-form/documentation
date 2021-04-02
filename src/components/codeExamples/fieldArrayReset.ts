@@ -13,18 +13,19 @@ function App() {
     name: "names"
   });
 
-  // it's import to invoke reset after useFieldArray
   useEffect(() => {
-    setTimeout(() => {
-      reset({
-        names: [
-          {
-            firstName: "Bill1",
-            lastName: "Luo1"
-          },
-        ]
-      });
-    }, 1000);
+    reset({
+      names: [
+        {
+          firstName: "Bob",
+          lastName: "Actually"
+        },
+        {
+          firstName: "Jane",
+          lastName: "Actually"
+        }
+      ]
+    });
   }, [reset]);
 
   const onSubmit = (data) => console.log("data", data);
@@ -35,17 +36,17 @@ function App() {
         {fields.map((item, index) => (
           <li key={item.id}>
             <input
-              name={\`names[\${index}].firstName\`}
               defaultValue={\`\${item.firstName}\`}
-              ref={register()}
+              {...register(\`names[\${index}].firstName\`)}
             />
 
             <Controller
-              as={<input />}
+              render={({ field }) => <input {...field} />}
               name={\`names[\${index}].lastName\`}
               control={control}
               defaultValue={item.lastName}
             />
+            <button type="button" onClick={() => remove(index)}>Delete</button>
           </li>
         ))}
       </ul>

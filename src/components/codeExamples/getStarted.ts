@@ -7,8 +7,8 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <select name="gender" ref={register}>
+      <input {...register("firstName")} />
+      <select {...register("gender")}>
         <option value="female">female</option>
         <option value="male">male</option>
         <option value="other">other</option>
@@ -35,17 +35,14 @@ interface IFormInput {
 
 export default function App() {
   const { register, handleSubmit } = useForm<IFormInput>();
-
-  const onSubmit = (data: IFormInput) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInput) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>First Name</label>
-      <input name="firstName" ref={register} />
+      <input {...register("firstName") />
       <label>Gender Selection</label>
-      <select name="gender" ref={register}>
+      <select {...register("gender")>
         <option value="female">female</option>
         <option value="male">male</option>
         <option value="other">other</option>
@@ -59,107 +56,89 @@ export default function App() {
 export const migrateCode = `import React from "react";
 import { useForm } from "react-hook-form";
 
-// The following component is an example of your existing Input Component 
-const Input = ({ label, register, required }) => ( 
+// The following component is an example of your existing Input Component
+const Input = ({ label, register, required }) => (
   <>
     <label>{label}</label>
-    <input name={label} ref={register({ required })} />
+    <input {...register(label, { required })} />
   </>
 );
 
 // you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ label }, ref) => ( 
+const Select = React.forwardRef(({ onChange, name, label }, ref) => (
   <>
     <label>{label}</label>
-    <select name={label} ref={ref}>
+    <select name={name} ref={ref} onChange={onChange}>
       <option value="20">20</option>
       <option value="30">30</option>
     </select>
   </>
 ));
 
-export default function App() {
+const App = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-   
+
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
-      <Select label="Age" ref={register} />
+      <Select label="Age" {...register("Age")} />
       <input type="submit" />
     </form>
   );
-}`
+};
+`
 
 export const migrateCodeTs = `import React from "react";
-import { useForm } from "react-hook-form";
-
-type RefReturn =
-  | string
-  | ((instance: HTMLInputElement | null) => void)
-  | React.RefObject<HTMLInputElement>
-  | null
-  | undefined;
-
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> & {
-  label: string;
-  register: ({ required }: { required?: boolean }) => RefReturn;
-};
-
-interface IInputProps {
-  label: string;
-}
-
-// The following component is an example of your existing Input Component
-const Input: React.FC<InputProps> = ({ label, register, required }) => (
-  <>
-    <label>{label}</label>
-    <input name={label} ref={register({ required })} />
-  </>
-);
-
-type Option = {
-  label: React.ReactNode;
-  value: string | number | string[];
-};
-
-type SelectProps = React.DetailedHTMLProps<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
-  HTMLSelectElement
-> & { options: Option[] } & HTMLSelectElement;
-
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef<SelectProps, { label: string }>(
-  ({ label }, ref) => (
-    <>
-      <label>{label}</label>
-      <select name={label} ref={ref}>
-        <option value="20">20</option>
-        <option value="30">30</option>
-      </select>
-    </>
-  )
-);
+import { Path, useForm, UseFormRegister } from "react-hook-form";
 
 interface IFormValues {
   "First Name": string;
   Age: number;
 }
 
+type InputProps = {
+  label: Path<IFormValues>;
+  register: UseFormRegister<IFormValues>;
+  required: boolean;
+};
+
+// The following component is an example of your existing Input Component
+const Input = ({ label, register, required }: InputProps) => (
+  <>
+    <label>{label}</label>
+    <input {...register(label, { required })} />
+  </>
+);
+
+// you can use React.forwardRef to pass the ref too
+const Select = React.forwardRef<
+  HTMLSelectElement,
+  { label: string } & ReturnType<UseFormRegister<IFormValues>>
+>(({ onChange, name, label }, ref) => (
+  <>
+    <label>{label}</label>
+    <select name={name} ref={ref} onChange={onChange}>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </>
+));
+
 const App = () => {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit = (data: IFormValues) => {
-    console.log(data)
+    alert(JSON.stringify(data));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input label="First Name" register={register} required />
-      <Select label="Age" ref={register} />
+      <Select label="Age" {...register("Age")} />
       <input type="submit" />
     </form>
   );
@@ -230,10 +209,7 @@ import Input from "@material-ui/core/Input";
 
 const App = () => {
   const { control, handleSubmit } = useForm();
-
-  const onSubmit = (data: IFormInput) => {
-    console.log(data)
-  };
+  const onSubmit = (data: IFormInput) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -241,17 +217,19 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
+        render={({ field }) => <input {...field} />}
       />
       <Controller
         name="iceCreamType"
         control={control}
-        options={[
-          { value: "chocolate", label: "Chocolate" },
-          { value: "strawberry", label: "Strawberry" },
-          { value: "vanilla", label: "Vanilla" }
-        ]}
-        as={Select}
+        render={({ field }) => <Select 
+          {...field} 
+          options={[
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+          ]} 
+        />}
       />
       <input type="submit" />
     </form>
@@ -283,17 +261,19 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
+        render={({ field }) => <input {...field} />}
       />
       <Controller
         name="iceCreamType"
         control={control}
-        options={[
-          { value: "chocolate", label: "Chocolate" },
-          { value: "strawberry", label: "Strawberry" },
-          { value: "vanilla", label: "Vanilla" }
-        ]}
-        as={Select}
+        render={({ field }) => <Select 
+          {...field} 
+          options={[
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+          ]} 
+        />}
       />
       <input type="submit" />
     </form>
@@ -302,32 +282,22 @@ const App = () => {
 
 export const controlledComponent = `import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
-  const methods = useForm();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* Option 1: pass a component to the Controller. */}
-      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
-      
-      {/* Option 2: use render props to assign events and value */}
       <Controller
         name="MyCheckbox"
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render={props =>
-          <Checkbox
-            onChange={e => props.onChange(e.target.checked)}
-            checked={props.value}
-          />
-        } // props contains: onChange, onBlur and value
+        render={({ field }) => <Checkbox {...field} />}
       />
+      <input type="submit" />
     </form>
   );
 }
@@ -335,7 +305,6 @@ function App() {
 
 export const controlledComponentTs = `import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
 interface IFormInputs {
@@ -344,28 +313,19 @@ interface IFormInputs {
 }
 
 function App() {
-  const methods = useForm<IFormInputs>();
-  const { handleSubmit, control, reset } = methods;
+  const { handleSubmit, control, reset } = useForm<IFormInputs>();
   const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* Option 1: pass a component to the Controller. */}
-      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
-      
-      {/* Option 2: use render props to assign events and value */}
       <Controller
         name="MyCheckbox"
         control={control}
         defaultValue={false}
         rules={{ required: true }}
-        render={props =>
-          <Checkbox
-            onChange={e => props.onChange(e.target.checked)}
-            checked={props.value}
-          />
-        } // props contains: onChange, onBlur and value
+        render={({ field }) => <Checkbox {...field} />}
       />
+      <input type="submit" />
     </form>
   );
 }
@@ -383,8 +343,8 @@ export default function App(props) {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="firstName" defaultValue={props.firstName} ref={register} />
-      <Input name="lastName" defaultValue={props.lastName} ref={register} />
+      <Input {...register("firstName")} defaultValue={props.firstName} />
+      <Input {...register("lastName")} defaultValue={props.lastName} />
       <input type="submit" />
     </form>
   );
@@ -398,13 +358,13 @@ export const errors = `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="firstName" ref={register({ required: true })} />
+      <Input {...register("firstName", { required: true })} />
       {errors.firstName && "First name is required"}
-      <Input name="lastName" ref={register({ required: true })} />
+      <Input {...register("lastName", { required: true })} />
       {errors.lastName && "Last name is required"}
       <input type="submit" />
     </form>
@@ -421,13 +381,13 @@ interface IFormInputs {
 }
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm<IFormInputs>();
+  const { register, formState: { errors }, handleSubmit } = useForm<IFormInputs>();
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input name="firstName" ref={register({ required: true })} />
+      <Input {...register("firstName", { required: true })} />
       {errors.firstName && "First name is required"}
-      <Input name="lastName" ref={register({ required: true })} />
+      <Input {...register("lastName", { required: true })} />
       {errors.lastName && "Last name is required"}
       <input type="submit" />
     </form>
@@ -444,9 +404,9 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
-      <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
-      <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
+      <input {...register("firstName", { required: true, maxLength: 20 })} />
+      <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
+      <input type="number" {...register("age", { min: 18, max: 99 })} />
       <input type="submit" />
     </form>
   );
@@ -467,9 +427,9 @@ export default function App() {
    
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
-      <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
-      <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
+      <input {...register("firstName", { required: true, maxLength: 20 })} />
+      <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
+      <input type="number" {...register("age", { min: 18, max: 99 })} />
       <input type="submit" />
     </form>
   );

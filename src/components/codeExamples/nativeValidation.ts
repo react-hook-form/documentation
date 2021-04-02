@@ -8,10 +8,9 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        name="firstName"
-        ref={register({ required: "Please enter your first name." })} // custom message
+        {...register("firstName", { required: "Please enter your first name." })} // custom message
       />
-      <input name="lastName" ref={register({ required: true })} />
+      <input {...register("lastName", { required: true })} />
       <input type="submit" />
     </form>
   );

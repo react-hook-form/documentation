@@ -24,6 +24,22 @@
   max-width: 600px;
 }
 
+.subTitle {
+  border-bottom: 2px solid var(--color-secondary);
+  line-height: 1.8;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.subTitle:before {
+  font-size: 15px;
+  position: relative;
+  margin-right: 8px;
+  top: -2px;
+  content: "ⓘ";
+}
+
 .title:before,
 .title:after {
   background-color: var(--color-light-blue);
@@ -133,6 +149,10 @@
     line-height: 1.5;
   }
 
+  h2.title {
+    margin-top: 40px;
+  }
+
   .headingWithTopMargin {
     margin-top: 70px;
   }
@@ -145,6 +165,18 @@
 }
 
 @media (min-width: 1024px) {
+  .h1 {
+    font-size: 50px;
+    margin-top: 60px;
+    line-height: 1.3;
+    border-bottom: 3px solid var(--color-secondary);
+  }
+
+  .homeParagraph {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
   .heading,
   .headingWithTopMargin {
     margin-top: 20px;

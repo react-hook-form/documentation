@@ -35,6 +35,10 @@
   margin: 20px 0 40px;
 }
 
+.videoWrapper p {
+  text-align: center;
+}
+
 .videoWrapper > section:first-child {
   order: 1;
 }
@@ -71,8 +75,8 @@
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    grid-column-gap: 40px;
-    max-width: 1100px;
+    grid-column-gap: 60px;
+    max-width: 768px;
     margin: 40px auto;
     overflow-y: hidden;
   }
@@ -80,6 +84,7 @@
   .videoWrapper > section > video {
     height: 400px;
     border-radius: 10px;
+    margin-top: -44px;
   }
 }
 

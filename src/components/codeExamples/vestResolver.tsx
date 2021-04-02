@@ -30,14 +30,14 @@ const validationSuite = vest.create((data = {}) => {
 });
 
 const App = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: vestResolver(validationSuite),
   });
 
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
-      <input type="text" name="username" ref={register} />
-      <input type="text" name="password" ref={register} />
+      <input {...register("username")} />
+      <input {...register("password")} />
       <input type="submit" />
     </form>
   );

@@ -1,0 +1,92 @@
+.root {
+  max-width: 768px;
+  margin: 60px auto 0;
+}
+
+@media (min-width: 768px) {
+  .root {
+    max-width: 840px;
+  }
+}
+
+.gallery {
+  display: grid;
+  list-style: none;
+  margin: 20px;
+  grid-gap: 25px;
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    margin: 60px auto 60px;
+    padding: 0 20px;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    max-width: 1024px;
+  }
+}
+
+.gallery li {
+  border: 1px solid var(--color-light-blue);
+  position: relative;
+  padding-bottom: 30px;
+  transition: 0.2s all;
+}
+
+.gallery li:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 4px black;
+  border: 1px solid var(--color-secondary);
+}
+
+.gallery li a {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 12px 20px 12px 80px;
+  font-size: 14px;
+}
+
+.gallery h3 {
+  margin: 0;
+  font-weight: normal;
+  padding: 13px 20px;
+  font-size: 18px;
+  background: var(--color-button-blue);
+  border-bottom: 1px solid var(--color-light-blue);
+  letter-spacing: 1px;
+  text-shadow: 2px 2px black;
+}
+
+.gallery h3 code {
+  margin-right: 5px;
+  letter-spacing: -1px;
+}
+
+.gallery p {
+  margin: 20px;
+  font-size: 14px;
+}
+
+.versionControl {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.versionControl > div {
+  display: inline-block;
+}
+
+.versionControl > p {
+  font-size: 14px;
+  color: var(--color-light-grey);
+  display: inline-block;
+  margin-right: 20px;
+}

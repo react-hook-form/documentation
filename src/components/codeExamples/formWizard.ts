@@ -6,7 +6,10 @@ import Step2 from "./Step2";
 import Result from "./Result";
 
 createStore({
-  data: {}
+  data: {
+    firstName: '',
+    lastName: '',
+  }
 });
 
 export default function App() {
@@ -30,16 +33,16 @@ import updateAction from "./updateAction";
 
 const Step1 = props => {
   const { register, handleSubmit } = useForm();
-  const { action } = useStateMachine(updateAction);
+  const { actions } = useStateMachine({ updateAction });
   const onSubmit = data => {
-    action(data);
+    actions.updateAction(data);
     props.history.push("./step2");
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <input type="submit" />
     </form>
   );

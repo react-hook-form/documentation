@@ -8,8 +8,8 @@ const Example = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
-        name="email"
-        ref={register({
+        type="email"
+        {...register("email", {
           required: "Required",
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$/i,
@@ -20,8 +20,7 @@ const Example = () => {
       {errors.email && errors.email.message}
 
       <input
-        name="username"
-        ref={register({
+        {...register("username", {
           validate: value => value !== "admin" || "Nice try!"
         })}
       />

@@ -50,10 +50,10 @@ export default {
         <p>
           <b className={typographyStyles.note}>Nota: </b>React Native vai
           precisar do uso manual do comando de registro:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code> or
-          usando <Link to="/api#Controller">Controller</Link> para englobar e
-          registrar automaticamente seu componente. Você também pode ler mais na
-          Seção <Link to="/api/#ReactNative">React Native</Link>.
+          <code>{`register('test', { required: true })`}</code> or usando{" "}
+          <Link to="/api#Controller">Controller</Link> para englobar e registrar
+          automaticamente seu componente. Você também pode ler mais na Seção{" "}
+          <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
     ),
@@ -162,64 +162,18 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>
-          React Hook Form é bem fácil de ser integrado com componentes externos
-          de interface.
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Opção 1:</b> A melhor forma é
-          checar se o componente que deseja expõe um <code>innerRef</code> ou{" "}
-          <code>ref</code> isso pode ser utilizado para{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              registrar
-            </Link>
-          </code>
-          . Por exemplo: Material-UI's <code>TextField</code> aceita{" "}
-          <code>inputRef</code> como props. Passando simplesmente o{" "}
-          <code>register</code> para ele.
-        </p>
-        <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Opção 2:</b> As vezes componentes
-          não expõe uma prop para registrar, por exemplo{" "}
-          <code>react-select</code> ou <code>react-datepicker</code>.
-        </p>
-        <p>
-          A forma mais fácil de usar é{" "}
-          <Link to="/api#Controller">Controller</Link> utilizar um componente
-          por volta, que irá tomar conta de registrar customizadamente o
-          processo para você.
+          O formulário do gancho de reacção facilitou a integração com a IU
+          externa bibliotecas de componentes. Pode ver os seguintes vídeos.
         </p>
 
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
         <p>
-          <b className={typographyStyles.note}>Opção 3:</b> Por último, podemos
-          setar um registro customizado usando{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          Hook e atualizar o valor via{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>
-          .
+          Os componentes controlados não expõem um adereço ao registo, por
+          exemplo <code>react-select</code> ou <code>react-datepicker</code>.
+        </p>
+        <p>
+          Neste caso, deverá utilizar o.
+          <Link to="/api#Controller">Controller</Link>componente de embalagem,
+          que encarregar-se-á do processo de registo por si.
         </p>
       </>
     ),

@@ -71,7 +71,9 @@ function Form({
               )}
             />
           )}
-          <p>{home.liveDemo[currentLanguage].description}</p>
+          <p className={typographyStyles.homeParagraph}>
+            {home.liveDemo[currentLanguage].description}
+          </p>
         </div>
       )}
 

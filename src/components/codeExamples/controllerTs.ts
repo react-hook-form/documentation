@@ -4,7 +4,6 @@ import { TextField } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 
 type FormValues = {
-  TextField: string;
   ReactDatepicker: string;
 } 
 
@@ -13,12 +12,10 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
-      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
-      
       <Controller
         control={control}
         name="ReactDatepicker"
-        render={({ onChange, onBlur, value }) => (
+        render={({ field: { onChange, onBlur, value, ref } }) => (
           <ReactDatePicker
             onChange={onChange}
             onBlur={onBlur}

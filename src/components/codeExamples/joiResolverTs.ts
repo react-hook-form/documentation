@@ -17,15 +17,14 @@ const App = () => {
   const { register, handleSubmit, errors } = useForm<IFormInput>({
     resolver: joiResolver(schema)
   });
-
   const onSubmit = (data: IFormInput) => {
     console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="name" ref={register} />
-      <input name="age" type="number" ref={register} />
+      <input {...register("name"} />
+      <input type="number" {...register("age"} />
       <input type="submit" />
     </form>
   );

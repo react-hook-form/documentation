@@ -16,11 +16,15 @@ import vestResolver from "./codeExamples/vestResolver"
 export default function ({ api }) {
   return (
     <>
-      <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+      <h5
+        className={typographyStyles.h5}
+        style={{ marginTop: 20 }}
+        id="validationResolver"
+      >
         <code>
           resolver:{" "}
           <span className={typographyStyles.typeText}>
-            {`(values: any, context?: object) => Promise<ResolverResult> | ResolverResult`}
+            {`(values: any, context?: object, options: Object) => Promise<ResolverResult> | ResolverResult `}
           </span>
         </code>
       </h5>
@@ -33,34 +37,34 @@ export default function ({ api }) {
         <CodeArea
           rawData={validationSchema}
           tsRawData={validationSchemaTs}
-          url="https://codesandbox.io/s/react-hook-form-validationschema-v6-2l77g"
-          tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
+          url="https://codesandbox.io/s/react-hook-form-validationschema-v7-bt78h"
+          tsUrl="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
         />
         <CodeArea
           rawData={zodResolver}
           tsRawData={zodResolverTs}
-          url="https://codesandbox.io/s/react-hook-form-zod-resolver-example-forked-ko5ll"
-          tsUrl="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-hrjdh"
+          url="https://codesandbox.io/s/react-hook-form-zod-resolver-example-io911"
+          tsUrl="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-w72vp"
         />
         <CodeArea
           rawData={joiResolver}
           tsRawData={joiResolverTs}
-          url="https://codesandbox.io/s/react-hook-form-joiresolver-v6-yejqe"
-          tsUrl="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-jwg5g"
+          url="https://codesandbox.io/s/react-hook-form-joiresolver-v7-kmn0d"
+          tsUrl="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
         />
         <CodeArea
           rawData={superStructResolver}
-          url="https://codesandbox.io/s/react-hook-form-v6-superstructresolver-ed67i"
+          url="https://codesandbox.io/s/react-hook-form-v7-superstructresolver-ge0nk"
         />
         <CodeArea
           rawData={vestResolver}
-          url="https://codesandbox.io/s/vest-k6gbd"
+          url="https://codesandbox.io/s/vest-8q874"
         />
         <CodeArea
           rawData={validationResolver}
           tsRawData={validationResolverTs}
-          url="https://codesandbox.io/s/react-hook-form-customresoliver-v6-h4ti6"
-          tsUrl="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v6-ecoxh"
+          url="https://codesandbox.io/s/react-hook-form-customresoliver-v7-8mpqw"
+          tsUrl="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
         />
       </TabGroup>
     </>

@@ -13,9 +13,9 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
-      <input name="email" ref={register} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input {...register("email")} />
 
       <button type="submit">Submit</button>
     </form>

@@ -151,10 +151,9 @@ export default {
         <p>
           <b className={typographyStyles.note}>참고:</b>{" "}
           <code>defaultValue</code> 는 수동으로 등록된 인풋(예:{" "}
-          <code>{`register({ name: 'test' })`}</code>)에는 자동으로 생성되지
-          않습니다. 왜냐하면 커스텀 <code>register</code> 를 사용하여 등록한
-          필드는 React Hook Form 에 <code>ref</code> 를 전달하지 않기
-          때문입니다.
+          <code>{`register('test')`}</code>)에는 자동으로 생성되지 않습니다.
+          왜냐하면 커스텀 <code>register</code> 를 사용하여 등록한 필드는 React
+          Hook Form 에 <code>ref</code> 를 전달하지 않기 때문입니다.
         </p>
       </>
     ),
@@ -193,7 +192,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>참고:</b> <code>ref</code> 로
           등록된 필드만 작동합니다. 수동으로 등록하면 동작하지 않습니다. 예 :{" "}
-          <code>{`register({ name: 'test' }) // 동작하지 않음`}</code>{" "}
+          <code>{`register('test') // 동작하지 않음`}</code>{" "}
         </p>
 
         <p>
@@ -584,7 +583,7 @@ export default {
           <li>
             <p>
               인풋 필드와 연관되지 않은 에러를 지정한 경우 에러 값이 유지됩니다.
-              이 경우 반드시 <code>clearError</code>를 사용하여 수동으로
+              이 경우 반드시 <code>clearErrors</code>를 사용하여 수동으로
               제거해야합니다.
             </p>
           </li>

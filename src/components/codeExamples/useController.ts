@@ -5,7 +5,8 @@ import { useController, useForm } from "react-hook-form";
 function Input({ control, name }) {
   const {
     field: { ref, ...inputProps },
-    meta: { invalid, isTouched, isDirty },
+    fieldState: { invalid, isTouched, isDirty },
+    formState: { touchedFields, dirtyFields }
   } = useController({
     name,
     control,

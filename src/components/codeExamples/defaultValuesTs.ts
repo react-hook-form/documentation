@@ -14,7 +14,5 @@ const { register } = useForm<Inputs>({
   }
 })
 
-<input name="firstName" ref={register} /> // ✅ working version
-<input name="lastName" ref={() => register({ name: 'lastName' })} />
-// ❌ above example does not work with "defaultValues" due to its "ref" not being provided
+<input {...register("firstName")} /> // ✅ working version
 `

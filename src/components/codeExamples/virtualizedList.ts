@@ -3,7 +3,7 @@ import { FormContext, useForm, useFormContext } from "react-hook-form";
 import { VariableSizeList as List } from "react-window";
 
 const items = Array.from(Array(1000).keys()).map((i) => ({
-  title: "List \${i}",
+  title: \`List \${i}\`,
   quantity: Math.floor(Math.random() * 10),
 }));
 
@@ -13,7 +13,7 @@ const WindowedRow = React.memo(({ index, style, data, setValue }) => {
 
   return (
     <input
-      // Rather than ref={register}, we use defaultValue and setValue
+      // Rather than register, we use defaultValue and setValue
       defaultValue={qty}
       onChange={(e) => {
         setValue(

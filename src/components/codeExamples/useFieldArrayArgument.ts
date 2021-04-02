@@ -10,8 +10,7 @@ export default `function Test() {
     {fields.map((field, index) => (
       <input
         key={field.id} // important to include key with field's id
-        name={\`test[\${index}].value\`}
-        ref={register()} // register() when there is no validation rules 
+        {...register(\`test.\${index}.value\`)} 
         defaultValue={field.value} // make sure to include defaultValue
       />
     ))}

@@ -54,32 +54,74 @@ export default {
   findInteresting: {
     en: {
       heading: "Ready to get started?",
-      description: `Form handling doesn't have to be painful. React Hook Form will help you write less code while achieving better performance.`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          Form handling doesn't have to be painful. React Hook Form will help
+          you write less code while achieving better performance.
+        </p>
+      ),
     },
     es: {
       heading: "Te pareció útil e interesante?",
-      description: `La validación de formularios debería ser más simple. React Hook Form te ayudará a escribir menos código y a tener un mejor rendimiento. Consulta la sección Comenzar Ahora y aprende más en la página de documentación de la API.`,
+      description: (
+        <p>
+          La validación de formularios debería ser más simple. React Hook Form
+          te ayudará a escribir menos código y a tener un mejor rendimiento.
+          Consulta la sección Comenzar Ahora y aprende más en la página de
+          documentación de la API.
+        </p>
+      ),
     },
     pt: {
       heading: "Achou útil e interessante?",
-      description: `Validação de formulário deveria ser simples. React Hook Form vai te guiar a escrever menos código com uma melhor performance. Confira a seção Comece Agora e aprenda mais sobre na página de documentação da API.`,
+      description: (
+        <p>
+          Validação de formulário deveria ser simples. React Hook Form vai te
+          guiar a escrever menos código com uma melhor performance. Confira a
+          seção Comece Agora e aprenda mais sobre na página de documentação da
+          API.
+        </p>
+      ),
     },
     kr: {
       heading: "유용하고 흥미로운가요?",
-      description: `폼의 유효성을 검사하는 것은 더욱 간단해야 합니다. React Hook Form을 사용하면 코드는 적게 쓰고 성능은 더욱 향상시킬 수 있습니다. 시작하기 섹션을 확인한 다음 API 페이지에서 자세히 알아보세요.`,
+      description: (
+        <p>
+          폼의 유효성을 검사하는 것은 더욱 간단해야 합니다. React Hook Form을
+          사용하면 코드는 적게 쓰고 성능은 더욱 향상시킬 수 있습니다. 시작하기
+          섹션을 확인한 다음 API 페이지에서 자세히 알아보세요.
+        </p>
+      ),
     },
     jp: {
       heading: "便利で面白いと思いますか？",
-      description: `フォームバリデーションはより簡単にする必要があります。React Hook Form を使用すると、コードの記述が少なくなり、パフォーマンスが向上します。はじめるセクションを見て、API ドキュメントページで詳細を確認してください。`,
+      description: (
+        <p>
+          フォームバリデーションはより簡単にする必要があります。React Hook Form
+          を使用すると、コードの記述が少なくなり、パフォーマンスが向上します。はじめるセクションを見て、API
+          ドキュメントページで詳細を確認してください。
+        </p>
+      ),
     },
     zh: {
       heading: "尝试一下?",
-      description: `表单构建不应该充满痛苦。React Hook Form 将使您编写更少的代码并具有更好的性能。`,
+      description: (
+        <p>
+          表单构建不应该充满痛苦。React Hook Form
+          将使您编写更少的代码并具有更好的性能。
+        </p>
+      ),
     },
     ru: {
       heading: "Это было полезным и интересным для вас?",
-      description:
-        "Валидация форм должна быть очень простой. React Hook Form позволит вам писать меньше кода и имеет лучшую производительность. Ознакомьтесь с разделом «Начало работы» и узнайте больше на странице документации по API.",
+      description: (
+        <p>
+          Валидация форм должна быть очень простой. React Hook Form позволит вам
+          писать меньше кода и имеет лучшую производительность. Ознакомьтесь с
+          разделом «Начало работы» и узнайте больше на странице документации по
+          API.
+        </p>
+      ),
     },
   },
   features: {
@@ -275,7 +317,7 @@ export default {
     en: {
       title: "Less code. More performant",
       description: (
-        <p id="codeComparison">
+        <p id="codeComparison" className={typographyStyles.homeParagraph}>
           Reducing the amount of code you need to write, and removing
           unnecessary re-renders are some of the primary goals of React Hook
           Form. Now dive in and explore with the following example:
@@ -387,15 +429,10 @@ export default {
       title: "Isolate Re-renders",
       description: (
         <>
-          <p>
+          <p className={typographyStyles.homeParagraph}>
             You have the ability to isolate components re-renders which leads to
             better performance on your page or app. The following example
-            demonstrates this behaviour.
-          </p>
-
-          <p style={{ fontSize: 14 }}>
-            <b className={typographyStyles.note}>Note:</b> Type in the input box
-            to see the render behaviour.
+            demonstrates this.
           </p>
         </>
       ),
@@ -501,17 +538,17 @@ export default {
   },
   watcher: {
     en: {
-      title: "Change Subscriptions",
+      title: "Subscriptions",
       description: (
-        <p>
+        <p className={typographyStyles.homeParagraph}>
           Performance is an important aspect of user experience in terms of
           building forms. You will have the ability to subscribe to individual
-          input changes without re-rendering the entire form.
+          input and form State update without re-rendering the entire form.
         </p>
       ),
     },
     es: {
-      title: "Change Subscriptions",
+      title: "Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -521,7 +558,7 @@ export default {
       ),
     },
     pt: {
-      title: "Change Subscriptions",
+      title: "Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -531,7 +568,7 @@ export default {
       ),
     },
     kr: {
-      title: "Change Subscriptions",
+      title: "Subscriptions",
       description: (
         <p>
           퍼포먼스는 폼을 만들 때 사용자 경험에 큰 영향을 주는 요소입니다. 전체
@@ -557,7 +594,7 @@ export default {
       ),
     },
     ru: {
-      title: "Change Subscriptions",
+      title: "Subscriptions",
       description: (
         <p>
           Performance is an important aspect of user experience in terms of
@@ -570,38 +607,80 @@ export default {
   rendering: {
     en: {
       title: "Reduce Rendering",
-      description: `Do you ever wonder how many component re-renders have been triggered by the user? React Hook Form embraces uncontrolled form validation to reduce any unnecessary performance penalty.`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          Do you ever wonder how many component re-renders have been triggered
+          by the user? React Hook Form embraces uncontrolled form validation to
+          reduce any unnecessary performance penalty.
+        </p>
+      ),
       totalReRender: "Total re-renders:",
     },
     es: {
       title: "Reduce la renderización",
-      description: `¿Alguna vez te has preguntado cuántas renderizaciones de componentes han sido desencadenadas por el usuario? React Hook Form utiliza la validación de formularios no controlada para reducir el impacto en el rendimiento.`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          ¿Alguna vez te has preguntado cuántas renderizaciones de componentes
+          han sido desencadenadas por el usuario? React Hook Form utiliza la
+          validación de formularios no controlada para reducir el impacto en el
+          rendimiento.
+        </p>
+      ),
       totalReRender: "Total de renderizaciones:",
     },
     pt: {
       title: "Reduza a renderização",
-      description: `Você já se questionou quantas vezes o componente é renderizado pelo usuário? React Hook Form abraça o uso de validação de formulários incontroláveis, para reduzir desnecessários impactos de performance.`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          Você já se questionou quantas vezes o componente é renderizado pelo
+          usuário? React Hook Form abraça o uso de validação de formulários
+          incontroláveis, para reduzir desnecessários impactos de performance.
+        </p>
+      ),
       totalReRender: "Total de re-renderizacão:",
     },
     kr: {
       title: "렌더링 최소화",
-      description: `사용자에 의해 얼마나 많이 다시 렌더링 되었는지 궁금했던 적이 있습니까? React Hook Form은 제어되지 않는 폼 유효성 검사를 통해 불필요한 성능 저하를 줄입니다.`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          사용자에 의해 얼마나 많이 다시 렌더링 되었는지 궁금했던 적이 있습니까?
+          React Hook Form은 제어되지 않는 폼 유효성 검사를 통해 불필요한 성능
+          저하를 줄입니다.
+        </p>
+      ),
       totalReRender: "전체 렌더링 횟수:",
     },
     jp: {
       title: "レンダリングを削減",
-      description: `ユーザーによってどのくらいコンポーネントが再レンダリングされたか気になったことはありますか？ React Hook Form は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          ユーザーによってどのくらいコンポーネントが再レンダリングされたか気になったことはありますか？
+          React Hook Form
+          は非制御フォームバリデーションを採用してパフォーマンスへの影響を軽減します。
+        </p>
+      ),
       totalReRender: "合計再レンダリング数： ",
     },
     zh: {
       title: "减少渲染次数",
-      description: `您曾经考虑过用户会触发多少次组件的重渲染吗？React Hook Form 优先采用非受控的表单验证，以减少不必要的性能损耗。`,
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          您曾经考虑过用户会触发多少次组件的重渲染吗？React Hook Form
+          优先采用非受控的表单验证，以减少不必要的性能损耗。
+        </p>
+      ),
       totalReRender: "共计重渲染次数:",
     },
     ru: {
       title: "Сокращение повторных рендеров",
-      description:
-        "Вы когда-нибудь задумывались, сколько повторных рендеров компонентов было инициировано пользователем? React Hook Form включает в себя неконтролируемую валидацию формы для уменьшения ненужного влияния на производительность.",
+      description: (
+        <p className={typographyStyles.homeParagraph}>
+          Вы когда-нибудь задумывались, сколько повторных рендеров компонентов
+          было инициировано пользователем? React Hook Form включает в себя
+          неконтролируемую валидацию формы для уменьшения ненужного влияния на
+          производительность.
+        </p>
+      ),
       totalReRender: "Общее количество повторных рендеров:",
     },
   },
@@ -609,33 +688,14 @@ export default {
     en: {
       title: "Faster Mounting",
       description: (
-        <p>
+        <p className={typographyStyles.homeParagraph}>
           The following screenshots demonstrate how much faster component
-          mounting is with React Hook Form. Mounting and rendering the{" "}
-          <a href="#codeComparison">Library Code Comparison</a> is ~13% faster
-          than Formik and ~25% faster than Redux Form.
-          <span style={{ fontSize: 14, display: "block" }}>
-            <b className={typographyStyles.note}>⚠ Note:</b> a 6x CPU slowdown
-            was simulated with Chrome Dev Tools for the sake of the benchmark.
-          </span>
+          mounting is with React Hook Form compare with others.
         </p>
       ),
       totalMount: "No. of mount(s)",
       totalChange: "No. of committing change(s)",
       totalTime: "Total time",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Want to see more intense
-          performance tests?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Check out the result of 1000 fields within a form here
-          </a>
-          .
-        </>
-      ),
     },
     es: {
       title: "Montaje más rápido",
@@ -652,19 +712,6 @@ export default {
       totalMount: "No. de montajes",
       totalChange: "No. de cambios confirmados",
       totalTime: "Tiempo total",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> ¿Quieres ver pruebas de
-          rendimiento más intensas?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Mira el resultado de 1000 campos dentro de un formulario aquí
-          </a>
-          .
-        </>
-      ),
     },
     pt: {
       title: "Montagem rápida",
@@ -680,19 +727,6 @@ export default {
       totalMount: "N. de montagem",
       totalChange: "N. de mudanças commit(s)",
       totalTime: "Tempo total",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Gostaria de ver mais testes de
-          performance intensos?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Observe o resultado de 1000 campos dentro de um formulário aqui
-          </a>
-          .
-        </>
-      ),
     },
     kr: {
       title: "더욱 빠른 마운트 속도",
@@ -708,19 +742,6 @@ export default {
       totalMount: "마운트 횟수",
       totalChange: "변경 요청 횟수",
       totalTime: "전체 소요된 시간",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> 더 강도 높은 성능 테스트를
-          보고 싶으신가요?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            여기서 1000개 필드가 있는 폼의 결과를 확인할 수 있습니다
-          </a>
-          .
-        </>
-      ),
     },
     jp: {
       title: "高速なマウント",
@@ -737,19 +758,6 @@ export default {
       totalMount: "マウント数",
       totalChange: "変更コミット数",
       totalTime: "合計時間",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span>{" "}
-          より強力なパフォーマンステストを見たいですか？
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            こちらから1000フィールドを含むフォームのパフォーマンテスト結果をご覧ください
-          </a>
-          。
-        </>
-      ),
     },
     zh: {
       title: "更快的挂载",
@@ -767,18 +775,6 @@ export default {
       totalMount: "安装的次数(s)",
       totalChange: "提交更改的次数(s)",
       totalTime: "总时间",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> 希望看到更深层的性能测试？
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            点击查看包含1000个表单项的表单渲染结果
-          </a>
-          。
-        </>
-      ),
     },
     ru: {
       title: "Более быстрая сборка",
@@ -794,19 +790,6 @@ export default {
       totalMount: "Количество сборок",
       totalChange: "Количество совершаемых изменений",
       totalTime: "Общее время",
-      performanceTests: (
-        <>
-          <span style={{ fontSize: 20 }}>⚠</span> Хотите увидеть более тыжёлые
-          тесты производительности?{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            rel="noopener noreferrer"
-          >
-            Проверьте здесь результат тестирования для формы с 1000 полей
-          </a>
-          .
-        </>
-      ),
     },
   },
   liveDemo: {

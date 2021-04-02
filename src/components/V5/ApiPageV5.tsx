@@ -1,12 +1,12 @@
 import * as React from "react"
-import ApiRefTable from "../ApiRefTable"
+import ApiRefTable from "../v6/ApiRefTableV6"
 import validationSchemaCode from "../V5/codeExamples/validationSchema"
 import validationSchemaNative from "../V5/codeExamples/validationSchemaNative"
 import CodeArea, { CodeSandBoxLink } from "../CodeArea"
 import SideMenu from "../SideMenu"
 import ApiFormState from "./ApiFormStateV5"
 import resetCode from "../V5/codeExamples/resetCode"
-import ApiWatch from "./ApiWatchV5"
+import ApiWatch from "../v6/ApiWatchV6"
 import ApiErrors from "./ApiErrorsV5"
 import handleSubmitCode from "../V5/codeExamples/handleSubmitCode"
 import setError from "../V5/codeExamples/setError"
@@ -38,7 +38,7 @@ import resetController from "../V5/codeExamples/resetController"
 import resetControllerTs from "../V5/codeExamples/resetControllerTs"
 import control from "../V5/codeExamples/control"
 import nativeValidation from "../V5/codeExamples/nativeValidation"
-import UseFieldArray from "../UseFieldArray"
+import UseFieldArrayContent from "../UseFieldArray"
 import colors from "../../styles/colors"
 import ValidationResolver from "./ValidationResolverV5"
 import headerStyles from "../Header.module.css"
@@ -47,6 +47,7 @@ import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import containerStyles from "../../styles/container.module.css"
 import styles from "../ApiPage.module.css"
+import { updateSetting } from "../../actions/settingActions"
 
 const { useRef, useEffect } = React
 
@@ -89,8 +90,11 @@ interface Props {
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
     state,
+    actions,
     state: { language },
-  } = useStateMachine()
+  } = useStateMachine({
+    updateSetting,
+  })
   const isUnmount = useRef(false)
   const { currentLanguage } =
     language && language.currentLanguage
@@ -179,6 +183,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
     if (location.hash) {
       setTimeout(() => goToSection(location.hash.substr(1), false), 10)
     }
+
+    actions.updateSetting({
+      version: 5,
+    })
   }, [])
 
   useEffect(() => {
@@ -281,7 +289,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
                 aria-label="show v6 doc"
                 aria-selected="false"
                 aria-controls="tabPanel-2"
-                onClick={() => navigate("/api")}
+                onClick={() => navigate("/v6/api")}
               >
                 V6
               </button>
@@ -1069,7 +1077,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
             id="useFieldArrayRef"
           >
-            <UseFieldArray currentLanguage={currentLanguage} api={api} />
+            <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
           </section>
 
           <hr />

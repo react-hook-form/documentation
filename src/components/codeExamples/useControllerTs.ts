@@ -2,14 +2,14 @@ export default `import * as React from "react";
 import { useForm, useController } from "./src";
 
 function Input(props) {
-  const { field, meta } = useController(props);
+  const { field, fieldState } = useController(props);
 
   return (
     <div>
       <input {...field} placeholder={props.name} />
-      <p>{meta.isTouched && "Touched"}</p>
-      <p>{meta.isDirty && "Dirty"}</p>
-      <p>{meta.invalid ? "invalid" : "valid"}</p>
+      <p>{fieldState.isTouched && "Touched"}</p>
+      <p>{fieldState.isDirty && "Dirty"}</p>
+      <p>{fieldState.invalid ? "invalid" : "valid"}</p>
     </div>
   );
 }

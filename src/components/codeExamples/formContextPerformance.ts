@@ -5,7 +5,7 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form";
 const NestedInput = memo(
   ({ register, formState: { isDirty } }) => (
     <div>
-      <input name="test" ref={register} />
+      <input {...register("test")} />
       {isDirty && <p>This field is dirty</p>}
     </div>
   ),

@@ -4,6 +4,7 @@ import { useForm, useWatch, useFieldArray, Control } from 'react-hook-form';
 const ConditionField = ({
   control,
   index,
+  register,
 }: {
   control: Control;
   index: number;
@@ -16,13 +17,11 @@ const ConditionField = ({
 
   return (
     <>
-      {/* Required shouldUnregister: false */}
       {output[index]?.name === "bill" && (
-        <input ref={control.register()} name={\`data[$\{index\}].conditional\`} />
+        <input {...register(\`data[$\{index\}].conditional\`)} />
       )}
-      {/* doesn't required shouldUnregister: false */}
       <input
-        name={\`data[$\{index\}].easyConditional\`}
+        {...register(\`data[$\{index\}].easyConditional\`)}
         style={{ display: output[index]?.name === "bill" ? "block" : "none" }}
       />
     </>
@@ -30,31 +29,32 @@ const ConditionField = ({
 };
 
 const UseFieldArrayUnregister: React.FC = () => {
-  const { control, handleSubmit, register } = useForm<{
+  type FormValues = {
     data: { name: string }[];
-  }>({
+  };
+
+  const { control, handleSubmit, register } = useForm<FormValues>({
     defaultValues: {
       data: [{ name: 'test' }, { name: 'test1' }, { name: 'test2' }],
     },
     mode: 'onSubmit',
     shouldUnregister: false,
   });
-  const { fields } = useFieldArray<{ name: string }>({
+  const { fields } = useFieldArray({
     control,
     name: 'data',
   });
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: FormValues) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {fields.map((data, index) => (
         <>
           <input
-            name={\`data[$\{index\}].name\`}
             defaultValue={data.name}
-            ref={register()}
+            {...register(\`data[$\{index\}].name\`)}
           />
-          <ConditionField control={control} index={index} />
+          <ConditionField control={control} register={register} index={index} />
         </>
       ))}
       <input type="submit" />

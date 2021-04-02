@@ -8,7 +8,7 @@ const schema = yup.object().shape({
 });
 
 export default function App() {
-  const { register, setValue, handleSubmit, errors } = useForm({
+  const { register, setValue, handleSubmit, formState: { errors } } = useForm({
     validationSchema: schema
   });
   const onSubmit = data => Alert.alert("Form Data", JSON.stringify(data));

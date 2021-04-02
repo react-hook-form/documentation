@@ -13,8 +13,8 @@ export default function App() {
   const values = watch();
 
   useEffect(() => {
-    register({ name: "firstName" }, { required: true });
-    register({ name: "lastName" });
+    register("firstName", { required: true });
+    register("lastName");
   }, [register]);
 
   return (

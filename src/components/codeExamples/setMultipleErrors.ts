@@ -11,20 +11,10 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Username</label>
-      <input
-        name="username"
-        type="text"
-        onChange={() => {
-          setError("username", {
-            type: "manual",
-            message: "Dont Forget Your Username Should Be Cool!"
-          });
-        }}
-        ref={register}
-      />
+      <input {...register("username")} />
       {errors.username && <p>{errors.username.message}</p>}
       <label>First Name</label>
-      <input name="firstName" type="text" ref={register} />
+      <input {...register("lastName")} />
       {errors.firstName && <p>{errors.firstName.message}</p>}
       <button
         type="button"

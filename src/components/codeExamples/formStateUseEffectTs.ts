@@ -7,7 +7,7 @@ export default function App() {
   const {
     register,
     handleSubmit,
-    formState
+    formState: { touched }
   } = useForm<FormInputs>();
   const onSubmit = (data: FormInputs) => console.log(data);
   
@@ -17,7 +17,7 @@ export default function App() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="test" ref={register} />
+      <input {...register("test")} />
       <input type="submit" />
     </form>
   );

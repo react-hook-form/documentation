@@ -11,8 +11,6 @@ import input from "../../components/codeExamples/input"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "高度な使用法",
@@ -274,47 +272,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "フィールド配列",
-    description: (
-      <>
-        <p>
-          この機能は、React Hook Formが提供する最良の機能の一つです。
-          この機能を実現するために (他のライブラリのように)
-          コンポーネントをインポートする代わりに、 既存の HTML
-          マークアップを活用することができます。 key は、 <code>name</code>{" "}
-          属性にあります。 React Hook Form において、 <code>name</code>{" "}
-          属性はあなたが使用したいデータ構造を表します。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意:</b>{" "}
-          私たちは、複雑なシナリオのためのカスタムフック{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>{" "}
-          も作成しました。
-        </p>
-
-        <p>
-          下記の例は、input の <code>name</code>{" "}
-          属性を操作してどのようにフィールド配列を作成できるかを示しています。
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>注意：</b>{" "}
-          アプリケーションにフィールドの削除や挿入、追加、先頭に追加などの機能が必要な場合は、{" "}
-          <PageLink to="/api#Controller">Controller</PageLink> を使用した
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            実装のリンク
-          </a>
-          を参照して下さい。
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "接続フォーム",
     description: (
@@ -328,54 +285,6 @@ export default {
         <code>ConnectForm</code> コンポーネントの利点は、input をどこからでも
         React Hook Form に接続できることです。
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "条件付き制御されたコンポーネント",
-    description: (
-      <>
-        <p>
-          React Hook Form
-          を使用すると、条件付きフィールドを非常にシンプルに扱えます。 input
-          がコンポーネントツリーから削除されると、自動的に{" "}
-          <code>unregister</code> されるからです。 そのような動作を
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            こちらの例に示します
-          </a>{" "}
-          。ただし、制御されたコンポーネントでは <code>ref</code>{" "}
-          が登録されていないため、 同じように自動的に登録解除されません。
-          対処方法は下記の通りです。
-        </p>
-        <ul>
-          <li>
-            <p>
-              <PageLink to="/api#Controller">Controller</PageLink>{" "}
-              をインポートしてコンポーネントをラップし、
-              登録および登録解除を管理できるようにします
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>{" "}
-              を使用して、カスタム登録として input を登録し、
-              コンポーネントのアンマウント後に登録を解除します
-            </p>
-          </li>
-        </ul>
-        <p>下記に例を示します：</p>
-      </>
     ),
   },
   formContext: {
@@ -609,28 +518,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "Strictly Typed",
-    description: (
-      <>
-        <p>
-          厳密な入力フォームを構築することは、登録時に柔軟な名前属性の性質上、困難な場合があります。これを可能にするためのプラグインを追加しました。
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          入力を <code>TypedController</code> でラップする必要があります。
-          入力された文字列名を配列の形に変換します。
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),

@@ -13,7 +13,6 @@ function App() {
     defaultValues: {
       test: items
     },
-    shouldUnregister: false
   });
   const { fields, remove } = useFieldArray({ control, name: "test" });
 
@@ -33,7 +32,7 @@ function App() {
         return (
           <form style={style}>
             <Controller
-              as={<input />}
+              render={({ field }) => <input {...field} />}
               name={\`test[\${index}].quantity\`}
               defaultValue={defaultValue}
               control={control}

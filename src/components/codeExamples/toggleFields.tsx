@@ -7,9 +7,9 @@ export default function App() {
   return (
     <div>
       {watchChecked ? (
-        <input ref={register} name="input3" type="text" key="key1" defaultValue="1" />
+        <input {...register("input3")} key="key1" defaultValue="1" />
       ) : (
-        <input ref={register} name="input4" type="text" key="key2" defaultValue="2" />
+        <input {...register("input4")} key="key2" defaultValue="2" />
       )}
     </div>
   );

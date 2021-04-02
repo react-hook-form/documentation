@@ -47,7 +47,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意：</b>React Native
           将需要使用手动注册 (例子如下:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code>
+          <code>{`register('test', { required: true })`}</code>
           或使用
           <Link to="/api#Controller">Controller</Link>
           来包装并注册你的组件。
@@ -163,56 +163,18 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>
-          React Hook Form 与第三方UI组件库一起使用非常方便。你可以观看下方视频
+          React Hook Form已经可以轻松地与外部UI进行整合。
+          组件库。您可以查看以下视频。
         </p>
 
         <p>
-          <b className={typographyStyles.note}>使用方法 1:</b>{" "}
-          最好的方式是检查你想要使用的组件是否暴露了 <code>ref</code> 可以用于{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>
-          。例如: Material-UI 的 <code>TextField</code> 的 props 就包含了{" "}
-          <code>inputRef</code> 。 你可以直接将 <code>register</code> 传递给它。
-        </p>
-        <p>
-          <code>{'<TextField inputRef={register} name="FirstName"/>'}</code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>使用方法 2:</b> 有时组件没有暴露
-          prop 用来注册, 例如 <code>react-select</code> 或者{" "}
+          受控组件不会暴露一个道具来注册，例如 。<code>react-select</code>或
           <code>react-datepicker</code>。
         </p>
         <p>
-          第二种方法是使用{" "}
-          <Link to={translateLink("/api#Controller", currentLanguage)}>
-            Controller
-          </Link>{" "}
-          包裹组件，他会帮你处理注册过程。
-        </p>
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
-        <p>
-          <b className={typographyStyles.note}>使用方法 3:</b> 最后我们可以通过{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          Hook 自定义注册并更新表单项的值。{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>
+          在这种情况下，您应该使用 。
+          <Link to="/api#Controller">Controller</Link>包装器组件，其
+          将为您办理注册手续。
         </p>
       </>
     ),

@@ -4,9 +4,12 @@ import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
 import CodeArea from "../../components/CodeArea"
+import copyClipBoard from "../../components/utils/copyClipBoard"
 import typographyStyles from "../../styles/typography.module.css"
 import tableStyles from "../../styles/table.module.css"
 import buttonStyles from "../../styles/button.module.css"
+import getStartedStyles from "../../components/GetStarted.module.css"
+import codeAreaStyles from "../../components/CodeArea.module.css"
 
 export default {
   title: "FAQs",
@@ -21,7 +24,7 @@ export default {
         <p>
           Performance is one of the primary reasons why this library was
           created. React Hook Form relies on uncontrolled components, which is
-          the reason why the <code>register</code> function occurs at the{" "}
+          the reason why the <code>register</code> function capture{" "}
           <code>ref</code>. This approach reduces the amount of re-rendering
           that occurs due to a user typing in an input or other form values
           changing. Components mount to the page faster than controlled
@@ -144,20 +147,6 @@ export default {
       ),
     },
     {
-      title: "Browser Support?",
-      description: (
-        <>
-          <p>
-            React Hook Form supports all major browsers. For legacy IE11
-            support, you can import react-hook-form IE 11 version. Make sure you
-            install <code>@babel/runtime-corejs3</code> as well.
-          </p>
-
-          <CodeArea rawData={`npm i @babel/runtime-corejs3`} />
-        </>
-      ),
-    },
-    {
       title: "Why is the first keystroke not working?",
       description: (
         <>
@@ -174,24 +163,6 @@ export default {
             <code>defaultValue</code> for the initial input value.
           </p>
         </>
-      ),
-    },
-    {
-      title: "Testing failed due to MutationObserver?",
-      description: (
-        <p>
-          If you have difficulty during testing and the issue was caused by{" "}
-          <code>MutationObserver</code>. Make sure you install{" "}
-          <code>mutationobserver</code> and import this package in your test{" "}
-          <a
-            href="https://jestjs.io/docs/en/configuration"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            setup.js file
-          </a>
-          .
-        </p>
       ),
     },
     {
@@ -297,9 +268,9 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@6.0.0
+                      react-hook-form@7.0.0
                       <br />
-                      <b className={typographyStyles.note}>8.9KB</b>
+                      <b className={typographyStyles.note}>8KB</b>
                     </code>
                   </td>
                   <td>
@@ -380,21 +351,162 @@ export default {
                   <td>Medium</td>
                   <td>Medium</td>
                 </tr>
-                <tr>
-                  <td>
-                    <b>Status</b>
-                  </td>
-                  <td>Medium Community and growing</td>
-                  <td>
-                    Large Community: Well established form lib in the community
-                  </td>
-                  <td>
-                    Large Community: Well established form lib in the community
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
+        </>
+      ),
+    },
+    {
+      title: "watch vs getValues vs state",
+      description: (
+        <div>
+          <ul>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>watch:</b> subscribe to
+                either all inputs or the specified inputs changes via event
+                listener and re-render based on which fields that are
+                subscribed. Check out{" "}
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  this codesandbox
+                </a>{" "}
+                for actual behaviour.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>getValues</b>: get values
+                that are stored inside the custom hook as reference, fast and
+                cheap. This method doesn’t trigger re-render.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b className={typographyStyles.note}>local state</b>: React
+                local state represent more than just input’s state and also
+                decide what to render. This will trigger on each input’s change.
+              </p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title:
+        "Why is default value not changing correctly with ternary operator?",
+      description: (
+        <>
+          <p>
+            React Hook Form doesn't control your entire form and inputs, which
+            is the reason why React wouldn't recognize the actual input that has
+            been exchanged or swapped. As a solution, you can resolve this
+            problem by giving a unique <code>key</code> prop to your input. You
+            can also read more about the key props from{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
+            >
+              this article written by Kent C. Dodds
+            </a>
+            .
+          </p>
+          <CodeArea
+            rawData={toggleFields}
+            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-3htr6"
+          />
+        </>
+      ),
+    },
+    {
+      title: "How to work with modal or tab forms?",
+      description: (
+        <>
+          <p>
+            It's important to understand React Hook Form embraces native form
+            behavior by storing input state inside each input (except custom
+            <code>register</code> at <code>useEffect</code>). One of the common
+            misconceptions is that when working with modal or tab forms, by
+            mounting and unmounting form/inputs that inputs state will remain.
+            That is incorrect. Instead, the correct solution would be to build a
+            new form for your form inside each modal or tab and capture your
+            submission data in local or global state and then do something with
+            the combined data.
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                <a
+                  href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Modal form and toggle inputs example
+                </a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a
+                  href="https://codesandbox.io/s/tabs-760h9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Tab form example
+                </a>
+              </p>
+            </li>
+          </ul>
+
+          <p>
+            Alternatively you can use the _deprecated_ option{" "}
+            <code>shouldUnregister: false</code> when calling `useForm`.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Controller not working with shouldFocusError?",
+      description: (
+        <>
+          <p>
+            After a validation error, React Hook Form will automatically focus
+            the invalids elements that have a proper ref, like the native inputs
+            (eg: <code>{`<input />`}</code>) or some 3rd party Components that
+            correctly export a ref (eg: from MUI{" "}
+            <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
+            )
+          </p>
+
+          <p>
+            However, for some 3rd party controlled Components (like{" "}
+            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
+            from AntD) it's very difficult to predict its ref because the
+            formats vary. In this case, React Hook Form will properly detect the
+            validation error but <i>will not be able to</i> automatically focus
+            that kind of Component.
+          </p>
+
+          <p>
+            As a workaround, after the validation error, you can manually focus
+            the 3rd party controlled Component (if you can get the actual
+            internal input ref), for example:
+          </p>
+          <CodeArea rawData={focusController} />
+
+          <p>
+            If you find difficult to make the autofocus with external controlled
+            component work correctly, it is possible to disable the "autofocus
+            on error" feature. It is possible that this behavior will bring a
+            better user experience in some cases.{" "}
+            <code>{`useForm({shouldFocusError: false});`}</code>
+          </p>
         </>
       ),
     },
@@ -495,173 +607,119 @@ export default {
       ),
     },
     {
-      title: "watch vs getValues vs state",
-      description: (
-        <div>
-          <ul>
-            <li>
-              <p>
-                <b className={typographyStyles.note}>watch:</b> subscribe to
-                either all inputs or the specified inputs changes via event
-                listener and re-render based on which fields that are
-                subscribed. Check out{" "}
-                <a
-                  href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  this codesandbox
-                </a>{" "}
-                for actual behaviour.
-              </p>
-            </li>
-            <li>
-              <p>
-                <b className={typographyStyles.note}>getValues</b>: get values
-                that are stored inside the custom hook as reference, fast and
-                cheap. This method doesn’t trigger re-render.
-              </p>
-            </li>
-            <li>
-              <p>
-                <b className={typographyStyles.note}>local state</b>: React
-                local state represent more than just input’s state and also
-                decide what to render. This will trigger on each input’s change.
-              </p>
-            </li>
-          </ul>
-        </div>
-      ),
-    },
-    {
-      title:
-        "Why is default value not changing correctly with ternary operator?",
+      title: "Browser Support?",
       description: (
         <>
           <p>
-            React Hook Form doesn't control your entire form and inputs, which
-            is the reason why React wouldn't recognize the actual input that has
-            been exchanged or swapped. As a solution, you can resolve this
-            problem by giving a unique <code>key</code> prop to your input. You
-            can also read more about the key props from{" "}
+            React Hook Form supports all major browsers. For legacy IE11
+            support, you can import react-hook-form IE 11 version. Make sure you
+            install <code>@babel/runtime-corejs3</code> as well.
+          </p>
+
+          <CodeArea rawData={`npm i @babel/runtime-corejs3`} />
+          <p>If you encounter: </p>
+          <blockquote>
+            {" "}
+            Object doesn't support property or method 'find'
+          </blockquote>
+          <p>
+            You should try to add this{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill">
+              find polyfill
+            </a>{" "}
+            to the top of your app.js
+          </p>
+
+          <h4>Version ^6.7.0</h4>
+
+          <p>
+            <b className={typographyStyles.note}>Important: </b>from version
+            6.7.0 onwards we are dropping babel, and using TypeScript to
+            transpile to es5. You can refer to this{" "}
             <a
+              href="https://github.com/react-hook-form/react-hook-form/issues/2775"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://kentcdodds.com/blog/understanding-reacts-key-prop"
             >
-              this article written by Kent C. Dodds
+              issue
+            </a>{" "}
+            for more detail.
+          </p>
+
+          <p>
+            The following polyfills are necessary. Feel free to let us know or
+            update the doc to reflect other missing polyfills.
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                <code>Object.values</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Object.entries</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Array.flat</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Array.find</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>Array.includes</code>
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>String.startsWith</code>
+              </p>
+            </li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      title: "Testing failed due to MutationObserver?",
+      description: (
+        <div>
+          <p>
+            If you have difficulty during testing and the issue was caused by{" "}
+            <code>MutationObserver</code>. Make sure you install{" "}
+            <code>mutationobserver</code> and import this package in your test{" "}
+            <a
+              href="https://jestjs.io/docs/en/configuration"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              setup.js file
             </a>
             .
           </p>
-          <CodeArea
-            rawData={toggleFields}
-            url="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-4mp39"
-          />
-        </>
+          <span>
+            npm i mutationobserver-shim
+            <button
+              className={getStartedStyles.copyButton}
+              onClick={() => {
+                copyClipBoard("npm i mutationobserver-shim")
+                alert("Code copied into your clipboard.")
+              }}
+            >
+              <span className={codeAreaStyles.copyIcon}>
+                <span />
+              </span>{" "}
+              Copy
+            </button>
+          </span>
+        </div>
       ),
     },
-    {
-      title: "Controller not working with shouldFocusError?",
-      description: (
-        <>
-          <p>
-            After a validation error, React Hook Form will automatically focus
-            the invalids elements that have a proper ref, like the native inputs
-            (eg: <code>{`<input />`}</code>) or some 3rd party Components that
-            correctly export a ref (eg: from MUI{" "}
-            <code>{`<TextField inputRef={register({required: 'Field Required'})} />`}</code>
-            )
-          </p>
-
-          <p>
-            However, for some 3rd party controlled Components (like{" "}
-            <code>{`<Autocomplete>`}</code> from MUI or <code>{`<XX>`}</code>{" "}
-            from AntD) it's very difficult to predict its ref because the
-            formats vary. In this case, React Hook Form will properly detect the
-            validation error but <i>will not be able to</i> automatically focus
-            that kind of Component.
-          </p>
-
-          <p>
-            As a workaround, after the validation error, you can manually focus
-            the 3rd party controlled Component (if you can get the actual
-            internal input ref), for example:
-          </p>
-          <CodeArea rawData={focusController} />
-
-          <p>
-            If you find difficult to make the autofocus with external controlled
-            component work correctly, it is possible to disable the "autofocus
-            on error" feature. It is possible that this behavior will bring a
-            better user experience in some cases.{" "}
-            <code>{`useForm({shouldFocusError: false});`}</code>
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "How to work with modal or tab forms?",
-      description: (
-        <>
-          <p>
-            It's important to understand React Hook Form embraces native form
-            behavior by storing input state inside each input (except custom
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is that when working with modal or tab forms, by
-            mounting and unmounting form/inputs that inputs state will remain.
-            That is incorrect. Instead, the correct solution would be to build a
-            new form for your form inside each modal or tab and capture your
-            submission data in local or global state and then do something with
-            the combined data.
-          </p>
-
-          <ul>
-            <li>
-              <a
-                href="https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Modal form and toggle inputs example
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://codesandbox.io/s/tabs-760h9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Tab form example
-              </a>
-            </li>
-          </ul>
-          
-          <p>Alternatively you can use the _deprecated_ option <code>shouldUnregister: false</code> when calling `useForm`.</p>
-        </>
-      ),
-    },
-    // {
-    //   title: "Unmounted component warning?",
-    //   description: (
-    //     <>
-    //       <p>
-    //         Execute async submit function while <code>useForm</code> gets
-    //         unmounted will result in the following warning from React at{" "}
-    //         <b>dev build</b>.
-    //       </p>
-    //
-    //       <blockquote>
-    //         Can't perform a React state update on an unmounted component.
-    //       </blockquote>
-    //
-    //       <p>
-    //         This is not the same case at prod build, such behavior is made so we
-    //         are compatible with React fast refresh. Inputs' <code>ref</code>{" "}
-    //         callback will not get executed again during fast refresh, so we have
-    //         disabled the hook unmount check at dev only.
-    //       </p>
-    //     </>
-    //   ),
-    // },
   ],
 }

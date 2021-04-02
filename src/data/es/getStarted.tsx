@@ -50,9 +50,9 @@ export default {
         <p>
           <b className={typographyStyles.note}>Nota: </b>En React Native es
           necesario utilizar un comando de registro manual:{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code> o
-          utilizar <Link to="/api#Controller">Controller</Link> para wrappear y
-          auto registrar tu componente. Puedes leer mas en la sección de{" "}
+          <code>{`register('test', { required: true })`}</code> o utilizar{" "}
+          <Link to="/api#Controller">Controller</Link> para wrappear y auto
+          registrar tu componente. Puedes leer mas en la sección de{" "}
           <Link to="/api/#ReactNative">React Native</Link>.
         </p>
       </>
@@ -158,67 +158,22 @@ export default {
   },
   workWithUI: {
     title: "Trabajar con una librería UI",
-    description: (currentLanguage) => (
+    description: (
       <>
         <p>
-          React Hook Form facilita la integración con componentes de librerías
-          de UI externas.
+          React Hook Form ha facilitado la integración con bibliotecas externas
+          de bibliotecas de componentes. Puedes consultar los siguientes vídeos.
+        </p>
+
+        <p>
+          Los componentes controlados no exponen una prop para registrar, por
+          ejemplo{""}
+          <code>react-select</code> o <code>react-datepicker</code>.
         </p>
         <p>
-          <b className={typographyStyles.note}>Opción 1:</b> La mejor manera es
-          chequear si el componente que pretendes utilizar expone una referencia
-          interna <code>innerRef</code>o una referencia <code>ref</code> pueda
-          ser utilizada para registración el componente con{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>
-          . Por ejemplo: El <code>TextField</code> de Material-UI acepta{" "}
-          <code>inputRef</code> en sus propiedades. Simplemente debes pasar el
-          objeto <code>register</code> de RHF en ella.
-        </p>
-        <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>Opción 2:</b> Algunas veces los
-          componentes no exponen una propiedad que se pueda utilizar para
-          registar, como es el caso de <code>react-select</code> o{" "}
-          <code>react-datepicker</code>.
-        </p>
-        <p>
-          La siguiente forma más fácil es utilizar el componente{" "}
-          <Link to="/api#Controller">Controller</Link>, cuando utilizas este
-          componente, él se encarga de realizar el proceso de registro por ti.
-        </p>
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
-        <p>
-          <b className={typographyStyles.note}>Opción 3:</b> Por último, puedes
-          configurar un registro personalizado utilizando el hook{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          y actualizar el valor a través de{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>
-          .
+          En este caso, se debe utilizar el código{" "}
+          <Link to="/api#Controller">Controlador</Link> componente envolvente,
+          que se encargará del proceso de registro por ti.
         </p>
       </>
     ),

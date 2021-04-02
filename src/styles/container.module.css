@@ -13,6 +13,10 @@
   max-width: 1024px;
 }
 
+.centerContent svg {
+  display: none;
+}
+
 .wrapper {
   max-width: 1235px;
   margin: 0 auto;
@@ -31,6 +35,13 @@
     padding-top: 0;
   }
 
+  .centerContent svg {
+    width: 85px;
+    display: block;
+    text-align: center;
+    margin: 100px auto -30px;
+  }
+
   .wrapper {
     display: grid;
     grid-template-columns: 250px minmax(0, 1fr);
@@ -41,5 +52,9 @@
   .wrapper {
     display: grid;
     grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .centerContent svg {
+    margin: 100px auto -50px;
   }
 }

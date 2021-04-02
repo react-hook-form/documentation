@@ -14,10 +14,8 @@ import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import control from "./codeExamples/control"
 import shareRefTs from "./codeExamples/shareRefTs"
-import codeAreaStyles from "./CodeArea.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import getStartedStyles from "./GetStarted.module.css"
 
 const { useRef } = React
 
@@ -31,9 +29,10 @@ interface Props {
 const Faq = ({ defaultLang, faq }: Props) => {
   const {
     state,
-    state: { language },
+    state: { language, setting = {} },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
+  const isV7 = setting.version === 7
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -107,7 +106,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
         <SideMenu
           enLinks={enLinks}
           isStatic
-          links={links}
+          links={isV7 ? links.slice(0, links.length - 5) : links}
           goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
@@ -215,72 +214,6 @@ import { useForm } from 'react-hook-form/dist/react-hook-form.ie11'; // V5'
 import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             withOutCopy
           />
-          <p>If you encounter: </p>
-          <blockquote>
-            {" "}
-            Object doesn't support property or method 'find'
-          </blockquote>
-          <p>
-            You should try to add this{" "}
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill">
-              find polyfill
-            </a>{" "}
-            to the top of your app.js
-          </p>
-
-          <h4>Version ^6.7.0</h4>
-
-          <p>
-            <b className={typographyStyles.note}>Important: </b>from version
-            6.7.0 onwards we are dropping babel, and using TypeScript to
-            transpile to es5. You can refer to this{" "}
-            <a
-              href="https://github.com/react-hook-form/react-hook-form/issues/2775"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              issue
-            </a>{" "}
-            for more detail.
-          </p>
-
-          <p>
-            The following polyfills are necessary. Feel free to let us know or
-            update the doc to reflect other missing polyfills.
-          </p>
-
-          <ul>
-            <li>
-              <p>
-                <code>Object.values</code>
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>Object.entries</code>
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>Array.flat</code>
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>Array.find</code>
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>Array.includes</code>
-              </p>
-            </li>
-            <li>
-              <p>
-                <code>String.startsWith</code>
-              </p>
-            </li>
-          </ul>
 
           <hr />
 
@@ -305,26 +238,6 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
           </h2>
 
           {faq.questions[9].description}
-
-          <span
-            className={`${getStartedStyles.installCode} ${
-              lightMode ? getStartedStyles.lightInstallCode : ""
-            }`}
-          >
-            npm i mutationobserver-shim
-            <button
-              className={getStartedStyles.copyButton}
-              onClick={() => {
-                copyClipBoard("npm i mutationobserver-shim")
-                alert("Code copied into your clipboard.")
-              }}
-            >
-              <span className={codeAreaStyles.copyIcon}>
-                <span />
-              </span>{" "}
-              Copy
-            </button>
-          </span>
 
           <hr />
 
@@ -354,81 +267,73 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             <CodeArea rawData={control} />
             <CodeArea
               rawData={controlled}
-              url="https://codesandbox.io/s/react-hook-form-controlled-input-gr478"
+              url="https://codesandbox.io/s/react-hook-form-controlled-input-forked-rl2v1"
             />
           </TabGroup>
 
-          <hr />
+          {isV7 ? null : (
+            <>
+              <hr />
 
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (sectionsRef.current.question12 = ref)}
-            id="question12"
-          >
-            {faq.questions[12].title}
-          </h2>
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question12 = ref)}
+                id="question12"
+              >
+                {faq.questions[12].title}
+              </h2>
 
-          {faq.questions[12].description}
+              {faq.questions[12].description}
 
-          <hr />
+              <hr />
 
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (sectionsRef.current.question13 = ref)}
-            id="question13"
-          >
-            {faq.questions[13].title}
-          </h2>
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question13 = ref)}
+                id="question13"
+              >
+                {faq.questions[13].title}
+              </h2>
 
-          {faq.questions[13].description}
+              {faq.questions[13].description}
 
-          <hr />
+              <hr />
 
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (sectionsRef.current.question14 = ref)}
-            id="question14"
-          >
-            {faq.questions[14].title}
-          </h2>
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question14 = ref)}
+                id="question14"
+              >
+                {faq.questions[14].title}
+              </h2>
 
-          {faq.questions[14].description}
+              {faq.questions[14].description}
 
-          <hr />
+              <hr />
 
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (sectionsRef.current.question15 = ref)}
-            id="question15"
-          >
-            {faq.questions[15].title}
-          </h2>
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question15 = ref)}
+                id="question15"
+              >
+                {faq.questions[15].title}
+              </h2>
 
-          {faq.questions[15].description}
+              {faq.questions[15].description}
 
-          <hr />
+              <hr />
 
-          <h2
-            className={typographyStyles.questionTitle}
-            ref={(ref) => (sectionsRef.current.question16 = ref)}
-            id="question16"
-          >
-            {faq.questions[16].title}
-          </h2>
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question16 = ref)}
+                id="question16"
+              >
+                {faq.questions[16].title}
+              </h2>
 
-          {faq.questions[16].description}
-
-          {/*<hr />*/}
-
-          {/*<h2*/}
-          {/*  className={typographyStyles.questionTitle}*/}
-          {/*  ref={(ref) => (sectionsRef.current.question17 = ref)}*/}
-          {/*  id="question16"*/}
-          {/*>*/}
-          {/*  {faq.questions[17].title}*/}
-          {/*</h2>*/}
-
-          {/*{faq.questions[17].description}*/}
+              {faq.questions[16].description}
+            </>
+          )}
 
           <StarRepo currentLanguage={currentLanguage} />
 

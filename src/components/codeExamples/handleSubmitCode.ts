@@ -8,8 +8,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input name="firstName" ref={register} />
-      <input name="lastName" ref={register} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <button type="submit">Submit</button>
     </form>
   );

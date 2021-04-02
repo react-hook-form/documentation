@@ -1,9 +1,9 @@
-export default (formData: any) => {
+export default (formData: any, isV7: boolean) => {
   return `import React from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function App() {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
   console.log(errors);
   
@@ -34,12 +34,16 @@ ${
             minLength,
             pattern,
           ].some(Boolean)
-          const ref = ` ref={register${
-            anyAttribute ? "({ required: true })" : ""
-          }}`
+          const ref = isV7
+            ? `{...register${
+                anyAttribute ? `("${name}", { required: true })` : ""
+              }}`
+            : ` ref={register${anyAttribute ? "({ required: true })" : ""}}`
 
           if (type === "select") {
-            const select = `      <select name="${name}"${ref}>\n${options
+            const select = `      <select ${
+              isV7 ? "" : `name="${name}"`
+            }${ref}>\n${options
               .split(";")
               .filter(Boolean)
               .reduce((temp, option) => {
@@ -59,7 +63,9 @@ ${
               .reduce((temp, option) => {
                 return (
                   temp +
-                  `      <input name="${name}" type="${type}" value="${option}"${ref}/>\n`
+                  `      <input ${
+                    isV7 ? "" : `name="${name}"`
+                  }${ref}type="${type}" value="${option}" />\n`
                 )
               }, "")}`
 
@@ -69,7 +75,7 @@ ${
           let attributes = ""
 
           if (anyAttribute) {
-            attributes += "({"
+            attributes += isV7 ? `("${name}", {` : "({"
 
             if (required) {
               attributes += "required: true"
@@ -99,14 +105,18 @@ ${
             attributes += "})"
           }
 
+          const register = isV7
+            ? `{...register${attributes}}`
+            : `name="${name}" ref={register${attributes}`
+
           if (type === "textarea") {
-            const select = `      <textarea name="${name}" ref={register${attributes}} />\n`
+            const select = `      <textarea ${register} />\n`
             return previous + select
           }
 
           return (
             previous +
-            `      <input type="${type}" placeholder="${name}" name="${name}" ref={register${attributes}} />\n`
+            `      <input type="${type}" placeholder="${name}" ${register} />\n`
           )
         },
         ""

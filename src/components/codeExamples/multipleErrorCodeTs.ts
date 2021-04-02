@@ -22,8 +22,7 @@ export default function App() {
       <label>Password</label>
       <input
         type="password"
-        name="password"
-        ref={register({ required: true, minLength: 10, pattern: /\d+/gi })}
+        {...register("password", { required: true, minLength: 10, pattern: /\d+/gi })}
       />
       {/* without enter data for the password input will result both messages to appear */}
       {errors?.password?.types?.required && <p>password required</p>}

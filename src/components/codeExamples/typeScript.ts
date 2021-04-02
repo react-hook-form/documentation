@@ -7,17 +7,16 @@ type FormData = {
 };
 
 export default function App() {
-  const { register, setValue, handleSubmit, errors } = useForm<FormData>();
-  const onSubmit = handleSubmit(({ firstName, lastName }) => {
-    console.log(firstName, lastName);
-  }); // firstName and lastName will have correct type
+  const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const onSubmit = handleSubmit(data => console.log(data));
+  // firstName and lastName will have correct type
 
   return (
     <form onSubmit={onSubmit}>
       <label>First Name</label>
-      <input name="firstName" ref={register} />
+      <input {...register("firstName")} />
       <label>Last Name</label>
-      <input name="lastName" ref={register} />
+      <input {...register("lastName")} />
       <button
         type="button"
         onClick={() => {

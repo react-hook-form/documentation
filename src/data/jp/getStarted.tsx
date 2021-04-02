@@ -58,7 +58,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>注意：</b>React Native は手動登録
           (manual <code>register</code>) する必要があります。 (例：{" "}
-          <code>{`register({ name: 'test' }, { required: true })`}</code>
+          <code>{`register('test', { required: true })`}</code>
           または、
           <Link to="/api#Controller">Controller</Link>
           を使用してコンポーネントをラップします。
@@ -169,64 +169,18 @@ export default {
     description: (currentLanguage) => (
       <>
         <p>
-          React Hook Form は、外部 UI
-          コンポーネントライブラリとの統合が容易です。
+          React Hook Formで外部UIとの連携が容易になった
+          コンポーネントライブラリを使用しています。以下の動画をチェックしてみてください。
         </p>
         <p>
-          <b className={typographyStyles.note}>オプション1：</b>{" "}
-          最適な方法は、使用したい外部コンポーネントが{" "}
-          <code>
-            <Link to={translateLink("api#register", currentLanguage)}>
-              register
-            </Link>
-          </code>{" "}
-          に使用できる <code>innerRef</code> または <code>ref</code>{" "}
-          を公開しているかどうかを確認することです。 例えば、Material-UI の{" "}
-          <code>TextField</code> は、 props の1つとして <code>inputRef</code>{" "}
-          を受け付けます。
-          <code>inputRef</code> に <code>register</code> を渡すだけです
+          制御されたコンポーネントは、例えば{" "}
+          のように、登録するプロップを公開しません。
+          <code>react-select</code> または <code>react-datepicker</code>。
         </p>
         <p>
-          <code>
-            {
-              '<TextField inputRef={register} label="First name" name="FirstName"/>'
-            }
-          </code>
-        </p>
-        <p>
-          <b className={typographyStyles.note}>オプション2：</b> 例えば、{" "}
-          <code>react-select</code> や <code>react-datepicker</code>{" "}
-          などのように、 コンポーネントによっては register のための prop
-          が公開されていないことがあります。
-        </p>
-        <p>
-          次に簡単な方法は、ラッパーコンポーネントである{" "}
-          <Link to="/api#Controller">Controller</Link> を使用することです。
-          このコンポーネントはカスタム登録処理を行います。
-        </p>
-
-        <CodeArea
-          rawData={uiLibraryHookInput}
-          url="https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-          tsRawData={uiLibraryHookInputTs}
-          tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-        />
-        <p>
-          <b className={typographyStyles.note}>オプション3：</b> 最後に{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reactjs.org/docs/hooks-effect.html"
-          >
-            useEffect
-          </a>{" "}
-          フックを使用してカスタム登録を設定し、{" "}
-          <code>
-            <Link to={translateLink("api#setValue", currentLanguage)}>
-              setValue
-            </Link>
-          </code>{" "}
-          を介して値を更新できます。
+          この場合、 を使用する必要があります。
+          <Link to="/api#Controller">Controller</Link>ラッパーコンポーネント。
+          が登録手続きを代行してくれます。
         </p>
       </>
     ),

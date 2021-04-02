@@ -6,8 +6,8 @@ export default function App() {
   const onSubmit = data => console.log(data);
 
   useEffect(() => {
-    register({ name: "firstName" }, { required: true });
-    register({ name: "lastName" });
+    register("firstName", { required: true });
+    register("lastName");
   }, []);
 
   return (

@@ -13,11 +13,13 @@ export default function FormContext({ currentLanguage, api }) {
       <code className={typographyStyles.codeHeading}>
         <h2>
           useFormContext:{" "}
-          <span className={typographyStyles.typeText}>Component</span>
+          <span className={typographyStyles.typeText}>Function</span>
         </h2>
       </code>
 
       {api.useFormContext.introduction}
+
+      <h2 className={typographyStyles.subTitle}>Props</h2>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
@@ -46,7 +48,7 @@ export default function FormContext({ currentLanguage, api }) {
 
       <CodeArea
         rawData={formContext}
-        url="https://codesandbox.io/s/react-hook-form-v6-form-context-sl3b5"
+        url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
       />
     </>
   )

@@ -8,12 +8,10 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
-      <Controller as={TextField} name="TextField" control={control} defaultValue="" />
-      
       <Controller
         control={control}
         name="ReactDatepicker"
-        render={({ onChange, onBlur, value }) => (
+        render={({ field: { onChange, onBlur, value, ref } }) => (
           <ReactDatePicker
             onChange={onChange}
             onBlur={onBlur}

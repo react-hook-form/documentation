@@ -11,8 +11,6 @@ import { Link as PageLink } from "gatsby"
 import typographyStyles from "../../styles/typography.module.css"
 import buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
-import virtualizedList from "../../components/codeExamples/virtualizedList"
-import strictlyTyped from "../../components/codeExamples/strictlyTyped"
 
 export default {
   title: "Uso avanzado",
@@ -272,45 +270,6 @@ export default {
       </>
     ),
   },
-  fieldArrays: {
-    title: "Field Arrays",
-    description: (
-      <>
-        <p>
-          Esta es una de las mejores características de React Hook Form: en
-          lugar de importar componentes (como otras librerías) para lograr esta
-          funcionalidad, puedes aprovechar HTML. La clave está en el atributo{" "}
-          <code>name</code>. En React Hook Form, el atributo <code>name</code>{" "}
-          representa la estructura de datos que deseas usar.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> tambien hemos
-          construido a custom hook for complex scenario:{" "}
-          <PageLink to="/api#useFieldArray">useFieldArray</PageLink>.
-        </p>
-
-        <p>
-          El siguiente ejemplo muestra cómo puedes crear Field Arrays
-          manipulando el atributo <code>name</code> del input.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Nota:</b> si tu aplicación
-          necesita funcionalidad como: Eliminar, Insertar, Anexar, Anteponer.
-          Aquí esta el{" "}
-          <a
-            href="https://codesandbox.io/s/react-hook-form-v6-controller-append-prepepend-insert-7clz7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            link para esa implementación.
-          </a>{" "}
-          con <PageLink to="/api#Controller">Controller</PageLink>.
-        </p>
-      </>
-    ),
-  },
   connectForm: {
     title: "Connect Form",
     description: (
@@ -325,53 +284,6 @@ export default {
         React. El beneficio de este componente es que puede conectar tus inputs
         con React Hook Form desde cualquier lugar.
       </p>
-    ),
-  },
-  conditionalControlledComponent: {
-    title: "Componente controlado condicional",
-    description: (
-      <>
-        <p>
-          En términos de campos condicionales, React Hook Form lo hace realmente
-          simple, al momento en que elimines el input del árbol de componentes,
-          este será <code>desregistrado</code> automáticamente,{" "}
-          <a
-            href="https://codesandbox.io/s/13ykqx4wx7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            aquí hay un ejemplo
-          </a>{" "}
-          de ese comportamiento. Sin embargo, este no es el mismo caso para
-          componentes controlados ya que <code>ref</code> no ha sido registrado,
-          podemos hacer lo siguiente:
-        </p>
-        <ul>
-          <li>
-            <p>
-              Importa <PageLink to="/api#Controller">Controller</PageLink> para
-              wrappear tu componente y deja que Controller maneje el registro y
-              desregistro
-            </p>
-          </li>
-          <li>
-            <p>
-              Aprovecha el uso de{" "}
-              <code>
-                <a
-                  href="https://reactjs.org/docs/hooks-effect.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  useEffect
-                </a>
-              </code>{" "}
-              con registro personalizado
-            </p>
-          </li>
-        </ul>
-        <p> Aquí están los ejemplos:</p>
-      </>
     ),
   },
   formContext: {
@@ -598,32 +510,6 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
-        />
-      </>
-    ),
-  },
-  strictlyTyped: {
-    title: "Strictly Typed",
-    description: (
-      <>
-        <p>
-          La elaboración de un formulario/entrada estrictamente mecanografiado
-          puede ser un reto debido a la naturaleza del atributo de nombre
-          flexible durante el registro. Hemos construido un plug-in extra para
-          hacer esto posible.
-        </p>
-
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
-
-        <p>
-          Tendremos que envolver nuestras entradas con{" "}
-          <code>TypedController</code> y convertir el nombre de la cadena de
-          entrada en una forma de matriz.
-        </p>
-
-        <CodeArea
-          tsRawData={strictlyTyped}
-          tsUrl="https://codesandbox.io/s/react-hook-form-usetypedcontroller-23qv1"
         />
       </>
     ),
