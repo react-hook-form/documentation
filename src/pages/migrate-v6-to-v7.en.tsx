@@ -81,6 +81,11 @@ export default ({ location }) => {
 
             <h2>Upgrade Packages</h2>
 
+            <p>
+              <b className={typographyStyles.note}>Important:</b> if you are
+              using TypeScript, react hook form will need to have TS 4.1 above.
+            </p>
+
             <CodeArea
               rawData={`npm i react-hook-form@latest // react-hook-form: "^7.0.0"
               
