@@ -50,7 +50,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   }
 
   React.useEffect(() => {
-    getPost()
+    if (isV7) {
+      getPost()
+    }
 
     if (!isV7) setPlay(true)
   }, [isV7])
