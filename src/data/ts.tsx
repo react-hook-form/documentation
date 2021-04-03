@@ -82,7 +82,7 @@ type FormValues = {
   key4: NestedValue<string[]>
 };
 
-const { errors } = useForm<FormValues>();
+const { formState: { errors } } = useForm<FormValues>();
 
 errors?.key1?.message // no type error
 errors?.key2?.message // no type error
@@ -120,7 +120,7 @@ const resolver: Resolver<FormValues> = async (values) => {
 };
 
 export default function App() {
-  const { register, handleSubmit, errors } = useForm<FormValues>({ resolver });
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
   const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
