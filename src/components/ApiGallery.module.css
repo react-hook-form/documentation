@@ -50,6 +50,11 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 12px 20px 12px 80px;
   font-size: 14px;
 }
