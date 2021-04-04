@@ -60,8 +60,16 @@ export default function GetStarted({
       <CodeArea
         rawData={isV7 ? code : codeV6}
         tsRawData={isV7 ? codeTs : codeTsV6}
-        url="https://codesandbox.io/s/kw7z2q2n15"
-        tsUrl="https://codesandbox.io/s/react-hook-form-get-started-ts-resrg"
+        url={
+          isV7
+            ? "https://codesandbox.io/s/react-hook-form-get-started-j5wxo"
+            : "https://codesandbox.io/s/kw7z2q2n15"
+        }
+        tsUrl={
+          isV7
+            ? "https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
+            : "https://codesandbox.io/s/react-hook-form-get-started-ts-resrg"
+        }
       />
     </>
   )
