@@ -8,7 +8,6 @@ const Search = () => {
   const { action, state } = useStateMachine(updateSetting)
 
   React.useEffect(() => {
-    // @ts-ignore
     window.docsearch({
       apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
       indexName: "react-hook-form",
