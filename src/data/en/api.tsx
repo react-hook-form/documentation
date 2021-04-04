@@ -2430,4 +2430,12 @@ const { field: checkbox } = useController({ name: 'test1' })
       </>
     ),
   },
+  setFocus: {
+    description: (
+      <p>
+        This method will allow users to programmatically focus on input. Make
+        sure input's ref is registered into the hook form.
+      </p>
+    ),
+  },
 }
