@@ -25,9 +25,9 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> is custom hook for managing forms with ease, it
-        also takes <b>optional</b> arguments. The following example demonstrates
-        all of the arguments with their default values.
+        <code>useForm</code> is custom hook for managing forms with ease. It
+        takes <b>optional</b> arguments. The following example demonstrates all
+        of the arguments along with their default values.
       </p>
     ),
     validateCriteriaMode: (
@@ -50,7 +50,7 @@ export default {
       <>
         <p>
           This context <code>object</code> is mutable and will be injected into{" "}
-          <code>resolver</code>'s second argument or{" "}
+          the <code>resolver</code>'s second argument or{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -96,7 +96,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note:</b> when using with{" "}
           <code>Controller</code>, make sure to wire up <code>onBlur</code> with{" "}
-          <code>render</code> prop.
+          the <code>render</code> prop.
         </p>
       </>
     ),
@@ -107,7 +107,7 @@ export default {
           value when a component is first rendered, before a user interacts with
           it. It is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
           for all inputs to non-
-          <code>undefined</code> such as the empty <code>string</code> or{" "}
+          <code>undefined</code> values such as the empty <code>string</code> or{" "}
           <code>null</code>.
         </p>
         <p>
@@ -119,7 +119,7 @@ export default {
           >
             (read more from the React doc for Default Values)
           </a>
-          , pass <code>defaultValues</code> as an optional argument to{" "}
+          . You can pass <code>defaultValues</code> as an optional argument to{" "}
           <code>useForm()</code> to populate the default values for the entire
           form, or set values on an individual{" "}
           <Link to={"/api/usecontroller/controller"}>Controller</Link> component
@@ -132,8 +132,8 @@ export default {
           <li>
             <p>
               {" "}
-              <code>defaultValues</code> is cached{" "}
-              <strong>at the first render</strong> within the custom hook. If
+              <code>defaultValues</code> are cached{" "}
+              <strong>on the first render</strong> within the custom hook. If
               you want to reset the <code>defaultValues</code>, you should use
               the <Link to={"/api/reset"}>reset</Link> api.
             </p>
@@ -150,22 +150,22 @@ export default {
           </li>
           <li>
             <p>
-              Its not default state for the form, to include additional form
-              values:
+              It's not default for the form, to include additional form values.
+              To do so:
             </p>
             <ol>
               <li>
                 <p>
-                  Register hidden input:{" "}
+                  Register hidden inputs. For example:{" "}
                   <code>{`<input type="hidden" {...register('test'} />`}</code>
                 </p>
               </li>
               <li>
-                <p>Combine values at onSubmit callback.</p>
+                <p>Combine values via the onSubmit callback.</p>
               </li>
               <li>
                 <p>
-                  Register input with value{" "}
+                  Register an input with a value. For example:{" "}
                   <code>{`register('test')({ test: "test"})`}</code>
                 </p>
               </li>
@@ -173,7 +173,7 @@ export default {
           </li>
           <li>
             <p>
-              <code>defaultValues</code> will be shallow merged with form
+              <code>defaultValues</code> will be shallowly merged with form
               submission data.
             </p>
           </li>
@@ -203,8 +203,8 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> only registered fields
-          with <code>ref</code> will work. Custom <code>register</code> inputs
-          do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
+          with a <code>ref</code> will work. Custom registered inputs do not
+          apply. For example: <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
 
         <p>
@@ -247,15 +247,15 @@ export default {
       <>
         <p>
           This method allows you to <code>unregister</code> a single input or an
-          array of inputs. It also provide a second optional argument to keep
-          state after unregister an input.
+          array of inputs. It also provides a second optional argument to keep
+          state after unregistering an input.
         </p>
 
         <div className={tableStyles.tableWrapper}>
           <h2 className={typographyStyles.subTitle}>Props</h2>
 
           <p>
-            Below example shows what to expect when you invoke{" "}
+            The example below shows what to expect when you invoke the{" "}
             <code>unregister</code> method.
           </p>
 
@@ -266,7 +266,7 @@ export default {
           />
 
           <p>
-            Below example shows what to expect when you invoke{" "}
+            The example below shows what to expect when you invoke the{" "}
             <code>unregister</code> method.
           </p>
 
@@ -323,14 +323,15 @@ export default {
     description: (
       <>
         <p>
-          This method allows you to register an input/select and apply
-          validation rules into React Hook Form. Validation rules are all based
-          on HTML standard and also allow custom validation.
+          This method allows you to register an input or select element and
+          apply validation rules to React Hook Form. Validation rules are all
+          based on the HTML standard and also allow for custom validation
+          methods.
         </p>
 
         <p>
-          By invoking the register function and supply input's name, you will
-          receive the following methods:
+          By invoking the register function and supplying an input's name, you
+          will receive the following methods:
         </p>
 
         <div className={tableStyles.tableWrapper}>
@@ -408,19 +409,21 @@ export default {
           <li>
             <p>
               It is <b>required</b> and <b>unique</b> (except native radio and
-              checkbox). Input name also supports dot and bracket syntax, which
+              checkbox). Input name supports both dot and bracket syntax, which
               allows you to easily create nested form fields.
             </p>
           </li>
           <li>
-            <p>It can not start with a number or use number as key name.</p>
+            <p>
+              It can neither start with a number nor use number as key name.
+            </p>
           </li>
           <li>
             <p>
-              <code>disabled</code> input will result as <code>undefined</code>,
-              if you want to prevent users from update the input, you can use{" "}
-              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
-              is an{" "}
+              <code>disabled</code> input will result in an{" "}
+              <code>undefined</code> form value. If you want to prevent users
+              from updating the input, you can use <code>readOnly</code> or
+              disable the entire {`<fieldset />`}. Here is an{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
                 target="_blank"
@@ -433,15 +436,15 @@ export default {
           </li>
           <li>
             <p>
-              To produce array fields, input should followed with dot syntax
-              with number. eg: <code>test.0.data</code>
+              To produce an array of fields, input names should be followed by a{" "}
+              dot and number. For example: <code>test.0.data</code>
             </p>
           </li>
           <li>
             <p>
-              Changing name on each render will result <code>register</code> new
-              inputs. It's recommend to keep static name for each registered
-              input.
+              Changing the name on each render will result in new inputs being
+              being registered. It's recommend to keep static names for each
+              registered input.
             </p>
           </li>
         </ul>
@@ -462,9 +465,9 @@ export default {
           <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
 
           <p>
-            You can also <code>register</code> inputs at <code>useEffect</code>{" "}
-            and treat them as virtual inputs. For controlled components, we
-            provide a custom hook{" "}
+            You can also <code>register</code> inputs with{" "}
+            <code>useEffect</code> and treat them as virtual inputs. For
+            controlled components, we provide a custom hook{" "}
             <Link to={"/api/usecontroller"}>useController</Link> and{" "}
             <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
             component to take care this process for you.
@@ -478,7 +481,7 @@ export default {
           <CodeArea
             rawData={`register('firstName', { required: true, min: 8 });
             
-const { onChange } = register('lastChange'); // this onChange method can update input value
+const { onChange } = register('lastChange'); // this onChange method can update the input value
 
 // This will work for React Native, except you can't reset input value
 <TextInput onTextChange={onChange} />`}
@@ -515,11 +518,11 @@ const { onChange } = register('lastChange'); // this onChange method can update 
             (refer to the examples)
           </p>
           <p>
-            <b className={typographyStyles.note}>Note:</b> <code>object</code>{" "}
-            or <code>array</code> input data, it's recommend to use{" "}
-            <code>validate</code> function to validate as the other rules are
-            mostly apply to <code>string</code>, <code>number</code> and{" "}
-            <code>boolean</code> data type.
+            <b className={typographyStyles.note}>Note:</b> for{" "}
+            <code>object</code> or <code>array</code> input data, it's recommend
+            to use the <code>validate</code> function for validation as the
+            other rules mostly apply to <code>string</code>, <code>number</code>{" "}
+            and <code>boolean</code> data type.
           </p>
         </>
       ),
@@ -531,15 +534,15 @@ const { onChange } = register('lastChange'); // this onChange method can update 
       <>
         <p>
           This object contains information about the form state. If you want to
-          subscribe to <code>formState</code> update at <code>useEffect</code>,
-          make sure that you place the entire <code>formState</code> in the
-          optional array.
+          subscribe to <code>formState</code> via <code>useEffect</code>, make
+          sure that you place the entire <code>formState</code> in the optional
+          array.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <p>
-          <code>formState</code> is wrapped with{" "}
+          <code>formState</code> is wrapped with a{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
             target="_blank"
@@ -548,10 +551,10 @@ const { onChange } = register('lastChange'); // this onChange method can update 
             Proxy
           </a>{" "}
           to improve render performance and skip extra logic if specific state
-          is not subscribed, so make sure you invoke or read it before{" "}
-          <code>render</code> in order to enable the state update. This reduced
-          re-render feature only applies to the Web platform due to a lack of
-          support for Proxy in React Native.
+          is not subscribed to. Therefore make sure you invoke or read it before{" "}
+          a <code>render</code> in order to enable the state update. This
+          reduced re-render feature only applies to the Web platform due to a
+          lack of support for Proxy in React Native.
         </p>
 
         <TabGroup buttonLabels={["snippet", "example"]}>
@@ -596,8 +599,8 @@ return <button disabled={!isDirty || !isValid} />;
           </li>
           <li>
             <p>
-              File typed input will need to manage at app level due to the
-              ability to cancel file selection and{" "}
+              File typed input will need to be managed at the app level due to
+              the ability to cancel file selection and{" "}
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/FileList"
                 target="_blank"
@@ -626,8 +629,8 @@ return <button disabled={!isDirty || !isValid} />;
       <>
         <p>
           An object with the user-modified fields. Make sure to provide all
-          inputs' defaultValues at the useForm, so hook form can compare with
-          the <code>defaultValue</code>.
+          inputs' defaultValues via useForm, so the library can compare against
+          the <code>defaultValues</code>.
         </p>
       </>
     ),
@@ -1412,7 +1415,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           />
 
           <p>
-            Below example shows what to expect when you invoke{" "}
+            The example below shows what to expect when you invoke{" "}
             <code>getValues</code> method.
           </p>
 
@@ -2160,7 +2163,7 @@ React.useEffect(() => {
       message: <>Inline error message.</>,
       as: (
         <>
-          Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+          Wrapper component or HTML tag. For example: <code>as="span"</code> or{" "}
           <code>{`as={<Text />}`}</code>
         </>
       ),
@@ -2251,8 +2254,9 @@ React.useEffect(() => {
         <ul>
           <li>
             <p>
-              Make sure you are returning an object that has <code>values</code>{" "}
-              and <code>errors</code> properties. Their default values should be{" "}
+              Make sure you are returning an object that has both a{" "}
+              <code>values</code> and an <code>errors</code> property. Their
+              default values should be an empty object. For example:{" "}
               <code>{`{}`}</code>.
             </p>
           </li>
@@ -2260,15 +2264,14 @@ React.useEffect(() => {
           <li>
             <p>
               The keys of the <code>error</code> object should match the{" "}
-              <code>name</code> value of your fields.
+              <code>name</code> values of your fields.
             </p>
           </li>
 
           <li>
             <p>
               This function will be cached, while <code>context</code> is a
-              mutable <code>object</code> which can be changed on each
-              re-render.
+              mutable <code>object</code> that can be changed on each re-render.
             </p>
           </li>
 
@@ -2276,15 +2279,14 @@ React.useEffect(() => {
             <p>
               Re-validation of an input will only occur one field at time during
               a user’s interaction. The lib itself will evaluate the{" "}
-              <code>error</code>
-              object to trigger a re-render accordingly.
+              <code>error</code> object to trigger a re-render accordingly.
             </p>
           </li>
 
           <li>
             <p>
-              Resolver can not be used with built-in (eg: required, min and etc)
-              validator, and stick with either usage.
+              A resolver cannot be used with the built-in validators (e.g.:{" "}
+              required, min, etc.)
             </p>
           </li>
         </ul>
