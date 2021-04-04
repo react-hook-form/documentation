@@ -437,7 +437,7 @@ export default {
           <li>
             <p>
               To produce an array of fields, input names should be followed by a{" "}
-              dot and number. eg: <code>test.0.data</code>
+              dot and number. For example: <code>test.0.data</code>
             </p>
           </li>
           <li>
@@ -2163,7 +2163,7 @@ React.useEffect(() => {
       message: <>Inline error message.</>,
       as: (
         <>
-          Wrapper component or HTML tag. eg: <code>as="span"</code> or{" "}
+          Wrapper component or HTML tag. For example: <code>as="span"</code> or{" "}
           <code>{`as={<Text />}`}</code>
         </>
       ),
@@ -2285,7 +2285,7 @@ React.useEffect(() => {
 
           <li>
             <p>
-              A resolver cannot be used with the built-in validators (eg:{" "}
+              A resolver cannot be used with the built-in validators (e.g.:{" "}
               required, min, etc.)
             </p>
           </li>
