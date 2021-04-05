@@ -9,9 +9,15 @@ import headerStyles from "./Header.module.css"
 import { updateSetting } from "../actions/settingActions"
 import { navigate } from "@reach/router"
 
+const LightModeHeading = {
+  background: "none",
+  textShadow: "none",
+}
+
 export default function ApiGallery({ defaultLang }) {
   const {
     actions,
+    state,
     state: {
       language,
       setting = {
@@ -21,6 +27,7 @@ export default function ApiGallery({ defaultLang }) {
   } = useStateMachine({
     updateSetting,
   })
+  const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -82,7 +89,7 @@ export default function ApiGallery({ defaultLang }) {
         <ul className={styles.gallery}>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useForm
               </h3>
               <p>
@@ -96,7 +103,7 @@ export default function ApiGallery({ defaultLang }) {
           </li>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useController
               </h3>
               <p>
@@ -113,7 +120,7 @@ export default function ApiGallery({ defaultLang }) {
           </li>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useFormContext
               </h3>
               <p>
@@ -130,7 +137,7 @@ export default function ApiGallery({ defaultLang }) {
           </li>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useWatch
               </h3>
               <p>
@@ -144,7 +151,7 @@ export default function ApiGallery({ defaultLang }) {
           </li>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useFormState
               </h3>
               <p>
@@ -161,7 +168,7 @@ export default function ApiGallery({ defaultLang }) {
           </li>
           <li>
             <div>
-              <h3>
+              <h3 style={lightMode ? LightModeHeading : {}}>
                 <code>{`</>`}</code>useFieldArray
               </h3>
               <p>
