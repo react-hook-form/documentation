@@ -211,21 +211,6 @@ export default ({ currentLanguage, isController }) => {
           <tr>
             <td></td>
             <td>
-              <code>touchedFields</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>object</code>
-            </td>
-            <td>
-              <p>
-                An object containing all the inputs the user has interacted
-                with.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
               <code>isSubmitting</code>
             </td>
             <td>
