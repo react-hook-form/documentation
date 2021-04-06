@@ -40,9 +40,9 @@ export default function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>First Name</label>
-      <input {...register("firstName") />
+      <input {...register("firstName")} />
       <label>Gender Selection</label>
-      <select {...register("gender")>
+      <select {...register("gender")} >
         <option value="female">female</option>
         <option value="male">male</option>
         <option value="other">other</option>

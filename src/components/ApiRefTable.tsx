@@ -398,8 +398,8 @@ export default function ApiRefTable({
                 <ul>
                   <li>
                     <p>
-                      <code>valueAs</code> process is happening after
-                      validation.
+                      <code>valueAs</code> process is happening{" "}
+                      <strong>before</strong> validation.
                     </p>
                   </li>
                   <li>
@@ -434,8 +434,8 @@ export default function ApiRefTable({
                 <ul>
                   <li>
                     <p>
-                      <code>valueAs</code> process is happening after
-                      validation.
+                      <code>valueAs</code> process is happening{" "}
+                      <strong>before</strong> validation.
                     </p>
                   </li>
                   <li>
@@ -469,10 +469,11 @@ export default function ApiRefTable({
                 <ul>
                   <li>
                     <p>
-                      <code>valueAs</code> process is happening after
-                      validation. Also, <code>setValueAs</code> is ignored if
-                      either <code>valueAsNumber</code> or{" "}
-                      <code>valueAsDate</code> are <code>true</code>.
+                      <code>valueAs</code> process is happening{" "}
+                      <strong>before</strong> validation. Also,{" "}
+                      <code>setValueAs</code> is ignored if either{" "}
+                      <code>valueAsNumber</code> or <code>valueAsDate</code> are{" "}
+                      <code>true</code>.
                     </p>
                   </li>
                   <li>

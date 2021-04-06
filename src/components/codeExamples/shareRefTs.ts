@@ -10,7 +10,7 @@ export default function App() {
   const { register, handleSubmit } = useForm<Inputs>();
   const firstNameRef = useRef<HTMLInputElement | null>(null);
   const onSubmit = data => console.log(data);
-  const { ref, ...rest } = register('firstName);
+  const { ref, ...rest } = register('firstName');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
