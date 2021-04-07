@@ -339,7 +339,7 @@ export default {
   control: {
     en: (
       <>
-        <code>control</code> object is from invoking <code>useForm</code>. it's
+        <code>control</code> object provided by <code>useForm</code>. It's
         optional if you are using FormContext.
       </>
     ),
