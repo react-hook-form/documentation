@@ -30,7 +30,7 @@ export default function ControllerContent({
       <h2 className={typographyStyles.subTitle}>Props</h2>
 
       <p>
-        The following table contains information about all the arguments for{" "}
+        The following table contains information about the arguments for{" "}
         <code>useController</code>.
       </p>
 

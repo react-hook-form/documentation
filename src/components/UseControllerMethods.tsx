@@ -9,7 +9,7 @@ export default ({ currentLanguage, isController }) => {
       <h2 className={typographyStyles.subTitle}>Return</h2>
       <p>
         The following table contains information about properties which{" "}
-        <code>{isController ? "Controller" : "useController"}</code> produce.
+        <code>{isController ? "Controller" : "useController"}</code> produces.
       </p>
       <table className={tableStyles.table}>
         <thead>
@@ -33,8 +33,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
             <td>
               <p>
-                A function which send value to hook form and should be assigned
-                with <code>onChange</code> prop.
+                A function which send the input's value to the library. It
+                should be assigned to the <code>onChange</code> prop of the
+                input.
               </p>
             </td>
           </tr>
@@ -50,8 +51,8 @@ export default ({ currentLanguage, isController }) => {
             </td>
             <td>
               <p>
-                A function which send value to hook form and should be assigned
-                with <code>onBlur</code> prop.
+                A function which sends the input's value to the library. It
+                should be assigned to the input's <code>onBlur</code> prop.
               </p>
             </td>
           </tr>
@@ -64,7 +65,7 @@ export default ({ currentLanguage, isController }) => {
               <code className={typographyStyles.typeText}>unknown</code>
             </td>
             <td>
-              <p>The value of this controlled component.</p>
+              <p>The current value of the controlled component.</p>
             </td>
           </tr>
           <tr>
@@ -77,8 +78,9 @@ export default ({ currentLanguage, isController }) => {
             </tr>
             <td>
               <p>
-                Assign <code>ref</code> to component's input ref, so hook form
-                can focus on the error input.
+                A ref used to connect hook form to the input. Assign{" "}
+                <code>ref</code> to component's input ref to allow hook form to
+                focus the error input.
               </p>
             </td>
           </tr>
@@ -143,7 +145,7 @@ export default ({ currentLanguage, isController }) => {
               <code className={typographyStyles.typeText}>boolean</code>
             </td>
             <td>
-              <p>Indicate the form was successfully submitted.</p>
+              <p>Indicates whether the form was successfully submitted.</p>
             </td>
           </tr>
           <tr>
@@ -188,8 +190,8 @@ export default ({ currentLanguage, isController }) => {
             <td>
               <p>
                 An object with the user-modified fields. Make sure to provide
-                all inputs' defaultValues at the useForm, so hook form can
-                compare with the <code>defaultValue</code>.
+                all inputs' defaultValues via useForm, so the library can
+                compare the input value against the <code>defaultValue</code>.
               </p>
             </td>
           </tr>

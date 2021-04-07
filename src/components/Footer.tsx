@@ -61,7 +61,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         </li>
       </ul>
       <p>
-        Design and Build by{" "}
+        Designed and Built by{" "}
         <a
           href="https://twitter.com/bluebill1049"
           target="_blank"

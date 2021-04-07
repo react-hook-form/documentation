@@ -720,7 +720,7 @@ return <button disabled={!isDirty || !isValid} />;
               <code>watch</code> will return <code>undefined</code> because it
               is called before <code>register</code>, but you can set the{" "}
               <code>defaultValue</code> as the second argument or provide{" "}
-              <code>defaultValues</code> at <code>useForm</code> to avoid this
+              <code>defaultValues</code> via <code>useForm</code> to avoid this
               behaviour.
             </p>
           </li>
@@ -733,17 +733,16 @@ return <button disabled={!isDirty || !isValid} />;
           </li>
           <li>
             <p>
-              default value will only get returned in the first invoke before{" "}
-              <code>render</code>, the subsequence invocation will always return
-              what's in the inputs.
+              After the first render, default values will be shallowly merged
+              with the current form values from the inputs.
             </p>
           </li>
           <li>
             <p>
               This API will trigger re-render at the root of your app or form,
-              consider to use callback or{" "}
-              <Link to={"api/usewatch"}>useWatch</Link> api if that's going to
-              be performance issue for you.
+              consider using a callback or the{" "}
+              <Link to={"api/usewatch"}>useWatch</Link> api if you are
+              experiencing performance issues.
             </p>
           </li>
         </ul>
@@ -772,14 +771,14 @@ return <button disabled={!isDirty || !isValid} />;
     description: (
       <>
         <p>
-          This function will pass the form data when form validation is
+          This function will received the form data if form validation is
           successful.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
         <ul>
           <li>
-            <p>You can easily submit form async with handleSubmit.</p>
+            <p>You can easily submit form asynchronously with handleSubmit.</p>
             <CodeArea
               rawData={`// It can be invoked remotely as well
 handleSubmit(onSubmit)();
@@ -790,10 +789,11 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </li>
           <li>
             <p>
-              <code>disabled</code> input will be returned{" "}
-              <code>undefined</code> as result, if you want to prevent users
-              from update the input, you can use <code>readOnly</code> or
-              disable the entire {`<fieldset />`}. Here is an{" "}
+              <code>disabled</code> inputs will appear as <code>undefined</code>{" "}
+              values in form values. If you want to prevent users from updating
+              an input and wish to retain the form value, you can use{" "}
+              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
+              is an{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
                 target="_blank"
@@ -844,10 +844,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
     title: "reset",
     description: (
       <>
-        <p>
-          Reset the entire form state, you also have the ability to only reset
-          specific parts of the state.
-        </p>
+        <p>Reset either the entire form state or part of the form state.</p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
 
@@ -857,8 +854,8 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               For controlled components like <code>React-Select</code> which do
               not expose a <code>ref</code> prop, you will have to reset the
               input value manually with{" "}
-              <Link to={"api/useform/api"}>setValue</Link> or hook your
-              component with <Link to={"api/usecontroller"}>useController</Link>{" "}
+              <Link to={"api/useform/api"}>setValue</Link> or connect your
+              component via <Link to={"api/usecontroller"}>useController</Link>{" "}
               or <Link to={"api/usecontroller/controller"}>Controller</Link>.
             </p>
           </li>
@@ -871,20 +868,20 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </li>
           <li>
             <p>
-              When you are subscribed/read the <code>formState</code>, it's
-              important to decouple <code>reset</code> with{" "}
-              <code>handleSubmit</code>, both are update <code>formState</code>{" "}
-              and <code>handleSubmit</code> is async by default. You can check
-              out a working example below:
+              When you are subscribed to <code>formState</code>, it's important
+              to decouple <code>reset</code> with <code>handleSubmit</code>.
+              Both will update <code>formState</code> and{" "}
+              <code>handleSubmit</code> is async by default. You can check out a
+              working example below:
             </p>
           </li>
           <li>
             <p>
-              When invoking <code>{`reset({ value })`}</code> without supply{" "}
-              <code>defaultValues</code> at <code>useForm</code>, hook form will
-              replace <code>defaultValues</code> with shallow clone{" "}
-              <code>value</code> object which you have supplied{" "}
-              <b>(not deepClone)</b>.
+              When invoking <code>{`reset({ value })`}</code> without supplying{" "}
+              <code>defaultValues</code> via <code>useForm</code>, the library
+              will replace <code>defaultValues</code> with a shallow clone{" "}
+              <code>value</code> object which you provide <b>(not deepClone)</b>
+              .
             </p>
             <CodeArea
               rawData={`// ❌ avoid the following with deep nested default values
@@ -903,8 +900,8 @@ reset({ deepNest: { file: new File() } });
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
         <p>
-          <code>Reset</code> have the ability remain formState update, here are
-          the options in detail:{" "}
+          <code>Reset</code> has the ability to retain formState. Here are the
+          options you may use:{" "}
         </p>
 
         <div className={tableStyles.tableWrapper}>
@@ -977,7 +974,7 @@ reset({ deepNest: { file: new File() } });
                 </td>
                 <td>
                   <p>
-                    Keep the same defaultValues which is initialised at{" "}
+                    Keep the same defaultValues which are initialised via{" "}
                     <code>useForm</code>.
                   </p>
                 </td>
@@ -1017,8 +1014,8 @@ reset({ deepNest: { file: new File() } });
                 </td>
                 <td>
                   <p>
-                    <code>isValid</code> will be temporarily remain as the
-                    current state until further user's action.
+                    <code>isValid</code> will temporarily persist as the current
+                    state until additional user actions.
                   </p>
                 </td>
               </tr>
@@ -1071,7 +1068,7 @@ reset({ deepNest: { file: new File() } });
           </li>
           <li>
             <p>
-              <code>shouldFocusError</code> doesn't work with input been
+              <code>shouldFocusError</code> doesn't work when an input has been
               disabled.
             </p>
           </li>
@@ -1148,8 +1145,8 @@ reset({ deepNest: { file: new File() } });
           </li>
           <li>
             <p>
-              This function will not update formState such as{" "}
-              <code>isValid</code> to true, it only clear errors.
+              This function will not update formState (set <code>isValid</code>{" "}
+              to true). It only clear errors.
             </p>
           </li>
         </ul>
@@ -1232,7 +1229,7 @@ clearErrors('test.firstName'); // for clear single input error
           <strong>
             <code>registered</code>
           </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary re-rerender.
+          field. At the same time, it tries to avoid unnecessary re-rerenders.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
@@ -1278,8 +1275,8 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
           <li>
             <p>
-              It's recommended to target field name instead using second
-              argument with nested object.
+              It's recommended to target the field's name rather than make the
+              second argument a nested object.
             </p>
 
             <CodeArea
@@ -1290,13 +1287,13 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
           </li>
           <li>
             <p>
-              It's recommended to register input name before invoke{" "}
+              It's recommended to register the input's name before invoking{" "}
               <code>setValue</code>. However, the following usages are still
               permitted.
             </p>
             <CodeArea
               rawData={`// you can update an entire Field Array, 
-// this will trigger an entire field array to be remount and refresh with updated values.
+// this will trigger an entire field array to be remount and refreshed with updated values.
 setValue('fieldArray', [{ test: '1' }, { test: '2' }]); // ✅
 
 // you can setValue to a unregistered input
@@ -1338,13 +1335,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>
                   <ul>
                     <li>
-                      <p>Target on a single input by its name.</p>
+                      <p>Target a single input by its name.</p>
                     </li>
                     <li>
                       <p>
-                        Target on field array name, and it will update{" "}
-                        <code>fields</code> object and update entire field
-                        array's internal state.
+                        Target a field array name. Note it will update both the{" "}
+                        <code>fields</code> object and the entire field array's
+                        internal state.
                       </p>
                     </li>
                   </ul>
@@ -1360,8 +1357,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 </td>
                 <td>
                   <p>
-                    value for the field, and make sure supply an entire array
-                    when you update <codep>useFieldArray</codep>.
+                    The value for the field. Make sure you supply the entire
+                    array when you update <codep>useFieldArray</codep>.
                   </p>
                 </td>
               </tr>
@@ -1376,7 +1373,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  Should trigger validation during setting the input value.
+                  Whether or not trigger validation while setting the input's
+                  value.
                 </td>
               </tr>
               <tr>
@@ -1389,7 +1387,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>Should set the input itself to dirty.</td>
+                <td>Whether to set the input itself to dirty.</td>
               </tr>
             </tbody>
           </table>
@@ -1458,16 +1456,16 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         <ul>
           <li>
             <p>
-              You shouldn't use this method inside render. This is suitable for
-              reading values in an event handler.
+              Do not use this method inside a render method. It is intended for
+              reading values in an event handler or callback function.
             </p>
           </li>
           <li>
             <p>
-              Disabled input will be returned undefined as result, if you want
-              to prevent users from update the input, you can use{" "}
-              <code>readOnly</code> or disable the entire {`<fieldset />`}. Here
-              is an{" "}
+              Disabled inputs will be returned as <code>undefined</code>. If you
+              want to prevent users from updat the input and still retain the
+              field value, you can use <code>readOnly</code> or disable the
+              entire {`<fieldset />`}. Here is an{" "}
               <a
                 href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
                 target="_blank"
@@ -1486,7 +1484,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </li>
           <li>
             <p>
-              <code>getValues()</code>: Read all form values.
+              After the initial render, form values will be shallowly merged
+              with <code>defaultValues</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>getValues()</code>: Reads all form values.
             </p>
           </li>
           <li>
@@ -1511,7 +1515,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
       <>
         <p>
           Manually triggers form or input validation. This method is also useful
-          when you have depedant validation as react hook form{" "}
+          when you have dependant validation (input validation depends on
+          another input's value).
         </p>
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
@@ -2141,7 +2146,7 @@ React.useEffect(() => {
 
         <p>
           <b className={typographyStyles.note}>Important:</b> do not access any
-          of the property inside this object directly, it's for internal usage
+          of the properties inside this object directly. It's for internal usage
           only.
         </p>
       </>
@@ -2326,8 +2331,8 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            Optional when using <code>FormProvider</code>.
+            <code>control</code> object provided by invoking{" "}
+            <code>useForm</code>. Optional when using <code>FormProvider</code>.
           </td>
         </tr>
         <tr>
@@ -2388,8 +2393,8 @@ React.useEffect(() => {
         <ul>
           <li>
             <p>
-              Do not <code>register</code> input again. This custom hook is made
-              to take care the registration process.
+              Do not <code>register</code> input again. This custom hook is
+              designed to take care of the registration process.
             </p>
             <CodeArea
               rawData={`const { field } = useController({ name: 'test' })
@@ -2401,9 +2406,10 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
-              It's ideal to use single <code>useController</code> per component.
-              If you need to use more than one, make sure you rename the prop or
-              even consider to use <code>Controller</code> instead.
+              It's ideal to use a single <code>useController</code> per
+              component. If you need to use more than one, make sure you rename
+              the prop. May want to consider using <code>Controller</code>{" "}
+              instead.
             </p>
             <CodeArea
               rawData={`const { field: input } = useController({ name: 'test' })
@@ -2420,14 +2426,13 @@ const { field: checkbox } = useController({ name: 'test1' })
     description: (
       <>
         <p>
-          This custom hook is what powers{" "}
+          This custom hook powers{" "}
           <Link to={"/api/usecontroller/controller"}>
             <code>Controller</code>
           </Link>
-          , and shares the same props and methods as <code>Controller</code>.
-          It's useful to create reusable Controlled input, while{" "}
-          <code>Controller</code> is the flexible option to drop into your page
-          or form.
+          . Additionally, it shares the same props and methods as{" "}
+          <code>Controller</code>. It's useful for creating reusable Controlled
+          input.
         </p>
       </>
     ),
