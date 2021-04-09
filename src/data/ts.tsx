@@ -189,7 +189,7 @@ export default function App() {
     ),
   },
   useFormMethodsRef: {
-    title: "UseFormReturn",
+    title: "UseFormMethods",
     description: (
       <CodeArea
         url={
@@ -276,7 +276,7 @@ export default function App() {
     ),
   },
   useFormOptions: {
-    title: "UseFormProps",
+    title: "UseFormOptions",
     description: (
       <CodeArea
         rawData={`export type UseFormOptions<
@@ -297,7 +297,7 @@ export default function App() {
     ),
   },
   useFieldArrayOptions: {
-    title: "UseFieldArrayProps",
+    title: "UseFieldArrayOptions",
     description: (
       <CodeArea
         rawData={`export type UseFieldArrayOptions<
@@ -312,7 +312,7 @@ export default function App() {
     ),
   },
   useFieldArrayMethods: {
-    title: "UseFieldArrayReturn",
+    title: "UseFieldArrayMethods",
     description: (
       <CodeArea
         rawData={`export type UseFieldArrayMethods<
@@ -399,7 +399,7 @@ export default function App() {
     ),
   },
   validationRules: {
-    title: "RegisterProps",
+    title: "RegisterOptions",
     description: (
       <CodeArea
         rawData={`export type RegisterOptions = Partial<{
@@ -415,7 +415,7 @@ export default function App() {
       />
     ),
   },
-  arrayField: {
+  fieldArray: {
     title: "FieldArray",
     description: (
       <CodeArea
@@ -446,7 +446,7 @@ export default function App() {
     ),
   },
   useControllerOptions: {
-    title: "UseControllerProps",
+    title: "UseControllerOptions",
     description: (
       <CodeArea
         rawData={`export type UseControllerOptions<
@@ -463,7 +463,7 @@ export default function App() {
     ),
   },
   useControllerMethods: {
-    title: "UseControllerReturn",
+    title: "UseControllerMethods",
     description: (
       <CodeArea
         rawData={`export type UseControllerMethods<
