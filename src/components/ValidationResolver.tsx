@@ -12,6 +12,8 @@ import zodResolver from "./codeExamples/zodResolver"
 import zodResolverTs from "./codeExamples/zodResolverTs"
 import typographyStyles from "../styles/typography.module.css"
 import vestResolver from "./codeExamples/vestResolver"
+import tableStyles from "../styles/table.module.css"
+import generic from "../data/generic"
 
 export default function ({ api }) {
   return (
@@ -30,6 +32,68 @@ export default function ({ api }) {
       </h5>
 
       {api.resolver.description}
+
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th>{generic.name["en"]}</th>
+              <th width="230px">{generic.type["en"]}</th>
+              <th>{generic.description["en"]}</th>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <code>values</code>
+                </p>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>object</code>
+              </td>
+              <td>
+                <p>This object contains the entire form values.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <code>context</code>
+                </p>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>object</code>
+              </td>
+              <td>
+                <p>
+                  This is the <code>context</code> object which you have
+                  provided to the <code>useForm</code> config.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <code>options</code> <br />
+                </p>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>{`{ 
+  criteriaMode: string, 
+  fields: object, 
+  names: string[] 
+}`}</code>
+              </td>
+              <td>
+                <p>
+                  This is the option object contains information about the
+                  validated fields, names and <code>criteriaMode</code> from{" "}
+                  <code>useForm</code>.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <TabGroup
         buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Vest", "Custom"]}

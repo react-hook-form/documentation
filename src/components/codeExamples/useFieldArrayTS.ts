@@ -1,4 +1,5 @@
-export default `import * as React from "react";
+export default `
+import * as React from "react";
 import { useForm, useFieldArray, useWatch, Control } from "react-hook-form";
 
 type FormValues = {
