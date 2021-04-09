@@ -6,6 +6,7 @@ import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
+import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 
 export default function UseFieldArrayContent({
   currentLanguage,
@@ -46,6 +47,8 @@ export default function UseFieldArrayContent({
       <TabGroup buttonLabels={["useFieldArray", "conditional Field Array"]}>
         <CodeArea
           rawData={useFieldArray}
+          tsRawData={useFieldArrayTS}
+          tsUrl="https://codesandbox.io/s/calc-i231d"
           url="https://codesandbox.io/s/react-hook-form-usefieldarray-ssugn"
         />
         <CodeArea
