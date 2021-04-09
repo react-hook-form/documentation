@@ -20,7 +20,7 @@ const enLinks = [
   TS.fieldErrors,
   TS.field,
   TS.fieldValues,
-  TS.arrayField,
+  TS.fieldArray,
   TS.mode,
   TS.validationRules,
   TS.formStateProxy,
@@ -46,7 +46,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     FieldErrorsRef: null,
     FieldRef: null,
     FieldValuesRef: null,
-    ArrayFieldRef: null,
+    FieldArrayRef: null,
     ModeRef: null,
     FormStateProxyRef: null,
   })
@@ -274,13 +274,13 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.ArrayFieldRef = ref)}
-            id="ArrayFieldRef"
+            ref={(ref) => (tsSectionsRef.current.FieldArrayRef = ref)}
+            id="FieldArrayRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS.arrayField.title}</h2>
+              <h2>{TS.fieldArray.title}</h2>
             </code>
-            {TS.arrayField.description}
+            {TS.fieldArray.description}
           </section>
 
           <hr />
