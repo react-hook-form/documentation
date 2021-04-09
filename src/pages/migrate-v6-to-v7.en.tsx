@@ -403,6 +403,27 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   rawData={`- append({ test: 'test' }, false);
 + append({ test: 'test' }, { shouldFocus: false });`}
                 />
+
+                <p>
+                  <code>useFieldArray</code> no longer need to supply with a
+                  generic, formValues type will inherited from{" "}
+                  <code>useForm</code>.
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`- useFieldArray<FieldArrayValues>();
++ useFieldArray();`}
+                />
+
+                <p>
+                  Input name will be strictly type checked with <b>as const</b>.
+                </p>
+
+                <CodeArea
+                  withOutCopy
+                  rawData={`<input {...register(\`test.\${index}.firstName\` as const)} />`}
+                />
               </section>
 
               <hr />
