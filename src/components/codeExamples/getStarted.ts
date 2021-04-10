@@ -245,7 +245,7 @@ import Input from "@material-ui/core/Input";
 interface IFormInput {
   firstName: string;
   lastName: string;
-  iceCreamType: string;
+  iceCreamType: {label: string; value: string };
 }
 
 const App = () => {
