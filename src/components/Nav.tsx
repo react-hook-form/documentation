@@ -255,7 +255,10 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             to={
               setting.version === 7
                 ? "/api"
-                : translateLink(`/v${setting.version}/api`, currentLanguage)
+                : translateLink(
+                    `${setting.version ? `/v${setting.version}` : ""}/api`,
+                    currentLanguage
+                  )
             }
           >
             <div className={styles.iconWrapper}>
