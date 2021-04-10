@@ -15,6 +15,7 @@ import Footer from "./Footer"
 export default ({
   api,
   currentLanguage,
+  ErrorMessage,
 }: {
   api: any
   currentLanguage: string
