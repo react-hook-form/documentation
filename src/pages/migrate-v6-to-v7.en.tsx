@@ -111,6 +111,11 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 <code>name</code> and <code>ref</code>.
               </p>
 
+              <p>
+                <b className={typographyStyles.note}>Important:</b> input value
+                and reference will no longer get removed after unmount.
+              </p>
+
               <CodeArea
                 withOutCopy
                 rawData={`- <input ref={register({ required: true })} name="test" />

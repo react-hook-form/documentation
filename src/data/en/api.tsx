@@ -447,6 +447,11 @@ export default {
               registered input.
             </p>
           </li>
+          <li>
+            Input value and reference will no longer gets removed based on
+            unmount. You can invoke unregister to remove that value and
+            reference.
+          </li>
         </ul>
       </>
     ),
