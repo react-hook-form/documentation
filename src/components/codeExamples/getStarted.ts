@@ -65,10 +65,10 @@ const Input = ({ label, register, required }) => (
 );
 
 // you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ onChange, name, label }, ref) => (
+const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
   <>
     <label>{label}</label>
-    <select name={name} ref={ref} onChange={onChange}>
+    <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
       <option value="20">20</option>
       <option value="30">30</option>
     </select>
@@ -118,10 +118,10 @@ const Input = ({ label, register, required }: InputProps) => (
 const Select = React.forwardRef<
   HTMLSelectElement,
   { label: string } & ReturnType<UseFormRegister<IFormValues>>
->(({ onChange, name, label }, ref) => (
+>(({ onChange, onBlur, name, label }, ref) => (
   <>
     <label>{label}</label>
-    <select name={name} ref={ref} onChange={onChange}>
+    <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
       <option value="20">20</option>
       <option value="30">30</option>
     </select>
