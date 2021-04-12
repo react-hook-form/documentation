@@ -45,7 +45,7 @@ export default function ApiGallery({ defaultLang }) {
 
   React.useEffect(() => {
     if (setting.version !== 7) {
-      navigate(`/v${setting.version}/api`)
+      setting.version && navigate(`/v${setting.version}/api`)
     } else if (window.location.hash) {
       const name = window.location.hash.toLowerCase().slice(1)
 
