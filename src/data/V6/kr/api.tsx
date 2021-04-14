@@ -1,7 +1,7 @@
 import * as React from "react"
 import colors from "../../../styles/colors"
 import CodeArea, { CodeSandBoxLink } from "../../../components/CodeArea"
-import useFieldArrayArgument from "../../../components/codeExamples/useFieldArrayArgument"
+import useFieldArrayArgument from "../../../components/codeExamples/v6/useFieldArrayArgument"
 import generic from "../../generic"
 import typographyStyles from "../../../styles/typography.module.css"
 import buttonStyles from "../../../styles/button.module.css"
