@@ -340,11 +340,6 @@ export default {
         </p>
 
         <p>
-          이 문제를 해결하기 위해서 필드를 수동으로 등록한 다음 프로그램적으로
-          필드의 값을 설정해야 합니다.
-        </p>
-
-        <p>
           <a
             target="_blank"
             rel="noopener noreferrer"

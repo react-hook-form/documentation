@@ -350,11 +350,6 @@ export default {
         </p>
 
         <p>
-          To work around this, you can manually register the fields, and then
-          programmatically set the value of the field.
-        </p>
-
-        <p>
           An example is shown below using{" "}
           <a
             target="_blank"

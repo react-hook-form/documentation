@@ -350,11 +350,6 @@ export default {
         </p>
 
         <p>
-          Para contornar isso, você pode registrar manualmente os campos e, em
-          seguida, definir programaticamente o valor do campo.
-        </p>
-
-        <p>
           Um exemplo é mostrado abaixo usando{" "}
           <a
             target="_blank"
