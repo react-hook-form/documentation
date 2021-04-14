@@ -21,6 +21,7 @@ const pages = [
       { pathname: "/api/useform/seterror", name: "setError" },
       { pathname: "/api/useform/clearerrors", name: "clearErrors" },
       { pathname: "/api/useform/setvalue", name: "setValue" },
+      { pathname: "/api/useform/setFocus", name: "setFocus" },
       { pathname: "/api/useform/getvalues", name: "getValues" },
       { pathname: "/api/useform/trigger", name: "trigger" },
       { pathname: "/api/useform/control", name: "control" },
