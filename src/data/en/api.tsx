@@ -746,7 +746,7 @@ return <button disabled={!isDirty || !isValid} />;
             <p>
               This API will trigger re-render at the root of your app or form,
               consider using a callback or the{" "}
-              <Link to={"api/usewatch"}>useWatch</Link> api if you are
+              <Link to={"/api/usewatch"}>useWatch</Link> api if you are
               experiencing performance issues.
             </p>
           </li>
