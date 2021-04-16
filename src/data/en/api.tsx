@@ -2381,7 +2381,14 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for <code>register</code>.
+            <p>
+              Validation rules in the same format as for <code>register</code>.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> doesn't
+              support
+              <code>valueAs</code> for Controller.
+            </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy

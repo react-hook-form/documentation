@@ -15,11 +15,5 @@ export const wrapRootElement = ({ element }) => (
 )
 
 export const onServiceWorkerUpdateReady = () => {
-  const answer = window.confirm(
-    `🔈 React Hook Form documentation has been updated. ` +
-      `Would you like to reload to display the latest version?`
-  )
-  if (answer === true) {
-    window.location.reload()
-  }
+  window.location.reload()
 }
