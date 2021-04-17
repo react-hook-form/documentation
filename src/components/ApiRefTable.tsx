@@ -496,6 +496,30 @@ export default function ApiRefTable({
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                shouldUnregister:
+                <br />
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>Input will be unregistered after unmount.</p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  name="test"
+  ref={
+    register({
+      shouldUnregister: true
+    })
+  }
+/>`}
+                />
+              </td>
+            </tr>
           </tbody>
         </table>
 

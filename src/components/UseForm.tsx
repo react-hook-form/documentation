@@ -52,6 +52,7 @@ export default ({ currentLanguage }) => {
   context: undefined,
   criteriaMode: "firstError",
   shouldFocusError: true,
+  shouldUnregister: false,
 })`}
               tsRawData={`type FormInputs = {
   firstName: string;
@@ -66,6 +67,7 @@ const { register } = useForm<FormInputs>({
   context: undefined,
   criteriaMode: "firstError",
   shouldFocusError: true,
+  shouldUnregister: false,
 })`}
             />
 
@@ -216,6 +218,18 @@ const { register } = useForm<FormInputs>({
                       </p>
                     </td>
                     <td>{api.useForm.submitFocusError}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <code>shouldUnregister:</code>
+                        <br />
+                        <code className={typographyStyles.typeText}>
+                          boolean = false
+                        </code>
+                      </p>
+                    </td>
+                    <td>{api.useForm.shouldUnregister}</td>
                   </tr>
                 </tbody>
               </table>
