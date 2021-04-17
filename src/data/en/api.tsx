@@ -222,9 +222,10 @@ export default {
         </p>
 
         <p>
-          This is a global config, if you want to have individual input unmount
-          with value retained, then you should set the config at the component
-          or hook level.
+          <b className={typographyStyles.note}>Important:</b> This is a global
+          config which overwrites child level config, if you want to have
+          individual behaviour, then you should set the config at the component
+          or hook level not at <code>useForm</code>.
         </p>
       </>
     ),
