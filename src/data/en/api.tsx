@@ -216,28 +216,17 @@ export default {
     shouldUnregister: (
       <>
         <p>
-          By default, when an input is removed, React Hook Form uses{" "}
-          <code>MutationObserver</code> to detect and <code>unregister</code>{" "}
-          the input(s) that are unmounted. However, you can set{" "}
-          <code>shouldUnregister</code> to false to maintain the input state
-          even when unmounting occurs.
+          By default, an input value will be retained when input is removed.
+          However, you can set <code>shouldUnregister</code> to{" "}
+          <code>true</code> to <code>unregister</code> input during unmount.
         </p>
 
-        <ul>
-          <li>
-            <p>
-              Inputs state will have remained when unmounted and fall back to{" "}
-              <code>defaultValues</code> when the value is{" "}
-              <code>undefined</code>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Inputs will no longer be able to <code>unregister</code>, this
-              will disable <code>unregister</code> method as well.
-            </p>
-          </li>
-        </ul>
+        <p>
+          <b className={typographyStyles.note}>Important:</b> This is a global
+          config which overwrites child level config, if you want to have
+          individual behaviour, then you should set the config at the component
+          or hook level not at <code>useForm</code>.
+        </p>
       </>
     ),
   },
@@ -1643,6 +1632,20 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   change the key name.
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <code>shouldUnregister</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>
+                    boolean = false
+                  </code>
+                </td>
+                <td></td>
+                <td>
+                  <p>Field Array will be unregistered after unmount.</p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -2083,6 +2086,18 @@ React.useEffect(() => {
             />
           </td>
         </tr>
+        <tr>
+          <td>
+            <code>shouldUnregister</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>boolean = false</code>
+          </td>
+          <td></td>
+          <td>
+            <p>Input will be unregistered after unmount.</p>
+          </td>
+        </tr>
       </tbody>
     ),
     description: (
@@ -2394,6 +2409,18 @@ React.useEffect(() => {
               withOutCopy
               rawData="rules={{ required: true }}"
             />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>shouldUnregister</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>boolean = false</code>
+          </td>
+          <td></td>
+          <td>
+            <p>Input will be unregistered after unmount.</p>
           </td>
         </tr>
       </tbody>
