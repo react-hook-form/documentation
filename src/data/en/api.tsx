@@ -1094,7 +1094,7 @@ reset({ deepNest: { file: new File() } });
                   <code>name</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>boolean</code>
+                  <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
                   <p>input's name.</p>
