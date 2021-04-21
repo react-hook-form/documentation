@@ -276,10 +276,10 @@ export default function App() {
     ),
   },
   useFormOptions: {
-    title: "UseFormOptions",
+    title: "UseFormProps",
     description: (
       <CodeArea
-        rawData={`export type UseFormOptions<
+        rawData={`export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object
 > = Partial<{
