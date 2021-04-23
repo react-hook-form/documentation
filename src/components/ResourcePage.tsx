@@ -13,14 +13,13 @@ const animationBase = 0.05
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const {
-    state: { language, setting: { version = 7 } = {} },
+    state: { language },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const isV7 = version === 7
-  const [content, setContent] = React.useState(isV7 ? data.v7 : data.v6)
+  const [content, setContent] = React.useState(data)
   const [play, setPlay] = React.useState(false)
 
   const getPost = async () => {
@@ -32,16 +31,12 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     )
 
     const documents = await result.json()
-    const content = {
-      articles: [],
-      videos: [],
-    }
 
     documents.data.data.forEach(({ data }) => {
       if (data.type === "article") {
-        content.articles = [...content.articles, { ...data }]
+        content.articles = [{ ...data, version: "7" }, ...content.articles]
       } else if (data.type === "video") {
-        content.videos = [...content.videos, { ...data }]
+        content.videos = [{ ...data, version: "7" }, ...content.videos]
       }
     })
 
@@ -50,12 +45,8 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   }
 
   React.useEffect(() => {
-    if (isV7) {
-      getPost()
-    }
-
-    if (!isV7) setPlay(true)
-  }, [isV7])
+    getPost()
+  }, [])
 
   return (
     <div className={containerStyle.container}>
@@ -73,54 +64,59 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
 
         <ul className={styles.contentList}>
-          {content.articles.map(({ url, title, author, authorUrl }, i) => {
-            const index = i + 1
-            let delay = 0
+          {content.articles.map(
+            ({ url, title, author, authorUrl, version }, i) => {
+              const index = i + 1
+              let delay = 0
 
-            if (index === 1) {
-              delay = animationBase
-            } else if (index % 3 === 0) {
-              delay = animationBase * (Math.floor(index / 12) * 3 + 3)
-            } else if (index % 3 === 1) {
-              delay = animationBase * (Math.floor(index / 16) * 3 + 3)
-            } else if (index % 3 === 2) {
-              delay = animationBase * (Math.floor(index / 8) * 3 + 2)
-            }
+              if (index === 1) {
+                delay = animationBase
+              } else if (index % 3 === 0) {
+                delay = animationBase * (Math.floor(index / 12) * 3 + 3)
+              } else if (index % 3 === 1) {
+                delay = animationBase * (Math.floor(index / 16) * 3 + 3)
+              } else if (index % 3 === 2) {
+                delay = animationBase * (Math.floor(index / 8) * 3 + 2)
+              }
 
-            return (
-              <Animate
-                key={url}
-                play={play}
-                easeType="ease-in"
-                delay={delay}
-                start={{ transform: "translate(20px, 20px)", opacity: 0 }}
-                render={({ style }) => (
-                  <li style={style}>
-                    <article className={styles.article}>
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={title}
-                      >
-                        <h3>{title}</h3>
-                      </a>
-
-                      <p className={styles.author}>
+              return (
+                <Animate
+                  key={url}
+                  play={play}
+                  easeType="ease-in"
+                  delay={delay}
+                  start={{ transform: "translate(20px, 20px)", opacity: 0 }}
+                  render={({ style }) => (
+                    <li style={style}>
+                      <div className={styles.tagWrapper}>
+                        <p className={styles.tag}>v{version || "6"}</p>
+                      </div>
+                      <article className={styles.article}>
                         <a
-                          href={authorUrl}
+                          href={url}
                           target="_blank"
                           rel="noopener noreferrer"
+                          title={title}
                         >
-                          {author}
+                          <h3>{title}</h3>
                         </a>
-                      </p>
-                    </article>
-                  </li>
-                )}
-              />
-            )
-          })}
+
+                        <p className={styles.author}>
+                          <a
+                            href={authorUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {author}
+                          </a>
+                        </p>
+                      </article>
+                    </li>
+                  )}
+                />
+              )
+            }
+          )}
         </ul>
 
         <h2 className={typographyStyles.title}>
@@ -128,8 +124,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         </h2>
         <ul className={styles.contentList}>
           {content.videos.map(
-            ({ title, url, authorUrl, author, description }) => (
+            ({ title, url, authorUrl, author, description, version }) => (
               <li key={title}>
+                <div className={styles.tagWrapper}>
+                  <p className={styles.tag}>v{version || "6"}</p>
+                </div>
                 <article className={styles.article}>
                   <a
                     href={url}

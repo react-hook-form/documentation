@@ -3,6 +3,24 @@
   padding-bottom: 40px;
 }
 
+.tagWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tag {
+  display: block;
+  background: white;
+  width: 25px;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .contentList {
   list-style: none;
   padding: 0;

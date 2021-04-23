@@ -210,7 +210,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 <li>
                   <p>
                     <code>as</code> prop has been removed, and we will
-                    consistently using <code>render</code> prop in v7.
+                    consistently be using <code>render</code> prop in v7.
                   </p>
                 </li>
                 <li>
@@ -439,7 +439,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 </code>
 
                 <p>
-                  This component is getting deprecated and using{" "}
+                  This component is getting deprecated, use{" "}
                   <code>useController</code> instead.
                 </p>
 

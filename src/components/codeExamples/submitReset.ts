@@ -8,17 +8,16 @@ function App() {
     reset,
     formState: { isSubmitSuccessful }
   } = useForm({ defaultValues: { something: "anything" } });
-  const [submittedData, setSubmittedData] = React.useState({});
 
   const onSubmit = (data) => {
-    setSubmittedData(data);
+    console.log(data);
   };
 
   React.useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ ...submittedData });
+    if (formState.isSubmitSuccessful) {
+      reset({ something: '' });
     }
-  }, [isSubmitSuccessful, submittedData, reset]);
+  }, [formState, submittedData, reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
