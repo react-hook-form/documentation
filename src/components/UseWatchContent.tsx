@@ -3,8 +3,8 @@ import CodeArea from "./CodeArea"
 import useWatch from "./codeExamples/useWatch"
 import useWatchTs from "./codeExamples/useWatchTs"
 import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
 
@@ -102,7 +102,7 @@ export default function UseFieldArray({
         </li>
         <li>
           The only different between <code>useWatch</code> and{" "}
-          <cocde>watch</cocde> is at root level or component level update.
+          <code>watch</code> is at root level or component level update.
         </li>
       </ul>
     </>

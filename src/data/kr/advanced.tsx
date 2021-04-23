@@ -8,8 +8,8 @@ import * as CodeExampleTestingForm from "../../components/codeExamples/testingFo
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
 
 export default {

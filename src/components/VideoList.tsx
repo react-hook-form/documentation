@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
-import styles from "./VideoList.module.css"
+import * as styles from "./VideoList.module.css"
 
 export default ({
   lists,

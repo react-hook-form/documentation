@@ -11,12 +11,12 @@ import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
 import devTool from "../images/dev-tool.png"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
-import buttonStyles from "../styles/button.module.css"
-import codeAreaStyles from "./CodeArea.module.css"
-import getStartedStyle from "./GetStarted.module.css"
-import styles from "./DevTools.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as codeAreaStyles from "./CodeArea.module.css"
+import * as getStartedStyle from "./GetStarted.module.css"
+import * as styles from "./DevTools.module.css"
 
 interface Props {
   defaultLang: string
@@ -95,7 +95,7 @@ export default ({ defaultLang, content }: Props) => {
                 alert(generic.copied["en"])
               }}
             >
-              <span className={codeAreaStyles.copyIcon}>
+              <span>
                 <span />
               </span>{" "}
               {generic.copy["en"]}

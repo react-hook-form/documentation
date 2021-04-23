@@ -4,7 +4,7 @@ import nav from "../data/nav"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
 import { useStateMachine } from "little-state-machine"
-import styles from "./Footer.module.css"
+import * as styles from "./Footer.module.css"
 
 export default ({ currentLanguage }: { currentLanguage: string }) => {
   const { state } = useStateMachine()

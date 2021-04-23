@@ -1,11 +1,11 @@
 import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
-import searchStyles from "./Search.module.css"
+import * as searchStyles from "./Search.module.css"
 
 const Search = () => {
   const timer = React.useRef<any>({})
-  const { action, state } = useStateMachine(updateSetting)
+  const { actions, state } = useStateMachine({ updateSetting })
 
   React.useEffect(() => {
     window.docsearch({
@@ -14,13 +14,13 @@ const Search = () => {
       inputSelector: "#algolia-doc-search",
     })
 
-    action({
+    actions.updateSetting({
       isFocusOnSearch: false,
     })
 
     return () => {
       clearTimeout(timer.current)
-      action({
+      actions.updateSetting({
         isFocusOnSearch: false,
       })
     }
@@ -45,7 +45,7 @@ const Search = () => {
                 },
               })}
           onFocus={() =>
-            action({
+            actions.updateSetting({
               isFocusOnSearch: true,
             })
           }
@@ -53,7 +53,7 @@ const Search = () => {
             timer.current && clearTimeout(timer.current)
             timer.current = setTimeout(
               () =>
-                action({
+                actions.updateSetting({
                   isFocusOnSearch: false,
                 }),
               310

@@ -7,7 +7,7 @@ import {
   uiLibraryHookInput,
   uiLibraryHookInputTs,
 } from "../../components/codeExamples/getStarted"
-import typographyStyles from "../../styles/typography.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "Comece agora",

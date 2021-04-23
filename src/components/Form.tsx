@@ -6,10 +6,10 @@ import goToBuilder from "./utils/goToBuilder"
 import { useForm } from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
-import buttonStyles from "../styles/button.module.css"
-import containerStyles from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import styles from "./Form.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as styles from "./Form.module.css"
 
 const animationProps = {
   start: {

@@ -2,7 +2,7 @@ import * as React from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
-import styles from "./FeatureList.module.css"
+import * as styles from "./FeatureList.module.css"
 
 const props = {
   keyframes: [

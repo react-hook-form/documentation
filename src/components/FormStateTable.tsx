@@ -1,8 +1,8 @@
 import generic from "../data/generic"
 import { Link } from "gatsby"
 import * as React from "react"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as tableStyles from "../styles/table.module.css"
 
 export default ({ currentLanguage, api }) => (
   <>

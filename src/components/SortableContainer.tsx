@@ -3,7 +3,11 @@ import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import generic from "../data/generic"
-import styles from "./SortableContainer.module.css"
+import {
+  editPanel,
+  list,
+  sortableWrapper,
+} from "./SortableContainer.module.css"
 
 export default function SortableContainer({
   updateFormData,
@@ -23,7 +27,7 @@ export default function SortableContainer({
   currentLanguage: string
 }) {
   return (
-    <div className={styles.sortableWrapper}>
+    <div className={sortableWrapper}>
       <Sortable
         tag="ul"
         onChange={(data) => {
@@ -49,7 +53,7 @@ export default function SortableContainer({
               }}
               key={field.name}
               render={({ style }) => (
-                <li className={styles.list} style={style} data-id={field.name}>
+                <li className={list} style={style} data-id={field.name}>
                   <svg viewBox="0 0 1024 1280">
                     <circle cx="319.5" cy="155.5" r="104.1" />
                     <path d="M413.6,155.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7     c-25.4-30.3-28.1-75.2-7.6-108.7c20.1-33.1,60.2-51.1,98.3-43.4C381.4,72,413.3,110.8,413.6,155.5c0.1,12.9,20.1,12.9,20,0     c-0.3-47.8-30.4-90.6-75.2-107.3c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6     c52.5-10.6,90.4-58.6,90.8-111.7C433.7,142.6,413.7,142.6,413.6,155.5z" />
@@ -66,7 +70,7 @@ export default function SortableContainer({
                   </svg>
                   {field.name}
 
-                  <div className={styles.editPanel}>
+                  <div className={editPanel}>
                     <button
                       style={{
                         ...(editIndex === index
@@ -127,7 +131,7 @@ export default function SortableContainer({
       </Sortable>
 
       {(formData || []).length > 0 && (
-        <div className={styles.editPanel}>
+        <div className={editPanel}>
           <button
             onClick={() => {
               if (

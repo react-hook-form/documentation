@@ -10,9 +10,9 @@ import validationSchema from "./codeExamples/validationSchema"
 import validationSchemaTs from "./codeExamples/validationSchemaTs"
 import zodResolver from "./codeExamples/zodResolver"
 import zodResolverTs from "./codeExamples/zodResolverTs"
-import typographyStyles from "../styles/typography.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
 import vestResolver from "./codeExamples/vestResolver"
-import tableStyles from "../styles/table.module.css"
+import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 
 export default function ({ api }) {

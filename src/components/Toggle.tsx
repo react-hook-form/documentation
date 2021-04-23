@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
-import styles from "./Toggle.module.css"
+import * as styles from "./Toggle.module.css"
 
 export default function Toggle({ style }: { style?: any }) {
   const { action, state } = useStateMachine(updateSetting)
@@ -20,7 +20,7 @@ export default function Toggle({ style }: { style?: any }) {
   }
 
   return (
-    <label htmlFor="toggle" className={styles.switch} style={style}>
+    <label htmlFor="toggle" className={styles.toggle} style={style}>
       <input
         id="toggle"
         type="checkbox"

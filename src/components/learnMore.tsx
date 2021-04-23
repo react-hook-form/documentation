@@ -2,8 +2,8 @@ import * as React from "react"
 import { navigate } from "gatsby"
 import generic from "../data/generic"
 import translateLink from "./logic/translateLink"
-import containerStyles from "../styles/container.module.css"
-import buttonStyles from "../styles/button.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as buttonStyles from "../styles/button.module.css"
 
 export default function LearnMore({
   currentLanguage,

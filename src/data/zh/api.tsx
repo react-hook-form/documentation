@@ -3,9 +3,9 @@ import colors from "../../styles/colors"
 import CodeArea, { CodeSandBoxLink } from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/v6/useFieldArrayArgument"
 import generic from "../generic"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
-import buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "API文档",

@@ -14,8 +14,8 @@ import controlled from "./codeExamples/controlled"
 import TabGroup from "./TabGroup"
 import control from "./codeExamples/control"
 import shareRefTs from "./codeExamples/shareRefTs"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
 
 const { useRef } = React
 

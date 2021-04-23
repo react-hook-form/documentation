@@ -1,6 +1,6 @@
 import * as React from "react"
 import colors from "../styles/colors"
-import styles from "./FormFields.module.css"
+import * as styles from "./FormFields.module.css"
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,

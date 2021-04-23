@@ -2,10 +2,8 @@ import * as React from "react"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
-import typographyStyles from "../styles/typography.module.css"
-import tableStyles from "../styles/table.module.css"
-import TabGroup from "./TabGroup"
-import formContextConsumer from "./codeExamples/formContextConsumer"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as tableStyles from "../styles/table.module.css"
 
 export default function FormContext({ currentLanguage, api }) {
   return (

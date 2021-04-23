@@ -3,8 +3,8 @@ import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
-import typographyStyles from "../styles/typography.module.css"
-import styles from "./DevToolFeaturesList.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as styles from "./DevToolFeaturesList.module.css"
 
 const animationKeyFramesProps = {
   keyframes: [

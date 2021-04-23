@@ -5,9 +5,9 @@ import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import generic from "../data/generic"
 import data from "../data/resources"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyle from "../styles/container.module.css"
-import styles from "./ResourcePage.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyle from "../styles/container.module.css"
+import * as styles from "./ResourcePage.module.css"
 
 const animationBase = 0.05
 

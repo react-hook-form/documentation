@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
-import styles from "./Popup.module.css"
+import * as styles from "./Popup.module.css"
 
 function Popup({
   message,
