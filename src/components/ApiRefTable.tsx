@@ -503,7 +503,10 @@ export default function ApiRefTable({
                 <code className={typographyStyles.typeText}>boolean</code>
               </td>
               <td>
-                <p>Input will be unregistered after unmount.</p>
+                <p>
+                  Input will be unregistered after unmount and defaultValues
+                  will be removed as well.
+                </p>
               </td>
               <td>
                 <CodeArea

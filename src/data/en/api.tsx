@@ -221,12 +221,20 @@ export default {
           <code>true</code> to <code>unregister</code> input during unmount.
         </p>
 
-        <p>
-          <b className={typographyStyles.note}>Important:</b> This is a global
-          config which overwrites child level config, if you want to have
-          individual behaviour, then you should set the config at the component
-          or hook level not at <code>useForm</code>.
-        </p>
+        <ul>
+          <li>
+            <p>
+              This is a global config that overwrites child-level config, if you
+              want to have individual behavior, then you should set the config
+              at the component or hook level, not at <code>useForm</code>.
+            </p>
+          </li>
+          <li>
+            By setting <code>shouldUnregister</code> to true at{" "}
+            <code>useForm</code> level, <code>defaultValues</code> will{" "}
+            <b>not</b> be merged against submission result.
+          </li>
+        </ul>
       </>
     ),
   },
@@ -2095,7 +2103,10 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            <p>Input will be unregistered after unmount.</p>
+            <p>
+              Input will be unregistered after unmount and defaultValues will be
+              removed as well.
+            </p>
           </td>
         </tr>
       </tbody>
@@ -2420,7 +2431,10 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            <p>Input will be unregistered after unmount.</p>
+            <p>
+              Input will be unregistered after unmount and defaultValues will be
+              removed as well.
+            </p>
           </td>
         </tr>
       </tbody>
