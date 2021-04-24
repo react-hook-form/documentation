@@ -6,7 +6,6 @@ import manualValidation from "../components/codeExamples/manualValidation"
 import accessibleCode from "../components/codeExamples/accessibleCode"
 import shareRef from "../components/codeExamples/shareRef"
 import initialValue from "../components/codeExamples/initialValue"
-import copyClipBoard from "../components/utils/copyClipBoard"
 import StarRepo from "../components/StarRepo"
 import faqEn from "../data/en/faq"
 import { useStateMachine } from "little-state-machine"
@@ -28,11 +27,9 @@ interface Props {
 
 const Faq = ({ defaultLang, faq }: Props) => {
   const {
-    state,
-    state: { language, setting = {} },
+    state: { language, setting },
   } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-  const isV7 = setting.version === 7
+  const isV7 = setting?.version === 7
   const { currentLanguage } =
     language && language.currentLanguage
       ? language

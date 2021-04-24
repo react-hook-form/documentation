@@ -62,7 +62,7 @@ const pages = [
 ]
 
 function Menu() {
-  const { state } = useStateMachine(updateCurrentLanguage)
+  const { state } = useStateMachine({ updateCurrentLanguage })
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
 

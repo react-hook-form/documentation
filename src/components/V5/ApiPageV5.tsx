@@ -89,7 +89,6 @@ interface Props {
 
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
-    state,
     actions,
     state: { language },
   } = useStateMachine({

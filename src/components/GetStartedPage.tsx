@@ -71,13 +71,13 @@ interface Props {
 
 const Faq = ({ location, defaultLang, getStarted }: Props) => {
   const {
-    state: { language, setting = {} },
+    state: { language, setting },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const isV7 = setting.version === 7
+  const isV7 = setting?.version === 7
 
   const links = [
     getStarted.install,

@@ -17,7 +17,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     actions,
     state,
-    state: { language, setting = {} },
+    state: { language, setting },
   } = useStateMachine({
     updateCurrentLanguage,
     updateSetting,
@@ -31,13 +31,15 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
   const location = globalHistory.location
 
+  const isFocusOnSearch = setting?.isFocusOnSearch
+
   React.useEffect(() => {
-    if (setting.isFocusOnSearch) {
+    if (isFocusOnSearch) {
       setLang(false)
-    } else if (!setting.isFocusOnSearch) {
+    } else if (!isFocusOnSearch) {
       setLang(true)
     }
-  }, [setting.isFocusOnSearch])
+  }, [isFocusOnSearch])
 
   return (
     <>

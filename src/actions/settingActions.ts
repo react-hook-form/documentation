@@ -1,4 +1,9 @@
-export function updateSetting(state, payload) {
+import { GlobalState } from "little-state-machine"
+
+export function updateSetting(
+  state: GlobalState,
+  payload: Partial<GlobalState["setting"]>
+) {
   return {
     ...state,
     setting: {
