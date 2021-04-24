@@ -28,7 +28,7 @@ export default ({ currentLanguage }) => {
               <h2>
                 trigger:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`(name?: string | string[]) => void`}
+                  {`(name?: string | string[]) => Promise<boolean>`}
                 </span>
               </h2>
             </code>

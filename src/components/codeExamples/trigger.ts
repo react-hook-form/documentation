@@ -8,9 +8,31 @@ export default function App() {
     <form>
       <input {...register("firstName", { required: true })} />
       <input {...register("lastName", { required: true })} />
-      <button type="button" onClick={() => { trigger("lastName"); }}>Trigger</button>
-      <button type="button" onClick={() => { trigger(["firstName", "lastName"]); }}>Trigger Multiple</button>
-      <button type="button" onClick={() => { trigger(); }}>Trigger All</button>
+      <button
+        type="button"
+        onClick={async () => {
+          const result = await trigger("lastName");
+        }}
+      >
+        Trigger
+      </button>
+      <button
+        type="button"
+        onClick={async () => {
+          const result = await trigger(["firstName", "lastName"]);
+        }}
+      >
+        Trigger Multiple
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          trigger();
+        }}
+      >
+        Trigger All
+      </button>
     </form>
   );
-}`
+}
+`
