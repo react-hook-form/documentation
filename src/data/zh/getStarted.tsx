@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
 import * as typographyStyles from "../../styles/typography.module.css"
