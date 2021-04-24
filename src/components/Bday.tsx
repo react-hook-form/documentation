@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
-import styles from "./Bday.module.css"
+import * as styles from "./Bday.module.css"
 import { Link } from "gatsby"
 
 const list = [

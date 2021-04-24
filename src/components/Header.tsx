@@ -7,9 +7,9 @@ import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
 import video from "../images/react-hook-form-demo-video.mp4"
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
-import typographyStyles from "../styles/typography.module.css"
-import buttonStyles from "../styles/button.module.css"
-import styles from "./Header.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as styles from "./Header.module.css"
 
 const LogoSvg = (
   <>

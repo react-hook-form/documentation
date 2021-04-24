@@ -7,9 +7,9 @@ import reduxForm from "../images/reduxform.min.png"
 import reactHookFormVideo from "../images/react-hook-form-test.min.mp4"
 import formikVideo from "../images/formik-test.min.mp4"
 import home from "../data/home"
-import containerStyles from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import styles from "./CodePerfCompareSection.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as styles from "./CodePerfCompareSection.module.css"
 
 const props = {
   start: { transform: "translateY(100px)" },

@@ -3,8 +3,8 @@ import CodeArea from "..//CodeArea"
 import generic from "../../data/generic"
 import useController from "../codeExamples/v6/useController"
 import useControllerTs from "../codeExamples/v6/useControllerTs"
-import tableStyles from "../../styles/table.module.css"
-import typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default function UseController({
   api,

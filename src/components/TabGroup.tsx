@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStateMachine } from "little-state-machine"
-import styles from "./TabGroup.module.css"
+import * as styles from "./TabGroup.module.css"
 
 export default ({ children, buttonLabels }) => {
   const { state } = useStateMachine()

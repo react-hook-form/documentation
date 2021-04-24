@@ -7,8 +7,7 @@ import * as React from "react"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
-import styles from "./GetStarted.module.css"
-import codeAreaStyles from "./CodeArea.module.css"
+import * as styles from "./GetStarted.module.css"
 
 export default function GetStarted({
   quickStartRef,
@@ -42,7 +41,7 @@ export default function GetStarted({
             alert(generic.copied[currentLanguage])
           }}
         >
-          <span className={codeAreaStyles.copyIcon}>
+          <span>
             <span />
           </span>{" "}
           {generic.copy[currentLanguage]}

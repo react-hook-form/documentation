@@ -4,9 +4,9 @@ import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
 import CodeArea from "../../components/CodeArea"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
-import buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "자주 묻는 질문",

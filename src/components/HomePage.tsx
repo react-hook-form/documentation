@@ -12,10 +12,10 @@ import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
 import translateLink from "./logic/translateLink"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
-import buttonStyles from "../styles/button.module.css"
-import styles from "./HomePage.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as styles from "./HomePage.module.css"
 
 const { useState, useRef, useEffect } = React
 

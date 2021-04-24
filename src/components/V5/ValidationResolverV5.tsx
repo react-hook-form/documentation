@@ -5,7 +5,7 @@ import validationResolverTs from "./codeExamples/validationResolverTs"
 import TabGroup from "../TabGroup"
 import validationSchema from "./codeExamples/validationSchema"
 import validationSchemaTs from "../codeExamples/validationSchemaTs"
-import typographyStyles from "../../styles/typography.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default function ({ api }) {
   return (

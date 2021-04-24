@@ -32,9 +32,9 @@ import schemaValidationTs from "./codeExamples/schemaValidationTs"
 import schemaValidationTsV6 from "./codeExamples/v6/schemaValidationTs"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
-import getStartedStyles from "./GetStarted.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
+import * as getStartedStyles from "./GetStarted.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
 import VideoList from "./VideoList"
 import getStarted from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
@@ -71,13 +71,13 @@ interface Props {
 
 const Faq = ({ location, defaultLang, getStarted }: Props) => {
   const {
-    state: { language, setting = {} },
+    state: { language, setting },
   } = useStateMachine()
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const isV7 = setting.version === 7
+  const isV7 = setting?.version === 7
 
   const links = [
     getStarted.install,

@@ -13,7 +13,7 @@ function SEO({
   description?: string
   location: { pathname: string }
 }) {
-  const { action } = useStateMachine(updateCurrentLanguage)
+  const { actions } = useStateMachine({ updateCurrentLanguage })
 
   const site = {
     siteMetadata: {
@@ -35,7 +35,7 @@ function SEO({
   const homeLink = `/${langKey}`.replace(`/${defaultLangKey}/`, "/")
 
   React.useEffect(() => {
-    action(
+    actions.updateCurrentLanguage(
       getLangs(langs, langKey, getUrlForLang(homeLink, url)).filter(
         ({ selected }) => selected
       )[0].langKey

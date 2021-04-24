@@ -3,8 +3,8 @@ import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import Footer from "./Footer"
 import migrateV5ToV6 from "../data/en/migrateV5ToV6"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
 
 const MigrateV5ToV6 = ({ defaultLang, content = migrateV5ToV6 }) => {
   const {

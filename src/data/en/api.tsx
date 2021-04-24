@@ -3,9 +3,9 @@ import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"
 import { Link } from "gatsby"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import tableStyles from "../../styles/table.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
+import * as tableStyles from "../../styles/table.module.css"
 import TabGroup from "../../components/TabGroup"
 import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
@@ -1360,7 +1360,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>
                   <p>
                     The value for the field. Make sure you supply the entire
-                    array when you update <codep>useFieldArray</codep>.
+                    array when you update <code>useFieldArray</code>.
                   </p>
                 </td>
               </tr>

@@ -3,8 +3,8 @@ import { useStateMachine } from "little-state-machine"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import colors from "../styles/colors"
-import styles from "./SideMenu.module.css"
-import typographyStyles from "../styles/typography.module.css"
+import * as styles from "./SideMenu.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
 import { updateCurrentLanguage } from "../actions/languageActions"
 
 const pages = [
@@ -62,7 +62,7 @@ const pages = [
 ]
 
 function Menu() {
-  const { state } = useStateMachine(updateCurrentLanguage)
+  const { state } = useStateMachine({ updateCurrentLanguage })
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
 

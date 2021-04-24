@@ -10,7 +10,7 @@ import validationSchema from "../codeExamples/validationSchema"
 import validationSchemaTs from "../codeExamples/validationSchemaTs"
 import zodResolver from "../codeExamples/zodResolver"
 import zodResolverTs from "../codeExamples/zodResolverTs"
-import typographyStyles from "../../styles/typography.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 import vestResolver from "../codeExamples/vestResolver"
 
 export default function ({ api }) {

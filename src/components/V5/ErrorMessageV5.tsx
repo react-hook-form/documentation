@@ -4,8 +4,8 @@ import errorMessage from "./codeExamples/errorMessage"
 import errorsMessage from "./codeExamples/errorsMessage"
 import CodeArea from "../CodeArea"
 import TabGroup from "../TabGroup"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
 import errorMessageTs from "./codeExamples/errorMessageTs"
 
 export default ({

@@ -9,7 +9,7 @@ import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
-import styles from "./Nav.module.css"
+import * as styles from "./Nav.module.css"
 import colors from "../styles/colors"
 import { updateSetting } from "../actions/settingActions"
 
@@ -17,7 +17,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
     actions,
     state,
-    state: { language, setting = {} },
+    state: { language, setting },
   } = useStateMachine({
     updateCurrentLanguage,
     updateSetting,
@@ -31,13 +31,15 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
   const location = globalHistory.location
 
+  const isFocusOnSearch = setting?.isFocusOnSearch
+
   React.useEffect(() => {
-    if (setting.isFocusOnSearch) {
+    if (isFocusOnSearch) {
       setLang(false)
-    } else if (!setting.isFocusOnSearch) {
+    } else if (!isFocusOnSearch) {
       setLang(true)
     }
-  }, [setting.isFocusOnSearch])
+  }, [isFocusOnSearch])
 
   return (
     <>
@@ -110,7 +112,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
                 aria-label="Select version"
                 onChange={(e: any) => {
-                  let url = location.pathname.substr(1)
+                  const url = location.pathname.substr(1)
                   actions.updateSetting({
                     version: parseInt(e.target.value),
                   })

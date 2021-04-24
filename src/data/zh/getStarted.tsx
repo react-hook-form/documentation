@@ -1,14 +1,7 @@
 import * as React from "react"
-import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
-import typographyStyles from "../../styles/typography.module.css"
-import CodeArea from "../../components/CodeArea"
-import {
-  uiLibraryHookInput,
-  uiLibraryHookInputTs,
-} from "../../components/codeExamples/getStarted"
-import VideoList from "../../components/VideoList"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "起步",

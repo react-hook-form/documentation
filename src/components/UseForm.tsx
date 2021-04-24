@@ -8,9 +8,9 @@ import defaultValues from "./codeExamples/defaultValues"
 import defaultValuesTs from "./codeExamples/defaultValuesTs"
 import ValidationResolver from "./ValidationResolver"
 import api from "../data/en/api"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
-import tableStyles from "../styles/table.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as containerStyles from "../styles/container.module.css"
+import * as tableStyles from "../styles/table.module.css"
 
 const codeSandBoxStyle = {
   position: "relative",

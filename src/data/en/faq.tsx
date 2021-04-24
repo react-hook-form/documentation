@@ -5,11 +5,11 @@ import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
 import CodeArea from "../../components/CodeArea"
 import copyClipBoard from "../../components/utils/copyClipBoard"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import getStartedStyles from "../../components/GetStarted.module.css"
-import codeAreaStyles from "../../components/CodeArea.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
+import * as getStartedStyles from "../../components/GetStarted.module.css"
+import * as codeAreaStyles from "../../components/CodeArea.module.css"
 
 export default {
   title: "FAQs",
@@ -712,7 +712,7 @@ export default {
                 alert("Code copied into your clipboard.")
               }}
             >
-              <span className={codeAreaStyles.copyIcon}>
+              <span>
                 <span />
               </span>{" "}
               Copy

@@ -14,10 +14,9 @@ import controlled from "../codeExamples/controlled"
 import TabGroup from "../TabGroup"
 import control from "../codeExamples/control"
 import shareRefTs from "../codeExamples/shareRefTs"
-import codeAreaStyles from "../CodeArea.module.css"
-import typographyStyles from "../../styles/typography.module.css"
-import containerStyles from "../../styles/container.module.css"
-import getStartedStyles from "../GetStarted.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as containerStyles from "../../styles/container.module.css"
+import * as getStartedStyles from "../GetStarted.module.css"
 
 const { useRef } = React
 
@@ -319,7 +318,7 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
                 alert("Code copied into your clipboard.")
               }}
             >
-              <span className={codeAreaStyles.copyIcon}>
+              <span>
                 <span />
               </span>{" "}
               Copy

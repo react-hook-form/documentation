@@ -10,8 +10,8 @@ import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
 import { Link as PageLink } from "gatsby"
-import typographyStyles from "../../styles/typography.module.css"
-import buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
 
 export default {
   title: "Advanced Usage",

@@ -41,12 +41,12 @@ import nativeValidation from "../V5/codeExamples/nativeValidation"
 import UseFieldArrayContent from "../UseFieldArray"
 import colors from "../../styles/colors"
 import ValidationResolver from "./ValidationResolverV5"
-import headerStyles from "../Header.module.css"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
-import buttonStyles from "../../styles/button.module.css"
-import containerStyles from "../../styles/container.module.css"
-import styles from "../ApiPage.module.css"
+import * as headerStyles from "../Header.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
+import * as containerStyles from "../../styles/container.module.css"
+import * as styles from "../ApiPage.module.css"
 import { updateSetting } from "../../actions/settingActions"
 
 const { useRef, useEffect } = React
@@ -89,7 +89,6 @@ interface Props {
 
 function ApiPage({ formData, defaultLang, api }: Props) {
   const {
-    state,
     actions,
     state: { language },
   } = useStateMachine({

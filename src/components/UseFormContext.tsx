@@ -1,10 +1,10 @@
 import * as React from "react"
 import api from "../data/en/api"
-import typographyStyles from "../styles/typography.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
 import FormContext from "./FormContext"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
-import containerStyles from "../styles/container.module.css"
+import * as containerStyles from "../styles/container.module.css"
 
 export default function UseFieldArray({
   currentLanguage,

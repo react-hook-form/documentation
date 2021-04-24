@@ -1,9 +1,9 @@
 import * as React from "react"
 import CodeArea, { CodeSandBoxLink } from "../CodeArea"
 import generic from "../../data/generic"
-import typographyStyles from "../../styles/typography.module.css"
-import tableStyles from "../../styles/table.module.css"
-import buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
+import * as tableStyles from "../../styles/table.module.css"
+import * as buttonStyles from "../../styles/button.module.css"
 import formState from "../codeExamples/formState"
 import formStateTs from "../codeExamples/formStateTs"
 

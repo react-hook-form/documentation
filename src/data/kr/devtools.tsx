@@ -1,5 +1,5 @@
 import * as React from "react"
-import typographyStyles from "../../styles/typography.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "개발자 도구(DevTools)",

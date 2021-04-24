@@ -3,7 +3,7 @@ import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
 import Prism from "prismjs"
-import styles from "./CodeArea.module.css"
+import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
   url,

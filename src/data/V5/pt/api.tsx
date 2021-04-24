@@ -5,8 +5,8 @@ import Popup from "../../../components/Popup"
 import generic from "../../generic"
 import CodeArea from "../../../components/CodeArea"
 import useFieldArrayArgument from "../../../components/codeExamples/v6/useFieldArrayArgument"
-import typographyStyles from "../../../styles/typography.module.css"
-import buttonStyles from "../../../styles/button.module.css"
+import * as typographyStyles from "../../../styles/typography.module.css"
+import * as buttonStyles from "../../../styles/button.module.css"
 import code from "../../../components/codeExamples/defaultExample"
 
 export default {
