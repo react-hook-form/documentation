@@ -175,6 +175,86 @@ export default function App() {
   );
 }`}
         />
+
+        <h4 className={typographyStyles.questionTitle}>Conditional inputs</h4>
+
+        <p>
+          <code>useFieldArray</code> is uncontrolled by default, which means
+          <code>defaultValue</code> is rendered during input's mounting. This is
+          different from the controlled form, which the local state is keeping
+          updated during user interaction's <code>onChange</code>. When inputs
+          get unmounted and remounted, you want to read what's in the current
+          form values from <code>getValue</code> function. For individual input,
+          you can safely use <code>useWatch</code>
+          hook to retain input value as well.
+        </p>
+
+        <CodeArea
+          url="https://codesandbox.io/s/react-hook-form-conditional-0g9qx"
+          rawData={`import React from "react";
+import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
+
+const Input = ({ name, control, register, index }) => {
+  const value = useWatch({
+    control,
+    name
+  });
+  return <input {...register(\`test.\${index}.age\`)} defaultValue={value} />;
+};
+
+function App() {
+  const [show, setShow] = React.useState(true);
+  const { register, control, getValues, handleSubmit } = useForm({
+    defaultValues: {
+      test: [{ firstName: "Bill", lastName: "Luo", age: "2" }]
+    }
+  });
+  const { fields, remove } = useFieldArray({
+    control,
+    name: "test"
+  });
+  const onSubmit = (data) => console.log("data", data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {show && (
+        <ul>
+          {fields.map((item, index) => {
+            return (
+              <li key={item.id}>
+                <input
+                  defaultValue={getValues(\`test.\${index}.firstName\`)}
+                  {...register(\`test.\${index}.firstName\`)}
+                />
+
+                <Input
+                  register={register}
+                  control={control}
+                  index={index}
+                  name={\`test.\${index}.age\`}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      <section>
+        <button
+          type="button"
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          Hide
+        </button>
+      </section>
+
+      <input type="submit" />
+    </form>
+  );
+}
+`}
+        />
       </>
     </>
   )
