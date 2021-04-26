@@ -501,7 +501,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             rawData={isV7 ? reactNativeController : reactNativeControllerV6}
             url={
               isV7
-                ? "https://snack.expo.io/@bluebill1049/react-hook-form-v7---basic"
+                ? "https://snack.expo.io/@bluebill1049/react-hook-form-v7---controller"
                 : "https://snack.expo.io/@bluebill1049/react-hook-form-v6"
             }
           />
