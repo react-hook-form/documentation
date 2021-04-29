@@ -300,13 +300,6 @@ export default {
       authorUrl: "https://twitter.com/hbilirr",
     },
     {
-      url: "https://bilir.me/blog/react-native-form-management-tutorial",
-      title:
-        "React Native Form Management Tutorial - Building a credit card form",
-      author: "Halil Bilir",
-      authorUrl: "https://twitter.com/hbilirr",
-    },
-    {
       url:
         "https://koprowski.it/react-native-form-validation-with-react-hook-form-usecontroller",
       title:

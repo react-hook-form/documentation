@@ -81,7 +81,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
 
               return (
                 <Animate
-                  key={url}
+                  key={url + i}
                   play={play}
                   easeType="ease-in"
                   delay={delay}
