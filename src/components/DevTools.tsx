@@ -14,7 +14,6 @@ import devTool from "../images/dev-tool.png"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
-import * as codeAreaStyles from "./CodeArea.module.css"
 import * as getStartedStyle from "./GetStarted.module.css"
 import * as styles from "./DevTools.module.css"
 

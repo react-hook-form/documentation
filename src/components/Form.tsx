@@ -79,7 +79,7 @@ function Form({
 
       <div className={styles.wrapper}>
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={typographyStyles.title}>
+          <h2 className={typographyStyles.title} style={{ marginTop: 20 }}>
             {generic.example[currentLanguage]}
           </h2>
 
