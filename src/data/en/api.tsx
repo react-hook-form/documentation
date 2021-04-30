@@ -135,16 +135,16 @@ export default {
               <code>defaultValues</code> are cached{" "}
               <strong>on the first render</strong> within the custom hook. If
               you want to reset the <code>defaultValues</code>, you should use
-              the <Link to={"/api/reset"}>reset</Link> api.
+              the <Link to={"/api/useform/reset"}>reset</Link> api.
             </p>
           </li>
           <li>
             <p>
               <code>defaultValues</code> will be injected into{" "}
-              <Link to={"/api/watch"}>watch</Link>,{" "}
-              <Link to={"/api/useWatch"}>useWatch</Link>,{" "}
-              <Link to={"/api/controller"}>Controller</Link> and{" "}
-              <Link to={"/api/controller/usecontroller"}>useController</Link>'s{" "}
+              <Link to={"/api/useform/watch"}>watch</Link>,{" "}
+              <Link to={"/api/usewatch"}>useWatch</Link>,{" "}
+              <Link to={"/api/usecontroller/controller"}>Controller</Link> and{" "}
+              <Link to={"/api/usecontroller"}>useController</Link>'s{" "}
               <code>defaultValue</code>.
             </p>
           </li>
@@ -477,7 +477,8 @@ export default {
 
           <p>
             If you choose to manually register fields, you will need to update
-            the input value with <Link to={"/api/setValue"}>setValue</Link>.
+            the input value with{" "}
+            <Link to={"/api/useform/setvalue"}>setValue</Link>.
           </p>
 
           <CodeArea
@@ -698,7 +699,7 @@ return <button disabled={!isDirty || !isValid} />;
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <Link to={"/api/useform/formstate#ErrorMessage"}>ErrorMessage</Link>{" "}
+          <Link to={"/api/useformstate/errormessage"}>ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>
@@ -856,9 +857,9 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               For controlled components like <code>React-Select</code> which do
               not expose a <code>ref</code> prop, you will have to reset the
               input value manually with{" "}
-              <Link to={"api/useform/api"}>setValue</Link> or connect your
-              component via <Link to={"api/usecontroller"}>useController</Link>{" "}
-              or <Link to={"api/usecontroller/controller"}>Controller</Link>.
+              <Link to={"/api/useform/setvalue"}>setValue</Link> or connect your
+              component via <Link to={"/api/usecontroller"}>useController</Link>{" "}
+              or <Link to={"/api/usecontroller/controller"}>Controller</Link>.
             </p>
           </li>
           <li>
