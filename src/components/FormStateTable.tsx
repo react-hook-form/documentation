@@ -112,8 +112,8 @@ export default ({ currentLanguage, api }) => (
             </td>
             <td>
               An object with field errors. There is also an{" "}
-              <a href="#errorMMessage">ErrorMessage</a> component to retrieve
-              error message easily.
+              <Link to={"/api/useformstate/errormessage"}>ErrorMessage</Link>{" "}
+              component to retrieve error message easily.
             </td>
           </tr>
         </tbody>
