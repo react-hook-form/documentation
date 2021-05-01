@@ -486,12 +486,10 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  name="test"
-  ref={
-    register({
-      setValueAs: v => parseInt(v),
-    })
-  }
+  type="number"
+  {...register("test", {
+    setValueAs: v => parseInt(v),
+  })}
 />`}
                 />
               </td>
@@ -513,12 +511,9 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  name="test"
-  ref={
-    register({
-      shouldUnregister: true
-    })
-  }
+  {...register("test", {
+    shouldUnregister: true,
+  })}
 />`}
                 />
               </td>
