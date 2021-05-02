@@ -9,7 +9,7 @@ export default function App() {
     if (errors.test) {
       inputRef.current.focus();
     }
-  });
+  }, [errors]);
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>
