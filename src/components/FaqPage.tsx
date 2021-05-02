@@ -54,7 +54,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
     question14: null,
     question15: null,
     question16: null,
-    // question17: null,
+    question17: null,
   })
 
   const goToSection = (name) => {
@@ -268,7 +268,21 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             />
           </TabGroup>
 
-          {isV7 ? null : (
+          {isV7 ? (
+            <>
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question12 = ref)}
+                id="question12"
+              >
+                {faq.questions[12].title}
+              </h2>
+
+              {faq.questions[12].description}
+            </>
+          ) : (
             <>
               <hr />
 
@@ -329,6 +343,18 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
               </h2>
 
               {faq.questions[16].description}
+
+              <hr />
+
+              <h2
+                className={typographyStyles.questionTitle}
+                ref={(ref) => (sectionsRef.current.question17 = ref)}
+                id="question17"
+              >
+                {faq.questions[17].title}
+              </h2>
+
+              {faq.questions[17].description}
             </>
           )}
 
