@@ -259,13 +259,8 @@ export default {
     description: (
       <p>
         React Hook Form provides an <code>errors</code> object to show you the
-        errors in the form.
-
-        errors.<field name>.type will return given validation constraints.
-        example: if we take the example below errors.firstName.type will be 'requried'
-        
-        if we have our constraints like this <Input {...register("firstName", { required: true, maxLength: 10 })} />, we can target maxLength validation as follows
-        {errors.firstName.type === 'maxLength' && "Name should not exceed 10 characters"}
+        errors in the form. <code>errors</code>'s type will return given
+        validation constraints.
       </p>
     ),
   },
