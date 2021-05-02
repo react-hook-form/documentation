@@ -253,7 +253,8 @@ export default {
       <p>
         React Hook Form provides an <code>errors</code> object to show you the
         errors in the form. <code>errors</code>'s type will return given
-        validation constraints.
+        validation constraints. The following example showcases a required
+        validation rule.
       </p>
     ),
   },
