@@ -132,3 +132,67 @@ describe("App", () => {
   });
 });
 `
+
+export const actWarningComponent = `import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+export default function App() {
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange"
+  });
+  const [message, setMessage] = useState("");
+
+  const onSubmit = (data) => 
+    setMessage(data.answer === "42" ? "that's correct" : "that's incorrect");
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <section>
+        <label htmlFor="answer">
+          The Answer to the Ultimate Question of Life, The Universe, and
+          Everything
+        </label>
+        <input
+          id="answer"
+          {...register("answer", {
+            required: true
+          })}
+          type="text"
+        />
+      </section>
+      <button type="submit" disabled={!formState.isValid}>
+        SUBMIT
+      </button>
+      <span>{message}</span>
+    </form>
+  );
+}
+
+`
+export const actWarningTest = `
+import React from "react";
+import { render, screen, act } from "@testing-library/react";
+import App from "./App";
+
+describe("App", () => {
+  it("should have a submit button", () => {
+    render(<App />);
+    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
+  });
+});
+`
+
+export const actWarningSolution = `
+import React from "react";
+import { render, screen, act } from "@testing-library/react";
+import App from "./App";
+
+describe("App", () => {
+  it("should have a submit button", async () => {
+    await act(async () => render(<App />));
+
+    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
+  });
+});
+
+`
