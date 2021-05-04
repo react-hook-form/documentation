@@ -489,6 +489,64 @@ const { onChange } = register('lastChange'); // this onChange method can update 
 // This will work for React Native, except you can't reset input value
 <TextInput onTextChange={onChange} />`}
           />
+
+          <h4 className={typographyStyles.questionTitle}>
+            custom onChange, onBlur
+          </h4>
+
+          <p>
+            When you want to combine with your <code>onChange</code>,{" "}
+            <>onBlur</>, you can achieve by the following:
+          </p>
+
+          <CodeArea
+            rawData={`// onChange got overwrite by register method
+<input onChange={handleChange} {...register('test')} />
+
+// register's onChange got overwrite by register method
+<input {...register('test')} onChange={handleChange}/>
+
+const firstName = register('firstName')
+<input 
+  onChange={(e) => {
+    firstName.onChange(e); // method from hook form register
+    handleChange(e); // your method
+  }}
+  onBlur={firstName.onBlur}
+  ref={firstName.ref} 
+/>
+`}
+          />
+
+          <h4 className={typographyStyles.questionTitle}>
+            How to work with innerRef, inputRef?
+          </h4>
+
+          <p>
+            When the custom input component didn't expose ref correctly, you can
+            get it working via the following.
+          </p>
+
+          <CodeArea
+            rawData={`// not working, because ref is not assigned
+<TextInput {...register('test')} />
+
+const firstName = register('firstName')
+<TextInput 
+  onChange={firstName.onChange}
+  onBlur={firstName.onBlur}
+  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+/>
+
+// correct way to forward input's ref
+const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+  <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+));
+`}
+          />
         </>
       ),
     },
