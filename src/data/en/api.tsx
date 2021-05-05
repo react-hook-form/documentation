@@ -506,7 +506,7 @@ const { onChange } = register('lastChange'); // this onChange method can update 
 // register's onChange got overwrite by register method
 <input {...register('test')} onChange={handleChange}/>
 
-const firstName = register('firstName')
+const firstName = register('firstName', { required: true })
 <input 
   onChange={(e) => {
     firstName.onChange(e); // method from hook form register
@@ -531,7 +531,7 @@ const firstName = register('firstName')
             rawData={`// not working, because ref is not assigned
 <TextInput {...register('test')} />
 
-const firstName = register('firstName')
+const firstName = register('firstName', { required: true })
 <TextInput 
   onChange={firstName.onChange}
   onBlur={firstName.onBlur}
