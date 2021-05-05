@@ -132,3 +132,54 @@ describe("App", () => {
   });
 });
 `
+
+export const actWarningComponent = `import React from "react";
+import { useForm } from "react-hook-form";
+
+export default function App() {
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange"
+  });
+  const onSubmit = (data) => {};
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("answer", {
+          required: true
+        })}
+      />
+      <button type="submit">
+        SUBMIT
+      </button>
+    </form>
+  );
+}
+
+`
+export const actWarningTest = `
+import React from "react";
+import { render, screen, act } from "@testing-library/react";
+import App from "./App";
+
+describe("App", () => {
+  it("should have a submit button", () => {
+    render(<App />);
+    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
+  });
+});
+`
+
+export const actWarningSolution = `
+import React from "react";
+import { render, screen, act } from "@testing-library/react";
+import App from "./App";
+
+describe("App", () => {
+  it("should have a submit button", async () => {
+    await act(async () => render(<App />));
+    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
+  });
+});
+
+`
