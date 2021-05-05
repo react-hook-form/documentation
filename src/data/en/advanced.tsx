@@ -510,25 +510,20 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
         />
 
-        <p>
-          <span className={typographyStyles.note}>
-            Resolving{" "}
-            <span className={typographyStyles.typeText}>
-              Warning: An update to MyComponent inside a test was not wrapped in
-              act(...)
-            </span>
-          </span>
-        </p>
+        <h4>
+          Resolving act warning during test
+        </h4>
 
         <p>
           If you test a component that uses react-hook-form you might run into a
           warning like this, even if you didn't write any asynchronous code for
           that component:
-          <blockquote>
-            Warning: An update to MyComponent inside a test was not wrapped in
-            act(...)
-          </blockquote>
         </p>
+        
+        <blockquote>
+          Warning: An update to MyComponent inside a test was not wrapped in
+          act(...)
+        </blockquote>
 
         <CodeArea
           rawData={CodeExampleTestingForm.actWarningComponent}
