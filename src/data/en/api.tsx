@@ -2120,9 +2120,15 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  You need to either set <code>defaultValue</code> at the
-                  field-level or call <code>useForm</code> with{" "}
+                  You need to either provider <code>defaultValue</code> at the
+                  field-level or <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
+                </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
                 </p>
               </li>
               <li>
@@ -2444,6 +2450,12 @@ React.useEffect(() => {
                   You need to either set <code>defaultValue</code> at the
                   field-level or call <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
+                </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
                 </p>
               </li>
               <li>

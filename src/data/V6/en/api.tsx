@@ -1449,6 +1449,12 @@ React.useEffect(() => {
                   field-level or call <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
                 </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
+                </p>
               </li>
               <li>
                 <p>
