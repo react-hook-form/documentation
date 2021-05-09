@@ -576,14 +576,14 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           <p>
             You can pass a callback function as the argument to validate, or you
             can pass an object of callback functions to validate all of them.
-            (refer to the examples)
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
             <code>object</code> or <code>array</code> input data, it's recommend
             to use the <code>validate</code> function for validation as the
-            other rules mostly apply to <code>string</code>, <code>number</code>{" "}
-            and <code>boolean</code> data type.
+            other rules mostly apply to <code>string</code>,{" "}
+            <code>string[]</code>, <code>number</code> and <code>boolean</code>{" "}
+            data type.
           </p>
         </>
       ),
@@ -646,7 +646,13 @@ return <button disabled={!isDirty || !isValid} />;
         />
       </>
     ),
-    isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
+    isSubmitSuccessful: (
+      <p>
+        Indicate the form was successfully submitted without any{" "}
+        <code>Promise</code> rejection or <code>Error</code> been threw within
+        the <code>handleSubmit</code> callback.
+      </p>
+    ),
     isDirty: (
       <>
         <p>
