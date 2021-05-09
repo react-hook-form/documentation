@@ -439,7 +439,7 @@ export default {
           </li>
           <li>
             <p>
-              Changing the name on each render will result in new inputs being
+              Changing the name on each render will result in new inputs
               being registered. It's recommend to keep static names for each
               registered input.
             </p>
