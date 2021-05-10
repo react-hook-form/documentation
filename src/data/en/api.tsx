@@ -171,12 +171,6 @@ export default {
               </li>
             </ol>
           </li>
-          <li>
-            <p>
-              <code>defaultValues</code> will be shallowly merged with form
-              submission data.
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -439,8 +433,8 @@ export default {
           </li>
           <li>
             <p>
-              Changing the name on each render will result in new inputs
-              being registered. It's recommend to keep static names for each
+              Changing the name on each render will result in new inputs being
+              registered. It's recommend to keep static names for each
               registered input.
             </p>
           </li>
