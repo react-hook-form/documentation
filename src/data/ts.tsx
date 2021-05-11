@@ -188,15 +188,15 @@ export default function App() {
       />
     ),
   },
-  useFormMethodsRef: {
-    title: "UseFormMethods",
+  useFormReturnRef: {
+    title: "useFormReturn",
     description: (
       <CodeArea
         url={
-          "https://codesandbox.io/s/react-hook-form-useformmethods-forked-yl40u"
+          "https://codesandbox.io/s/react-hook-form-useFormReturn-forked-yl40u"
         }
         rawData={`import React from "react";
-import { useForm, UseFormMethods, SubmitHandler } from "react-hook-form";
+import { useForm, useFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -229,7 +229,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
 type FormProps<TFormValues> = {
   onSubmit: SubmitHandler<TFormValues>;
-  children: (methods: UseFormMethods<TFormValues>) => React.ReactNode;
+  children: (methods: useFormReturn<TFormValues>) => React.ReactNode;
 };
 
 const Form = <TFormValues extends Record<string, any> = Record<string, any>>({
@@ -311,11 +311,11 @@ export default function App() {
       />
     ),
   },
-  useFieldArrayMethods: {
-    title: "UseFieldArrayMethods",
+  useFieldArrayReturn: {
+    title: "useFieldArrayReturn",
     description: (
       <CodeArea
-        rawData={`export type UseFieldArrayMethods<
+        rawData={`export type useFieldArrayReturn<
   TFieldArrayValues extends FieldValues = FieldValues,
   TKeyName extends string = 'id'
 > = {
@@ -462,11 +462,11 @@ export default function App() {
       />
     ),
   },
-  useControllerMethods: {
-    title: "UseControllerMethods",
+  UseControllerReturn: {
+    title: "UseControllerReturn",
     description: (
       <CodeArea
-        rawData={`export type UseControllerMethods<
+        rawData={`export type UseControllerReturn<
   TFieldValues extends FieldValues = FieldValues
 > = {
   field: ControllerRenderProps<TFieldValues>;
