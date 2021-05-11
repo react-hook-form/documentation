@@ -209,7 +209,7 @@ import Input from "@material-ui/core/Input";
 
 const App = () => {
   const { control, handleSubmit } = useForm();
-  const onSubmit = (data: IFormInput) => console.log(data);
+  const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
