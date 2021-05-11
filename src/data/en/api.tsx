@@ -439,8 +439,8 @@ export default {
           </li>
           <li>
             <p>
-              Changing the name on each render will result in new inputs
-              being registered. It's recommend to keep static names for each
+              Changing the name on each render will result in new inputs being
+              registered. It's recommend to keep static names for each
               registered input.
             </p>
           </li>
@@ -2569,10 +2569,26 @@ const { field: checkbox } = useController({ name: 'test1' })
   },
   setFocus: {
     description: (
-      <p>
-        This method will allow users to programmatically focus on input. Make
-        sure input's ref is registered into the hook form.
-      </p>
+      <>
+        <p>
+          This method will allow users to programmatically focus on input. Make
+          sure input's ref is registered into the hook form.
+        </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <p>
+          This API will invoke{" "}
+          <a
+            target={"_blank"}
+            rel="noopener noreferrer"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus"
+          >
+            focus
+          </a>{" "}
+          method and it's limited to web only.
+        </p>
+      </>
     ),
   },
 }

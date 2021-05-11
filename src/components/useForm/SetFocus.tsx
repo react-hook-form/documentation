@@ -16,20 +16,6 @@ export default ({ currentLanguage }) => {
       </h1>
       <p className={typographyStyles.subHeading}>Manually set an input focus</p>
 
-      <h2 className={typographyStyles.subTitle}>Rules</h2>
-
-      <p>
-        This API will invoke{" "}
-        <a
-          target={"_blank"}
-          rel="noopener noreferrer"
-          href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus"
-        >
-          focus
-        </a>{" "}
-        method and it's limited to web only.
-      </p>
-
       <div className={containerStyles.wrapper}>
         <Menu />
 
