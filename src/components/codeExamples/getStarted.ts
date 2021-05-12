@@ -217,7 +217,7 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ field }) => <input {...field} />}
+        render={({ field }) => <Input {...field} />}
       />
       <Controller
         name="iceCreamType"
@@ -261,7 +261,7 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ field }) => <input {...field} />}
+        render={({ field }) => <Input {...field} />}
       />
       <Controller
         name="iceCreamType"
