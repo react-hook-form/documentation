@@ -2578,15 +2578,8 @@ const { field: checkbox } = useController({ name: 'test1' })
         <h2 className={typographyStyles.subTitle}>Rules</h2>
 
         <p>
-          This API will invoke{" "}
-          <a
-            target={"_blank"}
-            rel="noopener noreferrer"
-            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/focus"
-          >
-            focus
-          </a>{" "}
-          method and it's limited to web only.
+          This API will invoke focus method from the ref, so it's important to
+          provide <code>ref</code> during <code>register</code>.
         </p>
       </>
     ),
