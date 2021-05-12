@@ -757,7 +757,7 @@ pre[class*="language-"] {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: normal;
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 14px;
   color: white;
   text-shadow: none;
