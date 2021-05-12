@@ -188,15 +188,15 @@ export default function App() {
       />
     ),
   },
-  useFormReturnRef: {
-    title: "useFormReturn",
+  UseFormReturnRef: {
+    title: "UseFormReturn",
     description: (
       <CodeArea
         url={
-          "https://codesandbox.io/s/react-hook-form-useFormReturn-forked-yl40u"
+          "https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
         }
         rawData={`import React from "react";
-import { useForm, useFormReturn, SubmitHandler } from "react-hook-form";
+import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -229,7 +229,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
 type FormProps<TFormValues> = {
   onSubmit: SubmitHandler<TFormValues>;
-  children: (methods: useFormReturn<TFormValues>) => React.ReactNode;
+  children: (methods: UseFormReturn<TFormValues>) => React.ReactNode;
 };
 
 const Form = <TFormValues extends Record<string, any> = Record<string, any>>({
@@ -296,11 +296,11 @@ export default function App() {
       />
     ),
   },
-  useFieldArrayOptions: {
-    title: "UseFieldArrayOptions",
+  UseFieldArrayProps: {
+    title: "UseFieldArrayProps",
     description: (
       <CodeArea
-        rawData={`export type UseFieldArrayOptions<
+        rawData={`export type UseFieldArrayProps<
   TKeyName extends string = 'id',
   TControl extends Control = Control
 > = {
@@ -311,11 +311,11 @@ export default function App() {
       />
     ),
   },
-  useFieldArrayReturn: {
-    title: "useFieldArrayReturn",
+  UseFieldArrayReturn: {
+    title: "UseFieldArrayReturn",
     description: (
       <CodeArea
-        rawData={`export type useFieldArrayReturn<
+        rawData={`export type UseFieldArrayReturn<
   TFieldArrayValues extends FieldValues = FieldValues,
   TKeyName extends string = 'id'
 > = {
@@ -445,11 +445,11 @@ export default function App() {
       />
     ),
   },
-  useControllerOptions: {
-    title: "UseControllerOptions",
+  UseControllerProps: {
+    title: "UseControllerProps",
     description: (
       <CodeArea
-        rawData={`export type UseControllerOptions<
+        rawData={`export type UseControllerProps<
   TFieldValues extends FieldValues = FieldValues
 > = {
   name: FieldName<TFieldValues>;

@@ -10,12 +10,12 @@ const enLinks = [
   TS.resolver,
   TS.submitHandler,
   TS.control,
-  TS.useFormReturnRef,
+  TS.UseFormReturnRef,
   TS.useFormOptions,
-  TS.useFieldArrayReturn,
-  TS.useFieldArrayOptions,
+  TS.UseFieldArrayReturn,
+  TS.UseFieldArrayProps,
   TS.UseControllerReturn,
-  TS.useControllerOptions,
+  TS.UseControllerProps,
   TS.fieldError,
   TS.fieldErrors,
   TS.field,
@@ -35,13 +35,13 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     ResolverRef: null,
     SubmitHandlerRef: null,
     ControlRef: null,
-    useFormReturnRef: null,
+    UseFormReturnRef: null,
     RegisterOptionsRef: null,
     UseFormOptionsRef: null,
-    useFieldArrayReturnRef: null,
-    UseFieldArrayOptionsRef: null,
+    UseFieldArrayReturnRef: null,
+    UseFieldArrayPropsRef: null,
     UseControllerReturnRef: null,
-    UseControllerOptionsRef: null,
+    UseControllerPropsRef: null,
     FieldErrorRef: null,
     FieldErrorsRef: null,
     FieldRef: null,
@@ -154,13 +154,13 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.useFormReturnRef = ref)}
-            id="useFormReturnRef"
+            ref={(ref) => (tsSectionsRef.current.UseFormReturnRef = ref)}
+            id="UseFormReturnRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS.useFormReturnRef.title}</h2>
+              <h2>{TS.UseFormReturnRef.title}</h2>
             </code>
-            {TS.useFormReturnRef.description}
+            {TS.UseFormReturnRef.description}
           </section>
 
           <hr />
@@ -178,25 +178,25 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.useFieldArrayReturnRef = ref)}
-            id="useFieldArrayReturnRef"
+            ref={(ref) => (tsSectionsRef.current.UseFieldArrayReturnRef = ref)}
+            id="UseFieldArrayReturnRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS.useFieldArrayReturn.title}</h2>
+              <h2>{TS.UseFieldArrayReturn.title}</h2>
             </code>
-            {TS.useFieldArrayReturn.description}
+            {TS.UseFieldArrayReturn.description}
           </section>
 
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.UseFieldArrayOptionsRef = ref)}
-            id="UseFieldArrayOptionsRef"
+            ref={(ref) => (tsSectionsRef.current.UseFieldArrayPropsRef = ref)}
+            id="UseFieldArrayPropsRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS.useFieldArrayOptions.title}</h2>
+              <h2>{TS.UseFieldArrayProps.title}</h2>
             </code>
-            {TS.useFieldArrayOptions.description}
+            {TS.UseFieldArrayProps.description}
           </section>
 
           <hr />
@@ -214,13 +214,13 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.UseControllerOptionsRef = ref)}
-            id="UseControllerOptionsRef"
+            ref={(ref) => (tsSectionsRef.current.UseControllerPropsRef = ref)}
+            id="UseControllerPropsRef"
           >
             <code className={typographyStyles.codeHeading}>
-              <h2>{TS.useControllerOptions.title}</h2>
+              <h2>{TS.UseControllerProps.title}</h2>
             </code>
-            {TS.useControllerOptions.description}
+            {TS.UseControllerProps.description}
           </section>
 
           <hr />
