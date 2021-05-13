@@ -362,10 +362,10 @@ export default function App() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("firstName", { required: true })} />
+      <input {...register("firstName", { required: true })} />
       {errors.firstName?.type === 'required' && "First name is required"}
       
-      <Input {...register("lastName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
       {errors.lastName && "Last name is required"}
       
       <input type="submit" />
@@ -389,9 +389,9 @@ export default function App() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("firstName", { required: true })} />
+      <input {...register("firstName", { required: true })} />
       {errors.firstName && "First name is required"}
-      <Input {...register("lastName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
       {errors.lastName && "Last name is required"}
       <input type="submit" />
     </form>
