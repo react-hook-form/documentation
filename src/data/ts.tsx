@@ -161,7 +161,7 @@ type FormValues = {
 };
 
 function IsolateReRender({ control }: { control: Control<FormValues> }) {
-  const firstName = useWatch<FormValues["firstName"]>({
+  const firstName = useWatch({
     control,
     name: "firstName",
     defaultValue: "default"
