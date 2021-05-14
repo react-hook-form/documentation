@@ -21,7 +21,7 @@ export default function App({ login }) {
         {...register("email", {
           required: "required",
           pattern: {
-            value: /\\S+@\\S+\.\\S+/,
+            value: /\\S+@\\S+\\.\\S+/,
             message: "Entered value does not match email format"
           }
         })}
