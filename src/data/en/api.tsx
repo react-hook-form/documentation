@@ -2126,7 +2126,7 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  You need to either provider <code>defaultValue</code> at the
+                  You need to either provide <code>defaultValue</code> at the
                   field-level or <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
                 </p>
