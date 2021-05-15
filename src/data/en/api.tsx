@@ -1503,7 +1503,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues("yourDetails.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ lastName: '' }`}</code>
+                  <code>{`{ firstName: '' }`}</code>
                 </td>
               </tr>
               <tr>
@@ -1511,7 +1511,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues(["yourDetails.lastName"])</code>
                 </td>
                 <td>
-                  <code>{`[{ firstName: '' }]`}</code>
+                  <code>{`[{ lastName: '' }]`}</code>
                 </td>
               </tr>
             </tbody>
