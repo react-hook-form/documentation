@@ -150,8 +150,8 @@ export default {
           </li>
           <li>
             <p>
-              It's not default for the form, to include additional form values.
-              To do so:
+              It's not default state for the form, to include additional form
+              values. To do so:
             </p>
             <ol>
               <li>
@@ -170,6 +170,41 @@ export default {
                 </p>
               </li>
             </ol>
+          </li>
+          <li>
+            <p>
+              From version 7.6.0 onwards, any missing registered inputs from{" "}
+              <code>defaultValues</code> will get automatically registered.
+              However, it's still recommend using the <code>register</code>{" "}
+              method and provide hidden input to follow HTML standard.
+            </p>
+
+            <CodeArea
+              rawData={`const App = () => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      // missing "test.lastName" input will be registered
+      test: { firstName: 'bill', lastName: 'luo' },
+    },
+  });
+  const onSubmit = (data) => {
+    console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } }
+  };
+  
+  // ✅ alternative custom register
+  // useEffect(() => {
+  //  register('test.lastName');
+  // }, [])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('test.firstName')} />
+      // <input {...register('test.lastName')} type="hidden" /> ✅ alternative hidden input
+      <button />
+    </form>
+  );
+};`}
+            />
           </li>
           <li>
             <p>
