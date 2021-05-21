@@ -2180,6 +2180,10 @@ React.useEffect(() => {
                   <code>defaultValue</code> on individual fields.
                 </p>
               </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
+              </li>
             </ul>
           </td>
         </tr>
@@ -2192,7 +2196,14 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for <code>register</code>.
+            <>
+              Validation rules in the same format as for <code>register</code>.
+            </>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> doesn't
+              support
+              <code>valueAs</code> for <code>useController</code>.
+            </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
@@ -2507,6 +2518,10 @@ React.useEffect(() => {
                   <code>defaultValue</code> on individual fields.
                 </p>
               </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
+              </li>
             </ul>
           </td>
         </tr>
@@ -2525,7 +2540,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Important:</b> doesn't
               support
-              <code>valueAs</code> for Controller.
+              <code>valueAs</code> for <code>useController</code>.
             </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
