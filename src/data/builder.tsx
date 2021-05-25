@@ -7,6 +7,7 @@ export default {
     jp: "Form Builder",
     zh: "表单生成器",
     ru: "Конструктор форм",
+    tr: "Form Oluşturucu"
   },
   description: {
     en: "GUI for building forms with validation",
@@ -16,6 +17,7 @@ export default {
     jp: "バリデーションフォームを構築するための GUI",
     zh: "用于构建具有验证的表单的GUI",
     ru: "GUI для создания форм с валидацией",
+    tr: "Doğrulamalı form oluşturmak için kullanıcı arayüzü"
   },
   builder: {
     en: {
@@ -46,6 +48,9 @@ export default {
       title: "Конструктор",
       description: "Создайте свою собственную форму с кодом и примером.",
     },
+    tr: {
+      title: "Form Oluşturucu",
+      description: "Form'unuzu, kodlar ve örnekler ile oluşturun.",
   },
   layout: {
     en: {
@@ -76,6 +81,10 @@ export default {
       title: "Разметра формы",
       message: "Вы можете начать добавление полей с Input Creator.",
     },
+    tr: {
+      title: "Yerleşim",
+      message: "Alan Oluşturucu ile Formunuza alan eklemeye başlayabilirsiniz.",
+    }
   },
   inputCreator: {
     en: {
@@ -135,6 +144,14 @@ export default {
       validation: "Показать валидацию",
       generate: "Создать форму",
     },
+    tr: {
+      title: "Alan Oluşturucu",
+      description: `Bu Form, alanları oluşturmanıza ve güncellemenize imkan verir."Form Oluştur" butonu güncellenmiş değerler ile yeni bir form oluşturur.`,
+      message: "Form Oluşturucu ile, alanları ekleyebilirsiniz.",
+      options: "Seçenekler",
+      validation: "Doğrulamayı göster",
+      generate: "Formu oluştur",
+    }
   },
   code: {
     en: {
@@ -166,5 +183,9 @@ export default {
       description:
         "Область с кодом будет обновляться, когда вы вносите изменения в форму. Вы можете также скопировать код.",
     },
+    tr: {
+      title: "Kod",
+      description: `Form üzerinde değişiklik yaptıkça, Kod alanı güncellenecektir ve bu yaratılan kodu kopyalayabilirsini.`,
+    }
   },
 }
