@@ -452,6 +452,17 @@ export default {
           </li>
           <li>
             <p>
+              we are using dot syntax only for typescript usage consistency, so
+              bracket <code>[]</code> will not work for array form value.
+            </p>
+
+            <CodeArea
+              rawData={`register('test.0.firstName'); // ✅
+register('test[0]firstName'); // ❌`}
+            />
+          </li>
+          <li>
+            <p>
               <code>disabled</code> input will result in an{" "}
               <code>undefined</code> form value. If you want to prevent users
               from updating the input, you can use <code>readOnly</code> or
@@ -480,9 +491,11 @@ export default {
             </p>
           </li>
           <li>
-            Input value and reference will no longer gets removed based on
-            unmount. You can invoke unregister to remove that value and
-            reference.
+            <p>
+              Input value and reference will no longer gets removed based on
+              unmount. You can invoke unregister to remove that value and
+              reference.
+            </p>
           </li>
         </ul>
       </>
@@ -717,6 +730,21 @@ return <button disabled={!isDirty || !isValid} />;
             <p>
               Native inputs will return <code>string</code> type by default.
             </p>
+          </li>
+          <li>
+            <p>
+              <code>isDirty</code> state will be affected with actions from{" "}
+              <code>useFieldArray</code>. For example below:
+            </p>
+            <CodeArea
+              rawData={`useForm({ defaultValues: { test: [] } })
+const { append } = useFieldArray({ name: 'test' })
+
+// append will make form dirty, because a new input is created
+// and form values is no longer deeply equal defaultValues.
+append({ firstName: '' }); 
+`}
+            />
           </li>
         </ul>
       </>
