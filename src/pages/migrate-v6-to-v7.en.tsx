@@ -466,6 +466,18 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 + />);`}
                 />
               </section>
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
+                  <h2>Types: </h2>
+                </code>
+
+                <p>
+                  We have made quite a few rename on the type for a better name
+                  and consistency. please refer to the TS page for the updated
+                  type names.
+                </p>
+              </section>
             </section>
           </main>
         </div>
