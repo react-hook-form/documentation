@@ -2229,8 +2229,8 @@ React.useEffect(() => {
             </>
             <p>
               <b className={typographyStyles.note}>Important:</b> doesn't
-              support
-              <code>valueAs</code> for <code>useController</code>.
+              support <code>setValueAs</code> or <code>valueAs*</code> for{" "}
+              <code>useController</code>.
             </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-ipynf"

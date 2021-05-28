@@ -228,6 +228,14 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 - <Controller render={(props, meta) => <input {...props} />} />
 + <Controller render={({ field, fieldState }) => <input {...field} />} />`}
               />
+
+              <h3>ValueAs</h3>
+              <p>
+                The Controller component <code>rules</code> prop no longer
+                supports <code>setValueAs</code> or <code>valueAs*</code> for{" "}
+                <code>useController</code>. Do these value transformations in
+                your controlled component.
+              </p>
             </section>
 
             <hr />
