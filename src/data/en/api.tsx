@@ -1653,11 +1653,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         <table className={tableStyles.table}>
           <tbody>
             <tr>
+              <th>Name</th>
               <th>Type</th>
               <th>Description</th>
               <th>Example</th>
             </tr>
             <tr>
+              <td>name</td>
               <td>
                 <code className={typographyStyles.typeText}>undefined</code>
               </td>
@@ -1667,6 +1669,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
             </tr>
             <tr>
+              <td></td>
               <td>
                 <code className={typographyStyles.typeText}>string</code>
               </td>
@@ -1679,6 +1682,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
             </tr>
             <tr>
+              <td></td>
               <td>
                 <code className={typographyStyles.typeText}>string[]</code>
               </td>
@@ -1687,6 +1691,22 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
               <td>
                 <code>trigger(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+            <tr>
+              <td>shouldFocus</td>
+              <td>
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Should focus the input during setting an error. This only
+                  works when the input's reference is registered, it will not
+                  work for custom register as well.
+                </p>
+              </td>
+              <td>
+                <code>{`trigger('name', { shouldFocus: true })`}</code>
               </td>
             </tr>
           </tbody>
