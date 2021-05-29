@@ -150,8 +150,8 @@ export default {
           </li>
           <li>
             <p>
-              It's not default for the form, to include additional form values.
-              To do so:
+              It's not default state for the form, to include additional form
+              values. To do so:
             </p>
             <ol>
               <li>
@@ -170,6 +170,47 @@ export default {
                 </p>
               </li>
             </ol>
+          </li>
+          <li>
+            <p>
+              From version 7.6.0 onwards, any missing registered inputs from{" "}
+              <code>defaultValues</code> will get automatically registered.
+              However, it's still recommend using the <code>register</code>{" "}
+              method and provide hidden input to follow HTML standard.
+            </p>
+
+            <CodeArea
+              rawData={`const App = () => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      // missing "test.lastName" input will be registered
+      test: { firstName: 'bill', lastName: 'luo' },
+    },
+  });
+  const onSubmit = (data) => {
+    console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } }
+  };
+  
+  // ✅ alternative custom register
+  // useEffect(() => {
+  //  register('test.lastName');
+  // }, [])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('test.firstName')} />
+      // <input {...register('test.lastName')} type="hidden" /> ✅ alternative hidden input
+      <button />
+    </form>
+  );
+};`}
+            />
+          </li>
+          <li>
+            <p>
+              <code>defaultValues</code> will be shallowly merged with form
+              submission data.
+            </p>
           </li>
         </ul>
       </>
@@ -411,6 +452,17 @@ export default {
           </li>
           <li>
             <p>
+              we are using dot syntax only for typescript usage consistency, so
+              bracket <code>[]</code> will not work for array form value.
+            </p>
+
+            <CodeArea
+              rawData={`register('test.0.firstName'); // ✅
+register('test[0]firstName'); // ❌`}
+            />
+          </li>
+          <li>
+            <p>
               <code>disabled</code> input will result in an{" "}
               <code>undefined</code> form value. If you want to prevent users
               from updating the input, you can use <code>readOnly</code> or
@@ -439,9 +491,11 @@ export default {
             </p>
           </li>
           <li>
-            Input value and reference will no longer gets removed based on
-            unmount. You can invoke unregister to remove that value and
-            reference.
+            <p>
+              Input value and reference will no longer gets removed based on
+              unmount. You can invoke unregister to remove that value and
+              reference.
+            </p>
           </li>
         </ul>
       </>
@@ -676,6 +730,21 @@ return <button disabled={!isDirty || !isValid} />;
             <p>
               Native inputs will return <code>string</code> type by default.
             </p>
+          </li>
+          <li>
+            <p>
+              <code>isDirty</code> state will be affected with actions from{" "}
+              <code>useFieldArray</code>. For example below:
+            </p>
+            <CodeArea
+              rawData={`useForm({ defaultValues: { test: [] } })
+const { append } = useFieldArray({ name: 'test' })
+
+// append will make form dirty, because a new input is created
+// and form values is no longer deeply equal defaultValues.
+append({ firstName: '' }); 
+`}
+            />
           </li>
         </ul>
       </>
@@ -1497,7 +1566,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues("yourDetails.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ lastName: '' }`}</code>
+                  <code>{`{ firstName: '' }`}</code>
                 </td>
               </tr>
               <tr>
@@ -1505,7 +1574,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues(["yourDetails.lastName"])</code>
                 </td>
                 <td>
-                  <code>{`[{ firstName: '' }]`}</code>
+                  <code>{`[{ lastName: '' }]`}</code>
                 </td>
               </tr>
             </tbody>
@@ -2120,7 +2189,7 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  You need to either provider <code>defaultValue</code> at the
+                  You need to either provide <code>defaultValue</code> at the
                   field-level or <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
                 </p>
@@ -2139,6 +2208,10 @@ React.useEffect(() => {
                   <code>defaultValue</code> on individual fields.
                 </p>
               </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
+              </li>
             </ul>
           </td>
         </tr>
@@ -2151,7 +2224,14 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for <code>register</code>.
+            <>
+              Validation rules in the same format as for <code>register</code>.
+            </>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> doesn't
+              support <code>setValueAs</code> or <code>valueAs*</code> for{" "}
+              <code>useController</code>.
+            </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
@@ -2466,6 +2546,10 @@ React.useEffect(() => {
                   <code>defaultValue</code> on individual fields.
                 </p>
               </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
+              </li>
             </ul>
           </td>
         </tr>
@@ -2484,7 +2568,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Important:</b> doesn't
               support
-              <code>valueAs</code> for Controller.
+              <code>valueAs</code> for <code>useController</code>.
             </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
@@ -2563,10 +2647,19 @@ const { field: checkbox } = useController({ name: 'test1' })
   },
   setFocus: {
     description: (
-      <p>
-        This method will allow users to programmatically focus on input. Make
-        sure input's ref is registered into the hook form.
-      </p>
+      <>
+        <p>
+          This method will allow users to programmatically focus on input. Make
+          sure input's ref is registered into the hook form.
+        </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <p>
+          This API will invoke focus method from the ref, so it's important to
+          provide <code>ref</code> during <code>register</code>.
+        </p>
+      </>
     ),
   },
 }

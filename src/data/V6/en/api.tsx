@@ -248,6 +248,9 @@ export default {
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with <code>ref</code> will work. Custom <code>register</code> inputs
           do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
+          <br />
+          However you're still able to use `forwardRef` to forward the ref and
+          let the autofocus do its work.
         </p>
 
         <p>
