@@ -19,6 +19,7 @@ const enLinks = [
   TS.fieldError,
   TS.fieldErrors,
   TS.field,
+  TS.fieldPath,
   TS.fieldValues,
   TS.fieldArray,
   TS.mode,
@@ -45,6 +46,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     FieldErrorRef: null,
     FieldErrorsRef: null,
     FieldRef: null,
+    FieldPathRef: null,
     FieldValuesRef: null,
     FieldArrayRef: null,
     ModeRef: null,
@@ -257,6 +259,18 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               <h2>{TS.field.title}</h2>
             </code>
             {TS.field.description}
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldPathRef = ref)}
+            id="FieldPathRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS.fieldPath.title}</h2>
+            </code>
+            {TS.fieldPath.description}
           </section>
 
           <hr />
