@@ -379,6 +379,20 @@ export default function App() {
       />
     ),
   },
+  fieldPath: {
+    title: "FieldPath",
+    description: (
+      <>
+        <p>
+          This type is useful when you define custom component's{" "}
+          <code>name</code> prop.
+        </p>
+        <CodeArea
+          rawData={`export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;`}
+        />
+      </>
+    ),
+  },
   fieldValues: {
     title: "FieldValues",
     description: (
