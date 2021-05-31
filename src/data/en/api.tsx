@@ -173,12 +173,13 @@ export default {
           </li>
           <li>
             <p>
-              From version 7.6.0 onwards, any missing registered inputs from{" "}
+              From version 7.6.0 onwards with <code>shouldUnregister</code> set
+              to <>false</>, any missing registered inputs from{" "}
               <code>defaultValues</code> will get automatically registered.
               However, it's still recommend using the <code>register</code>{" "}
               method and provide hidden input to follow HTML standard.
             </p>
-
+            By setting
             <CodeArea
               rawData={`const App = () => {
   const { register, handleSubmit } = useForm({
@@ -265,9 +266,30 @@ export default {
             </p>
           </li>
           <li>
-            By setting <code>shouldUnregister</code> to true at{" "}
-            <code>useForm</code> level, <code>defaultValues</code> will{" "}
-            <b>not</b> be merged against submission result.
+            <>
+              By setting <code>shouldUnregister</code> to true at{" "}
+              <code>useForm</code> level, <code>defaultValues</code> will{" "}
+              <b>not</b> be merged against submission result.
+            </>
+          </li>
+          <li>
+            <p>
+              set <code>shouldUnregister: true</code> will set your form behave
+              more closer as native.
+            </p>
+            <ul>
+              <li>
+                <p>input unmount will remove value.</p>
+              </li>
+              <li>
+                <p>input hidden should applied for hidden data.</p>
+              </li>
+              <li>
+                <p>
+                  only registered input will be included as submission data.
+                </p>
+              </li>
+            </ul>
           </li>
         </ul>
       </>
