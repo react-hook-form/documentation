@@ -179,18 +179,28 @@ export default {
               However, it's still recommend using the <code>register</code>{" "}
               method and provide hidden input to follow HTML standard.
             </p>
-            By setting
+
+            <p>
+              <b className={typographyStyles.note}>Important:</b> each object
+              key will be <code>register</code> as an input.
+            </p>
+
             <CodeArea
               rawData={`const App = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
       // missing "test.lastName" input will be registered
       test: { firstName: 'bill', lastName: 'luo' },
+      test1: ['test', 'test1']
     },
   });
-  const onSubmit = (data) => {
-    console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } }
-  };
+  
+  // Inputs will get register via defaultValues 
+  // register('test.lastName')
+  // register('test1.0')
+  // register('test1.1')
+  
+  const onSubmit = (data) => console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } };
   
   // ✅ alternative custom register
   // useEffect(() => {
