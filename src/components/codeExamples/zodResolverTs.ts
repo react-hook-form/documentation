@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 const schema = z.object({
-  name: z.number(),
+  name: z.string(),
   age: z.number()
 });
 
