@@ -60,7 +60,7 @@ const data = [
     bio:
       "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars", "🐟 fish"],
-    active: false,
+    active: true,
   },
   {
     name: "Phillip ED Maier",
