@@ -49,6 +49,17 @@ const data = [
     bio:
       "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
     interests: ["🍺 beer", "💻 code", "♨️ onsen"],
+    active: true,
+  },
+  {
+    name: "Beier(Bill) Luo",
+    imgUrl:
+      "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
+    url: "https://github.com/bluebill1049",
+    twitterName: "bluebill1049",
+    bio:
+      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
+    interests: ["🎮 games", "🚗 cars", "🐟 fish"],
     active: false,
   },
   {
@@ -59,7 +70,7 @@ const data = [
     twitterName: "pmaier983",
     bio: "A Software Engineer with a passion for helping others 😄.",
     interests: ["🚣 rowing", "🌳 grafting", "🎿 skiing"],
-    active: true,
+    active: false,
   },
   {
     name: "Jerome De Leon",
@@ -69,7 +80,7 @@ const data = [
     bio:
       "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
     interests: ["🎮 games", "💻 code", "🍛 food"],
-    active: true,
+    active: false,
   },
   {
     name: "Dohyung Ahn",
@@ -79,7 +90,7 @@ const data = [
     bio:
       "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
     interests: ["🎮 games", "💻 code", "🎹 piano"],
-    active: true,
+    active: false,
   },
   {
     name: "Keiya Sasaki",
@@ -102,17 +113,6 @@ const data = [
     twitterName: "stramel89",
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
     active: false,
-  },
-  {
-    name: "Beier(Bill) Luo",
-    imgUrl:
-      "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
-    url: "https://github.com/bluebill1049",
-    twitterName: "bluebill1049",
-    bio:
-      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
-    interests: ["🎮 games", "🚗 cars", "🐟 fish"],
-    active: true,
   },
 ]
 
