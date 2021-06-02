@@ -172,10 +172,8 @@ export default {
     description: (
       <p>
         You will get the same performance enhancement from an Uncontrolled
-        Component. However, there are certain APIs which are not compatible with
-        React Native (due to the API differences between web and native). You
-        will have to use <code>Controller</code> or <b>custom register</b> as
-        shown in the following example.
+        Component. You can use <code>Controller</code> or <b>custom register</b>{" "}
+        as shown in the following example.
       </p>
     ),
   },
