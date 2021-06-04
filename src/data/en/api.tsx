@@ -1541,7 +1541,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </tr>
               <tr>
                 <td>
-                  <code>config</code>
+                  <code></code>
                 </td>
                 <td>
                   <code>shouldDirty</code>
@@ -1550,6 +1550,18 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>Whether to set the input itself to dirty.</td>
+              </tr>
+              <tr>
+                <td>
+                  <code></code>
+                </td>
+                <td>
+                  <code>shouldTouch</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>Whether to set the input itself to be touched.</td>
               </tr>
             </tbody>
           </table>

@@ -497,6 +497,23 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
+                <code>value</code>
+                <br />
+                <code className={typographyStyles.typeText}>unknown</code>
+              </td>
+              <td>
+                <p>Set up value for the registered input.</p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`register('firstName', { value: 'bill' })`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
                 shouldUnregister:
                 <br />
                 <code className={typographyStyles.typeText}>boolean</code>
