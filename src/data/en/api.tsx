@@ -123,7 +123,9 @@ export default {
           <code>useForm()</code> to populate the default values for the entire
           form, or set values on an individual{" "}
           <Link to={"/api/usecontroller/controller"}>Controller</Link> component
-          via its <code>defaultValue</code> property.
+          via its <code>defaultValue</code> property. If both 
+          <code>defaultValue</code> and <code>defaultValues</code> are set, the value
+          from <code>defaultValues</code> will be used.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
@@ -2593,7 +2595,8 @@ React.useEffect(() => {
                 <p>
                   You need to either set <code>defaultValue</code> at the
                   field-level or call <code>useForm</code> with{" "}
-                  <code>defaultValues</code>.
+                  <code>defaultValues</code>. If both are set, 
+                  <code>devaultValues</code> will be used.
                 </p>
                 <p>
                   <b className={typographyStyles.note}>Note:</b> inline{" "}
