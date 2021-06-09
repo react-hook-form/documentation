@@ -159,7 +159,7 @@ export default {
               <li>
                 <p>
                   Register hidden inputs. For example:{" "}
-                  <code>{`<input type="hidden" {...register('test'} />`}</code>
+                  <code>{`<input type="hidden" {...register('test')} />`}</code>
                 </p>
               </li>
               <li>
