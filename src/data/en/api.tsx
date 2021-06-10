@@ -1455,6 +1455,10 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
               <code>setValue</code>. However, the following usages are still
               permitted.
             </p>
+            <p>
+              To update the entire Field Array, make sure the{" "}
+              <code>useFieldArray</code> hook is being executed.
+            </p>
             <CodeArea
               rawData={`// you can update an entire Field Array, 
 // this will trigger an entire field array to be remount and refreshed with updated values.
