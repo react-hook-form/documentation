@@ -1643,7 +1643,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           <li>
             <p>
               Disabled inputs will be returned as <code>undefined</code>. If you
-              want to prevent users from updat the input and still retain the
+              want to prevent users from updating the input and still retain the
               field value, you can use <code>readOnly</code> or disable the
               entire {`<fieldset />`}. Here is an{" "}
               <a
