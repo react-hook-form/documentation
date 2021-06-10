@@ -1935,6 +1935,13 @@ React.useEffect(() => {
           <li>
             <p>Does not support flat field array.</p>
           </li>
+          <li>
+            <p>
+              The following attribute are reserved for deep nested object:{" "}
+              <code>name</code>, <code>type</code>, <code>ref</code>,
+              <code>refs</code> and <code>mount</code>.
+            </p>
+          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>TypeScript</h2>
