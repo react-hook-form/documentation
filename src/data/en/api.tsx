@@ -2237,9 +2237,9 @@ React.useEffect(() => {
     fieldState: { invalid, isTouched, isDirty, error },
   }) => (
     <TextField
-      value={props.value}
-      onChange={props.onChange}
-      inputRef={props.ref} // wire up the input ref
+      value={value}
+      onChange={onChange}
+      inputRef={ref} // wire up the input ref
     />
   )}
   name="TextField"
