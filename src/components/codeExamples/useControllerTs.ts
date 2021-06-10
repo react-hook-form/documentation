@@ -1,7 +1,11 @@
 export default `import * as React from "react";
-import { useForm, useController } from "./src";
+import { useForm, useController, UseControllerProps } from "react-hook-form";
 
-function Input(props) {
+type FormValues = {
+  FirstName: string;
+};
+
+function Input(props: UseControllerProps<FormValues>) {
   const { field, fieldState } = useController(props);
 
   return (
@@ -15,13 +19,13 @@ function Input(props) {
 }
 
 export default function App() {
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       FirstName: ""
     },
     mode: "onChange"
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: FormValues) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
