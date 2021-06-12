@@ -7,7 +7,7 @@ export default function App() {
   const {
     register,
     handleSubmit,
-    formState: { touched }
+    formState
   } = useForm<FormInputs>();
   const onSubmit = (data: FormInputs) => console.log(data);
   
