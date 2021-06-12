@@ -10,7 +10,7 @@ export default function App() {
     register,
     handleSubmit,
     // Read the formState before render to subscribe the form state through Proxy
-    formState: { errors, isDirty, isSubmitting, touched, submitCount },
+    formState: { errors, isDirty, isSubmitting, touchedFields, submitCount },
   } = useForm<FormInputs>();
   const onSubmit = (data: FormInputs) => console.log(data);
 
