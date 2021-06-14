@@ -27,9 +27,9 @@ export default ({ currentLanguage, isController }) => {
               <code>onChange</code>
             </td>
             <td>
-              <code
-                className={typographyStyles.typeText}
-              >{`(value: any) => void`}</code>
+              <code className={typographyStyles.typeText}>
+                {"(value: any) => void"}
+              </code>
             </td>
             <td>
               <p>
@@ -45,14 +45,12 @@ export default ({ currentLanguage, isController }) => {
               <code>onBlur</code>
             </td>
             <td>
-              <code
-                className={typographyStyles.typeText}
-              >{`(value: any) => void`}</code>
+              <code className={typographyStyles.typeText}>{"() => void"}</code>
             </td>
             <td>
               <p>
-                A function which sends the input's value to the library. It
-                should be assigned to the input's <code>onBlur</code> prop.
+                A function which sends the input's onBlur event to the library.
+                It should be assigned to the input's <code>onBlur</code> prop.
               </p>
             </td>
           </tr>
