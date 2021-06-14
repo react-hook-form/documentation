@@ -123,7 +123,9 @@ export default {
           <code>useForm()</code> to populate the default values for the entire
           form, or set values on an individual{" "}
           <Link to={"/api/usecontroller/controller"}>Controller</Link> component
-          via its <code>defaultValue</code> property.
+          via its <code>defaultValue</code> property. If both
+          <code>defaultValue</code> and <code>defaultValues</code> are set, the
+          value from <code>defaultValues</code> will be used.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>
@@ -150,14 +152,14 @@ export default {
           </li>
           <li>
             <p>
-              It's not default for the form, to include additional form values.
-              To do so:
+              It's not default state for the form, to include additional form
+              values. To do so:
             </p>
             <ol>
               <li>
                 <p>
                   Register hidden inputs. For example:{" "}
-                  <code>{`<input type="hidden" {...register('test'} />`}</code>
+                  <code>{`<input type="hidden" {...register('test')} />`}</code>
                 </p>
               </li>
               <li>
@@ -170,6 +172,52 @@ export default {
                 </p>
               </li>
             </ol>
+          </li>
+          <li>
+            <p>
+              From version 7.6.0 onwards with <code>shouldUnregister</code> set
+              to <>false</>, any missing registered inputs from{" "}
+              <code>defaultValues</code> will get automatically registered.
+              However, it's still recommend using the <code>register</code>{" "}
+              method and provide hidden input to follow HTML standard.
+            </p>
+
+            <p>
+              <b className={typographyStyles.note}>Important:</b> each object
+              key will be <code>register</code> as an input.
+            </p>
+
+            <CodeArea
+              rawData={`const App = () => {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      // missing "test.lastName" input will be registered
+      test: { firstName: 'bill', lastName: 'luo' },
+      test1: ['test', 'test1']
+    },
+  });
+  
+  // Inputs will get register via defaultValues 
+  // register('test.lastName')
+  // register('test1.0')
+  // register('test1.1')
+  
+  const onSubmit = (data) => console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } };
+  
+  // ✅ alternative custom register
+  // useEffect(() => {
+  //  register('test.lastName');
+  // }, [])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('test.firstName')} />
+      // <input {...register('test.lastName')} type="hidden" /> ✅ alternative hidden input
+      <button />
+    </form>
+  );
+};`}
+            />
           </li>
           <li>
             <p>
@@ -230,9 +278,30 @@ export default {
             </p>
           </li>
           <li>
-            By setting <code>shouldUnregister</code> to true at{" "}
-            <code>useForm</code> level, <code>defaultValues</code> will{" "}
-            <b>not</b> be merged against submission result.
+            <>
+              By setting <code>shouldUnregister</code> to true at{" "}
+              <code>useForm</code> level, <code>defaultValues</code> will{" "}
+              <b>not</b> be merged against submission result.
+            </>
+          </li>
+          <li>
+            <p>
+              set <code>shouldUnregister: true</code> will set your form behave
+              more closer as native.
+            </p>
+            <ul>
+              <li>
+                <p>input unmount will remove value.</p>
+              </li>
+              <li>
+                <p>input hidden should applied for hidden data.</p>
+              </li>
+              <li>
+                <p>
+                  only registered input will be included as submission data.
+                </p>
+              </li>
+            </ul>
           </li>
         </ul>
       </>
@@ -417,6 +486,17 @@ export default {
           </li>
           <li>
             <p>
+              we are using dot syntax only for typescript usage consistency, so
+              bracket <code>[]</code> will not work for array form value.
+            </p>
+
+            <CodeArea
+              rawData={`register('test.0.firstName'); // ✅
+register('test[0]firstName'); // ❌`}
+            />
+          </li>
+          <li>
+            <p>
               <code>disabled</code> input will result in an{" "}
               <code>undefined</code> form value. If you want to prevent users
               from updating the input, you can use <code>readOnly</code> or
@@ -440,14 +520,16 @@ export default {
           <li>
             <p>
               Changing the name on each render will result in new inputs being
-              being registered. It's recommend to keep static names for each
+              registered. It's recommend to keep static names for each
               registered input.
             </p>
           </li>
           <li>
-            Input value and reference will no longer gets removed based on
-            unmount. You can invoke unregister to remove that value and
-            reference.
+            <p>
+              Input value and reference will no longer gets removed based on
+              unmount. You can invoke unregister to remove that value and
+              reference.
+            </p>
           </li>
         </ul>
       </>
@@ -489,6 +571,64 @@ const { onChange } = register('lastChange'); // this onChange method can update 
 // This will work for React Native, except you can't reset input value
 <TextInput onTextChange={onChange} />`}
           />
+
+          <h4 className={typographyStyles.questionTitle}>
+            custom onChange, onBlur
+          </h4>
+
+          <p>
+            When you want to combine with your <code>onChange</code>,{" "}
+            <>onBlur</>, you can achieve by the following:
+          </p>
+
+          <CodeArea
+            rawData={`// onChange got overwrite by register method
+<input onChange={handleChange} {...register('test')} />
+
+// register's onChange got overwrite by register method
+<input {...register('test')} onChange={handleChange}/>
+
+const firstName = register('firstName', { required: true })
+<input 
+  onChange={(e) => {
+    firstName.onChange(e); // method from hook form register
+    handleChange(e); // your method
+  }}
+  onBlur={firstName.onBlur}
+  ref={firstName.ref} 
+/>
+`}
+          />
+
+          <h4 className={typographyStyles.questionTitle}>
+            How to work with innerRef, inputRef?
+          </h4>
+
+          <p>
+            When the custom input component didn't expose ref correctly, you can
+            get it working via the following.
+          </p>
+
+          <CodeArea
+            rawData={`// not working, because ref is not assigned
+<TextInput {...register('test')} />
+
+const firstName = register('firstName', { required: true })
+<TextInput 
+  onChange={firstName.onChange}
+  onBlur={firstName.onBlur}
+  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+/>
+
+// correct way to forward input's ref
+const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+  <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+));
+`}
+          />
         </>
       ),
     },
@@ -518,14 +658,14 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           <p>
             You can pass a callback function as the argument to validate, or you
             can pass an object of callback functions to validate all of them.
-            (refer to the examples)
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
             <code>object</code> or <code>array</code> input data, it's recommend
             to use the <code>validate</code> function for validation as the
-            other rules mostly apply to <code>string</code>, <code>number</code>{" "}
-            and <code>boolean</code> data type.
+            other rules mostly apply to <code>string</code>,{" "}
+            <code>string[]</code>, <code>number</code> and <code>boolean</code>{" "}
+            data type.
           </p>
         </>
       ),
@@ -588,7 +728,13 @@ return <button disabled={!isDirty || !isValid} />;
         />
       </>
     ),
-    isSubmitSuccessful: <p>Indicate the form was successfully submitted.</p>,
+    isSubmitSuccessful: (
+      <p>
+        Indicate the form was successfully submitted without any{" "}
+        <code>Promise</code> rejection or <code>Error</code> been threw within
+        the <code>handleSubmit</code> callback.
+      </p>
+    ),
     isDirty: (
       <>
         <p>
@@ -618,6 +764,21 @@ return <button disabled={!isDirty || !isValid} />;
             <p>
               Native inputs will return <code>string</code> type by default.
             </p>
+          </li>
+          <li>
+            <p>
+              <code>isDirty</code> state will be affected with actions from{" "}
+              <code>useFieldArray</code>. For example below:
+            </p>
+            <CodeArea
+              rawData={`useForm({ defaultValues: { test: [] } })
+const { append } = useFieldArray({ name: 'test' })
+
+// append will make form dirty, because a new input is created
+// and form values is no longer deeply equal defaultValues.
+append({ firstName: '' }); 
+`}
+            />
           </li>
         </ul>
       </>
@@ -1294,6 +1455,10 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
               <code>setValue</code>. However, the following usages are still
               permitted.
             </p>
+            <p>
+              To update the entire Field Array, make sure the{" "}
+              <code>useFieldArray</code> hook is being executed.
+            </p>
             <CodeArea
               rawData={`// you can update an entire Field Array, 
 // this will trigger an entire field array to be remount and refreshed with updated values.
@@ -1382,7 +1547,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </tr>
               <tr>
                 <td>
-                  <code>config</code>
+                  <code></code>
                 </td>
                 <td>
                   <code>shouldDirty</code>
@@ -1391,6 +1556,18 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>Whether to set the input itself to dirty.</td>
+              </tr>
+              <tr>
+                <td>
+                  <code></code>
+                </td>
+                <td>
+                  <code>shouldTouch</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>Whether to set the input itself to be touched.</td>
               </tr>
             </tbody>
           </table>
@@ -1439,7 +1616,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues("yourDetails.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ lastName: '' }`}</code>
+                  <code>{`{ firstName: '' }`}</code>
                 </td>
               </tr>
               <tr>
@@ -1447,7 +1624,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues(["yourDetails.lastName"])</code>
                 </td>
                 <td>
-                  <code>{`[{ firstName: '' }]`}</code>
+                  <code>{`['']`}</code>
                 </td>
               </tr>
             </tbody>
@@ -1466,7 +1643,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           <li>
             <p>
               Disabled inputs will be returned as <code>undefined</code>. If you
-              want to prevent users from updat the input and still retain the
+              want to prevent users from updating the input and still retain the
               field value, you can use <code>readOnly</code> or disable the
               entire {`<fieldset />`}. Here is an{" "}
               <a
@@ -1526,11 +1703,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         <table className={tableStyles.table}>
           <tbody>
             <tr>
+              <th>Name</th>
               <th>Type</th>
               <th>Description</th>
               <th>Example</th>
             </tr>
             <tr>
+              <td>name</td>
               <td>
                 <code className={typographyStyles.typeText}>undefined</code>
               </td>
@@ -1540,6 +1719,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
             </tr>
             <tr>
+              <td></td>
               <td>
                 <code className={typographyStyles.typeText}>string</code>
               </td>
@@ -1552,6 +1732,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
             </tr>
             <tr>
+              <td></td>
               <td>
                 <code className={typographyStyles.typeText}>string[]</code>
               </td>
@@ -1560,6 +1741,22 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </td>
               <td>
                 <code>trigger(["yourDetails.lastName"])</code>
+              </td>
+            </tr>
+            <tr>
+              <td>shouldFocus</td>
+              <td>
+                <code className={typographyStyles.typeText}>boolean</code>
+              </td>
+              <td>
+                <p>
+                  Should focus the input during setting an error. This only
+                  works when the input's reference is registered, it will not
+                  work for custom register as well.
+                </p>
+              </td>
+              <td>
+                <code>{`trigger('name', { shouldFocus: true })`}</code>
               </td>
             </tr>
           </tbody>
@@ -2033,9 +2230,9 @@ React.useEffect(() => {
     fieldState: { invalid, isTouched, isDirty, error },
   }) => (
     <TextField
-      value={props.value}
-      onChange={props.onChange}
-      inputRef={props.ref} // wire up the input ref
+      value={value}
+      onChange={onChange}
+      inputRef={ref} // wire up the input ref
     />
   )}
   name="TextField"
@@ -2062,9 +2259,15 @@ React.useEffect(() => {
             <ul>
               <li>
                 <p>
-                  You need to either set <code>defaultValue</code> at the
-                  field-level or call <code>useForm</code> with{" "}
+                  You need to either provide <code>defaultValue</code> at the
+                  field-level or <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
+                </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
                 </p>
               </li>
               <li>
@@ -2074,6 +2277,10 @@ React.useEffect(() => {
                   <code>defaultValues</code> instead of setting the{" "}
                   <code>defaultValue</code> on individual fields.
                 </p>
+              </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
               </li>
             </ul>
           </td>
@@ -2087,7 +2294,14 @@ React.useEffect(() => {
           </td>
           <td></td>
           <td>
-            Validation rules in the same format as for <code>register</code>.
+            <>
+              Validation rules in the same format as for <code>register</code>.
+            </>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> doesn't
+              support <code>setValueAs</code> or <code>valueAs*</code> for{" "}
+              <code>useController</code>.
+            </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
@@ -2385,7 +2599,14 @@ React.useEffect(() => {
                 <p>
                   You need to either set <code>defaultValue</code> at the
                   field-level or call <code>useForm</code> with{" "}
-                  <code>defaultValues</code>.
+                  <code>defaultValues</code>. If both are set,
+                  <code>devaultValues</code> will be used.
+                </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
                 </p>
               </li>
               <li>
@@ -2395,6 +2616,10 @@ React.useEffect(() => {
                   <code>defaultValues</code> instead of setting the{" "}
                   <code>defaultValue</code> on individual fields.
                 </p>
+              </li>
+              <li>
+                Setting <code>defaultValue</code> inline or at{" "}
+                <code>useForm</code> can not be <code>undefined</code>.
               </li>
             </ul>
           </td>
@@ -2414,7 +2639,7 @@ React.useEffect(() => {
             <p>
               <b className={typographyStyles.note}>Important:</b> doesn't
               support
-              <code>valueAs</code> for Controller.
+              <code>valueAs</code> for <code>useController</code>.
             </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
@@ -2493,10 +2718,19 @@ const { field: checkbox } = useController({ name: 'test1' })
   },
   setFocus: {
     description: (
-      <p>
-        This method will allow users to programmatically focus on input. Make
-        sure input's ref is registered into the hook form.
-      </p>
+      <>
+        <p>
+          This method will allow users to programmatically focus on input. Make
+          sure input's ref is registered into the hook form.
+        </p>
+
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <p>
+          This API will invoke focus method from the ref, so it's important to
+          provide <code>ref</code> during <code>register</code>.
+        </p>
+      </>
     ),
   },
 }

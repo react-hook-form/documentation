@@ -369,13 +369,14 @@ export default function ApiRefTable({
         ? `{
       positive: v => parseInt(v) > 0,
       lessThanTen: v => parseInt(v) < 10,
-      checkUrl: async () => await fetch()
+      checkUrl: async () => await fetch(),
     }`
         : `{
       positive: v => parseInt(v) > 0 || 'should be greater than 0',
       lessThanTen: v => parseInt(v) < 10 || 'should be lower than 10',
       // you can do asynchronous validation as well
-      checkUrl: async () => await fetch() || 'error message'  // JS only: <p>error message</p> TS only support string 
+      checkUrl: async () => await fetch() || 'error message',  // JS only: <p>error message</p> TS only support string
+      messages: v => !v && ['test', 'test2']
     }`
     }
   })}
@@ -486,13 +487,28 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  name="test"
-  ref={
-    register({
-      setValueAs: v => parseInt(v),
-    })
-  }
+  type="number"
+  {...register("test", {
+    setValueAs: v => parseInt(v),
+  })}
 />`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>value</code>
+                <br />
+                <code className={typographyStyles.typeText}>unknown</code>
+              </td>
+              <td>
+                <p>Set up value for the registered input.</p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`register('firstName', { value: 'bill' })`}
                 />
               </td>
             </tr>
@@ -513,12 +529,9 @@ export default function ApiRefTable({
                   style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
-  name="test"
-  ref={
-    register({
-      shouldUnregister: true
-    })
-  }
+  {...register("test", {
+    shouldUnregister: true,
+  })}
 />`}
                 />
               </td>
