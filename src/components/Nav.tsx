@@ -108,7 +108,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             >
               <select
                 style={{
-                  width: 70,
+                  width: 72,
                 }}
                 aria-label="Select version"
                 onChange={(e: any) => {

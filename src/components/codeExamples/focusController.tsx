@@ -3,13 +3,13 @@ import { useForm } from "react-hook-form"
 
 export default function App() {
   const inputRef = useRef();
-  const { control, handleSubmit, errors } = useForm({});
+  const { control, handleSubmit, formState } = useForm({});
 
   useEffect(() => {
-    if (errors.test) {
+    if (formState.errors.test) {
       inputRef.current.focus();
     }
-  });
+  }, [formState]);
 
   return (
     <form onSubmit={handleSubmit(data => console.log(data))}>

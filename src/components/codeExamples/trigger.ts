@@ -12,6 +12,7 @@ export default function App() {
         type="button"
         onClick={async () => {
           const result = await trigger("lastName");
+          // const result = await trigger("lastName", { shouldFocus: true }); allowed to focus input
         }}
       >
         Trigger

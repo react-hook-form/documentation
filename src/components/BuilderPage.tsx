@@ -61,8 +61,8 @@ function BuilderPage({
 }) {
   const {
     state: { formData = [], language, setting = {} },
-    action: updateFormData,
-  } = useStateMachine(updateStore)
+    actions: { updateFormData },
+  } = useStateMachine({ updateFormData: updateStore })
   const isV7 = setting.version === 7
   const { currentLanguage } =
     language && language.currentLanguage

@@ -33,12 +33,20 @@ ${
             maxLength,
             minLength,
             pattern,
-          ].some(Boolean)
+          ].some(value => {
+            const isBooleanValue = typeof value === 'boolean';
+            
+            if (isBooleanValue) {
+              return value !== undefined;
+            }
+            
+            return Boolean(value);
+          })
           const ref = isV7
             ? `{...register${
-                anyAttribute ? `("${name}", { required: true })` : ""
+                required ? `("${name}", { required: true })` : ""
               }}`
-            : ` ref={register${anyAttribute ? "({ required: true })" : ""}}`
+            : ` ref={register${required ? "({ required: true })" : ""}}`
 
           if (type === "select") {
             const select = `      <select ${
@@ -65,7 +73,7 @@ ${
                   temp +
                   `      <input ${
                     isV7 ? "" : `name="${name}"`
-                  }${ref}type="${type}" value="${option}" />\n`
+                  }${ref} type="${type}" value="${option}" />\n`
                 )
               }, "")}`
 

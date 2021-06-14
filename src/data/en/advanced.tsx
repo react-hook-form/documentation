@@ -509,6 +509,55 @@ export default {
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
         />
+
+        <h4>
+          Resolving act warning during test
+        </h4>
+
+        <p>
+          If you test a component that uses react-hook-form you might run into a
+          warning like this, even if you didn't write any asynchronous code for
+          that component:
+        </p>
+        
+        <blockquote>
+          Warning: An update to MyComponent inside a test was not wrapped in
+          act(...)
+        </blockquote>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningComponent}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
+        />
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningTest}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+        />
+
+        <p>
+          In this example, there is a simple form without any apparent async
+          code and the test merely renders the component and tests for the
+          presence of a button. However, it still logs the warning about updates
+          not being wrapped in <code>act()</code>.
+        </p>
+
+        <p>
+          This is because react-hook-form internally uses asynchronous
+          validation handlers. In order to compute the formState it has to
+          initially validate the form, which is done asynchronously, resulting
+          in another render. That update happens after the test function returns
+          which triggers the warning.
+        </p>
+
+        <p>
+          To solve this, wrap your <code>render()</code> calls in{" "}
+          <code>await act(async () ={`> {}`})</code>:
+        </p>
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningSolution}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+        />
       </>
     ),
   },

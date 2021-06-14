@@ -248,6 +248,9 @@ export default {
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with <code>ref</code> will work. Custom <code>register</code> inputs
           do not apply. eg: <code>{`register('test') // doesn't work`}</code>{" "}
+          <br />
+          However you're still able to use `forwardRef` to forward the ref and
+          let the autofocus do its work.
         </p>
 
         <p>
@@ -1448,6 +1451,12 @@ React.useEffect(() => {
                   You need to either set <code>defaultValue</code> at the
                   field-level or call <code>useForm</code> with{" "}
                   <code>defaultValues</code>.
+                </p>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> inline{" "}
+                  <code>defaultValue</code> is required when working with{" "}
+                  <code>useFieldArray</code> by integrating with the value from{" "}
+                  <code>fields</code> object.
                 </p>
               </li>
               <li>

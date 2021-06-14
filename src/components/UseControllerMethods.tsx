@@ -69,6 +69,18 @@ export default ({ currentLanguage, isController }) => {
           <tr>
             <td></td>
             <td>
+              <code>name</code>
+            </td>
+            <tr>
+              <code className={typographyStyles.typeText}>string</code>
+            </tr>
+            <td>
+              <p>Input's name being registered.</p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
               <code>ref</code>
             </td>
             <tr>
