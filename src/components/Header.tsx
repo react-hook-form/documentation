@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
-import Bday from "./Bday"
+// import Bday from "./Bday"
 import home from "../data/home"
 import { useStateMachine } from "little-state-machine"
 import translateLink from "./logic/translateLink"
@@ -30,11 +30,11 @@ const LogoSvg = (
 export default function Header({
   homeRef,
   defaultLang,
-  isCardPlay,
-}: {
+}: // isCardPlay,
+{
   homeRef: React.RefObject<HTMLDivElement>
   defaultLang: string
-  isCardPlay: boolean
+  isCardPlay?: boolean
 }) {
   const [isWeb, setIsWeb] = React.useState(true)
   const {
@@ -234,7 +234,7 @@ export default function Header({
         </div>
       </AnimateGroup>
 
-      <Bday isCardPlay={isCardPlay} />
+      {/*<Bday isCardPlay={isCardPlay} />*/}
     </>
   )
 }
