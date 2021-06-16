@@ -355,12 +355,12 @@ table {
 .scrollToTop,
 .scrollToTop:focus {
   border: 1px solid var(--color-light-grey);
-  display: none;
 }
 
 .editPage:hover,
 .scrollToTop:hover {
   border-color: var(--color-secondary);
+  cursor: pointer;
 }
 
 .desktopOnly {
