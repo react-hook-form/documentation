@@ -10,6 +10,9 @@ export default function App() {
     <View>
       <Controller
         control={control}
+        rules={{
+         required: true,
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
             style={styles.input}
@@ -26,6 +29,9 @@ export default function App() {
 
       <Controller
         control={control}
+        rules={{
+         maxLength: 100,
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
             style={styles.input}
