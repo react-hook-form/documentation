@@ -78,7 +78,13 @@ const Layout = (props: {
         <button
           className="scrollToTop"
           aria-label="Scroll back to top"
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            })
+          }
         >
           ▲
         </button>
