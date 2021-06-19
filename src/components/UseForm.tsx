@@ -11,6 +11,7 @@ import api from "../data/en/api"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as tableStyles from "../styles/table.module.css"
+import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
 
 const codeSandBoxStyle = {
   position: "relative",
@@ -210,7 +211,7 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       <p>
-                        <code>shouldFocusError:</code>
+                        <code>shouldFocusError</code>
                         <br />
                         <code className={typographyStyles.typeText}>
                           boolean = true
@@ -222,7 +223,7 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       <p>
-                        <code>shouldUnregister:</code>
+                        <code>shouldUnregister</code>
                         <br />
                         <code className={typographyStyles.typeText}>
                           boolean = false
@@ -235,8 +236,39 @@ const { register } = useForm<FormInputs>({
               </table>
             </div>
 
-            <br />
-            <p style={{ textAlign: "center" }}>♦</p>
+            <h5
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+              id="validationResolver"
+            >
+              <code>
+                shouldUseNativeValidation:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`boolean = false`}
+                </span>
+              </code>
+            </h5>
+
+            <p>
+              This config will enable{" "}
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                browser native validation
+              </a>
+              . It will also enable CSS selectors <code>:valid</code> and
+              <code>:invalid</code> making style inputs easier. In fact, you can
+              still use those selectors even the client validation is disabled.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Note:</b> You can turn on
+              this config and set <code>novalidate</code> at your form and still
+              use those CSS selectors.
+            </p>
+
+            <CodeArea rawData={shouldUseNativeValidation} />
 
             <ValidationResolver api={api} />
           </section>
