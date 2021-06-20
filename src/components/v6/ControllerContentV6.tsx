@@ -1,12 +1,12 @@
 import * as React from "react"
 import CodeArea from "../CodeArea"
-import controller from "../codeExamples/controller"
+import controller from "../codeExamples/v6/controller"
 import reactNativeController from "../codeExamples/reactNativeController"
 import generic from "../../data/generic"
 import TabGroup from "../TabGroup"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as tableStyles from "../../styles/table.module.css"
-import controllerTs from "../codeExamples/controllerTs"
+import controllerTs from "../codeExamples/v6/controllerTs"
 
 export default function ControllerContentV6({
   currentLanguage,
