@@ -45,7 +45,7 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               withOutCopy
-              rawData={`const { register } = useForm({
+              rawData={`useForm({
   mode: 'onSubmit',
   reValidateMode: 'onChange',
   defaultValues: {},
@@ -54,6 +54,7 @@ export default ({ currentLanguage }) => {
   criteriaMode: "firstError",
   shouldFocusError: true,
   shouldUnregister: false,
+  shouldUseNativeValidation: false,
 })`}
               tsRawData={`type FormInputs = {
   firstName: string;
