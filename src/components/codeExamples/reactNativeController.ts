@@ -22,7 +22,6 @@ export default function App() {
           />
         )}
         name="firstName"
-        rules={{ required: true }}
         defaultValue=""
       />
       {errors.firstName && <Text>This is required.</Text>}
