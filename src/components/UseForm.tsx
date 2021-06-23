@@ -263,11 +263,22 @@ const { register } = useForm<FormInputs>({
               <code>:invalid</code> making style inputs easier. In fact, you can
               still use those selectors even the client validation is disabled.
             </p>
-            <p>
-              <b className={typographyStyles.note}>Note:</b> You can turn on
-              this config and set <code>novalidate</code> at your form and still
-              use those CSS selectors.
-            </p>
+            <ul>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> You can turn on
+                  this config and set <code>novalidate</code> at your form and
+                  still use those CSS selectors.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b className={typographyStyles.note}>Note:</b> This feature
+                  only works for <code>register</code> API, not{" "}
+                  <code>useController/Controller</code>.
+                </p>
+              </li>
+            </ul>
 
             <CodeArea rawData={shouldUseNativeValidation} />
 

@@ -1245,6 +1245,7 @@ reset({ deepNest: { file: new File() } });
             <tbody>
               <tr>
                 <th>Name</th>
+                <th></th>
                 <th width={"200px"}>Type</th>
                 <th>Description</th>
               </tr>
@@ -1252,6 +1253,7 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <code>name</code>
                 </td>
+                <td></td>
                 <td>
                   <code className={typographyStyles.typeText}>string</code>
                 </td>
@@ -1263,6 +1265,7 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <code>error</code>
                 </td>
+                <td></td>
                 <td>
                   <code
                     className={typographyStyles.typeText}
@@ -1273,6 +1276,7 @@ reset({ deepNest: { file: new File() } });
                 </td>
               </tr>
               <tr>
+                <td>config</td>
                 <td>
                   <code>shouldFocus</code>
                 </td>
