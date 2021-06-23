@@ -1914,7 +1914,7 @@ React.useEffect(() => {
   if (fields.length === 2) {
     remove(0);
   }
-}, fields)
+}, [fields])
             `}
             />
           </li>
