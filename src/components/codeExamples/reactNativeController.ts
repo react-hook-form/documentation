@@ -17,12 +17,11 @@ export default function App() {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
         name="firstName"
-        rules={{ required: true }}
         defaultValue=""
       />
       {errors.firstName && <Text>This is required.</Text>}
@@ -36,7 +35,7 @@ export default function App() {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
