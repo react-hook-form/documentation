@@ -17,7 +17,7 @@ export default function App() {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -35,7 +35,7 @@ export default function App() {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
