@@ -1232,7 +1232,7 @@ reset({ deepNest: { file: new File() } });
           </li>
           <li>
             <p>
-              <code>shouldFocusError</code> doesn't work when an input has been
+              <code>shouldFocus</code> doesn't work when an input has been
               disabled.
             </p>
           </li>
@@ -1245,7 +1245,6 @@ reset({ deepNest: { file: new File() } });
             <tbody>
               <tr>
                 <th>Name</th>
-                <th></th>
                 <th width={"200px"}>Type</th>
                 <th>Description</th>
               </tr>
@@ -1253,7 +1252,6 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <code>name</code>
                 </td>
-                <td></td>
                 <td>
                   <code className={typographyStyles.typeText}>string</code>
                 </td>
@@ -1265,7 +1263,6 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <code>error</code>
                 </td>
-                <td></td>
                 <td>
                   <code
                     className={typographyStyles.typeText}
@@ -1278,10 +1275,9 @@ reset({ deepNest: { file: new File() } });
               <tr>
                 <td>config</td>
                 <td>
-                  <code>shouldFocus</code>
-                </td>
-                <td>
-                  <code className={typographyStyles.typeText}>boolean</code>
+                  <code
+                    className={typographyStyles.typeText}
+                  >{`{ shouldFocus?: boolean }`}</code>
                 </td>
                 <td>
                   <p>
