@@ -117,7 +117,7 @@ export default function ApiWatch({
               <td>
                 <code>{`watch((data, { name, type }) => 
   console.log(data, name, type)
-))`}</code>
+)`}</code>
               </td>
               <td>
                 <code
