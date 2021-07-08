@@ -38,7 +38,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     ControlRef: null,
     UseFormReturnRef: null,
     RegisterOptionsRef: null,
-    UseFormOptionsRef: null,
+    UseFormPropsRef: null,
     UseFieldArrayReturnRef: null,
     UseFieldArrayPropsRef: null,
     UseControllerReturnRef: null,
@@ -168,8 +168,8 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           <hr />
 
           <section
-            ref={(ref) => (tsSectionsRef.current.UseFormOptionsRef = ref)}
-            id="UseFormOptionsRef"
+            ref={(ref) => (tsSectionsRef.current.UseFormPropsRef = ref)}
+            id="UseFormPropsRef"
           >
             <code className={typographyStyles.codeHeading}>
               <h2>{TS.useFormOptions.title}</h2>
