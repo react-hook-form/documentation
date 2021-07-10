@@ -122,7 +122,7 @@ export default ({ currentLanguage }) => {
                   </tr>
                   <tr>
                     <td>
-                      <code>keepErrors</code>
+                      <code>keepError</code>
                     </td>
                     <td>
                       <span className={typographyStyles.typeText}>boolean</span>
