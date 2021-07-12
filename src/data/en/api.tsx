@@ -2090,6 +2090,19 @@ React.useEffect(() => {
         </tr>
         <tr>
           <td>
+            <code>update</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (index?: number, obj: object) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>Update a single input at particular position.</td>
+        </tr>
+        <tr>
+          <td>
             <code>remove</code>
           </td>
           <td>
