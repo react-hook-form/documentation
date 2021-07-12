@@ -2099,7 +2099,7 @@ React.useEffect(() => {
               </code>
             </code>
           </td>
-          <td>Update a single input at particular position.</td>
+          <td>Update input/inputs at particular position.</td>
         </tr>
         <tr>
           <td>
