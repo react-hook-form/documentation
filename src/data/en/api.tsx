@@ -1935,6 +1935,19 @@ React.useEffect(() => {
           <li>
             <p>Does not support flat field array.</p>
           </li>
+          <li>
+            <p>
+              When you append, prepend, insert and update the field array, the
+              obj can't be empty object <code>{}</code> rather need to supply
+              all your input's defaultValues.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`append(); ❌
+append({}); ❌
+append({ firstName: 'bill', lastName: 'luo' }); ✅`}
+            />
+          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>TypeScript</h2>
@@ -2036,17 +2049,17 @@ React.useEffect(() => {
             <code>prepend</code>
           </td>
           <td>
-            <code>
-              <code className={typographyStyles.typeText}>
-                (obj: object | object[],{" "}
-                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
-                ) =&gt; void
-              </code>
+            <code className={typographyStyles.typeText}>
+              (obj: object | object[],{" "}
+              {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
+              ) =&gt; void
             </code>
           </td>
           <td>
-            Prepend input/inputs to the start of your fields and focus. The
-            input value will be registered during this action.
+            <p>
+              Prepend input/inputs to the start of your fields and focus. The
+              input value will be registered during this action.
+            </p>
           </td>
         </tr>
         <tr>
@@ -2054,13 +2067,13 @@ React.useEffect(() => {
             <code>insert</code>
           </td>
           <td>
-            <code>
-              <code className={typographyStyles.typeText}>
-                {`(index: number, value: object | object[], { shouldFocus?: boolean; focusIndex?: number; focusName?: string; }) => void`}
-              </code>
+            <code className={typographyStyles.typeText}>
+              {`(index: number, value: object | object[], { shouldFocus?: boolean; focusIndex?: number; focusName?: string; }) => void`}
             </code>
           </td>
-          <td>Insert input/inputs at particular position and focus. </td>
+          <td>
+            <p>Insert input/inputs at particular position and focus. </p>
+          </td>
         </tr>
         <tr>
           <td>
