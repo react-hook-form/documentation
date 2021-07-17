@@ -4,8 +4,8 @@ import generic from "../../data/generic"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as tableStyles from "../../styles/table.module.css"
 import * as buttonStyles from "../../styles/button.module.css"
-import formState from "../codeExamples/formState"
-import formStateTs from "../codeExamples/formStateTs"
+import formState from "../codeExamples/v6/formState"
+import formStateTs from "../codeExamples/v6/formStateTs"
 
 const goToSection = (name, sectionsRef) => {
   const url = window.location.href
