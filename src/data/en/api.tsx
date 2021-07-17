@@ -9,6 +9,8 @@ import * as tableStyles from "../../styles/table.module.css"
 import TabGroup from "../../components/TabGroup"
 import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
+import defaultValues from "../../components/codeExamples/defaultValues"
+import defaultValuesTs from "../../components/codeExamples/defaultValuesTs"
 
 export default {
   title: "API Documentation",
@@ -175,6 +177,19 @@ export default {
           </li>
           <li>
             <p>
+              <code>defaultValues</code> will be shallowly merged with form
+              submission data.
+            </p>
+
+            <CodeArea
+              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v7-vd85w"
+              rawData={defaultValues}
+              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-ts-forked-7z3v0"
+              tsRawData={defaultValuesTs}
+            />
+          </li>
+          <li>
+            <p>
               From version 7.6.0 onwards with <code>shouldUnregister</code> set
               to <>false</>, any missing registered inputs from{" "}
               <code>defaultValues</code> will get automatically registered.
@@ -218,12 +233,6 @@ export default {
   );
 };`}
             />
-          </li>
-          <li>
-            <p>
-              <code>defaultValues</code> will be shallowly merged with form
-              submission data.
-            </p>
           </li>
         </ul>
       </>
@@ -305,6 +314,13 @@ export default {
           </li>
         </ul>
       </>
+    ),
+    delayError: (
+      <p>
+        This config will delay the error state to be displayed to the end-user
+        in milliseconds. Correct the error input will remove the error instantly
+        and delay will not be applied.
+      </p>
     ),
   },
   unregister: {
