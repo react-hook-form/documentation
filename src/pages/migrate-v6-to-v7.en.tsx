@@ -498,6 +498,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   and reference will no longer get removed after unmount unless
                   <code>shouldUnregister</code> is true.
                 </p>
+              </section>
             </section>
           </main>
         </div>
