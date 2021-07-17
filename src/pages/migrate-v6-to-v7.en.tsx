@@ -88,7 +88,7 @@ export default ({ location }) => {
 
             <CodeArea
               rawData={`npm i react-hook-form@latest // react-hook-form: "^7.0.0"
-              
+
 npm i @hookform/resolvers@latest // @hookform/resolvers: "^2.0.0" if you are using resolvers
 
 npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are using devtools`}
@@ -113,7 +113,8 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <p>
                 <b className={typographyStyles.note}>Important:</b> input value
-                and reference will no longer get removed after unmount.
+                and reference will no longer get removed after unmount unless
+                  <code>shouldUnregister</code> is true.
               </p>
 
               <CodeArea
@@ -188,7 +189,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
               <CodeArea
                 withOutCopy
                 rawData={`const { ref, ...rest } = register('test') // invoke this before render
-                
+
 <Input {...rest} inputRef={ref} />`}
               />
             </section>
@@ -255,10 +256,10 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 withOutCopy
                 rawData={`- reset(values, { isDirty: true })
 + // second argument is still optional
-+ reset(values, { 
++ reset(values, {
 +   keepDefaultValues: true, // new
 +   keepValues: true, // new
-+   keepDirty: true, 
++   keepDirty: true,
 + })`}
               />
 
@@ -386,10 +387,10 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   withOutCopy
                   rawData={`- resolver: (values: any, context?: object) => Promise<ResolverResult> | ResolverResult
 + resolver: (
-+    values: any, 
-+    context?: object, 
-+    options: { 
-+       criteriaMode?: 'firstError' | 'all', 
++    values: any,
++    context?: object,
++    options: {
++       criteriaMode?: 'firstError' | 'all',
 +       names?: string[],
 +       fields: { [name]: field } // Support nested field
 +    }
@@ -476,6 +477,26 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                   We have made quite a few rename on the type for a better name
                   and consistency. please refer to the TS page for the updated
                   type names.
+                </p>
+              </section>
+
+              <hr />
+
+              <section>
+                <code className={typographyStyles.codeHeading}>
+                  <h2>shouldUnregister: </h2>
+                </code>
+
+                <p>
+                  In V7, the new default for the <code>useForm</code>
+                  option: <code>shouldUnregister</code> is false.
+                  Previously it was defaulted to true.
+                </p>
+
+                <p>
+                  <b className={typographyStyles.note}>Important:</b> input value
+                  and reference will no longer get removed after unmount unless
+                  <code>shouldUnregister</code> is true.
                 </p>
               </section>
             </section>
