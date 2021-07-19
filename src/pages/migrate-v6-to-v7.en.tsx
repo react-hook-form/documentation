@@ -114,7 +114,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
               <p>
                 <b className={typographyStyles.note}>Important:</b> input value
                 and reference will no longer get removed after unmount unless
-                  <code>shouldUnregister</code> is true.
+                <code>shouldUnregister</code> is true.
               </p>
 
               <CodeArea
@@ -489,13 +489,14 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
                 <p>
                   In V7, the new default for the <code>useForm</code>
-                  option: <code>shouldUnregister</code> is false.
-                  Previously it was defaulted to true.
+                  option: <code>shouldUnregister</code> is false. Previously it
+                  was defaulted to true.
                 </p>
 
                 <p>
-                  <b className={typographyStyles.note}>Important:</b> input value
-                  and reference will no longer get removed after unmount unless
+                  <b className={typographyStyles.note}>Important:</b> input
+                  value and reference will no longer get removed after unmount
+                  unless
                   <code>shouldUnregister</code> is true.
                 </p>
               </section>
