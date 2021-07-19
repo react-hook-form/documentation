@@ -3,9 +3,7 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data, e) => {
-    // e.target.reset(); // HTML standard reset() function will only reset inputs' value
-  };
+  const onSubmit = (data, e) => {};
   
   useEffect(async () => {
     const result = await fetch('./api/formValues.json'); // result: { firstName: 'test', lastName: 'test2' }
