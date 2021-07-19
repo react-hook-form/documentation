@@ -8,15 +8,13 @@
 }
 
 .feedback > div {
-  border: 1px solid var(--color-light-blue);
   border-radius: 15px;
-  box-shadow: 0 0 20px var(--color-primary);
   margin-bottom: 20px;
 }
 
 .feedback > div > svg {
-  margin: 30px auto 0;
-  width: 60px;
+  margin: 0 auto 0;
+  width: 45px;
 }
 
 .feedback > div > p {

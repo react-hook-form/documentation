@@ -27,7 +27,11 @@
 
 .centerContent p {
   max-width: 730px;
-  margin: 0 auto 10px;
+  margin: 0 auto 0;
+}
+
+.centerContent h3 {
+  margin: 0;
 }
 
 @media (min-width: 768px) {

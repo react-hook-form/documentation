@@ -149,6 +149,61 @@ function HomePage({
         currentLanguage={currentLanguage}
       />
 
+      <Watcher
+        lightMode={lightMode}
+        isPlayWatch={isPlayWatch}
+        currentLanguage={currentLanguage}
+      />
+
+      <CodePerfCompareSection
+        isPlayRender={isPlayRender}
+        currentLanguage={currentLanguage}
+      />
+
+      <div className={containerStyles.centerContent}>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1"
+            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+          />
+        </svg>
+        <h1 className={typographyStyles.h1}>Highlights</h1>
+
+        <p className={typographyStyles.homeParagraph}>
+          This project is getting recognized by the community and industry. It's
+          helping more developers to build forms in React than ever.
+        </p>
+
+        <section className={styles.feedback}>
+          <div>
+            <h3>Javascript Raising Star</h3>
+            <p>
+              React Hook Form have matured and evolved around hooks. Simplifies
+              a piece of React development.
+            </p>
+          </div>
+
+          <div>
+            <h3>React Open Source Awards</h3>
+            <p>
+              The winner of 2020 GitNation React OS Award for the category of
+              Productivity Booster.
+            </p>
+          </div>
+
+          <div>
+            <h3>Technology Radar</h3>
+
+            <p>
+              The project is fortunate enough to be under the radar for the
+              Languages & Frameworks section.
+            </p>
+          </div>
+        </section>
+      </div>
+
       <div className={containerStyles.centerContent}>
         <svg fill={"white"} viewBox="0 0 512 512">
           <path d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208zm0-384c-97 0-176 79-176 176s79 176 176 176 176-78.95 176-176S353.05 80 256 80z" />
@@ -247,17 +302,6 @@ function HomePage({
           </div>
         </section>
       </div>
-
-      <Watcher
-        lightMode={lightMode}
-        isPlayWatch={isPlayWatch}
-        currentLanguage={currentLanguage}
-      />
-
-      <CodePerfCompareSection
-        isPlayRender={isPlayRender}
-        currentLanguage={currentLanguage}
-      />
 
       <div ref={HomeRef} />
 

@@ -147,8 +147,9 @@ export default {
         description: `Since form state is inherently local, it can be easily adopted without other dependencies.`,
       },
       {
-        title: "Award",
-        description: `Winner of 2020 GitNation React OS Award for Productivity Booster.`,
+        title: "UX",
+        description: `Striking to provide the best user experience by bringing align consistent validation strategy.
+`,
       },
     ],
     es: [
