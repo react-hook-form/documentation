@@ -374,7 +374,7 @@ export default {
       <>
         <p>
           Os testes são muito importantes porque preservam o código de bugs ou
-          erros e garantir a segurança do código quando você refatorar a base de
+          erros e garantem a segurança do código quando você refatorar a base de
           código.
         </p>
 
@@ -394,8 +394,7 @@ export default {
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Prepare seus testes
-          ambiente.
+          <b className={typographyStyles.note}>Step 1:</b> Prepare seu ambiente de testes.
         </p>
 
         <p>
