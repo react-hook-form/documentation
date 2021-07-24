@@ -55,6 +55,7 @@ export default ({ currentLanguage }) => {
   shouldFocusError: true,
   shouldUnregister: false,
   shouldUseNativeValidation: false,
+  delayError: undefined
 })`}
               tsRawData={`type FormInputs = {
   firstName: string;
@@ -70,6 +71,7 @@ const { register } = useForm<FormInputs>({
   criteriaMode: "firstError",
   shouldFocusError: true,
   shouldUnregister: false,
+  delayError: undefined
 })`}
             />
 
@@ -162,13 +164,6 @@ const { register } = useForm<FormInputs>({
 
             {api.useForm.defaultValues}
 
-            <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v7-vd85w"
-              rawData={defaultValues}
-              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-ts-forked-7z3v0"
-              tsRawData={defaultValuesTs}
-            />
-
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
@@ -232,6 +227,24 @@ const { register } = useForm<FormInputs>({
                       </p>
                     </td>
                     <td>{api.useForm.shouldUnregister}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <code>delayError</code>
+                        <br />
+                        <code className={typographyStyles.typeText}>
+                          number
+                        </code>
+                      </p>
+                    </td>
+                    <td>{api.useForm.delayError}</td>
+                    <td>
+                      <CodeSandBoxLink
+                        style={codeSandBoxStyle}
+                        url="https://codesandbox.io/s/useform-delayerror-q6c2d"
+                      />
+                    </td>
                   </tr>
                 </tbody>
               </table>
