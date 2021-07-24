@@ -165,10 +165,7 @@ function Advanced({ defaultLang, advanced }: Props) {
                 {advanced.errorMessage.register}
                 <br />
                 <br />
-                <code>{`<input
-  name="test"
-  ref={register({ maxLength: { value: 2, message: "error message" } })}
-/>
+                <code>{`<input {...register('test', { maxLength: { value: 2, message: "error message" } })} />
 `}</code>
               </p>
             </li>
