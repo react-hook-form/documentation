@@ -510,16 +510,14 @@ export default {
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
         />
 
-        <h4>
-          Resolving act warning during test
-        </h4>
+        <h4>Resolving act warning during test</h4>
 
         <p>
           If you test a component that uses react-hook-form you might run into a
           warning like this, even if you didn't write any asynchronous code for
           that component:
         </p>
-        
+
         <blockquote>
           Warning: An update to MyComponent inside a test was not wrapped in
           act(...)
@@ -566,8 +564,8 @@ export default {
     description: (
       <>
         <p>
-          The native input return value is normally in <code>string</code>{" "}
-          format unless invoked with <code>valueAsNumber</code> or{" "}
+          The native input returns the value in <code>string</code> format
+          unless invoked with <code>valueAsNumber</code> or{" "}
           <code>valueAsDate</code>, you can read more under{" "}
           <a
             target="_blank"
@@ -576,12 +574,12 @@ export default {
           >
             this section
           </a>
-          . However, it's not perfect, we still has to deal with{" "}
+          . However, it's not perfect, we still have to deal with{" "}
           <code>isNaN</code> or <code>null</code> value. So it's better to leave
           the transform at the Component level. In the following example, we are
-          using the <code>Controller</code> to include the functionality of
-          transform value's input and output. You can also achieve similar
-          result with custom <code>register</code>.
+          using the <code>Controller</code> to include the functionality of the
+          transform value's input and output. You can also achieve a similar
+          result with a custom <code>register</code>.
         </p>
       </>
     ),
