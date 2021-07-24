@@ -1075,6 +1075,12 @@ reset({ deepNest: { file: new File() } });
 `}
             />
           </li>
+          <li>
+            <p>
+              Do not invoke <code>reset</code> inside <code>onReset</code> or
+              <code>onSubmit</code> callback.
+            </p>
+          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
