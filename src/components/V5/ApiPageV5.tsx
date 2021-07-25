@@ -745,6 +745,7 @@ function ApiPage({ formData, defaultLang, api }: Props) {
 
             <ApiRefTable
               api={api}
+              skipValueAs={true}
               goToSection={goToSection}
               currentLanguage={currentLanguage}
             />
