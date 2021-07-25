@@ -1077,15 +1077,24 @@ reset({ deepNest: { file: new File() } });
           </li>
           <li>
             <p>
-              Do not invoke <code>reset</code> inside <code>onReset</code> or{" "}
-              <code>onSubmit</code> callback.
+              It's recommended to not invoke <code>reset</code> inside{" "}
+              <code>onReset</code> or <code>onSubmit</code> callback.
             </p>
             <ul>
-              <li>We can't set value for native input during onReset event.</li>
               <li>
-                Because onSubmit is async include its validation and reset
-                inside the callback will intercept the result of formState
-                update.
+                <p>
+                  We can't set value for native input during{" "}
+                  <code>onReset</code> event.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Because onSubmit callback is async and includes its validation
+                  when <code>reset</code>
+                  inside the callback it will intercept the result of formState
+                  update. This will be problematic when you subscribed to the
+                  formState.
+                </p>
               </li>
             </ul>
           </li>
