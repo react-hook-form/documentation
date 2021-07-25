@@ -1077,8 +1077,8 @@ reset({ deepNest: { file: new File() } });
           </li>
           <li>
             <p>
-              Do not invoke <code>reset</code> inside <code>onReset</code> or{" "}
-              <code>onSubmit</code> callback.
+              Do not invoke <code>reset</code> inside <code>onReset</code>{" "}
+              callback.
             </p>
           </li>
         </ul>
