@@ -1090,10 +1090,9 @@ reset({ deepNest: { file: new File() } });
               <li>
                 <p>
                   Because onSubmit callback is async and includes its validation
-                  when <code>reset</code>
-                  inside the callback it will intercept the result of formState
-                  update. This will be problematic when you subscribed to the
-                  formState.
+                  when <code>reset</code> inside the callback it will intercept
+                  the result of formState update. This will be problematic when
+                  you subscribed to the formState.
                 </p>
               </li>
             </ul>
