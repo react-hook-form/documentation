@@ -589,7 +589,7 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           />
 
           <h4 className={typographyStyles.questionTitle}>
-            custom onChange, onBlur
+            Custom onChange, onBlur
           </h4>
 
           <p>
