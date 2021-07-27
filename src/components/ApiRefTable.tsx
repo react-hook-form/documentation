@@ -404,7 +404,11 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to text input.</p>
+                    <p>Only applies to text input.</p>
+                  </li>
+                  <li>
+                    Does not transform <code>defaultValue</code> or
+                    <code>defaultValues</code>.
                   </li>
                 </ul>
               </td>
@@ -429,8 +433,8 @@ export default function ApiRefTable({
               </td>
               <td>
                 <p>
-                  Returns a Date normally. If something goes wrong{" "}
-                  <code>null</code> will be returned.
+                  Returns a <code>Date</code> object normally. If something goes
+                  wrong <code>null</code> will be returned.
                 </p>
                 <ul>
                   <li>
@@ -440,7 +444,11 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to text input.</p>
+                    <p>Only applies to text input.</p>
+                  </li>
+                  <li>
+                    Does not transform <code>defaultValue</code> or
+                    <code>defaultValues</code>.
                   </li>
                 </ul>
               </td>
@@ -478,7 +486,11 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>only applies to text input.</p>
+                    <p>Only applies to text input.</p>
+                  </li>
+                  <li>
+                    Does not transform <code>defaultValue</code> or
+                    <code>defaultValues</code>.
                   </li>
                 </ul>
               </td>
