@@ -113,7 +113,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <p>
                 <b className={typographyStyles.note}>Important:</b> input value
-                and reference will no longer get removed after unmount unless
+                and reference will no longer get removed after unmount unless{" "}
                 <code>shouldUnregister</code> is true.
               </p>
 
@@ -496,8 +496,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 <p>
                   <b className={typographyStyles.note}>Important:</b> input
                   value and reference will no longer get removed after unmount
-                  unless
-                  <code>shouldUnregister</code> is true.
+                  unless <code>shouldUnregister</code> is true.
                 </p>
               </section>
             </section>
