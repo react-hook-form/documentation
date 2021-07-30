@@ -148,7 +148,7 @@ export default {
       },
       {
         title: "UX",
-        description: `Striking to provide the best user experience and bringing consistent validation strategies.
+        description: `Striving to provide the best user experience and bringing consistent validation strategies.
 `,
       },
     ],
