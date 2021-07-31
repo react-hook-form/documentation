@@ -86,6 +86,11 @@ const { register } = useForm<FormInputs>({
             </h5>
 
             <div className={tableStyles.tableWrapper}>
+              <p>
+                This option allows you to configure the validation before{" "}
+                <code>onSubmit</code> event.
+              </p>
+
               <table className={tableStyles.table}>
                 <tbody>
                   <tr>
@@ -144,13 +149,7 @@ const { register } = useForm<FormInputs>({
                 />
               </h5>
 
-              <table>
-                <tbody>
-                  <tr>
-                    <td>{api.useForm.reValidateMode}</td>
-                  </tr>
-                </tbody>
-              </table>
+              {api.useForm.reValidateMode}
             </div>
 
             <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>

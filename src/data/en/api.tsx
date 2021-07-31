@@ -240,8 +240,8 @@ export default {
     reValidateMode: (
       <p>
         This option allows you to configure when inputs with errors get
-        re-validated after submit. By default, validation is only triggered
-        during an input change.
+        re-validated <strong>after</strong> submit. By default, validation is
+        only triggered during an input change.
       </p>
     ),
     validationFields: (
