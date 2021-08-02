@@ -28,7 +28,7 @@ function App() {
         value={firstName}
       />
 
-      <input onChange={(e) => handleChange("lastName", e)} value={lastName} />
+      <input onChange={(e) => handleChange(e, "lastName")} value={lastName} />
       <input type="submit" />
     </form>
   );
