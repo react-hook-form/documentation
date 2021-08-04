@@ -951,7 +951,7 @@ append({ firstName: '' });
     description: (
       <>
         <p>
-          This function will received the form data if form validation is
+          This function will receive the form data if form validation is
           successful.
         </p>
 
