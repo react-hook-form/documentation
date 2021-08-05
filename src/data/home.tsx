@@ -140,7 +140,7 @@ export default {
       },
       {
         title: "Performance",
-        description: `Minimizes the number of re-renders and faster mounting, striving to provide the best user experience.`,
+        description: `Minimizes the number of re-renders, minimizes validate computation, and faster mounting.`,
       },
       {
         title: "Adoptable",
