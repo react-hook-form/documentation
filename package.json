@@ -21,7 +21,7 @@
     "gatsby-transformer-sharp": "3.3.0",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "little-state-machine": "4.1.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "ptz-i18n": "^1.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
