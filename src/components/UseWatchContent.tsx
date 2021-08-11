@@ -103,7 +103,7 @@ export default function UseFieldArray({
         <li>
           <p>
             <code>useWatch</code> execution order matters, which means if you
-            are update form value before subscription is in place, then the
+            are update form value before the subscription is in place, then the
             value update will be ignored.
           </p>
 
