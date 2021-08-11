@@ -84,6 +84,40 @@ export default function UseFieldArray({
         </table>
       </div>
 
+      <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+      <ul>
+        <li>
+          <p>
+            The initial return value from <code>useWatch</code> will always
+            return what's inside of <code>defaultValue</code> or{" "}
+            <code>defaultValues</code> from <code>useForm</code>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The only different between <code>useWatch</code> and{" "}
+            <code>watch</code> is at root level or component level update.
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>useWatch</code> execution order matters, which means if you
+            are update form value before subscription is in place, then the
+            value update will be ignored.
+          </p>
+
+          <CodeArea
+            rawData={`setValue('test', 'data');
+useWatch('test'); // ❌ subscription is happened after value update, no update received
+
+useWatch('example'); // ✅ input value update will be received and trigger re-render
+setValue('example', 'data'); 
+`}
+          />
+        </li>
+      </ul>
+
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea
           rawData={useWatch}
@@ -96,22 +130,6 @@ export default function UseFieldArray({
           url="https://codesandbox.io/s/watchusewatch-calc-4tpnh"
         />
       </TabGroup>
-
-      <h2 className={typographyStyles.subTitle}>Tips</h2>
-
-      <ul>
-        <li>
-          <p>
-            The initial return value from <code>useWatch</code> will always
-            return what's inside of <code>defaultValue</code> or{" "}
-            <code>defaultValues</code> from <code>useForm</code>.
-          </p>
-        </li>
-        <li>
-          The only different between <code>useWatch</code> and{" "}
-          <code>watch</code> is at root level or component level update.
-        </li>
-      </ul>
     </>
   )
 }
