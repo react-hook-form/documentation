@@ -1124,7 +1124,7 @@ reset({ deepNest: { file: new File() } });
                   <code className={typographyStyles.typeText}>object</code>
                 </td>
                 <td>
-                  <p>An optional object to reset from values.</p>
+                  <p>An optional object to reset form values.</p>
                 </td>
               </tr>
               <tr>
