@@ -6,7 +6,7 @@ import UseFieldArrayContent from "../../components/UseFieldArray"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="TS Support" location={location} />
+      <Seo title="useFieldArray" location={location} />
       <UseFieldArrayContent currentLanguage="en" />
     </Layout>
   )

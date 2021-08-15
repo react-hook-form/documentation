@@ -6,7 +6,7 @@ import UseFormContext from "../../components/UseFormContext"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="TS Support" location={location} />
+      <Seo title="useFormContext" location={location} />
       <UseFormContext currentLanguage="en" />
     </Layout>
   )

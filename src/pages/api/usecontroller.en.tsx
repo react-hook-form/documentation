@@ -6,7 +6,7 @@ import UseControllerContent from "../../components/UseController"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="TS Support" location={location} />
+      <Seo title="useController" location={location} />
       <UseControllerContent currentLanguage="en" />
     </Layout>
   )
