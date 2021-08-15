@@ -6,7 +6,7 @@ import UseFormState from "../../components/UseFormState"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm" location={location} />
+      <Seo title="useFormState" location={location} />
       <UseFormState currentLanguage="en" />
     </Layout>
   )
