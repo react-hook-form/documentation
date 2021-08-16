@@ -252,7 +252,7 @@ const { register } = useForm<FormInputs>({
             <h5
               className={typographyStyles.h5}
               style={{ marginTop: 20 }}
-              id="validationResolver"
+              id="resolver"
             >
               <code>
                 shouldUseNativeValidation:{" "}
