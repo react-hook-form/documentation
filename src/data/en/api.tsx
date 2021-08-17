@@ -989,7 +989,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             <p>
               During the callback, if the function itself throws an error inside
               of <code>handleSubmit</code>, it will not swallow the error itself
-              but bubble up the error and <code>isSubmitSuccessful</code> will
+              but bubble it up instead and <code>isSubmitSuccessful</code> will
               be remained as <code>false</code>.
             </p>
 
