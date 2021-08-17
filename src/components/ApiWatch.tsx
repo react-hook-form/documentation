@@ -113,16 +113,14 @@ export default function ApiWatch({
                   className={typographyStyles.typeText}
                 >{`(data: unknown, { name: string, type: string }) => void`}</code>
               </td>
-              <td>{api.watch.tableTitle.all}</td>
+              <td>{api.watch.tableTitle.callback}</td>
               <td>
-                <code>{`watch((data, { name, type }) => 
-  console.log(data, name, type)
-)`}</code>
+                <code>{`watch((data, { name, type }) => console.log(data, name, type))`}</code>
               </td>
               <td>
                 <code
                   className={typographyStyles.typeText}
-                >{`{[key:string]: any}`}</code>
+                >{`{ unsubscribe: () => void }`}</code>
               </td>
             </tr>
           </tbody>
