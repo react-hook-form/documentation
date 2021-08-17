@@ -984,6 +984,24 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               .
             </p>
           </li>
+          <li>
+            <p>
+              During the callback, if the function itself throws an error inside
+              of <code>handleSubmit</code>, it will not swallow the error itself
+              but bubble up the error and <code>isSubmitSuccessful</code> will
+              be remained as <code>false</code>.
+            </p>
+
+            <CodeArea
+              rawData={`const onSubmit = () => {
+  throw new Eorrr('Something is wrong')
+}
+
+handleSubmit(onSubmit).catch((e) => {
+  // you will need to catch that error
+})`}
+            />
+          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
