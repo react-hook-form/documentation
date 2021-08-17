@@ -944,6 +944,7 @@ append({ firstName: '' });
       ),
       multiple: "Watch multiple inputs",
       all: "Watch all inputs",
+      callback: "Watch all inputs and invoke a callback",
     },
   },
   handleSubmit: {

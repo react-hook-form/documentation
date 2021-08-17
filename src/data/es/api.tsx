@@ -469,6 +469,7 @@ export default {
       ),
       multiple: "Observa multiples inputs",
       all: "Observa todos los inputs",
+      callback: "Observa todos los inputs",
     },
   },
   handleSubmit: {

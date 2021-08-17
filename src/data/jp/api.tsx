@@ -466,6 +466,7 @@ export default {
       ),
       multiple: "複数の input を監視します",
       all: "全ての input を監視します",
+      callback: "全ての input を監視します",
     },
   },
   handleSubmit: {

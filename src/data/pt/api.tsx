@@ -462,6 +462,7 @@ export default {
       ),
       multiple: "Assista múltiplos campos",
       all: "Assista todos os campos",
+      callback: "Assista todos os campos",
     },
   },
   handleSubmit: {

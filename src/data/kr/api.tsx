@@ -500,6 +500,7 @@ export default {
       ),
       multiple: "여러 입력을 확인",
       all: "모든 입력을 확인",
+      callback: "모든 입력을 확인",
     },
   },
   handleSubmit: {
