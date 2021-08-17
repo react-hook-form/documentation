@@ -13,6 +13,12 @@ function App() {
   const watchAllFields = watch(); // when pass nothing as argument, you are watching everything
   const watchFields = watch(["showAge", "age"]); // you can also target specific fields by their names
 
+  // Callback version of watch.  It's your responsibility to unsubscribe when done.
+  React.useEffect(() => {
+    const subscription = watch((value, { name, type }) => console.log(value, name, type));
+    return () => subscription.unsubscribe();
+  }, [watch]);
+
   const onSubmit = (data: IFormInputs) => console.log(data);
 
   return (
