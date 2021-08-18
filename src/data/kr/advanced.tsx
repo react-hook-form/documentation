@@ -1,16 +1,17 @@
-import * as React from "react"
 import { Link as PageLink } from "gatsby"
+import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
-import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
-import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
-import smartForm from "../../components/codeExamples/smartForm"
-import form from "../../components/codeExamples/form"
-import input from "../../components/codeExamples/input"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as buttonStyles from "../../styles/button.module.css"
 import customHookWithValidationResolver from "../../components/codeExamples/customHookWithValidationResolver"
+import form from "../../components/codeExamples/form"
+import { step1, step2, step3 } from "../../components/codeExamples/formWizard"
+import input from "../../components/codeExamples/input"
+import CodeExempleSetupReactNative from "../../components/codeExamples/setup.native"
+import smartForm from "../../components/codeExamples/smartForm"
+import * as CodeExampleTestingForm from "../../components/codeExamples/testingForm"
+import * as buttonStyles from "../../styles/button.module.css"
+import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
   title: "고급 사용법",
@@ -382,14 +383,21 @@ export default {
         </p>
 
         <p>
-          <code>mutationobserver-shim</code>을 설치하세요. react-hook-form 은
-          <code>MutationObserver</code>를 사용하여 인풋이 DOM 으로부터 언마운트
-          되었는지 감지하기 때문입니다.
+          <code>jest</code> 최신버전과
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/jest-dom"
+          >
+            @testing-library/jest-dom
+          </a>{" "}
+          을 설치하세요. react-hook-form이 <code>MutationObserver</code>를
+          사용해서 인풋이 DOM 으로부터 언마운트 되었는지 감지하기 때문입니다.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> React Native 사용하는
-          경우 기본, 당신은 설치할 필요가 없습니다{" "}
+          <b className={typographyStyles.note}>Note:</b> React Native를 사용하는
+          경우 기본으로 설치되어{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -397,33 +405,32 @@ export default {
           >
             @testing-library/jest-dom
           </a>
-          .
+          를 설치할 필요가 없습니다.
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
 
         <p>
-          <code>setup.js</code> 파일을 만들어 <code>mutationobserver-shim</code>{" "}
-          를 가져옵니다.
-        </p>
-
-        <p>
-          <b className={typographyStyles.note}>Note:</b> React Native 사용하는
-          경우 네이티브, 당신은 만들어야합니다
+          <code>setup.js</code> 파일을 만들어{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/react-hook-form/react-hook-form/blob/master/setup.native.ts"
+            href="https://github.com/testing-library/jest-dom"
           >
-            setup.js
+            @testing-library/jest-dom
           </a>{" "}
-          , 정의 <code>window</code> object.
+          를 가져옵니다.
         </p>
-
         <CodeArea
-          rawData={'import "mutationobserver-shim";'}
-          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/setup.js"
+          rawData={'import "@testing-library/jest-dom";'}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/setupTests.js"
         />
+        <p>
+          <b className={typographyStyles.note}>Note:</b> React Native를 사용하는
+          경우, setup.js 파일을 작성해서 setup 파일 안에 다음 내용들을 포함하여
+          <code>window</code> 객체를 정의해야 합니다:
+          <CodeArea rawData={CodeExempleSetupReactNative} />
+        </p>
 
         <p>
           마지막으로 <code>jest.config.js</code> 파일에서 <code>setup.js</code>{" "}
@@ -491,6 +498,52 @@ export default {
         <CodeArea
           rawData={CodeExampleTestingForm.step3}
           url="https://codesandbox.io/s/react-hook-form-unit-test-docs-ewpyt?file=/src/App.test.js"
+        />
+
+        <h4>테스트 중 act 경고문 해결하기</h4>
+
+        <p>
+          react-hook-form을 사용한 컴포넌트를 테스트하는 경우 컴포넌트 내에
+          비동기 코드를 전혀 작성하지 않았는데도 이런 경고문이 발생할 수
+          있습니다:
+        </p>
+
+        <blockquote>
+          Warning: An update to MyComponent inside a test was not wrapped in
+          act(...)
+        </blockquote>
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningComponent}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
+        />
+
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningTest}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+        />
+
+        <p>
+          이 예제에서는 폼은 명백하게 비동기 코드 없이 간단하며 테스트 코드는
+          단순히 컴포넌트를 렌더링해서 버튼이 존재하는지 검사만 하고 있습니다.
+          그러나, 여전히 <code>act()</code>로 감싸져있지 않다는 경고가 뜹니다.
+        </p>
+
+        <p>
+          이는 react-hook-form이 내부에서 비동기 유효성 검사 핸들러를 사용하기
+          때문에 발생합니다. formState 계산을 하려면 처음에 폼의 유효성 검사를
+          해야하는데, 이는 비동기적으로 수행되어 다른 렌더링을 발생시킵니다.
+          해당 업데이트는 경고문을 트리거하는 테스트 함수가 반환된 후에
+          발생합니다.
+        </p>
+
+        <p>
+          이를 해결하기 위해서는 <code>render()</code>를{" "}
+          <code>await act(async () ={`> {}`})</code> 안에 감싸서 호출하세요:
+        </p>
+        <CodeArea
+          rawData={CodeExampleTestingForm.actWarningSolution}
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
         />
       </>
     ),
