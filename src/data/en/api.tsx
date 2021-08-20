@@ -1031,7 +1031,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
 
             <CodeArea
               rawData={`const onSubmit = () => {
-  throw new Eorrr('Something is wrong')
+  throw new Error('Something is wrong')
 }
 
 handleSubmit(onSubmit).catch((e) => {
