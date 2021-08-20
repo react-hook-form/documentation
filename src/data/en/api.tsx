@@ -310,6 +310,42 @@ export default {
                   only registered input will be included as submission data.
                 </p>
               </li>
+              <li>
+                <p>
+                  unmounted input will need to notify at either{" "}
+                  <code>useForm</code>, or <code>useWatch</code>'s{" "}
+                  <code>useEffect</code> for hook form to verify input is
+                  unmounted from the DOM.
+                </p>
+
+                <CodeArea
+                  rawData={`const NotWork = () => {
+  const [show, setShow] = React.useState(false);
+  // ❌ won't get notified, need to invoke unregister
+  return {show && <input {...register('test')} />}                
+}
+
+const Work = () => {
+  const { show } = useWatch()
+  // ✅ get notified at useEffect
+  return {show && <input {...register('test1')} />}                
+}
+
+const App = () => {
+  const [show, setShow] = React.useState(false);
+  const { control } = useForm({ shouldUnregister: true });
+  return (
+    <div>
+      // ✅ get notified at useForm's useEffect
+      {show && <input {...register('test2')} />}                
+      <NotWork />
+      <Work control={control} />
+    </div>
+  )
+}
+`}
+                />
+              </li>
             </ul>
           </li>
         </ul>
