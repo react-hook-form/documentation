@@ -80,6 +80,19 @@ export default function UseFieldArray({
                 </p>
               </td>
             </tr>
+            <tr>
+              <td>
+                <code>disable</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  boolean = false
+                </code>
+              </td>
+              <td>
+                <p>Option to disable the subscription.</p>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

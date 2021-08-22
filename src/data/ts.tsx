@@ -429,14 +429,15 @@ export default function App() {
       />
     ),
   },
-  fieldArray: {
-    title: "FieldArray",
+  fieldArrayWithId: {
+    title: "FieldArrayWithId",
     description: (
       <CodeArea
-        rawData={`export type FieldArray<
-  TFieldArrayValues extends FieldValues = FieldValues,
-  TKeyName extends string = 'id'
-> = TFieldArrayValues & Record<TKeyName, string>;
+        rawData={`export export type FieldArrayWithId<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = 'id',
+> = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>;
 `}
       />
     ),

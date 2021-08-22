@@ -7,6 +7,7 @@ import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
+import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
 
 export default function UseFieldArrayContent({
   currentLanguage,
@@ -44,7 +45,13 @@ export default function UseFieldArrayContent({
         </table>
       </div>
 
-      <TabGroup buttonLabels={["useFieldArray", "conditional Field Array"]}>
+      <TabGroup
+        buttonLabels={[
+          "useFieldArray",
+          "conditional Field Array",
+          "Focus Name/index",
+        ]}
+      >
         <CodeArea
           rawData={useFieldArray}
           tsRawData={useFieldArrayTS}
@@ -55,6 +62,7 @@ export default function UseFieldArrayContent({
           rawData={useFieldArrayConditional}
           url="https://codesandbox.io/s/usefieldarray-conditional-2wi6f"
         />
+        <CodeArea rawData={useFieldArrayFocus} />
       </TabGroup>
 
       <>

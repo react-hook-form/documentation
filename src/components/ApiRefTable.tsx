@@ -509,6 +509,31 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
+                <code>disable</code>
+                <br />
+                <code
+                  className={typographyStyles.typeText}
+                >{`boolean = false`}</code>
+              </td>
+              <td>
+                Set <code>disable</code> to <code>true</code> will lead input
+                value to be <code>undefined</code> and input control to be
+                disabled.
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  {...register("test", {
+    disabled: true
+  })}
+/>`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <code>value</code>
                 <br />
                 <code className={typographyStyles.typeText}>unknown</code>
