@@ -369,6 +369,31 @@ const App = () => {
           state after unregistering an input.
         </p>
 
+        <h2 className={typographyStyles.subTitle}>Rules</h2>
+
+        <ul>
+          <li>
+            <p>
+              This method will remove input reference and its value which means{" "}
+              <b>build-in validation</b> rules will be removed as well.
+            </p>
+          </li>
+          <li>
+            <p>
+              By <code>unregister</code> an input, it will not affect or
+              unregister your schema validation.
+            </p>
+            <CodeArea
+              rawData={`const schema = yup.object().shape({
+  firstName: yup.string().required()
+});
+
+unregister("firstName"); // this will not remove the validation against firstName input
+`}
+            />
+          </li>
+        </ul>
+
         <div className={tableStyles.tableWrapper}>
           <h2 className={typographyStyles.subTitle}>Props</h2>
 
