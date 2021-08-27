@@ -141,7 +141,7 @@ export default function ApiRefTable({
                     : `string |
 {
   value: boolean,
-  message: string | React.ReactElement
+  message: string
 }`}
                 </code>
               </td>
@@ -172,7 +172,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | React.ReactElement
+  message: string
 }`}
                   </code>
                 </code>
@@ -207,7 +207,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | React.ReactElement
+  message: string
 }`}
                   </code>
                 </code>
@@ -242,7 +242,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | React.ReactElement
+  message: string
 }`}
                   </code>
                 </code>
@@ -278,7 +278,7 @@ export default function ApiRefTable({
                       ? "number"
                       : `{
   value: number,
-  message: string | React.ReactElement
+  message: string
 }`}
                   </code>
                 </code>
@@ -314,7 +314,7 @@ export default function ApiRefTable({
                       ? "RegExp"
                       : `{
   value: RegExp,
-  message: string | React.ReactElement
+  message: string
 }`}
                   </code>
                 </code>
