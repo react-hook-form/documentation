@@ -129,6 +129,13 @@ setValue('example', 'data');
 `}
           />
         </li>
+        <li>
+          <p>
+            <code>useWatch</code> result is optimised for render phase instead
+            of <code>useEffect</code>'s deps, to detect value update you may
+            want to use an external custom hook for value comparison.
+          </p>
+        </li>
       </ul>
 
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>

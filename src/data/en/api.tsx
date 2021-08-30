@@ -986,6 +986,13 @@ append({ firstName: '' });
               experiencing performance issues.
             </p>
           </li>
+          <li>
+            <p>
+              <code>watch</code> result is optimised for render phase instead of{" "}
+              <code>useEffect</code>'s deps, to detect value update you may want
+              to use an external custom hook for value comparison.
+            </p>
+          </li>
         </ul>
       </>
     ),
