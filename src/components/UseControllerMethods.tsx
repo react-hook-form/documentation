@@ -84,7 +84,7 @@ export default ({ currentLanguage, isController }) => {
               <code>ref</code>
             </td>
             <tr>
-              <code className={typographyStyles.typeText}>React.RefObject</code>
+              <code className={typographyStyles.typeText}>React.Ref</code>
             </tr>
             <td>
               <p>

@@ -1097,7 +1097,7 @@ handleSubmit(onSubmit).catch((e) => {
                 <td>
                   <code
                     className={typographyStyles.typeText}
-                  >{`(errors: Object, e?: Event) => void) => void`}</code>
+                  >{`(errors: Object, e?: Event) => void`}</code>
                 </td>
                 <td>An error callback.</td>
               </tr>
