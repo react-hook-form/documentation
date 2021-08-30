@@ -87,7 +87,7 @@ export default React.memo(
                 </td>
                 <td>
                   <span className={typographyStyles.typeText}>
-                    React.RefObject
+                    React.Ref
                   </span>
                 </td>
                 <td>{api.errors.ref}</td>
