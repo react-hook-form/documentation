@@ -118,9 +118,7 @@ export default function ApiRefTable({
               <td>
                 <code>ref</code>
                 <br />
-                <code className={typographyStyles.typeText}>
-                  React.Ref
-                </code>
+                <code className={typographyStyles.typeText}>React.Ref</code>
               </td>
               <td>React element ref</td>
               <td>

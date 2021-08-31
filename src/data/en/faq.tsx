@@ -481,6 +481,7 @@ export default {
               href={"https://reactnative.dev/docs/hermes"}
               href="https://www.npmjs.com/package/proxy-polyfill"
               target={"_blank"}
+              rel="noreferrer"
             >
               Hermes
             </a>
