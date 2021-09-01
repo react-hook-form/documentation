@@ -33,14 +33,14 @@ ${
             maxLength,
             minLength,
             pattern,
-          ].some(value => {
-            const isBooleanValue = typeof value === 'boolean';
-            
+          ].some((value) => {
+            const isBooleanValue = typeof value === "boolean"
+
             if (isBooleanValue) {
-              return value !== undefined;
+              return value !== undefined
             }
-            
-            return Boolean(value);
+
+            return Boolean(value)
           })
           const ref = isV7
             ? `{...register${

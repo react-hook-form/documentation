@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStateMachine } from "little-state-machine"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"

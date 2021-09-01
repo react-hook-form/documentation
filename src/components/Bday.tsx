@@ -65,14 +65,38 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                       <div>
                         <p>Thanks to the team members:</p>
                         <div style={style} className={styles.avatars}>
-                          <img src="https://avatars.githubusercontent.com/u/7545547?s=460&v=4" />
-                          <img src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4" />
-                          <img src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4" />
-                          <img src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4" />
-                          <img src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4" />
-                          <img src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4" />
+                          <img
+                            src="https://avatars.githubusercontent.com/u/7545547?s=460&v=4"
+                            alt="jorisre, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/12913947?s=120&v=4"
+                            alt="kotarella1110, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/10513364?s=120&v=4"
+                            alt="Bill, RHF creator"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/35811186?s=120&v=4"
+                            alt="pmaier, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/32805276?s=120&v=4"
+                            alt="JeromeDeLeon, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars3.githubusercontent.com/u/14539203?s=120&v=4"
+                            alt="adhrinae, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars2.githubusercontent.com/u/34934510?s=120&v=4"
+                            alt="keiya01, RHF maintainer"
+                          />
+                          <img
+                            src="https://avatars0.githubusercontent.com/u/855184?s=120&v=4"
+                            alt="stramel, RHF maintainer"
+                          />
                         </div>
                       </div>
                     )}
@@ -94,7 +118,10 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                 <div className={styles.achievement} style={style}>
                   <div className={styles.achievementList}>
                     <h4>
-                      🏅<span>Achievements</span>
+                      <span role="img" aria-label="gold-medal">
+                        🏅
+                      </span>
+                      <span>Achievements</span>
                     </h4>
                     <ul>
                       {list.map((item, index) => (

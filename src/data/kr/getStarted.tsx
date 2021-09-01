@@ -1,12 +1,7 @@
 import * as React from "react"
-import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
-import CodeArea from "../../components/CodeArea"
-import {
-  uiLibraryHookInput,
-  uiLibraryHookInputTs,
-} from "../../components/codeExamples/getStarted"
+
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -160,7 +155,7 @@ export default {
   },
   workWithUI: {
     title: "UI 라이브러리에 적용하기",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           React Hook Form으로 외부 UI와 쉽게 통합 할 수 있습니다. 구성 요소

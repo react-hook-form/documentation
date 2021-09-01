@@ -394,7 +394,8 @@ export default {
         <p style={{ textAlign: "center" }}>♦</p>
 
         <p>
-          <b className={typographyStyles.note}>Step 1:</b> Prepare seu ambiente de testes.
+          <b className={typographyStyles.note}>Step 1:</b> Prepare seu ambiente
+          de testes.
         </p>
 
         <p>

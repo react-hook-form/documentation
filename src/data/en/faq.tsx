@@ -185,8 +185,8 @@ export default {
             <table className={tableStyles.table}>
               <thead>
                 <tr style={{ borderBottom: `1px solid ${colors.lightPink}` }}>
-                  <th width={100} />
-                  <th width={250}>
+                  <th style={{ width: "100px" }} />
+                  <th style={{ width: "250px" }}>
                     <p>React Hook Form</p>
                   </th>
                   <th>
@@ -479,8 +479,8 @@ export default {
             If you are have enabled React Native{" "}
             <a
               href={"https://reactnative.dev/docs/hermes"}
-              href="https://www.npmjs.com/package/proxy-polyfill"
               target={"_blank"}
+              rel="noreferrer"
             >
               Hermes
             </a>

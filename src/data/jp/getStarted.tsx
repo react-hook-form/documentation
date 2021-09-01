@@ -2,11 +2,6 @@ import * as React from "react"
 import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
-import CodeArea from "../../components/CodeArea"
-import {
-  uiLibraryHookInput,
-  uiLibraryHookInputTs,
-} from "../../components/codeExamples/getStarted"
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -166,7 +161,7 @@ export default {
   },
   workWithUI: {
     title: "UI ライブラリを使用する",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           React Hook Formで外部UIとの連携が容易になった
