@@ -1,12 +1,6 @@
 import * as React from "react"
-import code from "../../components/codeExamples/defaultExample"
 import { Link } from "gatsby"
 import translateLink from "../../components/logic/translateLink"
-import CodeArea from "../../components/CodeArea"
-import {
-  uiLibraryHookInput,
-  uiLibraryHookInputTs,
-} from "../../components/codeExamples/getStarted"
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -179,7 +173,7 @@ export default {
   },
   workWithUI: {
     title: "Работа с UI библиотеками",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           Форма React Hook облегчила интеграцию с внешним интерфейсом.

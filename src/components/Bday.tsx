@@ -118,7 +118,10 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                 <div className={styles.achievement} style={style}>
                   <div className={styles.achievementList}>
                     <h4>
-                      🏅<span>Achievements</span>
+                      <span role="img" aria-label="gold-medal">
+                        🏅
+                      </span>
+                      <span>Achievements</span>
                     </h4>
                     <ul>
                       {list.map((item, index) => (

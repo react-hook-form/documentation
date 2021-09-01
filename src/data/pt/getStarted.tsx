@@ -1,12 +1,6 @@
 import * as React from "react"
-import code from "../../components/codeExamples/defaultExample"
 import { Link } from "@reach/router"
 import translateLink from "../../components/logic/translateLink"
-import CodeArea from "../../components/CodeArea"
-import {
-  uiLibraryHookInput,
-  uiLibraryHookInputTs,
-} from "../../components/codeExamples/getStarted"
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -159,7 +153,7 @@ export default {
   },
   workWithUI: {
     title: "Trabalhe com uma biblioteca de interface",
-    description: (currentLanguage) => (
+    description: () => (
       <>
         <p>
           O formulário do gancho de reacção facilitou a integração com a IU
