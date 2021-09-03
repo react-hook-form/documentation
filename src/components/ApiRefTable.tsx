@@ -507,14 +507,14 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
-                <code>disable</code>
+                <code>disabled</code>
                 <br />
                 <code
                   className={typographyStyles.typeText}
                 >{`boolean = false`}</code>
               </td>
               <td>
-                Set <code>disable</code> to <code>true</code> will lead input
+                Set <code>disabled</code> to <code>true</code> will lead input
                 value to be <code>undefined</code> and input control to be
                 disabled.
               </td>
