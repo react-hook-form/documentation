@@ -1237,9 +1237,15 @@ reset({ deepNest: { file: new File() } });
                 </td>
                 <td>
                   <p>
-                    <code>DirtyFields</code> will remain, and{" "}
+                    <code>DirtyFields</code> form state will remain, and{" "}
                     <code>isDirty</code> will be temporarily remain as the
                     current state until further user's action.
+                  </p>
+
+                  <p>
+                    <b className={typographyStyles.note}>Important: </b>this
+                    keep option doesn't reflect form input values but only dirty
+                    fields form state.
                   </p>
                 </td>
               </tr>
