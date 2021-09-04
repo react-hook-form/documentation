@@ -8,10 +8,12 @@ import data from "../data/resources"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyle from "../styles/container.module.css"
 import * as styles from "./ResourcePage.module.css"
+import { useForm } from "react-hook-form"
 
 const animationBase = 0.05
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
+  const { register, watch } = useForm({ mode: "onChange" })
   const {
     state: { language },
   } = useStateMachine()
@@ -48,6 +50,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     getPost()
   }, [])
 
+  // TODO: filter content
+  // Format search
+  const filteredContent = content
+  const filterValue = watch("filterResources")
+
   return (
     <div className={containerStyle.container}>
       <main className={styles.root}>
@@ -58,13 +65,13 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           {generic.blog[currentLanguage]}, {generic.video[currentLanguage]} &{" "}
           {generic.newsletter[currentLanguage]}
         </p>
-
+        {filterValue}
+        <input name="filterResources" ref={register} />
         <h2 className={typographyStyles.title}>
           {generic.blog[currentLanguage]}
         </h2>
-
         <ul className={styles.contentList}>
-          {content.articles.map(
+          {filteredContent.articles.map(
             ({ url, title, author, authorUrl, version }, i) => {
               const index = i + 1
               let delay = 0
@@ -118,12 +125,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             }
           )}
         </ul>
-
         <h2 className={typographyStyles.title}>
           {generic.video[currentLanguage]}
         </h2>
         <ul className={styles.contentList}>
-          {content.videos.map(
+          {filteredContent.videos.map(
             ({ title, url, authorUrl, author, description, version }) => (
               <li key={title}>
                 <div className={styles.tagWrapper}>
@@ -153,11 +159,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             )
           )}
         </ul>
-
         <h2 className={typographyStyles.title}>
           {generic.newsletter[currentLanguage]}
         </h2>
-
         <ul className={styles.contentList}>
           <li>
             <article className={styles.article}>
@@ -301,7 +305,6 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             </article>
           </li>
         </ul>
-
         <Footer currentLanguage={currentLanguage} />
       </main>
     </div>
