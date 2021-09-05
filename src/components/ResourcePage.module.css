@@ -27,6 +27,22 @@
   width: 100%;
 }
 
+.searchFilter {
+  display: flex;
+  width: 400px;
+  margin: auto;
+  border-radius: 25px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 20px;
+}
+
+.searchFilter:focus {
+  outline: none;
+  border: 1px solid var(--color-light-pink);
+  cursor: default;
+}
+
 .article {
   margin-bottom: 15px;
 }
