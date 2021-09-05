@@ -2247,6 +2247,19 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </tr>
         <tr>
           <td>
+            <code>replace</code>
+          </td>
+          <td>
+            <code>
+              <code className={typographyStyles.typeText}>
+                (obj: object[]) =&gt; void
+              </code>
+            </code>
+          </td>
+          <td>Replace the entire field array values.</td>
+        </tr>
+        <tr>
+          <td>
             <code>remove</code>
           </td>
           <td>
