@@ -48,7 +48,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         <input
           name="filterResources"
           ref={register}
-          placeholder="Search..."
+          placeholder="Search resources..."
           className={styles.searchFilter}
         />
         <h2 className={typographyStyles.title}>
