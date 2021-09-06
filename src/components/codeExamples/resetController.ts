@@ -8,20 +8,20 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller 
-        render={({ field }) => <TextField {...field} />} 
+      <Controller
+        render={({ field }) => <TextField {...field} />}
         name="firstName"
-        control={control} 
-        rules={ required: true } 
+        control={control}
+        rules={{ required: true }}
         defaultValue=""
       />
-      <Controller 
-        render={({ field }) => <TextField {...field} />} 
+      <Controller
+        render={({ field }) => <TextField {...field} />}
         name="lastName"
         control={control}
-        defaultValue="" 
+        defaultValue=""
       />
-      
+
       <input type="submit" />
       <input type="button" onClick={reset} />
       <input
