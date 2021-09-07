@@ -175,10 +175,10 @@ export default {
             fundamental differences between the three.{" "}
             <code>react-hook-form</code> is built with uncontrolled inputs in
             mind and tries to provide your form with the best performance and
-            least amount of re-renders as possible. On top of that,
+            least amount of re-renders as possible. On top of that,{" "}
             <code>react-hook-form</code> is built with React Hooks and used as a
             hook, which means there is no Component for you to import. Here are
-            some of the detail differences:
+            some of the detailed differences:
           </p>
 
           <div className={tableStyles.tableWrapper}>
@@ -429,7 +429,7 @@ export default {
         <>
           <p>
             It's important to understand React Hook Form embraces native form
-            behavior by storing input state inside each input (except custom
+            behavior by storing input state inside each input (except custom{" "}
             <code>register</code> at <code>useEffect</code>). One of the common
             misconceptions is that when working with modal or tab forms, by
             mounting and unmounting form/inputs that inputs state will remain.
