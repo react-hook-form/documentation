@@ -228,11 +228,7 @@ function App() {
           {fields.map((item, index) => {
             return (
               <li key={item.id}>
-                <input
-                  defaultValue={getValues(\`test.\${index}.firstName\`)}
-                  {...register(\`test.\${index}.firstName\`)}
-                />
-
+                <input {...register(\`test.\${index}.firstName\`)} />
                 <Input
                   register={register}
                   control={control}
