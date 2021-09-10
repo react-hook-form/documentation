@@ -405,7 +405,7 @@ export default function ApiRefTable({
                     <p>Only applies to text input.</p>
                   </li>
                   <li>
-                    Does not transform <code>defaultValue</code> or
+                    Does not transform <code>defaultValue</code> or{" "}
                     <code>defaultValues</code>.
                   </li>
                 </ul>
@@ -445,7 +445,7 @@ export default function ApiRefTable({
                     <p>Only applies to text input.</p>
                   </li>
                   <li>
-                    Does not transform <code>defaultValue</code> or
+                    Does not transform <code>defaultValue</code> or{" "}
                     <code>defaultValues</code>.
                   </li>
                 </ul>
@@ -487,7 +487,7 @@ export default function ApiRefTable({
                     <p>Only applies to text input.</p>
                   </li>
                   <li>
-                    Does not transform <code>defaultValue</code> or
+                    Does not transform <code>defaultValue</code> or{" "}
                     <code>defaultValues</code>.
                   </li>
                 </ul>

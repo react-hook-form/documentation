@@ -71,8 +71,8 @@ export default function UseFieldArrayContent({
         <p>
           You can also <code>register</code> inputs at <code>Controller</code>{" "}
           without the actual input. This makes <code>useFieldArray</code> quick
-          flexible to use with complex data structure or the actual data is not
-          stored inside an input.
+          and flexible to use with complex data structure or the actual data is
+          not stored inside an input.
         </p>
 
         <CodeArea
@@ -187,14 +187,14 @@ export default function App() {
         <h4 className={typographyStyles.questionTitle}>Conditional inputs</h4>
 
         <p>
-          <code>useFieldArray</code> is uncontrolled by default, which means
+          <code>useFieldArray</code> is uncontrolled by default, which means{" "}
           <code>defaultValue</code> is rendered during input's mounting. This is
           different from the controlled form, which the local state is keeping
           updated during user interaction's <code>onChange</code>. When inputs
           get unmounted and remounted, you want to read what's in the current
           form values from <code>getValue</code> function. For individual input,
-          you can safely use <code>useWatch</code>
-          hook to retain input value as well.
+          you can safely use <code>useWatch</code> hook to retain input value as
+          well.
         </p>
 
         <CodeArea
