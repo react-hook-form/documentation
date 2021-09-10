@@ -50,10 +50,7 @@ const UseFieldArrayUnregister: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {fields.map((data, index) => (
         <>
-          <input
-            defaultValue={data.name}
-            {...register(\`data[$\{index\}].name\`)}
-          />
+          <input {...register(\`data[$\{index\}].name\`)} />
           <ConditionField control={control} register={register} index={index} />
         </>
       ))}

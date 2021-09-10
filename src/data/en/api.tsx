@@ -2031,14 +2031,6 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </li>
           <li>
             <p>
-              <code>defaultValue</code> <strong>must</strong> be set for all
-              inputs. Supplied <code>defaultValues</code> in the{" "}
-              <code>useForm</code> hook will prepare the <code>fields</code>{" "}
-              object with default value.
-            </p>
-          </li>
-          <li>
-            <p>
               You can not call actions one after another. Actions need to be
               triggered per render.
             </p>
@@ -2107,7 +2099,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
             </p>
             <CodeArea
               withOutCopy
-              rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} defaultValue={field.test} />`}
+              rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} />`}
             />
           </li>
           <li>
@@ -2163,7 +2155,6 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               rawData={`{fields.map((data, index) =>
   <input
     key={data.id}
-    defaultValue={data.value}
     name={\`data.\${index}.value\`}
   />;
 );}`}

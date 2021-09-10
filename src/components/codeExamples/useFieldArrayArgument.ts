@@ -11,7 +11,6 @@ export default `function Test() {
       <input
         key={field.id} // important to include key with field's id
         {...register(\`test.\${index}.value\`)} 
-        defaultValue={field.value} // make sure to include defaultValue
       />
     ))}
   );
