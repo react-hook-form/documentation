@@ -83,7 +83,7 @@ export default ({ location }) => {
 
             <p>
               <b className={typographyStyles.note}>Important:</b> if you are
-              using TypeScript, react hook form will need to have TS 4.1 above.
+              using TypeScript, react hook form will need to have TS 4.3 above.
             </p>
 
             <CodeArea

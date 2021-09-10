@@ -105,6 +105,11 @@ export default ({ defaultLang }: { defaultLang: string }) => {
         />
 
         <main>
+          <p>
+            <b className={typographyStyles.note}>Important:</b> Typescript ^4.3
+            above is the recommended version to work with react hook form.
+          </p>
+
           <section
             ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}
             id="NestedValueRef"
