@@ -392,6 +392,22 @@ unregister("firstName"); // this will not remove the validation against firstNam
 `}
             />
           </li>
+          <li>
+            <p>
+              Make sure you unmount that input which has <code>register</code>{" "}
+              callback or else the input will get registered again.
+            </p>
+            <CodeArea
+              rawData={`const [show, setShow] = React.useState(true)
+
+const onClick = () => {
+  unregister('test');
+  setShow(false); // make sure to unmount that input so register not invoked again.
+}
+              
+{show && <input {...register('test')} />}`}
+            />
+          </li>
         </ul>
 
         <div className={tableStyles.tableWrapper}>
