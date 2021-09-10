@@ -5,7 +5,7 @@ function App() {
   const { register, control, handleSubmit, reset, trigger, setError } = useForm({
     // defaultValues: {}; you can populate the fields by this attribute 
   });
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
+  const { fields, append } = useFieldArray({
     control,
     name: "test"
   });
@@ -15,9 +15,7 @@ function App() {
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
-            <input
-              {...register(\`test.\${index}.firstName\`)}
-            />
+            <input {...register(\`test.\${index}.firstName\`)} />
             <Controller
               render={({ field }) => <input {...field} />}
               name={\`test.\${index}.lastName\`}
@@ -29,7 +27,7 @@ function App() {
       </ul>
       <button
         type="button"
-        onClick={() => append({ firstName: "appendBill", lastName: "appendLuo" })}
+        onClick={() => append({ firstName: "bill", lastName: "luo" })}
       >
         append
       </button>
