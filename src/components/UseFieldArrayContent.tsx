@@ -93,7 +93,6 @@ const ConditionalInput = ({ control, index, field }) => {
       render={({ field }) =>
         value?.[index]?.checkbox === "on" ? <input {...field} /> : null
       }
-      defaultValue={field.firstName}
     />
   );
 };
@@ -114,7 +113,6 @@ function App() {
             type="checkbox"
             value="on"
             {...register(\`test.\${index}.checkbox\`)}
-            defaultChecked={field.checked}
           />
           <ConditionalInput {...{ control, index, field }} />
         </section>
