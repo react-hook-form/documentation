@@ -87,10 +87,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     <div className={containerStyles.container}>
       <section>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          TS Support
+          Typescript Support
         </h1>
         <p className={typographyStyles.subHeading}>
-          List of exported TS Types.
+          List of exported Typescript Types.
         </p>
       </section>
 
