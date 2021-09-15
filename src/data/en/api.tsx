@@ -298,6 +298,7 @@ export default {
               set <code>shouldUnregister: true</code> will set your form behave
               more closer as native.
             </p>
+            <p>Form values will be lived inside your inputs itself.</p>
             <ul>
               <li>
                 <p>input unmount will remove value.</p>
