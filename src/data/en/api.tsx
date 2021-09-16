@@ -1312,7 +1312,7 @@ reset({ deepNest: { file: new File() } });
                 </td>
                 <td>
                   <p>
-                    <code>isSubmitted</code> state will be unchanged.
+                    <code>isTouched</code> state will be unchanged.
                   </p>
                 </td>
               </tr>
