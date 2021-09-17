@@ -122,9 +122,9 @@ export default function UseFieldArray({
 
           <CodeArea
             rawData={`setValue('test', 'data');
-useWatch('test'); // ❌ subscription is happened after value update, no update received
+useWatch({ name: 'test' }); // ❌ subscription is happened after value update, no update received
 
-useWatch('example'); // ✅ input value update will be received and trigger re-render
+useWatch({ name: 'example' }); // ✅ input value update will be received and trigger re-render
 setValue('example', 'data'); 
 `}
           />
