@@ -20,7 +20,7 @@ export default function FormContext({ currentLanguage, api }) {
       <h2 className={typographyStyles.subTitle}>Props</h2>
 
       <p>
-        This following table applied to <code>FormProvider</code>,
+        This following table applied to <code>FormProvider</code>,{" "}
         <code>useFormContext</code> accepts no argument.
       </p>
 
