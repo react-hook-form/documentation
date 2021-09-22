@@ -19,6 +19,11 @@ export default function FormContext({ currentLanguage, api }) {
 
       <h2 className={typographyStyles.subTitle}>Props</h2>
 
+      <p>
+        This following table applied to <code>FormProvider</code>,
+        <code>useFormContext</code> accepts no argument.
+      </p>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>
@@ -35,7 +40,8 @@ export default function FormContext({ currentLanguage, api }) {
                 <code className={typographyStyles.typeText}>Object</code>
               </td>
               <td>
-                Accept all <code>useForm</code> methods.
+                <code>FormProvider</code> requires all <code>useForm</code>{" "}
+                methods.
               </td>
             </tr>
           </tbody>
