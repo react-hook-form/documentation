@@ -2,7 +2,7 @@ export default `import * as React from "react";
 import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register, errors, handleSubmit, clearErrors } = useForm();
+  const { register, formState: { errors }, handleSubmit, clearErrors } = useForm();
   const onSubmit = data => console.log(data);
 
   return (

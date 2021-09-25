@@ -7,7 +7,7 @@ type FormInputs = {
 }
 
 export default function App() {
-  const { register, trigger, errors } = useForm<FormInputs>();
+  const { register, trigger, formState: { errors } } = useForm<FormInputs>();
 
   return (
     <form>
