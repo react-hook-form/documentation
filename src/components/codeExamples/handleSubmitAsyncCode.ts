@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function App() {
-  const { register, handleSubmit, errors, formState } = useForm();
+  const { register, handleSubmit, formState: { errors }, formState } = useForm();
   const onSubmit = async data => {
     await sleep(2000);
     if (data.username === "bill") {

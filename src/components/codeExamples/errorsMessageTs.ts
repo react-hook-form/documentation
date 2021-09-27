@@ -7,7 +7,7 @@ interface FormInputs {
 }
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm<FormInputs>({
+  const { register, formState: { errors }, handleSubmit } = useForm<FormInputs>({
     criteriaMode "all"
   });
   const onSubmit = (data: FormInputs) => console.log(data);

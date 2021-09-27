@@ -34,7 +34,7 @@ type Inputs = {
   };
 };
 export default function App() {
-  const { errors } = useForm<Inputs>();
+  const { formState: { errors } } = useForm<Inputs>();
   console.log(errors?.a?.message);
   console.log(errors?.b?.message);
   console.log(errors?.c?.message);
