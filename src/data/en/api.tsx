@@ -154,6 +154,14 @@ export default {
           </li>
           <li>
             <p>
+              Avoid include custom object into the <code>defaultValues</code>.
+              eg: <code>moment</code>, <code>luxon</code>
+              as those will lead to unexpected result during internal object
+              clone process.
+            </p>
+          </li>
+          <li>
+            <p>
               It's not default state for the form, to include additional form
               values. To do so:
             </p>
