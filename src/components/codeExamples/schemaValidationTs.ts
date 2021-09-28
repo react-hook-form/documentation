@@ -8,10 +8,10 @@ interface IFormInputs {
   age: number
 }
 
-const schema = yup.object().shape({
+const schema = yup.object({
   firstName: yup.string().required(),
   age: yup.number().positive().integer().required(),
-});
+}).required();
 
 export default function App() {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({

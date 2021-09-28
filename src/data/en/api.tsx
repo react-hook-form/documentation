@@ -154,6 +154,14 @@ export default {
           </li>
           <li>
             <p>
+              Avoid include custom object into the <code>defaultValues</code>.
+              eg: <code>moment</code>, <code>luxon</code>
+              as those will lead to unexpected result during internal object
+              clone process.
+            </p>
+          </li>
+          <li>
+            <p>
               It's not default state for the form, to include additional form
               values. To do so:
             </p>
@@ -1689,8 +1697,28 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  Whether or not trigger validation while setting the input's
-                  value.
+                  <ul>
+                    <li>
+                      <p>
+                        Whether to compute if your input is valid or not
+                        (subscribed to{" "}
+                        <code className={typographyStyles.typeText}>
+                          errors
+                        </code>
+                        ).
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Whether to compute if your entire form is valid or not
+                        (subscribed to{" "}
+                        <code className={typographyStyles.typeText}>
+                          isValid
+                        </code>
+                        ).
+                      </p>
+                    </li>
+                  </ul>
                 </td>
               </tr>
               <tr>
@@ -1703,7 +1731,30 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>Whether to set the input itself to dirty.</td>
+                <td>
+                  <ul>
+                    <li>
+                      <p>
+                        Whether to compute if your input is dirty or not against
+                        your defaultValues (subscribed to{" "}
+                        <code className={typographyStyles.typeText}>
+                          dirtyFields
+                        </code>
+                        ).
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Whether to compute if your entire form is dirty or not
+                        against your defaultValues (subscribed to{" "}
+                        <code className={typographyStyles.typeText}>
+                          isDrirty
+                        </code>
+                        ).
+                      </p>
+                    </li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <td>

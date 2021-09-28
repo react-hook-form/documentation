@@ -8,7 +8,7 @@ type FormInputs = {
 };
 
 const App = () => {
-  const { register, errors, handleSubmit, clearErrors } = useForm<FormInputs>();
+  const { register, formState: { errors }, handleSubmit, clearErrors } = useForm<FormInputs>();
 
   const onSubmit = (data: FormInputs) => {
     console.log(data)

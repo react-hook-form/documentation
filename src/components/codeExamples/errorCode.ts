@@ -2,7 +2,7 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
@@ -22,7 +22,7 @@ export default function App() {
       {/* register with validation and error message */}
       <input {...register("errorMessage", { required: "This is required" })} />
       {errors.errorMessage?.message}
-      
+
       <input type="submit" />
     </form>
   );

@@ -6,7 +6,7 @@ interface IFormInputs {
 }
 
 export default function App() {
-  const { register, errors, handleSubmit } = useForm<IFormInputs>({
+  const { register, formState: { errors }, handleSubmit } = useForm<IFormInputs>({
     // by setting criteriaMode to 'all',
     // all validation errors for single field will display at once
     criteriaMode: "all",

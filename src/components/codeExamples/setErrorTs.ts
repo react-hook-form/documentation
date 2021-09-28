@@ -6,11 +6,11 @@ type FormInputs = {
 };
 
 const App = () => {
-  const { register, handleSubmit, setError, errors } = useForm<FormInputs>();
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<FormInputs>();
   const onSubmit = (data: FormInputs) => {
     console.log(data)
   };
-  
+
   React.useEffect(() => {
     setError("username", {
       type: "manual",
@@ -22,7 +22,7 @@ const App = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("username")} />
       {errors.username && <p>{errors.username.message}</p>}
-      
+
       <input type="submit" />
     </form>
   );
