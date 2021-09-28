@@ -15,7 +15,7 @@ const validationSchema = Joi.object({
 });
 
 const App = () => {
-  const { register, handleSubmit, errors } = useForm<IFormInputs>({
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: async data => {
       const { error, value: values } = validationSchema.validate(data, {
         abortEarly: false
