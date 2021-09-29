@@ -108,7 +108,7 @@ formState.isDirty; // ❌ subscription will be one render behind.
                   </tr>
                   <tr>
                     <td>
-                      <code>disable</code>
+                      <code>disabled</code>
                     </td>
                     <td>
                       <code className={typographyStyles.typeText}>
