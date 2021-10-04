@@ -18,11 +18,14 @@
   cursor: pointer;
 }
 
-.searchBar:focus {
-  outline: none;
-  width: 150px;
-  border: 1px solid var(--color-light-pink);
+.searchBarOpen {
   padding: 3px 14px;
+  width: 150px;
+}
+
+.searchBarOpen:focus {
+  outline: none;
+  border: 1px solid var(--color-light-pink);
   cursor: default;
 }
 
