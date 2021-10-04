@@ -37,7 +37,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   const { width } = useWindowSize()
 
   React.useEffect(() => {
-    if (1650 < width) {
+    if (1650 <= width) {
       setLang(true)
     } else {
       if (isFocusOnSearch) {
