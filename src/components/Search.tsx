@@ -8,6 +8,7 @@ const Search = () => {
   const timer = React.useRef<any>({})
   const { actions, state } = useStateMachine({ updateSetting })
   const { width } = useWindowSize()
+  const searchRef = React.useRef(null)
 
   React.useEffect(() => {
     window.docsearch({
@@ -33,6 +34,7 @@ const Search = () => {
       actions.updateSetting({
         isFocusOnSearch: false,
       })
+      searchRef.current.blur()
     }
   }, [width])
 
@@ -47,6 +49,7 @@ const Search = () => {
           type="search"
           aria-label="search input"
           id="algolia-doc-search"
+          ref={searchRef}
           {...(state.setting?.isFocusOnSearch
             ? {
                 placeholder: "Search ...",
