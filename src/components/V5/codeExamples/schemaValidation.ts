@@ -9,7 +9,7 @@ const schema = yup.object().shape({
     .required()
     .positive()
     .integer(),
-});
+}).required();
 
 export default function App() {
   const { register, handleSubmit, errors } = useForm({

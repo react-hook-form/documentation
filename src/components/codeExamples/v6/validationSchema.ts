@@ -6,7 +6,7 @@ import * as yup from "yup";
 const schema = yup.object().shape({
   name: yup.string().required(),
   age: yup.number().required(),
-});
+}).required();
 
 const App = () => {
   const { register, handleSubmit } = useForm({

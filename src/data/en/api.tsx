@@ -395,7 +395,7 @@ const App = () => {
             <CodeArea
               rawData={`const schema = yup.object().shape({
   firstName: yup.string().required()
-});
+}).required();
 
 unregister("firstName"); // this will not remove the validation against firstName input
 `}

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const schema = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.number().required(),
-});
+}).required();
 
 export default function App() {
   const { register, setValue, handleSubmit, formState: { errors } } = useForm({
