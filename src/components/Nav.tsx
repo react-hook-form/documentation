@@ -12,6 +12,7 @@ import Search from "./Search"
 import * as styles from "./Nav.module.css"
 import colors from "../styles/colors"
 import { updateSetting } from "../actions/settingActions"
+import useWindowSize from "./utils/useWindowSize"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
@@ -33,13 +34,21 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
 
   const isFocusOnSearch = setting?.isFocusOnSearch
 
+  const { width } = useWindowSize()
+
   React.useEffect(() => {
-    if (isFocusOnSearch) {
-      setLang(false)
-    } else if (!isFocusOnSearch) {
+    if (1650 <= width) {
       setLang(true)
+    } else {
+      if (isFocusOnSearch) {
+        setLang(false)
+      } else if (!isFocusOnSearch) {
+        setLang(true)
+      }
     }
-  }, [isFocusOnSearch])
+  }, [isFocusOnSearch, width])
+
+  console.log(width)
 
   return (
     <>

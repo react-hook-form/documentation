@@ -532,6 +532,54 @@ export default function ApiRefTable({
             </tr>
             <tr>
               <td>
+                <code>onChange</code>
+                <br />
+                <code
+                  className={typographyStyles.typeText}
+                >{`(e: SyntheticEvent) => void`}</code>
+              </td>
+              <td>
+                <p>
+                  <code>onChange</code> function event to be invoked in the
+                  change event.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`register('firstName', { 
+  onChange: (e) => console.log(e) 
+})`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>onBlur</code>
+                <br />
+                <code
+                  className={typographyStyles.typeText}
+                >{`(e: SyntheticEvent) => void`}</code>
+              </td>
+              <td>
+                <p>
+                  <code>onBlur</code> function event to be invoked in the blur
+                  event.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`register('firstName', { 
+  onBlur: (e) => console.log(e) 
+})`}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <code>value</code>
                 <br />
                 <code className={typographyStyles.typeText}>unknown</code>

@@ -2,20 +2,19 @@ import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
 import * as searchStyles from "./Search.module.css"
+import useWindowSize from "./utils/useWindowSize"
 
 const Search = () => {
   const timer = React.useRef<any>({})
   const { actions, state } = useStateMachine({ updateSetting })
+  const { width } = useWindowSize()
+  const searchRef = React.useRef(null)
 
   React.useEffect(() => {
     window.docsearch({
       apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
       indexName: "react-hook-form",
       inputSelector: "#algolia-doc-search",
-    })
-
-    actions.updateSetting({
-      isFocusOnSearch: false,
     })
 
     return () => {
@@ -26,15 +25,31 @@ const Search = () => {
     }
   }, [])
 
+  React.useEffect(() => {
+    if (1650 <= width) {
+      actions.updateSetting({
+        isFocusOnSearch: true,
+      })
+    } else {
+      actions.updateSetting({
+        isFocusOnSearch: false,
+      })
+      searchRef.current.blur()
+    }
+  }, [width])
+
   return (
     <>
       <form className={searchStyles.searchForm}>
         <input
-          className={searchStyles.searchBar}
+          className={`${searchStyles.searchBar} ${
+            state.setting?.isFocusOnSearch ? searchStyles.searchBarOpen : null
+          }`}
           spellCheck="false"
           type="search"
           aria-label="search input"
           id="algolia-doc-search"
+          ref={searchRef}
           {...(state.setting?.isFocusOnSearch
             ? {
                 placeholder: "Search ...",
@@ -51,13 +66,13 @@ const Search = () => {
           }
           onBlur={() => {
             timer.current && clearTimeout(timer.current)
-            timer.current = setTimeout(
-              () =>
+            timer.current = setTimeout(() => {
+              if (1650 > width) {
                 actions.updateSetting({
                   isFocusOnSearch: false,
-                }),
-              310
-            )
+                })
+              }
+            }, 310)
           }}
         />
         {!state.setting?.isFocusOnSearch && (
