@@ -37,3 +37,14 @@
   top: 5px;
   pointer-events: none;
 }
+
+@media (min-width: 1650px) {
+  .searchBar {
+    width: 150px;
+    padding: 3px 14px;
+  }
+
+  .icon {
+    display: none;
+  }
+}

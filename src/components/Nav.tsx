@@ -48,8 +48,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     }
   }, [isFocusOnSearch, width])
 
-  console.log(width)
-
   return (
     <>
       <div className={styles.iconGroup}>

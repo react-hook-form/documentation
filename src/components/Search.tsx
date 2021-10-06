@@ -25,19 +25,6 @@ const Search = () => {
     }
   }, [])
 
-  React.useEffect(() => {
-    if (1650 <= width) {
-      actions.updateSetting({
-        isFocusOnSearch: true,
-      })
-    } else {
-      actions.updateSetting({
-        isFocusOnSearch: false,
-      })
-      searchRef.current.blur()
-    }
-  }, [width])
-
   return (
     <>
       <form className={searchStyles.searchForm}>
@@ -50,7 +37,7 @@ const Search = () => {
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
-          {...(state.setting?.isFocusOnSearch
+          {...(state.setting?.isFocusOnSearch || width > 1650
             ? {
                 placeholder: "Search ...",
               }
@@ -66,13 +53,6 @@ const Search = () => {
           }
           onBlur={() => {
             timer.current && clearTimeout(timer.current)
-            timer.current = setTimeout(() => {
-              if (1650 > width) {
-                actions.updateSetting({
-                  isFocusOnSearch: false,
-                })
-              }
-            }, 310)
           }}
         />
         {!state.setting?.isFocusOnSearch && (
