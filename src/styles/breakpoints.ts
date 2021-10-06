@@ -6,3 +6,5 @@ export default {
   fromXlargeScreen: "(min-width: 1280px)",
   fromXxlargeScreen: "(min-width: 1600px)",
 }
+
+export const LARGE_SCREEN = 1600

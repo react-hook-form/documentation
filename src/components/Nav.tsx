@@ -13,6 +13,7 @@ import * as styles from "./Nav.module.css"
 import colors from "../styles/colors"
 import { updateSetting } from "../actions/settingActions"
 import useWindowSize from "./utils/useWindowSize"
+import { LARGE_SCREEN } from "../styles/breakpoints"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
@@ -37,7 +38,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   const { width } = useWindowSize()
 
   React.useEffect(() => {
-    if (1650 <= width) {
+    if (LARGE_SCREEN <= width) {
       setLang(true)
     } else {
       if (isFocusOnSearch) {

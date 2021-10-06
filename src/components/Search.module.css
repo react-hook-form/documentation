@@ -38,7 +38,7 @@
   pointer-events: none;
 }
 
-@media (min-width: 1650px) {
+@media (min-width: 1600px) {
   .searchBar {
     width: 150px;
     padding: 3px 14px;

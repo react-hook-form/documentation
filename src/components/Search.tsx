@@ -3,6 +3,7 @@ import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
 import * as searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
+import { LARGE_SCREEN } from "../styles/breakpoints"
 
 const Search = () => {
   const timer = React.useRef<any>({})
@@ -25,6 +26,19 @@ const Search = () => {
     }
   }, [])
 
+  React.useEffect(() => {
+    if (LARGE_SCREEN <= width) {
+      actions.updateSetting({
+        isFocusOnSearch: true,
+      })
+    } else {
+      actions.updateSetting({
+        isFocusOnSearch: false,
+      })
+      searchRef.current.blur()
+    }
+  }, [width])
+
   return (
     <>
       <form className={searchStyles.searchForm}>
@@ -37,7 +51,7 @@ const Search = () => {
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
-          {...(state.setting?.isFocusOnSearch || width > 1650
+          {...(state.setting?.isFocusOnSearch || width > LARGE_SCREEN
             ? {
                 placeholder: "Search ...",
               }
@@ -53,6 +67,11 @@ const Search = () => {
           }
           onBlur={() => {
             timer.current && clearTimeout(timer.current)
+            if (LARGE_SCREEN > width) {
+              actions.updateSetting({
+                isFocusOnSearch: false,
+              })
+            }
           }}
         />
         {!state.setting?.isFocusOnSearch && (
