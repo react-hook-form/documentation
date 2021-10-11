@@ -53,9 +53,7 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               rawData={`const { isDirty } = useFormState(); // ✅
-              
-const formState = useFormState(); // ❌ should deconstruct the formState
-formState.isDirty; // ❌ subscription will be one render behind.      
+const formState = useFormState(); // ❌ should deconstruct the formState      
 `}
             />
 
