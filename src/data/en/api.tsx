@@ -1297,6 +1297,18 @@ reset({ deepNest: { file: new File() } });
                     Keep the same defaultValues which are initialised via{" "}
                     <code>useForm</code>.
                   </p>
+
+                  <ul>
+                    <li>
+                      <code>isDirty</code> will be checked again provided valued
+                      against the original <code>defaultValues</code>.
+                    </li>
+                    <li>
+                      <code>dirtyFields</code> will be updated again provided
+                      valued <b>limited to the root level</b> against the
+                      original <code>defaultValues</code>.
+                    </li>
+                  </ul>
                 </td>
               </tr>
               <tr>
