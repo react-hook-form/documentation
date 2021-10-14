@@ -1764,7 +1764,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                         Whether to compute if your entire form is dirty or not
                         against your defaultValues (subscribed to{" "}
                         <code className={typographyStyles.typeText}>
-                          isDrirty
+                          isDirty
                         </code>
                         ).
                       </p>
