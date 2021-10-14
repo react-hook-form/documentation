@@ -40,7 +40,7 @@ export default {
           rel="noopener noreferrer"
         >
           Antd
-        </a>{" "}
+        </a>.{" "}
         Besides, with React Hook Form the re-rendering of controlled component
         is also optimized. Here is an example that combines them both with
         validation.
