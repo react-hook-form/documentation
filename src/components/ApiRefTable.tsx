@@ -619,6 +619,30 @@ export default function ApiRefTable({
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                deps:
+                <br />
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>
+                <p>
+                  Validation will be triggered for the dependent inputs,it only
+                  limited to <code>register</code> api not <code>trigger</code>.
+                </p>
+              </td>
+              <td>
+                <CodeArea
+                  style={{ marginTop: -10 }}
+                  withOutCopy
+                  rawData={`<input
+  {...register("test", {
+    deps: ['inputA', 'inputB'],
+  })}
+/>`}
+                />
+              </td>
+            </tr>
           </tbody>
         </table>
 
