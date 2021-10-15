@@ -22,7 +22,7 @@ export default function UseFieldArray({
           useWatch:{" "}
           <span
             className={typographyStyles.typeText}
-          >{`({ control?: Control, name?: string, defaultValue?: any }) => object`}</span>
+          >{`({ control?: Control, name?: string, defaultValue?: any, disabled?: boolean }) => object`}</span>
         </h2>
       </code>
 
@@ -82,7 +82,7 @@ export default function UseFieldArray({
             </tr>
             <tr>
               <td>
-                <code>disable</code>
+                <code>disabled</code>
               </td>
               <td>
                 <code className={typographyStyles.typeText}>
