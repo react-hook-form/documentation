@@ -514,9 +514,22 @@ export default function ApiRefTable({
                 >{`boolean = false`}</code>
               </td>
               <td>
-                Set <code>disabled</code> to <code>true</code> will lead input
-                value to be <code>undefined</code> and input control to be
-                disabled.
+                <p>
+                  Set <code>disabled</code> to <code>true</code> will lead input
+                  value to be <code>undefined</code> and input control to be
+                  disabled.
+                </p>
+                <ul>
+                  <p>
+                    <code>Disabled</code> prop will also omit{" "}
+                    <strong>build-in</strong> validation rules.
+                  </p>
+                  <p>
+                    For schema validation, you can leverage the{" "}
+                    <code>undefined</code> value returned from input or context
+                    object.
+                  </p>
+                </ul>
               </td>
               <td>
                 <CodeArea
