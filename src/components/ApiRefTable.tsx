@@ -598,7 +598,12 @@ export default function ApiRefTable({
                 <code className={typographyStyles.typeText}>unknown</code>
               </td>
               <td>
-                <p>Set up value for the registered input.</p>
+                <p>
+                  Set up value for the registered input. This prop should be
+                  utilised inside <code>useEffect</code> or invoke once, each
+                  re-run will update or overwrite the input value which you have
+                  supplied.
+                </p>
               </td>
               <td>
                 <CodeArea
