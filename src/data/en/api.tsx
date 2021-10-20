@@ -1563,7 +1563,7 @@ clearErrors('test.firstName'); // for clear single input error
           <strong>
             <code>registered</code>
           </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary re-rerender.
+          field. At the same time, it tries to avoid unnecessary rerender.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Rules</h2>

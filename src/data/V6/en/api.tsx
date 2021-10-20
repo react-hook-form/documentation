@@ -879,8 +879,8 @@ clearErrors('test.firstName'); // for clear single input error
           <strong>
             <code>registered</code>
           </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary re-rerender.
-          Only the following conditions will trigger a re-render:
+          field. At the same time, it tries to avoid unnecessary rerender. Only
+          the following conditions will trigger a re-render:
         </p>
         <ul>
           <li>
