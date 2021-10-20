@@ -461,9 +461,7 @@ export default {
             Proxy
           </a>{" "}
           to improve render performance, so make sure you invoke or read it
-          before <code>render</code> in order to enable the state update. This
-          reduced re-render feature only applies to the Web platform due to a
-          lack of support for Proxy in React Native.
+          before <code>render</code> in order to enable the state update.
         </p>
 
         <TabGroup buttonLabels={["snippet", "example"]}>

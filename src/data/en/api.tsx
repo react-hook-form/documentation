@@ -797,9 +797,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           </a>{" "}
           to improve render performance and skip extra logic if specific state
           is not subscribed to. Therefore make sure you invoke or read it before{" "}
-          a <code>render</code> in order to enable the state update. This
-          reduced re-render feature only applies to the Web platform due to a
-          lack of support for Proxy in React Native.
+          a <code>render</code> in order to enable the state update.
         </p>
 
         <TabGroup buttonLabels={["snippet", "example"]}>
