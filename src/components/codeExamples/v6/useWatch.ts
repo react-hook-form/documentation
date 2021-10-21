@@ -17,7 +17,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(data => console.log("data", data))}>
       <input ref={register} name="firstName" />
-      <input ref={register} name="last" />
+      <input ref={register} name="lastName" />
       <IsolateReRender control={control} />
       
       <input type="submit" />
