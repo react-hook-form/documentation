@@ -997,6 +997,13 @@ append({ firstName: '' });
           </li>
           <li>
             <p>
+              when both <code>defaultValue</code> and <code>defaultValues</code>{" "}
+              are supplied, <code>defaultValue</code> will be returned instead
+              for the first execution before render.
+            </p>
+          </li>
+          <li>
+            <p>
               After the first render, default values will be shallowly merged
               with the current form values from the inputs.
             </p>
