@@ -1,7 +1,7 @@
 export default `import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 
-function IsolateReRender({ control }) {
+function FirstNameWatched({ control }) {
   const firstName = useWatch({
     control,
     name: 'firstName', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
@@ -14,13 +14,17 @@ function IsolateReRender({ control }) {
 function App() {
   const { register, control, handleSubmit } = useForm();
   
+  const onSubmit = (data) => {
+    console.log(data)
+  };
+
   return (
-    <form onSubmit={handleSubmit(data => console.log("data", data))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input ref={register} name="firstName" />
-      <input ref={register} name="last" />
-      <IsolateReRender control={control} />
-      
+      <input ref={register} name="lastName" />
       <input type="submit" />
+
+      <FirstNameWatched control={control} />
     </form>
   );
 }

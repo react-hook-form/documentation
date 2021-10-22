@@ -1,26 +1,30 @@
 export default `import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 
-function IsolateReRender({ control }) {
+function FirstNameWatched({ control }) {
   const firstName = useWatch({
     control,
-    name: 'firstName', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
-    defaultValue: 'default' // default value before the render
+    name: "firstName", // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
+    defaultValue: "default" // default value before the render
   });
 
-  return <div>{firstName}</div>; // only re-render at the component level, when firstName changes
+  return <div>Watch: {firstName}</div>; // only re-render at the component level, when firstName changes
 }
 
 function App() {
   const { register, control, handleSubmit } = useForm();
   
+  const onSubmit = (data) => {
+    console.log(data)
+  };
+
   return (
-    <form onSubmit={handleSubmit(data => console.log("data", data))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("firstName")} />
-      <input {...register("last")} />
-      <IsolateReRender control={control} />
-      
+      <input {...register("lastName")} />
       <input type="submit" />
+
+      <FirstNameWatched control={control} />
     </form>
   );
 }

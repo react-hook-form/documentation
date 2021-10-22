@@ -2,7 +2,8 @@ export default `import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 
 interface FormInputs {
-  firstName: string
+  firstName: string;
+  lastName: string;
 }
 
 function FirstNameWatched({ control }: { control: Control<FormInputs> }) {
@@ -26,7 +27,9 @@ function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>First Name:</label>
       <input ref={register} name="firstName" />
+      <input ref={register} name="lastName" />
       <input type="submit" />
+
       <FirstNameWatched control={control} />
     </form>
   );
