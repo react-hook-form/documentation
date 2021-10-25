@@ -1704,7 +1704,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>
                   <p>
                     The value for the field. Make sure you supply the entire
-                    array when you update <code>useFieldArray</code> and value
+                    array when you update <code>useFieldArray</code> and value{" "}
                     <strong>can't be</strong> <code>undefined</code>.
                   </p>
                 </td>
