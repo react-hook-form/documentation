@@ -1269,7 +1269,7 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <p>
                     <code>DirtyFields</code> form state will remain, and{" "}
-                    <code>isDirty</code> will be temporarily remain as the
+                    <code>isDirty</code> will temporarily remain as the
                     current state until further user's action.
                   </p>
 
