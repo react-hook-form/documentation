@@ -1269,8 +1269,8 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <p>
                     <code>DirtyFields</code> form state will remain, and{" "}
-                    <code>isDirty</code> will temporarily remain as the
-                    current state until further user's action.
+                    <code>isDirty</code> will temporarily remain as the current
+                    state until further user's action.
                   </p>
 
                   <p>
@@ -2890,8 +2890,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
             </p>
             <p>
               <b className={typographyStyles.note}>Important:</b> doesn't
-              support
-              <code>valueAs</code> for <code>useController</code>.
+              support <code>valueAs</code> for <code>useController</code>.
             </p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
