@@ -17,60 +17,38 @@ export default function App() {
     <form>
       <input {...register("firstName", { required: true })} />
 
-      <ul>
-        <li>
-          <p>isDirty: {isDirty && "dirty"}</p>
-        </li>
-        <li>
-          <p>touchedFields: {touchedFields.firstName && "touched field"}</p>
-        </li>
-        <li>
-          <p>dirtyFields:{dirtyFields.firstName && "dirty field"}</p>
-        </li>
-        <li>
-          <p>isValid: {isValid && "valid"}</p>
-        </li>
-        <li>
-          <p>error: {errors.firstName && "error"}</p>
-        </li>
-      </ul>
-
+      <p>isDirty: {isDirty && "dirty"}</p>
+      <p>touchedFields: {touchedFields.firstName && "touched field"}</p>
+      <p>dirtyFields:{dirtyFields.firstName && "dirty field"}</p>
+      <p>isValid: {isValid && "valid"}</p>
+      <p>error: {errors.firstName && "error"}</p>
+      
       <hr />
 
-      <ul>
-        <li>
-          <button
-            type="button"
-            onClick={() => resetField("firstName", { keepError: true })}
-          >
-            Reset keep error
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            onClick={() => resetField("firstName", { keepTouched: true })}
-          >
-            Reset keep touched fields
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            onClick={() => resetField("firstName", { keepDirty: true })}
-          >
-            Reset keep dirty fields
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            onClick={() => resetField("firstName", { defaultValue: "New" })}
-          >
-            update defaultValue
-          </button>
-        </li>
-      </ul>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepError: true })}
+      >
+        Reset keep error
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepTouched: true })}
+      >
+        Reset keep touched fields
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepDirty: true })}
+      >
+        Reset keep dirty fields
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { defaultValue: "New" })}
+      >
+        update defaultValue
+      </button>
     </form>
   );
 }
