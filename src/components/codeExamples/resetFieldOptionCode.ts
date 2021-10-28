@@ -7,7 +7,7 @@ export default function App() {
     resetField,
     formState: { isDirty, isValid, errors, touchedFields, dirtyFields }
   } = useForm({
-    mode: "onChange"  ,
+    mode: "onChange",
     defaultValues: {
       firstName: ""
     }
