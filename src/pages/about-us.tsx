@@ -114,6 +114,16 @@ const data = [
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
     active: false,
   },
+  {
+    name: "Barry May",
+    imgUrl: "https://avatars.githubusercontent.com/u/5514034?v=4",
+    url: "https://github.com/stramel",
+    bio:
+      "I'm a software engineer/team leader with long-term UI/UX and DevOps experience, including recent efforts in cloud/server thanks to node/graphql.  I love to show devs the power of the modern web stack (TS-all-the-things!), and I'm thrilled to assist on great OSS projects like react-hook-form!",
+    twitterName: "barry_a_may",
+    interests: ["🎲 games", "💻 code", "🍕 food"],
+    active: false,
+  },
 ]
 
 export default ({ location }) => {
