@@ -2368,6 +2368,22 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         <ul>
           <li>
             <p>
+              The following video showcase what's inside Controller and how its
+              been build.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form controller build"
+              src={"https://www.youtube.com/embed/N2UNk_UCVyA"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </li>
+          <li>
+            <p>
               Do not <code>register</code> input again. This component is made
               to take care the registration process.
             </p>
