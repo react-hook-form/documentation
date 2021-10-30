@@ -319,9 +319,9 @@ export default {
       title: "Less code. More performant",
       description: (
         <p id="codeComparison" className={typographyStyles.homeParagraph}>
-          Reducing the amount of code you need to write, and removing
-          unnecessary re-renders are some of the primary goals of React Hook
-          Form. Now dive in and explore with the following example:
+          React Hook Form reduces the amount of code you need to write while
+          removing unnecssary re-renders. Now dive in and explore with the
+          following example:
         </p>
       ),
     },
@@ -431,9 +431,9 @@ export default {
       description: (
         <>
           <p className={typographyStyles.homeParagraph}>
-            You have the ability to isolate components re-renders which leads to
+            You have the ability to isolate component re-renders which leads to
             better performance on your page or app. The following example
-            demonstrates this.
+            demonstrates this:
           </p>
         </>
       ),
@@ -524,9 +524,9 @@ export default {
       description: (
         <>
           <p>
-            You have the ability to isolate components re-renders which lead to
-            less performance impact on your page or app. The following example
-            demonstrate such behaviour.
+            You have the ability to isolate component re-renders which leads to
+            better performance impact on your page or app. The following example
+            demonstrates this:
           </p>
 
           <p style={{ fontSize: 14 }}>
@@ -691,7 +691,7 @@ export default {
       description: (
         <p className={typographyStyles.homeParagraph}>
           The following screenshots demonstrate how much faster component
-          mounting is with React Hook Form compare with others.
+          mounting is with React Hook Form compared to others:
         </p>
       ),
       totalMount: "No. of mount(s)",

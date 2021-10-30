@@ -94,7 +94,7 @@ export default function ApiGallery({ defaultLang }) {
               </h3>
               <p>
                 A powerful custom hook to validate your form with minimal
-                re-render.
+                re-renders.
               </p>
               <Link to="/api/useform" aria-label={"read more about useForm"}>
                 Read More ▸
@@ -107,8 +107,9 @@ export default function ApiGallery({ defaultLang }) {
                 <code>{`</>`}</code>useController
               </h3>
               <p>
-                It is the go-to hook for Controlled components and isolates its
-                re-render.
+                For Controlled components: interface with the useForm methods
+                and and isolate its re-render. Alternative to RHF's Controller
+                component.
               </p>
               <Link
                 to="/api/usecontroller"
@@ -124,8 +125,9 @@ export default function ApiGallery({ defaultLang }) {
                 <code>{`</>`}</code>useFormContext
               </h3>
               <p>
-                Building large forms and would like to access useForm methods in
-                context.
+                Access your useForm methods and properties from nested
+                components, using React context. Great for building larger forms
+                and shared components!
               </p>
               <Link
                 to="/api/useformcontext"
@@ -141,7 +143,7 @@ export default function ApiGallery({ defaultLang }) {
                 <code>{`</>`}</code>useWatch
               </h3>
               <p>
-                Subscribe to individual form input change without impacting the
+                Subscribe to individual form input changes without impacting the
                 root component's render.
               </p>
               <Link to="/api/usewatch" aria-label={"read more about usewatch"}>
@@ -155,8 +157,8 @@ export default function ApiGallery({ defaultLang }) {
                 <code>{`</>`}</code>useFormState
               </h3>
               <p>
-                Subscribe to individual form state update and isolate re-render
-                at the hook level.
+                Subscribe to individual form state updates and isolating
+                re-renders at the hook level.
               </p>
               <Link
                 to="/api/useformstate"
@@ -172,8 +174,8 @@ export default function ApiGallery({ defaultLang }) {
                 <code>{`</>`}</code>useFieldArray
               </h3>
               <p>
-                Manage dynamically generate fields on the fly, shuffle, remove
-                and append fields.
+                Manage dynamically generated fields on the fly, shuffle, remove
+                and append fields. Ideal for complex CRUD data entry scenarios.
               </p>
               <Link
                 to="/api/usefieldarray"
