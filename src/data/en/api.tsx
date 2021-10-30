@@ -2401,7 +2401,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           <li>
             <p>
               Customise what value gets send to hook form by transform the value
-              during <codee>onChange</codee>.
+              during <code>onChange</code>.
             </p>
             <CodeArea
               rawData={`<Controller 
