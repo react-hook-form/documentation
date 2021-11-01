@@ -393,36 +393,6 @@ export default function App() {
       </>
     ),
   },
-  fieldPathWithValue: {
-    title: "FieldPathWithValue",
-    description: (
-      <>
-        <p>This type is useful when defined generic controlled components.</p>
-        <CodeArea
-          url={"https://codesandbox.io/s/expected-type-nxjz0"}
-          rawData={`type ExpectedType = { test: string };
-
-const Generic = <FormValues extends FieldValues>({
-  name,
-  control,
-}: {
-  name: FieldPathWithValue<FormValues, ExpectedType>;
-  control: Control<FormValues>;
-}) => {
-  const {
-    field: { value, ...fieldProps },
-  } = useController<FormValues, ExpectedType>({
-    name,
-    control,
-    defaultValue: { test: 'value' },
-  });
-
-  return <input type="text" value={value.test} {...fieldProps} />;
-};`}
-        />
-      </>
-    ),
-  },
   fieldValues: {
     title: "FieldValues",
     description: (
