@@ -472,32 +472,6 @@ export default {
       ),
     },
     {
-      title: "React Native Hermes",
-      description: (
-        <div>
-          <p>
-            If you are have enabled React Native{" "}
-            <a
-              href={"https://reactnative.dev/docs/hermes"}
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              Hermes
-            </a>
-            , please make sure to include{" "}
-            <a
-              rel="noopener noreferrer"
-              href="https://www.npmjs.com/package/proxy-polyfill"
-              target={"_blank"}
-            >
-              Proxy polyfill
-            </a>{" "}
-            to enable the render performance enhancement.
-          </p>
-        </div>
-      ),
-    },
-    {
       title: "Controller not working with shouldFocusError?",
       description: (
         <>
