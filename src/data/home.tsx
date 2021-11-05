@@ -320,7 +320,7 @@ export default {
       description: (
         <p id="codeComparison" className={typographyStyles.homeParagraph}>
           React Hook Form reduces the amount of code you need to write while
-          removing unnecssary re-renders. Now dive in and explore with the
+          removing unnecessary re-renders. Now dive in and explore with the
           following example:
         </p>
       ),
