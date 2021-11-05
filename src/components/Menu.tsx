@@ -18,6 +18,7 @@ const pages = [
       { pathname: "/api/useform/watch", name: "watch" },
       { pathname: "/api/useform/handlesubmit", name: "handleSubmit" },
       { pathname: "/api/useform/reset", name: "reset" },
+      { pathname: "/api/useform/resetField", name: "resetField" },
       { pathname: "/api/useform/seterror", name: "setError" },
       { pathname: "/api/useform/clearerrors", name: "clearErrors" },
       { pathname: "/api/useform/setvalue", name: "setValue" },
