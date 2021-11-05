@@ -2056,8 +2056,16 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 </td>
                 <td></td>
                 <td>
-                  field array <code>key</code> value, default to "id", you can
-                  change the key name.
+                  <p>
+                    field array <code>key</code> value, default to "id", you can
+                    change the key name.
+                  </p>
+
+                  <p>
+                    <b className={typographyStyles.note}>Important: </b> if your
+                    field array contains <code>id</code> as field value, making
+                    sure you change the <code>keyName</code> to other.
+                  </p>
                 </td>
               </tr>
               <tr>
@@ -2103,6 +2111,25 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
 `}
               />
             </p>
+          </li>
+          <li>
+            <p>
+              Change <code>keyName</code> to other when your form value contains{" "}
+              <code>id</code> which is the default key name.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`const { fields } = useFieldArray({
+  keyName: 'key' // by default key name is id, and input value with name id will be omitted
+})
+              
+{fields.map((field, index) => (
+  <div key={field.key}> // key name changed
+    <input {...register('test.id')} /> // input value id will be retained
+  </div>
+))}
+`}
+            />
           </li>
           <li>
             <p>
