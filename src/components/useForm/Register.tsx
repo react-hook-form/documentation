@@ -26,7 +26,7 @@ export default ({ currentLanguage }) => {
                 register:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(Ref, RegisterOptions?) => ({ onChange, onBlur, name, ref })`}</span>
+                >{`(name: string, RegisterOptions?) => ({ onChange, onBlur, name, ref })`}</span>
               </h2>
             </code>
 
