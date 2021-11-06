@@ -671,6 +671,21 @@ export default function ApiRefTable({
           tsUrl="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
         />
 
+        <h2 className={typographyStyles.subTitle}>Video</h2>
+        <p>
+          The following video explain <code>register</code> API in detail.
+        </p>
+
+        <iframe
+          width="100%"
+          height="528"
+          title="react hook form controller build"
+          src={"https://www.youtube.com/embed/JFIpCoajYkA"}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+
         {api.register.options.note}
       </div>
     </>
