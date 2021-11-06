@@ -10,6 +10,7 @@ import setValue from "../codeExamples/setValue"
 import setValueTs from "../codeExamples/setValueTs"
 import setValueTypes from "../codeExamples/setValueTypes"
 import setValueUseFieldArray from "../codeExamples/setValueUseFieldArray"
+import dependantFields from "../codeExamples/dependantFieldsTS"
 
 export default ({ currentLanguage }) => {
   return (
@@ -35,7 +36,13 @@ export default ({ currentLanguage }) => {
 
             {api.setValue.description}
 
-            <TabGroup buttonLabels={["basic", "useFieldArray set value"]}>
+            <TabGroup
+              buttonLabels={[
+                "basic",
+                "useFieldArray set value",
+                "dependant fields",
+              ]}
+            >
               <CodeArea
                 rawData={setValue}
                 url="https://codesandbox.io/s/react-hook-form-v7-setvalue-h8wbk"
@@ -46,6 +53,10 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={setValueUseFieldArray}
                 url="https://codesandbox.io/s/usefieldarray-with-setvalue-ykupr"
+              />
+              <CodeArea
+                rawData={dependantFields}
+                url="https://codesandbox.io/s/dependant-field-dwin1"
               />
             </TabGroup>
           </section>
