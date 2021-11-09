@@ -3,7 +3,12 @@ import { Text, View, TextInput, Button, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 export default function App() {
-  const { control, handleSubmit, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: ''
+    }
+  });
   const onSubmit = data => console.log(data);
 
   return (
@@ -22,7 +27,6 @@ export default function App() {
           />
         )}
         name="firstName"
-        defaultValue=""
       />
       {errors.firstName && <Text>This is required.</Text>}
 
@@ -40,7 +44,6 @@ export default function App() {
           />
         )}
         name="lastName"
-        defaultValue=""
       />
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />

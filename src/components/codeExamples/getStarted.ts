@@ -208,7 +208,12 @@ import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
 const App = () => {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: '',
+      select: {}
+    }
+  });
   const onSubmit = data => console.log(data);
 
   return (
@@ -216,11 +221,10 @@ const App = () => {
       <Controller
         name="firstName"
         control={control}
-        defaultValue=""
         render={({ field }) => <Input {...field} />}
       />
       <Controller
-        name="iceCreamType"
+        name="select"
         control={control}
         render={({ field }) => <Select 
           {...field} 
@@ -285,15 +289,18 @@ import { useForm, Controller } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
-  const { handleSubmit, control, reset } = useForm();
+  const { handleSubmit, control, reset } = useForm({
+    defaultValues: {
+      checkbox: false,
+    }
+  });
   const onSubmit = data => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        name="MyCheckbox"
+        name="checkbox"
         control={control}
-        defaultValue={false}
         rules={{ required: true }}
         render={({ field }) => <Checkbox {...field} />}
       />
