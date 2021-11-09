@@ -25,7 +25,7 @@ export default ({ currentLanguage }) => {
           <section>
             <code className={typographyStyles.codeHeading}>
               <h2>
-                reset:{" "}
+                resetField:{" "}
                 <span
                   className={typographyStyles.typeText}
                 >{`(name: string, options?: Record<string, boolean | any>) => void`}</span>
