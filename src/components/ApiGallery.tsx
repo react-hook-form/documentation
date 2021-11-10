@@ -108,8 +108,7 @@ export default function ApiGallery({ defaultLang }) {
               </h3>
               <p>
                 For Controlled components: interface with the useForm methods
-                and and isolate its re-render. Alternative to RHF's Controller
-                component.
+                and and isolate its re-render.
               </p>
               <Link
                 to="/api/usecontroller"
@@ -126,8 +125,8 @@ export default function ApiGallery({ defaultLang }) {
               </h3>
               <p>
                 Access your useForm methods and properties from nested
-                components, using React context. Great for building larger forms
-                and shared components!
+                components. Great for building larger forms and shared
+                components!
               </p>
               <Link
                 to="/api/useformcontext"
