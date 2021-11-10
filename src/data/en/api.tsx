@@ -2178,6 +2178,23 @@ React.useEffect(() => {
           </li>
           <li>
             <p>
+              <code>useFieldArray</code>'s actions will need to be invoked
+              synchronously, instead, invoke asynchronously will result in the
+              field array mismatch.
+            </p>
+            <CodeArea
+              withOutCopy
+              rawData={`const test = async () => append({ test: 'data' });
+
+<button onClick={() => test()}>test</button>  // ❌
+  
+useEffect(() => {
+  test() // ✅ this will make sure inputs mounted before execute the next action
+}, [])`}
+            />
+          </li>
+          <li>
+            <p>
               When you append, prepend, insert and update the field array, the
               obj can't be empty object <code>{}</code> rather need to supply
               all your input's defaultValues.
