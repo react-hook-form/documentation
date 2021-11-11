@@ -2186,10 +2186,10 @@ React.useEffect(() => {
               withOutCopy
               rawData={`const test = async () => append({ test: 'data' });
 
-<button onClick={() => test()}>test</button>  // ❌
+<button onClick={() => await test()}>test</button>  // ❌
   
 useEffect(() => {
-  test() // ✅ this will make sure inputs mounted before execute the next action
+  test() // ✅ this will make sure action fired before new inputs get mounted
 }, [])`}
             />
           </li>
