@@ -91,8 +91,8 @@ export default ({ currentLanguage, api }) => (
                 <b className={typographyStyles.note}>Note:</b>{" "}
                 <code>isValid</code> is affected by <code>mode</code> at{" "}
                 <Link to={"/api/useform"}>useForm</Link>. This state is only
-                applicable with <code>onChange</code> and <code>onBlur</code>{" "}
-                mode.
+                applicable with <code>onChange</code>, <code>onTouched</code>,
+                and <code>onBlur</code> mode.
               </p>
             </td>
           </tr>
