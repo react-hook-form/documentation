@@ -2492,8 +2492,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
     formState,
   }) => (
     <Checkbox
-      onBlur={onBlur}
-      onChange={onChange}
+      onBlur={onBlur} // notify when input is touched
+      onChange={onChange} // send value to hook form
       checked={value}
       inputRef={ref}
     />
@@ -2510,7 +2510,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
   }) => (
     <TextField
       value={value}
-      onChange={onChange}
+      onChange={onChange} // send value to hook form
+      onBlur={onBlur} // notify when input is touched
       inputRef={ref} // wire up the input ref
     />
   )}

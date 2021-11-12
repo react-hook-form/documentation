@@ -17,8 +17,8 @@ function App() {
         name="ReactDatepicker"
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <ReactDatePicker
-            onChange={onChange}
-            onBlur={onBlur}
+            onChange={onChange} // send value to hook form
+            onBlur={onBlur} // notify when input is touched/blur
             selected={value}
           />
         )}
