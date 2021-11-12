@@ -106,7 +106,9 @@ export default ({ currentLanguage, api }) => (
             <td>{api.formState.isValidating}</td>
           </tr>
           <tr>
-            <td>errors</td>
+            <td>
+              <code>errors</code>
+            </td>
             <td>
               <code className={typographyStyles.typeText}>object</code>
             </td>
