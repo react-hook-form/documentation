@@ -178,69 +178,10 @@ export default {
               <li>
                 <p>
                   Register an input with a value. For example:{" "}
-                  <code>{`register('test')({ test: "test"})`}</code>
+                  <code>{`register('test', { value: 'test' })`}</code>
                 </p>
               </li>
             </ol>
-          </li>
-          <li>
-            <p>
-              <code>defaultValues</code> will be shallowly merged with form
-              submission data.
-            </p>
-
-            <CodeArea
-              url="https://codesandbox.io/s/react-hook-form-defaultvalues-v7-vd85w"
-              rawData={defaultValues}
-              tsUrl="https://codesandbox.io/s/react-hook-form-defaultvalues-v6-ts-forked-7z3v0"
-              tsRawData={defaultValuesTs}
-            />
-          </li>
-          <li>
-            <p>
-              From version 7.6.0 onwards with <code>shouldUnregister</code> set
-              to <>false</>, any missing registered inputs from{" "}
-              <code>defaultValues</code> will get automatically registered.
-              However, it's still recommend using the <code>register</code>{" "}
-              method and provide hidden input to follow HTML standard.
-            </p>
-
-            <p>
-              <b className={typographyStyles.note}>Important:</b> each object
-              key will be <code>register</code> as an input.
-            </p>
-
-            <CodeArea
-              rawData={`const App = () => {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      // missing "test.lastName" input will be registered
-      test: { firstName: 'bill', lastName: 'luo' },
-      test1: ['test', 'test1']
-    },
-  });
-  
-  // Inputs will get register via defaultValues 
-  // register('test.lastName')
-  // register('test1.0')
-  // register('test1.1')
-  
-  const onSubmit = (data) => console.log(data); // { test: { firstName: 'bill', lastName: 'luo' } };
-  
-  // ✅ alternative custom register
-  // useEffect(() => {
-  //  register('test.lastName');
-  // }, [])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('test.firstName')} />
-      // <input {...register('test.lastName')} type="hidden" /> ✅ alternative hidden input
-      <button />
-    </form>
-  );
-};`}
-            />
           </li>
         </ul>
       </>
