@@ -18,9 +18,7 @@ export default ({ currentLanguage }) => {
         <Menu />
 
         <main>
-          <section>
-            <ApiWatch currentLanguage={currentLanguage} api={api} />
-          </section>
+          <ApiWatch currentLanguage={currentLanguage} api={api} />
 
           <Footer currentLanguage={currentLanguage || "en"} />
         </main>
