@@ -1799,12 +1799,6 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         <ul>
           <li>
             <p>
-              Do not use this method inside a render method. It is intended for
-              reading values in an event handler or callback function.
-            </p>
-          </li>
-          <li>
-            <p>
               Disabled inputs will be returned as <code>undefined</code>. If you
               want to prevent users from updating the input and still retain the
               field value, you can use <code>readOnly</code> or disable the
@@ -1823,12 +1817,6 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             <p>
               It will return <code>defaultValues</code> from{" "}
               <code>useForm</code> before the <b>initial</b> render.
-            </p>
-          </li>
-          <li>
-            <p>
-              After the initial render, form values will be shallowly merged
-              with <code>defaultValues</code>.
             </p>
           </li>
           <li>
