@@ -154,6 +154,14 @@ export default {
           </li>
           <li>
             <p>
+              <code>defaultValues</code> will be included in the submission
+              result by default, if this is not the desired behaviour use{" "}
+              <code>shouldUnregister: true</code> instead which means inputs
+              will host all input values.
+            </p>
+          </li>
+          <li>
+            <p>
               Avoid including custom object into the <code>defaultValues</code>.
               eg: <code>moment</code>, <code>luxon</code>
               as those will lead to unexpected result during internal object
