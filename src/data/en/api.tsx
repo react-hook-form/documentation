@@ -156,8 +156,8 @@ export default {
             <p>
               <code>defaultValues</code> will be included in the submission
               result by default, if this is not the desired behavior use{" "}
-              <code>shouldUnregister: true</code> instead which means inputs
-              will host all input values.
+              <code>shouldUnregister: true</code> instead which means input
+              values will host within all the fields.
             </p>
           </li>
           <li>
