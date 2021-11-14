@@ -155,7 +155,7 @@ export default {
           <li>
             <p>
               <code>defaultValues</code> will be included in the submission
-              result by default, if this is not the desired behaviour use{" "}
+              result by default, if this is not the desired behavior use{" "}
               <code>shouldUnregister: true</code> instead which means inputs
               will host all input values.
             </p>
