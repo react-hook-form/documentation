@@ -1393,7 +1393,7 @@ reset({ deepNest: { file: new File() } });
                 <td>
                   <code
                     className={typographyStyles.typeText}
-                  >{`{ type: string, message?: string }`}</code>
+                  >{`{ type: string, message?: string, types: MultipleFieldErrors }`}</code>
                 </td>
                 <td>
                   <p>Set an error with its type and message.</p>
