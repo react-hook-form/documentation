@@ -687,9 +687,18 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
     validation: {
       required: (
         <>
-          A Boolean which, if true, indicates that the input must have a value
-          before the form can be submitted. You can assign a string to return an
-          error message in the <code>errors</code> object.
+          <p>
+            A Boolean which, if true, indicates that the input must have a value
+            before the form can be submitted. You can assign a string to return
+            an error message in the <code>errors</code> object.
+          </p>
+
+          <p>
+            <b className={typographyStyles.note}>Note:</b> This config is aligns
+            with web constrained API for required input validation, for
+            <code>object</code> or <code>array</code> type of input value use
+            <code>validate</code> function instead.
+          </p>
         </>
       ),
       maxLength: "The maximum length of the value to accept for this input.",
@@ -2348,8 +2357,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           </li>
           <li>
             <p>
-              Customise what value gets sent to hook form by transforming the value
-              during <code>onChange</code>.
+              Customise what value gets sent to hook form by transforming the
+              value during <code>onChange</code>.
             </p>
             <CodeArea
               rawData={`<Controller 
