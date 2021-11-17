@@ -11,24 +11,30 @@ const validationSchema = Joi.object({
 });
 
 const App = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: async data => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    context: "context",
+    resolver: async (data, context) => {
       const { error, value: values } = validationSchema.validate(data, {
-        abortEarly: false
+        abortEarly: false,
       });
 
+      if (!error) return { values: values, errors: {} };
+
       return {
-        values: error ? {} : values,
-        errors: error
-          ? error.details.reduce((previous, currentError) => {
-              return {
-                ...previous,
-                [currentError.path[0]]: currentError
-              };
-            }, {})
-          : {}
+        values: {},
+        errors: error.details.reduce(
+          (previous, currentError) => ({
+            ...previous,
+            [currentError.path[0]]: currentError,
+          }),
+          {},
+        ),
       };
-    }
+    },
   });
 
   const onSubmit = data => {
