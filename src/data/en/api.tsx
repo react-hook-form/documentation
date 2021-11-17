@@ -2333,7 +2333,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           <li>
             <p>
               Do not <code>register</code> input again. This component is made
-              to take care the registration process.
+              to take care of the registration process.
             </p>
             <CodeArea
               rawData={`<Controller 
@@ -2348,7 +2348,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           </li>
           <li>
             <p>
-              Customise what value gets send to hook form by transform the value
+              Customise what value gets sent to hook form by transforming the value
               during <code>onChange</code>.
             </p>
             <CodeArea
