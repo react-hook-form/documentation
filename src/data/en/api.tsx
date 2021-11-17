@@ -634,10 +634,10 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           </p>
 
           <CodeArea
-            rawData={`// onChange got overwrite by register method
+            rawData={`// onChange got overwritten by register's onChange method
 <input onChange={handleChange} {...register('test')} />
 
-// register's onChange got overwrite by register method
+// register's onChange got overwritten by given onChange props (handleChange)
 <input {...register('test')} onChange={handleChange}/>
 
 const firstName = register('firstName', { required: true })
