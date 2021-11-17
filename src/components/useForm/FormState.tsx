@@ -30,6 +30,21 @@ export default ({ currentLanguage }) => {
               tsRawData={formStateTs}
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-forked-5sxs3"
             />
+
+            <h2 className={typographyStyles.subTitle}>Video</h2>
+            <p>
+              The following video will explain in detail different form states.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form formState"
+              src={"https://www.youtube.com/embed/4kzd572NbkM"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />
