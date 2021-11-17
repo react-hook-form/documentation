@@ -696,7 +696,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           <p>
             <b className={typographyStyles.note}>Note:</b> This config aligns
             with web constrained API for required input validation, for{" "}
-            <code>object</code> or <code>array</code> type of input value use
+            <code>object</code> or <code>array</code> type of input use{" "}
             <code>validate</code> function instead.
           </p>
         </>
