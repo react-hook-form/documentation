@@ -69,7 +69,6 @@ const formState = useFormState(); // ❌ should deconstruct the formState
                   <tr>
                     <th>{generic.name[currentLanguage]}</th>
                     <th width={"200px"}>{generic.type[currentLanguage]}</th>
-                    <th width={"90px"}>{generic.required[currentLanguage]}</th>
                     <th>{generic.description[currentLanguage]}</th>
                   </tr>
                 </thead>
@@ -81,7 +80,6 @@ const formState = useFormState(); // ❌ should deconstruct the formState
                     <td>
                       <code className={typographyStyles.typeText}>object</code>
                     </td>
-                    <td></td>
                     <td>
                       <Link to={"/api/useform/control"}>
                         <code>control</code>
@@ -98,7 +96,6 @@ const formState = useFormState(); // ❌ should deconstruct the formState
                         string | string[]
                       </code>
                     </td>
-                    <td></td>
                     <td>
                       Provide a single input name, an array of them, or
                       subscribe to all inputs' formState update.
@@ -113,9 +110,24 @@ const formState = useFormState(); // ❌ should deconstruct the formState
                         boolean = false
                       </code>
                     </td>
-                    <td> </td>
                     <td>
                       <p>Option to disable the subscription.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>exact</code>
+                    </td>
+                    <td>
+                      <code className={typographyStyles.typeText}>
+                        boolean = false
+                      </code>
+                    </td>
+                    <td>
+                      <p>
+                        This prop will enable an exact match for input name
+                        subscriptions.
+                      </p>
                     </td>
                   </tr>
                 </tbody>

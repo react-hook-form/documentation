@@ -93,6 +93,22 @@ export default function UseFieldArray({
                 <p>Option to disable the subscription.</p>
               </td>
             </tr>
+            <tr>
+              <td>
+                <code>exact</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>
+                  boolean = false
+                </code>
+              </td>
+              <td>
+                <p>
+                  This prop will enable an exact match for input name
+                  subscriptions.
+                </p>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
