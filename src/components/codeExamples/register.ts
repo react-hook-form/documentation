@@ -16,6 +16,10 @@ export default function App() {
         <option value="A">Category A</option>
         <option value="B">Category B</option>
       </select>
+      
+      <input {...register("checkbox")} type="checkbox" value="A" />
+      <input {...register("checkbox")} type="checkbox" value="B" />
+      <input {...register("checkbox")} type="checkbox" value="C" />
 
       <input type="submit" />
     </form>

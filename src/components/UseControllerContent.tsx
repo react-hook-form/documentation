@@ -6,6 +6,8 @@ import useControllerTs from "./codeExamples/useControllerTs"
 import * as tableStyles from "../styles/table.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import UseControllerMethods from "./UseControllerMethods"
+import TabGroup from "./TabGroup"
+import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
 
 export default function UseControllerContent({
   api,
@@ -47,12 +49,19 @@ export default function UseControllerContent({
 
       <UseControllerMethods currentLanguage={currentLanguage} />
 
-      <CodeArea
-        rawData={useController}
-        tsRawData={useControllerTs}
-        tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
-        url="https://codesandbox.io/s/usecontroller-i0ywh"
-      />
+      <TabGroup buttonLabels={["TextField", "Checkboxes"]}>
+        <CodeArea
+          rawData={useController}
+          tsRawData={useControllerTs}
+          tsUrl="https://codesandbox.io/s/usecontroller-0o8px"
+          url="https://codesandbox.io/s/usecontroller-i0ywh"
+        />
+
+        <CodeArea
+          rawData={useControllerCheckboxes}
+          url="https://codesandbox.io/s/usecontroller-checkboxes-99ld4"
+        />
+      </TabGroup>
 
       {api.useController.tips}
     </>
