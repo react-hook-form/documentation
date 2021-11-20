@@ -25,6 +25,7 @@ const Checkboxes = ({ options, control, name }) => {
             setValue(valueCopy);
           }}
           key={option}
+          checked={value.includes(option)}
           type="checkbox"
           value={option}
         />
