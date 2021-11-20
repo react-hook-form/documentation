@@ -59,6 +59,23 @@ export default ({ currentLanguage }) => {
                 url="https://codesandbox.io/s/dependant-field-dwin1"
               />
             </TabGroup>
+
+            <h2 className={typographyStyles.subTitle}>Video</h2>
+
+            <p>
+              The following video tutorial demonstrates <code>setValue</code>{" "}
+              API in detail.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form setValue API"
+              src={"https://www.youtube.com/embed/qpv51sCH3fI"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />
