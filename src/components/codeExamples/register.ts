@@ -20,6 +20,10 @@ export default function App() {
       <input {...register("checkbox")} type="checkbox" value="A" />
       <input {...register("checkbox")} type="checkbox" value="B" />
       <input {...register("checkbox")} type="checkbox" value="C" />
+      
+      <input {...register("radio")} type="radio" value="A" />
+      <input {...register("radio")} type="radio" value="B" />
+      <input {...register("radio")} type="radio" value="C" />
 
       <input type="submit" />
     </form>
