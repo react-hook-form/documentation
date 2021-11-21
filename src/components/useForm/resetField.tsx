@@ -44,7 +44,7 @@ export default ({ currentLanguage }) => {
                   rawData={`register('test');
 
 resetField('test'); // ✅ register input and resetField works
-resetField('test1'); // ❌ failed by input not found
+resetField('non-existent-name'); // ❌ failed by input not found
 `}
                 />
               </li>
