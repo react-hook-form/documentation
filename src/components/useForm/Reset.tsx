@@ -72,8 +72,7 @@ export default ({ currentLanguage }) => {
           <p>
             The following video explains in detail each different{" "}
             <code>formState</code> represents and functionality within the{" "}
-            <code>reset</code>
-            API.
+            <code>reset</code> API.
           </p>
 
           <iframe
