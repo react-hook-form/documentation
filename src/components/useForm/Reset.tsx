@@ -68,6 +68,24 @@ export default ({ currentLanguage }) => {
             </TabGroup>
           </section>
 
+          <h2 className={typographyStyles.subTitle}>Video</h2>
+          <p>
+            The following video explains in detail each different{" "}
+            <code>formState</code> represents and functionality within the{" "}
+            <code>reset</code>
+            API.
+          </p>
+
+          <iframe
+            width="100%"
+            height="528"
+            title="react hook form reset"
+            src={"https://www.youtube.com/embed/qmCLBjyPwVk"}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
           <Footer currentLanguage={currentLanguage || "en"} />
         </main>
       </div>
