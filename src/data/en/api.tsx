@@ -2740,6 +2740,14 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
 
           <li>
             <p>
+              Schema validation focus on the field level for error reporting.
+              Parent level error look is only limited to the direct parent level
+              that is applicable for components such as group checkboxes.
+            </p>
+          </li>
+
+          <li>
+            <p>
               The keys of the <code>error</code> object should match the{" "}
               <code>name</code> values of your fields.
             </p>
