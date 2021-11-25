@@ -27,14 +27,16 @@ export default function App() {
           }
         })}
       />
-      <ErrorMessage errors={errors} name="multipleErrorInput">
-        {({ messages }) =>
+      <ErrorMessage
+        errors={errors}
+        name="multipleErrorInput"
+        render={({ messages }) =>
           messages &&
           Object.entries(messages).map(([type, message]) => (
             <p key={type}>{message}</p>
           ))
         }
-      </ErrorMessage>
+      />
 
       <input type="submit" />
     </form>
