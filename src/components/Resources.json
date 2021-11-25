@@ -1,6 +1,16 @@
 [
   {
     "type": "article",
+    "title": "React Hook Form ライブラリの使い方！フォームのバリデーションを実装しよう【TypeScript】",
+    "url": "https://xn--eckhu0e2b3a6i6dsh.net/react-hook-form/",
+    "authorUrl": "https://twitter.com/shohei__creator",
+    "author": "shohei",
+    "description": "HTMLで構成されるフォームに細かなバリデーションをかけるには、JavaScriptによるDOM操作が必須になります。バリデーション処理を実装する作業は手間が多いので、バリデーション用のライブラリを使う方法が現実的です。",
+    "createdDateTime": "Wed Nov 26 2021 15:49:30 GMT+1000 (Australian Eastern Standard Time)",
+    "version": "7"
+  },
+  {
+    "type": "article",
     "title": "How to Use React-Hook-Form to Build Beautiful Forms with Chakra UI",
     "url": "https://www.freecodecamp.org/news/how-to-use-react-hook-form-with-chakra-ui/",
     "authorUrl": "https://www.freecodecamp.org/news/author/georgey/",
