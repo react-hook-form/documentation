@@ -39,6 +39,21 @@ export default ({ currentLanguage }) => {
               tsRawData={triggerTs}
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-forked-xs7hl"
             />
+
+            <h2 className={typographyStyles.subTitle}>Video</h2>
+            <p>
+              The following video explain <code>trigger</code> API in detail.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form trigger API"
+              src={"https://www.youtube.com/embed/-bcyJCDjksE"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />
