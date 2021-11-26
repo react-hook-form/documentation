@@ -10,6 +10,8 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as tableStyles from "../styles/table.module.css"
 import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
+import StarRepo from "./StarRepo"
+import { SelectNav } from "./selectNav"
 
 const codeSandBoxStyle = {
   position: "relative",
@@ -29,6 +31,67 @@ export default ({ currentLanguage }) => {
 
       <div className={containerStyles.wrapper}>
         <Menu />
+
+        <SelectNav
+          options={[
+            {
+              label: "register",
+              value: "/api/useform/register",
+            },
+            {
+              label: "unregister",
+              value: "/api/useform/unregister",
+            },
+            {
+              label: "formstate",
+              value: "/api/useform/formstate",
+            },
+            {
+              label: "watch",
+              value: "/api/useform/watch",
+            },
+            {
+              label: "handlesubmit",
+              value: "/api/useform/handlesubmit",
+            },
+            {
+              label: "reset",
+              value: "/api/useform/reset",
+            },
+            {
+              label: "resetField",
+              value: "/api/useform/resetfield",
+            },
+            {
+              label: "setError",
+              value: "/api/useform/seterror",
+            },
+            {
+              label: "clearErrors",
+              value: "/api/useform/clearerrors",
+            },
+            {
+              label: "setValue",
+              value: "/api/useform/setvalue",
+            },
+            {
+              label: "setFocus",
+              value: "/api/useform/setfocus",
+            },
+            {
+              label: "getValues",
+              value: "/api/useform/getvalues",
+            },
+            {
+              label: "trigger",
+              value: "/api/useform/trigger",
+            },
+            {
+              label: "control",
+              value: "/api/useform/control",
+            },
+          ]}
+        />
 
         <main>
           <section id="useFormRef">
@@ -293,6 +356,8 @@ const { register } = useForm<FormInputs>({
             <CodeArea rawData={shouldUseNativeValidation} />
 
             <ValidationResolver api={api} />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage} />

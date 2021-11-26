@@ -5,6 +5,7 @@ import Footer from "./Footer"
 import { Menu } from "./Menu"
 import * as containerStyles from "../styles/container.module.css"
 import UseWatch from "./UseWatchContent"
+import StarRepo from "./StarRepo"
 
 export default function UseFieldArray({
   currentLanguage,
@@ -27,6 +28,8 @@ export default function UseFieldArray({
           <section>
             <UseWatch currentLanguage={currentLanguage} api={api} />
           </section>
+
+          <StarRepo currentLanguage="en" />
 
           <Footer currentLanguage={currentLanguage || "en"} />
         </main>

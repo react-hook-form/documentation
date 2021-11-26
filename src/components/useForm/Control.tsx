@@ -7,6 +7,7 @@ import * as containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
 import control from "../codeExamples/control"
 import controlTs from "../codeExamples/controlTs"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -35,6 +36,8 @@ export default ({ currentLanguage }) => {
               tsRawData={controlTs}
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

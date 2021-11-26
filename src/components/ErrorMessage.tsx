@@ -11,6 +11,7 @@ import errorsMessageTs from "./codeExamples/errorsMessageTs"
 import { Menu } from "./Menu"
 import * as containerStyles from "../styles/container.module.css"
 import Footer from "./Footer"
+import StarRepo from "./StarRepo"
 
 export default ({
   api,
@@ -154,6 +155,8 @@ export default ({
                 />
               </TabGroup>
             </div>
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

@@ -7,6 +7,7 @@ import * as containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
 import trigger from "../codeExamples/trigger"
 import triggerTs from "../codeExamples/triggerTs"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -54,6 +55,8 @@ export default ({ currentLanguage }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

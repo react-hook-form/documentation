@@ -8,6 +8,7 @@ import * as containerStyle from "../styles/container.module.css"
 import * as styles from "./ResourcePage.module.css"
 import { useForm } from "react-hook-form"
 import resources from "./Resources.json"
+import StarRepo from "./StarRepo"
 
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const { register, watch } = useForm({ mode: "onChange" })
@@ -122,6 +123,9 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
             </article>
           ))}
         </ul>
+
+        <StarRepo currentLanguage="en" />
+
         <Footer currentLanguage={currentLanguage} />
       </main>
     </div>

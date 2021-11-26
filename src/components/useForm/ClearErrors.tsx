@@ -7,6 +7,7 @@ import * as containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
 import clearError from "../codeExamples/clearError"
 import clearErrorTs from "../codeExamples/clearErrorTs"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -37,6 +38,8 @@ export default ({ currentLanguage }) => {
               tsRawData={clearErrorTs}
               tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-clearerrors-w3ymx"
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

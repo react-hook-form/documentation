@@ -5,6 +5,7 @@ import FormContext from "./FormContext"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
 import * as containerStyles from "../styles/container.module.css"
+import StarRepo from "./StarRepo"
 
 export default function UseFieldArray({
   currentLanguage,
@@ -25,6 +26,8 @@ export default function UseFieldArray({
 
         <main>
           <FormContext currentLanguage={currentLanguage} api={api} />
+
+          <StarRepo currentLanguage="en" />
 
           <Footer currentLanguage={currentLanguage || "en"} />
         </main>

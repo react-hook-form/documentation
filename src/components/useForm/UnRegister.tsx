@@ -9,6 +9,7 @@ import CodeArea from "../CodeArea"
 import unregisterCode from "../codeExamples/unregisterCode"
 import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
 import generic from "../../data/generic"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -188,6 +189,8 @@ export default ({ currentLanguage }) => {
               tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"
               tsRawData={unregisterCodeTs}
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

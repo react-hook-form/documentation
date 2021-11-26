@@ -7,6 +7,7 @@ import setFocus from "../codeExamples/setFocus"
 import setFocusTs from "../codeExamples/setFocusTs"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -38,6 +39,8 @@ export default ({ currentLanguage }) => {
               url="https://codesandbox.io/s/setfocus-rolus"
               tsUrl="https://codesandbox.io/s/setfocus-rolus"
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

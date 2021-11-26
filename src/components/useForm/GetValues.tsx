@@ -8,6 +8,7 @@ import CodeArea from "../CodeArea"
 import getValues from "../codeExamples/getValues"
 import getValuesTs from "../codeExamples/getValuesTs"
 import getValuesTypes from "../codeExamples/getValuesTypes"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -40,6 +41,8 @@ export default ({ currentLanguage }) => {
               tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-getvalues-txsfg"
               rawTypes={getValuesTypes}
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

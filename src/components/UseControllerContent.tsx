@@ -8,6 +8,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import UseControllerMethods from "./UseControllerMethods"
 import TabGroup from "./TabGroup"
 import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
+import { SelectNav } from "./selectNav"
 
 export default function UseControllerContent({
   api,
@@ -18,6 +19,14 @@ export default function UseControllerContent({
 }) {
   return (
     <>
+      <SelectNav
+        options={[
+          {
+            label: "controller",
+            value: "/api/usecontroller/controller",
+          },
+        ]}
+      />
       <code className={typographyStyles.codeHeading}>
         <h2>
           useController:

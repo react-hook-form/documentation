@@ -12,6 +12,7 @@ import setMultipleErrors from "../codeExamples/setMultipleErrors"
 import setMultipleErrorsTs from "../codeExamples/setMultipleErrorsTs"
 import setAllErrors from "../codeExamples/setAllErrors"
 import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -62,6 +63,8 @@ export default ({ currentLanguage }) => {
                 url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-ogf20"
               />
             </TabGroup>
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

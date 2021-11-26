@@ -11,6 +11,7 @@ import setValueTs from "../codeExamples/setValueTs"
 import setValueTypes from "../codeExamples/setValueTypes"
 import setValueUseFieldArray from "../codeExamples/setValueUseFieldArray"
 import dependantFields from "../codeExamples/dependantFieldsTS"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -76,6 +77,8 @@ export default ({ currentLanguage }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

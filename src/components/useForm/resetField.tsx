@@ -9,6 +9,7 @@ import * as tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
 import resetFieldCode from "../codeExamples/resetFieldCode"
 import resetFieldOptionCode from "../codeExamples/resetFieldOptionCode"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -184,6 +185,8 @@ resetField('non-existent-name'); // ❌ failed by input not found
                 url="https://codesandbox.io/s/resetfield-with-options-iw4wd"
               />
             </TabGroup>
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

@@ -12,6 +12,7 @@ import resetController from "../codeExamples/resetController"
 import resetControllerTs from "../codeExamples/resetControllerTs"
 import submitReset from "../codeExamples/submitReset"
 import fieldArrayReset from "../codeExamples/fieldArrayReset"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -84,6 +85,8 @@ export default ({ currentLanguage }) => {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
+
+          <StarRepo currentLanguage="en" />
 
           <Footer currentLanguage={currentLanguage || "en"} />
         </main>

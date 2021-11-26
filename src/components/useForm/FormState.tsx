@@ -8,6 +8,7 @@ import ApiFormState from "../ApiFormState"
 import CodeArea from "../CodeArea"
 import formState from "../codeExamples/formState"
 import formStateTs from "../codeExamples/formStateTs"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -45,6 +46,8 @@ export default ({ currentLanguage }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

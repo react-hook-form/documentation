@@ -10,6 +10,7 @@ import FormStateTable from "./FormStateTable"
 import CodeArea from "./CodeArea"
 import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
+import StarRepo from "./StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -140,6 +141,8 @@ const formState = useFormState(); // ❌ should deconstruct the formState
               rawData={useFormState}
               url={"https://codesandbox.io/s/useformstate-75xly"}
             />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage} />

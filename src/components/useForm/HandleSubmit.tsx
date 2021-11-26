@@ -9,6 +9,7 @@ import CodeArea from "../CodeArea"
 import handleSubmitCode from "../codeExamples/handleSubmitCode"
 import handleSubmitCodeTs from "../codeExamples/handleSubmitCodeTs"
 import handleSubmitAsyncCode from "../codeExamples/handleSubmitAsyncCode"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -45,6 +46,8 @@ export default ({ currentLanguage }) => {
                 url="https://codesandbox.io/s/react-hook-form-async-submit-validation-kpx0o"
               />
             </TabGroup>
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

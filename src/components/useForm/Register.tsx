@@ -5,6 +5,7 @@ import api from "../../data/en/api"
 import ApiRefTable from "../ApiRefTable"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -31,6 +32,8 @@ export default ({ currentLanguage }) => {
             </code>
 
             <ApiRefTable api={api} currentLanguage={currentLanguage} />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />

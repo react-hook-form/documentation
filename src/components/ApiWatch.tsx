@@ -7,6 +7,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
+import StarRepo from "./StarRepo"
 
 export default function ApiWatch({
   currentLanguage,
@@ -155,6 +156,8 @@ export default function ApiWatch({
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
+
+      <StarRepo currentLanguage="en" />
     </>
   )
 }

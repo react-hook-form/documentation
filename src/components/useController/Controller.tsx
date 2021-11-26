@@ -5,6 +5,7 @@ import api from "../../data/en/api"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import ControllerContent from "../ControllerContent"
+import StarRepo from "../StarRepo"
 
 export default ({ currentLanguage }) => {
   return (
@@ -22,6 +23,8 @@ export default ({ currentLanguage }) => {
         <main>
           <section>
             <ControllerContent currentLanguage={currentLanguage} api={api} />
+
+            <StarRepo currentLanguage="en" />
           </section>
 
           <Footer currentLanguage={currentLanguage || "en"} />
