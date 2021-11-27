@@ -2060,9 +2060,32 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </li>
           <li>
             <p>
-              Change <code>keyName</code> to other when your form value contains{" "}
-              <code>id</code> which is the default key name.
+              <code>useFieldArray</code> automatically generates a unique
+              identifier named <code>id</code> which is used for{" "}
+              <code>key</code> prop. For more information why this is required:{" "}
+              <a
+                href={"https://reactjs.org/docs/lists-and-keys.html#keys"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://reactjs.org/docs/lists-and-keys.html#keys
+              </a>
             </p>
+
+            <p>
+              If your array field contains objects with the key name{" "}
+              <strong>
+                <code>id</code>
+              </strong>
+              , <code>useFieldArray</code> will overwrite and remove it.
+            </p>
+
+            <p>
+              If you want to keep the <code>id</code> field in your array of
+              objects, you must use <code>keyName</code> prop to change to other
+              name. Refer to the following example:
+            </p>
+
             <CodeArea
               withOutCopy
               rawData={`const { fields } = useFieldArray({

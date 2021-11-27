@@ -25,11 +25,7 @@ export default {
           Components mount to the page is much quicker as well because they are
           not controlled. For mounting speed, I have completed a quick
           comparison test which you can refer to by{" "}
-          <a
-            href="https://github.com/bluebill1049/react-hook-form-performance-compare"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/bluebill1049/react-hook-form-performance-compare">
             this repo link
           </a>
           .
