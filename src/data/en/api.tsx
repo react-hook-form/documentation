@@ -2073,17 +2073,14 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             </p>
 
             <p>
-              If your array field contains objects with the key name{" "}
+              When your array field contains objects with the key name{" "}
               <strong>
                 <code>id</code>
               </strong>
-              , <code>useFieldArray</code> will overwrite and remove it.
-            </p>
-
-            <p>
-              If you want to keep the <code>id</code> field in your array of
-              objects, you must use <code>keyName</code> prop to change to other
-              name. Refer to the following example:
+              , <code>useFieldArray</code> will overwrite and remove it. If you
+              want to keep the <code>id</code> field in your array of objects,
+              you must use <code>keyName</code> prop to change to other name.
+              Refer to the following example:
             </p>
 
             <CodeArea
