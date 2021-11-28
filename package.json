@@ -6,7 +6,6 @@
   "dependencies": {
     "@hookform/devtools": "2.0.0-beta.1",
     "gatsby": "^3.3.0",
-    "gatsby-image": "3.3.0",
     "gatsby-plugin-algolia-docsearch": "^1.0.5",
     "gatsby-plugin-google-analytics": "3.3.0",
     "gatsby-plugin-gtag": "1.0.13",
