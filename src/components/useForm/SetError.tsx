@@ -64,6 +64,21 @@ export default ({ currentLanguage }) => {
               />
             </TabGroup>
 
+            <h2 className={typographyStyles.subTitle}>Video</h2>
+            <p>
+              The following video explain <code>setError</code> API in detail.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form setError"
+              src={"https://www.youtube.com/embed/raMqvE0YyIY"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+
             <StarRepo currentLanguage="en" />
           </section>
 
