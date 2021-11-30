@@ -246,7 +246,7 @@ export default {
           </li>
           <li>
             <p>
-              By default, <code>shouldUnregister: false</code> unmounted fields
+              By default <code>shouldUnregister: false</code>: unmounted fields
               will <strong>not</strong> be validated by build-in validation.
             </p>
           </li>
