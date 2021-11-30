@@ -245,6 +245,12 @@ export default {
             </p>
           </li>
           <li>
+            <p>
+              By default, <code>shouldUnregister: false</code> unmounted fields
+              will <strong>not</strong> be validated by build-in validation.
+            </p>
+          </li>
+          <li>
             <>
               By setting <code>shouldUnregister</code> to true at{" "}
               <code>useForm</code> level, <code>defaultValues</code> will{" "}
