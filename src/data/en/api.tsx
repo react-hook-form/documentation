@@ -1461,6 +1461,8 @@ reset({ deepNest: { file: new File() } });
                 <p>
                   set <code>isValid</code> to true
                 </p>
+              </li>
+              <li>
                 <p>
                   set <code>errors</code> to empty object
                 </p>
