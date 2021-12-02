@@ -47,6 +47,23 @@ export default ({ currentLanguage }) => {
               />
             </TabGroup>
 
+            <h2 className={typographyStyles.subTitle}>Video</h2>
+
+            <p>
+              The following video tutorial explain in detail with
+              <code>handleSubmit</code> API.
+            </p>
+
+            <iframe
+              width="100%"
+              height="528"
+              title="react hook form controller build"
+              src={"https://www.youtube.com/embed/KzcPKB9SOEk"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+
             <StarRepo currentLanguage="en" />
           </section>
 
