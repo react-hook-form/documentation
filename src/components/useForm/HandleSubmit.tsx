@@ -50,8 +50,7 @@ export default ({ currentLanguage }) => {
             <h2 className={typographyStyles.subTitle}>Video</h2>
 
             <p>
-              The following video tutorial explain in detail with
-              <code>handleSubmit</code> API.
+              The following video tutorial explains the <code>handleSubmit</code> API in detail.
             </p>
 
             <iframe
