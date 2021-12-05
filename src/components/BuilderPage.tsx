@@ -216,6 +216,7 @@ function BuilderPage({
             defaultValue={editFormData.type}
           >
             <option value="text">Text</option>
+            <option value="password">Password</option>
             <option value="select">Select</option>
             <option value="checkbox">Checkbox</option>
             <option value="radio">Radio</option>
