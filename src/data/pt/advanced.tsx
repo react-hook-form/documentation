@@ -336,7 +336,7 @@ export default {
     ),
   },
   workingWithVirtualizedList: {
-    title: "Working with virtualized list",
+    title: "Trabalhando com lista virtualizada",
     description: (
       <>
         <p>
@@ -369,7 +369,7 @@ export default {
     ),
   },
   testingForm: {
-    title: "Testing Form",
+    title: "Testando formulário",
     description: (
       <>
         <p>
