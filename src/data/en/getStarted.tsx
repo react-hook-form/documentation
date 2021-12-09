@@ -34,6 +34,11 @@ export default {
           your uncontrolled component into the hook. This will make its value
           available for both the form validation and submission.
         </p>
+        <p>
+          If you are working with typescript and wish to define the type of
+          register then you can define it as{" "}
+          <code>register: UseFormRegister{`<FieldValues>`}</code>
+        </p>
 
         <p>
           <b className={typographyStyles.note}>Note:</b> Each field is{" "}
@@ -98,10 +103,10 @@ export default {
   adapting: {
     title: "Integrating an existing form",
     description: (
-      <>
+      <p>
         Integrating an existing form is simple. The important step is to apply{" "}
         <code>register</code> into the component's <code>ref</code>.
-      </>
+      </p>
     ),
   },
   controlledInput: {
