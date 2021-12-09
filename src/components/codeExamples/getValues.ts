@@ -15,7 +15,7 @@ export default function App() {
           const values = getValues(); // { test: "test-input", test1: "test1-input" }
           const singleValue = getValues("test"); // "test-input"
           const multipleValues = getValues(["test", "test1"]);
-          // [{ test: "test-input" }, { test1: "test1-input" }]
+          // ["test-input", "test1-input"]
         }}
       >
         Get Values

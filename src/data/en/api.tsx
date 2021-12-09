@@ -433,7 +433,7 @@ const onClick = () => {
                   <code>unregister(["yourDetails.lastName"])</code>
                 </td>
                 <td>
-                  <code>{`{ firstName: '' }`}</code>
+                  <code>{`''`}</code>
                 </td>
               </tr>
             </tbody>
