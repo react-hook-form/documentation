@@ -11,6 +11,8 @@ function App() {
 
   const onSubmit = (data) => {
     console.log(data);
+    // with 7.22.0 you can reset here without useEffect
+    // reset({ ...data })
   };
 
   React.useEffect(() => {
