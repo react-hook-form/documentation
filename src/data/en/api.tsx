@@ -532,14 +532,14 @@ const onClick = () => {
         <ul>
           <li>
             <p>
-              It is <b>required</b> and <b>unique</b> (except native radio and
+              <code>name</code> is <b>required</b> and <b>unique</b> (except native radio and
               checkbox). Input name supports both dot and bracket syntax, which
               allows you to easily create nested form fields.
             </p>
           </li>
           <li>
             <p>
-              It can neither start with a number nor use number as key name.
+              <code>name</code> can neither start with a number nor use number as key name.
             </p>
           </li>
           <li>
