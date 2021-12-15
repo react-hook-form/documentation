@@ -35,16 +35,12 @@ function App() {
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
-            <input
-              defaultValue={\`\${item.firstName}\`}
-              {...register(\`names[\${index}].firstName\`)}
-            />
+            <input {...register(\`names.\${index}.firstName\`)} />
 
             <Controller
               render={({ field }) => <input {...field} />}
-              name={\`names[\${index}].lastName\`}
+              name={\`names.\${index}.lastName\`}
               control={control}
-              defaultValue={item.lastName}
             />
             <button type="button" onClick={() => remove(index)}>Delete</button>
           </li>
