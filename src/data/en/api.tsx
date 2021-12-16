@@ -532,14 +532,16 @@ const onClick = () => {
         <ul>
           <li>
             <p>
-              <code>name</code> is <b>required</b> and <b>unique</b> (except native radio and
-              checkbox). Input name supports both dot and bracket syntax, which
-              allows you to easily create nested form fields.
+              <code>name</code> is <b>required</b> and <b>unique</b> (except
+              native radio and checkbox). Input name supports both dot and
+              bracket syntax, which allows you to easily create nested form
+              fields.
             </p>
           </li>
           <li>
             <p>
-              <code>name</code> can neither start with a number nor use number as key name.
+              <code>name</code> can neither start with a number nor use number
+              as key name.
             </p>
           </li>
           <li>
@@ -725,6 +727,8 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           <p>
             You can pass a callback function as the argument to validate, or you
             can pass an object of callback functions to validate all of them.
+            This function will be executed on its own without depending on other
+            validation rules include <code>required</code> attribute.
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
