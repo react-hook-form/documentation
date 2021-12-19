@@ -186,11 +186,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <iframe
             width="100%"
-            height="528"
+            height="500"
             title="react hook form video tutorial"
             src={
               isV7
-                ? "https://www.youtube.com/embed/DN8v7_RbVlc"
+                ? "https://www.youtube.com/embed/RkXv4AXXC_4"
                 : "https://www.youtube.com/embed/-mFXqOaqgZk"
             }
             frameBorder="0"
