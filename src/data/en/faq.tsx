@@ -23,11 +23,13 @@ export default {
       description: (
         <p>
           Performance is one of the primary reasons why this library was
-          created. React Hook Form relies on uncontrolled components, which is
-          the reason why the <code>register</code> function capture{" "}
-          <code>ref</code>. This approach reduces the amount of re-rendering
-          that occurs due to a user typing in an input or other form values
-          changing. Components mount to the page faster than controlled
+          created. React Hook Form relies on uncontrolled form, which is the
+          reason why the <code>register</code> function capture <code>ref</code>{" "}
+          and controlled component has its re-rendering scope with{" "}
+          <code>Controller</code> or <code>useController</code>. This approach
+          reduces the amount of re-rendering that occurs due to a user typing in
+          input or other form values changing at the root of your form or
+          applications. Components mount to the page faster than controlled
           components because they have less overhead. As a reference, there is a
           quick comparison test that you can refer to at{" "}
           <a
@@ -110,10 +112,11 @@ export default {
       title: "How to initialize form values?",
       description: (
         <p>
-          Being that React Hook Form relies on uncontrolled components, you can
+          Being that React Hook Form relies on uncontrolled form, you can
           specify a <code>defaultValue</code> or <code>defaultChecked</code> to
-          an individual field. However, it is more common to initialize a form
-          by passing <code>defaultValues</code> to <code>useForm</code>.
+          an individual field. However, it is more common and recommended to
+          initialize a form by passing <code>defaultValues</code> to{" "}
+          <code>useForm</code>.
         </p>
       ),
     },
