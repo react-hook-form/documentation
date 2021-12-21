@@ -159,7 +159,7 @@ export default {
           </p>
 
           <p>
-            React Hook Form is based on uncontrolled inputs, which means you
+            React Hook Form is focusing on uncontrolled inputs, which means you
             don't need to change the input <code>value</code> via{" "}
             <code>state</code> via <code>onChange</code>. This means you don't
             need <code>value</code> at all, and in fact, you only need to set{" "}

@@ -36,7 +36,7 @@ export default {
       title: "How to create an accessible input error and message?",
       description: (
         <p>
-          React Hook Form is based on{" "}
+          React Hook Form is focusing on{" "}
           <a
             href="https://reactjs.org/docs/uncontrolled-components.html"
             rel="noopener noreferrer"
