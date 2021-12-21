@@ -475,7 +475,7 @@ export default {
       ),
     },
     {
-      title: "Controller not working with shouldFocusError?",
+      title: "Controller not working with shouldFocusError? (V6)",
       description: (
         <>
           <p>
