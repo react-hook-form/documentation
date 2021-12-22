@@ -2877,8 +2877,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
                 <p>
                   You need to either set <code>defaultValue</code> at the
                   field-level or call <code>useForm</code> with{" "}
-                  <code>defaultValues</code>. If both are set,
-                  <code>devaultValues</code> will be used.
+                  <code>defaultValues</code>. If both are set,{" "}
+                  <code>defaultValue</code> will be used.
                 </p>
                 <p>
                   <b className={typographyStyles.note}>Note:</b> inline{" "}
