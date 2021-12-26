@@ -54,7 +54,7 @@ function CodeCompareSection({
             }
             style={{
               width: "100%",
-              height: 565,
+              height: 570,
               border: 0,
               borderRadius: 4,
               overflow: "hidden",
