@@ -37,23 +37,13 @@ export default ({ currentLanguage }) => {
 
             {api.setValue.description}
 
-            <TabGroup
-              buttonLabels={[
-                "basic",
-                "useFieldArray set value",
-                "dependant fields",
-              ]}
-            >
+            <TabGroup buttonLabels={["basic", "dependant fields"]}>
               <CodeArea
                 rawData={setValue}
                 url="https://codesandbox.io/s/react-hook-form-v7-setvalue-h8wbk"
                 tsRawData={setValueTs}
                 rawTypes={setValueTypes}
                 tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-setvalue-8z9hx"
-              />
-              <CodeArea
-                rawData={setValueUseFieldArray}
-                url="https://codesandbox.io/s/usefieldarray-with-setvalue-ykupr"
               />
               <CodeArea
                 rawData={dependantFields}
