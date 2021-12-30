@@ -1617,7 +1617,13 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
             </p>
             <p>
               To update the entire Field Array, make sure the{" "}
-              <code>useFieldArray</code> hook is being executed.
+              <code>useFieldArray</code> hook is being executed first.
+            </p>
+            <p>
+              <b className={typographyStyles.note}>Important: </b> use{" "}
+              <code>replace</code> from <code>useFieldArray</code> instead,
+              update entire field array with <code>setValue</code> will be
+              removed in the next major version.
             </p>
             <CodeArea
               rawData={`// you can update an entire Field Array, 
@@ -1677,23 +1683,15 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                         </li>
                         <li>
                           <p>
-                            It will update both the <code>fields</code> object
-                            and the entire field array's internal state when
-                            target the root/parent of your field array.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
                             It will not create new field when target a none
-                            existing field, however you can update the entire
-                            fields object by treat it as a group of inputs.
+                            existing field.
                           </p>
 
                           <CodeArea
-                            rawData={`useFieldArray({ name: 'test' })
+                            rawData={`const { replace } = useFieldArray({ name: 'test' })
 setValue('test.101.data')
 // ❌ doesn't create new input
-setValue('test', [{data: 'test'}]) 
+replace([{data: 'test'}]) 
 // ✅ work on refresh entire field array
 `}
                           />
