@@ -1666,11 +1666,39 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                       <p>Target a single input by its name.</p>
                     </li>
                     <li>
-                      <p>
-                        Target a field array name. Note it will update both the{" "}
-                        <code>fields</code> object and the entire field array's
-                        internal state.
-                      </p>
+                      <p>When used with field array.</p>
+                      <ul>
+                        <li>
+                          <p>
+                            It's recommend to use field array's methods such as{" "}
+                            <code>replace</code>/<code>update</code> instead of{" "}
+                            <code>setValue</code>.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            It will update both the <code>fields</code> object
+                            and the entire field array's internal state when
+                            target the root/parent of your field array.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            It will not create new field when target a none
+                            existing field, however you can update the entire
+                            fields object by treat it as a group of inputs.
+                          </p>
+
+                          <CodeArea
+                            rawData={`useFieldArray({ name: 'test' })
+setValue('test.101.data')
+// ❌ doesn't create new input
+setValue('test', [{data: 'test'}]) 
+// ✅ work on refresh entire field array
+`}
+                          />
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </td>
