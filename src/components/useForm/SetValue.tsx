@@ -9,7 +9,6 @@ import CodeArea from "../CodeArea"
 import setValue from "../codeExamples/setValue"
 import setValueTs from "../codeExamples/setValueTs"
 import setValueTypes from "../codeExamples/setValueTypes"
-import setValueUseFieldArray from "../codeExamples/setValueUseFieldArray"
 import dependantFields from "../codeExamples/dependantFieldsTS"
 import StarRepo from "../StarRepo"
 
