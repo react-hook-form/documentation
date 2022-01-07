@@ -1585,7 +1585,12 @@ clearErrors('test.firstName'); // for clear single input error
 
             <CodeArea
               rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
-setValue('yourDetails', { firstName: 'value' }); // less performant `}
+setValue('yourDetails', { firstName: 'value' }); // less performant 
+
+register('nestedValue', { value: { test: 'data' } }); // register a nested value input
+setValue('nestedValue.test', 'updatedData'); // ❌ failed to find the relevant field
+setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input and update
+`}
               withOutCopy
             />
           </li>
