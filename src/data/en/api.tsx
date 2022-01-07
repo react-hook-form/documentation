@@ -1453,26 +1453,6 @@ reset({ deepNest: { file: new File() } });
               This will not affect the validation rules attached to each inputs.
             </p>
           </li>
-          <li>
-            <p>
-              This function will update the following <code>formState</code>,
-              note this has no effect on your validation rules, it only
-              temporarily marks your errors as an empty object and set form to
-              valid.
-            </p>
-            <ul>
-              <li>
-                <p>
-                  set <code>isValid</code> to true
-                </p>
-              </li>
-              <li>
-                <p>
-                  set <code>errors</code> to empty object
-                </p>
-              </li>
-            </ul>
-          </li>
         </ul>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
