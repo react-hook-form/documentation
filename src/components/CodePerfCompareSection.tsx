@@ -1,21 +1,13 @@
 import * as React from "react"
 import { SimpleImg } from "react-simple-img"
-import { AnimateGroup, Animate } from "react-simple-animate"
+import { AnimateGroup } from "react-simple-animate"
 import formik from "../images/formik.min.png"
 import hookFrom from "../images/hookform.min.png"
 import reduxForm from "../images/reduxform.min.png"
-import reactHookFormVideo from "../images/react-hook-form-test.min.mp4"
-import formikVideo from "../images/formik-test.min.mp4"
 import home from "../data/home"
 import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./CodePerfCompareSection.module.css"
-
-const props = {
-  start: { transform: "translateY(100px)" },
-  end: { transform: "translateY(0)" },
-  easeType: "ease-in",
-}
 
 function CodePerfCompareSection({
   isPlayRender,
@@ -26,47 +18,6 @@ function CodePerfCompareSection({
 }) {
   return (
     <AnimateGroup play={isPlayRender}>
-      <div className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1} id="rendering">
-          {home.rendering[currentLanguage].title}
-        </h1>
-
-        {home.rendering[currentLanguage].description}
-      </div>
-
-      <section className={styles.videoWrapper}>
-        <Animate
-          {...props}
-          sequenceIndex={1}
-          render={({ style }) => (
-            <section style={style}>
-              <video controls autoPlay playsInline muted loop>
-                <source src={reactHookFormVideo} type="video/mp4" />
-              </video>
-              <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <b className={typographyStyles.note}>3</b>
-              </p>
-            </section>
-          )}
-        />
-        <Animate
-          {...props}
-          sequenceIndex={0}
-          render={({ style }) => (
-            <section style={style}>
-              <video controls autoPlay playsInline muted loop>
-                <source src={formikVideo} type="video/mp4" />
-              </video>
-              <p>
-                {home.rendering[currentLanguage].totalReRender}{" "}
-                <b className={typographyStyles.note}>30+</b>
-              </p>
-            </section>
-          )}
-        />
-      </section>
-
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>
           {home.mount[currentLanguage].title}

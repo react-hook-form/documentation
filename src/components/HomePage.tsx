@@ -76,7 +76,6 @@ function HomePage({
 
     const featureList = document.querySelector("#featureLast")
     const codeComparison = document.querySelector("#codeComparison")
-    const rendering = document.querySelector("#rendering")
     const isolate = document.querySelector("#isolate")
     const watch = document.querySelector("#watch")
     // const card = document.querySelector("#card")
@@ -89,9 +88,6 @@ function HomePage({
           }
           if (entry.target === codeComparison && !isPlayCodeCompare) {
             setCodeComparePlay(true)
-          }
-          if (entry.target === rendering && !isPlayRender) {
-            setRenderPlay(true)
           }
           if (entry.target === isolate && !isIsolatePlay) {
             setIsolatePlay(true)
@@ -108,7 +104,6 @@ function HomePage({
 
     observer.observe(featureList)
     observer.observe(codeComparison)
-    observer.observe(rendering)
     observer.observe(isolate)
     observer.observe(watch)
     // observer.observe(card)
