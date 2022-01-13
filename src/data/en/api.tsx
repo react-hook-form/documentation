@@ -1452,6 +1452,10 @@ reset({ deepNest: { file: new File() } });
             <p>
               This will not affect the validation rules attached to each inputs.
             </p>
+            <p>
+              This method doesn't affect validation rules or{" "}
+              <code>isValid</code> formState.
+            </p>
           </li>
         </ul>
 
