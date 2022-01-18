@@ -12,15 +12,18 @@ export default function App() {
       firstName: ""
     }
   });
-  
+
   // you can invoke before render or within the render function
-  const { isDirty, invalid, isTouched, error } = getFieldState('firstName')
+  const fieldState = getFieldState("firstName");
 
   return (
     <form>
       <input {...register("firstName", { required: true })} />
-      <p>{getFieldState('firstName').isDirty && "dirty"}</p>
-      <button type="button" onClick={() => console.log(getFieldState()))}>field state</button>
+      <p>{getFieldState("firstName").isDirty && "dirty"}</p>
+      <p>{getFieldState("firstName").isTouched && "touched"}</p>
+      <button type="button" onClick={() => console.log(getFieldState("firstName"))}>
+        field state
+      </button>
     </form>
   );
 }

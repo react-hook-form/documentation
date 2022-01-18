@@ -184,7 +184,10 @@ getFieldState('test', formState); // ✅ register input and return field state
               </table>
             </div>
 
-            <CodeArea rawData={getFieldState} />
+            <CodeArea
+              rawData={getFieldState}
+              url={"https://codesandbox.io/s/getfieldstate-jvekk"}
+            />
 
             <StarRepo currentLanguage="en" />
           </section>
