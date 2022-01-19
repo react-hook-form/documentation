@@ -2565,7 +2565,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               </li>
               <li>
                 Setting <code>defaultValue</code> inline or at{" "}
-                <code>useForm</code> can not be <code>undefined</code>.
+                <code>useForm</code> can not be <code>undefined</code> or{" "}
+                <code>null</code>.
               </li>
             </ul>
           </td>
@@ -2912,7 +2913,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               </li>
               <li>
                 Setting <code>defaultValue</code> inline or at{" "}
-                <code>useForm</code> can not be <code>undefined</code>.
+                <code>useForm</code> can not be <code>undefined</code> or{" "}
+                <code>null</code>.
               </li>
             </ul>
           </td>
