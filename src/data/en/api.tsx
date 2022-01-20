@@ -591,6 +591,21 @@ register('test[0]firstName'); // ❌`}
               reference.
             </p>
           </li>
+          <li>
+            <p>
+              Individual register option can't be removed by{" "}
+              <code>undefined</code> or <code>{}</code>, update individual
+              attribute instead.
+            </p>
+
+            <CodeArea
+              rawData={`register('test', { required: true });
+register('test', {}); // ❌ 
+register('test', undefined); // ❌ 
+register('test', { required: true });  // ✅
+`}
+            />
+          </li>
         </ul>
       </>
     ),
