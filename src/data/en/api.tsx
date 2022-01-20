@@ -602,7 +602,7 @@ register('test[0]firstName'); // ❌`}
               rawData={`register('test', { required: true });
 register('test', {}); // ❌ 
 register('test', undefined); // ❌ 
-register('test', { required: true });  // ✅
+register('test', { required: false });  // ✅
 `}
             />
           </li>
