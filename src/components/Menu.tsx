@@ -24,6 +24,7 @@ const pages = [
       { pathname: "/api/useform/setvalue", name: "setValue" },
       { pathname: "/api/useform/setfocus", name: "setFocus" },
       { pathname: "/api/useform/getvalues", name: "getValues" },
+      { pathname: "/api/useform/getfieldstate", name: "getFieldState" },
       { pathname: "/api/useform/trigger", name: "trigger" },
       { pathname: "/api/useform/control", name: "control" },
     ],
@@ -66,6 +67,8 @@ function Menu() {
   const { state } = useStateMachine({ updateCurrentLanguage })
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
+
+  console.log("pathname", pathname)
 
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
