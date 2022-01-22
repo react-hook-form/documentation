@@ -83,6 +83,10 @@ export default ({ currentLanguage }) => {
               value: "/api/useform/getvalues",
             },
             {
+              label: "getFieldState",
+              value: "/api/useform/getfieldstate",
+            },
+            {
               label: "trigger",
               value: "/api/useform/trigger",
             },
