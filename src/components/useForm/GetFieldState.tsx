@@ -169,7 +169,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                   </tr>
                   <tr>
                     <td>
-                      <p>invalid</p>
+                      <p>error</p>
                     </td>
                     <td>
                       <code className={typographyStyles.typeText}>
