@@ -12,6 +12,7 @@ export default function App() {
       firstName: ""
     }
   });
+  const handleClick = () => resetField("firstName");
 
   return (
     <form>
