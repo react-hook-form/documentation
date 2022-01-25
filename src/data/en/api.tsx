@@ -112,6 +112,27 @@ export default {
           <code>undefined</code> values such as the empty <code>string</code> or{" "}
           <code>null</code>.
         </p>
+
+        <p>
+          <b className={typographyStyles.note}>Important:</b> You should provide
+          a proper default value and avoid <code>undefined</code>.
+        </p>
+        <ul>
+          <li>
+            <p>
+              undefined is reserved for fallback from inline{" "}
+              <code>defaultValue</code>/<code>defaultChecked</code> to hook
+              level <code>defaultValues</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>undefined</code> value is conflicting with controlled
+              component as default state
+            </p>
+          </li>
+        </ul>
+
         <p>
           You can set an input's default value with{" "}
           <code>defaultValue/defaultChecked</code>{" "}
