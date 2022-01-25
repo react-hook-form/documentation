@@ -145,7 +145,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                       <p>field is modified.</p>
                       <p>
                         <b className={typographyStyles.note}>Condition: </b>
-                        Subscribe to <code>dirtyFields</code>.
+                        subscribe to <code>dirtyFields</code>.
                       </p>
                     </td>
                   </tr>
@@ -160,7 +160,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                       <p>field has received a focus and blur event.</p>
                       <p>
                         <b className={typographyStyles.note}>Condition: </b>
-                        Subscribe to <code>touchedFields</code>.
+                        subscribe to <code>touchedFields</code>.
                       </p>
                     </td>
                   </tr>
@@ -175,7 +175,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                       <p>field is not valid.</p>
                       <p>
                         <b className={typographyStyles.note}>Condition: </b>
-                        Subscribe to <code>errors</code>.
+                        subscribe to <code>errors</code>.
                       </p>
                     </td>
                   </tr>
@@ -192,7 +192,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                       <p>field error object.</p>
                       <p>
                         <b className={typographyStyles.note}>Condition: </b>
-                        Subscribe to <code>errors</code>.
+                        subscribe to <code>errors</code>.
                       </p>
                     </td>
                   </tr>
