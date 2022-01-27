@@ -73,6 +73,16 @@ const data = [
     active: true,
   },
   {
+    name: "Oleg Butorov",
+    imgUrl: "https://avatars.githubusercontent.com/u/16290753?v=4",
+    url: "https://github.com/Moshyfawn",
+    twitterName: "moshyfawn",
+    bio:
+      "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
+    interests: ["👨‍💻 Tech", "🎮 Games", "🍕 Food"],
+    active: true,
+  },
+  {
     name: "Phillip ED Maier",
     imgUrl:
       "https://avatars3.githubusercontent.com/u/35811186?s=460&u=011235951b44d56d753335ac4cac32046802b300&v=4",
