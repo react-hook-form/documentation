@@ -2600,7 +2600,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               </li>
               <li>
                 Setting <code>defaultValue</code> inline or at{" "}
-                <code>useForm</code> can not be <code>undefined</code>, and
+                <code>useForm</code> can not be <code>undefined</code>, and{" "}
                 <code>null</code> is also invalid for native input such as text
                 box.
               </li>
