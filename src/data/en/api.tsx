@@ -2286,8 +2286,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           </td>
           <td>
             This <code>object</code> contains the <code>defaultValue</code> and{" "}
-            <code>key</code> for all your inputs. It's important to assign{" "}
-            <code>defaultValue</code> to the inputs.
+            <code>key</code> for all your inputs.
             <p>
               <b className={typographyStyles.note}>Important: </b> Because each
               input can be uncontrolled, <code>id</code> is required with mapped
