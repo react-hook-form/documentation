@@ -2290,8 +2290,8 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
             <p>
               <b className={typographyStyles.note}>Important: </b> Because each
               input can be uncontrolled, <code>id</code> is required with mapped
-              components to help React to identify which items have changed, are
-              added, or are removed.
+              components to help React to identify which items have changed,
+              added, or removed.
             </p>
             <CodeArea
               rawData={`{fields.map((data, index) =>
@@ -2322,6 +2322,10 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               Append input/inputs to the end of your fields and focus. The input
               value will be registered during this action.
             </p>
+            <p>
+              <b className={typographyStyles.note}>Note: </b> append data is
+              required and not partial.
+            </p>
           </td>
         </tr>
         <tr>
@@ -2340,6 +2344,10 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
               Prepend input/inputs to the start of your fields and focus. The
               input value will be registered during this action.
             </p>
+            <p>
+              <b className={typographyStyles.note}>Note: </b> prepend data is
+              required and not partial.
+            </p>
           </td>
         </tr>
         <tr>
@@ -2353,6 +2361,10 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           </td>
           <td>
             <p>Insert input/inputs at particular position and focus. </p>
+            <p>
+              <b className={typographyStyles.note}>Note: </b> insert data is
+              required and not partial.
+            </p>
           </td>
         </tr>
         <tr>
