@@ -1169,6 +1169,20 @@ handleSubmit(onSubmit).catch((e) => {
             </p>
           </li>
           <li>
+            When <code>defaultValues</code> is not supplied to{" "}
+            <code>reset</code> API, then HTML native{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
+              }
+            >
+              reset
+            </a>{" "}
+            API will be invoked to restore the form.
+          </li>
+          <li>
             <p>
               When you are subscribed to <code>formState</code>, it's important
               to decouple <code>reset</code> with <code>handleSubmit</code>.
