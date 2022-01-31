@@ -278,7 +278,7 @@ export default {
         we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit is you can connect your input with React Hook Form from much
+        The benefit is you can connect your input with React Hook Form much
         easier.
       </p>
     ),
