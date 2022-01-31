@@ -1169,18 +1169,20 @@ handleSubmit(onSubmit).catch((e) => {
             </p>
           </li>
           <li>
-            When <code>defaultValues</code> is not supplied to{" "}
-            <code>reset</code> API, then HTML native{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={
-                "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
-              }
-            >
-              reset
-            </a>{" "}
-            API will be invoked to restore the form.
+            <p>
+              When <code>defaultValues</code> is not supplied to{" "}
+              <code>reset</code> API, then HTML native{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={
+                  "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
+                }
+              >
+                reset
+              </a>{" "}
+              API will be invoked to restore the form.
+            </p>
           </li>
           <li>
             <p>
