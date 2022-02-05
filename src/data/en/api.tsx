@@ -1198,7 +1198,7 @@ handleSubmit(onSubmit).catch((e) => {
               Avoid calling <code>reset</code> before <code>useForm</code>'s{" "}
               <code>useEffect</code> is invoked, this is because{" "}
               <code>useForm</code>'s subscription needs to be ready before{" "}
-              <code>reset</code> can send signal to flush form state update.
+              <code>reset</code> can send a signal to flush form state update.
             </p>
           </li>
           <li>
