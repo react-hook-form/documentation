@@ -1195,6 +1195,14 @@ handleSubmit(onSubmit).catch((e) => {
           </li>
           <li>
             <p>
+              Avoid calling <code>reset</code> before <code>useForm</code>'s{" "}
+              <code>useEffect</code> is invoked, this is because{" "}
+              <code>useForm</code>'s subscription needs to be ready before{" "}
+              <code>reset</code> can send signal to flush form state update.
+            </p>
+          </li>
+          <li>
+            <p>
               When invoking <code>{`reset({ value })`}</code> without supplying{" "}
               <code>defaultValues</code> via <code>useForm</code>, the library
               will replace <code>defaultValues</code> with a shallow clone{" "}
