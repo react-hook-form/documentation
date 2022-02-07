@@ -4,6 +4,8 @@ import formContext from "./codeExamples/formContext"
 import generic from "../data/generic"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as tableStyles from "../styles/table.module.css"
+import TabGroup from "./TabGroup"
+import formContextFieldArray from "./codeExamples/formContextFieldArray"
 
 export default function FormContext({ currentLanguage, api }) {
   return (
@@ -44,16 +46,28 @@ export default function FormContext({ currentLanguage, api }) {
                 methods.
               </td>
             </tr>
+            <tr>
+              <td>
+                <code>fieldArrays</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>Object</code>
+              </td>
+              <td>An object of name associated useFieldArray methods.</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       {api.useFormContext.description}
 
-      <CodeArea
-        rawData={formContext}
-        url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
-      />
+      <TabGroup buttonLabels={["Conext", "fieldarray"]}>
+        <CodeArea
+          rawData={formContext}
+          url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
+        />
+        <CodeArea rawData={formContextFieldArray} />
+      </TabGroup>
     </>
   )
 }
