@@ -300,7 +300,7 @@ export default {
         API. It solves the problem where data is passed through the component
         tree without having to pass props down manually at every level. This
         also causes the component tree to trigger a re-render when React Hook
-        Form triggers a state update, but we can still can optimise our App if
+        Form triggers a state update, but we can still optimise our App if
         required via the example below.
       </p>
     ),
