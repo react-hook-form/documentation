@@ -19,7 +19,7 @@
   font-size: 1.1rem;
   overflow: hidden;
   position: relative;
-  line-height: 2;
+  line-height: 1;
   margin: 10px auto 20px;
   max-width: 600px;
 }
@@ -54,10 +54,11 @@ h3.subTitle:before {
 }
 
 .rulesTitle {
+  line-height: 1;
   margin-top: 2rem;
   background: var(--color-secondary);
   border-bottom: 0;
-  padding: 0.1rem 0.5rem 0.3rem;
+  padding: 0.4rem 0.5rem 0.6rem 0.5rem;
   border-radius: 6px;
 }
 
