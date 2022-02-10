@@ -2663,11 +2663,7 @@ const { field: checkbox } = useController({ name: 'test1' })
                   <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
-                  <ul>
-                    <li>
-                      <p>A input field name to focus</p>
-                    </li>
-                  </ul>
+                  <p>A input field name to focus</p>
                 </td>
               </tr>
               <tr>
@@ -2681,11 +2677,12 @@ const { field: checkbox } = useController({ name: 'test1' })
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  <ul>
-                    <li>
-                      <p>Whether to select the input content on focus.</p>
-                    </li>
-                  </ul>
+                  <p>Whether to select the input content on focus.</p>
+                  <CodeArea
+                    rawData={`const { setFocus } = useForm()\n
+setFocus("name", { shouldSelect: true })
+`}
+                  />
                 </td>
               </tr>
             </tbody>
