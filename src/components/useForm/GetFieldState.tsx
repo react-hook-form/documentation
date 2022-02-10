@@ -35,52 +35,6 @@ export const GetFieldState = () => {
               typesafe approach.
             </p>
 
-            <h2 className={typographyStyles.subTitle}>Rules</h2>
-
-            <ul>
-              <li>
-                <p>name need to match registered field name.</p>
-
-                <CodeArea
-                  rawData={`getFieldState('test');
-
-getFieldState('test'); // ✅ register input and return field state
-getFieldState('non-existent-name'); // ❌ will return state as false and error as undefined 
-`}
-                />
-              </li>
-              <li>
-                <p>formState will need to subscribed.</p>
-
-                <CodeArea
-                  rawData={`const { register, formState: 'isDirty' } = useForm()
-register('test');
-getFieldState('test'); // ✅ register input and return field state
-
----------------------------
-
-// This is valid with useFormState as well
-const { isDirty } = useFormState();
-
-register('test');
-getFieldState('test'); // ✅ register input and return field state
-`}
-                />
-
-                <CodeArea
-                  rawData={`const { register } = useForm()
-register('test');
-getFieldState('test'); // ❌ formState is subscribed and no re-render to inform state update
-
----------------------------
-
-const { register, formState } = useForm()
-getFieldState('test', formState); // ✅ register input and return field state
-`}
-                />
-              </li>
-            </ul>
-
             <h2 className={typographyStyles.subTitle}>Props</h2>
 
             <div className={tableStyles.tableWrapper}>
@@ -199,6 +153,52 @@ getFieldState('test', formState); // ✅ register input and return field state
                 </tbody>
               </table>
             </div>
+
+            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+            <ul>
+              <li>
+                <p>name need to match registered field name.</p>
+
+                <CodeArea
+                  rawData={`getFieldState('test');
+
+getFieldState('test'); // ✅ register input and return field state
+getFieldState('non-existent-name'); // ❌ will return state as false and error as undefined 
+`}
+                />
+              </li>
+              <li>
+                <p>formState will need to subscribed.</p>
+
+                <CodeArea
+                  rawData={`const { register, formState: 'isDirty' } = useForm()
+register('test');
+getFieldState('test'); // ✅ register input and return field state
+
+---------------------------
+
+// This is valid with useFormState as well
+const { isDirty } = useFormState();
+
+register('test');
+getFieldState('test'); // ✅ register input and return field state
+`}
+                />
+
+                <CodeArea
+                  rawData={`const { register } = useForm()
+register('test');
+getFieldState('test'); // ❌ formState is subscribed and no re-render to inform state update
+
+---------------------------
+
+const { register, formState } = useForm()
+getFieldState('test', formState); // ✅ register input and return field state
+`}
+                />
+              </li>
+            </ul>
 
             <CodeArea
               rawData={getFieldState}

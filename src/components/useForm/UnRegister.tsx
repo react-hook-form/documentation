@@ -183,6 +183,49 @@ export default ({ currentLanguage }) => {
               </table>
             </div>
 
+            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+            <ul>
+              <li>
+                <p>
+                  This method will remove input reference and its value which
+                  means <b>build-in validation</b> rules will be removed as
+                  well.
+                </p>
+              </li>
+              <li>
+                <p>
+                  By <code>unregister</code> an input, it will not affect or
+                  unregister your schema validation.
+                </p>
+                <CodeArea
+                  rawData={`const schema = yup.object().shape({
+  firstName: yup.string().required()
+}).required();
+
+unregister("firstName"); // this will not remove the validation against firstName input
+`}
+                />
+              </li>
+              <li>
+                <p>
+                  Make sure you unmount that input which has{" "}
+                  <code>register</code> callback or else the input will get
+                  registered again.
+                </p>
+                <CodeArea
+                  rawData={`const [show, setShow] = React.useState(true)
+
+const onClick = () => {
+  unregister('test');
+  setShow(false); // make sure to unmount that input so register not invoked again.
+}
+              
+{show && <input {...register('test')} />}`}
+                />
+              </li>
+            </ul>
+
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
               rawData={unregisterCode}

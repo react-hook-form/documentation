@@ -8,6 +8,7 @@ import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 import StarRepo from "./StarRepo"
+import { Link } from "gatsby"
 
 export default function ApiWatch({
   currentLanguage,
@@ -29,7 +30,7 @@ export default function ApiWatch({
 
       {api.watch.description}
 
-      <h2 className={typographyStyles.subTitle}>Return</h2>
+      <h2 className={typographyStyles.subTitle}>Props</h2>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
@@ -127,6 +128,56 @@ export default function ApiWatch({
           </tbody>
         </table>
       </div>
+
+      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+      <ul>
+        <li>
+          <p>
+            When <code>defaultValue</code> is not defined, the first render of{" "}
+            <code>watch</code> will return <code>undefined</code> because it is
+            called before <code>register</code>, but you can set the{" "}
+            <code>defaultValue</code> as the second argument or provide{" "}
+            <code>defaultValues</code> via <code>useForm</code> to avoid this
+            behaviour.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <code>defaultValues</code> was initialised in{" "}
+            <code>useForm</code> as an argument, then the first render will
+            return what's provided in <code>defaultValues</code>.
+          </p>
+        </li>
+        <li>
+          <p>
+            when both <code>defaultValue</code> and <code>defaultValues</code>{" "}
+            are supplied, <code>defaultValue</code> will be returned instead for
+            the first execution before render.
+          </p>
+        </li>
+        <li>
+          <p>
+            After the first render, default values will be shallowly merged with
+            the current form values from the inputs.
+          </p>
+        </li>
+        <li>
+          <p>
+            This API will trigger re-render at the root of your app or form,
+            consider using a callback or the{" "}
+            <Link to={"/api/usewatch"}>useWatch</Link> api if you are
+            experiencing performance issues.
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>watch</code> result is optimised for render phase instead of{" "}
+            <code>useEffect</code>'s deps, to detect value update you may want
+            to use an external custom hook for value comparison.
+          </p>
+        </li>
+      </ul>
 
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea
