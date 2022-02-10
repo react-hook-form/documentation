@@ -264,11 +264,11 @@ const onSubmit = (data) => {
             </p>
           </li>
           <li>
-            <>
+            <p>
               By setting <code>shouldUnregister</code> to true at{" "}
               <code>useForm</code> level, <code>defaultValues</code> will{" "}
               <b>not</b> be merged against submission result.
-            </>
+            </p>
           </li>
           <li>
             <p>
