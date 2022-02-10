@@ -542,34 +542,6 @@ const { onChange } = register('lastChange'); // this onChange method can update 
           />
 
           <h4 className={typographyStyles.questionTitle}>
-            Custom onChange, onBlur
-          </h4>
-
-          <p>
-            When you want to combine with your <code>onChange</code>,{" "}
-            <>onBlur</>, you can achieve by the following:
-          </p>
-
-          <CodeArea
-            rawData={`// onChange got overwritten by register's onChange method
-<input onChange={handleChange} {...register('test')} />
-
-// register's onChange got overwritten by given onChange props (handleChange)
-<input {...register('test')} onChange={handleChange}/>
-
-const firstName = register('firstName', { required: true })
-<input 
-  onChange={(e) => {
-    firstName.onChange(e); // method from hook form register
-    handleChange(e); // your method
-  }}
-  onBlur={firstName.onBlur}
-  ref={firstName.ref} 
-/>
-`}
-          />
-
-          <h4 className={typographyStyles.questionTitle}>
             How to work with innerRef, inputRef?
           </h4>
 
