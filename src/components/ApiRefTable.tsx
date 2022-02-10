@@ -734,8 +734,8 @@ register('test[0]firstName'); // ❌`}
           <li>
             <p>
               Individual register option can't be removed by{" "}
-              <code>undefined</code> or <code>{}</code>, update individual
-              attribute instead.
+              <code>undefined</code> or <code>{`{}`}</code>. You can update
+              individual attribute instead.
             </p>
 
             <CodeArea
