@@ -241,7 +241,7 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
+        render={({ onChange, value }) => <Input onChange={onChange} value={value} />}
       />
       <Controller
         name="iceCreamType"
@@ -283,7 +283,7 @@ const App = () => {
         name="firstName"
         control={control}
         defaultValue=""
-        render={({ onChange, value }) => <input onChange={onChange} value={value} />}
+        render={({ onChange, value }) => <Input onChange={onChange} value={value} />}
       />
       <Controller
         name="iceCreamType"
