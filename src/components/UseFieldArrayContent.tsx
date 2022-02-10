@@ -45,6 +45,168 @@ export default function UseFieldArrayContent({
         </table>
       </div>
 
+      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+      <ul>
+        <li>
+          <p>
+            The <code>field.id</code> (and not <code>index</code>) must be added
+            as the component key to prevent re-renders breaking the fields:
+            <CodeArea
+              withOutCopy
+              rawData={`// ✅ correct:
+{fields.map((field, index) => (
+  <div key={field.id}>
+    <input ... />
+  </div>
+))}
+// ✅ correct:
+{fields.map((field, index) => <input key={field.id} ... />)}
+// ❌ incorrect:
+{fields.map((field, index) => <input key={index} ... />)}
+`}
+            />
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>useFieldArray</code> automatically generates a unique
+            identifier named <code>id</code> which is used for <code>key</code>{" "}
+            prop. For more information why this is required:{" "}
+            <a
+              href={"https://reactjs.org/docs/lists-and-keys.html#keys"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://reactjs.org/docs/lists-and-keys.html#keys
+            </a>
+          </p>
+
+          <p>
+            When your array field contains objects with the key name{" "}
+            <strong>
+              <code>id</code>
+            </strong>
+            , <code>useFieldArray</code> will overwrite and remove it. If you
+            want to keep the <code>id</code> field in your array of objects, you
+            must use <code>keyName</code> prop to change to other name. Refer to
+            the following example:
+          </p>
+
+          <CodeArea
+            withOutCopy
+            rawData={`const { fields } = useFieldArray({
+  keyName: 'key' // by default key name is id, and input value with name id will be omitted
+})
+              
+{fields.map((field, index) => (
+  <div key={field.key}> // key name changed
+    <input {...register('test.id')} /> // input value id will be retained
+  </div>
+))}
+`}
+          />
+        </li>
+        <li>
+          <p>
+            You can not call actions one after another. Actions need to be
+            triggered per render.
+          </p>
+          <CodeArea
+            withOutCopy
+            rawData={`// ❌ The following is not correct
+handleChange={() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+  append({ test: 'test' });
+}}
+
+// ✅ The following is correct and second action is triggered after next render
+handleChange={() => {
+  append({ test: 'test' });
+}}
+
+React.useEffect(() => {
+  if (fields.length === 2) {
+    remove(0);
+  }
+}, [fields])
+            `}
+          />
+        </li>
+        <li>
+          <p>
+            Each <code>useFieldArray</code> is unique and has its own state
+            update, which means you should not have multiple useFieldArray with
+            the same <code>name</code>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each input name needs to be unique, if you need to build checkbox or
+            radio with the same name then use it with <code>useController</code>{" "}
+            or <code>controller</code>.
+          </p>
+        </li>
+        <li>
+          <p>Does not support flat field array.</p>
+        </li>
+        <li>
+          <p>
+            When you append, prepend, insert and update the field array, the obj
+            can't be empty object <code>{}</code> rather need to supply all your
+            input's defaultValues.
+          </p>
+          <CodeArea
+            withOutCopy
+            rawData={`append(); ❌
+append({}); ❌
+append({ firstName: 'bill', lastName: 'luo' }); ✅`}
+          />
+        </li>
+      </ul>
+
+      <h2 className={typographyStyles.subTitle}>TypeScript</h2>
+
+      <ul>
+        <li>
+          <p>
+            when register input <code>name</code>, you will have to cast them as{" "}
+            <code>const</code>
+          </p>
+          <CodeArea
+            withOutCopy
+            rawData={`<input key={field.id} {...register(\`test.\${index}.test\` as const)} />`}
+          />
+        </li>
+        <li>
+          <p>
+            we do not support circular reference. Refer to this this{" "}
+            <a
+              href={
+                "https://github.com/react-hook-form/react-hook-form/issues/4055"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github issue
+            </a>{" "}
+            for more detail.
+          </p>
+        </li>
+        <li>
+          <p>
+            for nested field array, you will have to cast the field array by its
+            name.
+          </p>
+          <CodeArea
+            withOutCopy
+            rawData={`const { fields } = useFieldArray({ name: \`test.\${index}.keyValue\` as 'test.0.keyValue' });`}
+          />
+        </li>
+      </ul>
+
       <TabGroup
         buttonLabels={[
           "useFieldArray",

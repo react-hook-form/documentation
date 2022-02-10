@@ -24,6 +24,7 @@
   max-width: 600px;
 }
 
+.rulesTitle,
 .subTitle {
   border-bottom: 2px solid var(--color-secondary);
   line-height: 1.8;
@@ -32,12 +33,21 @@
   margin-bottom: 0;
 }
 
+.rulesTitle:before,
 .subTitle:before {
   font-size: 15px;
   position: relative;
   margin-right: 8px;
   top: -2px;
   content: "ⓘ";
+}
+
+.rulesTitle {
+  margin-top: 2rem;
+  background: var(--color-secondary);
+  border-bottom: 0;
+  padding: 0.1rem 0.5rem 0.3rem;
+  border-radius: 6px;
 }
 
 .title:before,

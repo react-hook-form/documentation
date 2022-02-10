@@ -66,9 +66,12 @@ export default function ApiRefTable({
         </table>
       </div>
 
-      <fieldset className={styles.fieldset} style={{ marginTop: 40 }}>
+      <h2 className={typographyStyles.subTitle}>Options</h2>
+
+      <p>{api.register.selectHelp}</p>
+
+      <fieldset className={styles.fieldset} style={{ marginTop: 20 }}>
         <legend>{api.register.options.title}</legend>
-        <p>{api.register.selectHelp}</p>
         <label>
           <input
             onChange={() => toggleOption(true)}
@@ -663,6 +666,87 @@ export default function ApiRefTable({
             </tr>
           </tbody>
         </table>
+
+        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+        <ul>
+          <li>
+            <p>
+              <code>name</code> is <b>required</b> and <b>unique</b> (except
+              native radio and checkbox). Input name supports both dot and
+              bracket syntax, which allows you to easily create nested form
+              fields.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>name</code> can neither start with a number nor use number
+              as key name.
+            </p>
+          </li>
+          <li>
+            <p>
+              we are using dot syntax only for typescript usage consistency, so
+              bracket <code>[]</code> will not work for array form value.
+            </p>
+
+            <CodeArea
+              rawData={`register('test.0.firstName'); // ✅
+register('test[0]firstName'); // ❌`}
+            />
+          </li>
+          <li>
+            <p>
+              <code>disabled</code> input will result in an{" "}
+              <code>undefined</code> form value. If you want to prevent users
+              from updating the input, you can use <code>readOnly</code> or
+              disable the entire {`<fieldset />`}. Here is an{" "}
+              <a
+                href="https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                example
+              </a>
+              .
+            </p>
+          </li>
+          <li>
+            <p>
+              To produce an array of fields, input names should be followed by a{" "}
+              dot and number. For example: <code>test.0.data</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              Changing the name on each render will result in new inputs being
+              registered. It's recommend to keep static names for each
+              registered input.
+            </p>
+          </li>
+          <li>
+            <p>
+              Input value and reference will no longer gets removed based on
+              unmount. You can invoke unregister to remove that value and
+              reference.
+            </p>
+          </li>
+          <li>
+            <p>
+              Individual register option can't be removed by{" "}
+              <code>undefined</code> or <code>{}</code>, update individual
+              attribute instead.
+            </p>
+
+            <CodeArea
+              rawData={`register('test', { required: true });
+register('test', {}); // ❌ 
+register('test', undefined); // ❌ 
+register('test', { required: false });  // ✅
+`}
+            />
+          </li>
+        </ul>
 
         <CodeArea
           rawData={register}

@@ -113,7 +113,7 @@ export default function UseFieldArray({
         </table>
       </div>
 
-      <h2 className={typographyStyles.subTitle}>Rules</h2>
+      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
 
       <ul>
         <li>

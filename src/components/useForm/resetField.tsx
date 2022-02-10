@@ -35,22 +35,6 @@ export default ({ currentLanguage }) => {
 
             <p>Reset an individual field state.</p>
 
-            <h2 className={typographyStyles.subTitle}>Rules</h2>
-
-            <ul>
-              <li>
-                <p>name need to match registered field name.</p>
-
-                <CodeArea
-                  rawData={`register('test');
-
-resetField('test'); // ✅ register input and resetField works
-resetField('non-existent-name'); // ❌ failed by input not found
-`}
-                />
-              </li>
-            </ul>
-
             <h2 className={typographyStyles.subTitle}>Props</h2>
 
             <p>After invoke this function.</p>
@@ -172,6 +156,22 @@ resetField('non-existent-name'); // ❌ failed by input not found
                 </tbody>
               </table>
             </div>
+
+            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+            <ul>
+              <li>
+                <p>name need to match registered field name.</p>
+
+                <CodeArea
+                  rawData={`register('test');
+
+resetField('test'); // ✅ register input and resetField works
+resetField('non-existent-name'); // ❌ failed by input not found
+`}
+                />
+              </li>
+            </ul>
 
             <TabGroup
               buttonLabels={["Reset Field State", "Reset With Options"]}

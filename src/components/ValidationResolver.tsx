@@ -33,6 +33,8 @@ export default function ({ api }) {
 
       {api.resolver.description}
 
+      <h2 className={typographyStyles.subTitle}>Props</h2>
+
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>
@@ -65,8 +67,9 @@ export default function ({ api }) {
               </td>
               <td>
                 <p>
-                  This is the <code>context</code> object which you have
-                  provided to the <code>useForm</code> config.
+                  This is the <code>context</code> object which you can provide
+                  to the <code>useForm</code> config. It is a mutable{" "}
+                  <code>object</code> that can be changed on each re-render.
                 </p>
               </td>
             </tr>
@@ -94,6 +97,59 @@ export default function ({ api }) {
           </tbody>
         </table>
       </div>
+
+      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+      <ul>
+        <li>
+          <p>
+            Schema validation focus on the field level for error reporting.
+            Parent level error look is only limited to the direct parent level
+            that is applicable for components such as group checkboxes.
+          </p>
+        </li>
+
+        <li>
+          <p>This function will be cached.</p>
+        </li>
+
+        <li>
+          <p>
+            Re-validation of an input will only occur one field at time during a
+            user’s interaction. The lib itself will evaluate the{" "}
+            <code>error</code> object to trigger a re-render accordingly.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            A resolver cannot be used with the built-in validators (e.g.:{" "}
+            required, min, etc.)
+          </p>
+        </li>
+
+        <li>
+          <p>When building a custom resolver:</p>
+
+          <ul>
+            <li>
+              <p>
+                Make sure you are returning an object that has both a{" "}
+                <code>values</code> and an <code>errors</code> property. Their
+                default values should be an empty object. For example:{" "}
+                <code>{`{}`}</code>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The keys of the <code>error</code> object should match the{" "}
+                <code>name</code> values of your fields.
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
       <TabGroup
         buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Vest", "Custom"]}

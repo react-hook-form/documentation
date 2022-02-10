@@ -1,6 +1,10 @@
 import * as React from "react"
 import * as typographyStyles from "../styles/typography.module.css"
 import FormStateTable from "./FormStateTable"
+import TabGroup from "./TabGroup"
+import CodeArea from "./CodeArea"
+import formStateUseEffect from "./codeExamples/formStateUseEffect"
+import formStateUseEffectTs from "./codeExamples/formStateUseEffectTs"
 
 export default React.memo(
   ({ api, currentLanguage }: { currentLanguage: string; api: any }) => {
@@ -14,6 +18,49 @@ export default React.memo(
         {api.formState.description}
 
         <FormStateTable currentLanguage={currentLanguage} api={api} />
+
+        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+
+        <p>
+          <code>formState</code> is wrapped with a{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proxy
+          </a>{" "}
+          to improve render performance and skip extra logic if specific state
+          is not subscribed to. Therefore make sure you invoke or read it before{" "}
+          a <code>render</code> in order to enable the state update.
+        </p>
+
+        <TabGroup buttonLabels={["snippet", "example"]}>
+          <CodeArea
+            rawData={`useEffect(() => {
+  if (formState.errors.firstName) {
+    // do the your logic here
+  }
+}, [formState]); // ✅ 
+// ❌ formState.errors will not trigger the useEffect        
+`}
+          />
+          <CodeArea
+            rawData={formStateUseEffect}
+            tsRawData={formStateUseEffectTs}
+          />
+        </TabGroup>
+
+        <CodeArea
+          rawData={`// ❌ formState.isValid is accessed conditionally, 
+// so the Proxy does not subscribe to changes of that state
+return <button disabled={!formState.isDirty || !formState.isValid} />;
+  
+// ✅ read all formState values to subscribe to changes
+const { isDirty, isValid } = formState;
+return <button disabled={!isDirty || !isValid} />;
+`}
+        />
       </>
     )
   }
