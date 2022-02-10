@@ -19,7 +19,9 @@ export default React.memo(
 
         <FormStateTable currentLanguage={currentLanguage} api={api} />
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <p>
           <code>formState</code> is wrapped with a{" "}

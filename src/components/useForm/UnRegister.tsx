@@ -183,7 +183,9 @@ export default ({ currentLanguage }) => {
               </table>
             </div>
 
-            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
 
             <ul>
               <li>
@@ -225,6 +227,10 @@ const onClick = () => {
                 />
               </li>
             </ul>
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
 
             <CodeArea
               url="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"

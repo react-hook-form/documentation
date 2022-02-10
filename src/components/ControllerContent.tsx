@@ -50,6 +50,10 @@ export default function ControllerContent({
 
       <UseControllerMethods currentLanguage={currentLanguage} isController />
 
+      <h2 id={"example"} className={typographyStyles.subTitle}>
+        Examples
+      </h2>
+
       <TabGroup buttonLabels={["Web", "React Native"]}>
         <CodeArea
           rawData={controller}

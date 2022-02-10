@@ -33,6 +33,10 @@ export default ({ currentLanguage }) => {
 
             {api.setFocus.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={setFocus}
               tsRawData={setFocusTs}

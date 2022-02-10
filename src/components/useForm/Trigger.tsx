@@ -34,6 +34,10 @@ export default ({ currentLanguage }) => {
             </code>
             {api.trigger.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={trigger}
               url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-forked-8w9tn"

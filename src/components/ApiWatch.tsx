@@ -129,7 +129,9 @@ export default function ApiWatch({
         </table>
       </div>
 
-      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        Rules
+      </h2>
 
       <ul>
         <li>
@@ -178,6 +180,10 @@ export default function ApiWatch({
           </p>
         </li>
       </ul>
+
+      <h2 id={"example"} className={typographyStyles.subTitle}>
+        Examples
+      </h2>
 
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea

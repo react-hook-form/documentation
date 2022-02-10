@@ -33,7 +33,7 @@ export default function ({ api }) {
 
       {api.resolver.description}
 
-      <h2 className={typographyStyles.subTitle}>Props</h2>
+      <h3 className={typographyStyles.subTitle}>Props</h3>
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
@@ -98,7 +98,9 @@ export default function ({ api }) {
         </table>
       </div>
 
-      <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+      <h3 id={"schema-rules"} className={typographyStyles.rulesTitle}>
+        Rules
+      </h3>
 
       <ul>
         <li>
@@ -150,6 +152,10 @@ export default function ({ api }) {
           </ul>
         </li>
       </ul>
+
+      <h3 id={"resolver-example"} className={typographyStyles.subTitle}>
+        Examples
+      </h3>
 
       <TabGroup
         buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Vest", "Custom"]}

@@ -36,6 +36,10 @@ export default ({ currentLanguage }) => {
 
             {api.setValue.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <TabGroup buttonLabels={["basic", "dependant fields"]}>
               <CodeArea
                 rawData={setValue}

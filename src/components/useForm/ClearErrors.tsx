@@ -32,6 +32,10 @@ export default ({ currentLanguage }) => {
             </code>
             {api.clearError.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={clearError}
               url="https://codesandbox.io/s/react-hook-form-v7-clearerrors-w5tl6"

@@ -7,10 +7,6 @@ import * as typographyStyles from "../../styles/typography.module.css"
 import * as buttonStyles from "../../styles/button.module.css"
 import * as tableStyles from "../../styles/table.module.css"
 import TabGroup from "../../components/TabGroup"
-import formStateUseEffect from "../../components/codeExamples/formStateUseEffect"
-import formStateUseEffectTs from "../../components/codeExamples/formStateUseEffectTs"
-import defaultValues from "../../components/codeExamples/defaultValues"
-import defaultValuesTs from "../../components/codeExamples/defaultValuesTs"
 
 export default {
   title: "API Documentation",
@@ -151,7 +147,7 @@ export default {
           value from <code>defaultValues</code> will be used.
         </p>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h3 className={typographyStyles.rulesTitle}>Rules</h3>
 
         <ul>
           <li>
@@ -874,7 +870,9 @@ append({ firstName: '' });
           </table>
         </div>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
         <ul>
           <li>
             <p>You can easily submit form asynchronously with handleSubmit.</p>
@@ -1092,7 +1090,9 @@ handleSubmit(onSubmit).catch((e) => {
           </table>
         </div>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <ul>
           <li>
@@ -1202,7 +1202,9 @@ handleSubmit(onSubmit).catch((e) => {
           </table>
         </div>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <ul>
           <li>
@@ -1307,7 +1309,9 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
         </ul>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <ul>
           <li>
@@ -1491,7 +1495,10 @@ replace([{data: 'test'}])
           </table>
         </div>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
+
         <ul>
           <li>
             <p>Only the following conditions will trigger a re-render:</p>
@@ -1645,7 +1652,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </table>
         </div>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <ul>
           <li>
@@ -1865,6 +1874,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             </tbody>
           </table>
         </div>
+
+        <h3
+          id={"shouldUnregister-example"}
+          className={typographyStyles.subTitle}
+        >
+          Examples
+        </h3>
 
         <CodeArea rawData={useFieldArrayArgument} />
       </>
@@ -2318,7 +2334,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           Hook Form.
         </p>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <p>
           <b className={typographyStyles.note}>Important:</b> do not access any
@@ -2613,7 +2631,9 @@ const { field: checkbox } = useController({ name: 'test1' })
           sure input's ref is registered into the hook form.
         </p>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <p>
           This API will invoke focus method from the ref, so it's important to

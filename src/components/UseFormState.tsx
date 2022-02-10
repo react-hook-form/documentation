@@ -137,6 +137,10 @@ const formState = useFormState(); // ❌ should deconstruct the formState
 
             <FormStateTable currentLanguage={currentLanguage} api={api} />
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={useFormState}
               url={"https://codesandbox.io/s/useformstate-75xly"}

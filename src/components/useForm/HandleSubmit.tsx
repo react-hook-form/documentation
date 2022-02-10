@@ -34,6 +34,11 @@ export default ({ currentLanguage }) => {
               </h2>
             </code>
             {api.handleSubmit.description}
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <TabGroup buttonLabels={["sync", "async"]}>
               <CodeArea
                 rawData={handleSubmitCode}

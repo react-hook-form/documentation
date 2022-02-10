@@ -58,6 +58,10 @@ export default function UseControllerContent({
 
       <UseControllerMethods currentLanguage={currentLanguage} />
 
+      <h2 id={"example"} className={typographyStyles.subTitle}>
+        Examples
+      </h2>
+
       <TabGroup buttonLabels={["TextField", "Checkboxes"]}>
         <CodeArea
           rawData={useController}

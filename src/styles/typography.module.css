@@ -26,7 +26,7 @@
 
 .rulesTitle,
 .subTitle {
-  border-bottom: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-light-blue);
   line-height: 1.8;
   font-size: 20px;
   font-weight: bold;
@@ -40,6 +40,17 @@
   margin-right: 8px;
   top: -2px;
   content: "ⓘ";
+}
+
+h3.rulesTitle,
+h3.subTitle {
+  font-size: 14px;
+}
+
+h3.rulesTitle:before,
+h3.subTitle:before {
+  top: 0;
+  margin-right: 0.5rem;
 }
 
 .rulesTitle {

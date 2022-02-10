@@ -50,6 +50,10 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.description}
 
+      <h2 id={"example"} className={typographyStyles.subTitle}>
+        Examples
+      </h2>
+
       <CodeArea
         rawData={formContext}
         url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"

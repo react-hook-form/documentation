@@ -667,7 +667,9 @@ export default function ApiRefTable({
           </tbody>
         </table>
 
-        <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
 
         <ul>
           <li>
@@ -747,6 +749,10 @@ register('test', { required: false });  // ✅
             />
           </li>
         </ul>
+
+        <h2 id={"example"} className={typographyStyles.subTitle}>
+          Examples
+        </h2>
 
         <CodeArea
           rawData={register}

@@ -157,7 +157,9 @@ export default ({ currentLanguage }) => {
               </table>
             </div>
 
-            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
 
             <ul>
               <li>
@@ -172,6 +174,10 @@ resetField('non-existent-name'); // ❌ failed by input not found
                 />
               </li>
             </ul>
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
 
             <TabGroup
               buttonLabels={["Reset Field State", "Reset With Options"]}

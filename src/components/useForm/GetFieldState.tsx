@@ -154,7 +154,9 @@ export const GetFieldState = () => {
               </table>
             </div>
 
-            <h2 className={typographyStyles.rulesTitle}>Rules</h2>
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
 
             <ul>
               <li>
@@ -199,6 +201,10 @@ getFieldState('test', formState); // ✅ register input and return field state
                 />
               </li>
             </ul>
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
 
             <CodeArea
               rawData={getFieldState}

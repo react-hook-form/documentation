@@ -30,6 +30,10 @@ export default ({ currentLanguage }) => {
             </code>
             {api.control.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={control}
               url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"

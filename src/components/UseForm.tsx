@@ -140,7 +140,11 @@ const { register } = useForm<FormInputs>({
 })`}
             />
 
-            <h5 className={typographyStyles.h5}>
+            <h2 id={"props"} className={typographyStyles.subTitle}>
+              Props
+            </h2>
+
+            <h5 style={{ marginTop: "1rem" }} className={typographyStyles.h5}>
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
@@ -283,18 +287,6 @@ const { register } = useForm<FormInputs>({
                   <tr>
                     <td>
                       <p>
-                        <code>shouldUnregister</code>
-                        <br />
-                        <code className={typographyStyles.typeText}>
-                          boolean = false
-                        </code>
-                      </p>
-                    </td>
-                    <td>{api.useForm.shouldUnregister}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>
                         <code>delayError</code>
                         <br />
                         <code className={typographyStyles.typeText}>
@@ -313,6 +305,21 @@ const { register } = useForm<FormInputs>({
                 </tbody>
               </table>
             </div>
+
+            <h5
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+              id="shouldUnregister"
+            >
+              <code>
+                shouldUnregister:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`boolean = false`}
+                </span>
+              </code>
+            </h5>
+
+            {api.useForm.shouldUnregister}
 
             <h5
               className={typographyStyles.h5}
@@ -343,19 +350,21 @@ const { register } = useForm<FormInputs>({
             <ul>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> You can turn on
-                  this config and set <code>novalidate</code> at your form and
-                  still use those CSS selectors.
+                  You can turn on this config and set <code>novalidate</code> at
+                  your form and still use those CSS selectors.
                 </p>
               </li>
               <li>
                 <p>
-                  <b className={typographyStyles.note}>Note:</b> This feature
-                  only works for <code>register</code> API, not{" "}
+                  This feature only works for <code>register</code> API, not{" "}
                   <code>useController/Controller</code>.
                 </p>
               </li>
             </ul>
+
+            <h3 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h3>
 
             <CodeArea rawData={shouldUseNativeValidation} />
 
