@@ -26,7 +26,7 @@ export default ({ currentLanguage }) => {
               <h2>
                 setFocus:
                 <span className={typographyStyles.typeText}>
-                  {`(name: string) => void`}
+                  {`(name: string, options: SetFocusOptions) => void`}
                 </span>
               </h2>
             </code>

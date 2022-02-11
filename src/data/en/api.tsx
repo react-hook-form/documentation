@@ -301,13 +301,13 @@ const onSubmit = (data) => {
                   rawData={`const NotWork = () => {
   const [show, setShow] = React.useState(false);
   // ❌ won't get notified, need to invoke unregister
-  return {show && <input {...register('test')} />}                
+  return {show && <input {...register('test')} />}
 }
 
 const Work = () => {
   const { show } = useWatch()
   // ✅ get notified at useEffect
-  return {show && <input {...register('test1')} />}                
+  return {show && <input {...register('test1')} />}
 }
 
 const App = () => {
@@ -316,7 +316,7 @@ const App = () => {
   return (
     <div>
       // ✅ get notified at useForm's useEffect
-      {show && <input {...register('test2')} />}                
+      {show && <input {...register('test2')} />}
       <NotWork />
       <Work control={control} />
     </div>
@@ -534,7 +534,7 @@ const App = () => {
 
           <CodeArea
             rawData={`register('firstName', { required: true, min: 8 });
-            
+
 const { onChange } = register('lastChange'); // this onChange method can update the input value
 
 // This will work for React Native, except you can't reset input value
@@ -555,7 +555,7 @@ const { onChange } = register('lastChange'); // this onChange method can update 
 <TextInput {...register('test')} />
 
 const firstName = register('firstName', { required: true })
-<TextInput 
+<TextInput
   onChange={firstName.onChange}
   onBlur={firstName.onBlur}
   inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
@@ -683,7 +683,7 @@ const { append } = useFieldArray({ name: 'test' })
 
 // append will make form dirty, because a new input is created
 // and form values is no longer deeply equal defaultValues.
-append({ firstName: '' }); 
+append({ firstName: '' });
 `}
             />
           </li>
@@ -1356,7 +1356,7 @@ clearErrors('test.firstName'); // for clear single input error
                             rawData={`const { replace } = useFieldArray({ name: 'test' })
 setValue('test.101.data')
 // ❌ doesn't create new input
-replace([{data: 'test'}]) 
+replace([{data: 'test'}])
 // ✅ work on refresh entire field array
 `}
                           />
@@ -1520,7 +1520,7 @@ replace([{data: 'test'}])
 
             <CodeArea
               rawData={`setValue('yourDetails.firstName', 'value'); // ✅ performant
-setValue('yourDetails', { firstName: 'value' }); // less performant 
+setValue('yourDetails', { firstName: 'value' }); // less performant
 
 register('nestedValue', { value: { test: 'data' } }); // register a nested value input
 setValue('nestedValue.test', 'updatedData'); // ❌ failed to find the relevant field
@@ -1546,14 +1546,14 @@ setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input an
               removed in the next major version.
             </p>
             <CodeArea
-              rawData={`// you can update an entire Field Array, 
+              rawData={`// you can update an entire Field Array,
 // this will trigger an entire field array to be remount and refreshed with updated values.
 setValue('fieldArray', [{ test: '1' }, { test: '2' }]); // ✅
 
 // you can setValue to a unregistered input
 setValue('notRegisteredInput', 'value'); // ✅ prefer to be registered
 
-// the following will register a single input (without register) 
+// the following will register a single input (without register)
 // and update its value in case you expected to be two inputs
 setValue('notRegisteredInput', { test: '1', test2: '2' }); // 🤔
 
@@ -2036,13 +2036,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               to take care of the registration process.
             </p>
             <CodeArea
-              rawData={`<Controller 
+              rawData={`<Controller
   name="test"
   render={({ field }) => {
-    // return <input {...field} {...register('test')} />; ❌ double up the registration  
-    return <input {...field} />; // ✅  
-  }} 
-/>        
+    // return <input {...field} {...register('test')} />; ❌ double up the registration
+    return <input {...field} />; // ✅
+  }}
+/>
 `}
             />
           </li>
@@ -2052,13 +2052,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               value during <code>onChange</code>.
             </p>
             <CodeArea
-              rawData={`<Controller 
+              rawData={`<Controller
   name="test"
   render={({ field }) => {
     // sending integer instead of string.
-    return <input {...field} onChange={(e) => field.onChange(parseInt(e.target.value))} />;  
-  }} 
-/>    
+    return <input {...field} onChange={(e) => field.onChange(parseInt(e.target.value))} />;
+  }}
+/>
 `}
             />
           </li>
@@ -2558,8 +2558,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
             <CodeArea
               rawData={`const { field } = useController({ name: 'test' })
 
-<input {...field} /> // ✅ 
-<input {...field} {...register('test')} /> // ❌ double up the registration        
+<input {...field} /> // ✅
+<input {...field} {...register('test')} /> // ❌ double up the registration
 `}
             />
           </li>
@@ -2575,7 +2575,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
 const { field: checkbox } = useController({ name: 'test1' })
 
 <input {...input} />
-<input {...checkbox} />        
+<input {...checkbox} />
 `}
             />
           </li>
@@ -2603,6 +2603,54 @@ const { field: checkbox } = useController({ name: 'test1' })
           This method will allow users to programmatically focus on input. Make
           sure input's ref is registered into the hook form.
         </p>
+
+        <h2 id="props" className={typographyStyles.subTitle}>
+          Props
+        </h2>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>name</code>
+                </td>
+                <td></td>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>
+                  <p>A input field name to focus</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>options</code>
+                </td>
+                <td>
+                  <code>shouldSelect</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>Whether to select the input content on focus.</p>
+                  <CodeArea
+                    rawData={`const { setFocus } = useForm()\n
+setFocus("name", { shouldSelect: true })
+`}
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2 id={"rules"} className={typographyStyles.rulesTitle}>
           Rules
