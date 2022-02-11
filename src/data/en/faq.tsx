@@ -245,7 +245,7 @@ export default {
                   <td>
                     <b>Rendering</b>
                   </td>
-                  <td>minimum re-render</td>
+                  <td>minimum re-render and optimise computation</td>
                   <td>
                     re-render according to local state changes which means as
                     you type in the input.
@@ -271,9 +271,9 @@ export default {
                     Small
                     <br />
                     <code>
-                      react-hook-form@7.0.0
+                      react-hook-form@7.27.0
                       <br />
-                      <b className={typographyStyles.note}>8KB</b>
+                      <b className={typographyStyles.note}>8.5KB</b>
                     </code>
                   </td>
                   <td>
