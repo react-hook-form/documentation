@@ -56,8 +56,8 @@ h3.subTitle:before {
 .rulesTitle {
   line-height: 1;
   margin-top: 2rem;
-  background: var(--color-secondary);
-  border-bottom: 0;
+  background: black;
+  border: 1px solid var(--color-secondary);
   padding: 0.4rem 0.5rem 0.6rem 0.5rem;
   border-radius: 6px;
 }
