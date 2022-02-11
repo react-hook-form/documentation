@@ -2604,15 +2604,6 @@ const { field: checkbox } = useController({ name: 'test1' })
           sure input's ref is registered into the hook form.
         </p>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
-          Rules
-        </h2>
-
-        <p>
-          This API will invoke focus method from the ref, so it's important to
-          provide <code>ref</code> during <code>register</code>.
-        </p>
-
         <h2 id="props" className={typographyStyles.subTitle}>
           Props
         </h2>
@@ -2660,6 +2651,15 @@ setFocus("name", { shouldSelect: true })
             </tbody>
           </table>
         </div>
+
+        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+          Rules
+        </h2>
+
+        <p>
+          This API will invoke focus method from the ref, so it's important to
+          provide <code>ref</code> during <code>register</code>.
+        </p>
       </>
     ),
   },
