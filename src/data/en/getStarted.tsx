@@ -31,19 +31,14 @@ export default {
           <strong>
             <code>register</code>
           </strong>{" "}
-          your uncontrolled component into the hook. This will make its value
-          available for both the form validation and submission.
-        </p>
-        <p>
-          If you are working with typescript and wish to define the type of
-          register then you can define it as{" "}
-          <code>register: UseFormRegister{`<FieldValues>`}</code>
+          your component into the hook. This will make its value available for
+          both the form validation and submission.
         </p>
 
         <p>
           <b className={typographyStyles.note}>Note:</b> Each field is{" "}
-          <strong>required</strong> to have a unique <code>name</code> as a key
-          for the registration process.
+          <strong>required</strong> to have a <code>name</code> as a key for the
+          registration process.
         </p>
       </>
     ),
@@ -104,8 +99,9 @@ export default {
     title: "Integrating an existing form",
     description: (
       <p>
-        Integrating an existing form is simple. The important step is to apply{" "}
-        <code>register</code> into the component's <code>ref</code>.
+        Integrating an existing form should be simple. The important step is to{" "}
+        <code>register</code> the component's <code>ref</code> and assign
+        relevant props to your input.
       </p>
     ),
   },
@@ -114,8 +110,8 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form embraces uncontrolled components and native HTML
-          inputs, however, it's hard to avoid working with external controlled
+          This library embraces uncontrolled components and native HTML inputs,
+          however, it's hard to avoid working with external controlled
           components such as{" "}
           <a
             target="_blank"
@@ -166,9 +162,8 @@ export default {
     title: "Integrating with global state",
     description: (
       <p>
-        React Hook Form doesn't require you to rely on a state management
-        library such as Redux to store your data, but you can easily integrate
-        with it:
+        It doesn't require you to rely on a state management library, but you
+        can easily integrate with them.
       </p>
     ),
   },
@@ -176,9 +171,9 @@ export default {
     title: "React Native",
     description: (
       <p>
-        You will get the same performance enhancement from an Uncontrolled
-        Component. You can use <code>Controller</code> or <b>custom register</b>{" "}
-        as shown in the following example.
+        You will get the same performance boost and enhancement in React Native.
+        To integrate with input component, You can use register your component
+        or wrapped with <code>Controller</code>.
       </p>
     ),
   },
@@ -186,8 +181,8 @@ export default {
     title: "TypeScript",
     description: (
       <p>
-        React Hook Form is built with <code>TypeScript</code>, so you can define
-        a <code>FormData</code> type to support form values.
+        React Hook Form is built with <code>TypeScript</code>, and you can
+        define a <code>FormData</code> type to support form values.
       </p>
     ),
   },
@@ -196,7 +191,7 @@ export default {
     description: (
       <>
         <p>
-          React Hook Form supports schema-based form validation with{" "}
+          We also support schema-based form validation with{" "}
           <a
             href="https://github.com/jquense/yup"
             target="_blank"
@@ -229,9 +224,9 @@ export default {
             Joi
           </a>
           , where you can pass your <code>schema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. React Hook
-          Form will validate your input data against the schema and return with
-          either <a href="/api#errors">errors</a> or a valid result.
+          <a href="/api#useForm">useForm</a> as an optional config. It will
+          validate your input data against the schema and return with either{" "}
+          <a href="/api#errors">errors</a> or a valid result.
         </p>
       </>
     ),
