@@ -52,26 +52,6 @@ export default function UseFieldArrayContent({
       <ul>
         <li>
           <p>
-            The <code>field.id</code> (and not <code>index</code>) must be added
-            as the component key to prevent re-renders breaking the fields:
-            <CodeArea
-              withOutCopy
-              rawData={`// ✅ correct:
-{fields.map((field, index) => (
-  <div key={field.id}>
-    <input ... />
-  </div>
-))}
-// ✅ correct:
-{fields.map((field, index) => <input key={field.id} ... />)}
-// ❌ incorrect:
-{fields.map((field, index) => <input key={index} ... />)}
-`}
-            />
-          </p>
-        </li>
-        <li>
-          <p>
             <code>useFieldArray</code> automatically generates a unique
             identifier named <code>id</code> which is used for <code>key</code>{" "}
             prop. For more information why this is required:{" "}
@@ -83,31 +63,19 @@ export default function UseFieldArrayContent({
               https://reactjs.org/docs/lists-and-keys.html#keys
             </a>
           </p>
-
           <p>
-            When your array field contains objects with the key name{" "}
-            <strong>
-              <code>id</code>
-            </strong>
-            , <code>useFieldArray</code> will overwrite and remove it. If you
-            want to keep the <code>id</code> field in your array of objects, you
-            must use <code>keyName</code> prop to change to other name. Refer to
-            the following example:
-          </p>
+            The <code>field.id</code> (and not <code>index</code>) must be added
+            as the component key to prevent re-renders breaking the fields:
+            <CodeArea
+              withOutCopy
+              rawData={`// ✅ correct:
+{fields.map((field, index) => <input key={field.id} ... />)}
 
-          <CodeArea
-            withOutCopy
-            rawData={`const { fields } = useFieldArray({
-  keyName: 'key' // by default key name is id, and input value with name id will be omitted
-})
-              
-{fields.map((field, index) => (
-  <div key={field.key}> // key name changed
-    <input {...register('test.id')} /> // input value id will be retained
-  </div>
-))}
+// ❌ incorrect:
+{fields.map((field, index) => <input key={index} ... />)}
 `}
-          />
+            />
+          </p>
         </li>
         <li>
           <p>

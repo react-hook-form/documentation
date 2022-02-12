@@ -1753,9 +1753,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
     description: (
       <>
         <p>
-          Custom hook for working with uncontrolled Field Arrays (dynamic
-          inputs). The motivation is to provide better user experience and form
-          performance. You can watch{" "}
+          Custom hook for working with Field Arrays (dynamic form). The
+          motivation is to provide better user experience and performance. You
+          can watch{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
             target="_blank"
@@ -1763,7 +1763,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           >
             this short video
           </a>{" "}
-          to compare controlled vs uncontrolled Field Array.
+          to visualize the performance enhancement.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
@@ -1789,11 +1789,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                 <td>✓</td>
                 <td>
                   <p>
-                    Name of the field.{" "}
-                    <b className={typographyStyles.note}>Important: </b> make
-                    sure name is in object shape:{" "}
-                    <code>name={`test.0.name`}</code> as we don't support flat
-                    arrays.
+                    Name of the field array. Make sure field name is in array
+                    shape: <code>name={`test.0.name`}</code>.
                   </p>
                 </td>
               </tr>
@@ -1809,39 +1806,14 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               </tr>
               <tr>
                 <td>
-                  <code>keyName</code>
-                </td>
-                <td>
-                  <code className={typographyStyles.typeText}>
-                    string = 'id'
-                  </code>
-                </td>
-                <td></td>
-                <td>
-                  <p>
-                    field array <code>key</code> value, default to "id", you can
-                    change the key name.
-                  </p>
-
-                  <p>
-                    <b className={typographyStyles.note}>Important: </b> if your
-                    field array contains <code>id</code> as field value, making
-                    sure you change the <code>keyName</code> to other.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
                   <code>shouldUnregister</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>
-                    boolean = false
-                  </code>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td></td>
                 <td>
-                  <p>Field Array will be unregistered after unmount.</p>
+                  <p>Whether Field Array will be unregistered after unmount.</p>
                 </td>
               </tr>
             </tbody>
