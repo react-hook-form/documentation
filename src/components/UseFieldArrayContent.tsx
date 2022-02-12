@@ -213,8 +213,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
 
         <CodeArea
           url={"https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"}
-          rawData={`import * as React from "react";
-import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
+          rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 
 const ConditionalInput = ({ control, index, field }) => {
   const value = useWatch({
@@ -234,33 +233,17 @@ const ConditionalInput = ({ control, index, field }) => {
 };
 
 function App() {
-  const { handleSubmit, control, register } = useForm();
+  const { control, register } = useForm();
   const { fields, append, prepend } = useFieldArray({
     control,
     name: "test"
   });
-  const onSubmit = (data) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       {fields.map((field, index) => (
-        <section key={field.id}>
-          <input
-            type="checkbox"
-            value="on"
-            {...register(\`test.\${index}.checkbox\`)}
-          />
-          <ConditionalInput {...{ control, index, field }} />
-        </section>
+        <ConditionalInput key={field.id} {...{ control, index, field }} />
       ))}
-
-      <button
-        type="button"
-        onClick={() => append({ firstName: "append value" }) }
-      >
-        append
-      </button>
-      <input type="submit" />
     </form>
   );
 }
@@ -274,14 +257,11 @@ function App() {
         <p>
           There will be cases where you want to control the entire field array,
           which means each onChange reflects on the <code>fields</code> object.
-          You can achieve this by merge with <code>useWatch</code> or{" "}
-          <code>watch</code>'s result.
         </p>
 
         <CodeArea
           url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
-          rawData={`import * as React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+          rawData={`import { useForm, useFieldArray } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, control, watch } = useForm<FormValues>();
@@ -302,96 +282,9 @@ export default function App() {
       {controlledFields.map((field, index) => {
         return <input {...register(\`fieldArray.\${index}.name\` as const)} />;
       })}
-
-      <button
-        type="button"
-        onClick={() =>
-          append({
-            name: "bill"
-          })
-        }
-      >
-        Append
-      </button>
     </form>
   );
 }`}
-        />
-
-        <h4 className={typographyStyles.questionTitle}>Conditional inputs</h4>
-
-        <p>
-          <code>useFieldArray</code> is uncontrolled by default, which means{" "}
-          <code>defaultValue</code> is rendered during input's mounting. This is
-          different from the controlled form, which the local state is keeping
-          updated during user interaction's <code>onChange</code>. When inputs
-          get unmounted and remounted, you want to read what's in the current
-          form values from <code>getValue</code> function. For individual input,
-          you can safely use <code>useWatch</code> hook to retain input value as
-          well.
-        </p>
-
-        <CodeArea
-          url="https://codesandbox.io/s/react-hook-form-conditional-0g9qx"
-          rawData={`import React from "react";
-import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
-
-const Input = ({ name, control, register, index }) => {
-  const value = useWatch({
-    control,
-    name
-  });
-  return <input {...register(\`test.\${index}.age\`)} defaultValue={value} />;
-};
-
-function App() {
-  const [show, setShow] = React.useState(true);
-  const { register, control, getValues, handleSubmit } = useForm({
-    defaultValues: {
-      test: [{ firstName: "Bill", lastName: "Luo", age: "2" }]
-    }
-  });
-  const { fields, remove } = useFieldArray({
-    control,
-    name: "test"
-  });
-  const onSubmit = (data) => console.log("data", data);
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {show && (
-        <ul>
-          {fields.map((item, index) => {
-            return (
-              <li key={item.id}>
-                <input {...register(\`test.\${index}.firstName\`)} />
-                <Input
-                  register={register}
-                  control={control}
-                  index={index}
-                  name={\`test.\${index}.age\`}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      <section>
-        <button
-          type="button"
-          onClick={() => {
-            setShow(!show);
-          }}
-        >
-          Hide
-        </button>
-      </section>
-
-      <input type="submit" />
-    </form>
-  );
-}
-`}
         />
       </>
     </>
