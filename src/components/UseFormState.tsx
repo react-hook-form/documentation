@@ -44,20 +44,6 @@ export default ({ currentLanguage }) => {
               impact on large and complex form application.
             </p>
 
-            <p>
-              <b className={typographyStyles.note}>Important:</b> returned{" "}
-              <code>formState</code> is wrapped with Proxy to improve render
-              performance and skip extra logic if specific state is not
-              subscribed, so make sure you deconstruct or read it before render
-              in order to enable the subscription.
-            </p>
-
-            <CodeArea
-              rawData={`const { isDirty } = useFormState(); // ✅
-const formState = useFormState(); // ❌ should deconstruct the formState      
-`}
-            />
-
             <h2 className={typographyStyles.subTitle}>Props</h2>
 
             <p>
@@ -136,6 +122,23 @@ const formState = useFormState(); // ❌ should deconstruct the formState
             </div>
 
             <FormStateTable currentLanguage={currentLanguage} api={api} />
+
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
+
+            <p>
+              Returned <code>formState</code> is wrapped with Proxy to improve
+              render performance and skip extra computation if specific state is
+              not subscribed, so make sure you deconstruct or read it before
+              render in order to enable the subscription.
+            </p>
+
+            <CodeArea
+              rawData={`const { isDirty } = useFormState(); // ✅
+const formState = useFormState(); // ❌ should deconstruct the formState      
+`}
+            />
 
             <h2 id={"example"} className={typographyStyles.subTitle}>
               Examples

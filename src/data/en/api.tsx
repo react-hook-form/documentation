@@ -1291,6 +1291,8 @@ clearErrors('test.firstName'); // for clear single input error
             <p>
               This will not affect the validation rules attached to each inputs.
             </p>
+          </li>
+          <li>
             <p>
               This method doesn't affect validation rules or{" "}
               <code>isValid</code> formState.
@@ -1579,30 +1581,74 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           <code>getValues</code> <strong>will not</strong> trigger re-renders or
           subscribe to input changes.
         </p>
-        <div className={tableStyles.tableWrapper}>
-          <CodeArea
-            rawData={`<input {...register('yourDetails.firstName')} />
-<input {...register('yourDetails.lastName')} />
-`}
-          />
 
+        <h2 className={typographyStyles.subTitle}>Props</h2>
+
+        <div className={tableStyles.tableWrapper}>
+          <table className={tableStyles.table}>
+            <tbody>
+              <tr>
+                <th>{generic.type["en"]}</th>
+                <th>{generic.description["en"]}</th>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>undefined</code>
+                </td>
+                <td>Returns the entire form values.</td>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>string</code>
+                </td>
+                <td>Gets the value at path of the form values. </td>
+              </tr>
+              <tr>
+                <td>
+                  <code className={typographyStyles.typeText}>array</code>
+                </td>
+                <td>
+                  Returns an array of the value at path of the form values.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className={typographyStyles.subTitle}>Example</h3>
+
+        <div className={tableStyles.tableWrapper}>
           <p>
             The example below shows what to expect when you invoke{" "}
             <code>getValues</code> method.
           </p>
 
+          <CodeArea
+            rawData={`<input {...register('root.test1')} />
+<input {...register('root.test2')} />
+`}
+          />
+
           <table className={tableStyles.table}>
             <tbody>
               <tr>
-                <th>Input Name</th>
-                <th>Example</th>
+                <th>Name</th>
+                <th>Output</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>getValues()</code>
+                </td>
+                <td>
+                  <code>{`{ root: { test1: '', test2: ''} }`}</code>
+                </td>
               </tr>
               <tr>
                 <td>
                   <code>getValues("yourDetails")</code>
                 </td>
                 <td>
-                  <code>{`{ firstName: '', lastName: '' }`}</code>
+                  <code>{`{ test1: '', test2: ''}`}</code>
                 </td>
               </tr>
               <tr>
@@ -1610,7 +1656,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
                   <code>getValues("yourDetails.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ firstName: '' }`}</code>
+                  <code>{`{ test1: '' }`}</code>
                 </td>
               </tr>
               <tr>

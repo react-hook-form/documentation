@@ -160,12 +160,6 @@ export default function ApiWatch({
         </li>
         <li>
           <p>
-            After the first render, default values will be shallowly merged with
-            the current form values from the inputs.
-          </p>
-        </li>
-        <li>
-          <p>
             This API will trigger re-render at the root of your app or form,
             consider using a callback or the{" "}
             <Link to={"/api/usewatch"}>useWatch</Link> api if you are
