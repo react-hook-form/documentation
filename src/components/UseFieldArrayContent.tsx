@@ -21,10 +21,9 @@ export default function UseFieldArrayContent({
       <code className={typographyStyles.codeHeading}>
         <h2>
           useFieldArray:
-          <br />
           <span
             className={typographyStyles.typeText}
-          >{`({ control?: Control, name: string, keyName?: string = 'id' }) => object`}</span>
+          >{`({ control?: Control, name: string }) => object`}</span>
         </h2>
       </code>
 

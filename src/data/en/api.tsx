@@ -1843,22 +1843,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </td>
           <td>
             This <code>object</code> contains the <code>defaultValue</code> and{" "}
-            <code>key</code> for all your inputs.
-            <p>
-              <b className={typographyStyles.note}>Important: </b> Because each
-              input can be uncontrolled, <code>id</code> is required with mapped
-              components to help React to identify which items have changed,
-              added, or removed.
-            </p>
-            <CodeArea
-              rawData={`{fields.map((data, index) =>
-  <input
-    key={data.id}
-    name={\`data.\${index}.value\`}
-  />;
-);}`}
-              withOutCopy
-            />
+            <code>key</code> for your component.
           </td>
         </tr>
         <tr>
