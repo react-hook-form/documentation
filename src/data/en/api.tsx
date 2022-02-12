@@ -1698,23 +1698,6 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
               <code>useForm</code> before the <b>initial</b> render.
             </p>
           </li>
-          <li>
-            <p>
-              <code>getValues()</code>: Reads all form values.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues('test')</code>: Read an individual field value by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
         </ul>
       </>
     ),

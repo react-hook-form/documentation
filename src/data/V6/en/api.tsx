@@ -952,18 +952,6 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
               <code>getValues()</code>: Read all form values.
             </p>
           </li>
-          <li>
-            <p>
-              <code>getValues('test')</code>: Read an individual field value by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
         </ul>
       </>
     ),
