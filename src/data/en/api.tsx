@@ -2155,37 +2155,26 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </td>
           <td></td>
           <td>
-            The same as an uncontrolled component's <code>defaultValue</code>.
-            When passing a <code>boolean</code> value, it will be treated as
-            checkbox input. For more details, see useForm's{" "}
-            <code>defaultValues</code> section.
+            <p>
+              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
+              <code>undefined</code> to <code>defaultValue</code> or{" "}
+              <code>defaultValues</code> at <code>useForm</code>.
+            </p>
             <ul>
               <li>
                 <p>
-                  You need to either provide <code>defaultValue</code> at the
-                  field-level or <code>useForm</code> with{" "}
-                  <code>defaultValues</code>.
-                </p>
-                <p>
-                  <b className={typographyStyles.note}>Note:</b> inline{" "}
-                  <code>defaultValue</code> is required when working with{" "}
-                  <code>useFieldArray</code> by integrating with the value from{" "}
-                  <code>fields</code> object.
+                  You need to either set <code>defaultValue</code> at the
+                  field-level or <code>useForm</code>'s{" "}
+                  <code>defaultValues</code>. <code>undefined</code> is not a
+                  valid value.
                 </p>
               </li>
               <li>
                 <p>
                   If your form will invoke <code>reset</code> with default
-                  values, you will need to call <code>useForm</code> with{" "}
-                  <code>defaultValues</code> instead of setting the{" "}
-                  <code>defaultValue</code> on individual fields.
+                  values, you will need to provide <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
                 </p>
-              </li>
-              <li>
-                Setting <code>defaultValue</code> inline or at{" "}
-                <code>useForm</code> can not be <code>undefined</code>, and{" "}
-                <code>null</code> is also invalid for native input such as text
-                box.
               </li>
             </ul>
           </td>
@@ -2199,14 +2188,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </td>
           <td></td>
           <td>
-            <>
-              Validation rules in the same format as for <code>register</code>.
-            </>
             <p>
-              <b className={typographyStyles.note}>Important:</b> doesn't
-              support <code>setValueAs</code> or <code>valueAs*</code> for{" "}
-              <code>useController</code>.
+              Validation rules in the same format for <code>register</code>,
+              which includes:
             </p>
+            <p>required, min, max, minLength, maxLength, pattern, validate</p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-ipynf"
               withOutCopy
@@ -2451,38 +2437,26 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           </td>
           <td></td>
           <td>
-            The same as an uncontrolled component's <code>defaultValue</code>.
-            When passing a <code>boolean</code> value, it will be treated as
-            checkbox input. For more details, see useForm's{" "}
-            <code>defaultValues</code> section.
+            <p>
+              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
+              <code>undefined</code> to <code>defaultValue</code> or{" "}
+              <code>defaultValues</code> at <code>useForm</code>.
+            </p>
             <ul>
               <li>
                 <p>
                   You need to either set <code>defaultValue</code> at the
-                  field-level or call <code>useForm</code> with{" "}
-                  <code>defaultValues</code>. If both are set,{" "}
-                  <code>defaultValue</code> will be used.
-                </p>
-                <p>
-                  <b className={typographyStyles.note}>Note:</b> inline{" "}
-                  <code>defaultValue</code> is required when working with{" "}
-                  <code>useFieldArray</code> by integrating with the value from{" "}
-                  <code>fields</code> object.
+                  field-level or <code>useForm</code>'s{" "}
+                  <code>defaultValues</code>. <code>undefined</code> is not a
+                  valid value.
                 </p>
               </li>
               <li>
                 <p>
                   If your form will invoke <code>reset</code> with default
-                  values, you will need to call <code>useForm</code> with{" "}
-                  <code>defaultValues</code> instead of setting the{" "}
-                  <code>defaultValue</code> on individual fields.
+                  values, you will need to provide <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
                 </p>
-              </li>
-              <li>
-                Setting <code>defaultValue</code> inline or at{" "}
-                <code>useForm</code> can not be <code>undefined</code>, and
-                <code>null</code> is also invalid for native input such as text
-                box.
               </li>
             </ul>
           </td>
@@ -2497,12 +2471,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
           <td></td>
           <td>
             <p>
-              Validation rules in the same format as for <code>register</code>.
+              Validation rules in the same format for <code>register</code>,
+              which includes:
             </p>
-            <p>
-              <b className={typographyStyles.note}>Important:</b> doesn't
-              support <code>valueAs</code> for <code>useController</code>.
-            </p>
+            <p>required, min, max, minLength, maxLength, pattern, validate</p>
             <CodeArea
               url="https://codesandbox.io/s/controller-rules-8pd7z?file=/src/App.tsx"
               withOutCopy
