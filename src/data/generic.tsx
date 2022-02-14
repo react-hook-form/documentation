@@ -102,8 +102,8 @@ export default {
   },
   needYourSupport: {
     en: {
-      title: "We Need Your Support",
-      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
+      title: "Thank you for your support",
+      description: `If you find React Hook Form to be useful in your project, please consider to star and support it.`,
       buttonText: `Star React Hook Form`,
     },
     es: {
