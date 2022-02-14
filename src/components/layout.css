@@ -274,6 +274,7 @@ select {
 }
 
 code {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   -webkit-overflow-scrolling: touch;
 }
 
