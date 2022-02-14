@@ -39,6 +39,21 @@ export default React.memo(
               it before a <code>render</code> in order to enable the state
               update.
             </p>
+            <TabGroup buttonLabels={["snippet", "example"]}>
+              <CodeArea
+                rawData={`useEffect(() => {
+  if (formState.errors.firstName) {
+    // do the your logic here
+  }
+}, [formState]); // ✅ 
+// ❌ formState.errors will not trigger the useEffect        
+`}
+              />
+              <CodeArea
+                rawData={formStateUseEffect}
+                tsRawData={formStateUseEffectTs}
+              />
+            </TabGroup>
           </li>
           <li>
             <p>
@@ -48,26 +63,14 @@ export default React.memo(
               optional array.
             </p>
           </li>
-        </ul>
+          <li>
+            <p>
+              Pay attention to the logical operator when subscription to{" "}
+              <code>formState</code>.
+            </p>
 
-        <TabGroup buttonLabels={["snippet", "example"]}>
-          <CodeArea
-            rawData={`useEffect(() => {
-  if (formState.errors.firstName) {
-    // do the your logic here
-  }
-}, [formState]); // ✅ 
-// ❌ formState.errors will not trigger the useEffect        
-`}
-          />
-          <CodeArea
-            rawData={formStateUseEffect}
-            tsRawData={formStateUseEffectTs}
-          />
-        </TabGroup>
-
-        <CodeArea
-          rawData={`// ❌ formState.isValid is accessed conditionally, 
+            <CodeArea
+              rawData={`// ❌ formState.isValid is accessed conditionally, 
 // so the Proxy does not subscribe to changes of that state
 return <button disabled={!formState.isDirty || !formState.isValid} />;
   
@@ -75,7 +78,9 @@ return <button disabled={!formState.isDirty || !formState.isValid} />;
 const { isDirty, isValid } = formState;
 return <button disabled={!isDirty || !isValid} />;
 `}
-        />
+            />
+          </li>
+        </ul>
       </>
     )
   }

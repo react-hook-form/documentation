@@ -668,11 +668,6 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           </li>
           <li>
             <p>
-              Native inputs will return <code>string</code> type by default.
-            </p>
-          </li>
-          <li>
-            <p>
               <code>isDirty</code> state will be affected with actions from{" "}
               <code>useFieldArray</code>. For example below:
             </p>
