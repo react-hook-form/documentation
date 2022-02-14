@@ -18,7 +18,9 @@ export default function StarRepo({
       <button
         className={buttonStyles.primaryButton}
         onClick={() => {
-          window.open("https://github.com/react-hook-form/react-hook-form")
+          window.open(
+            "https://github.com/react-hook-form/react-hook-form/stargazers"
+          )
         }}
         style={{ margin: "40px auto" }}
       >
