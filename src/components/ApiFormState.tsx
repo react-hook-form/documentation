@@ -23,19 +23,32 @@ export default React.memo(
           Rules
         </h2>
 
-        <p>
-          <code>formState</code> is wrapped with a{" "}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Proxy
-          </a>{" "}
-          to improve render performance and skip extra logic if specific state
-          is not subscribed to. Therefore make sure you invoke or read it before{" "}
-          a <code>render</code> in order to enable the state update.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>formState</code> is wrapped with a{" "}
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Proxy
+              </a>{" "}
+              to improve render performance and skip extra logic if specific
+              state is not subscribed to. Therefore make sure you invoke or read
+              it before a <code>render</code> in order to enable the state
+              update.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>formState</code> is updated in batch. If you want to
+              subscribe to <code>formState</code> via <code>useEffect</code>,
+              make sure that you place the entire <code>formState</code> in the
+              optional array.
+            </p>
+          </li>
+        </ul>
 
         <TabGroup buttonLabels={["snippet", "example"]}>
           <CodeArea

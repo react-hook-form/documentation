@@ -628,10 +628,9 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
     description: (
       <>
         <p>
-          This object contains information about the form state. If you want to
-          subscribe to <code>formState</code> via <code>useEffect</code>, make
-          sure that you place the entire <code>formState</code> in the optional
-          array.
+          This object contains information about the entire form state. It helps
+          you to keep on track with the user's interaction with your form
+          application.
         </p>
       </>
     ),
