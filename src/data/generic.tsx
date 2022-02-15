@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 export default {
   copy: {
@@ -339,8 +340,11 @@ export default {
   control: {
     en: (
       <>
-        <code>control</code> object provided by <code>useForm</code>. It's
-        optional if you are using FormContext.
+        <Link to={"/api/useform/control"}>
+          <code>control</code>
+        </Link>{" "}
+        object provided by <code>useForm</code>. It's optional if you are using
+        FormContext.
       </>
     ),
     es: (

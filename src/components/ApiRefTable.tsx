@@ -66,7 +66,9 @@ export default function ApiRefTable({
         </table>
       </div>
 
-      <h2 className={typographyStyles.subTitle}>Options</h2>
+      <h2 className={typographyStyles.subTitle} id={"options"}>
+        Options
+      </h2>
 
       <p>{api.register.selectHelp}</p>
 

@@ -37,7 +37,9 @@ export default ({ currentLanguage }) => {
 
             {api.unregister.description}
 
-            <h2 className={typographyStyles.subTitle}>Options</h2>
+            <h2 id={"options"} className={typographyStyles.subTitle}>
+              Options
+            </h2>
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
@@ -68,7 +70,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepDirty: true }
 )`}
                       />
@@ -90,7 +92,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepTouched: true }
 )`}
                       />
@@ -115,7 +117,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepValid: true }
 )`}
                       />
@@ -134,7 +136,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepError: true }
 )`}
                       />
@@ -153,7 +155,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepValue: true }
 )`}
                       />
@@ -173,7 +175,7 @@ export default ({ currentLanguage }) => {
                     <td>
                       <CodeArea
                         withOutCopy
-                        rawData={`unregister('test', 
+                        rawData={`unregister('test',
   { keepDefaultValue: true }
 )`}
                       />
@@ -222,7 +224,7 @@ const onClick = () => {
   unregister('test');
   setShow(false); // make sure to unmount that input so register not invoked again.
 }
-              
+
 {show && <input {...register('test')} />}`}
                 />
               </li>

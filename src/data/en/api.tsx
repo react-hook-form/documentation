@@ -1798,10 +1798,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 </td>
                 <td>✓</td>
                 <td>
-                  <p>
-                    Name of the field array. Make sure field name is in array
-                    shape: <code>name={`test.0.name`}</code>.
-                  </p>
+                  <p>Name of the field array.</p>
                 </td>
               </tr>
               <tr>
@@ -1863,9 +1860,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[],{" "}
-                {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
-                ) =&gt; void
+                (obj: object | object[], {`focusOptions`}) =&gt; void
               </code>
             </code>
           </td>
@@ -1875,8 +1870,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               value will be registered during this action.
             </p>
             <p>
-              <b className={typographyStyles.note}>Note: </b> append data is
-              required and not partial.
+              <b className={typographyStyles.note}>Important: </b> append data
+              is required and not partial.
             </p>
           </td>
         </tr>
@@ -1886,9 +1881,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[],{" "}
-              {`{ shouldFocus?: boolean; focusIndex?: number; focusName?: string; }`}
-              ) =&gt; void
+              (obj: object | object[], {`focusOptions`}) =&gt; void
             </code>
           </td>
           <td>
@@ -1897,8 +1890,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               input value will be registered during this action.
             </p>
             <p>
-              <b className={typographyStyles.note}>Note: </b> prepend data is
-              required and not partial.
+              <b className={typographyStyles.note}>Important: </b> prepend data
+              is required and not partial.
             </p>
           </td>
         </tr>
@@ -1908,14 +1901,14 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              {`(index: number, value: object | object[], { shouldFocus?: boolean; focusIndex?: number; focusName?: string; }) => void`}
+              {`(index: number, value: object | object[], focusOptions) => void`}
             </code>
           </td>
           <td>
             <p>Insert input/inputs at particular position and focus. </p>
             <p>
-              <b className={typographyStyles.note}>Note: </b> insert data is
-              required and not partial.
+              <b className={typographyStyles.note}>Important: </b> insert data
+              is required and not partial.
             </p>
           </td>
         </tr>
@@ -2053,8 +2046,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td></td>
           <td>
-            <code>control</code> object is from invoking <code>useForm</code>.
-            Optional when using <code>FormProvider</code>.
+            <Link to={"/api/control"}>
+              <code>control</code>
+            </Link>{" "}
+            object is from invoking <code>useForm</code>. Optional when using{" "}
+            <code>FormProvider</code>.
           </td>
         </tr>
         <tr>
@@ -2132,7 +2128,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>defaultValue</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>any</code>
+            <code className={typographyStyles.typeText}>unknown</code>
           </td>
           <td></td>
           <td>
@@ -2170,8 +2166,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td></td>
           <td>
             <p>
-              Validation rules in the same format for <code>register</code>,
-              which includes:
+              Validation rules in the same format for{" "}
+              <Link to={"/api/useform/register#options"}>
+                <code>register</code> options
+              </Link>
+              , which includes:
             </p>
             <p>required, min, max, minLength, maxLength, pattern, validate</p>
             <CodeArea
