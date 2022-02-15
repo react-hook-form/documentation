@@ -18,7 +18,7 @@ export default ({ currentLanguage }) => {
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
         setValue
       </h1>
-      <p className={typographyStyles.subHeading}>Update input value</p>
+      <p className={typographyStyles.subHeading}>Update field value</p>
 
       <div className={containerStyles.wrapper}>
         <Menu />

@@ -1302,10 +1302,9 @@ clearErrors('test.firstName'); // for clear single input error
       <>
         <p>
           This function allows you to dynamically set the value of a{" "}
-          <strong>
-            <code>registered</code>
-          </strong>{" "}
-          field. At the same time, it tries to avoid unnecessary rerender.
+          <strong>registered</strong> field and have the options to validate and
+          update the form state. At the same time, it tries to avoid unnecessary
+          rerender.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
@@ -1330,7 +1329,7 @@ clearErrors('test.firstName'); // for clear single input error
                 <td>
                   <ul>
                     <li>
-                      <p>Target a single input by its name.</p>
+                      <p>Target a single field by name.</p>
                     </li>
                     <li>
                       <p>When used with field array.</p>
@@ -1338,8 +1337,14 @@ clearErrors('test.firstName'); // for clear single input error
                         <li>
                           <p>
                             It's recommend to use field array's methods such as{" "}
-                            <code>replace</code>/<code>update</code> instead of{" "}
-                            <code>setValue</code>.
+                            <Link to={"/api/usefieldarray#replace"}>
+                              <code>replace</code>
+                            </Link>{" "}
+                            or{" "}
+                            <Link to={"/api/usefieldarray#update"}>
+                              <code>update</code>
+                            </Link>{" "}
+                            instead.
                           </p>
                         </li>
                         <li>
@@ -1371,16 +1376,12 @@ replace([{data: 'test'}])
                   <code className={typographyStyles.typeText}>unknown</code>
                 </td>
                 <td>
-                  <p>
-                    The value for the field. Make sure you supply the entire
-                    array when you update <code>useFieldArray</code> and value{" "}
-                    <strong>can't be</strong> <code>undefined</code>.
-                  </p>
+                  <p>The value for the field.</p>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <code>config</code>
+                  <code>options</code>
                 </td>
                 <td>
                   <code>shouldValidate</code>
@@ -1411,6 +1412,10 @@ replace([{data: 'test'}])
                       </p>
                     </li>
                   </ul>
+                  <CodeArea
+                    rawData={`setValue('name', 'value', { shouldValidate: true })`}
+                    withOutCopy
+                  />
                 </td>
               </tr>
               <tr>
@@ -1446,6 +1451,11 @@ replace([{data: 'test'}])
                       </p>
                     </li>
                   </ul>
+
+                  <CodeArea
+                    rawData={`setValue('name', 'value', { shouldDirty: true })`}
+                    withOutCopy
+                  />
                 </td>
               </tr>
               <tr>
@@ -1458,7 +1468,13 @@ replace([{data: 'test'}])
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
-                <td>Whether to set the input itself to be touched.</td>
+                <td>
+                  <p>Whether to set the input itself to be touched.</p>
+                  <CodeArea
+                    rawData={`setValue('name', 'value', { shouldTouch: true })`}
+                    withOutCopy
+                  />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1473,40 +1489,14 @@ replace([{data: 'test'}])
             <p>Only the following conditions will trigger a re-render:</p>
             <ul>
               <li>
-                <p>When an error is triggered by a value update</p>
-              </li>
-              <li>
-                <p>When an error is corrected by a value update</p>
+                <p>When an error is triggered or corrected by a value update</p>
               </li>
               <li>
                 <p>
-                  When setValue is invoked for the first time and{" "}
-                  <code>formState.isDirty</code> is set to true
+                  When setValue cause state update, such as dirty and touched.
                 </p>
               </li>
             </ul>
-          </li>
-          <li>
-            <p>
-              You can also set the <code>shouldValidate</code> parameter to{" "}
-              <code>true</code> in order to trigger a field validation.
-            </p>
-
-            <CodeArea
-              rawData={`setValue('name', 'value', { shouldValidate: true })`}
-              withOutCopy
-            />
-          </li>
-          <li>
-            <p>
-              You can also set the <code>shouldDirty</code> parameter to{" "}
-              <code>true</code> in order to set field to dirty.
-            </p>
-
-            <CodeArea
-              rawData={`setValue('name', 'value', { shouldDirty: true })`}
-              withOutCopy
-            />
           </li>
           <li>
             <p>
@@ -1528,35 +1518,32 @@ setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input an
           <li>
             <p>
               It's recommended to register the input's name before invoking{" "}
-              <code>setValue</code>. However, the following usages are still
-              permitted.
-            </p>
-            <p>
-              To update the entire Field Array, make sure the{" "}
-              <code>useFieldArray</code> hook is being executed first.
+              <code>setValue</code>. To update the entire Field Array, make sure
+              the <code>useFieldArray</code> hook is being executed first.
             </p>
             <p>
               <b className={typographyStyles.note}>Important: </b> use{" "}
-              <code>replace</code> from <code>useFieldArray</code> instead,
-              update entire field array with <code>setValue</code> will be
-              removed in the next major version.
+              <Link to={"/api/usefieldarray#replace"}>
+                <code>replace</code>
+              </Link>{" "}
+              from <code>useFieldArray</code> instead, update entire field array
+              with <code>setValue</code> will be removed in the next major
+              version.
             </p>
             <CodeArea
               rawData={`// you can update an entire Field Array,
-// this will trigger an entire field array to be remount and refreshed with updated values.
 setValue('fieldArray', [{ test: '1' }, { test: '2' }]); // ✅
 
 // you can setValue to a unregistered input
 setValue('notRegisteredInput', 'value'); // ✅ prefer to be registered
 
-// the following will register a single input (without register)
-// and update its value in case you expected to be two inputs
-setValue('notRegisteredInput', { test: '1', test2: '2' }); // 🤔
+// the following will register a single input (without register invoked)
+setValue('resultSingleNestedField', { test: '1', test2: '2' }); // 🤔
 
 // with registered inputs, the setValue will update both inputs correctly.
 register('notRegisteredInput.test', '1')
 register('notRegisteredInput.test2', '2')
-setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
+setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax to setValue twice
 `}
               withOutCopy
             />
@@ -1871,7 +1858,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>append</code>
+            <code id={"append"}>append</code>
           </td>
           <td>
             <code>
@@ -1895,7 +1882,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>prepend</code>
+            <code id={"prepend"}>prepend</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
@@ -1917,7 +1904,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>insert</code>
+            <code id={"insert"}>insert</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
@@ -1934,7 +1921,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>swap</code>
+            <code id={"swap"}>swap</code>
           </td>
           <td>
             <code>
@@ -1947,7 +1934,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>move</code>
+            <code id={"move"}>move</code>
           </td>
           <td>
             <code>
@@ -1960,7 +1947,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>update</code>
+            <code id={"update"}>update</code>
           </td>
           <td>
             <code>
@@ -1973,7 +1960,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>replace</code>
+            <code id={"replace"}>replace</code>
           </td>
           <td>
             <code>
@@ -1986,7 +1973,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅
         </tr>
         <tr>
           <td>
-            <code>remove</code>
+            <code id={"remove"}>remove</code>
           </td>
           <td>
             <code>
