@@ -554,7 +554,7 @@ export default {
         </p>
         <CodeArea
           rawData={CodeExampleTestingForm.actWarningSolution}
-          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
         />
       </>
     ),
