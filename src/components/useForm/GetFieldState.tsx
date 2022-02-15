@@ -174,7 +174,7 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                 <p>formState will need to subscribed.</p>
 
                 <CodeArea
-                  rawData={`const { register, formState: 'isDirty' } = useForm()
+                  rawData={`const { register, formState: { isDirty } } = useForm()
 register('test');
 getFieldState('test'); // ✅ register input and return field state
 
