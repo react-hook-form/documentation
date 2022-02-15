@@ -1870,8 +1870,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               value will be registered during this action.
             </p>
             <p>
-              <b className={typographyStyles.note}>Important: </b> append data
-              is required and not partial.
+              <b className={typographyStyles.note}>Important: </b>append data is
+              required and not partial.
             </p>
           </td>
         </tr>
@@ -1890,7 +1890,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               input value will be registered during this action.
             </p>
             <p>
-              <b className={typographyStyles.note}>Important: </b> prepend data
+              <b className={typographyStyles.note}>Important: </b>prepend data
               is required and not partial.
             </p>
           </td>
@@ -1907,8 +1907,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>Insert input/inputs at particular position and focus. </p>
             <p>
-              <b className={typographyStyles.note}>Important: </b> insert data
-              is required and not partial.
+              <b className={typographyStyles.note}>Important: </b>insert data is
+              required and not partial.
             </p>
           </td>
         </tr>
@@ -1949,7 +1949,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </code>
             </code>
           </td>
-          <td>Update input/inputs at particular position.</td>
+          <td>
+            <p>Update input/inputs at particular position.</p>
+            <p>
+              <b className={typographyStyles.note}>Important: </b>update data is
+              required and not partial.
+            </p>
+          </td>
         </tr>
         <tr>
           <td>
