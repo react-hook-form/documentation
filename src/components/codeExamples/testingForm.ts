@@ -58,7 +58,7 @@ describe("App", () => {
   beforeEach(() => {
     render(<App login={mockLogin} />);
   });
-  
+
   it("should display required error when value is invalid", async () => {
     fireEvent.submit(screen.getByRole("button"));
 
@@ -177,7 +177,9 @@ import App from "./App";
 
 describe("App", () => {
   it("should have a submit button", async () => {
-    await act(async () => render(<App />));
+    await act(async () => {
+      render(<App />)
+    });
     expect(screen.getByText("SUBMIT")).toBeInTheDocument();
   });
 });
