@@ -34,6 +34,17 @@ export default ({ currentLanguage }) => {
             </code>
             {api.trigger.description}
 
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
+
+            <p>
+              Isolate render optimisation only applicable for targeting a single
+              field name with <code>string</code> as payload, when supplied with{" "}
+              <code>array</code> and <code>undefined</code> to trigger will
+              re-render the entire formState.
+            </p>
+
             <h2 id={"example"} className={typographyStyles.subTitle}>
               Examples
             </h2>
