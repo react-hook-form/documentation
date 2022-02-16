@@ -21,6 +21,4 @@ const App = () => {
     </form>
   );
 };
-
-export default App;
 `
