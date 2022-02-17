@@ -655,8 +655,8 @@ export default {
           </a>
           . However, it's not perfect, we still has to deal with{" "}
           <code>isNaN</code> or <code>null</code> value. So it's better to leave
-          the transform at the Component level. In the following example, we are
-          using the <code>Controller</code> to include the functionality of
+          the transform at the custom hook level. In the following example, we
+          are using the <code>Controller</code> to include the functionality of
           transform value's input and output. You can also achieve similar
           result with custom <code>register</code>.
         </p>

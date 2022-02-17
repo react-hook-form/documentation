@@ -39,6 +39,14 @@ export default React.memo(
               it before a <code>render</code> in order to enable the state
               update.
             </p>
+          </li>
+          <li>
+            <p>
+              <code>formState</code> is updated in batch. If you want to
+              subscribe to <code>formState</code> via <code>useEffect</code>,
+              make sure that you place the entire <code>formState</code> in the
+              optional array.
+            </p>
             <TabGroup buttonLabels={["snippet", "example"]}>
               <CodeArea
                 rawData={`useEffect(() => {
@@ -54,14 +62,6 @@ export default React.memo(
                 tsRawData={formStateUseEffectTs}
               />
             </TabGroup>
-          </li>
-          <li>
-            <p>
-              <code>formState</code> is updated in batch. If you want to
-              subscribe to <code>formState</code> via <code>useEffect</code>,
-              make sure that you place the entire <code>formState</code> in the
-              optional array.
-            </p>
           </li>
           <li>
             <p>

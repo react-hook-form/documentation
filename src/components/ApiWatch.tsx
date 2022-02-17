@@ -106,7 +106,7 @@ export default function ApiWatch({
               <td>
                 <code
                   className={typographyStyles.typeText}
-                >{`{[key:string]: any}`}</code>
+                >{`{[key:string]: unknown}`}</code>
               </td>
             </tr>
             <tr>
@@ -138,24 +138,16 @@ export default function ApiWatch({
           <p>
             When <code>defaultValue</code> is not defined, the first render of{" "}
             <code>watch</code> will return <code>undefined</code> because it is
-            called before <code>register</code>, but you can set the{" "}
-            <code>defaultValue</code> as the second argument or provide{" "}
-            <code>defaultValues</code> via <code>useForm</code> to avoid this
-            behaviour.
+            called before <code>register</code>. It's <b>recommend</b> to
+            provide <code>defaultValues</code> at <code>useForm</code> to avoid
+            this behaviour, but you can set the inline <code>defaultValue</code>{" "}
+            as the second argument.
           </p>
         </li>
         <li>
           <p>
-            If <code>defaultValues</code> was initialised in{" "}
-            <code>useForm</code> as an argument, then the first render will
-            return what's provided in <code>defaultValues</code>.
-          </p>
-        </li>
-        <li>
-          <p>
-            when both <code>defaultValue</code> and <code>defaultValues</code>{" "}
-            are supplied, <code>defaultValue</code> will be returned instead for
-            the first execution before render.
+            When both <code>defaultValue</code> and <code>defaultValues</code>{" "}
+            are supplied, <code>defaultValue</code> will be returned.
           </p>
         </li>
         <li>

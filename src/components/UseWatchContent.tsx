@@ -7,6 +7,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
+import { Link } from "gatsby"
 
 export default function UseFieldArray({
   api,
@@ -19,10 +20,10 @@ export default function UseFieldArray({
     <>
       <code className={typographyStyles.codeHeading}>
         <h2>
-          useWatch:{" "}
+          useWatch: <br />
           <span
             className={typographyStyles.typeText}
-          >{`({ control?: Control, name?: string, defaultValue?: any, disabled?: boolean }) => object`}</span>
+          >{`({ control?: Control, name?: string, defaultValue?: unknown, disabled?: boolean }) => object`}</span>
         </h2>
       </code>
 
@@ -47,7 +48,7 @@ export default function UseFieldArray({
               </td>
               <td>
                 <code className={typographyStyles.typeText}>
-                  string | string[]
+                  string | string[] | undefined
                 </code>
               </td>
               <td>{api.ErrorMessage.table.name}</td>
@@ -66,7 +67,7 @@ export default function UseFieldArray({
                 <code>defaultValue</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>any</code>
+                <code className={typographyStyles.typeText}>unknown</code>
               </td>
               <td>
                 <p>
@@ -128,7 +129,11 @@ export default function UseFieldArray({
         <li>
           <p>
             The only different between <code>useWatch</code> and{" "}
-            <code>watch</code> is at root level or component level update.
+            <code>watch</code> is at root (
+            <Link to={"/api/useform"}>
+              <code>useForm</code>
+            </Link>
+            ) level or the custom hook level update.
           </p>
         </li>
         <li>

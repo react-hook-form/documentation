@@ -773,7 +773,7 @@ append({ firstName: '' });
       <>
         <p>
           This will watch specified inputs and return their values. It is useful
-          for determining what to render.
+          to render input value and for determining what to render by condition.
         </p>
       </>
     ),
@@ -2382,7 +2382,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
     description: (
       <p>
         Behaves similarly to the <code>watch</code> API, however, this will
-        isolate re-rendering at the component level and potentially result in
+        isolate re-rendering at the custom hook level and potentially result in
         better performance for your application.
       </p>
     ),
@@ -2419,7 +2419,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>defaultValue</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>any</code>
+            <code className={typographyStyles.typeText}>unknown</code>
           </td>
           <td></td>
           <td>

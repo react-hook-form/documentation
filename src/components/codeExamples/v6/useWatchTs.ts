@@ -13,7 +13,7 @@ function FirstNameWatched({ control }: { control: Control<FormInputs> }) {
     defaultValue: "default" // default value before the render
   });
 
-  return <p>Watch: {firstName}</p>; // only re-render at the component level, when firstName changes
+  return <p>Watch: {firstName}</p>; // only re-render at the custom hook level, when firstName changes
 }
 
 function App() {

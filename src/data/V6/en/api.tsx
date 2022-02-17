@@ -1753,8 +1753,8 @@ React.useEffect(() => {
       <>
         <p>
           Behaves similarly to the <code>watch</code> API, however, this will
-          isolate re-rendering at the component level and potentially result in
-          better performance for your application.
+          isolate re-rendering at the custom hook level and potentially result
+          in better performance for your application.
         </p>
       </>
     ),
