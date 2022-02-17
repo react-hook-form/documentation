@@ -368,8 +368,8 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor the codebase.
+          Testing is very important because it preserves code from bugs or
+          mistakes, and guarantees code safety when refactoring the codebase.
         </p>
 
         <p>
