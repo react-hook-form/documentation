@@ -362,23 +362,16 @@ const App = () => {
 `}
           />
 
-          <p>
-            The example below shows what to expect when you invoke the{" "}
-            <code>unregister</code> method.
-          </p>
-
           <table className={tableStyles.table}>
             <tbody>
               <tr>
                 <th>Type</th>
                 <th>Input Name</th>
-                <th>Example</th>
+                <th>Value</th>
               </tr>
               <tr>
                 <td>
-                  <code className={typographyStyles.typeText}>
-                    string // as key name
-                  </code>
+                  <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
                   <code>unregister("yourDetails")</code>
@@ -772,8 +765,9 @@ append({ firstName: '' });
     description: (
       <>
         <p>
-          This will watch specified inputs and return their values. It is useful
-          to render input value and for determining what to render by condition.
+          This method will watch specified inputs and return their values. It is
+          useful to render input value and for determining what to render by
+          condition.
         </p>
       </>
     ),

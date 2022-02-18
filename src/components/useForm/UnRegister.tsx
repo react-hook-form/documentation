@@ -199,8 +199,8 @@ export default ({ currentLanguage }) => {
               </li>
               <li>
                 <p>
-                  By <code>unregister</code> an input, it will not affect or
-                  unregister your schema validation.
+                  By <code>unregister</code> an input, it will not affect the
+                  schema validation.
                 </p>
                 <CodeArea
                   rawData={`const schema = yup.object().shape({
