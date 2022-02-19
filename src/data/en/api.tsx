@@ -88,8 +88,7 @@ export default {
     validationOnTouched: (
       <>
         <p>
-          Validation will trigger on the first <code>blur</code> event. 
-          
+          Validation will trigger on the first <code>blur</code> event. After
           that, it will trigger on every <code>change</code> event.
         </p>
         <p>
