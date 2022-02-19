@@ -875,7 +875,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
   throw new Error('Something is wrong')
 }
 
-handleSubmit(onSubmit).catch((e) => {
+(event) => handleSubmit(onSubmit)(event).catch((error) => {
   // you will need to catch that error
 })`}
             />
