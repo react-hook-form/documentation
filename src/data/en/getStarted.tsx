@@ -83,35 +83,7 @@ export default {
           </li>
           <li>
             <p style={{ margin: "2px 0" }}>validate</p>
-          </li>
-        </ul>
-        <p>
-          You can read more detail on each rule in the{" "}
-          <Link to={translateLink("api#register", currentLanguage)}>
-            register section
-          </Link>
-          .
-        </p>
-      </>
-    ),
-  },
-  adapting: {
-    title: "Integrating an existing form",
-    description: (
-      <p>
-        Integrating an existing form should be simple. The important step is to{" "}
-        <code>register</code> the component's <code>ref</code> and assign
-        relevant props to your input.
-      </p>
-    ),
-  },
-  controlledInput: {
-    title: "Integrating Controlled Inputs",
-    description: (
-      <>
-        <p>
-          This library embraces uncontrolled components and native HTML inputs,
-          however, it's hard to avoid working with external controlled
+ou
           components such as{" "}
           <a
             target="_blank"
@@ -152,7 +124,7 @@ export default {
           React Hook Form has made it easy to integrate with external UI
           component libraries. If the component doesn't expose input's{" "}
           <code>ref</code>, then you should use the{" "}
-          <Link to="/api#Controller">Controller</Link> component, which will
+          <Link to="/api#Controller">Controller</Link> component, which willf
           take care of the registration process.
         </p>
       </>
@@ -172,7 +144,7 @@ export default {
     description: (
       <p>
         You will get the same performance boost and enhancement in React Native.
-        To integrate with input component, You can use register your component
+        To integrate with input component, you can use register your component
         or wrapped with <code>Controller</code>.
       </p>
     ),
