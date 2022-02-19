@@ -2046,7 +2046,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td></td>
           <td>
-            <Link to={"/api/control"}>
+            <Link to={"/api/useform/control"}>
               <code>control</code>
             </Link>{" "}
             object is from invoking <code>useForm</code>. Optional when using{" "}
