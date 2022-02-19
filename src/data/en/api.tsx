@@ -211,7 +211,7 @@ const onSubmit = (data) => {
     reValidateMode: (
       <p>
         This option allows you to configure validation strategy when inputs with
-        errors get re-validated <strong>after</strong> user submit the form (
+        errors get re-validated <strong>after</strong> user submits the form (
         <code>onSubmit</code> event). By default, validation is triggered during
         the input change event.
       </p>
@@ -282,7 +282,7 @@ const onSubmit = (data) => {
                 <p>input unmount will remove value.</p>
               </li>
               <li>
-                <p>input hidden should applied for hidden data.</p>
+                <p>input hidden should be applied for hidden data.</p>
               </li>
               <li>
                 <p>
@@ -606,11 +606,11 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
-            <code>object</code> or <code>array</code> input data, it's recommend
+            <code>object</code> or <code>array</code> input data, it's recommended
             to use the <code>validate</code> function for validation as the
             other rules mostly apply to <code>string</code>,{" "}
             <code>string[]</code>, <code>number</code> and <code>boolean</code>{" "}
-            data type.
+            data types.
           </p>
         </>
       ),
@@ -630,7 +630,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
     isSubmitSuccessful: (
       <p>
         Indicate the form was successfully submitted without any{" "}
-        <code>Promise</code> rejection or <code>Error</code> been threw within
+        <code>Promise</code> rejection or <code>Error</code> been thrown within
         the <code>handleSubmit</code> callback.
       </p>
     ),
@@ -697,7 +697,7 @@ append({ firstName: '' });
     isSubmitting: (
       <>
         <code>true</code> if the form is currently being submitted.{" "}
-        <code>false</code> if otherwise.
+        <code>false</code> otherwise.
       </>
     ),
     submitCount: "Number of times the form was submitted.",
@@ -1330,7 +1330,7 @@ clearErrors('test.firstName'); // for clear single input error
                       <ul>
                         <li>
                           <p>
-                            It's recommend to use field array's methods such as{" "}
+                            It's recommended to use field array's methods such as{" "}
                             <Link to={"/api/usefieldarray#replace"}>
                               <code>replace</code>
                             </Link>{" "}
@@ -1343,8 +1343,8 @@ clearErrors('test.firstName'); // for clear single input error
                         </li>
                         <li>
                           <p>
-                            It will not create new field when target a none
-                            existing field.
+                            It will not create a new field when targeting a non-existing
+                            field.
                           </p>
 
                           <CodeArea
