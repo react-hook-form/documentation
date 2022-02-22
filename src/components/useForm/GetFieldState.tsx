@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import * as containerStyles from "../../styles/container.module.css"
 import * as typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
@@ -8,7 +9,6 @@ import Footer from "../Footer"
 import getFieldState from "../codeExamples/getFieldState"
 import * as tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
-import { Link } from "gatsby"
 
 export const GetFieldState = () => {
   return (
