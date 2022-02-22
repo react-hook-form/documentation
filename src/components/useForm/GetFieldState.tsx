@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import * as containerStyles from "../../styles/container.module.css"
 import * as typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
@@ -30,9 +31,12 @@ export const GetFieldState = () => {
             </code>
 
             <p>
-              This method will return individual field state. It will be useful
-              when you are try to retrieve nested value field state in a
-              typesafe approach.
+              This method is introduced in react-hook-form (
+              <Link to="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
+                v7.25.0
+              </Link>
+              ) to return individual field state. It's useful in case you are
+              trying to retrieve nested field state in a typesafe way.
             </p>
 
             <h2 className={typographyStyles.subTitle}>Props</h2>
