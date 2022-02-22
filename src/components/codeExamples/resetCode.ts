@@ -1,14 +1,18 @@
-export default `import React from "react";
+export default `import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data, e) => {};
   
-  useEffect(async () => {
+  const resetAsyncForm = useCallback(async () => {
     const result = await fetch('./api/formValues.json'); // result: { firstName: 'test', lastName: 'test2' }
     reset(result); // asynchronously reset your form values
-  }, [reset])
+  }, [reset]);
+  
+  useEffect(() => {
+    resetAsyncForm()
+  }, [resetForm])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
