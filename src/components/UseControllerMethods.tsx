@@ -37,7 +37,11 @@ export default ({ currentLanguage, isController }) => {
               <p>
                 A function which sends the input's value to the library. It
                 should be assigned to the <code>onChange</code> prop of the
-                input.
+                input and value should{" "}
+                <b>
+                  not be <code>undefined</code>
+                </b>
+                .
               </p>
             </td>
           </tr>
