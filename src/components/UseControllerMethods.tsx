@@ -34,15 +34,34 @@ export default ({ currentLanguage, isController }) => {
               </code>
             </td>
             <td>
-              <p>
-                A function which sends the input's value to the library. It
-                should be assigned to the <code>onChange</code> prop of the
-                input and value should{" "}
-                <b>
-                  not be <code>undefined</code>
-                </b>
-                .
-              </p>
+              <p>A function which sends the input's value to the library.</p>
+              <ul>
+                <li>
+                  It should be assigned to the <code>onChange</code> prop of the
+                  input and value should{" "}
+                  <b>
+                    not be <code>undefined</code>
+                  </b>
+                  .
+                </li>
+                <li>
+                  This prop update{" "}
+                  <Link
+                    to="/api/useform/formstate"
+                    aria-label={"read more about formstate"}
+                  >
+                    formState
+                  </Link>{" "}
+                  and you should avoid manually invoke{" "}
+                  <Link
+                    to="/api/useform/setValue"
+                    aria-label={"read more about setValue"}
+                  >
+                    setValue
+                  </Link>{" "}
+                  or other API related to field update.
+                </li>
+              </ul>
             </td>
           </tr>
           <tr>
