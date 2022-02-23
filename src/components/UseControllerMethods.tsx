@@ -21,6 +21,8 @@ export default ({ currentLanguage, isController }) => {
             <th width="160px">{generic.type[currentLanguage]}</th>
             <th>{generic.description[currentLanguage]}</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>
               <code>field</code>
@@ -45,21 +47,23 @@ export default ({ currentLanguage, isController }) => {
                   .
                 </li>
                 <li>
-                  This prop update{" "}
-                  <Link
-                    to="/api/useform/formstate"
-                    aria-label={"read more about formstate"}
-                  >
-                    formState
-                  </Link>{" "}
-                  and you should avoid manually invoke{" "}
-                  <Link
-                    to="/api/useform/setValue"
-                    aria-label={"read more about setValue"}
-                  >
-                    setValue
-                  </Link>{" "}
-                  or other API related to field update.
+                  <p>
+                    This prop update{" "}
+                    <Link
+                      to="/api/useform/formstate"
+                      aria-label={"read more about formstate"}
+                    >
+                      formState
+                    </Link>{" "}
+                    and you should avoid manually invoke{" "}
+                    <Link
+                      to="/api/useform/setValue"
+                      aria-label={"read more about setValue"}
+                    >
+                      setValue
+                    </Link>{" "}
+                    or other API related to field update.
+                  </p>
                 </li>
               </ul>
             </td>
@@ -170,7 +174,7 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <FormStateApi columnIndent />
-        </thead>
+        </tbody>
       </table>
     </>
   )

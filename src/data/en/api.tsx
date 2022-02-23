@@ -606,9 +606,9 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
-            <code>object</code> or <code>array</code> input data, it's recommended
-            to use the <code>validate</code> function for validation as the
-            other rules mostly apply to <code>string</code>,{" "}
+            <code>object</code> or <code>array</code> input data, it's
+            recommended to use the <code>validate</code> function for validation
+            as the other rules mostly apply to <code>string</code>,{" "}
             <code>string[]</code>, <code>number</code> and <code>boolean</code>{" "}
             data types.
           </p>
@@ -641,9 +641,11 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
         </p>
         <ul>
           <li>
-            Make sure to provide all inputs' defaultValues at the useForm, so
-            hook form can have a single source of truth to compare whether the
-            form is dirty.
+            <p>
+              Make sure to provide all inputs' defaultValues at the useForm, so
+              hook form can have a single source of truth to compare whether the
+              form is dirty.
+            </p>
           </li>
           <li>
             <p>
@@ -664,15 +666,6 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
               <code>isDirty</code> state will be affected with actions from{" "}
               <code>useFieldArray</code>. For example below:
             </p>
-            <CodeArea
-              rawData={`useForm({ defaultValues: { test: [] } })
-const { append } = useFieldArray({ name: 'test' })
-
-// append will make form dirty, because a new input is created
-// and form values is no longer deeply equal defaultValues.
-append({ firstName: '' });
-`}
-            />
           </li>
         </ul>
       </>
@@ -1330,7 +1323,8 @@ clearErrors('test.firstName'); // for clear single input error
                       <ul>
                         <li>
                           <p>
-                            It's recommended to use field array's methods such as{" "}
+                            It's recommended to use field array's methods such
+                            as{" "}
                             <Link to={"/api/usefieldarray#replace"}>
                               <code>replace</code>
                             </Link>{" "}
@@ -1343,8 +1337,8 @@ clearErrors('test.firstName'); // for clear single input error
                         </li>
                         <li>
                           <p>
-                            It will not create a new field when targeting a non-existing
-                            field.
+                            It will not create a new field when targeting a
+                            non-existing field.
                           </p>
 
                           <CodeArea
