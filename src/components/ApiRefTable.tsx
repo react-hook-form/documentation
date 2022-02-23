@@ -646,7 +646,9 @@ export default function ApiRefTable({
               <td>
                 deps:
                 <br />
-                <code className={typographyStyles.typeText}>string[]</code>
+                <code className={typographyStyles.typeText}>
+                  string | string[]
+                </code>
               </td>
               <td>
                 <p>
