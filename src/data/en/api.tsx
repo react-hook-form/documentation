@@ -2149,6 +2149,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <code>defaultValues</code>.
                 </p>
               </li>
+              <li>
+                <p>
+                  Calling <code>onChange</code> with <code>undefined</code> clears the controlled form field..
+                </p>
+              </li>
             </ul>
           </td>
         </tr>
