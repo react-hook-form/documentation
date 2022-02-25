@@ -2037,7 +2037,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>control</td>
           <td>
             <Link to={"/ts#Control"} title={"Control type"}>
-              <code>Control</code>
+              <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
@@ -2383,12 +2383,12 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
       <tbody>
         <tr>
           <td>
+            <code>name</code>
+          </td>
+          <td>
             <Link to="/ts#FieldPath" title={"FieldPath type"}>
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>string</code>
           </td>
           <td>✓</td>
           <td>Unique name of your input.</td>
@@ -2399,7 +2399,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td>
             <Link to={"/ts#Control"} title={"Control type"}>
-              <code>Control</code>
+              <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
