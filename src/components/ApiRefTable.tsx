@@ -407,7 +407,10 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>Only applies to text input.</p>
+                    <p>
+                      Only applicable and support to text input, but we still
+                      cast to number type to the field value.
+                    </p>
                   </li>
                   <li>
                     Does not transform <code>defaultValue</code> or{" "}
