@@ -2026,14 +2026,18 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <code className={typographyStyles.typeText}>string</code>
+            <Link to="/ts#FieldPath" title={"FieldPath type"}>
+              <code className={typographyStyles.typeText}>FieldPath</code>
+            </Link>
           </td>
           <td>✓</td>
           <td>Unique name of your input.</td>
         </tr>
         <tr>
           <td>
-            <code>control</code>
+            <Link to={"/ts#Control"} title={"Control type"}>
+              <code>Control</code>
+            </Link>
           </td>
           <td>
             <code className={typographyStyles.typeText}>Object</code>
