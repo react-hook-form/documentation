@@ -2149,6 +2149,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <code>defaultValues</code>.
                 </p>
               </li>
+              <li>
+                <p>
+                  Calling <code>onChange</code> with <code>undefined</code> is
+                  not valid. You should use <code>null</code> or the empty
+                  string as your default/cleared value instead.
+                </p>
+              </li>
             </ul>
           </td>
         </tr>
