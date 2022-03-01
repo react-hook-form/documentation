@@ -12,6 +12,7 @@ import * as tableStyles from "../styles/table.module.css"
 import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
 import StarRepo from "./StarRepo"
 import { SelectNav } from "./selectNav"
+import { Link } from "gatsby"
 
 const codeSandBoxStyle = {
   position: "relative",
@@ -102,7 +103,11 @@ export default ({ currentLanguage }) => {
             <code className={typographyStyles.codeHeading}>
               <h2>
                 useForm:{" "}
-                <span className={typographyStyles.typeText}>Function</span>
+                <Link to="/ts#UseFormProps">
+                  <code className={typographyStyles.typeText}>
+                    UseFormProps
+                  </code>
+                </Link>
               </h2>
             </code>
 

@@ -8,6 +8,7 @@ import TabGroup from "./TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
+import { Link } from "gatsby"
 
 export default function UseFieldArrayContent({
   currentLanguage,
@@ -20,10 +21,12 @@ export default function UseFieldArrayContent({
     <>
       <code className={typographyStyles.codeHeading}>
         <h2>
-          useFieldArray:
-          <span
-            className={typographyStyles.typeText}
-          >{`({ control?: Control, name: string }) => object`}</span>
+          useFieldArray:{" "}
+          <Link to="/ts#UseFieldArrayProps">
+            <code className={typographyStyles.typeText}>
+              UseFieldArrayProps
+            </code>
+          </Link>
         </h2>
       </code>
 
