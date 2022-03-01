@@ -286,23 +286,34 @@ export default {
   formContext: {
     title: "FormProvider Performance",
     description: (
-      <p>
-        React Hook Form's{" "}
-        <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
-        upon{" "}
-        <a
-          href="https://reactjs.org/docs/context.html"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          React's Context
-        </a>{" "}
-        API. It solves the problem where data is passed through the component
-        tree without having to pass props down manually at every level. This
-        also causes the component tree to trigger a re-render when React Hook
-        Form triggers a state update, but we can still optimise our App if
-        required via the example below.
-      </p>
+      <>
+        <p>
+          React Hook Form's{" "}
+          <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
+          upon{" "}
+          <a
+            href="https://reactjs.org/docs/context.html"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            React's Context
+          </a>{" "}
+          API. It solves the problem where data is passed through the component
+          tree without having to pass props down manually at every level. This
+          also causes the component tree to trigger a re-render when React Hook
+          Form triggers a state update, but we can still optimise our App if
+          required via the example below.
+          <br />
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Using React Hook Form's{" "}
+          <PageLink to="/dev-tools">Devtools</PageLink> alongside{" "}
+          <PageLink to="/api/useformcontext">FormProvider</PageLink> can cause
+          performance issues in some situations. Before diving deep in
+          performance optimizations, consider this bottleneck first.
+          <br />
+        </p>
+      </>
     ),
   },
   customHookwithResolver: {
