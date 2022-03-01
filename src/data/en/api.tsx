@@ -2151,7 +2151,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </li>
               <li>
                 <p>
-                  Calling <code>onChange</code> with <code>undefined</code> clears the controlled form field..
+                  Calling <code>onChange</code> with <code>undefined</code> is undefined behavior, and may change based on value type or minor/patch version. You should use <code>null</code> or the empty string as your default/cleared value instead.
                 </p>
               </li>
             </ul>
