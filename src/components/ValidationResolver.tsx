@@ -14,6 +14,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import vestResolver from "./codeExamples/vestResolver"
 import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
+import { Link } from "gatsby"
 
 export default function ({ api }) {
   return (
@@ -25,9 +26,9 @@ export default function ({ api }) {
       >
         <code>
           resolver:{" "}
-          <span className={typographyStyles.typeText}>
-            {`(values: any, context?: object, options: Object) => Promise<ResolverResult> | ResolverResult `}
-          </span>
+          <Link to="/ts#Resolver">
+            <span className={typographyStyles.typeText}>Resolver</span>
+          </Link>
         </code>
       </h5>
 
