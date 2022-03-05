@@ -677,6 +677,12 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           inputs' defaultValues via useForm, so the library can compare against
           the <code>defaultValues</code>.
         </p>
+        <p>
+          Dirty fields will <strong>not</strong> represent as{" "}
+          <code>isDirty</code> formState, because dirty fields are marked field
+          dirty at field level rather the entire form. If you want to determine
+          the entire form state use <code>isDirty</code> instead.
+        </p>
       </>
     ),
     touched:
@@ -1393,6 +1399,11 @@ replace([{data: 'test'}])
                         ).
                       </p>
                     </li>
+                    <li>
+                      This option will update <code>touchedFields</code> at the
+                      specified field level <b>not</b> the entire form touched
+                      fields.
+                    </li>
                   </ul>
                   <CodeArea
                     rawData={`setValue('name', 'value', { shouldValidate: true })`}
@@ -1431,6 +1442,11 @@ replace([{data: 'test'}])
                         </code>
                         ).
                       </p>
+                    </li>
+                    <li>
+                      This option will update <code>dirtyFields</code> at the
+                      specified field level <b>not</b> the entire form dirty
+                      fields.
                     </li>
                   </ul>
 
@@ -2405,8 +2421,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </td>
           <td></td>
           <td>
-            <Link to={"/api/useform/control"}><code>control</code></Link> object provided by invoking{" "}
-            <code>useForm</code>. Optional when using <code>FormProvider</code>.
+            <Link to={"/api/useform/control"}>
+              <code>control</code>
+            </Link>{" "}
+            object provided by invoking <code>useForm</code>. Optional when
+            using <code>FormProvider</code>.
           </td>
         </tr>
         <tr>
