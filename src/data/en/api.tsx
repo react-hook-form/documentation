@@ -661,12 +661,6 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
               object.
             </p>
           </li>
-          <li>
-            <p>
-              <code>isDirty</code> state will be affected with actions from{" "}
-              <code>useFieldArray</code>. For example below:
-            </p>
-          </li>
         </ul>
       </>
     ),
