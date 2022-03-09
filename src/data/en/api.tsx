@@ -531,7 +531,7 @@ const App = () => {
 // This will work for React Native, except you can't reset input value
 <TextInput onTextChange={(value) => register('lastChange', { value }))} />
 // or use the setValue method
-<TextInput onTextChange={(value) => setValue('lastChange', { value }))} />
+<TextInput onTextChange={(value) => setValue('lastChange', value))} />
 `}
           />
 
