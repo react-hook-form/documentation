@@ -528,9 +528,6 @@ const App = () => {
           <CodeArea
             rawData={`register('firstName', { required: true, min: 8 });
 
-// This will work for React Native, except you can't reset input value
-<TextInput onTextChange={(value) => register('lastChange', { value }))} />
-// or use the setValue method
 <TextInput onTextChange={(value) => setValue('lastChange', value))} />
 `}
           />
