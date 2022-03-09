@@ -172,8 +172,8 @@ export default {
     description: (
       <p>
         You will get the same performance boost and enhancement in React Native.
-        To integrate with input component, you can use register your component
-        or wrapped with <code>Controller</code>.
+        To integrate with input component, you can wrap it with{" "}
+        <code>Controller</code>.
       </p>
     ),
   },
