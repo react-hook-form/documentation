@@ -53,6 +53,10 @@
   background: black;
 }
 
+.toggleGroup > button:active {
+  transform: none;
+}
+
 .toggleGroup.smallToggleGroup > button {
   width: 70px;
   color: white;
