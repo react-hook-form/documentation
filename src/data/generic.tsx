@@ -202,6 +202,9 @@ export default {
     zh: "类型",
     ru: "Тип",
   },
+  default: {
+    en: "Default",
+  },
   description: {
     en: "Description",
     es: "Descripción",
