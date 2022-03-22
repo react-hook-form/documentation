@@ -75,7 +75,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
   </>
 ));
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -128,7 +128,7 @@ const Select = React.forwardRef<
   </>
 ));
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit: SubmitHandler<IFormValues> = data => {
@@ -207,7 +207,7 @@ import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
-const App = () => {
+export default function App() {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       firstName: '',
@@ -252,7 +252,7 @@ interface IFormInput {
   iceCreamType: {label: string; value: string };
 }
 
-const App = () => {
+export default function App() {
   const { control, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = data => {
@@ -363,6 +363,8 @@ connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(Yo
 
 export const errors = `import React from "react";
 import { useForm } from "react-hook-form";
+
+const onSubmit = data => console.log(data);
 
 export default function App() {
   const { register, formState: { errors }, handleSubmit } = useForm();

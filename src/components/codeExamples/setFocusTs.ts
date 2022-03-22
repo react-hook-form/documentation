@@ -1,5 +1,5 @@
 export default `import * as React from "react";
-import { useForm } from "./src";
+import { useForm } from "react-hook-form";
 
 type FormValues = {
   firstName: string;
@@ -8,7 +8,6 @@ type FormValues = {
 export default function App() {
   const { register, handleSubmit, setFocus } = useForm<FormValues>();
   const onSubmit = (data: FormValues) => console.log(data);
-  renderCount++;
 
   React.useEffect(() => {
     setFocus("firstName");

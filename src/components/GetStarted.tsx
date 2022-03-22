@@ -57,6 +57,7 @@ export default function GetStarted({
       </h2>
       <p>{getStarted.example.description}</p>
       <CodeArea
+        canEdit
         rawData={isV7 ? code : codeV6}
         tsRawData={isV7 ? codeTs : codeTsV6}
         url={

@@ -12,7 +12,7 @@ export const DeepNest = () => (
   </ConnectForm>
 );
 
-export const App = () => {
+export export default function App() {
   const methods = useForm();
   
   return (

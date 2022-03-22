@@ -6,7 +6,7 @@ type FormInputs = {
   lastName: string
 }
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit, setValue } = useForm<FormInputs>();
 
   const onSubmit = (data: FormInputs) => console.log(data);

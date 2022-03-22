@@ -41,12 +41,14 @@ export default ({ currentLanguage }) => {
 
             <TabGroup buttonLabels={["sync", "async"]}>
               <CodeArea
+                canEdit
                 rawData={handleSubmitCode}
                 tsRawData={handleSubmitCodeTs}
                 url="https://codesandbox.io/s/react-hook-form-handlesubmit-v7-uqmiy"
                 tsUrl="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-lcrtu"
               />
               <CodeArea
+                canEdit
                 rawData={handleSubmitAsyncCode}
                 url="https://codesandbox.io/s/react-hook-form-async-submit-validation-kpx0o"
               />

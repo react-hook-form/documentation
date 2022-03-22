@@ -1,10 +1,9 @@
 export default `import * as React from "react";
-import { useForm } from "./src";
+import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, setFocus } = useForm();
   const onSubmit = (data) => console.log(data);
-  renderCount++;
 
   React.useEffect(() => {
     setFocus("firstName");

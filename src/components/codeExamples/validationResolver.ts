@@ -10,7 +10,7 @@ const validationSchema = Joi.object({
     .required()
 });
 
-const App = () => {
+export default function App() {
   const {
     register,
     handleSubmit,

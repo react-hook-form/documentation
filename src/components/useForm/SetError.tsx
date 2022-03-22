@@ -50,18 +50,21 @@ export default ({ currentLanguage }) => {
               ]}
             >
               <CodeArea
+                canEdit
                 rawData={setError}
                 tsRawData={setErrorTs}
                 url="https://codesandbox.io/s/react-hook-form-v7-seterror-btbf8"
                 tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-nfxxu"
               />
               <CodeArea
+                canEdit
                 rawData={setMultipleErrors}
                 tsRawData={setMultipleErrorsTs}
                 url="https://codesandbox.io/s/react-hook-form-v7-seterror-3y1op"
                 tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-8h440"
               />
               <CodeArea
+                canEdit
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
                 url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-ogf20"

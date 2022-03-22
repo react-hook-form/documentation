@@ -8,7 +8,7 @@ const schema = z.object({
   age: z.number()
 });
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(schema)
   });

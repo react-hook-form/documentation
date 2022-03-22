@@ -37,6 +37,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={clearError}
               url="https://codesandbox.io/s/react-hook-form-v7-clearerrors-w5tl6"
               tsRawData={clearErrorTs}

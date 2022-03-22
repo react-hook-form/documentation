@@ -173,12 +173,14 @@ export default function ApiWatch({
 
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea
+          canEdit
           rawData={watchCode}
           tsRawData={watchCodeTs}
           url="https://codesandbox.io/s/react-hook-form-watch-v7-qbxd7"
           tsUrl="https://codesandbox.io/s/react-hook-form-watch-v7-ts-8et1d"
         />
         <CodeArea
+          canEdit
           rawData={watchFieldArrayCode}
           url="https://codesandbox.io/s/watch-with-usefieldarray-e2d64"
         />

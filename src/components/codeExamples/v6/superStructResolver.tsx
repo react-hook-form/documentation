@@ -8,7 +8,7 @@ const schema = struct({
   age: 'number',
 });
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm({
     resolver: superstructResolver(schema),
   });

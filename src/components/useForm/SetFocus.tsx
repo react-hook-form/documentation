@@ -38,6 +38,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={setFocus}
               tsRawData={setFocusTs}
               url="https://codesandbox.io/s/setfocus-rolus"

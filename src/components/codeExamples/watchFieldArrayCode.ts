@@ -1,13 +1,16 @@
 export default `import * as React from "react";
 import { useForm, useFieldArray, ArrayField } from "react-hook-form";
 
-function App() {
+let renderCount = 0;
+
+export default function App() {
   const { register, control, handleSubmit, watch } = useForm();
   const { fields, remove, append } = useFieldArray({
     name: "test",
     control
   });
   const onSubmit = (data: FormValues) => console.log(data);
+  renderCount++;
   
   console.log(watch("test")); 
 

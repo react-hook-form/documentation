@@ -211,6 +211,7 @@ getFieldState('test', formState); // ✅ register input and return field state
             </h2>
 
             <CodeArea
+              canEdit
               rawData={getFieldState}
               url={"https://codesandbox.io/s/getfieldstate-jvekk"}
             />

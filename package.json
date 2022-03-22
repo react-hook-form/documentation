@@ -5,6 +5,7 @@
   "author": "beier luo",
   "dependencies": {
     "@hookform/devtools": "2.0.0-beta.1",
+    "@hookform/error-message": "^2.0.0",
     "gatsby": "^3.3.0",
     "gatsby-plugin-algolia-docsearch": "^1.0.5",
     "gatsby-plugin-google-analytics": "3.3.0",
@@ -27,7 +28,10 @@
     "react-github-btn": "1.2.0",
     "react-helmet": "6.1.0",
     "react-hook-form": "6.0.0-rc.1",
+    "react-hook-form-v7": "npm:react-hook-form@7",
+    "react-runner": "^1.0.0",
     "react-simple-animate": "^3.3.12",
+    "react-simple-code-editor": "^0.11.0",
     "react-simple-img": "2.3.9",
     "react-sortablejs": "1.5.1",
     "sortablejs": "1.10.2"

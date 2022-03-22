@@ -371,7 +371,7 @@ const { register } = useForm<FormInputs>({
               Examples
             </h3>
 
-            <CodeArea rawData={shouldUseNativeValidation} />
+            <CodeArea canEdit rawData={shouldUseNativeValidation} />
 
             <ValidationResolver api={api} />
 

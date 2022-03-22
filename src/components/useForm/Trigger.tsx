@@ -50,6 +50,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={trigger}
               url="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-forked-8w9tn"
               tsRawData={triggerTs}

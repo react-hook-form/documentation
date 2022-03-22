@@ -42,6 +42,7 @@ export default ({ currentLanguage }) => {
 
             <TabGroup buttonLabels={["basic", "dependant fields"]}>
               <CodeArea
+                canEdit
                 rawData={setValue}
                 url="https://codesandbox.io/s/react-hook-form-v7-setvalue-h8wbk"
                 tsRawData={setValueTs}
@@ -49,6 +50,7 @@ export default ({ currentLanguage }) => {
                 tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-setvalue-8z9hx"
               />
               <CodeArea
+                canEdit
                 rawData={dependantFields}
                 url="https://codesandbox.io/s/dependant-field-dwin1"
               />

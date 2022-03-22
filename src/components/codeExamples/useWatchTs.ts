@@ -16,7 +16,7 @@ function FirstNameWatched({ control }: { control: Control<FormInputs> }) {
   return <p>Watch: {firstName}</p>; // only re-render at the custom hook level, when firstName changes
 }
 
-function App() {
+export default function App() {
   const { register, control, handleSubmit } = useForm<FormInputs>();
 
   const onSubmit = (data: FormInputs) => {

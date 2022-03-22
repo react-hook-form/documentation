@@ -145,6 +145,7 @@ const formState = useFormState(); // ❌ should deconstruct the formState
             </h2>
 
             <CodeArea
+              canEdit
               rawData={useFormState}
               url={"https://codesandbox.io/s/useformstate-75xly"}
             />

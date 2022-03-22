@@ -64,6 +64,7 @@ export default function FormContext({ currentLanguage, api }) {
       </h2>
 
       <CodeArea
+        canEdit
         rawData={formContext}
         url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
       />

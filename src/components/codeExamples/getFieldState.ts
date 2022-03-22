@@ -5,7 +5,7 @@ export default function App() {
   const {
     register,
     getFieldState,
-    formState: { isDirty, isValid }
+    formState: { isDirty, dirtyFields, touchedFields, isValid }
   } = useForm({
     mode: "onChange",
     defaultValues: {
@@ -21,7 +21,7 @@ export default function App() {
       <input {...register("firstName", { required: true })} />
       <p>{getFieldState("firstName").isDirty && "dirty"}</p>
       <p>{getFieldState("firstName").isTouched && "touched"}</p>
-      <button type="button" onClick={() => console.log(getFieldState("firstName"))}>
+      <button type="submit" onClick={() => console.log(getFieldState("firstName"))}>
         field state
       </button>
     </form>
