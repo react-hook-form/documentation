@@ -880,9 +880,8 @@ handleSubmit(async (data) => await fetchAPI(data))`}
     description: (
       <>
         <p>
-          Reset either the entire form state, field reference and subscriptions.
-          There are optional arguments which will allow partial form state
-          reset.
+          Reset the entire form state, fields reference, and subscriptions.
+          There are optional arguments and will allow partial form state reset.
         </p>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
@@ -898,7 +897,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               <tr>
                 <th>{generic.name.en}</th>
                 <th>{generic.type.en}</th>
-                <th>{generic.default.en}</th>
                 <th>{generic.description.en}</th>
               </tr>
             </thead>
@@ -910,7 +908,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 <td>
                   <code className={typographyStyles.typeText}>object</code>
                 </td>
-                <td></td>
                 <td>
                   <p>An optional object to reset form values.</p>
                 </td>
@@ -920,10 +917,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <code>keepErrors</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>object</code>
-                </td>
-                <td>
-                  <code>false</code>
+                  <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
                   <p>
@@ -938,9 +932,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
-                </td>
-                <td>
-                  <code>false</code>
                 </td>
                 <td>
                   <p>
@@ -964,9 +955,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  <code>false</code>
-                </td>
-                <td>
                   <p>Form input values will be unchanged.</p>
                 </td>
               </tr>
@@ -976,9 +964,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
-                </td>
-                <td>
-                  <code>false</code>
                 </td>
                 <td>
                   <p>
@@ -1011,9 +996,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  <code>false</code>
-                </td>
-                <td>
                   <p>
                     <code>isSubmitted</code> state will be unchanged.
                   </p>
@@ -1025,9 +1007,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
-                </td>
-                <td>
-                  <code>false</code>
                 </td>
                 <td>
                   <p>
@@ -1043,9 +1022,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <code className={typographyStyles.typeText}>boolean</code>
                 </td>
                 <td>
-                  <code>false</code>
-                </td>
-                <td>
                   <p>
                     <code>isValid</code> will temporarily persist as the current
                     state until additional user actions.
@@ -1058,9 +1034,6 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 </td>
                 <td>
                   <code className={typographyStyles.typeText}>boolean</code>
-                </td>
-                <td>
-                  <code>false</code>
                 </td>
                 <td>
                   <p>
