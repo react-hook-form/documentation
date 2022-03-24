@@ -879,7 +879,11 @@ handleSubmit(async (data) => await fetchAPI(data))`}
     title: "reset",
     description: (
       <>
-        <p>Reset either the entire form state or part of the form state.</p>
+        <p>
+          Reset either the entire form state, field reference and subscriptions.
+          There are optional arguments which will allow partial form state
+          reset.
+        </p>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
