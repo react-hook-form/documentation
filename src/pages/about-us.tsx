@@ -31,16 +31,6 @@ const Twitter = ({ twitterName }) => (
 
 const data = [
   {
-    name: "Barry May",
-    imgUrl: "https://avatars.githubusercontent.com/u/5514034?v=4",
-    url: "https://github.com/barrymay",
-    bio:
-      "I'm a software engineer/team leader with long-term UI/UX and DevOps experience.  I love to show devs the power of the modern web stack (TypeScript in particular 😀), and I'm thrilled to assist on great OSS projects like react-hook-form!",
-    twitterName: "barry_a_may",
-    interests: ["🎲 games", "💻 code", "🍕 food"],
-    active: true,
-  },
-  {
     name: "Joris",
     imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
     url: "https://twitter.com/_jorisre",
@@ -48,17 +38,6 @@ const data = [
     bio:
       "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
     interests: ["💻  Code", "⚛️  React", "🥑  Food"],
-    active: true,
-  },
-  {
-    name: "kotarella",
-    imgUrl:
-      "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
-    url: "https://github.com/kotarella1110",
-    twitterName: "kotarella1110",
-    bio:
-      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
-    interests: ["🍺 beer", "💻 code", "♨️ onsen"],
     active: true,
   },
   {
@@ -81,6 +60,27 @@ const data = [
       "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
     interests: ["👨‍💻 Tech", "🎮 Games", "🍕 Food"],
     active: true,
+  },
+  {
+    name: "kotarella",
+    imgUrl:
+      "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
+    url: "https://github.com/kotarella1110",
+    twitterName: "kotarella1110",
+    bio:
+      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
+    interests: ["🍺 beer", "💻 code", "♨️ onsen"],
+    active: false,
+  },
+  {
+    name: "Barry May",
+    imgUrl: "https://avatars.githubusercontent.com/u/5514034?v=4",
+    url: "https://github.com/barrymay",
+    bio:
+      "I'm a software engineer/team leader with long-term UI/UX and DevOps experience.  I love to show devs the power of the modern web stack (TypeScript in particular 😀), and I'm thrilled to assist on great OSS projects like react-hook-form!",
+    twitterName: "barry_a_may",
+    interests: ["🎲 games", "💻 code", "🍕 food"],
+    active: false,
   },
   {
     name: "Phillip ED Maier",
