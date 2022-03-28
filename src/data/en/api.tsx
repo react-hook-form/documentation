@@ -211,7 +211,7 @@ const onSubmit = (data) => {
     reValidateMode: (
       <p>
         This option allows you to configure validation strategy when inputs with
-        errors get re-validated <strong>after</strong> user submits the form (
+        errors get re-validated <strong>after</strong> a user submits the form (
         <code>onSubmit</code> event). By default, validation is triggered during
         the input change event.
       </p>
