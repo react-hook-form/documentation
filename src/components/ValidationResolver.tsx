@@ -194,6 +194,20 @@ export default function ({ api }) {
           tsUrl="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
         />
       </TabGroup>
+
+      <h3 id={"schema-rules"} className={typographyStyles.rulesTitle}>
+        Tip
+      </h3>
+
+      <p>You can debug your schema via the following code snippet:</p>
+      <CodeArea
+        rawData={`resolver: async (data, context, options) => {
+  // you can debug your validation schema here
+  console.log('formData', data)
+  console.log('validation result', await anyResolver(schema)(data, context, options))
+  return anyResolver(schema)(data, context, options)
+},`}
+      />
     </>
   )
 }
