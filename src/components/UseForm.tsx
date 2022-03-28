@@ -162,7 +162,7 @@ const { register } = useForm<FormInputs>({
             <div className={tableStyles.tableWrapper}>
               <p>
                 This option allows you to configure the validation strategy
-                before user submit the form (<code>onSubmit</code> event).
+                before a user submits the form (<code>onSubmit</code> event).
               </p>
 
               <table className={tableStyles.table}>
