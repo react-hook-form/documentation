@@ -96,6 +96,7 @@ errors?.key4?.message // no type error`}
     title: "Resolver",
     description: (
       <CodeArea
+        canEdit
         url={"https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"}
         rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
@@ -142,6 +143,7 @@ export default function App() {
     title: "SubmitHandler",
     description: (
       <CodeArea
+        canEdit
         rawData={handleSubmitCodeTs}
         url="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
       />
@@ -151,6 +153,7 @@ export default function App() {
     title: "Control",
     description: (
       <CodeArea
+        canEdit
         url="https://codesandbox.io/s/control-2mg07"
         rawData={`import React from "react";
 import { useForm, useWatch, Control } from "react-hook-form";
@@ -192,6 +195,7 @@ export default function App() {
     title: "UseFormReturn",
     description: (
       <CodeArea
+        canEdit
         url={
           "https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
         }

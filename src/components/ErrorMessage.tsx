@@ -146,12 +146,16 @@ export default ({
                 ]}
               >
                 <CodeArea
+                  // there will be error as we are using HookForm V6 in this app
+                  // and `@hookform/error-message` will use that version but `get` is not available
+                  // canEdit
                   rawData={errorMessage}
                   url="https://codesandbox.io/s/react-hook-form-v7-errormessage-jufsl"
                   tsRawData={errorMessageTs}
                   tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-d1ues"
                 />
                 <CodeArea
+                  // canEdit
                   rawData={errorsMessage}
                   url="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-lnvkt"
                   tsRawData={errorsMessageTs}

@@ -235,6 +235,7 @@ const onClick = () => {
             </h2>
 
             <CodeArea
+              canEdit
               url="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
               rawData={unregisterCode}
               tsUrl="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"

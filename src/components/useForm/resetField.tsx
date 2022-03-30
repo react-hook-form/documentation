@@ -183,10 +183,12 @@ resetField('non-existent-name'); // ❌ failed by input not found
               buttonLabels={["Reset Field State", "Reset With Options"]}
             >
               <CodeArea
+                canEdit
                 rawData={resetFieldCode}
                 url="https://codesandbox.io/s/priceless-firefly-d0kuv"
               />
               <CodeArea
+                canEdit
                 rawData={resetFieldOptionCode}
                 url="https://codesandbox.io/s/resetfield-with-options-iw4wd"
               />

@@ -1,8 +1,8 @@
 import * as React from "react"
-import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import Prism from "prismjs"
+import { CodeBlock } from "./CodeBlock"
+import { LiveRunner } from "./LiveRunner"
 import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -59,8 +59,8 @@ export default function CodeArea({
   rawTypes,
   url,
   tsUrl,
-  withOutCopy,
   isExpo,
+  canEdit,
   style,
 }: {
   rawData?: string
@@ -70,10 +70,11 @@ export default function CodeArea({
   tsUrl?: string
   withOutCopy?: boolean
   isExpo?: boolean
-  style?: any
+  canEdit?: boolean
+  style?: React.CSSProperties
 }) {
   const {
-    state: { language },
+    state: { language, setting },
   } = useStateMachine()
   const [currentType, setType] = React.useState<
     typeof ToggleTypes[keyof typeof ToggleTypes]
@@ -82,7 +83,9 @@ export default function CodeArea({
       (tsRawData && ToggleTypes.ts) ||
       ToggleTypes.types
   )
-  const codeAreaRef = React.useRef<HTMLDivElement | null>(null)
+  const [editing, setEditing] = React.useState(false)
+
+  const isV7 = setting?.version === 7
 
   const getData = () => {
     switch (currentType) {
@@ -98,15 +101,11 @@ export default function CodeArea({
   const { currentLanguage } =
     language && language.currentLanguage ? language : { currentLanguage: "en" }
 
-  React.useEffect(() => {
-    const highlight = async () => {
-      if (codeAreaRef.current) {
-        Prism.highlightAllUnder(codeAreaRef.current)
-      }
-    }
-    highlight()
-  }, [])
-
+  const showCSBButton =
+    (url && currentType === ToggleTypes.js) ||
+    (tsUrl && currentType === ToggleTypes.ts) ||
+    (tsUrl && currentType === ToggleTypes.types)
+  const showEditButton = canEdit && isV7 && currentType !== ToggleTypes.types
   return (
     <section
       style={{
@@ -144,22 +143,21 @@ export default function CodeArea({
             Types
           </button>
         )}
-        {!withOutCopy && (
+        {showEditButton && (
           <button
-            className={`${styles.button} ${styles.copyButton}`}
+            className={`${styles.button} ${styles.editButton} ${
+              editing ? styles.active : ""
+            }`}
             onClick={() => {
-              copyClipBoard(getData())
-              alert(generic.copied[currentLanguage])
+              setEditing(!editing)
             }}
             aria-label={generic.copied[currentLanguage]}
           >
-            {generic.copy[currentLanguage]}
+            {generic.edit[currentLanguage]}
           </button>
         )}
 
-        {((url && currentType === ToggleTypes.js) ||
-          (tsUrl && currentType === ToggleTypes.ts) ||
-          (tsUrl && currentType === ToggleTypes.types)) && (
+        {showCSBButton && (
           <CodeSandBoxLink
             isExpo={isExpo}
             isJS={url && currentType === ToggleTypes.js && url && tsUrl}
@@ -167,32 +165,11 @@ export default function CodeArea({
           />
         )}
       </div>
-
-      <div className={styles.wrapper} ref={codeAreaRef}>
-        <pre style={style} className="raw-code">
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.js ? styles.showCode : ""
-            }`}
-          >
-            {rawData}
-          </code>
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.ts ? styles.showCode : ""
-            }`}
-          >
-            {tsRawData}
-          </code>
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.types ? styles.showCode : ""
-            }`}
-          >
-            {rawTypes}
-          </code>
-        </pre>
-      </div>
+      {editing ? (
+        <LiveRunner style={style} initialCode={getData()} />
+      ) : (
+        <CodeBlock style={style}>{getData()}</CodeBlock>
+      )}
     </section>
   )
 }

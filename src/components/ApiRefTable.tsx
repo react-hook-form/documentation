@@ -762,6 +762,7 @@ register('test', { required: false });  // ✅
         </h2>
 
         <CodeArea
+          canEdit
           rawData={register}
           url="https://codesandbox.io/s/react-hook-form-js-wbybv"
           tsRawData={registerTs}

@@ -1,7 +1,7 @@
 export default `import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 
-function App() {
+export default function App() {
   const { register, control, handleSubmit, reset, trigger, setError } = useForm({
     // defaultValues: {}; you can populate the fields by this attribute 
   });

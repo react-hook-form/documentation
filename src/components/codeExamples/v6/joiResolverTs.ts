@@ -13,7 +13,7 @@ const schema = Joi.object({
   age: Joi.number().required()
 });
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit, errors } = useForm<IFormInput>({
     resolver: joiResolver(schema)
   });

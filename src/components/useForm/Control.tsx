@@ -35,6 +35,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={control}
               url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
               tsRawData={controlTs}

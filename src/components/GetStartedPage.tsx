@@ -235,6 +235,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.register.description}
 
           <CodeArea
+            canEdit
             rawData={isV7 ? registerCode : v6Example.registerCode}
             tsRawData={isV7 ? registerCodeTs : v6Example.registerCodeTs}
             url={
@@ -264,6 +265,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.applyValidation.description(currentLanguage)}
 
           <CodeArea
+            canEdit
             rawData={isV7 ? applyValidation : v6Example.applyValidation}
             url={
               isV7
@@ -293,6 +295,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.adapting.description}
 
           <CodeArea
+            canEdit
             rawData={isV7 ? migrateCode : v6Example.migrateCode}
             url="https://codesandbox.io/s/react-hook-form-adapting-existing-form-llbnn"
             tsRawData={isV7 ? migrateCodeTs : v6Example.migrateCodeTs}
@@ -364,6 +367,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
               }
             />
             <CodeArea
+              canEdit
               rawData={isV7 ? useController : useControllerV6}
               tsRawData={isV7 ? useControllerTs : useControllerTsV6}
               tsUrl={
@@ -410,6 +414,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.errors.description}
 
           <CodeArea
+            canEdit
             rawData={isV7 ? errors : v6Example.errors}
             url={
               isV7
@@ -497,6 +502,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.reactNative.description}
 
           <CodeArea
+            canEdit
             isExpo
             rawData={isV7 ? reactNativeController : reactNativeControllerV6}
             url={
@@ -521,6 +527,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.typeScript.description}
 
           <CodeArea
+            canEdit
             rawData={isV7 ? typeScript : typeScriptV6}
             url={
               isV7

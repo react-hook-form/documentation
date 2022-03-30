@@ -10,7 +10,7 @@ const schema = z.object({
 
 type Schema = z.infer<typeof schema>;
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm<Schema>({
     resolver: zodResolver(schema)
   });

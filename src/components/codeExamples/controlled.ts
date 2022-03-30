@@ -1,7 +1,7 @@
 export default `import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-function App() {
+export default function App() {
   const { register, watch, setValue, handleSubmit } = useForm({
     defaultValues: {
       firstName: "",

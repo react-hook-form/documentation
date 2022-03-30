@@ -149,7 +149,7 @@ interface IFormValues {
   Age: number;
 }
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const onSubmit = (data: IFormValues) => {
@@ -228,7 +228,7 @@ import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
-const App = () => {
+export default function App() {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = (data: IFormInput) => {
@@ -270,7 +270,7 @@ interface IFormInput {
   iceCreamType: string;
 }
 
-const App = () => {
+export default function App() {
   const { control, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {

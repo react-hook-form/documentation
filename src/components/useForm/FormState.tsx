@@ -30,6 +30,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={formState}
               url="https://codesandbox.io/s/react-hook-form-v6-formstate-forked-tyqlp"
               tsRawData={formStateTs}

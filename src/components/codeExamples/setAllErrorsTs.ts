@@ -5,7 +5,7 @@ type FormInputs = {
   lastName: string;
 };
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit, setError, formState: { errors } } = useForm<FormInputs>({
     criteriaMode: 'all',
   });
@@ -19,7 +19,7 @@ const App = () => {
         minLength: "This is minLength"
       }
     });
-  }, [setValue])
+  }, [setError])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

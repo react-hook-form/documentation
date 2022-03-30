@@ -1,7 +1,7 @@
 export default `import React from "react";
 import { useForm } from "react-hook-form";
 
-function App() {
+export default function App() {
   const { register, watch, formState: { errors }, handleSubmit } = useForm();
   const watchShowAge = watch("showAge", false); // you can supply default value as second argument
   const watchAllFields = watch(); // when pass nothing as argument, you are watching everything

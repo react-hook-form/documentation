@@ -39,6 +39,7 @@ export default ({ currentLanguage }) => {
             </h2>
 
             <CodeArea
+              canEdit
               rawData={getValues}
               url="https://codesandbox.io/s/react-hook-form-v7-getvalues-2eioh"
               tsRawData={getValuesTs}

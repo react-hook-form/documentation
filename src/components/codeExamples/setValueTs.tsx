@@ -1,6 +1,6 @@
 export default `import { useForm } from "react-hook-form";
 
-const App = () => {
+export default function App() {
   const { register, setValue } = useForm({
     firstName: ''
   });

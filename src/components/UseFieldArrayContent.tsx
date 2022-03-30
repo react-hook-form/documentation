@@ -191,16 +191,18 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         ]}
       >
         <CodeArea
+          canEdit
           rawData={useFieldArray}
           tsRawData={useFieldArrayTS}
           tsUrl="https://codesandbox.io/s/calc-i231d"
           url="https://codesandbox.io/s/react-hook-form-usefieldarray-ssugn"
         />
         <CodeArea
+          canEdit
           rawData={useFieldArrayConditional}
           url="https://codesandbox.io/s/usefieldarray-conditional-2wi6f"
         />
-        <CodeArea rawData={useFieldArrayFocus} />
+        <CodeArea canEdit rawData={useFieldArrayFocus} />
       </TabGroup>
 
       <>
@@ -234,7 +236,7 @@ const ConditionalInput = ({ control, index, field }) => {
   );
 };
 
-function App() {
+export default function App() {
   const { control, register } = useForm();
   const { fields, append, prepend } = useFieldArray({
     control,

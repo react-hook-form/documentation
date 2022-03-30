@@ -1,7 +1,7 @@
 export default `import React from "react";
 import { useForm, Controller } from "react-hook-form";
 
-function App() {
+export default function App() {
   const { control } = useForm();
   
   return (

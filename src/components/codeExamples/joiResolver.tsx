@@ -8,7 +8,7 @@ const schema = Joi.object({
   age: Joi.string().required(),
 });
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm({
     resolver: joiResolver(schema),
   });

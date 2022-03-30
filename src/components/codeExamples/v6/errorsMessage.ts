@@ -4,7 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm({
-    criteriaMode "all"
+    criteriaMode: "all"
   });
   const onSubmit = data => console.log(data);
 

@@ -8,7 +8,7 @@ const schema = yup.object().shape({
   age: yup.number().required(),
 }).required();
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });

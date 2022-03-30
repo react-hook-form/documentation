@@ -167,6 +167,7 @@ setValue('example', 'data');
 
       <TabGroup buttonLabels={["Form", "Advance Field Array"]}>
         <CodeArea
+          canEdit
           rawData={useWatch}
           url="https://codesandbox.io/s/react-hook-form-v7-usewatch-forked-9872t"
           tsRawData={useWatchTs}

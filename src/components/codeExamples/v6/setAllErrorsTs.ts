@@ -5,7 +5,7 @@ type FormInputs = {
   lastName: string;
 };
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit, setError, errors } = useForm<FormInputs>({
     criteriaMode: 'all',
   });

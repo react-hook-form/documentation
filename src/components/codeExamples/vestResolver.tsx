@@ -29,7 +29,7 @@ const validationSuite = vest.create((data = {}) => {
   });
 });
 
-const App = () => {
+export default function App() {
   const { register, handleSubmit } = useForm({
     resolver: vestResolver(validationSuite),
   });

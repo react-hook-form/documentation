@@ -58,4 +58,30 @@ const UseFieldArrayUnregister: React.FC = () => {
     </form>
   );
 };
+
+export default function App() {
+  const { control, handleSubmit, register } = useForm<FormValues>({
+    defaultValues: {
+      data: [{ name: "test" }, { name: "test1" }, { name: "test2" }]
+    },
+    mode: "onSubmit"
+  });
+  const { fields } = useFieldArray<{ name: string }>({
+    control,
+    name: "data"
+  });
+  const onSubmit = (data: any) => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {fields.map((data, index) => (
+        <>
+          <input {...register(\`data.\${index}.name\`)} />
+          <ConditionField register={register} control={control} index={index} />
+        </>
+      ))}
+      <input type="submit" />
+    </form>
+  );
+};
 `

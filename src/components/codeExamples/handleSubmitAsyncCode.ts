@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function App() {
+export default function App() {
   const { register, handleSubmit, formState: { errors }, formState } = useForm();
   const onSubmit = async data => {
     await sleep(2000);
@@ -17,7 +17,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="username">User Name</label>
-      <input placeholder="Bill" {...register("username"} />
+      <input placeholder="Bill" {...register("username")} />
 
       <input type="submit" />
     </form>

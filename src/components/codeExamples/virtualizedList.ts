@@ -16,7 +16,7 @@ const WindowedRow = React.memo(({ index, style, data }) => {
   return <input {...register(\`\${index}.quantity\`)} />
 })
 
-export const App = () => {
+export export default function App() {
   const onSubmit = (data) => console.log(data)
   const formMethods = useForm({ defaultValues: items })
 

@@ -6,7 +6,7 @@ export default function App() {
   const onSubmit = data => console.log(data);
 
   return (
-    <FormProvider {...methods} > // pass all methods into the context
+    <FormProvider {...methods} > { /* pass all methods into the context */ }
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInput />
         <input type="submit" />

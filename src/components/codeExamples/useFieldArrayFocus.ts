@@ -1,7 +1,7 @@
 export default `import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 
-const App = () => {
+export default function App() {
   const { register, control } = useForm<{
     test: { value: string }[];
   }>({
