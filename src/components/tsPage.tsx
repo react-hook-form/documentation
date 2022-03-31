@@ -4,6 +4,8 @@ import { useStateMachine } from "little-state-machine"
 import TS from "../data/ts"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
+import StarRepo from "./StarRepo"
+import Footer from "./Footer"
 
 const enLinks = [
   TS.nestedValue,
@@ -337,6 +339,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             </code>
             {TS.formStateProxy.description}
           </section>
+
+          <StarRepo currentLanguage={currentLanguage} />
+
+          <Footer currentLanguage={currentLanguage} />
         </main>
       </div>
     </div>
