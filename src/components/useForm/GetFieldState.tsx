@@ -151,7 +151,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                   </tr>
                   <tr>
                     <td>
-                      <p>isTouch</p>
+                      <p>isTouched</p>
                     </td>
                     <td>
                       <code className={typographyStyles.typeText}>boolean</code>
