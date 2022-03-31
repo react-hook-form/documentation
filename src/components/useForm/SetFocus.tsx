@@ -26,12 +26,16 @@ export default ({ currentLanguage }) => {
               <h2>
                 setFocus:
                 <span className={typographyStyles.typeText}>
-                  {`(name: string) => void`}
+                  {`(name: string, options: SetFocusOptions) => void`}
                 </span>
               </h2>
             </code>
 
             {api.setFocus.description}
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
 
             <CodeArea
               rawData={setFocus}

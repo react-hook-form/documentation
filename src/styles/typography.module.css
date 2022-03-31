@@ -19,25 +19,48 @@
   font-size: 1.1rem;
   overflow: hidden;
   position: relative;
-  line-height: 2;
+  line-height: 1;
   margin: 10px auto 20px;
   max-width: 600px;
 }
 
+.rulesTitle,
 .subTitle {
-  border-bottom: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-light-blue);
   line-height: 1.8;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 0;
 }
 
+.rulesTitle:before,
 .subTitle:before {
   font-size: 15px;
   position: relative;
   margin-right: 8px;
   top: -2px;
   content: "ⓘ";
+}
+
+h3.rulesTitle,
+h3.subTitle {
+  font-size: 14px;
+}
+
+h3.rulesTitle:before,
+h3.subTitle:before {
+  top: 0;
+  margin-right: 0.5rem;
+}
+
+.rulesTitle {
+  color: white;
+  line-height: 1;
+  margin-top: 2rem;
+  background: black;
+  border: 1px solid var(--color-secondary);
+  padding: 0.4rem 0.5rem 0.6rem 0.5rem;
+  border-radius: 6px;
 }
 
 .title:before,

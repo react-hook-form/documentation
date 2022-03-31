@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 export default {
   copy: {
@@ -102,9 +103,9 @@ export default {
   },
   needYourSupport: {
     en: {
-      title: "We Need Your Support",
-      description: `If you find React Hook Form to be useful in your React project, please star to support the repo and contributors ❤`,
-      buttonText: `Star React Hook Form`,
+      title: "Thank you for your support",
+      description: `If you find React Hook Form to be useful in your project, please consider to star and support it.`,
+      buttonText: `Star us on GitHub`,
     },
     es: {
       title: "Necesitamos tu apoyo",
@@ -200,6 +201,9 @@ export default {
     jp: "Type",
     zh: "类型",
     ru: "Тип",
+  },
+  default: {
+    en: "Default",
   },
   description: {
     en: "Description",
@@ -339,8 +343,11 @@ export default {
   control: {
     en: (
       <>
-        <code>control</code> object provided by <code>useForm</code>. It's
-        optional if you are using FormContext.
+        <Link to={"/api/useform/control"}>
+          <code>control</code>
+        </Link>{" "}
+        object provided by <code>useForm</code>. It's optional if you are using
+        FormContext.
       </>
     ),
     es: (

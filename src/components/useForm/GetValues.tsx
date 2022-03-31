@@ -34,6 +34,10 @@ export default ({ currentLanguage }) => {
 
             {api.getValues.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={getValues}
               url="https://codesandbox.io/s/react-hook-form-v7-getvalues-2eioh"

@@ -278,7 +278,7 @@ export default {
         we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
-        The benefit is you can connect your input with React Hook Form from much
+        The benefit is you can connect your input with React Hook Form much
         easier.
       </p>
     ),
@@ -286,23 +286,34 @@ export default {
   formContext: {
     title: "FormProvider Performance",
     description: (
-      <p>
-        React Hook Form's{" "}
-        <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
-        upon{" "}
-        <a
-          href="https://reactjs.org/docs/context.html"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          React's Context
-        </a>{" "}
-        API. It solves the problem where data is passed through the component
-        tree without having to pass props down manually at every level. This
-        also causes the component tree to trigger a re-render when React Hook
-        Form triggers a state update, but we can still can optimise our App if
-        required via the example below.
-      </p>
+      <>
+        <p>
+          React Hook Form's{" "}
+          <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
+          upon{" "}
+          <a
+            href="https://reactjs.org/docs/context.html"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            React's Context
+          </a>{" "}
+          API. It solves the problem where data is passed through the component
+          tree without having to pass props down manually at every level. This
+          also causes the component tree to trigger a re-render when React Hook
+          Form triggers a state update, but we can still optimise our App if
+          required via the example below.
+          <br />
+        </p>
+        <p>
+          <b className={typographyStyles.note}>Note:</b> Using React Hook Form's{" "}
+          <PageLink to="/dev-tools">Devtools</PageLink> alongside{" "}
+          <PageLink to="/api/useformcontext">FormProvider</PageLink> can cause
+          performance issues in some situations. Before diving deep in
+          performance optimizations, consider this bottleneck first.
+          <br />
+        </p>
+      </>
     ),
   },
   customHookwithResolver: {
@@ -368,8 +379,8 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it preserve code from bugs or
-          mistakes and guarantee code safety when you refactor the codebase.
+          Testing is very important because it prevents your code from having bugs or
+          mistakes, and guarantees code safety when refactoring the codebase.
         </p>
 
         <p>
@@ -400,8 +411,8 @@ export default {
           >
             @testing-library/jest-dom
           </a>{" "}
-          with the latest version of <code>jest</code> because react-hook-form
-          use <code>MutationObserver</code> to detect inputs get unmounted from
+          with the latest version of <code>jest</code>, because react-hook-form
+          uses <code>MutationObserver</code> to detect inputs, and to get unmounted from
           the DOM.
         </p>
 
@@ -437,9 +448,8 @@ export default {
         />
         <p>
           <b className={typographyStyles.note}>Note:</b> If you are using React
-          Native, you need to create setup.js , and define <code>window</code>{" "}
-          object including the following lines in the setup file for react
-          native:
+          Native, you need to create setup.js, define <code>window</code>{" "}
+          object, and include the following lines in the setup file:
           <CodeArea rawData={CodeExempleSetupReactNative} />
         </p>
 
@@ -459,7 +469,7 @@ export default {
 
         <p>
           We have set the role attribute accordingly. These attributes are
-          helpful when you will write tests and improve accessibility. For more
+          helpful for when you write tests, and they improve accessibility. For more
           information, you can refer to the{" "}
           <a
             target="_blank"
@@ -487,8 +497,8 @@ export default {
             <p>Test submission failure.</p>
 
             <p>
-              We are using <code>waitFor</code> and <code>find*</code> method to
-              detect submission feedback because <code>handleSubmit</code>{" "}
+              We are using <code>waitFor</code> and <code>find*</code> methods to
+              detect submission feedback, because the <code>handleSubmit</code>{" "}
               method is executed asynchronously.
             </p>
           </li>
@@ -496,7 +506,7 @@ export default {
             <p>Test validation associated with each inputs.</p>
 
             <p>
-              We are using <code>*ByRole</code> method when querying different
+              We are using the <code>*ByRole</code> method when querying different
               elements because that's how users recognize your UI component.
             </p>
           </li>
@@ -513,7 +523,7 @@ export default {
         <h4>Resolving act warning during test</h4>
 
         <p>
-          If you test a component that uses react-hook-form you might run into a
+          If you test a component that uses react-hook-form, you might run into a
           warning like this, even if you didn't write any asynchronous code for
           that component:
         </p>
@@ -535,16 +545,16 @@ export default {
 
         <p>
           In this example, there is a simple form without any apparent async
-          code and the test merely renders the component and tests for the
+          code, and the test merely renders the component and tests for the
           presence of a button. However, it still logs the warning about updates
           not being wrapped in <code>act()</code>.
         </p>
 
         <p>
           This is because react-hook-form internally uses asynchronous
-          validation handlers. In order to compute the formState it has to
+          validation handlers. In order to compute the formState, it has to
           initially validate the form, which is done asynchronously, resulting
-          in another render. That update happens after the test function returns
+          in another render. That update happens after the test function returns,
           which triggers the warning.
         </p>
 
@@ -554,7 +564,7 @@ export default {
         </p>
         <CodeArea
           rawData={CodeExampleTestingForm.actWarningSolution}
-          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+          url="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
         />
       </>
     ),
@@ -575,10 +585,10 @@ export default {
             this section
           </a>
           . However, it's not perfect, we still have to deal with{" "}
-          <code>isNaN</code> or <code>null</code> value. So it's better to leave
-          the transform at the Component level. In the following example, we are
-          using the <code>Controller</code> to include the functionality of the
-          transform value's input and output. You can also achieve a similar
+          <code>isNaN</code> or <code>null</code> values. So it's better to leave
+          the transform at the custom hook level. In the following example, we
+          are using the <code>Controller</code> to include the functionality of
+          the transform value's input and output. You can also achieve a similar
           result with a custom <code>register</code>.
         </p>
       </>

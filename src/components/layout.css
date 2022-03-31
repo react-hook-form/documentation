@@ -274,6 +274,7 @@ select {
 }
 
 code {
+  font-family: Consolas, monospace;
   -webkit-overflow-scrolling: touch;
 }
 

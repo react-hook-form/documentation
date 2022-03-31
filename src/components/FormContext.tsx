@@ -50,6 +50,19 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.description}
 
+      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        Rules
+      </h2>
+
+      <p>
+        You need to wrap your form with the <code>FormProvider</code> component
+        for <code>useFormContext</code> to work properly.
+      </p>
+
+      <h2 id={"example"} className={typographyStyles.subTitle}>
+        Examples
+      </h2>
+
       <CodeArea
         rawData={formContext}
         url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"

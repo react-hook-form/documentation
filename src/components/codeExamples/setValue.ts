@@ -1,31 +1,25 @@
-export default `import * as React from "react";
-import { useForm } from "react-hook-form";
+export default `import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register, handleSubmit, setValue } = useForm();
-
-  const onSubmit = data => {
-    console.log(data)
-  };
-
+  const { register, setValue } = useForm();
+  
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <input {...register("firstName")} />
-      <input {...register("lastName")} />
-      <button onClick={() => setValue("firstName", "Bill")}>
-        Set First Name Value
+      <button type="button" onClick={() => setValue("firstName", "Bill")}>
+        setValue
       </button>
       <button
+        type="button"
         onClick={() =>
-          setValue("lastName", "Luo", {
+          setValue("lastName", "firstName", {
             shouldValidate: true,
             shouldDirty: true
           })
         }
       >
-        Set Last Name
+        setValue options
       </button>
-      <input type="submit" />
     </form>
   );
 };

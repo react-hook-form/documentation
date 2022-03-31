@@ -35,13 +35,19 @@ function FeaturesList({
         >
           <article id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="1"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="3" y1="19" x2="21" y2="19"></line>
+                <rect x="5" y="6" width="14" height="10" rx="1"></rect>
               </svg>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][0].title}</h3>
@@ -50,12 +56,19 @@ function FeaturesList({
 
           <article>
             <AnimateKeyframes {...props} sequenceIndex={1}>
-              <svg viewBox="0 0 512 512">
-                <title>{home.features[currentLanguage][1].title}</title>
-                <path
-                  fill={lightMode ? "black" : "currentColor"}
-                  d="M64 32l34.94 403.21L255.77 480 413 435.15 448 32zm308 132H188l4 51h176l-13.51 151.39L256 394.48l-98.68-28-6.78-77.48h48.26l3.42 39.29L256 343.07l53.42-14.92L315 264H148l-12.59-149.59H376.2z"
-                />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="1"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z"></path>
+                <path d="M15.5 8h-7l.5 4h6l-.5 3.5l-2.5 .75l-2.5 -.75l-.1 -.5"></path>
               </svg>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][1].title}</h3>
@@ -64,16 +77,22 @@ function FeaturesList({
 
           <article>
             <AnimateKeyframes {...props} sequenceIndex={2}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>{home.features[currentLanguage][2].title}</title>
-                <path
-                  d="M315.27 33L96 304h128l-31.51 173.23a2.36 2.36 0 002.33 2.77h0a2.36 2.36 0 001.89-.95L416 208H288l31.66-173.25a2.45 2.45 0 00-2.44-2.75h0a2.42 2.42 0 00-1.95 1z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="1"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="7" y1="20" x2="17" y2="20"></line>
+                <path d="M6 6l6 -1l6 1"></path>
+                <line x1="12" y1="3" x2="12" y2="20"></line>
+                <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0"></path>
+                <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0"></path>
               </svg>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][2].title}</h3>
@@ -83,28 +102,19 @@ function FeaturesList({
           <article>
             <AnimateKeyframes {...props} sequenceIndex={3}>
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="1"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <title>{home.features[currentLanguage][3].title}</title>
-                <path d="M326.1 231.9l-47.5 75.5a31 31 0 01-7 7 30.11 30.11 0 01-35-49l75.5-47.5a10.23 10.23 0 0111.7 0 10.06 10.06 0 012.3 14z" />
-                <path
-                  d="M256 64C132.3 64 32 164.2 32 287.9a223.18 223.18 0 0056.3 148.5c1.1 1.2 2.1 2.4 3.2 3.5a25.19 25.19 0 0037.1-.1 173.13 173.13 0 01254.8 0 25.19 25.19 0 0037.1.1l3.2-3.5A223.18 223.18 0 00480 287.9C480 164.2 379.7 64 256 64z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                  strokeWidth="32"
-                  d="M256 128v32M416 288h-32M128 288H96M165.49 197.49l-22.63-22.63M346.51 197.49l22.63-22.63"
-                />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M3 17h13.4a3 3 0 0 0 2.5 -1.34l3.1 -4.66h0h-6.23a4 4 0 0 0 -1.49 .29l-3.56 1.42a4 4 0 0 1 -1.49 .29h-3.73h0h-1l-1.5 4z"></path>
+                <line x1="6" y1="13" x2="7.5" y2="8"></line>
+                <path d="M6 8h8l2 3"></path>
               </svg>
             </AnimateKeyframes>
 
@@ -115,19 +125,24 @@ function FeaturesList({
           <article>
             <AnimateKeyframes {...props} sequenceIndex={4}>
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="1"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <title>{home.features[currentLanguage][4].title}</title>
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                  d="M413.66 246.1H386a2 2 0 01-2-2v-77.24A38.86 38.86 0 00345.14 128H267.9a2 2 0 01-2-2V98.34c0-27.14-21.5-49.86-48.64-50.33a49.53 49.53 0 00-50.4 49.51V126a2 2 0 01-2 2H87.62A39.74 39.74 0 0048 167.62V238a2 2 0 002 2h26.91c29.37 0 53.68 25.48 54.09 54.85.42 29.87-23.51 57.15-53.29 57.15H50a2 2 0 00-2 2v70.38A39.74 39.74 0 0087.62 464H158a2 2 0 002-2v-20.93c0-30.28 24.75-56.35 55-57.06 30.1-.7 57 20.31 57 50.28V462a2 2 0 002 2h71.14A38.86 38.86 0 00384 425.14v-78a2 2 0 012-2h28.48c27.63 0 49.52-22.67 49.52-50.4s-23.2-48.64-50.34-48.64z"
-                />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                <line x1="4" y1="4" x2="4" y2="4.01"></line>
+                <line x1="8" y1="4" x2="8" y2="4.01"></line>
+                <line x1="12" y1="4" x2="12" y2="4.01"></line>
+                <line x1="16" y1="4" x2="16" y2="4.01"></line>
+                <line x1="4" y1="8" x2="4" y2="8.01"></line>
+                <line x1="4" y1="12" x2="4" y2="12.01"></line>
+                <line x1="4" y1="16" x2="4" y2="16.01"></line>
               </svg>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][4].title}</h3>
@@ -137,17 +152,20 @@ function FeaturesList({
           <article>
             <AnimateKeyframes {...props} sequenceIndex={5}>
               <svg
-                className="h-6 w-6"
-                fill="none"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
+                strokeWidth="1"
                 stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
               </svg>
             </AnimateKeyframes>
             <h3>{home.features[currentLanguage][5].title}</h3>

@@ -34,6 +34,11 @@ export default ({ currentLanguage }) => {
               </h2>
             </code>
             {api.handleSubmit.description}
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <TabGroup buttonLabels={["sync", "async"]}>
               <CodeArea
                 rawData={handleSubmitCode}
@@ -50,7 +55,8 @@ export default ({ currentLanguage }) => {
             <h2 className={typographyStyles.subTitle}>Video</h2>
 
             <p>
-              The following video tutorial explains the <code>handleSubmit</code> API in detail.
+              The following video tutorial explains the{" "}
+              <code>handleSubmit</code> API in detail.
             </p>
 
             <iframe

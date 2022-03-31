@@ -456,6 +456,16 @@
   },
   {
     "type": "video",
+    "title": "Get your forms hooked with react-hook-form | ReactNext 2021",
+    "url": "https://www.youtube.com/watch?v=vSixynAXpoU",
+    "authorUrl": "https://twitter.com/KerenKenzi",
+    "author": "Keren Kenzi",
+    "description": "As Front-end developers, we all know that forms can get really messy, but what if I told you that there is a library out there that can make your life much easier.",
+    "createdDateTime": "Mon Jan 16 2022 22:13:15 GMT+1000 (Australian Eastern Standard Time)",
+    "version": "7"
+  },
+  {
+    "type": "video",
     "title": "React Hook Form V7 with Material UI and Typescript Tutorial | Part 5 -- Testing",
     "url": "https://www.youtube.com/watch?v=Cz9en-hoKcw",
     "authorUrl": "https://www.youtube.com/channel/UC3QP9uZ1UgqsZleXXZKs8cw",

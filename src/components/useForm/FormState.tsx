@@ -25,6 +25,10 @@ export default ({ currentLanguage }) => {
           <section>
             <ApiFormState currentLanguage={currentLanguage} api={api} />
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <CodeArea
               rawData={formState}
               url="https://codesandbox.io/s/react-hook-form-v6-formstate-forked-tyqlp"

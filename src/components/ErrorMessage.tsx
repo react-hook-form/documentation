@@ -135,6 +135,10 @@ export default ({
                 </table>
               </div>
 
+              <h2 id={"example"} className={typographyStyles.subTitle}>
+                Examples
+              </h2>
+
               <TabGroup
                 buttonLabels={[
                   "Single Error Message",

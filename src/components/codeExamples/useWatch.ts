@@ -1,30 +1,24 @@
 export default `import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 
-function FirstNameWatched({ control }) {
+function Child({ control }) {
   const firstName = useWatch({
     control,
-    name: "firstName", // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
-    defaultValue: "default" // default value before the render
+    name: "firstName",
   });
 
-  return <div>Watch: {firstName}</div>; // only re-render at the component level, when firstName changes
+  return <p>Watch: {firstName}</p>;
 }
 
 function App() {
-  const { register, control, handleSubmit } = useForm();
+  const { register, control } = useForm({
+    firstName: "test"
+  });
   
-  const onSubmit = (data) => {
-    console.log(data)
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <input {...register("firstName")} />
-      <input {...register("lastName")} />
-      <input type="submit" />
-
-      <FirstNameWatched control={control} />
+      <Child control={control} />
     </form>
   );
 }

@@ -423,6 +423,7 @@ export default function App() {
   onBlur: 'onBlur';
   onChange: 'onChange';
   onSubmit: 'onSubmit';
+  onTouched: 'onTouched';
   all: 'all';
 };`}
       />

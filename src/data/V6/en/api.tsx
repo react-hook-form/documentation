@@ -952,18 +952,6 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
               <code>getValues()</code>: Read all form values.
             </p>
           </li>
-          <li>
-            <p>
-              <code>getValues('test')</code>: Read an individual field value by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>getValues(['test', 'test1'])</code>: Read multiple fields by{" "}
-              <strong>name</strong>.
-            </p>
-          </li>
         </ul>
       </>
     ),
@@ -1765,8 +1753,8 @@ React.useEffect(() => {
       <>
         <p>
           Behaves similarly to the <code>watch</code> API, however, this will
-          isolate re-rendering at the component level and potentially result in
-          better performance for your application.
+          isolate re-rendering at the custom hook level and potentially result
+          in better performance for your application.
         </p>
       </>
     ),

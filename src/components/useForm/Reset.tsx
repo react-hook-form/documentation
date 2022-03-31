@@ -38,6 +38,10 @@ export default ({ currentLanguage }) => {
 
             {api.reset.description}
 
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
+
             <TabGroup
               buttonLabels={[
                 "Uncontrolled",

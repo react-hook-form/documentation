@@ -2,6 +2,8 @@ import * as React from "react"
 import generic from "../data/generic"
 import * as tableStyles from "../styles/table.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
+import { Link } from "gatsby"
+import { FormStateApi } from "./FormStateApi"
 
 export default ({ currentLanguage, isController }) => {
   return (
@@ -19,6 +21,8 @@ export default ({ currentLanguage, isController }) => {
             <th width="160px">{generic.type[currentLanguage]}</th>
             <th>{generic.description[currentLanguage]}</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>
               <code>field</code>
@@ -32,11 +36,36 @@ export default ({ currentLanguage, isController }) => {
               </code>
             </td>
             <td>
-              <p>
-                A function which sends the input's value to the library. It
-                should be assigned to the <code>onChange</code> prop of the
-                input.
-              </p>
+              <p>A function which sends the input's value to the library.</p>
+              <ul>
+                <li>
+                  It should be assigned to the <code>onChange</code> prop of the
+                  input and value should{" "}
+                  <b>
+                    not be <code>undefined</code>
+                  </b>
+                  .
+                </li>
+                <li>
+                  <p>
+                    This prop update{" "}
+                    <Link
+                      to="/api/useform/formstate"
+                      aria-label={"read more about formstate"}
+                    >
+                      formState
+                    </Link>{" "}
+                    and you should avoid manually invoke{" "}
+                    <Link
+                      to="/api/useform/setValue"
+                      aria-label={"read more about setValue"}
+                    >
+                      setValue
+                    </Link>{" "}
+                    or other API related to field update.
+                  </p>
+                </li>
+              </ul>
             </td>
           </tr>
           <tr>
@@ -144,138 +173,8 @@ export default ({ currentLanguage, isController }) => {
               <p>error for this specific input.</p>
             </td>
           </tr>
-          <tr>
-            <td>
-              <code>formState</code>
-            </td>
-            <td>
-              <code>isSubmitSuccessful</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>Indicates whether the form was successfully submitted.</p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>isDirty</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>
-                Set to <code>true</code> after the user modifies any of the
-                inputs.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>isSubmitted</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>
-                Set to <code>true</code> after the form is submitted. Will
-                remain <code>true</code> until the <code>reset</code> method is
-                invoked.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>dirtyFields</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>object</code>
-            </td>
-            <td>
-              <p>
-                An object with the user-modified fields. Make sure to provide
-                all inputs' defaultValues via useForm, so the library can
-                compare the input value against the <code>defaultValue</code>.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>touchedFields</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>object</code>
-            </td>
-            <td>
-              <p>
-                An object containing all the inputs the user has interacted
-                with.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>isSubmitting</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>
-                <code>true</code> if the form is currently being submitted.{" "}
-                <code>false</code> if otherwise.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>submitCount</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>number</code>
-            </td>
-            <td>
-              <p>Number of times the form was submitted.</p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>isValid</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>
-                Set to <code>true</code> if the form doesn't have any errors.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <code>isValidating</code>
-            </td>
-            <td>
-              <code className={typographyStyles.typeText}>boolean</code>
-            </td>
-            <td>
-              <p>
-                Set to <code>true</code> during validation.
-              </p>
-            </td>
-          </tr>
-        </thead>
+          <FormStateApi columnIndent />
+        </tbody>
       </table>
     </>
   )

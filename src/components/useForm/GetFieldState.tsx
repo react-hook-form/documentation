@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import * as containerStyles from "../../styles/container.module.css"
 import * as typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
@@ -30,56 +31,13 @@ export const GetFieldState = () => {
             </code>
 
             <p>
-              This method will return individual field state. It will be useful
-              when you are try to retrieve nested value field state in a
-              typesafe approach.
+              This method is introduced in react-hook-form (
+              <Link to="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
+                v7.25.0
+              </Link>
+              ) to return individual field state. It's useful in case you are
+              trying to retrieve nested field state in a typesafe way.
             </p>
-
-            <h2 className={typographyStyles.subTitle}>Rules</h2>
-
-            <ul>
-              <li>
-                <p>name need to match registered field name.</p>
-
-                <CodeArea
-                  rawData={`getFieldState('test');
-
-getFieldState('test'); // ✅ register input and return field state
-getFieldState('non-existent-name'); // ❌ will return state as false and error as undefined 
-`}
-                />
-              </li>
-              <li>
-                <p>formState will need to subscribed.</p>
-
-                <CodeArea
-                  rawData={`const { register, formState: 'isDirty' } = useForm()
-register('test');
-getFieldState('test'); // ✅ register input and return field state
-
----------------------------
-
-// This is valid with useFormState as well
-const { isDirty } = useFormState();
-
-register('test');
-getFieldState('test'); // ✅ register input and return field state
-`}
-                />
-
-                <CodeArea
-                  rawData={`const { register } = useForm()
-register('test');
-getFieldState('test'); // ❌ formState is subscribed and no re-render to inform state update
-
----------------------------
-
-const { register, formState } = useForm()
-getFieldState('test', formState); // ✅ register input and return field state
-`}
-                />
-              </li>
-            </ul>
 
             <h2 className={typographyStyles.subTitle}>Props</h2>
 
@@ -181,7 +139,7 @@ getFieldState('test', formState); // ✅ register input and return field state
                   </tr>
                   <tr>
                     <td>
-                      <p>invalid</p>
+                      <p>error</p>
                     </td>
                     <td>
                       <code className={typographyStyles.typeText}>
@@ -199,6 +157,58 @@ getFieldState('test', formState); // ✅ register input and return field state
                 </tbody>
               </table>
             </div>
+
+            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+              Rules
+            </h2>
+
+            <ul>
+              <li>
+                <p>name need to match registered field name.</p>
+
+                <CodeArea
+                  rawData={`getFieldState('test');
+
+getFieldState('test'); // ✅ register input and return field state
+getFieldState('non-existent-name'); // ❌ will return state as false and error as undefined 
+`}
+                />
+              </li>
+              <li>
+                <p>formState will need to subscribed.</p>
+
+                <CodeArea
+                  rawData={`const { register, formState: { isDirty } } = useForm()
+register('test');
+getFieldState('test'); // ✅ register input and return field state
+
+---------------------------
+
+// This is valid with useFormState as well
+const { isDirty } = useFormState();
+
+register('test');
+getFieldState('test'); // ✅ register input and return field state
+`}
+                />
+
+                <CodeArea
+                  rawData={`const { register } = useForm()
+register('test');
+getFieldState('test'); // ❌ formState is subscribed and no re-render to inform state update
+
+---------------------------
+
+const { register, formState } = useForm()
+getFieldState('test', formState); // ✅ register input and return field state
+`}
+                />
+              </li>
+            </ul>
+
+            <h2 id={"example"} className={typographyStyles.subTitle}>
+              Examples
+            </h2>
 
             <CodeArea
               rawData={getFieldState}

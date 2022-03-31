@@ -8,7 +8,7 @@ function FirstNameWatched({ control }) {
     defaultValue: 'default' // default value before the render
   });
 
-  return <div>{firstName}</div>; // only re-render at the component level, when firstName changes
+  return <div>{firstName}</div>; // only re-render at the custom hook level, when firstName changes
 }
 
 function App() {

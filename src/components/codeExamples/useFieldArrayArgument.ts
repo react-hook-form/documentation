@@ -1,9 +1,8 @@
-export default `function Test() {
+export default `function FieldArray() {
   const { control, register } = useForm();
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
     control, // control props comes from useForm (optional: if you are using FormContext)
     name: "test", // unique name for your Field Array
-    // keyName: "id", default to "id", you can change the key name
   });
 
   return (

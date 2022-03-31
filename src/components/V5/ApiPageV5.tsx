@@ -38,7 +38,6 @@ import resetController from "../V5/codeExamples/resetController"
 import resetControllerTs from "../V5/codeExamples/resetControllerTs"
 import control from "../V5/codeExamples/control"
 import nativeValidation from "../V5/codeExamples/nativeValidation"
-import UseFieldArrayContent from "../UseFieldArray"
 import colors from "../../styles/colors"
 import ValidationResolver from "./ValidationResolverV5"
 import * as headerStyles from "../Header.module.css"
@@ -48,6 +47,7 @@ import * as buttonStyles from "../../styles/button.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import * as styles from "../ApiPage.module.css"
 import { updateSetting } from "../../actions/settingActions"
+import UseFieldArrayContentV6 from "../v6/UseFieldArrayContentV6"
 
 const { useRef, useEffect } = React
 
@@ -1077,7 +1077,10 @@ function ApiPage({ formData, defaultLang, api }: Props) {
             ref={(ref) => (apiSectionsRef.current.useFieldArrayRef = ref)}
             id="useFieldArrayRef"
           >
-            <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
+            <UseFieldArrayContentV6
+              currentLanguage={currentLanguage}
+              api={api}
+            />
           </section>
 
           <hr />
