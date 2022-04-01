@@ -66,6 +66,28 @@ export default function ApiRefTable({
         </table>
       </div>
 
+      <section>
+        <p>
+          <b className={typographyStyles.note}>Tip:</b>: What's happened to the
+          input after invoke register API:
+        </p>
+      </section>
+
+      <CodeArea
+        rawData={`const { onChange, onBlur, name, ref } = register('firstName'); 
+// include type check again field path with the name you have supplied.
+        
+<input 
+  onChange={onChange} // assign onChange event 
+  onBlur={onBlur} // assign onBlur event
+  name={name} // assign name prop
+  ref={ref} // assign ref prop
+/>
+// same as above
+<input {...register('firstName')} />
+`}
+      />
+
       <h2 className={typographyStyles.subTitle} id={"options"}>
         Options
       </h2>
