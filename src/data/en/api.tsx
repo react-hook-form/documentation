@@ -1165,14 +1165,25 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           <li>
             <p>
               This method will not persist the associated input error if the
-              input passes validation.
+              input passes <code>register</code>'s associated rules.
             </p>
+            <CodeArea
+              rawData={`register('registerInput', { minLength: 4 }});
+setError('registerInput', { type: 'custom', message: 'custom message' });
+// validation will pass as long as minLength requirement pass
+`}
+            />
           </li>
           <li>
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>.
             </p>
+            <CodeArea
+              rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
+// clearError() need to invoked manually to remove that custom error 
+`}
+            />
           </li>
           <li>
             <p>
