@@ -9,6 +9,9 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('test')} />
+      {errors.username && <p>{errors.username.message}</p>}
+
       <button
         type="button"
         onClick={() => {
