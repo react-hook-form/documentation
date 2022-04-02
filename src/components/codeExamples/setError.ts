@@ -2,15 +2,12 @@ export default `import React from "react";
 import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register, handleSubmit, setError, formState: { errors } } = useForm();
-  const onSubmit = data => {
-    console.log(data)
-  };
+  const { register, setError, formState: { errors } } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('test')} />
-      {errors.username && <p>{errors.username.message}</p>}
+    <form>
+      <input {...register("test")} />
+      {errors.test && <p>{errors.test.message}</p>}
 
       <button
         type="button"
