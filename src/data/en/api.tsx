@@ -2024,6 +2024,70 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         <ul>
           <li>
             <p>
+              It's important to be aware of each prop's responsibility when
+              working with external controlled components, such as MUI, AntD,
+              Chakra UI. Controller acts as a "spy" on your input by reporting
+              and setting value.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <b>onChange</b>: send data back to hook form
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>onBlur</b>: report input has been interacted (focus and
+                  blur)
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>value</b>: set up input initial and updated value
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>ref</b>: allow input to be focused with error
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>name</b>: give input an unique name
+                </p>
+              </li>
+            </ul>
+            <p>The following codesandbox demonstrate the usages:</p>
+
+            <ul>
+              <li>
+                <p>
+                  <a
+                    href={
+                      "https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+                    }
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
+                    MUI and other components
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <a
+                    href={"https://codesandbox.io/s/chakra-ui-5mp8g"}
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
+                    Chakra UI components
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
               Do not <code>register</code> input again. This component is made
               to take care of the registration process.
             </p>
@@ -2532,6 +2596,61 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         <h2 className={typographyStyles.subTitle}>Tips</h2>
 
         <ul>
+          <li>
+            <p>
+              It's important to be aware of each prop's responsibility when
+              working with external controlled components, such as MUI, AntD,
+              Chakra UI. Its job is to spy on the input, report, and set its
+              value.
+            </p>
+
+            <p>
+              It's fine to host your state and combined with
+              <code>useController</code>.
+            </p>
+
+            <CodeArea
+              url={
+                "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
+              }
+              rawData={`const { filed } = useController();
+const [value, setValue] = useState(field.value);
+
+onChange={(value) => {
+  filed.onChange(parseInt(value)) // data send back to hook form
+  setValue(value) // UI state
+}}
+`}
+            />
+            <ul>
+              <li>
+                <p>
+                  <b>onChange</b>: send data back to hook form
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>onBlur</b>: report input has been interacted (focus and
+                  blur)
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>value</b>: set up input initial and updated value
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>ref</b>: allow input to be focused with error
+                </p>
+              </li>
+              <li>
+                <p>
+                  <b>name</b>: give input an unique name
+                </p>
+              </li>
+            </ul>
+          </li>
           <li>
             <p>
               Do not <code>register</code> input again. This custom hook is

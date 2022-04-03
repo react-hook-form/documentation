@@ -401,7 +401,7 @@ export default function App() {
       <>
         <p>
           This type is useful when you define custom component's{" "}
-          <code>name</code> prop.
+          <code>name</code> prop, and it will type check again your field path.
         </p>
         <CodeArea
           rawData={`export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;`}
