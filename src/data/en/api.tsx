@@ -2632,6 +2632,25 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 </p>
               </li>
             </ul>
+
+            <p>
+              It's fine to host your state and combined with{" "}
+              <code>useController</code>.
+            </p>
+
+            <CodeArea
+              url={
+                "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
+              }
+              rawData={`const { filed } = useController();
+const [value, setValue] = useState(field.value);
+
+onChange={(value) => {
+  filed.onChange(parseInt(value)) // data send back to hook form
+  setValue(value) // UI state
+}}
+`}
+            />
           </li>
           <li>
             <p>
@@ -2663,25 +2682,6 @@ const { field: checkbox } = useController({ name: 'test1' })
             />
           </li>
         </ul>
-
-        <p>
-          It's fine to host your state and combined with{" "}
-          <code>useController</code>.
-        </p>
-
-        <CodeArea
-          url={
-            "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
-          }
-          rawData={`const { filed } = useController();
-const [value, setValue] = useState(field.value);
-
-onChange={(value) => {
-  filed.onChange(parseInt(value)) // data send back to hook form
-  setValue(value) // UI state
-}}
-`}
-        />
       </>
     ),
     description: (
