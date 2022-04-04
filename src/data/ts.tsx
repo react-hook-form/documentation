@@ -316,43 +316,43 @@ export default function App() {
     description: (
       <CodeArea
         rawData={`export type UseFieldArrayReturn<
-    TFieldValues extends FieldValues = FieldValues,
-    TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-    TKeyName extends string = 'id',
-  > = {
-    swap: (indexA: number, indexB: number) => void;
-    move: (indexA: number, indexB: number) => void;
-    prepend: (
-      value:
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-      options?: FieldArrayMethodProps,
-    ) => void;
-    append: (
-      value:
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-      options?: FieldArrayMethodProps,
-    ) => void;
-    remove: (index?: number | number[]) => void;
-    insert: (
-      index: number,
-      value:
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-      options?: FieldArrayMethodProps,
-    ) => void;
-    update: (
-      index: number,
-      value: Partial<FieldArray<TFieldValues, TFieldArrayName>>,
-    ) => void;
-    replace: (
-      value:
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-        | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-    ) => void;
-    fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[];
-  };
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = 'id',
+> = {
+  swap: (indexA: number, indexB: number) => void;
+  move: (indexA: number, indexB: number) => void;
+  prepend: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps,
+  ) => void;
+  append: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps,
+  ) => void;
+  remove: (index?: number | number[]) => void;
+  insert: (
+    index: number,
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps,
+  ) => void;
+  update: (
+    index: number,
+    value: Partial<FieldArray<TFieldValues, TFieldArrayName>>,
+  ) => void;
+  replace: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+  ) => void;
+  fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[];
+};
   `}
       />
     ),
