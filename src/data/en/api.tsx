@@ -2470,6 +2470,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             fontSize: 16,
             padding: 15,
             background: "#191d3a",
+            color: "white",
             borderRadius: 4,
             display: "block",
           }}

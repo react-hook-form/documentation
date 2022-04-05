@@ -1282,6 +1282,7 @@ React.useEffect(() => {
             fontSize: 16,
             padding: 15,
             background: "#191d3a",
+            color: "white",
             borderRadius: 4,
             display: "block",
           }}

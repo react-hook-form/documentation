@@ -379,8 +379,9 @@ export default {
     description: (
       <>
         <p>
-          Testing is very important because it prevents your code from having bugs or
-          mistakes, and guarantees code safety when refactoring the codebase.
+          Testing is very important because it prevents your code from having
+          bugs or mistakes, and guarantees code safety when refactoring the
+          codebase.
         </p>
 
         <p>
@@ -412,8 +413,8 @@ export default {
             @testing-library/jest-dom
           </a>{" "}
           with the latest version of <code>jest</code>, because react-hook-form
-          uses <code>MutationObserver</code> to detect inputs, and to get unmounted from
-          the DOM.
+          uses <code>MutationObserver</code> to detect inputs, and to get
+          unmounted from the DOM.
         </p>
 
         <p>
@@ -469,8 +470,8 @@ export default {
 
         <p>
           We have set the role attribute accordingly. These attributes are
-          helpful for when you write tests, and they improve accessibility. For more
-          information, you can refer to the{" "}
+          helpful for when you write tests, and they improve accessibility. For
+          more information, you can refer to the{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -497,17 +498,18 @@ export default {
             <p>Test submission failure.</p>
 
             <p>
-              We are using <code>waitFor</code> and <code>find*</code> methods to
-              detect submission feedback, because the <code>handleSubmit</code>{" "}
-              method is executed asynchronously.
+              We are using <code>waitFor</code> and <code>find*</code> methods
+              to detect submission feedback, because the{" "}
+              <code>handleSubmit</code> method is executed asynchronously.
             </p>
           </li>
           <li>
             <p>Test validation associated with each inputs.</p>
 
             <p>
-              We are using the <code>*ByRole</code> method when querying different
-              elements because that's how users recognize your UI component.
+              We are using the <code>*ByRole</code> method when querying
+              different elements because that's how users recognize your UI
+              component.
             </p>
           </li>
           <li>
@@ -523,9 +525,9 @@ export default {
         <h4>Resolving act warning during test</h4>
 
         <p>
-          If you test a component that uses react-hook-form, you might run into a
-          warning like this, even if you didn't write any asynchronous code for
-          that component:
+          If you test a component that uses react-hook-form, you might run into
+          a warning like this, even if you didn't write any asynchronous code
+          for that component:
         </p>
 
         <blockquote>
@@ -554,8 +556,8 @@ export default {
           This is because react-hook-form internally uses asynchronous
           validation handlers. In order to compute the formState, it has to
           initially validate the form, which is done asynchronously, resulting
-          in another render. That update happens after the test function returns,
-          which triggers the warning.
+          in another render. That update happens after the test function
+          returns, which triggers the warning.
         </p>
 
         <p>
@@ -585,11 +587,11 @@ export default {
             this section
           </a>
           . However, it's not perfect, we still have to deal with{" "}
-          <code>isNaN</code> or <code>null</code> values. So it's better to leave
-          the transform at the custom hook level. In the following example, we
-          are using the <code>Controller</code> to include the functionality of
-          the transform value's input and output. You can also achieve a similar
-          result with a custom <code>register</code>.
+          <code>isNaN</code> or <code>null</code> values. So it's better to
+          leave the transform at the custom hook level. In the following
+          example, we are using the <code>Controller</code> to include the
+          functionality of the transform value's input and output. You can also
+          achieve a similar result with a custom <code>register</code>.
         </p>
       </>
     ),
