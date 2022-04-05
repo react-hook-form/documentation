@@ -1376,7 +1376,10 @@ replace([{data: 'test'}])
                   <code className={typographyStyles.typeText}>unknown</code>
                 </td>
                 <td>
-                  <p>The value for the field.</p>
+                  <p>
+                    The value for the field. This argument is required and can
+                    not be <code>undefined</code>.
+                  </p>
                 </td>
               </tr>
               <tr>
