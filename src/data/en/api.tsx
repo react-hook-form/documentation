@@ -1974,7 +1974,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (index?: number, obj: object) =&gt; void
+                (index: number, obj: object) =&gt; void
               </code>
             </code>
           </td>
