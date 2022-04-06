@@ -164,7 +164,7 @@ export const GetFieldState = () => {
 
             <ul>
               <li>
-                <p>name need to match registered field name.</p>
+                <p>name needs to match a registered field name.</p>
 
                 <CodeArea
                   rawData={`getFieldState('test');
@@ -175,10 +175,25 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                 />
               </li>
               <li>
-                <p>formState will need to subscribed.</p>
+                <p>formState will need to be subscribed.</p>
 
-                <CodeArea
-                  rawData={`const { register, formState: { isDirty } } = useForm()
+                <p>You can subscribe to the formState in two different ways:</p>
+
+                <ol>
+                  <li>
+                    <p>
+                      You can simply define the required state information when
+                      destructuring the returned value of a relevant hook, such
+                      as useForm(), useFormContext() or useFormState().
+                    </p>
+
+                    <p>
+                      You do not need to pass the state information to
+                      getFieldState().
+                    </p>
+
+                    <CodeArea
+                      rawData={`const { register, formState: { isDirty } } = useForm()
 register('test');
 getFieldState('test'); // ✅ register input and return field state
 
@@ -190,19 +205,35 @@ const { isDirty } = useFormState();
 register('test');
 getFieldState('test'); // ✅ register input and return field state
 `}
-                />
+                    />
+                  </li>
 
-                <CodeArea
-                  rawData={`const { register } = useForm()
+                  <li>
+                    <p>
+                      You can pass the entire formState from useForm(),
+                      useFormContext() or useFormState() directly to
+                      getFieldState().
+                    </p>
+
+                    <p>
+                      This will be the preferred approach for Typescript users
+                      who have stricter linting or compilation rules about
+                      unused declarations.
+                    </p>
+
+                    <CodeArea
+                      rawData={`const { register } = useForm()
 register('test');
-getFieldState('test'); // ❌ formState is subscribed and no re-render to inform state update
+getFieldState('test'); // ❌ formState is not subscribed so has no re-render to update state
 
 ---------------------------
 
 const { register, formState } = useForm()
 getFieldState('test', formState); // ✅ register input and return field state
 `}
-                />
+                    />
+                  </li>
+                </ol>
               </li>
             </ul>
 
