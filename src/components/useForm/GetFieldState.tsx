@@ -184,7 +184,8 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                     <p>
                       You can simply define the required state information when
                       destructuring the returned value of a relevant hook, such
-                      as useForm(), useFormContext() or useFormState().
+                      as <code>useForm</code> (at global level) or{" "}
+                      <code>useFormState</code> (at hook level).
                     </p>
 
                     <p>
@@ -210,9 +211,10 @@ getFieldState('test'); // ✅ register input and return field state
 
                   <li>
                     <p>
-                      You can pass the entire formState from useForm(),
-                      useFormContext() or useFormState() directly to
-                      getFieldState().
+                      You can pass the entire formState from{" "}
+                      <code>useForm()</code>,<code>useFormContext()</code> or
+                      <code>useFormState()</code> directly to{" "}
+                      <code>getFieldState()</code>.
                     </p>
 
                     <p>
