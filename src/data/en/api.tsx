@@ -909,7 +909,11 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <code className={typographyStyles.typeText}>object</code>
                 </td>
                 <td>
-                  <p>An optional object to reset form values.</p>
+                  <p>
+                    An optional object to reset form values, and it's
+                    recommended to provide the <strong>entire</strong>{" "}
+                    <>defaultValues</> when supplied.
+                  </p>
                 </td>
               </tr>
               <tr>
