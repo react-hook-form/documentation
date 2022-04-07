@@ -2650,11 +2650,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               url={
                 "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
               }
-              rawData={`const { filed } = useController();
+              rawData={`const { field } = useController();
 const [value, setValue] = useState(field.value);
 
 onChange={(value) => {
-  filed.onChange(parseInt(value)) // data send back to hook form
+  field.onChange(parseInt(value)) // data send back to hook form
   setValue(value) // UI state
 }}
 `}
