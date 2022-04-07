@@ -71,7 +71,8 @@ export default ({ currentLanguage }) => {
                       <Link to={"/api/useform/control"}>
                         <code>control</code>
                       </Link>{" "}
-                      object from useForm.
+                      object provided by <code>useForm</code>. It's optional if you are using
+                      FormContext.
                     </td>
                   </tr>
                   <tr>
