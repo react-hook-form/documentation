@@ -94,7 +94,7 @@ export default {
       ),
     },
     jp: {
-      heading: "便利で面白いと思いますか？",
+      heading: "始める準備はできましたか？",
       description: (
         <p>
           フォームバリデーションはより簡単にする必要があります。React Hook Form
@@ -233,7 +233,7 @@ export default {
     jp: [
       {
         title: "DX",
-        description: `直感的で完全な機能の API はフォームを構築する際に開発者に優れたエクスペリエンスの提供します。`,
+        description: `直感的で完全な機能の API はフォームを構築する際に開発者に優れたエクスペリエンスを提供します。`,
       },
       {
         title: "HTML 標準",
