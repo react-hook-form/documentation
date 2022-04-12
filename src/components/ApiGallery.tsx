@@ -108,7 +108,7 @@ export default function ApiGallery({ defaultLang }) {
               </h3>
               <p>
                 For Controlled components: interface with the useForm methods
-                and and isolate its re-render.
+                and isolate its re-render.
               </p>
               <Link
                 to="/api/usecontroller"
