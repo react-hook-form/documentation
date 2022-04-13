@@ -2653,9 +2653,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               rawData={`const { field } = useController();
 const [value, setValue] = useState(field.value);
 
-onChange={(value) => {
-  field.onChange(parseInt(value)) // data send back to hook form
-  setValue(value) // UI state
+onChange={(event) => {
+  field.onChange(parseInt(event.target.value)) // data send back to hook form
+  setValue(event.target.value) // UI state
 }}
 `}
             />
