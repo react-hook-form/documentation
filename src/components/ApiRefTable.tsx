@@ -785,7 +785,7 @@ register('test', { required: false });  // ✅
 
         <CodeArea
           rawData={register}
-          url="https://codesandbox.io/s/react-hook-form-js-wbybv"
+          url="https://codesandbox.io/s/register-is0sfo"
           tsRawData={registerTs}
           tsUrl="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
         />
