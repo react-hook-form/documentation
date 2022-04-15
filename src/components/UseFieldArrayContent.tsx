@@ -9,6 +9,7 @@ import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
 import { Link } from "gatsby"
+import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
 
 export default function UseFieldArrayContent({
   currentLanguage,
@@ -186,6 +187,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
       <TabGroup
         buttonLabels={[
           "useFieldArray",
+          "Nested Form",
           "conditional Field Array",
           "Focus Name/index",
         ]}
@@ -195,6 +197,10 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           tsRawData={useFieldArrayTS}
           tsUrl="https://codesandbox.io/s/calc-i231d"
           url="https://codesandbox.io/s/react-hook-form-usefieldarray-ssugn"
+        />
+        <CodeArea
+          rawData={useFieldArrayPreview}
+          url="https://codesandbox.io/s/usefieldarray-with-preview-odmtx5"
         />
         <CodeArea
           rawData={useFieldArrayConditional}
