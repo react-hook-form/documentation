@@ -44,7 +44,7 @@ ${
           })
           const ref = isV7
             ? `{...register${
-                required ? `("${name}", { required: true })` : ""
+                required ? `("${name}", { required: true })` : `("${name}")`
               }}`
             : ` ref={register${required ? "({ required: true })" : ""}}`
 
