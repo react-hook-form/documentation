@@ -129,7 +129,7 @@ export default function UseFieldArray({
         <li>
           <p>
             The only different between <code>useWatch</code> and{" "}
-            <code>watch</code> is at root (
+            <code>watch</code> is at the root (
             <Link to={"/api/useform"}>
               <code>useForm</code>
             </Link>
@@ -139,8 +139,8 @@ export default function UseFieldArray({
         <li>
           <p>
             <code>useWatch</code> execution order matters, which means if you
-            are update form value before the subscription is in place, then the
-            value update will be ignored.
+            update a form value before the subscription is in place, then the
+            value updated will be ignored.
           </p>
 
           <CodeArea
@@ -155,7 +155,7 @@ setValue('example', 'data');
         <li>
           <p>
             <code>useWatch</code> result is optimised for render phase instead
-            of <code>useEffect</code>'s deps, to detect value update you may
+            of <code>useEffect</code>'s deps, to detect value updates you may
             want to use an external custom hook for value comparison.
           </p>
         </li>
