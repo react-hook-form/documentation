@@ -953,6 +953,30 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               </tr>
               <tr>
                 <td>
+                  <code>keepDirtyValues</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>boolean</code>
+                </td>
+                <td>
+                  <p>
+                    <code>DirtyFields</code> and <code>isDirty</code> will
+                    remained, and only none dirty fields will be updated to the
+                    latest rest value.{" "}
+                    <a
+                      href={
+                        "https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
+                      }
+                      target={"_blank"}
+                      rel="noreferrer"
+                    >
+                      Check out the example.
+                    </a>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <code>keepValues</code>
                 </td>
                 <td>
