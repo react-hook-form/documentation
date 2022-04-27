@@ -10,8 +10,7 @@ function App() {
   } = useForm({ defaultValues: { something: "anything" } });
 
   const onSubmit = (data) => {
-    console.log(data);
-    // with 7.22.0 you can reset here without useEffect
+    // It's recommended to reset in useEffect as execution order matters
     // reset({ ...data })
   };
 

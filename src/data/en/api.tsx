@@ -1087,7 +1087,8 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </li>
           <li>
             <p>
-              You can <code>reset</code> inside <code>useEffect</code>.
+              It's recommended to <code>reset</code> inside{" "}
+              <code>useEffect</code> after submission.
             </p>
             <CodeArea
               rawData={`useEffect(() => {
