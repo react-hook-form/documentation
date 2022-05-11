@@ -973,6 +973,11 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                       Check out the example.
                     </a>
                   </p>
+                  <p>
+                    <b className={typographyStyles.note}>Important: </b>
+                    formState <code>dirtyFields</code> will need to be
+                    subscribed.
+                  </p>
                 </td>
               </tr>
               <tr>
