@@ -357,8 +357,8 @@ const App = () => {
           </p>
 
           <CodeArea
-            rawData={`<input {...register('yourDetails.firstName')} />
-<input {...register('yourDetails.lastName')} />
+            rawData={`<input {...unregister('yourDetails.firstName')} />
+<input {...unregister('yourDetails.lastName')} />
 `}
           />
 
