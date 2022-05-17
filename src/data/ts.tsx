@@ -232,7 +232,7 @@ type FormProps<TFormValues> = {
   children: (methods: UseFormReturn<TFormValues>) => React.ReactNode;
 };
 
-const Form = <TFormValues extends Record<string, any> = Record<string, any>>({
+const Form = <TFormValues extends Record<string, any>({
   onSubmit,
   children
 }: FormProps<TFormValues>) => {
