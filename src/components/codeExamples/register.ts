@@ -6,6 +6,7 @@ export default function App() {
     defaultValues: {
       firstName: '',
       lastName: '',
+      category: '',
       checkbox: [],
       radio: ''
     }
