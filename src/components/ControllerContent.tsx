@@ -70,8 +70,8 @@ export default function ControllerContent({
 
       <h2 className={typographyStyles.subTitle}>Video</h2>
       <p>
-        The following video showcase what's inside Controller and how its been
-        build.
+        The following video showcases what's inside Controller and how its been
+        built.
       </p>
 
       <iframe
