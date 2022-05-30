@@ -1306,7 +1306,7 @@ validate: (value) => value === getValues('firstName');"
         </p>
 
         <p>
-          Мы официально поддерживаем Yup, Joi и Superstruct как
+          Мы официально поддерживаем Yup, Joi и Superstruct как 
           <a
             href="https://github.com/react-hook-form/react-hook-form-resolvers"
             target="blank"
