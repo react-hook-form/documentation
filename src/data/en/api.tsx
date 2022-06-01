@@ -2013,7 +2013,15 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             </code>
           </td>
           <td>
-            <p>Update input/inputs at particular position.</p>
+            <p>
+              Update input/inputs at a particular position, updated fields will
+              get unmount and remount. If this is not desired behavior, please
+              use{" "}
+              <Link to="/api/useform/setvalue">
+                <code>setValue</code>
+              </Link>{" "}
+              API instead.
+            </p>
             <p>
               <b className={typographyStyles.note}>Important: </b>update data is
               required and not partial.
