@@ -2488,19 +2488,19 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </a>
           ,{" "}
           <a
-            href="https://github.com/ianstormtaylor/superstruct"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Superstruct
-          </a>
-          ,{" "}
-          <a
             href="https://github.com/ealush/vest"
             target="_blank"
             rel="noopener noreferrer"
           >
             Vest
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/ajv-validator/ajv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ajv
           </a>{" "}
           and many others. The goal is to make sure you can seamlessly integrate
           whichever validation library you prefer. If you're not using a

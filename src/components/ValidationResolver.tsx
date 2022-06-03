@@ -3,7 +3,7 @@ import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
 import joiResolver from "./codeExamples/joiResolver"
 import joiResolverTs from "./codeExamples/joiResolverTs"
-import superStructResolver from "./codeExamples/superStructResolver"
+import ajvResolver from "./codeExamples/ajvResolver"
 import validationResolverTs from "./codeExamples/validationResolverTs"
 import TabGroup from "./TabGroup"
 import validationSchema from "./codeExamples/validationSchema"
@@ -158,9 +158,7 @@ export default function ({ api }) {
         Examples
       </h3>
 
-      <TabGroup
-        buttonLabels={["Yup", "Zod", "Joi", "Superstruct", "Vest", "Custom"]}
-      >
+      <TabGroup buttonLabels={["Yup", "Zod", "Joi", "Ajv", "Vest", "Custom"]}>
         <CodeArea
           rawData={validationSchema}
           tsRawData={validationSchemaTs}
@@ -180,8 +178,8 @@ export default function ({ api }) {
           tsUrl="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
         />
         <CodeArea
-          rawData={superStructResolver}
-          url="https://codesandbox.io/s/react-hook-form-v7-superstructresolver-ge0nk"
+          rawData={ajvResolver}
+          url="https://codesandbox.io/s/react-hook-form-ajvresolver-vr3imc"
         />
         <CodeArea
           rawData={vestResolver}
@@ -194,6 +192,17 @@ export default function ({ api }) {
           tsUrl="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
         />
       </TabGroup>
+
+      <p>
+        Need more? See{" "}
+        <a
+          href="https://github.com/react-hook-form/resolvers#quickstart"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resolver Documentation
+        </a>
+      </p>
 
       <h3 id={"schema-rules"} className={typographyStyles.rulesTitle}>
         Tip

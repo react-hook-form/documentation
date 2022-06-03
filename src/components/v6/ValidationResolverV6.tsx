@@ -3,7 +3,7 @@ import CodeArea from "../CodeArea"
 import validationResolver from "../codeExamples/validationResolver"
 import joiResolver from "../codeExamples/joiResolver"
 import joiResolverTs from "../codeExamples/joiResolverTs"
-import superStructResolver from "../codeExamples/superStructResolver"
+import ajvResolver from "../codeExamples/ajvResolver"
 import validationResolverTs from "../codeExamples/validationResolverTs"
 import TabGroup from "../TabGroup"
 import validationSchema from "../codeExamples/validationSchema"
@@ -49,7 +49,7 @@ export default function ({ api }) {
           tsUrl="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-jwg5g"
         />
         <CodeArea
-          rawData={superStructResolver}
+          rawData={ajvResolver}
           url="https://codesandbox.io/s/react-hook-form-v6-superstructresolver-ed67i"
         />
         <CodeArea
