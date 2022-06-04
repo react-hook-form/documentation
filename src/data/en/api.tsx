@@ -855,20 +855,38 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </li>
           <li>
             <p>
-              During the callback, if the function itself throws an error inside
-              of <code>handleSubmit</code>, it will not swallow the error itself
-              but bubble it up instead and <code>isSubmitSuccessful</code> will
-              be remained as <code>false</code>.
+              <code>handleSubmit</code> function will not swallow errors that
+              occurred inside your onSubmit callback, so we recommend you to try
+              and catch inside async request and handle those errors gracefully
+              for your customers.
             </p>
 
             <CodeArea
               rawData={`const onSubmit = () => {
-  throw new Error('Something is wrong')
-}
+  // async request which may result error
+  throw new Error("Something is wrong");
+};
 
-(event) => handleSubmit(onSubmit)(event).catch((error) => {
-  // you will need to catch that error
-})`}
+<>
+  <form
+    onSubmit={(e) => {
+      handleSubmit(onSubmit)(e)
+      // you will have to catch those error and handle them
+      .catch(() => {});
+    }}
+  />
+  // The following is a better approach
+  <form
+    onSubmit={handleSubmit(() => {
+      try {
+        request();
+      } catch (e) {
+        // handle your error state here
+      }
+    })}
+  />
+</>;
+`}
             />
           </li>
         </ul>
