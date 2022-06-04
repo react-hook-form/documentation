@@ -462,7 +462,7 @@ export default function ApiRefTable({
               <td>
                 <p>
                   Returns a <code>Date</code> object normally. If something goes
-                  wrong <code>null</code> will be returned.
+                  wrong <code>Invalid Date</code> will be returned.
                 </p>
                 <ul>
                   <li>
