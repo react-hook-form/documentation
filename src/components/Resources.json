@@ -42,7 +42,7 @@
   {
     "type": "article",
     "title": "Using React Hook Form with Material-UI Components",
-    "url": "https://dev.to/elyngved/turn-anything-into-a-form-field-with-react-hook-form-controller-42c",
+    "url": "https://levelup.gitconnected.com/using-react-hook-form-with-material-ui-components-ba42ace9507a",
     "authorUrl": "https://chadmuro.medium.com/",
     "author": "Chad Murobayashi",
     "description": "A better way to handle your form data when using Material-UI",
