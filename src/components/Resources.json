@@ -1,4 +1,4 @@
-[
+[  
   {
     "type": "article",
     "title": "React Hook Form ライブラリの使い方！フォームのバリデーションを実装しよう【TypeScript】",
@@ -95,6 +95,15 @@
     "description": "Introduction to React Hook From V7.",
     "createdDateTime": "Sat Mar 20 2021 18:02:05 GMT+1100 (Australian Eastern Daylight Time)",
     "version": "7"
+  },
+  {
+   "type": "article",
+   "url": "https://dnizfor.medium.com/react-hook-form-i%CC%87%C3%A7in-kapsaml%C4%B1-bir-rehber-73a65fc16a8f",
+   "title": "React Hook Form İçin Kapsamlı Bir Rehber",
+   "author": "Deniz Aslan",
+   "authorUrl": "https://www.linkedin.com/in/aslandeniz",
+   "description": "",
+   "version": "7"
   },
   {
     "type": "article",
