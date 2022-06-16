@@ -1,4 +1,13 @@
-[
+[  
+ {
+  "type": "article",
+  "url": "https://dnizfor.medium.com/react-hook-form-i%CC%87%C3%A7in-kapsaml%C4%B1-bir-rehber-73a65fc16a8f",
+  "title": "React Hook Form İçin Kapsamlı Bir Rehber",
+  "author": "Deniz Aslan",
+  "authorUrl": "www.linkedin.com/in/aslandeniz",
+  "description": "",
+  "version": "7"
+ },
   {
     "type": "article",
     "title": "React Hook Form ライブラリの使い方！フォームのバリデーションを実装しよう【TypeScript】",
@@ -453,15 +462,6 @@
     "authorUrl": "https://twitter.com/Koprowski_it",
     "description": "Managing forms in React Native is different than in React. Custom components need callbacks or wrappers, which can make code hard to read. Here is a handy solution for React Native form validation. Without <Controller /> component!",
     "version": "6"
-  },
-  {
-    "type": "article",
-    "url": "https://dnizfor.medium.com/react-hook-form-i%CC%87%C3%A7in-kapsaml%C4%B1-bir-rehber-73a65fc16a8f",
-    "title": "React Hook Form İçin Kapsamlı Bir Rehber",
-    "author": "Deniz Aslan",
-    "authorUrl": "www.linkedin.com/in/aslandeniz",
-    "description": "",
-    "version": "7"
   },
   {
     "type": "video",
