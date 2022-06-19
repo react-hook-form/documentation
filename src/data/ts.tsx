@@ -285,7 +285,7 @@ export default function App() {
 > = Partial<{
   mode: Mode;
   reValidateMode: Mode;
-  defaultValues: UnpackNestedValue<DeepPartial<TFieldValues>>;
+  defaultValues: DeepPartial<TFieldValues>;
   resolver: Resolver<TFieldValues, TContext>;
   context: TContext;
   shouldFocusError: boolean;

@@ -8,7 +8,6 @@ import StarRepo from "./StarRepo"
 import Footer from "./Footer"
 
 const enLinks = [
-  TS.nestedValue,
   TS.resolver,
   TS.submitHandler,
   TS.control,
@@ -27,6 +26,7 @@ const enLinks = [
   TS.mode,
   TS.validationRules,
   TS.formStateProxy,
+  TS.nestedValue,
 ]
 
 export default ({ defaultLang }: { defaultLang: string }) => {
@@ -111,19 +111,6 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             <b className={typographyStyles.note}>Important:</b> Typescript ^4.3
             above is the recommended version to work with react hook form.
           </p>
-
-          <section
-            ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}
-            id="NestedValueRef"
-          >
-            <code className={typographyStyles.codeHeading}>
-              <h2>{TS.nestedValue.title}</h2>
-            </code>
-
-            {TS.nestedValue.description}
-          </section>
-
-          <hr />
 
           <section
             ref={(ref) => (tsSectionsRef.current.ResolverRef = ref)}
@@ -338,6 +325,21 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               <h2>{TS.formStateProxy.title}</h2>
             </code>
             {TS.formStateProxy.description}
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.NestedValueRef = ref)}
+            id="NestedValueRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>
+                {TS.nestedValue.title} (<b>Deprecated</b> at 7.33.0)
+              </h2>
+            </code>
+
+            {TS.nestedValue.description}
           </section>
 
           <StarRepo currentLanguage={currentLanguage} />
