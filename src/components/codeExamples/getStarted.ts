@@ -375,10 +375,10 @@ export default function App() {
       {errors.firstName?.type === 'required' && "First name is required"}
       
       <input {...register("lastName", { required: true })} />
-      {errors.lastName && "Last name is required"}
+      {errors.lastName && <p>Last name is required</p>}
 
       <input {...register("mail", { required: "Email Address is required" })} />
-      {errors.mail?.message}
+      <p>{errors.mail?.message}</p>
       
       <input type="submit" />
     </form>
