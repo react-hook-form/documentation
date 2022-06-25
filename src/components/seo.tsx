@@ -60,8 +60,7 @@ function SEO({
         },
         {
           property: `og:image`,
-          content:
-            "https://repository-images.githubusercontent.com/174038031/01768c80-a4f5-11e9-8007-1dc851d42b5d",
+          content: "../images/react-hook-form-og.png",
         },
         {
           property: `og:description`,
@@ -77,8 +76,7 @@ function SEO({
         },
         {
           property: `twitter:image`,
-          content:
-            "https://repository-images.githubusercontent.com/174038031/01768c80-a4f5-11e9-8007-1dc851d42b5d",
+          content: "../images/react-hook-form-og.png",
         },
         {
           name: `twitter:creator`,
