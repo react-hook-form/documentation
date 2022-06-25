@@ -60,7 +60,8 @@ function SEO({
         },
         {
           property: `og:image`,
-          content: "../images/react-hook-form-og.png",
+          content:
+            "https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png",
         },
         {
           property: `og:description`,
@@ -76,7 +77,8 @@ function SEO({
         },
         {
           property: `twitter:image`,
-          content: "../images/react-hook-form-og.png",
+          content:
+            "https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png",
         },
         {
           name: `twitter:creator`,
