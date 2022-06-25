@@ -6,6 +6,7 @@ function App() {
     register,
     handleSubmit,
     reset,
+    formState,
     formState: { isSubmitSuccessful }
   } = useForm({ defaultValues: { something: "anything" } });
 

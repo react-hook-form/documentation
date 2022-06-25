@@ -57,7 +57,7 @@ export default ({ currentLanguage, isController }) => {
                     </Link>{" "}
                     and you should avoid manually invoke{" "}
                     <Link
-                      to="/api/useform/setValue"
+                      to="/api/useform/setvalue"
                       aria-label={"read more about setValue"}
                     >
                       setValue
