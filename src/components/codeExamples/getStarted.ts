@@ -366,6 +366,8 @@ import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, formState: { errors }, handleSubmit } = useForm();
+
+  const onSubmit = (data) => console.log(data);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -373,7 +375,10 @@ export default function App() {
       {errors.firstName?.type === 'required' && "First name is required"}
       
       <input {...register("lastName", { required: true })} />
-      {errors.lastName && "Last name is required"}
+      {errors.lastName && <p>Last name is required</p>}
+
+      <input {...register("mail", { required: "Email Address is required" })} />
+      <p>{errors.mail?.message}</p>
       
       <input type="submit" />
     </form>
