@@ -59,6 +59,9 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         <li>
           <Link to="/about-us">About us</Link>
         </li>
+        <li>
+          <Link to="/media">Media</Link>
+        </li>
       </ul>
       <p>
         Designed and Built by{" "}

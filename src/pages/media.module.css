@@ -1,0 +1,37 @@
+.media {
+  max-width: 800px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.media div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.media p {
+  font-size: 12px;
+}
+
+.media img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+img.logo {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .media {
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
