@@ -644,6 +644,19 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
               hook form can have a single source of truth to compare whether the
               form is dirty.
             </p>
+            <CodeArea
+              rawData={`const {
+  formState: { isDirty, dirtyFields },
+  setValue,
+} = useForm({ defaultValues: { test: "" } });
+
+// isDirty: true
+setValue('test', 'change')
+ 
+// isDirty: false because there getValues() === defaultValues
+setValue('test', '') 
+`}
+            />
           </li>
           <li>
             <p>

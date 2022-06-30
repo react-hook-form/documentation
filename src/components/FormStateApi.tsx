@@ -109,13 +109,23 @@ export const FormStateApi = ({
       </td>
       <td>
         <div>{(api || API).formState.isValid}</div>
-        <p>
-          <b className={typographyStyles.note}>Note:</b> <code>isValid</code> is
-          affected by <code>mode</code> at{" "}
-          <Link to={"/api/useform"}>useForm</Link>. This state is only
-          applicable with <code>onChange</code>, <code>onTouched</code>, and{" "}
-          <code>onBlur</code> mode.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <code>isValid</code> is affected by <code>mode</code> at{" "}
+              <Link to={"/api/useform"}>useForm</Link>. This state is only
+              applicable with <code>onChange</code>, <code>onTouched</code>, and{" "}
+              <code>onBlur</code> mode.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>setError</code> has no effect on <code>isValid</code>{" "}
+              formState, <code>isValid</code> will always derived via the entire
+              form validation result.
+            </p>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>
