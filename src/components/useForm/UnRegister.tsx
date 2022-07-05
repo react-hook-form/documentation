@@ -100,7 +100,7 @@ export default ({ currentLanguage }) => {
                   </tr>
                   <tr>
                     <td>
-                      <code>keepValid</code>
+                      <code>keepIsValid</code>
                     </td>
                     <td>
                       <span className={typographyStyles.typeText}>boolean</span>
@@ -118,7 +118,7 @@ export default ({ currentLanguage }) => {
                       <CodeArea
                         withOutCopy
                         rawData={`unregister('test',
-  { keepValid: true }
+  { keepIsValid: true }
 )`}
                       />
                     </td>
