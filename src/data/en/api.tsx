@@ -1265,7 +1265,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           </li>
           <li>
             <p>
-              This method does not affect <code>isValid</code> formState, as
+              This method does not affect <code>isValid</code> formState, as{" "}
               <code>isValid</code> will always be derived by the validation
               result from your input registration rules or schema result.
             </p>
