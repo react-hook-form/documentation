@@ -54,6 +54,14 @@ const Layout = (props: {
 
   return (
     <>
+      <div className="banner">
+        <p>
+          Craft <strong>beautiful</strong> form application experiences.
+          <a href="https://beikai.vercel.app/" title="Learn more about BEIKAI">
+            Find out more
+          </a>
+        </p>
+      </div>
       <a className="skip-main" href="#main">
         Skip to content
       </a>

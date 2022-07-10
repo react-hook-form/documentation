@@ -63,35 +63,6 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           <Link to="/media">Media</Link>
         </li>
       </ul>
-      <p>
-        Designed and Built by{" "}
-        <a
-          href="https://twitter.com/bluebill1049"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Bill Luo Twitter"
-        >
-          @Bill Luo
-        </a>{" "}
-        ={" "}
-        <a
-          href="https://github.com/bluebill1049/react-simple-animate"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="React Simple Animate Github"
-        >
-          React Simple Animate
-        </a>{" "}
-        ✚{" "}
-        <a
-          rel="noopener noreferrer"
-          href="https://github.com/bluebill1049/little-state-machine"
-          target="_blank"
-          title="Little state machine"
-        >
-          Little State Machine
-        </a>
-      </p>
       {currentLanguage === "pt" && (
         <p>
           <a href="https://github.com/kevenleone">@kevenleone</a> and{" "}
@@ -130,6 +101,17 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           rel="noreferrer noopener"
         >
           Feedback
+        </a>
+      </p>
+      <p>
+        Project build and maintain by{" "}
+        <a
+          href="https://beikai.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Bill Luo Twitter"
+        >
+          <strong>BEIKAI</strong>
         </a>
       </p>
       <p

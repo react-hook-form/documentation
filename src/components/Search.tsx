@@ -48,6 +48,7 @@ const Search = () => {
           }`}
           spellCheck="false"
           type="search"
+          placeholder="Search..."
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
