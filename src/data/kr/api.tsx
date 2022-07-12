@@ -1140,9 +1140,9 @@ React.useEffect(() => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>{" "}
           와 같은 제어 컴포넌트를 사용하는 외부 라이브러리와 조합하여 사용하는
           것을 피할 수는 없습니다. 이 래퍼 컴포넌트는 위와 같은 컴포넌트와 쉽게

@@ -133,9 +133,9 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           ，因此我们提供了一个包装组件:{" "}
           <Link to="/api#Controller">Controller</Link>{" "}

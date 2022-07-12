@@ -27,11 +27,11 @@ export default {
         함께 사용할 수 있습니다. 대부분의 UI 라이브러리들은 오로지 제어
         컴포넌트만 지원하고 있습니다. 예를 들어{" "}
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>{" "}
         나{" "}
         <a

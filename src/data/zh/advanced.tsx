@@ -25,11 +25,11 @@ export default {
         React Hook Form 优先采用非受控组件，与此同时也兼容受控组件。
         大多数UI库仅限于支持受控组件，如
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>
         和
         <a

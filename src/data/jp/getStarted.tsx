@@ -147,9 +147,9 @@ export default {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://material-ui.com/"
+          href="https://mui.com/"
         >
-          Material-UI
+          MUI
         </a>{" "}
         などの外部の制御された UI{" "}
         コンポーネントライブラリと組み合わせての使用を避けることは難しいため、

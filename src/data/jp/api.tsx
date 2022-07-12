@@ -868,7 +868,7 @@ validate: (value) => value === getValues('firstName');"
               >
                 こちら
               </a>
-              の Material-UI を使用した実装例を参考にしてください。
+              の MUI を使用した実装例を参考にしてください。
             </p>
           </td>
         </tr>
@@ -898,9 +898,9 @@ validate: (value) => value === getValues('firstName');"
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           などの外部の制御された UI{" "}
           コンポーネントライブラリと組み合わせての使用​​を避けることは難しいです。
