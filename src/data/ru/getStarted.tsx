@@ -143,9 +143,9 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           , поэтому мы должны создать компонент-обёртку:{" "}
           <Link to="/api#Controller">Controller</Link> для упрощения процесса

@@ -32,11 +32,11 @@ export default {
         with controlled components. Most UI libraries are built to support only
         controlled components, such as{" "}
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>{" "}
         and{" "}
         <a

@@ -26,11 +26,11 @@ export default {
         React Hook Form は、非制御コンポーネントをサポートしていますが、
         制御されたコンポーネントとも互換性があります。{" "}
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>{" "}
         や{" "}
         <a

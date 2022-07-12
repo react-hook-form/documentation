@@ -27,11 +27,11 @@ export default {
         compatible con componentes controlados. La mayoria de las librerías de
         UI están hechas para soportar solo componentes controlados, como{" "}
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>{" "}
         y{" "}
         <a

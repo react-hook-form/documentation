@@ -898,9 +898,9 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           . Este componente irá fazer sua vida mais simples.
         </p>
