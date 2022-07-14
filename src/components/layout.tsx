@@ -57,7 +57,7 @@ const Layout = (props: {
       <div className="banner">
         <p>
           Craft <strong>beautiful</strong> form application experiences.
-          <a href="https://beikai.vercel.app/" title="Learn more about BEIKAI">
+          <a href="https://beekai.com/" title="Learn more about BEEKAI">
             Find out more
           </a>
         </p>

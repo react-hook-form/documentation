@@ -106,12 +106,12 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
       <p>
         Project build and maintain by{" "}
         <a
-          href="https://beikai.vercel.app/"
+          href="https://beekai.com"
           target="_blank"
           rel="noopener noreferrer"
           title="Bill Luo Twitter"
         >
-          <strong>BEIKAI</strong>
+          <strong>BEEKAI</strong>
         </a>
       </p>
       <p
