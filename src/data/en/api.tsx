@@ -23,9 +23,9 @@ export default {
     ),
     description: (
       <p>
-        <code>useForm</code> is custom hook for managing forms with ease. It
-        takes <b>optional</b> arguments. The following example demonstrates all
-        of the arguments along with their default values.
+        <code>useForm</code> is a custom hook for managing forms with ease. It
+        takes one object as <b>optional</b> argument. The following example demonstrates all
+        of its properties along with their default values.
       </p>
     ),
     validateCriteriaMode: (
