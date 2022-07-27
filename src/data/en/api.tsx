@@ -24,8 +24,8 @@ export default {
     description: (
       <p>
         <code>useForm</code> is a custom hook for managing forms with ease. It
-        takes one object as <b>optional</b> argument. The following example demonstrates all
-        of its properties along with their default values.
+        takes one object as <b>optional</b> argument. The following example
+        demonstrates all of its properties along with their default values.
       </p>
     ),
     validateCriteriaMode: (
@@ -1883,7 +1883,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 </td>
                 <td>✓</td>
                 <td>
-                  <p>Name of the field array.</p>
+                  <p>
+                    Name of the field array. <b>Note: </b>Do not support dynamic
+                    name.
+                  </p>
                 </td>
               </tr>
               <tr>
@@ -2407,11 +2410,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             AntD
           </a>{" "}
           and{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . This wrapper component will make it easier for you to work with
