@@ -350,8 +350,8 @@ export default function App(props) {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("firstName")} defaultValue={props.firstName} />
-      <Input {...register("lastName")} defaultValue={props.lastName} />
+      <input {...register("firstName")} defaultValue={props.firstName} />
+      <input {...register("lastName")} defaultValue={props.lastName} />
       <input type="submit" />
     </form>
   );
