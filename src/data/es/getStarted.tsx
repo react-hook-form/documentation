@@ -139,9 +139,9 @@ export default {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://material-ui.com/"
+          href="https://mui.com/"
         >
-          Material-UI
+          MUI
         </a>
         , por lo que hemos construído un componente que los envuelve:{" "}
         <Link to="/api#Controller">Controller</Link> para guiar el proceso de

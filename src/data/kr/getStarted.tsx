@@ -141,9 +141,9 @@ export default {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://material-ui.com/"
+          href="https://mui.com/"
         >
-          Material-UI
+          MUI
         </a>{" "}
         같이 외부 라이브러리에서 제공하는 제어 컴포넌트와 함께 사용해야 할 때가
         있습니다. 그래서 이럴 때 사용하기 위해 감싸는 컴포넌트를 제공합니다.{" "}

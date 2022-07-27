@@ -1113,9 +1113,9 @@ React.useEffect(() => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           . Этот компонент-обёртка сделает вашу жизнь проще при работе с ними.
         </p>

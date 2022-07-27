@@ -942,9 +942,9 @@ export default {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           。 这个包装组件将使您的工作更轻松。
         </p>

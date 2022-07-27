@@ -915,9 +915,9 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://material-ui.com/"
+            href="https://mui.com/"
           >
-            Material-UI
+            MUI
           </a>
           などの外部の制御された UI{" "}
           コンポーネントライブラリと組み合わせての使用​​を避けることは難しいです。

@@ -26,11 +26,11 @@ export default {
         совместим с управляемыми компонентами. Большинство UI библиотем
         построены на поддержке только управляемых компонентов, таких как{" "}
         <a
-          href="https://github.com/mui-org/material-ui"
+          href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Material-UI
+          MUI
         </a>{" "}
         и{" "}
         <a

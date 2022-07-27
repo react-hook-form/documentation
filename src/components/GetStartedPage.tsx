@@ -77,6 +77,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const lightMode = setting?.lightMode
   const isV7 = setting?.version === 7
 
   const links = [
@@ -440,7 +441,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.schema.step1}
 
-          <span className={getStartedStyles.installCode}>
+          <span
+            className={`${getStartedStyles.installCode} ${
+              lightMode ? getStartedStyles.lightInstallCode : ""
+            }`}
+          >
             npm install @hookform/resolvers yup
             <button
               className={getStartedStyles.copyButton}
