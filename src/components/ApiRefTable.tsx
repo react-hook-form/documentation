@@ -654,6 +654,11 @@ export default function ApiRefTable({
                   Input will be unregistered after unmount and defaultValues
                   will be removed as well.
                 </p>
+                <p>
+                  <b>Note:</b> this prop should be avoided when using with{" "}
+                  <code>useFieldArray</code> as <code>unregister</code> function
+                  gets called after input unmount/remount and reorder.
+                </p>
               </td>
               <td>
                 <CodeArea

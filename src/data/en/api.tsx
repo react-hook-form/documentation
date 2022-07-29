@@ -2384,6 +2384,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               Input will be unregistered after unmount and defaultValues will be
               removed as well.
             </p>
+            <p>
+              <b>Note:</b> this prop should be avoided when using with{" "}
+              <code>useFieldArray</code> as <code>unregister</code> function
+              gets called after input unmount/remount and reorder.
+            </p>
           </td>
         </tr>
       </tbody>
@@ -2669,6 +2674,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <p>
               Input will be unregistered after unmount and defaultValues will be
               removed as well.
+            </p>
+            <p>
+              <b>Note:</b> this prop should be avoided when using with{" "}
+              <code>useFieldArray</code> as <code>unregister</code> function
+              gets called after input unmount/remount and reorder.
             </p>
           </td>
         </tr>
