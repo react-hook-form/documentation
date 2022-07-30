@@ -1927,6 +1927,31 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   </p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <code>rules</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>string = id</code>
+                </td>
+                <td></td>
+                <td>
+                  <p>
+                    Validation rules in the same format for{" "}
+                    <code>register</code>, which includes:
+                  </p>
+                  <p>required, minLength, maxLength, validate</p>
+                  <CodeArea
+                    url="https://codesandbox.io/s/react-hook-form-usefieldarray-rules-iyejbp?file=/src/index.js"
+                    withOutCopy
+                    rawData="rules={{ minLength: 4 }}"
+                  />
+                  <p>
+                    Validation error will produce a <code>root</code> object
+                    which contains error reference.
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
