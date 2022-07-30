@@ -1948,7 +1948,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   />
                   <p>
                     Validation error will produce a <code>root</code> object
-                    which contains error reference. Eg:{" "}
+                    which contains error reference and this only applicable for
+                    <strong>build-in</strong> validation. Eg:{" "}
                     <code>formState.errors?.fieldArray?.root?.message</code>
                   </p>
                 </td>
