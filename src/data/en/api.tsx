@@ -1964,7 +1964,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                       only
                     </p>
                     <Link to="api/useform/#validationResolver">Resolvers</Link>{" "}
-                    are yet to support <code>useFieldArray</code> validation
+                    are yet to support <code>useFieldArray</code> root level
+                    validation.
                   </p>
                 </td>
               </tr>
