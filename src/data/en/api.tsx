@@ -1937,7 +1937,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 <td></td>
                 <td>
                   <p>
-                    Validation rules in the same format for{" "}
+                    The same validation <code>rules</code> API as for{" "}
                     <Link to={"/api/useform/register"}>register</Link>, which includes:
                   </p>
                   <p>required, minLength, maxLength, validate</p>
