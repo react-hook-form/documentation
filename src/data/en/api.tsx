@@ -1932,7 +1932,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <code>rules</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>string = id</code>
+                  <code className={typographyStyles.typeText}>Object</code>
                 </td>
                 <td></td>
                 <td>
