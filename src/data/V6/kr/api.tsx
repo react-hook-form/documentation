@@ -1136,11 +1136,7 @@ React.useEffect(() => {
             AntD
           </a>{" "}
           혹은{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>{" "}
           와 같은 제어 컴포넌트를 사용하는 외부 라이브러리와 조합하여 사용하는

@@ -880,11 +880,7 @@ validate: (value) => value === getValues('firstName');"
             AntD
           </a>{" "}
           e{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . Este componente irá fazer sua vida mais simples.

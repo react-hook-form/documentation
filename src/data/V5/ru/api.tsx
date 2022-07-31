@@ -1110,11 +1110,7 @@ React.useEffect(() => {
             AntD
           </a>{" "}
           и{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . Этот компонент-обёртка сделает вашу жизнь проще при работе с ними.

@@ -871,11 +871,7 @@ export default {
             AntD
           </a>{" "}
           y{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . Este componente los envuelve para que trabajar con ellos sea más
