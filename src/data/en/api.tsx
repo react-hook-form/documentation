@@ -1945,7 +1945,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                     url="https://codesandbox.io/s/react-hook-form-usefieldarray-rules-iyejbp?file=/src/index.js"
                     withOutCopy
                     rawData={`useFieldArray({
-rules: { minLength: 4 }
+  rules: { minLength: 4 }
 })
 `}
                   />
