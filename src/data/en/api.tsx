@@ -1944,7 +1944,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <CodeArea
                     url="https://codesandbox.io/s/react-hook-form-usefieldarray-rules-iyejbp?file=/src/index.js"
                     withOutCopy
-                    rawData="rules={{ minLength: 4 }}"
+                    rawData={`useFieldArray({
+rules: { minLength: 4 }
+})
+`}
                   />
                   <p>
                     In case of validation error, the <code>root</code> property
