@@ -138,11 +138,7 @@ export default {
           AntD
         </a>{" "}
         그리고{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://mui.com/"
-        >
+        <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
           MUI
         </a>{" "}
         같이 외부 라이브러리에서 제공하는 제어 컴포넌트와 함께 사용해야 할 때가

@@ -136,11 +136,7 @@ export default {
           AntD
         </a>{" "}
         y{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://mui.com/"
-        >
+        <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
           MUI
         </a>
         , por lo que hemos construído un componente que los envuelve:{" "}

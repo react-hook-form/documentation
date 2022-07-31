@@ -894,11 +894,7 @@ validate: (value) => value === getValues('firstName');"
             AntD
           </a>{" "}
           、{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           などの外部の制御された UI{" "}

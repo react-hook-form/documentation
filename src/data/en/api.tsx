@@ -1938,7 +1938,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 <td>
                   <p>
                     The same validation <code>rules</code> API as for{" "}
-                    <Link to={"/api/useform/register"}>register</Link>, which includes:
+                    <Link to={"/api/useform/register"}>register</Link>, which
+                    includes:
                   </p>
                   <p>required, minLength, maxLength, validate</p>
                   <CodeArea
@@ -1951,13 +1952,19 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   />
                   <p>
                     In case of validation error, the <code>root</code> property
-                    is appended to <code>formState.errors?.fieldArray?.root</code>
-                    of type <Link to="ts/#FieldError"><code>FieldError</code></Link>
+                    is appended to{" "}
+                    <code>formState.errors?.fieldArray?.root</code>
+                    of type{" "}
+                    <Link to="ts/#FieldError">
+                      <code>FieldError</code>
+                    </Link>
                     <p>
-                      <b className={typographyStyles.note}>Important: </b>This is only applicable
-                      to <strong>built-in</strong> validation only
+                      <b className={typographyStyles.note}>Important: </b>This
+                      is only applicable to <strong>built-in</strong> validation
+                      only
                     </p>
-                    <Link to="api/useform/#validationResolver">Resolvers</Link> are yet to support <code>useFieldArray</code> validation
+                    <Link to="api/useform/#validationResolver">Resolvers</Link>{" "}
+                    are yet to support <code>useFieldArray</code> validation
                   </p>
                 </td>
               </tr>

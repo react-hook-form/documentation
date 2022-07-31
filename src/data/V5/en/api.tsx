@@ -1110,11 +1110,7 @@ onChange={{([ { checked } ]) => ({ checked })}}`}
             AntD
           </a>{" "}
           and{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . This wrapper component will make it easier for you to work with

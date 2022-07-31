@@ -1171,11 +1171,7 @@ validate: (value) => value === getValues('firstName');"
             AntD
           </a>{" "}
           и{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           . Этот компонент-обёртка сделает вашу жизнь проще при работе с ними.
@@ -1306,7 +1302,7 @@ validate: (value) => value === getValues('firstName');"
         </p>
 
         <p>
-          Мы официально поддерживаем Yup, Joi и Superstruct как 
+          Мы официально поддерживаем Yup, Joi и Superstruct как
           <a
             href="https://github.com/react-hook-form/react-hook-form-resolvers"
             target="blank"

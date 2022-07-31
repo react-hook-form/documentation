@@ -939,11 +939,7 @@ export default {
             AntD
           </a>{" "}
           和{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mui.com/"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
           。 这个包装组件将使您的工作更轻松。
