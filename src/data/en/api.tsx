@@ -1947,10 +1947,14 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                     rawData="rules={{ minLength: 4 }}"
                   />
                   <p>
-                    Validation error will produce a <code>root</code> object
-                    which contains error reference and this only applicable for
-                    <strong>build-in</strong> validation. Eg:{" "}
-                    <code>formState.errors?.fieldArray?.root?.message</code>
+                    In case of validation error, the <code>root</code> property
+                    is appended to <code>formState.errors?.fieldArray?.root</code>
+                    of type <Link to="ts/#FieldError"><code>FieldError</code></Link>
+                    <p>
+                      <b className={typographyStyles.note}>Important: </b>This is only applicable
+                      to <strong>built-in</strong> validation only
+                    </p>
+                    <Link to="api/useform/#validationResolver">Resolvers</Link> are yet to support <code>useFieldArray</code> validation
                   </p>
                 </td>
               </tr>
