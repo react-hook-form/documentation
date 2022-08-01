@@ -5,10 +5,7 @@ export default function App() {
   const { control, handleSubmit } = useForm();
   const { fields, append, update } = useFieldArray({
     control,
-    name: 'array',
-    defaultValues: {
-      'array': []
-    }
+    name: 'array'
   });
 
   return (
