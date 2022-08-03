@@ -202,7 +202,8 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                     <p>
                       You can define form state subscription at the{" "}
                       <code>useForm</code> or <code>useFormState</code>. The
-                      following example will both inform hook form dirtyFields
+                      following example will both inform hook form{" "}
+                      <code>dirtyFields</code>
                       are subscribed.
                     </p>
                     <ul>
