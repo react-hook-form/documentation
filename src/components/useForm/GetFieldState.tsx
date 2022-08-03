@@ -71,9 +71,22 @@ export const GetFieldState = () => {
                     </td>
                     <td>
                       <p>
-                        When set to <code>true</code>, field error will be
-                        retained.
+                        This is an optional prop, which only required to supply
+                        if <code>formState</code> is not been read/subscribed
+                        from the
+                        <code>useForm</code> or <code>useFormState</code> hook.
                       </p>
+                      <CodeArea
+                        rawData={`// dirtyFields are subscribed
+const { formState: { dirtyFields } } = useForm()
+getFieldState('firstName') // dirty fields subscription is done and return form state accordingly
+
+// formState is not read/subscribed
+const methods = useForm();
+// provide formState as optional argument due to lack of subscription detail
+const { error } = getFieldState('firstName', methods.formState) // methods.formState.error is subscribed internally 
+`}
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -175,18 +188,36 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                 />
               </li>
               <li>
-                <p>formState will need to be subscribed.</p>
+                <p>
+                  <code>formState</code> from <code>useForm</code> will need to
+                  be read/subscribed, by deconstruction, the formState will send
+                  signal to hook form on which formState will be subscribed. eg{" "}
+                  <code>{`const { formState: { isDirty} } = useForm() // isDirty is subscribed`}</code>
+                </p>
 
                 <p>You can subscribe to the formState in two different ways:</p>
 
                 <ol>
                   <li>
                     <p>
-                      You can simply define the required state information when
-                      destructuring the returned value of a relevant hook, such
-                      as <code>useForm</code> (at global level) or{" "}
-                      <code>useFormState</code> (at hook level).
+                      You can define form state subscription at the{" "}
+                      <code>useForm</code> or <code>useFormState</code>. The
+                      following example will both inform hook form dirtyFields
+                      are subscribed.
                     </p>
+                    <ul>
+                      <li>
+                        <p>
+                          <code>{`const { formState: { dirtyFields } } = useForm()`}</code>
+                        </p>
+                      </li>
+
+                      <li>
+                        <p>
+                          <code>{`const { dirtyFields } = useFormState`}</code>
+                        </p>
+                      </li>
+                    </ul>
 
                     <p>
                       You do not need to pass the state information to
