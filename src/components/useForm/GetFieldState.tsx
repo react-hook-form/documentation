@@ -72,7 +72,8 @@ export const GetFieldState = () => {
                     <td>
                       <p>
                         This is an optional prop, which only required to supply
-                        if formState is not been read/subscribed from the
+                        if <code>formState</code> is not been read/subscribed
+                        from the
                         <code>useForm</code> or <code>useFormState</code> hook.
                       </p>
                       <CodeArea
@@ -82,7 +83,8 @@ getFieldState('firstName') // dirty fields subscription is done and return form 
 
 // formState is not read/subscribed
 const methods = useForm();
-const { error } = getFieldState('firstName', methods.formState) // provide formState as optional argument due to lack of subscription detail
+// provide formState as optional argument due to lack of subscription detail
+const { error } = getFieldState('firstName', methods.formState) // methods.formState.error is subscribed internally 
 `}
                       />
                     </td>
