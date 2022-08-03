@@ -73,16 +73,16 @@ export const GetFieldState = () => {
                       <p>
                         This is an optional prop, which only required to supply
                         if formState is not been read/subscribed from the
-                        useForm hook.
+                        <code>useForm</code> or <code>useFormState</code> hook.
                       </p>
                       <CodeArea
                         rawData={`// dirtyFields are subscribed
 const { formState: { dirtyFields } } = useForm()
-getFieldState('firstName') // function aware of dirty fields subscription and return form state accordingly
+getFieldState('firstName') // dirty fields subscription is done and return form state accordingly
 
 // formState is not read/subscribed
 const methods = useForm();
-const { error } = getFieldState('firstName', methods.formState) // provide formState as optional argument
+const { error } = getFieldState('firstName', methods.formState) // provide formState as optional argument due to lack of subscription detail
 `}
                       />
                     </td>
@@ -188,7 +188,7 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
               <li>
                 <p>
                   <code>formState</code> from <code>useForm</code> will need to
-                  be read/subscribed, by deconstruction the formState will send
+                  be read/subscribed, by deconstruction, the formState will send
                   signal to hook form on which formState will be subscribed. eg{" "}
                   <code>{`const { formState: { isDirty} } = useForm() // isDirty is subscribed`}</code>
                 </p>
@@ -199,9 +199,9 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                   <li>
                     <p>
                       You can define form state subscription at the{" "}
-                      <code>useForm</code> and <code>useFormState</code> hooks.
-                      The following example will both inform hook form
-                      dirtyFields are subscribed.
+                      <code>useForm</code> or <code>useFormState</code>. The
+                      following example will both inform hook form dirtyFields
+                      are subscribed.
                     </p>
                     <ul>
                       <li>
