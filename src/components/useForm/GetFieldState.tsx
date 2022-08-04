@@ -73,10 +73,11 @@ export const GetFieldState = () => {
                       <p>
                         This is an optional prop, which is only required if{" "}
                         <code>formState</code> is not been read/subscribed from
-                        the <code>useForm</code> or <code>useFormState</code>.
+                        the <code>useForm</code>, <code>useFormContext</code> or{" "}
+                        <code>useFormState</code>.
                       </p>
                       <CodeArea
-                        rawData={`const methods = useForm(); // formState is not read/subscribed
+                        rawData={`const methods = useForm(); // not subscribed to any formState
 const { error } = getFieldState('firstName', methods.formState) // It is subscribed now and reactive to error state updated
 
 const { formState: { errors } } = useForm() // errors are subscribed and reactive to state update
@@ -196,7 +197,8 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                       You can subscribe at the <code>useForm</code>,{" "}
                       <code>useFormContext</code> or <code>useFormState</code>.
                       This is will establish the form state subscription and
-                      getFieldState second argument is no longer required.
+                      <code>getFieldState</code> second argument will no longer
+                      be required.
                     </p>
 
                     <CodeArea
