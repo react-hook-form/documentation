@@ -71,20 +71,17 @@ export const GetFieldState = () => {
                     </td>
                     <td>
                       <p>
-                        This is an optional prop, which only required to supply
-                        if <code>formState</code> is not been read/subscribed
-                        from the
-                        <code>useForm</code> or <code>useFormState</code> hook.
+                        This is an optional prop, which is only required if{" "}
+                        <code>formState</code> is not been read/subscribed from
+                        the <code>useForm</code>, <code>useFormContext</code> or{" "}
+                        <code>useFormState</code>.
                       </p>
                       <CodeArea
-                        rawData={`// dirtyFields are subscribed
-const { formState: { dirtyFields } } = useForm()
-getFieldState('firstName') // dirty fields subscription is done and return form state accordingly
+                        rawData={`const methods = useForm(); // not subscribed to any formState
+const { error } = getFieldState('firstName', methods.formState) // It is subscribed now and reactive to error state updated
 
-// formState is not read/subscribed
-const methods = useForm();
-// provide formState as optional argument due to lack of subscription detail
-const { error } = getFieldState('firstName', methods.formState) // methods.formState.error is subscribed internally 
+const { formState: { errors } } = useForm() // errors are subscribed and reactive to state update
+getFieldState('firstName') // return updated field error state
 `}
                       />
                     </td>
@@ -189,84 +186,64 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
               </li>
               <li>
                 <p>
-                  <code>formState</code> from <code>useForm</code> will need to
-                  be read/subscribed, by deconstruction, the formState will send
-                  signal to hook form on which formState will be subscribed. eg{" "}
-                  <code>{`const { formState: { isDirty} } = useForm() // isDirty is subscribed`}</code>
+                  <code>getFieldState</code> works by subscribing to the form
+                  state update, and you can subscribe to the formState in the
+                  following ways:
                 </p>
 
-                <p>You can subscribe to the formState in two different ways:</p>
-
-                <ol>
+                <ul>
                   <li>
                     <p>
-                      You can define form state subscription at the{" "}
-                      <code>useForm</code> or <code>useFormState</code>. The
-                      following example will both inform hook form dirtyFields
-                      are subscribed.
-                    </p>
-                    <ul>
-                      <li>
-                        <p>
-                          <code>{`const { formState: { dirtyFields } } = useForm()`}</code>
-                        </p>
-                      </li>
-
-                      <li>
-                        <p>
-                          <code>{`const { dirtyFields } = useFormState`}</code>
-                        </p>
-                      </li>
-                    </ul>
-
-                    <p>
-                      You do not need to pass the state information to
-                      getFieldState().
+                      You can subscribe at the <code>useForm</code>,{" "}
+                      <code>useFormContext</code> or <code>useFormState</code>.
+                      This is will establish the form state subscription and
+                      <code>getFieldState</code> second argument will no longer
+                      be required.
                     </p>
 
                     <CodeArea
                       rawData={`const { register, formState: { isDirty } } = useForm()
 register('test');
-getFieldState('test'); // ✅ register input and return field state
+getFieldState('test'); // ✅
+`}
+                    />
 
----------------------------
-
-// This is valid with useFormState as well
-const { isDirty } = useFormState();
-
+                    <CodeArea
+                      rawData={`const { isDirty } = useFormState();
 register('test');
-getFieldState('test'); // ✅ register input and return field state
+getFieldState('test'); // ✅
+`}
+                    />
+
+                    <CodeArea
+                      rawData={`const { register, formState: { isDirty } } = useFormContext();
+register('test');
+getFieldState('test'); // ✅
 `}
                     />
                   </li>
 
                   <li>
                     <p>
-                      You can pass the entire formState from{" "}
-                      <code>useForm()</code>,<code>useFormContext()</code> or
-                      <code>useFormState()</code> directly to{" "}
-                      <code>getFieldState()</code>.
-                    </p>
-
-                    <p>
-                      This will be the preferred approach for Typescript users
-                      who have stricter linting or compilation rules about
-                      unused declarations.
+                      When form state subscription is not setup, you can pass
+                      the entire <code>formState</code> as the second optional
+                      argument by following the example below:
                     </p>
 
                     <CodeArea
                       rawData={`const { register } = useForm()
 register('test');
-getFieldState('test'); // ❌ formState is not subscribed so has no re-render to update state
-
----------------------------
+const { isDirty } = getFieldState('test'); // ❌ formState isDirty is not subscribed at useForm
 
 const { register, formState } = useForm()
-getFieldState('test', formState); // ✅ register input and return field state
+const { isDirty } = getFieldState('test', formState); // ✅ formState.isDirty subscribed
+
+const { formState } = useFormContext();
+const { touchedFields } = getFieldState('test', formState); // ✅ formState.touchedFields subscribed
 `}
                     />
                   </li>
-                </ol>
+                </ul>
               </li>
             </ul>
 
