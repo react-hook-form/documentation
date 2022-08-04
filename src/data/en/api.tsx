@@ -1038,8 +1038,9 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <ul>
                     <li>
                       <p>
-                        <code>isDirty</code> will be checked again provided
-                        valued against the original <code>defaultValues</code>.
+                        <code>isDirty</code> will be checked again and will be 
+                        set to be the result of the comparison of the new values
+                        provided against the original <code>defaultValues</code>.
                       </p>
                     </li>
                     <li>
