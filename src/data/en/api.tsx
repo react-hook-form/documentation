@@ -600,7 +600,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
             You can pass a callback function as the argument to validate, or you
             can pass an object of callback functions to validate all of them.
             This function will be executed on its own without depending on other
-            validation rules include <code>required</code> attribute.
+            validation rules included in the <code>required</code> attribute.
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
