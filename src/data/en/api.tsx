@@ -1038,9 +1038,10 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <ul>
                     <li>
                       <p>
-                        <code>isDirty</code> will be checked again and will be 
+                        <code>isDirty</code> will be checked again and will be
                         set to be the result of the comparison of the new values
-                        provided against the original <code>defaultValues</code>.
+                        provided against the original <code>defaultValues</code>
+                        .
                       </p>
                     </li>
                     <li>
@@ -1266,7 +1267,8 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           </li>
           <li>
             <p>
-              This method does not affect <code>isValid</code> formState, as{" "}
+              This method will force set <code>isValid</code> formState to{" "}
+              <code>false</code>, however, it's important to aware{" "}
               <code>isValid</code> will always be derived by the validation
               result from your input registration rules or schema result.
             </p>
