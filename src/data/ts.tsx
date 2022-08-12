@@ -307,6 +307,10 @@ export default function App() {
   name: string;
   keyName?: TKeyName;
   control?: TControl;
+  rules?: Pick<
+    RegisterOptions<TFieldValues>,
+    'maxLength' | 'minLength' | 'validate' | 'required'
+  >;
 };`}
       />
     ),
