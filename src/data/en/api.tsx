@@ -1248,7 +1248,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             </p>
             <CodeArea
               rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
-// clearError() need to invoked manually to remove that custom error 
+// clearErrors() need to invoked manually to remove that custom error 
 `}
             />
           </li>
