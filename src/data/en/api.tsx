@@ -1038,17 +1038,18 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <ul>
                     <li>
                       <p>
-                        <code>isDirty</code> will be checked again and will be
-                        set to be the result of the comparison of the new values
+                        <code>isDirty</code> will be checked again: it is set
+                        to be the result of the comparison of any new values
                         provided against the original <code>defaultValues</code>
                         .
                       </p>
                     </li>
                     <li>
                       <p>
-                        <code>dirtyFields</code> will be updated again provided
-                        valued <b>limited to the root level</b> against the
-                        original <code>defaultValues</code>.
+                        <code>dirtyFields</code> will be updated again if values 
+                        are provided: it is set to be result of the comparison 
+                        between the new values provided against the original 
+                        <code>defaultValues</code>.
                       </p>
                     </li>
                   </ul>
