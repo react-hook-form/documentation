@@ -1049,8 +1049,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                         <code>dirtyFields</code> will be updated again if values 
                         are provided: it is set to be result of the comparison 
                         between the new values provided against the original 
-                        <code>defaultValues</code>. <b>This comparison is limited
-                        to the root level.</b>
+                        <code>defaultValues</code>.
                       </p>
                     </li>
                   </ul>
