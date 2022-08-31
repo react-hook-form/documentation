@@ -54,7 +54,7 @@ h3.subTitle:before {
 }
 
 .rulesTitle {
-  color: white;
+  color: currentColor;
   line-height: 1;
   margin-top: 2rem;
   border: 1px solid var(--color-secondary);
