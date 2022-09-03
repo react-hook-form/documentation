@@ -413,6 +413,34 @@ export default function App() {
       </>
     ),
   },
+  fieldPathByValue: {
+    title: "FieldPathByValue",
+    description: (
+      <>
+        <p>
+          This type will return union with all available paths that match the
+          passed value
+        </p>
+        <CodeArea
+          rawData={`function Field<
+  TFieldValues extends FieldValues,
+  TPath extends FieldPathByValue<TFieldValues, Date>
+>({
+  control,
+  name
+}: {
+  control: Control<TFieldValues>,
+  name: TPath
+}) {
+  const { field } = useController({
+    control,
+    name,
+  });
+}`}
+        />
+      </>
+    ),
+  },
   fieldValues: {
     title: "FieldValues",
     description: (

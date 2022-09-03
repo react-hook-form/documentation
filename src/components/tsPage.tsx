@@ -49,6 +49,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     FieldErrorsRef: null,
     FieldRef: null,
     FieldPathRef: null,
+    FieldPathByValueRef: null,
     FieldValuesRef: null,
     FieldArrayWithIdRef: null,
     ModeRef: null,
@@ -265,6 +266,18 @@ export default ({ defaultLang }: { defaultLang: string }) => {
               <h2>{TS.fieldPath.title}</h2>
             </code>
             {TS.fieldPath.description}
+          </section>
+
+          <hr />
+
+          <section
+            ref={(ref) => (tsSectionsRef.current.FieldPathByValueRef = ref)}
+            id="FieldPathByValueRef"
+          >
+            <code className={typographyStyles.codeHeading}>
+              <h2>{TS.fieldPathByValue.title}</h2>
+            </code>
+            {TS.fieldPathByValue.description}
           </section>
 
           <hr />
