@@ -196,7 +196,7 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                     <p>
                       You can subscribe at the <code>useForm</code>,{" "}
                       <code>useFormContext</code> or <code>useFormState</code>.
-                      This is will establish the form state subscription and
+                      This is will establish the form state subscription and{" "}
                       <code>getFieldState</code> second argument will no longer
                       be required.
                     </p>
