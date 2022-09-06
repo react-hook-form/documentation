@@ -64,7 +64,7 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-ogf20"
+                url="https://codesandbox.io/s/seterror-single-field-errors-79wcr9"
               />
             </TabGroup>
 
