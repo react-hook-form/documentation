@@ -15,7 +15,7 @@ const App = () => {
     resolver: zodResolver(schema)
   });
 
-  const onSubmit = (data: IFormInput) => {
+  const onSubmit = (data: Schema) => {
     console.log(data);
   };
 
