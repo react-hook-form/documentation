@@ -8,7 +8,7 @@ const ConditionField = ({
   control: Control;
   index: number;
 }) => {
-  const output = useWatch<any>({
+  const output = useWatch({
     name: 'data',
     control,
     defaultValue: 'yay! I am watching you :)',

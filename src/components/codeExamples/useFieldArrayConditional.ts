@@ -1,15 +1,19 @@
 export default `import React from 'react';
 import { useForm, useWatch, useFieldArray, Control } from 'react-hook-form';
 
+type FormValues = {
+  data: { name: string }[];
+};
+
 const ConditionField = ({
   control,
   index,
   register,
 }: {
-  control: Control;
+  control: Control<FormValues>;
   index: number;
 }) => {
-  const output = useWatch<any>({
+  const output = useWatch({
     name: 'data',
     control,
     defaultValue: 'yay! I am watching you :)',
@@ -29,10 +33,6 @@ const ConditionField = ({
 };
 
 const UseFieldArrayUnregister: React.FC = () => {
-  type FormValues = {
-    data: { name: string }[];
-  };
-
   const { control, handleSubmit, register } = useForm<FormValues>({
     defaultValues: {
       data: [{ name: 'test' }, { name: 'test1' }, { name: 'test2' }],
