@@ -246,7 +246,7 @@ export default {
     description: (
       <p>
         React Hook Form provides an <code>errors</code> object to show you the
-        errors in the form. <code>errors</code>'s type will return given
+        errors in the form. <code>errors</code>' type will return given
         validation constraints. The following example showcases a required
         validation rule.
       </p>
