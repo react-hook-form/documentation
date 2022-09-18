@@ -32,7 +32,7 @@ export default ({ currentLanguage }) => {
                 reset:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(values?: Record<string, any>, options?: Record<string, boolean>) => void`}</span>
+                >{`<T>(values?: T | ResetAction<T>, options?: Record<string, boolean>) => void`}</span>
               </h2>
             </code>
 
