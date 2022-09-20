@@ -26,7 +26,9 @@ export const GetFieldState = () => {
             <code className={typographyStyles.codeHeading}>
               <h2>
                 getFieldState:{" "}
-                <span className={typographyStyles.typeText}>{`object`}</span>
+                <span
+                  className={typographyStyles.typeText}
+                >{`(name: string, formState?: Object) => ({isDirty, isTouched, invalid, error})`}</span>
               </h2>
             </code>
 
