@@ -1038,17 +1038,17 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <ul>
                     <li>
                       <p>
-                        <code>isDirty</code> will be checked again: it is set
-                        to be the result of the comparison of any new values
+                        <code>isDirty</code> will be checked again: it is set to
+                        be the result of the comparison of any new values
                         provided against the original <code>defaultValues</code>
                         .
                       </p>
                     </li>
                     <li>
                       <p>
-                        <code>dirtyFields</code> will be updated again if values 
-                        are provided: it is set to be result of the comparison 
-                        between the new values provided against the original 
+                        <code>dirtyFields</code> will be updated again if values
+                        are provided: it is set to be result of the comparison
+                        between the new values provided against the original
                         <code>defaultValues</code>.
                       </p>
                     </li>
@@ -1411,8 +1411,7 @@ clearErrors('test.firstName'); // for clear single input error
                       <ul>
                         <li>
                           <p>
-                            It's recommended to use field array's methods such
-                            as{" "}
+                            You can use methods such as{" "}
                             <Link to={"/api/usefieldarray#replace"}>
                               <code>replace</code>
                             </Link>{" "}
@@ -1420,8 +1419,21 @@ clearErrors('test.firstName'); // for clear single input error
                             <Link to={"/api/usefieldarray#update"}>
                               <code>update</code>
                             </Link>{" "}
-                            instead.
+                            for field array, however, they will cause component
+                            to unmount and remount for the targeted field array.
                           </p>
+
+                          <CodeArea
+                            rawData={`const { update } = useFieldArray({ name: 'array' });
+                            
+// unmount the field array and remount with updated value;
+update(0, { test: '1', test1: '2' }) 
+
+// will directly update input value
+setValue('array.0.test1', '1');
+setValue('array.0.test2', '2');
+`}
+                          />
                         </li>
                         <li>
                           <p>
@@ -1431,10 +1443,10 @@ clearErrors('test.firstName'); // for clear single input error
 
                           <CodeArea
                             rawData={`const { replace } = useFieldArray({ name: 'test' })
-setValue('test.101.data')
-// ❌ doesn't create new input
-replace([{data: 'test'}])
-// ✅ work on refresh entire field array
+                            
+setValue('test.101.data') // ❌ doesn't create new input
+
+replace([{data: 'test'}]) // ✅ work on refresh entire field array
 `}
                           />
                         </li>
