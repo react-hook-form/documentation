@@ -698,6 +698,19 @@ setValue('test', '')
     ),
     touched:
       "An object containing all the inputs the user has interacted with.",
+    defaultValues: (
+      <p>
+        The value which has been set at{" "}
+        <Link to="/api/useform" aria-label="read more about reset api">
+          useForm
+        </Link>
+        's defaultValues or updated defaultValues via{" "}
+        <Link to="/api/useform/reset" aria-label="read more about reset api">
+          reset
+        </Link>{" "}
+        API.
+      </p>
+    ),
     isSubmitting: (
       <>
         <code>true</code> if the form is currently being submitted.{" "}
