@@ -374,7 +374,7 @@ export default function App() {
         {...register("firstName", { required: true })} 
         aria-invalid={errors.firstName ? "true" : "false"} 
       />
-      {errors.firstName?.type === 'required' && "First name is required"}
+      {errors.firstName?.type === 'required' && <p role="alert">First name is required</p>}
 
       <input 
         {...register("mail", { required: "Email Address is required" })} 
