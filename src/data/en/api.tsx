@@ -1419,14 +1419,15 @@ clearErrors('test.firstName'); // for clear single input error
                             <Link to={"/api/usefieldarray#update"}>
                               <code>update</code>
                             </Link>{" "}
-                            for field array, however, they will cause component
-                            to unmount and remount for the targeted field array.
+                            for field array, however, they will cause the
+                            component to unmount and remount for the targeted
+                            field array.
                           </p>
 
                           <CodeArea
                             rawData={`const { update } = useFieldArray({ name: 'array' });
                             
-// unmount the field array and remount with updated value;
+// unmount fields and remount with updated value
 update(0, { test: '1', test1: '2' }) 
 
 // will directly update input value
@@ -1443,10 +1444,12 @@ setValue('array.0.test2', '2');
 
                           <CodeArea
                             rawData={`const { replace } = useFieldArray({ name: 'test' })
-                            
-setValue('test.101.data') // ❌ doesn't create new input
+                          
+// ❌ doesn't create new input  
+setValue('test.101.data') 
 
-replace([{data: 'test'}]) // ✅ work on refresh entire field array
+// ✅ work on refresh entire field array
+replace([{data: 'test'}]) 
 `}
                           />
                         </li>
