@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { TextField } from "@material-ui/core";
+export default `import { TextField } from "@material-ui/core";
 import { useController, useForm } from "react-hook-form";
 
 function Input({ control, name }) {

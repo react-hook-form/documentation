@@ -1,6 +1,4 @@
-export default `import React from "react";
-
-export function Input({ register, name, ...rest }) {
+export default `export function Input({ register, name, ...rest }) {
   return <input name={name} ref={register} {...rest} />;
 }
 

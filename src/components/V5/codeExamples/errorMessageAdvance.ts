@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm, useFormContext } from "react-hook-form";
+export default `import { useForm, useFormContext } from "react-hook-form";
 
 const ErrorMessage = ({ errors, name, messages }) => {
   // Note: if you are using FormContext, then you can use Errors without props eg:

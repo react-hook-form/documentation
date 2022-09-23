@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm } from "react-hook-form";
+export default `import { useForm } from "react-hook-form";
 
 const App = () => {
   const { register, setError, formState: { errors } } = useForm();

@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+export default `import { useForm, useFieldArray } from "react-hook-form";
 
 const ChildComponent = ({ index, control, register }) => {
   const { fields } = useFieldArray({

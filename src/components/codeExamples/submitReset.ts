@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm, useFieldArray, Controller } from "./src";
+export default `import { useForm, useFieldArray, Controller } from "./src";
 
 function App() {
   const {

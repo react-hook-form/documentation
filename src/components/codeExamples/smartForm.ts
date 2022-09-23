@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { Form, Input, Select } from "./Components";
+export default `import { Form, Input, Select } from "./Components";
 
 export default function App() {
   const onSubmit = data => console.log(data);

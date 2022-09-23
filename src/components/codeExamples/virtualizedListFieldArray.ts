@@ -1,6 +1,4 @@
-export default `
-import React from "react";
-import { FixedSizeList } from "react-window";
+export default `import { FixedSizeList } from "react-window";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 
 const items = Array.from(Array(1000).keys()).map((i) => ({

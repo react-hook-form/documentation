@@ -1,5 +1,4 @@
-export const registerCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const registerCode = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
@@ -18,8 +17,7 @@ export default function App() {
   );
 }`
 
-export const migrateCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const migrateCode = `import { useForm } from "react-hook-form";
 
 // The following component is an example of your existing Input Component 
 const Input = ({ label, register, required }) => ( 
@@ -53,8 +51,7 @@ export default function App() {
   );
 }`
 
-export const uiLibrary = `import React from "react";
-import { useForm } from "react-hook-form";
+export const uiLibrary = `import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from "antd";
@@ -94,8 +91,7 @@ export default function App() {
 }
 `
 
-export const uiLibraryHookInput = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const uiLibraryHookInput = `import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from "antd";
@@ -125,8 +121,7 @@ export default function App() {
 }
 `
 
-export const controlledComponent = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const controlledComponent = `import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
@@ -158,8 +153,7 @@ function App() {
 }
 `
 
-export const globalState = `import React from "react";
-import { useForm } from "react-hook-form";
+export const globalState = `import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import updateAction from "./actions";
 
@@ -181,8 +175,7 @@ export default function App(props) {
 connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm);
 `
 
-export const errors = `import React from "react";
-import { useForm } from "react-hook-form";
+export const errors = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm();
@@ -199,8 +192,7 @@ export default function App() {
 }
 `
 
-export const applyValidation = `import React from "react";
-import { useForm } from "react-hook-form";
+export const applyValidation = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();

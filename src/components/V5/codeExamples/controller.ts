@@ -1,5 +1,4 @@
-export default `import React from "react";
-import Select from "react-select";
+export default `import Select from "react-select";
 import { TextField } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 

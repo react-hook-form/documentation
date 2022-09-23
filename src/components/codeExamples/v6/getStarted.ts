@@ -1,5 +1,4 @@
-export const registerCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const registerCode = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
@@ -18,8 +17,7 @@ export default function App() {
   );
 }`
 
-export const registerCodeTs = `import React from "react";
-import ReactDOM from "react-dom";
+export const registerCodeTs = `import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 
 enum GenderEnum {
@@ -56,8 +54,7 @@ export default function App() {
 }
 `
 
-export const migrateCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const migrateCode = `import { useForm } from "react-hook-form";
 
 // The following component is an example of your existing Input Component 
 const Input = ({ label, register, required }) => ( 
@@ -91,8 +88,7 @@ export default function App() {
   );
 }`
 
-export const migrateCodeTs = `import React from "react";
-import { useForm } from "react-hook-form";
+export const migrateCodeTs = `import { useForm } from "react-hook-form";
 
 type RefReturn =
   | string
@@ -166,8 +162,7 @@ const App = () => {
 };
 `
 
-export const uiLibrary = `import React from "react";
-import { useForm } from "react-hook-form";
+export const uiLibrary = `import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from "antd";
@@ -193,8 +188,7 @@ export default function App() {
 }
 `
 
-export const uiLibraryTs = `import React from "react";
-import { useForm } from "react-hook-form";
+export const uiLibraryTs = `import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Input from "@material-ui/core/Input";
 import { Input as InputField } from "antd";
@@ -223,8 +217,7 @@ export default function App() {
   );
 }`
 
-export const uiLibraryHookInput = `import React from "react";
-import Select from "react-select";
+export const uiLibraryHookInput = `import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
@@ -259,8 +252,7 @@ const App = () => {
 };
 `
 
-export const uiLibraryHookInputTs = `import React from "react";
-import Select from "react-select";
+export const uiLibraryHookInputTs = `import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
@@ -300,8 +292,7 @@ const App = () => {
   );
 };`
 
-export const controlledComponent = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const controlledComponent = `import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
@@ -332,8 +323,7 @@ function App() {
 }
 `
 
-export const controlledComponentTs = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const controlledComponentTs = `import { useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 import { TextField, Checkbox } from "@material-ui/core";
 
@@ -369,8 +359,7 @@ function App() {
 }
 `
 
-export const globalState = `import React from "react";
-import { useForm } from "react-hook-form";
+export const globalState = `import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import updateAction from "./actions";
 
@@ -392,8 +381,7 @@ export default function App(props) {
 connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm);
 `
 
-export const errors = `import React from "react";
-import { useForm } from "react-hook-form";
+export const errors = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, errors, handleSubmit } = useForm();
@@ -410,8 +398,7 @@ export default function App() {
 }
 `
 
-export const errorsTs = `import React from "react";
-import { useForm } from "react-hook-form";
+export const errorsTs = `import { useForm } from "react-hook-form";
 
 interface IFormInputs {
   firstName: string
@@ -433,8 +420,7 @@ export default function App() {
 }
 `
 
-export const applyValidation = `import React from "react";
-import { useForm } from "react-hook-form";
+export const applyValidation = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
@@ -450,8 +436,7 @@ export default function App() {
   );
 }`
 
-export const applyValidationTs = `import React from "react";
-import { useForm } from "react-hook-form";
+export const applyValidationTs = `import { useForm } from "react-hook-form";
 
 interface IFormInput {
   firstName: string;

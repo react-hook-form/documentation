@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+export default `import { useForm, useFieldArray } from "react-hook-form";
 
 function App() {
   const { register, control, handleSubmit } = useForm({

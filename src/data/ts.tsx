@@ -152,8 +152,7 @@ export default function App() {
     description: (
       <CodeArea
         url="https://codesandbox.io/s/control-2mg07"
-        rawData={`import React from "react";
-import { useForm, useWatch, Control } from "react-hook-form";
+        rawData={`import { useForm, useWatch, Control } from "react-hook-form";
 
 type FormValues = {
   firstName: string;
@@ -195,8 +194,7 @@ export default function App() {
         url={
           "https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
         }
-        rawData={`import React from "react";
-import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
+        rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,

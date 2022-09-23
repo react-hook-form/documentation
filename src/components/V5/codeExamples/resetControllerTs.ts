@@ -1,5 +1,4 @@
-export default `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export default `import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 interface IFormInputs {
