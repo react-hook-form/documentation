@@ -121,7 +121,7 @@ export default {
           . You can pass <code>defaultValues</code> as an optional argument to{" "}
           <code>useForm()</code> to populate the default values for the entire
           form, or set values on an individual{" "}
-          <Link to={"/api/usecontroller/controller"}>Controller</Link> component
+          <Link to="/api/usecontroller/controller">Controller</Link> component
           via its <code>defaultValue</code> property. If both{" "}
           <code>defaultValue</code> and <code>defaultValues</code> are set, the
           value from <code>defaultValues</code> will be used.
@@ -157,16 +157,16 @@ export default {
               <code>defaultValues</code> are cached{" "}
               <strong>on the first render</strong> within the custom hook. If
               you want to reset the <code>defaultValues</code>, you should use
-              the <Link to={"/api/useform/reset"}>reset</Link> api.
+              the <Link to="/api/useform/reset">reset</Link> api.
             </p>
           </li>
           <li>
             <p>
               <code>defaultValues</code> will be injected into{" "}
-              <Link to={"/api/useform/watch"}>watch</Link>,{" "}
-              <Link to={"/api/usewatch"}>useWatch</Link>,{" "}
-              <Link to={"/api/usecontroller/controller"}>Controller</Link> and{" "}
-              <Link to={"/api/usecontroller"}>useController</Link>'s{" "}
+              <Link to="/api/useform/watch">watch</Link>,{" "}
+              <Link to="/api/usewatch">useWatch</Link>,{" "}
+              <Link to="/api/usecontroller/controller">Controller</Link> and{" "}
+              <Link to="/api/usecontroller">useController</Link>'s{" "}
               <code>defaultValue</code>.
             </p>
           </li>
@@ -485,7 +485,7 @@ const App = () => {
                   <code>name</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>{`string`}</code>
+                  <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
                   <p>Input's name being registered.</p>
@@ -514,15 +514,15 @@ const App = () => {
             You can also <code>register</code> inputs with{" "}
             <code>useEffect</code> and treat them as virtual inputs. For
             controlled components, we provide a custom hook{" "}
-            <Link to={"/api/usecontroller"}>useController</Link> and{" "}
-            <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
-            component to take care this process for you.
+            <Link to="/api/usecontroller">useController</Link> and{" "}
+            <Link to="/api/usecontroller/controller">Controller</Link> component
+            to take care this process for you.
           </p>
 
           <p>
             If you choose to manually register fields, you will need to update
             the input value with{" "}
-            <Link to={"/api/useform/setvalue"}>setValue</Link>.
+            <Link to="/api/useform/setvalue">setValue</Link>.
           </p>
 
           <CodeArea
@@ -758,7 +758,7 @@ setValue('test', '')
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <Link to={"/api/useformstate/errormessage"}>ErrorMessage</Link>{" "}
+          <Link to="/api/useformstate/errormessage">ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>
@@ -835,7 +835,7 @@ setValue('test', '')
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
         <ul>
@@ -995,10 +995,8 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                     remained, and only none dirty fields will be updated to the
                     latest rest value.{" "}
                     <a
-                      href={
-                        "https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
-                      }
-                      target={"_blank"}
+                      href="https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
+                      target="_blank"
                       rel="noreferrer"
                     >
                       Check out the example.
@@ -1112,7 +1110,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1131,9 +1129,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={
-                  "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
-                }
+                href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
               >
                 reset
               </a>{" "}
@@ -1179,7 +1175,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             <tbody>
               <tr>
                 <th>Name</th>
-                <th width={"200px"}>Type</th>
+                <th width="200px">Type</th>
                 <th>Description</th>
               </tr>
               <tr>
@@ -1225,7 +1221,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1351,7 +1347,7 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
         </ul>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1412,11 +1408,11 @@ clearErrors('test.firstName'); // for clear single input error
                         <li>
                           <p>
                             You can use methods such as{" "}
-                            <Link to={"/api/usefieldarray#replace"}>
+                            <Link to="/api/usefieldarray#replace">
                               <code>replace</code>
                             </Link>{" "}
                             or{" "}
-                            <Link to={"/api/usefieldarray#update"}>
+                            <Link to="/api/usefieldarray#update">
                               <code>update</code>
                             </Link>{" "}
                             for field array, however, they will cause the
@@ -1584,7 +1580,7 @@ replace([{data: 'test'}])
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1627,7 +1623,7 @@ setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input an
             </p>
             <p>
               <b className={typographyStyles.note}>Important: </b> use{" "}
-              <Link to={"/api/usefieldarray#replace"}>
+              <Link to="/api/usefieldarray#replace">
                 <code>replace</code>
               </Link>{" "}
               from <code>useFieldArray</code> instead, update entire field array
@@ -1756,7 +1752,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1957,7 +1953,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 <td>
                   <p>
                     The same validation <code>rules</code> API as for{" "}
-                    <Link to={"/api/useform/register"}>register</Link>, which
+                    <Link to="/api/useform/register">register</Link>, which
                     includes:
                   </p>
                   <p>required, minLength, maxLength, validate</p>
@@ -1992,10 +1988,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </table>
         </div>
 
-        <h3
-          id={"shouldUnregister-example"}
-          className={typographyStyles.subTitle}
-        >
+        <h3 id="shouldUnregister-example" className={typographyStyles.subTitle}>
           Examples
         </h3>
 
@@ -2020,12 +2013,12 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"append"}>append</code>
+            <code id="append">append</code>
           </td>
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], {`focusOptions`}) =&gt; void
+                (obj: object | object[], focusOptions) =&gt; void
               </code>
             </code>
           </td>
@@ -2042,11 +2035,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"prepend"}>prepend</code>
+            <code id="prepend">prepend</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[], {`focusOptions`}) =&gt; void
+              (obj: object | object[], focusOptions) =&gt; void
             </code>
           </td>
           <td>
@@ -2062,7 +2055,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"insert"}>insert</code>
+            <code id="insert">insert</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
@@ -2079,7 +2072,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"swap"}>swap</code>
+            <code id="swap">swap</code>
           </td>
           <td>
             <code>
@@ -2092,7 +2085,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"move"}>move</code>
+            <code id="move">move</code>
           </td>
           <td>
             <code>
@@ -2105,7 +2098,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"update"}>update</code>
+            <code id="update">update</code>
           </td>
           <td>
             <code>
@@ -2132,7 +2125,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"replace"}>replace</code>
+            <code id="replace">replace</code>
           </td>
           <td>
             <code>
@@ -2145,7 +2138,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"remove"}>remove</code>
+            <code id="remove">remove</code>
           </td>
           <td>
             <code>
@@ -2210,10 +2203,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               <li>
                 <p>
                   <a
-                    href={
-                      "https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
-                    }
-                    target={"_blank"}
+                    href="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+                    target="_blank"
                     rel="noreferrer"
                   >
                     MUI and other components
@@ -2223,8 +2214,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               <li>
                 <p>
                   <a
-                    href={"https://codesandbox.io/s/chakra-ui-5mp8g"}
-                    target={"_blank"}
+                    href="https://codesandbox.io/s/chakra-ui-5mp8g"
+                    target="_blank"
                     rel="noreferrer"
                   >
                     Chakra UI components
@@ -2275,7 +2266,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title={"FieldPath type"}>
+            <Link to="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2285,13 +2276,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         <tr>
           <td>control</td>
           <td>
-            <Link to={"/ts#Control"} title={"Control type"}>
+            <Link to="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to={"/api/useform/control"}>
+            <Link to="/api/useform/control">
               <code>control</code>
             </Link>{" "}
             object is from invoking <code>useForm</code>. Optional when using{" "}
@@ -2419,7 +2410,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Validation rules in the same format for{" "}
-              <Link to={"/api/useform/register#options"}>
+              <Link to="/api/useform/register#options">
                 <code>register</code> options
               </Link>
               , which includes:
@@ -2508,7 +2499,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           Hook Form.
         </p>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -2644,7 +2635,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title={"FieldPath type"}>
+            <Link to="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2656,13 +2647,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>control</code>
           </td>
           <td>
-            <Link to={"/ts#Control"} title={"Control type"}>
+            <Link to="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to={"/api/useform/control"}>
+            <Link to="/api/useform/control">
               <code>control</code>
             </Link>{" "}
             object provided by invoking <code>useForm</code>. Optional when
@@ -2793,9 +2784,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             </p>
 
             <CodeArea
-              url={
-                "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
-              }
+              url="https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
               rawData={`const { field } = useController();
 const [value, setValue] = useState(field.value);
 
@@ -2842,7 +2831,7 @@ const { field: checkbox } = useController({ name: 'test1' })
       <>
         <p>
           This custom hook powers{" "}
-          <Link to={"/api/usecontroller/controller"}>
+          <Link to="/api/usecontroller/controller">
             <code>Controller</code>
           </Link>
           . Additionally, it shares the same props and methods as{" "}
@@ -2908,7 +2897,7 @@ setFocus("name", { shouldSelect: true })
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 

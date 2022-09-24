@@ -1059,7 +1059,7 @@ export default {
                   <>
                     表单项名称。
                     <b className={typographyStyles.note}>重要：</b>{" "}
-                    确保名称为对象键结构: <code>name={`test[index].name`}</code>{" "}
+                    确保名称为对象键结构: <code>name=test[index].name</code>{" "}
                     因为我们不支持扁平数组。
                   </>
                 </td>

@@ -145,7 +145,7 @@ const { register } = useForm<FormInputs>({
 })`}
             />
 
-            <h2 id={"props"} className={typographyStyles.subTitle}>
+            <h2 id="props" className={typographyStyles.subTitle}>
               Props
             </h2>
 
@@ -319,7 +319,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 shouldUnregister:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`boolean = false`}
+                  boolean = false
                 </span>
               </code>
             </h5>
@@ -334,7 +334,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 shouldUseNativeValidation:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`boolean = false`}
+                  boolean = false
                 </span>
               </code>
             </h5>
@@ -367,7 +367,7 @@ const { register } = useForm<FormInputs>({
               </li>
             </ul>
 
-            <h3 id={"example"} className={typographyStyles.subTitle}>
+            <h3 id="example" className={typographyStyles.subTitle}>
               Examples
             </h3>
 

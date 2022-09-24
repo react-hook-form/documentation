@@ -415,7 +415,7 @@ export default {
               всё более популярным в сообществе и для поддержки лучшего типа.
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

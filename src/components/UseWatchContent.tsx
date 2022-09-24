@@ -114,7 +114,7 @@ export default function UseFieldArray({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -130,7 +130,7 @@ export default function UseFieldArray({
           <p>
             The only difference between <code>useWatch</code> and{" "}
             <code>watch</code> is at the root (
-            <Link to={"/api/useform"}>
+            <Link to="/api/useform">
               <code>useForm</code>
             </Link>
             ) level or the custom hook level update.
@@ -161,7 +161,7 @@ setValue('example', 'data');
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 

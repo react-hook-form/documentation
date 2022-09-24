@@ -48,7 +48,7 @@ export default function UseFieldArrayContent({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -59,7 +59,7 @@ export default function UseFieldArrayContent({
             identifier named <code>id</code> which is used for <code>key</code>{" "}
             prop. For more information why this is required:{" "}
             <a
-              href={"https://reactjs.org/docs/lists-and-keys.html#keys"}
+              href="https://reactjs.org/docs/lists-and-keys.html#keys"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -157,9 +157,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           <p>
             we do not support circular reference. Refer to this this{" "}
             <a
-              href={
-                "https://github.com/react-hook-form/react-hook-form/issues/4055"
-              }
+              href="https://github.com/react-hook-form/react-hook-form/issues/4055"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -180,7 +178,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 
@@ -220,7 +218,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </p>
 
         <CodeArea
-          url={"https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"}
+          url="https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"
           rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 
 const ConditionalInput = ({ control, index, field }) => {

@@ -104,7 +104,7 @@ export default {
           <code>errors</code> オブジェクトを読み取ることができます。
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -415,7 +415,7 @@ export default {
           は必要ありません。
         </p>
 
-        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+        <CodeArea rawData="npm install -D @testing-library/jest-dom" />
 
         <p>
           そして{" "}

@@ -50,7 +50,7 @@ export default function FormContext({ currentLanguage, api }) {
 
       {api.useFormContext.description}
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -59,7 +59,7 @@ export default function FormContext({ currentLanguage, api }) {
         for <code>useFormContext</code> to work properly.
       </p>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 

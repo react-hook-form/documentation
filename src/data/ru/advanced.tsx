@@ -79,7 +79,7 @@ export default {
           <code>null</code> или <code>undefined</code>.
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -401,7 +401,7 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData="npm install -D mutationobserver-shim" />
 
         <p>
           Создайте <code>setup.js</code> для импорта ".

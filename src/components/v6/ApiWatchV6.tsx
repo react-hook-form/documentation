@@ -81,12 +81,12 @@ export default function ApiWatch({
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>{`any`}</code>
+                <code className={typographyStyles.typeText}>any</code>
               </td>
             </tr>
             <tr>
               <td>
-                <code className={typographyStyles.typeText}>{`string[]`}</code>
+                <code className={typographyStyles.typeText}>string[]</code>
               </td>
               <td>{api.watch.tableTitle.multiple}</td>
               <td>

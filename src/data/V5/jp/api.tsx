@@ -424,7 +424,7 @@ export default {
               はコミュニティの間でより一般的になり、型のサポートが向上するため。
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

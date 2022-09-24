@@ -79,7 +79,7 @@ export default {
           발생할 걱정을 하지 않고 객체의 속성에 접근할 수 있습니다.
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -408,7 +408,7 @@ export default {
           를 설치할 필요가 없습니다.
         </p>
 
-        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+        <CodeArea rawData="npm install -D @testing-library/jest-dom" />
 
         <p>
           <code>setup.js</code> 파일을 만들어{" "}

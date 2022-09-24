@@ -170,7 +170,7 @@ getFieldState('firstName') // return updated field error state
               </table>
             </div>
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -249,19 +249,19 @@ const { touchedFields } = getFieldState('test', formState); // ✅ formState.tou
               </li>
             </ul>
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
             <CodeArea
               rawData={getFieldState}
-              url={"https://codesandbox.io/s/getfieldstate-jvekk"}
+              url="https://codesandbox.io/s/getfieldstate-jvekk"
             />
 
             <StarRepo currentLanguage="en" />
           </section>
 
-          <Footer currentLanguage={"en"} />
+          <Footer currentLanguage="en" />
         </main>
       </div>
     </div>

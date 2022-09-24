@@ -88,7 +88,7 @@ export default function ApiRefTable({
 `}
       />
 
-      <h2 className={typographyStyles.subTitle} id={"options"}>
+      <h2 className={typographyStyles.subTitle} id="options">
         Options
       </h2>
 
@@ -539,9 +539,9 @@ export default function ApiRefTable({
               <td>
                 <code>disabled</code>
                 <br />
-                <code
-                  className={typographyStyles.typeText}
-                >{`boolean = false`}</code>
+                <code className={typographyStyles.typeText}>
+                  boolean = false
+                </code>
               </td>
               <td>
                 <p>
@@ -701,7 +701,7 @@ export default function ApiRefTable({
           </tbody>
         </table>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -784,7 +784,7 @@ register('test', { required: false });  // ✅
           </li>
         </ul>
 
-        <h2 id={"example"} className={typographyStyles.subTitle}>
+        <h2 id="example" className={typographyStyles.subTitle}>
           Examples
         </h2>
 
@@ -804,7 +804,7 @@ register('test', { required: false });  // ✅
           width="100%"
           height="528"
           title="react hook form controller build"
-          src={"https://www.youtube.com/embed/JFIpCoajYkA"}
+          src="https://www.youtube.com/embed/JFIpCoajYkA"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

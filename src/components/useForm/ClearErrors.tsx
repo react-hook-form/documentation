@@ -32,7 +32,7 @@ export default ({ currentLanguage }) => {
             </code>
             {api.clearError.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 

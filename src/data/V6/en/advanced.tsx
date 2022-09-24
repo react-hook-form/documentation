@@ -86,7 +86,7 @@ export default {
           <code>undefined</code>.
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -520,7 +520,7 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+        <CodeArea rawData="npm install -D @testing-library/jest-dom" />
 
         <p>
           Create <code>setup.js</code> to import{" "}
@@ -624,7 +624,7 @@ export default {
           an extra plug-in to make this possible.
         </p>
 
-        <CodeArea rawData={"npm install @hookform/strictly-typed"} />
+        <CodeArea rawData="npm install @hookform/strictly-typed" />
 
         <p>
           We will have to wrap our inputs with <code>TypedController</code> and
