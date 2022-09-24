@@ -82,7 +82,7 @@ export default {
           <code>undefined</code>.
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -142,7 +142,7 @@ export default {
         <CodeArea rawData={accessibleCodeFinal} />
 
         <p>
-          Luego de esta mejora, el lector de pantalla dirá: {""}
+          Luego de esta mejora, el lector de pantalla dirá:
           <i> "Nombre, edición, entrada no válida, esto es obligatorio". </i>
         </p>
       </>
@@ -253,7 +253,7 @@ export default {
         </div>
 
         <p>
-          La responsabilidad de los componentes Input es registrarse en {""}
+          La responsabilidad de los componentes Input es registrarse en
           <code>react-hook-form</code>.
         </p>
         <CodeArea
@@ -276,10 +276,9 @@ export default {
       <p>
         Cuando creamos formularios, hay momentos en que nuestros inputs están
         dentro de árboles de componentes profundamente anidados, y ahí es cuando{" "}
-        {""}
         <a href="/api#useFormContext">FormContext</a> resulta útil. Sin embargo,
         podemos mejorar aún más la experiencia del desarrollador creando un
-        componente {""} <code>ConnectForm</code> y aprovechando{" "}
+        componente <code>ConnectForm</code> y aprovechando{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a> de
         React. El beneficio de este componente es que puede conectar tus inputs
         con React Hook Form desde cualquier lugar.
@@ -408,7 +407,7 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D mutationobserver-shim"} />
+        <CodeArea rawData="npm install -D mutationobserver-shim" />
 
         <p>
           Crear <code>setup.js</code> para importar{" "}

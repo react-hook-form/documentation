@@ -96,7 +96,7 @@ errors?.key4?.message // no type error`}
     title: "Resolver",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-resolver-juwui"}
+        url="https://codesandbox.io/s/react-hook-form-resolver-juwui"
         rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -192,7 +192,7 @@ export default function App() {
     title: "UseFormMethods",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-useformmethods-mycp2"}
+        url="https://codesandbox.io/s/react-hook-form-useformmethods-mycp2"
         rawData={`import { useForm, UseFormMethods, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
@@ -380,7 +380,7 @@ export default function App() {
   fieldValues: {
     title: "FieldValues",
     description: (
-      <CodeArea rawData={`export type FieldValues = Record<string, any>;`} />
+      <CodeArea rawData="export type FieldValues = Record<string, any>;" />
     ),
   },
   mode: {

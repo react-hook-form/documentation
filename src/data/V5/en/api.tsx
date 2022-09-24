@@ -410,7 +410,7 @@ export default {
               adopted and allows better support for types..
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

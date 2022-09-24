@@ -34,7 +34,7 @@ export default ({ currentLanguage }) => {
             </code>
             {api.trigger.description}
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -45,7 +45,7 @@ export default ({ currentLanguage }) => {
               re-render the entire formState.
             </p>
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -65,7 +65,7 @@ export default ({ currentLanguage }) => {
               width="100%"
               height="528"
               title="react hook form trigger API"
-              src={"https://www.youtube.com/embed/-bcyJCDjksE"}
+              src="https://www.youtube.com/embed/-bcyJCDjksE"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -343,7 +343,7 @@ export default {
   control: {
     en: (
       <>
-        <Link to={"/api/useform/control"}>
+        <Link to="/api/useform/control">
           <code>control</code>
         </Link>{" "}
         object provided by <code>useForm</code>. It's optional if you are using

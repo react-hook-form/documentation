@@ -159,11 +159,11 @@ export default {
         </p>
 
         <p>
-          제어 된 구성 요소는 등록 할 소품을 노출하지 않습니다 (예 : {""}).
+          제어 된 구성 요소는 등록 할 소품을 노출하지 않습니다 (예 : ).
           <code> react-select </code> 또는 <code> react-datepicker </code>.
         </p>
         <p>
-          이 경우 {""}
+          이 경우
           <Link to="/ api # Controller"> Controller </Link> 래퍼 구성
           요소입니다. 등록 과정을 처리해드립니다.
         </p>

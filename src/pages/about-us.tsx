@@ -179,7 +179,7 @@ export default ({ location }) => {
                     ]}
                     easeType="ease-out"
                     duration={1}
-                    fillMode={"both"}
+                    fillMode="both"
                     delay={0.3 * i + 0.4}
                     render={({ style }) => {
                       return (

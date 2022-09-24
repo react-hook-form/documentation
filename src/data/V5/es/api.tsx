@@ -473,7 +473,7 @@ export default {
     tableTitle: {
       single: (
         <>
-          Observa el valor de entrada por nombre (similar a la función {""}
+          Observa el valor de entrada por nombre (similar a la función
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -887,7 +887,7 @@ export default {
       <p>
         Form context está destinado a resolver el problema cuando hay inputs
         anidados profundamente en el árbol de componentes y pasar métodos hasta
-        el fondo como {""}
+        el fondo como
         <code>propiedades</code>se vuelve tedioso.
       </p>
     ),
@@ -964,7 +964,7 @@ export default {
         <p>
           El siguiente ejemplo muestra cómo puedes aprovechar la validación
           nativa del navegador. Solo necesitas establecer{" "}
-          <code>nativeValidation</code> en {""}
+          <code>nativeValidation</code> en
           <code>true</code> y el resto de la sintaxis es la misma que la
           validación estándar.
         </p>

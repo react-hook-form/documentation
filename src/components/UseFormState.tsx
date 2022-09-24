@@ -55,7 +55,7 @@ export default ({ currentLanguage }) => {
                 <thead>
                   <tr>
                     <th>{generic.name[currentLanguage]}</th>
-                    <th width={"200px"}>{generic.type[currentLanguage]}</th>
+                    <th width="200px">{generic.type[currentLanguage]}</th>
                     <th>{generic.description[currentLanguage]}</th>
                   </tr>
                 </thead>
@@ -68,7 +68,7 @@ export default ({ currentLanguage }) => {
                       <code className={typographyStyles.typeText}>object</code>
                     </td>
                     <td>
-                      <Link to={"/api/useform/control"}>
+                      <Link to="/api/useform/control">
                         <code>control</code>
                       </Link>{" "}
                       object provided by <code>useForm</code>. It's optional if
@@ -124,7 +124,7 @@ export default ({ currentLanguage }) => {
 
             <FormStateTable currentLanguage={currentLanguage} api={api} />
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -141,13 +141,13 @@ const formState = useFormState(); // ❌ should deconstruct the formState
 `}
             />
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
             <CodeArea
               rawData={useFormState}
-              url={"https://codesandbox.io/s/useformstate-75xly"}
+              url="https://codesandbox.io/s/useformstate-75xly"
             />
 
             <StarRepo currentLanguage="en" />

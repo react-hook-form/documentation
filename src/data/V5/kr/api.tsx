@@ -396,7 +396,7 @@ export default {
               알려졌고, 더 나은 타입 지원을 합니다.
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

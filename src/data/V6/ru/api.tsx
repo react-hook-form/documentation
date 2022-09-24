@@ -720,7 +720,6 @@ export default {
           >
             this short video
           </a>{" "}
-          {""}
           сравнить контролируемый и неконтролируемый массив полей.
         </p>
 
@@ -788,14 +787,13 @@ export default {
         <ul>
           <li>
             <p>
-              Вы можете заполнить поля, указав {""}
+              Вы можете заполнить поля, указав
               <code>defaultValues</code> в ловушке <code>useForm</code>.
             </p>
           </li>
           <li>
             <p>
               убедитесь, что вы присвоили <code>id</code> из <code>fields</code>{" "}
-              {""}
               объект как ключ компонента.
             </p>
           </li>
@@ -834,9 +832,9 @@ React.useEffect(() => {
             />
           </li>
           <li>
-            <strong> важно </strong> подать заявку {""}
-            <code>{`ref = {register ()}`}</code> вместо {""}
-            <code>{`ref = {register}`}</code> при работе с {""}
+            <strong> важно </strong> подать заявку
+            <code>{`ref = {register ()}`}</code> вместо
+            <code>{`ref = {register}`}</code> при работе с
             <code>useFieldArray</code>, поэтому будет вызван{" "}
             <code>register</code>
             во время <code>map</code>.
@@ -1330,7 +1328,7 @@ validate: (value) => value === getValues('firstName');"
         <ul>
           <li>
             <p>
-              убедитесь, что вы возвращаете объект, который содержит {""}
+              убедитесь, что вы возвращаете объект, который содержит
               <code>values ​​</code> и <code>error</code> и их значения по
               умолчанию значение должно быть <code>{`{}`}</code>.
             </p>
@@ -1346,7 +1344,6 @@ validate: (value) => value === getValues('firstName');"
           <li>
             <p>
               эта функция будет кэшироваться внутри пользовательского хука, а{" "}
-              {""}
               <code>context</code> - это изменяемый объект, который можно
               изменить каждый рендер.
             </p>

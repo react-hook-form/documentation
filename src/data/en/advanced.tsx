@@ -81,7 +81,7 @@ export default {
           <code>undefined</code>.
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -430,7 +430,7 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+        <CodeArea rawData="npm install -D @testing-library/jest-dom" />
 
         <p>
           Create <code>setup.js</code> to import{" "}

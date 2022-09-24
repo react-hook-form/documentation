@@ -76,12 +76,12 @@ export default function ApiWatch({
                 <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>{`any`}</code>
+                <code className={typographyStyles.typeText}>any</code>
               </td>
             </tr>
             <tr>
               <td>
-                <code className={typographyStyles.typeText}>{`string[]`}</code>
+                <code className={typographyStyles.typeText}>string[]</code>
               </td>
               <td>{api.watch.tableTitle.multiple}</td>
               <td>
@@ -90,7 +90,7 @@ export default function ApiWatch({
                 <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>{`unknown[]`}</code>
+                <code className={typographyStyles.typeText}>unknown[]</code>
               </td>
             </tr>
             <tr>
@@ -129,7 +129,7 @@ export default function ApiWatch({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -154,8 +154,8 @@ export default function ApiWatch({
           <p>
             This API will trigger re-render at the root of your app or form,
             consider using a callback or the{" "}
-            <Link to={"/api/usewatch"}>useWatch</Link> api if you are
-            experiencing performance issues.
+            <Link to="/api/usewatch">useWatch</Link> api if you are experiencing
+            performance issues.
           </p>
         </li>
         <li>
@@ -167,7 +167,7 @@ export default function ApiWatch({
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 
@@ -194,7 +194,7 @@ export default function ApiWatch({
         width="100%"
         height="528"
         title="react hook form controller build"
-        src={"https://www.youtube.com/embed/3qLd69WMqKk"}
+        src="https://www.youtube.com/embed/3qLd69WMqKk"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

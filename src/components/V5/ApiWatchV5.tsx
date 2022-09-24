@@ -71,7 +71,7 @@ export default function ApiWatch({
             </tr>
             <tr>
               <td>
-                <code className={typographyStyles.typeText}>{`string[]`}</code>
+                <code className={typographyStyles.typeText}>string[]</code>
               </td>
               <td>{api.watch.tableTitle.multiple}</td>
               <td>

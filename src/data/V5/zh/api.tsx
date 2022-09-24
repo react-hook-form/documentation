@@ -401,7 +401,7 @@ export default {
               在社区中流行并支持更好的type。
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

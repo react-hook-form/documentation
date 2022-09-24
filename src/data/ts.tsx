@@ -96,7 +96,7 @@ errors?.key4?.message // no type error`}
     title: "Resolver",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"}
+        url="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
         rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -191,9 +191,7 @@ export default function App() {
     title: "UseFormReturn",
     description: (
       <CodeArea
-        url={
-          "https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
-        }
+        url="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
         rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
@@ -405,9 +403,7 @@ export default function App() {
           This type is useful when you define custom component's{" "}
           <code>name</code> prop, and it will type check again your field path.
         </p>
-        <CodeArea
-          rawData={`export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;`}
-        />
+        <CodeArea rawData="export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;" />
       </>
     ),
   },
@@ -442,7 +438,7 @@ export default function App() {
   fieldValues: {
     title: "FieldValues",
     description: (
-      <CodeArea rawData={`export type FieldValues = Record<string, any>;`} />
+      <CodeArea rawData="export type FieldValues = Record<string, any>;" />
     ),
   },
   mode: {

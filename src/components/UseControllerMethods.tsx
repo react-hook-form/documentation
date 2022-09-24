@@ -51,14 +51,14 @@ export default ({ currentLanguage, isController }) => {
                     This prop update{" "}
                     <Link
                       to="/api/useform/formstate"
-                      aria-label={"read more about formstate"}
+                      aria-label="read more about formstate"
                     >
                       formState
                     </Link>{" "}
                     and you should avoid manually invoke{" "}
                     <Link
                       to="/api/useform/setvalue"
-                      aria-label={"read more about setValue"}
+                      aria-label="read more about setValue"
                     >
                       setValue
                     </Link>{" "}

@@ -10,7 +10,7 @@ export default (
       Estos son los cambios importantes que necesitaría ajustar. Esperamos
       sinceramente esos cambios no están creando demasiados problemas para su
       base de código. Si tu se preguntan algunos de los fundamentos, puede echar
-      un vistazo a este {""}
+      un vistazo a este
       <a
         href="https://github.com/react-hook-form/react-hook-form/pull/1471"
         target="_blank"
@@ -66,7 +66,7 @@ export default (
         <h2>validationSchema: </h2>
       </code>
       <p>
-        <code>validationSchema</code> ha sido reemplazado por el estándar {""}
+        <code>validationSchema</code> ha sido reemplazado por el estándar
         <code>resolver</code>, y puede usar Yup, Joi y Superstruct en el
         momento. Tenemos una biblioteca oficial de resolución para soportar más
         esquemas validación en el futuro.

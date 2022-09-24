@@ -715,8 +715,8 @@ export default {
           </td>
           <td></td>
           <td>
-            O controlador injeta <code>onChange</code>, <code>onBlur</code> {""}
-            e <code>value</code> adota o componente.
+            O controlador injeta <code>onChange</code>, <code>onBlur</code>e{" "}
+            <code>value</code> adota o componente.
             <CodeArea
               withOutCopy
               url="https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"

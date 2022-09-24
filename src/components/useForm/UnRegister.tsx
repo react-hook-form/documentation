@@ -37,7 +37,7 @@ export default ({ currentLanguage }) => {
 
             {api.unregister.description}
 
-            <h2 id={"options"} className={typographyStyles.subTitle}>
+            <h2 id="options" className={typographyStyles.subTitle}>
               Options
             </h2>
 
@@ -185,7 +185,7 @@ export default ({ currentLanguage }) => {
               </table>
             </div>
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -230,7 +230,7 @@ const onClick = () => {
               </li>
             </ul>
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -250,7 +250,7 @@ const onClick = () => {
               width="100%"
               height="528"
               title="react hook form controller build"
-              src={"https://www.youtube.com/embed/TM99g_NW5Gk"}
+              src="https://www.youtube.com/embed/TM99g_NW5Gk"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

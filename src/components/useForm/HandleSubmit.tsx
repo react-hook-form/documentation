@@ -35,7 +35,7 @@ export default ({ currentLanguage }) => {
             </code>
             {api.handleSubmit.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -63,7 +63,7 @@ export default ({ currentLanguage }) => {
               width="100%"
               height="528"
               title="react hook form controller build"
-              src={"https://www.youtube.com/embed/KzcPKB9SOEk"}
+              src="https://www.youtube.com/embed/KzcPKB9SOEk"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

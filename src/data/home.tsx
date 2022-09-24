@@ -738,7 +738,7 @@ export default {
           El siguiente formulario muestra la validación de formularios. Cada
           columna representa lo que se ha capturado en el hook personalizado.
           Puedes cambiar los campos en el formulario haciendo click en{" "}
-          <strong> EDIT </strong> {""}.
+          <strong> EDIT </strong> .
         </>
       ),
       submit: "Enviar",

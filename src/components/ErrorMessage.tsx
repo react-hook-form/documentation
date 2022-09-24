@@ -136,7 +136,7 @@ export default ({
                 </table>
               </div>
 
-              <h2 id={"example"} className={typographyStyles.subTitle}>
+              <h2 id="example" className={typographyStyles.subTitle}>
                 Examples
               </h2>
 

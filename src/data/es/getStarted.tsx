@@ -157,7 +157,7 @@ export default {
 
         <p>
           Los componentes controlados no exponen una prop para registrar, por
-          ejemplo{""}
+          ejemplo
           <code>react-select</code> o <code>react-datepicker</code>.
         </p>
         <p>

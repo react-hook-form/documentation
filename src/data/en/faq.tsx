@@ -619,7 +619,7 @@ export default {
             install <code>@babel/runtime-corejs3</code> as well.
           </p>
 
-          <CodeArea rawData={`npm i @babel/runtime-corejs3`} />
+          <CodeArea rawData="npm i @babel/runtime-corejs3" />
           <p>If you encounter: </p>
           <blockquote>
             {" "}

@@ -30,44 +30,36 @@ export default ({ location }) => {
 
           <div className={mediaStyles.media}>
             <div>
-              <img src={logoPngBg} alt={"logo only"} />
+              <img src={logoPngBg} alt="logo only" />
               <p>PNG</p>
             </div>
             <div>
-              <img src={logoSvgBg} alt={"logo only"} />
+              <img src={logoSvgBg} alt="logo only" />
               <p>SVG</p>
             </div>
 
             <div>
-              <img
-                src={logoPng}
-                alt={"logo only"}
-                className={mediaStyles.logo}
-              />
+              <img src={logoPng} alt="logo only" className={mediaStyles.logo} />
               <p>PNG</p>
             </div>
             <div>
-              <img
-                src={logoSvg}
-                alt={"logo only"}
-                className={mediaStyles.logo}
-              />
+              <img src={logoSvg} alt="logo only" className={mediaStyles.logo} />
               <p>SVG</p>
             </div>
 
             <div>
-              <img src={logoGreyPngBg} alt={"logo only"} />
+              <img src={logoGreyPngBg} alt="logo only" />
               <p>PNG</p>
             </div>
             <div>
-              <img src={logoGreySvgBg} alt={"logo only"} />
+              <img src={logoGreySvgBg} alt="logo only" />
               <p>SVG</p>
             </div>
 
             <div>
               <img
                 src={logoGreyPng}
-                alt={"logo only"}
+                alt="logo only"
                 className={mediaStyles.logo}
               />
               <p>PNG</p>
@@ -75,7 +67,7 @@ export default ({ location }) => {
             <div>
               <img
                 src={logoGreySvg}
-                alt={"logo only"}
+                alt="logo only"
                 className={mediaStyles.logo}
               />
               <p>SVG</p>
