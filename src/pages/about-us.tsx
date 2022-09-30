@@ -35,8 +35,7 @@ const data = [
     imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
     url: "https://twitter.com/_jorisre",
     twitterName: "_jorisre",
-    bio:
-      "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
+    bio: "I'm a passionate front-end engineer who love trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
     interests: ["💻  Code", "⚛️  React", "🥑  Food"],
     active: true,
   },
@@ -46,8 +45,7 @@ const data = [
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
     url: "https://github.com/bluebill1049",
     twitterName: "bluebill1049",
-    bio:
-      "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
+    bio: "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars", "🐟 fish"],
     active: true,
   },
@@ -56,8 +54,7 @@ const data = [
     imgUrl: "https://avatars.githubusercontent.com/u/16290753?v=4",
     url: "https://github.com/Moshyfawn",
     twitterName: "moshyfawn",
-    bio:
-      "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
+    bio: "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
     interests: ["👨‍💻 Tech", "🎮 Games", "🍕 Food"],
     active: true,
   },
@@ -67,8 +64,7 @@ const data = [
       "https://avatars1.githubusercontent.com/u/12913947?s=460&u=949926ee4c1aa8b414d994e29665f7dc3c21bb7b&v=4",
     url: "https://github.com/kotarella1110",
     twitterName: "kotarella1110",
-    bio:
-      "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
+    bio: "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
     interests: ["🍺 beer", "💻 code", "♨️ onsen"],
     active: false,
   },
@@ -76,8 +72,7 @@ const data = [
     name: "Barry May",
     imgUrl: "https://avatars.githubusercontent.com/u/5514034?v=4",
     url: "https://github.com/barrymay",
-    bio:
-      "I'm a software engineer/team leader with long-term UI/UX and DevOps experience.  I love to show devs the power of the modern web stack (TypeScript in particular 😀), and I'm thrilled to assist on great OSS projects like react-hook-form!",
+    bio: "I'm a software engineer/team leader with long-term UI/UX and DevOps experience.  I love to show devs the power of the modern web stack (TypeScript in particular 😀), and I'm thrilled to assist on great OSS projects like react-hook-form!",
     twitterName: "barry_a_may",
     interests: ["🎲 games", "💻 code", "🍕 food"],
     active: false,
@@ -97,8 +92,7 @@ const data = [
     imgUrl: "https://avatars3.githubusercontent.com/u/32805276?s=460&v=4",
     url: "https://github.com/JeromeDeLeon",
     twitterName: "JeromeDL30",
-    bio:
-      "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
+    bio: "My curiosity of how computer works when I was little brings me into becoming a developer of who am I today and I never regret it. It excites me when something is happening that I do not know like my code that I do not understand. 🤪🤪",
     interests: ["🎮 games", "💻 code", "🍛 food"],
     active: false,
   },
@@ -107,8 +101,7 @@ const data = [
     imgUrl: "https://avatars0.githubusercontent.com/u/14539203?s=460&v=4",
     url: "https://github.com/adhrinae",
     twitterName: "adhrinae",
-    bio:
-      "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
+    bio: "I am a Software Engineer (mostly frontend) who loves open source and their community. I like translating documentation of open source projects and useful dev articles in Korean. I always try to grow as developer to build the best product that can make me satisfied.",
     interests: ["🎮 games", "💻 code", "🎹 piano"],
     active: false,
   },
@@ -118,8 +111,7 @@ const data = [
       "https://avatars2.githubusercontent.com/u/34934510?s=460&u=4a9c50dd3ec691bf5d55a4c6c413e8f79ec2afef&v=4",
     url: "https://github.com/keiya01",
     twitterName: "keya_00001",
-    bio:
-      "I am a developer who loves Front-End. I want to deliver the best UX for users all over the world.",
+    bio: "I am a developer who loves Front-End. I want to deliver the best UX for users all over the world.",
     interests: ["📕 manga", "📺 anime", "♨️ onsen"],
     active: false,
   },
@@ -128,8 +120,7 @@ const data = [
     imgUrl:
       "https://avatars0.githubusercontent.com/u/855184?s=460&u=b8094edc8d249d4c165cf0253dea3388623e24a9&v=4",
     url: "https://github.com/stramel",
-    bio:
-      "I'm a Software Engineer who enjoys contributing and improving the open source community in my spare time.",
+    bio: "I'm a Software Engineer who enjoys contributing and improving the open source community in my spare time.",
     twitterName: "stramel89",
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
     active: false,

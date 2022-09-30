@@ -305,7 +305,8 @@ function Advanced({ defaultLang, advanced }: Props) {
           <h2
             className={typographyStyles.questionTitle}
             ref={(ref) =>
-              (pageContentRef.current.ControlledmixedwithUncontrolledComponents = ref)
+              (pageContentRef.current.ControlledmixedwithUncontrolledComponents =
+                ref)
             }
             id="ControlledmixedwithUncontrolledComponents"
           >

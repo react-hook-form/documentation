@@ -198,9 +198,8 @@ function ApiPage({ formData, defaultLang, api }: Props) {
           entries.forEach(() => {
             try {
               for (const key in apiSectionsRef.current) {
-                const { top } = apiSectionsRef.current[
-                  key
-                ].getBoundingClientRect()
+                const { top } =
+                  apiSectionsRef.current[key].getBoundingClientRect()
                 allTops.push(top)
                 index++
               }

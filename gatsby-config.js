@@ -3,7 +3,6 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   flags: {
-    PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },

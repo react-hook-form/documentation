@@ -21,15 +21,11 @@ export default {
     ru: "React hook для валидации форм без хлопот",
   },
   slogan: {
-    en:
-      "Performant, flexible and extensible forms with easy-to-use validation.",
-    es:
-      "Formularios con buen rendimiento, flexibles y extensibles con validación fácil de usar.",
-    pt:
-      "Performático, flexível e formulário extensível, com fácil utilização e validação.",
+    en: "Performant, flexible and extensible forms with easy-to-use validation.",
+    es: "Formularios con buen rendimiento, flexibles y extensibles con validación fácil de usar.",
+    pt: "Performático, flexível e formulário extensível, com fácil utilização e validação.",
     kr: "유연하고 확장 가능한 사용하기 쉬운 고성능 폼 검증 라이브러리",
-    jp:
-      "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
+    jp: "高性能で柔軟かつ拡張可能な使いやすいフォームバリデーションライブラリ。",
     zh: "高性能、灵活、易扩展、易于校验的表单库。",
     ru: "Эффективные, гибкие и расширяемые формы с простой валидацией.",
   },
