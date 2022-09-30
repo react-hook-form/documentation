@@ -42,6 +42,12 @@ const pages = [
   {
     pathname: "/api/useformcontext",
     name: "useFormContext",
+    pages: [
+      {
+        pathname: "/api/formprovider",
+        name: "FormProvider",
+      },
+    ],
   },
   {
     pathname: "/api/usewatch",
@@ -67,8 +73,6 @@ function Menu() {
   const { state } = useStateMachine({ updateCurrentLanguage })
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
-
-  console.log("pathname", pathname)
 
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
