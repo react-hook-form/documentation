@@ -7,7 +7,7 @@ import * as styles from "./SideMenu.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import { updateCurrentLanguage } from "../actions/languageActions"
 
-const pages = [
+export const pages = [
   {
     pathname: "/api/useform",
     name: "useForm",

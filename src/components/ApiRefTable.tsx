@@ -66,6 +66,8 @@ export default function ApiRefTable({
         </table>
       </div>
 
+      <h2 className={typographyStyles.subTitle}>Return</h2>
+
       <section>
         <p>
           <b className={typographyStyles.note}>Tip:</b>: What's happened to the

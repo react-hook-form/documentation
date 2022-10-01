@@ -114,6 +114,57 @@ export default function UseFieldArray({
         </table>
       </div>
 
+      <h2 className={typographyStyles.subTitle}>Return</h2>
+
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th
+                style={{
+                  minWidth: 340,
+                }}
+              >
+                {generic.example[currentLanguage]}
+              </th>
+              <th
+                style={{
+                  minWidth: 180,
+                }}
+              >
+                {generic.return[currentLanguage]}
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch('inputName')</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>unkown</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch(['inputName1'])</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>unknown[]</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch()</code>
+              </td>
+              <td>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{[key:string]: unknown}`}</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>

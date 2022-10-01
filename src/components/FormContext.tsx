@@ -20,6 +20,14 @@ export default function FormContext({ api }) {
 
       <p>This hook will return all the useForm return methods and props.</p>
 
+      <CodeArea
+        rawData={`const methods = useForm()
+      
+<FormProvider {...methods} /> // all the useForm return props
+      
+const methods = useFormContext() // retrieve those props`}
+      />
+
       {api.useFormContext.description}
 
       <h2 id="rules" className={typographyStyles.rulesTitle}>

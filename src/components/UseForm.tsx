@@ -1,6 +1,6 @@
 import * as React from "react"
 import Footer from "./Footer"
-import { Menu } from "./Menu"
+import { Menu, pages } from "./Menu"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import Popup from "./Popup"
 import generic from "../data/generic"
@@ -374,6 +374,23 @@ const { register } = useForm<FormInputs>({
             <CodeArea rawData={shouldUseNativeValidation} />
 
             <ValidationResolver api={api} />
+
+            <h2 className={typographyStyles.subTitle}>Return</h2>
+
+            <p>
+              The following list contains reference to <code>useForm</code>{" "}
+              return props.
+            </p>
+
+            <ul>
+              {pages[0].pages.map((page) => (
+                <li>
+                  <p>
+                    <Link to={page.pathname}>{page.name}</Link>
+                  </p>
+                </li>
+              ))}
+            </ul>
 
             <StarRepo currentLanguage="en" />
           </section>
