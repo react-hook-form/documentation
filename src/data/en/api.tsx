@@ -547,6 +547,7 @@ const App = () => {
 
 const firstName = register('firstName', { required: true })
 <TextInput
+  name={firstName.name}
   onChange={firstName.onChange}
   onBlur={firstName.onBlur}
   inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
