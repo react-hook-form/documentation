@@ -69,7 +69,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>field</code>
+            </td>
             <td>
               <code>onBlur</code>
             </td>
@@ -84,7 +86,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>field</code>
+            </td>
             <td>
               <code>value</code>
             </td>
@@ -96,7 +100,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>field</code>
+            </td>
             <td>
               <code>name</code>
             </td>
@@ -108,7 +114,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>field</code>
+            </td>
             <td>
               <code>ref</code>
             </td>
@@ -138,7 +146,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>fieldState</code>
+            </td>
             <td>
               <code>isTouched</code>
             </td>
@@ -150,7 +160,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>fieldState</code>
+            </td>
             <td>
               <code>isDirty</code>
             </td>
@@ -162,7 +174,9 @@ export default ({ currentLanguage, isController }) => {
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <code>fieldState</code>
+            </td>
             <td>
               <code>error</code>
             </td>

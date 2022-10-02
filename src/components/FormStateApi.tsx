@@ -40,7 +40,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isDirty}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>dirtyFields</code>
       </td>
@@ -50,7 +54,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.dirtyFields}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>touchedFields</code>
       </td>
@@ -60,7 +68,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.touched}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitted</code>
       </td>
@@ -70,7 +82,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitted}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitSuccessful</code>
       </td>
@@ -80,7 +96,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitSuccessful}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitting</code>
       </td>
@@ -90,7 +110,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitting}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>submitCount</code>
       </td>
@@ -100,7 +124,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.submitCount}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isValid</code>
       </td>
@@ -129,7 +157,11 @@ export const FormStateApi = ({
       </td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isValidating</code>
       </td>
@@ -139,7 +171,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isValidating}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>errors</code>
       </td>
