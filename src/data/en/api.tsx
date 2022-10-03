@@ -180,10 +180,10 @@ export default {
           </li>
           <li>
             <p>
-              Avoid including custom object into the <code>defaultValues</code>.
-              eg: <code>moment</code>, <code>luxon</code>
-              as those will lead to unexpected result during internal object
-              clone process.
+              It's recommend to avoid including custom object which contains
+              prototype methods as the <code>defaultValues</code>, such as{" "}
+              <code>moment</code>, <code>luxon</code> and etc. Those type of an
+              object will not be cloned internally.
             </p>
           </li>
           <li>
