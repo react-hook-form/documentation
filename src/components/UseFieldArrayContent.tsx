@@ -200,6 +200,22 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         <CodeArea rawData={useFieldArrayFocus} />
       </TabGroup>
 
+      <h2 className={typographyStyles.subTitle}>Video</h2>
+      <p>
+        The following video explains the basic usage of{" "}
+        <code>useFieldArray</code>.
+      </p>
+
+      <iframe
+        width="100%"
+        height="528"
+        title="react hook form - useFieldArray"
+        src={"https://www.youtube.com/embed/4MrbfGSFY2A"}
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+
       <>
         <h2 className={typographyStyles.subTitle}>Tips</h2>
         <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
