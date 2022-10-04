@@ -68,8 +68,6 @@ function Menu() {
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
 
-  console.log("pathname", pathname)
-
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
       <div>

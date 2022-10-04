@@ -72,6 +72,7 @@ export default function CodeArea({
   isExpo?: boolean
   style?: any
 }) {
+  const [showContent, setShowContent] = React.useState(false)
   const {
     state: { language },
   } = useStateMachine()
@@ -106,6 +107,14 @@ export default function CodeArea({
     }
     highlight()
   }, [])
+
+  React.useEffect(() => {
+    setShowContent(true)
+  }, [setShowContent])
+
+  if (!showContent) {
+    return null
+  }
 
   return (
     <section
