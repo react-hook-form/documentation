@@ -27,7 +27,7 @@ export const FormStateApi = ({
     <tr>
       {columnIndent && (
         <td>
-          <Link to={"/api/useform/formstate"}>
+          <Link to="/api/useform/formstate">
             <code>formState</code>
           </Link>
         </td>
@@ -41,7 +41,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isDirty}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>dirtyFields</code>
       </td>
@@ -51,7 +55,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.dirtyFields}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>touchedFields</code>
       </td>
@@ -61,7 +69,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.touched}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>defaultValues</code>
       </td>
@@ -81,7 +93,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitted}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitSuccessful</code>
       </td>
@@ -91,7 +107,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitSuccessful}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitting</code>
       </td>
@@ -101,7 +121,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isSubmitting}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>submitCount</code>
       </td>
@@ -111,7 +135,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.submitCount}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isValid</code>
       </td>
@@ -124,7 +152,7 @@ export const FormStateApi = ({
           <li>
             <p>
               <code>isValid</code> is affected by <code>mode</code> at{" "}
-              <Link to={"/api/useform"}>useForm</Link>. This state is only
+              <Link to="/api/useform">useForm</Link>. This state is only
               applicable with <code>onChange</code>, <code>onTouched</code>, and{" "}
               <code>onBlur</code> mode.
             </p>
@@ -140,7 +168,11 @@ export const FormStateApi = ({
       </td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isValidating</code>
       </td>
@@ -150,7 +182,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.isValidating}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>errors</code>
       </td>
@@ -159,8 +195,8 @@ export const FormStateApi = ({
       </td>
       <td>
         An object with field errors. There is also an{" "}
-        <Link to={"/api/useformstate/errormessage"}>ErrorMessage</Link>{" "}
-        component to retrieve error message easily.
+        <Link to="/api/useformstate/errormessage">ErrorMessage</Link> component
+        to retrieve error message easily.
       </td>
     </tr>
   </>

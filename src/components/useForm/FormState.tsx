@@ -25,7 +25,7 @@ export default ({ currentLanguage }) => {
           <section>
             <ApiFormState currentLanguage={currentLanguage} api={api} />
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -45,7 +45,7 @@ export default ({ currentLanguage }) => {
               width="100%"
               height="528"
               title="react hook form formState"
-              src={"https://www.youtube.com/embed/4kzd572NbkM"}
+              src="https://www.youtube.com/embed/4kzd572NbkM"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

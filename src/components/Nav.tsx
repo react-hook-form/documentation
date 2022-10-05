@@ -25,7 +25,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     updateSetting,
   })
   const [showLang, setLang] = React.useState(null)
-  const [showContent, setShowContent] = React.useState(false)
+  const [show, setShow] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
@@ -51,13 +51,13 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
   }, [isFocusOnSearch, width])
 
   React.useEffect(() => {
-    setShowContent(true)
-  }, [setShowContent])
+    setShow(true)
+  }, [setShow])
 
   return (
     <>
       <div className={styles.iconGroup}>
-        {showContent && <Search />}
+        {show && <Search />}
 
         {showLang && (
           <>

@@ -141,7 +141,14 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           borderRadius: 4,
         }}
       >
-        Hosted on ▲ Vercel Now
+        <a
+          href="https://vercel.com/"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.link}
+        >
+          Hosted on ▲ Vercel Now
+        </a>
       </p>
     </footer>
   )

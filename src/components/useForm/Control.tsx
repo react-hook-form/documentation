@@ -30,7 +30,7 @@ export default ({ currentLanguage }) => {
             </code>
             {api.control.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 

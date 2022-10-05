@@ -57,6 +57,7 @@ const enLinks = [
   getStartedEn.schema,
   getStartedEn.reactNative,
   getStartedEn.typeScript,
+  getStarted.design,
 ]
 
 interface Props {
@@ -93,6 +94,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
     getStarted.schema,
     getStarted.reactNative,
     getStarted.typeScript,
+    getStarted.design,
   ]
 
   const getRefNameFromTitle = (name) => name.replace(/ /g, "").toLowerCase()
@@ -533,6 +535,20 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 : "https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
             }
           />
+
+          <h2
+            className={typographyStyles.title}
+            ref={(ref) => {
+              sectionsRef.current[
+                getRefNameFromTitle(getStartedEn.design.title)
+              ] = ref
+            }}
+            id={getRefNameFromTitle(getStartedEn.design.title)}
+          >
+            Design and philosophy
+          </h2>
+
+          {getStarted.design.description}
 
           <LearnMore currentLanguage={currentLanguage} />
 

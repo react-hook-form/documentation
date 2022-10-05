@@ -7,7 +7,7 @@ import * as styles from "./SideMenu.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import { updateCurrentLanguage } from "../actions/languageActions"
 
-const pages = [
+export const pages = [
   {
     pathname: "/api/useform",
     name: "useForm",
@@ -42,6 +42,12 @@ const pages = [
   {
     pathname: "/api/useformcontext",
     name: "useFormContext",
+    pages: [
+      {
+        pathname: "/api/formprovider",
+        name: "FormProvider",
+      },
+    ],
   },
   {
     pathname: "/api/usewatch",

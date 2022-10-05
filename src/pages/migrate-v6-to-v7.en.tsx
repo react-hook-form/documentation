@@ -127,7 +127,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
                 You can use this codemod library to speed up the process:{" "}
                 <a
                   href="https://github.com/react-hook-form/codemod"
-                  target={"_blank"}
+                  target="_blank"
                   rel="noreferrer"
                 >
                   https://github.com/react-hook-form/codemod
@@ -137,7 +137,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
               <CodeArea
                 withOutCopy
-                rawData={`npx @hookform/codemod v7/update-register`}
+                rawData="npx @hookform/codemod v7/update-register"
               />
 
               <p>
@@ -284,7 +284,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
 
                 <CodeArea
                   withOutCopy
-                  rawData={`npx @hookform/codemod v7/move-errors-to-formState`}
+                  rawData="npx @hookform/codemod v7/move-errors-to-formState"
                 />
 
                 <CodeArea
@@ -503,7 +503,7 @@ npm i @hookform/devtools@latest  // @hookform/devtools: "^3.0.0" if you are usin
           </main>
         </div>
 
-        <Footer currentLanguage={"en"} />
+        <Footer currentLanguage="en" />
       </div>
     </Layout>
   )

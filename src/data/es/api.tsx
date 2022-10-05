@@ -456,7 +456,7 @@ export default {
     tableTitle: {
       single: (
         <>
-          Observa el valor de entrada por nombre (similar a la función {""}
+          Observa el valor de entrada por nombre (similar a la función
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -887,7 +887,7 @@ export default {
       <p>
         Form context está destinado a resolver el problema cuando hay inputs
         anidados profundamente en el árbol de componentes y pasar métodos hasta
-        el fondo como {""}
+        el fondo como
         <code>propiedades</code> se vuelve tedioso.
       </p>
     ),

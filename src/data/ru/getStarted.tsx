@@ -260,4 +260,58 @@ export default {
       </p>
     ),
   },
+  design: {
+    title: "Design and philosophy",
+    description: (
+      <>
+        <p>
+          React Hook Form's design and philosophy focus on user and developer
+          experience. The library aims to provide users with a smoother
+          interaction experience by fine-tuning the performance and improving
+          accessibility. Some of the performance enhancements included
+        </p>
+        <ul>
+          <li>
+            <p>Introducing form state subscription model through the proxy</p>
+          </li>
+          <li>
+            <p>Avoiding unnecessary computation</p>
+          </li>
+          <li>
+            <p>Isolating component re-rendering when requires</p>
+          </li>
+        </ul>
+        <p>
+          Overall, it improves the user experience while users interact with the
+          application. As for the developers, we introduce build-in validation
+          and are closely aligned with HTML standards, extend it further with
+          powerful validation methods and integrate it with schema validation
+          natively. In addition, having a strongly type-checked form with the
+          help of typescript provides early build-time feedback to help and
+          guide the developer to build a robust form solution.
+        </p>
+        <p>
+          The following talk given by{" "}
+          <a
+            href={"https://twitter.com/bluebill1049"}
+            target={"_blank"}
+            rel="noopener noreferrer"
+          >
+            Bill
+          </a>{" "}
+          showcased some of the ideas and design patterns:
+        </p>
+
+        <iframe
+          width="100%"
+          height="528"
+          title="react hook form reset"
+          src="https://www.youtube.com/embed/ZFxHdpzaEmM"
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </>
+    ),
+  },
 }

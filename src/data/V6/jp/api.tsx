@@ -753,7 +753,7 @@ export default {
             。 React要素を返し、次の機能を提供する関数
             イベントと値をコンポーネントにアタッチします。これにより、
             非標準の小道具で外部制御コンポーネントと統合する 名前：
-            <code>onChange</code>、<code>onBlur</code>および{""}
+            <code>onChange</code>、<code>onBlur</code>および
             <code>value</code>。
             <CodeArea
               withOutCopy

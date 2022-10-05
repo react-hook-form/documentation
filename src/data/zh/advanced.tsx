@@ -96,7 +96,7 @@ export default {
           <code>undefined</code>而导致错误。
         </p>
         <p>
-          <code>{`errors?.firstName?.message`}</code>
+          <code>errors?.firstName?.message</code>
         </p>
       </>
     ),
@@ -379,7 +379,7 @@ export default {
           .
         </p>
 
-        <CodeArea rawData={"npm install -D @testing-library/jest-dom"} />
+        <CodeArea rawData="npm install -D @testing-library/jest-dom" />
 
         <p>
           创建<code>setup.js</code>来导入

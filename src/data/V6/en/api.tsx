@@ -1026,8 +1026,8 @@ setValue('yourDetails', { firstName: 'value' }); // less performant `}
                     Name of the field.{" "}
                     <b className={typographyStyles.note}>Important: </b> make
                     sure name is in object shape:{" "}
-                    <code>name={`test[index].name`}</code> as we don't support
-                    flat arrays.
+                    <code>name=test[index].name</code> as we don't support flat
+                    arrays.
                   </p>
                 </td>
               </tr>

@@ -414,7 +414,7 @@ export default {
               mais popular entre a comunidade e para dar melhor suporte a tipo.
             </p>
             <p>
-              <code>{`errors?.yourDetail?.firstName;`}</code>
+              <code>errors?.yourDetail?.firstName;</code>
             </p>
           </li>
           <li>

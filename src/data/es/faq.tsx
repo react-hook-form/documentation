@@ -25,7 +25,7 @@ export default {
           ocurren debido a la escritura del usuario o al cambio de valores. El
           montaje de componentes en la página también es mucho más rápido porque
           son no controlados. Para la velocidad de montaje, realicé una prueba
-          rápida de comparación a la que puedes acceder desde {""}
+          rápida de comparación a la que puedes acceder desde
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"

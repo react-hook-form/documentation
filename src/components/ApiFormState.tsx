@@ -19,7 +19,7 @@ export default React.memo(
 
         <FormStateTable currentLanguage={currentLanguage} api={api} />
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 

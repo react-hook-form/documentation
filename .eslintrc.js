@@ -34,6 +34,7 @@ module.exports = {
     "react/display-name": OFF,
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
+    "react/jsx-curly-brace-presence": "warn",
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
   },
