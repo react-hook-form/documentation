@@ -81,30 +81,23 @@ export default function UseFieldArrayContent({
           </p>
         </li>
         <li>
-          <p>
-            You can not call actions one after another. Actions need to be
-            triggered per render.
-          </p>
+          <p>It's recommend to not stack actions one after another.</p>
           <CodeArea
             withOutCopy
-            rawData={`// ❌ The following is not correct
-handleChange={() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
+            rawData={`
+onClick={() => {
   append({ test: 'test' });
+  remove(0);
 }}
-
-// ✅ The following is correct and second action is triggered after next render
-handleChange={() => {
-  append({ test: 'test' });
-}}
-
+            
+// ✅ Better solution: the remove action is happened after the second render
 React.useEffect(() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-}, [fields])
+  remove(0);
+}, [remove])
+
+onClick={() => {
+  append({ test: 'test' });
+}}
             `}
           />
         </li>
