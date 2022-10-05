@@ -293,8 +293,8 @@ export default {
         <p>
           The following talk given by{" "}
           <a
-            href={"https://twitter.com/bluebill1049"}
-            target={"_blank"}
+            href="https://twitter.com/bluebill1049"
+            target="_blank"
             rel="noopener noreferrer"
           >
             Bill
