@@ -190,9 +190,32 @@ export default function App() {
   UseFormReturnRef: {
     title: "UseFormReturn",
     description: (
-      <CodeArea
-        url="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
-        rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
+      <TabGroup buttonLabels={["Type", "Code Example"]}>
+        <CodeArea
+          rawData={`export type UseFormReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+> = {
+  watch: UseFormWatch<TFieldValues>;
+  getValues: UseFormGetValues<TFieldValues>;
+  getFieldState: UseFormGetFieldState<TFieldValues>;
+  setError: UseFormSetError<TFieldValues>;
+  clearErrors: UseFormClearErrors<TFieldValues>;
+  setValue: UseFormSetValue<TFieldValues>;
+  trigger: UseFormTrigger<TFieldValues>;
+  formState: FormState<TFieldValues>;
+  resetField: UseFormResetField<TFieldValues>;
+  reset: UseFormReset<TFieldValues>;
+  handleSubmit: UseFormHandleSubmit<TFieldValues>;
+  unregister: UseFormUnregister<TFieldValues>;
+  control: Control<TFieldValues, TContext>;
+  register: UseFormRegister<TFieldValues>;
+  setFocus: UseFormSetFocus<TFieldValues>;
+};`}
+        />
+        <CodeArea
+          url="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+          rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -268,7 +291,8 @@ export default function App() {
   );
 }
 `}
-      />
+        />
+      </TabGroup>
     ),
   },
   useFormOptions: {
