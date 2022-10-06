@@ -210,25 +210,24 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         width="100%"
         height="528"
         title="react hook form - useFieldArray"
-        src={"https://www.youtube.com/embed/4MrbfGSFY2A"}
+        src="https://www.youtube.com/embed/4MrbfGSFY2A"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
 
-      <>
-        <h2 className={typographyStyles.subTitle}>Tips</h2>
-        <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
-        <p>
-          You can also <code>register</code> inputs at <code>Controller</code>{" "}
-          without the actual input. This makes <code>useFieldArray</code> quick
-          and flexible to use with complex data structure or the actual data is
-          not stored inside an input.
-        </p>
+      <h2 className={typographyStyles.subTitle}>Tips</h2>
+      <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
+      <p>
+        You can also <code>register</code> inputs at <code>Controller</code>{" "}
+        without the actual input. This makes <code>useFieldArray</code> quick
+        and flexible to use with complex data structure or the actual data is
+        not stored inside an input.
+      </p>
 
-        <CodeArea
-          url="https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"
-          rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
+      <CodeArea
+        url="https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"
+        rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 
 const ConditionalInput = ({ control, index, field }) => {
   const value = useWatch({
@@ -263,20 +262,18 @@ function App() {
   );
 }
 `}
-        />
+      />
 
-        <h4 className={typographyStyles.questionTitle}>
-          Controlled Field Array
-        </h4>
+      <h4 className={typographyStyles.questionTitle}>Controlled Field Array</h4>
 
-        <p>
-          There will be cases where you want to control the entire field array,
-          which means each onChange reflects on the <code>fields</code> object.
-        </p>
+      <p>
+        There will be cases where you want to control the entire field array,
+        which means each onChange reflects on the <code>fields</code> object.
+      </p>
 
-        <CodeArea
-          url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
-          rawData={`import { useForm, useFieldArray } from "react-hook-form";
+      <CodeArea
+        url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
+        rawData={`import { useForm, useFieldArray } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, control, watch } = useForm<FormValues>();
@@ -300,8 +297,7 @@ export default function App() {
     </form>
   );
 }`}
-        />
-      </>
+      />
     </>
   )
 }

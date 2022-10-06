@@ -180,10 +180,10 @@ export default {
           </li>
           <li>
             <p>
-              Avoid including custom object into the <code>defaultValues</code>.
-              eg: <code>moment</code>, <code>luxon</code>
-              as those will lead to unexpected result during internal object
-              clone process.
+              It's recommend to avoid including custom object which contains
+              prototype methods as the <code>defaultValues</code>, such as{" "}
+              <code>moment</code>, <code>luxon</code> and etc. Those type of an
+              object will not be cloned internally.
             </p>
           </li>
           <li>
@@ -699,6 +699,19 @@ setValue('test', '')
     ),
     touched:
       "An object containing all the inputs the user has interacted with.",
+    defaultValues: (
+      <p>
+        The value which has been set at{" "}
+        <Link to="/api/useform" aria-label="read more about reset api">
+          useForm
+        </Link>
+        's defaultValues or updated defaultValues via{" "}
+        <Link to="/api/useform/reset" aria-label="read more about reset api">
+          reset
+        </Link>{" "}
+        API.
+      </p>
+    ),
     isSubmitting: (
       <>
         <code>true</code> if the form is currently being submitted.{" "}
