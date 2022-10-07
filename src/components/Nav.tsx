@@ -1,11 +1,10 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import translateLink from "./logic/translateLink"
 import { updateCurrentLanguage } from "../actions/languageActions"
-import { globalHistory, navigate } from "@reach/router"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
@@ -14,6 +13,7 @@ import colors from "../styles/colors"
 import { updateSetting } from "../actions/settingActions"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
+import { useLocation } from "@reach/router"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
@@ -32,7 +32,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
-  const location = globalHistory.location
+  const { pathname } = useLocation()
 
   const isFocusOnSearch = setting?.isFocusOnSearch
 
@@ -71,11 +71,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
                 <select
                   aria-label="Select a language"
-                  onChange={(e: any) => {
+                  onChange={(e) => {
                     const selectedLanguage = e.target.value
                     actions.updateCurrentLanguage(e.target.value)
 
-                    let url = location.pathname.substr(1)
+                    let url = pathname.substr(1)
 
                     switch (url) {
                       case "jp/":
@@ -125,7 +125,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
                 aria-label="Select version"
                 onChange={(e: any) => {
-                  const url = location.pathname.substr(1)
+                  const url = pathname.substr(1)
                   actions.updateSetting({
                     version: parseInt(e.target.value),
                   })
@@ -261,11 +261,11 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <Link
             activeClassName="active"
             style={
-              location.pathname.includes("/api")
+              pathname.includes("/api")
                 ? {
                     borderBottom: "1px solid #bf1650",
                   }
-                : null
+                : {}
             }
             to={
               setting.version === 7
@@ -326,8 +326,8 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <span
             className="desktopOnly"
             style={
-              location.pathname.includes("dev-tools") ||
-              location.pathname.includes("form-builder")
+              pathname.includes("dev-tools") ||
+              pathname.includes("form-builder")
                 ? {
                     borderBottom: "1px solid #bf1650",
                   }

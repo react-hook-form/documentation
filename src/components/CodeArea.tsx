@@ -2,7 +2,7 @@ import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import generic from "../data/generic"
-import Prism from "prismjs"
+import { highlightAllUnder } from "prismjs"
 import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -12,7 +12,7 @@ export const CodeSandBoxLink = ({
   isExpo,
 }: {
   url: string
-  style?: any
+  style?: React.CSSProperties
   isExpo?: boolean
   isJS?: boolean
 }) => (
@@ -72,7 +72,6 @@ export default function CodeArea({
   isExpo?: boolean
   style?: any
 }) {
-  const [showContent, setShowContent] = React.useState(false)
   const {
     state: { language },
   } = useStateMachine()
@@ -102,19 +101,11 @@ export default function CodeArea({
   React.useEffect(() => {
     const highlight = async () => {
       if (codeAreaRef.current) {
-        Prism.highlightAllUnder(codeAreaRef.current)
+        highlightAllUnder(codeAreaRef.current)
       }
     }
     highlight()
   }, [])
-
-  React.useEffect(() => {
-    setShowContent(true)
-  }, [setShowContent])
-
-  if (!showContent) {
-    return null
-  }
 
   return (
     <section
@@ -171,7 +162,7 @@ export default function CodeArea({
           (tsUrl && currentType === ToggleTypes.types)) && (
           <CodeSandBoxLink
             isExpo={isExpo}
-            isJS={url && currentType === ToggleTypes.js && url && tsUrl}
+            isJS={!!(url && currentType === ToggleTypes.js && url && tsUrl)}
             url={currentType === ToggleTypes.js ? url : tsUrl}
           />
         )}

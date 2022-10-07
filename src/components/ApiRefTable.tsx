@@ -1,5 +1,4 @@
 import * as React from "react"
-import Prism from "prismjs"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
 import * as typographyStyles from "../styles/typography.module.css"
@@ -17,13 +16,6 @@ export default function ApiRefTable({
   currentLanguage: string
 }) {
   const [isStandard, toggleOption] = React.useState(true)
-  const highlightContainer = React.useRef<HTMLTableElement | null>(null)
-
-  React.useEffect(() => {
-    if (highlightContainer.current) {
-      Prism.highlightAllUnder(highlightContainer.current)
-    }
-  }, [isStandard])
 
   return (
     <>
