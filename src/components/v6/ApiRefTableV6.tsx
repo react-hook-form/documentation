@@ -17,7 +17,6 @@ export default function ApiRefTableV6({
   skipValueAs?: boolean
 }) {
   const [isStandard, toggleOption] = React.useState(true)
-  const highlightContainer = React.useRef<HTMLTableElement | null>(null)
 
   return (
     <>
@@ -87,7 +86,7 @@ export default function ApiRefTableV6({
       </fieldset>
 
       <div className={tableStyles.tableWrapper}>
-        <table className={tableStyles.table} ref={highlightContainer}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th

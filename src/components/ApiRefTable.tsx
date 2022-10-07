@@ -110,7 +110,7 @@ export default function ApiRefTable({
       </fieldset>
 
       <div className={tableStyles.tableWrapper}>
-        <table className={tableStyles.table} ref={highlightContainer}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th
