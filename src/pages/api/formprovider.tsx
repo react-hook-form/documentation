@@ -12,7 +12,7 @@ import { Link } from "gatsby"
 export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="FormProvider" location={location} />
+      <Seo title="FormProvider" />
       <div className={containerStyles.container}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
           FormProvider

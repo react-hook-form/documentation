@@ -6,7 +6,7 @@ import GetValues from "../../../components/useForm/GetValues"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - getValues" location={location} />
+      <Seo title="useForm - getValues" />
       <GetValues currentLanguage="en" />
     </Layout>
   )

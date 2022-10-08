@@ -14,7 +14,7 @@ const Api = ({
 }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title={advanced.title} location={location} />
+      <Seo title={advanced.title} />
       <AdvancedUsage defaultLang="en" advanced={advanced} />
     </Layout>
   )

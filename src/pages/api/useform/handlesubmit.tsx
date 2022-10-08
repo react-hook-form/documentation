@@ -6,7 +6,7 @@ import HandleSubmit from "../../../components/useForm/HandleSubmit"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - handleSubmit" location={location} />
+      <Seo title="useForm - handleSubmit" />
       <HandleSubmit currentLanguage="en" />
     </Layout>
   )

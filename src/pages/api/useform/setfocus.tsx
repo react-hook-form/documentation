@@ -6,7 +6,7 @@ import SetFocus from "../../../components/useForm/SetFocus"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - setFocus" location={location} />
+      <Seo title="useForm - setFocus" />
       <SetFocus currentLanguage="en" />
     </Layout>
   )

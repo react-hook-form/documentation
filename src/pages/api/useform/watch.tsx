@@ -6,7 +6,7 @@ import Watch from "../../../components/useForm/Watch"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - watch" location={location} />
+      <Seo title="useForm - watch" />
       <Watch currentLanguage="en" />
     </Layout>
   )

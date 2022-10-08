@@ -7,7 +7,7 @@ import ErrorMessage from "../../../components/ErrorMessage"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useFormState - ErrorMessage" location={location} />
+      <Seo title="useFormState - ErrorMessage" />
       <ErrorMessage currentLanguage="en" api={api} />
     </Layout>
   )

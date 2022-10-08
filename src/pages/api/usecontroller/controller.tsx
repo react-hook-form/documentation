@@ -6,7 +6,7 @@ import Controller from "../../../components/useController/Controller"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="Controller" location={location} />
+      <Seo title="Controller" />
       <Controller currentLanguage="en" />
     </Layout>
   )

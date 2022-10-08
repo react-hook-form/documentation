@@ -6,7 +6,7 @@ import { GetFieldState } from "../../../components/useForm/GetFieldState"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - FormState" location={location} />
+      <Seo title="useForm - FormState" />
       <GetFieldState />
     </Layout>
   )

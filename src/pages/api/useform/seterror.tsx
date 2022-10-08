@@ -6,7 +6,7 @@ import SetError from "../../../components/useForm/SetError"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - setError" location={location} />
+      <Seo title="useForm - setError" />
       <SetError currentLanguage="en" />
     </Layout>
   )

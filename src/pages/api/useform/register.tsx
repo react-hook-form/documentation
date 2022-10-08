@@ -6,7 +6,7 @@ import Register from "../../../components/useForm/Register"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - register" location={location} />
+      <Seo title="useForm - register" />
       <Register currentLanguage="en" />
     </Layout>
   )

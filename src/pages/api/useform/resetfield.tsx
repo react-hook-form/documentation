@@ -6,7 +6,7 @@ import ResetField from "../../../components/useForm/resetField"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - resetField" location={location} />
+      <Seo title="useForm - resetField" />
       <ResetField currentLanguage="en" />
     </Layout>
   )

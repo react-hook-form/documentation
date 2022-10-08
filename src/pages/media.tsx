@@ -18,7 +18,7 @@ import logoGreySvgBg from "../images/logo/react-hook-form-logo-grey.svg"
 export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="About us" location={location} />
+      <Seo title="About us" />
       <div className={containerStyle.container}>
         <main className={styles.root}>
           <h1 className={typographyStyles.headingWithTopMargin} id="main">

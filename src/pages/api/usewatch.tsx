@@ -6,7 +6,7 @@ import UseWatch from "../../components/UseWatch"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useWatch" location={location} />
+      <Seo title="useWatch" />
       <UseWatch currentLanguage="en" />
     </Layout>
   )

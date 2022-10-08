@@ -6,7 +6,7 @@ import UnRegister from "../../../components/useForm/UnRegister"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - unregister" location={location} />
+      <Seo title="useForm - unregister" />
       <UnRegister currentLanguage="en" />
     </Layout>
   )

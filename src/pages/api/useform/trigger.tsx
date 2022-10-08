@@ -6,7 +6,7 @@ import Trigger from "../../../components/useForm/Trigger"
 export default ({ location }: { location: any }) => {
   return (
     <Layout location={location} defaultLang="en">
-      <Seo title="useForm - trigger" location={location} />
+      <Seo title="useForm - trigger" />
       <Trigger currentLanguage="en" />
     </Layout>
   )
