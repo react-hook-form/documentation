@@ -3,7 +3,7 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import HandleSubmit from "../../../components/useForm/HandleSubmit"
 
-export default ({ location }: { location: any }) => {
+export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - handleSubmit" />

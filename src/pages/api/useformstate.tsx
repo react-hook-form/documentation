@@ -3,7 +3,7 @@ import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import UseFormState from "../../components/UseFormState"
 
-export default ({ location }: { location: any }) => {
+export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useFormState" />

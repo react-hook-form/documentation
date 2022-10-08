@@ -4,7 +4,7 @@ import Layout from "../../../components/layout"
 import api from "../../../data/en/api"
 import ErrorMessage from "../../../components/ErrorMessage"
 
-export default ({ location }: { location: any }) => {
+export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useFormState - ErrorMessage" />

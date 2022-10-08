@@ -127,7 +127,7 @@ const data = [
   },
 ]
 
-export default () => {
+export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="About us" />
