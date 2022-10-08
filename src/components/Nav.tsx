@@ -192,14 +192,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                   }
                 : {}
             }
-            to={
-              setting.version === 7
-                ? "/api"
-                : translateLink(
-                    `${setting.version ? `/v${setting.version}` : ""}/api`,
-                    currentLanguage
-                  )
-            }
+            to={"/api"}
           >
             <div className={styles.iconWrapper}>
               <div className="keyboard icon" />

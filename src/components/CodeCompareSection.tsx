@@ -17,13 +17,9 @@ const props = {
 function CodeCompareSection({
   isPlayCodeCompare,
   currentLanguage,
-  setting,
 }: {
   isPlayCodeCompare: boolean
   currentLanguage: string
-  setting: {
-    version: number
-  }
 }) {
   return (
     <AnimateGroup play={isPlayCodeCompare}>
@@ -46,28 +42,28 @@ function CodeCompareSection({
             marginTop: 40,
           }}
         >
-          <iframe
-            src={
-              setting.version === 7
-                ? "https://codesandbox.io/embed/react-hook-form-js-wbybv?fontsize=14&hidenavigation=1&theme=dark"
-                : "https://codesandbox.io/embed/react-hook-form-js-tpzo4?autoresize=1&fontsize=13&hidenavigation=1&theme=dark"
-            }
-            style={{
-              width: "100%",
-              height: 570,
-              border: 0,
-              borderRadius: 4,
-              overflow: "hidden",
-              transition: "0.3s all 0.5s",
-              opacity: isPlayCodeCompare ? 1 : 0,
-              transform: isPlayCodeCompare
-                ? "translateY(0)"
-                : "translateY(100px)",
-            }}
-            title="React Hook Form codesandbox demo"
-            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          />
+          {isPlayCodeCompare && (
+            <iframe
+              src={
+                "https://codesandbox.io/embed/react-hook-form-js-wbybv?fontsize=14&hidenavigation=1&theme=dark"
+              }
+              style={{
+                width: "100%",
+                height: 570,
+                border: 0,
+                borderRadius: 4,
+                overflow: "hidden",
+                transition: "0.3s all 0.5s",
+                opacity: isPlayCodeCompare ? 1 : 0,
+                transform: isPlayCodeCompare
+                  ? "translateY(0)"
+                  : "translateY(100px)",
+              }}
+              title="React Hook Form codesandbox demo"
+              allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+              sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            />
+          )}
 
           <Animate
             {...props}
