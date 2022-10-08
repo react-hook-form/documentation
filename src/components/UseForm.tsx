@@ -314,6 +314,19 @@ const { register } = useForm<FormInputs>({
             <h5
               className={typographyStyles.h5}
               style={{ marginTop: 20 }}
+              id="subscribe"
+            >
+              <code>
+                subscribe:{" "}
+                <span className={typographyStyles.typeText}>object</span>
+              </code>
+            </h5>
+
+            {api.useForm.subscribe}
+
+            <h5
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
               id="shouldUnregister"
             >
               <code>

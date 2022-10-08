@@ -15,6 +15,49 @@ export default {
   },
   useForm: {
     title: "useForm",
+    subscribe: (
+      <>
+        <p>
+          Form state update is based on subscription, and depend which state you
+          are subscribed will trigger relevant re-render and internal
+          computation. We have two ways to notify react hook form for
+          subscription.
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              <b>
+                <code>subscribe</code>
+              </b>
+              : By setting desired form state subscription to true, will enable
+              the subscription.
+            </p>
+            <CodeArea
+              rawData={`useForm({
+  subscribe: { 
+    errors: true; // ✅ errors form state will be subscribed
+    // dirtyFields: true;
+    // touchedFields: true;
+    // isValid: true;
+    // isDirty: true;
+    // isValidating: true;
+  }
+}})`}
+            />
+          </li>
+          <li>
+            <p>
+              <b>Proxy</b> : Based on deconstruct/read the form state, react
+              hook form will establish the{" "}
+            </p>
+            <CodeArea
+              rawData={`const { formState: { errors } } = useForm() // ✅ errors form state will be subscribed`}
+            />
+          </li>
+        </ul>
+      </>
+    ),
     intro: (
       <>
         By invoking <code>useForm</code>, you will receive the following methods{" "}
@@ -653,9 +696,9 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
 
 // isDirty: true
 setValue('test', 'change')
- 
+
 // isDirty: false because there getValues() === defaultValues
-setValue('test', '') 
+setValue('test', '')
 `}
             />
           </li>
@@ -1259,7 +1302,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             </p>
             <CodeArea
               rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
-// clearErrors() need to invoked manually to remove that custom error 
+// clearErrors() need to invoked manually to remove that custom error
 `}
             />
           </li>
@@ -1436,9 +1479,9 @@ clearErrors('test.firstName'); // for clear single input error
 
                           <CodeArea
                             rawData={`const { update } = useFieldArray({ name: 'array' });
-                            
+
 // unmount fields and remount with updated value
-update(0, { test: '1', test1: '2' }) 
+update(0, { test: '1', test1: '2' })
 
 // will directly update input value
 setValue('array.0.test1', '1');
@@ -1454,12 +1497,12 @@ setValue('array.0.test2', '2');
 
                           <CodeArea
                             rawData={`const { replace } = useFieldArray({ name: 'test' })
-                          
-// ❌ doesn't create new input  
-setValue('test.101.data') 
+
+// ❌ doesn't create new input
+setValue('test.101.data')
 
 // ✅ work on refresh entire field array
-replace([{data: 'test'}]) 
+replace([{data: 'test'}])
 `}
                           />
                         </li>
