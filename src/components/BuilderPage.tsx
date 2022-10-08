@@ -60,10 +60,9 @@ function BuilderPage({
   defaultLang: string
 }) {
   const {
-    state: { formData = [], language, setting = {} },
+    state: { formData = [], language },
     actions: { updateFormData },
   } = useStateMachine({ updateFormData: updateStore })
-  const isV7 = setting.version === 7
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -408,7 +407,7 @@ function BuilderPage({
               <button
                 className={`${styles.button} ${styles.copyButton}`}
                 onClick={() => {
-                  copyClipBoard(generateCode(formData, isV7))
+                  copyClipBoard(generateCode(formData))
                   alert(generic.copied[currentLanguage])
                 }}
                 aria-label={generic.copied[currentLanguage]}
@@ -416,7 +415,7 @@ function BuilderPage({
                 {generic.copy[currentLanguage]}
               </button>
             </div>
-            <CodeArea rawData={generateCode(formData, isV7)} />
+            <CodeArea rawData={generateCode(formData)} />
           </section>
         </section>
       </div>

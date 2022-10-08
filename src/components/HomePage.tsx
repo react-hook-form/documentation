@@ -136,7 +136,6 @@ function HomePage({
       <CodeCompareSection
         isPlayCodeCompare={isPlayCodeCompare}
         currentLanguage={currentLanguage}
-        setting={setting}
       />
 
       <IsolateRender

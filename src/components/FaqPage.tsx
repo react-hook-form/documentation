@@ -27,9 +27,8 @@ interface Props {
 
 const Faq = ({ defaultLang, faq }: Props) => {
   const {
-    state: { language, setting },
+    state: { language },
   } = useStateMachine()
-  const isV7 = setting?.version === 7
   const { currentLanguage } =
     language && language.currentLanguage
       ? language
@@ -103,7 +102,7 @@ const Faq = ({ defaultLang, faq }: Props) => {
         <SideMenu
           enLinks={enLinks}
           isStatic
-          links={isV7 ? links.slice(0, links.length - 5) : links}
+          links={links.slice(0, links.length - 5)}
           goToSection={goToSection}
           currentLanguage={currentLanguage}
         />
@@ -268,95 +267,17 @@ import { yupResolver } from '@hookform/resolvers/dist/ie11/yup';`}
             />
           </TabGroup>
 
-          {isV7 ? (
-            <>
-              <hr />
+          <hr />
 
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question12 = ref)}
-                id="question12"
-              >
-                {faq.questions[12].title}
-              </h2>
+          <h2
+            className={typographyStyles.questionTitle}
+            ref={(ref) => (sectionsRef.current.question12 = ref)}
+            id="question12"
+          >
+            {faq.questions[12].title}
+          </h2>
 
-              {faq.questions[12].description}
-            </>
-          ) : (
-            <>
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question12 = ref)}
-                id="question12"
-              >
-                {faq.questions[12].title}
-              </h2>
-
-              {faq.questions[12].description}
-
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question13 = ref)}
-                id="question13"
-              >
-                {faq.questions[13].title}
-              </h2>
-
-              {faq.questions[13].description}
-
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question14 = ref)}
-                id="question14"
-              >
-                {faq.questions[14].title}
-              </h2>
-
-              {faq.questions[14].description}
-
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question15 = ref)}
-                id="question15"
-              >
-                {faq.questions[15].title}
-              </h2>
-
-              {faq.questions[15].description}
-
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question16 = ref)}
-                id="question16"
-              >
-                {faq.questions[16].title}
-              </h2>
-
-              {faq.questions[16].description}
-
-              <hr />
-
-              <h2
-                className={typographyStyles.questionTitle}
-                ref={(ref) => (sectionsRef.current.question17 = ref)}
-                id="question17"
-              >
-                {faq.questions[17].title}
-              </h2>
-
-              {faq.questions[17].description}
-            </>
-          )}
+          {faq.questions[12].description}
 
           <StarRepo currentLanguage={currentLanguage} />
 

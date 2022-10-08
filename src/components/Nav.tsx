@@ -1,29 +1,23 @@
 import * as React from "react"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import translateLink from "./logic/translateLink"
-import { updateCurrentLanguage } from "../actions/languageActions"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
 import * as styles from "./Nav.module.css"
 import colors from "../styles/colors"
-import { updateSetting } from "../actions/settingActions"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 import { useLocation } from "@reach/router"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
-    actions,
     state,
     state: { language, setting },
-  } = useStateMachine({
-    updateCurrentLanguage,
-    updateSetting,
-  })
+  } = useStateMachine()
   const [showLang, setLang] = React.useState(null)
   const [show, setShow] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
@@ -62,83 +56,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         {showLang && (
           <>
             <Toggle />
-            {setting.version !== 7 && (
-              <div
-                className={`${styles.langSelect} ${
-                  lightMode ? styles.lightLangSelect : ""
-                }`}
-              >
-                {/* eslint-disable-next-line jsx-a11y/no-onchange*/}
-                <select
-                  aria-label="Select a language"
-                  onChange={(e) => {
-                    const selectedLanguage = e.target.value
-                    actions.updateCurrentLanguage(e.target.value)
-
-                    let url = pathname.substr(1)
-
-                    switch (url) {
-                      case "jp/":
-                        url = "jp"
-                        break
-                      case "zh/":
-                        url = "zh"
-                        break
-                      case "kr/":
-                        url = "kr"
-                        break
-                      case "pt/":
-                        url = "pt"
-                        break
-                      case "ru/":
-                        url = "ru"
-                      case "es/":
-                        url = "es"
-                        break
-                    }
-
-                    navigate(getNavLink(url, selectedLanguage))
-                  }}
-                  value={currentLanguage}
-                >
-                  {/* eslint-disable jsx-a11y/accessible-emoji */}
-                  <option value="en">🇦🇺 English</option>
-                  <option value="zh">🇨🇳 简体中文</option>
-                  <option value="jp">🇯🇵 日本語</option>
-                  <option value="kr">🇰🇷 한국어</option>
-                  <option value="pt">🇧🇷 Português</option>
-                  <option value="es">🇪🇸 Español</option>
-                  <option value="ru">🇷🇺 Русский</option>
-                  {/* eslint-enable jsx-a11y/accessible-emoji */}
-                </select>
-              </div>
-            )}
-            <div
-              className={`${styles.langSelect} ${
-                lightMode ? styles.lightLangSelect : ""
-              }`}
-              style={{ marginLeft: 10 }}
+            <a
+              className={styles.legacyLink}
+              target="_blank"
+              href="https://legacy.react-hook-form.com/"
+              rel="noreferrer"
             >
-              <select
-                style={{
-                  width: 72,
-                }}
-                aria-label="Select version"
-                onChange={(e: any) => {
-                  const url = pathname.substr(1)
-                  actions.updateSetting({
-                    version: parseInt(e.target.value),
-                  })
-
-                  url.includes("api") && navigate("/api/")
-                }}
-                value={setting.version}
-              >
-                <option value="7">Version 7</option>
-                <option value="6">Version 6</option>
-                <option value="5">Version 5</option>
-              </select>
-            </div>
+              V5/V6
+            </a>
           </>
         )}
       </div>
@@ -267,14 +192,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                   }
                 : {}
             }
-            to={
-              setting.version === 7
-                ? "/api"
-                : translateLink(
-                    `${setting.version ? `/v${setting.version}` : ""}/api`,
-                    currentLanguage
-                  )
-            }
+            to={"/api"}
           >
             <div className={styles.iconWrapper}>
               <div className="keyboard icon" />

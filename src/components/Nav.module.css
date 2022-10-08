@@ -108,12 +108,14 @@
   position: relative;
 }
 
-.langSelect > select:hover {
-  border: 1px solid var(--color-secondary);
-}
-
-.langSelect > select > option {
-  color: black;
+a.legacyLink {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  border: 1px solid #234081;
+  border-radius: 4px;
+  padding: 0 0.5rem;
 }
 
 .lightLangSelect:after {
@@ -136,14 +138,6 @@
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 10px;
-  }
-
-  .langSelect > select {
-    font-size: 14px;
-  }
-
-  .langSelect:after {
-    right: 8px;
   }
 
   .actionButtonGroup a:nth-child(6),

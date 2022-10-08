@@ -1,8 +1,6 @@
 import CodeArea from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import codeTs from "./codeExamples/defaultExampleTs"
-import codeV6 from "./codeExamples/v6/defaultExample"
-import codeTsV6 from "./codeExamples/v6/defaultExampleTs"
 import * as React from "react"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
@@ -13,12 +11,10 @@ export default function GetStarted({
   quickStartRef,
   currentLanguage,
   getStarted,
-  isV7,
 }: {
   quickStartRef: any
   currentLanguage: string
   getStarted: any
-  isV7: boolean
 }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
@@ -57,18 +53,10 @@ export default function GetStarted({
       </h2>
       <p>{getStarted.example.description}</p>
       <CodeArea
-        rawData={isV7 ? code : codeV6}
-        tsRawData={isV7 ? codeTs : codeTsV6}
-        url={
-          isV7
-            ? "https://codesandbox.io/s/react-hook-form-get-started-j5wxo"
-            : "https://codesandbox.io/s/kw7z2q2n15"
-        }
-        tsUrl={
-          isV7
-            ? "https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
-            : "https://codesandbox.io/s/react-hook-form-get-started-ts-resrg"
-        }
+        rawData={code}
+        tsRawData={codeTs}
+        url="https://codesandbox.io/s/react-hook-form-get-started-j5wxo"
+        tsUrl="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
       />
     </>
   )
