@@ -1,7 +1,5 @@
 import * as React from "react"
 import Helmet from "react-helmet"
-import { getCurrentLangKey, getLangs, getUrlForLang } from "ptz-i18n"
-import { useStateMachine } from "little-state-machine"
 
 function SEO({ title, description }: { title: string; description?: string }) {
   const site = {
