@@ -17,31 +17,23 @@ import {
   uiLibraryHookInput,
   uiLibraryHookInputTs,
 } from "./codeExamples/getStarted"
-import * as v6Example from "./codeExamples/v6/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
 import getStartedEn from "../data/en/getStarted"
 import reactNativeController from "./codeExamples/reactNativeController"
-import reactNativeControllerV6 from "./codeExamples/v6/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
-import typeScriptV6 from "./codeExamples/v6/typeScript"
 import schemaValidation from "./codeExamples/schemaValidation"
-import schemaValidationV6 from "./codeExamples/v6/schemaValidation"
 import schemaValidationTs from "./codeExamples/schemaValidationTs"
-import schemaValidationTsV6 from "./codeExamples/v6/schemaValidationTs"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
 import * as getStartedStyles from "./GetStarted.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
-import VideoList from "./VideoList"
 import getStarted from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
 import useController from "./codeExamples/useController"
-import useControllerV6 from "./codeExamples/v6/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
-import useControllerTsV6 from "./codeExamples/v6/useControllerTs"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -79,7 +71,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
       ? language
       : { currentLanguage: defaultLang }
   const lightMode = setting?.lightMode
-  const isV7 = setting?.version === 7
 
   const links = [
     getStarted.install,
@@ -157,7 +148,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
         <main>
           <GetStarted
-            isV7={isV7}
             getStarted={getStarted}
             quickStartRef={(ref) => {
               sectionsRef.current[
@@ -191,37 +181,11 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             width="100%"
             height="500"
             title="react hook form video tutorial"
-            src={
-              isV7
-                ? "https://www.youtube.com/embed/RkXv4AXXC_4"
-                : "https://www.youtube.com/embed/-mFXqOaqgZk"
-            }
+            src="https://www.youtube.com/embed/RkXv4AXXC_4"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-
-          {!isV7 && (
-            <VideoList
-              lists={[
-                {
-                  url: "https://www.youtube.com/watch?v=bU_eq8qyjic",
-                  title:
-                    "The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=mrTPrbSoAx0",
-                  title:
-                    "Creating a User Registration form with react-hook-form (comprehensive tutorial include Testing)",
-                },
-                {
-                  url: "https://www.youtube.com/watch?v=PcrrJ0BOFGw",
-                  title: "React Hook Form Tutorial | Why It's Useful",
-                },
-              ]}
-              play
-            />
-          )}
 
           <h2
             className={typographyStyles.title}
@@ -238,18 +202,10 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.register.description}
 
           <CodeArea
-            rawData={isV7 ? registerCode : v6Example.registerCode}
-            tsRawData={isV7 ? registerCodeTs : v6Example.registerCodeTs}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-get-started-smspp"
-                : "https://codesandbox.io/s/react-hook-form-register-field-u9zjt"
-            }
-            tsUrl={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-get-started-ts-4sfje"
-                : "https://codesandbox.io/s/react-hook-form-register-field-ts-ownvk"
-            }
+            rawData={registerCode}
+            tsRawData={registerCodeTs}
+            url="https://codesandbox.io/s/react-hook-form-get-started-smspp"
+            tsUrl="https://codesandbox.io/s/react-hook-form-get-started-ts-4sfje"
           />
 
           <h2
@@ -267,18 +223,10 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.applyValidation.description(currentLanguage)}
 
           <CodeArea
-            rawData={isV7 ? applyValidation : v6Example.applyValidation}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-apply-validation-q5m00"
-                : "https://codesandbox.io/s/react-hook-form-apply-validation-px4jp"
-            }
-            tsRawData={isV7 ? applyValidationTs : v6Example.applyValidationTs}
-            tsUrl={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
-                : "https://codesandbox.io/s/react-hook-form-apply-validation-ts-sbstd"
-            }
+            rawData={applyValidation}
+            url="https://codesandbox.io/s/react-hook-form-apply-validation-q5m00"
+            tsRawData={applyValidationTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
           />
 
           <h2
@@ -296,9 +244,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.adapting.description}
 
           <CodeArea
-            rawData={isV7 ? migrateCode : v6Example.migrateCode}
+            rawData={migrateCode}
             url="https://codesandbox.io/s/react-hook-form-adapting-existing-form-llbnn"
-            tsRawData={isV7 ? migrateCodeTs : v6Example.migrateCodeTs}
+            tsRawData={migrateCodeTs}
             tsUrl="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-uzfxm"
           />
 
@@ -317,20 +265,10 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.workWithUI.description}
 
           <CodeArea
-            rawData={isV7 ? uiLibraryHookInput : v6Example.uiLibraryHookInput}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-with-ui-library-forked-fp5r3"
-                : "https://codesandbox.io/s/react-hook-form-with-ui-library-lg33x"
-            }
-            tsRawData={
-              isV7 ? uiLibraryHookInputTs : v6Example.uiLibraryHookInputTs
-            }
-            tsUrl={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
-                : "https://codesandbox.io/s/react-hook-form-with-ui-library-ts-dkjbf"
-            }
+            rawData={uiLibraryHookInput}
+            url="https://codesandbox.io/s/react-hook-form-with-ui-library-forked-fp5r3"
+            tsRawData={uiLibraryHookInputTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
           />
 
           <h2
@@ -349,36 +287,16 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           <TabGroup buttonLabels={["Component", "hook"]}>
             <CodeArea
-              rawData={
-                isV7 ? controlledComponent : v6Example.controlledComponent
-              }
-              url={
-                isV7
-                  ? "https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
-                  : "https://codesandbox.io/s/react-hook-form-controller-079xx"
-              }
-              tsRawData={
-                isV7 ? controlledComponentTs : v6Example.controlledComponentTs
-              }
-              tsUrl={
-                isV7
-                  ? "https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
-                  : "https://codesandbox.io/s/react-hook-form-v6-controller-ts-4dpm9"
-              }
+              rawData={controlledComponent}
+              url="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+              tsRawData={controlledComponentTs}
+              tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
             />
             <CodeArea
-              rawData={isV7 ? useController : useControllerV6}
-              tsRawData={isV7 ? useControllerTs : useControllerTsV6}
-              tsUrl={
-                isV7
-                  ? "https://codesandbox.io/s/usecontroller-forked-4t8cx"
-                  : "https://codesandbox.io/s/usecontroller-0o8px"
-              }
-              url={
-                isV7
-                  ? "https://codesandbox.io/s/usecontroller-tefsc"
-                  : "https://codesandbox.io/s/fancy-darkness-i0ywh"
-              }
+              rawData={useController}
+              tsRawData={useControllerTs}
+              tsUrl="https://codesandbox.io/s/usecontroller-forked-4t8cx"
+              url="https://codesandbox.io/s/usecontroller-tefsc"
             />
           </TabGroup>
 
@@ -396,7 +314,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.globalState.description}
 
-          <CodeArea rawData={isV7 ? globalState : v6Example.globalState} />
+          <CodeArea rawData={globalState} />
 
           <h2
             className={typographyStyles.title}
@@ -413,18 +331,10 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.errors.description}
 
           <CodeArea
-            rawData={isV7 ? errors : v6Example.errors}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-3ur2z"
-                : "https://codesandbox.io/s/react-hook-form-v6-errormessage-multiple-error-messages-tn2bh"
-            }
-            tsRawData={isV7 ? errorsTs : v6Example.errorsTs}
-            tsUrl={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-multiple-error-messages-onj9p"
-                : "https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-jk43e"
-            }
+            rawData={errors}
+            url="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-3ur2z"
+            tsRawData={errorsTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-multiple-error-messages-onj9p"
           />
 
           <h2
@@ -463,18 +373,10 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.schema.step2}
 
           <CodeArea
-            rawData={isV7 ? schemaValidation : schemaValidationV6}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-v7-validationschema-rm35t"
-                : "https://codesandbox.io/s/react-hook-form-v6-validationschema-b3dib"
-            }
-            tsRawData={isV7 ? schemaValidationTs : schemaValidationTsV6}
-            tsUrl={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-validationschema-v7-ts-eb41q"
-                : "https://codesandbox.io/s/react-hook-form-validationschema-v6-ts-fpebh"
-            }
+            rawData={schemaValidation}
+            url="https://codesandbox.io/s/react-hook-form-v7-validationschema-rm35t"
+            tsRawData={schemaValidationTs}
+            tsUrl="https://codesandbox.io/s/react-hook-form-validationschema-v7-ts-eb41q"
           />
 
           <h2
@@ -489,28 +391,12 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             React Native
           </h2>
 
-          {!isV7 && (
-            <iframe
-              width="100%"
-              height="528"
-              title="react hook form - React Native video tutorial"
-              src="https://www.youtube.com/embed/FNnSqP2rWis"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          )}
-
           {getStarted.reactNative.description}
 
           <CodeArea
             isExpo
-            rawData={isV7 ? reactNativeController : reactNativeControllerV6}
-            url={
-              isV7
-                ? "https://snack.expo.io/@bluebill1049/react-hook-form-v7---controller"
-                : "https://snack.expo.io/@bluebill1049/react-hook-form-v6"
-            }
+            rawData={reactNativeController}
+            url="https://snack.expo.io/@bluebill1049/react-hook-form-v7---controller"
           />
 
           <h2
@@ -528,12 +414,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           {getStarted.typeScript.description}
 
           <CodeArea
-            rawData={isV7 ? typeScript : typeScriptV6}
-            url={
-              isV7
-                ? "https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
-                : "https://codesandbox.io/s/react-hook-form-typescript-mmdrc"
-            }
+            rawData={typeScript}
+            url="https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
           />
 
           <h2

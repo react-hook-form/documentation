@@ -18,11 +18,11 @@ export default function SortableContainer({
   reset,
   currentLanguage,
 }: {
-  updateFormData: () => void
+  updateFormData: (data: object) => void
   formData: any
   editIndex: number
-  setEditIndex: () => void
-  setFormData: () => void
+  setEditIndex: (payload: number) => void
+  setFormData: (payload: object) => void
   reset: () => void
   currentLanguage: string
 }) {

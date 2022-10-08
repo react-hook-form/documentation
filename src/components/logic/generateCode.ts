@@ -1,4 +1,4 @@
-export default (formData: any, isV7: boolean) => {
+export default (formData: any) => {
   return `import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -42,16 +42,11 @@ ${
 
             return Boolean(value)
           })
-          const ref = isV7
-            ? `{...register${
-                required ? `("${name}", { required: true })` : `("${name}")`
-              }}`
-            : ` ref={register${required ? "({ required: true })" : ""}}`
-
+          const ref = `{...register${
+            required ? `("${name}", { required: true })` : `("${name}")`
+          }}`
           if (type === "select") {
-            const select = `      <select ${
-              isV7 ? "" : `name="${name}"`
-            }${ref}>\n${options
+            const select = `      <select ${ref}>\n${options
               .split(";")
               .filter(Boolean)
               .reduce((temp, option) => {
@@ -71,9 +66,7 @@ ${
               .reduce((temp, option) => {
                 return (
                   temp +
-                  `      <input ${
-                    isV7 ? "" : `name="${name}"`
-                  }${ref} type="${type}" value="${option}" />\n`
+                  `      <input ${ref} type="${type}" value="${option}" />\n`
                 )
               }, "")}`
 
@@ -83,7 +76,7 @@ ${
           let attributes = ""
 
           if (anyAttribute) {
-            attributes += isV7 ? `("${name}", {` : "({"
+            attributes += `("${name}", {`
 
             if (required) {
               attributes += "required: true"
@@ -113,9 +106,7 @@ ${
             attributes += "})"
           }
 
-          const register = isV7
-            ? `{...register${attributes}}`
-            : `name="${name}" ref={register${attributes}`
+          const register = `{...register${attributes}}`
 
           if (type === "textarea") {
             const select = `      <textarea ${register} />\n`

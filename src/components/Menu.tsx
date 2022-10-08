@@ -5,7 +5,6 @@ import { useLocation } from "@reach/router"
 import colors from "../styles/colors"
 import * as styles from "./SideMenu.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
-import { updateCurrentLanguage } from "../actions/languageActions"
 
 export const pages = [
   {
@@ -70,7 +69,7 @@ export const pages = [
 ]
 
 function Menu() {
-  const { state } = useStateMachine({ updateCurrentLanguage })
+  const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
 

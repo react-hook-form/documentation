@@ -12,10 +12,11 @@ const ResourcesEn = ({
   }
 }) => {
   return (
-    <Layout location={location} defaultLang="zh">
-      <Seo title="资源" location={location} />
-      <ResourcePage defaultLang="zh" />
+    <Layout location={location} defaultLang="en">
+      <Seo title="Resources" />
+      <ResourcePage defaultLang="en" />
     </Layout>
   )
 }
+
 export default ResourcesEn
