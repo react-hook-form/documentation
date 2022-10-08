@@ -109,10 +109,13 @@
 }
 
 a.legacyLink {
-  color: currentColor;
   text-decoration: none;
   font-size: 0.8rem;
   font-weight: 500;
+  color: white;
+  border: 1px solid #234081;
+  border-radius: 4px;
+  padding: 0 0.5rem;
 }
 
 .lightLangSelect:after {
