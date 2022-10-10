@@ -18,11 +18,11 @@ exports.onCreateWebpackConfig = ({ stage, getConfig, actions }) => {
 }
 
 exports.createPages = async ({ actions }) => {
-  const { createRedirect } = actions;
+  const { createRedirect } = actions
 
   createRedirect({
     fromPath: `/migrate-v6-to-v7`,
     toPath: `https://legacy.react-hook-form.com/migrate-v6-to-v7`,
-    statusCode: 200,
+    isPermanent: true,
   })
 }
