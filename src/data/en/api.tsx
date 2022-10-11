@@ -1992,7 +1992,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                       is only applicable to <strong>built-in</strong> validation
                       only
                     </p>
-                    <Link to="api/useform/#validationResolver">Resolvers</Link>{" "}
+                    <Link to="/api/useform/#validationResolver">Resolvers</Link>{" "}
                     are yet to support <code>useFieldArray</code> root level
                     validation.
                   </p>
