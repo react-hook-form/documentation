@@ -23,6 +23,7 @@ exports.createPages = async ({ actions }) => {
   createRedirect({
     fromPath: `/migrate-v6-to-v7`,
     toPath: `https://legacy.react-hook-form.com/migrate-v6-to-v7`,
+    redirectInBrowser: true,
     isPermanent: true,
   })
 }
