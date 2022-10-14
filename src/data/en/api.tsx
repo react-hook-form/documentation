@@ -1739,7 +1739,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </tr>
               <tr>
                 <td>
-                  <code>getValues("yourDetails")</code>
+                  <code>getValues("root")</code>
                 </td>
                 <td>
                   <code>{`{ test1: '', test2: ''}`}</code>
@@ -1747,10 +1747,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </tr>
               <tr>
                 <td>
-                  <code>getValues("yourDetails.firstName")</code>
+                  <code>getValues("root.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ test1: '' }`}</code>
+                  <code>{`''`}</code>
                 </td>
               </tr>
               <tr>

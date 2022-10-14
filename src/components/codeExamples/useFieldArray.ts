@@ -5,7 +5,7 @@ function App() {
   const { register, control, handleSubmit, reset, trigger, setError } = useForm({
     // defaultValues: {}; you can populate the fields by this attribute 
   });
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: "test"
   });
