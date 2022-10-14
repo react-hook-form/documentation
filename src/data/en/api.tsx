@@ -182,8 +182,7 @@ export default {
             <p>
               It's recommend to avoid including custom object which contains
               prototype methods as the <code>defaultValues</code>, such as{" "}
-              <code>moment</code>, <code>luxon</code> and etc. Those type of an
-              object will not be cloned internally.
+              <code>moment</code>, <code>luxon</code> and etc.
             </p>
           </li>
           <li>
