@@ -21,7 +21,12 @@ const forceUpdate = (state, payload) => {
 export const wrapPageElement = ({ element }) => {
   const { actions, state } = useStateMachine({ forceUpdate })
   React.useEffect(() => {
+    if (!lightMode) {
+      return
+    }
+
     const lightMode = !state?.setting?.lightMode
+
     // NOTE: Global state on SSR and CSR cannot be synced when using
     // storage type window.localStorage of little-state-machine.
     // If light mode is applied on browser, SSR still renders dark mode when opening new tab,
