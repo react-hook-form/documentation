@@ -25,7 +25,7 @@ export default function Toggle({ style }: { style?: React.CSSProperties }) {
         id="toggle"
         type="checkbox"
         onChange={onChange}
-        defaultChecked={lightMode}
+        checked={lightMode}
       />
       <span className={`${styles.slider} ${styles.round}`} />
     </label>
