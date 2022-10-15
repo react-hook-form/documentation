@@ -21,7 +21,7 @@ const forceUpdate = (state, payload) => {
 export const wrapPageElement = ({ element }) => {
   const { actions, state } = useStateMachine({ forceUpdate })
   React.useEffect(() => {
-    if (!lightMode) {
+    if (!state?.setting?.lightMode) {
       return
     }
 
