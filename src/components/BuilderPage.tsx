@@ -83,7 +83,7 @@ function BuilderPage({
   const onSubmit = (data) => {
     if (editIndex >= 0) {
       formData[editIndex] = data
-      updateFormData([...formData])
+      updateFormData([...formData.filter((formInput) => formInput)])
       setFormData(defaultValue)
       setEditIndex(-1)
     } else {
