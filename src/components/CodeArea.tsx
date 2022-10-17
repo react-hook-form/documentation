@@ -75,6 +75,7 @@ export default function CodeArea({
   const {
     state: { language },
   } = useStateMachine()
+  const [copiedCode, setCopiedCode] = React.useState<boolean>(false)
   const [currentType, setType] = React.useState<
     typeof ToggleTypes[keyof typeof ToggleTypes]
   >(
@@ -106,6 +107,14 @@ export default function CodeArea({
     }
     highlight()
   }, [])
+
+  React.useEffect(() => {
+    if (copiedCode) {
+      setTimeout(() => {
+        setCopiedCode(false)
+      }, 3000)
+    }
+  }, [copiedCode])
 
   return (
     <section
@@ -146,14 +155,18 @@ export default function CodeArea({
         )}
         {!withOutCopy && (
           <button
-            className={`${styles.button} ${styles.copyButton}`}
+            className={`${styles.button} ${styles.copyButton} ${
+              copiedCode ? styles.copiedCodeButton : null
+            }`}
             onClick={() => {
               copyClipBoard(getData())
-              alert(generic.copied[currentLanguage])
+              setCopiedCode(true)
             }}
             aria-label={generic.copied[currentLanguage]}
           >
-            {generic.copy[currentLanguage]}
+            {copiedCode
+              ? generic.codeCopied[currentLanguage]
+              : generic.copy[currentLanguage]}
           </button>
         )}
 

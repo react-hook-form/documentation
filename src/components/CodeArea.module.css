@@ -45,6 +45,7 @@
 }
 
 .active,
+.copiedCodeButton,
 .copyButton:hover {
   background: none;
   border: 1px solid var(--color-secondary);
