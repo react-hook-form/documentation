@@ -1,8 +1,8 @@
 import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
-import generic from "../data/generic"
 import { highlightAllUnder } from "prismjs"
+import ClipBoard from "./ClipBoard"
 import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -75,7 +75,6 @@ export default function CodeArea({
   const {
     state: { language },
   } = useStateMachine()
-  const [copiedCode, setCopiedCode] = React.useState<boolean>(false)
   const [currentType, setType] = React.useState<
     typeof ToggleTypes[keyof typeof ToggleTypes]
   >(
@@ -107,14 +106,6 @@ export default function CodeArea({
     }
     highlight()
   }, [])
-
-  React.useEffect(() => {
-    if (copiedCode) {
-      setTimeout(() => {
-        setCopiedCode(false)
-      }, 3000)
-    }
-  }, [copiedCode])
 
   return (
     <section
@@ -154,20 +145,11 @@ export default function CodeArea({
           </button>
         )}
         {!withOutCopy && (
-          <button
-            className={`${styles.button} ${styles.copyButton} ${
-              copiedCode ? styles.copiedCodeButton : null
-            }`}
-            onClick={() => {
-              copyClipBoard(getData())
-              setCopiedCode(true)
-            }}
-            aria-label={generic.copied[currentLanguage]}
-          >
-            {copiedCode
-              ? generic.codeCopied[currentLanguage]
-              : generic.copy[currentLanguage]}
-          </button>
+          <ClipBoard
+            className={`${styles.button} ${styles.copyButton}`}
+            onClick={() => copyClipBoard(getData())}
+            currentLanguage={currentLanguage}
+          />
         )}
 
         {((url && currentType === ToggleTypes.js) ||

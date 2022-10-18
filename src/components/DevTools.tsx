@@ -16,6 +16,7 @@ import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as getStartedStyle from "./GetStarted.module.css"
 import * as styles from "./DevTools.module.css"
+import ClipBoard from "./ClipBoard"
 
 interface Props {
   defaultLang: string
@@ -87,18 +88,11 @@ export default ({ defaultLang, content }: Props) => {
             }`}
           >
             npm install -D @hookform/devtools
-            <button
+            <ClipBoard
               className={getStartedStyle.copyButton}
-              onClick={() => {
-                copyClipBoard("npm install -D @hookform/devtools")
-                alert(generic.copied["en"])
-              }}
-            >
-              <span>
-                <span />
-              </span>{" "}
-              {generic.copy["en"]}
-            </button>
+              currentLanguage="en"
+              onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
+            />
           </span>
 
           <p>{content.step2}</p>

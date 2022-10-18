@@ -6,6 +6,7 @@ import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
 import * as styles from "./GetStarted.module.css"
+import ClipBoard from "./ClipBoard"
 
 export default function GetStarted({
   quickStartRef,
@@ -30,18 +31,11 @@ export default function GetStarted({
         }`}
       >
         npm install react-hook-form
-        <button
+        <ClipBoard
           className={styles.copyButton}
-          onClick={() => {
-            copyClipBoard("npm install react-hook-form")
-            alert(generic.copied[currentLanguage])
-          }}
-        >
-          <span>
-            <span />
-          </span>{" "}
-          {generic.copy[currentLanguage]}
-        </button>
+          currentLanguage={currentLanguage}
+          onClick={() => copyClipBoard("npm install react-hook-form")}
+        />
       </span>
 
       <h2

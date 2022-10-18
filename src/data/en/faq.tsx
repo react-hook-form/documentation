@@ -10,6 +10,7 @@ import * as tableStyles from "../../styles/table.module.css"
 import * as buttonStyles from "../../styles/button.module.css"
 import * as getStartedStyles from "../../components/GetStarted.module.css"
 import * as codeAreaStyles from "../../components/CodeArea.module.css"
+import ClipBoard from "../../components/ClipBoard"
 
 export default {
   title: "FAQs",
@@ -708,18 +709,11 @@ export default {
           </p>
           <span>
             npm i mutationobserver-shim
-            <button
+            <ClipBoard
               className={getStartedStyles.copyButton}
-              onClick={() => {
-                copyClipBoard("npm i mutationobserver-shim")
-                alert("Code copied into your clipboard.")
-              }}
-            >
-              <span>
-                <span />
-              </span>{" "}
-              Copy
-            </button>
+              onClick={() => copyClipBoard("npm i mutationobserver-shim")}
+              currentLanguage="en"
+            />
           </span>
         </div>
       ),
