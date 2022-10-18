@@ -11,13 +11,16 @@ const ClipBoard = ({
   currentLanguage: string
 }) => {
   const [copiedCode, setCopiedCode] = useState<boolean>(false)
+  const timer = React.useRef(null)
 
   React.useEffect(() => {
     if (copiedCode) {
-      setTimeout(() => {
+      timer.current = setTimeout(() => {
         setCopiedCode(false)
       }, 3000)
     }
+
+    return () => clearTimeout(timer.current)
   }, [copiedCode])
 
   return (
