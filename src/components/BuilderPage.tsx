@@ -19,6 +19,7 @@ import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./BuilderPage.module.css"
 import CodeArea from "./CodeArea"
+import ClipBoard from "./ClipBoard"
 
 const { useState, useRef, useEffect } = React
 
@@ -404,18 +405,14 @@ function BuilderPage({
             }}
           >
             <div className={styles.buttonWrapper}>
-              <button
+              <ClipBoard
+                onClick={() => copyClipBoard(generateCode(formData))}
                 className={`${styles.button} ${styles.copyButton}`}
-                onClick={() => {
-                  copyClipBoard(generateCode(formData))
-                  alert(generic.copied[currentLanguage])
-                }}
-                aria-label={generic.copied[currentLanguage]}
-              >
-                {generic.copy[currentLanguage]}
-              </button>
+                currentLanguage={currentLanguage}
+              />
             </div>
-            <CodeArea rawData={generateCode(formData)} />
+
+            <CodeArea rawData={generateCode(formData)} withOutCopy />
           </section>
         </section>
       </div>

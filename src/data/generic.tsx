@@ -5,6 +5,9 @@ export default {
   copy: {
     en: "Copy",
   },
+  codeCopied: {
+    en: "Copied",
+  },
   required: {
     en: "Required",
   },

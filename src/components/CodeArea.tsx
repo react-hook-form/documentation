@@ -1,8 +1,8 @@
 import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
-import generic from "../data/generic"
 import { highlightAllUnder } from "prismjs"
+import ClipBoard from "./ClipBoard"
 import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -145,16 +145,11 @@ export default function CodeArea({
           </button>
         )}
         {!withOutCopy && (
-          <button
+          <ClipBoard
             className={`${styles.button} ${styles.copyButton}`}
-            onClick={() => {
-              copyClipBoard(getData())
-              alert(generic.copied[currentLanguage])
-            }}
-            aria-label={generic.copied[currentLanguage]}
-          >
-            {generic.copy[currentLanguage]}
-          </button>
+            onClick={() => copyClipBoard(getData())}
+            currentLanguage={currentLanguage}
+          />
         )}
 
         {((url && currentType === ToggleTypes.js) ||

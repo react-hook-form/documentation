@@ -34,6 +34,7 @@ import getStarted from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
+import ClipBoard from "./ClipBoard"
 
 const { useRef, useEffect } = React
 const enLinks = [
@@ -359,15 +360,13 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             }`}
           >
             npm install @hookform/resolvers yup
-            <button
+            <ClipBoard
               className={getStartedStyles.copyButton}
-              onClick={() => {
+              onClick={() =>
                 copyClipBoard("npm install @hookform/resolvers yup")
-                alert("Code copied into your clipboard.")
-              }}
-            >
-              {generic.copy[currentLanguage]}
-            </button>
+              }
+              currentLanguage={currentLanguage}
+            />
           </span>
 
           {getStarted.schema.step2}
