@@ -66,7 +66,9 @@ ${
               .reduce((temp, option) => {
                 return (
                   temp +
-                  `      <input ${ref} type="${type}" value="${option}" />\n`
+                  `      <input ${ref} type="${
+                    type || "text"
+                  }" value="${option}" />\n`
                 )
               }, "")}`
 
