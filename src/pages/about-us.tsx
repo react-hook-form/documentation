@@ -73,7 +73,7 @@ const data = [
     imgUrl: "https://avatars.githubusercontent.com/u/18494222?v=4",
     url: "https://github.com/leapful",
     twitterName: "leapful",
-    bio: "I'm a software engineer who programing.",
+    bio: "I'm a software engineer who love programing.",
     interests: ["⚛️ React", "💻 code", "❓ unknown"],
     active: false,
   },
