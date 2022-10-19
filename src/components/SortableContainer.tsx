@@ -3,6 +3,7 @@ import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import generic from "../data/generic"
+import originalFormData from "../state/formData"
 import {
   editPanel,
   list,
@@ -130,8 +131,15 @@ export default function SortableContainer({
         })}
       </Sortable>
 
-      {(formData || []).length > 0 && (
+      {
         <div className={editPanel}>
+          <button
+            onClick={() => {
+              updateFormData(originalFormData)
+            }}
+          >
+            Reset
+          </button>
           <button
             onClick={() => {
               if (
@@ -147,7 +155,7 @@ export default function SortableContainer({
             {generic.deleteAll[currentLanguage]}
           </button>
         </div>
-      )}
+      }
     </div>
   )
 }
