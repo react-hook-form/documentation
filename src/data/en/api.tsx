@@ -162,16 +162,6 @@ export default {
           </li>
           <li>
             <p>
-              <code>defaultValues</code> will be injected into{" "}
-              <Link to="/api/useform/watch">watch</Link>,{" "}
-              <Link to="/api/usewatch">useWatch</Link>,{" "}
-              <Link to="/api/usecontroller/controller">Controller</Link> and{" "}
-              <Link to="/api/usecontroller">useController</Link>'s{" "}
-              <code>defaultValue</code>.
-            </p>
-          </li>
-          <li>
-            <p>
               <code>defaultValues</code> will be included in the submission
               result by default, if this is not the desired behavior use{" "}
               <code>shouldUnregister: true</code> instead which means input
