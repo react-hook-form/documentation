@@ -368,6 +368,18 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
               currentLanguage={currentLanguage}
             />
           </span>
+          <span
+            className={`${getStartedStyles.installCode} ${
+              lightMode ? getStartedStyles.lightInstallCode : ""
+            }`}
+          >
+            yarn add @hookform/resolvers yup
+            <ClipBoard
+              className={getStartedStyles.copyButton}
+              onClick={() => copyClipBoard("yarn add @hookform/resolvers yup")}
+              currentLanguage={currentLanguage}
+            />
+          </span>
 
           {getStarted.schema.step2}
 

@@ -94,6 +94,18 @@ export default ({ defaultLang, content }: Props) => {
               onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
             />
           </span>
+          <span
+            className={`${getStartedStyle.installCode} ${
+              lightMode ? getStartedStyle.lightInstallCode : ""
+            }`}
+          >
+            yarn add -D @hookform/devtools
+            <ClipBoard
+              className={getStartedStyle.copyButton}
+              currentLanguage="en"
+              onClick={() => copyClipBoard("yarn add -D @hookform/devtools")}
+            />
+          </span>
 
           <p>{content.step2}</p>
 

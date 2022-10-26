@@ -37,6 +37,18 @@ export default function GetStarted({
           onClick={() => copyClipBoard("npm install react-hook-form")}
         />
       </span>
+      <span
+        className={`${styles.installCode} ${
+          lightMode ? styles.lightInstallCode : ""
+        }`}
+      >
+        yarn add react-hook-form
+        <ClipBoard
+          className={styles.copyButton}
+          currentLanguage={currentLanguage}
+          onClick={() => copyClipBoard("yarn add react-hook-form")}
+        />
+      </span>
 
       <h2
         style={{
