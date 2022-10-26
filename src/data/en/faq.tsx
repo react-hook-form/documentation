@@ -11,6 +11,15 @@ import * as buttonStyles from "../../styles/button.module.css"
 import * as getStartedStyles from "../../components/GetStarted.module.css"
 import * as codeAreaStyles from "../../components/CodeArea.module.css"
 import ClipBoard from "../../components/ClipBoard"
+import accessibleCode from "../../components/codeExamples/accessibleCode"
+import initialValue from "../../components/codeExamples/initialValue"
+import shareRef from "../../components/codeExamples/shareRef"
+import shareRefTs from "../../components/codeExamples/shareRefTs"
+import manualValidation from "../../components/codeExamples/manualValidation"
+import control from "../../components/codeExamples/control"
+import controlled from "../../components/codeExamples/controlled"
+import TabGroup from "../../components/TabGroup"
+import importKeystroke from "../../components/codeExamples/importKeystroke"
 
 export default {
   title: "FAQs",
@@ -47,18 +56,21 @@ export default {
     {
       title: "How to create an accessible input error and message?",
       description: (
-        <p>
-          React Hook Form is based on{" "}
-          <a
-            href="https://reactjs.org/docs/uncontrolled-components.html"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Uncontrolled Components
-          </a>
-          , which gives you the ability to build an accessible custom form
-          easily.
-        </p>
+        <>
+          <p>
+            React Hook Form is based on{" "}
+            <a
+              href="https://reactjs.org/docs/uncontrolled-components.html"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Uncontrolled Components
+            </a>
+            , which gives you the ability to build an accessible custom form
+            easily.
+          </p>
+          <CodeArea rawData={accessibleCode} />
+        </>
       ),
     },
     {
@@ -112,23 +124,29 @@ export default {
     {
       title: "How to initialize form values?",
       description: (
-        <p>
-          Being that React Hook Form relies on uncontrolled form, you can
-          specify a <code>defaultValue</code> or <code>defaultChecked</code> to
-          an individual field. However, it is more common and recommended to
-          initialize a form by passing <code>defaultValues</code> to{" "}
-          <code>useForm</code>.
-        </p>
+        <>
+          <p>
+            Being that React Hook Form relies on uncontrolled form, you can
+            specify a <code>defaultValue</code> or <code>defaultChecked</code>{" "}
+            to an individual field. However, it is more common and recommended
+            to initialize a form by passing <code>defaultValues</code> to{" "}
+            <code>useForm</code>.
+          </p>
+          <CodeArea rawData={initialValue} />
+        </>
       ),
     },
     {
       title: "How to share ref usage?",
       description: (
-        <p>
-          React Hook Form needs a <code>ref</code> to collect the input value,
-          however, you may want to use <code>ref</code> for other purposes (e.g.
-          scroll into the view, or focus).
-        </p>
+        <>
+          <p>
+            React Hook Form needs a <code>ref</code> to collect the input value,
+            however, you may want to use <code>ref</code> for other purposes
+            (e.g. scroll into the view, or focus).
+          </p>
+          <CodeArea rawData={shareRef} tsRawData={shareRefTs} />
+        </>
       ),
     },
     {
@@ -147,6 +165,8 @@ export default {
             able to register event listeners to the inputs. This means you will
             have to manually update value and error.
           </p>
+
+          <CodeArea rawData={manualValidation} />
         </>
       ),
     },
@@ -166,6 +186,7 @@ export default {
             need <code>value</code> at all, and in fact, you only need to set{" "}
             <code>defaultValue</code> for the initial input value.
           </p>
+          <CodeArea withOutCopy rawData={importKeystroke} />
         </>
       ),
     },
@@ -472,6 +493,14 @@ export default {
             Alternatively you can use the _deprecated_ option{" "}
             <code>shouldUnregister: false</code> when calling `useForm`.
           </p>
+
+          <TabGroup buttonLabels={["Controller", "Custom Register"]}>
+            <CodeArea rawData={control} />
+            <CodeArea
+              rawData={controlled}
+              url="https://codesandbox.io/s/react-hook-form-controlled-input-forked-rl2v1"
+            />
+          </TabGroup>
         </>
       ),
     },
