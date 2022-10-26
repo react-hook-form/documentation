@@ -18,7 +18,7 @@ export default function UseFieldArray({
         useWatch
       </h1>
       <p className={typographyStyles.subHeading}>
-        React Hook for subscribe to input changes
+        React Hook for subscribing to input changes
       </p>
 
       <div className={containerStyles.wrapper}>
