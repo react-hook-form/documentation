@@ -384,7 +384,7 @@ const { register } = useForm<FormInputs>({
 
             <ul>
               {pages[0].pages.map((page) => (
-                <li kay={page.name}>
+                <li key={page.name}>
                   <p>
                     <Link to={page.pathname}>{page.name}</Link>
                   </p>
