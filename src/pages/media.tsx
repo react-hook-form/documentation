@@ -25,7 +25,7 @@ export default ({ location }) => {
             Media
           </h1>
           <p className={typographyStyles.subHeading}>
-            THe following are assets that represent React Hook Form.
+            The following are assets that represent React Hook Form.
           </p>
 
           <div className={mediaStyles.media}>
