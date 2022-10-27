@@ -249,8 +249,22 @@ function BuilderPage({
                 type="text"
                 name="options"
                 placeholder="Enter options separate by ;"
-                ref={register}
+                ref={register({
+                  required: true,
+                })}
               />
+              <Animate
+                play={!!errors["options"]}
+                duration={0.6}
+                start={{
+                  maxHeight: 0,
+                }}
+                end={{ maxHeight: 20 }}
+              >
+                {errors.options && errors.options["type"] === "required" && (
+                  <p className={typographyStyles.error}>This is required.</p>
+                )}
+              </Animate>
             </>
           )}
 
