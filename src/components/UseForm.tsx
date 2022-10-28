@@ -354,6 +354,11 @@ const { register } = useForm<FormInputs>({
             </p>
             <ul>
               <li>
+                Only works with onSubmit and onChange mode due to{" "}
+                <code>reportValidity</code> execution will focus on the error
+                input.
+              </li>
+              <li>
                 <p>
                   You can turn on this config and set <code>novalidate</code> at
                   your form and still use those CSS selectors.
@@ -361,8 +366,9 @@ const { register } = useForm<FormInputs>({
               </li>
               <li>
                 <p>
-                  This feature only works for <code>register</code> API, not{" "}
-                  <code>useController/Controller</code>.
+                  This feature only works for <code>register</code> API, and{" "}
+                  <code>useController/Controller</code> which wired with actual
+                  DOM reference.
                 </p>
               </li>
             </ul>
