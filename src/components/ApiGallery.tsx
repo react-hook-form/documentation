@@ -36,16 +36,20 @@ export default function ApiGallery({ defaultLang }) {
   const onChange = (e) => {
     const version = parseInt(e.target.value)
 
-    navigate(`/v${version}/api/`)
-
     actions.updateSetting({
       version,
     })
+
+    if (version !== 7) {
+      window.location.href = `https://legacy.react-hook-form.com/v${version}/api`
+    } else {
+      navigate(`/v${version}/api/`)
+    }
   }
 
   React.useEffect(() => {
-    if (setting.version !== 7) {
-      setting.version && navigate(`/v${setting.version}/api`)
+    if (setting.version !== 7 && setting.version) {
+      window.location.href = `https://legacy.react-hook-form.com/v${setting.version}/api`
     } else if (window.location.hash) {
       const name = window.location.hash.toLowerCase().slice(1)
 
