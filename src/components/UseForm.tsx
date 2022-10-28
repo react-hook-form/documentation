@@ -359,10 +359,8 @@ const { register } = useForm<FormInputs>({
                 input.
               </li>
               <li>
-                <p>
-                  You can turn on this config and set <code>novalidate</code> at
-                  your form and still use those CSS selectors.
-                </p>
+                Each registered field's validation message is required to be
+                string to display them natively.
               </li>
               <li>
                 <p>
