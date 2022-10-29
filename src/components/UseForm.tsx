@@ -354,13 +354,17 @@ const { register } = useForm<FormInputs>({
             </p>
             <ul>
               <li>
-                Only works with onSubmit and onChange mode due to{" "}
-                <code>reportValidity</code> execution will focus on the error
-                input.
+                <p>
+                  Only works with onSubmit and onChange mode due to{" "}
+                  <code>reportValidity</code> execution will focus on the error
+                  input.
+                </p>
               </li>
               <li>
-                Each registered field's validation message is required to be
-                string to display them natively.
+                <p>
+                  Each registered field's validation message is required to be
+                  string to display them natively.
+                </p>
               </li>
               <li>
                 <p>
