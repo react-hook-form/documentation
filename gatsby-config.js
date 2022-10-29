@@ -32,7 +32,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -48,15 +47,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-139961497-1`,
+        trackingId: `G-C4W9Z50084`,
       },
     },
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `UA-139961497-1`,
-        head: false,
-        anonymize: true,
+        trackingId: `G-C4W9Z50084`,
       },
     },
     `gatsby-plugin-offline`,
