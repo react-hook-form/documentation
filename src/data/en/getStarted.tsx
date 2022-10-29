@@ -191,7 +191,7 @@ export default {
             <p>Avoiding unnecessary computation</p>
           </li>
           <li>
-            <p>Isolating component re-rendering when requires</p>
+            <p>Isolating component re-rendering when required</p>
           </li>
         </ul>
         <p>
