@@ -424,8 +424,9 @@ export default function ApiRefTable({
                   </li>
                   <li>
                     <p>
-                      Only applicable and support to text input, but we still
-                      cast to number type to the field value.
+                      Only applicable and support to {`<input />`}, but we still
+                      cast to number type without trim or any other data
+                      manipulation.
                     </p>
                   </li>
                   <li>
@@ -466,7 +467,7 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>Only applies to text input.</p>
+                    <p>Only applies to {`<input />`}.</p>
                   </li>
                   <li>
                     Does not transform <code>defaultValue</code> or{" "}
@@ -585,8 +586,8 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`register('firstName', { 
-  onChange: (e) => console.log(e) 
+                  rawData={`register('firstName', {
+  onChange: (e) => console.log(e)
 })`}
                 />
               </td>
@@ -609,8 +610,8 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`register('firstName', { 
-  onBlur: (e) => console.log(e) 
+                  rawData={`register('firstName', {
+  onBlur: (e) => console.log(e)
 })`}
                 />
               </td>
@@ -770,8 +771,8 @@ register('test[0]firstName'); // ❌`}
 
             <CodeArea
               rawData={`register('test', { required: true });
-register('test', {}); // ❌ 
-register('test', undefined); // ❌ 
+register('test', {}); // ❌
+register('test', undefined); // ❌
 register('test', { required: false });  // ✅
 `}
             />
