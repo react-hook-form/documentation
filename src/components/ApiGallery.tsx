@@ -48,35 +48,31 @@ export default function ApiGallery({ defaultLang }) {
   }
 
   React.useEffect(() => {
-    if (setting.version !== 7 && setting.version) {
-      window.location.href = `https://legacy.react-hook-form.com/v${setting.version}/api`
-    } else if (window.location.hash) {
-      const name = window.location.hash.toLowerCase().slice(1)
+    const name = window.location.hash.toLowerCase().slice(1)
 
-      if (name === "controller") {
-        navigate(`/api/usecontroller/${name}`)
-      } else if (
-        [
-          "register",
-          "unregister",
-          "watch",
-          "handlesubmit",
-          "reset",
-          "setError",
-          "clearerrors",
-          "setvalues",
-          "getvalues",
-          "trigger",
-          "control",
-          "formstate",
-        ].includes(name)
-      ) {
-        navigate(`/api/useform/${name}`)
-      } else if (
-        ["controller", "useformcontext", "usefieldarray"].includes(name)
-      ) {
-        navigate(`/api/${name}`)
-      }
+    if (name === "controller") {
+      navigate(`/api/usecontroller/${name}`)
+    } else if (
+      [
+        "register",
+        "unregister",
+        "watch",
+        "handlesubmit",
+        "reset",
+        "setError",
+        "clearerrors",
+        "setvalues",
+        "getvalues",
+        "trigger",
+        "control",
+        "formstate",
+      ].includes(name)
+    ) {
+      navigate(`/api/useform/${name}`)
+    } else if (
+      ["controller", "useformcontext", "usefieldarray"].includes(name)
+    ) {
+      navigate(`/api/${name}`)
     }
   }, [setting])
 
