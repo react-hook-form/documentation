@@ -424,9 +424,9 @@ export default function ApiRefTable({
                   </li>
                   <li>
                     <p>
-                      Only applicable and support to {`<input type="number" />`}, but we still
-                      cast to number type without trim or any other data
-                      manipulation.
+                      Only applicable and support to {`<input type="number" />`}
+                      , but we still cast to number type without trim or any
+                      other data manipulation.
                     </p>
                   </li>
                   <li>
