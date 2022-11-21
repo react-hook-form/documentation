@@ -126,7 +126,7 @@ export default function ({ api }) {
 
         <li>
           <p>
-            A resolver cannot be used with the built-in validators (e.g.:{" "}
+            A resolver can not be used with the built-in validators (e.g.:{" "}
             required, min, etc.)
           </p>
         </li>

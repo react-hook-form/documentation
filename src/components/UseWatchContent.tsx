@@ -202,6 +202,22 @@ useWatch({ name: 'example' }); // ✅ input value update will be received and tr
 setValue('example', 'data'); 
 `}
           />
+
+          <p>
+            You can overcome the above issue with a simple custom hook as below:
+          </p>
+
+          <CodeArea
+            rawData={`const useFormValues = () => {
+  const { getValues } = useFormContext();
+
+  return {
+    ...useWatch(), // subscribe to form value updates
+    ...getValues(), // always merge with latest form values
+  }
+}
+`}
+          />
         </li>
         <li>
           <p>
