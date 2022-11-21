@@ -10,7 +10,7 @@ export default function App() {
   
   useEffect(() => {
     resetAsyncForm()
-  }, [resetForm])
+  }, [resetAsyncForm])
 
   return (
     <form onSubmit={handleSubmit((data) => {})}>

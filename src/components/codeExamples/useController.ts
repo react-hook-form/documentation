@@ -3,23 +3,22 @@ import { useController, useForm } from "react-hook-form";
 
 function Input({ control, name }) {
   const {
-    field: { onChange, onBlur, name, value, ref },
+    field,
     fieldState: { invalid, isTouched, isDirty },
     formState: { touchedFields, dirtyFields }
   } = useController({
     name,
     control,
     rules: { required: true },
-    defaultValue: "",
   });
 
   return (
     <TextField 
-      onChange={onChange} // send value to hook form 
-      onBlur={onBlur} // notify when input is touched/blur
-      value={value} // input value
-      name={name} // send down the input name
-      inputRef={ref} // send input ref, so we can focus on input when error appear
+      onChange={field.onChange} // send value to hook form 
+      onBlur={field.onBlur} // notify when input is touched/blur
+      value={field.value} // input value
+      name={field.name} // send down the input name
+      inputRef={field.ref} // send input ref, so we can focus on input when error appear
     />
   );
 }
