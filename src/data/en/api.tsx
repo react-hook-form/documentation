@@ -1971,8 +1971,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <p>
                     In case of validation error, the <code>root</code> property
                     is appended to{" "}
-                    <code>formState.errors?.fieldArray?.root</code>
-                    of type{" "}
+                    <code>formState.errors?.fieldArray?.root</code> of type{" "}
                     <Link to="ts/#FieldError">
                       <code>FieldError</code>
                     </Link>
