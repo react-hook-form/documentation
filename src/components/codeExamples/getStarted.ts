@@ -182,14 +182,14 @@ export const uiLibraryHookInputTs = `import Select from "react-select";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
-interface IFormInput {
-  firstName: string;
-  lastName: string;
-  iceCreamType: {label: string; value: string };
-}
-
 const App = () => {
-  const { control, handleSubmit } = useForm<IFormInput>();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      iceCreamType: {}
+    }
+  });
 
   const onSubmit: SubmitHandler<IFormInput> = data => {
     console.log(data)
@@ -200,7 +200,6 @@ const App = () => {
       <Controller
         name="firstName"
         control={control}
-        defaultValue=""
         render={({ field }) => <Input {...field} />}
       />
       <Controller
@@ -254,7 +253,11 @@ interface IFormInputs {
 }
 
 function App() {
-  const { handleSubmit, control, reset } = useForm<IFormInputs>();
+  const { handleSubmit, control, reset } = useForm<IFormInputs>({
+    defaultValues: {
+      MyCheckbox: false
+    }
+  });
   const onSubmit: SubmitHandler<IFormInputs> = data => console.log(data);
 
   return (
@@ -262,7 +265,6 @@ function App() {
       <Controller
         name="MyCheckbox"
         control={control}
-        defaultValue={false}
         rules={{ required: true }}
         render={({ field }) => <Checkbox {...field} />}
       />
@@ -277,14 +279,19 @@ import { connect } from "react-redux";
 import updateAction from "./actions";
 
 export default function App(props) {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+    }
+  });
   // Submit your data into Redux store
   const onSubmit = data => props.updateAction(data);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName")} defaultValue={props.firstName} />
-      <input {...register("lastName")} defaultValue={props.lastName} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <input type="submit" />
     </form>
   );
