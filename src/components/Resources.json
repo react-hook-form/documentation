@@ -1,4 +1,4 @@
-[  
+[
   {
     "type": "article",
     "title": "React Hook Form ライブラリの使い方！フォームのバリデーションを実装しよう【TypeScript】",
@@ -462,6 +462,16 @@
     "authorUrl": "https://twitter.com/Koprowski_it",
     "description": "Managing forms in React Native is different than in React. Custom components need callbacks or wrappers, which can make code hard to read. Here is a handy solution for React Native form validation. Without <Controller /> component!",
     "version": "6"
+  },
+  {
+    "type": "video",
+    "title": "Get your forms hooked with react-hook-form | code.talks 2022",
+    "url": "https://www.youtube.com/watch?v=rtFDMKH-X7k",
+    "authorUrl": "https://twitter.com/KerenKenzi",
+    "author": "Keren Kenzi",
+    "description": "As Front-end developers, we all know that forms can get really messy, but what if I told you that there is a library out there that can make your life much easier. In this talk, I'll introduce react-hook-form, a library that started to gain more and more popularity. It is super light, intuitive, performant, and flexible with easy-to-use validation. We'll cover its basics through a live code example and learn about its benefits. In addition, I will share with you my thoughts about what to look for when choosing a library to use.",
+    "createdDateTime": "Tue Dec 6 2022 20:19:15 GMT+1000 (Australian Eastern Standard Time)",
+    "version": "7"
   },
   {
     "type": "video",
