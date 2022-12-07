@@ -164,7 +164,10 @@ const { register } = useForm<FormInputs>({
                 This option allows you to configure the validation strategy
                 before a user submits the form that is happened during
                 <code>onSubmit</code> event by invoking{" "}
-                <code>handleSubmit</code> function.
+                <Link to="/api/useform/handlesubmit">
+                  <code>handleSubmit</code>
+                </Link>{" "}
+                function.
               </p>
 
               <table className={tableStyles.table}>

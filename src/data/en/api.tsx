@@ -201,8 +201,12 @@ const onSubmit = (data) => {
       <p>
         This option allows you to configure validation strategy when inputs with
         errors get re-validated <strong>after</strong> a user submits the form (
-        <code>onSubmit</code> event). By default, validation is triggered during
-        the input change event.
+        <code>onSubmit</code> event and{" "}
+        <Link to="/api/useform/handlesubmit">
+          <code>handleSubmit</code>
+        </Link>{" "}
+        function executed). By default, re-validation is actioned during the
+        input change event.
       </p>
     ),
     validationFields: (
