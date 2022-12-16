@@ -42,9 +42,6 @@ export default {
   note: {
     en: "Note",
   },
-  support: {
-    en: "Please support us by leaving a ★",
-  },
   select: {
     en: "Select",
   },

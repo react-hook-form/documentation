@@ -64,58 +64,16 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
         </li>
       </ul>
       <p>
-        Designed and Built by{" "}
+        A project by{" "}
         <a
-          href="https://twitter.com/bluebill1049"
+          href="https://www.beekai.com/"
           target="_blank"
           rel="noopener noreferrer"
-          title="Bill Luo Twitter"
+          title="BEEKAI Form builder"
         >
-          @Bill Luo
+          BEEKAI
         </a>{" "}
-        ={" "}
-        <a
-          href="https://github.com/bluebill1049/react-simple-animate"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="React Simple Animate Github"
-        >
-          React Simple Animate
-        </a>{" "}
-        ✚{" "}
-        <a
-          rel="noopener noreferrer"
-          href="https://github.com/bluebill1049/little-state-machine"
-          target="_blank"
-          title="Little state machine"
-        >
-          Little State Machine
-        </a>
-      </p>
-      {currentLanguage === "pt" && (
-        <p>
-          <a href="https://github.com/kevenleone">@kevenleone</a> and{" "}
-          <a href="https://github.com/vitorboccio">@vitorboccio</a>
-        </p>
-      )}
-      {currentLanguage === "kr" && (
-        <p>
-          <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
-          <a href="https://github.com/iamchanii">@iamchanii</a>,{" "}
-          <a href="https://github.com/purelledhand">@purelledhand</a>, 그리고{" "}
-          <a href="https://github.com/adhrinae">@adhrinae</a>의 도움으로
-          번역되었습니다.
-        </p>
-      )}
-      {currentLanguage === "jp" && (
-        <p>
-          <a href="https://github.com/kotarella1110">@kotarella1110</a> と{" "}
-          <a href="https://github.com/dowdiness">@dowdiness</a>{" "}
-          によって翻訳されました。
-        </p>
-      )}
-      <p>
-        {generic.support[currentLanguage]}{" "}
+        | Please support us by leaving a ★{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
           target="_blank"
