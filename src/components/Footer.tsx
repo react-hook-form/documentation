@@ -71,7 +71,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           rel="noopener noreferrer"
           title="BEEKAI Form builder"
         >
-          BEEKAI
+          <b>BEEKAI</b>
         </a>{" "}
         | Please support us by leaving a ★{" "}
         <a
