@@ -62,9 +62,8 @@ export default {
     ),
     validateOnSubmit: (
       <>
-        Validation will trigger on the <code>submit</code> event and invalid
-        inputs will attach <code>onChange</code> event listeners to re-validate
-        them.
+        Validation will trigger on the <code>submit</code> event and inputs will
+        attach <code>onChange</code> event listeners to re-validate them.
       </>
     ),
     validateOnBlur: (
