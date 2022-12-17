@@ -725,6 +725,11 @@ setValue('test', '')
         <code>false</code> otherwise.
       </>
     ),
+    isLoading: (
+      <>
+        <code>true</code> if the form is currently loading async default values.
+      </>
+    ),
     submitCount: "Number of times the form was submitted.",
     isValid: (
       <>

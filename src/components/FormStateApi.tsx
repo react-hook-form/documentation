@@ -127,6 +127,20 @@ export const FormStateApi = ({
         </td>
       )}
       <td>
+        <code>isLoading</code>
+      </td>
+      <td>
+        <code className={typographyStyles.typeText}>boolean</code>
+      </td>
+      <td>{(api || API).formState.isLoading}</td>
+    </tr>
+    <tr>
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
+      <td>
         <code>submitCount</code>
       </td>
       <td>
