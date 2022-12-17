@@ -115,34 +115,25 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               withOutCopy
-              rawData={`useForm({
-  mode: 'onSubmit',
-  reValidateMode: 'onChange',
-  defaultValues: {},
-  resolver: undefined,
-  context: undefined,
-  criteriaMode: "firstError",
-  shouldFocusError: true,
-  shouldUnregister: false,
-  shouldUseNativeValidation: false,
-  delayError: undefined
-})`}
+              rawData={`function App() {
+  const methods = useForm();
+  
+  return null;
+}`}
               tsRawData={`type FormInputs = {
   firstName: string;
   lastName: string;
 };
 
-const { register } = useForm<FormInputs>({
-  mode: 'onSubmit',
-  reValidateMode: 'onChange',
-  defaultValues: {},
-  resolver: undefined,
-  context: undefined,
-  criteriaMode: "firstError",
-  shouldFocusError: true,
-  shouldUnregister: false,
-  delayError: undefined
-})`}
+const { register } = useForm<FormInputs>();
+
+// type inference with defaultValues
+const { register } = useForm({
+  defaultValues: {
+    firstName: '',
+    lastName: ''
+  }
+});`}
             />
 
             <h2 id="props" className={typographyStyles.subTitle}>
@@ -235,12 +226,23 @@ const { register } = useForm<FormInputs>({
               <code>
                 defaultValues:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`Record<string, any>`} = {`{}`}
+                  {`FieldValues | Promise<FieldValues>`}
                 </span>
               </code>
             </h5>
 
             {api.useForm.defaultValues}
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                values:{" "}
+                <span className={typographyStyles.typeText}>
+                  {`FieldValues`}
+                </span>
+              </code>
+            </h5>
+
+            {api.useForm.values}
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>

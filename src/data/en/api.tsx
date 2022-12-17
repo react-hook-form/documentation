@@ -97,74 +97,91 @@ export default {
         </p>
       </>
     ),
+    values: (
+      <>
+        <p>
+          The <code>values</code> props will react to changes and update the
+          form values, which is useful when your form needs to be updated by
+          external state or server data.
+        </p>
+
+        <CodeArea
+          rawData={`// set default value sync
+function App({ values }) {
+  useForm({
+    values  // will get updated when values props updates       
+  })
+}
+
+function App() {
+  const values = useFetch('/api');
+  
+  useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+    },
+    values, // will get updated once values returns
+  })
+}
+`}
+        />
+      </>
+    ),
     defaultValues: (
       <>
         <p>
-          The <code>defaultValues</code> for inputs are used as the initial
-          value when a component is first rendered, before a user interacts with
-          it. It is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
-          for all inputs to non-
-          <code>undefined</code> values such as the empty <code>string</code> or{" "}
-          <code>null</code>.
-        </p>
-
-        <p>
-          You can set an input's default value with{" "}
-          <code>defaultValue/defaultChecked</code>{" "}
+          The <code>defaultValues</code> prop is used to populate the entire
+          form values. It supports both sync and async set form default values.
+          You can set an input's default value with <code>defaultValue</code>/
+          <code>defaultChecked</code>{" "}
           <a
             className={buttonStyles.links}
             href="https://reactjs.org/docs/uncontrolled-components.html"
           >
-            (read more from the React doc for Default Values)
+            (read more from the official React doc)
           </a>
-          . You can pass <code>defaultValues</code> as an optional argument to{" "}
-          <code>useForm()</code> to populate the default values for the entire
-          form, or set values on an individual{" "}
-          <Link to="/api/usecontroller/controller">Controller</Link> component
-          via its <code>defaultValue</code> property. If both{" "}
-          <code>defaultValue</code> and <code>defaultValues</code> are set, the
-          value from <code>defaultValues</code> will be used.
+          , but it is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
+          for the entire form.
         </p>
+
+        <CodeArea
+          rawData={`// set default value sync
+useForm({
+  defaultValues: {
+    firstName: '',
+    lastName: ''
+  }        
+})
+
+// set default value async
+useForm({
+  defaultValues: async () => fetch('/api-endpoint');         
+})`}
+        />
 
         <h3 className={typographyStyles.rulesTitle}>Rules</h3>
 
         <ul>
           <li>
             <p>
-              <b className={typographyStyles.note}>Important:</b> You should
-              provide a proper default value and avoid <code>undefined</code>.
+              You <b>should</b> provide <b>none</b> <code>undefined</code>{" "}
+              default value, as <code>undefined</code> value is conflicting with
+              controlled component as default state.
             </p>
-            <ul>
-              <li>
-                <p>
-                  undefined is reserved for fallback from inline{" "}
-                  <code>defaultValue</code>/<code>defaultChecked</code> to hook
-                  level <code>defaultValues</code>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <code>undefined</code> value is conflicting with controlled
-                  component as default state
-                </p>
-              </li>
-            </ul>
           </li>
           <li>
             <p>
               {" "}
-              <code>defaultValues</code> are cached{" "}
-              <strong>on the first render</strong> within the custom hook. If
-              you want to reset the <code>defaultValues</code>, you should use
-              the <Link to="/api/useform/reset">reset</Link> api.
+              <code>defaultValues</code> are cached. If you want to reset the{" "}
+              <code>defaultValues</code>, you should use the{" "}
+              <Link to="/api/useform/reset">reset</Link> api.
             </p>
           </li>
           <li>
             <p>
               <code>defaultValues</code> will be included in the submission
-              result by default, if this is not the desired behavior use{" "}
-              <code>shouldUnregister: true</code> instead which means input
-              values will host within all the fields.
+              result by default.
             </p>
           </li>
           <li>
@@ -179,8 +196,6 @@ export default {
             <CodeArea
               rawData={`// include hidden input
 <input {...register("hidden")} type="hidden" />
-
-// register input with value
 register("hidden", { value: "data" })
 
 // include data onSubmit
