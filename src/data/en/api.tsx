@@ -128,6 +128,37 @@ function App() {
         />
       </>
     ),
+    resetOptions: (
+      <>
+        <p>
+          This property is associated with value update behaviours. In fact,{" "}
+          <code>values</code> or <code>defaultValues</code> update will invoke
+          the <code>reset</code> API internally. So it's important to info what
+          behaviour should be after the <code>values</code> or{" "}
+          <code>defaultValues</code> get asynchronously updated. The config
+          option itself is a reference to{" "}
+          <Link to="/api/useform/reset">reset</Link> method's options.
+        </p>
+
+        <CodeArea
+          tsUrl="https://codesandbox.io/s/useform-resetoptions-7bsuud"
+          rawData={`// by default asynchronously value or defaultValues update will reset the form values
+useForm({ values })
+useForm({ defaultValues: async () => await fetch() })
+
+// options to config the behaviour
+// eg: I want to keep user interacted/dirty value and not remove any user errors
+useForm({
+  values,
+  resetOptions: {
+    keepDirtyValues: true, // user-interacted input will be retained
+    keepErrors: true, // input errors will be retained with value update
+  }
+})
+`}
+        />
+      </>
+    ),
     defaultValues: (
       <>
         <p>
@@ -151,12 +182,12 @@ useForm({
   defaultValues: {
     firstName: '',
     lastName: ''
-  }        
+  }
 })
 
 // set default value async
 useForm({
-  defaultValues: async () => fetch('/api-endpoint');         
+  defaultValues: async () => fetch('/api-endpoint');
 })`}
         />
 

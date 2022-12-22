@@ -236,13 +236,22 @@ const { register } = useForm({
             <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
               <code>
                 values:{" "}
-                <span className={typographyStyles.typeText}>
-                  {`FieldValues`}
-                </span>
+                <span className={typographyStyles.typeText}>FieldValues</span>
               </code>
             </h5>
 
             {api.useForm.values}
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                resetOptions:{" "}
+                <span className={typographyStyles.typeText}>
+                  KeepStateOptions
+                </span>
+              </code>
+            </h5>
+
+            {api.useForm.resetOptions}
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
