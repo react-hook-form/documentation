@@ -54,82 +54,85 @@ const mockLogin = jest.fn((email, password) => {
   return Promise.resolve({ email, password });
 });
 
-describe("App", () => {
-  beforeEach(() => {
-    render(<App login={mockLogin} />);
+
+it("should display required error when value is invalid", async () => {
+  render(<App login={mockLogin} />);
+
+  fireEvent.submit(screen.getByRole("button"));
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(2);
+  expect(mockLogin).not.toBeCalled();
+});
+
+it("should display matching error when email is invalid", async () => {
+  render(<App login={mockLogin} />);
+  
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test"
+    }
   });
 
-  it("should display required error when value is invalid", async () => {
-    fireEvent.submit(screen.getByRole("button"));
-
-    expect(await screen.findAllByRole("alert")).toHaveLength(2);
-    expect(mockLogin).not.toBeCalled();
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "password"
+    }
   });
 
-  it("should display matching error when email is invalid", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
-      target: {
-        value: "test"
-      }
-    });
+  fireEvent.submit(screen.getByRole("button"));
 
-    fireEvent.input(screen.getByLabelText("password"), {
-      target: {
-        value: "password"
-      }
-    });
+  expect(await screen.findAllByRole("alert")).toHaveLength(1);
+  expect(mockLogin).not.toBeCalled();
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("test");
+  expect(screen.getByLabelText("password")).toHaveValue("password");
+});
 
-    fireEvent.submit(screen.getByRole("button"));
-
-    expect(await screen.findAllByRole("alert")).toHaveLength(1);
-    expect(mockLogin).not.toBeCalled();
-    expect(screen.getByRole("textbox", { name: /email/i }).value).toBe("test");
-    expect(screen.getByLabelText("password").value).toBe("password");
+it("should display min length error when password is invalid", async () => {
+  render(<App login={mockLogin} />);
+  
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test@mail.com"
+    }
   });
 
-  it("should display min length error when password is invalid", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
-      target: {
-        value: "test@mail.com"
-      }
-    });
-
-    fireEvent.input(screen.getByLabelText("password"), {
-      target: {
-        value: "pass"
-      }
-    });
-
-    fireEvent.submit(screen.getByRole("button"));
-
-    expect(await screen.findAllByRole("alert")).toHaveLength(1);
-    expect(mockLogin).not.toBeCalled();
-    expect(screen.getByRole("textbox", { name: /email/i }).value).toBe(
-      "test@mail.com"
-    );
-    expect(screen.getByLabelText("password").value).toBe("pass");
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "pass"
+    }
   });
 
-  it("should not display error when value is valid", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
-      target: {
-        value: "test@mail.com"
-      }
-    });
+  fireEvent.submit(screen.getByRole("button"));
 
-    fireEvent.input(screen.getByLabelText("password"), {
-      target: {
-        value: "password"
-      }
-    });
+  expect(await screen.findAllByRole("alert")).toHaveLength(1);
+  expect(mockLogin).not.toBeCalled();
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue(
+    "test@mail.com"
+  );
+  expect(screen.getByLabelText("password")).toHaveValue("pass");
+});
 
-    fireEvent.submit(screen.getByRole("button"));
+it("should not display error when value is valid", async () => {
+  render(<App login={mockLogin} />);
 
-    await waitFor(() => expect(screen.queryAllByRole("alert")).toHaveLength(0));
-    expect(mockLogin).toBeCalledWith("test@mail.com", "password");
-    expect(screen.getByRole("textbox", { name: /email/i }).value).toBe("");
-    expect(screen.getByLabelText("password").value).toBe("");
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test@mail.com"
+    }
   });
+
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "password"
+    }
+  });
+
+  fireEvent.submit(screen.getByRole("button"));
+
+  await waitFor(() => expect(screen.queryAllByRole("alert")).toHaveLength(0));
+  expect(mockLogin).toBeCalledWith("test@mail.com", "password");
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("");
+  expect(screen.getByLabelText("password")).toHaveValue("");
 });
 `
 
@@ -159,29 +162,29 @@ export default function App() {
 `
 export const actWarningTest = `
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("App", () => {
-  it("should have a submit button", () => {
-    render(<App />);
-    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
-  });
+it("should have a submit button", () => {
+  render(<App />);
+
+  expect(screen.getByText("SUBMIT")).toBeInTheDocument();
 });
 `
 
 export const actWarningSolution = `
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("App", () => {
-  it("should have a submit button", async () => {
-    await act(async () => {
-      render(<App />)
-    });
-    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
-  });
+it("should have a submit button", async () => {
+  render(<App />)
+
+  expect(await screen.findByText("SUBMIT")).toBeInTheDocument();
+
+  // Now that the UI was awaited until the async behavior was completed,
+  // you can keep asserting with \`get*\` queries.
+  expect(screen.getByRole('textbox')).toBeInTheDocument();
 });
 
 `
