@@ -465,6 +465,27 @@ export default {
         />
 
         <p>
+          Additionally, you can set up{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/eslint-plugin-testing-library"
+          >
+            eslint-plugin-testing-library
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/testing-library/eslint-plugin-jest-dom"
+          >
+            eslint-plugin-jest-dom
+          </a>{" "}
+          to follow best practices and anticipate common mistakes when writing
+          your tests.
+        </p>
+
+        <p>
           <b className={typographyStyles.note}>Step 2:</b> Create login form.
         </p>
 
