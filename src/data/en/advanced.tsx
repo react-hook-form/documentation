@@ -519,8 +519,8 @@ export default {
             <p>Test submission failure.</p>
 
             <p>
-              We are using <code>waitFor</code> and <code>find*</code> methods
-              to detect submission feedback, because the{" "}
+              We are using <code>waitFor</code> util and <code>find*</code>{" "}
+              queries to detect submission feedback, because the{" "}
               <code>handleSubmit</code> method is executed asynchronously.
             </p>
           </li>
@@ -582,8 +582,18 @@ export default {
         </p>
 
         <p>
-          To solve this, wrap your <code>render()</code> calls in{" "}
-          <code>await act(async () ={`> {}`})</code>:
+          To solve this, wait until some element from your UI appears with{" "}
+          <code>find*</code> queries. Note that you <strong>must not</strong>{" "}
+          wrap your <code>render()</code> calls in <code>act()</code>.{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily"
+          >
+            You can read more about wrapping things in <code>act</code>{" "}
+            unnecessarily here
+          </a>
+          .
         </p>
         <CodeArea
           rawData={CodeExampleTestingForm.actWarningSolution}

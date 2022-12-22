@@ -162,29 +162,29 @@ export default function App() {
 `
 export const actWarningTest = `
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("App", () => {
-  it("should have a submit button", () => {
-    render(<App />);
-    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
-  });
+it("should have a submit button", () => {
+  render(<App />);
+
+  expect(screen.getByText("SUBMIT")).toBeInTheDocument();
 });
 `
 
 export const actWarningSolution = `
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("App", () => {
-  it("should have a submit button", async () => {
-    await act(async () => {
-      render(<App />)
-    });
-    expect(screen.getByText("SUBMIT")).toBeInTheDocument();
-  });
+it("should have a submit button", async () => {
+  render(<App />)
+
+  expect(await screen.findByText("SUBMIT")).toBeInTheDocument();
+
+  // Now that the UI was awaited until the async behavior was completed,
+  // you can keep asserting with \`get*\` queries.
+  expect(screen.getByRole('textbox')).toBeInTheDocument();
 });
 
 `
