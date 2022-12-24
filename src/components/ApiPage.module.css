@@ -2,6 +2,7 @@
   font-weight: 400;
   font-size: 15px;
   font-family: monospace;
+  font-variant-ligatures: none;
   color: var(--color-light-pink);
   margin-top: 10px;
   display: block;

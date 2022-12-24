@@ -155,6 +155,7 @@ pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
+  font-variant-ligatures: none;
 }
 figure {
   margin: 1em 40px;
@@ -275,6 +276,7 @@ select {
 
 code {
   font-family: Consolas, monospace;
+  font-variant-ligatures: none;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -760,6 +762,7 @@ pre[class*="language-"] {
   word-wrap: normal;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 14px;
+  font-variant-ligatures: none;
   color: white;
   text-shadow: none;
 }
