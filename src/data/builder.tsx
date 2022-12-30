@@ -7,7 +7,7 @@ export default {
   },
   builder: {
     en: {
-      title: "Builder",
+      title: "Form Builder",
       description: "Build your form with code and example.",
     },
   },
