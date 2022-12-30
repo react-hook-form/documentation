@@ -31,12 +31,12 @@ const Twitter = ({ twitterName }) => (
 
 const data = [
   {
-    name: "Joris",
-    imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
-    url: "https://twitter.com/_jorisre",
-    twitterName: "_jorisre",
-    bio: "I'm a passionate front-end engineer who loves trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
-    interests: ["💻  Code", "⚛️  React", "🥑  Food"],
+    name: "BEEKAI",
+    imgUrl: "https://www.beekai.com/marketing/logo/logo.svg",
+    url: "https://www.beekai.com",
+    twitterName: "beekai_app",
+    bio: "Build the next-generation forms with modern technology and best in class user experience and accessibility.",
+    interests: ["💻  Code", "⚛️  React", "📋 Form"],
     active: true,
   },
   {
@@ -56,6 +56,15 @@ const data = [
     twitterName: "moshyfawn",
     bio: "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
     interests: ["👨‍💻 Tech", "🎮 Games", "🍕 Food"],
+    active: true,
+  },
+  {
+    name: "Joris",
+    imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
+    url: "https://twitter.com/_jorisre",
+    twitterName: "_jorisre",
+    bio: "I'm a passionate front-end engineer who loves trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
+    interests: ["💻  Code", "⚛️  React", "🥑  Food"],
     active: true,
   },
   {

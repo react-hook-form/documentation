@@ -56,8 +56,13 @@ const Layout = (props: {
     <>
       <div className="banner">
         <p>
-          Craft <strong>beautiful</strong> form application experiences.
-          <a href="https://beekai.com/" title="Learn more about BEEKAI">
+          Next-gen <strong>form building</strong> platform with code generation.
+          <a
+            href="https://beekai.com/"
+            title="Learn more about BEEKAI form builder"
+            target="_blank"
+            rel="noreferrer"
+          >
             Find out more
           </a>
         </p>

@@ -1069,15 +1069,15 @@ body.light {
   text-align: center;
   margin: 0;
   padding: 0.5rem 0;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 400;
 }
 
 .banner a {
   border-radius: 1.5rem;
-  margin-left: 1rem;
-  font-size: 0.6rem;
-  padding: 0.1rem 1rem 0.15rem;
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  padding: 0.1rem 0.5rem 0.15rem;
   text-decoration: none;
   background: white;
   color: var(--color-primary);
@@ -1091,7 +1091,7 @@ body.light {
 
 @media (min-width: 768px) {
   .banner {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
 
   .banner p {
@@ -1101,7 +1101,8 @@ body.light {
 
   .banner a {
     padding: 0.25rem 0.5rem 0.35rem;
-    font-size: 0.7rem;
+    position: relative;
+    top: -0.1rem;
   }
 
   .banner strong {
@@ -1117,10 +1118,6 @@ body.light {
 }
 
 @media (min-width: 1024px) {
-  .banner {
-    padding: 1rem;
-  }
-
   .banner p {
     font-size: 1rem;
   }
