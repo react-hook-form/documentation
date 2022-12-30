@@ -264,16 +264,15 @@ export default function Nav() {
                     {nav[currentLanguage].tools.formBuilder}
                   </Link>
 
-                  <Link
-                    activeClassName="active"
-                    to="https://www.beekai.com/features/form-builder"
+                  <a
+                    href="https://www.beekai.com/features/form-builder"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.linkExternal}
                   >
                     <b>BEEKAI</b> From Builder{" "}
                     <img src={openLink} alt="BEEKAI Form Builder" />
-                  </Link>
+                  </a>
 
                   <Link activeClassName="active" to="/dev-tools">
                     {nav[currentLanguage].tools.devTools}
