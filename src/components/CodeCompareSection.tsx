@@ -44,9 +44,7 @@ function CodeCompareSection({
         >
           {isPlayCodeCompare && (
             <iframe
-              src={
-                "https://codesandbox.io/embed/react-hook-form-js-wbybv?fontsize=14&hidenavigation=1&theme=dark"
-              }
+              src="https://codesandbox.io/embed/react-hook-form-js-wbybv?fontsize=14&hidenavigation=1&theme=dark"
               style={{
                 width: "100%",
                 height: 570,

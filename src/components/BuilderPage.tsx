@@ -13,7 +13,6 @@ import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
-import translateLink from "./logic/translateLink"
 import * as buttonStyles from "../styles/button.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
@@ -386,9 +385,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate(
-                      translateLink("/?goToDemo&updated=true", currentLanguage)
-                    )
+                    navigate("/?goToDemo&updated=true")
                   }
                 }}
               >

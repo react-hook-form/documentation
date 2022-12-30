@@ -1,7 +1,6 @@
 import * as React from "react"
 import { navigate } from "gatsby"
 import generic from "../data/generic"
-import translateLink from "./logic/translateLink"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 
@@ -18,7 +17,7 @@ export default function LearnMore({
       <button
         className={buttonStyles.primaryButton}
         onClick={() => {
-          navigate(translateLink("/api", currentLanguage))
+          navigate("/api")
         }}
         style={{ margin: "40px auto" }}
       >

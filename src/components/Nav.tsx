@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
-import translateLink from "./logic/translateLink"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
@@ -12,6 +11,7 @@ import colors from "../styles/colors"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 import { useLocation } from "@reach/router"
+import openLink from "../images/open-link.svg"
 
 export default function Nav({ defaultLang }: { defaultLang: string }) {
   const {
@@ -116,40 +116,28 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
               bottom: 43,
             }}
           >
-            <Link
-              activeClassName="active"
-              to={translateLink("/faqs", currentLanguage)}
-            >
+            <Link activeClassName="active" to="/faqs">
               <div className={styles.iconWrapper}>
                 <div className="eye icon" />
               </div>
               <span>{nav[currentLanguage].faqs}</span>
             </Link>
 
-            <Link
-              activeClassName="active"
-              to={translateLink("/resources", currentLanguage)}
-            >
+            <Link activeClassName="active" to="/resources">
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
               <span>Resources</span>
             </Link>
 
-            <Link
-              activeClassName="active"
-              to={translateLink("/dev-tools", currentLanguage)}
-            >
+            <Link activeClassName="active" to="/dev-tools">
               <div className={styles.iconWrapper}>
                 <div className="laptop icon" />
               </div>
               <span>DevTools</span>
             </Link>
 
-            <Link
-              activeClassName="active"
-              to={translateLink("/form-builder", currentLanguage)}
-            >
+            <Link activeClassName="active" to="/form-builder">
               <div className={styles.iconWrapper}>
                 <div className="edit icon" />
               </div>
@@ -165,19 +153,13 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             lightMode ? styles.darkActionButtonGroup : ""
           }`}
         >
-          <Link
-            activeClassName="active"
-            to={translateLink("/", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/">
             <div className={styles.iconWrapper}>
               <div className="flag icon" />
             </div>
             <span>{nav[currentLanguage].home}</span>
           </Link>
-          <Link
-            activeClassName="active"
-            to={translateLink("/get-started", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/get-started">
             <div className={styles.iconWrapper}>
               <div className="shutdown icon" />
             </div>
@@ -192,17 +174,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                   }
                 : {}
             }
-            to={"/api"}
+            to="/api"
           >
             <div className={styles.iconWrapper}>
               <div className="keyboard icon" />
             </div>
             <span>API</span>
           </Link>
-          <Link
-            activeClassName="active"
-            to={translateLink("/ts", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/ts">
             <div className={styles.iconWrapper}>
               <span
                 style={{
@@ -223,19 +202,13 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
             </div>
             <span>TS</span>
           </Link>
-          <Link
-            activeClassName="active"
-            to={translateLink("/advanced-usage", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/advanced-usage">
             <div className={styles.iconWrapper}>
               <div className="search icon" />
             </div>
             <span>{nav[currentLanguage].advanced}</span>
           </Link>
-          <Link
-            activeClassName="active"
-            to={translateLink("/faqs", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/faqs">
             <div className={styles.iconWrapper}>
               <div className="eye icon" />
             </div>
@@ -289,18 +262,23 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
               >
                 <div className={styles.menuExpand}>
-                  <Link
-                    activeClassName="active"
-                    to={translateLink("/dev-tools", currentLanguage)}
-                  >
+                  <Link activeClassName="active" to="/dev-tools">
                     {nav[currentLanguage].tools.devTools}
+                  </Link>
+
+                  <Link activeClassName="active" to="/form-builder">
+                    {nav[currentLanguage].tools.formBuilder}
                   </Link>
 
                   <Link
                     activeClassName="active"
-                    to={translateLink("/form-builder", currentLanguage)}
+                    to="https://www.beekai.com/features/form-builder"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkExternal}
                   >
-                    {nav[currentLanguage].tools.formBuilder}
+                    BEEKAI From Builder{" "}
+                    <img src={openLink} alt="BEEKAI Form Builder" />
                   </Link>
                 </div>
               </div>
@@ -309,7 +287,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <Link
             activeClassName="active"
             className={styles.mobileNav}
-            to={translateLink("/dev-tools", currentLanguage)}
+            to="/dev-tools"
           >
             <div className={styles.iconWrapper}>
               <div className="laptop icon" />
@@ -319,17 +297,14 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
           <Link
             activeClassName="active"
             className={styles.mobileNav}
-            to={translateLink("/form-builder", currentLanguage)}
+            to="/form-builder"
           >
             <div className={styles.iconWrapper}>
               <div className="edit icon" />
             </div>
             <span>{nav[currentLanguage].builder}</span>
           </Link>
-          <Link
-            activeClassName="active"
-            to={translateLink("/resources", currentLanguage)}
-          >
+          <Link activeClassName="active" to="/resources">
             <div className={styles.iconWrapper}>
               <div className="tag icon" />
             </div>
@@ -375,29 +350,4 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
       </div>
     </>
   )
-}
-
-export function getNavLink(path: string, selectedLanguage: string) {
-  const i18nPagePathRegex = /^([a-z]{2})(\/\S+|\?.+)/
-  const i18nHomePageRegex = /^[a-z]{2}$/
-  const i18nPageMatched = path.match(i18nPagePathRegex)
-  const isHomePage = i18nHomePageRegex.test(path)
-
-  if (selectedLanguage === "en") {
-    if (isHomePage) {
-      return "/"
-    }
-    if (i18nPageMatched != null) {
-      return i18nPageMatched[2]
-    }
-    return path
-  }
-
-  const targetPath =
-    i18nPageMatched != null
-      ? i18nPageMatched[2].substr(1)
-      : isHomePage
-      ? ""
-      : path
-  return translateLink(targetPath, selectedLanguage)
 }

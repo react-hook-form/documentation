@@ -135,6 +135,16 @@ a.legacyLink {
   z-index: 2;
 }
 
+.linkExternal {
+  display: flex;
+}
+
+.linkExternal img {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.1rem;
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 10px;
