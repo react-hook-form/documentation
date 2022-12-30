@@ -1091,12 +1091,13 @@ body.light {
 
 @media (min-width: 768px) {
   .banner {
-    padding: 0.8rem 1rem;
+    padding: 1rem;
   }
 
   .banner p {
     font-size: 0.8rem;
     padding: 0;
+    border-top: 0;
   }
 
   .banner a {
