@@ -1,6 +1,6 @@
 import * as React from "react"
 import Footer from "./Footer"
-import { Menu } from "./Menu"
+import { Menu, pages } from "./Menu"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import Popup from "./Popup"
 import generic from "../data/generic"
@@ -115,37 +115,28 @@ export default ({ currentLanguage }) => {
 
             <CodeArea
               withOutCopy
-              rawData={`useForm({
-  mode: 'onSubmit',
-  reValidateMode: 'onChange',
-  defaultValues: {},
-  resolver: undefined,
-  context: undefined,
-  criteriaMode: "firstError",
-  shouldFocusError: true,
-  shouldUnregister: false,
-  shouldUseNativeValidation: false,
-  delayError: undefined
-})`}
+              rawData={`function App() {
+  const methods = useForm();
+  
+  return null;
+}`}
               tsRawData={`type FormInputs = {
   firstName: string;
   lastName: string;
 };
 
-const { register } = useForm<FormInputs>({
-  mode: 'onSubmit',
-  reValidateMode: 'onChange',
-  defaultValues: {},
-  resolver: undefined,
-  context: undefined,
-  criteriaMode: "firstError",
-  shouldFocusError: true,
-  shouldUnregister: false,
-  delayError: undefined
-})`}
+const { register } = useForm<FormInputs>();
+
+// type inference with defaultValues
+const { register } = useForm({
+  defaultValues: {
+    firstName: '',
+    lastName: ''
+  }
+});`}
             />
 
-            <h2 id={"props"} className={typographyStyles.subTitle}>
+            <h2 id="props" className={typographyStyles.subTitle}>
               Props
             </h2>
 
@@ -162,7 +153,12 @@ const { register } = useForm<FormInputs>({
             <div className={tableStyles.tableWrapper}>
               <p>
                 This option allows you to configure the validation strategy
-                before a user submits the form (<code>onSubmit</code> event).
+                before a user submits the form that is happened during
+                <code>onSubmit</code> event by invoking{" "}
+                <Link to="/api/useform/handlesubmit">
+                  <code>handleSubmit</code>
+                </Link>{" "}
+                function.
               </p>
 
               <table className={tableStyles.table}>
@@ -230,12 +226,32 @@ const { register } = useForm<FormInputs>({
               <code>
                 defaultValues:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`Record<string, any>`} = {`{}`}
+                  {`FieldValues | Promise<FieldValues>`}
                 </span>
               </code>
             </h5>
 
             {api.useForm.defaultValues}
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                values:{" "}
+                <span className={typographyStyles.typeText}>FieldValues</span>
+              </code>
+            </h5>
+
+            {api.useForm.values}
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                resetOptions:{" "}
+                <span className={typographyStyles.typeText}>
+                  KeepStateOptions
+                </span>
+              </code>
+            </h5>
+
+            {api.useForm.resetOptions}
 
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
@@ -319,7 +335,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 shouldUnregister:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`boolean = false`}
+                  boolean = false
                 </span>
               </code>
             </h5>
@@ -334,7 +350,7 @@ const { register } = useForm<FormInputs>({
               <code>
                 shouldUseNativeValidation:{" "}
                 <span className={typographyStyles.typeText}>
-                  {`boolean = false`}
+                  boolean = false
                 </span>
               </code>
             </h5>
@@ -354,26 +370,47 @@ const { register } = useForm<FormInputs>({
             </p>
             <ul>
               <li>
-                <p>
-                  You can turn on this config and set <code>novalidate</code> at
-                  your form and still use those CSS selectors.
-                </p>
+                Only works with onSubmit and onChange mode due to{" "}
+                <code>reportValidity</code> execution will focus on the error
+                input.
+              </li>
+              <li>
+                Each registered field's validation message is required to be
+                string to display them natively.
               </li>
               <li>
                 <p>
-                  This feature only works for <code>register</code> API, not{" "}
-                  <code>useController/Controller</code>.
+                  This feature only works for <code>register</code> API, and{" "}
+                  <code>useController/Controller</code> which wired with actual
+                  DOM reference.
                 </p>
               </li>
             </ul>
 
-            <h3 id={"example"} className={typographyStyles.subTitle}>
+            <h3 id="example" className={typographyStyles.subTitle}>
               Examples
             </h3>
 
             <CodeArea rawData={shouldUseNativeValidation} />
 
             <ValidationResolver api={api} />
+
+            <h2 className={typographyStyles.subTitle}>Return</h2>
+
+            <p>
+              The following list contains reference to <code>useForm</code>{" "}
+              return props.
+            </p>
+
+            <ul>
+              {pages[0].pages.map((page) => (
+                <li key={page.name}>
+                  <p>
+                    <Link to={page.pathname}>{page.name}</Link>
+                  </p>
+                </li>
+              ))}
+            </ul>
 
             <StarRepo currentLanguage="en" />
           </section>

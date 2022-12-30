@@ -10,8 +10,11 @@ import { useForm } from "react-hook-form"
 import resources from "./Resources.json"
 import StarRepo from "./StarRepo"
 
+import * as headerStyles from "./Header.module.css"
+
 export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
   const { register, watch } = useForm({ mode: "onChange" })
+  const [layout, setLayout] = React.useState("grid")
   const {
     state: { language },
   } = useStateMachine()
@@ -19,6 +22,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
     language && language.currentLanguage
       ? language
       : { currentLanguage: defaultLang }
+  const isGridLayout = layout === "grid"
 
   const resourcesByType = resources.reduce(
     (acc, cur) => {
@@ -52,10 +56,44 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           placeholder="Search resources..."
           className={styles.searchFilter}
         />
+
+        <div className={styles.layoutButtons}>
+          <div
+            className={headerStyles.toggleGroup}
+            role="tablist"
+            aria-label="Select video"
+          >
+            <button
+              aria-controls="tabPanel-1"
+              role="tab"
+              disabled={isGridLayout}
+              onClick={() => {
+                setLayout("grid")
+              }}
+            >
+              Grid
+            </button>
+            <button
+              role="tab"
+              aria-controls="tabPanel-2"
+              disabled={!isGridLayout}
+              onClick={() => {
+                setLayout("list")
+              }}
+            >
+              List
+            </button>
+          </div>
+        </div>
+
         <h2 className={typographyStyles.title}>
           {generic.blog[currentLanguage]}
         </h2>
-        <ul className={styles.contentList}>
+        <ul
+          className={
+            isGridLayout ? styles.contentList : styles.contentListLayout
+          }
+        >
           {resourcesByType.article.map(
             ({ url, title, author, authorUrl, version }) => (
               <li key={url + title}>
@@ -84,7 +122,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         <h2 className={typographyStyles.title}>
           {generic.video[currentLanguage]}
         </h2>
-        <ul className={styles.contentList}>
+        <ul
+          className={
+            isGridLayout ? styles.contentList : styles.contentListLayout
+          }
+        >
           {resourcesByType.video.map(
             ({ title, url, authorUrl, author, description, version }) => (
               <li key={url + title}>
@@ -113,7 +155,11 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
         <h2 className={typographyStyles.title}>
           {generic.newsletter[currentLanguage]}
         </h2>
-        <ul className={styles.contentList}>
+        <ul
+          className={
+            isGridLayout ? styles.contentList : styles.contentListLayout
+          }
+        >
           {resourcesByType.newsletter.map(({ title, url, description }) => (
             <article className={styles.article} key={url + title}>
               <a href={url} target="_blank" rel="noopener noreferrer">

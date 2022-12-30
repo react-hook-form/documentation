@@ -63,30 +63,17 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           <Link to="/media">Media</Link>
         </li>
       </ul>
-      {currentLanguage === "pt" && (
-        <p>
-          <a href="https://github.com/kevenleone">@kevenleone</a> and{" "}
-          <a href="https://github.com/vitorboccio">@vitorboccio</a>
-        </p>
-      )}
-      {currentLanguage === "kr" && (
-        <p>
-          <a href="https://github.com/jiyeonseo">@jiyeonseo</a>,{" "}
-          <a href="https://github.com/iamchanii">@iamchanii</a>,{" "}
-          <a href="https://github.com/purelledhand">@purelledhand</a>, 그리고{" "}
-          <a href="https://github.com/adhrinae">@adhrinae</a>의 도움으로
-          번역되었습니다.
-        </p>
-      )}
-      {currentLanguage === "jp" && (
-        <p>
-          <a href="https://github.com/kotarella1110">@kotarella1110</a> と{" "}
-          <a href="https://github.com/dowdiness">@dowdiness</a>{" "}
-          によって翻訳されました。
-        </p>
-      )}
       <p>
-        {generic.support[currentLanguage]}{" "}
+        A project by{" "}
+        <a
+          href="https://www.beekai.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="BEEKAI Form builder"
+        >
+          <b>BEEKAI</b>
+        </a>{" "}
+        | Please support us by leaving a ★{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
           target="_blank"
@@ -103,17 +90,6 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           Feedback
         </a>
       </p>
-      <p>
-        Project build and maintain by{" "}
-        <a
-          href="https://beekai.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Bill Luo Twitter"
-        >
-          <strong>BEEKAI</strong>
-        </a>
-      </p>
       <p
         style={{
           display: "inline-block",
@@ -123,7 +99,14 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           borderRadius: 4,
         }}
       >
-        Hosted on ▲ Vercel Now
+        <a
+          href="https://vercel.com/"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.link}
+        >
+          Hosted on ▲ Vercel Now
+        </a>
       </p>
     </footer>
   )

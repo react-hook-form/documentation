@@ -96,7 +96,7 @@ errors?.key4?.message // no type error`}
     title: "Resolver",
     description: (
       <CodeArea
-        url={"https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"}
+        url="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
         rawData={`import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 
@@ -152,8 +152,7 @@ export default function App() {
     description: (
       <CodeArea
         url="https://codesandbox.io/s/control-2mg07"
-        rawData={`import React from "react";
-import { useForm, useWatch, Control } from "react-hook-form";
+        rawData={`import { useForm, useWatch, Control } from "react-hook-form";
 
 type FormValues = {
   firstName: string;
@@ -191,12 +190,32 @@ export default function App() {
   UseFormReturnRef: {
     title: "UseFormReturn",
     description: (
-      <CodeArea
-        url={
-          "https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
-        }
-        rawData={`import React from "react";
-import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
+      <TabGroup buttonLabels={["Type", "Code Example"]}>
+        <CodeArea
+          rawData={`export type UseFormReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+> = {
+  watch: UseFormWatch<TFieldValues>;
+  getValues: UseFormGetValues<TFieldValues>;
+  getFieldState: UseFormGetFieldState<TFieldValues>;
+  setError: UseFormSetError<TFieldValues>;
+  clearErrors: UseFormClearErrors<TFieldValues>;
+  setValue: UseFormSetValue<TFieldValues>;
+  trigger: UseFormTrigger<TFieldValues>;
+  formState: FormState<TFieldValues>;
+  resetField: UseFormResetField<TFieldValues>;
+  reset: UseFormReset<TFieldValues>;
+  handleSubmit: UseFormHandleSubmit<TFieldValues>;
+  unregister: UseFormUnregister<TFieldValues>;
+  control: Control<TFieldValues, TContext>;
+  register: UseFormRegister<TFieldValues>;
+  setFocus: UseFormSetFocus<TFieldValues>;
+};`}
+        />
+        <CodeArea
+          url="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+          rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -272,7 +291,8 @@ export default function App() {
   );
 }
 `}
-      />
+        />
+      </TabGroup>
     ),
   },
   useFormOptions: {
@@ -307,6 +327,10 @@ export default function App() {
   name: string;
   keyName?: TKeyName;
   control?: TControl;
+  rules?: Pick<
+    RegisterOptions<TFieldValues>,
+    'maxLength' | 'minLength' | 'validate' | 'required'
+  >;
 };`}
       />
     ),
@@ -403,8 +427,34 @@ export default function App() {
           This type is useful when you define custom component's{" "}
           <code>name</code> prop, and it will type check again your field path.
         </p>
+        <CodeArea rawData="export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;" />
+      </>
+    ),
+  },
+  fieldPathByValue: {
+    title: "FieldPathByValue",
+    description: (
+      <>
+        <p>
+          This type will return union with all available paths that match the
+          passed value
+        </p>
         <CodeArea
-          rawData={`export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>;`}
+          rawData={`function Field<
+  TFieldValues extends FieldValues,
+  TPath extends FieldPathByValue<TFieldValues, Date>
+>({
+  control,
+  name
+}: {
+  control: Control<TFieldValues>,
+  name: TPath
+}) {
+  const { field } = useController({
+    control,
+    name,
+  });
+}`}
         />
       </>
     ),
@@ -412,7 +462,7 @@ export default function App() {
   fieldValues: {
     title: "FieldValues",
     description: (
-      <CodeArea rawData={`export type FieldValues = Record<string, any>;`} />
+      <CodeArea rawData="export type FieldValues = Record<string, any>;" />
     ),
   },
   mode: {

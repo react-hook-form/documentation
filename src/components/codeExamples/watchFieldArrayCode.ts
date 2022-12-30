@@ -17,7 +17,6 @@ function App() {
         return (
           <input
             key={field.id}
-            defaultValue={field.firstName}
             {...register(\`test[\${index}].firstName\`)}
           />
         );

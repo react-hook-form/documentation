@@ -38,7 +38,7 @@ export default ({ currentLanguage }) => {
 
             {api.setError.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -64,7 +64,7 @@ export default ({ currentLanguage }) => {
               <CodeArea
                 rawData={setAllErrors}
                 tsRawData={setAllErrorsTs}
-                url="https://codesandbox.io/s/react-hook-form-set-single-field-with-multiple-errors-ogf20"
+                url="https://codesandbox.io/s/seterror-single-field-errors-79wcr9"
               />
             </TabGroup>
 
@@ -77,7 +77,7 @@ export default ({ currentLanguage }) => {
               width="100%"
               height="528"
               title="react hook form setError"
-              src={"https://www.youtube.com/embed/raMqvE0YyIY"}
+              src="https://www.youtube.com/embed/raMqvE0YyIY"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -1,8 +1,8 @@
 import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"
-import generic from "../data/generic"
-import Prism from "prismjs"
+import { highlightAllUnder } from "prismjs"
+import ClipBoard from "./ClipBoard"
 import * as styles from "./CodeArea.module.css"
 
 export const CodeSandBoxLink = ({
@@ -12,7 +12,7 @@ export const CodeSandBoxLink = ({
   isExpo,
 }: {
   url: string
-  style?: any
+  style?: React.CSSProperties
   isExpo?: boolean
   isJS?: boolean
 }) => (
@@ -101,7 +101,7 @@ export default function CodeArea({
   React.useEffect(() => {
     const highlight = async () => {
       if (codeAreaRef.current) {
-        Prism.highlightAllUnder(codeAreaRef.current)
+        highlightAllUnder(codeAreaRef.current)
       }
     }
     highlight()
@@ -145,16 +145,11 @@ export default function CodeArea({
           </button>
         )}
         {!withOutCopy && (
-          <button
+          <ClipBoard
             className={`${styles.button} ${styles.copyButton}`}
-            onClick={() => {
-              copyClipBoard(getData())
-              alert(generic.copied[currentLanguage])
-            }}
-            aria-label={generic.copied[currentLanguage]}
-          >
-            {generic.copy[currentLanguage]}
-          </button>
+            onClick={() => copyClipBoard(getData())}
+            currentLanguage={currentLanguage}
+          />
         )}
 
         {((url && currentType === ToggleTypes.js) ||
@@ -162,7 +157,7 @@ export default function CodeArea({
           (tsUrl && currentType === ToggleTypes.types)) && (
           <CodeSandBoxLink
             isExpo={isExpo}
-            isJS={url && currentType === ToggleTypes.js && url && tsUrl}
+            isJS={!!(url && currentType === ToggleTypes.js && url && tsUrl)}
             url={currentType === ToggleTypes.js ? url : tsUrl}
           />
         )}

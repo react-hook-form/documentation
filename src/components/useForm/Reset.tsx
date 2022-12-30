@@ -32,13 +32,13 @@ export default ({ currentLanguage }) => {
                 reset:{" "}
                 <span
                   className={typographyStyles.typeText}
-                >{`(values?: Record<string, any>, options?: Record<string, boolean>) => void`}</span>
+                >{`<T>(values?: T | ResetAction<T>, options?: Record<string, boolean>) => void`}</span>
               </h2>
             </code>
 
             {api.reset.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -84,7 +84,7 @@ export default ({ currentLanguage }) => {
             width="100%"
             height="528"
             title="react hook form reset"
-            src={"https://www.youtube.com/embed/qmCLBjyPwVk"}
+            src="https://www.youtube.com/embed/qmCLBjyPwVk"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

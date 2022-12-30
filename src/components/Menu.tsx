@@ -5,9 +5,8 @@ import { useLocation } from "@reach/router"
 import colors from "../styles/colors"
 import * as styles from "./SideMenu.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
-import { updateCurrentLanguage } from "../actions/languageActions"
 
-const pages = [
+export const pages = [
   {
     pathname: "/api/useform",
     name: "useForm",
@@ -42,6 +41,12 @@ const pages = [
   {
     pathname: "/api/useformcontext",
     name: "useFormContext",
+    pages: [
+      {
+        pathname: "/api/formprovider",
+        name: "FormProvider",
+      },
+    ],
   },
   {
     pathname: "/api/usewatch",
@@ -64,11 +69,9 @@ const pages = [
 ]
 
 function Menu() {
-  const { state } = useStateMachine({ updateCurrentLanguage })
+  const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
-
-  console.log("pathname", pathname)
 
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>

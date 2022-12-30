@@ -62,9 +62,8 @@ export default {
     ),
     validateOnSubmit: (
       <>
-        Validation will trigger on the <code>submit</code> event and invalid
-        inputs will attach <code>onChange</code> event listeners to re-validate
-        them.
+        Validation will trigger on the <code>submit</code> event and inputs will
+        attach <code>onChange</code> event listeners to re-validate them.
       </>
     ),
     validateOnBlur: (
@@ -98,92 +97,129 @@ export default {
         </p>
       </>
     ),
+    values: (
+      <>
+        <p>
+          The <code>values</code> props will react to changes and update the
+          form values, which is useful when your form needs to be updated by
+          external state or server data.
+        </p>
+
+        <CodeArea
+          rawData={`// set default value sync
+function App({ values }) {
+  useForm({
+    values  // will get updated when values props updates       
+  })
+}
+
+function App() {
+  const values = useFetch('/api');
+  
+  useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+    },
+    values, // will get updated once values returns
+  })
+}
+`}
+        />
+      </>
+    ),
+    resetOptions: (
+      <>
+        <p>
+          This property is associated with value update behaviours. In fact,{" "}
+          <code>values</code> or <code>defaultValues</code> update will invoke
+          the <code>reset</code> API internally. So it's important to info what
+          behaviour should be after the <code>values</code> or{" "}
+          <code>defaultValues</code> get asynchronously updated. The config
+          option itself is a reference to{" "}
+          <Link to="/api/useform/reset">reset</Link> method's options.
+        </p>
+
+        <CodeArea
+          tsUrl="https://codesandbox.io/s/useform-resetoptions-7bsuud"
+          rawData={`// by default asynchronously value or defaultValues update will reset the form values
+useForm({ values })
+useForm({ defaultValues: async () => await fetch() })
+
+// options to config the behaviour
+// eg: I want to keep user interacted/dirty value and not remove any user errors
+useForm({
+  values,
+  resetOptions: {
+    keepDirtyValues: true, // user-interacted input will be retained
+    keepErrors: true, // input errors will be retained with value update
+  }
+})
+`}
+        />
+      </>
+    ),
     defaultValues: (
       <>
         <p>
-          The <code>defaultValues</code> for inputs are used as the initial
-          value when a component is first rendered, before a user interacts with
-          it. It is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
-          for all inputs to non-
-          <code>undefined</code> values such as the empty <code>string</code> or{" "}
-          <code>null</code>.
-        </p>
-
-        <p>
-          You can set an input's default value with{" "}
-          <code>defaultValue/defaultChecked</code>{" "}
+          The <code>defaultValues</code> prop is used to populate the entire
+          form values. It supports both sync and async set form default values.
+          You can set an input's default value with <code>defaultValue</code>/
+          <code>defaultChecked</code>{" "}
           <a
             className={buttonStyles.links}
             href="https://reactjs.org/docs/uncontrolled-components.html"
           >
-            (read more from the React doc for Default Values)
+            (read more from the official React doc)
           </a>
-          . You can pass <code>defaultValues</code> as an optional argument to{" "}
-          <code>useForm()</code> to populate the default values for the entire
-          form, or set values on an individual{" "}
-          <Link to={"/api/usecontroller/controller"}>Controller</Link> component
-          via its <code>defaultValue</code> property. If both{" "}
-          <code>defaultValue</code> and <code>defaultValues</code> are set, the
-          value from <code>defaultValues</code> will be used.
+          , but it is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
+          for the entire form.
         </p>
+
+        <CodeArea
+          rawData={`// set default value sync
+useForm({
+  defaultValues: {
+    firstName: '',
+    lastName: ''
+  }
+})
+
+// set default value async
+useForm({
+  defaultValues: async () => fetch('/api-endpoint');
+})`}
+        />
 
         <h3 className={typographyStyles.rulesTitle}>Rules</h3>
 
         <ul>
           <li>
             <p>
-              <b className={typographyStyles.note}>Important:</b> You should
-              provide a proper default value and avoid <code>undefined</code>.
+              You <b>should</b> provide <b>none</b> <code>undefined</code>{" "}
+              default value, as <code>undefined</code> value is conflicting with
+              controlled component as default state.
             </p>
-            <ul>
-              <li>
-                <p>
-                  undefined is reserved for fallback from inline{" "}
-                  <code>defaultValue</code>/<code>defaultChecked</code> to hook
-                  level <code>defaultValues</code>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <code>undefined</code> value is conflicting with controlled
-                  component as default state
-                </p>
-              </li>
-            </ul>
           </li>
           <li>
             <p>
               {" "}
-              <code>defaultValues</code> are cached{" "}
-              <strong>on the first render</strong> within the custom hook. If
-              you want to reset the <code>defaultValues</code>, you should use
-              the <Link to={"/api/useform/reset"}>reset</Link> api.
-            </p>
-          </li>
-          <li>
-            <p>
-              <code>defaultValues</code> will be injected into{" "}
-              <Link to={"/api/useform/watch"}>watch</Link>,{" "}
-              <Link to={"/api/usewatch"}>useWatch</Link>,{" "}
-              <Link to={"/api/usecontroller/controller"}>Controller</Link> and{" "}
-              <Link to={"/api/usecontroller"}>useController</Link>'s{" "}
-              <code>defaultValue</code>.
+              <code>defaultValues</code> are cached. If you want to reset the{" "}
+              <code>defaultValues</code>, you should use the{" "}
+              <Link to="/api/useform/reset">reset</Link> api.
             </p>
           </li>
           <li>
             <p>
               <code>defaultValues</code> will be included in the submission
-              result by default, if this is not the desired behavior use{" "}
-              <code>shouldUnregister: true</code> instead which means input
-              values will host within all the fields.
+              result by default.
             </p>
           </li>
           <li>
             <p>
-              Avoid including custom object into the <code>defaultValues</code>.
-              eg: <code>moment</code>, <code>luxon</code>
-              as those will lead to unexpected result during internal object
-              clone process.
+              It's recommend to avoid including custom object which contains
+              prototype methods as the <code>defaultValues</code>, such as{" "}
+              <code>moment</code>, <code>luxon</code> and etc.
             </p>
           </li>
           <li>
@@ -191,8 +227,6 @@ export default {
             <CodeArea
               rawData={`// include hidden input
 <input {...register("hidden")} type="hidden" />
-
-// register input with value
 register("hidden", { value: "data" })
 
 // include data onSubmit
@@ -212,8 +246,12 @@ const onSubmit = (data) => {
       <p>
         This option allows you to configure validation strategy when inputs with
         errors get re-validated <strong>after</strong> a user submits the form (
-        <code>onSubmit</code> event). By default, validation is triggered during
-        the input change event.
+        <code>onSubmit</code> event and{" "}
+        <Link to="/api/useform/handlesubmit">
+          <code>handleSubmit</code>
+        </Link>{" "}
+        function executed). By default, re-validation is actioned during the
+        input change event.
       </p>
     ),
     validationFields: (
@@ -485,7 +523,7 @@ const App = () => {
                   <code>name</code>
                 </td>
                 <td>
-                  <code className={typographyStyles.typeText}>{`string`}</code>
+                  <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
                   <p>Input's name being registered.</p>
@@ -514,15 +552,15 @@ const App = () => {
             You can also <code>register</code> inputs with{" "}
             <code>useEffect</code> and treat them as virtual inputs. For
             controlled components, we provide a custom hook{" "}
-            <Link to={"/api/usecontroller"}>useController</Link> and{" "}
-            <Link to={"/api/usecontroller/controller"}>Controller</Link>{" "}
-            component to take care this process for you.
+            <Link to="/api/usecontroller">useController</Link> and{" "}
+            <Link to="/api/usecontroller/controller">Controller</Link> component
+            to take care this process for you.
           </p>
 
           <p>
             If you choose to manually register fields, you will need to update
             the input value with{" "}
-            <Link to={"/api/useform/setvalue"}>setValue</Link>.
+            <Link to="/api/useform/setvalue">setValue</Link>.
           </p>
 
           <CodeArea
@@ -547,6 +585,7 @@ const App = () => {
 
 const firstName = register('firstName', { required: true })
 <TextInput
+  name={firstName.name}
   onChange={firstName.onChange}
   onBlur={firstName.onBlur}
   inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
@@ -600,7 +639,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
             You can pass a callback function as the argument to validate, or you
             can pass an object of callback functions to validate all of them.
             This function will be executed on its own without depending on other
-            validation rules include <code>required</code> attribute.
+            validation rules included in the <code>required</code> attribute.
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
@@ -698,10 +737,28 @@ setValue('test', '')
     ),
     touched:
       "An object containing all the inputs the user has interacted with.",
+    defaultValues: (
+      <p>
+        The value which has been set at{" "}
+        <Link to="/api/useform" aria-label="read more about reset api">
+          useForm
+        </Link>
+        's defaultValues or updated defaultValues via{" "}
+        <Link to="/api/useform/reset" aria-label="read more about reset api">
+          reset
+        </Link>{" "}
+        API.
+      </p>
+    ),
     isSubmitting: (
       <>
         <code>true</code> if the form is currently being submitted.{" "}
         <code>false</code> otherwise.
+      </>
+    ),
+    isLoading: (
+      <>
+        <code>true</code> if the form is currently loading async default values.
       </>
     ),
     submitCount: "Number of times the form was submitted.",
@@ -758,7 +815,7 @@ setValue('test', '')
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <Link to={"/api/useformstate/errormessage"}>ErrorMessage</Link>{" "}
+          <Link to="/api/useformstate/errormessage">ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>
@@ -835,7 +892,7 @@ setValue('test', '')
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
         <ul>
@@ -995,10 +1052,8 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                     remained, and only none dirty fields will be updated to the
                     latest rest value.{" "}
                     <a
-                      href={
-                        "https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
-                      }
-                      target={"_blank"}
+                      href="https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
+                      target="_blank"
                       rel="noreferrer"
                     >
                       Check out the example.
@@ -1038,15 +1093,18 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                   <ul>
                     <li>
                       <p>
-                        <code>isDirty</code> will be checked again provided
-                        valued against the original <code>defaultValues</code>.
+                        <code>isDirty</code> will be checked again: it is set to
+                        be the result of the comparison of any new values
+                        provided against the original <code>defaultValues</code>
+                        .
                       </p>
                     </li>
                     <li>
                       <p>
-                        <code>dirtyFields</code> will be updated again provided
-                        valued <b>limited to the root level</b> against the
-                        original <code>defaultValues</code>.
+                        <code>dirtyFields</code> will be updated again if values
+                        are provided: it is set to be result of the comparison
+                        between the new values provided against the original
+                        <code>defaultValues</code>.
                       </p>
                     </li>
                   </ul>
@@ -1109,7 +1167,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1128,9 +1186,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={
-                  "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
-                }
+                href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset"
               >
                 reset
               </a>{" "}
@@ -1176,7 +1232,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             <tbody>
               <tr>
                 <th>Name</th>
-                <th width={"200px"}>Type</th>
+                <th width="200px">Type</th>
                 <th>Description</th>
               </tr>
               <tr>
@@ -1222,7 +1278,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1246,7 +1302,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             </p>
             <CodeArea
               rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
-// clearError() need to invoked manually to remove that custom error 
+// clearErrors() need to invoked manually to remove that custom error 
 `}
             />
           </li>
@@ -1265,7 +1321,8 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           </li>
           <li>
             <p>
-              This method does not affect <code>isValid</code> formState, as{" "}
+              This method will force set <code>isValid</code> formState to{" "}
+              <code>false</code>, however, it's important to aware{" "}
               <code>isValid</code> will always be derived by the validation
               result from your input registration rules or schema result.
             </p>
@@ -1347,7 +1404,7 @@ clearErrors('test.firstName'); // for clear single input error
           </li>
         </ul>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1407,17 +1464,30 @@ clearErrors('test.firstName'); // for clear single input error
                       <ul>
                         <li>
                           <p>
-                            It's recommended to use field array's methods such
-                            as{" "}
-                            <Link to={"/api/usefieldarray#replace"}>
+                            You can use methods such as{" "}
+                            <Link to="/api/usefieldarray#replace">
                               <code>replace</code>
                             </Link>{" "}
                             or{" "}
-                            <Link to={"/api/usefieldarray#update"}>
+                            <Link to="/api/usefieldarray#update">
                               <code>update</code>
                             </Link>{" "}
-                            instead.
+                            for field array, however, they will cause the
+                            component to unmount and remount for the targeted
+                            field array.
                           </p>
+
+                          <CodeArea
+                            rawData={`const { update } = useFieldArray({ name: 'array' });
+                            
+// unmount fields and remount with updated value
+update(0, { test: '1', test1: '2' }) 
+
+// will directly update input value
+setValue('array.0.test1', '1');
+setValue('array.0.test2', '2');
+`}
+                          />
                         </li>
                         <li>
                           <p>
@@ -1427,10 +1497,12 @@ clearErrors('test.firstName'); // for clear single input error
 
                           <CodeArea
                             rawData={`const { replace } = useFieldArray({ name: 'test' })
-setValue('test.101.data')
-// ❌ doesn't create new input
-replace([{data: 'test'}])
+                          
+// ❌ doesn't create new input  
+setValue('test.101.data') 
+
 // ✅ work on refresh entire field array
+replace([{data: 'test'}]) 
 `}
                           />
                         </li>
@@ -1565,7 +1637,7 @@ replace([{data: 'test'}])
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1608,7 +1680,7 @@ setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input an
             </p>
             <p>
               <b className={typographyStyles.note}>Important: </b> use{" "}
-              <Link to={"/api/usefieldarray#replace"}>
+              <Link to="/api/usefieldarray#replace">
                 <code>replace</code>
               </Link>{" "}
               from <code>useFieldArray</code> instead, update entire field array
@@ -1711,7 +1783,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </tr>
               <tr>
                 <td>
-                  <code>getValues("yourDetails")</code>
+                  <code>getValues("root")</code>
                 </td>
                 <td>
                   <code>{`{ test1: '', test2: ''}`}</code>
@@ -1719,10 +1791,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </tr>
               <tr>
                 <td>
-                  <code>getValues("yourDetails.firstName")</code>
+                  <code>getValues("root.firstName")</code>
                 </td>
                 <td>
-                  <code>{`{ test1: '' }`}</code>
+                  <code>{`''`}</code>
                 </td>
               </tr>
               <tr>
@@ -1737,7 +1809,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -1927,14 +1999,49 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   </p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <code>rules</code>
+                </td>
+                <td>
+                  <code className={typographyStyles.typeText}>Object</code>
+                </td>
+                <td></td>
+                <td>
+                  <p>
+                    The same validation <code>rules</code> API as for{" "}
+                    <Link to="/api/useform/register">register</Link>, which
+                    includes:
+                  </p>
+                  <p>required, minLength, maxLength, validate</p>
+                  <CodeArea
+                    url="https://codesandbox.io/s/react-hook-form-usefieldarray-rules-iyejbp?file=/src/index.js"
+                    withOutCopy
+                    rawData={`useFieldArray({
+  rules: { minLength: 4 }
+})
+`}
+                  />
+                  <p>
+                    In case of validation error, the <code>root</code> property
+                    is appended to{" "}
+                    <code>formState.errors?.fieldArray?.root</code> of type{" "}
+                    <Link to="ts/#FieldError">
+                      <code>FieldError</code>
+                    </Link>
+                    <p>
+                      <b className={typographyStyles.note}>Important: </b>This
+                      is only applicable to <strong>built-in</strong> validation
+                      only.
+                    </p>
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
 
-        <h3
-          id={"shouldUnregister-example"}
-          className={typographyStyles.subTitle}
-        >
+        <h3 id="shouldUnregister-example" className={typographyStyles.subTitle}>
           Examples
         </h3>
 
@@ -1959,12 +2066,12 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"append"}>append</code>
+            <code id="append">append</code>
           </td>
           <td>
             <code>
               <code className={typographyStyles.typeText}>
-                (obj: object | object[], {`focusOptions`}) =&gt; void
+                (obj: object | object[], focusOptions) =&gt; void
               </code>
             </code>
           </td>
@@ -1981,11 +2088,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"prepend"}>prepend</code>
+            <code id="prepend">prepend</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
-              (obj: object | object[], {`focusOptions`}) =&gt; void
+              (obj: object | object[], focusOptions) =&gt; void
             </code>
           </td>
           <td>
@@ -2001,7 +2108,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"insert"}>insert</code>
+            <code id="insert">insert</code>
           </td>
           <td>
             <code className={typographyStyles.typeText}>
@@ -2018,7 +2125,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"swap"}>swap</code>
+            <code id="swap">swap</code>
           </td>
           <td>
             <code>
@@ -2031,7 +2138,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"move"}>move</code>
+            <code id="move">move</code>
           </td>
           <td>
             <code>
@@ -2044,7 +2151,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"update"}>update</code>
+            <code id="update">update</code>
           </td>
           <td>
             <code>
@@ -2071,7 +2178,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"replace"}>replace</code>
+            <code id="replace">replace</code>
           </td>
           <td>
             <code>
@@ -2084,7 +2191,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code id={"remove"}>remove</code>
+            <code id="remove">remove</code>
           </td>
           <td>
             <code>
@@ -2149,10 +2256,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               <li>
                 <p>
                   <a
-                    href={
-                      "https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
-                    }
-                    target={"_blank"}
+                    href="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+                    target="_blank"
                     rel="noreferrer"
                   >
                     MUI and other components
@@ -2162,8 +2267,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               <li>
                 <p>
                   <a
-                    href={"https://codesandbox.io/s/chakra-ui-5mp8g"}
-                    target={"_blank"}
+                    href="https://codesandbox.io/s/chakra-ui-5mp8g"
+                    target="_blank"
                     rel="noreferrer"
                   >
                     Chakra UI components
@@ -2214,7 +2319,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title={"FieldPath type"}>
+            <Link to="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2224,13 +2329,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         <tr>
           <td>control</td>
           <td>
-            <Link to={"/ts#Control"} title={"Control type"}>
+            <Link to="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to={"/api/useform/control"}>
+            <Link to="/api/useform/control">
               <code>control</code>
             </Link>{" "}
             object is from invoking <code>useForm</code>. Optional when using{" "}
@@ -2358,7 +2463,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Validation rules in the same format for{" "}
-              <Link to={"/api/useform/register#options"}>
+              <Link to="/api/useform/register#options">
                 <code>register</code> options
               </Link>
               , which includes:
@@ -2383,6 +2488,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <p>
               Input will be unregistered after unmount and defaultValues will be
               removed as well.
+            </p>
+            <p>
+              <b>Note:</b> this prop should be avoided when using with{" "}
+              <code>useFieldArray</code> as <code>unregister</code> function
+              gets called after input unmount/remount and reorder.
             </p>
           </td>
         </tr>
@@ -2442,7 +2552,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           Hook Form.
         </p>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -2578,7 +2688,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title={"FieldPath type"}>
+            <Link to="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2590,13 +2700,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>control</code>
           </td>
           <td>
-            <Link to={"/ts#Control"} title={"Control type"}>
+            <Link to="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to={"/api/useform/control"}>
+            <Link to="/api/useform/control">
               <code>control</code>
             </Link>{" "}
             object provided by invoking <code>useForm</code>. Optional when
@@ -2670,6 +2780,11 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               Input will be unregistered after unmount and defaultValues will be
               removed as well.
             </p>
+            <p>
+              <b>Note:</b> this prop should be avoided when using with{" "}
+              <code>useFieldArray</code> as <code>unregister</code> function
+              gets called after input unmount/remount and reorder.
+            </p>
           </td>
         </tr>
       </tbody>
@@ -2722,9 +2837,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             </p>
 
             <CodeArea
-              url={
-                "https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
-              }
+              url="https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
               rawData={`const { field } = useController();
 const [value, setValue] = useState(field.value);
 
@@ -2771,7 +2884,7 @@ const { field: checkbox } = useController({ name: 'test1' })
       <>
         <p>
           This custom hook powers{" "}
-          <Link to={"/api/usecontroller/controller"}>
+          <Link to="/api/usecontroller/controller">
             <code>Controller</code>
           </Link>
           . Additionally, it shares the same props and methods as{" "}
@@ -2837,7 +2950,7 @@ setFocus("name", { shouldSelect: true })
           </table>
         </div>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 

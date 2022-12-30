@@ -3,5 +3,4 @@ export default {
   // TODO: inherit mode choice from the user such as below
   // !window.matchMedia("(prefers-color-scheme: light)").matches
   isFocusOnSearch: false,
-  version: 7,
 }

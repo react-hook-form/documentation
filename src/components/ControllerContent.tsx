@@ -50,7 +50,7 @@ export default function ControllerContent({
 
       <UseControllerMethods currentLanguage={currentLanguage} isController />
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 
@@ -78,7 +78,7 @@ export default function ControllerContent({
         width="100%"
         height="528"
         title="react hook form controller build"
-        src={"https://www.youtube.com/embed/N2UNk_UCVyA"}
+        src="https://www.youtube.com/embed/N2UNk_UCVyA"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

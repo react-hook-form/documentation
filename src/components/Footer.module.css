@@ -56,3 +56,7 @@
 .lightFooter .links > li > a:hover {
   color: var(--color-light-pink);
 }
+
+a.link {
+  color: var(--color-primary);
+}

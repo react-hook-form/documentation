@@ -1,5 +1,4 @@
 import * as React from "react"
-import Prism from "prismjs"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
 import * as typographyStyles from "../styles/typography.module.css"
@@ -17,13 +16,6 @@ export default function ApiRefTable({
   currentLanguage: string
 }) {
   const [isStandard, toggleOption] = React.useState(true)
-  const highlightContainer = React.useRef<HTMLTableElement | null>(null)
-
-  React.useEffect(() => {
-    if (highlightContainer.current) {
-      Prism.highlightAllUnder(highlightContainer.current)
-    }
-  }, [isStandard])
 
   return (
     <>
@@ -66,6 +58,8 @@ export default function ApiRefTable({
         </table>
       </div>
 
+      <h2 className={typographyStyles.subTitle}>Return</h2>
+
       <section>
         <p>
           <b className={typographyStyles.note}>Tip:</b>: What's happened to the
@@ -88,7 +82,7 @@ export default function ApiRefTable({
 `}
       />
 
-      <h2 className={typographyStyles.subTitle} id={"options"}>
+      <h2 className={typographyStyles.subTitle} id="options">
         Options
       </h2>
 
@@ -116,7 +110,7 @@ export default function ApiRefTable({
       </fieldset>
 
       <div className={tableStyles.tableWrapper}>
-        <table className={tableStyles.table} ref={highlightContainer}>
+        <table className={tableStyles.table}>
           <tbody>
             <tr>
               <th
@@ -430,8 +424,9 @@ export default function ApiRefTable({
                   </li>
                   <li>
                     <p>
-                      Only applicable and support to text input, but we still
-                      cast to number type to the field value.
+                      Only applicable and support to {`<input type="number" />`}
+                      , but we still cast to number type without trim or any
+                      other data manipulation.
                     </p>
                   </li>
                   <li>
@@ -472,7 +467,7 @@ export default function ApiRefTable({
                     </p>
                   </li>
                   <li>
-                    <p>Only applies to text input.</p>
+                    <p>Only applies to {`<input />`}.</p>
                   </li>
                   <li>
                     Does not transform <code>defaultValue</code> or{" "}
@@ -539,9 +534,9 @@ export default function ApiRefTable({
               <td>
                 <code>disabled</code>
                 <br />
-                <code
-                  className={typographyStyles.typeText}
-                >{`boolean = false`}</code>
+                <code className={typographyStyles.typeText}>
+                  boolean = false
+                </code>
               </td>
               <td>
                 <p>
@@ -591,8 +586,8 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`register('firstName', { 
-  onChange: (e) => console.log(e) 
+                  rawData={`register('firstName', {
+  onChange: (e) => console.log(e)
 })`}
                 />
               </td>
@@ -615,8 +610,8 @@ export default function ApiRefTable({
                 <CodeArea
                   style={{ marginTop: -10 }}
                   withOutCopy
-                  rawData={`register('firstName', { 
-  onBlur: (e) => console.log(e) 
+                  rawData={`register('firstName', {
+  onBlur: (e) => console.log(e)
 })`}
                 />
               </td>
@@ -653,6 +648,11 @@ export default function ApiRefTable({
                 <p>
                   Input will be unregistered after unmount and defaultValues
                   will be removed as well.
+                </p>
+                <p>
+                  <b>Note:</b> this prop should be avoided when using with{" "}
+                  <code>useFieldArray</code> as <code>unregister</code> function
+                  gets called after input unmount/remount and reorder.
                 </p>
               </td>
               <td>
@@ -696,7 +696,7 @@ export default function ApiRefTable({
           </tbody>
         </table>
 
-        <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+        <h2 id="rules" className={typographyStyles.rulesTitle}>
           Rules
         </h2>
 
@@ -771,15 +771,15 @@ register('test[0]firstName'); // ❌`}
 
             <CodeArea
               rawData={`register('test', { required: true });
-register('test', {}); // ❌ 
-register('test', undefined); // ❌ 
+register('test', {}); // ❌
+register('test', undefined); // ❌
 register('test', { required: false });  // ✅
 `}
             />
           </li>
         </ul>
 
-        <h2 id={"example"} className={typographyStyles.subTitle}>
+        <h2 id="example" className={typographyStyles.subTitle}>
           Examples
         </h2>
 
@@ -799,7 +799,7 @@ register('test', { required: false });  // ✅
           width="100%"
           height="528"
           title="react hook form controller build"
-          src={"https://www.youtube.com/embed/JFIpCoajYkA"}
+          src="https://www.youtube.com/embed/JFIpCoajYkA"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

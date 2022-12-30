@@ -43,7 +43,7 @@ export default {
         <p>
           <b className={typographyStyles.note}>Note: </b> you can easily locate
           an input by clicking the <strong>Native</strong> button. This will be
-          useful when you working on a large form.
+          useful when you are working on a large form.
         </p>
       </li>
     </>
@@ -56,7 +56,7 @@ export default {
     },
     {
       description:
-        "React Hook Form focus on delivering a great experience in terms of building forms with React. This tool will help debug your forms.",
+        "React Hook Form focuses on delivering a great experience in terms of building forms with React. This tool will help debug your forms.",
     },
     {
       title: "Open-Source",

@@ -12,15 +12,15 @@
   margin-bottom: 20px;
 }
 
-.feedback > div > svg {
-  margin: 0 auto 0;
+.feedback svg {
+  margin: 0 auto 10px;
   width: 45px;
 }
 
 .feedback > div > p {
   font-size: 15px;
   text-align: left;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 @media (min-width: 768px) {

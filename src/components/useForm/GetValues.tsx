@@ -34,7 +34,7 @@ export default ({ currentLanguage }) => {
 
             {api.getValues.description}
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 

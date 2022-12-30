@@ -26,7 +26,9 @@ export const GetFieldState = () => {
             <code className={typographyStyles.codeHeading}>
               <h2>
                 getFieldState:{" "}
-                <span className={typographyStyles.typeText}>{`object`}</span>
+                <span
+                  className={typographyStyles.typeText}
+                >{`(name: string, formState?: Object) => ({isDirty, isTouched, invalid, error})`}</span>
               </h2>
             </code>
 
@@ -71,9 +73,19 @@ export const GetFieldState = () => {
                     </td>
                     <td>
                       <p>
-                        When set to <code>true</code>, field error will be
-                        retained.
+                        This is an optional prop, which is only required if{" "}
+                        <code>formState</code> is not been read/subscribed from
+                        the <code>useForm</code>, <code>useFormContext</code> or{" "}
+                        <code>useFormState</code>.
                       </p>
+                      <CodeArea
+                        rawData={`const methods = useForm(); // not subscribed to any formState
+const { error } = getFieldState('firstName', methods.formState) // It is subscribed now and reactive to error state updated
+
+const { formState: { errors } } = useForm() // errors are subscribed and reactive to state update
+getFieldState('firstName') // return updated field error state
+`}
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -158,7 +170,7 @@ export const GetFieldState = () => {
               </table>
             </div>
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -175,83 +187,81 @@ getFieldState('non-existent-name'); // ❌ will return state as false and error 
                 />
               </li>
               <li>
-                <p>formState will need to be subscribed.</p>
+                <p>
+                  <code>getFieldState</code> works by subscribing to the form
+                  state update, and you can subscribe to the formState in the
+                  following ways:
+                </p>
 
-                <p>You can subscribe to the formState in two different ways:</p>
-
-                <ol>
+                <ul>
                   <li>
                     <p>
-                      You can simply define the required state information when
-                      destructuring the returned value of a relevant hook, such
-                      as <code>useForm</code> (at global level) or{" "}
-                      <code>useFormState</code> (at hook level).
-                    </p>
-
-                    <p>
-                      You do not need to pass the state information to
-                      getFieldState().
+                      You can subscribe at the <code>useForm</code>,{" "}
+                      <code>useFormContext</code> or <code>useFormState</code>.
+                      This is will establish the form state subscription and{" "}
+                      <code>getFieldState</code> second argument will no longer
+                      be required.
                     </p>
 
                     <CodeArea
                       rawData={`const { register, formState: { isDirty } } = useForm()
 register('test');
-getFieldState('test'); // ✅ register input and return field state
+getFieldState('test'); // ✅
+`}
+                    />
 
----------------------------
-
-// This is valid with useFormState as well
-const { isDirty } = useFormState();
-
+                    <CodeArea
+                      rawData={`const { isDirty } = useFormState();
 register('test');
-getFieldState('test'); // ✅ register input and return field state
+getFieldState('test'); // ✅
+`}
+                    />
+
+                    <CodeArea
+                      rawData={`const { register, formState: { isDirty } } = useFormContext();
+register('test');
+getFieldState('test'); // ✅
 `}
                     />
                   </li>
 
                   <li>
                     <p>
-                      You can pass the entire formState from{" "}
-                      <code>useForm()</code>,<code>useFormContext()</code> or
-                      <code>useFormState()</code> directly to{" "}
-                      <code>getFieldState()</code>.
-                    </p>
-
-                    <p>
-                      This will be the preferred approach for Typescript users
-                      who have stricter linting or compilation rules about
-                      unused declarations.
+                      When form state subscription is not setup, you can pass
+                      the entire <code>formState</code> as the second optional
+                      argument by following the example below:
                     </p>
 
                     <CodeArea
                       rawData={`const { register } = useForm()
 register('test');
-getFieldState('test'); // ❌ formState is not subscribed so has no re-render to update state
-
----------------------------
+const { isDirty } = getFieldState('test'); // ❌ formState isDirty is not subscribed at useForm
 
 const { register, formState } = useForm()
-getFieldState('test', formState); // ✅ register input and return field state
+const { isDirty } = getFieldState('test', formState); // ✅ formState.isDirty subscribed
+
+const { formState } = useFormContext();
+const { touchedFields } = getFieldState('test', formState); // ✅ formState.touchedFields subscribed
 `}
                     />
                   </li>
-                </ol>
+                </ul>
               </li>
             </ul>
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
             <CodeArea
               rawData={getFieldState}
-              url={"https://codesandbox.io/s/getfieldstate-jvekk"}
+              url="https://codesandbox.io/s/getfieldstate-jvekk"
             />
 
             <StarRepo currentLanguage="en" />
           </section>
 
-          <Footer currentLanguage={"en"} />
+          <Footer currentLanguage="en" />
         </main>
       </div>
     </div>

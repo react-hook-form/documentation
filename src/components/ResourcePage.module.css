@@ -8,6 +8,12 @@
   justify-content: flex-end;
 }
 
+.contentListLayout .tagWrapper {
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
 .tag {
   display: block;
   background: white;
@@ -25,6 +31,14 @@
   list-style: none;
   padding: 0;
   width: 100%;
+}
+
+.contentListLayout {
+  display: flex;
+  max-width: 1280px;
+  gap: 0;
+  margin: 0 auto;
+  flex-direction: column;
 }
 
 .searchFilter {
@@ -122,6 +136,13 @@ p.author {
   margin-bottom: 40px;
 }
 
+.contentListLayout > li {
+  list-style: none;
+  position: relative;
+  border-bottom: 1px solid var(--color-light-blue);
+  margin-bottom: 1rem;
+}
+
 .contentList li > svg {
   position: absolute;
   z-index: 2;
@@ -159,6 +180,14 @@ p.author {
 
 .twitter:hover > svg {
   fill: var(--color-secondary);
+}
+
+.layoutButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: -2rem;
 }
 
 @media (min-width: 768px) {

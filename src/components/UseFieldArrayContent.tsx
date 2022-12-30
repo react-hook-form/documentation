@@ -48,7 +48,7 @@ export default function UseFieldArrayContent({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -59,7 +59,7 @@ export default function UseFieldArrayContent({
             identifier named <code>id</code> which is used for <code>key</code>{" "}
             prop. For more information why this is required:{" "}
             <a
-              href={"https://reactjs.org/docs/lists-and-keys.html#keys"}
+              href="https://reactjs.org/docs/lists-and-keys.html#keys"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -81,30 +81,23 @@ export default function UseFieldArrayContent({
           </p>
         </li>
         <li>
-          <p>
-            You can not call actions one after another. Actions need to be
-            triggered per render.
-          </p>
+          <p>It's recommend to not stack actions one after another.</p>
           <CodeArea
             withOutCopy
-            rawData={`// ❌ The following is not correct
-handleChange={() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
+            rawData={`
+onClick={() => {
   append({ test: 'test' });
+  remove(0);
 }}
-
-// ✅ The following is correct and second action is triggered after next render
-handleChange={() => {
-  append({ test: 'test' });
-}}
-
+            
+// ✅ Better solution: the remove action is happened after the second render
 React.useEffect(() => {
-  if (fields.length === 2) {
-    remove(0);
-  }
-}, [fields])
+  remove(0);
+}, [remove])
+
+onClick={() => {
+  append({ test: 'test' });
+}}
             `}
           />
         </li>
@@ -157,9 +150,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
           <p>
             we do not support circular reference. Refer to this this{" "}
             <a
-              href={
-                "https://github.com/react-hook-form/react-hook-form/issues/4055"
-              }
+              href="https://github.com/react-hook-form/react-hook-form/issues/4055"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -180,7 +171,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 
@@ -209,19 +200,34 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         <CodeArea rawData={useFieldArrayFocus} />
       </TabGroup>
 
-      <>
-        <h2 className={typographyStyles.subTitle}>Tips</h2>
-        <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
-        <p>
-          You can also <code>register</code> inputs at <code>Controller</code>{" "}
-          without the actual input. This makes <code>useFieldArray</code> quick
-          and flexible to use with complex data structure or the actual data is
-          not stored inside an input.
-        </p>
+      <h2 className={typographyStyles.subTitle}>Video</h2>
+      <p>
+        The following video explains the basic usage of{" "}
+        <code>useFieldArray</code>.
+      </p>
 
-        <CodeArea
-          url={"https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"}
-          rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
+      <iframe
+        width="100%"
+        height="528"
+        title="react hook form - useFieldArray"
+        src="https://www.youtube.com/embed/4MrbfGSFY2A"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+
+      <h2 className={typographyStyles.subTitle}>Tips</h2>
+      <h4 className={typographyStyles.questionTitle}>Custom Register</h4>
+      <p>
+        You can also <code>register</code> inputs at <code>Controller</code>{" "}
+        without the actual input. This makes <code>useFieldArray</code> quick
+        and flexible to use with complex data structure or the actual data is
+        not stored inside an input.
+      </p>
+
+      <CodeArea
+        url="https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"
+        rawData={`import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 
 const ConditionalInput = ({ control, index, field }) => {
   const value = useWatch({
@@ -256,20 +262,18 @@ function App() {
   );
 }
 `}
-        />
+      />
 
-        <h4 className={typographyStyles.questionTitle}>
-          Controlled Field Array
-        </h4>
+      <h4 className={typographyStyles.questionTitle}>Controlled Field Array</h4>
 
-        <p>
-          There will be cases where you want to control the entire field array,
-          which means each onChange reflects on the <code>fields</code> object.
-        </p>
+      <p>
+        There will be cases where you want to control the entire field array,
+        which means each onChange reflects on the <code>fields</code> object.
+      </p>
 
-        <CodeArea
-          url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
-          rawData={`import { useForm, useFieldArray } from "react-hook-form";
+      <CodeArea
+        url="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
+        rawData={`import { useForm, useFieldArray } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit, control, watch } = useForm<FormValues>();
@@ -293,8 +297,7 @@ export default function App() {
     </form>
   );
 }`}
-        />
-      </>
+      />
     </>
   )
 }

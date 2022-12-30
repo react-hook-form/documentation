@@ -6,7 +6,7 @@ import { FormStateApi } from "./FormStateApi"
 
 export default ({ currentLanguage, api }) => (
   <>
-    <h2 className={typographyStyles.subTitle} id={"return"}>
+    <h2 className={typographyStyles.subTitle} id="return">
       Return
     </h2>
     <div className={tableStyles.tableWrapper}>

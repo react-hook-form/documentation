@@ -1,20 +1,7 @@
 import * as React from "react"
 import Helmet from "react-helmet"
-import { getCurrentLangKey, getLangs, getUrlForLang } from "ptz-i18n"
-import { useStateMachine } from "little-state-machine"
-import { updateCurrentLanguage } from "../actions/languageActions"
 
-function SEO({
-  title,
-  description,
-  location,
-}: {
-  title: string
-  description?: string
-  location: { pathname: string }
-}) {
-  const { actions } = useStateMachine({ updateCurrentLanguage })
-
+function SEO({ title, description }: { title: string; description?: string }) {
   const site = {
     siteMetadata: {
       title: `React Hook Form - Simple React forms validation`,
@@ -29,24 +16,9 @@ function SEO({
   }
 
   const metaDescription = description || site.siteMetadata.description
-  const { langs, defaultLangKey } = site.siteMetadata.languages
-  const url = location.pathname
-  const langKey = getCurrentLangKey(langs, defaultLangKey, url)
-  const homeLink = `/${langKey}`.replace(`/${defaultLangKey}/`, "/")
-
-  React.useEffect(() => {
-    actions.updateCurrentLanguage(
-      getLangs(langs, langKey, getUrlForLang(homeLink, url)).filter(
-        ({ selected }) => selected
-      )[0].langKey
-    )
-  }, [])
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang: langKey,
-      }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[

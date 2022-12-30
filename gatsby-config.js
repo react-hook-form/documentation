@@ -3,7 +3,6 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   flags: {
-    PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
@@ -23,15 +22,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-i18n`,
-      options: {
-        langKeyForNull: `en`,
-        langKeyDefault: languages.defaultLangKey,
-        useLangKeyLayout: true,
-        prefixDefault: false,
       },
     },
     {

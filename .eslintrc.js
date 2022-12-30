@@ -17,8 +17,6 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
   ],
   settings: {
     react: {
@@ -34,6 +32,7 @@ module.exports = {
     "react/display-name": OFF,
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
+    "react/jsx-curly-brace-presence": "warn",
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
   },

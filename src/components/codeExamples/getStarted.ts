@@ -1,5 +1,4 @@
-export const registerCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const registerCode = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
@@ -18,8 +17,7 @@ export default function App() {
   );
 }`
 
-export const registerCodeTs = `import React from "react";
-import ReactDOM from "react-dom";
+export const registerCodeTs = `import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 enum GenderEnum {
@@ -53,8 +51,7 @@ export default function App() {
 }
 `
 
-export const migrateCode = `import React from "react";
-import { useForm } from "react-hook-form";
+export const migrateCode = `import { useForm } from "react-hook-form";
 
 // The following component is an example of your existing Input Component
 const Input = ({ label, register, required }) => (
@@ -92,8 +89,7 @@ const App = () => {
 };
 `
 
-export const migrateCodeTs = `import React from "react";
-import { Path, useForm, UseFormRegister, SubmitHandler } from "react-hook-form";
+export const migrateCodeTs = `import { Path, useForm, UseFormRegister, SubmitHandler } from "react-hook-form";
 
 interface IFormValues {
   "First Name": string;
@@ -144,66 +140,7 @@ const App = () => {
   );
 };
 `
-
-export const uiLibrary = `import React from "react";
-import { useForm } from "react-hook-form";
-import Select from "react-select";
-import Input from "@material-ui/core/Input";
-import { Input as InputField } from "antd";
-
-export default function App() {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = data => console.log(data);
-  
-  const handleChange = (e) => {
-    setValue("AntdInput", e.target.value);
-  }
-  
-  React.useEffect(() => {
-    register("AntdInput"); // custom register Antd input
-  }, [register])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <InputField name="name" onChange={handleChange} />
-      <input type="submit" />
-    </form>
-  );
-}
-`
-
-export const uiLibraryTs = `import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Select from "react-select";
-import Input from "@material-ui/core/Input";
-import { Input as InputField } from "antd";
-
-interface IFormInput {
-  name: string
-}
-
-export default function App() {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
-  
-  const handleChange = (e) => {
-    setValue("AntdInput", e.target.value);
-  }
-  
-  React.useEffect(() => {
-    register("AntdInput"); // custom register Antd input
-  }, [register])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <InputField name="name" onChange={handleChange} />
-      <input type="submit" />
-    </form>
-  );
-}`
-
-export const uiLibraryHookInput = `import React from "react";
-import Select from "react-select";
+export const uiLibraryHookInput = `import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
@@ -241,19 +178,18 @@ const App = () => {
 };
 `
 
-export const uiLibraryHookInputTs = `import React from "react";
-import Select from "react-select";
+export const uiLibraryHookInputTs = `import Select from "react-select";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
-interface IFormInput {
-  firstName: string;
-  lastName: string;
-  iceCreamType: {label: string; value: string };
-}
-
 const App = () => {
-  const { control, handleSubmit } = useForm<IFormInput>();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      iceCreamType: {}
+    }
+  });
 
   const onSubmit: SubmitHandler<IFormInput> = data => {
     console.log(data)
@@ -264,7 +200,6 @@ const App = () => {
       <Controller
         name="firstName"
         control={control}
-        defaultValue=""
         render={({ field }) => <Input {...field} />}
       />
       <Controller
@@ -284,8 +219,7 @@ const App = () => {
   );
 };`
 
-export const controlledComponent = `import React from "react";
-import { useForm, Controller } from "react-hook-form";
+export const controlledComponent = `import { useForm, Controller } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
@@ -310,8 +244,7 @@ function App() {
 }
 `
 
-export const controlledComponentTs = `import React from "react";
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
+export const controlledComponentTs = `import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
 
 interface IFormInputs {
@@ -320,7 +253,11 @@ interface IFormInputs {
 }
 
 function App() {
-  const { handleSubmit, control, reset } = useForm<IFormInputs>();
+  const { handleSubmit, control, reset } = useForm<IFormInputs>({
+    defaultValues: {
+      MyCheckbox: false
+    }
+  });
   const onSubmit: SubmitHandler<IFormInputs> = data => console.log(data);
 
   return (
@@ -328,7 +265,6 @@ function App() {
       <Controller
         name="MyCheckbox"
         control={control}
-        defaultValue={false}
         rules={{ required: true }}
         render={({ field }) => <Checkbox {...field} />}
       />
@@ -338,20 +274,24 @@ function App() {
 }
 `
 
-export const globalState = `import React from "react";
-import { useForm } from "react-hook-form";
+export const globalState = `import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import updateAction from "./actions";
 
 export default function App(props) {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+    }
+  });
   // Submit your data into Redux store
   const onSubmit = data => props.updateAction(data);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("firstName")} defaultValue={props.firstName} />
-      <Input {...register("lastName")} defaultValue={props.lastName} />
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
       <input type="submit" />
     </form>
   );
@@ -361,24 +301,25 @@ export default function App(props) {
 connect(({ firstName, lastName }) => ({ firstName, lastName }), updateAction)(YourForm);
 `
 
-export const errors = `import React from "react";
-import { useForm } from "react-hook-form";
+export const errors = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, formState: { errors }, handleSubmit } = useForm();
-
   const onSubmit = (data) => console.log(data);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName", { required: true })} />
-      {errors.firstName?.type === 'required' && "First name is required"}
-      
-      <input {...register("lastName", { required: true })} />
-      {errors.lastName && <p>Last name is required</p>}
+      <input 
+        {...register("firstName", { required: true })} 
+        aria-invalid={errors.firstName ? "true" : "false"} 
+      />
+      {errors.firstName?.type === 'required' && <p role="alert">First name is required</p>}
 
-      <input {...register("mail", { required: "Email Address is required" })} />
-      <p>{errors.mail?.message}</p>
+      <input 
+        {...register("mail", { required: "Email Address is required" })} 
+        aria-invalid={errors.mail ? "true" : "false"} 
+      />
+      {errors.mail && <p role="alert">{errors.mail?.message}</p>}
       
       <input type="submit" />
     </form>
@@ -386,8 +327,7 @@ export default function App() {
 }
 `
 
-export const errorsTs = `import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+export const errorsTs = `import { useForm, SubmitHandler } from "react-hook-form";
 
 interface IFormInputs {
   firstName: string
@@ -411,8 +351,7 @@ export default function App() {
 }
 `
 
-export const applyValidation = `import React from "react";
-import { useForm } from "react-hook-form";
+export const applyValidation = `import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
@@ -428,8 +367,7 @@ export default function App() {
   );
 }`
 
-export const applyValidationTs = `import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+export const applyValidationTs = `import { useForm, SubmitHandler } from "react-hook-form";
 
 interface IFormInput {
   firstName: string;

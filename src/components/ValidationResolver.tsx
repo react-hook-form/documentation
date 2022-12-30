@@ -99,7 +99,7 @@ export default function ({ api }) {
         </table>
       </div>
 
-      <h3 id={"schema-rules"} className={typographyStyles.rulesTitle}>
+      <h3 id="schema-rules" className={typographyStyles.rulesTitle}>
         Rules
       </h3>
 
@@ -126,7 +126,7 @@ export default function ({ api }) {
 
         <li>
           <p>
-            A resolver cannot be used with the built-in validators (e.g.:{" "}
+            A resolver can not be used with the built-in validators (e.g.:{" "}
             required, min, etc.)
           </p>
         </li>
@@ -154,7 +154,7 @@ export default function ({ api }) {
         </li>
       </ul>
 
-      <h3 id={"resolver-example"} className={typographyStyles.subTitle}>
+      <h3 id="resolver-example" className={typographyStyles.subTitle}>
         Examples
       </h3>
 
@@ -204,7 +204,7 @@ export default function ({ api }) {
         </a>
       </p>
 
-      <h3 id={"schema-rules"} className={typographyStyles.rulesTitle}>
+      <h3 id="schema-rules" className={typographyStyles.rulesTitle}>
         Tip
       </h3>
 

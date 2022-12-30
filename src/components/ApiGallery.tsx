@@ -36,43 +36,43 @@ export default function ApiGallery({ defaultLang }) {
   const onChange = (e) => {
     const version = parseInt(e.target.value)
 
-    navigate(`/v${version}/api/`)
-
     actions.updateSetting({
       version,
     })
+
+    if (version !== 7) {
+      window.location.href = `https://legacy.react-hook-form.com/v${version}/api`
+    } else {
+      navigate(`/v${version}/api/`)
+    }
   }
 
   React.useEffect(() => {
-    if (setting.version !== 7) {
-      setting.version && navigate(`/v${setting.version}/api`)
-    } else if (window.location.hash) {
-      const name = window.location.hash.toLowerCase().slice(1)
+    const name = window.location.hash.toLowerCase().slice(1)
 
-      if (name === "controller") {
-        navigate(`/api/usecontroller/${name}`)
-      } else if (
-        [
-          "register",
-          "unregister",
-          "watch",
-          "handlesubmit",
-          "reset",
-          "setError",
-          "clearerrors",
-          "setvalues",
-          "getvalues",
-          "trigger",
-          "control",
-          "formstate",
-        ].includes(name)
-      ) {
-        navigate(`/api/useform/${name}`)
-      } else if (
-        ["controller", "useformcontext", "usefieldarray"].includes(name)
-      ) {
-        navigate(`/api/${name}`)
-      }
+    if (name === "controller") {
+      navigate(`/api/usecontroller/${name}`)
+    } else if (
+      [
+        "register",
+        "unregister",
+        "watch",
+        "handlesubmit",
+        "reset",
+        "setError",
+        "clearerrors",
+        "setvalues",
+        "getvalues",
+        "trigger",
+        "control",
+        "formstate",
+      ].includes(name)
+    ) {
+      navigate(`/api/useform/${name}`)
+    } else if (
+      ["controller", "useformcontext", "usefieldarray"].includes(name)
+    ) {
+      navigate(`/api/${name}`)
     }
   }, [setting])
 
@@ -96,7 +96,7 @@ export default function ApiGallery({ defaultLang }) {
                 A powerful custom hook to validate your form with minimal
                 re-renders.
               </p>
-              <Link to="/api/useform" aria-label={"read more about useForm"}>
+              <Link to="/api/useform" aria-label="read more about useForm">
                 Read More ▸
               </Link>
             </div>
@@ -112,7 +112,7 @@ export default function ApiGallery({ defaultLang }) {
               </p>
               <Link
                 to="/api/usecontroller"
-                aria-label={"read more about useController"}
+                aria-label="read more about useController"
               >
                 Read More ▸
               </Link>
@@ -130,7 +130,7 @@ export default function ApiGallery({ defaultLang }) {
               </p>
               <Link
                 to="/api/useformcontext"
-                aria-label={"read more about useformcontext"}
+                aria-label="read more about useformcontext"
               >
                 Read More ▸
               </Link>
@@ -145,7 +145,7 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form input changes without impacting the
                 root component's render.
               </p>
-              <Link to="/api/usewatch" aria-label={"read more about usewatch"}>
+              <Link to="/api/usewatch" aria-label="read more about usewatch">
                 Read More ▸
               </Link>
             </div>
@@ -161,7 +161,7 @@ export default function ApiGallery({ defaultLang }) {
               </p>
               <Link
                 to="/api/useformstate"
-                aria-label={"read more about useformstate"}
+                aria-label="read more about useformstate"
               >
                 Read More ▸
               </Link>
@@ -178,7 +178,7 @@ export default function ApiGallery({ defaultLang }) {
               </p>
               <Link
                 to="/api/usefieldarray"
-                aria-label={"read more about usefieldarray"}
+                aria-label="read more about usefieldarray"
               >
                 Read More ▸
               </Link>
@@ -202,7 +202,7 @@ export default function ApiGallery({ defaultLang }) {
             </button>
             <button
               onClick={onChange}
-              value={"6"}
+              value="6"
               role="tab"
               aria-label="show v6 doc"
               aria-selected="false"
@@ -212,7 +212,7 @@ export default function ApiGallery({ defaultLang }) {
             </button>
             <button
               onClick={onChange}
-              value={"5"}
+              value="5"
               aria-label="show v5 doc"
               aria-selected="true"
               aria-controls="tabPanel-1"

@@ -50,6 +50,43 @@ export default function ApiWatch({
               >
                 {generic.description[currentLanguage]}
               </th>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string</code>
+              </td>
+              <td>{api.watch.tableTitle.single}</td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>string[]</code>
+              </td>
+              <td>{api.watch.tableTitle.multiple}</td>
+            </tr>
+            <tr>
+              <td>
+                <code className={typographyStyles.typeText}>undefined</code>
+              </td>
+              <td>{api.watch.tableTitle.all}</td>
+            </tr>
+            <tr>
+              <td>
+                <code
+                  className={typographyStyles.typeText}
+                >{`(data: unknown, { name: string, type: string }) => void`}</code>
+              </td>
+              <td>{api.watch.tableTitle.callback}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className={typographyStyles.subTitle}>Return</h2>
+
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
               <th
                 style={{
                   minWidth: 340,
@@ -67,41 +104,23 @@ export default function ApiWatch({
             </tr>
             <tr>
               <td>
-                <code className={typographyStyles.typeText}>string</code>
-              </td>
-              <td>{api.watch.tableTitle.single}</td>
-              <td>
                 <code>watch('inputName')</code>
-                <br />
-                <code>watch('inputName', 'value')</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>{`any`}</code>
+                <code className={typographyStyles.typeText}>unknown</code>
               </td>
             </tr>
             <tr>
-              <td>
-                <code className={typographyStyles.typeText}>{`string[]`}</code>
-              </td>
-              <td>{api.watch.tableTitle.multiple}</td>
               <td>
                 <code>watch(['inputName1'])</code>
-                <br />
-                <code>{`watch(['field1'], { field1: '1' })`}</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>{`unknown[]`}</code>
+                <code className={typographyStyles.typeText}>unknown[]</code>
               </td>
             </tr>
             <tr>
               <td>
-                <code className={typographyStyles.typeText}>undefined</code>
-              </td>
-              <td>{api.watch.tableTitle.all}</td>
-              <td>
                 <code>watch()</code>
-                <br />
-                <code>{`watch(undefined, { field: '1' })`}</code>
               </td>
               <td>
                 <code
@@ -110,12 +129,6 @@ export default function ApiWatch({
               </td>
             </tr>
             <tr>
-              <td>
-                <code
-                  className={typographyStyles.typeText}
-                >{`(data: unknown, { name: string, type: string }) => void`}</code>
-              </td>
-              <td>{api.watch.tableTitle.callback}</td>
               <td>
                 <code>{`watch((data, { name, type }) => console.log(data, name, type))`}</code>
               </td>
@@ -129,7 +142,7 @@ export default function ApiWatch({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -154,8 +167,8 @@ export default function ApiWatch({
           <p>
             This API will trigger re-render at the root of your app or form,
             consider using a callback or the{" "}
-            <Link to={"/api/usewatch"}>useWatch</Link> api if you are
-            experiencing performance issues.
+            <Link to="/api/usewatch">useWatch</Link> api if you are experiencing
+            performance issues.
           </p>
         </li>
         <li>
@@ -167,7 +180,7 @@ export default function ApiWatch({
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 
@@ -194,7 +207,7 @@ export default function ApiWatch({
         width="100%"
         height="528"
         title="react hook form controller build"
-        src={"https://www.youtube.com/embed/3qLd69WMqKk"}
+        src="https://www.youtube.com/embed/3qLd69WMqKk"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

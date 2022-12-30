@@ -114,7 +114,58 @@ export default function UseFieldArray({
         </table>
       </div>
 
-      <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+      <h2 className={typographyStyles.subTitle}>Return</h2>
+
+      <div className={tableStyles.tableWrapper}>
+        <table className={tableStyles.table}>
+          <tbody>
+            <tr>
+              <th
+                style={{
+                  minWidth: 340,
+                }}
+              >
+                {generic.example[currentLanguage]}
+              </th>
+              <th
+                style={{
+                  minWidth: 180,
+                }}
+              >
+                {generic.return[currentLanguage]}
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch('inputName')</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>unknown</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch(['inputName1'])</code>
+              </td>
+              <td>
+                <code className={typographyStyles.typeText}>unknown[]</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>useWatch()</code>
+              </td>
+              <td>
+                <code
+                  className={typographyStyles.typeText}
+                >{`{[key:string]: unknown}`}</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules
       </h2>
 
@@ -128,9 +179,9 @@ export default function UseFieldArray({
         </li>
         <li>
           <p>
-            The only different between <code>useWatch</code> and{" "}
+            The only difference between <code>useWatch</code> and{" "}
             <code>watch</code> is at the root (
-            <Link to={"/api/useform"}>
+            <Link to="/api/useform">
               <code>useForm</code>
             </Link>
             ) level or the custom hook level update.
@@ -138,7 +189,7 @@ export default function UseFieldArray({
         </li>
         <li>
           <p>
-            <code>useWatch</code> execution order matters, which means if you
+            <code>useWatch</code>'s execution order matters, which means if you
             update a form value before the subscription is in place, then the
             value updated will be ignored.
           </p>
@@ -151,17 +202,33 @@ useWatch({ name: 'example' }); // ✅ input value update will be received and tr
 setValue('example', 'data'); 
 `}
           />
+
+          <p>
+            You can overcome the above issue with a simple custom hook as below:
+          </p>
+
+          <CodeArea
+            rawData={`const useFormValues = () => {
+  const { getValues } = useFormContext();
+
+  return {
+    ...useWatch(), // subscribe to form value updates
+    ...getValues(), // always merge with latest form values
+  }
+}
+`}
+          />
         </li>
         <li>
           <p>
-            <code>useWatch</code> result is optimised for render phase instead
+            <code>useWatch</code>'s result is optimised for render phase instead
             of <code>useEffect</code>'s deps, to detect value updates you may
             want to use an external custom hook for value comparison.
           </p>
         </li>
       </ul>
 
-      <h2 id={"example"} className={typographyStyles.subTitle}>
+      <h2 id="example" className={typographyStyles.subTitle}>
         Examples
       </h2>
 

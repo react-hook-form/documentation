@@ -157,7 +157,7 @@ export default ({ currentLanguage }) => {
               </table>
             </div>
 
-            <h2 id={"rules"} className={typographyStyles.rulesTitle}>
+            <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
             </h2>
 
@@ -175,7 +175,7 @@ resetField('non-existent-name'); // ❌ failed by input not found
               </li>
             </ul>
 
-            <h2 id={"example"} className={typographyStyles.subTitle}>
+            <h2 id="example" className={typographyStyles.subTitle}>
               Examples
             </h2>
 
@@ -203,7 +203,7 @@ resetField('non-existent-name'); // ❌ failed by input not found
               width="100%"
               height="528"
               title="react hook form controller build"
-              src={"https://www.youtube.com/embed/IdLFcNaEFEo"}
+              src="https://www.youtube.com/embed/IdLFcNaEFEo"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
