@@ -70,7 +70,7 @@ const Layout = (props: {
       <a className="skip-main" href="#main">
         Skip to content
       </a>
-      <Nav defaultLang={props.defaultLang} />
+      <Nav />
       {props.children}
       <Animate
         play={show}

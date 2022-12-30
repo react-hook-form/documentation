@@ -13,19 +13,17 @@ import { LARGE_SCREEN } from "../styles/breakpoints"
 import { useLocation } from "@reach/router"
 import openLink from "../images/open-link.svg"
 
-export default function Nav({ defaultLang }: { defaultLang: string }) {
+const currentLanguage = "en"
+
+export default function Nav() {
   const {
     state,
-    state: { language, setting },
+    state: { setting },
   } = useStateMachine()
   const [showLang, setLang] = React.useState(null)
   const [show, setShow] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
   const lightMode = state?.setting?.lightMode
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
   const { pathname } = useLocation()
 
   const isFocusOnSearch = setting?.isFocusOnSearch
@@ -262,10 +260,6 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                 }}
               >
                 <div className={styles.menuExpand}>
-                  <Link activeClassName="active" to="/dev-tools">
-                    {nav[currentLanguage].tools.devTools}
-                  </Link>
-
                   <Link activeClassName="active" to="/form-builder">
                     {nav[currentLanguage].tools.formBuilder}
                   </Link>
@@ -279,6 +273,10 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
                   >
                     BEEKAI From Builder{" "}
                     <img src={openLink} alt="BEEKAI Form Builder" />
+                  </Link>
+
+                  <Link activeClassName="active" to="/dev-tools">
+                    {nav[currentLanguage].tools.devTools}
                   </Link>
                 </div>
               </div>
