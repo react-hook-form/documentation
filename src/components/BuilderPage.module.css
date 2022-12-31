@@ -15,8 +15,8 @@
   grid-column-gap: 60px;
   overflow: hidden;
   max-width: 2000px;
-  margin: 0 auto 100px;
-  padding: 0 20px 100px 20px;
+  margin: 0 auto 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .pageWrapper > section:first-child {

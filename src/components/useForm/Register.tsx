@@ -7,7 +7,7 @@ import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+export default () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -31,12 +31,12 @@ export default ({ currentLanguage }) => {
               </h2>
             </code>
 
-            <ApiRefTable api={api} currentLanguage={currentLanguage} />
+            <ApiRefTable api={api} />
 
             <StarRepo currentLanguage="en" />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer currentLanguage="en" />
         </main>
       </div>
     </div>

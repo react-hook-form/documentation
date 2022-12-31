@@ -15,7 +15,7 @@ const Api = ({
   return (
     <Layout location={location} defaultLang="en">
       <Seo title={builder.title.en} description={builder.description.en} />
-      <BuilderPage isStatic defaultLang="en" />
+      <BuilderPage isStatic />
     </Layout>
   )
 }

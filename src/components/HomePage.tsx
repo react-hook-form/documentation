@@ -45,7 +45,7 @@ function HomePage({
   const [isPlayWatch, setWatchPlay] = useState(false)
   const {
     state,
-    state: { language, setting = {} },
+    state: { language },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
@@ -113,12 +113,7 @@ function HomePage({
   return (
     <div className={styles.root}>
       {showBuilder && (
-        <Builder
-          showBuilder
-          toggleBuilder={toggleBuilder}
-          HomeRef={HomeRef}
-          defaultLang={defaultLang}
-        />
+        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
       )}
 
       <Header
