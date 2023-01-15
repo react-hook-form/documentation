@@ -110,8 +110,8 @@ export default {
     description: (
       <>
         <p>
-          This library embraces uncontrolled components and native HTML inputs,
-          however, it's hard to avoid working with external controlled
+          This library embraces uncontrolled components and native HTML inputs.
+          However, it's hard to avoid working with external controlled
           components such as{" "}
           <a
             target="_blank"
@@ -132,8 +132,8 @@ export default {
           <a target="_blank" rel="noopener noreferrer" href="https://mui.com/">
             MUI
           </a>
-          . To make this simple, we provide a wrapper component:{" "}
-          <Link to="/api#Controller">Controller</Link> to streamline the
+          . To make this simple, we provide a wrapper component,{" "}
+          <Link to="/api#Controller">Controller</Link>, to streamline the
           integration process while still giving you the freedom to use a custom
           register.
         </p>
@@ -158,8 +158,8 @@ export default {
     title: "Integrating with global state",
     description: (
       <p>
-        It doesn't require you to rely on a state management library, but you
-        can easily integrate with them.
+        This library doesn't require you to rely on a state management library,
+        but you can easily integrate with them.
       </p>
     ),
   },
@@ -181,7 +181,7 @@ export default {
           React Hook Form's design and philosophy focus on user and developer
           experience. The library aims to provide users with a smoother
           interaction experience by fine-tuning the performance and improving
-          accessibility. Some of the performance enhancements included
+          accessibility. Some of the performance enhancements include:
         </p>
         <ul>
           <li>
@@ -196,12 +196,12 @@ export default {
         </ul>
         <p>
           Overall, it improves the user experience while users interact with the
-          application. As for the developers, we introduce build-in validation
-          and are closely aligned with HTML standards, extend it further with
-          powerful validation methods and integrate it with schema validation
-          natively. In addition, having a strongly type-checked form with the
-          help of typescript provides early build-time feedback to help and
-          guide the developer to build a robust form solution.
+          application. As for the developers, we introduce built-in validation
+          and are closely aligned with HTML standards allowing further extension
+          with powerful validation methods and integration with schema
+          validation natively. In addition, having a strongly type-checked form
+          with the help of typescript provides early build-time feedback to help
+          and guide the developer to build a robust form solution.
         </p>
         <p>
           The following talk given by{" "}

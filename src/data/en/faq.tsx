@@ -33,15 +33,15 @@ export default {
       description: (
         <p>
           Performance is one of the primary reasons why this library was
-          created. React Hook Form relies on uncontrolled form, which is the
-          reason why the <code>register</code> function capture <code>ref</code>{" "}
-          and controlled component has its re-rendering scope with{" "}
-          <code>Controller</code> or <code>useController</code>. This approach
-          reduces the amount of re-rendering that occurs due to a user typing in
-          input or other form values changing at the root of your form or
-          applications. Components mount to the page faster than controlled
-          components because they have less overhead. As a reference, there is a
-          quick comparison test that you can refer to at{" "}
+          created. React Hook Form relies on an uncontrolled form, which is the
+          reason why the <code>register</code> function captures{" "}
+          <code>ref</code> and the controlled component has its re-rendering
+          scope with <code>Controller</code> or <code>useController</code>. This
+          approach reduces the amount of re-rendering that occurs due to a user
+          typing in an input or other form values changing at the root of your
+          form or applications. Components mount to the page faster than
+          controlled components because they have less overhead. As a reference,
+          there is a quick comparison test that you can refer to at{" "}
           <a
             href="https://github.com/bluebill1049/react-hook-form-performance-compare"
             target="_blank"
@@ -66,8 +66,8 @@ export default {
             >
               Uncontrolled Components
             </a>
-            , which gives you the ability to build an accessible custom form
-            easily.
+            , which gives you the ability to easily build an accessible custom
+            form.
           </p>
           <CodeArea rawData={accessibleCode} />
         </>
@@ -78,7 +78,7 @@ export default {
       description: (
         <>
           <p>
-            No, not out of the box. If you wanted to do this, you could build a
+            No, not out of the box. If you want to do this, you can build a
             wrapper around it and use it in your Class Component.
           </p>
 
@@ -86,9 +86,9 @@ export default {
             You can’t use Hooks inside of a class component, but you can
             definitely mix classes and function components with Hooks in a
             single tree. Whether a component is a class or a function that uses
-            Hooks is an implementation detail of that component. In the longer
-            term, we expect Hooks to be the primary way people write React
-            components.
+            Hooks is simply an implementation detail of that component. In the
+            longer term, we expect Hooks to be the primary way people write
+            React components.
           </blockquote>
         </>
       ),
@@ -103,7 +103,7 @@ export default {
               <b>HTMLFormElement.reset()</b>
               <p>
                 This method does the same thing as clicking a form's reset
-                button, and only clears <code>input/select/checkbox</code>{" "}
+                button. It only clears <code>input/select/checkbox</code>{" "}
                 values.
               </p>
             </li>
@@ -126,7 +126,7 @@ export default {
       description: (
         <>
           <p>
-            Being that React Hook Form relies on uncontrolled form, you can
+            Being that React Hook Form relies on an uncontrolled form, you can
             specify a <code>defaultValue</code> or <code>defaultChecked</code>{" "}
             to an individual field. However, it is more common and recommended
             to initialize a form by passing <code>defaultValues</code> to{" "}
@@ -141,8 +141,8 @@ export default {
       description: (
         <>
           <p>
-            React Hook Form needs a <code>ref</code> to collect the input value,
-            however, you may want to use <code>ref</code> for other purposes
+            React Hook Form needs a <code>ref</code> to collect the input value.
+            However, you may want to use <code>ref</code> for other purposes
             (e.g. scroll into the view, or focus).
           </p>
           <CodeArea rawData={shareRef} tsRawData={shareRefTs} />
@@ -175,15 +175,15 @@ export default {
       description: (
         <>
           <p>
-            Double check if you are using <code>value</code> instead of{" "}
-            <code>defaultValue</code>.
+            Make sure you are not using <code>value</code>. The correct property
+            is <code>defaultValue</code>.
           </p>
 
           <p>
             React Hook Form is focusing on uncontrolled inputs, which means you
             don't need to change the input <code>value</code> via{" "}
-            <code>state</code> via <code>onChange</code>. This means you don't
-            need <code>value</code> at all, and in fact, you only need to set{" "}
+            <code>state</code> via <code>onChange</code>. In fact, you don't
+            need <code>value</code> at all. You only need to set{" "}
             <code>defaultValue</code> for the initial input value.
           </p>
           <CodeArea withOutCopy rawData={importKeystroke} />
@@ -197,10 +197,10 @@ export default {
           <p>
             First of all, all libs try to solve the same problem: make the form
             building experience as easy as possible. However, there are some
-            fundamental differences between the three.{" "}
+            fundamental differences between these three.{" "}
             <code>react-hook-form</code> is built with uncontrolled inputs in
             mind and tries to provide your form with the best performance and
-            least amount of re-renders as possible. On top of that,{" "}
+            least amount of re-renders possible. Additionallly,{" "}
             <code>react-hook-form</code> is built with React Hooks and used as a
             hook, which means there is no Component for you to import. Here are
             some of the detailed differences:
@@ -269,12 +269,12 @@ export default {
                   </td>
                   <td>minimum re-render and optimise computation</td>
                   <td>
-                    re-render according to local state changes which means as
-                    you type in the input.
+                    re-render according to local state changes (As you type in
+                    the input.)
                   </td>
                   <td>
                     re-render according to state management lib (Redux) changes
-                    which means as you type in the input.
+                    (As you type in the input.)
                   </td>
                 </tr>
                 <tr>
@@ -390,9 +390,9 @@ export default {
             <li>
               <p>
                 <b className={typographyStyles.note}>watch:</b> subscribe to
-                either all inputs or the specified inputs changes via event
-                listener and re-render based on which fields that are
-                subscribed. Check out{" "}
+                either all inputs or a specified input's changes via an event
+                listener and re-render based on which fields are subscribed to.
+                Check out{" "}
                 <a
                   href="https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus"
                   rel="noopener noreferrer"
@@ -407,14 +407,15 @@ export default {
               <p>
                 <b className={typographyStyles.note}>getValues</b>: get values
                 that are stored inside the custom hook as reference, fast and
-                cheap. This method doesn’t trigger re-render.
+                cheap. This method doesn’t trigger a re-render.
               </p>
             </li>
             <li>
               <p>
                 <b className={typographyStyles.note}>local state</b>: React
-                local state represent more than just input’s state and also
-                decide what to render. This will trigger on each input’s change.
+                local state represents more than just an input’s state and also
+                decides what to render. This will trigger on each input’s
+                change.
               </p>
             </li>
           </ul>
@@ -428,10 +429,10 @@ export default {
         <>
           <p>
             React Hook Form doesn't control your entire form and inputs, which
-            is the reason why React wouldn't recognize the actual input that has
-            been exchanged or swapped. As a solution, you can resolve this
-            problem by giving a unique <code>key</code> prop to your input. You
-            can also read more about the key props from{" "}
+            is why React wouldn't recognize that the actual input has been
+            exchanged or swapped. As a solution, you can resolve this problem by
+            giving a unique <code>key</code> prop to your input. You can also
+            read more about the key props from{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -453,15 +454,14 @@ export default {
       description: (
         <>
           <p>
-            It's important to understand React Hook Form embraces native form
-            behavior by storing input state inside each input (except custom{" "}
-            <code>register</code> at <code>useEffect</code>). One of the common
-            misconceptions is that when working with modal or tab forms, by
-            mounting and unmounting form/inputs that inputs state will remain.
-            That is incorrect. Instead, the correct solution would be to build a
-            new form for your form inside each modal or tab and capture your
-            submission data in local or global state and then do something with
-            the combined data.
+            It's important to understand that React Hook Form embraces native
+            form behavior by storing input state inside each input (except
+            custom <code>register</code> at <code>useEffect</code>). A common
+            misconception is that input state remains with mounted or unmounted
+            inputs. Such as when working with a modal or tab forms. Instead, the
+            correct solution is to build a new form for your form inside each
+            modal or tab and capture your submission data in local or global
+            state and then do something with the combined data.
           </p>
 
           <ul>

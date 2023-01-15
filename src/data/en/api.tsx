@@ -342,8 +342,8 @@ const onSubmit = (data) => {
   return {show && <input {...register('test')} />}
 }
 
-const Work = () => {
-  const { show } = useWatch()
+const Work = ({ control }) => {
+  const { show } = useWatch({ control })
   // ✅ get notified at useEffect
   return {show && <input {...register('test1')} />}
 }

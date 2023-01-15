@@ -23,7 +23,7 @@ export default {
     title: "Controlled mixed with Uncontrolled Components",
     description: (
       <p>
-        React Hook Form embraces uncontrolled components and is also compatible
+        React Hook Form embraces uncontrolled components but is also compatible
         with controlled components. Most UI libraries are built to support only
         controlled components, such as{" "}
         <a
@@ -41,8 +41,8 @@ export default {
         >
           Antd
         </a>
-        . Besides, with React Hook Form the re-rendering of controlled component
-        is also optimized. Here is an example that combines them both with
+        . But with React Hook Form, the re-rendering of controlled components
+        are also optimized. Here is an example that combines them both with
         validation.
       </p>
     ),
@@ -230,7 +230,7 @@ export default {
 
         <p style={{ textAlign: "center" }}>♦</p>
 
-        <p>Let's have a look what's in each of those components.</p>
+        <p>Let's have a look what's in each of these components.</p>
 
         <code className={typographyStyles.codeHeading}>
           <h2>Form</h2>
@@ -251,7 +251,7 @@ export default {
         </code>
 
         <p>
-          Those input components' responsibility is to registering them into{" "}
+          Those input components' responsibility is to register them into{" "}
           <code>react-hook-form</code>.
         </p>
         <CodeArea
@@ -328,7 +328,7 @@ export default {
         <ul>
           <li>
             <p>
-              Define a memoized validation schema (or define it outside your
+              Define a memorized validation schema (or define it outside your
               component if you don't have any dependencies)
             </p>
           </li>
@@ -356,7 +356,7 @@ export default {
           contain hundreds or thousands of rows, and each row will have inputs.
           A common practice is to only render the items that are in the
           viewport, however this will cause issues as the items are removed from
-          the DOM when they are out of view, and re-added. This will cause items
+          the DOM when they are out of view and re-added. This will cause items
           to reset to their default values when they re-enter the viewport.
         </p>
 
@@ -380,7 +380,7 @@ export default {
       <>
         <p>
           Testing is very important because it prevents your code from having
-          bugs or mistakes, and guarantees code safety when refactoring the
+          bugs or mistakes. It also guarantees code safety when refactoring the
           codebase.
         </p>
 
@@ -617,7 +617,7 @@ export default {
           >
             this section
           </a>
-          . However, it's not perfect, we still have to deal with{" "}
+          . However, it's not perfect. We still have to deal with{" "}
           <code>isNaN</code> or <code>null</code> values. So it's better to
           leave the transform at the custom hook level. In the following
           example, we are using the <code>Controller</code> to include the

@@ -99,7 +99,7 @@ export default function Nav({ defaultLang }: { defaultLang: string }) {
         </span>
 
         <GitHubButton
-          href="https://github.com/bluebill1049/react-hook-form"
+          href="https://github.com/react-hook-form/react-hook-form"
           data-size="large"
           data-show-count
           aria-label="Star react-hook-form on GitHub"
