@@ -375,7 +375,7 @@ export default function ApiRefTable({
   {...register("test", {
     validate: ${
       isStandard
-        ? `value => value === '1'`
+        ? `(value, formValues) => value === '1'`
         : `value => value === '1' || 'error message'  // JS only: <p>error message</p> TS only support string`
     }
   })}
@@ -388,9 +388,8 @@ export default function ApiRefTable({
         ? `{
       positive: v => parseInt(v) > 0,
       lessThanTen: v => parseInt(v) < 10,
-      validateNumber: (_, formValues) {
-        return formValues.number1 + formValues.number2 === 3;
-      }, 
+      validateNumber: (_, values) =>
+        !!(values.number1 + values.number2), 
       checkUrl: async () => await fetch(),
     }`
         : `{
