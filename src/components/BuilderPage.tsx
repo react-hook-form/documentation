@@ -212,7 +212,7 @@ function BuilderPage({
           <select
             aria-label="Select type"
             name="type"
-            ref={register}
+            ref={register({required: false})}
             defaultValue={editFormData.type}
           >
             <option value="text">Text</option>
@@ -272,7 +272,7 @@ function BuilderPage({
             <input
               type="checkbox"
               name="toggle"
-              ref={register}
+              ref={register({required: false})}
               onClick={() => toggleValidation(!showValidation)}
             />
             {builder.inputCreator[currentLanguage].validation}
@@ -296,7 +296,7 @@ function BuilderPage({
                   marginTop: 0,
                 }}
               >
-                <input type="checkbox" name="required" ref={register} />
+                <input type="checkbox" name="required" ref={register({required: false})} />
                 Required
               </label>
               <label htmlFor="max">Max</label>
@@ -306,7 +306,7 @@ function BuilderPage({
                 autoComplete="false"
                 name="max"
                 type="number"
-                ref={register}
+                ref={register({required: false})}
               />
               <label htmlFor="min">Min</label>
               <input
@@ -315,7 +315,7 @@ function BuilderPage({
                 aria-label="min"
                 name="min"
                 type="number"
-                ref={register}
+                ref={register({required: false})}
               />
               <label htmlFor="maxLength">MaxLength</label>
               <input
@@ -324,7 +324,7 @@ function BuilderPage({
                 aria-label="max length"
                 name="maxLength"
                 type="number"
-                ref={register}
+                ref={register({required: false})}
               />
               <label htmlFor="pattern">Pattern</label>
               <input
@@ -336,7 +336,7 @@ function BuilderPage({
                 aria-label="pattern"
                 name="pattern"
                 type="text"
-                ref={register}
+                ref={register({required: false})}
               />
             </fieldset>
           </Animate>
