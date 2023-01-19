@@ -83,7 +83,11 @@ export const FormStateApi = ({
       <td>{(api || API).formState.defaultValues}</td>
     </tr>
     <tr>
-      {columnIndent && <td />}
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
       <td>
         <code>isSubmitted</code>
       </td>
