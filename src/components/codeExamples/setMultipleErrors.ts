@@ -14,7 +14,7 @@ const App = () => {
       <input {...register("username")} />
       {errors.username && <p>{errors.username.message}</p>}
       <label>First Name</label>
-      <input {...register("lastName")} />
+      <input {...register("firstName")} />
       {errors.firstName && <p>{errors.firstName.message}</p>}
       <button
         type="button"
