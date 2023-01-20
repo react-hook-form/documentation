@@ -31,7 +31,7 @@ export default function ControllerContent({
 
       <p>
         The following table contains information about the arguments for{" "}
-        <code>useController</code>.
+        <code>Controller</code>.
       </p>
 
       <div className={tableStyles.tableWrapper}>
