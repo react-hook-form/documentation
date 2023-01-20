@@ -253,22 +253,17 @@ const { register } = useForm({
 
             {api.useForm.resetOptions}
 
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                context:{" "}
+                <span className={typographyStyles.typeText}>object</span>
+              </code>
+            </h5>
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
                   <tr>
-                    <td>
-                      <p>
-                        <code>context:</code> <br />
-                        <code className={typographyStyles.typeText}>
-                          object
-                        </code>
-                      </p>
-                    </td>
-                    <td>
-                      {api.useForm.validateContext}
-                      <br />
-                    </td>
+                    <td>{api.useForm.validateContext}</td>
                     <td>
                       <CodeSandBoxLink
                         style={codeSandBoxStyle}
@@ -276,15 +271,22 @@ const { register } = useForm({
                       />
                     </td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                criteriaMode:{" "}
+                <span className={typographyStyles.typeText}>
+                  firstError | all
+                </span>
+              </code>
+            </h5>
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
                   <tr>
-                    <td>
-                      <p>
-                        <code>criteriaMode</code> <br />
-                        <code className={typographyStyles.typeText}>
-                          firstError | all
-                        </code>
-                      </p>
-                    </td>
                     <td>{api.useForm.validateCriteriaMode}</td>
                     <td>
                       <CodeSandBoxLink
@@ -293,28 +295,38 @@ const { register } = useForm({
                       />
                     </td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                shouldFocusError:{" "}
+                <span className={typographyStyles.typeText}>
+                  boolean = true
+                </span>
+              </code>
+            </h5>
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
                   <tr>
-                    <td>
-                      <p>
-                        <code>shouldFocusError</code>
-                        <br />
-                        <code className={typographyStyles.typeText}>
-                          boolean = true
-                        </code>
-                      </p>
-                    </td>
                     <td>{api.useForm.submitFocusError}</td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <code>
+                delayError:{" "}
+                <span className={typographyStyles.typeText}>number</span>
+              </code>
+            </h5>
+            <div className={tableStyles.tableWrapper}>
+              <table className={tableStyles.table}>
+                <tbody>
                   <tr>
-                    <td>
-                      <p>
-                        <code>delayError</code>
-                        <br />
-                        <code className={typographyStyles.typeText}>
-                          number
-                        </code>
-                      </p>
-                    </td>
                     <td>{api.useForm.delayError}</td>
                     <td>
                       <CodeSandBoxLink
