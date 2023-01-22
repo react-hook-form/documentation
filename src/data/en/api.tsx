@@ -758,7 +758,18 @@ setValue('test', '')
     ),
     isLoading: (
       <>
-        <code>true</code> if the form is currently loading async default values.
+        <p>
+          <code>true</code> if the form is currently loading async default
+          values.
+        </p>
+        <CodeArea
+          rawData={`const { 
+  formState: { isLoading } 
+} = useForm({ 
+  defaultValues: async () => await fetch('/api') 
+});
+`}
+        />
       </>
     ),
     submitCount: "Number of times the form was submitted.",
