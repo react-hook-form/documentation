@@ -490,7 +490,7 @@ export default {
           </ul>
 
           <p>
-            Alternatively you can use the _deprecated_ option{" "}
+            Alternatively you can use the deprecated option{" "}
             <code>shouldUnregister: false</code> when calling `useForm`.
           </p>
 
