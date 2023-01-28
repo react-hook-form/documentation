@@ -465,6 +465,16 @@
   },
   {
     "type": "video",
+    "title": "Working with Forms in React (React Hook Form, Zod & Component Libraries)",
+    "url": "https://www.youtube.com/playlist?list=PLeO8M-2wYaaV5vh2lRWV7qt_-Io8agaf-",
+    "authorUrl": "https://www.youtube.com/@vlad.nicula",
+    "author": "Vlad Nicula",
+    "createdDateTime": "Mon Jan 16 2023 22:13:15 GMT+1000 (Australian Eastern Standard Time)",
+    "description":
+      "A series of videos on how to work with forms in React focusing on React Hook Form, Zod, and component libraries."
+  },
+  {
+    "type": "video",
     "title": "Get your forms hooked with react-hook-form | code.talks 2022",
     "url": "https://www.youtube.com/watch?v=rtFDMKH-X7k",
     "authorUrl": "https://twitter.com/KerenKenzi",
