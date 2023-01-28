@@ -97,13 +97,13 @@
     "version": "7"
   },
   {
-   "type": "article",
-   "url": "https://dnizfor.medium.com/react-hook-form-i%CC%87%C3%A7in-kapsaml%C4%B1-bir-rehber-73a65fc16a8f",
-   "title": "React Hook Form İçin Kapsamlı Bir Rehber",
-   "author": "Deniz Aslan",
-   "authorUrl": "https://www.linkedin.com/in/aslandeniz",
-   "description": "",
-   "version": "7"
+    "type": "article",
+    "url": "https://dnizfor.medium.com/react-hook-form-i%CC%87%C3%A7in-kapsaml%C4%B1-bir-rehber-73a65fc16a8f",
+    "title": "React Hook Form İçin Kapsamlı Bir Rehber",
+    "author": "Deniz Aslan",
+    "authorUrl": "https://www.linkedin.com/in/aslandeniz",
+    "description": "",
+    "version": "7"
   },
   {
     "type": "article",
@@ -470,8 +470,8 @@
     "authorUrl": "https://www.youtube.com/@vlad.nicula",
     "author": "Vlad Nicula",
     "createdDateTime": "Mon Jan 16 2023 22:13:15 GMT+1000 (Australian Eastern Standard Time)",
-    "description":
-      "A series of videos on how to work with forms in React focusing on React Hook Form, Zod, and component libraries."
+    "description": "A series of videos on how to work with forms in React focusing on React Hook Form, Zod, and component libraries.",
+    "version": "7"
   },
   {
     "type": "video",
