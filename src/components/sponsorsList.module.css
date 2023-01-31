@@ -15,6 +15,15 @@
 .root a {
   color: white;
   text-decoration: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.root a img {
+  width: 120px;
+  height: 24px;
+  margin: auto 0;
 }
 
 .logoGroup > div {
@@ -31,9 +40,9 @@
 @media (min-width: 768px) {
   .logoGroup {
     display: grid;
-    max-width: 768px;
+    max-width: 384px;
     margin: 0 auto;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
   }
 }
