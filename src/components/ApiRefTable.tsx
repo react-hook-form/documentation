@@ -782,6 +782,12 @@ register('test', { required: false });  // ✅
 `}
             />
           </li>
+          <li>
+            <p>
+              There are certain keyword which need to avoid before conflicting
+              with type check. They are <code>ref</code>, <code>_f</code>
+            </p>
+          </li>
         </ul>
 
         <h2 id="example" className={typographyStyles.subTitle}>
