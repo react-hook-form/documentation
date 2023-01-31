@@ -1,0 +1,39 @@
+.root {
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--color-black);
+  padding-top: 1.5rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.root a {
+  color: white;
+  text-decoration: none;
+}
+
+.logoGroup > div {
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.placeholder {
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .logoGroup {
+    display: grid;
+    max-width: 768px;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+}
