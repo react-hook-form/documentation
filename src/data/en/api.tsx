@@ -1353,6 +1353,12 @@ setError('root.random', {
               result from your input registration rules or schema result.
             </p>
           </li>
+          <li>
+            <p>
+              There are certain keyword which need to avoid before conflicting
+              with type check. They are <code>type</code>, <code>types</code>
+            </p>
+          </li>
         </ul>
       </>
     ),
