@@ -1319,6 +1319,21 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           </li>
           <li>
             <p>
+              You can set a server or global error with <code>root</code> as the
+              key. This type of error will not persist with each submission.
+            </p>
+
+            <CodeArea
+              rawData={`setError('root.serverError', { 
+  type: '400',
+});
+setError('root.random', { 
+  type: 'random', 
+});`}
+            />
+          </li>
+          <li>
+            <p>
               Can be useful in the <code>handleSubmit</code> method when you
               want to give error feedback to a user after async validation. (ex:
               API returns validation errors)

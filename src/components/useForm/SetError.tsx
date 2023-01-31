@@ -13,6 +13,7 @@ import setMultipleErrorsTs from "../codeExamples/setMultipleErrorsTs"
 import setAllErrors from "../codeExamples/setAllErrors"
 import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import StarRepo from "../StarRepo"
+import serverError from "../codeExamples/serverError"
 
 export default ({ currentLanguage }) => {
   return (
@@ -47,6 +48,7 @@ export default ({ currentLanguage }) => {
                 "Single Error",
                 "Multiple Errors",
                 "Single Field Errors",
+                "Server Error",
               ]}
             >
               <CodeArea
@@ -66,6 +68,7 @@ export default ({ currentLanguage }) => {
                 tsRawData={setAllErrorsTs}
                 url="https://codesandbox.io/s/seterror-single-field-errors-79wcr9"
               />
+              <CodeArea tsRawData={serverError} />
             </TabGroup>
 
             <h2 className={typographyStyles.subTitle}>Video</h2>
