@@ -16,6 +16,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as styles from "./HomePage.module.css"
+import { SponsorsList } from "./sponsorsList"
 
 const { useState, useRef, useEffect } = React
 
@@ -132,6 +133,8 @@ function HomePage({
         isPlayFeature={isPlayFeature}
         currentLanguage={currentLanguage}
       />
+
+      <SponsorsList />
 
       <CodeCompareSection
         isPlayCodeCompare={isPlayCodeCompare}
