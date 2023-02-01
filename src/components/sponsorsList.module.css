@@ -26,6 +26,13 @@
   margin: auto 0;
 }
 
+.logoGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 0 1rem;
+}
+
 .logoGroup > div {
   border-radius: 4px;
   padding: 0.5rem;
