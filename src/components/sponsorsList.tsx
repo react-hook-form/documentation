@@ -1,5 +1,4 @@
 import * as React from "react"
-import crLogo from "../images/CR-logo.png"
 
 import * as styles from "./sponsorsList.module.css"
 
@@ -14,7 +13,7 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={crLogo} alt="Casino Reviews" />
+          <img src="/images/casinoreviews.png" alt="Casino Reviews" />
         </a>
         <a
           className={styles.placeholder}
