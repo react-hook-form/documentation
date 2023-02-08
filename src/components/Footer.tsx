@@ -105,7 +105,7 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
           rel="noreferrer"
           className={styles.link}
         >
-          Hosted on ▲ Vercel Now
+          Hosted and powered by ▲ <b>Vercel</b>
         </a>
       </p>
     </footer>
