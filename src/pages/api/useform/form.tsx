@@ -360,7 +360,6 @@ const mutation = useMutation();
 <form onSubmit={handleSubmit(mutation)} />
 
 // Form version and works without JS
-
 useEffect(() => {
   !mounted && setMounted(true)
 }, [setMounted])
