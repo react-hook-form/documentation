@@ -215,7 +215,9 @@ export default function App() {
         />
         <CodeArea
           url="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
-          rawData={`import { useForm, UseFormReturn, SubmitHandler } from "react-hook-form";
+          rawData={`import type { FieldValues, UseFormReturn, SubmitHandler } from "react-hook-form";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -246,12 +248,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   )
 );
 
-type FormProps<TFormValues> = {
+type FormProps<TFormValues extends FieldValues> = {
   onSubmit: SubmitHandler<TFormValues>;
   children: (methods: UseFormReturn<TFormValues>) => React.ReactNode;
 };
 
-const Form = <TFormValues extends Record<string, any>({
+const Form = <TFormValues extends FieldValues>({
   onSubmit,
   children
 }: FormProps<TFormValues>) => {
