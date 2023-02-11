@@ -170,7 +170,7 @@ export default function CodeArea({
               currentType === ToggleTypes.js ? styles.showCode : ""
             }`}
           >
-            {rawData || children}
+            {rawData}
           </code>
           <code
             className={`language-javascript ${
