@@ -70,7 +70,7 @@ export default function CodeArea({
   tsUrl?: string
   withOutCopy?: boolean
   isExpo?: boolean
-  style?: any
+  style?: React.CSSProperties
 }) {
   const {
     state: { language },
@@ -170,7 +170,7 @@ export default function CodeArea({
               currentType === ToggleTypes.js ? styles.showCode : ""
             }`}
           >
-            {rawData}
+            {rawData || children}
           </code>
           <code
             className={`language-javascript ${

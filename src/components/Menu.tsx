@@ -26,6 +26,7 @@ export const pages = [
       { pathname: "/api/useform/getfieldstate", name: "getFieldState" },
       { pathname: "/api/useform/trigger", name: "trigger" },
       { pathname: "/api/useform/control", name: "control" },
+      { pathname: "/api/useform/form", name: "Form" },
     ],
   },
   {
