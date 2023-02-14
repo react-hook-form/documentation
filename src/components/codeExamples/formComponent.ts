@@ -1,4 +1,4 @@
-export const formWeb = `import { uesForm } from 'react-hook-form';
+export const formWeb = `import { useForm } from 'react-hook-form';
 
 function App() {
   const { control, register, formState: { isSubmitSuccessful, errors } } = useForm({
