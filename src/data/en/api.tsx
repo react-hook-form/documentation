@@ -762,6 +762,10 @@ setValue('test', '')
           <code>true</code> if the form is currently loading async default
           values.
         </p>
+        <p>
+          <b className={typographyStyles.note}>Important:</b> this prop is only
+          applicable to async <code>defaultValues</code>
+        </p>
         <CodeArea
           rawData={`const { 
   formState: { isLoading } 
