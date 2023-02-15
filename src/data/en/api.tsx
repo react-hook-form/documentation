@@ -666,9 +666,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
     ),
     isSubmitSuccessful: (
       <p>
-        Indicate the form was successfully submitted without any{" "}
-        <code>Promise</code> rejection or <code>Error</code> been thrown within
-        the <code>handleSubmit</code> callback.
+        Indicate the form was successfully submitted without any runtime error.
       </p>
     ),
     isDirty: (
