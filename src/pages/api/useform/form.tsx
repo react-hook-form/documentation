@@ -276,6 +276,36 @@ export default ({ location }) => {
                         />
                       </td>
                     </tr>
+                    <tr>
+                      <td>
+                        <code>fetcher</code>
+                      </td>
+                      <td>
+                        <code
+                          className={typographyStyles.typeText}
+                        >{`(action: string, options: Object) => void`}</code>
+                      </td>
+                      <td>
+                        <p>Custom fetcher callback function</p>
+                      </td>
+                      <td>
+                        <CodeArea
+                          withOutCopy
+                          rawData={`// with server state library
+<Form 
+  fetcher={
+   (action, { values }) => axios(action, values})}
+/>
+
+// with custom axios
+<Form 
+  fetcher={
+   (action, { values }) => mutation(values)}
+/>
+`}
+                        />
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
