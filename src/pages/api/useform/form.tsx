@@ -321,7 +321,7 @@ export default ({ location }) => {
                     <Link to="/api/useform/handlesubmit">
                       <code>handleSubmit</code>
                     </Link>{" "}
-                    or onSubmit callback.
+                    or custom fetcher.
                   </p>
 
                   <CodeArea
@@ -330,7 +330,7 @@ const onSubmit =(data) => callback(prepareData(data))
 
 <form onSubmit={handleSubmit(onSubmit)} />
 // or
-<Form onSubmit={onSubmit} control={control} />
+<Form action="/api" control={control} fetcher={(action, { values }) => onSubmit(values)} />
 `}
                   />
                 </li>
@@ -389,12 +389,7 @@ const mutation = useMutation();
 
 <form onSubmit={handleSubmit(mutation)} />
 
-// Form version and works without JS
-useEffect(() => {
-  !mounted && setMounted(true)
-}, [setMounted])
-
-<Form onSubmit={mutation} action={mounted ? '' : '/api/something'/}>
+<Form fetcher={(action, { values }) => mutation(values)} action={'/api/something'/}>
 `}
                   />
                 </li>
