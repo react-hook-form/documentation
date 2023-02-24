@@ -182,8 +182,14 @@ export const uiLibraryHookInputTs = `import Select from "react-select";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  iceCreamType: { label: string; value: string };
+}
+
 const App = () => {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<IFormInput>({
     defaultValues: {
       firstName: '',
       lastName: '',
