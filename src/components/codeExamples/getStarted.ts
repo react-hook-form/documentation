@@ -189,7 +189,7 @@ interface IFormInput {
 }
 
 const App = () => {
-  const { control, handleSubmit } = useForm<IFormInput>({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
       firstName: '',
       lastName: '',
