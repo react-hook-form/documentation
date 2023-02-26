@@ -22,7 +22,7 @@ export default function ({ api }) {
       <h5
         className={typographyStyles.h5}
         style={{ marginTop: 20 }}
-        id="validationResolver"
+        id="resolver"
       >
         <code>
           resolver:{" "}
