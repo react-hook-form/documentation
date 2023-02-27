@@ -31,7 +31,7 @@ function Form() {
 
 Available since: [`v7.41.0`](https://github.com/react-hook-form/react-hook-form/releases/tag/v7.41.0)
 
-An object containing values of a remote source. This is useful when you have data that can change while the user is filling out the form and you want to keep your client-side form values in sync with the remote data.
+An `object` containing values of a remote source. This is useful when you have data that can change while the user is filling out the form and you want to keep your client-side form values in sync with the remote data.
 
 ```js
 const { data } = useQuery({
@@ -53,7 +53,7 @@ Available since: [`v7.41.0`](https://github.com/react-hook-form/react-hook-form/
 
 When [`values`](#values) **is provided**, you can also provide [`resetOptions`](#values-resetoptions) to determine what form values and states should be updated when the `values` change.
 
-Currently, [`resetOptions`](#values-resetoptions) is an object of `boolean` properties that correspond to the [`reset`](#reset) method's options.
+Currently, [`resetOptions`](#values-resetoptions) is an `object` of `boolean` properties that correspond to the [`reset`](#reset) method's options.
 
 > **Developer commentary**: The [`resetOptions`](#values-resetoptions) description can potentially be moved to the [`reset`](#reset) method's description and linked to from here. I'll will leave it here for now to emphasis the [`values` + `resetOptions`](#values-resetoptions) usage.
 
@@ -81,7 +81,7 @@ When `true`, all form values will be kept the same despite the new [`values`](#v
 
 ##### keepDefaultValues
 
-When `true`, all form values will be updated with the new [`values`](#values) but [`formState.defaultValues`](#) will remain the same despite the new [`values`](#values). This is useful when you want to update the form values with new data and sync form dirtiness states according to the new values.
+When `true`, all form values will be updated with the new [`values`](#values) but [`formState.defaultValues`](#defaultvalues) will remain the same despite the new [`values`](#values). This is useful when you want to update the form values with new data and sync form dirtiness states according to the new values.
 
 > **Note**
 > The input's dirtiness will be checked upon the [`values`](#values) update and the input will be marked as dirty if the new value is different from the default value. This will update both the [`formState.dirtyFields`](#dirtyfields) and [`formState.isDirty`](#isdirty) states accordingly.
@@ -135,32 +135,32 @@ useForm({
 
 `useForm` returns a form instance containing the following properties:
 
-#### `watch`
+- [`handleSubmit`](handlesubmit)
 
-#### `getValues`
+- [`register`](register)
 
-#### `getFieldState`
+- `control` - An `object` containing **internal** library methods and properties. You **should not** use this property directly at this time.
 
-#### `setError`
+- [`formState`](formstate)
 
-#### `clearErrors`
+- [`watch`](watch)
 
-#### `setValue`
+- [`reset`](reset)
+  
+- [`getValues`](getvalues)
 
-#### `trigger`
+- [`setValue`](setvalue)
 
-#### `formState`
+- [`trigger`](trigger)
+  
+- [`setError`](seterror)
+  
+- [`clearErrors`](clearerrors)
 
-#### `resetField`
+- [`getFieldState`](getfieldstate)
 
-#### `reset`
+- [`resetField`](resetfield)
 
-#### `handleSubmit`
+- [`unregister`](unregister)
 
-#### `unregister`
-
-#### `control`
-
-#### `register`
-
-#### `setFocus`
+- [`setFocus`](setFocus)
