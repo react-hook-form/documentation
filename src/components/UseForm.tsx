@@ -113,34 +113,134 @@ export default ({ currentLanguage }) => {
 
             {api.useForm.description}
 
-            <CodeArea
-              withOutCopy
-              rawData={`function App() {
-  const methods = useForm();
-  
-  return null;
-}`}
-              tsRawData={`type FormInputs = {
-  firstName: string;
-  lastName: string;
-};
+            <p>
+              <b>Generic props:</b>
+            </p>
 
-const { register } = useForm<FormInputs>();
+            <table className={tableStyles.table}>
+              <tr>
+                <td>
+                  <a href="#mode">mode</a>
+                </td>
+                <td>
+                  <p>
+                    validation strategy <b>before</b> submitting behaviour.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#reValidateMode">reValidateMode</a>
+                </td>
+                <td>
+                  <p>
+                    validation strategy <b>after</b> submitting behaviour.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td width={250}>
+                  <a href="#defaultValues">defaultValues</a>
+                </td>
+                <td>
+                  <p>default values for the form.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#values">values</a>
+                </td>
+                <td>
+                  <p>reactive values to update the form values.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#resetOptions">resetOptions</a>
+                </td>
+                <td>
+                  <p>
+                    option to reset form state update while updating new form
+                    values.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#criteriaMode">criteriaMode</a>
+                </td>
+                <td>
+                  <p>Display all validation errors or one at a time.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#shouldFocusError">shouldFocusError</a>
+                </td>
+                <td>
+                  <p>enable or disable build-in focus management.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#delayError">delayError</a>
+                </td>
+                <td>
+                  <p>delay error from appearing instantly.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#shouldUseNativeValidation">
+                    shouldUseNativeValidation
+                  </a>
+                </td>
+                <td>
+                  <p>use browser build-in form constraint API.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#shouldUnregister">shouldUnregister</a>
+                </td>
+                <td>
+                  <p>enable and disable input unregister after unmount.</p>
+                </td>
+              </tr>
+            </table>
 
-// type inference with defaultValues
-const { register } = useForm({
-  defaultValues: {
-    firstName: '',
-    lastName: ''
-  }
-});`}
-            />
+            <p>
+              <b>Schema validation props:</b>
+            </p>
+
+            <table className={tableStyles.table}>
+              <tr>
+                <td width={250}>
+                  <a href="#resolver">resolver</a>
+                </td>
+                <td>
+                  <p>to plugin with your favour schema validation library.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#context">context</a>
+                </td>
+                <td>
+                  <p>A context object to supply for your schema validation.</p>
+                </td>
+              </tr>
+            </table>
 
             <h2 id="props" className={typographyStyles.subTitle}>
               Props
             </h2>
 
-            <h5 style={{ marginTop: "1rem" }} className={typographyStyles.h5}>
+            <h5
+              id="mode"
+              style={{ marginTop: "1rem" }}
+              className={typographyStyles.h5}
+            >
               <code>
                 mode:{" "}
                 <span className={typographyStyles.typeText}>
@@ -206,7 +306,11 @@ const { register } = useForm({
                 </tbody>
               </table>
 
-              <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+              <h5
+                id="reValidateMode"
+                className={typographyStyles.h5}
+                style={{ marginTop: 20 }}
+              >
                 <code>
                   reValidateMode:{" "}
                   <span className={typographyStyles.typeText}>
@@ -222,7 +326,11 @@ const { register } = useForm({
               {api.useForm.reValidateMode}
             </div>
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="defaultValues"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 defaultValues:{" "}
                 <span className={typographyStyles.typeText}>
@@ -233,7 +341,11 @@ const { register } = useForm({
 
             {api.useForm.defaultValues}
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="values"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 values:{" "}
                 <span className={typographyStyles.typeText}>FieldValues</span>
@@ -242,7 +354,11 @@ const { register } = useForm({
 
             {api.useForm.values}
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="resetOptions"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 resetOptions:{" "}
                 <span className={typographyStyles.typeText}>
@@ -253,7 +369,11 @@ const { register } = useForm({
 
             {api.useForm.resetOptions}
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="context"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 context:{" "}
                 <span className={typographyStyles.typeText}>object</span>
@@ -275,7 +395,11 @@ const { register } = useForm({
               </table>
             </div>
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="criteriaMode"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 criteriaMode:{" "}
                 <span className={typographyStyles.typeText}>
@@ -283,6 +407,7 @@ const { register } = useForm({
                 </span>
               </code>
             </h5>
+
             <div className={tableStyles.tableWrapper}>
               <table className={tableStyles.table}>
                 <tbody>
@@ -299,7 +424,11 @@ const { register } = useForm({
               </table>
             </div>
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="shouldFocusError"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 shouldFocusError:{" "}
                 <span className={typographyStyles.typeText}>
@@ -317,7 +446,11 @@ const { register } = useForm({
               </table>
             </div>
 
-            <h5 className={typographyStyles.h5} style={{ marginTop: 20 }}>
+            <h5
+              id="delayError"
+              className={typographyStyles.h5}
+              style={{ marginTop: 20 }}
+            >
               <code>
                 delayError:{" "}
                 <span className={typographyStyles.typeText}>number</span>
@@ -357,7 +490,7 @@ const { register } = useForm({
             <h5
               className={typographyStyles.h5}
               style={{ marginTop: 20 }}
-              id="resolver"
+              id="shouldUseNativeValidation"
             >
               <code>
                 shouldUseNativeValidation:{" "}

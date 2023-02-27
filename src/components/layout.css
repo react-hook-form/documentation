@@ -259,6 +259,10 @@ p {
   font-size: 0.9rem;
 }
 
+li > p {
+  margin: 0.2rem;
+}
+
 input,
 select,
 button {
