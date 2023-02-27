@@ -30,7 +30,7 @@
   z-index: 5;
   left: 0;
   background: var(--color-blue);
-  box-shadow: 0 0 5px 0 #000;
+  box-shadow: 0 2px 2px 0 #000;
   width: 100%;
   position: fixed;
   height: 43px;
@@ -133,6 +133,16 @@ a.legacyLink {
   right: 0;
   left: auto;
   z-index: 2;
+}
+
+.linkExternal {
+  display: flex;
+}
+
+.linkExternal img {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.1rem;
 }
 
 @media (min-width: 768px) {

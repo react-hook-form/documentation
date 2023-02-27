@@ -11,7 +11,6 @@ import Builder from "./BuilderPage"
 import FeaturesList from "./FeaturesList"
 import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
-import translateLink from "./logic/translateLink"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
@@ -47,7 +46,7 @@ function HomePage({
   const [isPlayWatch, setWatchPlay] = useState(false)
   const {
     state,
-    state: { language, setting = {} },
+    state: { language },
   } = useStateMachine()
   const lightMode = state?.setting?.lightMode
   const { currentLanguage } =
@@ -115,12 +114,7 @@ function HomePage({
   return (
     <div className={styles.root}>
       {showBuilder && (
-        <Builder
-          showBuilder
-          toggleBuilder={toggleBuilder}
-          HomeRef={HomeRef}
-          defaultLang={defaultLang}
-        />
+        <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
       )}
 
       <Header
@@ -354,7 +348,7 @@ function HomePage({
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate(translateLink("get-started", currentLanguage))
+              navigate("get-started")
             }}
           >
             {home.getStarted[currentLanguage]}
@@ -362,7 +356,7 @@ function HomePage({
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate(translateLink("api", currentLanguage))
+              navigate("api")
             }}
           >
             API

@@ -121,7 +121,7 @@ dfn {
 }
 h1 {
   margin: 0.67em 0;
-  line-height: 1;
+  line-height: 1.2;
 }
 mark {
   background-color: #ff0;
@@ -1063,7 +1063,59 @@ body.light {
   filter: grayscale(1);
 }
 
+.banner {
+  background: black;
+  padding-top: 3.2rem;
+}
+
+.banner p {
+  border-top: 1px solid #171717;
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.6rem;
+  font-weight: 400;
+}
+
+.banner a {
+  border-radius: 1.5rem;
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  padding: 0.1rem 0.5rem 0.15rem;
+  text-decoration: none;
+  background: white;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.banner a:hover {
+  background: var(--color-link);
+  color: white;
+}
+
 @media (min-width: 768px) {
+  .banner {
+    padding: 1rem;
+  }
+
+  .banner p {
+    font-size: 0.8rem;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .banner a {
+    padding: 0.25rem 0.5rem 0.35rem;
+    position: relative;
+    top: -0.1rem;
+  }
+
+  .banner strong {
+    background-image: linear-gradient(120deg, #cfa7f6, #ec5990, #cc4848);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .ds-dataset-3 {
     width: 550px !important;
     height: 400px;
@@ -1071,6 +1123,21 @@ body.light {
 }
 
 @media (min-width: 1024px) {
+  .banner p {
+    font-size: 1rem;
+  }
+
+  .banner a {
+    padding: 0.25rem 1rem 0.35rem;
+    font-size: 0.8rem;
+  }
+
+  .banner strong {
+    background-image: linear-gradient(120deg, #cfa7f6, #ec5990, #cc4848);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .ds-dataset-3 {
     width: auto;
   }

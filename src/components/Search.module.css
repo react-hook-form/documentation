@@ -16,6 +16,7 @@
   height: 26px;
   z-index: 1;
   cursor: pointer;
+  color: var(--color-primary) !important;
 }
 
 .searchBarOpen {

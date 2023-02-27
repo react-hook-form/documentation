@@ -7,14 +7,9 @@ import * as styles from "./ApiRefTable.module.css"
 import register from "./codeExamples/register"
 import registerTs from "./codeExamples/registerTs"
 
-export default function ApiRefTable({
-  api,
-  currentLanguage,
-}: {
-  api: any
-  goToSection: (name: string, animate?: boolean) => void
-  currentLanguage: string
-}) {
+const currentLanguage = "en"
+
+export default function ApiRefTable({ api }) {
   const [isStandard, toggleOption] = React.useState(true)
 
   return (

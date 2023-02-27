@@ -13,13 +13,14 @@ import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
-import translateLink from "./logic/translateLink"
 import * as buttonStyles from "../styles/button.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./BuilderPage.module.css"
 import CodeArea from "./CodeArea"
 import ClipBoard from "./ClipBoard"
+
+import * as styles from "./BuilderPage.module.css"
+import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
 
 const { useState, useRef, useEffect } = React
 
@@ -47,27 +48,23 @@ const defaultValue = {
   options: [],
 }
 
+const currentLanguage = "en"
+
 function BuilderPage({
   showBuilder,
   toggleBuilder,
   HomeRef,
   isStatic,
-  defaultLang,
 }: {
   showBuilder?: boolean
   toggleBuilder?: (state: boolean) => void
   HomeRef?: any
   isStatic?: boolean
-  defaultLang: string
 }) {
   const {
-    state: { formData = [], language },
+    state: { formData = [] },
     actions: { updateFormData },
   } = useStateMachine({ updateFormData: updateStore })
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
   const [editFormData, setFormData] = useState(defaultValue)
   const {
     register,
@@ -391,9 +388,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate(
-                      translateLink("/?goToDemo&updated=true", currentLanguage)
-                    )
+                    navigate("/?goToDemo&updated=true")
                   }
                 }}
               >
@@ -435,6 +430,8 @@ function BuilderPage({
           </section>
         </section>
       </div>
+
+      <BeekaiBuilderPage />
 
       <div style={{ margin: "0 20px" }}>
         <LearnMore currentLanguage={currentLanguage} />

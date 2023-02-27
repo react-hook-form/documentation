@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "@reach/router"
-import translateLink from "../../components/logic/translateLink"
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {
@@ -87,10 +86,7 @@ export default {
         </ul>
         <p>
           You can read more detail on each rule in the{" "}
-          <Link to={translateLink("api#register", currentLanguage)}>
-            register section
-          </Link>
-          .
+          <Link to="api#register">register section</Link>.
         </p>
       </>
     ),

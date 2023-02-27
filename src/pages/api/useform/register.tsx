@@ -7,7 +7,7 @@ export default ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - register" />
-      <Register currentLanguage="en" />
+      <Register />
     </Layout>
   )
 }
