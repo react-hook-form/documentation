@@ -54,19 +54,19 @@ const Layout = (props: {
 
   return (
     <>
-      <div className="banner">
-        <p>
-          Next-gen <strong>form building</strong> platform with code generation.
-          <a
-            href="https://beekai.com/"
-            title="Learn more about BEEKAI form builder"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Find out more
-          </a>
-        </p>
-      </div>
+      {/*<div className="banner">*/}
+      {/*  <p>*/}
+      {/*    Next-gen <strong>form building</strong> platform with code generation.*/}
+      {/*    <a*/}
+      {/*      href="https://beekai.com/"*/}
+      {/*      title="Learn more about BEEKAI form builder"*/}
+      {/*      target="_blank"*/}
+      {/*      rel="noreferrer"*/}
+      {/*    >*/}
+      {/*      Find out more*/}
+      {/*    </a>*/}
+      {/*  </p>*/}
+      {/*</div>*/}
       <a className="skip-main" href="#main">
         Skip to content
       </a>
