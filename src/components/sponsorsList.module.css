@@ -28,7 +28,7 @@
 
 .logoGroup {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   margin: 0 1rem;
 }
@@ -47,9 +47,9 @@
 @media (min-width: 768px) {
   .logoGroup {
     display: grid;
-    max-width: 384px;
+    max-width: 500px;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
 }
