@@ -20,6 +20,8 @@ import control from "../../components/codeExamples/control"
 import controlled from "../../components/codeExamples/controlled"
 import TabGroup from "../../components/TabGroup"
 import importKeystroke from "../../components/codeExamples/importKeystroke"
+import asyncDefaultValue from "../../components/codeExamples/asyncDefaultValue"
+import asyncValues from "../../components/codeExamples/asyncValues"
 
 export default {
   title: "FAQs",
@@ -133,6 +135,24 @@ export default {
             <code>useForm</code>.
           </p>
           <CodeArea rawData={initialValue} />
+
+          <p>For async default values, you can use the following methods:</p>
+
+          <ul>
+            <li>
+              <p>
+                Async <code>defaultValues</code>
+              </p>
+              <CodeArea rawData={asyncDefaultValue} />
+            </li>
+            <li>
+              <p>
+                Reactive <code>values</code>
+              </p>
+
+              <CodeArea rawData={asyncValues} />
+            </li>
+          </ul>
         </>
       ),
     },
