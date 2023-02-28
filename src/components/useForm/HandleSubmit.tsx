@@ -28,8 +28,8 @@ export default ({ currentLanguage }) => {
               <h2>
                 handleSubmit: <br />
                 <span className={typographyStyles.typeText}>
-                  ((data: Object, e?: Event) =&gt; void, (errors: Object, e?:
-                  Event) =&gt; void) =&gt; Function
+                  ((data: Object, e?: Event) =&gt; {`Promise<void>`}, (errors:
+                  Object, e?: Event) =&gt; void) =&gt; {`Promise<void>`}
                 </span>
               </h2>
             </code>

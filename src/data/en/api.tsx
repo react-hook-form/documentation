@@ -888,7 +888,7 @@ setValue('test', '')
                 <td>
                   <code
                     className={typographyStyles.typeText}
-                  >{`(data: Object, e?: Event) => void`}</code>
+                  >{`(data: Object, e?: Event) => Promise<void>`}</code>
                 </td>
                 <td>A successful callback.</td>
               </tr>
@@ -897,7 +897,7 @@ setValue('test', '')
                 <td>
                   <code
                     className={typographyStyles.typeText}
-                  >{`(errors: Object, e?: Event) => void`}</code>
+                  >{`(errors: Object, e?: Event) => Promise<void>`}</code>
                 </td>
                 <td>An error callback.</td>
               </tr>
