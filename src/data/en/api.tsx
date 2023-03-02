@@ -945,30 +945,16 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             </p>
 
             <CodeArea
-              rawData={`const onSubmit = () => {
+              rawData={`const onSubmit = async () => {
   // async request which may result error
-  throw new Error("Something is wrong");
+  try {
+    // await fetch()
+  } catch (e) {
+    // handle your error
+  }
 };
 
-<>
-  <form
-    onSubmit={(e) => {
-      handleSubmit(onSubmit)(e)
-      // you will have to catch those error and handle them
-      .catch(() => {});
-    }}
-  />
-  // The following is a better approach
-  <form
-    onSubmit={handleSubmit(() => {
-      try {
-        request();
-      } catch (e) {
-        // handle your error state here
-      }
-    })}
-  />
-</>;
+<form onSubmit={handleSubmit(onSubmit)} />
 `}
             />
           </li>
