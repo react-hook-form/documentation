@@ -1297,7 +1297,9 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           <li>
             <p>
               An error that is not associated with an input field will be
-              persisted until cleared with <code>clearErrors</code>.
+              persisted until cleared with <code>clearErrors</code>. This
+              behaviour is only applicable for build in validation at field
+              level.
             </p>
             <CodeArea
               rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
