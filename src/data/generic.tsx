@@ -96,6 +96,9 @@ export default {
   newsletter: {
     en: "Newsletter",
   },
+  binding: {
+    en: "3rd Party Bindings",
+  },
   liveDemo: {
     en: "Live Demo",
   },

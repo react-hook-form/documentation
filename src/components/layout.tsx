@@ -7,7 +7,7 @@ import { updateSetting } from "../actions/settingActions"
 import "./layout.css"
 
 const Layout = (props: {
-  children: any
+  children: React.ReactNode
   location?: {
     search: string
     pathname: string
