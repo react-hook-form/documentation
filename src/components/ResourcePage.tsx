@@ -7,7 +7,8 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyle from "../styles/container.module.css"
 import * as styles from "./ResourcePage.module.css"
 import { useForm } from "react-hook-form"
-import resources from "./Resources.json"
+import resources from "../data/resources"
+
 import StarRepo from "./StarRepo"
 
 import * as headerStyles from "./Header.module.css"
@@ -24,7 +25,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
       : { currentLanguage: defaultLang }
   const isGridLayout = layout === "grid"
 
-  const resourcesByType = resources.reduce(
+  const resourcesByType = resources.resources.reduce(
     (acc, cur) => {
       const { type, title, author, description, version } = cur
       // case insensitive filter
@@ -37,7 +38,7 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
       }
       return acc
     },
-    { article: [], video: [], newsletter: [] }
+    { article: [], video: [], newsletter: [], binding: [] }
   )
 
   return (
@@ -161,6 +162,25 @@ export default function ResourcePage({ defaultLang }: { defaultLang: string }) {
           }
         >
           {resourcesByType.newsletter.map(({ title, url, description }) => (
+            <article className={styles.article} key={url + title}>
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </a>
+            </article>
+          ))}
+        </ul>
+
+        <h2 className={typographyStyles.title}>
+          {generic.binding[currentLanguage]}
+        </h2>
+
+        <ul
+          className={
+            isGridLayout ? styles.contentList : styles.contentListLayout
+          }
+        >
+          {resourcesByType.binding.map(({ title, url, description }) => (
             <article className={styles.article} key={url + title}>
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <h3>{title}</h3>
