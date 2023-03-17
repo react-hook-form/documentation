@@ -107,7 +107,7 @@ export default function ApiWatch({
                 <code>watch('inputName')</code>
               </td>
               <td>
-                <code className={typographyStyles.typeText}>unkown</code>
+                <code className={typographyStyles.typeText}>unknown</code>
               </td>
             </tr>
             <tr>
