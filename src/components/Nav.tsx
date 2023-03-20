@@ -121,11 +121,29 @@ export default function Nav() {
               <span>{nav[currentLanguage].faqs}</span>
             </Link>
 
-            <Link activeClassName="active" to="/resources">
+            <Link activeClassName="active" to="/resources/articles">
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
-              <span>Resources</span>
+              <span>Articles</span>
+            </Link>
+            <Link activeClassName="active" to="/resources/videos">
+              <div className={styles.iconWrapper}>
+                <div className="tag icon" />
+              </div>
+              <span>Videos</span>
+            </Link>
+            <Link activeClassName="active" to="/resources/newsletter">
+              <div className={styles.iconWrapper}>
+                <div className="tag icon" />
+              </div>
+              <span>Newsletter</span>
+            </Link>
+            <Link activeClassName="active" to="/resources/3rd-party-bindings">
+              <div className={styles.iconWrapper}>
+                <div className="tag icon" />
+              </div>
+              <span>3rd-Party-Bindings</span>
             </Link>
 
             <Link activeClassName="active" to="/dev-tools">
@@ -281,16 +299,64 @@ export default function Nav() {
               </div>
             </div>
           </span>
-          <Link
-            activeClassName="active"
-            className={styles.mobileNav}
-            to="/dev-tools"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="laptop icon" />
+
+          <span className="desktopOnly">
+            <span className={styles.tools}>
+              <span
+                style={{
+                  position: "relative",
+                  top: 2,
+                }}
+              >
+                <span className={styles.menuExpandLink}>
+                  {nav[currentLanguage].resources}{" "}
+                  <span
+                    style={{
+                      fontSize: 10,
+                      display: "inline",
+                      marginLeft: 2,
+                      top: -1,
+                      position: "relative",
+                    }}
+                  >
+                    ▼
+                  </span>
+                </span>
+              </span>
+            </span>
+            <div
+              style={{
+                position: "absolute",
+                overflow: "hidden",
+                marginLeft: -10,
+                zIndex: 4,
+              }}
+            >
+              <div
+                style={{
+                  overflow: "hidden",
+                }}
+              >
+                <div className={styles.menuExpand}>
+                  <Link activeClassName="active" to="/resources/articles">
+                    Articles
+                  </Link>{" "}
+                  <Link activeClassName="active" to="/resources/videos">
+                    Videos
+                  </Link>
+                  <Link activeClassName="active" to="/resources/newsletters">
+                    Newsletters
+                  </Link>
+                  <Link
+                    activeClassName="active"
+                    to="/resources/3rd-party-bindings"
+                  >
+                    3rd Party Bindings
+                  </Link>
+                </div>
+              </div>
             </div>
-            <span>DevTools</span>
-          </Link>
+          </span>
           <Link
             activeClassName="active"
             className={styles.mobileNav}
@@ -300,12 +366,6 @@ export default function Nav() {
               <div className="edit icon" />
             </div>
             <span>{nav[currentLanguage].builder}</span>
-          </Link>
-          <Link activeClassName="active" to="/resources">
-            <div className={styles.iconWrapper}>
-              <div className="tag icon" />
-            </div>
-            <span>{nav[currentLanguage].resources}</span>
           </Link>
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"

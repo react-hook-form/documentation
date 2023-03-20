@@ -131,31 +131,27 @@ export default function SortableContainer({
         })}
       </Sortable>
 
-      {
-        <div className={editPanel}>
-          <button
-            onClick={() => {
-              updateFormData(originalFormData)
-            }}
-          >
-            Reset
-          </button>
-          <button
-            onClick={() => {
-              if (
-                window.confirm("Are you sure you want to delete all fields?")
-              ) {
-                updateFormData([])
-              }
-            }}
-            style={{
-              marginRight: 15,
-            }}
-          >
-            {generic.deleteAll[currentLanguage]}
-          </button>
-        </div>
-      }
+      <div className={editPanel}>
+        <button
+          onClick={() => {
+            updateFormData(originalFormData)
+          }}
+        >
+          Reset
+        </button>
+        <button
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete all fields?")) {
+              updateFormData([])
+            }
+          }}
+          style={{
+            marginRight: 15,
+          }}
+        >
+          {generic.deleteAll[currentLanguage]}
+        </button>
+      </div>
     </div>
   )
 }

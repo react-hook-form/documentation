@@ -16,3 +16,12 @@ exports.onCreateWebpackConfig = ({ stage, getConfig, actions }) => {
     actions.replaceWebpackConfig(config)
   }
 }
+
+exports.createPages = async ({ actions }) => {
+  const { createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/resources`,
+    toPath: `/resources/articles`,
+  })
+}
