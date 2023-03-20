@@ -1,7 +1,7 @@
 import * as React from "react"
 
 export default {
-  resources: [
+  article: [
     {
       type: "article",
       title:
@@ -491,6 +491,8 @@ export default {
         "Managing forms in React Native is different than in React. Custom components need callbacks or wrappers, which can make code hard to read. Here is a handy solution for React Native form validation. Without <Controller /> component!",
       version: "6",
     },
+  ],
+  video: [
     {
       type: "video",
       title:
@@ -865,6 +867,8 @@ export default {
         "Di video kita mencoba intergrasi library react hook form dengan register form.",
       version: "6",
     },
+  ],
+  newsletter: [
     {
       type: "newsletter",
       url: "https://zerotomastery.io/blog/web-developer-monthly-october-2019/",
@@ -928,6 +932,8 @@ export default {
       description:
         "There are a lot of great reviews for this library, plus it has a great homepage too. Certainly worth a look if you’re building or refactoring forms. GitHub repo.",
     },
+  ],
+  binding: [
     {
       type: "binding",
       url: "https://github.com/aranlucas/react-hook-form-mantine",
