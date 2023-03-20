@@ -377,6 +377,7 @@ export default function Nav() {
           </a>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
+            className={styles.mobileOnly}
             href="#"
             onClick={(e) => {
               e.preventDefault()
