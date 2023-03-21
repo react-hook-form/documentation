@@ -677,9 +677,9 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
         <ul>
           <li>
             <p>
-              Make sure to provide all inputs' defaultValues at the useForm, so
-              hook form can have a single source of truth to compare whether the
-              form is dirty.
+              <b>Important:</b> Make sure to provide all inputs' defaultValues
+              at the useForm, so hook form can have a single source of truth to
+              compare whether the form is dirty.
             </p>
             <CodeArea
               rawData={`const {
@@ -725,12 +725,24 @@ setValue('test', '')
           inputs' defaultValues via useForm, so the library can compare against
           the <code>defaultValues</code>.
         </p>
-        <p>
-          Dirty fields will <strong>not</strong> represent as{" "}
-          <code>isDirty</code> formState, because dirty fields are marked field
-          dirty at field level rather the entire form. If you want to determine
-          the entire form state use <code>isDirty</code> instead.
-        </p>
+        <ul>
+          <li>
+            <p>
+              <b>Important:</b> Make sure to provide defaultValues at the
+              useForm, so hook form can have a single source of truth to compare
+              each field's dirtyness.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Dirty fields will <strong>not</strong> represent as{" "}
+              <code>isDirty</code> formState, because dirty fields are marked
+              field dirty at field level rather the entire form. If you want to
+              determine the entire form state use <code>isDirty</code> instead.
+            </p>
+          </li>
+        </ul>
       </>
     ),
     touched:
