@@ -730,7 +730,7 @@ setValue('test', '')
             <p>
               <b>Important:</b> Make sure to provide defaultValues at the
               useForm, so hook form can have a single source of truth to compare
-              each field's dirtyness.
+              each field's dirtiness.
             </p>
           </li>
 

@@ -196,7 +196,8 @@ p.author {
     max-width: 1280px;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
-    margin: 0 auto;
+    padding: 0 1rem;
+    margin: 2rem auto 0;
   }
 
   .interests > ul {
