@@ -9,7 +9,7 @@ function App() {
     <Form action="/api" control={control}>
       <input {...register('name')} />
     
-      {isSubmitSuccessful && <p>Form submit successful.<p>}
+      {isSubmitSuccessful && <p>Form submit successful.</p>}
       
       {errors?.root?.server && <p>Form submit failed.</p>}
     
