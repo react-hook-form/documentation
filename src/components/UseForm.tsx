@@ -178,7 +178,7 @@ export default ({ currentLanguage }) => {
                   <a href="#shouldFocusError">shouldFocusError</a>
                 </td>
                 <td>
-                  <p>enable or disable build-in focus management.</p>
+                  <p>enable or disable built-in focus management.</p>
                 </td>
               </tr>
               <tr>
@@ -196,7 +196,7 @@ export default ({ currentLanguage }) => {
                   </a>
                 </td>
                 <td>
-                  <p>use browser build-in form constraint API.</p>
+                  <p>use browser built-in form constraint API.</p>
                 </td>
               </tr>
               <tr>

@@ -299,7 +299,7 @@ const onSubmit = (data) => {
           <li>
             <p>
               By default <code>shouldUnregister: false</code>: unmounted fields
-              will <strong>not</strong> be validated by build-in validation.
+              will <strong>not</strong> be validated by built-in validation.
             </p>
           </li>
           <li>
@@ -1310,7 +1310,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>. This
-              behaviour is only applicable for build in validation at field
+              behaviour is only applicable for built-in validation at field
               level.
             </p>
             <CodeArea
