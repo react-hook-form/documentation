@@ -192,8 +192,8 @@ export default ({ currentLanguage }) => {
             <ul>
               <li>
                 <p>
-                  This method will remove input reference and its value which
-                  means <b>build-in validation</b> rules will be removed as
+                  This method will remove input reference and its value, which
+                  means <b>built-in validation</b> rules will be removed as
                   well.
                 </p>
               </li>
