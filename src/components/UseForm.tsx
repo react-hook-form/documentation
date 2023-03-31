@@ -125,7 +125,7 @@ export default ({ currentLanguage }) => {
                   </td>
                   <td>
                     <p>
-                      validation strategy <b>before</b> submitting behaviour.
+                      Validation strategy <b>before</b> submitting behaviour.
                     </p>
                   </td>
                 </tr>
@@ -135,7 +135,7 @@ export default ({ currentLanguage }) => {
                   </td>
                   <td>
                     <p>
-                      validation strategy <b>after</b> submitting behaviour.
+                      Validation strategy <b>after</b> submitting behaviour.
                     </p>
                   </td>
                 </tr>
@@ -144,7 +144,7 @@ export default ({ currentLanguage }) => {
                     <a href="#defaultValues">defaultValues</a>
                   </td>
                   <td>
-                    <p>default values for the form.</p>
+                    <p>Default values for the form.</p>
                   </td>
                 </tr>
                 <tr>
@@ -152,7 +152,7 @@ export default ({ currentLanguage }) => {
                     <a href="#values">values</a>
                   </td>
                   <td>
-                    <p>reactive values to update the form values.</p>
+                    <p>Reactive values to update the form values.</p>
                   </td>
                 </tr>
                 <tr>
@@ -161,7 +161,7 @@ export default ({ currentLanguage }) => {
                   </td>
                   <td>
                     <p>
-                      option to reset form state update while updating new form
+                      Option to reset form state update while updating new form
                       values.
                     </p>
                   </td>
@@ -179,7 +179,7 @@ export default ({ currentLanguage }) => {
                     <a href="#shouldFocusError">shouldFocusError</a>
                   </td>
                   <td>
-                    <p>enable or disable built-in focus management.</p>
+                    <p>Enable or disable built-in focus management.</p>
                   </td>
                 </tr>
                 <tr>
@@ -187,7 +187,7 @@ export default ({ currentLanguage }) => {
                     <a href="#delayError">delayError</a>
                   </td>
                   <td>
-                    <p>delay error from appearing instantly.</p>
+                    <p>Delay error from appearing instantly.</p>
                   </td>
                 </tr>
                 <tr>
@@ -197,7 +197,7 @@ export default ({ currentLanguage }) => {
                     </a>
                   </td>
                   <td>
-                    <p>use browser built-in form constraint API.</p>
+                    <p>Use browser built-in form constraint API.</p>
                   </td>
                 </tr>
                 <tr>
@@ -205,7 +205,7 @@ export default ({ currentLanguage }) => {
                     <a href="#shouldUnregister">shouldUnregister</a>
                   </td>
                   <td>
-                    <p>enable and disable input unregister after unmount.</p>
+                    <p>Enable and disable input unregister after unmount.</p>
                   </td>
                 </tr>
               </tbody>
@@ -222,7 +222,9 @@ export default ({ currentLanguage }) => {
                     <a href="#resolver">resolver</a>
                   </td>
                   <td>
-                    <p>to plugin with your favour schema validation library.</p>
+                    <p>
+                      Integrates with your preferred schema validation library.
+                    </p>
                   </td>
                 </tr>
                 <tr>
