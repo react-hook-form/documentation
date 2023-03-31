@@ -518,24 +518,29 @@ export default ({ currentLanguage }) => {
                 browser native validation
               </a>
               . It will also enable CSS selectors <code>:valid</code> and
-              <code>:invalid</code> making style inputs easier. In fact, you can
-              still use those selectors even the client validation is disabled.
+              <code>:invalid</code> making styling inputs easier. You can still
+              use these selectors even when client-side validation is disabled.
             </p>
             <ul>
               <li>
-                Only works with onSubmit and onChange mode due to{" "}
-                <code>reportValidity</code> execution will focus on the error
-                input.
-              </li>
-              <li>
-                Each registered field's validation message is required to be
-                string to display them natively.
+                <p>
+                  Only works with <code>onSubmit</code> and{" "}
+                  <code>onChange</code> modes, as the{" "}
+                  <code>reportValidity</code> execution will focus the error
+                  input.
+                </p>
               </li>
               <li>
                 <p>
-                  This feature only works for <code>register</code> API, and{" "}
-                  <code>useController/Controller</code> which wired with actual
-                  DOM reference.
+                  Each registered field's validation message is required to be
+                  string to display them natively.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This feature only works with the <code>register</code> API and
+                  <code>useController/Controller</code> that are connected with
+                  actual DOM references.
                 </p>
               </li>
             </ul>
