@@ -118,95 +118,97 @@ export default ({ currentLanguage }) => {
             </p>
 
             <table className={tableStyles.table}>
-              <tr>
-                <td>
-                  <a href="#mode">mode</a>
-                </td>
-                <td>
-                  <p>
-                    validation strategy <b>before</b> submitting behaviour.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#reValidateMode">reValidateMode</a>
-                </td>
-                <td>
-                  <p>
-                    validation strategy <b>after</b> submitting behaviour.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td width={250}>
-                  <a href="#defaultValues">defaultValues</a>
-                </td>
-                <td>
-                  <p>default values for the form.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#values">values</a>
-                </td>
-                <td>
-                  <p>reactive values to update the form values.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#resetOptions">resetOptions</a>
-                </td>
-                <td>
-                  <p>
-                    option to reset form state update while updating new form
-                    values.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#criteriaMode">criteriaMode</a>
-                </td>
-                <td>
-                  <p>Display all validation errors or one at a time.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#shouldFocusError">shouldFocusError</a>
-                </td>
-                <td>
-                  <p>enable or disable built-in focus management.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#delayError">delayError</a>
-                </td>
-                <td>
-                  <p>delay error from appearing instantly.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#shouldUseNativeValidation">
-                    shouldUseNativeValidation
-                  </a>
-                </td>
-                <td>
-                  <p>use browser built-in form constraint API.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#shouldUnregister">shouldUnregister</a>
-                </td>
-                <td>
-                  <p>enable and disable input unregister after unmount.</p>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="#mode">mode</a>
+                  </td>
+                  <td>
+                    <p>
+                      validation strategy <b>before</b> submitting behaviour.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#reValidateMode">reValidateMode</a>
+                  </td>
+                  <td>
+                    <p>
+                      validation strategy <b>after</b> submitting behaviour.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width={250}>
+                    <a href="#defaultValues">defaultValues</a>
+                  </td>
+                  <td>
+                    <p>default values for the form.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#values">values</a>
+                  </td>
+                  <td>
+                    <p>reactive values to update the form values.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#resetOptions">resetOptions</a>
+                  </td>
+                  <td>
+                    <p>
+                      option to reset form state update while updating new form
+                      values.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#criteriaMode">criteriaMode</a>
+                  </td>
+                  <td>
+                    <p>Display all validation errors or one at a time.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#shouldFocusError">shouldFocusError</a>
+                  </td>
+                  <td>
+                    <p>enable or disable built-in focus management.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#delayError">delayError</a>
+                  </td>
+                  <td>
+                    <p>delay error from appearing instantly.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#shouldUseNativeValidation">
+                      shouldUseNativeValidation
+                    </a>
+                  </td>
+                  <td>
+                    <p>use browser built-in form constraint API.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#shouldUnregister">shouldUnregister</a>
+                  </td>
+                  <td>
+                    <p>enable and disable input unregister after unmount.</p>
+                  </td>
+                </tr>
+              </tbody>
             </table>
 
             <p>
@@ -214,22 +216,26 @@ export default ({ currentLanguage }) => {
             </p>
 
             <table className={tableStyles.table}>
-              <tr>
-                <td width={250}>
-                  <a href="#resolver">resolver</a>
-                </td>
-                <td>
-                  <p>to plugin with your favour schema validation library.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#context">context</a>
-                </td>
-                <td>
-                  <p>A context object to supply for your schema validation.</p>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td width={250}>
+                    <a href="#resolver">resolver</a>
+                  </td>
+                  <td>
+                    <p>to plugin with your favour schema validation library.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#context">context</a>
+                  </td>
+                  <td>
+                    <p>
+                      A context object to supply for your schema validation.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
             </table>
 
             <h2 id="props" className={typographyStyles.subTitle}>
