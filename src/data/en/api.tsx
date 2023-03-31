@@ -62,33 +62,33 @@ export default {
     ),
     validateOnSubmit: (
       <>
-        Validation will trigger on the <code>submit</code> event and inputs will
-        attach <code>onChange</code> event listeners to re-validate them.
+        Validation is triggered on the <code>submit</code> event, and inputs
+        attach <code>onChange</code> event listeners to re-validate themselves.
       </>
     ),
     validateOnBlur: (
       <>
-        Validation will trigger on the <code>blur</code> event.
+        Validation is triggered on the <code>blur</code> event.
       </>
     ),
     validateOnChange: (
       <>
-        Validation will trigger on the <code>change</code> event with each
-        input, and lead to multiple re-renders. Warning: this often comes with a
-        significant impact on performance.
+        Validation is triggered on the <code>change</code>
+        event for each input, leading to multiple re-renders. Warning: this
+        often comes with a significant impact on performance.
       </>
     ),
     validationOnAll: (
       <>
-        Validation will trigger on the <code>blur</code> and <code>change</code>{" "}
-        events.
+        Validation is triggered on both <code>blur</code> and{" "}
+        <code>change</code> events.
       </>
     ),
     validationOnTouched: (
       <>
         <p>
-          Validation will trigger on the first <code>blur</code> event. After
-          that, it will trigger on every <code>change</code> event.
+          Validation is initially triggered on the first <code>blur</code>{" "}
+          event. After that, it is triggered on every <code>change</code> event.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> when using with{" "}

@@ -261,8 +261,8 @@ export default ({ currentLanguage }) => {
             <div className={tableStyles.tableWrapper}>
               <p>
                 This option allows you to configure the validation strategy
-                before a user submits the form that is happened during{" "}
-                <code>onSubmit</code> event by invoking{" "}
+                before a user submits the form. The validation occurs during the{" "}
+                <code>onSubmit</code> event, which is triggered by invoking the{" "}
                 <Link to="/api/useform/handlesubmit">
                   <code>handleSubmit</code>
                 </Link>{" "}
