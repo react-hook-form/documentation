@@ -137,7 +137,7 @@ export default function UseFieldArray({
             </tr>
             <tr>
               <td>
-                <code>useWatch('inputName')</code>
+                <code>useWatch({`{ name: 'inputName' }`})</code>
               </td>
               <td>
                 <code className={typographyStyles.typeText}>unknown</code>
@@ -145,7 +145,7 @@ export default function UseFieldArray({
             </tr>
             <tr>
               <td>
-                <code>useWatch(['inputName1'])</code>
+                <code>useWatch({`{ name: ['inputName1'] }`})</code>
               </td>
               <td>
                 <code className={typographyStyles.typeText}>unknown[]</code>
