@@ -966,5 +966,11 @@ export default {
       description:
         "This project simplifies the use of react-hook-form and Material-UI.",
     },
+    {
+      type: "binding",
+      url: "https://github.com/crhistianramirez/react-hook-form-chakra#readme",
+      title: "Chakra React Hook Form bindings",
+      description: "Chakra UI bindings for react-hook-form",
+    },
   ],
 }
