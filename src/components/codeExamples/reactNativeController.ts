@@ -19,7 +19,7 @@ export default function App() {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            placeholder="First name"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -36,7 +36,7 @@ export default function App() {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
+            placeholder="Last name"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
