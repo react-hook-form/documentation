@@ -144,7 +144,7 @@ export default ({
                 ref={register}
                 name="test"
                 className={formStyles.input}
-                maxLength={20}
+                maxLength={19}
               />
             </Animate>
           </section>
