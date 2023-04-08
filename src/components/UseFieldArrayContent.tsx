@@ -112,7 +112,7 @@ onClick={() => {
           <p>
             Each input name needs to be unique, if you need to build checkbox or
             radio with the same name then use it with <code>useController</code>{" "}
-            or <code>controller</code>.
+            or <code>Controller</code>.
           </p>
         </li>
         <li>
