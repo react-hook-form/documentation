@@ -972,5 +972,12 @@ export default {
       title: "Chakra React Hook Form bindings",
       description: "Chakra UI bindings for react-hook-form",
     },
+    {
+      type: "binding",
+      url: "https://github.com/jsun969/react-hook-form-antd",
+      title: "Ant Design React Hook Form binding",
+      description:
+        "A component to use React Hook Form instead of Ant Design form",
+    },
   ],
 }
