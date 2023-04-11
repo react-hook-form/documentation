@@ -712,7 +712,7 @@ export default function ApiRefTable({ api }) {
           <li>
             <p>
               <code>name</code> can neither start with a number nor use number
-              as key name.
+              as key name. Please avoid special characters as well.
             </p>
           </li>
           <li>
