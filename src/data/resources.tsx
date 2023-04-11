@@ -4,6 +4,42 @@ export default {
   article: [
     {
       type: "article",
+      title: "Managing forms with React Hook Form",
+      url: "https://claritydev.net/blog/managing-forms-with-react-hook-form",
+      authorUrl: "https://claritydev.net",
+      author: "Alex Khomenko",
+      description:
+        "In this post, we talk about the basics of React Hook Form and learn how to use it to simplify form management in your React applications.",
+      createdDateTime:
+        "Sun Mar 26 2023 02:00:00 GMT+0200 (Eastern European Standard Time)",
+      version: "7",
+    },
+    {
+      type: "article",
+      title: "Testing React Hook Form With React Testing Library",
+      url: "https://claritydev.net/blog/testing-react-hook-form-with-react-testing-library",
+      authorUrl: "https://claritydev.net",
+      author: "Alex Khomenko",
+      description:
+        "In this post, we'll explore how to use React Testing Library to test React Hook Form components.",
+      createdDateTime:
+        "Sun Mar 28 2023 02:00:00 GMT+0200 (Eastern European Standard Time)",
+      version: "7",
+    },
+    {
+      type: "article",
+      title: "Build a Multistep Form With React Hook Form",
+      url: "https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form",
+      authorUrl: "https://claritydev.net",
+      author: "Alex Khomenko",
+      description:
+        "In this post, we'll build a basic multistep registration form, which collects the user's info and then presents it in a confirmation view, which can be reviewed and edited before the submission.",
+      createdDateTime:
+        "Thu Sep 29 2022 03:00:00 GMT+0300 (Eastern European Summer Time)",
+      version: "7",
+    },
+    {
+      type: "article",
       title:
         "React Hook Form ライブラリの使い方！フォームのバリデーションを実装しよう【TypeScript】",
       url: "https://xn--eckhu0e2b3a6i6dsh.net/react-hook-form/",
@@ -396,24 +432,6 @@ export default {
       url: "https://www.williamkurniawan.com/blog/building-a-simple-login-form-with-material-ui-and-react-hook-form",
       authorUrl: "https://www.williamkurniawan.com",
       author: "William Kurniawan",
-      description: "",
-      version: "6",
-    },
-    {
-      type: "article",
-      title: "Testing React Hook Form With React Testing Library",
-      url: "https://claritydev.net/blog/testing-react-hook-form-with-react-testing-library/",
-      authorUrl: "https://twitter.com/Clarity_89",
-      author: "Alex Khomenko",
-      description: "",
-      version: "6",
-    },
-    {
-      type: "article",
-      title: "Managing forms with React Hook Form",
-      url: "https://claritydev.net/blog/managing-forms-with-react-hook-form/",
-      authorUrl: "https://twitter.com/Clarity_89",
-      author: "Alex Khomenko",
       description: "",
       version: "6",
     },
@@ -947,6 +965,12 @@ export default {
       title: "MUI React Hook Form bindings",
       description:
         "This project simplifies the use of react-hook-form and Material-UI.",
+    },
+    {
+      type: "binding",
+      url: "https://github.com/crhistianramirez/react-hook-form-chakra#readme",
+      title: "Chakra React Hook Form bindings",
+      description: "Chakra UI bindings for react-hook-form",
     },
   ],
 }

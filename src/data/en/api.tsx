@@ -62,33 +62,33 @@ export default {
     ),
     validateOnSubmit: (
       <>
-        Validation will trigger on the <code>submit</code> event and inputs will
-        attach <code>onChange</code> event listeners to re-validate them.
+        Validation is triggered on the <code>submit</code> event, and inputs
+        attach <code>onChange</code> event listeners to re-validate themselves.
       </>
     ),
     validateOnBlur: (
       <>
-        Validation will trigger on the <code>blur</code> event.
+        Validation is triggered on the <code>blur</code> event.
       </>
     ),
     validateOnChange: (
       <>
-        Validation will trigger on the <code>change</code> event with each
-        input, and lead to multiple re-renders. Warning: this often comes with a
-        significant impact on performance.
+        Validation is triggered on the <code>change</code>
+        event for each input, leading to multiple re-renders. Warning: this
+        often comes with a significant impact on performance.
       </>
     ),
     validationOnAll: (
       <>
-        Validation will trigger on the <code>blur</code> and <code>change</code>{" "}
-        events.
+        Validation is triggered on both <code>blur</code> and{" "}
+        <code>change</code> events.
       </>
     ),
     validationOnTouched: (
       <>
         <p>
-          Validation will trigger on the first <code>blur</code> event. After
-          that, it will trigger on every <code>change</code> event.
+          Validation is initially triggered on the first <code>blur</code>{" "}
+          event. After that, it is triggered on every <code>change</code> event.
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> when using with{" "}
@@ -131,12 +131,12 @@ function App() {
     resetOptions: (
       <>
         <p>
-          This property is associated with value update behaviours. In fact,{" "}
-          <code>values</code> or <code>defaultValues</code> update will invoke
-          the <code>reset</code> API internally. So it's important to info what
-          behaviour should be after the <code>values</code> or{" "}
-          <code>defaultValues</code> get asynchronously updated. The config
-          option itself is a reference to{" "}
+          This property is related to value update behaviors. When{" "}
+          <code>values</code> or <code>defaultValues</code> are updated, the{" "}
+          <code>reset</code> API is invoked internally. It's important to
+          specify the desired behavior after <code>values</code> or{" "}
+          <code>defaultValues</code> are asynchronously updated. The
+          configuration option itself is a reference to the{" "}
           <Link to="/api/useform/reset">reset</Link> method's options.
         </p>
 
@@ -162,17 +162,17 @@ useForm({
     defaultValues: (
       <>
         <p>
-          The <code>defaultValues</code> prop is used to populate the entire
-          form values. It supports both sync and async set form default values.
-          You can set an input's default value with <code>defaultValue</code>/
-          <code>defaultChecked</code>{" "}
+          The <code>defaultValues</code> prop populates the entire form with
+          default values. It supports both synchronous and asynchronous
+          assignment of default values. While you can set an input's default
+          value using <code>defaultValue</code> or <code>defaultChecked</code>{" "}
           <a
             className={buttonStyles.links}
             href="https://reactjs.org/docs/uncontrolled-components.html"
           >
-            (read more from the official React doc)
+            (as detailed in the official React documentation)
           </a>
-          , but it is <b>encouraged</b> that you set <code>defaultValues</code>{" "}
+          , it is <strong>recommended</strong> to use <code>defaultValues</code>{" "}
           for the entire form.
         </p>
 
@@ -196,17 +196,15 @@ useForm({
         <ul>
           <li>
             <p>
-              You <b>should</b> provide <b>none</b> <code>undefined</code>{" "}
-              default value, as <code>undefined</code> value is conflicting with
-              controlled component as default state.
+              You <strong>should avoid</strong> providing <code>undefined</code>{" "}
+              as a default value, as it conflicts with the default state of a
+              controlled component.
             </p>
           </li>
           <li>
             <p>
-              {" "}
-              <code>defaultValues</code> are cached. If you want to reset the{" "}
-              <code>defaultValues</code>, you should use the{" "}
-              <Link to="/api/useform/reset">reset</Link> api.
+              <code>defaultValues</code> are cached. To reset them, use the{" "}
+              <Link to="/api/useform/reset">reset</Link> API.
             </p>
           </li>
           <li>
@@ -217,13 +215,13 @@ useForm({
           </li>
           <li>
             <p>
-              It's recommend to avoid including custom object which contains
-              prototype methods as the <code>defaultValues</code>, such as{" "}
-              <code>moment</code>, <code>luxon</code> and etc.
+              It's recommended to avoid using custom objects containing
+              prototype methods, such as <code>Moment</code> or{" "}
+              <code>Luxon</code>, as <code>defaultValues</code>.
             </p>
           </li>
           <li>
-            <p>There are other options to include form data:</p>
+            <p>There are other options for including form data:</p>
             <CodeArea
               rawData={`// include hidden input
 <input {...register("hidden")} type="hidden" />
@@ -250,8 +248,8 @@ const onSubmit = (data) => {
         <Link to="/api/useform/handlesubmit">
           <code>handleSubmit</code>
         </Link>{" "}
-        function executed). By default, re-validation is actioned during the
-        input change event.
+        function executed). By default, re-validation occurs during the input
+        change event.
       </p>
     ),
     validationFields: (
@@ -264,8 +262,8 @@ const onSubmit = (data) => {
     submitFocusError: (
       <>
         <p>
-          When set to true (default) and the user submits a form that fails the
-          validation, it will set focus on the first field with an error.
+          When set to <code>true</code> (default), and the user submits a form
+          that fails validation, focus is set on the first field with an error.
         </p>
 
         <p>
@@ -291,15 +289,15 @@ const onSubmit = (data) => {
         <ul>
           <li>
             <p>
-              This is a global config that overwrites child-level config, if you
-              want to have individual behavior, then you should set the config
+              This is a global configuration that overrides child-level
+              configurations. To have individual behavior, set the configuration
               at the component or hook level, not at <code>useForm</code>.
             </p>
           </li>
           <li>
             <p>
-              By default <code>shouldUnregister: false</code>: unmounted fields
-              will <strong>not</strong> be validated by build-in validation.
+              By default, <code>shouldUnregister: false</code> means unmounted
+              fields are <strong>not validated</strong> by built-in validation.
             </p>
           </li>
           <li>
@@ -311,28 +309,31 @@ const onSubmit = (data) => {
           </li>
           <li>
             <p>
-              set <code>shouldUnregister: true</code> will set your form behave
-              more closer as native.
+              Setting <code>shouldUnregister: true</code> makes your form behave
+              more closely to native forms.
             </p>
-            <p>Form values will be lived inside your inputs itself.</p>
             <ul>
               <li>
-                <p>input unmount will remove value.</p>
+                <p>Form values are stored within the inputs themselves.</p>
               </li>
               <li>
-                <p>input hidden should be applied for hidden data.</p>
+                <p>Unmounting an input removes its value.</p>
               </li>
               <li>
                 <p>
-                  only registered input will be included as submission data.
+                  Hidden inputs should use the <code>hidden</code> attribute for
+                  storing hidden data.
                 </p>
               </li>
               <li>
+                <p>Only registered inputs are included as submission data.</p>
+              </li>
+              <li>
                 <p>
-                  unmounted input will need to notify at either{" "}
-                  <code>useForm</code>, or <code>useWatch</code>'s{" "}
-                  <code>useEffect</code> for hook form to verify input is
-                  unmounted from the DOM.
+                  Unmounted inputs must be notified at either{" "}
+                  <code>useForm</code> or <code>useWatch</code>'s{" "}
+                  <code>useEffect</code> for the hook form to verify that the
+                  input is unmounted from the DOM.
                 </p>
 
                 <CodeArea
@@ -370,9 +371,9 @@ const App = () => {
     ),
     delayError: (
       <p>
-        This config will delay the error state to be displayed to the end-user
-        in milliseconds. Correct the error input will remove the error instantly
-        and delay will not be applied.
+        This configuration delays the display of error states to the end-user by
+        a specified number of milliseconds. If the user corrects the error
+        input, the error is removed instantly, and the delay is not applied.
       </p>
     ),
   },
@@ -1310,7 +1311,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>. This
-              behaviour is only applicable for build in validation at field
+              behaviour is only applicable for built-in validation at field
               level.
             </p>
             <CodeArea

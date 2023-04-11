@@ -547,7 +547,7 @@ export default function ApiRefTable({ api }) {
                 <ul>
                   <p>
                     <code>Disabled</code> prop will also omit{" "}
-                    <strong>build-in</strong> validation rules.
+                    <strong>built-in</strong> validation rules.
                   </p>
                   <p>
                     For schema validation, you can leverage the{" "}

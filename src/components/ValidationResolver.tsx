@@ -89,7 +89,7 @@ export default function ({ api }) {
               </td>
               <td>
                 <p>
-                  This is the option object contains information about the
+                  This is the option object containing information about the
                   validated fields, names and <code>criteriaMode</code> from{" "}
                   <code>useForm</code>.
                 </p>
@@ -106,9 +106,9 @@ export default function ({ api }) {
       <ul>
         <li>
           <p>
-            Schema validation focus on the field level for error reporting.
-            Parent level error look is only limited to the direct parent level
-            that is applicable for components such as group checkboxes.
+            Schema validation focuses on field-level error reporting.
+            Parent-level error checking is limited to the direct parent level,
+            which is applicable for components such as group checkboxes.
           </p>
         </li>
 
@@ -137,8 +137,8 @@ export default function ({ api }) {
           <ul>
             <li>
               <p>
-                Make sure you are returning an object that has both a{" "}
-                <code>values</code> and an <code>errors</code> property. Their
+                Make sure that you return an object with both{" "}
+                <code>values</code> and <code>errors</code> properties. Their
                 default values should be an empty object. For example:{" "}
                 <code>{`{}`}</code>.
               </p>
