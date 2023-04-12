@@ -1,27 +1,28 @@
-import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { Control, useForm, useWatch } from "react-hook-form"
-import * as containerStyles from "../styles/container.module.css"
-import * as formStyles from "./Form.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./Watcher.module.css"
-import { useEffect } from "react"
+import containerStyles from "../styles/container.module.css"
+import formStyles from "./Form.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./Watcher.module.css"
+import { useEffect, useState } from "react"
 import home from "../data/home"
+import { useTheme } from "next-themes"
 
 const WatchText = ({
   control,
   checked,
-  lightMode,
 }: {
   control: Control
   checked: boolean
-  lightMode: boolean
 }) => {
   const test = useWatch({
     control,
     name: "test",
     defaultValue: "",
   })
+
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   return checked ? (
     <p
@@ -48,15 +49,16 @@ const WatchText = ({
 }
 
 const WatchGroup = ({
-  checked,
-  lightMode,
+  checked = false,
   control,
 }: {
   checked?: boolean
-  lightMode: boolean
   control: Control
 }) => {
-  const [check, setChecked] = React.useState(checked)
+  const [check, setChecked] = useState(checked)
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
+
   return (
     <div className={styles.watchGroup}>
       <input
@@ -67,22 +69,23 @@ const WatchGroup = ({
           ...(lightMode ? { background: "black" } : ""),
         }}
       />
-      <WatchText lightMode={lightMode} control={control} checked={check} />
+      <WatchText control={control} checked={check} />
     </div>
   )
 }
 
-export default ({
+const Watcher = ({
   isPlayWatch,
-  lightMode,
   currentLanguage,
 }: {
   isPlayWatch: boolean
-  lightMode: boolean
   currentLanguage: string
 }) => {
   let timer
   const { register, control, setValue } = useForm()
+
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   useEffect(() => {
     let i = 0
@@ -220,7 +223,7 @@ export default ({
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} checked />
+              <WatchGroup control={control} checked />
             </Animate>
 
             <Animate
@@ -228,21 +231,21 @@ export default ({
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} />
+              <WatchGroup control={control} />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} checked />
+              <WatchGroup control={control} checked />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} />
+              <WatchGroup control={control} />
             </Animate>
           </section>
         </div>
@@ -250,3 +253,5 @@ export default ({
     </AnimateGroup>
   )
 }
+
+export default Watcher

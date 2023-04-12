@@ -1,15 +1,11 @@
-import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
-import { navigate } from "@reach/router"
 // import Bday from "./Bday"
 import home from "../data/home"
-import { useStateMachine } from "little-state-machine"
-import video from "../images/react-hook-form-demo-video.mp4"
-import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as buttonStyles from "../styles/button.module.css"
-import * as styles from "./Header.module.css"
-
+import typographyStyles from "../styles/typography.module.css"
+import buttonStyles from "../styles/button.module.css"
+import styles from "./Header.module.css"
+import { useRouter } from "next/router"
+import { useState, RefObject } from "react"
 const LogoSvg = (
   <>
     <path d="M73.56,13.32H58.14a8.54,8.54,0,0,0-16.27,0H26.44a11,11,0,0,0-11,11V81.63a11,11,0,0,0,11,11H73.56a11,11,0,0,0,11-11V24.32A11,11,0,0,0,73.56,13.32Zm-30.92,2a1,1,0,0,0,1-.79,6.54,6.54,0,0,1,12.78,0,1,1,0,0,0,1,.79h5.38v6.55a3,3,0,0,1-3,3H40.25a3,3,0,0,1-3-3V15.32ZM82.56,81.63a9,9,0,0,1-9,9H26.44a9,9,0,0,1-9-9V24.32a9,9,0,0,1,9-9h8.81v6.55a5,5,0,0,0,5,5h19.5a5,5,0,0,0,5-5V15.32h8.81a9,9,0,0,1,9,9Z" />
@@ -28,21 +24,15 @@ const LogoSvg = (
 
 export default function Header({
   homeRef,
-  defaultLang,
 }: // isCardPlay,
 {
-  homeRef: React.RefObject<HTMLDivElement>
-  defaultLang: string
+  homeRef: RefObject<HTMLDivElement>
   isCardPlay?: boolean
 }) {
-  const [isWeb, setIsWeb] = React.useState(true)
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+  const [isWeb, setIsWeb] = useState(true)
+
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
 
   return (
     <>
@@ -140,7 +130,7 @@ export default function Header({
                 <button
                   className={buttonStyles.primaryButton}
                   onClick={() => {
-                    navigate("get-started")
+                    router.push("get-started")
                   }}
                 >
                   {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
@@ -172,7 +162,10 @@ export default function Header({
                   muted
                   style={style}
                 >
-                  <source src={video} type="video/mp4" />
+                  <source
+                    src="/video/react-hook-form-demo-video.mp4"
+                    type="video/mp4"
+                  />
                 </video>
               )}
             />
@@ -191,7 +184,10 @@ export default function Header({
             playsInline
             muted
           >
-            <source src={nativeVideo} type="video/mp4" />
+            <source
+              src="/video/react-hook-form-native-demo-video.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 

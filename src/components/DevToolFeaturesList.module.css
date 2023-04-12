@@ -16,7 +16,7 @@
   height: 60px;
 }
 
-.lightFeaturesContent svg {
+[data-theme="light"] .featuresContent svg {
   fill: var(--color-black);
 }
 

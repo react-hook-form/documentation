@@ -1,25 +1,25 @@
-import * as React from "react"
+import { useEffect } from "react"
 import { useStateMachine } from "little-state-machine"
-import { Link } from "gatsby"
+import Link from "next/link"
 import Footer from "./Footer"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./ApiGallery.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as headerStyles from "./Header.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./ApiGallery.module.css"
+import containerStyles from "../styles/container.module.css"
+import headerStyles from "./Header.module.css"
 import { updateSetting } from "../actions/settingActions"
-import { navigate } from "@reach/router"
+import { useRouter } from "next/router"
+import { useTheme } from "next-themes"
 
 const LightModeHeading = {
   background: "none",
   textShadow: "none",
 }
 
-export default function ApiGallery({ defaultLang }) {
+export default function ApiGallery() {
+  const router = useRouter()
   const {
     actions,
-    state,
     state: {
-      language,
       setting = {
         version: 7,
       },
@@ -27,11 +27,9 @@ export default function ApiGallery({ defaultLang }) {
   } = useStateMachine({
     updateSetting,
   })
-  const lightMode = state?.setting?.lightMode
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   const onChange = (e) => {
     const version = parseInt(e.target.value)
@@ -41,17 +39,17 @@ export default function ApiGallery({ defaultLang }) {
     })
 
     if (version !== 7) {
-      window.location.href = `https://legacy.react-hook-form.com/v${version}/api`
+      window.location.href = `https://legacy.react-hook-form.com/v${version}/docs`
     } else {
-      navigate(`/v${version}/api/`)
+      router.push(`/v${version}/docs/`)
     }
   }
 
-  React.useEffect(() => {
-    const name = window.location.hash.toLowerCase().slice(1)
+  useEffect(() => {
+    const name = window.location?.hash.toLowerCase().slice(1)
 
     if (name === "controller") {
-      navigate(`/api/usecontroller/${name}`)
+      router.push(`/docs/usecontroller/${name}`)
     } else if (
       [
         "register",
@@ -68,13 +66,13 @@ export default function ApiGallery({ defaultLang }) {
         "formstate",
       ].includes(name)
     ) {
-      navigate(`/api/useform/${name}`)
+      router.push(`/api/useform/${name}`)
     } else if (
       ["controller", "useformcontext", "usefieldarray"].includes(name)
     ) {
-      navigate(`/api/${name}`)
+      router.push(`/docs/${name}`)
     }
-  }, [setting])
+  }, [setting, router])
 
   return (
     <div className={containerStyles.container}>
@@ -96,7 +94,7 @@ export default function ApiGallery({ defaultLang }) {
                 A powerful custom hook to validate your form with minimal
                 re-renders.
               </p>
-              <Link to="/api/useform" aria-label="read more about useForm">
+              <Link href="/docs/useform" aria-label="read more about useForm">
                 Read More ▸
               </Link>
             </div>
@@ -111,7 +109,7 @@ export default function ApiGallery({ defaultLang }) {
                 and isolate its re-render.
               </p>
               <Link
-                to="/api/usecontroller"
+                href="/docs/usecontroller"
                 aria-label="read more about useController"
               >
                 Read More ▸
@@ -129,7 +127,7 @@ export default function ApiGallery({ defaultLang }) {
                 components!
               </p>
               <Link
-                to="/api/useformcontext"
+                href="/docs/useformcontext"
                 aria-label="read more about useformcontext"
               >
                 Read More ▸
@@ -145,7 +143,7 @@ export default function ApiGallery({ defaultLang }) {
                 Subscribe to individual form input changes without impacting the
                 root component's render.
               </p>
-              <Link to="/api/usewatch" aria-label="read more about usewatch">
+              <Link href="/docs/usewatch" aria-label="read more about usewatch">
                 Read More ▸
               </Link>
             </div>
@@ -160,7 +158,7 @@ export default function ApiGallery({ defaultLang }) {
                 re-renders at the hook level.
               </p>
               <Link
-                to="/api/useformstate"
+                href="/docs/useformstate"
                 aria-label="read more about useformstate"
               >
                 Read More ▸
@@ -177,7 +175,7 @@ export default function ApiGallery({ defaultLang }) {
                 and append fields. Ideal for complex CRUD data entry scenarios.
               </p>
               <Link
-                to="/api/usefieldarray"
+                href="/docs/usefieldarray"
                 aria-label="read more about usefieldarray"
               >
                 Read More ▸
@@ -224,7 +222,7 @@ export default function ApiGallery({ defaultLang }) {
         </div>
       </main>
 
-      <Footer currentLanguage={currentLanguage} />
+      <Footer />
     </div>
   )
 }

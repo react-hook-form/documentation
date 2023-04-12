@@ -1,9 +1,7 @@
-import * as React from "react"
 import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
-import { navigate } from "@reach/router"
 import colors from "../styles/colors"
 import generateCode from "./logic/generateCode"
 import copyClipBoard from "./utils/copyClipBoard"
@@ -13,16 +11,16 @@ import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
-import * as buttonStyles from "../styles/button.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import CodeArea from "./CodeArea"
 import ClipBoard from "./ClipBoard"
+import { useState, useRef, useEffect, memo } from "react"
 
-import * as styles from "./BuilderPage.module.css"
+import styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
-
-const { useState, useRef, useEffect } = React
+import { useRouter } from "next/router"
 
 const updateStore = (state, payload) => {
   return {
@@ -48,8 +46,6 @@ const defaultValue = {
   options: [],
 }
 
-const currentLanguage = "en"
-
 function BuilderPage({
   showBuilder,
   toggleBuilder,
@@ -66,6 +62,10 @@ function BuilderPage({
     actions: { updateFormData },
   } = useStateMachine({ updateFormData: updateStore })
   const [editFormData, setFormData] = useState(defaultValue)
+
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   const {
     register,
     handleSubmit,
@@ -119,15 +119,15 @@ function BuilderPage({
 
   useEffect(() => {
     setValue("toggle", shouldToggleOn)
-  }, [shouldToggleOn])
+  }, [shouldToggleOn, setValue])
 
   useEffect(() => {
     if (editFormData.type) setValue("type", editFormData.type)
-  }, [editFormData.type])
+  }, [editFormData.type, setValue])
 
   useEffect(() => {
     setValue("required", editFormData.required)
-  }, [editIndex])
+  }, [editIndex, setValue])
 
   const child = (
     <div className={containerStyles.container}>
@@ -388,7 +388,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate("/?goToDemo&updated=true")
+                    router.push("/?goToDemo&updated=true")
                   }
                 }}
               >
@@ -422,7 +422,6 @@ function BuilderPage({
               <ClipBoard
                 onClick={() => copyClipBoard(generateCode(formData))}
                 className={`${styles.button} ${styles.copyButton}`}
-                currentLanguage={currentLanguage}
               />
             </div>
 
@@ -434,9 +433,9 @@ function BuilderPage({
       <BeekaiBuilderPage />
 
       <div style={{ margin: "0 20px" }}>
-        <LearnMore currentLanguage={currentLanguage} />
+        <LearnMore />
 
-        <Footer currentLanguage={currentLanguage} />
+        <Footer />
       </div>
     </div>
   )
@@ -484,4 +483,4 @@ function BuilderPage({
   )
 }
 
-export default React.memo(BuilderPage)
+export default memo(BuilderPage)

@@ -1,10 +1,11 @@
-import * as React from "react"
+import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
-import { useStateMachine } from "little-state-machine"
-import * as styles from "./FeatureList.module.css"
+import styles from "./FeatureList.module.css"
+import { useTheme } from "next-themes"
+import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
-const props = {
+const props: AnimateKeyframesProps = {
   keyframes: [
     { 0: "opacity: 0; transform: scale(0)" },
     { 50: "opacity: 0.3; transform: scale(1.3)" },
@@ -22,8 +23,8 @@ function FeaturesList({
   isPlayFeature: boolean
   currentLanguage: string
 }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   return (
     <div className={styles.features}>
@@ -177,4 +178,4 @@ function FeaturesList({
   )
 }
 
-export default React.memo(FeaturesList)
+export default memo(FeaturesList)

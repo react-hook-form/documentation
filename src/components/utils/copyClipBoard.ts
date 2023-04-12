@@ -1,4 +1,4 @@
-export default (str) => {
+const copy = (str: string) => {
   const el = document.createElement("textarea")
   el.value = str
   el.setAttribute("readonly", "")
@@ -9,3 +9,5 @@ export default (str) => {
   document.execCommand("copy")
   document.body.removeChild(el)
 }
+
+export default copy

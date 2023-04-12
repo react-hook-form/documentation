@@ -1,12 +1,13 @@
-import * as React from "react"
+import { memo } from "react"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as styles from "./CodeCompareSection.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import styles from "./CodeCompareSection.module.css"
+import { useRouter } from "next/router"
 
 const props = {
   start: { transform: "translateY(100px)" },
@@ -16,11 +17,12 @@ const props = {
 
 function CodeCompareSection({
   isPlayCodeCompare,
-  currentLanguage,
 }: {
   isPlayCodeCompare: boolean
-  currentLanguage: string
 }) {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   return (
     <AnimateGroup play={isPlayCodeCompare}>
       <div
@@ -90,4 +92,4 @@ function CodeCompareSection({
   )
 }
 
-export default React.memo(CodeCompareSection)
+export default memo(CodeCompareSection)

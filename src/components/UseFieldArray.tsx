@@ -1,9 +1,8 @@
-import * as React from "react"
 import api from "../data/en/api"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
-import * as containerStyles from "../styles/container.module.css"
+import containerStyles from "../styles/container.module.css"
 import UseFieldArrayContent from "./UseFieldArrayContent"
 import StarRepo from "./StarRepo"
 
@@ -26,10 +25,10 @@ export default function UseFieldArray({
           <section>
             <UseFieldArrayContent currentLanguage={currentLanguage} api={api} />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

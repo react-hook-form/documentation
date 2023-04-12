@@ -1,9 +1,10 @@
-import * as React from "react"
 import colors from "../styles/colors"
 import generic from "../data/generic"
-import { useStateMachine } from "little-state-machine"
-import * as styles from "./SideMenu.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import styles from "./SideMenu.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import { memo } from "react"
+import { useTheme } from "next-themes"
+import { useRouter } from "next/router"
 
 const activateStyle = { borderBottom: `1px solid ${colors.lightPink}` }
 
@@ -36,7 +37,6 @@ function SideMenu({
   goToSection,
   enLinks,
   isStatic,
-  currentLanguage,
   activeIndex,
   version,
 }: {
@@ -44,12 +44,13 @@ function SideMenu({
   goToSection: (name: any, animate?: boolean) => void
   isStatic?: boolean
   enLinks: any
-  currentLanguage: string
   activeIndex?: number
   version?: number
 }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
 
   return (
     <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
@@ -207,4 +208,4 @@ function SideMenu({
   )
 }
 
-export default React.memo(SideMenu)
+export default memo(SideMenu)

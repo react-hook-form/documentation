@@ -11,10 +11,7 @@ const filterApiPageURL = (pathname) => {
   return pathname.substring(1)
 }
 
-export const getEditLink = (
-  currentLanguage: string,
-  pathname: string
-): string => {
+export const getEditLink = (currentLanguage: string, pathname: string) => {
   if (!pathname) return ""
 
   if (pathname === "/" || pathname === "") {

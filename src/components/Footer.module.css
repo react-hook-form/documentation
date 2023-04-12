@@ -11,7 +11,7 @@
   text-decoration: none;
 }
 
-.lightFooter a {
+[data-theme="light"] .footer a {
   color: var(--color-black);
 }
 
@@ -20,7 +20,7 @@
   text-decoration: none;
 }
 
-.lightFooter a:hover {
+[data-theme="light"] .footer a:hover {
   color: var(--color-light-pink);
 }
 
@@ -48,12 +48,12 @@
   min-height: 48px;
 }
 
-.lightFooter .links > li > a {
+[data-theme="light"] .footer .links > li > a {
   color: var(--color-black);
   font-weight: 500;
 }
 
-.lightFooter .links > li > a:hover {
+[data-theme="light"] .footer .links > li > a:hover {
   color: var(--color-light-pink);
 }
 

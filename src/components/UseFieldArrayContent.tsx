@@ -1,14 +1,13 @@
-import * as React from "react"
 import generic from "../data/generic"
 import CodeArea from "./CodeArea"
 import useFieldArray from "./codeExamples/useFieldArray"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
-import { Link } from "gatsby"
+import Link from "next/link"
 import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
 
 export default function UseFieldArrayContent({
@@ -23,7 +22,7 @@ export default function UseFieldArrayContent({
       <code className={typographyStyles.codeHeading}>
         <h2>
           useFieldArray:{" "}
-          <Link to="/ts#UseFieldArrayProps">
+          <Link href="/ts#UseFieldArrayProps">
             <code className={typographyStyles.typeText}>
               UseFieldArrayProps
             </code>

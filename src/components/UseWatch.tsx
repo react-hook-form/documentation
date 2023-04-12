@@ -1,9 +1,8 @@
-import * as React from "react"
 import api from "../data/en/api"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
-import * as containerStyles from "../styles/container.module.css"
+import containerStyles from "../styles/container.module.css"
 import UseWatch from "./UseWatchContent"
 import StarRepo from "./StarRepo"
 
@@ -29,9 +28,9 @@ export default function UseFieldArray({
             <UseWatch currentLanguage={currentLanguage} api={api} />
           </section>
 
-          <StarRepo currentLanguage="en" />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

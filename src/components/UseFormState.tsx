@@ -1,18 +1,17 @@
-import * as React from "react"
 import Footer from "./Footer"
-import { Link } from "gatsby"
+import Link from "next/link"
 import { Menu } from "./Menu"
 import api from "../data/en/api"
 import useFormState from "./codeExamples/useFormState"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import FormStateTable from "./FormStateTable"
 import CodeArea from "./CodeArea"
-import * as tableStyles from "../styles/table.module.css"
+import tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 import StarRepo from "./StarRepo"
 
-export default ({ currentLanguage }) => {
+const UseFormState = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -68,7 +67,7 @@ export default ({ currentLanguage }) => {
                       <code className={typographyStyles.typeText}>object</code>
                     </td>
                     <td>
-                      <Link to="/api/useform/control">
+                      <Link href="/docs/useform/control">
                         <code>control</code>
                       </Link>{" "}
                       object provided by <code>useForm</code>. It's optional if
@@ -150,12 +149,14 @@ const formState = useFormState(); // ❌ should deconstruct the formState
               url="https://codesandbox.io/s/useformstate-75xly"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default UseFormState

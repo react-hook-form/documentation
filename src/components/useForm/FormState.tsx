@@ -1,16 +1,15 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import ApiFormState from "../ApiFormState"
 import CodeArea from "../CodeArea"
 import formState from "../codeExamples/formState"
 import formStateTs from "../codeExamples/formStateTs"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const FormState = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -23,7 +22,7 @@ export default ({ currentLanguage }) => {
 
         <main>
           <section>
-            <ApiFormState currentLanguage={currentLanguage} api={api} />
+            <ApiFormState api={api} />
 
             <h2 id="example" className={typographyStyles.subTitle}>
               Examples
@@ -51,12 +50,14 @@ export default ({ currentLanguage }) => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default FormState

@@ -1,15 +1,14 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
 import trigger from "../codeExamples/trigger"
 import triggerTs from "../codeExamples/triggerTs"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const Trigger = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -71,12 +70,14 @@ export default ({ currentLanguage }) => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default Trigger

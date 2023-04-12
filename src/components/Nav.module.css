@@ -122,7 +122,8 @@ a.legacyLink {
   color: white;
 }
 
-.lightActionButtonWrapper {
+[data-theme="light"] .actionButtonWrapper {
+  height: auto;
   height: 60px;
   background: var(--color-primary);
   border-bottom: 3px solid var(--color-light-pink);
@@ -183,10 +184,6 @@ a.legacyLink {
     color: var(--color-light-pink);
   }
 
-  .lightActionButtonWrapper {
-    height: auto;
-  }
-
   .iconWrapper {
     display: none;
   }
@@ -212,7 +209,7 @@ a.legacyLink {
     padding: 13px 8px;
   }
 
-  .darkActionButtonGroup {
+  [data-theme="dark"] .actionButtonGroup {
     background: none;
     box-shadow: none;
     color: white;
@@ -225,7 +222,7 @@ a.legacyLink {
     padding: 2px 0;
   }
 
-  .darkActionButtonGroup a {
+  [data-theme="dark"] .actionButtonGroup a {
     color: white;
   }
 

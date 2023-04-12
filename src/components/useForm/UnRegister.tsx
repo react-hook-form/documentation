@@ -1,17 +1,16 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
-import * as tableStyles from "../../styles/table.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
+import tableStyles from "../../styles/table.module.css"
 import CodeArea from "../CodeArea"
 import unregisterCode from "../codeExamples/unregisterCode"
 import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
 import generic from "../../data/generic"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const UnRegister = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -256,12 +255,14 @@ const onClick = () => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default UnRegister

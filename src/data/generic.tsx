@@ -1,7 +1,6 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 
-export default {
+const generic = {
   copy: {
     en: "Copy",
   },
@@ -105,7 +104,7 @@ export default {
   control: {
     en: (
       <>
-        <Link to="/api/useform/control">
+        <Link href="/docs/useform/control">
           <code>control</code>
         </Link>{" "}
         object provided by <code>useForm</code>. It's optional if you are using
@@ -114,3 +113,5 @@ export default {
     ),
   },
 }
+
+export default generic

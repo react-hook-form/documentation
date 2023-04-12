@@ -1,21 +1,18 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import controller from "./codeExamples/controller"
 import reactNativeController from "./codeExamples/reactNativeController"
 import generic from "../data/generic"
 import TabGroup from "./TabGroup"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import controllerTs from "./codeExamples/controllerTs"
 import UseControllerMethods from "./UseControllerMethods"
+import { useRouter } from "next/router"
 
-export default function ControllerContent({
-  currentLanguage,
-  api,
-}: {
-  currentLanguage: string
-  api: any
-}) {
+export default function ControllerContent({ api }: { api: any }) {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   return (
     <>
       <code className={typographyStyles.codeHeading}>

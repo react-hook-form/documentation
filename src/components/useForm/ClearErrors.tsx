@@ -1,15 +1,14 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
 import clearError from "../codeExamples/clearError"
 import clearErrorTs from "../codeExamples/clearErrorTs"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const ClearErrors = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -43,12 +42,14 @@ export default ({ currentLanguage }) => {
               tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-clearerrors-w3ymx"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default ClearErrors

@@ -1,15 +1,13 @@
-import * as React from "react"
 import colors from "../../styles/colors"
 import enzymeInput from "../../components/codeExamples/enzymeInput"
 import focusController from "../../components/codeExamples/focusController"
 import toggleFields from "../../components/codeExamples/toggleFields"
 import CodeArea from "../../components/CodeArea"
 import copyClipBoard from "../../components/utils/copyClipBoard"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as tableStyles from "../../styles/table.module.css"
-import * as buttonStyles from "../../styles/button.module.css"
-import * as getStartedStyles from "../../components/GetStarted.module.css"
-import * as codeAreaStyles from "../../components/CodeArea.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import tableStyles from "../../styles/table.module.css"
+import buttonStyles from "../../styles/button.module.css"
+import getStartedStyles from "../../components/GetStarted.module.css"
 import ClipBoard from "../../components/ClipBoard"
 import accessibleCode from "../../components/codeExamples/accessibleCode"
 import initialValue from "../../components/codeExamples/initialValue"
@@ -23,7 +21,7 @@ import importKeystroke from "../../components/codeExamples/importKeystroke"
 import asyncDefaultValue from "../../components/codeExamples/asyncDefaultValue"
 import asyncValues from "../../components/codeExamples/asyncValues"
 
-export default {
+const faq = {
   title: "FAQs",
   header: {
     title: "FAQs",
@@ -761,7 +759,6 @@ export default {
             <ClipBoard
               className={getStartedStyles.copyButton}
               onClick={() => copyClipBoard("npm i mutationobserver-shim")}
-              currentLanguage="en"
             />
           </span>
         </div>
@@ -769,3 +766,5 @@ export default {
     },
   ],
 }
+
+export default faq

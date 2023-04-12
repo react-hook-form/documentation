@@ -1,23 +1,15 @@
-import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import AdvancedUsage from "../components/AdvancedPage"
 import advanced from "../data/en/advanced"
 
-const Api = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
+const Page = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title={advanced.title} />
-      <AdvancedUsage defaultLang="en" advanced={advanced} />
+      <AdvancedUsage advanced={advanced} />
     </Layout>
   )
 }
 
-export default Api
+export default Page

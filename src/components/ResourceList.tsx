@@ -1,8 +1,8 @@
-import * as React from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
-import * as headerStyles from "./Header.module.css"
-import * as styles from "./ResourcePage.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import headerStyles from "./Header.module.css"
+import styles from "./ResourcePage.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 type Resource = {
   title: string
@@ -21,7 +21,7 @@ export default function ResourceList({
   resources: Resource[]
 }) {
   const { register, watch } = useForm({ mode: "onChange" })
-  const [layout, setLayout] = React.useState("grid")
+  const [layout, setLayout] = useState("grid")
 
   const isGridLayout = layout === "grid"
 

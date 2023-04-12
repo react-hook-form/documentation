@@ -1,14 +1,12 @@
-import * as React from "react"
-import { navigate } from "gatsby"
+import { useRouter } from "next/router"
 import generic from "../data/generic"
-import * as containerStyles from "../styles/container.module.css"
-import * as buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
 
-export default function LearnMore({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function LearnMore() {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   return (
     <div className={containerStyles.centerContent} style={{ marginTop: 100 }}>
       <h1>{generic.learnMore[currentLanguage].title}</h1>
@@ -17,7 +15,7 @@ export default function LearnMore({
       <button
         className={buttonStyles.primaryButton}
         onClick={() => {
-          navigate("/api")
+          router.push("/docs")
         }}
         style={{ margin: "40px auto" }}
       >

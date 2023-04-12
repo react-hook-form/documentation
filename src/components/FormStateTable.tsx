@@ -1,10 +1,9 @@
 import generic from "../data/generic"
-import * as React from "react"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import { FormStateApi } from "./FormStateApi"
 
-export default ({ currentLanguage, api }) => (
+const FormStateTable = ({ currentLanguage, api }) => (
   <>
     <h2 className={typographyStyles.subTitle} id="return">
       Return
@@ -23,3 +22,5 @@ export default ({ currentLanguage, api }) => (
     </div>
   </>
 )
+
+export default FormStateTable

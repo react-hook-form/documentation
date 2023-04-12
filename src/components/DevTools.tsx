@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { DevTool } from "@hookform/devtools/dist/devtools"
 import { Animate } from "react-simple-animate"
@@ -9,33 +9,29 @@ import CodeArea from "./CodeArea"
 import code from "./codeExamples/devTool"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
-import { useStateMachine } from "little-state-machine"
-import devTool from "../images/dev-tool.png"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as buttonStyles from "../styles/button.module.css"
-import * as getStartedStyle from "./GetStarted.module.css"
-import * as styles from "./DevTools.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
+import getStartedStyle from "./GetStarted.module.css"
+import styles from "./DevTools.module.css"
 import ClipBoard from "./ClipBoard"
+import { useTheme } from "next-themes"
+import { useRouter } from "next/router"
 
 interface Props {
-  defaultLang: string
   content: any
 }
 
-export default ({ defaultLang, content }: Props) => {
+const DevTools = ({ content }: Props) => {
   const methods = useForm({
     mode: "onChange",
   })
-  const [showDevTool, setShowDevTool] = React.useState(false)
-  const {
-    state: { language, setting },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
-  const lightMode = setting?.lightMode
+  const [showDevTool, setShowDevTool] = useState(false)
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   const { control } = methods
 
@@ -59,7 +55,7 @@ export default ({ defaultLang, content }: Props) => {
           render={({ style }) => (
             <div className={containerStyles.subContainer} style={style}>
               <img
-                src={devTool}
+                src="/images/dev-tool.png"
                 className={styles.devToolImg}
                 alt="React Hook Form DevTools"
               />
@@ -67,11 +63,7 @@ export default ({ defaultLang, content }: Props) => {
           )}
         />
 
-        <DevToolFeaturesList
-          isPlayFeature
-          currentLanguage={currentLanguage}
-          content={content}
-        />
+        <DevToolFeaturesList isPlayFeature content={content} />
 
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>
@@ -90,7 +82,6 @@ export default ({ defaultLang, content }: Props) => {
             npm install -D @hookform/devtools
             <ClipBoard
               className={getStartedStyle.copyButton}
-              currentLanguage="en"
               onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
             />
           </span>
@@ -173,8 +164,10 @@ export default ({ defaultLang, content }: Props) => {
           )}
         />
 
-        <Footer currentLanguage="en" />
+        <Footer />
       </main>
     </div>
   )
 }
+
+export default DevTools

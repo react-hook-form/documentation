@@ -1,6 +1,4 @@
-import * as React from "react"
-
-export default {
+const resources = {
   article: [
     {
       type: "article",
@@ -981,3 +979,5 @@ export default {
     },
   ],
 }
+
+export default resources

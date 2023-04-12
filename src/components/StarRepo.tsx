@@ -1,13 +1,11 @@
-import * as React from "react"
+import { useRouter } from "next/router"
 import generic from "../data/generic"
-import * as buttonStyles from "../styles/button.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
 
-export default function StarRepo({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function StarRepo() {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
   return (
     <div
       className={containerStyles.centerContent}

@@ -16,7 +16,6 @@
 
 # production
 /build
-/public
 /dist
 
 # misc
@@ -31,6 +30,13 @@ yarn-debug.log*
 yarn-error.log*
 .idea/
 .idea
-.cache/
 package-lock.json
 .vscode
+.next
+next-env.d.ts
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo

@@ -1,4 +1,3 @@
-import * as React from "react"
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
 import CodeArea from "../components/CodeArea"
@@ -19,24 +18,22 @@ import {
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
-import { useStateMachine } from "little-state-machine"
 import getStartedEn from "../data/en/getStarted"
 import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
 import schemaValidation from "./codeExamples/schemaValidation"
 import schemaValidationTs from "./codeExamples/schemaValidationTs"
 import copyClipBoard from "./utils/copyClipBoard"
-import generic from "../data/generic"
-import * as getStartedStyles from "./GetStarted.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import getStartedStyles from "./GetStarted.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import getStarted from "../data/en/getStarted"
 import TabGroup from "./TabGroup"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
 import ClipBoard from "./ClipBoard"
+import { useRef, useEffect } from "react"
 
-const { useRef, useEffect } = React
 const enLinks = [
   getStartedEn.install,
   getStartedEn.video,
@@ -54,25 +51,10 @@ const enLinks = [
 ]
 
 interface Props {
-  location: {
-    search: string
-    pathname: string
-    hash: string
-  }
-  defaultLang: string
   getStarted: typeof getStarted
 }
 
-const Faq = ({ location, defaultLang, getStarted }: Props) => {
-  const {
-    state: { language, setting },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
-  const lightMode = setting?.lightMode
-
+const Faq = ({ getStarted }: Props) => {
   const links = [
     getStarted.install,
     getStarted.video,
@@ -113,9 +95,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
     const filterName = name.replace(/ /g, "")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     const refName = getRefNameFromTitle(name)
@@ -125,8 +107,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
   }
 
   useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    if (window.location?.hash)
+      setTimeout(() => goToSection(window.location?.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -144,7 +126,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           isStatic
           links={links}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -155,7 +136,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.install.title)
               ] = ref
             }}
-            currentLanguage={currentLanguage}
           />
 
           <p
@@ -221,7 +201,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             {getStarted.applyValidation.title}
           </h2>
 
-          {getStarted.applyValidation.description(currentLanguage)}
+          {getStarted.applyValidation.description()}
 
           <CodeArea
             rawData={applyValidation}
@@ -354,18 +334,13 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.schema.step1}
 
-          <span
-            className={`${getStartedStyles.installCode} ${
-              lightMode ? getStartedStyles.lightInstallCode : ""
-            }`}
-          >
+          <span className={getStartedStyles.installCode}>
             npm install @hookform/resolvers yup
             <ClipBoard
               className={getStartedStyles.copyButton}
               onClick={() =>
                 copyClipBoard("npm install @hookform/resolvers yup")
               }
-              currentLanguage={currentLanguage}
             />
           </span>
 
@@ -431,9 +406,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.design.description}
 
-          <LearnMore currentLanguage={currentLanguage} />
+          <LearnMore />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

@@ -1,17 +1,17 @@
-import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
-import * as searchStyles from "./Search.module.css"
+import searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
+import { useRef, useEffect } from "react"
 
 const Search = () => {
-  const timer = React.useRef<any>({})
+  const timer = useRef<any>({})
   const { actions, state } = useStateMachine({ updateSetting })
   const { width } = useWindowSize()
-  const searchRef = React.useRef(null)
+  const searchRef = useRef(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.docsearch({
       apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
       indexName: "react-hook-form",
@@ -24,9 +24,9 @@ const Search = () => {
         isFocusOnSearch: false,
       })
     }
-  }, [])
+  }, [actions])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (LARGE_SCREEN <= width) {
       actions.updateSetting({
         isFocusOnSearch: true,
@@ -37,7 +37,7 @@ const Search = () => {
       })
       searchRef.current.blur()
     }
-  }, [width])
+  }, [width, actions])
 
   return (
     <>
@@ -48,7 +48,6 @@ const Search = () => {
           }`}
           spellCheck="false"
           type="search"
-          placeholder="Search..."
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
@@ -61,6 +60,7 @@ const Search = () => {
                   color: "white",
                 },
               })}
+          placeholder="Search..."
           onFocus={() =>
             actions.updateSetting({
               isFocusOnSearch: true,

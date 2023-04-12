@@ -1,24 +1,20 @@
 import CodeArea from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import codeTs from "./codeExamples/defaultExampleTs"
-import * as React from "react"
-import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
-import { useStateMachine } from "little-state-machine"
-import * as styles from "./GetStarted.module.css"
+import styles from "./GetStarted.module.css"
 import ClipBoard from "./ClipBoard"
+import { useTheme } from "next-themes"
 
 export default function GetStarted({
   quickStartRef,
-  currentLanguage,
   getStarted,
 }: {
   quickStartRef: any
-  currentLanguage: string
   getStarted: any
 }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   return (
     <>
@@ -33,7 +29,6 @@ export default function GetStarted({
         npm install react-hook-form
         <ClipBoard
           className={styles.copyButton}
-          currentLanguage={currentLanguage}
           onClick={() => copyClipBoard("npm install react-hook-form")}
         />
       </span>

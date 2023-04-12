@@ -1,14 +1,12 @@
-// @flow
-import * as React from "react"
+import { memo, useState } from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
-import { ChangeEvent, useEffect, useState } from "react"
 import colors from "../styles/colors"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as formStyles from "./Form.module.css"
-import * as styles from "./IsolateRender.module.css"
-import { useStateMachine } from "little-state-machine"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import formStyles from "./Form.module.css"
+import styles from "./IsolateRender.module.css"
+import { useTheme } from "next-themes"
 
 const props = {
   keyframes: [
@@ -22,12 +20,7 @@ const props = {
 }
 
 const IsoLateInput = () => {
-  const [text, updateText] = useState("")
   const [play, setPlay] = useState(false)
-
-  useEffect(() => {
-    setPlay(!play)
-  }, [text])
 
   return (
     <AnimateKeyframes
@@ -38,8 +31,8 @@ const IsoLateInput = () => {
           aria-label="Uncontrolled Input re-render demo using React Hook Form"
           placeholder="Type here to see result..."
           style={style}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            updateText(e.target.value)
+          onChange={() => {
+            setPlay(!play)
           }}
         />
       )}
@@ -48,12 +41,7 @@ const IsoLateInput = () => {
 }
 
 const ControlledInputs = ({ style }) => {
-  const [text, updateText] = useState("")
   const [play, setPlay] = useState(false)
-
-  useEffect(() => {
-    setPlay(!play)
-  }, [text])
 
   return (
     <section style={{ ...style, marginBottom: 20 }}>
@@ -67,8 +55,8 @@ const ControlledInputs = ({ style }) => {
               aria-label="Controlled Input re-render demo"
               placeholder="Type here to see result..."
               style={style}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                updateText(e.target.value)
+              onChange={() => {
+                setPlay(!play)
               }}
             />
           )}
@@ -114,8 +102,8 @@ function IsolateRender({
   isIsolatePlay: boolean
   currentLanguage: string
 }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
 
   return (
     <div className={containerStyles.centerContent}>
@@ -199,4 +187,4 @@ function IsolateRender({
   )
 }
 
-export default React.memo(IsolateRender)
+export default memo(IsolateRender)

@@ -1,11 +1,10 @@
-import * as React from "react"
 import SideMenu from "./SideMenu"
-import { useStateMachine } from "little-state-machine"
 import TS from "../data/ts"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import StarRepo from "./StarRepo"
 import Footer from "./Footer"
+import { useEffect, useRef } from "react"
 
 const enLinks = [
   TS.resolver,
@@ -29,11 +28,8 @@ const enLinks = [
   TS.nestedValue,
 ]
 
-export default ({ defaultLang }: { defaultLang: string }) => {
-  const {
-    state: { language },
-  } = useStateMachine()
-  const tsSectionsRef = React.useRef({
+const TsPage = () => {
+  const tsSectionsRef = useRef({
     NestedValueRef: null,
     ResolverRef: null,
     SubmitHandlerRef: null,
@@ -55,14 +51,10 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     ModeRef: null,
     FormStateProxyRef: null,
   })
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
 
-  React.useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  useEffect(() => {
+    if (window.location?.hash) {
+      setTimeout(() => goToSection(window.location?.hash.substr(1)), 10)
     }
   }, [])
 
@@ -73,7 +65,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
 
     history.pushState(
       {},
-      null,
+      "",
       hashIndex < 0
         ? `${url}#${filterName}`
         : `${url.substr(0, hashIndex)}#${filterName}`
@@ -104,7 +96,6 @@ export default ({ defaultLang }: { defaultLang: string }) => {
           links={enLinks}
           enLinks={enLinks}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -355,11 +346,13 @@ export default ({ defaultLang }: { defaultLang: string }) => {
             {TS.nestedValue.description}
           </section>
 
-          <StarRepo currentLanguage={currentLanguage} />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default TsPage

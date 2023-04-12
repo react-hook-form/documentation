@@ -1,6 +1,4 @@
-import * as React from "react"
-
-export default {
+const nav = {
   en: {
     home: "Home",
     getStarted: "Get Started",
@@ -20,3 +18,5 @@ export default {
     resources: "Resources",
   },
 }
+
+export default nav

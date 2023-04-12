@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "./Footer"
 import { Menu, pages } from "./Menu"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
@@ -6,21 +5,22 @@ import Popup from "./Popup"
 import generic from "../data/generic"
 import ValidationResolver from "./ValidationResolver"
 import api from "../data/en/api"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import tableStyles from "../styles/table.module.css"
 import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
 import StarRepo from "./StarRepo"
 import { SelectNav } from "./selectNav"
-import { Link } from "gatsby"
+import Link from "next/link"
+import { CSSProperties } from "react"
 
-const codeSandBoxStyle = {
+const codeSandBoxStyle: CSSProperties = {
   position: "relative",
   left: 0,
   float: "right",
 }
 
-export default ({ currentLanguage }) => {
+const UseForm = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -37,63 +37,63 @@ export default ({ currentLanguage }) => {
           options={[
             {
               label: "register",
-              value: "/api/useform/register",
+              value: "/docs/useform/register",
             },
             {
               label: "unregister",
-              value: "/api/useform/unregister",
+              value: "/docs/useform/unregister",
             },
             {
               label: "formstate",
-              value: "/api/useform/formstate",
+              value: "/docs/useform/formstate",
             },
             {
               label: "watch",
-              value: "/api/useform/watch",
+              value: "/docs/useform/watch",
             },
             {
               label: "handlesubmit",
-              value: "/api/useform/handlesubmit",
+              value: "/docs/useform/handlesubmit",
             },
             {
               label: "reset",
-              value: "/api/useform/reset",
+              value: "/docs/useform/reset",
             },
             {
               label: "resetField",
-              value: "/api/useform/resetfield",
+              value: "/docs/useform/resetfield",
             },
             {
               label: "setError",
-              value: "/api/useform/seterror",
+              value: "/docs/useform/seterror",
             },
             {
               label: "clearErrors",
-              value: "/api/useform/clearerrors",
+              value: "/docs/useform/clearerrors",
             },
             {
               label: "setValue",
-              value: "/api/useform/setvalue",
+              value: "/docs/useform/setvalue",
             },
             {
               label: "setFocus",
-              value: "/api/useform/setfocus",
+              value: "/docs/useform/setfocus",
             },
             {
               label: "getValues",
-              value: "/api/useform/getvalues",
+              value: "/docss/useform/getvalues",
             },
             {
               label: "getFieldState",
-              value: "/api/useform/getfieldstate",
+              value: "/docs/useform/getfieldstate",
             },
             {
               label: "trigger",
-              value: "/api/useform/trigger",
+              value: "/docs/useform/trigger",
             },
             {
               label: "control",
-              value: "/api/useform/control",
+              value: "/docs/useform/control",
             },
           ]}
         />
@@ -103,7 +103,7 @@ export default ({ currentLanguage }) => {
             <code className={typographyStyles.codeHeading}>
               <h2>
                 useForm:{" "}
-                <Link to="/ts#UseFormProps">
+                <Link href="/ts#UseFormProps">
                   <code className={typographyStyles.typeText}>
                     UseFormProps
                   </code>
@@ -263,7 +263,7 @@ export default ({ currentLanguage }) => {
                 This option allows you to configure the validation strategy
                 before a user submits the form. The validation occurs during the{" "}
                 <code>onSubmit</code> event, which is triggered by invoking the{" "}
-                <Link to="/api/useform/handlesubmit">
+                <Link href="/docs/useform/handlesubmit">
                   <code>handleSubmit</code>
                 </Link>{" "}
                 function.
@@ -564,18 +564,20 @@ export default ({ currentLanguage }) => {
               {pages[0].pages.map((page) => (
                 <li key={page.name}>
                   <p>
-                    <Link to={page.pathname}>{page.name}</Link>
+                    <Link href={page.pathname}>{page.name}</Link>
                   </p>
                 </li>
               ))}
             </ul>
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default UseForm

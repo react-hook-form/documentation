@@ -1,22 +1,19 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"
 import generic from "../data/generic"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 import StarRepo from "./StarRepo"
-import { Link } from "gatsby"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
-export default function ApiWatch({
-  currentLanguage,
-  api,
-}: {
-  api: any
-  currentLanguage: string
-}) {
+export default function ApiWatch({ api }: { api: any }) {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -167,8 +164,8 @@ export default function ApiWatch({
           <p>
             This API will trigger re-render at the root of your app or form,
             consider using a callback or the{" "}
-            <Link to="/api/usewatch">useWatch</Link> api if you are experiencing
-            performance issues.
+            <Link href="/docs/usewatch">useWatch</Link> api if you are
+            experiencing performance issues.
           </p>
         </li>
         <li>
@@ -213,7 +210,7 @@ export default function ApiWatch({
         allowFullScreen
       />
 
-      <StarRepo currentLanguage="en" />
+      <StarRepo />
     </>
   )
 }

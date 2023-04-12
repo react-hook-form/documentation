@@ -1,16 +1,18 @@
-import * as React from "react"
+import { useState } from "react"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
-import * as styles from "./ApiRefTable.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
+import styles from "./ApiRefTable.module.css"
 import register from "./codeExamples/register"
 import registerTs from "./codeExamples/registerTs"
-
-const currentLanguage = "en"
+import { useRouter } from "next/router"
 
 export default function ApiRefTable({ api }) {
-  const [isStandard, toggleOption] = React.useState(true)
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
+  const [isStandard, toggleOption] = useState(true)
 
   return (
     <>

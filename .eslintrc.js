@@ -17,6 +17,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "next",
+    "plugin:react/jsx-runtime",
   ],
   settings: {
     react: {
@@ -33,7 +35,15 @@ module.exports = {
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
     "react/jsx-curly-brace-presence": "warn",
+
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
+
+    // can be removed after fixing
+    "@typescript-eslint/no-explicit-any": OFF,
+    "@next/next/no-img-element": OFF, 
+    "import/no-anonymous-default-export": OFF,
+    "react-hooks/exhaustive-deps": OFF,
+    "jsx-a11y/no-onchange": OFF,
   },
 }

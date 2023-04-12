@@ -1,25 +1,16 @@
-import * as React from "react"
 import { useStateMachine } from "little-state-machine"
-import * as containerStyle from "../styles/container.module.css"
-import * as styles from "./ResourcePage.module.css"
+import containerStyle from "../styles/container.module.css"
+import styles from "./ResourcePage.module.css"
 import Footer from "./Footer"
 import generic from "../data/generic"
 import ResourceList from "./ResourceList"
 import resources from "../data/resources"
 import StarRepo from "./StarRepo"
+import { useRouter } from "next/router"
 
-export default function ResourcePageVideos({
-  defaultLang,
-}: {
-  defaultLang: string
-}) {
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+export default function ResourcePageVideos() {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
 
   return (
     <div className={containerStyle.container}>
@@ -28,9 +19,9 @@ export default function ResourcePageVideos({
           title={generic.video[currentLanguage]}
           resources={resources.video}
         />
-        <StarRepo currentLanguage="en" />
+        <StarRepo />
 
-        <Footer currentLanguage={currentLanguage} />
+        <Footer />
       </main>
     </div>
   )

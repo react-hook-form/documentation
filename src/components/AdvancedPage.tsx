@@ -1,21 +1,19 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import SideMenu from "./SideMenu"
 import Footer from "./Footer"
 import connectForm from "./codeExamples/connectForm"
 import formContextPerformance from "./codeExamples/formContextPerformance"
 import StarRepo from "./StarRepo"
-import { useStateMachine } from "little-state-machine"
 import advancedEn from "../data/en/advanced"
 import controlledMixedUncontrolled from "./codeExamples/controlledMixedUncontrolled"
 import TabGroup from "./TabGroup"
 import controlledMixedUncontrolledInput from "./codeExamples/controlledMixedUncontrolledInput"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
 import virtualizedList from "./codeExamples/virtualizedList"
 import virtualizedListFieldArray from "./codeExamples/virtualizedListFieldArray"
+import { useRef, useEffect } from "react"
 
-const { useRef } = React
 const enLinks = [
   advancedEn.accessibility,
   advancedEn.wizard,
@@ -31,11 +29,10 @@ const enLinks = [
 ]
 
 interface Props {
-  defaultLang: string
   advanced: any
 }
 
-function Advanced({ defaultLang, advanced }: Props) {
+function Advanced({ advanced }: Props) {
   const pageContentRef = useRef({
     AccessibilityA11y: null,
     WizardFormFunnel: null,
@@ -49,14 +46,6 @@ function Advanced({ defaultLang, advanced }: Props) {
     TestingForm: null,
     TransformandParse: null,
   })
-
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
 
   const links = [
     advanced.accessibility,
@@ -78,9 +67,9 @@ function Advanced({ defaultLang, advanced }: Props) {
     const filterName = name.replace(/[^\w\s]| /g, "")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     if (pageContentRef.current[filterName]) {
@@ -88,9 +77,9 @@ function Advanced({ defaultLang, advanced }: Props) {
     }
   }
 
-  React.useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  useEffect(() => {
+    if (window.location?.hash)
+      setTimeout(() => goToSection(window.location?.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -108,7 +97,6 @@ function Advanced({ defaultLang, advanced }: Props) {
           isStatic
           links={links}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -339,9 +327,9 @@ const ControllerPlus = ({
             tsUrl="https://codesandbox.io/s/transform-vt3tm"
           />
 
-          <StarRepo currentLanguage={currentLanguage} />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

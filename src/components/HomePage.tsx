@@ -1,5 +1,4 @@
-import * as React from "react"
-import { navigate } from "@reach/router"
+import { memo, useState, useRef, useEffect } from "react"
 import Form from "./Form"
 import Header from "./Header"
 import Watcher from "./Watcher"
@@ -9,31 +8,20 @@ import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import FeaturesList from "./FeaturesList"
-import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as buttonStyles from "../styles/button.module.css"
-import * as styles from "./HomePage.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
+import styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
-
-const { useState, useRef, useEffect } = React
+import { useRouter } from "next/router"
 
 const options = {
   rootMargin: "0px 0px",
   threshold: [1],
 }
 
-function HomePage({
-  location,
-  defaultLang,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-  defaultLang: string
-}) {
+function HomePage() {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
   const HomeRef = useRef(null)
@@ -41,25 +29,18 @@ function HomePage({
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isIsolatePlay, setIsolatePlay] = useState(false)
   // const [isCardPlay, setCardPlay] = useState(false)
-  const [isPlayRender, setRenderPlay] = useState(false)
+  const [isPlayRender] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const [isPlayWatch, setWatchPlay] = useState(false)
-  const {
-    state,
-    state: { language },
-  } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
 
   const onSubmit = (data) => {
     updateSubmitData(data)
   }
 
   useEffect(() => {
-    if (location.search.startsWith("?goToDemo")) {
+    if (router.query["goToDemo"]) {
       setTimeout(() => {
         HomeRef.current.scrollIntoView({ behavior: "smooth" })
 
@@ -120,7 +101,6 @@ function HomePage({
       <Header
         // isCardPlay={isCardPlay}
         homeRef={HomeRef}
-        defaultLang={defaultLang}
       />
 
       <FeaturesList
@@ -130,26 +110,16 @@ function HomePage({
 
       <SponsorsList />
 
-      <CodeCompareSection
-        isPlayCodeCompare={isPlayCodeCompare}
-        currentLanguage={currentLanguage}
-      />
+      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
 
       <IsolateRender
         isIsolatePlay={isIsolatePlay}
         currentLanguage={currentLanguage}
       />
 
-      <Watcher
-        lightMode={lightMode}
-        isPlayWatch={isPlayWatch}
-        currentLanguage={currentLanguage}
-      />
+      <Watcher currentLanguage={currentLanguage} isPlayWatch={isPlayWatch} />
 
-      <CodePerfCompareSection
-        isPlayRender={isPlayRender}
-        currentLanguage={currentLanguage}
-      />
+      <CodePerfCompareSection isPlayRender={isPlayRender} />
 
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>Highlights</h1>
@@ -348,7 +318,7 @@ function HomePage({
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate("get-started")
+              router.push("get-started")
             }}
           >
             {home.getStarted[currentLanguage]}
@@ -356,7 +326,7 @@ function HomePage({
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate("api")
+              router.push("api")
             }}
           >
             API
@@ -364,9 +334,9 @@ function HomePage({
         </div>
       </section>
 
-      <FooterContent currentLanguage={currentLanguage} />
+      <FooterContent />
     </div>
   )
 }
 
-export default React.memo(HomePage)
+export default memo(HomePage)

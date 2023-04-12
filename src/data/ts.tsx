@@ -1,9 +1,8 @@
-import * as React from "react"
 import CodeArea from "../components/CodeArea"
 import TabGroup from "../components/TabGroup"
 import handleSubmitCodeTs from "../components/codeExamples/handleSubmitCodeTs"
 
-export default {
+const ts = {
   nestedValue: {
     title: "NestedValue",
     description: (
@@ -561,3 +560,4 @@ export default function App() {
     ),
   },
 }
+export default ts

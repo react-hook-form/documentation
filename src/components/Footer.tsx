@@ -1,50 +1,48 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 import nav from "../data/nav"
-import { useStateMachine } from "little-state-machine"
-import * as styles from "./Footer.module.css"
+import styles from "./Footer.module.css"
+import { useRouter } from "next/router"
 
-export default ({ currentLanguage }: { currentLanguage: string }) => {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+const Footer = () => {
+  const router = useRouter()
+
+  const locale = router.locale || "en"
 
   return (
-    <footer
-      className={`${styles.footer} ${lightMode ? styles.lightFooter : {}}`}
-    >
+    <footer className={styles.footer}>
       <ul className={styles.links}>
         <li>
-          <Link to="/">{nav[currentLanguage].home}</Link>
+          <Link href="/">{nav[locale].home}</Link>
         </li>
         <li>
-          <Link to="/get-started">{nav[currentLanguage].getStarted}</Link>
+          <Link href="/get-started">{nav[locale].getStarted}</Link>
         </li>
         <li>
-          <Link to="/api">API</Link>
+          <Link href="/docs">API</Link>
         </li>
         <li>
-          <Link to="/ts">TS</Link>
+          <Link href="/ts">TS</Link>
         </li>
         <li>
-          <Link to="/advanced-usage">{nav[currentLanguage].advanced}</Link>
+          <Link href="/advanced-usage">{nav[locale].advanced}</Link>
         </li>
         <li>
-          <Link to="/faqs">{nav[currentLanguage].faqs}</Link>
+          <Link href="/faqs">{nav[locale].faqs}</Link>
         </li>
         <li>
-          <Link to="/form-builder">{nav[currentLanguage].builder}</Link>
+          <Link href="/form-builder">{nav[locale].builder}</Link>
         </li>
         <li>
-          <Link to="/dev-tools">DevTools</Link>
+          <Link href="/dev-tools">DevTools</Link>
         </li>
         <li>
-          <Link to="/resources">{nav[currentLanguage].resources}</Link>
+          <Link href="/resources">{nav[locale].resources}</Link>
         </li>
         <li>
-          <Link to="/about-us">About us</Link>
+          <Link href="/about-us">About us</Link>
         </li>
         <li>
-          <Link to="/media">Media</Link>
+          <Link href="/media">Media</Link>
         </li>
       </ul>
       <p>
@@ -95,3 +93,5 @@ export default ({ currentLanguage }: { currentLanguage: string }) => {
     </footer>
   )
 }
+
+export default Footer

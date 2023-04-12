@@ -1,9 +1,8 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import TabGroup from "../TabGroup"
 import CodeArea from "../CodeArea"
 import setError from "../codeExamples/setError"
@@ -15,7 +14,7 @@ import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import StarRepo from "../StarRepo"
 import serverError from "../codeExamples/serverError"
 
-export default ({ currentLanguage }) => {
+const SetError = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -86,12 +85,14 @@ export default ({ currentLanguage }) => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default SetError

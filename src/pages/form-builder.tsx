@@ -1,23 +1,15 @@
-import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BuilderPage from "../components/BuilderPage"
 import builder from "../data/builder"
 
-const Api = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
+const FormBuilder = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title={builder.title.en} description={builder.description.en} />
       <BuilderPage isStatic />
     </Layout>
   )
 }
 
-export default Api
+export default FormBuilder

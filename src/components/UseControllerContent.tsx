@@ -1,10 +1,9 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
-import * as tableStyles from "../styles/table.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import UseControllerMethods from "./UseControllerMethods"
 import TabGroup from "./TabGroup"
 import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
@@ -23,7 +22,7 @@ export default function UseControllerContent({
         options={[
           {
             label: "controller",
-            value: "/api/usecontroller/controller",
+            value: "/docs/usecontroller/controller",
           },
         ]}
       />

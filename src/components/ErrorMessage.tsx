@@ -1,25 +1,22 @@
-import * as React from "react"
 import generic from "../data/generic"
 import errorMessage from "./codeExamples/errorMessage"
 import errorsMessage from "./codeExamples/errorsMessage"
 import CodeArea from "./CodeArea"
 import TabGroup from "./TabGroup"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import errorMessageTs from "./codeExamples/errorMessageTs"
 import errorsMessageTs from "./codeExamples/errorsMessageTs"
 import { Menu } from "./Menu"
-import * as containerStyles from "../styles/container.module.css"
+import containerStyles from "../styles/container.module.css"
 import Footer from "./Footer"
 import StarRepo from "./StarRepo"
+import { useRouter } from "next/router"
 
-export default ({
-  api,
-  currentLanguage,
-}: {
-  api: any
-  currentLanguage: string
-}) => {
+const ErrorMessage = ({ api }: { api: any }) => {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -161,12 +158,14 @@ export default ({
               </TabGroup>
             </div>
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default ErrorMessage

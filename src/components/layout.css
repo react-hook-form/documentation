@@ -191,6 +191,7 @@ select {
 [type="submit"],
 button,
 [type="button"] {
+  appearance: button;
   -webkit-appearance: button;
 }
 [type="button"]::-moz-focus-inner,
@@ -238,6 +239,7 @@ textarea {
   height: auto;
 }
 [type="search"] {
+  appearance: textfield;
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
@@ -947,91 +949,89 @@ pre[data-line] .line-highlight[data-end]:after {
 }
 
 /* Light theme */
-body.light {
+[data-theme="light"] body {
   background-color: white;
   color: var(--color-black);
 }
 
-.light h3 {
+[data-theme="light"] h3 {
   color: black;
 }
 
-.light button {
+[data-theme="light"] button {
   font-weight: 400;
   border: 1px solid transparent !important;
   box-shadow: none;
 }
 
-.light a {
+[data-theme="light"] a {
   box-shadow: none;
 }
 
-.light button:hover {
+[data-theme="light"] button:hover {
   background: var(--color-grey);
 }
 
-.light select,
-.light input {
+[data-theme="light"] select,
+[data-theme="light"] input {
   border: 1px solid var(--color-light-grey);
 }
 
-.light video {
+[data-theme="light"] video {
   box-shadow: none;
 }
 
-.light::-webkit-scrollbar {
-}
-.light::-webkit-scrollbar-track {
+[data-theme="light"]::-webkit-scrollbar-track {
   background: inherit;
 }
-.light::-webkit-scrollbar-thumb {
+[data-theme="light"]::-webkit-scrollbar-thumb {
   background: grey;
 }
-.light::-webkit-scrollbar-thumb:hover {
+[data-theme="light"]::-webkit-scrollbar-thumb:hover {
   background: black;
 }
 
-.light a.active {
+[data-theme="light"] a.active {
   border-bottom: 2px solid white !important;
 }
 
-.light img {
+[data-theme="light"] img {
   box-shadow: none !important;
 }
 
-.light code[class*="language-"],
-.light pre[class*="language-"] {
+[data-theme="light"] code[class*="language-"],
+[data-theme="light"] pre[class*="language-"] {
   background: white;
   color: black;
 }
 
-.light pre[class*="language-"] {
+[data-theme="light"] pre[class*="language-"] {
   border: 1px solid var(--color-light-grey);
 }
 
-.light pre {
+[data-theme="light"] pre {
   background: white;
   border: 1px solid var(--color-light-grey);
 }
 
-.light .token.attr-name,
-.light .token.string {
+[data-theme="light"] .token.attr-name,
+[data-theme="light"] .token.string {
   color: #e68600;
 }
 
 @media (min-width: 768px) {
-  .light ::-webkit-scrollbar {
+  [data-theme="light"] ::-webkit-scrollbar {
   }
 
-  .light ::-webkit-scrollbar-track {
+  [data-theme="light"] ::-webkit-scrollbar-track {
     background: inherit;
   }
 
-  .light ::-webkit-scrollbar-thumb {
+  [data-theme="light"] ::-webkit-scrollbar-thumb {
     background: grey;
   }
 
-  .light ::-webkit-scrollbar-thumb:hover {
+  [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
     background: black;
   }
 }
@@ -1112,6 +1112,7 @@ body.light {
 
   .banner strong {
     background-image: linear-gradient(120deg, #cfa7f6, #ec5990, #cc4848);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -1134,6 +1135,7 @@ body.light {
 
   .banner strong {
     background-image: linear-gradient(120deg, #cfa7f6, #ec5990, #cc4848);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -1,7 +1,7 @@
-import * as React from "react"
+import { useState } from "react"
 import { Animate } from "react-simple-animate"
-import { useStateMachine } from "little-state-machine"
-import * as styles from "./Popup.module.css"
+import styles from "./Popup.module.css"
+import { useTheme } from "next-themes"
 
 function Popup({
   message,
@@ -12,9 +12,9 @@ function Popup({
   message?: string
   top?: number
 }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-  const [tipShow, setTipShow] = React.useState(false)
+  const { theme } = useTheme()
+  const lightMode = theme === "light"
+  const [tipShow, setTipShow] = useState(false)
 
   return iconOnly ? (
     <span className={`${styles.icon} ${lightMode ? styles.lightIcon : {}}`}>

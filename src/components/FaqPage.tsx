@@ -1,30 +1,20 @@
-import * as React from "react"
 import SideMenu from "../components/SideMenu"
 import Footer from "../components/Footer"
 import StarRepo from "../components/StarRepo"
 import faqEn from "../data/en/faq"
-import { useStateMachine } from "little-state-machine"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-const REMOVE_QUESTIONS_FOR_LIST = 5
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import { useRef, useEffect, Fragment } from "react"
 
-const { useRef } = React
+const REMOVE_QUESTIONS_FOR_LIST = 5
 
 const enLinks = faqEn.questions
 
 interface Props {
-  defaultLang: string
   faq: any
 }
 
-const Faq = ({ defaultLang, faq }: Props) => {
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+const Faq = ({ faq }: Props) => {
   const links = faq.questions.slice(
     0,
     faq.questions.length - REMOVE_QUESTIONS_FOR_LIST
@@ -69,9 +59,9 @@ const Faq = ({ defaultLang, faq }: Props) => {
     const hashIndex = url.indexOf("#")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     if (path > -1) {
@@ -81,9 +71,9 @@ const Faq = ({ defaultLang, faq }: Props) => {
     }
   }
 
-  React.useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  useEffect(() => {
+    if (window.location?.hash)
+      setTimeout(() => goToSection(window.location?.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -99,14 +89,13 @@ const Faq = ({ defaultLang, faq }: Props) => {
           isStatic
           links={links}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
           {links.map((question, index) => {
             const { title, description } = question
             return (
-              <>
+              <Fragment key={`question${index}`}>
                 <h2
                   className={typographyStyles.questionTitle}
                   ref={(ref) => (sectionsRef.current[`question${index}`] = ref)}
@@ -116,13 +105,13 @@ const Faq = ({ defaultLang, faq }: Props) => {
                 </h2>
                 {description}
                 <hr />
-              </>
+              </Fragment>
             )
           })}
 
-          <StarRepo currentLanguage={currentLanguage} />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

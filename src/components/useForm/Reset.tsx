@@ -1,9 +1,8 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import TabGroup from "../TabGroup"
 import CodeArea from "../CodeArea"
 import resetCode from "../codeExamples/resetCode"
@@ -14,7 +13,7 @@ import submitReset from "../codeExamples/submitReset"
 import fieldArrayReset from "../codeExamples/fieldArrayReset"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const Reset = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -90,11 +89,13 @@ export default ({ currentLanguage }) => {
             allowFullScreen
           />
 
-          <StarRepo currentLanguage="en" />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default Reset

@@ -1,17 +1,16 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import TabGroup from "../TabGroup"
 import CodeArea from "../CodeArea"
-import * as tableStyles from "../../styles/table.module.css"
+import tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
 import resetFieldCode from "../codeExamples/resetFieldCode"
 import resetFieldOptionCode from "../codeExamples/resetFieldOptionCode"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const ResetField = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -209,12 +208,14 @@ resetField('non-existent-name'); // ❌ failed by input not found
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default ResetField

@@ -1,15 +1,14 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
 import CodeArea from "../CodeArea"
 import setFocus from "../codeExamples/setFocus"
 import setFocusTs from "../codeExamples/setFocusTs"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const SetFocus = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -44,12 +43,14 @@ export default ({ currentLanguage }) => {
               tsUrl="https://codesandbox.io/s/setfocus-rolus"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default SetFocus

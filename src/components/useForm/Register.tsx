@@ -1,13 +1,12 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
 import ApiRefTable from "../ApiRefTable"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
 
-export default () => {
+const Register = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -33,12 +32,14 @@ export default () => {
 
             <ApiRefTable api={api} />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage="en" />
+          <Footer />
         </main>
       </div>
     </div>
   )
 }
+
+export default Register

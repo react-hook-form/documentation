@@ -1,13 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import * as containerStyles from "../../styles/container.module.css"
-import * as typographyStyles from "../../styles/typography.module.css"
+import Link from "next/link"
+import containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
 import CodeArea from "../CodeArea"
 import StarRepo from "../StarRepo"
 import Footer from "../Footer"
 import getFieldState from "../codeExamples/getFieldState"
-import * as tableStyles from "../../styles/table.module.css"
+import tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
 
 export const GetFieldState = () => {
@@ -34,7 +33,7 @@ export const GetFieldState = () => {
 
             <p>
               This method is introduced in react-hook-form (
-              <Link to="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
+              <Link href="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
                 v7.25.0
               </Link>
               ) to return individual field state. It's useful in case you are
@@ -258,10 +257,10 @@ const { touchedFields } = getFieldState('test', formState); // ✅ formState.tou
               url="https://codesandbox.io/s/getfieldstate-jvekk"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage="en" />
+          <Footer />
         </main>
       </div>
     </div>

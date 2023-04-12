@@ -1,13 +1,12 @@
-import * as React from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Footer from "../components/Footer"
-import * as containerStyle from "../styles/container.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "../components/ResourcePage.module.css"
+import containerStyle from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "../components/ResourcePage.module.css"
 
-const Twitter = ({ twitterName }) => (
+const Twitter = ({ twitterName }: { twitterName: string }) => (
   <a
     href={`https://twitter.com/${twitterName}`}
     target="_blank"
@@ -145,9 +144,9 @@ const data = [
   },
 ]
 
-export default ({ location }) => {
+const AboutUs = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="About us" />
       <div className={containerStyle.container}>
         <main className={styles.root}>
@@ -266,8 +265,10 @@ export default ({ location }) => {
           </ul>
         </main>
 
-        <Footer currentLanguage="en" />
+        <Footer />
       </div>
     </Layout>
   )
 }
+
+export default AboutUs

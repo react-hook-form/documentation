@@ -1,13 +1,12 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import useWatch from "./codeExamples/useWatch"
 import useWatchTs from "./codeExamples/useWatchTs"
 import generic from "../data/generic"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function UseFieldArray({
   api,
@@ -181,7 +180,7 @@ export default function UseFieldArray({
           <p>
             The only difference between <code>useWatch</code> and{" "}
             <code>watch</code> is at the root (
-            <Link to="/api/useform">
+            <Link href="/docs/useform">
               <code>useForm</code>
             </Link>
             ) level or the custom hook level update.

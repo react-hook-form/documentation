@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import errorCode from "./codeExamples/errorCode"
 import errorCodeTs from "./codeExamples/errorCodeTs"
@@ -7,19 +6,22 @@ import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import multipleErrorCodeTs from "./codeExamples/multipleErrorCodeTs"
 import TabGroup from "./TabGroup"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
+import { memo } from "react"
+import { useRouter } from "next/router"
 
-export default React.memo(
+export default memo(
   ({
     api,
-    currentLanguage,
     goToSection,
   }: {
     api: any
-    currentLanguage: string
     goToSection: (name: string, animate?: boolean) => void
   }) => {
+    const router = useRouter()
+    const currentLanguage = router.locale || "en"
+
     return (
       <>
         <code className={typographyStyles.codeHeading}>

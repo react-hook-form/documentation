@@ -1,19 +1,21 @@
-import React, { useState } from "react"
+import { useRef, useEffect, useState } from "react"
 import generic from "../data/generic"
+import { useRouter } from "next/router"
 
 const ClipBoard = ({
-  currentLanguage,
   className,
   onClick,
 }: {
   onClick: () => void
   className?: string
-  currentLanguage: string
 }) => {
-  const [copiedCode, setCopiedCode] = useState<boolean>(false)
-  const timer = React.useRef(null)
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
 
-  React.useEffect(() => {
+  const [copiedCode, setCopiedCode] = useState<boolean>(false)
+  const timer = useRef(null)
+
+  useEffect(() => {
     if (copiedCode) {
       timer.current = setTimeout(() => {
         setCopiedCode(false)

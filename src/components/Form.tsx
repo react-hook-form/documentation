@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
@@ -6,10 +6,11 @@ import goToBuilder from "./utils/goToBuilder"
 import { useForm } from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
-import * as buttonStyles from "../styles/button.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./Form.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./Form.module.css"
+import { useRouter } from "next/router"
 
 const animationProps = {
   start: {
@@ -26,7 +27,6 @@ function Form({
   submitData,
   toggleBuilder,
   formUpdated,
-  currentLanguage,
   methods,
   devTool,
 }: {
@@ -34,12 +34,16 @@ function Form({
   submitData: unknown
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
-  currentLanguage: string
   methods?: any
+
   devTool?: boolean
 }) {
+  const router = useRouter()
+  const currentLanguage = router.locale || "en"
+
   const { register, errors, handleSubmit, watch, formState, reset } =
     methods ||
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useForm({
       mode: "onChange",
     })
@@ -47,8 +51,6 @@ function Form({
   const {
     state: { formData },
   } = useStateMachine()
-
-  console.log(errors)
 
   return (
     <>
@@ -144,6 +146,7 @@ function Form({
                   {Object.keys(errors).length > 0 &&
                     JSON.stringify(
                       Object.entries(errors).reduce(
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         (previous, [key, { ref, ...rest }]) => {
                           previous[key] = rest
                           return previous
@@ -197,4 +200,4 @@ function Form({
   )
 }
 
-export default React.memo(Form)
+export default memo(Form)

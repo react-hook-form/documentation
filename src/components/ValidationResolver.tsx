@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
 import joiResolver from "./codeExamples/joiResolver"
@@ -10,13 +9,13 @@ import validationSchema from "./codeExamples/validationSchema"
 import validationSchemaTs from "./codeExamples/validationSchemaTs"
 import zodResolver from "./codeExamples/zodResolver"
 import zodResolverTs from "./codeExamples/zodResolverTs"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import vestResolver from "./codeExamples/vestResolver"
-import * as tableStyles from "../styles/table.module.css"
+import tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
-import { Link } from "gatsby"
+import Link from "next/link"
 
-export default function ({ api }) {
+export default function ValidationResolver({ api }) {
   return (
     <>
       <h5
@@ -26,7 +25,7 @@ export default function ({ api }) {
       >
         <code>
           resolver:{" "}
-          <Link to="/ts#Resolver">
+          <Link href="/ts#Resolver">
             <span className={typographyStyles.typeText}>Resolver</span>
           </Link>
         </code>

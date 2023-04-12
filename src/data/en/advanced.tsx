@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import accessibleCodeBase from "../../components/codeExamples/accessibleCodeBase"
 import accessibleCodeFinal from "../../components/codeExamples/accessibleCodeFinal"
@@ -9,11 +8,12 @@ import CodeExempleSetupReactNative from "../../components/codeExamples/setup.nat
 import smartForm from "../../components/codeExamples/smartForm"
 import form from "../../components/codeExamples/form"
 import input from "../../components/codeExamples/input"
-import { Link as PageLink } from "gatsby"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as buttonStyles from "../../styles/button.module.css"
+import PageLink from "next/link"
+import typographyStyles from "../../styles/typography.module.css"
+import buttonStyles from "../../styles/button.module.css"
+import Link from "next/link"
 
-export default {
+const Advanced = {
   title: "Advanced Usage",
   header: {
     title: "Advanced",
@@ -26,21 +26,21 @@ export default {
         React Hook Form embraces uncontrolled components but is also compatible
         with controlled components. Most UI libraries are built to support only
         controlled components, such as{" "}
-        <a
+        <Link
           href="https://github.com/mui/material-ui"
           target="_blank"
           rel="noopener noreferrer"
         >
           MUI
-        </a>{" "}
+        </Link>{" "}
         and{" "}
-        <a
+        <Link
           href="https://github.com/ant-design/ant-design"
           target="_blank"
           rel="noopener noreferrer"
         >
           Antd
-        </a>
+        </Link>
         . But with React Hook Form, the re-rendering of controlled components
         are also optimized. Here is an example that combines them both with
         validation.
@@ -274,8 +274,8 @@ export default {
       <p>
         When we are building forms, there are times when our input lives inside
         of deeply nested component trees, and that's when{" "}
-        <a href="/api#useFormContext">FormContext</a> comes in handy. However,
-        we can further improve the Developer Experience by creating a{" "}
+        <Link href="/docs/useFormContext">FormContext</Link> comes in handy.
+        However, we can further improve the Developer Experience by creating a{" "}
         <code>ConnectForm</code> component and leveraging React's{" "}
         <a href="https://reactjs.org/docs/render-props.html">renderProps</a>.
         The benefit is you can connect your input with React Hook Form much
@@ -289,8 +289,8 @@ export default {
       <>
         <p>
           React Hook Form's{" "}
-          <PageLink to="/api/#useFormContext">FormProvider</PageLink> is built
-          upon{" "}
+          <PageLink href="/docs/#useFormContext">FormProvider</PageLink> is
+          built upon{" "}
           <a
             href="https://reactjs.org/docs/context.html"
             target="_blank"
@@ -307,9 +307,9 @@ export default {
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> Using React Hook Form's{" "}
-          <PageLink to="/dev-tools">Devtools</PageLink> alongside{" "}
-          <PageLink to="/api/useformcontext">FormProvider</PageLink> can cause
-          performance issues in some situations. Before diving deep in
+          <PageLink href="/dev-tools">Devtools</PageLink> alongside{" "}
+          <PageLink href="/docs/useformcontext">FormProvider</PageLink> can
+          cause performance issues in some situations. Before diving deep in
           performance optimizations, consider this bottleneck first.
           <br />
         </p>
@@ -451,8 +451,8 @@ export default {
           <b className={typographyStyles.note}>Note:</b> If you are using React
           Native, you need to create setup.js, define <code>window</code>{" "}
           object, and include the following lines in the setup file:
-          <CodeArea rawData={CodeExempleSetupReactNative} />
         </p>
+        <CodeArea rawData={CodeExempleSetupReactNative} />
 
         <p>
           Finally, you have to update <code>setup.js</code> in{" "}
@@ -628,3 +628,5 @@ export default {
     ),
   },
 }
+
+export default Advanced

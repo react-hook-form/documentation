@@ -1,7 +1,6 @@
-import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
-import * as styles from "./Bday.module.css"
-import { Link } from "gatsby"
+import styles from "./Bday.module.css"
+import Link from "next/link"
 
 const list = [
   <p key="1">
@@ -22,7 +21,7 @@ const list = [
   </p>,
 ]
 
-export default ({ isCardPlay }: { isCardPlay: boolean }) => {
+const Bday = ({ isCardPlay }: { isCardPlay: boolean }) => {
   return (
     <AnimateGroup play={isCardPlay}>
       <Animate
@@ -140,7 +139,7 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
                       ))}
                     </ul>
 
-                    <Link to="/api" className={styles.link}>
+                    <Link href="/docs" className={styles.link}>
                       Check out API
                     </Link>
                   </div>
@@ -153,3 +152,5 @@ export default ({ isCardPlay }: { isCardPlay: boolean }) => {
     </AnimateGroup>
   )
 }
+
+export default Bday

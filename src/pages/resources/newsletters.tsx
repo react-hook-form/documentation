@@ -1,20 +1,12 @@
-import * as React from "react"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import ResourcePageNewsletter from "../../components/ResourcePageNewsletter"
 
-const ResourcesNewsletter = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
+const ResourcesNewsletter = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="Newsletter" />
-      <ResourcePageNewsletter defaultLang="en" />
+      <ResourcePageNewsletter />
     </Layout>
   )
 }
