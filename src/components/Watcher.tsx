@@ -177,7 +177,7 @@ export default ({
                     fill="none"
                     stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
-                    d="M 0 18 H 80 V 68 H 240"
+                    d="M 0 18 H 80 V 68 H 500"
                   />
                 )}
               />
@@ -207,7 +207,7 @@ export default ({
                     fill="none"
                     stroke={lightMode ? "black" : "white"}
                     strokeWidth="1"
-                    d="M 0 18 H 80 V 168 H 240"
+                    d="M 0 18 H 80 V 168 H 500"
                   />
                 )}
               />
