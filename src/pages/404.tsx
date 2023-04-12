@@ -11,6 +11,7 @@ const NotFoundPage = () => {
     <Layout>
       <Seo title="404: Not found" />
       <h1>{t("notFound", "NOT FOUND")}</h1>
+
       <p>You just found a route that doesn&#39;t exist... the sadness.</p>
     </Layout>
   )
