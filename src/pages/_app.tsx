@@ -1,6 +1,7 @@
 import { StateMachineProvider, createStore } from "little-state-machine"
 import { type AppProps } from "next/app"
 import Head from "next/head"
+import { appWithTranslation } from "next-i18next"
 
 import "../components/layout.css"
 import formData from "../state/formData"
@@ -38,4 +39,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

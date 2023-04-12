@@ -1,4 +1,3 @@
-import { useStateMachine } from "little-state-machine"
 import containerStyle from "../styles/container.module.css"
 import styles from "./ResourcePage.module.css"
 import Footer from "./Footer"

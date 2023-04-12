@@ -1,4 +1,4 @@
-.buttonTabGroup  {
+.buttonTabGroup {
   display: grid;
   grid-auto-flow: column;
 }
@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.buttonTabGroup > button:nth-child(n+2) {
+.buttonTabGroup > button:nth-child(n + 2) {
   margin-left: 3px;
 }
 

@@ -209,7 +209,7 @@ a.legacyLink {
     padding: 13px 8px;
   }
 
-  [data-theme="dark"] .actionButtonGroup {
+  [data-theme="light"] .actionButtonGroup {
     background: none;
     box-shadow: none;
     color: white;

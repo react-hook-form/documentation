@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
-import nav from "../data/nav"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
@@ -11,8 +10,7 @@ import colors from "../styles/colors"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 import { useRouter } from "next/router"
-
-const currentLanguage = "en"
+import { useTranslation } from "next-i18next"
 
 export default function Nav() {
   const {
@@ -24,6 +22,7 @@ export default function Nav() {
   const router = useRouter()
   const pathname = router.pathname
   const isFocusOnSearch = setting?.isFocusOnSearch
+  const { t } = useTranslation()
 
   const { width } = useWindowSize()
 
@@ -116,7 +115,7 @@ export default function Nav() {
               <div className={styles.iconWrapper}>
                 <div className="eye icon" />
               </div>
-              <span>{nav[currentLanguage].faqs}</span>
+              <span>{t("faq", "FAQ")}</span>
             </Link>
 
             <Link
@@ -181,7 +180,7 @@ export default function Nav() {
               <div className={styles.iconWrapper}>
                 <div className="edit icon" />
               </div>
-              <span>{nav[currentLanguage].builder}</span>
+              <span className="desktopOnly">{t("tools.formBuilder")}</span>
             </Link>
           </nav>
         </Animate>
@@ -193,7 +192,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="flag icon" />
             </div>
-            <span>{nav[currentLanguage].home}</span>
+            <span>{t("home", "Home")}</span>
           </Link>
           <Link
             className={router.pathname == "/get-started" ? "active" : ""}
@@ -202,7 +201,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="shutdown icon" />
             </div>
-            <span>{nav[currentLanguage].getStarted}</span>
+            <span>{t("getStarted", "Get Started")}</span>
           </Link>
           <Link
             className={router.pathname == "/docs" ? "active" : ""}
@@ -248,7 +247,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="search icon" />
             </div>
-            <span>{nav[currentLanguage].advanced}</span>
+            <span>{t("advanced", "Advanced")}</span>
           </Link>
           <Link
             className={router.pathname == "/faq" ? "active" : ""}
@@ -257,7 +256,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="eye icon" />
             </div>
-            <span>{nav[currentLanguage].faqs}</span>
+            <span>{t("faq", "FAQ")}</span>
           </Link>
           <span
             className="desktopOnly"
@@ -278,7 +277,7 @@ export default function Nav() {
                 }}
               >
                 <span className={styles.menuExpandLink}>
-                  {nav[currentLanguage].tools.nav}{" "}
+                  {t("tools.nav", "Tools")}{" "}
                   <span
                     style={{
                       fontSize: 10,
@@ -313,7 +312,7 @@ export default function Nav() {
                     }
                     href="/form-builder"
                   >
-                    {nav[currentLanguage].tools.formBuilder}
+                    {t("tools.formBuilder", "Form Builder")}
                   </Link>
 
                   <a
@@ -333,7 +332,7 @@ export default function Nav() {
                     className={router.pathname == "/dev-tools" ? "active" : ""}
                     href="/dev-tools"
                   >
-                    {nav[currentLanguage].tools.devTools}
+                    {t("tools.devTools", "DevTools")}
                   </Link>
                 </div>
               </div>
@@ -349,7 +348,7 @@ export default function Nav() {
                 }}
               >
                 <span className={styles.menuExpandLink}>
-                  {nav[currentLanguage].resources}{" "}
+                  {t("resources", "Resources")}{" "}
                   <span
                     style={{
                       fontSize: 10,
@@ -427,7 +426,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="edit icon" />
             </div>
-            <span>{nav[currentLanguage].builder}</span>
+            <span className="desktopOnly">{t("tools.formBuilder")}</span>
           </Link>
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"
@@ -435,7 +434,7 @@ export default function Nav() {
             className="desktopOnly"
             rel="noreferrer noopener"
           >
-            {nav[currentLanguage].releases}
+            {t("releases", "Releases")}
           </a>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a

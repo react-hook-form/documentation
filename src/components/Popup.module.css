@@ -29,7 +29,6 @@
 }
 
 .root > span {
-
   font-size: 14px !important;
   margin-left: 10px;
   font-weight: 400;
@@ -40,7 +39,6 @@
 }
 
 .root > span > span {
-
   display: inline-block;
   position: relative;
   font-family: sans-serif;

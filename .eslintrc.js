@@ -41,9 +41,21 @@ module.exports = {
 
     // can be removed after fixing
     "@typescript-eslint/no-explicit-any": OFF,
-    "@next/next/no-img-element": OFF, 
+    "@next/next/no-img-element": OFF,
     "import/no-anonymous-default-export": OFF,
     "react-hooks/exhaustive-deps": OFF,
     "jsx-a11y/no-onchange": OFF,
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: [
+          {
+            name: "react-i18next",
+            importNames: ["useTranslation"],
+            message: "Import useTranslation from next-i18next instead.",
+          },
+        ],
+      },
+    ],
   },
 }

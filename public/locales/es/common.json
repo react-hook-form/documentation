@@ -1,0 +1,14 @@
+{
+  "advanced": "Avanzado",
+  "faq": "Preguntas Frecuentes",
+  "getStarted": "Empezar",
+  "home": "Inicio",
+  "notFound": "NO ENCONTRADO",
+  "releases": "Lanzamientos",
+  "resources": "Recursos",
+  "tools": {
+    "devTools": "Herramientas de Desarrollo",
+    "formBuilder": "Constructor de Formularios",
+    "nav": "Herramientas"
+  }
+}

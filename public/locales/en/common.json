@@ -1,0 +1,14 @@
+{
+  "advanced": "Advanced",
+  "faq": "FAQ",
+  "getStarted": "Get Started",
+  "home": "Home",
+  "notFound": "NOT FOUND",
+  "releases": "Releases",
+  "resources": "Resources",
+  "tools": {
+    "devTools": "DevTools",
+    "formBuilder": "Form Builder",
+    "nav": "Tools"
+  }
+}
