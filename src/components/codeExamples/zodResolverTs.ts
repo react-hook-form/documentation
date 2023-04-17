@@ -21,7 +21,7 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name")} />
-      <input {...register("age")} type="number" />
+      <input {...register("age", { valueAsNumber: true })} type="number" />
       <input type="submit" />
     </form>
   );
