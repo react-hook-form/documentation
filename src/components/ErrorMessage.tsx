@@ -1,4 +1,3 @@
-import * as React from "react"
 import generic from "../data/generic"
 import errorMessage from "./codeExamples/errorMessage"
 import errorsMessage from "./codeExamples/errorsMessage"
@@ -13,13 +12,13 @@ import * as containerStyles from "../styles/container.module.css"
 import Footer from "./Footer"
 import StarRepo from "./StarRepo"
 
-export default ({
+export default function ErrorMessage({
   api,
   currentLanguage,
 }: {
   api: any
   currentLanguage: string
-}) => {
+}) {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">

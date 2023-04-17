@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import * as styles from "./sponsorsList.module.css"
 
 export function SponsorsList() {

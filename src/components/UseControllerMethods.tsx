@@ -1,11 +1,16 @@
-import * as React from "react"
 import generic from "../data/generic"
 import * as tableStyles from "../styles/table.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import { Link } from "gatsby"
 import { FormStateApi } from "./FormStateApi"
 
-export default ({ currentLanguage, isController }) => {
+const UseControllerMethods = ({
+  currentLanguage,
+  isController,
+}: {
+  currentLanguage: string
+  isController: boolean
+}) => {
   return (
     <>
       <h2 className={typographyStyles.subTitle}>Return</h2>
@@ -193,3 +198,5 @@ export default ({ currentLanguage, isController }) => {
     </>
   )
 }
+
+export default UseControllerMethods

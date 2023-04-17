@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useEffect } from "react";
 import withLittleStateMachine from "./with-little-state-machine"
 import { useStateMachine } from "little-state-machine"
 
@@ -20,7 +20,7 @@ const forceUpdate = (state, payload) => {
 
 export const wrapPageElement = ({ element }) => {
   const { actions, state } = useStateMachine({ forceUpdate })
-  React.useEffect(() => {
+  useEffect(() => {
     if (!state?.setting?.lightMode) {
       return
     }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import { SimpleImg } from "react-simple-img"
 import { AnimateGroup } from "react-simple-animate"
 import formik from "../images/formik.min.png"
@@ -89,4 +89,4 @@ function CodePerfCompareSection({
   )
 }
 
-export default React.memo(CodePerfCompareSection)
+export default memo(CodePerfCompareSection)

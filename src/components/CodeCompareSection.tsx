@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
@@ -90,4 +90,4 @@ function CodeCompareSection({
   )
 }
 
-export default React.memo(CodeCompareSection)
+export default memo(CodeCompareSection)

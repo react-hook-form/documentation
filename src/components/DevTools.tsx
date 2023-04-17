@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { DevTool } from "@hookform/devtools/dist/devtools"
 import { Animate } from "react-simple-animate"
@@ -23,11 +23,11 @@ interface Props {
   content: any
 }
 
-export default ({ defaultLang, content }: Props) => {
+export default function DevTools({ defaultLang, content }: Props) {
   const methods = useForm({
     mode: "onChange",
   })
-  const [showDevTool, setShowDevTool] = React.useState(false)
+  const [showDevTool, setShowDevTool] = useState(false)
   const {
     state: { language, setting },
   } = useStateMachine()

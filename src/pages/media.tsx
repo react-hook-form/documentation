@@ -1,4 +1,3 @@
-import * as React from "react"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import * as containerStyle from "../styles/container.module.css"
@@ -15,7 +14,7 @@ import logoGreySvg from "../images/logo/react-hook-form-logo-only-grey.svg"
 import logoGreyPngBg from "../images/logo/react-hook-form-logo-grey.png"
 import logoGreySvgBg from "../images/logo/react-hook-form-logo-grey.svg"
 
-export default ({ location }) => {
+const Media = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="About us" />
@@ -80,3 +79,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Media

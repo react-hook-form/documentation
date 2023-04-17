@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Trigger from "../../../components/useForm/Trigger"
 
-export default ({ location }) => {
+const TriggerComponent = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - trigger" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default TriggerComponent

@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
@@ -20,9 +20,9 @@ export default function Nav() {
     state,
     state: { setting },
   } = useStateMachine()
-  const [showLang, setLang] = React.useState(null)
-  const [show, setShow] = React.useState(false)
-  const [showMenu, setShowMenu] = React.useState(false)
+  const [showLang, setLang] = useState(null)
+  const [show, setShow] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
   const lightMode = state?.setting?.lightMode
   const { pathname } = useLocation()
 
@@ -30,7 +30,7 @@ export default function Nav() {
 
   const { width } = useWindowSize()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (LARGE_SCREEN <= width) {
       setLang(true)
     } else {
@@ -42,7 +42,7 @@ export default function Nav() {
     }
   }, [isFocusOnSearch, width])
 
-  React.useEffect(() => {
+  useEffect(() => {
     setShow(true)
   }, [setShow])
 

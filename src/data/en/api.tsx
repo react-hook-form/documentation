@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "../../components/CodeArea"
 import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
 import generic from "../generic"

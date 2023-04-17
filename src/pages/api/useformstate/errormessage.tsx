@@ -1,10 +1,9 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import api from "../../../data/en/api"
 import ErrorMessage from "../../../components/ErrorMessage"
 
-export default ({ location }) => {
+const Errormessage = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useFormState - ErrorMessage" />
@@ -12,3 +11,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Errormessage

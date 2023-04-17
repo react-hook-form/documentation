@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import * as typographyStyles from "../styles/typography.module.css"

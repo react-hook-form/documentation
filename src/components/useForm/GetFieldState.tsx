@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Link } from "gatsby"
 import * as containerStyles from "../../styles/container.module.css"
 import * as typographyStyles from "../../styles/typography.module.css"

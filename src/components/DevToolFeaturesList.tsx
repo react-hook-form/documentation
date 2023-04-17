@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
@@ -113,4 +113,4 @@ function FeaturesList({ isPlayFeature, currentLanguage, content }: Props) {
   )
 }
 
-export default React.memo(FeaturesList)
+export default memo(FeaturesList)

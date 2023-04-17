@@ -1,10 +1,13 @@
-import * as React from "react"
 import { Link } from "gatsby"
 import nav from "../data/nav"
 import { useStateMachine } from "little-state-machine"
 import * as styles from "./Footer.module.css"
 
-export default ({ currentLanguage }: { currentLanguage: string }) => {
+export default function Footer({
+  currentLanguage,
+}: {
+  currentLanguage: string
+}) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 

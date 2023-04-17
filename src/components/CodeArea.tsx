@@ -76,7 +76,7 @@ export default function CodeArea({
     state: { language },
   } = useStateMachine()
   const [currentType, setType] = React.useState<
-    typeof ToggleTypes[keyof typeof ToggleTypes]
+    (typeof ToggleTypes)[keyof typeof ToggleTypes]
   >(
     (rawData && ToggleTypes.js) ||
       (tsRawData && ToggleTypes.ts) ||

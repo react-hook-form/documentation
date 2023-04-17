@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "./Footer"
 import { Menu, pages } from "./Menu"
 import CodeArea, { CodeSandBoxLink } from "./CodeArea"
@@ -20,7 +19,7 @@ const codeSandBoxStyle = {
   float: "right",
 }
 
-export default ({ currentLanguage }) => {
+const UseForm = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -579,3 +578,5 @@ export default ({ currentLanguage }) => {
     </div>
   )
 }
+
+export default UseForm

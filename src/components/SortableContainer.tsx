@@ -1,4 +1,3 @@
-import * as React from "react"
 import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
 import colors from "../styles/colors"

@@ -1,8 +1,7 @@
-import * as React from "react"
 import { Animate } from "react-simple-animate"
 import * as styles from "./VideoList.module.css"
 
-export default ({
+const VideoList = ({
   lists,
   play,
 }: {
@@ -47,3 +46,5 @@ export default ({
     </ul>
   </Animate>
 )
+
+export default VideoList

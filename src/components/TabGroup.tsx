@@ -1,10 +1,10 @@
-import * as React from "react"
+import { useState } from "react"
 import { useStateMachine } from "little-state-machine"
 import * as styles from "./TabGroup.module.css"
 
-export default ({ children, buttonLabels }) => {
+const TabGroup = ({ children, buttonLabels }) => {
   const { state } = useStateMachine()
-  const [index, setIndex] = React.useState(0)
+  const [index, setIndex] = useState(0)
   const lightMode = state?.setting?.lightMode
 
   return (
@@ -45,3 +45,5 @@ export default ({ children, buttonLabels }) => {
     </div>
   )
 }
+
+export default TabGroup

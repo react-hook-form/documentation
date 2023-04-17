@@ -1,5 +1,3 @@
-import * as React from "react"
-
 export default {
   en: {
     home: "Home",

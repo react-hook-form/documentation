@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -15,7 +14,7 @@ import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import StarRepo from "../StarRepo"
 import serverError from "../codeExamples/serverError"
 
-export default ({ currentLanguage }) => {
+const SetError = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -95,3 +94,5 @@ export default ({ currentLanguage }) => {
     </div>
   )
 }
+
+export default SetError

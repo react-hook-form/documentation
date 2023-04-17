@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import watchCode from "./codeExamples/watchCode"
 import watchCodeTs from "./codeExamples/watchCodeTs"

@@ -1,4 +1,3 @@
-import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import * as containerStyle from "../styles/container.module.css"
 import * as styles from "./ResourcePage.module.css"

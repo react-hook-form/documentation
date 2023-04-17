@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import useWatch from "./codeExamples/useWatch"
 import useWatchTs from "./codeExamples/useWatchTs"

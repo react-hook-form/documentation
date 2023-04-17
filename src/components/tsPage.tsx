@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useRef, useEffect } from "react"
 import SideMenu from "./SideMenu"
 import { useStateMachine } from "little-state-machine"
 import TS from "../data/ts"
@@ -29,11 +29,11 @@ const enLinks = [
   TS.nestedValue,
 ]
 
-export default ({ defaultLang }: { defaultLang: string }) => {
+const TsPage = ({ defaultLang }: { defaultLang: string }) => {
   const {
     state: { language },
   } = useStateMachine()
-  const tsSectionsRef = React.useRef({
+  const tsSectionsRef = useRef({
     NestedValueRef: null,
     ResolverRef: null,
     SubmitHandlerRef: null,
@@ -60,7 +60,7 @@ export default ({ defaultLang }: { defaultLang: string }) => {
       ? language
       : { currentLanguage: defaultLang }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (location.hash) {
       setTimeout(() => goToSection(location.hash.substr(1)), 10)
     }
@@ -363,3 +363,5 @@ export default ({ defaultLang }: { defaultLang: string }) => {
     </div>
   )
 }
+
+export default TsPage

@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import TsPage from "../components/tsPage"
 
-export default ({ location }) => {
+const Ts = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="TS Support" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Ts

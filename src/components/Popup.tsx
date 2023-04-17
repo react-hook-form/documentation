@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState } from "react"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import * as styles from "./Popup.module.css"
@@ -14,7 +14,7 @@ function Popup({
 }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
-  const [tipShow, setTipShow] = React.useState(false)
+  const [tipShow, setTipShow] = useState(false)
 
   return iconOnly ? (
     <span className={`${styles.icon} ${lightMode ? styles.lightIcon : {}}`}>

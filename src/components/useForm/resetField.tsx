@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import * as typographyStyles from "../../styles/typography.module.css"
@@ -11,7 +10,7 @@ import resetFieldCode from "../codeExamples/resetFieldCode"
 import resetFieldOptionCode from "../codeExamples/resetFieldOptionCode"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+export default function ResetField({ currentLanguage }) {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">

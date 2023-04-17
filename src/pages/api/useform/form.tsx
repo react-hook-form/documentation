@@ -1,4 +1,3 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import * as containerStyles from "../../../styles/container.module.css"
@@ -16,7 +15,7 @@ import * as tableStyles from "../../../styles/table.module.css"
 import generic from "../../../data/generic"
 import { Link } from "gatsby"
 
-export default ({ location }) => {
+const Form = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - control" />
@@ -414,3 +413,5 @@ const mutation = useMutation();
     </Layout>
   )
 }
+
+export default Form

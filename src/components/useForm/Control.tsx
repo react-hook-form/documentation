@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -9,7 +8,7 @@ import control from "../codeExamples/control"
 import controlTs from "../codeExamples/controlTs"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const Control = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -50,3 +49,5 @@ export default ({ currentLanguage }) => {
     </div>
   )
 }
+
+export default Control

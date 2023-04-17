@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "./Footer"
 import { Link } from "gatsby"
 import { Menu } from "./Menu"
@@ -12,7 +11,7 @@ import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 import StarRepo from "./StarRepo"
 
-export default ({ currentLanguage }) => {
+const UseFormState = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -159,3 +158,5 @@ const formState = useFormState(); // ❌ should deconstruct the formState
     </div>
   )
 }
+
+export default UseFormState
