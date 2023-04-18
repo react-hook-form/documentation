@@ -2,18 +2,11 @@ import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import ResourcePageVideos from "../../components/ResourcePageVideos"
 
-const ResourcesVideos = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
+const ResourcesVideos = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="Resources" />
-      <ResourcePageVideos defaultLang="en" />
+      <ResourcePageVideos />
     </Layout>
   )
 }

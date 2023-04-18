@@ -1,5 +1,5 @@
 import { Link } from "@reach/router"
-import * as typographyStyles from "../../styles/typography.module.css"
+import * as typographyStyles from "../styles/typography.module.css"
 
 export default {
   title: "Get Started",
@@ -43,7 +43,7 @@ export default {
   },
   applyValidation: {
     title: "Apply validation",
-    description: (currentLanguage) => (
+    description: (
       <>
         <p>
           React Hook Form makes form validation easy by aligning with the

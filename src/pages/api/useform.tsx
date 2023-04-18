@@ -2,11 +2,11 @@ import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import UseForm from "../../components/UseForm"
 
-export default function UseFormPage({ location }) {
+export default function UseFormPage() {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm" />
-      <UseForm currentLanguage="en" />
+      <UseForm />
     </Layout>
   )
 }

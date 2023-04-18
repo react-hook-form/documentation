@@ -1,9 +1,8 @@
-import * as React from "react"
 import copyClipBoard from "./utils/copyClipBoard"
-import { useStateMachine } from "little-state-machine"
 import { highlightAllUnder } from "prismjs"
 import ClipBoard from "./ClipBoard"
 import * as styles from "./CodeArea.module.css"
+import { CSSProperties, useEffect, useRef, useState } from "react"
 
 export const CodeSandBoxLink = ({
   url,
@@ -12,7 +11,7 @@ export const CodeSandBoxLink = ({
   isExpo,
 }: {
   url: string
-  style?: React.CSSProperties
+  style?: CSSProperties
   isExpo?: boolean
   isJS?: boolean
 }) => (
@@ -70,19 +69,16 @@ export default function CodeArea({
   tsUrl?: string
   withOutCopy?: boolean
   isExpo?: boolean
-  style?: React.CSSProperties
+  style?: CSSProperties
 }) {
-  const {
-    state: { language },
-  } = useStateMachine()
-  const [currentType, setType] = React.useState<
+  const [currentType, setType] = useState<
     (typeof ToggleTypes)[keyof typeof ToggleTypes]
   >(
     (rawData && ToggleTypes.js) ||
       (tsRawData && ToggleTypes.ts) ||
       ToggleTypes.types
   )
-  const codeAreaRef = React.useRef<HTMLDivElement | null>(null)
+  const codeAreaRef = useRef<HTMLDivElement | null>(null)
 
   const getData = () => {
     switch (currentType) {
@@ -95,10 +91,7 @@ export default function CodeArea({
     }
   }
 
-  const { currentLanguage } =
-    language && language.currentLanguage ? language : { currentLanguage: "en" }
-
-  React.useEffect(() => {
+  useEffect(() => {
     const highlight = async () => {
       if (codeAreaRef.current) {
         highlightAllUnder(codeAreaRef.current)
@@ -148,7 +141,6 @@ export default function CodeArea({
           <ClipBoard
             className={`${styles.button} ${styles.copyButton}`}
             onClick={() => copyClipBoard(getData())}
-            currentLanguage={currentLanguage}
           />
         )}
 

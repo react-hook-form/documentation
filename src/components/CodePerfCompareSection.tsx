@@ -9,21 +9,13 @@ import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./CodePerfCompareSection.module.css"
 
-function CodePerfCompareSection({
-  isPlayRender,
-  currentLanguage,
-}: {
-  isPlayRender: boolean
-  currentLanguage: string
-}) {
+function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
   return (
     <AnimateGroup play={isPlayRender}>
       <div className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>
-          {home.mount[currentLanguage].title}
-        </h1>
+        <h1 className={typographyStyles.h1}>{home.mount.title}</h1>
 
-        {home.mount[currentLanguage].description}
+        {home.mount.description}
       </div>
 
       <h2
@@ -36,10 +28,10 @@ function CodePerfCompareSection({
       </h2>
       <div className={styles.imgSection}>
         <ul>
-          <li>{home.mount[currentLanguage].totalMount}: 1</li>
-          <li>{home.mount[currentLanguage].totalChange}: 1</li>
+          <li>{home.mount.totalMount}: 1</li>
+          <li>{home.mount.totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}:{" "}
+            {home.mount.totalTime}:{" "}
             <b className={typographyStyles.note}>1800ms</b>
           </li>
         </ul>
@@ -54,10 +46,10 @@ function CodePerfCompareSection({
       <h2 className={typographyStyles.title}>Others</h2>
       <div className={styles.imgSection}>
         <ul>
-          <li>{home.mount[currentLanguage].totalMount}: 6</li>
-          <li>{home.mount[currentLanguage].totalChange}: 1</li>
+          <li>{home.mount.totalMount}: 6</li>
+          <li>{home.mount.totalChange}: 1</li>
           <li>
-            {home.mount[currentLanguage].totalTime}:{" "}
+            {home.mount.totalTime}:{" "}
             <b className={typographyStyles.note}>2070ms</b>
           </li>
         </ul>
@@ -71,10 +63,10 @@ function CodePerfCompareSection({
 
       <div className={styles.imgSection}>
         <ul>
-          <li>{home.mount[currentLanguage].totalMount}: 17</li>
-          <li>{home.mount[currentLanguage].totalChange}: 2</li>
+          <li>{home.mount.totalMount}: 17</li>
+          <li>{home.mount.totalChange}: 2</li>
           <li>
-            {home.mount[currentLanguage].totalTime}:{" "}
+            {home.mount.totalTime}:{" "}
             <b className={typographyStyles.note}>2380ms</b>
           </li>
         </ul>

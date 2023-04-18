@@ -1,4 +1,4 @@
-import api from "../data/en/api"
+import api from "../data/api"
 import * as typographyStyles from "../styles/typography.module.css"
 import FormContext from "./FormContext"
 import Footer from "./Footer"
@@ -6,11 +6,7 @@ import { Menu } from "./Menu"
 import * as containerStyles from "../styles/container.module.css"
 import StarRepo from "./StarRepo"
 
-export default function UseFieldArray({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function UseFieldArray() {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -24,11 +20,11 @@ export default function UseFieldArray({
         <Menu />
 
         <main>
-          <FormContext currentLanguage={currentLanguage} api={api} />
+          <FormContext api={api} />
 
-          <StarRepo currentLanguage="en" />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

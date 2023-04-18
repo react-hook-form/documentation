@@ -1,6 +1,6 @@
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import api from "../../data/en/api"
+import api from "../../data/api"
 import ApiRefTable from "../ApiRefTable"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
@@ -32,10 +32,10 @@ const Register = () => {
 
             <ApiRefTable api={api} />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage="en" />
+          <Footer />
         </main>
       </div>
     </div>

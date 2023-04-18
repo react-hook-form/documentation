@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react"
 import SideMenu from "./SideMenu"
-import { useStateMachine } from "little-state-machine"
 import TS from "../data/ts"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
@@ -29,10 +28,7 @@ const enLinks = [
   TS.nestedValue,
 ]
 
-const TsPage = ({ defaultLang }: { defaultLang: string }) => {
-  const {
-    state: { language },
-  } = useStateMachine()
+const TsPage = () => {
   const tsSectionsRef = useRef({
     NestedValueRef: null,
     ResolverRef: null,
@@ -55,14 +51,10 @@ const TsPage = ({ defaultLang }: { defaultLang: string }) => {
     ModeRef: null,
     FormStateProxyRef: null,
   })
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
 
   useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    if (window.location.hash) {
+      setTimeout(() => goToSection(window.location.hash.substr(1)), 10)
     }
   }, [])
 
@@ -104,7 +96,6 @@ const TsPage = ({ defaultLang }: { defaultLang: string }) => {
           links={enLinks}
           enLinks={enLinks}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -355,9 +346,9 @@ const TsPage = ({ defaultLang }: { defaultLang: string }) => {
             {TS.nestedValue.description}
           </section>
 
-          <StarRepo currentLanguage={currentLanguage} />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

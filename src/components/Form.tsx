@@ -26,7 +26,6 @@ function Form({
   submitData,
   toggleBuilder,
   formUpdated,
-  currentLanguage,
   methods,
   devTool,
 }: {
@@ -34,7 +33,6 @@ function Form({
   submitData: unknown
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
-  currentLanguage: string
   methods?: any
   devTool?: boolean
 }) {
@@ -55,9 +53,7 @@ function Form({
     <>
       {!devTool && (
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>
-            {generic.liveDemo[currentLanguage]}
-          </h1>
+          <h1 className={typographyStyles.h1}>{generic.liveDemo}</h1>
           {formUpdated && (
             <Animate
               play={formUpdated}
@@ -73,7 +69,7 @@ function Form({
             />
           )}
           <p className={typographyStyles.homeParagraph}>
-            {home.liveDemo[currentLanguage].description}
+            {home.liveDemo.description}
           </p>
         </div>
       )}
@@ -81,13 +77,13 @@ function Form({
       <div className={styles.wrapper}>
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={typographyStyles.title} style={{ marginTop: 40 }}>
-            {generic.example[currentLanguage]}
+            {generic.example}
           </h2>
 
           <FormFields {...{ formData, errors, register }} />
 
           <button className={buttonStyles.pinkButton}>
-            {home.liveDemo[currentLanguage].submit}
+            {home.liveDemo.submit}
           </button>
 
           {!devTool && (
@@ -112,7 +108,7 @@ function Form({
                   goToBuilder()
                 }}
               >
-                {generic.edit[currentLanguage]}
+                {generic.edit}
               </button>
             </>
           )}
@@ -122,9 +118,9 @@ function Form({
           <>
             <section>
               <h2 className={typographyStyles.title}>
-                {home.liveDemo[currentLanguage].watchTitle}
+                {home.liveDemo.watchTitle}
               </h2>
-              <p>ⓘ {home.liveDemo[currentLanguage].watch}</p>
+              <p>ⓘ {home.liveDemo.watch}</p>
               <Animate
                 play={Object.keys(watch()).length > 0}
                 {...animationProps}
@@ -137,14 +133,15 @@ function Form({
             </section>
             <section>
               <h2 className={typographyStyles.title}>
-                {home.liveDemo[currentLanguage].errorTitle}
+                {home.liveDemo.errorTitle}
               </h2>
-              <p>ⓘ {home.liveDemo[currentLanguage].error}</p>
+              <p>ⓘ {home.liveDemo.error}</p>
               <Animate {...animationProps} play={!!Object.keys(errors).length}>
                 <pre className={styles.code}>
                   {Object.keys(errors).length > 0 &&
                     JSON.stringify(
                       Object.entries(errors).reduce(
+                        // @ts-expect-error needed for previous
                         (previous, [key, { ref, ...rest }]) => {
                           previous[key] = rest
                           return previous
@@ -160,9 +157,9 @@ function Form({
 
             <section>
               <h2 className={typographyStyles.title}>
-                {home.liveDemo[currentLanguage].touchedTitle}
+                {home.liveDemo.touchedTitle}
               </h2>
-              <p>ⓘ {home.liveDemo[currentLanguage].touched}</p>
+              <p>ⓘ {home.liveDemo.touched}</p>
               <Animate
                 play={!!touched.length}
                 {...animationProps}
@@ -177,7 +174,7 @@ function Form({
             {!!Object.keys(submitData).length && (
               <section>
                 <h2 className={typographyStyles.title}>
-                  {home.liveDemo[currentLanguage].submit}
+                  {home.liveDemo.submit}
                 </h2>
                 <Animate
                   play={!!Object.keys(submitData).length}

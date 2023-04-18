@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState, useRef, useEffect, memo } from "react"
 import { navigate } from "@reach/router"
 import Form from "./Form"
 import Header from "./Header"
@@ -17,23 +17,12 @@ import * as buttonStyles from "../styles/button.module.css"
 import * as styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
 
-const { useState, useRef, useEffect } = React
-
 const options = {
   rootMargin: "0px 0px",
   threshold: [1],
 }
 
-function HomePage({
-  location,
-  defaultLang,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-  defaultLang: string
-}) {
+function HomePage() {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
   const HomeRef = useRef(null)
@@ -41,29 +30,22 @@ function HomePage({
   const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
   const [isIsolatePlay, setIsolatePlay] = useState(false)
   // const [isCardPlay, setCardPlay] = useState(false)
-  const [isPlayRender, setRenderPlay] = useState(false)
+  const [isPlayRender] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const [isPlayWatch, setWatchPlay] = useState(false)
-  const {
-    state,
-    state: { language },
-  } = useStateMachine()
+  const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
 
   const onSubmit = (data) => {
     updateSubmitData(data)
   }
 
   useEffect(() => {
-    if (location.search.startsWith("?goToDemo")) {
+    if (window.location.search.startsWith("?goToDemo")) {
       setTimeout(() => {
         HomeRef.current.scrollIntoView({ behavior: "smooth" })
 
-        if (location.search.startsWith("?goToDemo&updated=true")) {
+        if (window.location.search.startsWith("?goToDemo&updated=true")) {
           setFormUpdated(true)
         }
       }, 100)
@@ -120,36 +102,19 @@ function HomePage({
       <Header
         // isCardPlay={isCardPlay}
         homeRef={HomeRef}
-        defaultLang={defaultLang}
       />
 
-      <FeaturesList
-        isPlayFeature={isPlayFeature}
-        currentLanguage={currentLanguage}
-      />
+      <FeaturesList isPlayFeature={isPlayFeature} />
 
       <SponsorsList />
 
-      <CodeCompareSection
-        isPlayCodeCompare={isPlayCodeCompare}
-        currentLanguage={currentLanguage}
-      />
+      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
 
-      <IsolateRender
-        isIsolatePlay={isIsolatePlay}
-        currentLanguage={currentLanguage}
-      />
+      <IsolateRender isIsolatePlay={isIsolatePlay} />
 
-      <Watcher
-        lightMode={lightMode}
-        isPlayWatch={isPlayWatch}
-        currentLanguage={currentLanguage}
-      />
+      <Watcher lightMode={lightMode} isPlayWatch={isPlayWatch} />
 
-      <CodePerfCompareSection
-        isPlayRender={isPlayRender}
-        currentLanguage={currentLanguage}
-      />
+      <CodePerfCompareSection isPlayRender={isPlayRender} />
 
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>Highlights</h1>
@@ -330,15 +295,12 @@ function HomePage({
           submitData,
           toggleBuilder,
           formUpdated,
-          currentLanguage,
         }}
       />
 
       <section className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>
-          {home.findInteresting[currentLanguage].heading}
-        </h1>
-        {home.findInteresting[currentLanguage].description}
+        <h1 className={typographyStyles.h1}>{home.findInteresting.heading}</h1>
+        {home.findInteresting.description}
         <div
           className={buttonStyles.buttonsGroup}
           style={{
@@ -351,7 +313,7 @@ function HomePage({
               navigate("get-started")
             }}
           >
-            {home.getStarted[currentLanguage]}
+            {home.getStarted}
           </button>
           <button
             className={buttonStyles.primaryButton}
@@ -364,9 +326,9 @@ function HomePage({
         </div>
       </section>
 
-      <FooterContent currentLanguage={currentLanguage} />
+      <FooterContent />
     </div>
   )
 }
 
-export default React.memo(HomePage)
+export default memo(HomePage)

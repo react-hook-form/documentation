@@ -14,9 +14,9 @@ import logoGreySvg from "../images/logo/react-hook-form-logo-only-grey.svg"
 import logoGreyPngBg from "../images/logo/react-hook-form-logo-grey.png"
 import logoGreySvgBg from "../images/logo/react-hook-form-logo-grey.svg"
 
-const Media = ({ location }) => {
+const Media = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="About us" />
       <div className={containerStyle.container}>
         <main className={styles.root}>
@@ -74,7 +74,7 @@ const Media = ({ location }) => {
           </div>
         </main>
 
-        <Footer currentLanguage="en" />
+        <Footer />
       </div>
     </Layout>
   )

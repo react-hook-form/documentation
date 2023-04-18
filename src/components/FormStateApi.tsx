@@ -1,7 +1,7 @@
 import * as typographyStyles from "../styles/typography.module.css"
-import API from "../data/en/api"
+import API from "../data/api"
 import { Link } from "gatsby"
-import * as React from "react"
+import { ReactNode } from "react"
 
 export const FormStateApi = ({
   api,
@@ -9,16 +9,17 @@ export const FormStateApi = ({
 }: {
   api?: {
     formState: {
-      isDirty: React.ReactNode | string
-      dirtyFields: React.ReactNode | string
-      defaultValues: React.ReactNode | string
-      touched: React.ReactNode | string
-      isSubmitted: React.ReactNode | string
-      isSubmitSuccessful: React.ReactNode | string
-      isSubmitting: React.ReactNode | string
-      submitCount: React.ReactNode | string
-      isValid: React.ReactNode | string
-      isValidating: React.ReactNode | string
+      isDirty: ReactNode | string
+      dirtyFields: ReactNode | string
+      defaultValues: ReactNode | string
+      touched: ReactNode | string
+      isSubmitted: ReactNode | string
+      isSubmitSuccessful: ReactNode | string
+      isSubmitting: ReactNode | string
+      submitCount: ReactNode | string
+      isValid: ReactNode | string
+      isValidating: ReactNode | string
+      isLoading: ReactNode | string
     }
   }
   columnIndent?: boolean

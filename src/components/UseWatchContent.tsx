@@ -8,13 +8,7 @@ import TabGroup from "./TabGroup"
 import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
 import { Link } from "gatsby"
 
-export default function UseFieldArray({
-  api,
-  currentLanguage,
-}: {
-  currentLanguage: string
-  api: any
-}) {
+export default function UseFieldArray({ api }: { api: any }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -34,10 +28,10 @@ export default function UseFieldArray({
         <table className={tableStyles.table}>
           <thead>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
-              <th>{generic.type[currentLanguage]}</th>
-              {/*<th width="90px">{generic.required[currentLanguage]}</th>*/}
-              <th>{generic.description[currentLanguage]}</th>
+              <th>{generic.name}</th>
+              <th>{generic.type}</th>
+              {/*<th width="90px">{generic.required}</th>*/}
+              <th>{generic.description}</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +53,7 @@ export default function UseFieldArray({
               <td>
                 <code className={typographyStyles.typeText}>Object</code>
               </td>
-              <td>{generic.control[currentLanguage]}</td>
+              <td>{generic.control}</td>
             </tr>
             <tr>
               <td>
@@ -124,14 +118,14 @@ export default function UseFieldArray({
                   minWidth: 340,
                 }}
               >
-                {generic.example[currentLanguage]}
+                {generic.example}
               </th>
               <th
                 style={{
                   minWidth: 180,
                 }}
               >
-                {generic.return[currentLanguage]}
+                {generic.return}
               </th>
             </tr>
             <tr>

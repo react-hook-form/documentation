@@ -59,7 +59,8 @@
     "serve": "gatsby serve",
     "now-build": "npm run build",
     "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc",
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "types": "tsc --noEmit"
   },
   "repository": {
     "type": "git",

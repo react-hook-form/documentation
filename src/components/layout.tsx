@@ -1,28 +1,19 @@
-import * as React from "react"
 import { Animate } from "react-simple-animate"
 import { getEditLink } from "./logic/getEditLink"
 import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"
 import { updateSetting } from "../actions/settingActions"
+import { useLocation } from "@reach/router"
+import { useEffect, useState, ReactNode } from "react"
 import "./layout.css"
 
-const Layout = (props: {
-  children: React.ReactNode
-  location?: {
-    search: string
-    pathname: string
-  }
-  defaultLang: string
-}) => {
-  const {
-    actions,
-    state,
-    state: { language },
-  } = useStateMachine({ updateSetting })
-  const { currentLanguage } =
-    language && language.currentLanguage ? language : { currentLanguage: "en" }
+const Layout = ({ children }: { children: ReactNode }) => {
+  const { actions, state } = useStateMachine({ updateSetting })
+
+  const location = useLocation()
+
   const lightMode = state?.setting?.lightMode
-  const [show, setShow] = React.useState(false)
+  const [show, setShow] = useState(false)
   const scrollHandler = () => {
     if (window.scrollY > 75) {
       setShow(true)
@@ -30,9 +21,9 @@ const Layout = (props: {
       setShow(false)
     }
   }
-  const editLink = getEditLink(currentLanguage, props.location?.pathname)
+  const editLink = getEditLink(location?.pathname)
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
 
     if (lightMode === null && window.matchMedia) {
@@ -44,7 +35,7 @@ const Layout = (props: {
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (lightMode) {
       document.querySelector("body").classList.add("light")
     } else {
@@ -71,7 +62,7 @@ const Layout = (props: {
         Skip to content
       </a>
       <Nav />
-      {props.children}
+      {children}
       <Animate
         play={show}
         start={{ opacity: 0, visibility: "hidden" }}

@@ -1,14 +1,13 @@
-import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { navigate } from "@reach/router"
 // import Bday from "./Bday"
 import home from "../data/home"
-import { useStateMachine } from "little-state-machine"
 import video from "../images/react-hook-form-demo-video.mp4"
 import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as styles from "./Header.module.css"
+import { useState, RefObject } from "react"
 
 const LogoSvg = (
   <>
@@ -28,21 +27,12 @@ const LogoSvg = (
 
 export default function Header({
   homeRef,
-  defaultLang,
 }: // isCardPlay,
 {
-  homeRef: React.RefObject<HTMLDivElement>
-  defaultLang: string
+  homeRef: RefObject<HTMLDivElement>
   isCardPlay?: boolean
 }) {
-  const [isWeb, setIsWeb] = React.useState(true)
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+  const [isWeb, setIsWeb] = useState(true)
 
   return (
     <>
@@ -105,7 +95,7 @@ export default function Header({
                 className={typographyStyles.subHeading}
                 style={{ marginBottom: 0, maxWidth: 660, ...style }}
               >
-                {home.slogan[currentLanguage]}
+                {home.slogan}
               </p>
             )}
           />
@@ -134,7 +124,7 @@ export default function Header({
                     homeRef.current.scrollIntoView({ behavior: "smooth" })
                   }}
                 >
-                  {home.demo[currentLanguage]}
+                  {home.demo}
                 </button>
 
                 <button
@@ -143,7 +133,7 @@ export default function Header({
                     navigate("get-started")
                   }}
                 >
-                  {home.getStarted[currentLanguage]} &nbsp;<span>▶</span>
+                  {home.getStarted} &nbsp;<span>▶</span>
                 </button>
               </div>
             )}

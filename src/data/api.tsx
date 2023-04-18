@@ -1,11 +1,11 @@
-import CodeArea from "../../components/CodeArea"
-import useFieldArrayArgument from "../../components/codeExamples/useFieldArrayArgument"
-import generic from "../generic"
+import CodeArea from "../components/CodeArea"
+import useFieldArrayArgument from "../components/codeExamples/useFieldArrayArgument"
+import generic from "./generic"
 import { Link } from "gatsby"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as buttonStyles from "../../styles/button.module.css"
-import * as tableStyles from "../../styles/table.module.css"
-import TabGroup from "../../components/TabGroup"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as tableStyles from "../styles/table.module.css"
+import TabGroup from "../components/TabGroup"
 
 export default {
   title: "API Documentation",
@@ -468,9 +468,9 @@ const App = () => {
           <table className={tableStyles.table}>
             <thead>
               <tr>
-                <th>{generic.name.en}</th>
-                <th>{generic.type.en}</th>
-                <th>{generic.description.en}</th>
+                <th>{generic.name}</th>
+                <th>{generic.type}</th>
+                <th>{generic.description}</th>
               </tr>
             </thead>
             <tbody>
@@ -994,9 +994,9 @@ handleSubmit(async (data) => await fetchAPI(data))`}
           <table className={tableStyles.table}>
             <thead>
               <tr>
-                <th>{generic.name.en}</th>
-                <th>{generic.type.en}</th>
-                <th>{generic.description.en}</th>
+                <th>{generic.name}</th>
+                <th>{generic.type}</th>
+                <th>{generic.description}</th>
               </tr>
             </thead>
             <tbody>
@@ -1243,7 +1243,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             <tbody>
               <tr>
                 <th>Name</th>
-                <th width="200px">Type</th>
+                <th>Type</th>
                 <th>Description</th>
               </tr>
               <tr>
@@ -1760,8 +1760,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <table className={tableStyles.table}>
             <tbody>
               <tr>
-                <th>{generic.type["en"]}</th>
-                <th>{generic.description["en"]}</th>
+                <th>{generic.type}</th>
+                <th>{generic.description}</th>
               </tr>
               <tr>
                 <td>
@@ -1973,10 +1973,10 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <table className={tableStyles.table}>
             <thead>
               <tr>
-                <th>{generic.name.en}</th>
-                <th width="140px">{generic.type.en}</th>
-                <th width="90px">{generic.required.en}</th>
-                <th>{generic.description.en}</th>
+                <th>{generic.name}</th>
+                <th>{generic.type}</th>
+                <th>{generic.required}</th>
+                <th>{generic.description}</th>
               </tr>
             </thead>
             <tbody>
@@ -2003,7 +2003,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                   <code className={typographyStyles.typeText}>Object</code>
                 </td>
                 <td></td>
-                <td>{generic.control.en}</td>
+                <td>{generic.control}</td>
               </tr>
               <tr>
                 <td>

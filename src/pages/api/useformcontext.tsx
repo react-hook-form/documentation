@@ -2,11 +2,11 @@ import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import UseFormContext from "../../components/UseFormContext"
 
-const Useformcontext = ({ location }) => {
+const Useformcontext = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useFormContext" />
-      <UseFormContext currentLanguage="en" />
+      <UseFormContext />
     </Layout>
   )
 }

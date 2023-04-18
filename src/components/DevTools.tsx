@@ -19,22 +19,18 @@ import * as styles from "./DevTools.module.css"
 import ClipBoard from "./ClipBoard"
 
 interface Props {
-  defaultLang: string
   content: any
 }
 
-export default function DevTools({ defaultLang, content }: Props) {
+export default function DevTools({ content }: Props) {
   const methods = useForm({
     mode: "onChange",
   })
   const [showDevTool, setShowDevTool] = useState(false)
   const {
-    state: { language, setting },
+    state: { setting },
   } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+
   const lightMode = setting?.lightMode
 
   const { control } = methods
@@ -67,11 +63,7 @@ export default function DevTools({ defaultLang, content }: Props) {
           )}
         />
 
-        <DevToolFeaturesList
-          isPlayFeature
-          currentLanguage={currentLanguage}
-          content={content}
-        />
+        <DevToolFeaturesList isPlayFeature content={content} />
 
         <div className={containerStyles.centerContent}>
           <h1 className={typographyStyles.h1}>
@@ -90,7 +82,6 @@ export default function DevTools({ defaultLang, content }: Props) {
             npm install -D @hookform/devtools
             <ClipBoard
               className={getStartedStyle.copyButton}
-              currentLanguage="en"
               onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
             />
           </span>
@@ -101,9 +92,7 @@ export default function DevTools({ defaultLang, content }: Props) {
         </div>
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>
-            {generic.liveDemo[currentLanguage]}
-          </h1>
+          <h1 className={typographyStyles.h1}>{generic.liveDemo}</h1>
           <p>{content.demoDescription}</p>
 
           <div
@@ -143,7 +132,6 @@ export default function DevTools({ defaultLang, content }: Props) {
                 toggleBuilder: () => {},
                 // eslint-disable-next-line @typescript-eslint/no-empty-function
                 formUpdated: () => {},
-                currentLanguage: "en",
                 methods,
                 devTool: true,
               }}
@@ -173,7 +161,7 @@ export default function DevTools({ defaultLang, content }: Props) {
           )}
         />
 
-        <Footer currentLanguage="en" />
+        <Footer />
       </main>
     </div>
   )

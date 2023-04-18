@@ -39,9 +39,9 @@ export default function ValidationResolver({ api }: { api: any }) {
         <table className={tableStyles.table}>
           <tbody>
             <tr>
-              <th>{generic.name["en"]}</th>
-              <th width="230px">{generic.type["en"]}</th>
-              <th>{generic.description["en"]}</th>
+              <th>{generic.name}</th>
+              <th>{generic.type}</th>
+              <th>{generic.description}</th>
             </tr>
             <tr>
               <td>

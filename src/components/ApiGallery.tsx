@@ -14,12 +14,11 @@ const LightModeHeading = {
   textShadow: "none",
 }
 
-export default function ApiGallery({ defaultLang }) {
+export default function ApiGallery() {
   const {
     actions,
     state,
     state: {
-      language,
       setting = {
         version: 7,
       },
@@ -28,10 +27,6 @@ export default function ApiGallery({ defaultLang }) {
     updateSetting,
   })
   const lightMode = state?.setting?.lightMode
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
 
   const onChange = (e) => {
     const version = parseInt(e.target.value)
@@ -224,7 +219,7 @@ export default function ApiGallery({ defaultLang }) {
         </div>
       </main>
 
-      <Footer currentLanguage={currentLanguage} />
+      <Footer />
     </div>
   )
 }

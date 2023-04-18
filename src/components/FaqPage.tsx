@@ -1,30 +1,19 @@
-import * as React from "react"
+import { useRef, useEffect } from "react"
 import SideMenu from "../components/SideMenu"
 import Footer from "../components/Footer"
 import StarRepo from "../components/StarRepo"
-import faqEn from "../data/en/faq"
-import { useStateMachine } from "little-state-machine"
+import faqEn from "../data/faq"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 const REMOVE_QUESTIONS_FOR_LIST = 5
 
-const { useRef } = React
-
 const enLinks = faqEn.questions
 
 interface Props {
-  defaultLang: string
   faq: any
 }
 
-const Faq = ({ defaultLang, faq }: Props) => {
-  const {
-    state: { language },
-  } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+const Faq = ({ faq }: Props) => {
   const links = faq.questions.slice(
     0,
     faq.questions.length - REMOVE_QUESTIONS_FOR_LIST
@@ -81,9 +70,9 @@ const Faq = ({ defaultLang, faq }: Props) => {
     }
   }
 
-  React.useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+  useEffect(() => {
+    if (window.location.hash)
+      setTimeout(() => goToSection(window.location.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -99,7 +88,6 @@ const Faq = ({ defaultLang, faq }: Props) => {
           isStatic
           links={links}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -120,9 +108,9 @@ const Faq = ({ defaultLang, faq }: Props) => {
             )
           })}
 
-          <StarRepo currentLanguage={currentLanguage} />
+          <StarRepo />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

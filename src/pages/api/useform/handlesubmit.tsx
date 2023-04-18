@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import HandleSubmit from "../../../components/useForm/HandleSubmit"
 
-const Handlesubmit = ({ location }) => {
+const Handlesubmit = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - handleSubmit" />
-      <HandleSubmit currentLanguage="en" />
+      <HandleSubmit />
     </Layout>
   )
 }

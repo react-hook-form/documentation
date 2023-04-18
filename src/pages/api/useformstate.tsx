@@ -2,11 +2,11 @@ import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import UseFormState from "../../components/UseFormState"
 
-const Useformstate = ({ location }) => {
+const Useformstate = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useFormState" />
-      <UseFormState currentLanguage="en" />
+      <UseFormState />
     </Layout>
   )
 }

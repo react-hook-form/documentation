@@ -13,8 +13,6 @@ import { LARGE_SCREEN } from "../styles/breakpoints"
 import { useLocation } from "@reach/router"
 import openLink from "../images/open-link.svg"
 
-const currentLanguage = "en"
-
 export default function Nav() {
   const {
     state,
@@ -118,7 +116,7 @@ export default function Nav() {
               <div className={styles.iconWrapper}>
                 <div className="eye icon" />
               </div>
-              <span>{nav[currentLanguage].faqs}</span>
+              <span>{nav.faqs}</span>
             </Link>
 
             <Link activeClassName="active" to="/resources/articles">
@@ -157,7 +155,7 @@ export default function Nav() {
               <div className={styles.iconWrapper}>
                 <div className="edit icon" />
               </div>
-              <span>{nav[currentLanguage].builder}</span>
+              <span>{nav.builder}</span>
             </Link>
           </nav>
         </Animate>
@@ -173,13 +171,13 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="flag icon" />
             </div>
-            <span>{nav[currentLanguage].home}</span>
+            <span>{nav.home}</span>
           </Link>
           <Link activeClassName="active" to="/get-started">
             <div className={styles.iconWrapper}>
               <div className="shutdown icon" />
             </div>
-            <span>{nav[currentLanguage].getStarted}</span>
+            <span>{nav.getStarted}</span>
           </Link>
           <Link
             activeClassName="active"
@@ -222,13 +220,13 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="search icon" />
             </div>
-            <span>{nav[currentLanguage].advanced}</span>
+            <span>{nav.advanced}</span>
           </Link>
           <Link activeClassName="active" to="/faqs">
             <div className={styles.iconWrapper}>
               <div className="eye icon" />
             </div>
-            <span>{nav[currentLanguage].faqs}</span>
+            <span>{nav.faqs}</span>
           </Link>
           <span
             className="desktopOnly"
@@ -249,7 +247,7 @@ export default function Nav() {
                 }}
               >
                 <span className={styles.menuExpandLink}>
-                  {nav[currentLanguage].tools.nav}{" "}
+                  {nav.tools.nav}{" "}
                   <span
                     style={{
                       fontSize: 10,
@@ -279,7 +277,7 @@ export default function Nav() {
               >
                 <div className={styles.menuExpand}>
                   <Link activeClassName="active" to="/form-builder">
-                    {nav[currentLanguage].tools.formBuilder}
+                    {nav.tools.formBuilder}
                   </Link>
 
                   <a
@@ -293,7 +291,7 @@ export default function Nav() {
                   </a>
 
                   <Link activeClassName="active" to="/dev-tools">
-                    {nav[currentLanguage].tools.devTools}
+                    {nav.tools.devTools}
                   </Link>
                 </div>
               </div>
@@ -309,7 +307,7 @@ export default function Nav() {
                 }}
               >
                 <span className={styles.menuExpandLink}>
-                  {nav[currentLanguage].resources}{" "}
+                  {nav.resources}{" "}
                   <span
                     style={{
                       fontSize: 10,
@@ -365,7 +363,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="edit icon" />
             </div>
-            <span>{nav[currentLanguage].builder}</span>
+            <span>{nav.builder}</span>
           </Link>
           <a
             href="https://github.com/react-hook-form/react-hook-form/releases"
@@ -373,7 +371,7 @@ export default function Nav() {
             className="desktopOnly"
             rel="noreferrer noopener"
           >
-            {nav[currentLanguage].releases}
+            {nav.releases}
           </a>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a

@@ -10,7 +10,7 @@ import resetFieldCode from "../codeExamples/resetFieldCode"
 import resetFieldOptionCode from "../codeExamples/resetFieldOptionCode"
 import StarRepo from "../StarRepo"
 
-export default function ResetField({ currentLanguage }) {
+export default function ResetField() {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -60,10 +60,10 @@ export default function ResetField({ currentLanguage }) {
               <table className={tableStyles.table}>
                 <thead>
                   <tr>
-                    <th>{generic.name.en}</th>
+                    <th>{generic.name}</th>
                     <th></th>
-                    <th>{generic.type.en}</th>
-                    <th>{generic.description.en}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -208,10 +208,10 @@ resetField('non-existent-name'); // ❌ failed by input not found
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

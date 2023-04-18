@@ -1,6 +1,6 @@
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import api from "../../data/en/api"
+import api from "../../data/api"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import CodeArea from "../CodeArea"
@@ -8,7 +8,7 @@ import control from "../codeExamples/control"
 import controlTs from "../codeExamples/controlTs"
 import StarRepo from "../StarRepo"
 
-const Control = ({ currentLanguage }) => {
+const Control = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -40,10 +40,10 @@ const Control = ({ currentLanguage }) => {
               tsUrl="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

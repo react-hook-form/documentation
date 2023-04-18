@@ -7,8 +7,6 @@ import * as styles from "./ApiRefTable.module.css"
 import register from "./codeExamples/register"
 import registerTs from "./codeExamples/registerTs"
 
-const currentLanguage = "en"
-
 export default function ApiRefTable({ api }: { api: any }) {
   const [isStandard, toggleOption] = useState(true)
 
@@ -21,7 +19,7 @@ export default function ApiRefTable({ api }: { api: any }) {
           <tbody>
             <tr>
               <th>
-                Input <code>{generic.name[currentLanguage]}</code>
+                Input <code>{generic.name}</code>
               </th>
               <th>{api.register.example}</th>
             </tr>
@@ -113,21 +111,21 @@ export default function ApiRefTable({ api }: { api: any }) {
                   minWidth: isStandard ? 140 : 240,
                 }}
               >
-                {generic.name[currentLanguage]}
+                {generic.name}
               </th>
               <th
                 style={{
                   minWidth: 300,
                 }}
               >
-                {generic.description[currentLanguage]}
+                {generic.description}
               </th>
               <th
                 style={{
                   minWidth: 250,
                 }}
               >
-                {generic.codeExample[currentLanguage]}
+                {generic.codeExample}
               </th>
             </tr>
             <tr>

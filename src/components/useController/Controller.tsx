@@ -1,12 +1,12 @@
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import api from "../../data/en/api"
+import api from "../../data/api"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import ControllerContent from "../ControllerContent"
 import StarRepo from "../StarRepo"
 
-const Controller = ({ currentLanguage }) => {
+const Controller = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -21,12 +21,12 @@ const Controller = ({ currentLanguage }) => {
 
         <main>
           <section>
-            <ControllerContent currentLanguage={currentLanguage} api={api} />
+            <ControllerContent api={api} />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

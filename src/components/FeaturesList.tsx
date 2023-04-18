@@ -15,13 +15,7 @@ const props = {
   duration: 0.3,
 }
 
-function FeaturesList({
-  isPlayFeature,
-  currentLanguage,
-}: {
-  isPlayFeature: boolean
-  currentLanguage: string
-}) {
+function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 
@@ -50,8 +44,8 @@ function FeaturesList({
                 <rect x="5" y="6" width="14" height="10" rx="1"></rect>
               </svg>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][0].title}</h3>
-            <p>{home.features[currentLanguage][0].description}</p>
+            <h3>{home.features[0].title}</h3>
+            <p>{home.features[0].description}</p>
           </article>
 
           <article>
@@ -71,8 +65,8 @@ function FeaturesList({
                 <path d="M15.5 8h-7l.5 4h6l-.5 3.5l-2.5 .75l-2.5 -.75l-.1 -.5"></path>
               </svg>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][1].title}</h3>
-            <p>{home.features[currentLanguage][1].description}</p>
+            <h3>{home.features[1].title}</h3>
+            <p>{home.features[1].description}</p>
           </article>
 
           <article>
@@ -95,8 +89,8 @@ function FeaturesList({
                 <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0"></path>
               </svg>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][2].title}</h3>
-            <p>{home.features[currentLanguage][2].description}</p>
+            <h3>{home.features[2].title}</h3>
+            <p>{home.features[2].description}</p>
           </article>
 
           <article>
@@ -118,8 +112,8 @@ function FeaturesList({
               </svg>
             </AnimateKeyframes>
 
-            <h3>{home.features[currentLanguage][3].title}</h3>
-            <p>{home.features[currentLanguage][3].description}</p>
+            <h3>{home.features[3].title}</h3>
+            <p>{home.features[3].description}</p>
           </article>
 
           <article>
@@ -145,8 +139,8 @@ function FeaturesList({
                 <line x1="4" y1="16" x2="4" y2="16.01"></line>
               </svg>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][4].title}</h3>
-            <p>{home.features[currentLanguage][4].description}</p>
+            <h3>{home.features[4].title}</h3>
+            <p>{home.features[4].description}</p>
           </article>
 
           <article>
@@ -168,8 +162,8 @@ function FeaturesList({
                 <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
               </svg>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][5].title}</h3>
-            <p>{home.features[currentLanguage][5].description}</p>
+            <h3>{home.features[5].title}</h3>
+            <p>{home.features[5].description}</p>
           </article>
         </div>
       </AnimateGroup>

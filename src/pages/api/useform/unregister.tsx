@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import UnRegister from "../../../components/useForm/UnRegister"
 
-const Unregister = ({ location }) => {
+const Unregister = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - unregister" />
-      <UnRegister currentLanguage="en" />
+      <UnRegister />
     </Layout>
   )
 }

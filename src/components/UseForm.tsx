@@ -4,7 +4,7 @@ import CodeArea, { CodeSandBoxLink } from "./CodeArea"
 import Popup from "./Popup"
 import generic from "../data/generic"
 import ValidationResolver from "./ValidationResolver"
-import api from "../data/en/api"
+import api from "../data/api"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as tableStyles from "../styles/table.module.css"
@@ -12,14 +12,15 @@ import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
 import StarRepo from "./StarRepo"
 import { SelectNav } from "./selectNav"
 import { Link } from "gatsby"
+import { CSSProperties } from "react"
 
-const codeSandBoxStyle = {
+const codeSandBoxStyle: CSSProperties = {
   position: "relative",
   left: 0,
   float: "right",
 }
 
-const UseForm = ({ currentLanguage }) => {
+const UseForm = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -271,9 +272,9 @@ const UseForm = ({ currentLanguage }) => {
               <table className={tableStyles.table}>
                 <tbody>
                   <tr>
-                    <th>{generic.name[currentLanguage]}</th>
-                    <th>{generic.type[currentLanguage]}</th>
-                    <th>{generic.description[currentLanguage]}</th>
+                    <th>{generic.name}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
                   </tr>
                   <tr>
                     <td>onSubmit</td>
@@ -569,10 +570,10 @@ const UseForm = ({ currentLanguage }) => {
               ))}
             </ul>
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

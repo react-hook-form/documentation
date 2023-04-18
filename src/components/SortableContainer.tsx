@@ -16,7 +16,6 @@ export default function SortableContainer({
   setEditIndex,
   setFormData,
   reset,
-  currentLanguage,
 }: {
   updateFormData: (data: object) => void
   formData: any
@@ -24,7 +23,6 @@ export default function SortableContainer({
   setEditIndex: (payload: number) => void
   setFormData: (payload: object) => void
   reset: () => void
-  currentLanguage: string
 }) {
   return (
     <div className={sortableWrapper}>
@@ -91,9 +89,7 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      {editIndex === index
-                        ? generic.cancelEdit[currentLanguage]
-                        : generic.edit[currentLanguage]}
+                      {editIndex === index ? generic.cancelEdit : generic.edit}
                     </button>
                     <button
                       onClick={() => {
@@ -120,7 +116,7 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      {generic.delete[currentLanguage]}
+                      {generic.delete}
                     </button>
                   </div>
                 </li>
@@ -148,7 +144,7 @@ export default function SortableContainer({
             marginRight: 15,
           }}
         >
-          {generic.deleteAll[currentLanguage]}
+          {generic.deleteAll}
         </button>
       </div>
     </div>

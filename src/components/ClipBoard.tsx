@@ -2,13 +2,11 @@ import { useRef, useEffect, useState } from "react"
 import generic from "../data/generic"
 
 const ClipBoard = ({
-  currentLanguage,
   className,
   onClick,
 }: {
   onClick: () => void
   className?: string
-  currentLanguage: string
 }) => {
   const [copiedCode, setCopiedCode] = useState<boolean>(false)
   const timer = useRef(null)
@@ -30,11 +28,9 @@ const ClipBoard = ({
         onClick()
         setCopiedCode(true)
       }}
-      aria-label={generic.copied[currentLanguage]}
+      aria-label={generic.copied}
     >
-      {copiedCode
-        ? generic.codeCopied[currentLanguage]
-        : generic.copy[currentLanguage]}
+      {copiedCode ? generic.codeCopied : generic.copy}
     </button>
   )
 }

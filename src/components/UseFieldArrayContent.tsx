@@ -10,13 +10,7 @@ import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
 import { Link } from "gatsby"
 import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
 
-export default function UseFieldArrayContent({
-  currentLanguage,
-  api,
-}: {
-  currentLanguage: string
-  api: any
-}) {
+export default function UseFieldArrayContent({ api }: { api: any }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -38,9 +32,9 @@ export default function UseFieldArrayContent({
         <table className={tableStyles.table}>
           <tbody>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
-              <th>{generic.type[currentLanguage]}</th>
-              <th>{generic.description[currentLanguage]}</th>
+              <th>{generic.name}</th>
+              <th>{generic.type}</th>
+              <th>{generic.description}</th>
             </tr>
             {api.useFieldArray.table}
           </tbody>

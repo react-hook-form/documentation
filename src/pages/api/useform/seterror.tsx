@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import SetError from "../../../components/useForm/SetError"
 
-const Seterror = ({ location }) => {
+const Seterror = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - setError" />
-      <SetError currentLanguage="en" />
+      <SetError />
     </Layout>
   )
 }
