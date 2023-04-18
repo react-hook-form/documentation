@@ -390,7 +390,7 @@ export default function ApiRefTable({ api }) {
         : `{
       positive: v => parseInt(v) > 0 || 'should be greater than 0',
       lessThanTen: v => parseInt(v) < 10 || 'should be lower than 10',
-      validateNumber: (_: number, formValues: FormValues) {
+      validateNumber: (_: number, formValues: FormValues) => {
         return formValues.number1 + formValues.number2 === 3 || 'Check sum number';
       },
       // you can do asynchronous validation as well
