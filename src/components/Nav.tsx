@@ -288,7 +288,7 @@ export default function Nav() {
                     rel="noopener noreferrer"
                     className={styles.linkExternal}
                   >
-                    <b>BEEKAI</b> From Builder{" "}
+                    <b>BEEKAI</b> Form Builder{" "}
                     <img src={openLink} alt="BEEKAI Form Builder" />
                   </a>
 
