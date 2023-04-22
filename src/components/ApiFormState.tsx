@@ -28,11 +28,11 @@ export default React.memo(
             <p>
               <code>formState</code> is wrapped with a{" "}
               <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Proxy
+                defineProperty's <code>get</code> descriptor
               </a>{" "}
               to improve render performance and skip extra logic if specific
               state is not subscribed to. Therefore make sure you invoke or read
@@ -71,7 +71,7 @@ export default React.memo(
 
             <CodeArea
               rawData={`// ❌ formState.isValid is accessed conditionally, 
-// so the Proxy does not subscribe to changes of that state
+// so the formState with get descriptor does not subscribe to changes of that state
 return <button disabled={!formState.isDirty || !formState.isValid} />;
   
 // ✅ read all formState values to subscribe to changes
