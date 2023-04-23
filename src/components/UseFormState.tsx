@@ -1,7 +1,7 @@
 import Footer from "./Footer"
 import { Link } from "gatsby"
 import { Menu } from "./Menu"
-import api from "../data/en/api"
+import api from "../data/api"
 import useFormState from "./codeExamples/useFormState"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
@@ -11,7 +11,7 @@ import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 import StarRepo from "./StarRepo"
 
-const UseFormState = ({ currentLanguage }) => {
+const UseFormState = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -53,9 +53,9 @@ const UseFormState = ({ currentLanguage }) => {
               <table className={tableStyles.table}>
                 <thead>
                   <tr>
-                    <th>{generic.name[currentLanguage]}</th>
-                    <th width="200px">{generic.type[currentLanguage]}</th>
-                    <th>{generic.description[currentLanguage]}</th>
+                    <th>{generic.name}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -121,7 +121,7 @@ const UseFormState = ({ currentLanguage }) => {
               </table>
             </div>
 
-            <FormStateTable currentLanguage={currentLanguage} api={api} />
+            <FormStateTable api={api} />
 
             <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules
@@ -149,10 +149,10 @@ const formState = useFormState(); // ❌ should deconstruct the formState
               url="https://codesandbox.io/s/useformstate-75xly"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

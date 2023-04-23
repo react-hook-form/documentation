@@ -2,9 +2,9 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Register from "../../../components/useForm/Register"
 
-const RegisterComponent = ({ location }) => {
+const RegisterComponent = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - register" />
       <Register />
     </Layout>

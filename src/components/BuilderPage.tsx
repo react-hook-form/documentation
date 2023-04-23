@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
@@ -18,11 +17,10 @@ import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import CodeArea from "./CodeArea"
 import ClipBoard from "./ClipBoard"
+import { useState, useRef, useEffect, memo, MutableRefObject } from "react"
 
 import * as styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
-
-const { useState, useRef, useEffect } = React
 
 const updateStore = (state, payload) => {
   return {
@@ -48,8 +46,6 @@ const defaultValue = {
   options: [],
 }
 
-const currentLanguage = "en"
-
 function BuilderPage({
   showBuilder,
   toggleBuilder,
@@ -58,7 +54,7 @@ function BuilderPage({
 }: {
   showBuilder?: boolean
   toggleBuilder?: (state: boolean) => void
-  HomeRef?: any
+  HomeRef?: MutableRefObject<HTMLDivElement>
   isStatic?: boolean
 }) {
   const {
@@ -132,21 +128,19 @@ function BuilderPage({
   const child = (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        {builder.builder[currentLanguage].title}
+        {builder.builder.title}
       </h1>
       <p className={typographyStyles.subHeading}>
-        {builder.builder[currentLanguage].description}
+        {builder.builder.description}
       </p>
 
       <div className={styles.pageWrapper}>
         <section>
-          <h2 className={typographyStyles.title}>
-            {builder.layout[currentLanguage].title}
-          </h2>
+          <h2 className={typographyStyles.title}>{builder.layout.title}</h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            {builder.layout[currentLanguage].message}
+            {builder.layout.message}
           </p>
 
           <SortableContainer
@@ -158,22 +152,21 @@ function BuilderPage({
               setFormData,
               editFormData,
               reset,
-              currentLanguage,
             }}
           />
         </section>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={typographyStyles.title} ref={form}>
-            {builder.inputCreator[currentLanguage].title}
+            {builder.inputCreator.title}
           </h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            {builder.inputCreator[currentLanguage].description}
+            {builder.inputCreator.description}
           </p>
 
-          <label>{generic.name[currentLanguage]}: </label>
+          <label>{generic.name}: </label>
           <input
             autoComplete="off"
             defaultValue={editFormData.name}
@@ -206,7 +199,7 @@ function BuilderPage({
             )}
           </Animate>
 
-          <label>{generic.type[currentLanguage]}: </label>
+          <label>{generic.type}: </label>
           <select
             aria-label="Select type"
             name="type"
@@ -240,7 +233,7 @@ function BuilderPage({
             editFormData.type === "select" ||
             editFormData.type === "radio") && (
             <>
-              <label>{builder.inputCreator[currentLanguage].options}:</label>
+              <label>{builder.inputCreator.options}:</label>
               <input
                 key={editFormData.name}
                 defaultValue={editFormData.options}
@@ -273,7 +266,7 @@ function BuilderPage({
               ref={register({ required: false })}
               onClick={() => toggleValidation(!showValidation)}
             />
-            {builder.inputCreator[currentLanguage].validation}
+            {builder.inputCreator.validation}
           </label>
 
           <Animate
@@ -349,9 +342,7 @@ function BuilderPage({
               form.current.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            {editIndex >= 0
-              ? generic.update[currentLanguage]
-              : generic.create[currentLanguage]}
+            {editIndex >= 0 ? generic.update : generic.create}
           </button>
 
           {formData.length > 0 && (
@@ -392,7 +383,7 @@ function BuilderPage({
                   }
                 }}
               >
-                {builder.inputCreator[currentLanguage].generate}
+                {builder.inputCreator.generate}
               </button>
             )}
           />
@@ -404,13 +395,11 @@ function BuilderPage({
             position: "relative",
           }}
         >
-          <h2 className={typographyStyles.title}>
-            {builder.code[currentLanguage].title}
-          </h2>
+          <h2 className={typographyStyles.title}>{builder.code.title}</h2>
 
           <p style={{ fontSize: 14 }}>
             <Popup iconOnly />
-            {builder.code[currentLanguage].description}
+            {builder.code.description}
           </p>
 
           <section
@@ -422,7 +411,6 @@ function BuilderPage({
               <ClipBoard
                 onClick={() => copyClipBoard(generateCode(formData))}
                 className={`${styles.button} ${styles.copyButton}`}
-                currentLanguage={currentLanguage}
               />
             </div>
 
@@ -434,9 +422,9 @@ function BuilderPage({
       <BeekaiBuilderPage />
 
       <div style={{ margin: "0 20px" }}>
-        <LearnMore currentLanguage={currentLanguage} />
+        <LearnMore />
 
-        <Footer currentLanguage={currentLanguage} />
+        <Footer />
       </div>
     </div>
   )
@@ -484,4 +472,4 @@ function BuilderPage({
   )
 }
 
-export default React.memo(BuilderPage)
+export default memo(BuilderPage)

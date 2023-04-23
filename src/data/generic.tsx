@@ -1,115 +1,55 @@
 import { Link } from "gatsby"
 
 export default {
-  copy: {
-    en: "Copy",
-  },
-  codeCopied: {
-    en: "Copied",
-  },
-  required: {
-    en: "Required",
-  },
+  copy: "Copy",
+  codeCopied: "Copied",
+  required: "Required",
   learnMore: {
-    en: {
-      title: "Want to learn more?",
-      description:
-        "Check out the React Hook Form documentation and learn all about the API.",
-      buttonText: "Checkout API",
-    },
+    title: "Want to learn more?",
+    description:
+      "Check out the React Hook Form documentation and learn all about the API.",
+    buttonText: "Checkout API",
   },
   advanceUsage: {
-    en: {
-      title: "Advanced Usage",
-      description: `Learn how to build complex and accessible forms`,
-      buttonText: `Learn Advanced Usage`,
-    },
+    title: "Advanced Usage",
+    description: `Learn how to build complex and accessible forms`,
+    buttonText: `Learn Advanced Usage`,
   },
   needYourSupport: {
-    en: {
-      title: "Thank you for your support",
-      description: `If you find React Hook Form to be useful in your project, please consider to star and support it.`,
-      buttonText: `Star us on GitHub`,
-    },
+    title: "Thank you for your support",
+    description: `If you find React Hook Form to be useful in your project, please consider to star and support it.`,
+    buttonText: `Star us on GitHub`,
   },
-  codeExample: {
-    en: "Code Examples",
-  },
-  menu: {
-    en: "Menu",
-  },
-  note: {
-    en: "Note",
-  },
-  select: {
-    en: "Select",
-  },
-  name: {
-    en: "Name",
-  },
-  type: {
-    en: "Type",
-  },
-  default: {
-    en: "Default",
-  },
-  description: {
-    en: "Description",
-  },
-  features: {
-    en: "Features",
-  },
-  delete: {
-    en: "Delete",
-  },
-  example: {
-    en: "Example",
-  },
-  edit: {
-    en: "Edit",
-  },
-  cancelEdit: {
-    en: "Cancel Edit",
-  },
-  deleteAll: {
-    en: "Delete All",
-  },
-  create: {
-    en: "Create",
-  },
-  update: {
-    en: "Update",
-  },
-  copied: {
-    en: "Copy code into your clipboard.",
-  },
-  return: {
-    en: "Return",
-  },
-  blog: {
-    en: "Articles/Blog",
-  },
-  video: {
-    en: "Videos",
-  },
-  newsletter: {
-    en: "Newsletter",
-  },
-  binding: {
-    en: "3rd Party Bindings",
-  },
-  liveDemo: {
-    en: "Live Demo",
-  },
-  control: {
-    en: (
-      <>
-        <Link to="/api/useform/control">
-          <code>control</code>
-        </Link>{" "}
-        object provided by <code>useForm</code>. It's optional if you are using
-        FormContext.
-      </>
-    ),
-  },
+  codeExample: "Code Examples",
+  menu: "Menu",
+  note: "Note",
+  select: "Select",
+  name: "Name",
+  type: "Type",
+  default: "Default",
+  description: "Description",
+  features: "Features",
+  delete: "Delete",
+  example: "Example",
+  edit: "Edit",
+  cancelEdit: "Cancel Edit",
+  deleteAll: "Delete All",
+  create: "Create",
+  update: "Update",
+  copied: "Copy code into your clipboard.",
+  return: "Return",
+  blog: "Articles/Blog",
+  video: "Videos",
+  newsletter: "Newsletter",
+  binding: "3rd Party Bindings",
+  liveDemo: "Live Demo",
+  control: (
+    <>
+      <Link to="/api/useform/control">
+        <code>control</code>
+      </Link>{" "}
+      object provided by <code>useForm</code>. It's optional if you are using
+      FormContext.
+    </>
+  ),
 }

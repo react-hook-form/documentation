@@ -144,9 +144,9 @@ const data = [
   },
 ]
 
-const AboutUs = ({ location }) => {
+const AboutUs = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="About us" />
       <div className={containerStyle.container}>
         <main className={styles.root}>
@@ -265,7 +265,7 @@ const AboutUs = ({ location }) => {
           </ul>
         </main>
 
-        <Footer currentLanguage="en" />
+        <Footer />
       </div>
     </Layout>
   )

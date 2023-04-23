@@ -1,13 +1,13 @@
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
-import api from "../../../data/en/api"
+import api from "../../../data/api"
 import ErrorMessage from "../../../components/ErrorMessage"
 
-const Errormessage = ({ location }) => {
+const Errormessage = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useFormState - ErrorMessage" />
-      <ErrorMessage currentLanguage="en" api={api} />
+      <ErrorMessage api={api} />
     </Layout>
   )
 }

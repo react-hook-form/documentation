@@ -5,10 +5,8 @@ import { Link } from "gatsby"
 import { FormStateApi } from "./FormStateApi"
 
 const UseControllerMethods = ({
-  currentLanguage,
-  isController,
+  isController = false,
 }: {
-  currentLanguage: string
   isController: boolean
 }) => {
   return (
@@ -21,10 +19,10 @@ const UseControllerMethods = ({
       <table className={tableStyles.table}>
         <thead>
           <tr>
-            <th width="130px">Object Name</th>
-            <th width="150px">{generic.name[currentLanguage]}</th>
-            <th width="160px">{generic.type[currentLanguage]}</th>
-            <th>{generic.description[currentLanguage]}</th>
+            <th>Object Name</th>
+            <th>{generic.name}</th>
+            <th>{generic.type}</th>
+            <th>{generic.description}</th>
           </tr>
         </thead>
         <tbody>

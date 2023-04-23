@@ -8,7 +8,8 @@ createStore(
     setting,
   },
   {
-    storageType: typeof window !== "undefined" ? window.localStorage : {},
+    storageType:
+      typeof window !== "undefined" ? window.localStorage : undefined,
   }
 )
 

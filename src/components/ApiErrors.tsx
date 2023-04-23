@@ -12,11 +12,9 @@ import * as tableStyles from "../styles/table.module.css"
 
 function ApiErrors({
   api,
-  currentLanguage,
   goToSection,
 }: {
   api: any
-  currentLanguage: string
   goToSection: (name: string, animate?: boolean) => void
 }) {
   return (
@@ -30,21 +28,21 @@ function ApiErrors({
         </h2>
       </code>
 
-      {api.errors.description(currentLanguage)}
+      {api.errors.description}
 
       <div className={tableStyles.tableWrapper}>
         <table className={tableStyles.table}>
           <tbody>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
+              <th>{generic.name}</th>
               <th
                 style={{
                   minWidth: 250,
                 }}
               >
-                {generic.type[currentLanguage]}
+                {generic.type}
               </th>
-              <th>{generic.description[currentLanguage]}</th>
+              <th>{generic.description}</th>
             </tr>
             <tr>
               <td>
@@ -53,10 +51,7 @@ function ApiErrors({
               <td>
                 <span className={typographyStyles.typeText}>string</span>
               </td>
-              <td>
-                Error {generic.type[currentLanguage]}. eg: required, min, max,
-                minLength
-              </td>
+              <td>Error {generic.type}. eg: required, min, max, minLength</td>
             </tr>
             <tr>
               <td>

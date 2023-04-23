@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Trigger from "../../../components/useForm/Trigger"
 
-const TriggerComponent = ({ location }) => {
+const TriggerComponent = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - trigger" />
-      <Trigger currentLanguage="en" />
+      <Trigger />
     </Layout>
   )
 }

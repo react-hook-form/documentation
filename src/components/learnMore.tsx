@@ -3,15 +3,11 @@ import generic from "../data/generic"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 
-export default function LearnMore({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function LearnMore() {
   return (
     <div className={containerStyles.centerContent} style={{ marginTop: 100 }}>
-      <h1>{generic.learnMore[currentLanguage].title}</h1>
-      <p>{generic.learnMore[currentLanguage].description}</p>
+      <h1>{generic.learnMore.title}</h1>
+      <p>{generic.learnMore.description}</p>
 
       <button
         className={buttonStyles.primaryButton}
@@ -20,7 +16,7 @@ export default function LearnMore({
         }}
         style={{ margin: "40px auto" }}
       >
-        {generic.learnMore[currentLanguage].buttonText}
+        {generic.learnMore.buttonText}
       </button>
     </div>
   )

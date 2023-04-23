@@ -1,4 +1,4 @@
-import api from "../data/en/api"
+import api from "../data/api"
 import * as typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
@@ -6,11 +6,7 @@ import * as containerStyles from "../styles/container.module.css"
 import UseControllerContent from "./UseControllerContent"
 import StarRepo from "./StarRepo"
 
-export default function UseFieldArray({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function UseFieldArray() {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -25,12 +21,12 @@ export default function UseFieldArray({
 
         <main>
           <section>
-            <UseControllerContent currentLanguage={currentLanguage} api={api} />
+            <UseControllerContent api={api} />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

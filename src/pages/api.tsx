@@ -1,19 +1,12 @@
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import api from "../data/en/api"
+import api from "../data/api"
 import ApiGallery from "../components/ApiGallery"
 
-const Api = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => (
-  <Layout location={location} defaultLang="en">
+const Api = () => (
+  <Layout>
     <Seo title={api.title} />
-    <ApiGallery defaultLang="en" />
+    <ApiGallery />
   </Layout>
 )
 

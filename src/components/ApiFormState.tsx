@@ -6,13 +6,7 @@ import CodeArea from "./CodeArea"
 import formStateUseEffect from "./codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "./codeExamples/formStateUseEffectTs"
 
-function ApiFormState({
-  api,
-  currentLanguage,
-}: {
-  currentLanguage: string
-  api: any
-}) {
+function ApiFormState({ api }: { api: any }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -22,7 +16,7 @@ function ApiFormState({
       </code>
       {api.formState.description}
 
-      <FormStateTable currentLanguage={currentLanguage} api={api} />
+      <FormStateTable api={api} />
 
       <h2 id="rules" className={typographyStyles.rulesTitle}>
         Rules

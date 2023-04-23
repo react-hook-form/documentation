@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Reset from "../../../components/useForm/Reset"
 
-const ResetComponent = ({ location }) => {
+const ResetComponent = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - reset" />
-      <Reset currentLanguage="en" />
+      <Reset />
     </Layout>
   )
 }

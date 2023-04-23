@@ -74,11 +74,9 @@ const WatchGroup = ({
 const Watcher = ({
   isPlayWatch,
   lightMode,
-  currentLanguage,
 }: {
   isPlayWatch: boolean
   lightMode: boolean
-  currentLanguage: string
 }) => {
   let timer
   const { register, control, setValue } = useForm()
@@ -124,10 +122,8 @@ const Watcher = ({
     <AnimateGroup play={isPlayWatch}>
       <div className={styles.watcher} id="watch">
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>
-            {home.watcher[currentLanguage].title}
-          </h1>
-          {home.watcher[currentLanguage].description}
+          <h1 className={typographyStyles.h1}>{home.watcher.title}</h1>
+          {home.watcher.description}
         </div>
 
         <div className={styles.root}>

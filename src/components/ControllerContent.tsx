@@ -7,14 +7,9 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as tableStyles from "../styles/table.module.css"
 import controllerTs from "./codeExamples/controllerTs"
 import UseControllerMethods from "./UseControllerMethods"
+import apidata from "../data/api"
 
-export default function ControllerContent({
-  currentLanguage,
-  api,
-}: {
-  currentLanguage: string
-  api: any
-}) {
+export default function ControllerContent({ api }: { api: typeof apidata }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -37,17 +32,17 @@ export default function ControllerContent({
         <table className={tableStyles.table}>
           <thead>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
-              <th width="150px">{generic.type[currentLanguage]}</th>
-              <th width="90px">{generic.required[currentLanguage]}</th>
-              <th>{generic.description[currentLanguage]}</th>
+              <th>{generic.name}</th>
+              <th>{generic.type}</th>
+              <th>{generic.required}</th>
+              <th>{generic.description}</th>
             </tr>
           </thead>
           {api.Controller.table}
         </table>
       </div>
 
-      <UseControllerMethods currentLanguage={currentLanguage} isController />
+      <UseControllerMethods isController />
 
       <h2 id="example" className={typographyStyles.subTitle}>
         Examples

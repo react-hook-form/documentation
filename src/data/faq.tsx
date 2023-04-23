@@ -1,25 +1,25 @@
-import colors from "../../styles/colors"
-import enzymeInput from "../../components/codeExamples/enzymeInput"
-import focusController from "../../components/codeExamples/focusController"
-import toggleFields from "../../components/codeExamples/toggleFields"
-import CodeArea from "../../components/CodeArea"
-import copyClipBoard from "../../components/utils/copyClipBoard"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as tableStyles from "../../styles/table.module.css"
-import * as buttonStyles from "../../styles/button.module.css"
-import * as getStartedStyles from "../../components/GetStarted.module.css"
-import ClipBoard from "../../components/ClipBoard"
-import accessibleCode from "../../components/codeExamples/accessibleCode"
-import initialValue from "../../components/codeExamples/initialValue"
-import shareRef from "../../components/codeExamples/shareRef"
-import shareRefTs from "../../components/codeExamples/shareRefTs"
-import manualValidation from "../../components/codeExamples/manualValidation"
-import control from "../../components/codeExamples/control"
-import controlled from "../../components/codeExamples/controlled"
-import TabGroup from "../../components/TabGroup"
-import importKeystroke from "../../components/codeExamples/importKeystroke"
-import asyncDefaultValue from "../../components/codeExamples/asyncDefaultValue"
-import asyncValues from "../../components/codeExamples/asyncValues"
+import colors from "../styles/colors"
+import enzymeInput from "../components/codeExamples/enzymeInput"
+import focusController from "../components/codeExamples/focusController"
+import toggleFields from "../components/codeExamples/toggleFields"
+import CodeArea from "../components/CodeArea"
+import copyClipBoard from "../components/utils/copyClipBoard"
+import * as typographyStyles from "../styles/typography.module.css"
+import * as tableStyles from "../styles/table.module.css"
+import * as buttonStyles from "../styles/button.module.css"
+import * as getStartedStyles from "../components/GetStarted.module.css"
+import ClipBoard from "../components/ClipBoard"
+import accessibleCode from "../components/codeExamples/accessibleCode"
+import initialValue from "../components/codeExamples/initialValue"
+import shareRef from "../components/codeExamples/shareRef"
+import shareRefTs from "../components/codeExamples/shareRefTs"
+import manualValidation from "../components/codeExamples/manualValidation"
+import control from "../components/codeExamples/control"
+import controlled from "../components/codeExamples/controlled"
+import TabGroup from "../components/TabGroup"
+import importKeystroke from "../components/codeExamples/importKeystroke"
+import asyncDefaultValue from "../components/codeExamples/asyncDefaultValue"
+import asyncValues from "../components/codeExamples/asyncValues"
 
 export default {
   title: "FAQs",
@@ -759,7 +759,6 @@ export default {
             <ClipBoard
               className={getStartedStyles.copyButton}
               onClick={() => copyClipBoard("npm i mutationobserver-shim")}
-              currentLanguage="en"
             />
           </span>
         </div>

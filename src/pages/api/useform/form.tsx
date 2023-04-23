@@ -15,9 +15,9 @@ import * as tableStyles from "../../../styles/table.module.css"
 import generic from "../../../data/generic"
 import { Link } from "gatsby"
 
-const Form = ({ location }) => {
+const Form = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - control" />
       <div className={containerStyles.container}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -90,9 +90,9 @@ const Form = ({ location }) => {
                 <table className={tableStyles.table}>
                   <thead>
                     <tr>
-                      <th>{generic.name.en}</th>
-                      <th width="70px">{generic.type.en}</th>
-                      <th width="260px">{generic.description.en}</th>
+                      <th>{generic.name}</th>
+                      <th>{generic.type}</th>
+                      <th>{generic.description}</th>
                       <th>Example</th>
                     </tr>
                   </thead>
@@ -403,10 +403,10 @@ const mutation = useMutation();
                 <CodeArea rawData={formNative} />
               </TabGroup>
 
-              <StarRepo currentLanguage="en" />
+              <StarRepo />
             </section>
 
-            <Footer currentLanguage="en" />
+            <Footer />
           </main>
         </div>
       </div>

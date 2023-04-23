@@ -2,18 +2,14 @@ import generic from "../data/generic"
 import * as buttonStyles from "../styles/button.module.css"
 import * as containerStyles from "../styles/container.module.css"
 
-export default function StarRepo({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function StarRepo() {
   return (
     <div
       className={containerStyles.centerContent}
       style={{ marginTop: 100, maxWidth: 600 }}
     >
-      <h1>{generic.needYourSupport[currentLanguage].title}</h1>
-      <p>{generic.needYourSupport[currentLanguage].description}</p>
+      <h1>{generic.needYourSupport.title}</h1>
+      <p>{generic.needYourSupport.description}</p>
       <button
         className={buttonStyles.primaryButton}
         onClick={() => {
@@ -23,7 +19,7 @@ export default function StarRepo({
         }}
         style={{ margin: "40px auto" }}
       >
-        {generic.needYourSupport[currentLanguage].buttonText}
+        {generic.needYourSupport.buttonText}
       </button>
     </div>
   )

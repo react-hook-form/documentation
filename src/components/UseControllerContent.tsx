@@ -9,13 +9,7 @@ import TabGroup from "./TabGroup"
 import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
 import { SelectNav } from "./selectNav"
 
-export default function UseControllerContent({
-  api,
-  currentLanguage,
-}: {
-  api: any
-  currentLanguage: string
-}) {
+export default function UseControllerContent({ api }: { api: any }) {
   return (
     <>
       <SelectNav
@@ -45,17 +39,17 @@ export default function UseControllerContent({
         <table className={tableStyles.table}>
           <thead>
             <tr>
-              <th>{generic.name[currentLanguage]}</th>
-              <th width="150px">{generic.type[currentLanguage]}</th>
-              <th width="90px">{generic.required[currentLanguage]}</th>
-              <th>{generic.description[currentLanguage]}</th>
+              <th>{generic.name}</th>
+              <th>{generic.type}</th>
+              <th>{generic.required}</th>
+              <th>{generic.description}</th>
             </tr>
           </thead>
           {api.useController.table}
         </table>
       </div>
 
-      <UseControllerMethods currentLanguage={currentLanguage} />
+      <UseControllerMethods isController={false} />
 
       <h2 id="example" className={typographyStyles.subTitle}>
         Examples

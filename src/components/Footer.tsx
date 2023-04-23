@@ -3,11 +3,7 @@ import nav from "../data/nav"
 import { useStateMachine } from "little-state-machine"
 import * as styles from "./Footer.module.css"
 
-export default function Footer({
-  currentLanguage,
-}: {
-  currentLanguage: string
-}) {
+export default function Footer() {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 
@@ -17,10 +13,10 @@ export default function Footer({
     >
       <ul className={styles.links}>
         <li>
-          <Link to="/">{nav[currentLanguage].home}</Link>
+          <Link to="/">{nav.home}</Link>
         </li>
         <li>
-          <Link to="/get-started">{nav[currentLanguage].getStarted}</Link>
+          <Link to="/get-started">{nav.getStarted}</Link>
         </li>
         <li>
           <Link to="/api">API</Link>
@@ -29,19 +25,19 @@ export default function Footer({
           <Link to="/ts">TS</Link>
         </li>
         <li>
-          <Link to="/advanced-usage">{nav[currentLanguage].advanced}</Link>
+          <Link to="/advanced-usage">{nav.advanced}</Link>
         </li>
         <li>
-          <Link to="/faqs">{nav[currentLanguage].faqs}</Link>
+          <Link to="/faqs">{nav.faqs}</Link>
         </li>
         <li>
-          <Link to="/form-builder">{nav[currentLanguage].builder}</Link>
+          <Link to="/form-builder">{nav.builder}</Link>
         </li>
         <li>
           <Link to="/dev-tools">DevTools</Link>
         </li>
         <li>
-          <Link to="/resources">{nav[currentLanguage].resources}</Link>
+          <Link to="/resources">{nav.resources}</Link>
         </li>
         <li>
           <Link to="/about-us">About us</Link>

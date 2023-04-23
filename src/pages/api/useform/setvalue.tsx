@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import SetValue from "../../../components/useForm/SetValue"
 
-const Setvalue = ({ location }) => {
+const Setvalue = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - setValue" />
-      <SetValue currentLanguage="en" />
+      <SetValue />
     </Layout>
   )
 }

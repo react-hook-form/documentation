@@ -12,13 +12,7 @@ import * as containerStyles from "../styles/container.module.css"
 import Footer from "./Footer"
 import StarRepo from "./StarRepo"
 
-export default function ErrorMessage({
-  api,
-  currentLanguage,
-}: {
-  api: any
-  currentLanguage: string
-}) {
+export default function ErrorMessage({ api }: { api: any }) {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -62,10 +56,10 @@ export default function ErrorMessage({
                 <table className={tableStyles.table}>
                   <thead>
                     <tr>
-                      <th>{generic.name[currentLanguage]}</th>
-                      <th>{generic.type[currentLanguage]}</th>
-                      <th width="90px">{generic.required[currentLanguage]}</th>
-                      <th>{generic.description[currentLanguage]}</th>
+                      <th>{generic.name}</th>
+                      <th>{generic.type}</th>
+                      <th>{generic.required}</th>
+                      <th>{generic.description}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -160,10 +154,10 @@ export default function ErrorMessage({
               </TabGroup>
             </div>
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import api from "../../data/en/api"
+import api from "../../data/api"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import * as tableStyles from "../../styles/table.module.css"
@@ -10,7 +10,7 @@ import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
 import generic from "../../data/generic"
 import StarRepo from "../StarRepo"
 
-const UnRegister = ({ currentLanguage }) => {
+const UnRegister = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -44,10 +44,10 @@ const UnRegister = ({ currentLanguage }) => {
               <table className={tableStyles.table}>
                 <tbody>
                   <tr>
-                    <th>{generic.name[currentLanguage]}</th>
-                    <th>{generic.type[currentLanguage]}</th>
-                    <th>{generic.description[currentLanguage]}</th>
-                    <th>{generic.codeExample[currentLanguage]}</th>
+                    <th>{generic.name}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
+                    <th>{generic.codeExample}</th>
                   </tr>
                   <tr>
                     <td>
@@ -255,10 +255,10 @@ const onClick = () => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

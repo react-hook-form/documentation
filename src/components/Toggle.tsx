@@ -1,9 +1,9 @@
-import * as React from "react"
+import { CSSProperties } from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
 import * as styles from "./Toggle.module.css"
 
-export default function Toggle({ style }: { style?: React.CSSProperties }) {
+export default function Toggle({ style }: { style?: CSSProperties }) {
   const { actions, state } = useStateMachine({ updateSetting })
   const lightMode = state?.setting?.lightMode
 

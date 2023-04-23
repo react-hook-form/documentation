@@ -95,23 +95,15 @@ const ControlledInputs = ({ style }) => {
   )
 }
 
-function IsolateRender({
-  isIsolatePlay,
-  currentLanguage,
-}: {
-  isIsolatePlay: boolean
-  currentLanguage: string
-}) {
+function IsolateRender({ isIsolatePlay }: { isIsolatePlay: boolean }) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 
   return (
     <div className={containerStyles.centerContent}>
-      <h1 className={typographyStyles.h1}>
-        {home.isolateRender[currentLanguage].title}
-      </h1>
+      <h1 className={typographyStyles.h1}>{home.isolateRender.title}</h1>
 
-      {home.isolateRender[currentLanguage].description}
+      {home.isolateRender.description}
 
       <div
         className={`${styles.wrapper} ${lightMode ? styles.lightWrapper : ""}`}

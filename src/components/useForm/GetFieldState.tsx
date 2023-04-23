@@ -46,9 +46,9 @@ export const GetFieldState = () => {
               <table className={tableStyles.table}>
                 <thead>
                   <tr>
-                    <th>{generic.name.en}</th>
-                    <th>{generic.type.en}</th>
-                    <th>{generic.description.en}</th>
+                    <th>{generic.name}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,9 +97,9 @@ getFieldState('firstName') // return updated field error state
               <table className={tableStyles.table}>
                 <thead>
                   <tr>
-                    <th>{generic.name.en}</th>
-                    <th>{generic.type.en}</th>
-                    <th>{generic.description.en}</th>
+                    <th>{generic.name}</th>
+                    <th>{generic.type}</th>
+                    <th>{generic.description}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -257,10 +257,10 @@ const { touchedFields } = getFieldState('test', formState); // ✅ formState.tou
               url="https://codesandbox.io/s/getfieldstate-jvekk"
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage="en" />
+          <Footer />
         </main>
       </div>
     </div>

@@ -9,13 +9,7 @@ import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 import StarRepo from "./StarRepo"
 import { Link } from "gatsby"
 
-export default function ApiWatch({
-  currentLanguage,
-  api,
-}: {
-  api: any
-  currentLanguage: string
-}) {
+export default function ApiWatch({ api }: { api: any }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>
@@ -40,14 +34,14 @@ export default function ApiWatch({
                   minWidth: 180,
                 }}
               >
-                {generic.type[currentLanguage]}
+                {generic.type}
               </th>
               <th
                 style={{
                   minWidth: 200,
                 }}
               >
-                {generic.description[currentLanguage]}
+                {generic.description}
               </th>
             </tr>
             <tr>
@@ -91,14 +85,14 @@ export default function ApiWatch({
                   minWidth: 340,
                 }}
               >
-                {generic.example[currentLanguage]}
+                {generic.example}
               </th>
               <th
                 style={{
                   minWidth: 180,
                 }}
               >
-                {generic.return[currentLanguage]}
+                {generic.return}
               </th>
             </tr>
             <tr>
@@ -212,7 +206,7 @@ export default function ApiWatch({
         allowFullScreen
       />
 
-      <StarRepo currentLanguage="en" />
+      <StarRepo />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useRef, useEffect } from "react"
 import GetStarted from "../components/GetStarted"
 import SideMenu from "../components/SideMenu"
 import CodeArea from "../components/CodeArea"
@@ -20,7 +20,7 @@ import {
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
 import { useStateMachine } from "little-state-machine"
-import getStartedEn from "../data/en/getStarted"
+import getStartedEn from "../data/getStarted"
 import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
 import schemaValidation from "./codeExamples/schemaValidation"
@@ -29,13 +29,12 @@ import copyClipBoard from "./utils/copyClipBoard"
 import * as getStartedStyles from "./GetStarted.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
-import getStarted from "../data/en/getStarted"
+import getStarted from "../data/getStarted"
 import TabGroup from "./TabGroup"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
 import ClipBoard from "./ClipBoard"
 
-const { useRef, useEffect } = React
 const enLinks = [
   getStartedEn.install,
   getStartedEn.video,
@@ -53,23 +52,14 @@ const enLinks = [
 ]
 
 interface Props {
-  location: {
-    search: string
-    pathname: string
-    hash: string
-  }
-  defaultLang: string
   getStarted: typeof getStarted
 }
 
-const Faq = ({ location, defaultLang, getStarted }: Props) => {
+const Faq = ({ getStarted }: Props) => {
   const {
-    state: { language, setting },
+    state: { setting },
   } = useStateMachine()
-  const { currentLanguage } =
-    language && language.currentLanguage
-      ? language
-      : { currentLanguage: defaultLang }
+
   const lightMode = setting?.lightMode
 
   const links = [
@@ -124,8 +114,8 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
   }
 
   useEffect(() => {
-    if (location.hash)
-      setTimeout(() => goToSection(location.hash.substr(1)), 10)
+    if (window.location.hash)
+      setTimeout(() => goToSection(window.location.hash.substr(1)), 10)
   }, [])
 
   return (
@@ -143,7 +133,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
           isStatic
           links={links}
           goToSection={goToSection}
-          currentLanguage={currentLanguage}
         />
 
         <main>
@@ -154,7 +143,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
                 getRefNameFromTitle(getStartedEn.install.title)
               ] = ref
             }}
-            currentLanguage={currentLanguage}
           />
 
           <p
@@ -220,7 +208,7 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
             {getStarted.applyValidation.title}
           </h2>
 
-          {getStarted.applyValidation.description(currentLanguage)}
+          {getStarted.applyValidation.description}
 
           <CodeArea
             rawData={applyValidation}
@@ -364,7 +352,6 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
               onClick={() =>
                 copyClipBoard("npm install @hookform/resolvers yup")
               }
-              currentLanguage={currentLanguage}
             />
           </span>
 
@@ -430,9 +417,9 @@ const Faq = ({ location, defaultLang, getStarted }: Props) => {
 
           {getStarted.design.description}
 
-          <LearnMore currentLanguage={currentLanguage} />
+          <LearnMore />
 
-          <Footer currentLanguage={currentLanguage} />
+          <Footer />
         </main>
       </div>
     </div>

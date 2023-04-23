@@ -2,18 +2,11 @@ import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import ResourcePageBindings from "../../components/ResourcePageBindings"
 
-const ResourcesBindings = ({
-  location,
-}: {
-  location: {
-    search: string
-    pathname: string
-  }
-}) => {
+const ResourcesBindings = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="3rd-party-bindings" />
-      <ResourcePageBindings defaultLang="en" />
+      <ResourcePageBindings />
     </Layout>
   )
 }

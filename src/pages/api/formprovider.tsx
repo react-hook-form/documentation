@@ -8,9 +8,9 @@ import formContext from "../../components/codeExamples/formContext"
 import * as tableStyles from "../../styles/table.module.css"
 import { Link } from "gatsby"
 
-export default function FormProvider({ location }) {
+export default function FormProvider() {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="FormProvider" />
       <div className={containerStyles.container}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">

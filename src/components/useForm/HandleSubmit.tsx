@@ -1,6 +1,6 @@
 import Footer from "../Footer"
 import { Menu } from "../Menu"
-import api from "../../data/en/api"
+import api from "../../data/api"
 import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import TabGroup from "../TabGroup"
@@ -10,7 +10,7 @@ import handleSubmitCodeTs from "../codeExamples/handleSubmitCodeTs"
 import handleSubmitAsyncCode from "../codeExamples/handleSubmitAsyncCode"
 import StarRepo from "../StarRepo"
 
-const HandleSubmit = ({ currentLanguage }) => {
+const HandleSubmit = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -68,10 +68,10 @@ const HandleSubmit = ({ currentLanguage }) => {
               allowFullScreen
             />
 
-            <StarRepo currentLanguage="en" />
+            <StarRepo />
           </section>
 
-          <Footer currentLanguage={currentLanguage || "en"} />
+          <Footer />
         </main>
       </div>
     </div>

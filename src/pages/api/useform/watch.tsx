@@ -2,11 +2,11 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Watch from "../../../components/useForm/Watch"
 
-const WatchComponent = ({ location }) => {
+const WatchComponent = () => {
   return (
-    <Layout location={location} defaultLang="en">
+    <Layout>
       <Seo title="useForm - watch" />
-      <Watch currentLanguage="en" />
+      <Watch />
     </Layout>
   )
 }

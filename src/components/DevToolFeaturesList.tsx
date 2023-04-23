@@ -19,19 +19,16 @@ const animationKeyFramesProps = {
 
 interface Props {
   isPlayFeature: boolean
-  currentLanguage: string
   content: any
 }
 
-function FeaturesList({ isPlayFeature, currentLanguage, content }: Props) {
+function FeaturesList({ isPlayFeature, content }: Props) {
   const { state } = useStateMachine()
   const lightMode = state?.setting?.lightMode
 
   return (
     <div className={styles.features}>
-      <h2 className={typographyStyles.title}>
-        {generic.features[currentLanguage]}
-      </h2>
+      <h2 className={typographyStyles.title}>{generic.features}</h2>
 
       <AnimateGroup play={isPlayFeature}>
         <div
@@ -94,7 +91,7 @@ function FeaturesList({ isPlayFeature, currentLanguage, content }: Props) {
                 >{`</>`}</code>
               </div>
             </AnimateKeyframes>
-            <h3>{home.features[currentLanguage][0].title}</h3>
+            <h3>{home.features[0].title}</h3>
             <p>{content.features[1].description}</p>
           </article>
           <article>

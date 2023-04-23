@@ -16,10 +16,8 @@ const props = {
 
 function CodeCompareSection({
   isPlayCodeCompare,
-  currentLanguage,
 }: {
   isPlayCodeCompare: boolean
-  currentLanguage: string
 }) {
   return (
     <AnimateGroup play={isPlayCodeCompare}>
@@ -29,11 +27,9 @@ function CodeCompareSection({
         }}
       >
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>
-            {home.codeComparison[currentLanguage].title}
-          </h1>
+          <h1 className={typographyStyles.h1}>{home.codeComparison.title}</h1>
 
-          {home.codeComparison[currentLanguage].description}
+          {home.codeComparison.description}
         </div>
 
         <section

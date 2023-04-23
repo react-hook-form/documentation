@@ -36,7 +36,6 @@ function SideMenu({
   goToSection,
   enLinks,
   isStatic,
-  currentLanguage,
   activeIndex,
   version,
 }: {
@@ -44,7 +43,6 @@ function SideMenu({
   goToSection: (name: any, animate?: boolean) => void
   isStatic?: boolean
   enLinks: any
-  currentLanguage: string
   activeIndex?: number
   version?: number
 }) {
@@ -62,7 +60,7 @@ function SideMenu({
               color: colors.lightBlue,
             }}
           >
-            {generic.menu[currentLanguage]}
+            {generic.menu}
           </h4>
         </div>
 
@@ -198,7 +196,7 @@ function SideMenu({
               href="https://github.com/react-hook-form/react-hook-form/tree/master/examples"
               target="_blank"
             >
-              {generic.codeExample[currentLanguage]}
+              {generic.codeExample}
             </a>
           </li>
         </ul>
