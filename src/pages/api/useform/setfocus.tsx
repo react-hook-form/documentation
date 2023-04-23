@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import SetFocus from "../../../components/useForm/SetFocus"
 
-export default ({ location }) => {
+const Setfocus = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - setFocus" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Setfocus

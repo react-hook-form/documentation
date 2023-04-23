@@ -1,4 +1,3 @@
-import * as React from "react"
 import Helmet from "react-helmet"
 
 function SEO({ title, description }: { title: string; description?: string }) {

@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useState } from "react"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
 import * as typographyStyles from "../styles/typography.module.css"
@@ -9,8 +9,8 @@ import registerTs from "./codeExamples/registerTs"
 
 const currentLanguage = "en"
 
-export default function ApiRefTable({ api }) {
-  const [isStandard, toggleOption] = React.useState(true)
+export default function ApiRefTable({ api }: { api: any }) {
+  const [isStandard, toggleOption] = useState(true)
 
   return (
     <>

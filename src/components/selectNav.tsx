@@ -1,4 +1,3 @@
-import * as React from "react"
 import { navigate } from "gatsby"
 
 import * as styles from "./selectNav.module.css"

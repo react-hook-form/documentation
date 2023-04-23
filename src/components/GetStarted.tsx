@@ -1,7 +1,6 @@
 import CodeArea from "./CodeArea"
 import code from "./codeExamples/defaultExample"
 import codeTs from "./codeExamples/defaultExampleTs"
-import * as React from "react"
 import generic from "../data/generic"
 import copyClipBoard from "./utils/copyClipBoard"
 import { useStateMachine } from "little-state-machine"

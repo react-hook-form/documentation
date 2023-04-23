@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useEffect } from "react"
 import { useStateMachine } from "little-state-machine"
 import { Link } from "gatsby"
 import Footer from "./Footer"
@@ -47,7 +47,7 @@ export default function ApiGallery({ defaultLang }) {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const name = window.location.hash.toLowerCase().slice(1)
 
     if (name === "controller") {

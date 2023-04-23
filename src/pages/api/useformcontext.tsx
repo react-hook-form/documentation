@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import UseFormContext from "../../components/UseFormContext"
 
-export default ({ location }) => {
+const Useformcontext = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useFormContext" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Useformcontext

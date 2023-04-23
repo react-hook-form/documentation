@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import GetValues from "../../../components/useForm/GetValues"
 
-export default ({ location }) => {
+const Getvalues = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - getValues" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default Getvalues

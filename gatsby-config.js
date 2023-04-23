@@ -2,6 +2,7 @@
 const languages = require("./src/data/languages")
 
 module.exports = {
+  jsxRuntime: "automatic",
   flags: {
     FAST_DEV: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,

@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -6,7 +5,7 @@ import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import ApiWatch from "../ApiWatch"
 
-export default ({ currentLanguage }) => {
+const Watch = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -26,3 +25,5 @@ export default ({ currentLanguage }) => {
     </div>
   )
 }
+
+export default Watch

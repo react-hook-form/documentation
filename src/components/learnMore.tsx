@@ -1,4 +1,3 @@
-import * as React from "react"
 import { navigate } from "gatsby"
 import generic from "../data/generic"
 import * as containerStyles from "../styles/container.module.css"

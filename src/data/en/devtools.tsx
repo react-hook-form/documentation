@@ -1,4 +1,3 @@
-import * as React from "react"
 import * as typographyStyles from "../../styles/typography.module.css"
 
 export default {

@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -7,7 +6,7 @@ import * as typographyStyles from "../../styles/typography.module.css"
 import * as containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
 
-export default () => {
+const Register = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -42,3 +41,5 @@ export default () => {
     </div>
   )
 }
+
+export default Register

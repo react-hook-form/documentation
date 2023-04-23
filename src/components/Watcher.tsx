@@ -1,11 +1,10 @@
-import * as React from "react"
+import { useState, useEffect } from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { Control, useForm, useWatch } from "react-hook-form"
 import * as containerStyles from "../styles/container.module.css"
 import * as formStyles from "./Form.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./Watcher.module.css"
-import { useEffect } from "react"
 import home from "../data/home"
 
 const WatchText = ({
@@ -56,7 +55,7 @@ const WatchGroup = ({
   lightMode: boolean
   control: Control
 }) => {
-  const [check, setChecked] = React.useState(checked)
+  const [check, setChecked] = useState(checked)
   return (
     <div className={styles.watchGroup}>
       <input
@@ -72,7 +71,7 @@ const WatchGroup = ({
   )
 }
 
-export default ({
+const Watcher = ({
   isPlayWatch,
   lightMode,
   currentLanguage,
@@ -250,3 +249,5 @@ export default ({
     </AnimateGroup>
   )
 }
+
+export default Watcher

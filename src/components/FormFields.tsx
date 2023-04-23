@@ -1,4 +1,3 @@
-import * as React from "react"
 import colors from "../styles/colors"
 import * as styles from "./FormFields.module.css"
 

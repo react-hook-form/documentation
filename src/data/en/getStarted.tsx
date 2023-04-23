@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Link } from "@reach/router"
 import * as typographyStyles from "../../styles/typography.module.css"
 

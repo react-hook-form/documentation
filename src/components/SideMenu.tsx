@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import colors from "../styles/colors"
 import generic from "../data/generic"
 import { useStateMachine } from "little-state-machine"
@@ -207,4 +207,4 @@ function SideMenu({
   )
 }
 
-export default React.memo(SideMenu)
+export default memo(SideMenu)

@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import * as styles from "./Bday.module.css"
 import { Link } from "gatsby"
@@ -22,7 +21,7 @@ const list = [
   </p>,
 ]
 
-export default ({ isCardPlay }: { isCardPlay: boolean }) => {
+export default function CardPlay({ isCardPlay }: { isCardPlay: boolean }) {
   return (
     <AnimateGroup play={isCardPlay}>
       <Animate

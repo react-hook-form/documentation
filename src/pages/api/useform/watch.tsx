@@ -1,9 +1,8 @@
-import * as React from "react"
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Watch from "../../../components/useForm/Watch"
 
-export default ({ location }) => {
+const WatchComponent = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="useForm - watch" />
@@ -11,3 +10,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default WatchComponent

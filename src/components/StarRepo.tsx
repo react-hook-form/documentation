@@ -1,4 +1,3 @@
-import * as React from "react"
 import generic from "../data/generic"
 import * as buttonStyles from "../styles/button.module.css"
 import * as containerStyles from "../styles/container.module.css"

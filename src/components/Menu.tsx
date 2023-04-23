@@ -1,4 +1,3 @@
-import * as React from "react"
 import { useStateMachine } from "little-state-machine"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"

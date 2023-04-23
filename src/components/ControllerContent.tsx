@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import controller from "./codeExamples/controller"
 import reactNativeController from "./codeExamples/reactNativeController"

@@ -1,4 +1,4 @@
-import * as React from "react"
+import { memo } from "react"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
@@ -40,6 +40,7 @@ function Form({
 }) {
   const { register, errors, handleSubmit, watch, formState, reset } =
     methods ||
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useForm({
       mode: "onChange",
     })
@@ -197,4 +198,4 @@ function Form({
   )
 }
 
-export default React.memo(Form)
+export default memo(Form)

@@ -1,4 +1,3 @@
-import * as React from "react"
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import * as containerStyles from "../../styles/container.module.css"
@@ -9,7 +8,7 @@ import formContext from "../../components/codeExamples/formContext"
 import * as tableStyles from "../../styles/table.module.css"
 import { Link } from "gatsby"
 
-export default ({ location }) => {
+export default function FormProvider({ location }) {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="FormProvider" />

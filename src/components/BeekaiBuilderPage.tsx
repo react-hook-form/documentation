@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import * as styles from "./BeekaiBuilderPage.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 

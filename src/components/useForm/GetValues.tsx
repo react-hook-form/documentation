@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -10,7 +9,7 @@ import getValuesTs from "../codeExamples/getValuesTs"
 import getValuesTypes from "../codeExamples/getValuesTypes"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const GetValues = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -55,3 +54,5 @@ export default ({ currentLanguage }) => {
     </div>
   )
 }
+
+export default GetValues

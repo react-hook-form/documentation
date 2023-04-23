@@ -1,4 +1,3 @@
-import * as React from "react"
 import CodeArea from "./CodeArea"
 import validationResolver from "./codeExamples/validationResolver"
 import joiResolver from "./codeExamples/joiResolver"
@@ -16,7 +15,7 @@ import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 import { Link } from "gatsby"
 
-export default function ({ api }) {
+export default function ValidationResolver({ api }: { api: any }) {
   return (
     <>
       <h5

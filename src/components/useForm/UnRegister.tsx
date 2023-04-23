@@ -1,4 +1,3 @@
-import * as React from "react"
 import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/en/api"
@@ -11,7 +10,7 @@ import unregisterCodeTs from "../codeExamples/unregisterCodeTs"
 import generic from "../../data/generic"
 import StarRepo from "../StarRepo"
 
-export default ({ currentLanguage }) => {
+const UnRegister = ({ currentLanguage }) => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -265,3 +264,5 @@ const onClick = () => {
     </div>
   )
 }
+
+export default UnRegister

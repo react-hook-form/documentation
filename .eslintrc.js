@@ -13,10 +13,16 @@ module.exports = {
       jsx: true,
     },
   },
+  env: {
+    browser: true,
+    node: true,
+  },
   extends: [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:react/jsx-runtime",
   ],
   settings: {
     react: {
@@ -29,7 +35,6 @@ module.exports = {
     "@typescript-eslint/interface-name-prefix": OFF,
     "@typescript-eslint/explicit-module-boundary-types": OFF,
     // react
-    "react/display-name": OFF,
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
     "react/jsx-curly-brace-presence": "warn",

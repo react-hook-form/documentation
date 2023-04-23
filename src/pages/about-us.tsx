@@ -1,4 +1,3 @@
-import * as React from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
@@ -145,7 +144,7 @@ const data = [
   },
 ]
 
-export default ({ location }) => {
+const AboutUs = ({ location }) => {
   return (
     <Layout location={location} defaultLang="en">
       <Seo title="About us" />
@@ -271,3 +270,5 @@ export default ({ location }) => {
     </Layout>
   )
 }
+
+export default AboutUs

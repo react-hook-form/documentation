@@ -1,4 +1,3 @@
-import * as React from "react"
 import api from "../data/en/api"
 import * as typographyStyles from "../styles/typography.module.css"
 import FormContext from "./FormContext"
