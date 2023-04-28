@@ -15,10 +15,6 @@
   height: 60px;
 }
 
-.lightFeaturesContent svg {
-  fill: var(--color-black);
-}
-
 .featuresContent > article {
   padding-bottom: 30px;
 }

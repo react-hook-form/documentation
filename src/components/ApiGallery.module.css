@@ -60,6 +60,7 @@
 }
 
 .gallery h3 {
+  color: white;
   margin: 0;
   font-weight: normal;
   padding: 13px 20px;
@@ -67,7 +68,6 @@
   background: var(--color-button-blue);
   border-bottom: 1px solid var(--color-light-blue);
   letter-spacing: 1px;
-  text-shadow: 2px 2px black;
 }
 
 .gallery h3 code {

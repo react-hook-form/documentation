@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import Link from "next/link"
 import * as containerStyles from "../../styles/container.module.css"
 import * as typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
@@ -33,7 +33,7 @@ export const GetFieldState = () => {
 
             <p>
               This method is introduced in react-hook-form (
-              <Link to="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
+              <Link href="https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0">
                 v7.25.0
               </Link>
               ) to return individual field state. It's useful in case you are

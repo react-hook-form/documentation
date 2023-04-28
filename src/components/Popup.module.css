@@ -19,17 +19,12 @@
   margin-right: 5px;
 }
 
-.lightIcon {
-  /*border: 1px solid var(--color-black)*/
-}
-
 .root {
   font-weight: bold;
   position: relative;
 }
 
 .root > span {
-
   font-size: 14px !important;
   margin-left: 10px;
   font-weight: 400;
@@ -40,7 +35,6 @@
 }
 
 .root > span > span {
-
   display: inline-block;
   position: relative;
   font-family: sans-serif;

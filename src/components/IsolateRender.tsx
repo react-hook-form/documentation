@@ -6,7 +6,6 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as formStyles from "./Form.module.css"
 import * as styles from "./IsolateRender.module.css"
-import { useStateMachine } from "little-state-machine"
 
 const props = {
   keyframes: [
@@ -96,18 +95,13 @@ const ControlledInputs = ({ style }) => {
 }
 
 function IsolateRender({ isIsolatePlay }: { isIsolatePlay: boolean }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-
   return (
     <div className={containerStyles.centerContent}>
       <h1 className={typographyStyles.h1}>{home.isolateRender.title}</h1>
 
       {home.isolateRender.description}
 
-      <div
-        className={`${styles.wrapper} ${lightMode ? styles.lightWrapper : ""}`}
-      >
+      <div className={styles.wrapper}>
         <Animate
           play={isIsolatePlay}
           start={{

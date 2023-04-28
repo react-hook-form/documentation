@@ -16,7 +16,7 @@ export default function UseControllerContent({ api }: { api: any }) {
         options={[
           {
             label: "controller",
-            value: "/api/usecontroller/controller",
+            value: "/docs/usecontroller/controller",
           },
         ]}
       />

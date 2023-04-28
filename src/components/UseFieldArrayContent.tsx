@@ -7,7 +7,7 @@ import TabGroup from "./TabGroup"
 import useFieldArrayConditional from "./codeExamples/useFieldArrayConditional"
 import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
-import { Link } from "gatsby"
+import Link from "next/link"
 import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
 
 export default function UseFieldArrayContent({ api }: { api: any }) {
@@ -16,7 +16,7 @@ export default function UseFieldArrayContent({ api }: { api: any }) {
       <code className={typographyStyles.codeHeading}>
         <h2>
           useFieldArray:{" "}
-          <Link to="/ts#UseFieldArrayProps">
+          <Link href="/ts#UseFieldArrayProps">
             <code className={typographyStyles.typeText}>
               UseFieldArrayProps
             </code>

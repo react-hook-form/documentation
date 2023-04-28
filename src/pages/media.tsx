@@ -5,14 +5,6 @@ import * as styles from "../components/ResourcePage.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as mediaStyles from "./media.module.css"
 import Footer from "../components/Footer"
-import logoPng from "../images/logo/react-hook-form-logo-only.png"
-import logoSvg from "../images/logo/react-hook-form-logo-only.svg"
-import logoPngBg from "../images/logo/react-hook-form-logo.png"
-import logoSvgBg from "../images/logo/react-hook-form-logo.svg"
-import logoGreyPng from "../images/logo/react-hook-form-logo-only-grey.png"
-import logoGreySvg from "../images/logo/react-hook-form-logo-only-grey.svg"
-import logoGreyPngBg from "../images/logo/react-hook-form-logo-grey.png"
-import logoGreySvgBg from "../images/logo/react-hook-form-logo-grey.svg"
 
 const Media = () => {
   return (
@@ -29,35 +21,23 @@ const Media = () => {
 
           <div className={mediaStyles.media}>
             <div>
-              <img src={logoPngBg} alt="logo only" />
+              <img
+                src="/images/logo/react-hook-form-logo-only.png"
+                alt="logo only"
+              />
               <p>PNG</p>
             </div>
             <div>
-              <img src={logoSvgBg} alt="logo only" />
-              <p>SVG</p>
-            </div>
-
-            <div>
-              <img src={logoPng} alt="logo only" className={mediaStyles.logo} />
-              <p>PNG</p>
-            </div>
-            <div>
-              <img src={logoSvg} alt="logo only" className={mediaStyles.logo} />
-              <p>SVG</p>
-            </div>
-
-            <div>
-              <img src={logoGreyPngBg} alt="logo only" />
-              <p>PNG</p>
-            </div>
-            <div>
-              <img src={logoGreySvgBg} alt="logo only" />
+              <img
+                src="/images/logo/react-hook-form-logo-only.svg"
+                alt="logo only"
+              />
               <p>SVG</p>
             </div>
 
             <div>
               <img
-                src={logoGreyPng}
+                src="/images/logo/react-hook-form-logo-only.png"
                 alt="logo only"
                 className={mediaStyles.logo}
               />
@@ -65,7 +45,39 @@ const Media = () => {
             </div>
             <div>
               <img
-                src={logoGreySvg}
+                src="/images/logo/react-hook-form-logo-only.svg"
+                alt="logo only"
+                className={mediaStyles.logo}
+              />
+              <p>SVG</p>
+            </div>
+
+            <div>
+              <img
+                src="/images/logo/react-hook-form-logo-grey.png"
+                alt="logo only"
+              />
+              <p>PNG</p>
+            </div>
+            <div>
+              <img
+                src="/images/logo/react-hook-form-logo-grey.svg"
+                alt="logo only"
+              />
+              <p>SVG</p>
+            </div>
+
+            <div>
+              <img
+                src="/images/logo/react-hook-form-logo-only-grey.png"
+                alt="logo only"
+                className={mediaStyles.logo}
+              />
+              <p>PNG</p>
+            </div>
+            <div>
+              <img
+                src="/images/logo/react-hook-form-logo-only-grey.svg"
                 alt="logo only"
                 className={mediaStyles.logo}
               />

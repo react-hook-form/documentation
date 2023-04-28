@@ -1,4 +1,7 @@
 :root {
+  --color-background: #081229;
+  --color-footer: white;
+  --color-text: white;
   --color-secondary: #bf1650;
   --color-light-pink: #ec5990;
   --color-primary: #0e101c;
@@ -11,6 +14,12 @@
   --color-purple: #0f111b;
   --color-grey: #333;
   --color-light-grey: #ccc;
+}
+
+.light {
+  --color-text: black;
+  --color-background: #ffff;
+  --color-footer: #081229;
 }
 
 html {
@@ -30,8 +39,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #081229;
-  color: white;
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -715,7 +724,7 @@ h4 {
 }
 
 .eye-solid.icon {
-  color: #fff;
+  color: currentColor;
   position: absolute;
   margin-left: 3px;
   margin-top: 6px;
@@ -767,7 +776,6 @@ pre[class*="language-"] {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 14px;
   font-variant-ligatures: none;
-  color: white;
   text-shadow: none;
 }
 
@@ -917,7 +925,7 @@ pre[data-line] .line-highlight[data-end]:after {
   min-width: 1em;
   padding: 0.2em 0.5em;
   background-color: rgba(255, 255, 255, 0.4);
-  color: black;
+  color: var(--color-text);
   font: bold 65%/1 sans-serif;
   height: 1em;
   line-height: 1em;
@@ -944,12 +952,6 @@ pre[data-line] .line-highlight[data-end]:after {
 
 .donation:hover {
   animation: heart 1s ease infinite;
-}
-
-/* Light theme */
-body.light {
-  background-color: white;
-  color: var(--color-black);
 }
 
 .light h3 {

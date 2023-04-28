@@ -1,6 +1,6 @@
 import * as typographyStyles from "../styles/typography.module.css"
 import API from "../data/api"
-import { Link } from "gatsby"
+import Link from "next/link"
 import { ReactNode } from "react"
 
 export const FormStateApi = ({
@@ -28,7 +28,7 @@ export const FormStateApi = ({
     <tr>
       {columnIndent && (
         <td>
-          <Link to="/api/useform/formstate">
+          <Link href="/docs/useform/formstate">
             <code>formState</code>
           </Link>
         </td>
@@ -202,8 +202,8 @@ export const FormStateApi = ({
       </td>
       <td>
         An object with field errors. There is also an{" "}
-        <Link to="/api/useformstate/errormessage">ErrorMessage</Link> component
-        to retrieve error message easily.
+        <Link href="/docs/useformstate/errormessage">ErrorMessage</Link>{" "}
+        component to retrieve error message easily.
       </td>
     </tr>
   </>

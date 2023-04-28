@@ -16,7 +16,6 @@
 
 # production
 /build
-/public
 /dist
 
 # misc
@@ -34,3 +33,5 @@ yarn-error.log*
 .cache/
 package-lock.json
 .vscode
+tsconfig.tsbuildinfo
+.next/

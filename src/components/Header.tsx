@@ -1,9 +1,7 @@
 import { Animate, AnimateGroup } from "react-simple-animate"
-import { navigate } from "@reach/router"
+import { useRouter } from "next/router"
 // import Bday from "./Bday"
 import home from "../data/home"
-import video from "../images/react-hook-form-demo-video.mp4"
-import nativeVideo from "../images/react-hook-form-native-demo-video.mp4"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as styles from "./Header.module.css"
@@ -33,6 +31,7 @@ export default function Header({
   isCardPlay?: boolean
 }) {
   const [isWeb, setIsWeb] = useState(true)
+  const router = useRouter()
 
   return (
     <>
@@ -130,7 +129,7 @@ export default function Header({
                 <button
                   className={buttonStyles.primaryButton}
                   onClick={() => {
-                    navigate("get-started")
+                    router.push("get-started")
                   }}
                 >
                   {home.getStarted} &nbsp;<span>▶</span>
@@ -162,7 +161,10 @@ export default function Header({
                   muted
                   style={style}
                 >
-                  <source src={video} type="video/mp4" />
+                  <source
+                    src="/video/react-hook-form-demo-video.mp4"
+                    type="video/mp4"
+                  />
                 </video>
               )}
             />
@@ -181,7 +183,10 @@ export default function Header({
             playsInline
             muted
           >
-            <source src={nativeVideo} type="video/mp4" />
+            <source
+              src="/video/react-hook-form-native-demo-video.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 

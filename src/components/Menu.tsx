@@ -1,80 +1,78 @@
-import { useStateMachine } from "little-state-machine"
-import { Link } from "gatsby"
-import { useLocation } from "@reach/router"
+import Link from "next/link"
 import colors from "../styles/colors"
 import * as styles from "./SideMenu.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
+import { useRouter } from "next/router"
 
 export const pages = [
   {
-    pathname: "/api/useform",
+    pathname: "/docs/useform",
     name: "useForm",
     pages: [
-      { pathname: "/api/useform/register", name: "register" },
-      { pathname: "/api/useform/unregister", name: "unregister" },
-      { pathname: "/api/useform/formstate", name: "formState" },
-      { pathname: "/api/useform/watch", name: "watch" },
-      { pathname: "/api/useform/handlesubmit", name: "handleSubmit" },
-      { pathname: "/api/useform/reset", name: "reset" },
-      { pathname: "/api/useform/resetfield", name: "resetField" },
-      { pathname: "/api/useform/seterror", name: "setError" },
-      { pathname: "/api/useform/clearerrors", name: "clearErrors" },
-      { pathname: "/api/useform/setvalue", name: "setValue" },
-      { pathname: "/api/useform/setfocus", name: "setFocus" },
-      { pathname: "/api/useform/getvalues", name: "getValues" },
-      { pathname: "/api/useform/getfieldstate", name: "getFieldState" },
-      { pathname: "/api/useform/trigger", name: "trigger" },
-      { pathname: "/api/useform/control", name: "control" },
-      { pathname: "/api/useform/form", name: "Form" },
+      { pathname: "/docs/useform/register", name: "register" },
+      { pathname: "/docs/useform/unregister", name: "unregister" },
+      { pathname: "/docs/useform/formstate", name: "formState" },
+      { pathname: "/docs/useform/watch", name: "watch" },
+      { pathname: "/docs/useform/handlesubmit", name: "handleSubmit" },
+      { pathname: "/docs/useform/reset", name: "reset" },
+      { pathname: "/docs/useform/resetfield", name: "resetField" },
+      { pathname: "/docs/useform/seterror", name: "setError" },
+      { pathname: "/docs/useform/clearerrors", name: "clearErrors" },
+      { pathname: "/docs/useform/setvalue", name: "setValue" },
+      { pathname: "/docs/useform/setfocus", name: "setFocus" },
+      { pathname: "/docs/useform/getvalues", name: "getValues" },
+      { pathname: "/docs/useform/getfieldstate", name: "getFieldState" },
+      { pathname: "/docs/useform/trigger", name: "trigger" },
+      { pathname: "/docs/useform/control", name: "control" },
+      { pathname: "/docs/useform/form", name: "Form" },
     ],
   },
   {
-    pathname: "/api/usecontroller",
+    pathname: "/docs/usecontroller",
     name: "useController",
     pages: [
       {
-        pathname: "/api/usecontroller/controller",
+        pathname: "/docs/usecontroller/controller",
         name: "Controller",
       },
     ],
   },
   {
-    pathname: "/api/useformcontext",
+    pathname: "/docs/useformcontext",
     name: "useFormContext",
     pages: [
       {
-        pathname: "/api/formprovider",
+        pathname: "/docs/formprovider",
         name: "FormProvider",
       },
     ],
   },
   {
-    pathname: "/api/usewatch",
+    pathname: "/docs/usewatch",
     name: "useWatch",
   },
   {
-    pathname: "/api/useformstate",
+    pathname: "/docs/useformstate",
     name: "useFormState",
     pages: [
       {
-        pathname: "/api/useformstate/errormessage",
+        pathname: "/docs/useformstate/errormessage",
         name: "ErrorMessage",
       },
     ],
   },
   {
-    pathname: "/api/usefieldarray",
+    pathname: "/docs/usefieldarray",
     name: "useFieldArray",
   },
 ]
 
 function Menu() {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-  const { pathname } = useLocation()
+  const router = useRouter()
+  const { pathname } = router
 
   return (
-    <aside className={`${styles.menu} ${lightMode ? styles.lightMenu : ""}`}>
+    <aside className={styles.menu}>
       <div>
         <div className={styles.titleList}>
           <h4
@@ -102,7 +100,7 @@ function Menu() {
                 <code aria-hidden className={styles.code}>{`</>`}</code>
                 <Link
                   className={isActive ? styles.isActive : ""}
-                  to={page.pathname}
+                  href={page.pathname}
                 >
                   {page.name}
                 </Link>
@@ -120,7 +118,7 @@ function Menu() {
                           >{`</>`}</code>{" "}
                           <Link
                             className={isActive ? styles.isActive : ""}
-                            to={page.pathname}
+                            href={page.pathname}
                           >
                             {page.name}
                           </Link>

@@ -7,7 +7,7 @@ import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import watchFieldArrayCode from "./codeExamples/watchFieldArrayCode"
 import StarRepo from "./StarRepo"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function ApiWatch({ api }: { api: any }) {
   return (
@@ -160,8 +160,8 @@ export default function ApiWatch({ api }: { api: any }) {
           <p>
             This API will trigger re-render at the root of your app or form,
             consider using a callback or the{" "}
-            <Link to="/api/usewatch">useWatch</Link> api if you are experiencing
-            performance issues.
+            <Link href="/docs/usewatch">useWatch</Link> api if you are
+            experiencing performance issues.
           </p>
         </li>
         <li>

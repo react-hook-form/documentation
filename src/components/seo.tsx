@@ -1,4 +1,4 @@
-import Helmet from "react-helmet"
+import Head from "next/head"
 
 function SEO({ title, description }: { title: string; description?: string }) {
   const site = {
@@ -17,54 +17,33 @@ function SEO({ title, description }: { title: string; description?: string }) {
   const metaDescription = description || site.siteMetadata.description
 
   return (
-    <Helmet
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:image`,
-          content:
-            "https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png",
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          property: `twitter:image`,
-          content:
-            "https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png",
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]}
-    />
+    <Head>
+      <title>{title || site.siteMetadata.title}</title>
+      <meta
+        property="description"
+        content={metaDescription}
+        key="description"
+      />
+      <meta
+        name="twitter:description"
+        content="Performant, flexible and extensible forms with easy-to-use validation."
+      ></meta>
+      <meta name="twitter:creator" content={site.siteMetadata.author}></meta>
+      <meta
+        property="twitter:image"
+        content="https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png"
+      ></meta>
+      <meta name="twitter:card" content="summary_large_image"></meta>
+      <meta property="og:type" content="website"></meta>
+      <meta
+        property="og:description"
+        content="Performant, flexible and extensible forms with easy-to-use validation."
+      ></meta>
+      <meta
+        property="og:image"
+        content="https://raw.githubusercontent.com/react-hook-form/documentation/master/src/images/react-hook-form-og.png"
+      ></meta>
+    </Head>
   )
 }
 

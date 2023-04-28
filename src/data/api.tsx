@@ -1,7 +1,7 @@
 import CodeArea from "../components/CodeArea"
 import useFieldArrayArgument from "../components/codeExamples/useFieldArrayArgument"
 import generic from "./generic"
-import { Link } from "gatsby"
+import Link from "next/link"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as tableStyles from "../styles/table.module.css"
@@ -136,7 +136,7 @@ function App() {
           specify the desired behavior after <code>values</code> or{" "}
           <code>defaultValues</code> are asynchronously updated. The
           configuration option itself is a reference to the{" "}
-          <Link to="/api/useform/reset">reset</Link> method's options.
+          <Link href="/docs/useform/reset">reset</Link> method's options.
         </p>
 
         <CodeArea
@@ -203,7 +203,7 @@ useForm({
           <li>
             <p>
               <code>defaultValues</code> are cached. To reset them, use the{" "}
-              <Link to="/api/useform/reset">reset</Link> API.
+              <Link href="/docs/useform/reset">reset</Link> API.
             </p>
           </li>
           <li>
@@ -244,7 +244,7 @@ const onSubmit = (data) => {
         This option allows you to configure validation strategy when inputs with
         errors get re-validated <strong>after</strong> a user submits the form (
         <code>onSubmit</code> event and{" "}
-        <Link to="/api/useform/handlesubmit">
+        <Link href="/docs/useform/handlesubmit">
           <code>handleSubmit</code>
         </Link>{" "}
         function executed). By default, re-validation occurs during the input
@@ -552,15 +552,15 @@ const App = () => {
             You can also <code>register</code> inputs with{" "}
             <code>useEffect</code> and treat them as virtual inputs. For
             controlled components, we provide a custom hook{" "}
-            <Link to="/api/usecontroller">useController</Link> and{" "}
-            <Link to="/api/usecontroller/controller">Controller</Link> component
-            to take care this process for you.
+            <Link href="/docs/usecontroller">useController</Link> and{" "}
+            <Link href="/docs/usecontroller/controller">Controller</Link>{" "}
+            component to take care this process for you.
           </p>
 
           <p>
             If you choose to manually register fields, you will need to update
             the input value with{" "}
-            <Link to="/api/useform/setvalue">setValue</Link>.
+            <Link href="/docs/useform/setvalue">setValue</Link>.
           </p>
 
           <CodeArea
@@ -750,11 +750,11 @@ setValue('test', '')
     defaultValues: (
       <p>
         The value which has been set at{" "}
-        <Link to="/api/useform" aria-label="read more about reset api">
+        <Link href="/docs/useform" aria-label="read more about reset api">
           useForm
         </Link>
         's defaultValues or updated defaultValues via{" "}
-        <Link to="/api/useform/reset" aria-label="read more about reset api">
+        <Link href="/docs/useform/reset" aria-label="read more about reset api">
           reset
         </Link>{" "}
         API.
@@ -840,7 +840,7 @@ setValue('test', '')
         </p>
         <p>
           <b className={typographyStyles.note}>Note:</b> You can use the{" "}
-          <Link to="/api/useformstate/errormessage">ErrorMessage</Link>{" "}
+          <Link href="/docs/useformstate/errormessage">ErrorMessage</Link>{" "}
           component to help display your error states
         </p>
       </>
@@ -1499,11 +1499,11 @@ clearErrors('test.firstName'); // for clear single input error
                         <li>
                           <p>
                             You can use methods such as{" "}
-                            <Link to="/api/usefieldarray#replace">
+                            <Link href="/docs/usefieldarray#replace">
                               <code>replace</code>
                             </Link>{" "}
                             or{" "}
-                            <Link to="/api/usefieldarray#update">
+                            <Link href="/docs/usefieldarray#update">
                               <code>update</code>
                             </Link>{" "}
                             for field array, however, they will cause the
@@ -1714,7 +1714,7 @@ setValue('nestedValue', { test: 'updatedData' } ); // ✅ setValue find input an
             </p>
             <p>
               <b className={typographyStyles.note}>Important: </b> use{" "}
-              <Link to="/api/usefieldarray#replace">
+              <Link href="/docs/usefieldarray#replace">
                 <code>replace</code>
               </Link>{" "}
               from <code>useFieldArray</code> instead, update entire field array
@@ -2044,7 +2044,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                 <td>
                   <p>
                     The same validation <code>rules</code> API as for{" "}
-                    <Link to="/api/useform/register">register</Link>, which
+                    <Link href="/docs/useform/register">register</Link>, which
                     includes:
                   </p>
                   <p>required, minLength, maxLength, validate</p>
@@ -2060,7 +2060,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                     In case of validation error, the <code>root</code> property
                     is appended to{" "}
                     <code>formState.errors?.fieldArray?.root</code> of type{" "}
-                    <Link to="/ts/#FieldError">
+                    <Link href="/ts/#FieldError">
                       <code>FieldError</code>
                     </Link>
                     <p>
@@ -2199,7 +2199,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               Update input/inputs at a particular position, updated fields will
               get unmount and remount. If this is not desired behavior, please
               use{" "}
-              <Link to="/api/useform/setvalue">
+              <Link href="/docs/useform/setvalue">
                 <code>setValue</code>
               </Link>{" "}
               API instead.
@@ -2353,7 +2353,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title="FieldPath type">
+            <Link href="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2363,13 +2363,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         <tr>
           <td>control</td>
           <td>
-            <Link to="/ts#Control" title="Control type">
+            <Link href="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to="/api/useform/control">
+            <Link href="/docs/useform/control">
               <code>control</code>
             </Link>{" "}
             object is from invoking <code>useForm</code>. Optional when using{" "}
@@ -2497,7 +2497,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Validation rules in the same format for{" "}
-              <Link to="/api/useform/register#options">
+              <Link href="/docs/useform/register#options">
                 <code>register</code> options
               </Link>
               , which includes:
@@ -2722,7 +2722,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>name</code>
           </td>
           <td>
-            <Link to="/ts#FieldPath" title="FieldPath type">
+            <Link href="/ts#FieldPath" title="FieldPath type">
               <code className={typographyStyles.typeText}>FieldPath</code>
             </Link>
           </td>
@@ -2734,13 +2734,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <code>control</code>
           </td>
           <td>
-            <Link to="/ts#Control" title="Control type">
+            <Link href="/ts#Control" title="Control type">
               <code className={typographyStyles.typeText}>Control</code>
             </Link>
           </td>
           <td></td>
           <td>
-            <Link to="/api/useform/control">
+            <Link href="/docs/useform/control">
               <code>control</code>
             </Link>{" "}
             object provided by invoking <code>useForm</code>. Optional when
@@ -2918,7 +2918,7 @@ const { field: checkbox } = useController({ name: 'test1' })
       <>
         <p>
           This custom hook powers{" "}
-          <Link to="/api/usecontroller/controller">
+          <Link href="/docs/usecontroller/controller">
             <code>Controller</code>
           </Link>
           . Additionally, it shares the same props and methods as{" "}

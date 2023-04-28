@@ -1,6 +1,5 @@
-import { navigate } from "gatsby"
-
 import * as styles from "./selectNav.module.css"
+import { useRouter } from "next/router"
 
 type Props = {
   options: {
@@ -10,11 +9,13 @@ type Props = {
 }
 
 export function SelectNav({ options }: Props) {
+  const router = useRouter()
+
   return (
     <select
       className={styles.root}
       onChange={(e) => {
-        navigate(e.target.value)
+        router.push(e.target.value)
       }}
     >
       <option>Select page...</option>

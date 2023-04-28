@@ -1,18 +1,13 @@
 import { Animate } from "react-simple-animate"
 import { getEditLink } from "./logic/getEditLink"
-import { useStateMachine } from "little-state-machine"
 import Nav from "./Nav"
-import { updateSetting } from "../actions/settingActions"
-import { useLocation } from "@reach/router"
 import { useEffect, useState, ReactNode } from "react"
-import "./layout.css"
+import { useRouter } from "next/router"
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { actions, state } = useStateMachine({ updateSetting })
+  const router = useRouter()
+  const location = router
 
-  const location = useLocation()
-
-  const lightMode = state?.setting?.lightMode
   const [show, setShow] = useState(false)
   const scrollHandler = () => {
     if (window.scrollY > 75) {
@@ -26,22 +21,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
 
-    if (lightMode === null && window.matchMedia) {
-      actions.updateSetting({
-        lightMode: window.matchMedia("(prefers-color-scheme: light)").matches,
-      })
-    }
-
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [])
-
-  useEffect(() => {
-    if (lightMode) {
-      document.querySelector("body").classList.add("light")
-    } else {
-      document.querySelector("body").classList.remove("light")
-    }
-  }, [lightMode])
 
   return (
     <>

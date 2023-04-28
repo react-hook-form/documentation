@@ -1,7 +1,7 @@
 import generic from "../data/generic"
 import * as tableStyles from "../styles/table.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
-import { Link } from "gatsby"
+import Link from "next/link"
 import { FormStateApi } from "./FormStateApi"
 
 const UseControllerMethods = ({
@@ -53,14 +53,14 @@ const UseControllerMethods = ({
                   <p>
                     This prop update{" "}
                     <Link
-                      to="/api/useform/formstate"
+                      href="/docs/useform/formstate"
                       aria-label="read more about formstate"
                     >
                       formState
                     </Link>{" "}
                     and you should avoid manually invoke{" "}
                     <Link
-                      to="/api/useform/setvalue"
+                      href="/docs/useform/setvalue"
                       aria-label="read more about setValue"
                     >
                       setValue

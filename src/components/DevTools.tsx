@@ -9,8 +9,6 @@ import CodeArea from "./CodeArea"
 import code from "./codeExamples/devTool"
 import copyClipBoard from "./utils/copyClipBoard"
 import generic from "../data/generic"
-import { useStateMachine } from "little-state-machine"
-import devTool from "../images/dev-tool.png"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
@@ -27,11 +25,6 @@ export default function DevTools({ content }: Props) {
     mode: "onChange",
   })
   const [showDevTool, setShowDevTool] = useState(false)
-  const {
-    state: { setting },
-  } = useStateMachine()
-
-  const lightMode = setting?.lightMode
 
   const { control } = methods
 
@@ -55,7 +48,7 @@ export default function DevTools({ content }: Props) {
           render={({ style }) => (
             <div className={containerStyles.subContainer} style={style}>
               <img
-                src={devTool}
+                src="/images/dev-tool.png"
                 className={styles.devToolImg}
                 alt="React Hook Form DevTools"
               />
@@ -74,17 +67,13 @@ export default function DevTools({ content }: Props) {
         <div className={containerStyles.subContainer}>
           <p>{content.step1}</p>
 
-          <span
-            className={`${getStartedStyle.installCode} ${
-              lightMode ? getStartedStyle.lightInstallCode : ""
-            }`}
-          >
+          <pre className="language-bash">
             npm install -D @hookform/devtools
             <ClipBoard
               className={getStartedStyle.copyButton}
               onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
             />
-          </span>
+          </pre>
 
           <p>{content.step2}</p>
 

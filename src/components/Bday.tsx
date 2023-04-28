@@ -1,6 +1,6 @@
 import { Animate, AnimateGroup } from "react-simple-animate"
 import * as styles from "./Bday.module.css"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 const list = [
   <p key="1">
@@ -139,7 +139,7 @@ export default function CardPlay({ isCardPlay }: { isCardPlay: boolean }) {
                       ))}
                     </ul>
 
-                    <Link to="/api" className={styles.link}>
+                    <Link href="/docs" className={styles.link}>
                       Check out API
                     </Link>
                   </div>

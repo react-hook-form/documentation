@@ -6,7 +6,7 @@ import { Menu } from "../../components/Menu"
 import CodeArea from "../../components/CodeArea"
 import formContext from "../../components/codeExamples/formContext"
 import * as tableStyles from "../../styles/table.module.css"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function FormProvider() {
   return (
@@ -28,7 +28,7 @@ export default function FormProvider() {
             <p>
               This component will host context object and allow consuming
               component to subscribe to context and use{" "}
-              <Link to="/api/useform">useForm</Link> props and methods.
+              <Link href="/docs/useform">useForm</Link> props and methods.
             </p>
 
             <h2 className={typographyStyles.subTitle}>Props</h2>

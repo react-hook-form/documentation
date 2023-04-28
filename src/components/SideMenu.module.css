@@ -57,7 +57,8 @@
 
   .menu > div > ul > li > a,
   .menu > div > ul > li > button {
-    color: currentColor;
+    color: var(--color-text);
+
     transition: 0.3s all;
     background: none;
     border: none;
@@ -73,9 +74,8 @@
     border-bottom: 1px solid var(--color-light-pink);
   }
 
-  .lightMenu > div > ul > li > a,
-  .lightMenu > div > ul > li > button {
-    color: var(--color-black);
+  :global(.light) > .menu > div > ul > li > a,
+  :global(.light) > .menu > div > ul > li > button {
     transition: 0.3s all;
     background: none;
     border: none;
@@ -84,8 +84,8 @@
     text-align: left;
   }
 
-  .lightMenu > div > ul > li > a:hover,
-  .lightMenu > div > ul > li > button:hover {
+  :global(.light) > .menu > div > ul > li > a:hover,
+  :global(.light) > .menu > div > ul > li > button:hover {
     background: none;
     border-bottom: 1px solid var(--color-light-pink) !important;
   }

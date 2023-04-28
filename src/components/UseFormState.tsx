@@ -1,5 +1,5 @@
 import Footer from "./Footer"
-import { Link } from "gatsby"
+import Link from "next/link"
 import { Menu } from "./Menu"
 import api from "../data/api"
 import useFormState from "./codeExamples/useFormState"
@@ -67,7 +67,7 @@ const UseFormState = () => {
                       <code className={typographyStyles.typeText}>object</code>
                     </td>
                     <td>
-                      <Link to="/api/useform/control">
+                      <Link href="/docs/useform/control">
                         <code>control</code>
                       </Link>{" "}
                       object provided by <code>useForm</code>. It's optional if
