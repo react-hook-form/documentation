@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import Link from "next/link"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
@@ -10,19 +10,19 @@ import * as styles from "./Nav.module.css"
 import colors from "../styles/colors"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
-import { useLocation } from "@reach/router"
-import openLink from "../images/open-link.svg"
+import { useRouter } from "next/router"
+import clsx from "clsx"
 
 export default function Nav() {
   const {
-    state,
     state: { setting },
   } = useStateMachine()
-  const [showLang, setLang] = useState(null)
+  const [showLang, setLang] = useState(false)
   const [show, setShow] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
-  const lightMode = state?.setting?.lightMode
-  const { pathname } = useLocation()
+
+  const router = useRouter()
+  const { pathname } = router
 
   const isFocusOnSearch = setting?.isFocusOnSearch
 
@@ -105,53 +105,80 @@ export default function Nav() {
       {showMenu && (
         <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
           <nav
-            className={`${styles.actionButtonGroup} ${
-              lightMode ? styles.darkActionButtonGroup : ""
-            } ${styles.mobileMenu}`}
+            className={clsx(styles.actionButtonGroup, styles.mobileMenu)}
             style={{
               bottom: 43,
             }}
           >
-            <Link activeClassName="active" to="/faqs">
+            <Link
+              className={router.pathname == "/faqs" ? "active" : ""}
+              href="/faqs"
+            >
               <div className={styles.iconWrapper}>
                 <div className="eye icon" />
               </div>
               <span>{nav.faqs}</span>
             </Link>
 
-            <Link activeClassName="active" to="/resources/articles">
+            <Link
+              className={
+                router.pathname == "/resources/articles" ? "active" : ""
+              }
+              href="/resources/articles"
+            >
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
               <span>Articles</span>
             </Link>
-            <Link activeClassName="active" to="/resources/videos">
+            <Link
+              className={router.pathname == "/resources/videos" ? "active" : ""}
+              href="/resources/videos"
+            >
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
               <span>Videos</span>
             </Link>
-            <Link activeClassName="active" to="/resources/newsletter">
+            <Link
+              className={
+                router.pathname == "/resources/newsletter" ? "active" : ""
+              }
+              href="/resources/newsletter"
+            >
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
               <span>Newsletter</span>
             </Link>
-            <Link activeClassName="active" to="/resources/3rd-party-bindings">
+            <Link
+              className={
+                router.pathname == "/resources/3rd-party-bindings"
+                  ? "active"
+                  : ""
+              }
+              href="/resources/3rd-party-bindings"
+            >
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
               <span>3rd-Party-Bindings</span>
             </Link>
 
-            <Link activeClassName="active" to="/dev-tools">
+            <Link
+              className={router.pathname == "/dev-tools" ? "active" : ""}
+              href="/dev-tools"
+            >
               <div className={styles.iconWrapper}>
                 <div className="laptop icon" />
               </div>
               <span>DevTools</span>
             </Link>
 
-            <Link activeClassName="active" to="/form-builder">
+            <Link
+              className={router.pathname == "/form-builder" ? "active" : ""}
+              href="/form-builder"
+            >
               <div className={styles.iconWrapper}>
                 <div className="edit icon" />
               </div>
@@ -161,41 +188,40 @@ export default function Nav() {
         </Animate>
       )}
 
-      <div className={lightMode ? styles.lightActionButtonWrapper : ""}>
-        <nav
-          className={`${styles.actionButtonGroup} ${
-            lightMode ? styles.darkActionButtonGroup : ""
-          }`}
-        >
-          <Link activeClassName="active" to="/">
+      <div className={clsx(styles.actionButtonWrapper)}>
+        <nav className={clsx(styles.actionButtonGroup)}>
+          <Link className={router.pathname == "/" ? "active" : ""} href="/">
             <div className={styles.iconWrapper}>
               <div className="flag icon" />
             </div>
             <span>{nav.home}</span>
           </Link>
-          <Link activeClassName="active" to="/get-started">
+          <Link
+            className={router.pathname == "/get-started" ? "active" : ""}
+            href="/get-started"
+          >
             <div className={styles.iconWrapper}>
               <div className="shutdown icon" />
             </div>
             <span>{nav.getStarted}</span>
           </Link>
           <Link
-            activeClassName="active"
+            className={router.pathname == "/docs" ? "active" : ""}
             style={
-              pathname.includes("/api")
+              pathname.includes("/docs")
                 ? {
                     borderBottom: "1px solid #bf1650",
                   }
                 : {}
             }
-            to="/api"
+            href="/docs"
           >
             <div className={styles.iconWrapper}>
               <div className="keyboard icon" />
             </div>
             <span>API</span>
           </Link>
-          <Link activeClassName="active" to="/ts">
+          <Link className={router.pathname == "/ts" ? "active" : ""} href="/ts">
             <div className={styles.iconWrapper}>
               <span
                 style={{
@@ -206,8 +232,7 @@ export default function Nav() {
                   height: 16,
                   fontSize: 8,
                   marginTop: 2,
-                  background: "white",
-                  color: "black",
+
                   fontWeight: 600,
                 }}
               >
@@ -216,13 +241,19 @@ export default function Nav() {
             </div>
             <span>TS</span>
           </Link>
-          <Link activeClassName="active" to="/advanced-usage">
+          <Link
+            className={router.pathname == "/advanced-usage" ? "active" : ""}
+            href="/advanced-usage"
+          >
             <div className={styles.iconWrapper}>
               <div className="search icon" />
             </div>
             <span>{nav.advanced}</span>
           </Link>
-          <Link activeClassName="active" to="/faqs">
+          <Link
+            className={router.pathname == "/faqs" ? "active" : ""}
+            href="/faqs"
+          >
             <div className={styles.iconWrapper}>
               <div className="eye icon" />
             </div>
@@ -236,7 +267,7 @@ export default function Nav() {
                 ? {
                     borderBottom: "1px solid #bf1650",
                   }
-                : null
+                : {}
             }
           >
             <span className={styles.tools}>
@@ -276,7 +307,12 @@ export default function Nav() {
                 }}
               >
                 <div className={styles.menuExpand}>
-                  <Link activeClassName="active" to="/form-builder">
+                  <Link
+                    className={
+                      router.pathname == "/form-builder" ? "active" : ""
+                    }
+                    href="/form-builder"
+                  >
                     {nav.tools.formBuilder}
                   </Link>
 
@@ -287,10 +323,16 @@ export default function Nav() {
                     className={styles.linkExternal}
                   >
                     <b>BEEKAI</b> Form Builder{" "}
-                    <img src={openLink} alt="BEEKAI Form Builder" />
+                    <img
+                      src="/images/open-link.svg"
+                      alt="BEEKAI Form Builder"
+                    />
                   </a>
 
-                  <Link activeClassName="active" to="/dev-tools">
+                  <Link
+                    className={router.pathname == "/dev-tools" ? "active" : ""}
+                    href="/dev-tools"
+                  >
                     {nav.tools.devTools}
                   </Link>
                 </div>
@@ -336,18 +378,39 @@ export default function Nav() {
                 }}
               >
                 <div className={styles.menuExpand}>
-                  <Link activeClassName="active" to="/resources/articles">
+                  <Link
+                    className={
+                      router.pathname == "/resources/articles" ? "active" : ""
+                    }
+                    href="/resources/articles"
+                  >
                     Articles
                   </Link>{" "}
-                  <Link activeClassName="active" to="/resources/videos">
+                  <Link
+                    className={
+                      router.pathname == "/resources/videos" ? "active" : ""
+                    }
+                    href="/resources/videos"
+                  >
                     Videos
                   </Link>
-                  <Link activeClassName="active" to="/resources/newsletters">
+                  <Link
+                    className={
+                      router.pathname == "/resources/newsletters"
+                        ? "active"
+                        : ""
+                    }
+                    href="/resources/newsletters"
+                  >
                     Newsletters
                   </Link>
                   <Link
-                    activeClassName="active"
-                    to="/resources/3rd-party-bindings"
+                    className={
+                      router.pathname == "/resources/3rd-party-bindings"
+                        ? "active"
+                        : ""
+                    }
+                    href="/resources/3rd-party-bindings"
                   >
                     3rd Party Bindings
                   </Link>
@@ -356,9 +419,11 @@ export default function Nav() {
             </div>
           </span>
           <Link
-            activeClassName="active"
-            className={styles.mobileNav}
-            to="/form-builder"
+            className={clsx(
+              styles.mobileNav,
+              router.pathname == "/form-builder" ? "active" : ""
+            )}
+            href="/form-builder"
           >
             <div className={styles.iconWrapper}>
               <div className="edit icon" />

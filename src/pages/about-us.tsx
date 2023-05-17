@@ -1,4 +1,3 @@
-import { AnimateKeyframes, Animate } from "react-simple-animate"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Footer from "../components/Footer"
@@ -165,99 +164,37 @@ const AboutUs = () => {
             }}
           >
             {data.map(
-              (
-                { url, imgUrl, name, bio, interests, twitterName, active },
-                i
-              ) => (
+              ({ url, imgUrl, name, bio, interests, twitterName }, i) => (
                 <li key={imgUrl}>
-                  <AnimateKeyframes
-                    play
-                    keyframes={[
-                      {
-                        transform: "translateY(0px)",
-                      },
-                      {
-                        transform: "translateY(50%)",
-                        opacity: 0.8,
-                      },
-                      {
-                        transform: "translateY(80%)",
-                        opacity: 0,
-                      },
-                    ]}
-                    easeType="ease-out"
-                    duration={1}
-                    fillMode="both"
-                    delay={0.3 * i + 0.4}
-                    render={({ style }) => {
-                      return (
-                        <svg
-                          style={style}
-                          viewBox="0 0 100 100"
-                          width="100%"
-                          height="100%"
-                          preserveAspectRatio="none"
-                        >
-                          <path d="M0,0 100,0 100,100 0,100" />
-                        </svg>
-                      )
-                    }}
-                  />
                   <section>
-                    <Animate
-                      play
-                      start={{
-                        transform: "translateY(200px)",
-                      }}
-                      end={{
-                        transform: "translateY(0px)",
-                      }}
-                      easeType="ease-in"
-                      duration={0.5}
-                      delay={0.3 * i + 0.4}
-                      render={({ style }) => {
-                        return (
-                          <div style={style}>
-                            <a
-                              href={url}
-                              title="Github profile"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{
-                                position: "relative",
-                                display: "block",
-                              }}
-                            >
-                              <img
-                                src={imgUrl}
-                                alt="avatar"
-                                style={
-                                  active
-                                    ? {}
-                                    : {
-                                        filter: "grayscale(100%)",
-                                      }
-                                }
-                              />
-                            </a>
-                            <p className={styles.name}>
-                              <Twitter twitterName={twitterName} />
-                              {name}
-                            </p>
+                    <div>
+                      <a
+                        href={url}
+                        title="Github profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          position: "relative",
+                          display: "block",
+                        }}
+                      >
+                        <img src={imgUrl} alt="avatar" />
+                      </a>
+                      <p className={styles.name}>
+                        <Twitter twitterName={twitterName} />
+                        {name}
+                      </p>
 
-                            <section className={styles.interests}>
-                              <ul>
-                                {interests.map((interest) => (
-                                  <li key={interest}>{interest}</li>
-                                ))}
-                              </ul>
-                            </section>
+                      <section className={styles.interests}>
+                        <ul>
+                          {interests.map((interest) => (
+                            <li key={interest}>{interest}</li>
+                          ))}
+                        </ul>
+                      </section>
 
-                            <p>{bio}</p>
-                          </div>
-                        )
-                      }}
-                    />
+                      <p>{bio}</p>
+                    </div>
                   </section>
                 </li>
               )

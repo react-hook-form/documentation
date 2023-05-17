@@ -13,7 +13,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import vestResolver from "./codeExamples/vestResolver"
 import * as tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function ValidationResolver({ api }: { api: any }) {
   return (
@@ -25,7 +25,7 @@ export default function ValidationResolver({ api }: { api: any }) {
       >
         <code>
           resolver:{" "}
-          <Link to="/ts#Resolver">
+          <Link href="/ts#Resolver">
             <span className={typographyStyles.typeText}>Resolver</span>
           </Link>
         </code>

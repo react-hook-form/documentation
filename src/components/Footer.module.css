@@ -7,21 +7,13 @@
 }
 
 .footer a {
-  color: white;
+  color: var(--color-footer);
   text-decoration: none;
-}
-
-.lightFooter a {
-  color: var(--color-black);
 }
 
 .footer a:hover {
   color: var(--color-light-pink);
   text-decoration: none;
-}
-
-.lightFooter a:hover {
-  color: var(--color-light-pink);
 }
 
 .footer > p {
@@ -42,19 +34,10 @@
 
 .links > li > a {
   text-decoration: none;
-  color: white;
+  color: var(--color-text);
   padding: 10px 12px;
   min-width: 48px;
   min-height: 48px;
-}
-
-.lightFooter .links > li > a {
-  color: var(--color-black);
-  font-weight: 500;
-}
-
-.lightFooter .links > li > a:hover {
-  color: var(--color-light-pink);
 }
 
 a.link {

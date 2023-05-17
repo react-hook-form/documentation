@@ -22,6 +22,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "next",
     "plugin:react/jsx-runtime",
   ],
   settings: {

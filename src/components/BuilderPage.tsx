@@ -2,7 +2,6 @@ import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
-import { navigate } from "@reach/router"
 import colors from "../styles/colors"
 import generateCode from "./logic/generateCode"
 import copyClipBoard from "./utils/copyClipBoard"
@@ -21,6 +20,7 @@ import { useState, useRef, useEffect, memo, MutableRefObject } from "react"
 
 import * as styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
+import { useRouter } from "next/router"
 
 const updateStore = (state, payload) => {
   return {
@@ -98,6 +98,7 @@ function BuilderPage({
   copyFormData.current = formData
   const editIndexRef = useRef(null)
   editIndexRef.current = editIndex
+  const router = useRouter()
 
   const validate = (value) => {
     return (
@@ -379,7 +380,7 @@ function BuilderPage({
                     document.body.style.overflow = "auto"
                     HomeRef.current.scrollIntoView({ behavior: "smooth" })
                   } else {
-                    navigate("/?goToDemo&updated=true")
+                    router.push("/?goToDemo&updated=true")
                   }
                 }}
               >

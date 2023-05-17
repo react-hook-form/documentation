@@ -1,7 +1,7 @@
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
 import * as typographyStyles from "../styles/typography.module.css"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function FormContext({ api }) {
   return (
@@ -35,7 +35,7 @@ const methods = useFormContext() // retrieve those props`}
 
       <p>
         You need to wrap your form with the{" "}
-        <Link to="/api/formprovider">
+        <Link href="/docs/formprovider">
           <code>FormProvider</code>
         </Link>{" "}
         component for <code>useFormContext</code> to work properly.

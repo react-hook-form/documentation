@@ -1,10 +1,10 @@
 import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
-import { useStateMachine } from "little-state-machine"
 import * as styles from "./FeatureList.module.css"
+import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
-const props = {
+const props: AnimateKeyframesProps = {
   keyframes: [
     { 0: "opacity: 0; transform: scale(0)" },
     { 50: "opacity: 0.3; transform: scale(1.3)" },
@@ -16,17 +16,10 @@ const props = {
 }
 
 function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-
   return (
     <div className={styles.features}>
       <AnimateGroup play={isPlayFeature}>
-        <div
-          className={`${styles.featuresContent} ${
-            lightMode ? styles.lightFeaturesContent : ""
-          }`}
-        >
+        <div className={styles.featuresContent}>
           <article id="featureLast">
             <AnimateKeyframes {...props} sequenceIndex={0}>
               <svg

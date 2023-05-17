@@ -14,23 +14,21 @@
 .watchGroup p {
   margin-top: 5px;
   padding: 0 0 0 50px;
-  background: none;
 }
 
 .watchGroup input[type="checkbox"] {
-  appearance: none;
   width: 20px;
   margin-top: 8px;
   margin-left: -60px;
   height: 20px;
-  background: var(--color-secondary);
+  background: var(--color-background);
   border: 1px solid var(--color-secondary);
   border-radius: 2px;
 }
 
 .watchGroup input[type="checkbox"]:checked {
   border: 1px solid white;
-  background: white;
+  background: var(--color-primary);
   min-width: 20px;
 }
 
@@ -41,6 +39,14 @@
 .svgWrapper svg path {
   stroke-dasharray: 10;
   animation: dash 10s linear normal infinite;
+}
+
+.behind {
+  background: var(--color-background);
+}
+
+.closed {
+  color: var(--color-background);
 }
 
 @keyframes dash {

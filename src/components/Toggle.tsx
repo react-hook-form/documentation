@@ -1,22 +1,20 @@
-import { CSSProperties } from "react"
-import { useStateMachine } from "little-state-machine"
-import { updateSetting } from "../actions/settingActions"
+import { CSSProperties, useEffect, useState } from "react"
 import * as styles from "./Toggle.module.css"
+import { useTheme } from "next-themes"
 
 export default function Toggle({ style }: { style?: CSSProperties }) {
-  const { actions, state } = useStateMachine({ updateSetting })
-  const lightMode = state?.setting?.lightMode
+  const [mounted, setMounted] = useState(false)
 
-  const onChange = (e) => {
-    actions.updateSetting({
-      lightMode: e.target.checked,
-    })
+  const { theme, setTheme } = useTheme()
+  const lightMode = theme === "light"
 
-    if (e.target.checked) {
-      document.querySelector("body").classList.add("light")
-    } else {
-      document.querySelector("body").classList.remove("light")
-    }
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
   }
 
   return (
@@ -24,7 +22,13 @@ export default function Toggle({ style }: { style?: CSSProperties }) {
       <input
         id="toggle"
         type="checkbox"
-        onChange={onChange}
+        onChange={(e) => {
+          if (e.target.checked) {
+            setTheme("light")
+          } else {
+            setTheme("dark")
+          }
+        }}
         checked={lightMode}
       />
       <span className={`${styles.slider} ${styles.round}`} />

@@ -67,9 +67,9 @@ function Advanced({ advanced }: Props) {
     const filterName = name.replace(/[^\w\s]| /g, "")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     if (pageContentRef.current[filterName]) {

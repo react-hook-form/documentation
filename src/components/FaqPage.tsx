@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, Fragment } from "react"
 import SideMenu from "../components/SideMenu"
 import Footer from "../components/Footer"
 import StarRepo from "../components/StarRepo"
@@ -58,9 +58,9 @@ const Faq = ({ faq }: Props) => {
     const hashIndex = url.indexOf("#")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     if (path > -1) {
@@ -94,17 +94,16 @@ const Faq = ({ faq }: Props) => {
           {links.map((question, index) => {
             const { title, description } = question
             return (
-              <>
+              <Fragment key={`question${index}`}>
                 <h2
                   className={typographyStyles.questionTitle}
                   ref={(ref) => (sectionsRef.current[`question${index}`] = ref)}
-                  id={`question${index}`}
                 >
                   {title}
                 </h2>
                 {description}
                 <hr />
-              </>
+              </Fragment>
             )
           })}
 

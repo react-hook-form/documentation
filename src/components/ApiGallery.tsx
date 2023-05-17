@@ -1,23 +1,17 @@
 import { useEffect } from "react"
 import { useStateMachine } from "little-state-machine"
-import { Link } from "gatsby"
+import Link from "next/link"
 import Footer from "./Footer"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./ApiGallery.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as headerStyles from "./Header.module.css"
 import { updateSetting } from "../actions/settingActions"
-import { navigate } from "@reach/router"
-
-const LightModeHeading = {
-  background: "none",
-  textShadow: "none",
-}
+import { useRouter } from "next/router"
 
 export default function ApiGallery() {
   const {
     actions,
-    state,
     state: {
       setting = {
         version: 7,
@@ -26,7 +20,7 @@ export default function ApiGallery() {
   } = useStateMachine({
     updateSetting,
   })
-  const lightMode = state?.setting?.lightMode
+  const router = useRouter()
 
   const onChange = (e) => {
     const version = parseInt(e.target.value)
@@ -38,7 +32,7 @@ export default function ApiGallery() {
     if (version !== 7) {
       window.location.href = `https://legacy.react-hook-form.com/v${version}/api`
     } else {
-      navigate(`/v${version}/api/`)
+      router.push(`/v${version}/docs/`)
     }
   }
 
@@ -46,7 +40,7 @@ export default function ApiGallery() {
     const name = window.location.hash.toLowerCase().slice(1)
 
     if (name === "controller") {
-      navigate(`/api/usecontroller/${name}`)
+      router.push(`/docs/usecontroller/${name}`)
     } else if (
       [
         "register",
@@ -63,13 +57,13 @@ export default function ApiGallery() {
         "formstate",
       ].includes(name)
     ) {
-      navigate(`/api/useform/${name}`)
+      router.push(`/docs/useform/${name}`)
     } else if (
       ["controller", "useformcontext", "usefieldarray"].includes(name)
     ) {
-      navigate(`/api/${name}`)
+      router.push(`/docs/${name}`)
     }
-  }, [setting])
+  }, [setting, router])
 
   return (
     <div className={containerStyles.container}>
@@ -84,21 +78,21 @@ export default function ApiGallery() {
         <ul className={styles.gallery}>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useForm
               </h3>
               <p>
                 A powerful custom hook to validate your form with minimal
                 re-renders.
               </p>
-              <Link to="/api/useform" aria-label="read more about useForm">
+              <Link href="/docs/useform" aria-label="read more about useForm">
                 Read More ▸
               </Link>
             </div>
           </li>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useController
               </h3>
               <p>
@@ -106,7 +100,7 @@ export default function ApiGallery() {
                 and isolate its re-render.
               </p>
               <Link
-                to="/api/usecontroller"
+                href="/docs/usecontroller"
                 aria-label="read more about useController"
               >
                 Read More ▸
@@ -115,7 +109,7 @@ export default function ApiGallery() {
           </li>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useFormContext
               </h3>
               <p>
@@ -124,7 +118,7 @@ export default function ApiGallery() {
                 components!
               </p>
               <Link
-                to="/api/useformcontext"
+                href="/docs/useformcontext"
                 aria-label="read more about useformcontext"
               >
                 Read More ▸
@@ -133,21 +127,21 @@ export default function ApiGallery() {
           </li>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useWatch
               </h3>
               <p>
                 Subscribe to individual form input changes without impacting the
                 root component's render.
               </p>
-              <Link to="/api/usewatch" aria-label="read more about usewatch">
+              <Link href="/docs/usewatch" aria-label="read more about usewatch">
                 Read More ▸
               </Link>
             </div>
           </li>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useFormState
               </h3>
               <p>
@@ -155,7 +149,7 @@ export default function ApiGallery() {
                 re-renders at the hook level.
               </p>
               <Link
-                to="/api/useformstate"
+                href="/docs/useformstate"
                 aria-label="read more about useformstate"
               >
                 Read More ▸
@@ -164,7 +158,7 @@ export default function ApiGallery() {
           </li>
           <li>
             <div>
-              <h3 style={lightMode ? LightModeHeading : {}}>
+              <h3>
                 <code>{`</>`}</code>useFieldArray
               </h3>
               <p>
@@ -172,7 +166,7 @@ export default function ApiGallery() {
                 and append fields. Ideal for complex CRUD data entry scenarios.
               </p>
               <Link
-                to="/api/usefieldarray"
+                href="/docs/usefieldarray"
                 aria-label="read more about usefieldarray"
               >
                 Read More ▸

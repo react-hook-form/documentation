@@ -1,49 +1,43 @@
-import { Link } from "gatsby"
+import Link from "next/link"
 import nav from "../data/nav"
-import { useStateMachine } from "little-state-machine"
 import * as styles from "./Footer.module.css"
 
 export default function Footer() {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-
   return (
-    <footer
-      className={`${styles.footer} ${lightMode ? styles.lightFooter : {}}`}
-    >
+    <footer className={styles.footer}>
       <ul className={styles.links}>
         <li>
-          <Link to="/">{nav.home}</Link>
+          <Link href="/">{nav.home}</Link>
         </li>
         <li>
-          <Link to="/get-started">{nav.getStarted}</Link>
+          <Link href="/get-started">{nav.getStarted}</Link>
         </li>
         <li>
-          <Link to="/api">API</Link>
+          <Link href="/docs">API</Link>
         </li>
         <li>
-          <Link to="/ts">TS</Link>
+          <Link href="/ts">TS</Link>
         </li>
         <li>
-          <Link to="/advanced-usage">{nav.advanced}</Link>
+          <Link href="/advanced-usage">{nav.advanced}</Link>
         </li>
         <li>
-          <Link to="/faqs">{nav.faqs}</Link>
+          <Link href="/faqs">{nav.faqs}</Link>
         </li>
         <li>
-          <Link to="/form-builder">{nav.builder}</Link>
+          <Link href="/form-builder">{nav.builder}</Link>
         </li>
         <li>
-          <Link to="/dev-tools">DevTools</Link>
+          <Link href="/dev-tools">DevTools</Link>
         </li>
         <li>
-          <Link to="/resources">{nav.resources}</Link>
+          <Link href="/resources">{nav.resources}</Link>
         </li>
         <li>
-          <Link to="/about-us">About us</Link>
+          <Link href="/about-us">About us</Link>
         </li>
         <li>
-          <Link to="/media">Media</Link>
+          <Link href="/media">Media</Link>
         </li>
       </ul>
       <p>

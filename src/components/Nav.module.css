@@ -29,11 +29,18 @@
   bottom: 0;
   z-index: 5;
   left: 0;
-  background: var(--color-blue);
-  box-shadow: 0 2px 2px 0 #000;
   width: 100%;
   position: fixed;
   height: 43px;
+}
+
+:global(.dark) .actionButtonGroup {
+  background: var(--color-blue);
+  box-shadow: 0 2px 2px 0 #000;
+}
+
+:global(.light) .actionButtonGroup {
+  background: var(--color-blue);
 }
 
 .actionButtonGroup a {
@@ -88,26 +95,6 @@
   justify-content: center;
 }
 
-.langSelect {
-  min-width: 90px;
-}
-
-.langSelect > select {
-  width: 100%;
-  min-height: 28px;
-  font-size: 16px;
-  display: block;
-  background: none;
-  appearance: none;
-  color: white;
-  border: 1px solid var(--color-light-blue);
-  border-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  cursor: pointer;
-  position: relative;
-}
-
 a.legacyLink {
   text-decoration: none;
   font-size: 0.8rem;
@@ -118,11 +105,7 @@ a.legacyLink {
   padding: 0 0.5rem;
 }
 
-.lightLangSelect:after {
-  color: white;
-}
-
-.lightActionButtonWrapper {
+:global(.light) .actionButtonWrapper {
   height: 60px;
   background: var(--color-primary);
   border-bottom: 3px solid var(--color-light-pink);
@@ -183,7 +166,7 @@ a.legacyLink {
     color: var(--color-light-pink);
   }
 
-  .lightActionButtonWrapper {
+  :global(.light) .actionButtonWrapper {
     height: auto;
   }
 
@@ -206,13 +189,13 @@ a.legacyLink {
     background: none;
     border: none;
     margin: 0 auto;
-    background: var(--color-button-blue);
     height: auto;
     max-width: 610px;
     padding: 13px 8px;
   }
 
-  .darkActionButtonGroup {
+  :global(.dark) > .actionButtonGroup {
+    background: var(--color-button-blue);
     background: none;
     box-shadow: none;
     color: white;
@@ -224,12 +207,11 @@ a.legacyLink {
     border: none;
     padding: 2px 0;
   }
-
-  .darkActionButtonGroup a {
+  :global(.dark) .actionButtonGroup a {
     color: white;
   }
-
   .tools {
+    color: white;
     height: 29px;
     display: inline-block;
   }

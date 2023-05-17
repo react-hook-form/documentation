@@ -10,11 +10,9 @@ import home from "../data/home"
 const WatchText = ({
   control,
   checked,
-  lightMode,
 }: {
   control: Control
-  checked: boolean
-  lightMode: boolean
+  checked?: boolean
 }) => {
   const test = useWatch({
     control,
@@ -23,36 +21,25 @@ const WatchText = ({
   })
 
   return checked ? (
-    <p
-      style={{
-        background: checked ? "none" : lightMode ? "white" : "#081229",
-      }}
-    >
+    <p>
       <span className="eye-solid icon" style={{ display: "in-block" }} />{" "}
       <span style={{ paddingLeft: 25 }}>{test}</span>
     </p>
   ) : (
-    <p
-      style={{
-        background: lightMode ? "white" : "#081229",
-      }}
-    >
+    <p className={styles.behind}>
       <span
         className="eye-solid icon"
-        style={{ display: "in-block", background: "#fff" }}
+        style={{ display: "in-block", color: "var(--color-background)" }}
       />
-      <span style={{ paddingLeft: 25 }}></span>
     </p>
   )
 }
 
 const WatchGroup = ({
   checked,
-  lightMode,
   control,
 }: {
   checked?: boolean
-  lightMode: boolean
   control: Control
 }) => {
   const [check, setChecked] = useState(checked)
@@ -62,22 +49,13 @@ const WatchGroup = ({
         type="checkbox"
         checked={check}
         onChange={() => setChecked(!check)}
-        style={{
-          ...(lightMode ? { background: "black" } : ""),
-        }}
       />
-      <WatchText lightMode={lightMode} control={control} checked={check} />
+      <WatchText control={control} checked={check} />
     </div>
   )
 }
 
-const Watcher = ({
-  isPlayWatch,
-  lightMode,
-}: {
-  isPlayWatch: boolean
-  lightMode: boolean
-}) => {
+const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
   let timer
   const { register, control, setValue } = useForm()
 
@@ -155,7 +133,7 @@ const Watcher = ({
                     style={style}
                     className="path"
                     fill="none"
-                    stroke={lightMode ? "black" : "white"}
+                    stroke="currentColor"
                     strokeWidth="1"
                     d="M 0 18 H 500"
                   />
@@ -170,7 +148,7 @@ const Watcher = ({
                     style={style}
                     className="path"
                     fill="none"
-                    stroke={lightMode ? "black" : "white"}
+                    stroke="currentColor"
                     strokeWidth="1"
                     d="M 0 18 H 80 V 68 H 500"
                   />
@@ -185,7 +163,7 @@ const Watcher = ({
                     style={style}
                     className="path"
                     fill="none"
-                    stroke={lightMode ? "black" : "white"}
+                    stroke="currentColor"
                     strokeWidth="1"
                     d="M 0 18 H 80 V 118 H 500"
                   />
@@ -200,7 +178,7 @@ const Watcher = ({
                     style={style}
                     className="path"
                     fill="none"
-                    stroke={lightMode ? "black" : "white"}
+                    stroke="currentColor"
                     strokeWidth="1"
                     d="M 0 18 H 80 V 168 H 500"
                   />
@@ -215,7 +193,7 @@ const Watcher = ({
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} checked />
+              <WatchGroup control={control} checked />
             </Animate>
 
             <Animate
@@ -223,21 +201,21 @@ const Watcher = ({
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} />
+              <WatchGroup control={control} />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} checked />
+              <WatchGroup control={control} checked />
             </Animate>
             <Animate
               sequenceIndex={1}
               start={{ opacity: 0 }}
               end={{ opacity: 1 }}
             >
-              <WatchGroup lightMode={lightMode} control={control} />
+              <WatchGroup control={control} />
             </Animate>
           </section>
         </div>

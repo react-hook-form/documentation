@@ -6,7 +6,7 @@ import * as typographyStyles from "../styles/typography.module.css"
 import * as tableStyles from "../styles/table.module.css"
 import TabGroup from "./TabGroup"
 import useWatchFieldArray from "./codeExamples/useWatchFieldArray"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 export default function UseFieldArray({ api }: { api: any }) {
   return (
@@ -174,7 +174,7 @@ export default function UseFieldArray({ api }: { api: any }) {
           <p>
             The only difference between <code>useWatch</code> and{" "}
             <code>watch</code> is at the root (
-            <Link to="/api/useform">
+            <Link href="/docs/useform">
               <code>useForm</code>
             </Link>
             ) level or the custom hook level update.

@@ -65,7 +65,7 @@ const TsPage = () => {
 
     history.pushState(
       {},
-      null,
+      "",
       hashIndex < 0
         ? `${url}#${filterName}`
         : `${url.substr(0, hashIndex)}#${filterName}`

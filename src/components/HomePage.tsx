@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, memo } from "react"
-import { navigate } from "@reach/router"
 import Form from "./Form"
 import Header from "./Header"
 import Watcher from "./Watcher"
@@ -9,13 +8,13 @@ import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
 import Builder from "./BuilderPage"
 import FeaturesList from "./FeaturesList"
-import { useStateMachine } from "little-state-machine"
 import home from "../data/home"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
 import * as buttonStyles from "../styles/button.module.css"
 import * as styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
+import { useRouter } from "next/router"
 
 const options = {
   rootMargin: "0px 0px",
@@ -33,8 +32,7 @@ function HomePage() {
   const [isPlayRender] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const [isPlayWatch, setWatchPlay] = useState(false)
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
+  const router = useRouter()
 
   const onSubmit = (data) => {
     updateSubmitData(data)
@@ -112,7 +110,7 @@ function HomePage() {
 
       <IsolateRender isIsolatePlay={isIsolatePlay} />
 
-      <Watcher lightMode={lightMode} isPlayWatch={isPlayWatch} />
+      <Watcher isPlayWatch={isPlayWatch} />
 
       <CodePerfCompareSection isPlayRender={isPlayRender} />
 
@@ -310,7 +308,7 @@ function HomePage() {
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate("get-started")
+              router.push("get-started")
             }}
           >
             {home.getStarted}
@@ -318,7 +316,7 @@ function HomePage() {
           <button
             className={buttonStyles.primaryButton}
             onClick={() => {
-              navigate("api")
+              router.push("docs")
             }}
           >
             API

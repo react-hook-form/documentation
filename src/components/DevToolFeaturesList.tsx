@@ -2,11 +2,11 @@ import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
-import { useStateMachine } from "little-state-machine"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as styles from "./DevToolFeaturesList.module.css"
+import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
-const animationKeyFramesProps = {
+const animationKeyFramesProps: AnimateKeyframesProps = {
   keyframes: [
     { 0: "opacity: 0; transform: scale(0)" },
     { 50: "opacity: 0.3; transform: scale(1.3)" },
@@ -23,19 +23,12 @@ interface Props {
 }
 
 function FeaturesList({ isPlayFeature, content }: Props) {
-  const { state } = useStateMachine()
-  const lightMode = state?.setting?.lightMode
-
   return (
     <div className={styles.features}>
       <h2 className={typographyStyles.title}>{generic.features}</h2>
 
       <AnimateGroup play={isPlayFeature}>
-        <div
-          className={`${styles.featuresContent} ${
-            lightMode ? styles.lightFeaturesContent : ""
-          }`}
-        >
+        <div className={styles.featuresContent}>
           <article>
             <AnimateKeyframes {...animationKeyFramesProps} sequenceIndex={0}>
               <svg
@@ -74,7 +67,6 @@ function FeaturesList({ isPlayFeature, content }: Props) {
                   display: "flex",
                   width: 45,
                   height: 45,
-                  border: `2px solid ${lightMode ? "#2d2d2d" : "white"}`,
                   borderRadius: "50%",
                   alignItems: "center",
                   justifyContent: "center",
@@ -86,7 +78,6 @@ function FeaturesList({ isPlayFeature, content }: Props) {
                   style={{
                     lineHeight: "19px",
                     fontSize: "15px",
-                    ...(lightMode ? { color: "#2d2d2d", fontWeight: 800 } : {}),
                   }}
                 >{`</>`}</code>
               </div>

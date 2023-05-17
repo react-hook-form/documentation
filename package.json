@@ -5,20 +5,11 @@
   "author": "beier luo",
   "dependencies": {
     "@hookform/devtools": "2.0.0-beta.1",
-    "gatsby": "^5.3.3",
-    "gatsby-plugin-algolia-docsearch": "^1.0.5",
-    "gatsby-plugin-google-analytics": "5.3.0",
-    "gatsby-plugin-gtag": "1.0.13",
-    "gatsby-plugin-manifest": "5.3.1",
-    "gatsby-plugin-nprogress": "^5.3.0",
-    "gatsby-plugin-react-helmet": "6.3.0",
-    "gatsby-plugin-sharp": "5.3.2",
-    "gatsby-plugin-sitemap": "6.3.1",
-    "gatsby-plugin-typescript": "5.3.1",
-    "gatsby-source-filesystem": "5.3.1",
-    "gatsby-transformer-sharp": "5.3.1",
-    "gatsby-transformer-typescript-css-modules": "^1.0.14",
+    "@types/node": "^18.16.1",
+    "clsx": "^1.2.1",
     "little-state-machine": "4.8.0",
+    "next": "^13.3.1",
+    "next-themes": "^0.2.1",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -31,20 +22,21 @@
     "sortablejs": "1.15.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.3.1",
     "@types/react-helmet": "^6.1.6",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
-    "eslint": "8.38.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "cross-env": "^7.0.3",
+    "eslint": "8.39.0",
+    "eslint-config-next": "^13.3.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "gatsby-plugin-offline": "^6.3.1",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
-    "prettier": "2.8.7",
-    "typescript": "^5.0.4",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "prettier": "2.8.8",
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "react-hook-form",
@@ -52,22 +44,15 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "next build",
+    "dev": "next dev",
     "format": "prettier --write src/**/*.{ts,tsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
+    "lint": "next lint --fix",
     "now-build": "npm run build",
     "prettier": "prettier --write './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc",
-    "lint": "eslint . --ext .ts,.tsx --fix",
-    "types": "tsc --noEmit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "typecheck": "tsc --noEmit"
   },
   "husky": {
     "hooks": {

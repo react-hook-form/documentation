@@ -1,4 +1,4 @@
-import { Link } from "@reach/router"
+import Link from "next/link"
 import * as typographyStyles from "../styles/typography.module.css"
 
 export default {
@@ -85,7 +85,7 @@ export default {
         </ul>
         <p>
           You can read more detail on each rule in the{" "}
-          <Link to="api#register">register section</Link>.
+          <Link href="api#register">register section</Link>.
         </p>
       </>
     ),
@@ -128,7 +128,7 @@ export default {
             MUI
           </a>
           . To make this simple, we provide a wrapper component,{" "}
-          <Link to="/api#Controller">Controller</Link>, to streamline the
+          <Link href="/api#Controller">Controller</Link>, to streamline the
           integration process while still giving you the freedom to use a custom
           register.
         </p>
@@ -143,7 +143,7 @@ export default {
           React Hook Form has made it easy to integrate with external UI
           component libraries. If the component doesn't expose input's{" "}
           <code>ref</code>, then you should use the{" "}
-          <Link to="/api#Controller">Controller</Link> component, which will
+          <Link href="/api#Controller">Controller</Link> component, which will
           take care of the registration process.
         </p>
       </>
@@ -269,9 +269,9 @@ export default {
             Joi
           </a>
           , where you can pass your <code>schema</code> to{" "}
-          <a href="/api#useForm">useForm</a> as an optional config. It will
-          validate your input data against the schema and return with either{" "}
-          <a href="/api#errors">errors</a> or a valid result.
+          <Link href="/docs#useForm">useForm</Link> as an optional config. It
+          will validate your input data against the schema and return with
+          either <Link href="/docs#errors">errors</Link> or a valid result.
         </p>
       </>
     ),

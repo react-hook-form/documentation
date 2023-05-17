@@ -9,15 +9,11 @@
 }
 
 .featuresContent svg {
-  fill: white;
+  fill: var(--color-text);
   width: 50px;
   display: block;
   margin: 0 auto;
   height: 60px;
-}
-
-.lightFeaturesContent svg {
-  fill: var(--color-black);
 }
 
 .featuresContent > article {

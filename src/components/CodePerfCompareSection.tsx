@@ -1,9 +1,6 @@
 import { memo } from "react"
 import { SimpleImg } from "react-simple-img"
 import { AnimateGroup } from "react-simple-animate"
-import formik from "../images/formik.min.png"
-import hookFrom from "../images/hookform.min.png"
-import reduxForm from "../images/reduxform.min.png"
 import home from "../data/home"
 import * as containerStyles from "../styles/container.module.css"
 import * as typographyStyles from "../styles/typography.module.css"
@@ -36,7 +33,7 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
           </li>
         </ul>
         <SimpleImg
-          src={hookFrom}
+          src="/images/hookform.min.png"
           placeholder={false}
           height={163}
           alt="React Hook Form performance"
@@ -55,7 +52,7 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
         </ul>
         <SimpleImg
           height={230}
-          src={formik}
+          src="/images/formik.min.png"
           placeholder={false}
           alt="Formik performance"
         />
@@ -72,7 +69,7 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
         </ul>
         <SimpleImg
           height={365}
-          src={reduxForm}
+          src="/images/reduxform.min.png"
           placeholder={false}
           alt="Redux Form performance"
         />

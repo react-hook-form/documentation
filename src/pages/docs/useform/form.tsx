@@ -13,7 +13,7 @@ import Footer from "../../../components/Footer"
 import TabGroup from "../../../components/TabGroup"
 import * as tableStyles from "../../../styles/table.module.css"
 import generic from "../../../data/generic"
-import { Link } from "gatsby"
+import Link from "next/link"
 
 const Form = () => {
   return (
@@ -108,7 +108,7 @@ const Form = () => {
                       </td>
                       <td>
                         <p>
-                          <Link to="/api/useform/control">
+                          <Link href="/docs/useform/control">
                             <code>control</code>
                           </Link>{" "}
                           object provided by invoking <code>useForm</code>.
@@ -317,7 +317,7 @@ const Form = () => {
                 <li>
                   <p>
                     If want to prepare or omit submission data, please use{" "}
-                    <Link to="/api/useform/handlesubmit">
+                    <Link href="/docs/useform/handlesubmit">
                       <code>handleSubmit</code>
                     </Link>{" "}
                     or custom fetcher.
@@ -357,7 +357,7 @@ const onSubmit =(data) => callback(prepareData(data))
                 <li>
                   <p>
                     It's sufficient enough to just use the{" "}
-                    <Link to="/api/useform/handlesubmit">
+                    <Link href="/docs/useform/handlesubmit">
                       <code>handleSubmit</code>
                     </Link>{" "}
                     callback with server state library, but you can use with{" "}

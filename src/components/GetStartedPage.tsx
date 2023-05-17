@@ -19,7 +19,6 @@ import {
 } from "./codeExamples/getStarted"
 import LearnMore from "../components/learnMore"
 import Footer from "../components/Footer"
-import { useStateMachine } from "little-state-machine"
 import getStartedEn from "../data/getStarted"
 import reactNativeController from "./codeExamples/reactNativeController"
 import typeScript from "./codeExamples/typeScript"
@@ -56,12 +55,6 @@ interface Props {
 }
 
 const Faq = ({ getStarted }: Props) => {
-  const {
-    state: { setting },
-  } = useStateMachine()
-
-  const lightMode = setting?.lightMode
-
   const links = [
     getStarted.install,
     getStarted.video,
@@ -102,9 +95,9 @@ const Faq = ({ getStarted }: Props) => {
     const filterName = name.replace(/ /g, "")
 
     if (hashIndex < 0) {
-      history.pushState({}, null, `${url}#${filterName}`)
+      history.pushState({}, "", `${url}#${filterName}`)
     } else {
-      history.pushState({}, null, `${url.substr(0, hashIndex)}#${filterName}`)
+      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
     }
 
     const refName = getRefNameFromTitle(name)
@@ -341,11 +334,7 @@ const Faq = ({ getStarted }: Props) => {
 
           {getStarted.schema.step1}
 
-          <span
-            className={`${getStartedStyles.installCode} ${
-              lightMode ? getStartedStyles.lightInstallCode : ""
-            }`}
-          >
+          <pre className="language-bash">
             npm install @hookform/resolvers yup
             <ClipBoard
               className={getStartedStyles.copyButton}
@@ -353,7 +342,7 @@ const Faq = ({ getStarted }: Props) => {
                 copyClipBoard("npm install @hookform/resolvers yup")
               }
             />
-          </span>
+          </pre>
 
           {getStarted.schema.step2}
 

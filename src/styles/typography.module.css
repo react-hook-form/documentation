@@ -54,7 +54,6 @@ h3.subTitle:before {
 }
 
 .rulesTitle {
-  color: currentColor;
   line-height: 1;
   margin-top: 2rem;
   border: 1px solid var(--color-secondary);
@@ -95,7 +94,6 @@ h3.subTitle:before {
   margin-bottom: -5px;
   margin-left: 15px;
   background: none;
-  color: white;
   text-transform: uppercase;
   border: 1px solid var(--color-secondary);
   padding: 5px 10px;
