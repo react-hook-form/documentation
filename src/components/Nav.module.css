@@ -35,12 +35,12 @@
 }
 
 :global(.dark) .actionButtonGroup {
-  background: var(--color-blue);
+  background: var(--color-button-blue);
   box-shadow: 0 2px 2px 0 #000;
 }
 
 :global(.light) .actionButtonGroup {
-  background: var(--color-blue);
+  background: none;
 }
 
 .actionButtonGroup a {
