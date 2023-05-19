@@ -40,7 +40,7 @@
 }
 
 :global(.light) .actionButtonGroup {
-  background: none;
+  background: var(--color-blue);
 }
 
 .actionButtonGroup a {
@@ -194,11 +194,8 @@ a.legacyLink {
     padding: 13px 8px;
   }
 
-  :global(.dark) > .actionButtonGroup {
-    background: var(--color-button-blue);
+  :global(.light) .actionButtonGroup {
     background: none;
-    box-shadow: none;
-    color: white;
   }
 
   .actionButtonGroup a {
