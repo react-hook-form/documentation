@@ -31,7 +31,7 @@ export default function Footer() {
           <Link href="/dev-tools">DevTools</Link>
         </li>
         <li>
-          <Link href="/resources">{nav.resources}</Link>
+          <Link href="/resources/articles">{nav.resources}</Link>
         </li>
         <li>
           <Link href="/about-us">About us</Link>
