@@ -1,4 +1,4 @@
-export default {
+const Nav = {
   home: "Home",
   getStarted: "Get Started",
   advanced: "Advanced",
@@ -16,3 +16,5 @@ export default {
   releases: "Releases",
   resources: "Resources",
 }
+
+export default Nav

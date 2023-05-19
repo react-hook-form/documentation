@@ -142,14 +142,14 @@ export default function Nav() {
             </Link>
             <Link
               className={
-                router.pathname == "/resources/newsletter" ? "active" : ""
+                router.pathname == "/resources/newsletters" ? "active" : ""
               }
-              href="/resources/newsletter"
+              href="/resources/newsletters"
             >
               <div className={styles.iconWrapper}>
                 <div className="tag icon" />
               </div>
-              <span>Newsletter</span>
+              <span>Newsletters</span>
             </Link>
             <Link
               className={
