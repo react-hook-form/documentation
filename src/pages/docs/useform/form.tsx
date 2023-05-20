@@ -275,36 +275,6 @@ const Form = () => {
                         />
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <code>fetcher</code>
-                      </td>
-                      <td>
-                        <code
-                          className={typographyStyles.typeText}
-                        >{`(action: string, options: Object) => void`}</code>
-                      </td>
-                      <td>
-                        <p>Custom fetcher callback function</p>
-                      </td>
-                      <td>
-                        <CodeArea
-                          withOutCopy
-                          rawData={`// with server state library
-<Form 
-  fetcher={
-   (action, { values }) => axios(action, values})}
-/>
-
-// with custom axios
-<Form 
-  fetcher={
-   (action, { values }) => mutation(values)}
-/>
-`}
-                        />
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -320,7 +290,7 @@ const Form = () => {
                     <Link href="/docs/useform/handlesubmit">
                       <code>handleSubmit</code>
                     </Link>{" "}
-                    or custom fetcher.
+                    or <code>onSubmit</code>.
                   </p>
 
                   <CodeArea
@@ -329,7 +299,7 @@ const onSubmit =(data) => callback(prepareData(data))
 
 <form onSubmit={handleSubmit(onSubmit)} />
 // or
-<Form action="/api" control={control} fetcher={(action, { values }) => onSubmit(values)} />
+<Form action="/api" control={control} onSubmit={onSubmit} />
 `}
                   />
                 </li>
@@ -351,44 +321,6 @@ const onSubmit =(data) => callback(prepareData(data))
 <form action="/api/test" method="post">
   <input required name="test" />
 </form>
-`}
-                  />
-                </li>
-                <li>
-                  <p>
-                    It's sufficient enough to just use the{" "}
-                    <Link href="/docs/useform/handlesubmit">
-                      <code>handleSubmit</code>
-                    </Link>{" "}
-                    callback with server state library, but you can use with{" "}
-                    <a
-                      href="https://swr.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      SWR
-                    </a>{" "}
-                    or{" "}
-                    <a
-                      href="https://tanstack.com/query/latest"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      TanQuery
-                    </a>{" "}
-                    to support progressively enhancement.
-                  </p>
-
-                  <CodeArea
-                    rawData={`const { handleSubmit, control } = useForm({
-  progressive: true                    
-});
-const [mounted, setMounted] = useState(false)
-const mutation = useMutation();
-
-<form onSubmit={handleSubmit(mutation)} />
-
-<Form fetcher={(action, { values }) => mutation(values)} action={'/api/something'/}>
 `}
                   />
                 </li>
