@@ -6,6 +6,7 @@ import "../components/layout.css"
 import formData from "../state/formData"
 import setting from "../state/setting"
 import { ThemeProvider } from "next-themes"
+import { useEffect } from "react"
 
 createStore(
   {
@@ -18,7 +19,23 @@ createStore(
   }
 )
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    try {
+      if (window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (registrations) {
+            if (Array.isArray(registrations)) {
+              for (const registration of registrations) {
+                registration.unregister()
+              }
+            }
+          })
+      }
+    } catch {}
+  }, [])
+
   return (
     <>
       <Head>
@@ -42,4 +59,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default App
