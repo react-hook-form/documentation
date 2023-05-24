@@ -13,6 +13,10 @@ export default function Document() {
           strategy="beforeInteractive"
           src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
         />
+        <link
+          rel="shortcut icon"
+          href="/images/logo/react-hook-form-logo-only.png"
+        />
       </Head>
       <body>
         <Main />

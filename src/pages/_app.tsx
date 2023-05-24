@@ -40,7 +40,6 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>React Hook Form - Simple React forms validation</title>
-        <link rel="shortcut icon" href="/images/logo/logo.svg" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
