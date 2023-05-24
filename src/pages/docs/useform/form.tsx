@@ -172,7 +172,7 @@ const Form = () => {
                         <CodeArea
                           withOutCopy
                           rawData={`<Form 
-  onSubmit={data => mutation(data)} 
+  onSubmit={({ data }) => mutation(data)} 
 />`}
                         />
                       </td>
