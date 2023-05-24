@@ -533,12 +533,16 @@ export default function App() {
     description: (
       <CodeArea
         rawData={`export type UseControllerProps<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
-  name: FieldName<TFieldValues>;
-  rules?: Exclude<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' >;
-  onFocus?: () => void;
-  defaultValue?: unknown;
+  name: TName;
+  rules?: Omit<
+    RegisterOptions<TFieldValues, TName>,
+    'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+  >;
+  shouldUnregister?: boolean;
+  defaultValue?: FieldPathValue<TFieldValues, TName>;
   control?: Control<TFieldValues>;
 };
 `}
@@ -550,10 +554,12 @@ export default function App() {
     description: (
       <CodeArea
         rawData={`export type UseControllerReturn<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
-  field: ControllerRenderProps<TFieldValues>;
-  fieldState: InputState;
+  field: ControllerRenderProps<TFieldValues, TName>;
+  formState: UseFormStateReturn<TFieldValues>;
+  fieldState: ControllerFieldState;
 };
 `}
       />
