@@ -174,16 +174,6 @@ export default function Nav() {
               </div>
               <span>DevTools</span>
             </Link>
-
-            <Link
-              className={router.pathname == "/form-builder" ? "active" : ""}
-              href="/form-builder"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="edit icon" />
-              </div>
-              <span>{nav.builder}</span>
-            </Link>
           </nav>
         </Animate>
       )}

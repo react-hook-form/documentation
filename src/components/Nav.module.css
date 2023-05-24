@@ -37,6 +37,8 @@
 :global(.dark) .actionButtonGroup {
   background: var(--color-button-blue);
   box-shadow: 0 2px 2px 0 #000;
+  width: 100%;
+  z-index: 20;
 }
 
 :global(.light) .actionButtonGroup {
@@ -93,6 +95,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.iconWrapper > * {
+  color: white;
 }
 
 a.legacyLink {
