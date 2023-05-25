@@ -1,7 +1,7 @@
 import * as typographyStyles from "../styles/typography.module.css"
 
 export default {
-  title: "Home",
+  title: "React Hook Form - performant, flexible and extensible form library",
   description: "React hook for form validation without the hassle",
 
   slogan:
