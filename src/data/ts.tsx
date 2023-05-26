@@ -501,7 +501,7 @@ export default function App() {
     title: "FieldArrayWithId",
     description: (
       <CodeArea
-        rawData={`export export type FieldArrayWithId<
+        rawData={`export type FieldArrayWithId<
   TFieldValues extends FieldValues = FieldValues,
   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
   TKeyName extends string = 'id',
