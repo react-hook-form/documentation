@@ -95,6 +95,10 @@ const UseForm = () => {
               label: "control",
               value: "/docs/useform/control",
             },
+            {
+              label: "Form",
+              value: "/docs/useform/form",
+            },
           ]}
         />
 
