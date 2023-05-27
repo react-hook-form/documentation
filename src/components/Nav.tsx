@@ -3,7 +3,6 @@ import Link from "next/link"
 import GitHubButton from "react-github-btn"
 import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
-import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
 import Search from "./Search"
 import * as styles from "./Nav.module.css"
@@ -46,23 +45,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className={styles.iconGroup}>
-        {show && <Search />}
-
-        {showLang && (
-          <>
-            <Toggle />
-            <a
-              className={styles.legacyLink}
-              target="_blank"
-              href="https://legacy.react-hook-form.com/"
-              rel="noreferrer"
-            >
-              V5/V6
-            </a>
-          </>
-        )}
-      </div>
+      <div className={styles.iconGroup}>{show && <Search />}</div>
 
       <div className={styles.gitHubButtonWrap}>
         <span className={`${styles.icon} desktopOnly`}>
