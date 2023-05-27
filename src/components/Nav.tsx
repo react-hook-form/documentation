@@ -49,19 +49,7 @@ export default function Nav() {
       <div className={styles.iconGroup}>
         {show && <Search />}
 
-        {showLang && (
-          <>
-            <Toggle />
-            <a
-              className={styles.legacyLink}
-              target="_blank"
-              href="https://legacy.react-hook-form.com/"
-              rel="noreferrer"
-            >
-              V5/V6
-            </a>
-          </>
-        )}
+        {showLang && <Toggle />}
       </div>
 
       <div className={styles.gitHubButtonWrap}>
