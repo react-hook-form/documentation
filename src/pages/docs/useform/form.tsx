@@ -21,7 +21,7 @@ const Form = () => {
       <Seo title="useForm - control" />
       <div className={containerStyles.container}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          Form <sup style={{ fontSize: 10, top: 0 }}>(BETA)</sup>
+          Form
         </h1>
         <p className={typographyStyles.subHeading}>Take care form submission</p>
 
@@ -299,7 +299,7 @@ const onSubmit =(data) => callback(prepareData(data))
 
 <form onSubmit={handleSubmit(onSubmit)} />
 // or
-<Form action="/api" control={control} onSubmit={onSubmit} />
+<Form onSubmit={({ data }) => { console.log(data) }} />
 `}
                   />
                 </li>
