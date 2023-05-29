@@ -977,5 +977,12 @@ export default {
       description:
         "A component to use React Hook Form instead of Ant Design form",
     },
+    {
+      type: "binding",
+      url: "https://ui.shadcn.com/docs/forms/react-hook-form",
+      title: "Building forms with React Hook Form and Zod",
+      description:
+        "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source",
+    },
   ],
 }
