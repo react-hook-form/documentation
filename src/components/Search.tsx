@@ -13,7 +13,8 @@ const Search = () => {
 
   useEffect(() => {
     window.docsearch({
-      apiKey: "953c771d83fb6ffd55fe58da997f2d9d",
+      appId: "Z2CKVVT2QA",
+      apiKey: "c56a3f265ffbf85c2c654f865cb09164",
       indexName: "react-hook-form",
       inputSelector: "#algolia-doc-search",
     })
