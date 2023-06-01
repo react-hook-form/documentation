@@ -9,7 +9,7 @@ const Faq = () => (
   <Layout>
     <MDXProvider components={MDXComponents}>
       <Seo title={faq.title} />
-      <FaqPage faq={faq} />
+      <FaqPage />
     </MDXProvider>
   </Layout>
 )

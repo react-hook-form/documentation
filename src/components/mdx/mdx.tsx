@@ -1,6 +1,7 @@
 import { PrismSyntaxHighlight } from "./code"
 import { Pre } from "./pre"
 import TabGroup from "../TabGroup"
+import { YouTube } from "./youtube"
 
 export const MDXComponents = {
   // p: P,
@@ -17,13 +18,13 @@ export const MDXComponents = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
-  // YouTube: YouTube,
+  YouTube,
   pre(props) {
     return <Pre {...props} />
   },
   code({ className, children, ...props }) {
     return className ? (
-      <PrismSyntaxHighlight className={className}>
+      <PrismSyntaxHighlight className={className} {...props}>
         {children}
       </PrismSyntaxHighlight>
     ) : (

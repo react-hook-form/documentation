@@ -1,8 +1,13 @@
+export const meta = {
+  title: "Typescript Support",
+  description: "List of exported Typescript Types."
+}
+ 
 **Important:** Typescript ^4.3 above is the recommended version to work with react hook form.
 
 ## \</> Resolver {#Resolver}
 
-```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
 import React from "react"
 import { useForm, Resolver } from "react-hook-form"
 
@@ -50,7 +55,7 @@ export default function App() {
 
 ## \</> SubmitHandler {#SubmitHandler}
 
-```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
 import React from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
 
@@ -80,7 +85,7 @@ export default function App() {
 
 ## \</> Control {#Control}
 
-```typescript copy codesandbox="https://codesandbox.io/s/control-2mg07"
+```typescript copy sandbox="https://codesandbox.io/s/control-2mg07"
 import { useForm, useWatch, Control } from "react-hook-form"
 
 type FormValues = {
@@ -143,7 +148,7 @@ export type UseFormReturn<
 }
 ```
 
-```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
 import type { FieldValues, UseFormReturn, SubmitHandler } from "react-hook-form"
 import React from "react"
 import { useForm } from "react-hook-form"
@@ -479,7 +484,7 @@ export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
 
 <TabGroup buttonLabels={["Code Example", "Type"]}>
 
-```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
 import React from "react"
 import { useForm, NestedValue } from "react-hook-form"
 import { Autocomplete, TextField, Select } from "@material-ui/core"

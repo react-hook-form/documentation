@@ -1,9 +1,8 @@
 import Footer from "../components/Footer"
 import StarRepo from "../components/StarRepo"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-
-import FAQContent from "../content/faq.mdx"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import FAQContent, { meta } from "../content/faq.mdx"
 import NewSideMenu from "./NewSideMenu"
 
 const links = [
@@ -57,17 +56,13 @@ const links = [
   },
 ]
 
-interface Props {
-  faq: any
-}
-
-const Faq = ({ faq }: Props) => {
+const Faq = () => {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        {faq.header.title}
+        {meta.title}
       </h1>
-      <p className={typographyStyles.subHeading}>{faq.header.description}</p>
+      <p className={typographyStyles.subHeading}>{meta.description}</p>
 
       <div className={containerStyles.wrapper}>
         <NewSideMenu links={links} />
