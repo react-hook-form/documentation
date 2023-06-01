@@ -1,5 +1,6 @@
 import { PrismSyntaxHighlight } from "./code"
 import { Pre } from "./pre"
+import TabGroup from "../TabGroup"
 
 export const MDXComponents = {
   // p: P,
@@ -29,4 +30,5 @@ export const MDXComponents = {
       <code {...props}>{children}</code>
     )
   },
+  TabGroup,
 }

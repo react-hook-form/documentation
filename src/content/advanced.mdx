@@ -1,0 +1,906 @@
+## Accessibility (A11y) {#AccessibilityA11y}
+
+React Hook Form has support for native form validation, which lets you validate inputs with your own rules. Since most of us have to build forms with custom designs and layouts, it is our responsibility to make sure those are accessible (A11y).
+
+The following code example works as intended for validation; however, it can be improved for accessibility.
+
+```javascript copy
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="name">Name</label>
+      <input
+        id="name"
+        {...register("name", { required: true, maxLength: 30 })}
+      />
+      {errors.name && errors.name.type === "required" && (
+        <span>This is required</span>
+      )}
+      {errors.name && errors.name.type === "maxLength" && (
+        <span>Max length exceeded</span>
+      )}
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+The following code example is an improved version by leveraging [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+
+```javascript copy
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="name">Name</label>
+
+      {/* use aria-invalid to indicate field contain error */}
+      <input
+        id="name"
+        aria-invalid={errors.name ? "true" : "false"}
+        {...register("name", { required: true, maxLength: 30 })}
+      />
+
+      {/* use role="alert" to announce the error message */}
+      {errors.name && errors.name.type === "required" && (
+        <span role="alert">This is required</span>
+      )}
+      {errors.name && errors.name.type === "maxLength" && (
+        <span role="alert">Max length exceeded</span>
+      )}
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+After this improvement, the screen reader will say: _“Name, edit, invalid entry, This is required.”_
+
+---
+
+## Wizard Form / Funnel {#WizardFormFunnel}
+
+It's pretty common to collect user information through different pages and sections. We recommend using a state management library to store user input through different pages or sections. In this example, we are going to use [little state machine](https://github.com/bluebill1049/little-state-machine) as our state management library (you can replace it with [redux](https://github.com/reduxjs/redux) if you are more familiar with it).
+
+**Step 1:** Set up your routes and store.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { StateMachineProvider, createStore } from "little-state-machine"
+import Step1 from "./Step1"
+import Step2 from "./Step2"
+import Result from "./Result"
+
+createStore({
+  data: {
+    firstName: "",
+    lastName: "",
+  },
+})
+
+export default function App() {
+  return (
+    <StateMachineProvider>
+      <Router>
+        <Route exact path="/" component={Step1} />
+        <Route path="/step2" component={Step2} />
+        <Route path="/result" component={Result} />
+      </Router>
+    </StateMachineProvider>
+  )
+}
+```
+
+**Step 2:** Create your pages, collect and submit the data to the store and push to the next form/page.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+import { useForm } from "react-hook-form"
+import { withRouter } from "react-router-dom"
+import { useStateMachine } from "little-state-machine"
+import updateAction from "./updateAction"
+
+const Step1 = (props) => {
+  const { register, handleSubmit } = useForm()
+  const { actions } = useStateMachine({ updateAction })
+  const onSubmit = (data) => {
+    actions.updateAction(data)
+    props.history.push("./step2")
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input type="submit" />
+    </form>
+  )
+}
+
+export default withRouter(Step1)
+```
+
+**Step 3:** Make your final submission with all the data in the store or display the resulting data.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+import { useStateMachine } from "little-state-machine"
+import updateAction from "./updateAction"
+
+const Result = (props) => {
+  const { state } = useStateMachine(updateAction)
+
+  return <pre>{JSON.stringify(state, null, 2)}</pre>
+}
+```
+
+Following the above pattern, you should be able to build a wizard form/funnel to collect user input data from multiple pages.
+
+---
+
+## Smart Form Component {#SmartFormComponent}
+
+This idea here is that you can easily compose your form with inputs. We are going to create a `Form` component to automatically collect form data.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+import { Form, Input, Select } from "./Components"
+
+export default function App() {
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <Form onSubmit={onSubmit}>
+      <Input name="firstName" />
+      <Input name="lastName" />
+      <Select name="gender" options={["female", "male", "other"]} />
+
+      <Input type="submit" value="Submit" />
+    </Form>
+  )
+}
+```
+
+Let's have a look what's in each of these components.
+
+`</> Form`
+
+The `Form` component's responsibility is to inject all `react-hook-form` methods into the child component.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function Form({ defaultValues, children, onSubmit }) {
+  const methods = useForm({ defaultValues })
+  const { handleSubmit } = methods
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {React.Children.map(children, (child) => {
+        return child.props.name
+          ? React.createElement(child.type, {
+              ...{
+                ...child.props,
+                register: methods.register,
+                key: child.props.name,
+              },
+            })
+          : child
+      })}
+    </form>
+  )
+}
+```
+
+`</> Input / Select`
+
+Those input components' responsibility is to register them into `react-hook-form`.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+import React from "react"
+
+export function Input({ register, name, ...rest }) {
+  return <input {...register(name)} {...rest} />
+}
+
+export function Select({ register, options, name, ...rest }) {
+  return (
+    <select {...register(name)} {...rest}>
+      {options.map((value) => (
+        <option key={value} value={value}>
+          {value}
+        </option>
+      ))}
+    </select>
+  )
+}
+```
+
+With the `Form` component injecting `react-hook-form`'s `props` into the child component, you can easily create and compose complex forms in your app.
+
+---
+
+## Error Messages {#ErrorMessages}
+
+Error messages are visual feedback to our users when there are issues with their inputs. React Hook Form provides an `errors` object to let you retrieve errors easily. There are several different ways to improve error presentation on the screen.
+
+- #### Register
+
+  You can simply pass the error message to `register`, via the `message` attribute of the validation rule object, like this:
+
+  `<input {...register('test', { maxLength: { value: 2, message: "error message" } })} />`
+
+- #### Optional Chaining
+
+  The `?.` [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) operator permits reading the `errors` object without worrying about causing another error due to `null` or `undefined`.
+
+  `errors?.firstName?.message`
+
+- #### Lodash `get`
+
+  If your project is using [lodash](https://lodash.com), then you can leverage the lodash `[get](https://lodash.com/docs/4.17.15#get)` function. Eg:
+
+  `get(errors, 'firstName.message')`
+
+---
+
+## Connect Form {#ConnectForm}
+
+When we are building forms, there are times when our input lives inside of deeply nested component trees, and that's when [FormContext](/docs/useFormContext) comes in handy. However, we can further improve the Developer Experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is you can connect your input with React Hook Form much easier.
+
+```javascript copy
+import { FormProvider, useForm, useFormContext } from "react-hook-form"
+
+export const ConnectForm = ({ children }) => {
+  const methods = useFormContext()
+
+  return children({ ...methods })
+}
+
+export const DeepNest = () => (
+  <ConnectForm>
+    {({ register }) => <input {...register("deepNestedInput")} />}
+  </ConnectForm>
+)
+
+export const App = () => {
+  const methods = useForm()
+
+  return (
+    <FormProvider {...methods}>
+      <form>
+        <DeepNest />
+      </form>
+    </FormProvider>
+  )
+}
+```
+
+---
+
+## FormProvider Performance {#FormProviderPerformance}
+
+React Hook Form's [FormProvider](/docs#useFormContext) is built upon [React's Context](https://reactjs.org/docs/context.html) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
+
+**Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/useformcontext) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
+
+```javascript copy codesandbox="https://codesandbox.io/s/provider-perf-forked-r24ho"
+import React, { memo } from "react"
+import { useForm, FormProvider, useFormContext } from "react-hook-form"
+
+// we can use React.memo to prevent re-render except isDirty state changed
+const NestedInput = memo(
+  ({ register, formState: { isDirty } }) => (
+    <div>
+      <input {...register("test")} />
+      {isDirty && <p>This field is dirty</p>}
+    </div>
+  ),
+  (prevProps, nextProps) =>
+    prevProps.formState.isDirty === nextProps.formState.isDirty
+)
+
+export const NestedInputContainer = ({ children }) => {
+  const methods = useFormContext()
+
+  return <NestedInput {...methods} />
+}
+
+export default function App() {
+  const methods = useForm()
+  const onSubmit = (data) => console.log(data)
+  console.log(methods.formState.isDirty) // make sure formState is read before render to enable the Proxy
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <NestedInputContainer />
+        <input type="submit" />
+      </form>
+    </FormProvider>
+  )
+}
+```
+
+---
+
+## Controlled mixed with Uncontrolled Components {#ControlledmixedwithUncontrolledComponents}
+
+React Hook Form embraces uncontrolled components but is also compatible with controlled components. Most UI libraries are built to support only controlled components, such as [MUI](https://github.com/mui/material-ui) and [Antd](https://github.com/ant-design/ant-design). But with React Hook Form, the re-rendering of controlled components are also optimized. Here is an example that combines them both with validation.
+
+<TabGroup buttonLabels={["Controller", "Custom Register"]}>
+
+```javascript copy
+import React, { useEffect } from "react"
+import { Input, Select, MenuItem } from "@material-ui/core"
+import { useForm, Controller } from "react-hook-form"
+
+const defaultValues = {
+  select: "",
+  input: "",
+}
+
+function App() {
+  const { handleSubmit, reset, watch, control, register } = useForm({
+    defaultValues,
+  })
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        render={({ field }) => (
+          <Select {...field}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+          </Select>
+        )}
+        control={control}
+        name="select"
+        defaultValue={10}
+      />
+
+      <Input {...register("input")} />
+
+      <button type="button" onClick={() => reset({ defaultValues })}>
+        Reset
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
+import React, { useEffect } from "react"
+import { Input, Select, MenuItem } from "@material-ui/core"
+import { useForm } from "react-hook-form"
+
+const defaultValues = {
+  select: "",
+  input: "",
+}
+
+function App() {
+  const { register, handleSubmit, setValue, reset, watch } = useForm({
+    defaultValues,
+  })
+  const selectValue = watch("select")
+  const onSubmit = (data) => console.log(data)
+
+  useEffect(() => {
+    register({ name: "select" })
+  }, [register])
+
+  const handleChange = (e) => setValue("select", e.target.value)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Select value={selectValue} onChange={handleChange}>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+      </Select>
+      <Input {...register("input")} />
+
+      <button type="button" onClick={() => reset({ ...defaultValues })}>
+        Reset
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+---
+
+## Custom Hook with Resolver {#CustomHookwithResolver}
+
+You can build a custom hook as a resolver. A custom hook can easily integrate with yup/Joi/Superstruct as a validation method, and to be used inside validation resolver.
+
+- Define a memorized validation schema (or define it outside your component if you don't have any dependencies)
+- Use the custom hook, by passing the validation schema
+- Pass the validation resolver to the useForm hook
+
+```javascript copy codesandbox="https://codesandbox.io/s/custom-hook-with-resolver-v7-cwczk"
+import React, { useCallback, useMemo } from "react"
+import { useForm } from "react-hook-form"
+import * as yup from "yup"
+
+const useYupValidationResolver = (validationSchema) =>
+  useCallback(
+    async (data) => {
+      try {
+        const values = await validationSchema.validate(data, {
+          abortEarly: false,
+        })
+
+        return {
+          values,
+          errors: {},
+        }
+      } catch (errors) {
+        return {
+          values: {},
+          errors: errors.inner.reduce(
+            (allErrors, currentError) => ({
+              ...allErrors,
+              [currentError.path]: {
+                type: currentError.type ?? "validation",
+                message: currentError.message,
+              },
+            }),
+            {}
+          ),
+        }
+      }
+    },
+    [validationSchema]
+  )
+
+const validationSchema = yup.object({
+  firstName: yup.string().required("Required"),
+  lastName: yup.string().required("Required"),
+})
+
+export default function App() {
+  const resolver = useYupValidationResolver(validationSchema)
+  const { handleSubmit, register } = useForm({ resolver })
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
+## Working with virtualized lists {#Workingwithvirtualizedlists}
+
+Imagine a scenario where you have a table of data. This table might contain hundreds or thousands of rows, and each row will have inputs. A common practice is to only render the items that are in the viewport, however this will cause issues as the items are removed from the DOM when they are out of view and re-added. This will cause items to reset to their default values when they re-enter the viewport.
+
+An example is shown below using [react-window](https://github.com/bvaughn/react-window).
+
+<TabGroup buttonLabels={["Form", "Field Array"]}>
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
+import React from "react"
+import { FormProvider, useForm, useFormContext } from "react-hook-form"
+import { VariableSizeList as List } from "react-window"
+import AutoSizer from "react-virtualized-auto-sizer"
+import ReactDOM from "react-dom"
+import "./styles.css"
+
+const items = Array.from(Array(1000).keys()).map((i) => ({
+  title: `List ${i}`,
+  quantity: Math.floor(Math.random() * 10),
+}))
+
+const WindowedRow = React.memo(({ index, style, data }) => {
+  const { register } = useFormContext()
+
+  return <input {...register(`${index}.quantity`)} />
+})
+
+export const App = () => {
+  const onSubmit = (data) => console.log(data)
+  const formMethods = useForm({ defaultValues: items })
+
+  return (
+    <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
+      <FormProvider {...formMethods}>
+        <AutoSizer>
+          {({ height, width }) => (
+            <List
+              height={height}
+              itemCount={items.length}
+              itemSize={() => 100}
+              width={width}
+              itemData={items}
+            >
+              {WindowedRow}
+            </List>
+          )}
+        </AutoSizer>
+      </FormProvider>
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
+```
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-ghrey"
+import { FixedSizeList } from "react-window"
+import { Controller, useFieldArray, useForm } from "react-hook-form"
+
+const items = Array.from(Array(1000).keys()).map((i) => ({
+  title: `List ${i}`,
+  quantity: Math.floor(Math.random() * 10),
+}))
+
+function App() {
+  const { control, getValues } = useForm({
+    defaultValues: {
+      test: items,
+    },
+  })
+  const { fields, remove } = useFieldArray({ control, name: "test" })
+
+  return (
+    <FixedSizeList
+      width={400}
+      height={500}
+      itemSize={40}
+      itemCount={fields.length}
+      itemData={fields}
+      itemKey={(i) => fields[i].id}
+    >
+      {({ style, index, data }) => {
+        const defaultValue =
+          getValues()["test"][index].quantity ?? data[index].quantity
+
+        return (
+          <form style={style}>
+            <Controller
+              render={({ field }) => <input {...field} />}
+              name={`test[${index}].quantity`}
+              defaultValue={defaultValue}
+              control={control}
+            />
+          </form>
+        )
+      }}
+    </FixedSizeList>
+  )
+}
+```
+
+</TabGroup>
+
+---
+
+## Testing Form {#TestingForm}
+
+Testing is very important because it prevents your code from having bugs or mistakes. It also guarantees code safety when refactoring the codebase.
+
+We recommend using [testing-library](https://testing-library.com/), because it is simple and tests are more focused on user behavior.
+
+**Step 1:** Set up your testing environment.
+
+Please install [@testing-library/jest-dom](https://github.com/testing-library/jest-dom) with the latest version of `jest`, because react-hook-form uses `MutationObserver` to detect inputs, and to get unmounted from the DOM.
+
+**Note:** If you are using React Native, you don't need to install [@testing-library/jest-dom](https://github.com/testing-library/jest-dom).
+
+```bash copy
+npm install -D @testing-library/jest-dom
+```
+
+Create `setup.js` to import [@testing-library/jest-dom](https://github.com/testing-library/jest-dom).
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/setupTests.js"
+import "@testing-library/jest-dom"
+```
+
+**Note:** If you are using React Native, you need to create setup.js, define `window` object, and include the following lines in the setup file:
+
+```javascript copy
+global.window = {}
+global.window = global
+```
+
+Finally, you have to update `setup.js` in `jest.config.js` to include the file.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk"
+module.exports = {
+  setupFilesAfterEnv: ["<rootDir>/setup.js"], // or .ts for TypeScript App
+  // ...other settings
+}
+```
+
+Additionally, you can set up [eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library) and [eslint-plugin-jest-dom](https://github.com/testing-library/eslint-plugin-jest-dom) to follow best practices and anticipate common mistakes when writing your tests.
+
+**Step 2:** Create login form.
+
+We have set the role attribute accordingly. These attributes are helpful for when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App({ login }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm()
+  const onSubmit = async (data) => {
+    await login(data.email, data.password)
+    reset()
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="email">email</label>
+      <input
+        id="email"
+        {...register("email", {
+          required: "required",
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Entered value does not match email format",
+          },
+        })}
+        type="email"
+      />
+      {errors.email && <span role="alert">{errors.email.message}</span>}
+      <label htmlFor="password">password</label>
+      <input
+        id="password"
+        {...register("password", {
+          required: "required",
+          minLength: {
+            value: 5,
+            message: "min length is 5",
+          },
+        })}
+        type="password"
+      />
+      {errors.password && <span role="alert">{errors.password.message}</span>}
+      <button type="submit">SUBMIT</button>
+    </form>
+  )
+}
+```
+
+**Step 3:** Write tests.
+
+The following criteria are what we try to cover with the tests:
+
+- Test submission failure.
+
+  We are using `waitFor` util and `find*` queries to detect submission feedback, because the `handleSubmit` method is executed asynchronously.
+
+- Test validation associated with each inputs.
+
+  We are using the `*ByRole` method when querying different elements because that's how users recognize your UI component.
+
+- Test successful submission.
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
+import React from "react"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
+import App from "./App"
+
+const mockLogin = jest.fn((email, password) => {
+  return Promise.resolve({ email, password })
+})
+
+it("should display required error when value is invalid", async () => {
+  render(<App login={mockLogin} />)
+
+  fireEvent.submit(screen.getByRole("button"))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(2)
+  expect(mockLogin).not.toBeCalled()
+})
+
+it("should display matching error when email is invalid", async () => {
+  render(<App login={mockLogin} />)
+
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test",
+    },
+  })
+
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "password",
+    },
+  })
+
+  fireEvent.submit(screen.getByRole("button"))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(1)
+  expect(mockLogin).not.toBeCalled()
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("test")
+  expect(screen.getByLabelText("password")).toHaveValue("password")
+})
+
+it("should display min length error when password is invalid", async () => {
+  render(<App login={mockLogin} />)
+
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test@mail.com",
+    },
+  })
+
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "pass",
+    },
+  })
+
+  fireEvent.submit(screen.getByRole("button"))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(1)
+  expect(mockLogin).not.toBeCalled()
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue(
+    "test@mail.com"
+  )
+  expect(screen.getByLabelText("password")).toHaveValue("pass")
+})
+
+it("should not display error when value is valid", async () => {
+  render(<App login={mockLogin} />)
+
+  fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    target: {
+      value: "test@mail.com",
+    },
+  })
+
+  fireEvent.input(screen.getByLabelText("password"), {
+    target: {
+      value: "password",
+    },
+  })
+
+  fireEvent.submit(screen.getByRole("button"))
+
+  await waitFor(() => expect(screen.queryAllByRole("alert")).toHaveLength(0))
+  expect(mockLogin).toBeCalledWith("test@mail.com", "password")
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("")
+  expect(screen.getByLabelText("password")).toHaveValue("")
+})
+```
+
+#### Resolving act warning during test {#TransformandParse}
+
+If you test a component that uses react-hook-form, you might run into a warning like this, even if you didn't write any asynchronous code for that component:
+
+> Warning: An update to MyComponent inside a test was not wrapped in act(...)
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange",
+  })
+  const onSubmit = (data) => {}
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("answer", {
+          required: true,
+        })}
+      />
+      <button type="submit">SUBMIT</button>
+    </form>
+  )
+}
+```
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+import React from "react"
+import { render, screen } from "@testing-library/react"
+import App from "./App"
+
+it("should have a submit button", () => {
+  render(<App />)
+
+  expect(screen.getByText("SUBMIT")).toBeInTheDocument()
+})
+```
+
+In this example, there is a simple form without any apparent async code, and the test merely renders the component and tests for the presence of a button. However, it still logs the warning about updates not being wrapped in `act()`.
+
+This is because react-hook-form internally uses asynchronous validation handlers. In order to compute the formState, it has to initially validate the form, which is done asynchronously, resulting in another render. That update happens after the test function returns, which triggers the warning.
+
+To solve this, wait until some element from your UI appears with `find*` queries. Note that you **must not** wrap your `render()` calls in `act()`. [You can read more about wrapping things in `act` unnecessarily here](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily).
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
+import React from "react"
+import { render, screen } from "@testing-library/react"
+import App from "./App"
+
+it("should have a submit button", async () => {
+  render(<App />)
+
+  expect(await screen.findByText("SUBMIT")).toBeInTheDocument()
+
+  // Now that the UI was awaited until the async behavior was completed,
+  // you can keep asserting with `get*` queries.
+  expect(screen.getByRole("textbox")).toBeInTheDocument()
+})
+```
+
+---
+
+## Transform and Parse {#Howtosharerefusage}
+
+The native input returns the value in `string` format unless invoked with `valueAsNumber` or `valueAsDate`, you can read more under [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect. We still have to deal with `isNaN` or `null` values. So it's better to leave the transform at the custom hook level. In the following example, we are using the `Controller` to include the functionality of the transform value's input and output. You can also achieve a similar result with a custom `register`.
+
+```javascript copy codesandbox="https://codesandbox.io/s/transform-vt3tm"
+
+const ControllerPlus = ({
+  control,
+  transform,
+  name,
+  defaultValue
+}) => (
+  <Controller
+    defaultValue={defaultValue}
+    control={control}
+    name={name}
+    render={({ field }) => (
+      <input
+        onChange={(e) => field.onChange(transform.output(e))}
+        value={transform.input(field.value)}
+      />
+    )}
+  />
+);
+
+// usage below:
+<ControllerPlus<string, number>
+  transform={{
+    input: (value) =>
+      isNaN(value) || value === 0 ? "" : value.toString(),
+    output: (e) => {
+      const output = parseInt(e.target.value, 10);
+      return isNaN(output) ? 0 : output;
+    }
+  }}
+  control={control}
+  name="number"
+  defaultValue=""
+/>
+```

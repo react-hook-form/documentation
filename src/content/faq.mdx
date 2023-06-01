@@ -1,5 +1,3 @@
-import TabGroup from "../components/TabGroup"
-
 ## Performance of React Hook Form {#PerformanceofReactHookForm}
 
 Performance is one of the primary reasons why this library was created. React Hook Form relies on an uncontrolled form, which is the reason why the `register` function captures `ref` and the controlled component has its re-rendering scope with `Controller` or `useController`. This approach reduces the amount of re-rendering that occurs due to a user typing in an input or other form values changing at the root of your form or applications. Components mount to the page faster than controlled components because they have less overhead. As a reference, there is a quick comparison test that you can refer to at [this repo link](https://github.com/bluebill1049/react-hook-form-performance-compare).
