@@ -7,8 +7,8 @@ import generic from "../data/generic"
 import multipleErrorCode from "./codeExamples/multipleErrorCode"
 import multipleErrorCodeTs from "./codeExamples/multipleErrorCodeTs"
 import TabGroup from "./TabGroup"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 
 function ApiErrors({
   api,

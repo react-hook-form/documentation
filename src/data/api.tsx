@@ -2,9 +2,9 @@ import CodeArea from "../components/CodeArea"
 import useFieldArrayArgument from "../components/codeExamples/useFieldArrayArgument"
 import generic from "./generic"
 import Link from "next/link"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as buttonStyles from "../styles/button.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import buttonStyles from "../styles/button.module.css"
+import tableStyles from "../styles/table.module.css"
 import TabGroup from "../components/TabGroup"
 
 export default {
@@ -2052,7 +2052,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                     url="https://codesandbox.io/s/react-hook-form-usefieldarray-rules-iyejbp?file=/src/index.js"
                     withOutCopy
                     rawData={`useFieldArray({
-  rules: { minLength: 4 }
+  rules: { minLength: 4 } 
 })
 `}
                   />

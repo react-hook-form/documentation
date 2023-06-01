@@ -1,9 +1,8 @@
 import Footer from "./Footer"
 import StarRepo from "./StarRepo"
-import advanced from "../data/advanced"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import AdvancedContent from "../content/advanced.mdx"
+import AdvancedContent, { meta } from "../content/advanced.mdx"
 import NewSideMenu from "./NewSideMenu"
 
 const links = [
@@ -57,11 +56,9 @@ function Advanced() {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        {advanced.header.title}
+        {meta.title}
       </h1>
-      <p className={typographyStyles.subHeading}>
-        {advanced.header.description}
-      </p>
+      <p className={typographyStyles.subHeading}>{meta.description}</p>
 
       <div className={containerStyles.wrapper}>
         <NewSideMenu links={links} />

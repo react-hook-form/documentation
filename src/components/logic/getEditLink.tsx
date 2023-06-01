@@ -18,7 +18,7 @@ export const getEditLink = (pathname: string) => {
   if (pathname === "/" || pathname === "") {
     return `${preFix}${dataPreFix}/home.tsx`
   } else if (pathname.includes("get-started")) {
-    return `${preFix}${dataPreFix}getStarted.tsx`
+    return `${preFix}${content}get-started.mdx`
   } else if (pathname.includes("api")) {
     const splitPath = pathname.split("/")
     if (splitPath.length === 2 || splitPath[2] === "") {

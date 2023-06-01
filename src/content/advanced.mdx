@@ -1,3 +1,8 @@
+export const meta = {
+  title: "Advanced Usage",
+  description: "Build complex and accessible forms",
+}
+ 
 ## Accessibility (A11y) {#AccessibilityA11y}
 
 React Hook Form has support for native form validation, which lets you validate inputs with your own rules. Since most of us have to build forms with custom designs and layouts, it is our responsibility to make sure those are accessible (A11y).
@@ -83,7 +88,7 @@ It's pretty common to collect user information through different pages and secti
 
 **Step 1:** Set up your routes and store.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { StateMachineProvider, createStore } from "little-state-machine"
 import Step1 from "./Step1"
@@ -112,7 +117,7 @@ export default function App() {
 
 **Step 2:** Create your pages, collect and submit the data to the store and push to the next form/page.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
 import { useForm } from "react-hook-form"
 import { withRouter } from "react-router-dom"
 import { useStateMachine } from "little-state-machine"
@@ -140,7 +145,7 @@ export default withRouter(Step1)
 
 **Step 3:** Make your final submission with all the data in the store or display the resulting data.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
 import { useStateMachine } from "little-state-machine"
 import updateAction from "./updateAction"
 
@@ -159,7 +164,7 @@ Following the above pattern, you should be able to build a wizard form/funnel to
 
 This idea here is that you can easily compose your form with inputs. We are going to create a `Form` component to automatically collect form data.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
 import { Form, Input, Select } from "./Components"
 
 export default function App() {
@@ -183,7 +188,7 @@ Let's have a look what's in each of these components.
 
 The `Form` component's responsibility is to inject all `react-hook-form` methods into the child component.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
 import React from "react"
 import { useForm } from "react-hook-form"
 
@@ -213,7 +218,7 @@ export default function Form({ defaultValues, children, onSubmit }) {
 
 Those input components' responsibility is to register them into `react-hook-form`.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
 import React from "react"
 
 export function Input({ register, name, ...rest }) {
@@ -301,7 +306,7 @@ React Hook Form's [FormProvider](/docs#useFormContext) is built upon [React's Co
 
 **Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/useformcontext) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
 
-```javascript copy codesandbox="https://codesandbox.io/s/provider-perf-forked-r24ho"
+```javascript copy sandbox="https://codesandbox.io/s/provider-perf-forked-r24ho"
 import React, { memo } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
@@ -388,7 +393,7 @@ function App() {
 }
 ```
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
 import React, { useEffect } from "react"
 import { Input, Select, MenuItem } from "@material-ui/core"
 import { useForm } from "react-hook-form"
@@ -440,7 +445,7 @@ You can build a custom hook as a resolver. A custom hook can easily integrate wi
 - Use the custom hook, by passing the validation schema
 - Pass the validation resolver to the useForm hook
 
-```javascript copy codesandbox="https://codesandbox.io/s/custom-hook-with-resolver-v7-cwczk"
+```javascript copy sandbox="https://codesandbox.io/s/custom-hook-with-resolver-v7-cwczk"
 import React, { useCallback, useMemo } from "react"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
@@ -505,7 +510,7 @@ An example is shown below using [react-window](https://github.com/bvaughn/react-
 
 <TabGroup buttonLabels={["Form", "Field Array"]}>
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
 import React from "react"
 import { FormProvider, useForm, useFormContext } from "react-hook-form"
 import { VariableSizeList as List } from "react-window"
@@ -551,7 +556,7 @@ export const App = () => {
 }
 ```
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-ghrey"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-usefieldarray-virtual-inputs-ghrey"
 import { FixedSizeList } from "react-window"
 import { Controller, useFieldArray, useForm } from "react-hook-form"
 
@@ -619,7 +624,7 @@ npm install -D @testing-library/jest-dom
 
 Create `setup.js` to import [@testing-library/jest-dom](https://github.com/testing-library/jest-dom).
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/setupTests.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/setupTests.js"
 import "@testing-library/jest-dom"
 ```
 
@@ -632,7 +637,7 @@ global.window = global
 
 Finally, you have to update `setup.js` in `jest.config.js` to include the file.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk"
 module.exports = {
   setupFilesAfterEnv: ["<rootDir>/setup.js"], // or .ts for TypeScript App
   // ...other settings
@@ -645,7 +650,7 @@ Additionally, you can set up [eslint-plugin-testing-library](https://github.com/
 
 We have set the role attribute accordingly. These attributes are helpful for when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
 import React from "react"
 import { useForm } from "react-hook-form"
 
@@ -709,7 +714,7 @@ The following criteria are what we try to cover with the tests:
 
 - Test successful submission.
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
 import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import App from "./App"
@@ -805,7 +810,7 @@ If you test a component that uses react-hook-form, you might run into a warning 
 
 > Warning: An update to MyComponent inside a test was not wrapped in act(...)
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
 import React from "react"
 import { useForm } from "react-hook-form"
 
@@ -828,7 +833,7 @@ export default function App() {
 }
 ```
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import App from "./App"
@@ -846,7 +851,7 @@ This is because react-hook-form internally uses asynchronous validation handlers
 
 To solve this, wait until some element from your UI appears with `find*` queries. Note that you **must not** wrap your `render()` calls in `act()`. [You can read more about wrapping things in `act` unnecessarily here](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily).
 
-```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import App from "./App"
@@ -868,7 +873,7 @@ it("should have a submit button", async () => {
 
 The native input returns the value in `string` format unless invoked with `valueAsNumber` or `valueAsDate`, you can read more under [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect. We still have to deal with `isNaN` or `null` values. So it's better to leave the transform at the custom hook level. In the following example, we are using the `Controller` to include the functionality of the transform value's input and output. You can also achieve a similar result with a custom `register`.
 
-```javascript copy codesandbox="https://codesandbox.io/s/transform-vt3tm"
+```javascript copy sandbox="https://codesandbox.io/s/transform-vt3tm"
 
 const ControllerPlus = ({
   control,

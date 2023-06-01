@@ -2,7 +2,7 @@ import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import StarRepo from "./StarRepo"
 import Footer from "./Footer"
-import TSContent from "../content/ts.mdx"
+import TSContent, { meta } from "../content/ts.mdx"
 import NewSideMenu from "./NewSideMenu"
 
 const links = [
@@ -89,11 +89,9 @@ const TsPage = () => {
     <div className={containerStyles.container}>
       <section>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          Typescript Support
+          {meta.title}
         </h1>
-        <p className={typographyStyles.subHeading}>
-          List of exported Typescript Types.
-        </p>
+        <p className={typographyStyles.subHeading}>{meta.description}</p>
       </section>
 
       <div className={containerStyles.wrapper}>
