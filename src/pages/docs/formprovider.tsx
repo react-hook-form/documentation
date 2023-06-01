@@ -1,11 +1,11 @@
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
-import * as containerStyles from "../../styles/container.module.css"
-import * as typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../../components/Menu"
 import CodeArea from "../../components/CodeArea"
 import formContext from "../../components/codeExamples/formContext"
-import * as tableStyles from "../../styles/table.module.css"
+import tableStyles from "../../styles/table.module.css"
 import Link from "next/link"
 
 export default function FormProvider() {

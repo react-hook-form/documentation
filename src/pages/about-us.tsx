@@ -1,9 +1,9 @@
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Footer from "../components/Footer"
-import * as containerStyle from "../styles/container.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "../components/ResourcePage.module.css"
+import containerStyle from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "../components/ResourcePage.module.css"
 
 const Twitter = ({ twitterName }) => (
   <a

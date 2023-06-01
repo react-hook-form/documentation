@@ -2,9 +2,9 @@ import { Animate, AnimateGroup } from "react-simple-animate"
 import { useRouter } from "next/router"
 // import Bday from "./Bday"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as buttonStyles from "../styles/button.module.css"
-import * as styles from "./Header.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import buttonStyles from "../styles/button.module.css"
+import styles from "./Header.module.css"
 import { useState, RefObject } from "react"
 
 const LogoSvg = (

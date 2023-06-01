@@ -3,7 +3,7 @@ import { Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import generic from "../data/generic"
 import originalFormData from "../state/formData"
-import * as styles from "./SortableContainer.module.css"
+import styles from "./SortableContainer.module.css"
 
 export default function SortableContainer({
   updateFormData,

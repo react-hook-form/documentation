@@ -2,10 +2,10 @@ import { memo, useState } from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as formStyles from "./Form.module.css"
-import * as styles from "./IsolateRender.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import formStyles from "./Form.module.css"
+import styles from "./IsolateRender.module.css"
 
 const props = {
   keyframes: [

@@ -1,7 +1,7 @@
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
-import * as containerStyles from "../../../styles/container.module.css"
-import * as typographyStyles from "../../../styles/typography.module.css"
+import containerStyles from "../../../styles/container.module.css"
+import typographyStyles from "../../../styles/typography.module.css"
 import { Menu } from "../../../components/Menu"
 import CodeArea from "../../../components/CodeArea"
 import {
@@ -11,7 +11,7 @@ import {
 import StarRepo from "../../../components/StarRepo"
 import Footer from "../../../components/Footer"
 import TabGroup from "../../../components/TabGroup"
-import * as tableStyles from "../../../styles/table.module.css"
+import tableStyles from "../../../styles/table.module.css"
 import generic from "../../../data/generic"
 import Link from "next/link"
 

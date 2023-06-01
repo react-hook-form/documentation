@@ -1,6 +1,6 @@
 import generic from "../data/generic"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
 import { FormStateApi } from "./FormStateApi"
 
 export default function FormStateTable({ api }) {

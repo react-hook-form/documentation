@@ -1,5 +1,5 @@
 import { memo } from "react"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import FormStateTable from "./FormStateTable"
 import TabGroup from "./TabGroup"
 import CodeArea from "./CodeArea"

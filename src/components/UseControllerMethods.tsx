@@ -1,6 +1,6 @@
 import generic from "../data/generic"
-import * as tableStyles from "../styles/table.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import tableStyles from "../styles/table.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import Link from "next/link"
 import { FormStateApi } from "./FormStateApi"
 

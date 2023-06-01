@@ -1,4 +1,4 @@
-import * as styles from "./sponsorsList.module.css"
+import styles from "./sponsorsList.module.css"
 
 export function SponsorsList() {
   return (

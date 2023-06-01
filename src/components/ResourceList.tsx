@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import * as headerStyles from "./Header.module.css"
-import * as styles from "./ResourcePage.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import headerStyles from "./Header.module.css"
+import styles from "./ResourcePage.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 type Resource = {
   title: string

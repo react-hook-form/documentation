@@ -1,4 +1,4 @@
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import API from "../data/api"
 import Link from "next/link"
 import { ReactNode } from "react"

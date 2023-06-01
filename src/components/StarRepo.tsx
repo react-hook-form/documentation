@@ -1,6 +1,6 @@
 import generic from "../data/generic"
-import * as buttonStyles from "../styles/button.module.css"
-import * as containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
 
 export default function StarRepo() {
   return (

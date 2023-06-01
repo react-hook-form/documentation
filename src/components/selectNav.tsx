@@ -1,4 +1,4 @@
-import * as styles from "./selectNav.module.css"
+import styles from "./selectNav.module.css"
 import { useRouter } from "next/router"
 
 type Props = {

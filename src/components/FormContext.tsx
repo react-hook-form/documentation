@@ -1,6 +1,6 @@
 import CodeArea from "./CodeArea"
 import formContext from "./codeExamples/formContext"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import Link from "next/link"
 
 export default function FormContext({ api }) {
