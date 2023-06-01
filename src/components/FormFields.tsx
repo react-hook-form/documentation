@@ -1,5 +1,5 @@
 import colors from "../styles/colors"
-import * as styles from "./FormFields.module.css"
+import styles from "./FormFields.module.css"
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,

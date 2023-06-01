@@ -1,7 +1,7 @@
 import copyClipBoard from "./utils/copyClipBoard"
 import { highlightAllUnder } from "prismjs"
 import ClipBoard from "./ClipBoard"
-import * as styles from "./CodeArea.module.css"
+import styles from "./CodeArea.module.css"
 import { CSSProperties, useEffect, useRef, useState } from "react"
 
 export const CodeSandBoxLink = ({

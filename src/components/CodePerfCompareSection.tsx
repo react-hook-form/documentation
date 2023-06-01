@@ -2,9 +2,9 @@ import { memo } from "react"
 import { SimpleImg } from "react-simple-img"
 import { AnimateGroup } from "react-simple-animate"
 import home from "../data/home"
-import * as containerStyles from "../styles/container.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./CodePerfCompareSection.module.css"
+import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./CodePerfCompareSection.module.css"
 
 function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
   return (

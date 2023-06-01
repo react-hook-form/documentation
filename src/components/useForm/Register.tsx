@@ -2,8 +2,8 @@ import Footer from "../Footer"
 import { Menu } from "../Menu"
 import api from "../../data/api"
 import ApiRefTable from "../ApiRefTable"
-import * as typographyStyles from "../../styles/typography.module.css"
-import * as containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
 
 const Register = () => {

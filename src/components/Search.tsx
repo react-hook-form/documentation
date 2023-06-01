@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useStateMachine } from "little-state-machine"
 import { updateSetting } from "../actions/settingActions"
-import * as searchStyles from "./Search.module.css"
+import searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 

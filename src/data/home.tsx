@@ -1,4 +1,4 @@
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 export default {
   title: "React Hook Form - performant, flexible and extensible form library",

@@ -4,9 +4,9 @@ import CodeArea from "./CodeArea"
 import { AnimateGroup, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as containerStyles from "../styles/container.module.css"
-import * as styles from "./CodeCompareSection.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import containerStyles from "../styles/container.module.css"
+import styles from "./CodeCompareSection.module.css"
 
 const props = {
   start: { transform: "translateY(100px)" },

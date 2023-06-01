@@ -1,5 +1,5 @@
 import { Animate, AnimateGroup } from "react-simple-animate"
-import * as styles from "./Bday.module.css"
+import styles from "./Bday.module.css"
 import Link from "next/link"
 
 const list = [

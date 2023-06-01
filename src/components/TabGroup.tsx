@@ -1,5 +1,5 @@
 import { useState } from "react"
-import * as styles from "./TabGroup.module.css"
+import styles from "./TabGroup.module.css"
 
 const TabGroup = ({ children, buttonLabels }) => {
   const [index, setIndex] = useState(0)
