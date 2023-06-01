@@ -1,80 +1,67 @@
-import { useRef, useEffect, Fragment } from "react"
-import SideMenu from "../components/SideMenu"
 import Footer from "../components/Footer"
 import StarRepo from "../components/StarRepo"
-import faqEn from "../data/faq"
 import * as typographyStyles from "../styles/typography.module.css"
 import * as containerStyles from "../styles/container.module.css"
-const REMOVE_QUESTIONS_FOR_LIST = 5
 
-const enLinks = faqEn.questions
+import FAQContent from "../content/faq.mdx"
+import NewSideMenu from "./NewSideMenu"
+
+const links = [
+  {
+    title: "Performance of React Hook Form",
+    href: "#PerformanceofReactHookForm",
+  },
+  {
+    title: "How to create an accessible input error and message?",
+    href: "#Howtocreateanaccessibleinputerrorandmessage",
+  },
+  {
+    title: "Does it work with Class Components?",
+    href: "#DoesitworkwithClassComponents",
+  },
+  {
+    title: "How to reset the form?",
+    href: "#Howtoresettheform",
+  },
+  {
+    title: "How to initialize form values?",
+    href: "#Howtoinitializeformvalues",
+  },
+  {
+    title: "How to share ref usage?",
+    href: "#Howtosharerefusage",
+  },
+  {
+    title: "What if you don't have access to ref?",
+    href: "#Whatifyoudonthaveaccesstoref",
+  },
+  {
+    title: "Why is the first keystroke not working?",
+    href: "#Whyisthefirstkeystrokenotworking",
+  },
+  {
+    title: "React Hook Form, Formik or Redux Form?",
+    href: "#ReactHookFormFormikorReduxForm",
+  },
+  {
+    title: "watch vs getValues vs state",
+    href: "#watchvsgetValuesvsstate",
+  },
+  {
+    title: "Why is default value not changing correctly with ternary operator?",
+    href: "#Whyisdefaultvaluenotchangingcorrectlywithternaryoperator",
+  },
+  {
+    title: "How to work with modal or tab forms?",
+    href: "#Howtoworkwithmodalortabforms",
+  },
+]
 
 interface Props {
   faq: any
 }
 
 const Faq = ({ faq }: Props) => {
-  const links = faq.questions.slice(
-    0,
-    faq.questions.length - REMOVE_QUESTIONS_FOR_LIST
-  )
-
-  const sectionsRef = useRef({
-    question0: null,
-    question1: null,
-    question2: null,
-    question3: null,
-    question4: null,
-    question5: null,
-    question6: null,
-    question7: null,
-    question8: null,
-    question9: null,
-    question10: null,
-    question11: null,
-    question12: null,
-    question13: null,
-    question14: null,
-    question15: null,
-    question16: null,
-    question17: null,
-  })
-
-  const goToSection = (name) => {
-    const filterName = name.replace(/[^\w\s]| /g, "")
-    const path = enLinks.findIndex(
-      ({ title }) =>
-        title.replace(/[^\w\s]| /g, "").toLowerCase() ===
-        filterName.toLowerCase()
-    )
-
-    if (sectionsRef.current[`question${path + 1}`]) {
-      sectionsRef.current[`question${path + 1}`].scrollIntoView({
-        behavior: "smooth",
-      })
-    }
-
-    const url = window.location.href
-    const hashIndex = url.indexOf("#")
-
-    if (hashIndex < 0) {
-      history.pushState({}, "", `${url}#${filterName}`)
-    } else {
-      history.pushState({}, "", `${url.substr(0, hashIndex)}#${filterName}`)
-    }
-
-    if (path > -1) {
-      sectionsRef.current[`question${path}`].scrollIntoView({
-        behavior: "smooth",
-      })
-    }
-  }
-
-  useEffect(() => {
-    if (window.location.hash)
-      setTimeout(() => goToSection(window.location.hash.substr(1)), 10)
-  }, [])
-
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">
@@ -83,29 +70,10 @@ const Faq = ({ faq }: Props) => {
       <p className={typographyStyles.subHeading}>{faq.header.description}</p>
 
       <div className={containerStyles.wrapper}>
-        <SideMenu
-          enLinks={enLinks}
-          isStatic
-          links={links}
-          goToSection={goToSection}
-        />
+        <NewSideMenu links={links} />
 
         <main>
-          {links.map((question, index) => {
-            const { title, description } = question
-            return (
-              <Fragment key={`question${index}`}>
-                <h2
-                  className={typographyStyles.questionTitle}
-                  ref={(ref) => (sectionsRef.current[`question${index}`] = ref)}
-                >
-                  {title}
-                </h2>
-                {description}
-                <hr />
-              </Fragment>
-            )
-          })}
+          <FAQContent />
 
           <StarRepo />
 
