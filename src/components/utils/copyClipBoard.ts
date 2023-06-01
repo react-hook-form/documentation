@@ -1,11 +1,25 @@
-export default (str) => {
-  const el = document.createElement("textarea")
-  el.value = str
-  el.setAttribute("readonly", "")
-  el.style.position = "absolute"
-  el.style.left = "-9999px"
-  document.body.appendChild(el)
-  el.select()
-  document.execCommand("copy")
-  document.body.removeChild(el)
+export default function copyToClipboard(text: string) {
+  return new Promise((resolve, reject) => {
+    if (navigator?.clipboard) {
+      const cb = navigator.clipboard
+      cb.writeText(text).then(resolve).catch(reject)
+    } else {
+      try {
+        const body = document.querySelector("body")
+
+        const textarea = document.createElement("textarea")
+        body?.appendChild(textarea)
+
+        textarea.value = text
+        textarea.select()
+        document.execCommand("copy")
+
+        body?.removeChild(textarea)
+
+        resolve(0)
+      } catch (e) {
+        reject(e)
+      }
+    }
+  })
 }

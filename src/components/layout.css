@@ -1011,11 +1011,6 @@ pre[data-line] .line-highlight[data-end]:after {
   border: 1px solid var(--color-light-grey);
 }
 
-.light pre {
-  background: white;
-  border: 1px solid var(--color-light-grey);
-}
-
 .light .token.attr-name,
 .light .token.string {
   color: #e68600;

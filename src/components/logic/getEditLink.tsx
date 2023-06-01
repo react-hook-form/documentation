@@ -3,6 +3,7 @@ const preFix =
 
 const dataPreFix = "data/"
 const pagesPreFix = "pages/"
+const content = "content/"
 
 const filterApiPageURL = (pathname) => {
   if (pathname.charAt(pathname.length - 1) === "/")
@@ -17,21 +18,21 @@ export const getEditLink = (pathname: string) => {
   if (pathname === "/" || pathname === "") {
     return `${preFix}${dataPreFix}/home.tsx`
   } else if (pathname.includes("get-started")) {
-    return `${preFix}${dataPreFix}/getStarted.tsx`
+    return `${preFix}${dataPreFix}getStarted.tsx`
   } else if (pathname.includes("api")) {
     const splitPath = pathname.split("/")
     if (splitPath.length === 2 || splitPath[2] === "") {
-      return `${preFix}${dataPreFix}/api.tsx`
+      return `${preFix}${dataPreFix}api.tsx`
     }
     return `${preFix}${pagesPreFix}${filterApiPageURL(pathname)}.tsx`
   } else if (pathname.includes("ts")) {
     return `${preFix}${dataPreFix}ts.tsx`
   } else if (pathname.includes("advanced-usage")) {
-    return `${preFix}${dataPreFix}/advanced.tsx`
+    return `${preFix}${dataPreFix}advanced.tsx`
   } else if (pathname.includes("faqs")) {
-    return `${preFix}${dataPreFix}/faq.tsx`
+    return `${preFix}${content}faq.mdx`
   } else if (pathname.includes("dev-tools")) {
-    return `${preFix}${dataPreFix}/devtools.tsx`
+    return `${preFix}${dataPreFix}devtools.tsx`
   } else if (pathname.includes("form-builder")) {
     return `${preFix}${dataPreFix}builder.tsx`
   } else if (pathname.includes("resources")) {

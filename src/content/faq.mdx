@@ -1,0 +1,358 @@
+import TabGroup from "../components/TabGroup"
+
+## Performance of React Hook Form {#PerformanceofReactHookForm}
+
+Performance is one of the primary reasons why this library was created. React Hook Form relies on an uncontrolled form, which is the reason why the `register` function captures `ref` and the controlled component has its re-rendering scope with `Controller` or `useController`. This approach reduces the amount of re-rendering that occurs due to a user typing in an input or other form values changing at the root of your form or applications. Components mount to the page faster than controlled components because they have less overhead. As a reference, there is a quick comparison test that you can refer to at [this repo link](https://github.com/bluebill1049/react-hook-form-performance-compare).
+
+---
+
+## How to create an accessible input error and message? {#Howtocreateanaccessibleinputerrorandmessage}
+
+React Hook Form is based on [Uncontrolled Components](https://reactjs.org/docs/uncontrolled-components.html), which gives you the ability to easily build an accessible custom form.
+
+```javascript copy
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="firstName">First name</label>
+      <input
+        id="firstName"
+        aria-invalid={errors.firstName ? "true" : "false"}
+        {...register("firstName", { required: true })}
+      />
+      {errors.firstName && <span role="alert">This field is required</span>}
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
+## Does it work with Class Components? {#DoesitworkwithClassComponents}
+
+No, not out of the box. If you want to do this, you can build a wrapper around it and use it in your Class Component.
+
+> You can’t use Hooks inside of a class component, but you can definitely mix classes and function components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is simply an implementation detail of that component. In the longer term, we expect Hooks to be the primary way people write React components.
+
+---
+
+## How to reset the form? {#Howtoresettheform}
+
+There are two methods to clear the form:
+
+- **HTMLFormElement.reset()**
+
+  This method does the same thing as clicking a form's reset button. It only clears `input/select/checkbox` values.
+
+- **React Hook Form API: `reset()`**
+
+  React Hook Form's `reset` method will reset all field values, and will also clear all `errors` within the form.
+
+---
+
+## How to initialize form values? {#Howtoinitializeformvalues}
+
+Being that React Hook Form relies on an uncontrolled form, you can specify a `defaultValue` or `defaultChecked` to an individual field. However, it is more common and recommended to initialize a form by passing `defaultValues` to `useForm`.
+
+```javascript copy
+function App() {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: "bill",
+      lastName: "luo",
+    },
+  })
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
+```
+
+For async default values, you can use the following methods:
+
+- Async `defaultValues`
+
+  ```javascript copy
+  function App() {
+    const { register, handleSubmit } = useForm({
+      defaultValues: async () => {
+        const response = await fetch("/api")
+        return await response.json() // return { firstName: '', lastName: '' }
+      },
+    })
+  }
+  ```
+
+- Reactive `values`
+
+  ```javascript copy
+  function App() {
+    const { data } = useQuery() // data returns { firstName: '', lastName: '' }
+    const { register, handleSubmit } = useForm({
+      values: data,
+      resetOptions: {
+        keepDirtyValues: true, // keep dirty fields unchanged, but update defaultValues
+      },
+    })
+  }
+  ```
+
+---
+
+## How to share ref usage? {#Howtosharerefusage}
+
+React Hook Form needs a `ref` to collect the input value. However, you may want to use `ref` for other purposes (e.g. scroll into the view, or focus).
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy
+import React, { useRef } from "react"
+import { useForm } from "react-hook-form"
+
+type Inputs = {
+  firstName: string
+  lastName: string
+}
+
+export default function App() {
+  const { register, handleSubmit } = useForm<Inputs>()
+  const firstNameRef = useRef<HTMLInputElement | null>(null)
+  const onSubmit = (data) => console.log(data)
+  const { ref, ...rest } = register("firstName")
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...rest}
+        name="firstName"
+        ref={(e) => {
+          ref(e)
+          firstNameRef.current = e // you can still assign to ref
+        }}
+      />
+
+      <button>Submit</button>
+    </form>
+  )
+}
+```
+
+```javascript copy
+import React, { useRef } from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit } = useForm()
+  const firstNameRef = useRef(null)
+  const onSubmit = (data) => console.log(data)
+  const { ref, ...rest } = register("firstName")
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...rest}
+        name="firstName"
+        ref={(e) => {
+          ref(e)
+          firstNameRef.current = e // you can still assign to ref
+        }}
+      />
+
+      <button>Submit</button>
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+---
+
+## What if you don't have access to ref? {#Whatifyoudonthaveaccesstoref}
+
+You can actually `register` an input without a `ref`. In fact, you can manually `setValue`, `setError` and `trigger`.
+
+**Note:** Because `ref` has not been registered, React Hook Form won't be able to register event listeners to the inputs. This means you will have to manually update value and error.
+
+```javascript copy
+import React, { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit, setValue, setError } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  useEffect(() => {
+    register("firstName", { required: true })
+    register("lastName")
+  }, [])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        name="firstName"
+        onChange={(e) => setValue("firstName", e.target.value)}
+      />
+      <input
+        name="lastName"
+        onChange={(e) => {
+          const value = e.target.value
+          if (value === "test") {
+            setError("lastName", "notMatch")
+          } else {
+            setValue("lastName", e.target.value)
+          }
+        }}
+      />
+      <button>Submit</button>
+    </form>
+  )
+}
+```
+
+---
+
+## Why is the first keystroke not working? {#Whyisthefirstkeystrokenotworking}
+
+Make sure you are not using `value`. The correct property is `defaultValue`.
+
+React Hook Form is focusing on uncontrolled inputs, which means you don't need to change the input `value` via `state` via `onChange`. In fact, you don't need `value` at all. You only need to set `defaultValue` for the initial input value.
+
+```javascript
+import { useForm } from "react-hook-form/dist/index.ie11" // V6
+import { useForm } from "react-hook-form/dist/react-hook-form.ie11" // V5'
+// Resolvers
+import { yupResolver } from "@hookform/resolvers/dist/ie11/yup"
+```
+
+---
+
+## React Hook Form, Formik or Redux Form? {#ReactHookFormFormikorReduxForm}
+
+First of all, all libs try to solve the same problem: make the form building experience as easy as possible. However, there are some fundamental differences between these three. `react-hook-form` is built with uncontrolled inputs in mind and tries to provide your form with the best performance and least amount of re-renders possible. Additionallly, `react-hook-form` is built with React Hooks and used as a hook, which means there is no Component for you to import. Here are some of the detailed differences:
+
+|                    | React Hook Form                                                                                                                                                                                              | Formik                                                                 | Redux Form                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Component**      | [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) & [controlled](https://reactjs.org/docs/forms.html)                                                                                    | [controlled](https://reactjs.org/docs/forms.html)                      | [controlled](https://reactjs.org/docs/forms.html)                                       |
+| **Rendering**      | minimum re-render and optimise computation                                                                                                                                                                   | re-render according to local state changes (As you type in the input.) | re-render according to state management lib (Redux) changes (As you type in the input.) |
+| **API**            | Hooks                                                                                                                                                                                                        | Component (RenderProps, Form, Field) + Hooks                           | Component (RenderProps, Form, Field)                                                    |
+| **Package size**   | Small <br/> `react-hook-form@7.27.0` <br/> **8.5KB**                                                                                                                                                         | Medium <br />`formik@2.1.4` <br/>**15KB**                              | Large <br/>`redux-form@8.3.6` <br/>**26.4KB**                                           |
+| **Validation**     | Built-in, [Yup](https://github.com/jquense/yup), [Zod](https://github.com/vriad/zod), [Joi](https://github.com/hapijs/joi), [Superstruct](https://github.com/ianstormtaylor/superstruct) and build your own. | Build yourself or [Yup](https://github.com/jquense/yup)                | Build yourself or Plugins                                                               |
+| **Learning curve** | Low to Medium                                                                                                                                                                                                | Medium                                                                 | Medium                                                                                  |
+
+---
+
+## watch vs getValues vs state {#watchvsgetValuesvsstate}
+
+- **watch:** subscribe to either all inputs or a specified input's changes via an event listener and re-render based on which fields are subscribed to. Check out [this codesandbox](https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus) for actual behaviour.
+- **getValues**: get values that are stored inside the custom hook as reference, fast and cheap. This method doesn’t trigger a re-render.
+- **local state**: React local state represents more than just an input’s state and also decides what to render. This will trigger on each input’s change.
+
+---
+
+## Why is default value not changing correctly with ternary operator? {#Whyisdefaultvaluenotchangingcorrectlywithternaryoperator}
+
+React Hook Form doesn't control your entire form and inputs, which is why React wouldn't recognize that the actual input has been exchanged or swapped. As a solution, you can resolve this problem by giving a unique `key` prop to your input. You can also read more about the key props from [this article written by Kent C. Dodds](https://kentcdodds.com/blog/understanding-reacts-key-prop).
+
+```javascript codesandbox="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-3htr6" copy
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register } = useForm()
+
+  return (
+    <div>
+      {watchChecked ? (
+        <input {...register("input3")} key="key1" defaultValue="1" />
+      ) : (
+        <input {...register("input4")} key="key2" defaultValue="2" />
+      )}
+    </div>
+  )
+}
+```
+
+---
+
+## How to work with modal or tab forms? {#Howtoworkwithmodalortabforms}
+
+It's important to understand that React Hook Form embraces native form behavior by storing input state inside each input (except custom `register` at `useEffect`). A common misconception is that input state remains with mounted or unmounted inputs. Such as when working with a modal or tab forms. Instead, the correct solution is to build a new form for your form inside each modal or tab and capture your submission data in local or global state and then do something with the combined data.
+
+- [Modal form and toggle inputs example](https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r)
+- [Tab form example](https://codesandbox.io/s/tabs-760h9)
+
+Alternatively you can use the deprecated option `shouldUnregister: false` when calling \`useForm\`.
+
+<TabGroup buttonLabels={["Controller", "Custom Register"]}>
+
+```javascript copy
+import { useForm, Controller } from "react-hook-form"
+
+function App() {
+  const { control } = useForm()
+
+  return (
+    <Controller
+      render={({ field }) => <input {...field} />}
+      name="firstName"
+      control={control}
+      defaultValue=""
+    />
+  )
+}
+```
+
+```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-controlled-input-forked-rl2v1"
+import React, { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+function App() {
+  const { register, watch, setValue, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+    },
+  })
+  const { firstName, lastName } = watch()
+
+  useEffect(() => {
+    register("firstName")
+    register("lastName")
+  }, [register])
+
+  const handleChange = (e, name) => {
+    setValue(name, e.target.value)
+  }
+
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input onChange={(e) => handleChange(e, "firstName")} value={firstName} />
+
+      <input onChange={(e) => handleChange(e, "lastName")} value={lastName} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
