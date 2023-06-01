@@ -26,6 +26,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "rehype-mdx-code-props": "^1.0.0",
     "remark-custom-heading-id": "^1.0.1",
+    "remark-emoji": "^3.1.1",
     "remark-gfm": "^3.0.1",
     "sortablejs": "1.15.0"
   },

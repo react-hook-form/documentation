@@ -69,6 +69,6 @@
     "isolatedModules": true,
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/content/docs/use-form.msx"],
   "exclude": ["node_modules"]
 }

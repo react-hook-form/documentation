@@ -2,6 +2,9 @@ import { PrismSyntaxHighlight } from "./code"
 import { Pre } from "./pre"
 import TabGroup from "../TabGroup"
 import { YouTube } from "./youtube"
+import { CodeSandBoxLink } from "../CodeArea"
+import TypeText from "../TypeText"
+import Popup from "../Popup"
 
 export const MDXComponents = {
   // p: P,
@@ -18,7 +21,10 @@ export const MDXComponents = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
+  Popup,
+  TypeText,
   YouTube,
+  CodeSandbox: CodeSandBoxLink,
   pre(props) {
     return <Pre {...props} />
   },
