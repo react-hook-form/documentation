@@ -5,8 +5,9 @@ import { YouTube } from "./youtube"
 import { CodeSandBoxLink } from "../CodeArea"
 import TypeText from "../TypeText"
 import Popup from "../Popup"
+import { Components } from "@mdx-js/react/lib"
 
-export const MDXComponents = {
+export const MDXComponents: Components = {
   // p: P,
   // strong: Strong,
   // blockquote: Blockquote,
@@ -23,7 +24,9 @@ export const MDXComponents = {
   // Layout,
   Popup,
   TypeText,
-  YouTube,
+  YouTube(props) {
+    return <YouTube {...props} />
+  },
   CodeSandbox: CodeSandBoxLink,
   pre(props) {
     return <Pre {...props} />

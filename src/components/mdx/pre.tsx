@@ -6,7 +6,8 @@ import { CodeSandBoxLink } from "../CodeArea"
 
 export const Pre = (props) => {
   const preRef = useRef<HTMLDivElement>(null)
-  const language = props.children.props.className.replace(/language-/gm, "")
+  const language =
+    props?.children?.props?.className?.replace(/language-/gm, "") || ""
 
   const isJs = language === "javascript"
   return (

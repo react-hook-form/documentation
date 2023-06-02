@@ -53,6 +53,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "analyze": "cross-env ANALYZE=true next build",
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --write \"src/**/*.{ts,tsx,mdx}\"",
