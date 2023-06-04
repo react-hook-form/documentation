@@ -1,0 +1,575 @@
+**Important:** Typescript ^4.3 above is the recommended version to work with react hook form.
+
+## \</> Resolver {#Resolver}
+
+```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
+import React from "react"
+import { useForm, Resolver } from "react-hook-form"
+
+type FormValues = {
+  firstName: string
+  lastName: string
+}
+
+const resolver: Resolver<FormValues> = async (values) => {
+  return {
+    values: values.firstName ? values : {},
+    errors: !values.firstName
+      ? {
+          firstName: {
+            type: "required",
+            message: "This is required.",
+          },
+        }
+      : {},
+  }
+}
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver })
+  const onSubmit = handleSubmit((data) => console.log(data))
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input {...register("firstName")} placeholder="Bill" />
+      {errors?.firstName && <p>{errors.firstName.message}</p>}
+
+      <input {...register("lastName")} placeholder="Luo" />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
+## \</> SubmitHandler {#SubmitHandler}
+
+```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
+import React from "react"
+import { useForm, SubmitHandler } from "react-hook-form"
+
+type FormValues = {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+export default function App() {
+  const { register, handleSubmit } = useForm<FormValues>()
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input type="email" {...register("email")} />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
+## \</> Control {#Control}
+
+```typescript copy codesandbox="https://codesandbox.io/s/control-2mg07"
+import { useForm, useWatch, Control } from "react-hook-form"
+
+type FormValues = {
+  firstName: string
+  lastName: string
+}
+
+function IsolateReRender({ control }: { control: Control<FormValues> }) {
+  const firstName = useWatch({
+    control,
+    name: "firstName",
+    defaultValue: "default",
+  })
+
+  return <div>{firstName}</div>
+}
+
+export default function App() {
+  const { register, control, handleSubmit } = useForm<FormValues>()
+  const onSubmit = handleSubmit((data) => console.log(data))
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <IsolateReRender control={control} />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
+## \</> UseFormReturn {#UseFormReturn}
+
+<TabGroup buttonLabels={["Type", "Code Example"]}>
+
+```typescript copy
+export type UseFormReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any
+> = {
+  watch: UseFormWatch<TFieldValues>
+  getValues: UseFormGetValues<TFieldValues>
+  getFieldState: UseFormGetFieldState<TFieldValues>
+  setError: UseFormSetError<TFieldValues>
+  clearErrors: UseFormClearErrors<TFieldValues>
+  setValue: UseFormSetValue<TFieldValues>
+  trigger: UseFormTrigger<TFieldValues>
+  formState: FormState<TFieldValues>
+  resetField: UseFormResetField<TFieldValues>
+  reset: UseFormReset<TFieldValues>
+  handleSubmit: UseFormHandleSubmit<TFieldValues>
+  unregister: UseFormUnregister<TFieldValues>
+  control: Control<TFieldValues, TContext>
+  register: UseFormRegister<TFieldValues>
+  setFocus: UseFormSetFocus<TFieldValues>
+}
+```
+
+```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+import type { FieldValues, UseFormReturn, SubmitHandler } from "react-hook-form"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+type InputProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => (
+  <input ref={ref} {...props} />
+))
+
+type Option = {
+  label: React.ReactNode
+  value: string | number | string[]
+}
+
+type SelectProps = React.DetailedHTMLProps<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  HTMLSelectElement
+> & { options: Option[] }
+
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+  ({ options, ...props }, ref) => (
+    <select ref={ref} {...props}>
+      {options.map(({ label, value }) => (
+        <option value={value}>{label}</option>
+      ))}
+    </select>
+  )
+)
+
+type FormProps<TFormValues extends FieldValues> = {
+  onSubmit: SubmitHandler<TFormValues>
+  children: (methods: UseFormReturn<TFormValues>) => React.ReactNode
+}
+
+const Form = <TFormValues extends FieldValues>({
+  onSubmit,
+  children,
+}: FormProps<TFormValues>) => {
+  const methods = useForm<TFormValues>()
+  return (
+    <form onSubmit={methods.handleSubmit(onSubmit)}>{children(methods)}</form>
+  )
+}
+
+type FormValues = {
+  firstName: string
+  lastName: string
+  sex: string
+}
+
+export default function App() {
+  const onSubmit = (data: FormValues) => console.log(data)
+
+  return (
+    <Form<FormValues> onSubmit={onSubmit}>
+      {({ register }) => (
+        <>
+          <Input {...register("firstName")} />
+          <Input {...register("lastName")} />
+          <Select
+            {...register("sex")}
+            options={[
+              { label: "Female", value: "female" },
+              { label: "Male", value: "male" },
+              { label: "Other", value: "other" },
+            ]}
+          />
+          <Input type="submit" />
+        </>
+      )}
+    </Form>
+  )
+}
+```
+
+</TabGroup>
+
+---
+
+## \</> UseFormProps {#UseFormProps}
+
+```typescript copy
+export type UseFormProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext extends object = object
+> = Partial<{
+  mode: Mode
+  reValidateMode: Mode
+  defaultValues: DeepPartial<TFieldValues>
+  resolver: Resolver<TFieldValues, TContext>
+  context: TContext
+  shouldFocusError: boolean
+  shouldUnregister: boolean
+  criteriaMode: "firstError" | "all"
+}>
+```
+
+---
+
+## \</> UseFieldArrayReturn {#UseFieldArrayReturn}
+
+```typescript copy
+export type UseFieldArrayReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id"
+> = {
+  swap: (indexA: number, indexB: number) => void
+  move: (indexA: number, indexB: number) => void
+  prepend: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps
+  ) => void
+  append: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps
+  ) => void
+  remove: (index?: number | number[]) => void
+  insert: (
+    index: number,
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
+    options?: FieldArrayMethodProps
+  ) => void
+  update: (
+    index: number,
+    value: Partial<FieldArray<TFieldValues, TFieldArrayName>>
+  ) => void
+  replace: (
+    value:
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
+      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[]
+  ) => void
+  fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[]
+}
+```
+
+---
+
+## \</> UseFieldArrayProps {#UseFieldArrayProps}
+
+```typescript copy
+export type UseFieldArrayProps<
+  TKeyName extends string = "id",
+  TControl extends Control = Control
+> = {
+  name: string
+  keyName?: TKeyName
+  control?: TControl
+  rules?: Pick<
+    RegisterOptions<TFieldValues>,
+    "maxLength" | "minLength" | "validate" | "required"
+  >
+}
+```
+
+---
+
+## \</> UseControllerReturn {#UseControllerReturn}
+
+```typescript copy
+export type UseControllerReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  field: ControllerRenderProps<TFieldValues, TName>
+  formState: UseFormStateReturn<TFieldValues>
+  fieldState: ControllerFieldState
+}
+```
+
+---
+
+## \</> UseControllerProps {#UseControllerProps}
+
+```typescript copy
+export type UseControllerProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  name: TName
+  rules?: Omit<
+    RegisterOptions<TFieldValues, TName>,
+    "valueAsNumber" | "valueAsDate" | "setValueAs" | "disabled"
+  >
+  shouldUnregister?: boolean
+  defaultValue?: FieldPathValue<TFieldValues, TName>
+  control?: Control<TFieldValues>
+}
+```
+
+---
+
+## \</> FieldError {#FieldError}
+
+```typescript copy
+export type FieldError = {
+  type: string
+  ref?: Ref
+  types?: MultipleFieldErrors
+  message?: Message
+}
+```
+
+---
+
+## \</> FieldErrors {#FieldErrors}
+
+```typescript copy
+export type FieldErrors<TFieldValues extends FieldValues = FieldValues> =
+  DeepMap<TFieldValues, FieldError>
+```
+
+---
+
+## \</> Field {#Field}
+
+```typescript copy
+export type Field = {
+  ref: Ref
+  mutationWatcher?: MutationWatcher
+  options?: RadioOrCheckboxOption[]
+} & RegisterOptions
+```
+
+---
+
+## \</> FieldPath {#FieldPath}
+
+This type is useful when you define custom component's `name` prop, and it will type check again your field path.
+
+```typescript copy
+export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>
+```
+
+---
+
+## \</> FieldPathByValue {#FieldPathByValue}
+
+This type will return union with all available paths that match the passed value
+
+```typescript copy
+function Field<
+  TFieldValues extends FieldValues,
+  TPath extends FieldPathByValue<TFieldValues, Date>
+>({ control, name }: { control: Control<TFieldValues>; name: TPath }) {
+  const { field } = useController({
+    control,
+    name,
+  })
+}
+```
+
+---
+
+## \</> FieldValues {#FieldValues}
+
+```typescript copy
+export type FieldValues = Record<string, any>
+```
+
+---
+
+## \</> FieldArrayWithId {#FieldArrayWithId}
+
+```typescript copy
+export type FieldArrayWithId<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id"
+> = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
+```
+
+---
+
+## \</> Mode {#Mode}
+
+```typescript copy
+export type Mode = {
+  onBlur: "onBlur"
+  onChange: "onChange"
+  onSubmit: "onSubmit"
+  onTouched: "onTouched"
+  all: "all"
+}
+```
+
+---
+
+## \</> RegisterOptions {#RegisterOptions}
+
+```typescript copy
+export type RegisterOptions = Partial<{
+  required: Message | ValidationRule<boolean>
+  min: ValidationRule<number | string>
+  max: ValidationRule<number | string>
+  maxLength: ValidationRule<number | string>
+  minLength: ValidationRule<number | string>
+  pattern: ValidationRule<RegExp>
+  validate: Validate | Record<string, Validate>
+}>
+```
+
+---
+
+## \</> FormStateProxy {#FormStateProxy}
+
+```typescript copy
+export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
+  isDirty: boolean
+  dirtyFields: Dirtied<TFieldValues>
+  isSubmitted: boolean
+  submitCount: number
+  touched: FieldNames<TFieldValues>
+  isSubmitting: boolean
+  isValid: boolean
+  errors: FieldErrors<TFieldValues>
+}
+```
+
+---
+
+## \</> NestedValue (**Deprecated** at 7.33.0) {#NestedValue}
+
+<TabGroup buttonLabels={["Code Example", "Type"]}>
+
+```typescript copy codesandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
+import React from "react"
+import { useForm, NestedValue } from "react-hook-form"
+import { Autocomplete, TextField, Select } from "@material-ui/core"
+import { Autocomplete } from "@material-ui/lab"
+
+type Option = {
+  label: string
+  value: string
+}
+
+const options = [
+  { label: "Chocolate", value: "chocolate" },
+  { label: "Strawberry", value: "strawberry" },
+  { label: "Vanilla", value: "vanilla" },
+]
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm<{
+    autocomplete: NestedValue<Option[]>
+    select: NestedValue<number[]>
+  }>({
+    defaultValues: { autocomplete: [], select: [] },
+  })
+  const onSubmit = handleSubmit((data) => console.log(data))
+
+  React.useEffect(() => {
+    register("autocomplete", {
+      validate: (value) => value.length || "This is required.",
+    })
+    register("select", {
+      validate: (value) => value.length || "This is required.",
+    })
+  }, [register])
+
+  return (
+    <form onSubmit={onSubmit}>
+      <Autocomplete
+        options={options}
+        getOptionLabel={(option: Option) => option.label}
+        onChange={(e, options) => setValue("autocomplete", options)}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            error={Boolean(errors?.autocomplete)}
+            helperText={errors?.autocomplete?.message}
+          />
+        )}
+      />
+
+      <Select
+        value=""
+        onChange={(e) => setValue("muiSelect", e.target.value as number[])}
+      >
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+      </Select>
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```typescript copy
+import { useForm, NestedValue } from "react-hook-form"
+
+type FormValues = {
+  key1: string
+  key2: number
+  key3: NestedValue<{
+    key1: string
+    key2: number
+  }>
+  key4: NestedValue<string[]>
+}
+
+const {
+  formState: { errors },
+} = useForm<FormValues>()
+
+errors?.key1?.message // no type error
+errors?.key2?.message // no type error
+errors?.key3?.message // no type error
+errors?.key4?.message // no type error
+```
+
+</TabGroup>

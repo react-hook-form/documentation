@@ -26,9 +26,9 @@ export const getEditLink = (pathname: string) => {
     }
     return `${preFix}${pagesPreFix}${filterApiPageURL(pathname)}.tsx`
   } else if (pathname.includes("ts")) {
-    return `${preFix}${dataPreFix}ts.tsx`
+    return `${preFix}${content}ts.mdx`
   } else if (pathname.includes("advanced-usage")) {
-    return `${preFix}${dataPreFix}advanced.tsx`
+    return `${preFix}${content}advanced.mdx`
   } else if (pathname.includes("faqs")) {
     return `${preFix}${content}faq.mdx`
   } else if (pathname.includes("dev-tools")) {
