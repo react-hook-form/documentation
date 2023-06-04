@@ -48,7 +48,7 @@ function App() {
 }
 `
 
-export const formNative = `import { uesForm, Form } from 'react-hook-form';
+export const formNative = `import { useForm, Form } from 'react-hook-form';
 
 function App() {
   const { control, register, formState: { isSubmitSuccessful, errors } } = useForm();
