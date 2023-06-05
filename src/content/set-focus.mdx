@@ -1,0 +1,75 @@
+## `setFocus:` <TypeText>(name: string, options: SetFocusOptions) => void</TypeText>
+
+This method will allow users to programmatically focus on input. Make sure input's ref is registered into the hook form.
+
+### Props
+
+---
+
+| Name      |                | Type                         | Description                                   |
+| --------- | -------------- | ---------------------------- | --------------------------------------------- |
+| `name`    |                | <TypeText>string</TypeText>  | A input field name to focus                   |
+| `options` | `shouldSelect` | <TypeText>boolean</TypeText> | Whether to select the input content on focus. |
+
+<Admonition type="important" title="Rules">
+
+- This API will invoke focus method from the ref, so it's important to provide `ref` during `register`.
+- Avoid calling `setFocus` right after `reset` as all input references will be removed by `reset` API.
+
+</Admonition>
+
+### Examples
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/setfocus-rolus"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+type FormValues = {
+  firstName: string
+}
+
+export default function App() {
+  const { register, handleSubmit, setFocus } = useForm<FormValues>()
+  const onSubmit = (data: FormValues) => console.log(data)
+  renderCount++
+
+  React.useEffect(() => {
+    setFocus("firstName")
+  }, [setFocus])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} placeholder="First Name" />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/setfocus-rolus"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit, setFocus } = useForm()
+  const onSubmit = (data) => console.log(data)
+  renderCount++
+
+  React.useEffect(() => {
+    setFocus("firstName")
+  }, [setFocus])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} placeholder="First Name" />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>

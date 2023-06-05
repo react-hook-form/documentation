@@ -1,24 +1,10 @@
 import Footer from "./Footer"
-import { Menu, pages } from "./Menu"
-import CodeArea, { CodeSandBoxLink } from "./CodeArea"
-import Popup from "./Popup"
-import generic from "../data/generic"
-import ValidationResolver from "./ValidationResolver"
-import api from "../data/api"
+import { Menu } from "./Menu"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
-import shouldUseNativeValidation from "./codeExamples/shouldUseNativeValidation"
 import StarRepo from "./StarRepo"
 import { SelectNav } from "./selectNav"
-import Link from "next/link"
-import { CSSProperties } from "react"
-import UseFormContent from "../content/docs/use-form.mdx"
-
-const codeSandBoxStyle: CSSProperties = {
-  position: "relative",
-  left: 0,
-  float: "right",
-}
+import UseFormContent from "../content/use-form.mdx"
 
 const UseForm = () => {
   return (

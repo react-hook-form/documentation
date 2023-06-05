@@ -1,0 +1,228 @@
+## \</> `Controller`: <TypeText>Component</TypeText>
+
+React Hook Form embraces uncontrolled components and native inputs, however it's hard to avoid working with external controlled component such as [React-Select](https://github.com/JedWatson/react-select), [AntD](https://github.com/ant-design/ant-design) and [MUI](https://mui.com/). This wrapper component will make it easier for you to work with them.
+
+### Props
+
+---
+
+The following table contains information about the arguments for `Controller`.
+
+| Name               | Type                                                               | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------ | ------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`             | <TypeText>[`FieldPath`](/ts#FieldPath "FieldPath type")</TypeText> | ✓        | Unique name of your input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| control            | <TypeText>[`Control`](/ts#Control "Control type")</TypeText>       |          | [`control`](/docs/useform/control) object is from invoking `useForm`. Optional when using `FormProvider`.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `render`           | <TypeText>Function</TypeText>                                      |          | This is a [render prop](https://reactjs.org/docs/render-props.html). A function that returns a React element and provides the ability to attach events and value into the component. This simplifies integrating with external controlled components with non-standard prop names. Provides `onChange`, `onBlur`, `name`, `ref` and `value` to the child component, and also a `fieldState` object which contains specific input state.                                                                    |
+| `defaultValue`     | <TypeText>unknown</TypeText>                                       |          | **Important:** Can not apply `undefined` to `defaultValue` or `defaultValues` at `useForm`. <ul><li>You need to either set `defaultValue` at the field-level or `useForm`'s `defaultValues`. `undefined` is not a valid value.</li><li>If your form will invoke `reset` with default values, you will need to provide `useForm` with `defaultValues`.</li><li>Calling `onChange` with `undefined` is not valid. You should use `null` or the empty string as your default/cleared value instead.</li></ul> |
+| `rules`            | <TypeText>Object</TypeText>                                        |          | Validation rules in the same format for [`register` options](/docs/useform/register#options), which includes:<br/><br/>required, min, max, minLength, maxLength, pattern, validate                                                                                                                                                                                                                                                                                                                         |
+| `shouldUnregister` | <TypeText>boolean = false`</TypeText>                              |          | Input will be unregistered after unmount and defaultValues will be removed as well.<br/><br/>**Note:** this prop should be avoided when using with `useFieldArray` as `unregister` function gets called after input unmount/remount and reorder.                                                                                                                                                                                                                                                           |
+
+### Return
+
+---
+
+The following table contains information about properties which `Controller` produces.
+
+| Object Name                            | Name                 | Type                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------- | -------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `field`                                | `onChange`           | <TypeText>`(value: any) => void`</TypeText> | A function which sends the input's value to the library.<br/><br/>_ It should be assigned to the `onChange` prop of the input and value should **not be `undefined`**.<br/>_ This prop update [formState](/docs/useform/formstate) and you should avoid manually invoke [setValue](/docs/useform/setvalue) or other API related to field update.                                                                                                                                                                                                               |
+| `field`                                | `onBlur`             | <TypeText>`() => void`</TypeText>           | A function which sends the input's onBlur event to the library. It should be assigned to the input's `onBlur` prop.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `field`                                | `value`              | <TypeText>unknown</TypeText>                | The current value of the controlled component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `field`                                | `name`               | <TypeText>string</TypeText>                 | Input's name being registered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `field`                                | `ref`                | <TypeText>React.ref</TypeText>              | A ref used to connect hook form to the input. Assign `ref` to component's input ref to allow hook form to focus the error input.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `fieldState`                           | `invalid`            | <TypeText>boolean</TypeText>                | Invalid state for current input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `fieldState`                           | `isTouched`          | <TypeText>boolean</TypeText>                | Touched state for current controlled input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `fieldState`                           | `isDirty`            | <TypeText>boolean</TypeText>                | Dirty state for current controlled input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `fieldState`                           | `error`              | <TypeText>object</TypeText>                 | error for this specific input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`formState`](/docs/useform/formstate) | `isDirty`            | <TypeText>boolean</TypeText>                | Set to `true` after the user modifies any of the inputs. <ol><li>**Important:** Make sure to provide all inputs' defaultValues at the useForm, so hook form can have a single source of truth to compare whether the form is dirty.</li><li>File typed input will need to be managed at the app level due to the ability to cancel file selection and [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) object.</li></ol>                                                                                                                  |
+| `formState`                            | `dirtyFields`        | <TypeText>object</TypeText>                 | An object with the user-modified fields. Make sure to provide all inputs' defaultValues via useForm, so the library can compare against the `defaultValues` <ol><li>**Important:** Make sure to provide defaultValues at the useForm, so hook form can have a single source of truth to compare each field's dirtiness.</li><li>Dirty fields will **not** represent as `isDirty` formState, because dirty fields are marked field dirty at field level rather the entire form. If you want to determine the entire form state use `isDirty` instead.</li></ol> |
+| `formState`                            | `touchedFields`      | <TypeText>object</TypeText>                 | An object containing all the inputs the user has interacted with.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `formState`                            | `defaultValues`      | <TypeText>object</TypeText>                 | The value which has been set at [useForm](/docs/useform)'s defaultValues or updated defaultValues via [reset](/docs/useform/reset) API.                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `formState`                            | `isSubmitted`        | <TypeText>boolean</TypeText>                | Set to `true` after the form is submitted. Will remain `true` until the `reset` method is invoked.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `formState`                            | `isSubmitSuccessful` | <TypeText>boolean</TypeText>                | Indicate the form was successfully submitted without any runtime error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `formState`                            | `isSubmitting`       | <TypeText>boolean</TypeText>                | `true` if the form is currently being submitted. `false` otherwise.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `formState`                            | `isLoading`          | <TypeText>boolean</TypeText>                | `true` if the form is currently loading async default values.<br/>**Important:** this prop is only applicable to async `defaultValues`                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `formState`                            | `submitCount`        | <TypeText>number</TypeText>                 | Number of times the form was submitted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `formState`                            | `isValid`            | <TypeText>boolean</TypeText>                | Set to `true` if the form doesn't have any errors.<br/><br/>`setError` has no effect on `isValid` formState, `isValid` will always derived via the entire form validation result.                                                                                                                                                                                                                                                                                                                                                                              |
+| `formState`                            | `isValidating`       | <TypeText>boolean</TypeText>                | Set to `true` during validation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `formState`                            | `errors`             | <TypeText>object</TypeText>                 | An object with field errors. There is also an [ErrorMessage](/docs/useformstate/errormessage) component to retrieve error message easily.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+**Examples:**
+
+---
+
+**Web**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
+import ReactDatePicker from "react-datepicker"
+import { TextField } from "@material-ui/core"
+import { useForm, Controller } from "react-hook-form"
+
+type FormValues = {
+  ReactDatepicker: string
+}
+
+function App() {
+  const { handleSubmit, control } = useForm<FormValues>()
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <Controller
+        control={control}
+        name="ReactDatepicker"
+        render={({ field: { onChange, onBlur, value, ref } }) => (
+          <ReactDatePicker
+            onChange={onChange} // send value to hook form
+            onBlur={onBlur} // notify when input is touched/blur
+            selected={value}
+          />
+        )}
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+import React from "react"
+import ReactDatePicker from "react-datepicker"
+import { TextField } from "@material-ui/core"
+import { useForm, Controller } from "react-hook-form"
+
+function App() {
+  const { handleSubmit, control } = useForm()
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <Controller
+        control={control}
+        name="ReactDatepicker"
+        render={({ field: { onChange, onBlur, value, ref } }) => (
+          <ReactDatePicker
+            onChange={onChange}
+            onBlur={onBlur}
+            selected={value}
+          />
+        )}
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**React Native**
+
+```javascript copy sandbox="https://snack.expo.io/@bluebill1049/react-hook-form-v7---controller" expo
+import { Text, View, TextInput, Button, Alert } from "react-native"
+import { useForm, Controller } from "react-hook-form"
+
+export default function App() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+    },
+  })
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <View>
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            placeholder="First name"
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+        name="firstName"
+      />
+      {errors.firstName && <Text>This is required.</Text>}
+
+      <Controller
+        control={control}
+        rules={{
+          maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            placeholder="Last name"
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+        name="lastName"
+      />
+
+      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+    </View>
+  )
+}
+```
+
+### Video
+
+---
+
+The following video showcases what's inside Controller and how its been built.
+
+<YouTube youTubeId="N2UNk_UCVyA" />
+
+<Admonition type="tip" >
+
+- It's important to be aware of each prop's responsibility when working with external controlled components, such as MUI, AntD, Chakra UI. Controller acts as a "spy" on your input by reporting and setting value.
+  - **onChange**: send data back to hook form
+  - **onBlur**: report input has been interacted (focus and blur)
+  - **value**: set up input initial and updated value
+  - **ref**: allow input to be focused with error
+  - **name**: give input an unique name
+    The following codesandbox demonstrate the usages:
+  - [MUI and other components](https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5)
+  - [Chakra UI components](https://codesandbox.io/s/chakra-ui-5mp8g)
+- Do not `register` input again. This component is made to take care of the registration process.
+
+  ```javascript
+  <Controller
+    name="test"
+    render={({ field }) => {
+      // return <input {...field} {...register('test')} />; ❌ double up the registration
+      return <input {...field} /> // ✅
+    }}
+  />
+  ```
+
+- Customise what value gets sent to hook form by transforming the value during `onChange`.
+  ```javascript
+  <Controller
+    name="test"
+    render={({ field }) => {
+      // sending integer instead of string.
+      return (
+        <input
+          {...field}
+          onChange={(e) => field.onChange(parseInt(e.target.value))}
+        />
+      )
+    }}
+  />
+  ```
+
+</Admonition>
