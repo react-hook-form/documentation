@@ -1,0 +1,330 @@
+## \</> `reset:` <TypeText>`<T>(values?: T | ResetAction<T>, options?: Record<string, boolean>) => void`</TypeText>
+
+Reset the entire form state, fields reference, and subscriptions. There are optional arguments and will allow partial form state reset.
+
+### Props
+
+---
+
+`Reset` has the ability to retain formState. Here are the options you may use:
+
+| Name                | Type                         | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `values`            | <TypeText>object</TypeText>  | An optional object to reset form values, and it's recommended to provide the **entire** defaultValues when supplied.                                                                                                                                                                                                                                                                                                |
+| `keepErrors`        | <TypeText>boolean</TypeText> | All errors will remain. This will not guarantee with further user actions.                                                                                                                                                                                                                                                                                                                                          |
+| `keepDirty`         | <TypeText>boolean</TypeText> | `DirtyFields` form state will remain, and `isDirty` will temporarily remain as the current state until further user's action.<br/><br/>**Important:** this keep option doesn't reflect form input values but only dirty fields form state.                                                                                                                                                                          |
+| `keepDirtyValues`   | <TypeText>boolean</TypeText> | `DirtyFields` and `isDirty` will remained, and only none dirty fields will be updated to the latest rest value. [Check out the example.](https://codesandbox.io/s/react-keepdirtyvalues-o8to91)<br/><br/>**Important:** formState `dirtyFields` will need to be subscribed.                                                                                                                                         |
+| `keepValues`        | <TypeText>boolean</TypeText> | Form input values will be unchanged.                                                                                                                                                                                                                                                                                                                                                                                |
+| `keepDefaultValues` | <TypeText>boolean</TypeText> | Keep the same defaultValues which are initialised via `useForm`.<ul><li>`isDirty` will be checked again: it is set to be the result of the comparison of any new values provided against the original `defaultValues`.</li> <li>`dirtyFields` will be updated again if values are provided: it is set to be result of the comparison between the new values provided against the original`defaultValues`.</li></ul> |
+| `keepIsSubmitted`   | <TypeText>boolean</TypeText> | `isSubmitted` state will be unchanged.                                                                                                                                                                                                                                                                                                                                                                              |
+| `keepTouched`       | <TypeText>boolean</TypeText> | `isTouched` state will be unchanged.                                                                                                                                                                                                                                                                                                                                                                                |
+| `keepIsValid`       | <TypeText>boolean</TypeText> | `isValid` will temporarily persist as the current state until additional user actions.                                                                                                                                                                                                                                                                                                                              |
+| `keepSubmitCount`   | <TypeText>boolean</TypeText> | `submitCount` state will be unchanged.                                                                                                                                                                                                                                                                                                                                                                              |
+
+<Admonition type="important" title="Rules">
+
+- For controlled components you will need to pass `defaultValues` to `useForm` in order to `reset` the `Controller` components' value.
+- When `defaultValues` is not supplied to `reset` API, then HTML native [reset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset) API will be invoked to restore the form.
+- Avoid calling `reset` before `useForm`'s `useEffect` is invoked, this is because `useForm`'s subscription needs to be ready before `reset` can send a signal to flush form state update.
+- It's recommended to `reset` inside `useEffect` after submission.
+  ```javascript
+  useEffect(() => {
+    reset({
+      data: "test",
+    })
+  }, [isSubmitSuccessful])
+  ```
+
+</Admonition>
+
+**Examples:**
+
+---
+
+**Uncontrolled**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-reset-v7-ts-pu901"
+import { useForm } from "react-hook-form"
+
+interface UseFormInputs {
+  firstName: string
+  lastName: string
+}
+
+export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<UseFormInputs>()
+  const onSubmit = (data: UseFormInputs) => {
+    console.log(data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>First name</label>
+      <input {...register("firstName", { required: true })} />
+
+      <label>Last name</label>
+      <input {...register("lastName")} />
+
+      <input type="submit" />
+      <input type="reset" value="Standard Reset Field Values" />
+      <input
+        type="button"
+        onClick={() => reset()}
+        value="Custom Reset Field Values & Errors"
+      />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-reset-v7-r7m5s"
+import React, { useCallback } from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit, reset } = useForm()
+  const resetAsyncForm = useCallback(async () => {
+    const result = await fetch("./api/formValues.json") // result: { firstName: 'test', lastName: 'test2' }
+    reset(result) // asynchronously reset your form values
+  }, [reset])
+
+  useEffect(() => {
+    resetAsyncForm()
+  }, [resetAsyncForm])
+
+  return (
+    <form onSubmit={handleSubmit((data) => {})}>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+
+      <input
+        type="button"
+        onClick={() => {
+          reset(
+            {
+              firstName: "bill",
+            },
+            {
+              keepErrors: true,
+              keepDirty: true,
+            }
+          )
+        }}
+      />
+
+      <button
+        onClick={() => {
+          reset((formValues) => ({
+            ...formValues,
+            lastName: "test",
+          }))
+        }}
+      >
+        Reset partial
+      </button>
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Controller**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
+import React from "react"
+import { useForm, Controller } from "react-hook-form"
+import { TextField } from "@material-ui/core"
+
+interface IFormInputs {
+  firstName: string
+  lastName: string
+}
+
+export default function App() {
+  const { register, handleSubmit, reset, setValue, control } =
+    useForm<IFormInputs>()
+  const onSubmit = (data: IFormInputs) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        render={({ field }) => <TextField {...field} />}
+        name="firstName"
+        control={control}
+        rules={{ required: true }}
+        defaultValue=""
+      />
+      <Controller
+        render={({ field }) => <TextField {...field} />}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+
+      <input type="submit" />
+      <input type="button" onClick={reset} />
+      <input
+        type="button"
+        onClick={() => {
+          reset({
+            firstName: "bill",
+            lastName: "luo",
+          })
+        }}
+      />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+import { useForm, Controller } from "react-hook-form"
+import { TextField } from "@material-ui/core"
+
+export default function App() {
+  const { register, handleSubmit, reset, setValue, control } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        render={({ field }) => <TextField {...field} />}
+        name="firstName"
+        control={control}
+        rules={{ required: true }}
+        defaultValue=""
+      />
+      <Controller
+        render={({ field }) => <TextField {...field} />}
+        name="lastName"
+        control={control}
+        defaultValue=""
+      />
+
+      <input type="submit" />
+      <input type="button" onClick={reset} />
+      <input
+        type="button"
+        onClick={() => {
+          reset({
+            firstName: "bill",
+            lastName: "luo",
+          })
+        }}
+      />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Submit with Reset**
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-with-reset-xu1zu"
+import { useForm, useFieldArray, Controller } from "react-hook-form"
+
+function App() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState,
+    formState: { isSubmitSuccessful },
+  } = useForm({ defaultValues: { something: "anything" } })
+
+  const onSubmit = (data) => {
+    // It's recommended to reset in useEffect as execution order matters
+    // reset({ ...data })
+  }
+
+  React.useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({ something: "" })
+    }
+  }, [formState, submittedData, reset])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("something")} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+**Field Array**
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-reset-usefieldarray-forked-kdh2s"
+import React, { useEffect } from "react"
+import { useForm, useFieldArray, Controller } from "react-hook-form"
+
+function App() {
+  const { register, control, handleSubmit, reset } = useForm({
+    defaultValues: {
+      loadState: "unloaded",
+      names: [{ firstName: "Bill", lastName: "Luo" }],
+    },
+  })
+  const { fields, remove } = useFieldArray({
+    control,
+    name: "names",
+  })
+
+  useEffect(() => {
+    reset({
+      names: [
+        {
+          firstName: "Bob",
+          lastName: "Actually",
+        },
+        {
+          firstName: "Jane",
+          lastName: "Actually",
+        },
+      ],
+    })
+  }, [reset])
+
+  const onSubmit = (data) => console.log("data", data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <ul>
+        {fields.map((item, index) => (
+          <li key={item.id}>
+            <input {...register(`names.${index}.firstName`)} />
+
+            <Controller
+              render={({ field }) => <input {...field} />}
+              name={`names.${index}.lastName`}
+              control={control}
+            />
+            <button type="button" onClick={() => remove(index)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+### Videos
+
+---
+
+<YouTube youTubeId="qmCLBjyPwVk" />

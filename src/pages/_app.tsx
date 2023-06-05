@@ -1,12 +1,17 @@
 import { StateMachineProvider, createStore } from "little-state-machine"
 import { type AppProps } from "next/app"
 import Head from "next/head"
-
-import "../components/layout.css"
 import formData from "../state/formData"
-import setting from "../state/setting"
 import { ThemeProvider } from "next-themes"
 import { useEffect } from "react"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXComponents } from "../components/mdx/mdx"
+import "../components/layout.css"
+
+const setting = {
+  isFocusOnSearch: false,
+  version: 7,
+}
 
 createStore(
   {
@@ -50,9 +55,11 @@ function App({ Component, pageProps }: AppProps) {
         defaultTheme="dark"
         enableColorScheme={false}
       >
-        <StateMachineProvider>
-          <Component {...pageProps} />
-        </StateMachineProvider>
+        <MDXProvider components={MDXComponents}>
+          <StateMachineProvider>
+            <Component {...pageProps} />
+          </StateMachineProvider>
+        </MDXProvider>
       </ThemeProvider>
     </>
   )

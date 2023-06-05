@@ -1,0 +1,178 @@
+## \</> `watch:` <TypeText>(names?: string | string[] | (data, options) => void) => unknown</TypeText>
+
+This method will watch specified inputs and return their values. It is useful to render input value and for determining what to render by condition.
+
+### Props
+
+---
+
+| Type                                                                           | Description                                                                                       |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| <TypeText>string</TypeText>                                                    | Watch input value by name (similar to lodash [get](https://lodash.com/docs/4.17.15#get) function) |
+| <TypeText>string[]</TypeText>                                                  | Watch multiple inputs                                                                             |
+| <TypeText>undefined</TypeText>                                                 | Watch all inputs                                                                                  |
+| <TypeText>`(data: unknown, { name: string, type: string }) => void`</TypeText> | Watch all inputs and invoke a callback                                                            |
+
+### Return
+
+---
+
+| Example                                                          | Return                                             |
+| ---------------------------------------------------------------- | -------------------------------------------------- |
+| `watch('inputName')`                                             | <TypeText>unknown</TypeText>                       |
+| `watch(['inputName1'])`                                          | <TypeText>unknown[]</TypeText>                     |
+| `watch()`                                                        | <TypeText>`{[key:string]: unknown}`</TypeText>     |
+| `watch((data, { name, type }) => console.log(data, name, type))` | <TypeText>`{ unsubscribe: () => void }`</TypeText> |
+
+<Admonition type="important" title="Rules">
+
+- When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommend** to provide `defaultValues` at `useForm` to avoid this behaviour, but you can set the inline `defaultValue` as the second argument.
+- When both `defaultValue` and `defaultValues` are supplied, `defaultValue` will be returned.
+- This API will trigger re-render at the root of your app or form, consider using a callback or the [useWatch](/docs/usewatch) api if you are experiencing performance issues.
+- `watch` result is optimised for render phase instead of `useEffect`'s deps, to detect value update you may want to use an external custom hook for value comparison.
+
+</Admonition>
+
+**Examples:**
+
+---
+
+**Watch in a Form**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-watch-v7-ts-8et1d"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+interface IFormInputs {
+  name: string
+  showAge: boolean
+  age: number
+}
+
+function App() {
+  const {
+    register,
+    watch,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IFormInputs>()
+  const watchShowAge = watch("showAge", false) // you can supply default value as second argument
+  const watchAllFields = watch() // when pass nothing as argument, you are watching everything
+  const watchFields = watch(["showAge", "age"]) // you can also target specific fields by their names
+
+  // Callback version of watch.  It's your responsibility to unsubscribe when done.
+  React.useEffect(() => {
+    const subscription = watch((value, { name, type }) =>
+      console.log(value, name, type)
+    )
+    return () => subscription.unsubscribe()
+  }, [watch])
+
+  const onSubmit = (data: IFormInputs) => console.log(data)
+
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("name", { required: true, maxLength: 50 })} />
+        <input type="checkbox" {...register("showAge")} />
+        {/* based on yes selection to display Age Input*/}
+        {watchShowAge && (
+          <input type="number" {...register("age", { min: 50 })} />
+        )}
+        <input type="submit" />
+      </form>
+    </>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-watch-v7-qbxd7"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+function App() {
+  const {
+    register,
+    watch,
+    formState: { errors },
+    handleSubmit,
+  } = useForm()
+  const watchShowAge = watch("showAge", false) // you can supply default value as second argument
+  const watchAllFields = watch() // when pass nothing as argument, you are watching everything
+  const watchFields = watch(["showAge", "number"]) // you can also target specific fields by their names
+
+  // Callback version of watch.  It's your responsibility to unsubscribe when done.
+  React.useEffect(() => {
+    const subscription = watch((value, { name, type }) =>
+      console.log(value, name, type)
+    )
+    return () => subscription.unsubscribe()
+  }, [watch])
+
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input type="checkbox" {...register("showAge")} />
+
+        {/* based on yes selection to display Age Input*/}
+        {watchShowAge && (
+          <input type="number" {...register("age", { min: 50 })} />
+        )}
+
+        <input type="submit" />
+      </form>
+    </>
+  )
+}
+```
+
+</TabGroup>
+
+**Watch in Field Array**
+
+```javascript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-e2d64"
+import * as React from "react"
+import { useForm, useFieldArray, ArrayField } from "react-hook-form"
+
+function App() {
+  const { register, control, handleSubmit, watch } = useForm()
+  const { fields, remove, append } = useFieldArray({
+    name: "test",
+    control,
+  })
+  const onSubmit = (data: FormValues) => console.log(data)
+
+  console.log(watch("test"))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {fields.map((field, index) => {
+        return (
+          <input key={field.id} {...register(`test[${index}].firstName`)} />
+        )
+      })}
+      <button
+        type="button"
+        onClick={() =>
+          append({
+            firstName: "bill" + renderCount,
+            lastName: "luo" + renderCount,
+          })
+        }
+      >
+        Append
+      </button>
+    </form>
+  )
+}
+```
+
+## Video
+
+---
+
+<YouTube youTubeId="3qLd69WMqKk" />

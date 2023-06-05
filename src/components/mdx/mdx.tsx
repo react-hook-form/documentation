@@ -2,10 +2,11 @@ import { PrismSyntaxHighlight } from "./code"
 import { Pre } from "./pre"
 import TabGroup from "../TabGroup"
 import { YouTube } from "./youtube"
-import { CodeSandBoxLink } from "../CodeArea"
 import TypeText from "../TypeText"
 import Popup from "../Popup"
 import { Components } from "@mdx-js/react/lib"
+import { Admonition } from "../Admonition"
+import { CodeSandBoxLink } from "../CodeSandbox"
 
 export const MDXComponents: Components = {
   // p: P,
@@ -22,6 +23,7 @@ export const MDXComponents: Components = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
+  Admonition,
   Popup,
   TypeText,
   YouTube(props) {

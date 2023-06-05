@@ -1,0 +1,128 @@
+## \</> `unregister:` <TypeText>(name: string | string[], options) => void</TypeText>
+
+This method allows you to `unregister` a single input or an array of inputs. It also provides a second optional argument to keep state after unregistering an input.
+
+### Props
+
+---
+
+The example below shows what to expect when you invoke the `unregister` method.
+
+```javascript
+<input {...register('yourDetails.firstName')} />
+<input {...register('yourDetails.lastName')} />
+```
+
+| Type                          | Input Name                             | Value              |
+| ----------------------------- | -------------------------------------- | ------------------ |
+| <TypeText>string</TypeText>   | `unregister("yourDetails")`            | `{}`               |
+| <TypeText>string</TypeText>   | `unregister("yourDetails.firstName")`  | `{ lastName: '' }` |
+| <TypeText>string[]</TypeText> | `unregister(["yourDetails.lastName"])` | `''`               |
+
+## Options
+
+---
+
+| Name               | Type                         | Description                                                                                                                                                                                                                   |
+| ------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keepDirty`        | <TypeText>boolean</TypeText> | `isDirty` and `dirtyFields` will be remained during this action. However, this is not going to guarantee the next user input will not update `isDirty` formState, because `isDirty` is measured against the `defaultValues`.  |
+| `keepTouched`      | <TypeText>boolean</TypeText> | `touchedFields` will no longer remove that input after unregister.                                                                                                                                                            |
+| `keepIsValid`      | <TypeText>boolean</TypeText> | `isValid` will be remained during this action. However, this is not going to guarantee the next user input will not update `isValid` for schema validation, you will have to adjust the schema according with the unregister. |
+| `keepError`        | <TypeText>boolean</TypeText> | `errors` will not be updated.                                                                                                                                                                                                 |
+| `keepValue`        | <TypeText>boolean</TypeText> | input's current `value` will not be updated.                                                                                                                                                                                  |
+| `keepDefaultValue` | <TypeText>boolean</TypeText> | input's `defaultValue` which defined in `useForm` will be remained.                                                                                                                                                           |
+
+<Admonition type="important" title="Rules">
+
+- This method will remove input reference and its value, which means **built-in validation** rules will be removed as well.
+- By `unregister` an input, it will not affect the schema validation.
+
+  ```javascript
+  const schema = yup
+    .object()
+    .shape({
+      firstName: yup.string().required(),
+    })
+    .required()
+
+  unregister("firstName") // this will not remove the validation against firstName input
+  ```
+
+- Make sure you unmount that input which has `register` callback or else the input will get registered again.
+
+  ```javascript
+  const [show, setShow] = React.useState(true)
+
+  const onClick = () => {
+    unregister("test")
+    setShow(false) // make sure to unmount that input so register not invoked again.
+  }
+
+  {
+    show && <input {...register("test")} />
+  }
+  ```
+
+</Admonition>
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"
+import React, { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+interface IFormInputs {
+  firstName: string
+  lastName?: string
+}
+
+export default function App() {
+  const { register, handleSubmit, unregister } = useForm<IFormInputs>()
+  const onSubmit = (data: IFormInputs) => console.log(data)
+
+  React.useEffect(() => {
+    register("lastName")
+  }, [register])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="button" onClick={() => unregister("lastName")}>
+        unregister
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
+import React, { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit, unregister } = useForm()
+
+  React.useEffect(() => {
+    register("lastName")
+  }, [register])
+
+  return (
+    <form>
+      <button type="button" onClick={() => unregister("lastName")}>
+        unregister
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+### Video
+
+<YouTube youTubeId="TM99g_NW5Gk" />

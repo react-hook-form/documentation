@@ -53,6 +53,7 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 0.9rem;
 }
 
 ::-webkit-scrollbar {
@@ -70,26 +71,6 @@ body {
   background: var(--color-light-pink);
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-}
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -97,10 +78,7 @@ audio:not([controls]) {
 progress {
   vertical-align: baseline;
 }
-[hidden],
-template {
-  display: none;
-}
+
 a {
   background-color: transparent;
   color: var(--color-link);
@@ -115,16 +93,7 @@ a:hover {
 a:active {
   transform: translateY(2px);
 }
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted;
-}
-b,
-strong {
-  font-weight: inherit;
-  font-weight: bolder;
-}
+
 dfn {
   font-style: italic;
 }
@@ -174,7 +143,7 @@ hr {
   overflow: visible;
   border: none;
   border-top: 1px solid #516391;
-  margin: 40px 0 60px;
+  margin: 10px 0 10px;
   display: block;
 }
 button,
@@ -261,15 +230,6 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
-}
-
-p {
-  line-height: 1.5;
-  font-size: 0.9rem;
-}
-
-li > p {
-  margin: 0.2rem;
 }
 
 input,
@@ -476,10 +436,6 @@ a.skip-main:active {
   overflow: auto;
   font-size: 15px;
   z-index: 999;
-}
-
-h4 {
-  margin-bottom: 10px;
 }
 
 .more.icon {
@@ -788,19 +744,6 @@ pre[class*="language-"] {
   border-radius: 4px;
   overflow: auto;
   position: relative;
-}
-
-pre[class*="language-"] code {
-  white-space: pre;
-  display: block;
-  line-height: 1.5;
-}
-
-:not(pre) > code[class*="language-"] {
-  padding: 0.15em 0.2em 0.05em;
-  border-radius: 0.3em;
-  border: 0.13em solid #7a6652;
-  box-shadow: 1px 1px 0.3em -0.1em #000 inset;
 }
 
 .token.namespace {
