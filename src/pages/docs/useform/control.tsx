@@ -1,11 +1,11 @@
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
 import StarRepo from "../../../components/StarRepo"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import ControlContent from "../../../content/control.mdx"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 export default function ControlPage() {
   return (
@@ -18,7 +18,7 @@ export default function ControlPage() {
         <p className={typographyStyles.subHeading}>Take control of the form</p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <ControlContent />

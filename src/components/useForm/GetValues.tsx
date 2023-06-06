@@ -1,5 +1,4 @@
 import Footer from "../Footer"
-import { Menu } from "../Menu"
 import api from "../../data/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
@@ -8,6 +7,7 @@ import getValues from "../codeExamples/getValues"
 import getValuesTs from "../codeExamples/getValuesTs"
 import getValuesTypes from "../codeExamples/getValuesTypes"
 import StarRepo from "../StarRepo"
+import { Menu, apiLinks } from "../Menu"
 
 const GetValues = () => {
   return (
@@ -18,7 +18,7 @@ const GetValues = () => {
       <p className={typographyStyles.subHeading}>Get form values</p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

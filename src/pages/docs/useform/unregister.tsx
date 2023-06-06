@@ -5,7 +5,7 @@ import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import UnregisterContent from "../../../content/unregister.mdx"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 const Unregister = () => {
   return (
@@ -20,7 +20,7 @@ const Unregister = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <UnregisterContent />

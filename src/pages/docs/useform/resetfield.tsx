@@ -4,10 +4,10 @@ import ResetFieldContent from "../../../content/reset-field.mdx"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
 import StarRepo from "../../../components/StarRepo"
+import { Menu, apiLinks } from "../../../components/Menu"
 
-const Resetfield = () => {
+const ResetField = () => {
   return (
     <Layout>
       <Seo title="useForm - resetField" />
@@ -20,7 +20,7 @@ const Resetfield = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <ResetFieldContent />
@@ -35,4 +35,4 @@ const Resetfield = () => {
   )
 }
 
-export default Resetfield
+export default ResetField

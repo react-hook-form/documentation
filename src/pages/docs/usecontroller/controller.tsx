@@ -1,11 +1,11 @@
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
 import StarRepo from "../../../components/StarRepo"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import ControllerContent from "../../../content/controller.mdx"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 export default function ControllerPage() {
   return (
@@ -20,7 +20,7 @@ export default function ControllerPage() {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <ControllerContent />

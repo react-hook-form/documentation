@@ -1,5 +1,4 @@
 import Footer from "../Footer"
-import { Menu } from "../Menu"
 import api from "../../data/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
@@ -13,6 +12,7 @@ import setAllErrors from "../codeExamples/setAllErrors"
 import setAllErrorsTs from "../codeExamples/setAllErrorsTs"
 import StarRepo from "../StarRepo"
 import serverError from "../codeExamples/serverError"
+import { Menu, apiLinks } from "../Menu"
 
 const SetError = () => {
   return (
@@ -23,7 +23,7 @@ const SetError = () => {
       <p className={typographyStyles.subHeading}>Manually set an input error</p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

@@ -1,11 +1,11 @@
 import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
 import StarRepo from "../../../components/StarRepo"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import ResetContent from "../../../content/reset.mdx"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 const ResetComponent = () => {
   return (
@@ -20,7 +20,7 @@ const ResetComponent = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <ResetContent />

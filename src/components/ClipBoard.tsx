@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import generic from "../data/generic"
 
 const ClipBoard = ({
@@ -9,16 +9,17 @@ const ClipBoard = ({
   className?: string
 }) => {
   const [copiedCode, setCopiedCode] = useState<boolean>(false)
-  const timer = useRef(null)
 
   useEffect(() => {
-    if (copiedCode) {
-      timer.current = setTimeout(() => {
-        setCopiedCode(false)
-      }, 3000)
+    if (!copiedCode) {
+      return
     }
 
-    return () => clearTimeout(timer.current)
+    const timerId = setTimeout(() => {
+      setCopiedCode(false)
+    }, 3000)
+
+    return () => clearTimeout(timerId)
   }, [copiedCode])
 
   return (

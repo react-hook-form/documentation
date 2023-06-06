@@ -7,10 +7,10 @@ import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import errorMessageTs from "./codeExamples/errorMessageTs"
 import errorsMessageTs from "./codeExamples/errorsMessageTs"
-import { Menu } from "./Menu"
 import containerStyles from "../styles/container.module.css"
 import Footer from "./Footer"
 import StarRepo from "./StarRepo"
+import { Menu, apiLinks } from "./Menu"
 
 export default function ErrorMessage({ api }: { api: any }) {
   return (
@@ -23,7 +23,7 @@ export default function ErrorMessage({ api }: { api: any }) {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

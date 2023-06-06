@@ -1,13 +1,13 @@
 import Link from "next/link"
 import containerStyles from "../../styles/container.module.css"
 import typographyStyles from "../../styles/typography.module.css"
-import { Menu } from "../Menu"
 import CodeArea from "../CodeArea"
 import StarRepo from "../StarRepo"
 import Footer from "../Footer"
 import getFieldState from "../codeExamples/getFieldState"
 import tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
+import { Menu, apiLinks } from "../Menu"
 
 export const GetFieldState = () => {
   return (
@@ -18,7 +18,7 @@ export const GetFieldState = () => {
       <p className={typographyStyles.subHeading}>State of the field</p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

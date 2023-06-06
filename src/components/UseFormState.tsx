@@ -1,6 +1,5 @@
 import Footer from "./Footer"
 import Link from "next/link"
-import { Menu } from "./Menu"
 import api from "../data/api"
 import useFormState from "./codeExamples/useFormState"
 import typographyStyles from "../styles/typography.module.css"
@@ -10,6 +9,7 @@ import CodeArea from "./CodeArea"
 import tableStyles from "../styles/table.module.css"
 import generic from "../data/generic"
 import StarRepo from "./StarRepo"
+import { Menu, apiLinks } from "./Menu"
 
 const UseFormState = () => {
   return (
@@ -22,7 +22,7 @@ const UseFormState = () => {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section id="useFormRef">

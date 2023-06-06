@@ -2,11 +2,11 @@ import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import containerStyles from "../../styles/container.module.css"
 import typographyStyles from "../../styles/typography.module.css"
-import { Menu } from "../../components/Menu"
 import CodeArea from "../../components/CodeArea"
 import formContext from "../../components/codeExamples/formContext"
 import tableStyles from "../../styles/table.module.css"
 import Link from "next/link"
+import { Menu, apiLinks } from "../../components/Menu"
 
 export default function FormProvider() {
   return (
@@ -22,7 +22,7 @@ export default function FormProvider() {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <p>
