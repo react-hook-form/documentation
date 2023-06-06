@@ -16,7 +16,7 @@ import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import CodeArea from "./CodeArea"
 import ClipBoard from "./ClipBoard"
-import { useState, useRef, useEffect, memo, MutableRefObject } from "react"
+import { useState, useRef, useEffect, memo, RefObject } from "react"
 import styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
 import { useRouter } from "next/router"
@@ -53,7 +53,7 @@ function BuilderPage({
 }: {
   showBuilder?: boolean
   toggleBuilder?: (state: boolean) => void
-  HomeRef?: MutableRefObject<HTMLDivElement>
+  HomeRef?: RefObject<HTMLDivElement>
   isStatic?: boolean
 }) {
   const {
@@ -377,7 +377,7 @@ function BuilderPage({
                   if (toggleBuilder) {
                     toggleBuilder(false)
                     document.body.style.overflow = "auto"
-                    HomeRef.current.scrollIntoView({ behavior: "smooth" })
+                    HomeRef?.current?.scrollIntoView({ behavior: "smooth" })
                   } else {
                     router.push("/?goToDemo&updated=true")
                   }

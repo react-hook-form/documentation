@@ -56,42 +56,42 @@ const WatchGroup = ({
 }
 
 const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
-  let timer
   const { register, control, setValue } = useForm()
 
   useEffect(() => {
-    let i = 0
-    if (isPlayWatch) {
-      timer = setInterval(() => {
-        if (i > 12) {
-          setValue(
-            "test",
-            i === 13
-              ? "W"
-              : i === 14
-              ? "Wa"
-              : i === 15
-              ? "Wat"
-              : i === 16
-              ? "Watc"
-              : i === 17
-              ? "Watch"
-              : i === 18
-              ? "Watchi"
-              : i === 19
-              ? "Watchin"
-              : i === 20
-              ? "Watching"
-              : "Watching."
-          )
-        }
-
-        if (i > 20) {
-          clearTimeout(timer)
-        }
-        i++
-      }, 200)
+    if (!isPlayWatch) {
+      return
     }
+    let i = 0
+    const timer = setInterval(() => {
+      if (i > 12) {
+        setValue(
+          "test",
+          i === 13
+            ? "W"
+            : i === 14
+            ? "Wa"
+            : i === 15
+            ? "Wat"
+            : i === 16
+            ? "Watc"
+            : i === 17
+            ? "Watch"
+            : i === 18
+            ? "Watchi"
+            : i === 19
+            ? "Watchin"
+            : i === 20
+            ? "Watching"
+            : "Watching."
+        )
+      }
+
+      if (i > 20) {
+        clearTimeout(timer)
+      }
+      i++
+    }, 200)
 
     return () => clearTimeout(timer)
   }, [setValue, isPlayWatch])
