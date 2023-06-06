@@ -6,10 +6,9 @@ import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 
 const Search = () => {
-  const timer = useRef<any>({})
   const { actions, state } = useStateMachine({ updateSetting })
   const { width } = useWindowSize()
-  const searchRef = useRef(null)
+  const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     window?.docsearch?.({
@@ -20,12 +19,11 @@ const Search = () => {
     })
 
     return () => {
-      clearTimeout(timer.current)
       actions.updateSetting({
         isFocusOnSearch: false,
       })
     }
-  }, [])
+  }, [actions])
 
   useEffect(() => {
     if (LARGE_SCREEN <= width) {
@@ -36,9 +34,9 @@ const Search = () => {
       actions.updateSetting({
         isFocusOnSearch: false,
       })
-      searchRef.current.blur()
+      searchRef.current?.blur()
     }
-  }, [width])
+  }, [width, actions])
 
   return (
     <>
@@ -53,22 +51,12 @@ const Search = () => {
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
-          {...(state.setting?.isFocusOnSearch || width > LARGE_SCREEN
-            ? {
-                placeholder: "Search ...",
-              }
-            : {
-                style: {
-                  color: "white",
-                },
-              })}
           onFocus={() =>
             actions.updateSetting({
               isFocusOnSearch: true,
             })
           }
           onBlur={() => {
-            timer.current && clearTimeout(timer.current)
             if (LARGE_SCREEN > width) {
               actions.updateSetting({
                 isFocusOnSearch: false,

@@ -5,7 +5,7 @@ export const CodeSandBoxLink = ({
   isJS,
   isExpo,
 }: {
-  url: string
+  url?: string
   isExpo?: boolean
   isJS?: boolean
 }) => (

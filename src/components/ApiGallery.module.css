@@ -37,12 +37,9 @@
   border: 1px solid var(--color-light-blue);
   position: relative;
   padding-bottom: 30px;
-  transition: 0.2s all;
 }
 
 .gallery li:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 4px black;
   border: 1px solid var(--color-secondary);
 }
 
