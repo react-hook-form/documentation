@@ -1,10 +1,10 @@
 import Footer from "./Footer"
-import { Menu } from "./Menu"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
 import StarRepo from "./StarRepo"
 import { SelectNav } from "./selectNav"
 import UseFormContent from "../content/use-form.mdx"
+import { Menu, apiLinks } from "./Menu"
 
 const UseForm = () => {
   return (
@@ -17,7 +17,7 @@ const UseForm = () => {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <SelectNav
           options={[

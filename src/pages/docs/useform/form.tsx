@@ -2,7 +2,6 @@ import Seo from "../../../components/seo"
 import Layout from "../../../components/layout"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
-import { Menu } from "../../../components/Menu"
 import CodeArea from "../../../components/CodeArea"
 import {
   formWeb,
@@ -14,6 +13,7 @@ import TabGroup from "../../../components/TabGroup"
 import tableStyles from "../../../styles/table.module.css"
 import generic from "../../../data/generic"
 import Link from "next/link"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 const Form = () => {
   return (
@@ -26,7 +26,7 @@ const Form = () => {
         <p className={typographyStyles.subHeading}>Take care form submission</p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <section>

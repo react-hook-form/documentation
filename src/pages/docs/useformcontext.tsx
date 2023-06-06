@@ -1,13 +1,13 @@
 import Seo from "../../components/seo"
 import Layout from "../../components/layout"
 import Footer from "../../components/Footer"
-import { Menu } from "../../components/Menu"
 import StarRepo from "../../components/StarRepo"
 import containerStyles from "../../styles/container.module.css"
 import typographyStyles from "../../styles/typography.module.css"
 import UseFormContextContent from "../../content/use-form-context.mdx"
+import { Menu, apiLinks } from "../../components/Menu"
 
-const Useformcontext = () => {
+const UseFormContext = () => {
   return (
     <Layout>
       <Seo title="useFormContext" />
@@ -20,7 +20,7 @@ const Useformcontext = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <UseFormContextContent />
@@ -34,4 +34,4 @@ const Useformcontext = () => {
   )
 }
 
-export default Useformcontext
+export default UseFormContext

@@ -1,10 +1,10 @@
 import Footer from "../Footer"
-import { Menu } from "../Menu"
 import api from "../../data/api"
 import ApiRefTable from "../ApiRefTable"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
 import StarRepo from "../StarRepo"
+import { Menu, apiLinks } from "../Menu"
 
 const Register = () => {
   return (
@@ -17,7 +17,7 @@ const Register = () => {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section id="registerRef">

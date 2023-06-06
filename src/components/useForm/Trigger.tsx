@@ -1,5 +1,4 @@
 import Footer from "../Footer"
-import { Menu } from "../Menu"
 import api from "../../data/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
@@ -7,6 +6,7 @@ import CodeArea from "../CodeArea"
 import trigger from "../codeExamples/trigger"
 import triggerTs from "../codeExamples/triggerTs"
 import StarRepo from "../StarRepo"
+import { Menu, apiLinks } from "../Menu"
 
 const Trigger = () => {
   return (
@@ -19,7 +19,7 @@ const Trigger = () => {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

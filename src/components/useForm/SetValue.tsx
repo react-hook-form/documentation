@@ -1,5 +1,4 @@
 import Footer from "../Footer"
-import { Menu } from "../Menu"
 import api from "../../data/api"
 import typographyStyles from "../../styles/typography.module.css"
 import containerStyles from "../../styles/container.module.css"
@@ -10,6 +9,7 @@ import setValueTs from "../codeExamples/setValueTs"
 import setValueTypes from "../codeExamples/setValueTypes"
 import dependantFields from "../codeExamples/dependantFieldsTS"
 import StarRepo from "../StarRepo"
+import { Menu, apiLinks } from "../Menu"
 
 const SetValue = () => {
   return (
@@ -20,7 +20,7 @@ const SetValue = () => {
       <p className={typographyStyles.subHeading}>Update field value</p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

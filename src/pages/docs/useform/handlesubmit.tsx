@@ -3,9 +3,9 @@ import Layout from "../../../components/layout"
 import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
 import StarRepo from "../../../components/StarRepo"
 import HandleSubmitContent from "../../../content/handle-submit.mdx"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 const Handlesubmit = () => {
   return (
@@ -20,7 +20,7 @@ const Handlesubmit = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <HandleSubmitContent />

@@ -4,7 +4,7 @@ import containerStyles from "../../../styles/container.module.css"
 import typographyStyles from "../../../styles/typography.module.css"
 import WatchContent from "../../../content/watch.mdx"
 import Footer from "../../../components/Footer"
-import { Menu } from "../../../components/Menu"
+import { Menu, apiLinks } from "../../../components/Menu"
 
 const WatchComponent = () => {
   return (
@@ -19,7 +19,7 @@ const WatchComponent = () => {
         </p>
 
         <div className={containerStyles.wrapper}>
-          <Menu />
+          <Menu pages={apiLinks} />
 
           <main>
             <WatchContent />
