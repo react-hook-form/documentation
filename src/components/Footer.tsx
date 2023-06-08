@@ -57,14 +57,6 @@ export default function Footer() {
           rel="noreferrer noopener"
         >
           @github
-        </a>{" "}
-        |{" "}
-        <a
-          href="https://openbase.io/js/react-hook-form"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Feedback
         </a>
       </p>
       <p
