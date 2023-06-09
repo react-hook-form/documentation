@@ -1,9 +1,9 @@
 import copyClipBoard from "./utils/copyClipBoard"
-import { highlightAllUnder } from "prismjs"
 import ClipBoard from "./ClipBoard"
 import styles from "./CodeArea.module.css"
-import { CSSProperties, useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { CodeSandBoxLink } from "./CodeSandbox"
+import { PrismSyntaxHighlight } from "./mdx/code"
 
 const ToggleTypes = {
   js: "JS",
@@ -19,7 +19,6 @@ export default function CodeArea({
   tsUrl,
   withOutCopy,
   isExpo,
-  style,
 }: {
   rawData?: string
   tsRawData?: string
@@ -28,7 +27,6 @@ export default function CodeArea({
   tsUrl?: string
   withOutCopy?: boolean
   isExpo?: boolean
-  style?: CSSProperties
 }) {
   const [currentType, setType] = useState<
     (typeof ToggleTypes)[keyof typeof ToggleTypes]
@@ -38,26 +36,6 @@ export default function CodeArea({
       ToggleTypes.types
   )
   const codeAreaRef = useRef<HTMLDivElement | null>(null)
-
-  const getData = () => {
-    switch (currentType) {
-      case ToggleTypes.js:
-        return rawData
-      case ToggleTypes.ts:
-        return tsRawData
-      default:
-        return rawTypes
-    }
-  }
-
-  useEffect(() => {
-    const highlight = async () => {
-      if (codeAreaRef.current) {
-        highlightAllUnder(codeAreaRef.current)
-      }
-    }
-    highlight()
-  }, [])
 
   return (
     <section
@@ -99,7 +77,7 @@ export default function CodeArea({
         {!withOutCopy && (
           <ClipBoard
             className={`${styles.button} ${styles.copyButton}`}
-            onClick={() => copyClipBoard(getData())}
+            onClick={() => copyClipBoard(codeAreaRef.current?.innerText || "")}
           />
         )}
 
@@ -115,29 +93,21 @@ export default function CodeArea({
       </div>
 
       <div className={styles.wrapper} ref={codeAreaRef}>
-        <pre style={style} className="raw-code">
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.js ? styles.showCode : ""
-            }`}
-          >
+        {currentType === ToggleTypes.js && (
+          <PrismSyntaxHighlight className="language-javascript">
             {rawData}
-          </code>
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.ts ? styles.showCode : ""
-            }`}
-          >
+          </PrismSyntaxHighlight>
+        )}
+        {currentType === ToggleTypes.ts && (
+          <PrismSyntaxHighlight className="language-typescript">
             {tsRawData}
-          </code>
-          <code
-            className={`language-javascript ${
-              currentType === ToggleTypes.types ? styles.showCode : ""
-            }`}
-          >
+          </PrismSyntaxHighlight>
+        )}
+        {currentType === ToggleTypes.types && (
+          <PrismSyntaxHighlight className="language-javascript">
             {rawTypes}
-          </code>
-        </pre>
+          </PrismSyntaxHighlight>
+        )}
       </div>
     </section>
   )

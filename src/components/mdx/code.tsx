@@ -1,6 +1,7 @@
 import { Highlight } from "prism-react-renderer"
 import { theme, lightTheme } from "./theme"
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 const prism = {
   dark: theme,
@@ -13,18 +14,25 @@ function usePrismTheme() {
   const darkModeTheme = prism.dark || lightModeTheme
   const prismTheme = theme === "light" ? lightModeTheme : darkModeTheme
 
-  return prismTheme
+  const [finalTheme, setFinalTheme] = useState(prismTheme)
+
+  useEffect(() => {
+    setFinalTheme(prismTheme)
+  }, [prismTheme])
+
+  return finalTheme
 }
 
 export const PrismSyntaxHighlight = ({ children, className }) => {
   const language = className.replace(/language-/gm, "")
+
   const currentTheme = usePrismTheme()
 
   return (
-    <Highlight code={children} language={language} theme={currentTheme}>
+    <Highlight code={children.trim()} language={language} theme={currentTheme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
-          {tokens.slice(0, -1).map((line, i) => (
+          {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
                 <span key={key} {...getTokenProps({ token, key })} />
