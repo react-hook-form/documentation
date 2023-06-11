@@ -14,9 +14,7 @@ const TabGroup = ({ children, buttonLabels }) => {
           <button
             key={label}
             style={{
-              ...(currentIndex === index
-                ? { cursor: "default", borderTop: "1px solid transparent" }
-                : {}),
+              ...(currentIndex === index ? { cursor: "default" } : {}),
             }}
             disabled={currentIndex === index}
             onClick={() => setIndex(currentIndex)}
