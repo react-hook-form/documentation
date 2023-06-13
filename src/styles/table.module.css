@@ -1,6 +1,6 @@
 .table {
-  margin-top: 15px;
   border-collapse: collapse;
+  width: 100%;
 }
 
 .table td {
@@ -15,16 +15,8 @@
   margin-top: 0 !important;
 }
 
-.table td > p:last-child {
-  margin-bottom: 0;
-}
-
 .table td:last-child {
   padding-right: 0;
-}
-
-.table td > pre {
-  margin: 0;
 }
 
 .tableWrapper {
