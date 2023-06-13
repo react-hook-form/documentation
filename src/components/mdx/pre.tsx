@@ -6,7 +6,10 @@ import { CodeSandBoxLink } from "../CodeArea"
 
 export const Pre = (props) => {
   const preRef = useRef<HTMLDivElement>(null)
+  const language =
+    props?.children?.props?.className?.replace(/language-/gm, "") || ""
 
+  const isJs = language === "javascript"
   return (
     <div
       style={{
@@ -24,7 +27,13 @@ export const Pre = (props) => {
             }}
           />
         )}
-        {props.codesandbox && <CodeSandBoxLink url={props.codesandbox} />}
+        {props.sandbox && (
+          <CodeSandBoxLink
+            url={props.sandbox}
+            isExpo={props.expo}
+            isJS={isJs}
+          />
+        )}
       </div>
       <div ref={preRef}>{props.children}</div>
     </div>

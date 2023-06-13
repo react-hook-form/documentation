@@ -1,5 +1,5 @@
 import { Animate } from "react-simple-animate"
-import * as styles from "./VideoList.module.css"
+import styles from "./VideoList.module.css"
 
 const VideoList = ({
   lists,

@@ -1,5 +1,5 @@
-import * as styles from "./BeekaiBuilderPage.module.css"
-import * as buttonStyles from "../styles/button.module.css"
+import styles from "./BeekaiBuilderPage.module.css"
+import buttonStyles from "../styles/button.module.css"
 
 export function BeekaiBuilderPage() {
   return (

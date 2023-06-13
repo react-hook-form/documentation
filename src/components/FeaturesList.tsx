@@ -1,7 +1,7 @@
 import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
-import * as styles from "./FeatureList.module.css"
+import styles from "./FeatureList.module.css"
 import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
 const props: AnimateKeyframesProps = {

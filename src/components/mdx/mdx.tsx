@@ -1,8 +1,13 @@
 import { PrismSyntaxHighlight } from "./code"
 import { Pre } from "./pre"
 import TabGroup from "../TabGroup"
+import { YouTube } from "./youtube"
+import { CodeSandBoxLink } from "../CodeArea"
+import TypeText from "../TypeText"
+import Popup from "../Popup"
+import { Components } from "@mdx-js/react/lib"
 
-export const MDXComponents = {
+export const MDXComponents: Components = {
   // p: P,
   // strong: Strong,
   // blockquote: Blockquote,
@@ -17,13 +22,18 @@ export const MDXComponents = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
-  // YouTube: YouTube,
+  Popup,
+  TypeText,
+  YouTube(props) {
+    return <YouTube {...props} />
+  },
+  CodeSandbox: CodeSandBoxLink,
   pre(props) {
     return <Pre {...props} />
   },
   code({ className, children, ...props }) {
     return className ? (
-      <PrismSyntaxHighlight className={className}>
+      <PrismSyntaxHighlight className={className} {...props}>
         {children}
       </PrismSyntaxHighlight>
     ) : (

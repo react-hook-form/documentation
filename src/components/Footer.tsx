@@ -1,6 +1,6 @@
 import Link from "next/link"
 import nav from "../data/nav"
-import * as styles from "./Footer.module.css"
+import styles from "./Footer.module.css"
 
 export default function Footer() {
   return (

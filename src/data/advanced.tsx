@@ -8,8 +8,8 @@ import CodeExempleSetupReactNative from "../components/codeExamples/setup.native
 import smartForm from "../components/codeExamples/smartForm"
 import form from "../components/codeExamples/form"
 import input from "../components/codeExamples/input"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as buttonStyles from "../styles/button.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import buttonStyles from "../styles/button.module.css"
 import Link from "next/link"
 
 export default {

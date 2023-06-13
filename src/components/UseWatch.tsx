@@ -1,8 +1,8 @@
 import api from "../data/api"
-import * as typographyStyles from "../styles/typography.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import { Menu } from "./Menu"
-import * as containerStyles from "../styles/container.module.css"
+import containerStyles from "../styles/container.module.css"
 import UseWatch from "./UseWatchContent"
 import StarRepo from "./StarRepo"
 

@@ -2,8 +2,8 @@ import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./DevToolFeaturesList.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./DevToolFeaturesList.module.css"
 import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
 const animationKeyFramesProps: AnimateKeyframesProps = {

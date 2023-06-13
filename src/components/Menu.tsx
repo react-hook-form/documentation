@@ -1,7 +1,7 @@
 import Link from "next/link"
 import colors from "../styles/colors"
-import * as styles from "./SideMenu.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import styles from "./SideMenu.module.css"
+import typographyStyles from "../styles/typography.module.css"
 import { useRouter } from "next/router"
 
 export const pages = [

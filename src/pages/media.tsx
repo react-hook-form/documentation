@@ -1,9 +1,9 @@
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import * as containerStyle from "../styles/container.module.css"
-import * as styles from "../components/ResourcePage.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as mediaStyles from "./media.module.css"
+import containerStyle from "../styles/container.module.css"
+import styles from "../components/ResourcePage.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import mediaStyles from "./media.module.css"
 import Footer from "../components/Footer"
 
 const Media = () => {

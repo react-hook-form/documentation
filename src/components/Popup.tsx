@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Animate } from "react-simple-animate"
-import * as styles from "./Popup.module.css"
+import styles from "./Popup.module.css"
 
 function Popup({
   message,

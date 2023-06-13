@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { Control, useForm, useWatch } from "react-hook-form"
-import * as containerStyles from "../styles/container.module.css"
-import * as formStyles from "./Form.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
-import * as styles from "./Watcher.module.css"
+import containerStyles from "../styles/container.module.css"
+import formStyles from "./Form.module.css"
+import typographyStyles from "../styles/typography.module.css"
+import styles from "./Watcher.module.css"
 import home from "../data/home"
 
 const WatchText = ({

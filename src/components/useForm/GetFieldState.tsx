@@ -1,12 +1,12 @@
 import Link from "next/link"
-import * as containerStyles from "../../styles/container.module.css"
-import * as typographyStyles from "../../styles/typography.module.css"
+import containerStyles from "../../styles/container.module.css"
+import typographyStyles from "../../styles/typography.module.css"
 import { Menu } from "../Menu"
 import CodeArea from "../CodeArea"
 import StarRepo from "../StarRepo"
 import Footer from "../Footer"
 import getFieldState from "../codeExamples/getFieldState"
-import * as tableStyles from "../../styles/table.module.css"
+import tableStyles from "../../styles/table.module.css"
 import generic from "../../data/generic"
 
 export const GetFieldState = () => {

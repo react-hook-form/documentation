@@ -1,6 +1,6 @@
 import generic from "../data/generic"
-import * as containerStyles from "../styles/container.module.css"
-import * as buttonStyles from "../styles/button.module.css"
+import containerStyles from "../styles/container.module.css"
+import buttonStyles from "../styles/button.module.css"
 import { useRouter } from "next/router"
 
 export default function LearnMore() {

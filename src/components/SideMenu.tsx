@@ -1,8 +1,8 @@
 import { memo } from "react"
 import colors from "../styles/colors"
 import generic from "../data/generic"
-import * as styles from "./SideMenu.module.css"
-import * as typographyStyles from "../styles/typography.module.css"
+import styles from "./SideMenu.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 const activateStyle = { borderBottom: `1px solid ${colors.lightPink}` }
 
