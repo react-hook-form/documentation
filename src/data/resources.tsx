@@ -984,5 +984,12 @@ export default {
       description:
         "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source",
     },
+    {
+      type: "binding",
+      url: "https://github.com/vtex/react-hook-form-jsonschema",
+      title: "React Hook Form Jsonschema",
+      description:
+        "Small project based on react-hook-form that exposes an API for easily creating customizable forms based on a JSON Schema with built-in validation.",
+    },
   ],
 }
