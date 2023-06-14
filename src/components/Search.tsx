@@ -12,7 +12,7 @@ const Search = () => {
   const searchRef = useRef(null)
 
   useEffect(() => {
-    window.docsearch({
+    window?.docsearch?.({
       appId: "Z2CKVVT2QA",
       apiKey: "c56a3f265ffbf85c2c654f865cb09164",
       indexName: "react-hook-form",
