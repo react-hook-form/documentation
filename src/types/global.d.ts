@@ -1,5 +1,5 @@
 interface Window {
-  docsearch: any
+  docsearch?: any
 }
 
 declare module "*.mdx" {
