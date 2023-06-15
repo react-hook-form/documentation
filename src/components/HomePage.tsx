@@ -17,6 +17,7 @@ import { SponsorsList } from "./sponsorsList"
 import { useRouter } from "next/router"
 import { GeneralObserver } from "./general-observer"
 import Link from "next/link"
+import { useForm } from "react-hook-form"
 
 function HomePage() {
   const [submitData, updateSubmitData] = useState({})
@@ -31,7 +32,7 @@ function HomePage() {
   const [formUpdated, setFormUpdated] = useState(false)
   const [watchPlay, setWatchPlay] = useState(false)
   const { query } = useRouter()
-
+  const methods = useForm()
   const onSubmit = (data) => {
     updateSubmitData(data)
   }
@@ -273,6 +274,7 @@ function HomePage() {
 
       <Form
         {...{
+          methods,
           onSubmit,
           submitData,
           toggleBuilder,

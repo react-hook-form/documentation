@@ -21,13 +21,6 @@ import styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
 import { useRouter } from "next/router"
 
-const updateStore = (state, payload) => {
-  return {
-    ...state,
-    formData: [...payload],
-  }
-}
-
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,
   background: colors.errorPink,
@@ -59,16 +52,18 @@ function BuilderPage({
   const {
     state: { formData = [] },
     actions: { updateFormData },
-  } = useStateMachine({ updateFormData: updateStore })
+  } = useStateMachine({
+    updateFormData: (state, payload) => {
+      return {
+        ...state,
+        formData: [...payload],
+      }
+    },
+  })
   const [editFormData, setFormData] = useState(defaultValue)
-  const {
-    register,
-    handleSubmit,
-    errors = {},
-    watch,
-    setValue,
-    reset,
-  } = useForm()
+  const { register, handleSubmit, watch, setValue, reset, formState } =
+    useForm()
+  const errors = formState.errors
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef([])
   const closeButton = useRef(null)
@@ -172,14 +167,10 @@ function BuilderPage({
             defaultValue={editFormData.name}
             aria-label="name"
             aria-invalid={errors["name"] ? "true" : "false"}
-            name="name"
             style={{
               ...(errors["name"] ? errorStyle : null),
             }}
-            ref={register({
-              required: true,
-              validate,
-            })}
+            {...register("name", { required: true, validate })}
           />
           <Animate
             play={!!errors["name"]}
@@ -202,8 +193,7 @@ function BuilderPage({
           <label>{generic.type}: </label>
           <select
             aria-label="Select type"
-            name="type"
-            ref={register({ required: false })}
+            {...register("type", { required: false })}
             defaultValue={editFormData.type}
           >
             <option value="text">Text</option>
@@ -238,9 +228,8 @@ function BuilderPage({
                 key={editFormData.name}
                 defaultValue={editFormData.options}
                 type="text"
-                name="options"
                 placeholder="Enter options separate by ;"
-                ref={register({
+                {...register("options", {
                   required: true,
                 })}
               />
@@ -262,8 +251,7 @@ function BuilderPage({
           <label>
             <input
               type="checkbox"
-              name="toggle"
-              ref={register({ required: false })}
+              {...register("toggle", { required: false })}
               onClick={() => toggleValidation(!showValidation)}
             />
             {builder.inputCreator.validation}
@@ -289,8 +277,7 @@ function BuilderPage({
               >
                 <input
                   type="checkbox"
-                  name="required"
-                  ref={register({ required: false })}
+                  {...register("required", { required: false })}
                 />
                 Required
               </label>
@@ -299,27 +286,24 @@ function BuilderPage({
                 defaultValue={editFormData.max}
                 aria-label="max"
                 autoComplete="false"
-                name="max"
                 type="number"
-                ref={register({ required: false })}
+                {...register("max", { required: false })}
               />
               <label htmlFor="min">Min</label>
               <input
                 defaultValue={editFormData.min}
                 autoComplete="false"
                 aria-label="min"
-                name="min"
                 type="number"
-                ref={register({ required: false })}
+                {...register("min", { required: false })}
               />
               <label htmlFor="maxLength">MaxLength</label>
               <input
                 defaultValue={editFormData.maxLength}
                 autoComplete="false"
                 aria-label="max length"
-                name="maxLength"
                 type="number"
-                ref={register({ required: false })}
+                {...register("maxLength", { required: false })}
               />
               <label htmlFor="pattern">Pattern</label>
               <input
@@ -329,9 +313,8 @@ function BuilderPage({
                   marginBottom: "20px",
                 }}
                 aria-label="pattern"
-                name="pattern"
                 type="text"
-                ref={register({ required: false })}
+                {...register("pattern", { required: false })}
               />
             </fieldset>
           </Animate>

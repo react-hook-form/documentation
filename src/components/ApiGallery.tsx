@@ -1,36 +1,20 @@
 import { useEffect } from "react"
-import { useStateMachine } from "little-state-machine"
 import Link from "next/link"
 import Footer from "./Footer"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./ApiGallery.module.css"
 import containerStyles from "../styles/container.module.css"
 import headerStyles from "./Header.module.css"
-import { updateSetting } from "../actions/settingActions"
 import { useRouter } from "next/router"
 
 export default function ApiGallery() {
-  const {
-    actions,
-    state: {
-      setting = {
-        version: 7,
-      },
-    },
-  } = useStateMachine({
-    updateSetting,
-  })
   const router = useRouter()
 
   const onChange = (e) => {
     const version = parseInt(e.target.value)
 
-    actions.updateSetting({
-      version,
-    })
-
     if (version !== 7) {
-      window.location.href = `https://legacy.react-hook-form.com/v${version}/api`
+      router.push(`https://legacy.react-hook-form.com/v${version}/api`)
     } else {
       router.push(`/v${version}/docs/`)
     }
@@ -63,7 +47,7 @@ export default function ApiGallery() {
     ) {
       router.push(`/docs/${name}`)
     }
-  }, [setting, router])
+  }, [router])
 
   return (
     <div className={containerStyles.container}>

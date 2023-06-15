@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import GitHubButton from "react-github-btn"
-import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
@@ -14,17 +13,13 @@ import { useRouter } from "next/router"
 import clsx from "clsx"
 
 export default function Nav() {
-  const {
-    state: { setting },
-  } = useStateMachine()
+  const [isFocusOnSearch, setIsFocusOnSearch] = useState(false)
   const [showLang, setLang] = useState(false)
   const [show, setShow] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
   const router = useRouter()
   const { pathname } = router
-
-  const isFocusOnSearch = setting?.isFocusOnSearch
 
   const { width } = useWindowSize()
 
@@ -47,7 +42,9 @@ export default function Nav() {
   return (
     <>
       <div className={styles.iconGroup}>
-        {show && <Search />}
+        {show && (
+          <Search focus={isFocusOnSearch} setFocus={setIsFocusOnSearch} />
+        )}
 
         {showLang && <Toggle />}
       </div>

@@ -45,10 +45,9 @@ export default function ResourceList({
       </h1>
 
       <input
-        name="filterResources"
-        ref={register}
         placeholder="Search resources..."
         className={styles.searchFilter}
+        {...register("filterResources")}
       />
 
       <div className={styles.layoutButtons}>

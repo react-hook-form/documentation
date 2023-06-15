@@ -1,12 +1,9 @@
 import { useRef, useEffect } from "react"
-import { useStateMachine } from "little-state-machine"
-import { updateSetting } from "../actions/settingActions"
 import searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 
-const Search = () => {
-  const { actions, state } = useStateMachine({ updateSetting })
+const Search = ({ focus, setFocus }: { focus: boolean; setFocus }) => {
   const { width } = useWindowSize()
   const searchRef = useRef<HTMLInputElement>(null)
 
@@ -19,31 +16,25 @@ const Search = () => {
     })
 
     return () => {
-      actions.updateSetting({
-        isFocusOnSearch: false,
-      })
+      setFocus(false)
     }
-  }, [actions])
+  }, [setFocus])
 
   useEffect(() => {
     if (LARGE_SCREEN <= width) {
-      actions.updateSetting({
-        isFocusOnSearch: true,
-      })
+      setFocus(true)
     } else {
-      actions.updateSetting({
-        isFocusOnSearch: false,
-      })
+      setFocus(false)
       searchRef.current?.blur()
     }
-  }, [width, actions])
+  }, [setFocus, width])
 
   return (
     <>
       <form className={searchStyles.searchForm}>
         <input
           className={`${searchStyles.searchBar} ${
-            state.setting?.isFocusOnSearch ? searchStyles.searchBarOpen : null
+            focus ? searchStyles.searchBarOpen : null
           }`}
           spellCheck="false"
           type="search"
@@ -51,22 +42,14 @@ const Search = () => {
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
-          onFocus={() =>
-            actions.updateSetting({
-              isFocusOnSearch: true,
-            })
-          }
+          onFocus={() => setFocus(true)}
           onBlur={() => {
             if (LARGE_SCREEN > width) {
-              actions.updateSetting({
-                isFocusOnSearch: false,
-              })
+              setFocus(false)
             }
           }}
         />
-        {!state.setting?.isFocusOnSearch && (
-          <span className={`search icon ${searchStyles.icon}`} />
-        )}
+        {!focus && <span className={`search icon ${searchStyles.icon}`} />}
       </form>
       <input type="hidden" id="fakeSearch" />
     </>

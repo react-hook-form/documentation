@@ -1,4 +1,4 @@
-export default [
+const formData = [
   {
     name: "First name",
     type: "text",
@@ -62,3 +62,5 @@ export default [
     options: "Yes;No",
   },
 ]
+
+export default formData

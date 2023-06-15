@@ -8,15 +8,9 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXComponents } from "../components/mdx/mdx"
 import "../components/layout.css"
 
-const setting = {
-  isFocusOnSearch: false,
-  version: 7,
-}
-
 createStore(
   {
     formData,
-    setting,
   },
   {
     storageType:
