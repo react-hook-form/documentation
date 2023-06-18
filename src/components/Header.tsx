@@ -120,7 +120,11 @@ export default function Header({
                 <button
                   className={buttonStyles.primaryButton}
                   onClick={() => {
-                    homeRef.current.scrollIntoView({ behavior: "smooth" })
+                    homeRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                      inline: "nearest",
+                    })
                   }}
                 >
                   {home.demo}

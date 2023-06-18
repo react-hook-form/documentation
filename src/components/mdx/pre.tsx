@@ -2,7 +2,7 @@ import { useRef } from "react"
 import ClipBoard from "../ClipBoard"
 import styles from "../CodeArea.module.css"
 import copyClipBoard from "../utils/copyClipBoard"
-import { CodeSandBoxLink } from "../CodeArea"
+import { CodeSandBoxLink } from "../CodeSandbox"
 
 export const Pre = (props) => {
   const preRef = useRef<HTMLDivElement>(null)

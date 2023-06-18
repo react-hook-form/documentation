@@ -1,10 +1,10 @@
 import api from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
-import { Menu } from "./Menu"
 import containerStyles from "../styles/container.module.css"
 import UseFieldArrayContent from "./UseFieldArrayContent"
 import StarRepo from "./StarRepo"
+import { Menu, apiLinks } from "./Menu"
 
 export default function UseFieldArray() {
   return (
@@ -15,7 +15,7 @@ export default function UseFieldArray() {
       <p className={typographyStyles.subHeading}>React hooks for Field Array</p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

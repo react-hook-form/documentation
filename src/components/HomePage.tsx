@@ -15,81 +15,38 @@ import buttonStyles from "../styles/button.module.css"
 import styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
 import { useRouter } from "next/router"
-
-const options = {
-  rootMargin: "0px 0px",
-  threshold: [1],
-}
+import { GeneralObserver } from "./general-observer"
+import Link from "next/link"
 
 function HomePage() {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
-  const HomeRef = useRef(null)
-  const [isPlayFeature, setFeaturePlay] = useState(false)
-  const [isPlayCodeCompare, setCodeComparePlay] = useState(false)
-  const [isIsolatePlay, setIsolatePlay] = useState(false)
+  const HomeRef = useRef<HTMLDivElement>(null)
+
+  const [featurePlay, setFeaturePlay] = useState(false)
+  const [codeComparePlay, setCodeComparePlay] = useState(false)
+  const [isolatePlay, setIsolatePlay] = useState(false)
   // const [isCardPlay, setCardPlay] = useState(false)
-  const [isPlayRender] = useState(false)
+  const [renderPlay, setRenderPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
-  const [isPlayWatch, setWatchPlay] = useState(false)
-  const router = useRouter()
+  const [watchPlay, setWatchPlay] = useState(false)
+  const { query } = useRouter()
 
   const onSubmit = (data) => {
     updateSubmitData(data)
   }
 
   useEffect(() => {
-    if (window.location.search.startsWith("?goToDemo")) {
+    if (query["goToDemo"] === "") {
       setTimeout(() => {
-        HomeRef.current.scrollIntoView({ behavior: "smooth" })
+        HomeRef.current?.scrollIntoView({ behavior: "smooth" })
 
-        if (window.location.search.startsWith("?goToDemo&updated=true")) {
+        if (query["updated"]) {
           setFormUpdated(true)
         }
       }, 100)
     }
-
-    if (!IntersectionObserver) {
-      setFeaturePlay(true)
-      setCodeComparePlay(true)
-    }
-
-    const featureList = document.querySelector("#featureLast")
-    const codeComparison = document.querySelector("#codeComparison")
-    const isolate = document.querySelector("#isolate")
-    const watch = document.querySelector("#watch")
-    // const card = document.querySelector("#card")
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target === featureList && !isPlayFeature) {
-            setFeaturePlay(true)
-          }
-          if (entry.target === codeComparison && !isPlayCodeCompare) {
-            setCodeComparePlay(true)
-          }
-          if (entry.target === isolate && !isIsolatePlay) {
-            setIsolatePlay(true)
-          }
-          if (entry.target === watch && !isPlayWatch) {
-            setWatchPlay(true)
-          }
-          // if (entry.target === card && !isCardPlay) {
-          //   setCardPlay(true)
-          // }
-        }
-      })
-    }, options)
-
-    observer.observe(featureList)
-    observer.observe(codeComparison)
-    observer.observe(isolate)
-    observer.observe(watch)
-    // observer.observe(card)
-
-    return () => observer.disconnect()
-  }, [])
+  }, [query])
 
   return (
     <div className={styles.root}>
@@ -102,17 +59,44 @@ function HomePage() {
         homeRef={HomeRef}
       />
 
-      <FeaturesList isPlayFeature={isPlayFeature} />
-
+      <GeneralObserver
+        onEnter={() => {
+          setFeaturePlay(true)
+        }}
+      >
+        <FeaturesList isPlayFeature={featurePlay} />
+      </GeneralObserver>
       <SponsorsList />
 
-      <CodeCompareSection isPlayCodeCompare={isPlayCodeCompare} />
+      <GeneralObserver
+        onEnter={() => {
+          setCodeComparePlay(true)
+        }}
+      >
+        <CodeCompareSection isPlayCodeCompare={codeComparePlay} />
+      </GeneralObserver>
+      <GeneralObserver
+        onEnter={() => {
+          setIsolatePlay(true)
+        }}
+      >
+        <IsolateRender isIsolatePlay={isolatePlay} />
+      </GeneralObserver>
+      <GeneralObserver
+        onEnter={() => {
+          setWatchPlay(true)
+        }}
+      >
+        <Watcher isPlayWatch={watchPlay} />
+      </GeneralObserver>
 
-      <IsolateRender isIsolatePlay={isIsolatePlay} />
-
-      <Watcher isPlayWatch={isPlayWatch} />
-
-      <CodePerfCompareSection isPlayRender={isPlayRender} />
+      <GeneralObserver
+        onEnter={() => {
+          setRenderPlay(true)
+        }}
+      >
+        <CodePerfCompareSection isPlayRender={renderPlay} />
+      </GeneralObserver>
 
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>Highlights</h1>
@@ -305,22 +289,12 @@ function HomePage() {
             maxWidth: 500,
           }}
         >
-          <button
-            className={buttonStyles.primaryButton}
-            onClick={() => {
-              router.push("get-started")
-            }}
-          >
+          <Link href="/get-started" className={buttonStyles.primaryButton}>
             {home.getStarted}
-          </button>
-          <button
-            className={buttonStyles.primaryButton}
-            onClick={() => {
-              router.push("docs")
-            }}
-          >
+          </Link>
+          <Link href="/docs" className={buttonStyles.primaryButton}>
             API
-          </button>
+          </Link>
         </div>
       </section>
 

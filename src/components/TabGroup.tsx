@@ -8,7 +8,7 @@ const TabGroup = ({ children, buttonLabels }) => {
     <div>
       <div
         className={styles.buttonTabGroup}
-        style={{ marginBottom: -15, marginTop: 30 }}
+        style={{ marginBottom: -15, marginTop: 15 }}
       >
         {buttonLabels.map((label, currentIndex) => (
           <button

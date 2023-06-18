@@ -1,0 +1,139 @@
+## \</> `resetField:` <TypeText>`(name: string, options?: Record<string, boolean | any>) => void`</TypeText>
+
+Reset an individual field state.
+
+### Props
+
+---
+
+After invoke this function.
+
+- `isValid` form state will be reevaluated.
+- `isDirty` form state will be reevaluated.
+
+`ResetField` has the ability to retain field state. Here are the options you may want to use:
+
+| Name    |                | Type                         | Description                                                                                                                                                                                                                                               |
+| ------- | -------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`  |                | <TypeText>string</TypeText>  | registered field name.                                                                                                                                                                                                                                    |
+| options | `keepError`    | <TypeText>boolean</TypeText> | When set to `true`, field error will be retained.                                                                                                                                                                                                         |
+|         | `keepDirty`    | <TypeText>boolean</TypeText> | When set to `true`, `dirtyFields` will be retained.                                                                                                                                                                                                       |
+|         | `keepTouched`  | <TypeText>boolean</TypeText> | When set to `true`, `touchedFields` state will be unchanged.                                                                                                                                                                                              |
+|         | `defaultValue` | <TypeText>unknown</TypeText> | When this value is **not** provided, field will be revert back to it's defaultValue.<br/>When this value is provided:<br/><ul><li>field will be updated with the supplied value</li> <li>field's `defaultValue` will be updated to this value.</li> </ul> |
+
+<Admonition type="important" title="Rules">
+
+- name need to match registered field name.
+
+  ```javascript
+  register("test")
+  resetField("test") // ✅ register input and resetField works
+  resetField("non-existent-name") // ❌ failed by input not found
+  ```
+
+</Admonition>
+
+**Examples:**
+
+---
+
+**Reset Field State**
+
+```javascript copy sandbox="https://codesandbox.io/s/priceless-firefly-d0kuv"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    resetField,
+    formState: { isDirty, isValid },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      firstName: "",
+    },
+  })
+  const handleClick = () => resetField("firstName")
+
+  return (
+    <form>
+      <input {...register("firstName", { required: true })} />
+
+      <p>{isDirty && "dirty"}</p>
+      <p>{isValid && "valid"}</p>
+
+      <button type="button" onClick={handleClick}>
+        Reset
+      </button>
+    </form>
+  )
+}
+```
+
+**Reset With Options**
+
+```javascript copy sandbox="https://codesandbox.io/s/resetfield-with-options-iw4wd"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    resetField,
+    formState: { isDirty, isValid, errors, touchedFields, dirtyFields },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      firstName: "",
+    },
+  })
+
+  return (
+    <form>
+      <input {...register("firstName", { required: true })} />
+
+      <p>isDirty: {isDirty && "dirty"}</p>
+      <p>touchedFields: {touchedFields.firstName && "touched field"}</p>
+      <p>dirtyFields:{dirtyFields.firstName && "dirty field"}</p>
+      <p>isValid: {isValid && "valid"}</p>
+      <p>error: {errors.firstName && "error"}</p>
+
+      <hr />
+
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepError: true })}
+      >
+        Reset keep error
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepTouched: true })}
+      >
+        Reset keep touched fields
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { keepDirty: true })}
+      >
+        Reset keep dirty fields
+      </button>
+      <button
+        type="button"
+        onClick={() => resetField("firstName", { defaultValue: "New" })}
+      >
+        update defaultValue
+      </button>
+    </form>
+  )
+}
+```
+
+### Video
+
+---
+
+The following video tutorial demonstrates `resetField` API.
+
+<YouTube youTubeId="IdLFcNaEFEo" />

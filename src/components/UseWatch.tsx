@@ -1,10 +1,10 @@
 import api from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
-import { Menu } from "./Menu"
 import containerStyles from "../styles/container.module.css"
 import UseWatch from "./UseWatchContent"
 import StarRepo from "./StarRepo"
+import { Menu, apiLinks } from "./Menu"
 
 export default function UseFieldArray() {
   return (
@@ -17,7 +17,7 @@ export default function UseFieldArray() {
       </p>
 
       <div className={containerStyles.wrapper}>
-        <Menu />
+        <Menu pages={apiLinks} />
 
         <main>
           <section>

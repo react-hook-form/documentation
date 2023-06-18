@@ -11,7 +11,7 @@ export interface IYouTubeProps {
   aspectRatio?: "1:1" | "16:9" | "4:3" | "3:2" | "8:5"
   /** Skip to a time in the video */
   skipTo?: {
-    h?: number
+    h: number
     m: number
     s: number
   }
@@ -30,7 +30,7 @@ export const YouTube: FunctionComponent<IYouTubeProps> = ({
 }: IYouTubeProps) => {
   const { h, m, s } = skipTo
 
-  const tH = h! * 60
+  const tH = h * 60
   const tM = m * 60
 
   const startTime = tH + tM + s

@@ -1,0 +1,62 @@
+## \</> `control:` <TypeText>Object</TypeText>
+
+This object contains methods for registering components into React Hook Form.
+
+<Admonition type="important" title="Rules">
+
+**Important:** do not access any of the properties inside this object directly. It's for internal usage only.
+
+</Admonition>
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
+import React from "react"
+import { useForm, Controller } from "react-hook-form"
+import { TextField } from "@material-ui/core"
+
+type FormInputs = {
+  firstName: string
+}
+
+function App() {
+  const { control, handleSubmit } = useForm<FormInputs>()
+  const onSubmit = (data: FormInputs) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        as={TextField}
+        name="firstName"
+        control={control}
+        defaultValue=""
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
+import { useForm, Controller } from "react-hook-form"
+
+function App() {
+  const { control } = useForm()
+
+  return (
+    <Controller
+      render={({ field }) => <input {...field} />}
+      name="firstName"
+      control={control}
+      defaultValue=""
+    />
+  )
+}
+```
+
+</TabGroup>
