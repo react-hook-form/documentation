@@ -7,6 +7,8 @@ import formContext from "../../components/codeExamples/formContext"
 import tableStyles from "../../styles/table.module.css"
 import Link from "next/link"
 import { Menu, apiLinks } from "../../components/Menu"
+import StarRepo from "../../components/StarRepo"
+import Footer from "../../components/Footer"
 
 export default function FormProvider() {
   return (
@@ -77,6 +79,10 @@ export default function FormProvider() {
               rawData={formContext}
               url="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
             />
+
+            <StarRepo />
+
+            <Footer />
           </main>
         </div>
       </div>
