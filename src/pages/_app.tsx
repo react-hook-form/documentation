@@ -4,8 +4,6 @@ import Head from "next/head"
 import formData from "../state/formData"
 import { ThemeProvider } from "next-themes"
 import { useEffect } from "react"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXComponents } from "../components/mdx/mdx"
 import "../components/layout.css"
 
 createStore(
@@ -49,11 +47,9 @@ function App({ Component, pageProps }: AppProps) {
         defaultTheme="dark"
         enableColorScheme={false}
       >
-        <MDXProvider components={MDXComponents}>
-          <StateMachineProvider>
-            <Component {...pageProps} />
-          </StateMachineProvider>
-        </MDXProvider>
+        <StateMachineProvider>
+          <Component {...pageProps} />
+        </StateMachineProvider>
       </ThemeProvider>
     </>
   )

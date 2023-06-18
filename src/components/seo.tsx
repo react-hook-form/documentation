@@ -1,19 +1,19 @@
 import Head from "next/head"
 
-function SEO({ title, description }: { title: string; description?: string }) {
-  const site = {
-    siteMetadata: {
-      title: `React Hook Form - Simple React forms validation`,
-      description: `Performant, flexible and extensible forms with easy-to-use validation.`,
-      author: `@bluebill1049`,
-      siteUrl: "https://www.react-hook-form.com",
-      languages: {
-        langs: ["en", "es", "jp", "zh", "kr", "pt", "ru"],
-        defaultLangKey: "en",
-      },
+const site = {
+  siteMetadata: {
+    title: `React Hook Form - Simple React forms validation`,
+    description: `Performant, flexible and extensible forms with easy-to-use validation.`,
+    author: `@bluebill1049`,
+    siteUrl: "https://www.react-hook-form.com",
+    languages: {
+      langs: ["en", "es", "jp", "zh", "kr", "pt", "ru"],
+      defaultLangKey: "en",
     },
-  }
+  },
+}
 
+function SEO({ title, description }: { title: string; description?: string }) {
   const metaDescription = description || site.siteMetadata.description
 
   return (

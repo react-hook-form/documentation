@@ -112,7 +112,6 @@ a.legacyLink {
 }
 
 :global(.light) .actionButtonWrapper {
-  height: 60px;
   background: var(--color-primary);
   border-bottom: 3px solid var(--color-light-pink);
 }

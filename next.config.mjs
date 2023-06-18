@@ -1,9 +1,4 @@
-import withMDX from "@next/mdx"
-import { remarkHeadingId } from "remark-custom-heading-id"
-import remarkGfm from "remark-gfm"
-import rehypeMdxCodeProps from "rehype-mdx-code-props"
-import emoji from "remark-emoji"
-
+import { withContentlayer } from "next-contentlayer"
 import withBundleAnalyzer from "@next/bundle-analyzer"
 
 /** @type {import('next').NextConfig} */
@@ -19,14 +14,4 @@ const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 })
 
-export default bundleAnalyzer(
-  withMDX({
-    extension: /\.mdx?$/,
-    options: {
-      remarkPlugins: [remarkGfm, remarkHeadingId, emoji],
-      rehypePlugins: [rehypeMdxCodeProps],
-      // If you use `MDXProvider`, uncomment the following line.
-      providerImportSource: "@mdx-js/react",
-    },
-  })(nextConfig)
-)
+export default bundleAnalyzer(withContentlayer(nextConfig))

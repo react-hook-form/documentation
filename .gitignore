@@ -35,3 +35,6 @@ package-lock.json
 .vscode
 tsconfig.tsbuildinfo
 .next/
+
+# contentlayer
+.contentlayer

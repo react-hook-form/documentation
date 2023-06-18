@@ -66,7 +66,7 @@ function BuilderPage({
   const errors = formState.errors
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef([])
-  const closeButton = useRef(null)
+  const closeButton = useRef<HTMLButtonElement>(null)
   const [showValidation, toggleValidation] = useState(false)
   const onSubmit = (data) => {
     toggleValidation(false)
@@ -80,7 +80,7 @@ function BuilderPage({
     }
     reset()
   }
-  const form = useRef(null)
+  const form = useRef<HTMLHeadingElement>(null)
   const type = watch("type")
   const shouldToggleOn =
     editFormData.max ||
@@ -322,7 +322,7 @@ function BuilderPage({
           <button
             className={buttonStyles.pinkButton}
             onClick={() => {
-              form.current.scrollIntoView({ behavior: "smooth" })
+              form?.current?.scrollIntoView({ behavior: "smooth" })
             }}
           >
             {editIndex >= 0 ? generic.update : generic.create}
