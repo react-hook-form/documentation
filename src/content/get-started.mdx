@@ -2,7 +2,7 @@ export const meta = {
   title: "Get Started",
   description: "Simple form validation with React Hook Form.",
 }
- 
+
 ## Installation {#Quickstart}
 
 Installing React Hook Form only takes a single command and you're ready to roll.
@@ -631,6 +631,36 @@ export default function App() {
 
       <input type="submit" />
     </form>
+  )
+}
+```
+
+## Integrating with services {#Integratingwithservices}
+
+To integrate React Hook Form with a service, you can use the library's built-in submission handling. `<Form />` component allow you to easily send form data to an API endpoint or other service. [Find out more about Form component](/docs/useform/form).
+
+```javascript
+import { Form } from "react-hook-form"
+
+function App() {
+  const { register, control } = useForm()
+
+  return (
+    <Form
+      action="/api/save" // Send post request with the FormData
+      // encType={'application/json'} you can also switch to json object
+      onSuccess={() => {
+        alert("Your application is updated.")
+      }}
+      onError={() => {
+        alertt("Submission has failed.")
+      }}
+      control={control}
+    >
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
+      <button>Submit</button>
+    </Form>
   )
 }
 ```
