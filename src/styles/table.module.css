@@ -15,6 +15,18 @@
   margin-top: 0 !important;
 }
 
+.table td > ul li {
+  margin: 0.5rem 0;
+}
+
+.table td > ul li:first-child {
+  margin-top: 0;
+}
+
+.table td > ul li:last-child {
+  margin-bottom: 0;
+}
+
 .table td:last-child {
   padding-right: 0;
 }
