@@ -709,6 +709,9 @@ setValue('test', '')
               object.
             </p>
           </li>
+          <li>
+            <p>Do not support custom object, Class or File object.</p>
+          </li>
         </ul>
       </>
     ),
