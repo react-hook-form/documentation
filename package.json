@@ -58,7 +58,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,mdx}\"",
     "lint": "next lint --fix",
     "now-build": "npm run build",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "typecheck": "tsc --noEmit"
   },
   "husky": {
