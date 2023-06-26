@@ -15,9 +15,13 @@ import getStartedStyle from "./GetStarted.module.css"
 import styles from "./DevTools.module.css"
 import ClipBoard from "./ClipBoard"
 import dynamic from "next/dynamic"
+import type { DevtoolUIProps } from "@hookform/devtools/dist/devToolUI"
 
-const DevTool = dynamic(
-  () => import("@hookform/devtools").then((mod) => mod.DevTool),
+const DevTool = dynamic<DevtoolUIProps>(
+  () =>
+    import("@hookform/devtools/dist/index.cjs.development").then(
+      (mod) => mod.DevTool
+    ),
   {
     ssr: false,
   }
