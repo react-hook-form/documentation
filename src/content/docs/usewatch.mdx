@@ -1,0 +1,174 @@
+---
+title: useWatch
+description: React Hook for subscribing to input changes
+sidebar: apiLinks
+---
+
+## \</> `useWatch:` <TypeText>`({ control?: Control, name?: string, defaultValue?: unknown, disabled?: boolean }) => object`</TypeText>
+
+Behaves similarly to the `watch` API, however, this will isolate re-rendering at the custom hook level and potentially result in better performance for your application.
+
+### Props
+
+---
+
+| Name           | Type                                                 | Description                                                                                                                                                 |
+| -------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`         | <TypeText>string \| string[] \| undefined</TypeText> | Name of the field.                                                                                                                                          |
+| `control`      | <TypeText>Object</TypeText>                          | [`control`](/docs/useform/control) object provided by `useForm`. It's optional if you are using FormContext.                                                |
+| `defaultValue` | <TypeText>unknown</TypeText>                         | default value for `useWatch` to return before the initial render.<br/><br/>**Note:** the first render will always return `defaultValue` when it's supplied. |
+| `disabled`     | <TypeText>boolean = false</TypeText>                 | Option to disable the subscription.                                                                                                                         |
+| `exact`        | <TypeText>boolean = false</TypeText>                 | This prop will enable an exact match for input name subscriptions.                                                                                          |
+
+### Return
+
+---
+
+| Example                              | Return                                         |
+| ------------------------------------ | ---------------------------------------------- |
+| `useWatch({ name: 'inputName' })`    | <TypeText>unknown</TypeText>                   |
+| `useWatch({ name: ['inputName1'] })` | <TypeText>unknown[]</TypeText>                 |
+| `useWatch()`                         | <TypeText>`{[key:string]: unknown}`</TypeText> |
+
+<Admonition type="important" title="Rules">
+
+- The initial return value from `useWatch` will always return what's inside of `defaultValue` or `defaultValues` from `useForm`.
+- The only difference between `useWatch` and `watch` is at the root ([`useForm`](/docs/useform)) level or the custom hook level update.
+- `useWatch`'s execution order matters, which means if you update a form value before the subscription is in place, then the value updated will be ignored.
+
+  ```javascript copy
+  setValue("test", "data")
+  useWatch({ name: "test" }) // ❌ subscription is happened after value update, no update received
+  useWatch({ name: "example" }) // ✅ input value update will be received and trigger re-render
+  setValue("example", "data")
+  ```
+
+  You can overcome the above issue with a simple custom hook as below:
+
+  ```javascript copy
+  const useFormValues = () => {
+    const { getValues } = useFormContext()
+
+    return {
+      ...useWatch(), // subscribe to form value updates
+
+      ...getValues(), // always merge with latest form values
+    }
+  }
+  ```
+
+- `useWatch`'s result is optimised for render phase instead of `useEffect`'s deps, to detect value updates you may want to use an external custom hook for value comparison.
+
+</Admonition>
+
+**Examples:**
+
+---
+
+**Form**
+
+<TabGroup buttonLabels={["TS", "JS"]} >
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-usewatch-h9i5e"
+import React from "react"
+import { useForm, useWatch } from "react-hook-form"
+
+interface FormInputs {
+  firstName: string
+  lastName: string
+}
+
+function FirstNameWatched({ control }: { control: Control<FormInputs> }) {
+  const firstName = useWatch({
+    control,
+    name: "firstName", // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
+    defaultValue: "default", // default value before the render
+  })
+
+  return <p>Watch: {firstName}</p> // only re-render at the custom hook level, when firstName changes
+}
+
+function App() {
+  const { register, control, handleSubmit } = useForm<FormInputs>()
+
+  const onSubmit = (data: FormInputs) => {
+    console.log(data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>First Name:</label>
+      <input {...register("firstName")} />
+      <input {...register("lastName")} />
+      <input type="submit" />
+
+      <FirstNameWatched control={control} />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-usewatch-forked-9872t"
+import React from "react"
+import { useForm, useWatch } from "react-hook-form"
+
+function Child({ control }) {
+  const firstName = useWatch({
+    control,
+    name: "firstName",
+  })
+
+  return <p>Watch: {firstName}</p>
+}
+
+function App() {
+  const { register, control } = useForm({
+    firstName: "test",
+  })
+
+  return (
+    <form>
+      <input {...register("firstName")} />
+      <Child control={control} />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Advanced Field Array**
+
+```javascript copy sandbox="https://codesandbox.io/s/watchusewatch-calc-4tpnh"
+import React from "react"
+import { useWatch } from "react-hook-form"
+
+function totalCal(results) {
+  let totalValue = 0
+
+  for (const key in results) {
+    for (const value in results[key]) {
+      if (typeof results[key][value] === "string") {
+        const output = parseInt(results[key][value], 10)
+        totalValue = totalValue + (Number.isNaN(output) ? 0 : output)
+      } else {
+        totalValue = totalValue + totalCal(results[key][value], totalValue)
+      }
+    }
+  }
+
+  return totalValue
+}
+
+export const Calc = ({ control, setValue }) => {
+  const results = useWatch({ control, name: "test" })
+  const output = totalCal(results)
+
+  // isolated re-render to calc the result with Field Array
+  console.log(results)
+
+  setValue("total", output)
+
+  return <p>{output}</p>
+}
+```
