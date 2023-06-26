@@ -44,8 +44,11 @@
     // "noPropertyAccessFromIndexSignature": true,  /* Require undeclared properties from index signatures to use element accesses. */
     /* Module Resolution Options */
     // "moduleResolution": "node",                  /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    // "baseUrl": "./",                             /* Base directory to resolve non-absolute module names. */
-    // "paths": {},                                 /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "types": [],                                 /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,        /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
@@ -75,6 +78,11 @@
     "isolatedModules": true,
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "./src/**/*"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "./src/**/*",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules"]
 }

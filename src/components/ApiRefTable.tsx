@@ -138,7 +138,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>
                 <CodeArea
                   withOutCopy
-                  style={{ marginTop: -10 }}
                   rawData={`<input {...register("test")} />`}
                 />
               </td>
@@ -160,7 +159,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.required}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -192,7 +190,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.maxLength}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -227,7 +224,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.minLength}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -262,7 +258,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.max}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   type="number"
@@ -298,7 +293,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.min}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   type="number"
@@ -334,7 +328,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.pattern}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -362,7 +355,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               <td>{api.register.validation.validate}</td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -435,7 +427,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   type="number"
@@ -475,7 +466,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   type="date"
@@ -517,7 +507,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   type="number"
@@ -556,7 +545,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -582,7 +570,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`register('firstName', {
   onChange: (e) => console.log(e)
@@ -606,7 +593,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`register('firstName', {
   onBlur: (e) => console.log(e)
@@ -630,7 +616,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`register('firstName', { value: 'bill' })`}
                 />
@@ -655,7 +640,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {
@@ -681,7 +665,6 @@ export default function ApiRefTable({ api }: { api: any }) {
               </td>
               <td>
                 <CodeArea
-                  style={{ marginTop: -10 }}
                   withOutCopy
                   rawData={`<input
   {...register("test", {

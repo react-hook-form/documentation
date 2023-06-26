@@ -3,7 +3,7 @@ import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
 import FormFields from "./FormFields"
 import goToBuilder from "./utils/goToBuilder"
-import { useForm } from "react-hook-form"
+import { FieldValues, UseFormReturn } from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
 import buttonStyles from "../styles/button.module.css"
@@ -29,25 +29,21 @@ function Form({
   methods,
   devTool,
 }: {
-  onSubmit: any
-  submitData: unknown
+  onSubmit: (data: any) => void
+  submitData: any
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
-  methods?: any
+  methods: UseFormReturn<FieldValues, any, undefined>
   devTool?: boolean
 }) {
-  const { register, errors, handleSubmit, watch, formState, reset } =
-    methods ||
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useForm({
-      mode: "onChange",
-    })
-  const touched = Object.keys(formState.touched)
+  const { register, handleSubmit, watch, formState, reset } = methods
+
+  const touched = Object.keys(formState.touchedFields || {})
   const {
     state: { formData },
   } = useStateMachine()
 
-  console.log(errors)
+  const errors = formState.errors
 
   return (
     <>
@@ -77,7 +73,7 @@ function Form({
       <div className={styles.wrapper}>
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={typographyStyles.title} style={{ marginTop: 40 }}>
-            {generic.example}
+            Example
           </h2>
 
           <FormFields {...{ formData, errors, register }} />

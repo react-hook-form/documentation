@@ -8,6 +8,7 @@ import { Components } from "@mdx-js/react/lib"
 import { Admonition } from "../Admonition"
 import { CodeSandBoxLink } from "../CodeSandbox"
 import tableStyles from "../../styles/table.module.css"
+import { SelectNav } from "@/components/selectNav"
 
 export const MDXComponents: Components = {
   // p: P,
@@ -24,6 +25,7 @@ export const MDXComponents: Components = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
+  SelectNav,
   table(props) {
     return (
       <div className={tableStyles.tableWrapper}>

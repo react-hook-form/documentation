@@ -114,10 +114,9 @@ const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
             >
               <input
                 placeholder="Watching..."
-                ref={register}
-                name="test"
                 className={formStyles.input}
                 maxLength={19}
+                {...register("test")}
               />
             </Animate>
           </section>

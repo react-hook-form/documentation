@@ -14,8 +14,7 @@ const FormFields = ({ formData, errors, register }) => {
         return (
           <select
             aria-label={field.name}
-            name={field.name}
-            ref={register({ required: field.required })}
+            {...register(field.name, { required: field.required })}
             key={field.name}
             style={{
               marginBottom: 20,
@@ -36,9 +35,8 @@ const FormFields = ({ formData, errors, register }) => {
         return (
           <textarea
             aria-label={field.name}
-            name={field.name}
             placeholder={field.name}
-            ref={register({
+            {...register(field.name, {
               required: field.required,
               ...(field.maxLength ? { maxLength: field.maxLength } : null),
               ...(field.minLength ? { minLength: field.minLength } : null),
@@ -75,9 +73,10 @@ const FormFields = ({ formData, errors, register }) => {
                     &nbsp;
                     <input
                       type="radio"
-                      name={field.name}
                       value={name}
-                      ref={register({ required: field.required })}
+                      {...register(field.name, {
+                        required: field.required,
+                      })}
                     />
                   </label>
                 ))}
@@ -94,9 +93,8 @@ const FormFields = ({ formData, errors, register }) => {
             autoComplete="off"
             key={field.name}
             type={field.type}
-            name={field.name}
             placeholder={field.name}
-            ref={register({
+            {...register(field.name, {
               required: field.required,
               ...(field.pattern
                 ? { pattern: new RegExp(field.pattern) }

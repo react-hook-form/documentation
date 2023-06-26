@@ -70,13 +70,7 @@ function CodeCompareSection({
                 }}
               >
                 <h2 className={typographyStyles.title}>React Hook Form</h2>
-                <CodeArea
-                  style={{
-                    border: `1px solid ${colors.secondary}`,
-                  }}
-                  rawData={reactHookFormCode}
-                  withOutCopy
-                />
+                <CodeArea rawData={reactHookFormCode} withOutCopy />
               </div>
             )}
           />

@@ -7,4 +7,20 @@ import {
   getStartedLinks,
 } from "./MenuLinks"
 
-export { Menu, apiLinks, faqLinks, advancedLinks, tsLinks, getStartedLinks }
+const links = {
+  apiLinks,
+  faqLinks,
+  advancedLinks,
+  tsLinks,
+  getStartedLinks,
+}
+
+export {
+  Menu,
+  apiLinks,
+  faqLinks,
+  advancedLinks,
+  tsLinks,
+  getStartedLinks,
+  links,
+}
