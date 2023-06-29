@@ -8,14 +8,14 @@ const errorStyle = {
 }
 
 const FormFields = ({ formData, errors, register }) => {
-  return (formData || []).map((field) => {
+  return (formData || []).map((field, i) => {
     switch (field.type) {
       case "select":
         return (
           <select
             aria-label={field.name}
             {...register(field.name, { required: field.required })}
-            key={field.name}
+            key={field.name + i}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
