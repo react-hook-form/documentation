@@ -29,7 +29,13 @@ function Menu({ pages }: { pages: Pages }) {
             const isActive = pathname === page.pathname
 
             return (
-              <li key={page.pathname} className={styles.menuItem}>
+              <li
+                key={page.pathname}
+                className={styles.menuItem}
+                style={{
+                  display: page?.pages ? "block" : "flex",
+                }}
+              >
                 <code aria-hidden className={styles.code}>{`</>`}</code>
                 <Link
                   className={isActive ? styles.isActive : ""}
