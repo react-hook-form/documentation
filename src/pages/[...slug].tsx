@@ -8,7 +8,7 @@ import Footer from "@/components/Footer"
 import StarRepo from "@/components/StarRepo"
 import containerStyles from "@/styles/container.module.css"
 import typographyStyles from "@/styles/typography.module.css"
-import { Menu, links } from "@/components/Menu"
+import Menu from "@/components/Menu/Menu"
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get a list of valid doc paths.
@@ -51,7 +51,7 @@ export default function Page({
         <p className={typographyStyles.subHeading}>{doc.description}</p>
 
         <div className={containerStyles.wrapper}>
-          <Menu pages={links[doc.sidebar]} />
+          <Menu pages={doc.pages} />
 
           <main>
             <MDXContent components={MDXComponents} />

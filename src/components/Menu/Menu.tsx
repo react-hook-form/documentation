@@ -5,7 +5,7 @@ import typographyStyles from "../../styles/typography.module.css"
 import { useRouter } from "next/router"
 import { Pages } from "../../types/types"
 
-function Menu({ pages }: { pages: Pages }) {
+function Menu({ pages = [] }: { pages: Pages }) {
   const router = useRouter()
   const { pathname } = router
 

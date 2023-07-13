@@ -3,6 +3,7 @@ import { remarkHeadingId } from "remark-custom-heading-id"
 import remarkGfm from "remark-gfm"
 import rehypeMdxCodeProps from "rehype-mdx-code-props"
 import emoji from "remark-emoji"
+import * as sidebar from "./src/components/Menu/MenuLinks"
 
 export const Doc = defineDocumentType(() => ({
   name: "Doc",
@@ -11,7 +12,17 @@ export const Doc = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     description: { type: "string", required: true },
-    sidebar: { type: "string", required: true },
+    sidebar: {
+      type: "enum",
+      options: [
+        "apiLinks",
+        "advancedLinks",
+        "tsLinks",
+        "faqLinks",
+        "getStartedLinks",
+      ],
+      required: true,
+    },
   },
   computedFields: {
     slug: {
@@ -25,6 +36,10 @@ export const Doc = defineDocumentType(() => ({
     segment: {
       type: "list",
       resolve: (doc) => doc._raw.flattenedPath.split("/"),
+    },
+    pages: {
+      type: "list",
+      resolve: (doc) => sidebar[doc.sidebar] ?? [],
     },
   },
 }))

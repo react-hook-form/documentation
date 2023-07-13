@@ -1,0 +1,162 @@
+---
+title: Form
+description: Take care of form submission
+sidebar: apiLinks
+---
+
+## \</> `Form:` <TypeText>Component</TypeText>
+
+**Note**: This component is currently in **BETA**
+
+This component is optional and it takes care of the form submission by closely aligning with the standard native form.
+
+By default, we will send a POST request with your form submission data as [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData). You can supply `headers` prop to avoid FormData to be submitted and use `application/json` instead.
+
+- Progressively enhancement for your form.
+- Support both React Web and React Native.
+- Take care of form submission handling.
+
+```javascript
+<Form
+  action="/api"
+  method="post" // default to post
+  onSubmit={() => {}} // function to be called before the request
+  onSuccess={() => {}} // valid response
+  onError={() => {}} // error response
+  validateStatus={(status) => status >= 200} // validate status code
+/>
+```
+
+### Props
+
+---
+
+All props all optional
+
+| Name             | Type                                               | Description                                                                                                             | Example                                                                                                            |
+| ---------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `control`        | <TypeText>`Control`</TypeText>                     | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.           | <CodeArea withOutCopy rawData="<Form control={control} />"/>                                                       |
+| `children`       | <TypeText>`React.ReactNode`</TypeText>             |                                                                                                                         |
+| `render`         | <TypeText>`Function`</TypeText>                    | Render prop function suitable for headless component.                                                                   | <CodeArea withOutCopy rawData="<Form render={({ submit }) => <View/>} />" />                                       |
+| `onSubmit`       | <TypeText>`Function`</TypeText>                    | Function invoked after successful validation.                                                                           | <CodeArea withOutCopy rawData="<Form onSubmit={({ data }) => mutation(data)} />"/>                                 |
+| `onSuccess`      | <TypeText>`Function`</TypeText>                    | Function called after successful request to the server.                                                                 | <CodeArea withOutCopy rawData="<Form onSuccess={({ response }) => {}} />" />                                       |
+| `onError`        | <TypeText>`Function`</TypeText>                    | Function called after failed request to the server.<br/><br/>`setError` function will be called to update errors state. | <CodeArea withOutCopy rawData="<Form onError={({ response }) => {}} />" />                                         |
+| `headers`        | <TypeText>`Record<string, string>`</TypeText>      | Request headers object.                                                                                                 | <CodeArea withOutCopy rawData="<Form headers={{ accessToken:  'xxx', 'Content-Type':  'application/json'  }} />"/> |
+| `validateStatus` | <TypeText>`(status: number) => boolean`</TypeText> | Function to validate status code.                                                                                       | <CodeArea withOutCopy rawData="<Form validateStatus={status => status === 200} />" />                              |
+
+<Admonition type="important" title="Rules">
+
+- If want to prepare or omit submission data, please use [`handleSubmit`](/docs/useform/handlesubmit) or `onSubmit`.
+  ```javascript
+  const { handleSubmit, control } = useForm();
+  const onSubmit =(data) => callback(prepareData(data))
+  <form onSubmit={handleSubmit(onSubmit)} />
+  // or
+  <Form
+    onSubmit={({ data }) => {
+      console.log(data)
+    }}
+  />
+  ```
+- Progressive Enhancement only applicable for SSR framework.
+
+  ```javascript
+  const { handleSubmit, control } = useForm({
+    progressive: true
+  });
+
+  <Form onSubmit={onSubmit} control={control} action="/api/test" method="post">
+    <input {...register("test", { required: true })} />
+  </Form  />
+
+  // Renders
+
+  <form action="/api/test" method="post">
+    <input required name="test" />
+  </form>
+  ```
+
+</Admonition>
+ 
+**Examples:**
+
+---
+
+**React Web**
+
+```javascript copy
+import { useForm, Form } from "react-hook-form"
+
+function App() {
+  const {
+    control,
+
+    register,
+
+    formState: { isSubmitSuccessful, errors },
+  } = useForm({
+    // progressive: true, optional prop for progressive enhancement
+  })
+
+  return (
+    <div>
+      // Use action prop to make post submission with formData
+      <Form
+        action="/api"
+        control={control}
+        onSuccess={() => {
+          alert("Success")
+        }}
+        onError={() => {
+          alert("error")
+        }}
+      >
+        {" "}
+        <input {...register("name")} />
+        {isSubmitSuccessful && <p>Form submit successful.</p>}
+        {errors?.root?.server && <p>Form submit failed.</p>} <button>submit</button>
+      </Form>
+      // Manual form submission
+      <Form
+        onSubmit={async ({ formData, data, formDataJson, event }) => {
+          await fetch("api", {
+            method: "post",
+
+            body: formData,
+          })
+        }}
+      >
+        {" "}
+        <input {...register("test")} /> <button>submit</button>
+      </Form>
+    </div>
+  )
+}
+```
+
+**React Native**
+
+```javascript copy
+import { useForm, Form } from "react-hook-form"
+function App() {
+  const {
+    control,
+    register,
+    formState: { isSubmitSuccessful, errors },
+  } = useForm()
+  return (
+    <Form
+      action="/api"
+      control={control}
+      render={({ submit }) => {
+        ;<View>
+          {isSubmitSuccessful && <Text>Form submit successful.</Text>}
+
+          {errors?.root?.server && <Text>Form submit failed.</Text>}
+          <Button onPress={() => submit()} />
+        </View>
+      }}
+    />
+  )
+}
+```
