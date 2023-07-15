@@ -140,12 +140,21 @@ function App() {
 
 **Watch in Field Array**
 
-```javascript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-e2d64"
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-z54xwd"
 import * as React from "react"
-import { useForm, useFieldArray, ArrayField } from "react-hook-form"
+import { useForm, useFieldArray } from "react-hook-form"
+
+type FormValues = {
+  test: {
+    firstName: string
+    lastName: string
+  }[]
+}
 
 function App() {
-  const { register, control, handleSubmit, watch } = useForm()
+  const { register, control, handleSubmit, watch } = useForm<FormValues>()
   const { fields, remove, append } = useFieldArray({
     name: "test",
     control,
@@ -158,7 +167,19 @@ function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field, index) => {
         return (
-          <input key={field.id} {...register(`test[${index}].firstName`)} />
+          <div key={field.id}>
+            <input
+              defaultValue={field.firstName}
+              {...register(`test.${index}.firstName`)}
+            />
+            <input
+              defaultValue={field.lastName}
+              {...register(`test.${index}.lastName`)}
+            />
+            <button type="button" onClick={() => remove(index)}>
+              Remove
+            </button>
+          </div>
         )
       })}
       <button
@@ -176,6 +197,57 @@ function App() {
   )
 }
 ```
+
+```javascript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-52yy3z"
+import * as React from "react"
+import { useForm, useFieldArray } from "react-hook-form"
+
+function App() {
+  const { register, control, handleSubmit, watch } = useForm()
+  const { fields, remove, append } = useFieldArray({
+    name: "test",
+    control,
+  })
+  const onSubmit = (data) => console.log(data)
+
+  console.log(watch("test"))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {fields.map((field, index) => {
+        return (
+          <div key={field.id}>
+            <input
+              defaultValue={field.firstName}
+              {...register(`test.${index}.firstName`)}
+            />
+            <input
+              defaultValue={field.lastName}
+              {...register(`test.${index}.lastName`)}
+            />
+            <button type="button" onClick={() => remove(index)}>
+              Remove
+            </button>
+          </div>
+        )
+      })}
+      <button
+        type="button"
+        onClick={() =>
+          append({
+            firstName: "bill" + renderCount,
+            lastName: "luo" + renderCount,
+          })
+        }
+      >
+        Append
+      </button>
+    </form>
+  )
+}
+```
+
+</TabGroup>
 
 ## Video
 
