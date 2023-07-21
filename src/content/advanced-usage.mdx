@@ -269,7 +269,7 @@ Error messages are visual feedback to our users when there are issues with their
 
 ## Connect Form {#ConnectForm}
 
-When we are building forms, there are times when our input lives inside of deeply nested component trees, and that's when [FormContext](/docs/useFormContext) comes in handy. However, we can further improve the Developer Experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is you can connect your input with React Hook Form much easier.
+When we are building forms, there are times when our input lives inside of deeply nested component trees, and that's when [FormContext](/docs/useformcontext) comes in handy. However, we can further improve the Developer Experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is you can connect your input with React Hook Form much easier.
 
 ```javascript copy
 import { FormProvider, useForm, useFormContext } from "react-hook-form"
@@ -303,9 +303,9 @@ export const App = () => {
 
 ## FormProvider Performance {#FormProviderPerformance}
 
-React Hook Form's [FormProvider](/docs#useFormContext) is built upon [React's Context](https://reactjs.org/docs/context.html) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
+React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Context](https://reactjs.org/docs/context.html) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
 
-**Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/useformcontext) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
+**Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/formprovider) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
 
 ```javascript copy sandbox="https://codesandbox.io/s/provider-perf-forked-r24ho"
 import React, { memo } from "react"
