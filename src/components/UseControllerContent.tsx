@@ -8,8 +8,9 @@ import UseControllerMethods from "./UseControllerMethods"
 import TabGroup from "./TabGroup"
 import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
 import { SelectNav } from "./selectNav"
+import api from "@/data/api"
 
-export default function UseControllerContent({ api }: { api: any }) {
+export default function UseControllerContent() {
   return (
     <>
       <SelectNav

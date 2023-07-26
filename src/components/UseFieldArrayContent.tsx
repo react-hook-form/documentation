@@ -9,8 +9,9 @@ import useFieldArrayTS from "./codeExamples/useFieldArrayTS"
 import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
 import Link from "next/link"
 import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
+import api from "@/data/api"
 
-export default function UseFieldArrayContent({ api }: { api: any }) {
+export default function UseFieldArrayContent() {
   return (
     <>
       <code className={typographyStyles.codeHeading}>

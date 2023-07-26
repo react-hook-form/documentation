@@ -152,8 +152,10 @@ useForm({
 - There are other options for including form data:
 
   ```javascript
-  <input {...register("hidden")} type="hidden" />
+  // Include in a hidden input
   register("hidden", { value: "data" })
+
+  <input {...register("hidden")} type="hidden" />
 
   // include data onSubmit
   const onSubmit = (data) => {

@@ -1,0 +1,131 @@
+---
+title: formState
+description: State of the form
+sidebar: apiLinks
+---
+
+## \</> `formState:` <TypeText>Object</TypeText>
+
+This object contains information about the entire form state. It helps you to keep on track with the user's interaction with your form application.
+
+### Return
+
+---
+
+<FormState />
+
+<Admonition type="important" title="Rules">
+
+- `formState` is wrapped with a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to improve render performance and skip extra logic if specific state is not subscribed to. Therefore make sure you invoke or read it before a `render` in order to enable the state update.
+- `formState` is updated in batch. If you want to subscribe to `formState` via `useEffect`, make sure that you place the entire `formState` in the optional array.
+
+  <TabGroup buttonLabels={["Snippet", "Example"]} >
+
+  ```javascript copy
+  useEffect(() => {
+    if (formState.errors.firstName) {
+      // do the your logic here
+    }
+  }, [formState]) // ✅
+  // ❌ formState.errors will not trigger the useEffect
+  ```
+
+  ```javascript copy
+  import { useForm } from "react-hook-form"
+
+  export default function App() {
+    const { register, handleSubmit, formState } = useForm()
+
+    const onSubmit = (data) => console.log(data)
+
+    React.useEffect(() => {
+      console.log("touchedFields", formState.touchedFields)
+    }, [formState]) // use entire formState object as optional array arg in useEffect, not individual properties of it
+
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("test")} />
+        <input type="submit" />
+      </form>
+    )
+  }
+  ```
+
+  </TabGroup>
+
+- Pay attention to the logical operator when subscription to `formState`.
+
+  ```javascript
+  // ❌ formState.isValid is accessed conditionally,
+  // so the Proxy does not subscribe to changes of that state
+  return <button disabled={!formState.isDirty || !formState.isValid} />
+
+  // ✅ read all formState values to subscribe to changes
+  const { isDirty, isValid } = formState
+  return <button disabled={!isDirty || !isValid} />
+  ```
+
+</Admonition>
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]} >
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-forked-5sxs3"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  test: string
+}
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    // Read the formState before render to subscribe the form state through Proxy
+    formState: { errors, isDirty, isSubmitting, touchedFields, submitCount },
+  } = useForm<FormInputs>()
+  const onSubmit = (data: FormInputs) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("test")} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-formstate-forked-tyqlp"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    // Read the formState before render to subscribe the form state through the Proxy
+    formState: { errors, isDirty, isSubmitting, touchedFields, submitCount },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("test")} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+### Video
+
+---
+
+The following video will explain in detail different form states.
+
+<YouTube youTubeId="4kzd572NbkM" />

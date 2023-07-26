@@ -1,6 +1,5 @@
 import Footer from "./Footer"
 import Link from "next/link"
-import api from "../data/api"
 import useFormState from "./codeExamples/useFormState"
 import typographyStyles from "../styles/typography.module.css"
 import containerStyles from "../styles/container.module.css"
@@ -121,7 +120,7 @@ const UseFormState = () => {
               </table>
             </div>
 
-            <FormStateTable api={api} />
+            <FormStateTable />
 
             <h2 id="rules" className={typographyStyles.rulesTitle}>
               Rules

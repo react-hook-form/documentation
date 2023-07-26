@@ -1,81 +1,200 @@
-import Footer from "../Footer"
-import api from "../../data/api"
+import Link from "next/link"
 import typographyStyles from "../../styles/typography.module.css"
-import containerStyles from "../../styles/container.module.css"
-import TabGroup from "../TabGroup"
 import CodeArea from "../CodeArea"
-import setValue from "../codeExamples/setValue"
-import setValueTs from "../codeExamples/setValueTs"
-import setValueTypes from "../codeExamples/setValueTypes"
-import dependantFields from "../codeExamples/dependantFieldsTS"
-import StarRepo from "../StarRepo"
-import { Menu, apiLinks } from "../Menu"
+
+import tableStyles from "@/styles/table.module.css"
 
 const SetValue = () => {
   return (
-    <div className={containerStyles.container}>
-      <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        setValue
-      </h1>
-      <p className={typographyStyles.subHeading}>Update field value</p>
+    <div className={tableStyles.tableWrapper}>
+      <table className={tableStyles.table}>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              <code>name</code>
+            </td>
+            <td></td>
+            <td>
+              <code className={typographyStyles.typeText}>string</code>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <p>Target a single field by name.</p>
+                </li>
+                <li>
+                  <p>When used with field array.</p>
+                  <ul>
+                    <li>
+                      <p>
+                        You can use methods such as{" "}
+                        <Link href="/docs/usefieldarray#replace">
+                          <code>replace</code>
+                        </Link>{" "}
+                        or{" "}
+                        <Link href="/docs/usefieldarray#update">
+                          <code>update</code>
+                        </Link>{" "}
+                        for field array, however, they will cause the component
+                        to unmount and remount for the targeted field array.
+                      </p>
 
-      <div className={containerStyles.wrapper}>
-        <Menu pages={apiLinks} />
+                      <CodeArea
+                        rawData={`const { update } = useFieldArray({ name: 'array' });
+                            
+// unmount fields and remount with updated value
+update(0, { test: '1', test1: '2' }) 
 
-        <main>
-          <section>
-            <code className={typographyStyles.codeHeading}>
-              <h2>
-                setValue:{" "}
-                <span className={typographyStyles.typeText}>
-                  (name: string, value: unknown, config?: Object) =&gt; void
-                </span>
-              </h2>
-            </code>
+// will directly update input value
+setValue('array.0.test1', '1');
+setValue('array.0.test2', '2');
+`}
+                      />
+                    </li>
+                    <li>
+                      <p>
+                        It will not create a new field when targeting a
+                        non-existing field.
+                      </p>
 
-            {api.setValue.description}
+                      <CodeArea
+                        rawData={`const { replace } = useFieldArray({ name: 'test' })
+                          
+// ❌ doesn't create new input  
+setValue('test.101.data') 
 
-            <h2 id="example" className={typographyStyles.subTitle}>
-              Examples
-            </h2>
-
-            <TabGroup buttonLabels={["basic", "dependant fields"]}>
+// ✅ work on refresh entire field array
+replace([{data: 'test'}]) 
+`}
+                      />
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>value</code>
+            </td>
+            <td></td>
+            <td>
+              <code className={typographyStyles.typeText}>unknown</code>
+            </td>
+            <td>
+              <p>
+                The value for the field. This argument is required and can not
+                be <code>undefined</code>.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>options</code>
+            </td>
+            <td>
+              <code>shouldValidate</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>boolean</code>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <p>
+                    Whether to compute if your input is valid or not (subscribed
+                    to <code className={typographyStyles.typeText}>errors</code>
+                    ).
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Whether to compute if your entire form is valid or not
+                    (subscribed to{" "}
+                    <code className={typographyStyles.typeText}>isValid</code>
+                    ).
+                  </p>
+                </li>
+                <li>
+                  This option will update <code>touchedFields</code> at the
+                  specified field level <b>not</b> the entire form touched
+                  fields.
+                </li>
+              </ul>
               <CodeArea
-                rawData={setValue}
-                url="https://codesandbox.io/s/react-hook-form-v7-setvalue-h8wbk"
-                tsRawData={setValueTs}
-                rawTypes={setValueTypes}
-                tsUrl="https://codesandbox.io/s/react-hook-form-v7-ts-setvalue-8z9hx"
+                rawData={`setValue('name', 'value', { shouldValidate: true })`}
+                withOutCopy
               />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code></code>
+            </td>
+            <td>
+              <code>shouldDirty</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>boolean</code>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <p>
+                    Whether to compute if your input is dirty or not against
+                    your defaultValues (subscribed to{" "}
+                    <code className={typographyStyles.typeText}>
+                      dirtyFields
+                    </code>
+                    ).
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Whether to compute if your entire form is dirty or not
+                    against your defaultValues (subscribed to{" "}
+                    <code className={typographyStyles.typeText}>isDirty</code>
+                    ).
+                  </p>
+                </li>
+                <li>
+                  This option will update <code>dirtyFields</code> at the
+                  specified field level <b>not</b> the entire form dirty fields.
+                </li>
+              </ul>
+
               <CodeArea
-                rawData={dependantFields}
-                url="https://codesandbox.io/s/dependant-field-dwin1"
+                rawData={`setValue('name', 'value', { shouldDirty: true })`}
+                withOutCopy
               />
-            </TabGroup>
-
-            <h2 className={typographyStyles.subTitle}>Video</h2>
-
-            <p>
-              The following video tutorial demonstrates <code>setValue</code>{" "}
-              API in detail.
-            </p>
-
-            <iframe
-              width="100%"
-              height="528"
-              title="react hook form setValue API"
-              src="https://www.youtube.com/embed/qpv51sCH3fI"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-
-            <StarRepo />
-          </section>
-
-          <Footer />
-        </main>
-      </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code></code>
+            </td>
+            <td>
+              <code>shouldTouch</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>boolean</code>
+            </td>
+            <td>
+              <p>Whether to set the input itself to be touched.</p>
+              <CodeArea
+                rawData={`setValue('name', 'value', { shouldTouch: true })`}
+                withOutCopy
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }

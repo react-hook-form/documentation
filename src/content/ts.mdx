@@ -129,7 +129,7 @@ export default function App() {
 ```typescript copy
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TContext = any
+  TContext = any,
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
@@ -238,7 +238,7 @@ export default function App() {
 ```typescript copy
 export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
 > = Partial<{
   mode: Mode
   reValidateMode: Mode
@@ -258,8 +258,9 @@ export type UseFormProps<
 ```typescript copy
 export type UseFieldArrayReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id"
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
 > = {
   swap: (indexA: number, indexB: number) => void
   move: (indexA: number, indexB: number) => void
@@ -303,7 +304,7 @@ export type UseFieldArrayReturn<
 ```typescript copy
 export type UseFieldArrayProps<
   TKeyName extends string = "id",
-  TControl extends Control = Control
+  TControl extends Control = Control,
 > = {
   name: string
   keyName?: TKeyName
@@ -322,7 +323,7 @@ export type UseFieldArrayProps<
 ```typescript copy
 export type UseControllerReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
   field: ControllerRenderProps<TFieldValues, TName>
   formState: UseFormStateReturn<TFieldValues>
@@ -337,7 +338,7 @@ export type UseControllerReturn<
 ```typescript copy
 export type UseControllerProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
   name: TName
   rules?: Omit<
@@ -403,7 +404,7 @@ This type will return union with all available paths that match the passed value
 ```typescript copy
 function Field<
   TFieldValues extends FieldValues,
-  TPath extends FieldPathByValue<TFieldValues, Date>
+  TPath extends FieldPathByValue<TFieldValues, Date>,
 >({ control, name }: { control: Control<TFieldValues>; name: TPath }) {
   const { field } = useController({
     control,
@@ -427,8 +428,9 @@ export type FieldValues = Record<string, any>
 ```typescript copy
 export type FieldArrayWithId<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id"
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
 > = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
 ```
 

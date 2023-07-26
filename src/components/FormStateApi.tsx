@@ -1,29 +1,8 @@
 import typographyStyles from "../styles/typography.module.css"
-import API from "../data/api"
+import api from "../data/api"
 import Link from "next/link"
-import { ReactNode } from "react"
 
-export const FormStateApi = ({
-  api,
-  columnIndent,
-}: {
-  api?: {
-    formState: {
-      isDirty: ReactNode | string
-      dirtyFields: ReactNode | string
-      defaultValues: ReactNode | string
-      touched: ReactNode | string
-      isSubmitted: ReactNode | string
-      isSubmitSuccessful: ReactNode | string
-      isSubmitting: ReactNode | string
-      submitCount: ReactNode | string
-      isValid: ReactNode | string
-      isValidating: ReactNode | string
-      isLoading: ReactNode | string
-    }
-  }
-  columnIndent?: boolean
-}) => (
+export const FormStateApi = ({ columnIndent }: { columnIndent?: boolean }) => (
   <>
     <tr>
       {columnIndent && (
@@ -39,7 +18,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isDirty}</td>
+      <td>{api.formState.isDirty}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -53,7 +32,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>object</code>
       </td>
-      <td>{(api || API).formState.dirtyFields}</td>
+      <td>{api.formState.dirtyFields}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -67,7 +46,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>object</code>
       </td>
-      <td>{(api || API).formState.touched}</td>
+      <td>{api.formState.touched}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -81,7 +60,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>object</code>
       </td>
-      <td>{(api || API).formState.defaultValues}</td>
+      <td>{api.formState.defaultValues}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -95,7 +74,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isSubmitted}</td>
+      <td>{api.formState.isSubmitted}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -109,7 +88,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isSubmitSuccessful}</td>
+      <td>{api.formState.isSubmitSuccessful}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -123,7 +102,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isSubmitting}</td>
+      <td>{api.formState.isSubmitting}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -137,7 +116,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isLoading}</td>
+      <td>{api.formState.isLoading}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -151,7 +130,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>number</code>
       </td>
-      <td>{(api || API).formState.submitCount}</td>
+      <td>{api.formState.submitCount}</td>
     </tr>
     <tr>
       {columnIndent && (
@@ -166,7 +145,7 @@ export const FormStateApi = ({
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
       <td>
-        <div>{(api || API).formState.isValid}</div>
+        <div>{api.formState.isValid}</div>
         <p>
           <code>setError</code> has no effect on <code>isValid</code> formState,{" "}
           <code>isValid</code> will always derived via the entire form
@@ -186,7 +165,7 @@ export const FormStateApi = ({
       <td>
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
-      <td>{(api || API).formState.isValidating}</td>
+      <td>{api.formState.isValidating}</td>
     </tr>
     <tr>
       {columnIndent && (
