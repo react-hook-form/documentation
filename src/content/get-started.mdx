@@ -628,7 +628,7 @@ export default function App() {
         {...register("mail", { required: "Email Address is required" })}
         aria-invalid={errors.mail ? "true" : "false"}
       />
-      {errors.mail && <p role="alert">{errors.mail?.message}</p>}
+      {errors.mail && <p role="alert">{errors.mail.message}</p>}
 
       <input type="submit" />
     </form>
