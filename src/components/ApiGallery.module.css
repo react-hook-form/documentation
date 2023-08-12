@@ -44,6 +44,8 @@
   border: 1px solid var(--color-secondary);
   outline-width: 0;
   transform: scale(1.01);
+  box-shadow: 2px 2px 0 4px #000;
+  transform: translate(-2px,-2px);
 }
 
 .gallery li a {
