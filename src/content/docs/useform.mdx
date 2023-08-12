@@ -127,7 +127,7 @@ This option allows you to configure validation strategy when inputs with errors 
 
 ---
 
-The `defaultValues` prop populates the entire form with default values. It supports both synchronous and asynchronous assignment of default values. While you can set an input's default value using `defaultValue` or `defaultChecked` [(as detailed in the official React documentation)](https://reactjs.org/docs/uncontrolled-components.html), it is **recommended** to use `defaultValues` for the entire form.
+The `defaultValues` prop populates the entire form with default values. It supports both synchronous and asynchronous assignment of default values. While you can set an input's default value using `defaultValue` or `defaultChecked` [(as detailed in the official React documentation)](https://react.dev/reference/react-dom/components/input), it is **recommended** to use `defaultValues` for the entire form.
 
 ```javascript copy
 useForm({
@@ -152,7 +152,7 @@ useForm({
 - There are other options for including form data:
 
   ```javascript
-  <input {...register("hidden")} type="hidden" />
+  ;<input {...register("hidden")} type="hidden" />
   register("hidden", { value: "data" })
 
   // include data onSubmit
