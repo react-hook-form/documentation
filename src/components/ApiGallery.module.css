@@ -37,10 +37,14 @@
   border: 1px solid var(--color-light-blue);
   position: relative;
   padding-bottom: 30px;
+  transition: transform 0.3s ease;
 }
 
 .gallery li:hover {
   border: 1px solid var(--color-secondary);
+  outline-width: 0;
+  box-shadow: 2px 2px 0 4px #000;
+  transform: translate(-2px,-2px);
 }
 
 .gallery li a {
