@@ -43,3 +43,20 @@
 a.link {
   color: var(--color-primary);
 }
+
+.logoGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoGroup img {
+  width: 100px;
+}
+
+.heading {
+  font-size: 0.6rem;
+  font-weight: 600;
+  margin-bottom: -0.2rem;
+}
