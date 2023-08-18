@@ -1,17 +1,14 @@
 import { StateMachineProvider, createStore } from "little-state-machine"
 import { type AppProps } from "next/app"
 import Head from "next/head"
-
-import "../components/layout.css"
 import formData from "../state/formData"
-import setting from "../state/setting"
 import { ThemeProvider } from "next-themes"
 import { useEffect } from "react"
+import "../components/layout.css"
 
 createStore(
   {
     formData,
-    setting,
   },
   {
     storageType:

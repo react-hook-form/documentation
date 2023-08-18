@@ -69,15 +69,3 @@
   position: relative;
   margin-right: 8px;
 }
-
-.wrapper pre {
-  line-height: 1.5 !important;
-}
-
-.wrapper pre code {
-  display: none;
-}
-
-.wrapper pre code.showCode {
-  display: block;
-}

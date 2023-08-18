@@ -1,8 +1,9 @@
-export const meta = {
-  title: "Get Started",
-  description: "Simple form validation with React Hook Form.",
-}
- 
+---
+title: Get Started
+description: Simple form validation with React Hook Form.
+sidebar: getStartedLinks
+---
+
 ## Installation {#Quickstart}
 
 Installing React Hook Form only takes a single command and you're ready to roll.
@@ -114,7 +115,7 @@ enum GenderEnum {
 }
 
 interface IFormInput {
-  firstName: String
+  firstName: string
   gender: GenderEnum
 }
 
@@ -627,10 +628,40 @@ export default function App() {
         {...register("mail", { required: "Email Address is required" })}
         aria-invalid={errors.mail ? "true" : "false"}
       />
-      {errors.mail && <p role="alert">{errors.mail?.message}</p>}
+      {errors.mail && <p role="alert">{errors.mail.message}</p>}
 
       <input type="submit" />
     </form>
+  )
+}
+```
+
+## Integrating with services {#Integratingwithservices}
+
+To integrate React Hook Form with a service, you can use the library's built-in submission handling. `<Form />` component allow you to easily send form data to an API endpoint or other service. [Find out more about Form component](/docs/useform/form).
+
+```javascript
+import { Form } from "react-hook-form"
+
+function App() {
+  const { register, control } = useForm()
+
+  return (
+    <Form
+      action="/api/save" // Send post request with the FormData
+      // encType={'application/json'} you can also switch to json object
+      onSuccess={() => {
+        alert("Your application is updated.")
+      }}
+      onError={() => {
+        alert("Submission has failed.")
+      }}
+      control={control}
+    >
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
+      <button>Submit</button>
+    </Form>
   )
 }
 ```
@@ -642,7 +673,7 @@ We also support schema-based form validation with [Yup](https://github.com/jquen
 **Step 1:** Install `Yup` into your project.
 
 ```bash copy
-npm install @hookform/resolvers yupCopy
+npm install @hookform/resolvers yup
 ```
 
 **Step 2:** Prepare your schema for validation and register inputs with React Hook Form.

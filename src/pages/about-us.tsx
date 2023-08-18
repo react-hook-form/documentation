@@ -29,15 +29,6 @@ const Twitter = ({ twitterName }) => (
 
 const data = [
   {
-    name: "BEEKAI",
-    imgUrl: "https://www.beekai.com/marketing/logo/logo.svg",
-    url: "https://www.beekai.com",
-    twitterName: "beekai_app",
-    bio: "Build the next-generation forms with modern technology and best in class user experience and accessibility.",
-    interests: ["💻  Code", "⚛️  React", "📋 Form"],
-    active: true,
-  },
-  {
     name: "Beier(Bill) Luo",
     imgUrl:
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
@@ -140,6 +131,15 @@ const data = [
     twitterName: "stramel89",
     interests: ["🏋🏻‍♂️ powerlifting", "🎮 games", "💻 code"],
     active: false,
+  },
+  {
+    name: "BEEKAI",
+    imgUrl: "https://www.beekai.com/marketing/logo/logo.svg",
+    url: "https://www.beekai.com",
+    twitterName: "beekai_app",
+    bio: "Build the next-generation forms with modern technology and best in class user experience and accessibility.",
+    interests: ["💻  Code", "⚛️  React", "📋 Form"],
+    active: true,
   },
 ]
 

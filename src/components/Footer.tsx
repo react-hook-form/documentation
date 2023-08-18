@@ -59,24 +59,46 @@ export default function Footer() {
           @github
         </a>
       </p>
-      <p
-        style={{
-          display: "inline-block",
-          background: "white",
-          color: "black",
-          padding: "6px 20px",
-          borderRadius: 4,
-        }}
-      >
-        <a
-          href="https://vercel.com/"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.link}
-        >
-          Hosted and powered by ▲ <b>Vercel</b>
-        </a>
-      </p>
+      <div>
+        <p className={styles.heading}>SUPPORTED AND BACKED BY</p>
+        <div className={styles.logoGroup}>
+          <a
+            href="https://www.casinoreviews.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/casinoreviews.png" alt="Casino Reviews" />
+          </a>
+          <p
+            style={{
+              display: "inline-block",
+              background: "white",
+              color: "black",
+              padding: "6px 20px",
+              borderRadius: 4,
+            }}
+          >
+            <a
+              href="https://vercel.com/"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.link}
+            >
+              Powered by ▲ <b>Vercel</b>
+            </a>
+          </p>
+          <a
+            href="https://www.beekai.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://www.beekai.com/marketing/logo/horizontal.svg"
+              alt="BEEKAI Form builder"
+            />
+          </a>
+        </div>
+      </div>
     </footer>
   )
 }

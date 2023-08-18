@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { DevTool } from "@hookform/devtools/dist/devtools"
 import { Animate } from "react-simple-animate"
 import Form from "./Form"
 import Footer from "./Footer"
@@ -15,6 +14,18 @@ import buttonStyles from "../styles/button.module.css"
 import getStartedStyle from "./GetStarted.module.css"
 import styles from "./DevTools.module.css"
 import ClipBoard from "./ClipBoard"
+import dynamic from "next/dynamic"
+import type { DevtoolUIProps } from "@hookform/devtools/dist/devToolUI"
+
+const DevTool = dynamic<DevtoolUIProps>(
+  () =>
+    import("@hookform/devtools/dist/index.cjs.development").then(
+      (mod) => mod.DevTool
+    ),
+  {
+    ssr: false,
+  }
+)
 
 interface Props {
   content: any
@@ -24,6 +35,7 @@ export default function DevTools({ content }: Props) {
   const methods = useForm({
     mode: "onChange",
   })
+
   const [showDevTool, setShowDevTool] = useState(false)
 
   const { control } = methods

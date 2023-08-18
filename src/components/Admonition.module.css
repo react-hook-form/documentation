@@ -1,0 +1,59 @@
+.admonition {
+  margin-top: 1rem;
+  margin-bottom: 1em;
+  padding: 15px 30px 15px 15px;
+  border-radius: 0.4rem;
+}
+
+.admonitionIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
+.admonitionIcon svg {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  stroke-width: 0;
+}
+
+.admonitionIcon svg {
+  stroke: rgb(253, 253, 254);
+  fill: rgb(253, 253, 254);
+}
+
+.admonitionContent > :last-child {
+  margin-bottom: 0;
+}
+
+/** Customization */
+.admonitionWarning {
+  background-color: rgba(230, 126, 34, 0.1);
+  border-left: 8px solid var(--color-orange);
+}
+
+.admonitionTip {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 8px solid var(--color-green);
+}
+
+.admonitionCaution {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left: 8px solid var(--color-secondary);
+}
+
+.admonitionImportant {
+  background-color: rgb(25, 60, 71, 0.1);
+  border-left: 8px solid var(--color-blue);
+}
+
+.admonitionNote {
+  background-color: rgb(71, 71, 72, 0.1);
+  border-left: 8px solid var(--color-text);
+}
+
+.admonitionQuestion {
+  background-color: rgba(8, 61, 119, 0.1);
+  border-left: 8px solid var(--color-light-blue);
+}

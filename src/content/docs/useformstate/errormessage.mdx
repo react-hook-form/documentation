@@ -1,0 +1,205 @@
+---
+title: ErrorMessage
+description: An error message component to handle errors
+sidebar: apiLinks
+---
+
+## \</> `ErrorMessage:` <TypeText>Component</TypeText>
+
+A simple component to render associated input's error message.
+
+```bash
+npm install @hookform/error-message
+```
+
+### Props
+
+---
+
+| Name      | Type                                                                                        | Required | Description                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`    | <TypeText>string</TypeText>                                                                 | ✓        | Name of the field.                                                                                                                                                                            |
+| `errors`  | <TypeText>object</TypeText>                                                                 |          | `errors` object from React Hook Form. Optional if you are using `FormProvider`.                                                                                                               |
+| `message` | <TypeText>string \| React.ReactElement</TypeText>                                           |          | Inline error message.                                                                                                                                                                         |
+| `as`      | <TypeText>React.ElementType \| string</TypeText>                                            |          | Wrapper component or HTML tag. For example: `as="span"` or `as={<Text />}`                                                                                                                    |
+| `render`  | <TypeText>`({ message: string \| React.ReactElement, messages?: Object}) => any`</TypeText> |          | This is a [render prop](https://reactjs.org/docs/render-props.html) for rendering error message or messages.<br/><br/>**Note:** you need to set `criteriaMode` to 'all' for using `messages`. |
+
+**Examples:**
+
+---
+
+**Single Error Message**
+
+<TabGroup buttonLabels={["TS", "JS"]} >
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-d1ues"
+import React from "react"
+import { useForm } from "react-hook-form"
+import { ErrorMessage } from "@hookform/error-message"
+
+interface FormInputs {
+  singleErrorInput: string
+}
+
+export default function App() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormInputs>()
+  const onSubmit = (data: FormInputs) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("singleErrorInput", { required: "This is required." })}
+      />
+      <ErrorMessage errors={errors} name="singleErrorInput" />
+
+      <ErrorMessage
+        errors={errors}
+        name="singleErrorInput"
+        render={({ message }) => <p>{message}</p>}
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-errormessage-jufsl"
+import React from "react"
+import { useForm } from "react-hook-form"
+import { ErrorMessage } from "@hookform/error-message"
+
+export default function App() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("singleErrorInput", { required: "This is required." })}
+      />
+      <ErrorMessage errors={errors} name="singleErrorInput" />
+
+      <ErrorMessage
+        errors={errors}
+        name="singleErrorInput"
+        render={({ message }) => <p>{message}</p>}
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Multiple Error Messages**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-forked-sy5f0"
+import React from "react"
+import { useForm } from "react-hook-form"
+import { ErrorMessage } from "@hookform/error-message"
+
+interface FormInputs {
+  multipleErrorInput: string
+}
+
+export default function App() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormInputs>({
+    criteriaMode: "all",
+  })
+  const onSubmit = (data: FormInputs) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("multipleErrorInput", {
+          required: "This is required.",
+          pattern: {
+            value: /d+/,
+            message: "This input is number only.",
+          },
+          maxLength: {
+            value: 10,
+            message: "This input exceed maxLength.",
+          },
+        })}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="multipleErrorInput"
+        render={({ messages }) =>
+          messages &&
+          Object.entries(messages).map(([type, message]) => (
+            <p key={type}>{message}</p>
+          ))
+        }
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-lnvkt"
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
+
+
+export default function App() {
+  const { register, formState: { errors }, handleSubmit } = useForm({
+    criteriaMode "all"
+  });
+  const onSubmit = data => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("multipleErrorInput", {
+          required: "This is required.",
+          pattern: {
+            value: /d+/,
+            message: "This input is number only."
+          },
+          maxLength: {
+            value: 10,
+            message: "This input exceed maxLength."
+          }
+        })}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="multipleErrorInput"
+        render={({ messages }) =>
+          messages &&
+          Object.entries(messages).map(([type, message]) => (
+            <p key={type}>{message}</p>
+          ))
+        }
+      />
+
+
+      <input type="submit" />
+    </form>
+  );
+}
+
+```
+
+</TabGroup>

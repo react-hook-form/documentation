@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import GitHubButton from "react-github-btn"
-import { useStateMachine } from "little-state-machine"
 import nav from "../data/nav"
 import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
@@ -14,17 +13,13 @@ import { useRouter } from "next/router"
 import clsx from "clsx"
 
 export default function Nav() {
-  const {
-    state: { setting },
-  } = useStateMachine()
+  const [isFocusOnSearch, setIsFocusOnSearch] = useState(false)
   const [showLang, setLang] = useState(false)
   const [show, setShow] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
   const router = useRouter()
   const { pathname } = router
-
-  const isFocusOnSearch = setting?.isFocusOnSearch
 
   const { width } = useWindowSize()
 
@@ -47,7 +42,9 @@ export default function Nav() {
   return (
     <>
       <div className={styles.iconGroup}>
-        {show && <Search />}
+        {show && (
+          <Search focus={isFocusOnSearch} setFocus={setIsFocusOnSearch} />
+        )}
 
         {showLang && <Toggle />}
       </div>
@@ -154,7 +151,7 @@ export default function Nav() {
             </Link>
 
             <Link
-              className={router.pathname == "/dev-tools" ? "active" : ""}
+              className={router.asPath == "/dev-tools" ? "active" : ""}
               href="/dev-tools"
             >
               <div className={styles.iconWrapper}>
@@ -175,7 +172,7 @@ export default function Nav() {
             <span>{nav.home}</span>
           </Link>
           <Link
-            className={router.pathname == "/get-started" ? "active" : ""}
+            className={router.asPath == "/get-started" ? "active" : ""}
             href="/get-started"
           >
             <div className={styles.iconWrapper}>
@@ -199,7 +196,7 @@ export default function Nav() {
             </div>
             <span>API</span>
           </Link>
-          <Link className={router.pathname == "/ts" ? "active" : ""} href="/ts">
+          <Link className={router.asPath == "/ts" ? "active" : ""} href="/ts">
             <div className={styles.iconWrapper}>
               <span
                 style={{
@@ -220,7 +217,7 @@ export default function Nav() {
             <span>TS</span>
           </Link>
           <Link
-            className={router.pathname == "/advanced-usage" ? "active" : ""}
+            className={router.asPath == "/advanced-usage" ? "active" : ""}
             href="/advanced-usage"
           >
             <div className={styles.iconWrapper}>
@@ -229,7 +226,7 @@ export default function Nav() {
             <span>{nav.advanced}</span>
           </Link>
           <Link
-            className={router.pathname == "/faqs" ? "active" : ""}
+            className={router.asPath == "/faqs" ? "active" : ""}
             href="/faqs"
           >
             <div className={styles.iconWrapper}>
@@ -318,7 +315,16 @@ export default function Nav() {
             </div>
           </span>
 
-          <span className="desktopOnly">
+          <span
+            className="desktopOnly"
+            style={
+              pathname.includes("resources")
+                ? {
+                    borderBottom: "1px solid #bf1650",
+                  }
+                : {}
+            }
+          >
             <span className={styles.tools}>
               <span
                 style={{

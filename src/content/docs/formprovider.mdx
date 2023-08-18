@@ -1,0 +1,55 @@
+---
+title: FormProvider
+description: A component to provide React Context
+sidebar: apiLinks
+---
+
+This component will host context object and allow consuming component to subscribe to context and use [useForm](/docs/useform) props and methods.
+
+### Props
+
+---
+
+This following table applied to `FormProvider`, `useFormContext` accepts no argument.
+
+| Name       | Type                        | Description                                    |
+| ---------- | --------------------------- | ---------------------------------------------- |
+| `...props` | <TypeText>Object</TypeText> | `FormProvider` requires all `useForm` methods. |
+
+<Admonition type="important" title="Rules">
+
+- Avoid using nested FormProvider
+
+</Admonition>
+
+**Examples:**
+
+---
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
+import React from "react"
+
+import { useForm, FormProvider, useFormContext } from "react-hook-form"
+
+export default function App() {
+  const methods = useForm()
+
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <FormProvider {...methods}>
+      // pass all methods into the context
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <NestedInput />
+        <input type="submit" />
+      </form>
+    </FormProvider>
+  )
+}
+
+function NestedInput() {
+  const { register } = useFormContext() // retrieve all hook methods
+
+  return <input {...register("test")} />
+}
+```

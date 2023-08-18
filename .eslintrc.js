@@ -41,5 +41,6 @@ module.exports = {
     "react/jsx-curly-brace-presence": "warn",
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
+    "import/no-anonymous-default-export": OFF,
   },
 }

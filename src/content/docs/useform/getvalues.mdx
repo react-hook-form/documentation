@@ -1,0 +1,165 @@
+---
+title: getValues
+description: Get form values
+sidebar: apiLinks
+---
+
+## \</> `getValues:` <TypeText>`(payload?: string | string[]) => Object`</TypeText>
+
+An optimized helper for reading form values. The difference between `watch` and `getValues` is that `getValues` **will not** trigger re-renders or subscribe to input changes.
+
+### Props
+
+---
+
+| Type        | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| `undefined` | Returns the entire form values.                           |
+| `string`    | Gets the value at path of the form values.                |
+| `array`     | Returns an array of the value at path of the form values. |
+
+**Examples:**
+
+---
+
+The example below shows what to expect when you invoke `getValues` method.
+
+```jsx copy
+<input {...register("root.test1")} />
+
+<input {...register("root.test2")} />
+```
+
+| Name                                  | Output                              |
+| ------------------------------------- | ----------------------------------- |
+| `getValues()`                         | `{ root: { test1: '', test2: ''} }` |
+| `getValues("root")`                   | `{ test1: '', test2: ''}`           |
+| `getValues("root.firstName")`         | `''`                                |
+| `getValues(["yourDetails.lastName"])` | `['']`                              |
+
+<Admonition type="important" title="Rules">
+
+- Disabled inputs will be returned as `undefined`. If you want to prevent users from updating the input and still retain the field value, you can use `readOnly` or disable the entire &lt;fieldset /&gt;. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).
+- It will return `defaultValues` from `useForm` before the **initial** render.
+
+</Admonition>
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["TS", "JS", "Types"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-getvalues-txsfg"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  test: string
+  test1: string
+}
+
+export default function App() {
+  const { register, getValues } = useForm<FormInputs>()
+
+  return (
+    <form>
+      <input {...register("test")} />
+      <input {...register("test1")} />
+
+      <button
+        type="button"
+        onClick={() => {
+          const values = getValues() // { test: "test-input", test1: "test1-input" }
+          const singleValue = getValues("test") // "test-input"
+          const multipleValues = getValues(["test", "test1"]) // ["test-input", "test1-input"]
+        }}
+      >
+        Get Values
+      </button>
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-getvalues-2eioh"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, getValues } = useForm()
+
+  return (
+    <form>
+      <input {...register("test")} />
+      <input {...register("test1")} />
+
+      <button
+        type="button"
+        onClick={() => {
+          const values = getValues() // { test: "test-input", test1: "test1-input" }
+          const singleValue = getValues("test") // "test-input"
+          const multipleValues = getValues(["test", "test1"])
+          // ["test-input", "test1-input"]
+        }}
+      >
+        Get Values
+      </button>
+    </form>
+  )
+}
+```
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-getvalues-txsfg"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+// Flat input values
+type Inputs = {
+  key1: string
+  key2: number
+  key3: boolean
+  key4: Date
+}
+
+export default function App() {
+  const { register, getValues } = useForm<Inputs>()
+
+  getValues()
+
+  return <form />
+}
+
+// Nested input values
+type Inputs1 = {
+  key1: string
+  key2: number
+  key3: {
+    key1: number
+    key2: boolean
+  }
+  key4: string[]
+}
+
+export default function Form() {
+  const { register, getValues } = useForm<Inputs1>()
+
+  getValues()
+  // function getValues(): Record<string, unknown>
+  getValues("key1")
+  // function getValues<"key1", unknown>(payload: "key1"): string
+  getValues("key2")
+  // function getValues<"key2", unknown>(payload: "key2"): number
+  getValues("key3.key1")
+  // function getValues<"key3.key1", unknown>(payload: "key3.key1"): unknown
+  getValues<string, number>("key3.key1")
+  // function getValues<string, number>(payload: string): number
+  getValues<string, boolean>("key3.key2")
+  // function getValues<string, boolean>(payload: string): boolean
+  getValues("key4")
+  // function getValues<"key4", unknown>(payload: "key4"): string[]
+
+  return <form />
+}
+```
+
+</TabGroup>

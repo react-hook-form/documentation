@@ -1,0 +1,136 @@
+---
+title: trigger
+description: Trigger validation across the form
+sidebar: apiLinks
+---
+
+## `trigger:` <TypeText>`(name?: string | string[]) => Promise<boolean>`</TypeText>
+
+Manually triggers form or input validation. This method is also useful when you have dependant validation (input validation depends on another input's value).
+
+### Props
+
+---
+
+| Name        | Type                           | Description                                                                                                                                             | Example                                  |
+| ----------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| name        | <TypeText>undefined</TypeText> | Triggers validation on all fields.                                                                                                                      | `trigger()`                              |
+|             | <TypeText>string</TypeText>    | Triggers validation on a specific field value by **name**                                                                                               | `trigger("yourDetails.firstName")`       |
+|             | <TypeText>string[]</TypeText>  | Triggers validation on multiple fields by **name**.                                                                                                     | `trigger(["yourDetails.lastName"])`      |
+| shouldFocus | <TypeText>boolean</TypeText>   | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. | `trigger('name', { shouldFocus: true })` |
+
+<Admonition type="important" title="Rules">
+
+Isolate render optimisation only applicable for targeting a single field name with `string` as payload, when supplied with `array` and `undefined` to trigger will re-render the entire formState.
+
+</Admonition>
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]} >
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-forked-xs7hl"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  firstName: string
+  lastName: string
+}
+
+export default function App() {
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm<FormInputs>()
+
+  return (
+    <form>
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
+      <button
+        type="button"
+        onClick={() => {
+          trigger("lastName")
+        }}
+      >
+        Trigger
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          trigger(["firstName", "lastName"])
+        }}
+      >
+        Trigger Multiple
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          trigger()
+        }}
+      >
+        Trigger All
+      </button>
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-forked-8w9tn"
+import React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm()
+
+  return (
+    <form>
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { required: true })} />
+      <button
+        type="button"
+        onClick={async () => {
+          const result = await trigger("lastName")
+          // const result = await trigger("lastName", { shouldFocus: true }); allowed to focus input
+        }}
+      >
+        Trigger
+      </button>
+      <button
+        type="button"
+        onClick={async () => {
+          const result = await trigger(["firstName", "lastName"])
+        }}
+      >
+        Trigger Multiple
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          trigger()
+        }}
+      >
+        Trigger All
+      </button>
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+### Video
+
+---
+
+The following video explain `trigger` API in detail.
+
+<YouTube youTubeId="-bcyJCDjksE" />

@@ -1,15 +1,11 @@
 import { useRef, useEffect } from "react"
-import { useStateMachine } from "little-state-machine"
-import { updateSetting } from "../actions/settingActions"
 import searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 
-const Search = () => {
-  const timer = useRef<any>({})
-  const { actions, state } = useStateMachine({ updateSetting })
+const Search = ({ focus, setFocus }: { focus: boolean; setFocus }) => {
   const { width } = useWindowSize()
-  const searchRef = useRef(null)
+  const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     window?.docsearch?.({
@@ -20,32 +16,25 @@ const Search = () => {
     })
 
     return () => {
-      clearTimeout(timer.current)
-      actions.updateSetting({
-        isFocusOnSearch: false,
-      })
+      setFocus(false)
     }
-  }, [])
+  }, [setFocus])
 
   useEffect(() => {
     if (LARGE_SCREEN <= width) {
-      actions.updateSetting({
-        isFocusOnSearch: true,
-      })
+      setFocus(true)
     } else {
-      actions.updateSetting({
-        isFocusOnSearch: false,
-      })
-      searchRef.current.blur()
+      setFocus(false)
+      searchRef.current?.blur()
     }
-  }, [width])
+  }, [setFocus, width])
 
   return (
     <>
       <form className={searchStyles.searchForm}>
         <input
           className={`${searchStyles.searchBar} ${
-            state.setting?.isFocusOnSearch ? searchStyles.searchBarOpen : null
+            focus ? searchStyles.searchBarOpen : null
           }`}
           spellCheck="false"
           type="search"
@@ -53,32 +42,14 @@ const Search = () => {
           aria-label="search input"
           id="algolia-doc-search"
           ref={searchRef}
-          {...(state.setting?.isFocusOnSearch || width > LARGE_SCREEN
-            ? {
-                placeholder: "Search ...",
-              }
-            : {
-                style: {
-                  color: "white",
-                },
-              })}
-          onFocus={() =>
-            actions.updateSetting({
-              isFocusOnSearch: true,
-            })
-          }
+          onFocus={() => setFocus(true)}
           onBlur={() => {
-            timer.current && clearTimeout(timer.current)
             if (LARGE_SCREEN > width) {
-              actions.updateSetting({
-                isFocusOnSearch: false,
-              })
+              setFocus(false)
             }
           }}
         />
-        {!state.setting?.isFocusOnSearch && (
-          <span className={`search icon ${searchStyles.icon}`} />
-        )}
+        {!focus && <span className={`search icon ${searchStyles.icon}`} />}
       </form>
       <input type="hidden" id="fakeSearch" />
     </>

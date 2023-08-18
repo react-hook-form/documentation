@@ -1,0 +1,374 @@
+---
+title: setError
+description: Manually set an input error
+sidebar: apiLinks
+---
+
+## \</> `setError:` <TypeText>`(name: string, error: FieldError, { shouldFocus?: boolean }) => void`</TypeText>
+
+The function allows you to manually set one or more errors.
+
+### Props
+
+---
+
+| Name    | Type                                                                                  | Description                                                                                                                                             |
+| ------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`  | <TypeText>string</TypeText>                                                           | input's name.                                                                                                                                           |
+| `error` | <TypeText>`{ type: string, message?: string, types: MultipleFieldErrors }`</TypeText> | Set an error with its type and message.                                                                                                                 |
+| config  | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                      | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. |
+
+<Admonition type="important" title="Rules">
+
+- This method will not persist the associated input error if the input passes `register`'s associated rules.
+  ```javascript
+  register('registerInput', { minLength: 4 }});
+  setError('registerInput', { type: 'custom', message: 'custom message' });
+  // validation will pass as long as minLength requirement pass
+  ```
+- An error that is not associated with an input field will be persisted until cleared with `clearErrors`. This behaviour is only applicable for built-in validation at field level.
+  ```javascript
+  setError("notRegisteredInput", { type: "custom", message: "custom message" })
+  // clearErrors() need to invoked manually to remove that custom error
+  ```
+- You can set a server or global error with `root` as the key. This type of error will not persist with each submission.
+  ```javascript
+  setError("root.serverError", {
+    type: "400",
+  })
+  setError("root.random", {
+    type: "random",
+  })
+  ```
+- Can be useful in the `handleSubmit` method when you want to give error feedback to a user after async validation. (ex: API returns validation errors)
+- `shouldFocus` doesn't work when an input has been disabled.
+- This method will force set `isValid` formState to `false`, however, it's important to aware `isValid` will always be derived by the validation result from your input registration rules or schema result.
+- There are certain keyword which need to avoid before conflicting with type check. They are `type`, `types`
+
+</Admonition>
+
+**Examples:**
+
+---
+
+**Single Error**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-nfxxu"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  username: string
+}
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<FormInputs>()
+  const onSubmit = (data: FormInputs) => {
+    console.log(data)
+  }
+
+  React.useEffect(() => {
+    setError("username", {
+      type: "manual",
+      message: "Dont Forget Your Username Should Be Cool!",
+    })
+  }, [setError])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("username")} />
+      {errors.username && <p>{errors.username.message}</p>}
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-seterror-btbf8"
+import { useForm } from "react-hook-form"
+
+const App = () => {
+  const {
+    register,
+    setError,
+    formState: { errors },
+  } = useForm()
+
+  return (
+    <form>
+      <input {...register("test")} />
+      {errors.test && <p>{errors.test.message}</p>}
+
+      <button
+        type="button"
+        onClick={() => {
+          setError("test", { type: "focus" }, { shouldFocus: true })
+        }}
+      >
+        Set Error Focus
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Multiple Errors**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-8h440"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  username: string
+  firstName: string
+}
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<FormInputs>()
+
+  const onSubmit = (data: FormInputs) => {
+    console.log(data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Username</label>
+      <input {...register("username")} />
+      {errors.username && <p>{errors.username.message}</p>}
+      <label>First Name</label>
+      <input {...register("firstName")} />
+      {errors.firstName && <p>{errors.firstName.message}</p>}
+      <button
+        type="button"
+        onClick={() => {
+          const inputs = [
+            {
+              type: "manual",
+              name: "username",
+              message: "Double Check This",
+            },
+            {
+              type: "manual",
+              name: "firstName",
+              message: "Triple Check This",
+            },
+          ]
+
+          inputs.forEach(({ name, type, message }) => {
+            setError(name, { type, message })
+          })
+        }}
+      >
+        Trigger Name Errors
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-seterror-3y1op"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Username</label>
+      <input {...register("username")} />
+      {errors.username && <p>{errors.username.message}</p>}
+      <label>First Name</label>
+      <input {...register("firstName")} />
+      {errors.firstName && <p>{errors.firstName.message}</p>}
+      <button
+        type="button"
+        onClick={() => {
+          const inputs = [
+            {
+              type: "manual",
+              name: "username",
+              message: "Double Check This",
+            },
+            {
+              type: "manual",
+              name: "firstName",
+              message: "Triple Check This",
+            },
+          ]
+
+          inputs.forEach(({ name, type, message }) =>
+            setError(name, { type, message })
+          )
+        }}
+      >
+        Trigger Name Errors
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Single Field Errors**
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  lastName: string
+}
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<FormInputs>({
+    criteriaMode: "all",
+  })
+
+  const onSubmit = (data: FormInputs) => console.log(data)
+
+  React.useEffect(() => {
+    setError("lastName", {
+      types: {
+        required: "This is required",
+        minLength: "This is minLength",
+      },
+    })
+  }, [setValue])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Last Name</label>
+      <input {...register("lastName")} />
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.required}</p>
+      )}
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.minLength}</p>
+      )}
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/seterror-single-field-errors-79wcr9"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    criteriaMode: "all",
+  })
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
+  React.useEffect(() => {
+    setError("lastName", {
+      types: {
+        required: "This is required",
+        minLength: "This is minLength",
+      },
+    })
+  }, [setError])
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Last Name</label>
+      <input {...register("lastName")} />
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.required}</p>
+      )}
+      {errors.lastName && errors.lastName.types && (
+        <p>{errors.lastName.types.minLength}</p>
+      )}
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+**Server Error**
+
+```javascript copy
+import * as React from "react";
+import { useForm } from "react-hook-form";
+
+const App = () => {
+  const { register, handleSubmit, setError, formState: { errors } } = useForm({
+    criteriaMode: 'all',
+  });
+  const onSubmit = async () => {
+    const response = await fetch(...)
+    if (response.statusCode > 200) {
+        setError('root.serverError', {
+          type: response.statusCode,
+        })
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Last Name</label>
+      <input {...register("lastName")} />
+
+      {errors.root.serverError.type === 400 && <p>server response message</p>}
+
+      <button>submit</button>
+    </form>
+  );
+};
+```
+
+### Video
+
+---
+
+The following video explain `setError` API in detail.
+
+<YouTube youTubeId="raMqvE0YyIY" />
