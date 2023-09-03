@@ -2824,6 +2824,22 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             </p>
           </td>
         </tr>
+        <tr>
+          <td>
+            <code>disabled</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>boolean = false</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              <code>disabled</code> prop will be returned from `field` prop.
+              Controlled input will be disabled and its value will be omitted
+              from the submission data.
+            </p>
+          </td>
+        </tr>
       </tbody>
     ),
     tips: (

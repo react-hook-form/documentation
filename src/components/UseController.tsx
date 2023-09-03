@@ -6,7 +6,7 @@ import UseControllerContent from "./UseControllerContent"
 import StarRepo from "./StarRepo"
 import { Menu, apiLinks } from "./Menu"
 
-export default function UseFieldArray() {
+export default function UseController() {
   return (
     <div className={containerStyles.container}>
       <h1 className={typographyStyles.headingWithTopMargin} id="main">

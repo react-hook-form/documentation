@@ -7,7 +7,7 @@ import { Pages } from "../../types/types"
 
 function Menu({ pages = [] }: { pages: Pages }) {
   const router = useRouter()
-  const { pathname } = router
+  const { asPath: pathname } = router
 
   return (
     <aside className={styles.menu}>
