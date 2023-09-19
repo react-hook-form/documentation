@@ -127,7 +127,7 @@ React Hook Form needs a `ref` to collect the input value. However, you may want 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```typescript copy
-import React, { useRef } from "react"
+import { useRef, useImperativeHandle } from "react"
 import { useForm } from "react-hook-form"
 
 type Inputs = {
@@ -137,21 +137,21 @@ type Inputs = {
 
 export default function App() {
   const { register, handleSubmit } = useForm<Inputs>()
-  const firstNameRef = useRef<HTMLInputElement | null>(null)
-  const onSubmit = (data) => console.log(data)
+  const firstNameRef = useRef<HTMLInputElement>(null)
+  const onSubmit = (data: Inputs) => console.log(data)
   const { ref, ...rest } = register("firstName")
+  const onClick = () => {
+    firstNameRef.current!.value = ""
+  }
+
+  useImperativeHandle(ref, () => firstNameRef.current)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...rest}
-        name="firstName"
-        ref={(e) => {
-          ref(e)
-          firstNameRef.current = e // you can still assign to ref
-        }}
-      />
-
+      <input {...rest} ref={firstNameRef} />
+      <button type="button" onClick={onClick}>
+        clear
+      </button>
       <button>Submit</button>
     </form>
   )
@@ -159,7 +159,7 @@ export default function App() {
 ```
 
 ```javascript copy
-import React, { useRef } from "react"
+import { useRef, useImperativeHandle } from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
@@ -167,18 +167,19 @@ export default function App() {
   const firstNameRef = useRef(null)
   const onSubmit = (data) => console.log(data)
   const { ref, ...rest } = register("firstName")
+  const onClick = () => {
+    firstNameRef.current!.value = ""
+  }
+
+  useImperativeHandle(ref, () => firstNameRef.current)
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...rest}
-        name="firstName"
-        ref={(e) => {
-          ref(e)
-          firstNameRef.current = e // you can still assign to ref
-        }}
-      />
-
+      <input {...rest} ref={firstNameRef} />
+      <button type="button" onClick={onClick}>
+        clear
+      </button>
       <button>Submit</button>
     </form>
   )
