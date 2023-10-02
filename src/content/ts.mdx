@@ -368,8 +368,13 @@ export type FieldError = {
 ## \</> FieldErrors {#FieldErrors}
 
 ```typescript copy
-export type FieldErrors<TFieldValues extends FieldValues = FieldValues> =
-  DeepMap<TFieldValues, FieldError>
+export type FieldErrors<T extends FieldValues = FieldValues> = Partial<
+  FieldValues extends IsAny<FieldValues>
+    ? any
+    : FieldErrorsImpl<DeepRequired<T>>
+> & {
+  root?: Record<string, GlobalError> & GlobalError
+}
 ```
 
 ---
