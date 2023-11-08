@@ -152,7 +152,7 @@ useForm({
 - There are other options for including form data:
 
   ```javascript
-  <input {...register("hidden")} type="hidden" />
+  ;<input {...register("hidden")} type="hidden" />
   register("hidden", { value: "data" })
 
   // include data onSubmit
@@ -420,12 +420,9 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>
 
 const App = () => {
-  const { register, handleSubmit } =
-    useForm <
-    Schema >
-    {
-      resolver: zodResolver(schema),
-    }
+  const { register, handleSubmit } = useForm<Schema>({
+    resolver: zodResolver(schema),
+  })
 
   const onSubmit = (data: Schema) => {
     console.log(data)
