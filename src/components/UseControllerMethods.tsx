@@ -107,6 +107,20 @@ const UseControllerMethods = ({
               <code>field</code>
             </td>
             <td>
+              <code>disabled</code>
+            </td>
+            <td>
+              <code className={typographyStyles.typeText}>boolean</code>
+            </td>
+            <td>
+              <p>The disabled state of the input.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>field</code>
+            </td>
+            <td>
               <code>name</code>
             </td>
             <tr>
