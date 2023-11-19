@@ -333,7 +333,7 @@ React Hook Form has made it easy to integrate with external UI component librari
 ```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
 import Select from "react-select"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import Input from "@material-ui/core/Input"
+import { Input } from "@material-ui/core"
 
 interface IFormInput {
   firstName: string
@@ -384,7 +384,7 @@ const App = () => {
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-forked-fp5r3"
 import Select from "react-select"
 import { useForm, Controller } from "react-hook-form"
-import Input from "@material-ui/core/Input"
+import { Input } from "@material-ui/core"
 
 const App = () => {
   const { control, handleSubmit } = useForm({
