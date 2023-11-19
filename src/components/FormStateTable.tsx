@@ -3,7 +3,7 @@ import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import { FormStateApi } from "./FormStateApi"
 
-export default function FormStateTable({ api }) {
+export default function FormStateTable() {
   return (
     <>
       <h2 className={typographyStyles.subTitle} id="return">
@@ -17,7 +17,7 @@ export default function FormStateTable({ api }) {
               <th>{generic.type}</th>
               <th>{generic.description}</th>
             </tr>
-            <FormStateApi api={api} />
+            <FormStateApi />
           </tbody>
         </table>
       </div>

@@ -89,14 +89,18 @@ function BuilderPage({
     editFormData.maxLength ||
     editFormData.minLength ||
     editFormData.required
+  // @ts-expect-error need to fix
   copyFormData.current = formData
   const editIndexRef = useRef(null)
+
+  // @ts-expect-error need to fix
   editIndexRef.current = editIndex
   const router = useRouter()
 
   const validate = (value) => {
     return (
       !Object.values(copyFormData.current).find(
+        // @ts-expect-error need to fix
         (data) => data.name === value
       ) || editIndexRef.current !== -1
     )
@@ -440,8 +444,8 @@ function BuilderPage({
               aria-label="close builder"
               ref={closeButton}
               onClick={() => {
-                toggleBuilder(false)
-                goToBuilder(false)
+                toggleBuilder?.(false)
+                goToBuilder?.(false)
               }}
             >
               &#10005;

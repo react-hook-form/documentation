@@ -39,7 +39,7 @@ export const Doc = defineDocumentType(() => ({
     },
     pages: {
       type: "list",
-      resolve: (doc) => sidebar[doc.sidebar] ?? [],
+      resolve: (doc) => sidebar[doc.sidebar.trim()] ?? [],
     },
   },
 }))

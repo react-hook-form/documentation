@@ -176,7 +176,7 @@ List of validation rules supported:
 - pattern
 - validate
 
-You can read more detail on each rule in the [register section](/docs#register).
+You can read more detail on each rule in the [register section](/docs/useform/register).
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
@@ -326,7 +326,7 @@ const App = () => {
 
 ## Integrating with UI libraries {#IntegratingwithUIlibraries}
 
-React Hook Form has made it easy to integrate with external UI component libraries. If the component doesn't expose input's `ref`, then you should use the [Controller](/docs#Controller) component, which will take care of the registration process.
+React Hook Form has made it easy to integrate with external UI component libraries. If the component doesn't expose input's `ref`, then you should use the [Controller](/docs/usecontroller/controller) component, which will take care of the registration process.
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
@@ -426,7 +426,7 @@ const App = () => {
 
 ## Integrating Controlled Inputs {#IntegratingControlledInputs}
 
-This library embraces uncontrolled components and native HTML inputs. However, it's hard to avoid working with external controlled components such as [React-Select](https://github.com/JedWatson/react-select), [AntD](https://github.com/ant-design/ant-design) and [MUI](https://mui.com/). To make this simple, we provide a wrapper component, [Controller](/docs#Controller), to streamline the integration process while still giving you the freedom to use a custom register.
+This library embraces uncontrolled components and native HTML inputs. However, it's hard to avoid working with external controlled components such as [React-Select](https://github.com/JedWatson/react-select), [AntD](https://github.com/ant-design/ant-design) and [MUI](https://mui.com/). To make this simple, we provide a wrapper component, [Controller](/docs/usecontroller/controller), to streamline the integration process while still giving you the freedom to use a custom register.
 
 #### Using Component API
 
@@ -668,7 +668,7 @@ function App() {
 
 ## Schema Validation {#SchemaValidation}
 
-We also support schema-based form validation with [Yup](https://github.com/jquense/yup), [Zod](https://github.com/vriad/zod) , [Superstruct](https://github.com/ianstormtaylor/superstruct) & [Joi](https://github.com/hapijs/joi), where you can pass your `schema` to [useForm](/docs#useForm) as an optional config. It will validate your input data against the schema and return with either [errors](/docs#errors) or a valid result.
+We also support schema-based form validation with [Yup](https://github.com/jquense/yup), [Zod](https://github.com/vriad/zod) , [Superstruct](https://github.com/ianstormtaylor/superstruct) & [Joi](https://github.com/hapijs/joi), where you can pass your `schema` to [useForm](/docs/useForm) as an optional config. It will validate your input data against the schema and return with either [errors](/ts#FieldError) or a valid result.
 
 **Step 1:** Install `Yup` into your project.
 

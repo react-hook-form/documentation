@@ -1,4 +1,3 @@
-import api from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import containerStyles from "../styles/container.module.css"
@@ -19,7 +18,7 @@ export default function UseFieldArray() {
 
         <main>
           <section>
-            <UseFieldArrayContent api={api} />
+            <UseFieldArrayContent />
 
             <StarRepo />
           </section>

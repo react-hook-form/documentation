@@ -4,12 +4,15 @@ import TabGroup from "../TabGroup"
 import { YouTube } from "./youtube"
 import TypeText from "../TypeText"
 import Popup from "../Popup"
-import { Components } from "@mdx-js/react/lib"
 import { Admonition } from "../Admonition"
 import { CodeSandBoxLink } from "../CodeSandbox"
-import tableStyles from "../../styles/table.module.css"
+import tableStyles from "@/styles/table.module.css"
 import { SelectNav } from "@/components/selectNav"
 import CodeArea from "@/components/CodeArea"
+import FormState from "@/components/useForm/FormState"
+import SetValue from "@/components/useForm/SetValue"
+import Register from "@/components/useForm/Register"
+import type { MDXComponents as Components } from "mdx/types"
 
 export const MDXComponents: Components = {
   // p: P,
@@ -26,6 +29,9 @@ export const MDXComponents: Components = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
+  Register,
+  SetValue,
+  FormState,
   SelectNav,
   CodeArea,
   table(props) {

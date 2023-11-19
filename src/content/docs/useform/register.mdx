@@ -1,0 +1,216 @@
+---
+title: Register
+description: Register uncontrolled/controlled inputs
+sidebar: apiLinks
+---
+
+## \</> `register:` <TypeText>`(name: string, RegisterOptions?) => ({ onChange, onBlur, name, ref })`</TypeText>
+
+This method allows you to register an input or select element and apply validation rules to React Hook Form. Validation rules are all based on the HTML standard and also allow for custom validation methods.
+
+By invoking the register function and supplying an input's name, you will receive the following methods:
+
+### Props
+
+---
+
+| Name       | Type                                  | Description                                          |
+| ---------- | ------------------------------------- | ---------------------------------------------------- |
+| `onChange` | <TypeText>`ChangeHandler`</TypeText>  | `onChange` prop to subscribe the input change event. |
+| `onBlur`   | <TypeText>`ChangeHandler`</TypeText>  | `onBlur` prop to subscribe the input blur event.     |
+| `ref`      | <TypeText>`React.Ref<any>`</TypeText> | Input reference for hook form to register.           |
+| `name`     | <TypeText>`string`</TypeText>         | Input's name being registered.                       |
+
+| Input `Name`                   | Submit Result                        |
+| ------------------------------ | ------------------------------------ |
+| `register("firstName")`        | `{firstName: 'value'}`               |
+| `register("name.firstName")`   | `{name: { firstName: 'value' }}`     |
+| `register("name.firstName.0")` | `{name: { firstName: [ 'value' ] }}` |
+
+### Return
+
+---
+
+<Admonition type="tip" >
+
+What's happened to the input after invoke register API:
+
+```javascript copy
+const { onChange, onBlur, name, ref } = register('firstName');
+// include type check against field path with the name you have supplied.
+
+<input
+  onChange={onChange} // assign onChange event
+  onBlur={onBlur} // assign onBlur event
+  name={name} // assign name prop
+  ref={ref} // assign ref prop
+/>
+// same as above
+<input {...register('firstName')} />
+```
+
+</Admonition>
+ 
+### Options
+
+---
+
+By selecting the register option, the API table below will get updated.
+
+<Register />
+
+<Admonition type="important" title="Rules">
+
+- `name` is **required** and **unique** (except native radio and checkbox). Input name supports both dot and bracket syntax, which allows you to easily create nested form fields.
+- `name` can neither start with a number nor use number as key name. Please avoid special characters as well.
+- we are using dot syntax only for typescript usage consistency, so bracket `[]` will not work for array form value.
+  ```javascript copy
+  register("test.0.firstName") // ✅
+  register("test[0]firstName") // ❌
+  ```
+- `disabled` input will result in an `undefined` form value. If you want to prevent users from updating the input, you can use `readOnly` or disable the entire &lt;fieldset /&gt;. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).
+- To produce an array of fields, input names should be followed by a dot and number. For example: `test.0.data`
+- Changing the name on each render will result in new inputs being registered. It's recommend to keep static names for each registered input.
+- Input value and reference will no longer gets removed based on unmount. You can invoke unregister to remove that value and reference.
+- Individual register option can't be removed by `undefined` or `{}`. You can update individual attribute instead.
+  ```javascript copy
+  register("test", { required: true })
+  register("test", {}) // ❌
+  register("test", undefined) // ❌
+  register("test", { required: false }) // ✅
+  ```
+- There are certain keyword which need to avoid before conflicting with type check. They are `ref`, `_f`
+
+</Admonition>
+
+### Examples
+
+---
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-register-ts-ip2j3"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data) => alert(JSON.stringify(data))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("firstName")} placeholder="First name" />
+
+      <input {...register("lastName")} placeholder="Last name" />
+
+      <select {...register("category")}>
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/register-is0sfo"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      category: "",
+      checkbox: [],
+      radio: "",
+    },
+  })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input
+        {...register("firstName", { required: true })}
+        placeholder="First name"
+      />
+
+      <input
+        {...register("lastName", { minLength: 2 })}
+        placeholder="Last name"
+      />
+
+      <select {...register("category")}>
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+
+      <input {...register("checkbox")} type="checkbox" value="A" />
+      <input {...register("checkbox")} type="checkbox" value="B" />
+      <input {...register("checkbox")} type="checkbox" value="C" />
+
+      <input {...register("radio")} type="radio" value="A" />
+      <input {...register("radio")} type="radio" value="B" />
+      <input {...register("radio")} type="radio" value="C" />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
+## Video
+
+---
+
+The following video explain `register` API in detail.
+
+<YouTube youTubeId="JFIpCoajYkA" />
+
+## Tips
+
+---
+
+> Custom Register
+
+You can also `register` inputs with `useEffect` and treat them as virtual inputs. For controlled components, we provide a custom hook [useController](/docs/usecontroller) and [Controller](/docs/usecontroller/controller) component to take care this process for you.
+
+If you choose to manually register fields, you will need to update the input value with [setValue](/docs/useform/setvalue).
+
+```javascript copy
+register('firstName', { required: true, min: 8 });
+
+<TextInput onTextChange={(value)  =>  setValue('lastChange', value))}  />
+```
+
+> How to work with innerRef, inputRef?
+
+When the custom input component didn't expose ref correctly, you can get it working via the following.
+
+```javascript copy
+// not working, because ref is not assigned
+<TextInput {...register('test')} />
+
+
+const firstName = register('firstName', { required: true })
+<TextInput
+  name={firstName.name}
+  onChange={firstName.onChange}
+  onBlur={firstName.onBlur}
+  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+/>
+
+
+// correct way to forward input's ref
+const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+  <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+));
+```

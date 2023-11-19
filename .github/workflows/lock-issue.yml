@@ -1,9 +1,9 @@
-name: 'Lock Issues'
+name: "Lock Issues"
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,6,12,18 * * *'
+    - cron: "0 0,6,12,18 * * *"
 
 permissions:
   issues: write

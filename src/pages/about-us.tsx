@@ -163,42 +163,40 @@ const AboutUs = () => {
               marginTop: 50,
             }}
           >
-            {data.map(
-              ({ url, imgUrl, name, bio, interests, twitterName }, i) => (
-                <li key={imgUrl}>
-                  <section>
-                    <div>
-                      <a
-                        href={url}
-                        title="Github profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          position: "relative",
-                          display: "block",
-                        }}
-                      >
-                        <img src={imgUrl} alt="avatar" />
-                      </a>
-                      <p className={styles.name}>
-                        <Twitter twitterName={twitterName} />
-                        {name}
-                      </p>
+            {data.map(({ url, imgUrl, name, bio, interests, twitterName }) => (
+              <li key={imgUrl}>
+                <section>
+                  <div>
+                    <a
+                      href={url}
+                      title="Github profile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        position: "relative",
+                        display: "block",
+                      }}
+                    >
+                      <img src={imgUrl} alt="avatar" />
+                    </a>
+                    <p className={styles.name}>
+                      <Twitter twitterName={twitterName} />
+                      {name}
+                    </p>
 
-                      <section className={styles.interests}>
-                        <ul>
-                          {interests.map((interest) => (
-                            <li key={interest}>{interest}</li>
-                          ))}
-                        </ul>
-                      </section>
+                    <section className={styles.interests}>
+                      <ul>
+                        {interests.map((interest) => (
+                          <li key={interest}>{interest}</li>
+                        ))}
+                      </ul>
+                    </section>
 
-                      <p>{bio}</p>
-                    </div>
-                  </section>
-                </li>
-              )
-            )}
+                    <p>{bio}</p>
+                  </div>
+                </section>
+              </li>
+            ))}
           </ul>
         </main>
 

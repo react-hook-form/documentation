@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import Link from "next/link"
 import Footer from "./Footer"
 import typographyStyles from "../styles/typography.module.css"
@@ -19,35 +18,6 @@ export default function ApiGallery() {
       router.push(`/v${version}/docs/`)
     }
   }
-
-  useEffect(() => {
-    const name = window.location.hash.toLowerCase().slice(1)
-
-    if (name === "controller") {
-      router.push(`/docs/usecontroller/${name}`)
-    } else if (
-      [
-        "register",
-        "unregister",
-        "watch",
-        "handlesubmit",
-        "reset",
-        "setError",
-        "clearerrors",
-        "setvalues",
-        "getvalues",
-        "trigger",
-        "control",
-        "formstate",
-      ].includes(name)
-    ) {
-      router.push(`/docs/useform/${name}`)
-    } else if (
-      ["controller", "useformcontext", "usefieldarray"].includes(name)
-    ) {
-      router.push(`/docs/${name}`)
-    }
-  }, [router])
 
   return (
     <div className={containerStyles.container}>
