@@ -805,7 +805,7 @@ it("should not display error when value is valid", async () => {
 })
 ```
 
-#### Resolving act warning during test {#TransformandParse}
+#### Resolving act warning during test
 
 If you test a component that uses react-hook-form, you might run into a warning like this, even if you didn't write any asynchronous code for that component:
 
@@ -870,7 +870,7 @@ it("should have a submit button", async () => {
 
 ---
 
-## Transform and Parse {#Howtosharerefusage}
+## Transform and Parse {#TransformandParse}
 
 The native input returns the value in `string` format unless invoked with `valueAsNumber` or `valueAsDate`, you can read more under [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect. We still have to deal with `isNaN` or `null` values. So it's better to leave the transform at the custom hook level. In the following example, we are using the `Controller` to include the functionality of the transform value's input and output. You can also achieve a similar result with a custom `register`.
 
