@@ -32,7 +32,7 @@ This method will watch specified inputs and return their values. It is useful to
 
 <Admonition type="important" title="Rules">
 
-- When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommend** to provide `defaultValues` at `useForm` to avoid this behaviour, but you can set the inline `defaultValue` as the second argument.
+- When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommended** to provide `defaultValues` at `useForm` to avoid this behaviour, but you can set the inline `defaultValue` as the second argument.
 - When both `defaultValue` and `defaultValues` are supplied, `defaultValue` will be returned.
 - This API will trigger re-render at the root of your app or form, consider using a callback or the [useWatch](/docs/usewatch) api if you are experiencing performance issues.
 - `watch` result is optimised for render phase instead of `useEffect`'s deps, to detect value update you may want to use an external custom hook for value comparison.
