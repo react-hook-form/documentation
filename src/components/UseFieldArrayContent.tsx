@@ -74,7 +74,7 @@ export default function UseFieldArrayContent({ api }: { api: any }) {
           </p>
         </li>
         <li>
-          <p>It's recommend to not stack actions one after another.</p>
+          <p>It's recommended to not stack actions one after another.</p>
           <CodeArea
             withOutCopy
             rawData={`
