@@ -85,6 +85,7 @@ sidebar: apiLinks
 | [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.               |
 | [defaultValues](#defaultValues)                         | Default values for the form.                                      |
 | [values](#values)                                       | Reactive values to update the form values.                        |
+| [errors](#errors)                                       | Reactive errors to update the form errors.                        |
 | [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values. |
 | [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                   |
 | [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                      |
@@ -188,6 +189,22 @@ function App() {
       lastName: "",
     },
     values, // will get updated once values returns
+  })
+}
+```
+
+#### errors: <TypeText>FieldErrors</TypeText> {#errors}
+
+---
+
+The `errors` props will react to changes and update the server errors state, which is useful when your form needs to be updated by external server returned errors.
+
+```javascript copy
+function App() {
+  const { errors, data } = useFetch("/api")
+
+  useForm({
+    errors, // will get updated once errors returns
   })
 }
 ```
