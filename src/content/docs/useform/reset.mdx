@@ -42,13 +42,13 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
   ```
 - It's fine to run reset without argument as long as you have provided a `defaultValues` at useForm.
 
-```
-reset(); // update form back to default values
+    ```javascript
+    reset(); // update form back to default values
 
-reset({ test: 'test' }); // update your defaultValues && form values
+    reset({ test: 'test' }); // update your defaultValues && form values
 
-reset(undefined, { keepDirtyValues: true }); // reset other form state but keep defaultValues and form values
-```
+    reset(undefined, { keepDirtyValues: true }); // reset other form state but keep defaultValues and form values
+    ```
 
 </Admonition>
 
