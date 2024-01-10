@@ -507,19 +507,6 @@ const App = () => {
               </tr>
               <tr>
                 <td>
-                  <code>ref</code>
-                </td>
-                <td>
-                  <code
-                    className={typographyStyles.typeText}
-                  >{`React.Ref<any>`}</code>
-                </td>
-                <td>
-                  <p>Input reference for hook form to register.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
                   <code>name</code>
                 </td>
                 <td>
