@@ -8,7 +8,7 @@ export default () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(d => console.log(d))}>
+      <form onSubmit={handleSubmit(data => console.log(data))}>
         <h1>React Hook Form DevTools</h1>
 
         <label>Test</label>
