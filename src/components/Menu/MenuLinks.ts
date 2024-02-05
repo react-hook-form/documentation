@@ -215,6 +215,10 @@ export const tsLinks: Pages = [
     pathname: "#FieldPath",
   },
   {
+    name: "FieldPathByValue",
+    pathname: "#FieldPathByValue",
+  },
+  {
     name: "FieldValues",
     pathname: "#FieldValues",
   },
