@@ -141,7 +141,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </li>
         <li>
           <p>
-            we do not support circular reference. Refer to this this{" "}
+            we do not support circular reference. Refer to this {" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form/issues/4055"
               target="_blank"
