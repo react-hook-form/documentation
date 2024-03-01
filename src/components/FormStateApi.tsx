@@ -20,6 +20,7 @@ export const FormStateApi = ({
       isValid: ReactNode | string
       isValidating: ReactNode | string
       isLoading: ReactNode | string
+      validatingFields: ReactNode | string
     }
   }
   columnIndent?: boolean
@@ -187,6 +188,20 @@ export const FormStateApi = ({
         <code className={typographyStyles.typeText}>boolean</code>
       </td>
       <td>{(api || API).formState.isValidating}</td>
+    </tr>
+    <tr>
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
+      <td>
+        <code>validatingFields</code>
+      </td>
+      <td>
+        <code className={typographyStyles.typeText}>boolean</code>
+      </td>
+      <td>{(api || API).formState.validatingFields}</td>
     </tr>
     <tr>
       {columnIndent && (
