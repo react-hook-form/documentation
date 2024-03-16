@@ -42,8 +42,8 @@ The function allows you to manually set one or more errors.
   ```
 - Can be useful in the `handleSubmit` method when you want to give error feedback to a user after async validation. (ex: API returns validation errors)
 - `shouldFocus` doesn't work when an input has been disabled.
-- This method will force set `isValid` formState to `false`, however, it's important to aware `isValid` will always be derived by the validation result from your input registration rules or schema result.
-- There are certain keyword which need to avoid before conflicting with type check. They are `type`, `types`
+- This method will force set `isValid` formState to `false`. However, it's important to be aware that `isValid` will always be derived from the validation result of your input registration rules or schema result.
+- There are certain keywords that need to be avoided to prevent conflicts with type checking. They are `type` and `types`.
 
 </Admonition>
 
