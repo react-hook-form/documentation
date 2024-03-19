@@ -278,12 +278,12 @@ export const getStartedLinks: Pages = [
     pathname: "#Integratingwithglobalstate",
   },
   {
-    name: "Integrating with services",
-    pathname: "#Integratingwithservices",
-  },
-  {
     name: "Handle errors",
     pathname: "#Handleerrors",
+  },
+  {
+    name: "Integrating with services",
+    pathname: "#Integratingwithservices",
   },
   {
     name: "Schema Validation",
