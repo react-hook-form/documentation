@@ -71,7 +71,7 @@ const UseFormState = () => {
                         <code>control</code>
                       </Link>{" "}
                       object provided by <code>useForm</code>. It's optional if
-                      you are using FormContext.
+                      you are using <code>FormProvider</code>.
                     </td>
                   </tr>
                   <tr>
