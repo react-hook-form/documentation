@@ -106,13 +106,11 @@ useEffect(() => {
 - This API will trigger re-render at the root of your app or form, consider using a callback or the [useWatch](/docs/usewatch) api if you are experiencing performance issues.
 - `watch` result is optimised for render phase instead of `useEffect`'s deps, to detect value update you may want to use an external custom hook for value comparison.
 
-</Admonition>
-
-**Examples:**
+### Examples:
 
 ---
 
-**Watch in a Form**
+#### Watch in a Form
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
@@ -207,7 +205,7 @@ function App() {
 
 </TabGroup>
 
-**Watch in Field Array**
+#### Watch in Field Array
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
