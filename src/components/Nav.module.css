@@ -17,6 +17,7 @@
   height: 16px;
   fill: white;
   transition: 0.3s all;
+  margin-top: 6px;
 }
 
 .icon svg:hover {
