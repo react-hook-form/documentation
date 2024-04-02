@@ -7,17 +7,16 @@
 }
 
 .icon {
-  transition: 0.3s all;
   z-index: 10;
   max-width: 50px;
   min-width: 35px;
   flex: 1;
-  margin-right: 5px;
 }
 
 .icon svg {
-  height: 28px;
+  height: 24px;
   fill: white;
+  transition: 0.3s all;
 }
 
 .icon svg:hover {
@@ -84,6 +83,7 @@
   top: 15px;
   z-index: 1;
   display: flex;
+  gap: 8px;
 }
 
 .gitHubButtonWrap > span > span {
