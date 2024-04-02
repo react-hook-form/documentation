@@ -14,7 +14,7 @@
 }
 
 .icon svg {
-  height: 24px;
+  height: 16px;
   fill: white;
   transition: 0.3s all;
 }
@@ -83,7 +83,7 @@
   top: 15px;
   z-index: 1;
   display: flex;
-  gap: 8px;
+  gap: 4px;
 }
 
 .gitHubButtonWrap > span > span {
