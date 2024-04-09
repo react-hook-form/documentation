@@ -49,7 +49,7 @@ export default {
         <code>control</code>
       </Link>{" "}
       object provided by <code>useForm</code>. It's optional if you are using
-      FormContext.
+      FormProvider.
     </>
   ),
 }
