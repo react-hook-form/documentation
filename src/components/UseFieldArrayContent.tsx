@@ -52,11 +52,11 @@ export default function UseFieldArrayContent({ api }: { api: any }) {
             identifier named <code>id</code> which is used for <code>key</code>{" "}
             prop. For more information why this is required:{" "}
             <a
-              href="https://reactjs.org/docs/lists-and-keys.html#keys"
+              href="https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://reactjs.org/docs/lists-and-keys.html#keys
+              https://react.dev/learn/rendering-lists
             </a>
           </p>
           <p>
@@ -141,7 +141,7 @@ append({ firstName: 'bill', lastName: 'luo' }); ✅`}
         </li>
         <li>
           <p>
-            we do not support circular reference. Refer to this {" "}
+            we do not support circular reference. Refer to this{" "}
             <a
               href="https://github.com/react-hook-form/react-hook-form/issues/4055"
               target="_blank"
