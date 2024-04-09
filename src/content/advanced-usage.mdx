@@ -303,7 +303,7 @@ export const App = () => {
 
 ## FormProvider Performance {#FormProviderPerformance}
 
-React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Context](https://reactjs.org/docs/context.html) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
+React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Context](https://react.dev/learn/passing-data-deeply-with-context) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
 
 **Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/formprovider) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
 
