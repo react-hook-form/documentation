@@ -2192,7 +2192,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Update input/inputs at a particular position, updated fields will
-              get unmount and remount. If this is not desired behavior, please
+              get unmounted and remounted. If this is not desired behavior, please
               use{" "}
               <Link href="/docs/useform/setvalue">
                 <code>setValue</code>
