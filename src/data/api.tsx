@@ -787,11 +787,7 @@ setValue('test', '')
         Set to <code>true</code> during validation.
       </>
     ),
-    validatingFields: (
-      <>
-        Capture fields which are getting async validation.
-      </>
-    ),
+    validatingFields: <>Capture fields which are getting async validation.</>,
   },
   errors: {
     title: "errors",
@@ -2935,6 +2931,15 @@ const { field: checkbox } = useController({ name: 'test1' })
           . Additionally, it shares the same props and methods as{" "}
           <code>Controller</code>. It's useful for creating reusable Controlled
           input.
+        </p>
+        <p>
+          <strong>Note:</strong> if you simply want to control a field's value
+          from outside the form, it's not necessary to use{" "}
+          <code>useController</code>. You can simply use the{" "}
+          <Link href="/docs/useform#values">
+            <code>values</code>
+          </Link>{" "}
+          option of <code>useForm</code>.
         </p>
       </>
     ),
