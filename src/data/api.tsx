@@ -1295,7 +1295,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               input passes <code>register</code>'s associated rules.
             </p>
             <CodeArea
-              rawData={`register('registerInput', { minLength: 4 }});
+              rawData={`register('registerInput', { minLength: 4 });
 setError('registerInput', { type: 'custom', message: 'custom message' });
 // validation will pass as long as minLength requirement pass
 `}
