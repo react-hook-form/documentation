@@ -1055,7 +1055,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 <td>
                   <p>
                     <code>DirtyFields</code> and <code>isDirty</code> will
-                    remained, and only none dirty fields will be updated to the
+                    remain, and only non-dirty fields will be updated to the
                     latest rest value.{" "}
                     <a
                       href="https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
