@@ -22,7 +22,7 @@
 
 .root a img {
   width: 120px;
-  height: 24px;
+  height: auto;
   margin: auto 0;
 }
 

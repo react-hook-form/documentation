@@ -24,12 +24,14 @@ export function SponsorsList() {
           />
         </a>
         <a
-          className={styles.placeholder}
-          href="https://opencollective.com/react-hook-form"
+          href="https://www.route4me.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ❤️ Your Company
+          <img
+            src="/images/route4me.png"
+            alt="route4me"
+          />
         </a>
       </div>
     </div>
