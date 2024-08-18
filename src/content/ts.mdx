@@ -56,6 +56,8 @@ export default function App() {
 
 ## \</> SubmitHandler {#SubmitHandler}
 
+This type defines the shape of the data that is used in the submit handler. By default the type will be the same as the type used for `useForm` {#UseFormReturn}. When form data gets transformed via resolvers, an additional type is used as the third type parameter for `useForm`. This type should also be used for the submit handler so that the correct shape of the transformed form data is used inside the submit handler.
+
 ```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
 import React from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -129,7 +131,8 @@ export default function App() {
 ```typescript copy
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TContext = any
+  TContext = any,
+  TTransformedValues extends FieldValues = TFieldValues
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
