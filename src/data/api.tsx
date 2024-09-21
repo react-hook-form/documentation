@@ -1055,7 +1055,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
                 <td>
                   <p>
                     <code>DirtyFields</code> and <code>isDirty</code> will
-                    remained, and only none dirty fields will be updated to the
+                    remain, and only non-dirty fields will be updated to the
                     latest rest value.{" "}
                     <a
                       href="https://codesandbox.io/s/react-keepdirtyvalues-o8to91"
@@ -1295,7 +1295,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
               input passes <code>register</code>'s associated rules.
             </p>
             <CodeArea
-              rawData={`register('registerInput', { minLength: 4 }});
+              rawData={`register('registerInput', { minLength: 4 });
 setError('registerInput', { type: 'custom', message: 'custom message' });
 // validation will pass as long as minLength requirement pass
 `}
@@ -2192,7 +2192,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Update input/inputs at a particular position, updated fields will
-              get unmount and remount. If this is not desired behavior, please
+              get unmounted and remounted. If this is not desired behavior, please
               use{" "}
               <Link href="/docs/useform/setvalue">
                 <code>setValue</code>

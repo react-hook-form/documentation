@@ -57,9 +57,8 @@ export default function Nav() {
             rel="noopener noreferrer"
             title="React Hook Form Discord"
           >
-            <svg viewBox="0 0 245 240">
-              <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z" />
-              <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z" />
+            <svg viewBox="0 0 127.14 96.36">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
             </svg>
           </a>
         </span>
@@ -71,10 +70,8 @@ export default function Nav() {
             rel="noopener noreferrer"
             title="React Hook Form Twitter"
           >
-            <svg viewBox="0 0 24 24">
-              <g>
-                <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
-              </g>
+            <svg viewBox="0 0 1200 1227">
+              <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
             </svg>
           </a>
         </span>
@@ -112,7 +109,7 @@ export default function Nav() {
               href="/resources/articles"
             >
               <div className={styles.iconWrapper}>
-                <div className="tag icon" />
+                <div className="icon tag" />
               </div>
               <span>Articles</span>
             </Link>
@@ -121,7 +118,7 @@ export default function Nav() {
               href="/resources/videos"
             >
               <div className={styles.iconWrapper}>
-                <div className="tag icon" />
+                <div className="icon tag" />
               </div>
               <span>Videos</span>
             </Link>
@@ -132,7 +129,7 @@ export default function Nav() {
               href="/resources/newsletters"
             >
               <div className={styles.iconWrapper}>
-                <div className="tag icon" />
+                <div className="icon tag" />
               </div>
               <span>Newsletters</span>
             </Link>
@@ -145,7 +142,7 @@ export default function Nav() {
               href="/resources/3rd-party-bindings"
             >
               <div className={styles.iconWrapper}>
-                <div className="tag icon" />
+                <div className="icon tag" />
               </div>
               <span>3rd-Party-Bindings</span>
             </Link>
@@ -176,7 +173,7 @@ export default function Nav() {
             href="/get-started"
           >
             <div className={styles.iconWrapper}>
-              <div className="shutdown icon" />
+              <div className="icon shutdown" />
             </div>
             <span>{nav.getStarted}</span>
           </Link>
@@ -192,7 +189,7 @@ export default function Nav() {
             href="/docs"
           >
             <div className={styles.iconWrapper}>
-              <div className="keyboard icon" />
+              <div className="icon keyboard" />
             </div>
             <span>API</span>
           </Link>
@@ -221,7 +218,7 @@ export default function Nav() {
             href="/advanced-usage"
           >
             <div className={styles.iconWrapper}>
-              <div className="search icon" />
+              <div className="icon search" />
             </div>
             <span>{nav.advanced}</span>
           </Link>
@@ -432,7 +429,7 @@ export default function Nav() {
             }}
           >
             <div className={styles.iconWrapper}>
-              <div className="more icon"></div>
+              <div className="icon more"></div>
             </div>
             More
           </a>

@@ -170,7 +170,8 @@ useForm({
 
 ---
 
-The `values` props will react to changes and update the form values, which is useful when your form needs to be updated by external state or server data.
+The `values` prop will react to changes and update the form values, which is useful when your form needs to be updated by external state or server data. The `values` prop will overwrite the `defaultValues` prop, unless `resetOptions: { keepDefaultValues: true }` is also set for `useForm`.
+
 
 ```javascript copy
 // set default value sync
@@ -321,7 +322,7 @@ This config will enable [browser native validation](https://developer.mozilla.or
 
 - Only works with `onSubmit` and `onChange` modes, as the `reportValidity` execution will focus the error input.
 - Each registered field's validation message is required to be string to display them natively.
-- This feature only works with the `register` API and`useController/Controller` that are connected with actual DOM references.
+- This feature only works with the `register` API and `useController/Controller` that are connected with actual DOM references.
 
 **Examples:**
 
