@@ -4,46 +4,113 @@ description: Subscribe to input changes
 sidebar: apiLinks
 ---
 
-## \</> `watch:` <TypeText>(names?: string | string[] | (data, options) => void) => unknown</TypeText>
+## \</> `watch:` _<TypeText>some overloads</TypeText>_
 
 This method will watch specified inputs and return their values. It is useful to render input value and for determining what to render by condition.
 
-### Props
+### Overloads
+
+This function mainly serves **two purposes**:
+
+1. Returns and keep sync with fields' values
+   a. <TypeText>`watch(name: string, defaultValue?): unknown`</TypeText>
+   b. <TypeText>`watch(names: string[], defaultValue?): {[key:string]: unknown}`</TypeText>
+   c. <TypeText>`watch(): {[key:string]: unknown}`</TypeText>
+2. Start subscribing with given callback function (can be stopped by calling `unsubscribe` function)
+   a. <TypeText>`watch(callback: (data, { name, type }) => void, defaultValues?): { unsubscribe: () => void }`</TypeText>
+
+The explanation of each of these four overloads follows below.
+
+#### 1-a. Watching single field <TypeText>`watch(name: string, defaultValue?: unknown): unknown`</TypeText>
 
 ---
 
-| Type                                                                           | Description                                                                                       |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| <TypeText>string</TypeText>                                                    | Watch input value by name (similar to lodash [get](https://lodash.com/docs/4.17.15#get) function) |
-| <TypeText>string[]</TypeText>                                                  | Watch multiple inputs                                                                             |
-| <TypeText>undefined</TypeText>                                                 | Watch all inputs                                                                                  |
-| <TypeText>`(data: unknown, { name: string, type: string }) => void`</TypeText> | Watch all inputs and invoke a callback                                                            |
+Watch and subscribe to a single field used outside of render.
 
-### Return
+**Params**
+
+| Name           | Type                           | Description                         |
+| -------------- | ------------------------------ | ----------------------------------- |
+| `name`         | <TypeText>`string`</TypeText>  | the field name                      |
+| `defaultValue` | <TypeText>`unknown`</TypeText> | _optional_. default value for field |
+
+**Returns** the single field value.
+
+```tsx
+const name = watch("name")
+```
+
+#### 1-b. Watching some fields <TypeText>`watch(names: string[], defaultValue?: {[key:string]: unknown}): unknown[]`</TypeText>
 
 ---
 
-| Example                                                          | Return                                             |
-| ---------------------------------------------------------------- | -------------------------------------------------- |
-| `watch('inputName')`                                             | <TypeText>unknown</TypeText>                       |
-| `watch(['inputName1'])`                                          | <TypeText>unknown[]</TypeText>                     |
-| `watch()`                                                        | <TypeText>`{[key:string]: unknown}`</TypeText>     |
-| `watch((data, { name, type }) => console.log(data, name, type))` | <TypeText>`{ unsubscribe: () => void }`</TypeText> |
+Watch and subscribe to an array of fields used outside of render.
 
-<Admonition type="important" title="Rules">
+**Params**
+
+| Name           | Type                                           | Description                           |
+| -------------- | ---------------------------------------------- | ------------------------------------- |
+| `names`        | <TypeText>`string[]`</TypeText>                | the field names                       |
+| `defaultValue` | <TypeText>`{[key:string]: unknown}`</TypeText> | _optional_. default values for fields |
+
+**Returns** an array of field values.
+
+```tsx
+const [name, name1] = watch(["name", "name1"])
+```
+
+#### 1-c. Watching the entire form <TypeText>`watch(): {[key:string]: unknown}`</TypeText>
+
+---
+
+Watch and subscribe to the entire form update/change based on onChange and re-render at the useForm.
+
+**Params** None
+
+**Returns** the entire form values.
+
+```tsx
+const formValues = watch()
+```
+
+#### 2. Start watching with callback fn <TypeText>`watch(callback: (data, { name, type }) => void, defaultValues?: {[key:string]: unknown}): { unsubscribe: () => void }`</TypeText>
+
+---
+
+Subscribe to field update/change without trigger re-render.
+
+**Params**
+
+| Name            | Type                                                  | Description                                          |
+| --------------- | ----------------------------------------------------- | ---------------------------------------------------- |
+| `callback`      | <TypeText>`(data, { name, type }) => void`</TypeText> | callback function to subscribe to all fields changes |
+| `defaultValues` | <TypeText>`{[key:string]: unknown}`</TypeText>        | _optional_. defaultValues for the entire form        |
+
+**Returns** object with `unsubscribe` function.
+
+```tsx
+useEffect(() => {
+  const { unsubscribe } = watch((value) => {
+    console.log(value)
+  })
+  return () => unsubscribe()
+}, [watch])
+```
+
+### Rules
+
+---
 
 - When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommended** to provide `defaultValues` at `useForm` to avoid this behaviour, but you can set the inline `defaultValue` as the second argument.
 - When both `defaultValue` and `defaultValues` are supplied, `defaultValue` will be returned.
 - This API will trigger re-render at the root of your app or form, consider using a callback or the [useWatch](/docs/usewatch) api if you are experiencing performance issues.
 - `watch` result is optimised for render phase instead of `useEffect`'s deps, to detect value update you may want to use an external custom hook for value comparison.
 
-</Admonition>
-
-**Examples:**
+### Examples:
 
 ---
 
-**Watch in a Form**
+#### Watch in a Form
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
@@ -138,7 +205,7 @@ function App() {
 
 </TabGroup>
 
-**Watch in Field Array**
+#### Watch in Field Array
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
