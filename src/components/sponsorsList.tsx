@@ -39,6 +39,7 @@ export function SponsorsList() {
           rel="noopener noreferrer"
         >
           <img
+            className={styles.twicsy}
             src="/images/twicsy.png"
             alt="twicsy"
           />
