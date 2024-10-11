@@ -129,7 +129,8 @@ export default function App() {
 ```typescript copy
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TContext = any
+  TContext = any,
+  TTransformedValues extends FieldValues | undefined = undefined,
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
@@ -238,7 +239,8 @@ export default function App() {
 ```typescript copy
 export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
+  TTransformedValues extends FieldValues | undefined = undefined,
 > = Partial<{
   mode: Mode
   reValidateMode: Mode
