@@ -335,6 +335,11 @@ table {
   border: 1px solid var(--color-light-grey);
 }
 
+.scrollToTop,
+.editPage {
+  display: none;
+}
+
 .editPage:hover,
 .scrollToTop:hover {
   border-color: var(--color-secondary);
@@ -387,6 +392,11 @@ a.active {
     z-index: 10;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .scrollToTop,
+  .editPage {
+    display: block;
   }
 }
 

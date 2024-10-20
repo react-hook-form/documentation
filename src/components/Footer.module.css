@@ -49,6 +49,8 @@ a.link {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-top: 20px;
+  flex-direction: column;
 }
 
 .logoGroup img {
@@ -59,4 +61,11 @@ a.link {
   font-size: 0.6rem;
   font-weight: 600;
   margin-bottom: -0.2rem;
+}
+
+@media (min-width: 768px) {
+  .logoGroup {
+    margin-top: 0;
+    flex-direction: row;
+  }
 }
