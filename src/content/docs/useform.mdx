@@ -92,6 +92,7 @@ sidebar: apiLinks
 | [delayError](#delayError)                               | Delay error from appearing instantly.                             |
 | [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                         |
 | [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                |
+| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.               |
 
 **Schema validation props:**
 
@@ -347,6 +348,54 @@ export default function App() {
         })} // custom message
       />
       <input type="submit" />
+    </form>
+  )
+}
+```
+
+#### disabled: <TypeText>boolean = false</TypeText> {#disabled}
+
+---
+
+This config allows you to disable the entire form and all associated inputs when set to `true`.<br />
+This can be useful for preventing user interaction during asynchronous tasks or other
+situations where inputs should be temporarily unresponsive.
+
+**Examples:**
+
+---
+
+```javascript copy
+import { useForm, Controller } from "react-hook-form"
+
+const App = () => {
+  const [disabled, setDisabled] = useState(false)
+  const { register, handleSubmit, control } = useForm({
+    disabled,
+  })
+
+  return (
+    <form
+      onSubmit={handleSubmit(async () => {
+        setDisabled(true)
+        await sleep(100)
+        setDisabled(false)
+      })}
+    >
+      <input
+        type={"checkbox"}
+        {...register("checkbox")}
+        data-testid={"checkbox"}
+      />
+      <select {...register("select")} data-testid={"select"} />
+
+      <Controller
+        control={control}
+        render={({ field }) => <input disabled={field.disabled} />}
+        name="test"
+      />
+
+      <button type="submit">Submit</button>
     </form>
   )
 }
