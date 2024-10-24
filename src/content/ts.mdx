@@ -134,7 +134,7 @@ The first type used in the angle brackets describes the shape of the form data. 
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TTransformedValues extends FieldValues = TFieldValues
+  TTransformedValues extends FieldValues | undefined = undefined,
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
