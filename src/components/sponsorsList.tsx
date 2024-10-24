@@ -33,6 +33,17 @@ export function SponsorsList() {
             alt="route4me"
           />
         </a>
+        <a
+          href="https://twicsy.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            className={styles.twicsy}
+            src="/images/twicsy.png"
+            alt="twicsy"
+          />
+        </a>
       </div>
     </div>
   )
