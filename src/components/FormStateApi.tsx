@@ -21,6 +21,7 @@ export const FormStateApi = ({
       isValidating: ReactNode | string
       isLoading: ReactNode | string
       validatingFields: ReactNode | string
+      disabled: ReactNode | string
     }
   }
   columnIndent?: boolean
@@ -220,6 +221,20 @@ export const FormStateApi = ({
         <Link href="/docs/useformstate/errormessage">ErrorMessage</Link>{" "}
         component to retrieve error message easily.
       </td>
+    </tr>
+    <tr>
+      {columnIndent && (
+        <td>
+          <code>formState</code>
+        </td>
+      )}
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code className={typographyStyles.typeText}>boolean</code>
+      </td>
+      <td>{(api || API).formState.disabled}</td>
     </tr>
   </>
 )
