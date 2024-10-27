@@ -792,6 +792,19 @@ setValue('test', '')
         Capture fields which are getting async validation.
       </>
     ),
+    disabled: (
+      <>
+        Set to <code>true</code> if the form is disabled via the{" "}
+        <code>disabled</code> prop in{" "}
+        <Link
+          href="/docs/useform#disabled"
+          aria-label="read more about disabled api"
+        >
+          useForm
+        </Link>
+        .
+      </>
+    ),
   },
   errors: {
     title: "errors",
