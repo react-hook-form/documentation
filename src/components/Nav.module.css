@@ -15,9 +15,12 @@
 
 .icon svg {
   height: 16px;
-  fill: white;
   transition: 0.3s all;
   margin-top: 6px;
+}
+
+:global(.dark) .icon svg {
+  fill: white;
 }
 
 .icon svg:hover {
@@ -153,6 +156,10 @@ a.legacyLink {
 }
 
 @media (min-width: 1040px) {
+  .icon svg {
+    fill: white;
+  }
+
   .mobileOnly {
     display: none;
   }

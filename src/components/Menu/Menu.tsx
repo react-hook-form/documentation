@@ -123,6 +123,8 @@ function Menu({ pages = [] }: { pages: Pages }) {
             )
           })}
         </ul>
+
+        <div id="carbon-cover" />
       </div>
     </aside>
   )
