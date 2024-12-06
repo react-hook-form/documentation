@@ -11,7 +11,7 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/images/casinoreviews.png" alt="Casino Reviews" />
+          <img src="/images/casinoreviews.png" alt="Casino Reviews"/>
         </a>
         <a
           href="https://www.beekai.com/"
@@ -42,6 +42,17 @@ export function SponsorsList() {
             className={styles.twicsy}
             src="/images/twicsy.png"
             alt="twicsy"
+          />
+        </a>
+        <a
+          href="https://www.sanity.io//"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            className={styles.twicsy}
+            src="/images/sanity.png"
+            alt="sanity io"
           />
         </a>
       </div>
