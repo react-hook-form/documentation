@@ -10,7 +10,9 @@
 
 ## Install
 
-    yarn && yarn start
+```shellscript
+pnpm install && pnpm dev
+```
 
 ## Backers
 

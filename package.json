@@ -60,14 +60,14 @@
     "dev": "next dev",
     "format": "prettier --write",
     "lint": "next lint --fix",
-    "now-build": "npm run build",
+    "now-build": "pnpm run build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx,mdx,css,json}": [
-      "npm run format"
+      "pnpm run format"
     ]
   }
 }
