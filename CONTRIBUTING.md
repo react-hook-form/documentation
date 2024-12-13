@@ -56,7 +56,7 @@ React Hook Form uses prettier.
 If possible, enable the prettier plugin in your editor to get real-time feedback. The formatting can be run manually with the following command:
 
 ```shellscript
-pnpm run format
+pnpm run format:fix
 ```
 
 ## License

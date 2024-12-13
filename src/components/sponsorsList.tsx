@@ -11,7 +11,7 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/images/casinoreviews.png" alt="Casino Reviews"/>
+          <img src="/images/casinoreviews.png" alt="Casino Reviews" />
         </a>
         <a
           href="https://www.beekai.com/"
@@ -28,16 +28,9 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src="/images/route4me.png"
-            alt="route4me"
-          />
+          <img src="/images/route4me.png" alt="route4me" />
         </a>
-        <a
-          href="https://twicsy.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://twicsy.com/" target="_blank" rel="noopener noreferrer">
           <img
             className={styles.twicsy}
             src="/images/twicsy.png"
