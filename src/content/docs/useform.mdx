@@ -173,7 +173,6 @@ useForm({
 
 The `values` prop will react to changes and update the form values, which is useful when your form needs to be updated by external state or server data. The `values` prop will overwrite the `defaultValues` prop, unless `resetOptions: { keepDefaultValues: true }` is also set for `useForm`.
 
-
 ```javascript copy
 // set default value sync
 function App({ values }) {
@@ -705,6 +704,52 @@ resolver: async (data, context, options) => {
 ```
 
 </Admonition>
+
+#### `useForm` return and `useEffect` dependencies
+
+In a future major release, `useForm` return will be memoized to optimize performance and reflect changes in `formState`.
+As a result, adding the entire return value of `useForm` to a `useEffect` dependency list may lead to infinite loops.
+
+<Admonition type="warning" >
+
+The following code is likely to create this situation:
+
+```javascript
+const methods = useForm()
+
+useEffect(() => {
+  methods.reset({ ... })
+}, [methods])
+```
+
+</Admonition>
+
+Passing only the relevant methods, as showed below, should avoid this kind of issue:
+
+```javascript
+const methods = useForm()
+
+useEffect(() => {
+  methods.reset({ ... })
+}, [methods.reset]}
+```
+
+<Admonition type="tip" >
+
+The recommended way is to pass destructure the required methods and add them to the dependencies of an `useEffect`
+
+```javascript
+
+const { reset } = useForm()
+
+useEffect(() => {
+  reset({ ... })
+}, [reset])
+```
+
+</Admonition>
+
+[More info can be found on this issue](https://github.com/react-hook-form/react-hook-form/issues/12463)
 
 #### Return
 
