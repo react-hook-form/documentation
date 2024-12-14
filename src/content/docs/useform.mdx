@@ -154,8 +154,11 @@ useForm({
 - There are other options for including form data:
 
   ```javascript
+  // adding a hidden input
   <input {...register("hidden", { value: "data" })} type="hidden" />
+  ```
 
+  ```javascript
   // include data onSubmit
   const onSubmit = (data) => {
     const output = {
@@ -731,7 +734,7 @@ const methods = useForm()
 
 useEffect(() => {
   methods.reset({ ... })
-}, [methods.reset]}
+}, [methods.reset])
 ```
 
 <Admonition type="tip" >

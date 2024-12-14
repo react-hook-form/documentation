@@ -70,20 +70,20 @@ const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
           i === 13
             ? "W"
             : i === 14
-            ? "Wa"
-            : i === 15
-            ? "Wat"
-            : i === 16
-            ? "Watc"
-            : i === 17
-            ? "Watch"
-            : i === 18
-            ? "Watchi"
-            : i === 19
-            ? "Watchin"
-            : i === 20
-            ? "Watching"
-            : "Watching."
+              ? "Wa"
+              : i === 15
+                ? "Wat"
+                : i === 16
+                  ? "Watc"
+                  : i === 17
+                    ? "Watch"
+                    : i === 18
+                      ? "Watchi"
+                      : i === 19
+                        ? "Watchin"
+                        : i === 20
+                          ? "Watching"
+                          : "Watching."
         )
       }
 
