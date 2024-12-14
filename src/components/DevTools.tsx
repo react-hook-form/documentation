@@ -123,16 +123,12 @@ export default function DevTools() {
         <div className={styles.demo}>
           <div>
             <Form
-              {...{
-                onSubmit,
-                submitData: {},
-                // eslint-disable-next-line @typescript-eslint/no-empty-function
-                toggleBuilder: () => {},
-                // eslint-disable-next-line @typescript-eslint/no-empty-function
-                formUpdated: () => {},
-                methods,
-                devTool: true,
-              }}
+              onSubmit={onSubmit}
+              submitData={{}}
+              toggleBuilder={() => {}}
+              methods={methods}
+              formUpdated
+              devTool
             />
           </div>
           <div>
