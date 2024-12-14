@@ -1,4 +1,5 @@
 import { memo } from "react"
+import API from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import FormStateTable from "./FormStateTable"
 import TabGroup from "./TabGroup"
@@ -6,7 +7,7 @@ import CodeArea from "./CodeArea"
 import formStateUseEffect from "./codeExamples/formStateUseEffect"
 import formStateUseEffectTs from "./codeExamples/formStateUseEffectTs"
 
-function ApiFormState({ api }: { api: any }) {
+function ApiFormState({ api }: { api: typeof API }) {
   return (
     <>
       <code className={typographyStyles.codeHeading}>

@@ -2,6 +2,7 @@ import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import generic from "../data/generic"
+import type devToolsContent from "../data/devtools"
 import typographyStyles from "../styles/typography.module.css"
 import styles from "./DevToolFeaturesList.module.css"
 import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
@@ -18,16 +19,15 @@ const animationKeyFramesProps: AnimateKeyframesProps = {
 }
 
 interface Props {
-  isPlayFeature: boolean
-  content: any
+  content: typeof devToolsContent
 }
 
-function FeaturesList({ isPlayFeature, content }: Props) {
+const FeaturesList = ({ content }: Props) => {
   return (
     <div className={styles.features}>
       <h2 className={typographyStyles.title}>{generic.features}</h2>
 
-      <AnimateGroup play={isPlayFeature}>
+      <AnimateGroup play>
         <div className={styles.featuresContent}>
           <article>
             <AnimateKeyframes {...animationKeyFramesProps} sequenceIndex={0}>

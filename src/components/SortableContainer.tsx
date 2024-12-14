@@ -1,5 +1,6 @@
 import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
+import type { GlobalState } from "little-state-machine"
 import colors from "../styles/colors"
 import generic from "../data/generic"
 import originalFormData from "../state/formData"
@@ -14,7 +15,7 @@ export default function SortableContainer({
   reset,
 }: {
   updateFormData: (data: object) => void
-  formData: any
+  formData: GlobalState["formData"]
   editIndex: number
   setEditIndex: (payload: number) => void
   setFormData: (payload: object) => void

@@ -29,11 +29,11 @@ function Form({
   methods,
   devTool,
 }: {
-  onSubmit: (data: any) => void
-  submitData: any
+  onSubmit: (data: Record<string, unknown>) => void
+  submitData: Record<string, unknown>
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
-  methods: UseFormReturn<FieldValues, any, undefined>
+  methods: UseFormReturn<FieldValues, Record<string, unknown>, undefined>
   devTool?: boolean
 }) {
   const { register, handleSubmit, watch, formState, reset } = methods
@@ -138,6 +138,7 @@ function Form({
                     JSON.stringify(
                       Object.entries(errors).reduce(
                         // @ts-expect-error needed for previous
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         (previous, [key, { ref, ...rest }]) => {
                           previous[key] = rest
                           return previous

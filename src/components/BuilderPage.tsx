@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect, memo, RefObject } from "react"
+import { useRouter } from "next/router"
 import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
@@ -16,10 +18,8 @@ import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
 import CodeArea from "./CodeArea"
 import ClipBoard from "./ClipBoard"
-import { useState, useRef, useEffect, memo, RefObject } from "react"
 import styles from "./BuilderPage.module.css"
 import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
-import { useRouter } from "next/router"
 
 const errorStyle = {
   border: `1px solid ${colors.secondary}`,
@@ -110,15 +110,15 @@ function BuilderPage({
 
   useEffect(() => {
     setValue("toggle", shouldToggleOn)
-  }, [shouldToggleOn])
+  }, [setValue, shouldToggleOn])
 
   useEffect(() => {
     if (editFormData.type) setValue("type", editFormData.type)
-  }, [editFormData.type])
+  }, [editFormData.type, setValue])
 
   useEffect(() => {
     setValue("required", editFormData.required)
-  }, [editIndex])
+  }, [editFormData.required, editIndex, setValue])
 
   const child = (
     <div className={containerStyles.container}>
