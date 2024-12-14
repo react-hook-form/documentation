@@ -1,4 +1,5 @@
 import generic from "../data/generic"
+import api from "../data/api"
 import CodeArea from "./CodeArea"
 import useFieldArray from "./codeExamples/useFieldArray"
 import typographyStyles from "../styles/typography.module.css"
@@ -10,7 +11,7 @@ import useFieldArrayFocus from "./codeExamples/useFieldArrayFocus"
 import Link from "next/link"
 import useFieldArrayPreview from "./codeExamples/useFieldArrayPreview"
 
-export default function UseFieldArrayContent({ api }: { api: any }) {
+export default function UseFieldArrayContent() {
   return (
     <>
       <code className={typographyStyles.codeHeading}>

@@ -1,4 +1,3 @@
-import api from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import Footer from "./Footer"
 import containerStyles from "../styles/container.module.css"
@@ -21,7 +20,7 @@ export default function UseController() {
 
         <main>
           <section>
-            <UseControllerContent api={api} />
+            <UseControllerContent />
 
             <StarRepo />
           </section>

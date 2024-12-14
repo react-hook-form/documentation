@@ -5,6 +5,7 @@ const ERROR = 2
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
 module.exports = {
+  reportUnusedDisableDirectives: true,
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 2020,
@@ -42,5 +43,7 @@ module.exports = {
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
     "import/no-anonymous-default-export": OFF,
+    // next
+    "@next/next/no-img-element": OFF,
   },
 }

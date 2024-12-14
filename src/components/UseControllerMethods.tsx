@@ -123,9 +123,9 @@ const UseControllerMethods = ({
             <td>
               <code>name</code>
             </td>
-            <tr>
+            <td>
               <code className={typographyStyles.typeText}>string</code>
-            </tr>
+            </td>
             <td>
               <p>Input's name being registered.</p>
             </td>
@@ -137,9 +137,9 @@ const UseControllerMethods = ({
             <td>
               <code>ref</code>
             </td>
-            <tr>
+            <td>
               <code className={typographyStyles.typeText}>React.Ref</code>
-            </tr>
+            </td>
             <td>
               <p>
                 A ref used to connect hook form to the input. Assign{" "}

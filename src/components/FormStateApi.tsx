@@ -1,29 +1,12 @@
 import typographyStyles from "../styles/typography.module.css"
 import API from "../data/api"
 import Link from "next/link"
-import { ReactNode } from "react"
 
 export const FormStateApi = ({
   api,
   columnIndent,
 }: {
-  api?: {
-    formState: {
-      isDirty: ReactNode | string
-      dirtyFields: ReactNode | string
-      defaultValues: ReactNode | string
-      touched: ReactNode | string
-      isSubmitted: ReactNode | string
-      isSubmitSuccessful: ReactNode | string
-      isSubmitting: ReactNode | string
-      submitCount: ReactNode | string
-      isValid: ReactNode | string
-      isValidating: ReactNode | string
-      isLoading: ReactNode | string
-      validatingFields: ReactNode | string
-      disabled: ReactNode | string
-    }
-  }
+  api?: Pick<typeof API, "formState">
   columnIndent?: boolean
 }) => (
   <>

@@ -1,13 +1,14 @@
 import { useState } from "react"
 import CodeArea from "./CodeArea"
 import generic from "../data/generic"
+import apiData from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import styles from "./ApiRefTable.module.css"
 import register from "./codeExamples/register"
 import registerTs from "./codeExamples/registerTs"
 
-export default function ApiRefTable({ api }: { api: any }) {
+export default function ApiRefTable({ api }: { api: typeof apiData }) {
   const [isStandard, toggleOption] = useState(true)
 
   return (

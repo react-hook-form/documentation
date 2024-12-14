@@ -12,10 +12,15 @@ env:
   HUSKY: 0
 
 jobs:
-  ci:
-    name: CI
+  check:
+    name: Run ${{ matrix.script }} code check
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
+    strategy:
+      fail-fast: true
+      matrix:
+        script: [format, lint]
 
     steps:
       - name: Checkout repo
@@ -34,6 +39,6 @@ jobs:
         shell: bash
         run: pnpm install --frozen-lockfile
 
-      - name: Format
+      - name: Run ${{ matrix.script }}
         run: |
-          pnpm run format
+          pnpm run ${{ matrix.script }}

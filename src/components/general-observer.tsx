@@ -28,7 +28,7 @@ export const GeneralObserver: FunctionComponent<IGeneralObserverProps> = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsChildVisible(true)
-          onEnter && onEnter()
+          onEnter?.()
         }
       },
       {

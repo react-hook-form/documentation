@@ -1,5 +1,6 @@
-import CodeArea from "./CodeArea"
+import api from "../data/api"
 import generic from "../data/generic"
+import CodeArea from "./CodeArea"
 import useController from "./codeExamples/useController"
 import useControllerTs from "./codeExamples/useControllerTs"
 import tableStyles from "../styles/table.module.css"
@@ -9,7 +10,7 @@ import TabGroup from "./TabGroup"
 import useControllerCheckboxes from "./codeExamples/useControllerCheckboxes"
 import { SelectNav } from "./selectNav"
 
-export default function UseControllerContent({ api }: { api: any }) {
+export default function UseControllerContent() {
   return (
     <>
       <SelectNav
