@@ -4,6 +4,7 @@ import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
+import type { GlobalState } from "little-state-machine"
 import colors from "../styles/colors"
 import generateCode from "./logic/generateCode"
 import copyClipBoard from "./utils/copyClipBoard"
@@ -65,7 +66,7 @@ function BuilderPage({
     useForm()
   const errors = formState.errors
   const [editIndex, setEditIndex] = useState(-1)
-  const copyFormData = useRef([])
+  const copyFormData = useRef<GlobalState["formData"]>([])
   const closeButton = useRef<HTMLButtonElement>(null)
   const [showValidation, toggleValidation] = useState(false)
   const onSubmit = (data) => {
@@ -90,7 +91,7 @@ function BuilderPage({
     editFormData.minLength ||
     editFormData.required
   copyFormData.current = formData
-  const editIndexRef = useRef(null)
+  const editIndexRef = useRef<number | null>(null)
   editIndexRef.current = editIndex
   const router = useRouter()
 
@@ -440,7 +441,7 @@ function BuilderPage({
               aria-label="close builder"
               ref={closeButton}
               onClick={() => {
-                toggleBuilder(false)
+                toggleBuilder?.(false)
                 goToBuilder(false)
               }}
             >
