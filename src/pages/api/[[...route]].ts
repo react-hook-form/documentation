@@ -15,5 +15,5 @@ export default function handler(
     return res.redirect(307, `/docs/${redirect}`)
   }
 
-  res.redirect(307, "/docs")
+  return res.redirect(307, "/docs")
 }

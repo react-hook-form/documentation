@@ -1,7 +1,7 @@
 import "little-state-machine"
 
 declare module "little-state-machine" {
-  interface FormDataItem {
+  export interface FormDataItem {
     name: string
     type: string
     required: boolean

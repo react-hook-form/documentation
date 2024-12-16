@@ -1,6 +1,7 @@
+// @ts-expect-error no types are available
 import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
-import type { GlobalState } from "little-state-machine"
+import type { FormDataItem } from "little-state-machine"
 import colors from "../styles/colors"
 import generic from "../data/generic"
 import originalFormData from "../state/formData"
@@ -14,20 +15,20 @@ export default function SortableContainer({
   setFormData,
   reset,
 }: {
-  updateFormData: (data: object) => void
-  formData: GlobalState["formData"]
+  updateFormData: (data: FormDataItem[]) => void
+  formData: FormDataItem[]
   editIndex: number
   setEditIndex: (payload: number) => void
-  setFormData: (payload: object) => void
+  setFormData: (payload: FormDataItem) => void
   reset: () => void
 }) {
   return (
     <div className={styles.sortableWrapper}>
       <Sortable
         tag="ul"
-        onChange={(data) => {
+        onChange={(data: FormDataItem["name"][]) => {
           updateFormData(
-            data.reduce((previous, current) => {
+            data.reduce<FormDataItem[]>((previous, current) => {
               return [
                 ...previous,
                 formData[formData.findIndex((data) => current === data.name)],
@@ -75,7 +76,7 @@ export default function SortableContainer({
                       onClick={() => {
                         if (editIndex === index) {
                           setEditIndex(-1)
-                          setFormData({})
+                          setFormData({} as FormDataItem)
                           reset()
                         } else {
                           const index = formData.findIndex(
@@ -107,7 +108,7 @@ export default function SortableContainer({
                             setEditIndex(-1)
 
                             if (editIndex === index) {
-                              setFormData({})
+                              setFormData({} as FormDataItem)
                             }
                           }
                         }
@@ -129,7 +130,7 @@ export default function SortableContainer({
             updateFormData(originalFormData)
           }}
         >
-          Reset
+          {generic.reset}
         </button>
         <button
           onClick={() => {

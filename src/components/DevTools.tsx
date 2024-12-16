@@ -20,6 +20,7 @@ import type { DevtoolUIProps } from "@hookform/devtools/dist/devToolUI"
 
 const DevTool = dynamic<DevtoolUIProps>(
   () =>
+    // @ts-expect-error no types are available
     import("@hookform/devtools/dist/index.cjs.development").then(
       (mod) => mod.DevTool
     ),
@@ -37,7 +38,7 @@ export default function DevTools() {
 
   const { control } = methods
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data: unknown) => console.log(data)
 
   return (
     <div className={containerStyles.container}>

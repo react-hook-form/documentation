@@ -33,6 +33,7 @@ export default {
   example: "Example",
   edit: "Edit",
   cancelEdit: "Cancel Edit",
+  reset: "Reset",
   deleteAll: "Delete All",
   create: "Create",
   update: "Update",

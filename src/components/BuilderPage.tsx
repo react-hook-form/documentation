@@ -2,9 +2,10 @@ import { useState, useRef, useEffect, memo, RefObject } from "react"
 import { useRouter } from "next/router"
 import { Animate } from "react-simple-animate"
 import { useForm } from "react-hook-form"
+import type { SubmitHandler } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
-import type { GlobalState } from "little-state-machine"
+import type { GlobalState, FormDataItem } from "little-state-machine"
 import colors from "../styles/colors"
 import generateCode from "./logic/generateCode"
 import copyClipBoard from "./utils/copyClipBoard"
@@ -27,7 +28,9 @@ const errorStyle = {
   background: colors.errorPink,
 }
 
-const defaultValue = {
+type FormFieldDefinitionItem = Partial<FormDataItem> & { toggle?: boolean }
+
+const defaultValue: FormFieldDefinitionItem = {
   max: undefined,
   min: undefined,
   pattern: undefined,
@@ -36,7 +39,7 @@ const defaultValue = {
   required: undefined,
   name: "",
   type: "",
-  options: [],
+  options: "",
 }
 
 function BuilderPage({
@@ -61,41 +64,43 @@ function BuilderPage({
       }
     },
   })
-  const [editFormData, setFormData] = useState(defaultValue)
+  const [editFormData, setEditFormData] = useState(defaultValue)
   const { register, handleSubmit, watch, setValue, reset, formState } =
-    useForm()
+    useForm<FormFieldDefinitionItem>()
   const errors = formState.errors
   const [editIndex, setEditIndex] = useState(-1)
   const copyFormData = useRef<GlobalState["formData"]>([])
   const closeButton = useRef<HTMLButtonElement>(null)
   const [showValidation, toggleValidation] = useState(false)
-  const onSubmit = (data) => {
+
+  const onSubmit: SubmitHandler<FormFieldDefinitionItem> = (data) => {
     toggleValidation(false)
     if (editIndex >= 0) {
-      formData[editIndex] = data
+      formData[editIndex] = data as FormDataItem
       updateFormData([...formData.filter((formInput) => formInput)])
-      setFormData(defaultValue)
+      setEditFormData(defaultValue)
       setEditIndex(-1)
     } else {
       updateFormData([...formData, ...[data]])
     }
     reset()
   }
+
   const form = useRef<HTMLHeadingElement>(null)
   const type = watch("type")
   const shouldToggleOn =
-    editFormData.max ||
-    editFormData.min ||
-    editFormData.pattern ||
-    editFormData.maxLength ||
-    editFormData.minLength ||
+    !!editFormData.max ||
+    !!editFormData.min ||
+    !!editFormData.pattern ||
+    !!editFormData.maxLength ||
+    !!editFormData.minLength ||
     editFormData.required
   copyFormData.current = formData
   const editIndexRef = useRef<number | null>(null)
   editIndexRef.current = editIndex
   const router = useRouter()
 
-  const validate = (value) => {
+  const validate = (value: unknown) => {
     return (
       !Object.values(copyFormData.current).find(
         (data) => data.name === value
@@ -118,7 +123,7 @@ function BuilderPage({
   }, [editFormData.type, setValue])
 
   useEffect(() => {
-    setValue("required", editFormData.required)
+    setValue("required", !!editFormData.required)
   }, [editFormData.required, editIndex, setValue])
 
   const child = (
@@ -140,15 +145,12 @@ function BuilderPage({
           </p>
 
           <SortableContainer
-            {...{
-              updateFormData,
-              formData,
-              editIndex,
-              setEditIndex,
-              setFormData,
-              editFormData,
-              reset,
-            }}
+            updateFormData={updateFormData}
+            formData={formData}
+            editIndex={editIndex}
+            setEditIndex={setEditIndex}
+            setFormData={setEditFormData}
+            reset={reset}
           />
         </section>
 

@@ -1,14 +1,14 @@
 import { memo } from "react"
 import { Animate } from "react-simple-animate"
 import { useStateMachine } from "little-state-machine"
-import FormFields from "./FormFields"
-import goToBuilder from "./utils/goToBuilder"
-import { FieldValues, UseFormReturn } from "react-hook-form"
+import type { FieldValues, UseFormReturn } from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
 import typographyStyles from "../styles/typography.module.css"
+import FormFields from "./FormFields"
+import goToBuilder from "./utils/goToBuilder"
 import styles from "./Form.module.css"
 
 const animationProps = {
@@ -76,7 +76,7 @@ function Form({
             Example
           </h2>
 
-          <FormFields {...{ formData, errors, register }} />
+          <FormFields formData={formData} errors={errors} register={register} />
 
           <button className={buttonStyles.pinkButton}>
             {home.liveDemo.submit}
@@ -136,7 +136,7 @@ function Form({
                 <pre className={styles.code}>
                   {Object.keys(errors).length > 0 &&
                     JSON.stringify(
-                      Object.entries(errors).reduce(
+                      Object.entries(errors).reduce<Record<string, unknown>>(
                         // @ts-expect-error needed for previous
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         (previous, [key, { ref, ...rest }]) => {

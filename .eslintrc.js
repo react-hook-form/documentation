@@ -39,9 +39,10 @@ module.exports = {
     // react
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
-    "react/jsx-curly-brace-presence": "warn",
+    "react/jsx-curly-brace-presence": WARN,
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
+    // import
     "import/no-anonymous-default-export": OFF,
     // next
     "@next/next/no-img-element": OFF,

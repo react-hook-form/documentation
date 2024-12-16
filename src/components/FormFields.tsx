@@ -1,3 +1,5 @@
+import type { GlobalState } from "little-state-machine"
+import type { FieldErrors, UseFormRegister } from "react-hook-form"
 import colors from "../styles/colors"
 import styles from "./FormFields.module.css"
 
@@ -7,7 +9,25 @@ const errorStyle = {
   borderLeft: `10px solid ${colors.lightPink}`,
 }
 
-const FormFields = ({ formData, errors, register }) => {
+function getNumericValidationFor<
+  TKey extends "maxLength" | "minLength" | "min" | "max",
+>(name: TKey, value: string): Record<TKey, number> | null {
+  const number = parseInt(value, 10)
+  if (typeof number === "number" && !Number.isNaN(number)) {
+    return { [name]: number } as Record<TKey, number>
+  }
+  return null
+}
+
+const FormFields = ({
+  formData,
+  errors,
+  register,
+}: {
+  formData: GlobalState["formData"]
+  errors: FieldErrors
+  register: UseFormRegister<Record<string, unknown>>
+}) => {
   return (formData || []).map((field, i) => {
     switch (field.type) {
       case "select":
@@ -38,8 +58,8 @@ const FormFields = ({ formData, errors, register }) => {
             placeholder={field.name}
             {...register(field.name, {
               required: field.required,
-              ...(field.maxLength ? { maxLength: field.maxLength } : null),
-              ...(field.minLength ? { minLength: field.minLength } : null),
+              ...getNumericValidationFor("maxLength", field.maxLength),
+              ...getNumericValidationFor("minLength", field.minLength),
             })}
             key={field.name}
             style={{
@@ -96,13 +116,15 @@ const FormFields = ({ formData, errors, register }) => {
             placeholder={field.name}
             {...register(field.name, {
               required: field.required,
+
               ...(field.pattern
                 ? { pattern: new RegExp(field.pattern) }
                 : null),
-              ...(field.max ? { max: field.max } : null),
-              ...(field.min ? { min: field.min } : null),
-              ...(field.maxLength ? { maxLength: field.maxLength } : null),
-              ...(field.minLength ? { minLength: field.minLength } : null),
+
+              ...getNumericValidationFor("max", field.max),
+              ...getNumericValidationFor("min", field.min),
+              ...getNumericValidationFor("maxLength", field.maxLength),
+              ...getNumericValidationFor("minLength", field.minLength),
             })}
           />
         )

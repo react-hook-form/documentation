@@ -19,7 +19,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = ({ params }) => {
+export const getStaticProps = ({
+  params,
+}: {
+  params?: { slug?: string[] }
+}) => {
   // Find the doc for the current page.
   const doc = allDocs.find(
     (doc) => doc._raw.flattenedPath === params?.slug?.join("/")
