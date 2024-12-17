@@ -7,20 +7,20 @@
     "@hookform/devtools": "4.3.1",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.4.5",
+    "@next/mdx": "15.1.0",
     "@types/node": "^20.3.1",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
-    "contentlayer": "^0.3.3",
+    "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "little-state-machine": "^4.8.0",
-    "next": "^14.1.1",
-    "next-contentlayer": "^0.3.3",
+    "next": "15.1.0",
+    "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "prism-react-renderer": "^2.0.5",
     "prismjs": "^1.29.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-github-btn": "1.4.0",
     "react-hook-form": "7.44.3",
     "react-simple-animate": "^3.5.2",
@@ -33,14 +33,15 @@
     "sortablejs": "1.15.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^13.4.5",
-    "@types/react": "^18.3.11",
+    "@next/bundle-analyzer": "15.1.0",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
     "@types/react-helmet": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^13.4.5",
+    "eslint-config-next": "15.1.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -74,5 +75,11 @@
       "pnpm run format:fix"
     ]
   },
-  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "18.3.17",
+      "@types/react-dom": "18.3.5"
+    }
+  }
 }

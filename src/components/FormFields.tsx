@@ -33,27 +33,32 @@ const FormFields = ({
       case "select":
         return (
           <select
+            key={field.name + i}
             aria-label={field.name}
             {...register(field.name, { required: field.required })}
-            key={field.name + i}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
             }}
           >
-            <option value="">Select...</option>
+            <option value="" key="select-default-option">
+              Select...
+            </option>
             {field.options &&
               field.options
                 .split(";")
                 .filter(Boolean)
-                .map((option) => {
-                  return <option key={option}>{option}</option>
+                .map((option, optionIndex) => {
+                  return (
+                    <option key={`${option}-${optionIndex}`}>{option}</option>
+                  )
                 })}
           </select>
         )
       case "textarea":
         return (
           <textarea
+            key={field.name + i}
             aria-label={field.name}
             placeholder={field.name}
             {...register(field.name, {
@@ -61,7 +66,6 @@ const FormFields = ({
               ...getNumericValidationFor("maxLength", field.maxLength),
               ...getNumericValidationFor("minLength", field.minLength),
             })}
-            key={field.name}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
@@ -71,8 +75,8 @@ const FormFields = ({
       case "radio":
         return (
           <div
+            key={field.name + i}
             className={styles.radioGroup}
-            key={field.name}
             style={{ marginBottom: 20 }}
             aria-label={field.name}
           >
@@ -105,13 +109,13 @@ const FormFields = ({
       default:
         return (
           <input
+            key={field.name + i}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
             }}
             aria-label={field.name}
             autoComplete="off"
-            key={field.name}
             type={field.type}
             placeholder={field.name}
             {...register(field.name, {
