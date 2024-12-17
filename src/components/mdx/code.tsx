@@ -43,13 +43,27 @@ export const PrismSyntaxHighlight = ({
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
+          {tokens.map((line, lineIndex) => {
+            const { key: lineKey, ...lineProps } = getLineProps({
+              line,
+              key: lineIndex,
+            })
+
+            return (
+              <div key={lineKey as number} {...lineProps}>
+                {line.map((lineToken, linenTokenIndex) => {
+                  const { key: lineTokenKey, ...lineTokenProps } =
+                    getTokenProps({
+                      token: lineToken,
+                      key: linenTokenIndex,
+                    })
+                  return (
+                    <span key={lineTokenKey as number} {...lineTokenProps} />
+                  )
+                })}
+              </div>
+            )
+          })}
         </pre>
       )}
     </Highlight>

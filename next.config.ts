@@ -1,8 +1,8 @@
+import type { NextConfig } from "next"
 import { withContentlayer } from "next-contentlayer"
 import withBundleAnalyzer from "@next/bundle-analyzer"
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
