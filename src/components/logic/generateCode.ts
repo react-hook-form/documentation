@@ -1,4 +1,4 @@
-import { GlobalState } from "little-state-machine"
+import type { GlobalState } from "little-state-machine"
 
 export default (formData: GlobalState["formData"]) => {
   return `import React from 'react';
