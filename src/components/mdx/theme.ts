@@ -1,5 +1,4 @@
-// @ts-expect-error currently not being exported https://github.com/FormidableLabs/prism-react-renderer/issues/206
-import { PrismTheme } from "prism-react-renderer"
+import type { PrismTheme } from "prism-react-renderer"
 
 export const theme: PrismTheme = {
   plain: {

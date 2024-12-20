@@ -1,3 +1,5 @@
+import type { GlobalState } from "little-state-machine"
+import type { FieldErrors, UseFormRegister } from "react-hook-form"
 import colors from "../styles/colors"
 import styles from "./FormFields.module.css"
 
@@ -7,41 +9,63 @@ const errorStyle = {
   borderLeft: `10px solid ${colors.lightPink}`,
 }
 
-const FormFields = ({ formData, errors, register }) => {
+function getNumericValidationFor<
+  TKey extends "maxLength" | "minLength" | "min" | "max",
+>(name: TKey, value: string): Record<TKey, number> | null {
+  const number = parseInt(value, 10)
+  if (typeof number === "number" && !Number.isNaN(number)) {
+    return { [name]: number } as Record<TKey, number>
+  }
+  return null
+}
+
+const FormFields = ({
+  formData,
+  errors,
+  register,
+}: {
+  formData: GlobalState["formData"]
+  errors: FieldErrors
+  register: UseFormRegister<Record<string, unknown>>
+}) => {
   return (formData || []).map((field, i) => {
     switch (field.type) {
       case "select":
         return (
           <select
+            key={field.name + i}
             aria-label={field.name}
             {...register(field.name, { required: field.required })}
-            key={field.name + i}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
             }}
           >
-            <option value="">Select...</option>
+            <option value="" key="select-default-option">
+              Select...
+            </option>
             {field.options &&
               field.options
                 .split(";")
                 .filter(Boolean)
-                .map((option) => {
-                  return <option key={option}>{option}</option>
+                .map((option, optionIndex) => {
+                  return (
+                    <option key={`${option}-${optionIndex}`}>{option}</option>
+                  )
                 })}
           </select>
         )
       case "textarea":
         return (
           <textarea
+            key={field.name + i}
             aria-label={field.name}
             placeholder={field.name}
             {...register(field.name, {
               required: field.required,
-              ...(field.maxLength ? { maxLength: field.maxLength } : null),
-              ...(field.minLength ? { minLength: field.minLength } : null),
+              ...getNumericValidationFor("maxLength", field.maxLength),
+              ...getNumericValidationFor("minLength", field.minLength),
             })}
-            key={field.name}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
@@ -51,8 +75,8 @@ const FormFields = ({ formData, errors, register }) => {
       case "radio":
         return (
           <div
+            key={field.name + i}
             className={styles.radioGroup}
-            key={field.name}
             style={{ marginBottom: 20 }}
             aria-label={field.name}
           >
@@ -85,24 +109,26 @@ const FormFields = ({ formData, errors, register }) => {
       default:
         return (
           <input
+            key={field.name + i}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),
             }}
             aria-label={field.name}
             autoComplete="off"
-            key={field.name}
             type={field.type}
             placeholder={field.name}
             {...register(field.name, {
               required: field.required,
+
               ...(field.pattern
                 ? { pattern: new RegExp(field.pattern) }
                 : null),
-              ...(field.max ? { max: field.max } : null),
-              ...(field.min ? { min: field.min } : null),
-              ...(field.maxLength ? { maxLength: field.maxLength } : null),
-              ...(field.minLength ? { minLength: field.minLength } : null),
+
+              ...getNumericValidationFor("max", field.max),
+              ...getNumericValidationFor("min", field.min),
+              ...getNumericValidationFor("maxLength", field.maxLength),
+              ...getNumericValidationFor("minLength", field.minLength),
             })}
           />
         )

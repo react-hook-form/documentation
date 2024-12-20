@@ -18,6 +18,7 @@ export default function Toggle({ style }: { style?: CSSProperties }) {
   }
 
   return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label htmlFor="toggle" className={styles.toggle} style={style}>
       <input
         id="toggle"

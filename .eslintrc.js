@@ -5,6 +5,7 @@ const ERROR = 2
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
 module.exports = {
+  reportUnusedDisableDirectives: true,
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 2020,
@@ -19,7 +20,6 @@ module.exports = {
   },
   extends: [
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "next",
@@ -38,9 +38,12 @@ module.exports = {
     // react
     "react/prop-types": OFF,
     "react/no-unescaped-entities": OFF,
-    "react/jsx-curly-brace-presence": "warn",
+    "react/jsx-curly-brace-presence": WARN,
     // jsx-ally
     "jsx-a11y/no-onchange": WARN,
+    // import
     "import/no-anonymous-default-export": OFF,
+    // next
+    "@next/next/no-img-element": OFF,
   },
 }

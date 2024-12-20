@@ -12,15 +12,21 @@ Here is a quick guide to doing code contributions to the library.
 
 3. Install packages by running:
 
-   > yarn
+   ```shellscript
+   pnpm install
+   ```
 
 4. Startup a local version of the docs
 
-   > yarn start
+   ```shellscript
+   pnpm run dev
+   ```
 
 5. Ensure your code is formatted properly
 
-   > yarn format
+   ```shellscript
+   pnpm run format
+   ```
 
 6. Push your branch: `git push -u origin your-meaningful-branch-name`
 
@@ -28,9 +34,30 @@ Here is a quick guide to doing code contributions to the library.
 
 8. Choose a descriptive title and describe your changes briefly.
 
+## Testing production build
+
+To test the documentation production site on your local machine,
+first execute the build script:
+
+```shellscript
+pnpm run build
+```
+
+Then start a local server which serves the file created by executing
+
+```shellscript
+pnpm run start
+```
+
 ## Coding style
 
-Please follow the coding style of the project. React Hook Form uses prettier. If possible, enable the prettier plugin in your editor to get real-time feedback. The formatting can be run manually with the following command: `yarn format`
+Please follow the coding style of the project.
+React Hook Form uses prettier.
+If possible, enable the prettier plugin in your editor to get real-time feedback. The formatting can be run manually with the following command:
+
+```shellscript
+pnpm run format:fix
+```
 
 ## License
 

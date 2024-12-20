@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import styles from "./Admonition.module.css"
 import { cva } from "class-variance-authority"
 
@@ -100,7 +101,17 @@ const admonition = cva(styles.admonition, {
   },
 })
 
-export const Admonition = ({ type, title, children }) => {
+type AdmonitionType = keyof typeof svgMap
+
+export const Admonition = ({
+  type,
+  title,
+  children,
+}: {
+  type: AdmonitionType
+  title: string
+  children: ReactNode
+}) => {
   return (
     <div className={admonition({ type })}>
       <div className={styles.admonitionHeading}>

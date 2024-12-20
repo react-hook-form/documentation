@@ -92,6 +92,7 @@ sidebar: apiLinks
 | [delayError](#delayError)                               | Delay error from appearing instantly.                             |
 | [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                         |
 | [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                |
+| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.               |
 
 **Schema validation props:**
 
@@ -153,8 +154,11 @@ useForm({
 - There are other options for including form data:
 
   ```javascript
+  // adding a hidden input
   <input {...register("hidden", { value: "data" })} type="hidden" />
+  ```
 
+  ```javascript
   // include data onSubmit
   const onSubmit = (data) => {
     const output = {
@@ -171,7 +175,6 @@ useForm({
 ---
 
 The `values` prop will react to changes and update the form values, which is useful when your form needs to be updated by external state or server data. The `values` prop will overwrite the `defaultValues` prop, unless `resetOptions: { keepDefaultValues: true }` is also set for `useForm`.
-
 
 ```javascript copy
 // set default value sync
@@ -347,6 +350,54 @@ export default function App() {
         })} // custom message
       />
       <input type="submit" />
+    </form>
+  )
+}
+```
+
+#### disabled: <TypeText>boolean = false</TypeText> {#disabled}
+
+---
+
+This config allows you to disable the entire form and all associated inputs when set to `true`.<br />
+This can be useful for preventing user interaction during asynchronous tasks or other
+situations where inputs should be temporarily unresponsive.
+
+**Examples:**
+
+---
+
+```javascript copy
+import { useForm, Controller } from "react-hook-form"
+
+const App = () => {
+  const [disabled, setDisabled] = useState(false)
+  const { register, handleSubmit, control } = useForm({
+    disabled,
+  })
+
+  return (
+    <form
+      onSubmit={handleSubmit(async () => {
+        setDisabled(true)
+        await sleep(100)
+        setDisabled(false)
+      })}
+    >
+      <input
+        type={"checkbox"}
+        {...register("checkbox")}
+        data-testid={"checkbox"}
+      />
+      <select {...register("select")} data-testid={"select"} />
+
+      <Controller
+        control={control}
+        render={({ field }) => <input disabled={field.disabled} />}
+        name="test"
+      />
+
+      <button type="submit">Submit</button>
     </form>
   )
 }
@@ -656,6 +707,52 @@ resolver: async (data, context, options) => {
 ```
 
 </Admonition>
+
+#### `useForm` return and `useEffect` dependencies
+
+In a future major release, `useForm` return will be memoized to optimize performance and reflect changes in `formState`.
+As a result, adding the entire return value of `useForm` to a `useEffect` dependency list may lead to infinite loops.
+
+<Admonition type="warning" >
+
+The following code is likely to create this situation:
+
+```javascript
+const methods = useForm()
+
+useEffect(() => {
+  methods.reset({ ... })
+}, [methods])
+```
+
+</Admonition>
+
+Passing only the relevant methods, as showed below, should avoid this kind of issue:
+
+```javascript
+const methods = useForm()
+
+useEffect(() => {
+  methods.reset({ ... })
+}, [methods.reset])
+```
+
+<Admonition type="tip" >
+
+The recommended way is to pass destructure the required methods and add them to the dependencies of an `useEffect`
+
+```javascript
+
+const { reset } = useForm()
+
+useEffect(() => {
+  reset({ ... })
+}, [reset])
+```
+
+</Admonition>
+
+[More info can be found on this issue](https://github.com/react-hook-form/react-hook-form/issues/12463)
 
 #### Return
 

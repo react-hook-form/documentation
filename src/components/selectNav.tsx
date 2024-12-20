@@ -12,6 +12,7 @@ export function SelectNav({ options }: Props) {
   const router = useRouter()
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-onchange
     <select
       className={styles.root}
       onChange={(e) => {

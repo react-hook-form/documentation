@@ -62,13 +62,6 @@ export default function Footer() {
       <div>
         <p className={styles.heading}>SUPPORTED AND BACKED BY</p>
         <div className={styles.logoGroup}>
-          <a
-            href="https://www.casinoreviews.net/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/images/casinoreviews.png" alt="Casino Reviews" />
-          </a>
           <p
             style={{
               display: "inline-block",
@@ -87,16 +80,6 @@ export default function Footer() {
               Powered by ▲ <b>Vercel</b>
             </a>
           </p>
-          <a
-            href="https://www.beekai.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://www.beekai.com/marketing/logo/horizontal.svg"
-              alt="BEEKAI Form builder"
-            />
-          </a>
         </div>
       </div>
     </footer>

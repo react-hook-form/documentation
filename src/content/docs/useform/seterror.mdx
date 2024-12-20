@@ -22,8 +22,8 @@ The function allows you to manually set one or more errors.
 
 - This method will not persist the associated input error if the input passes `register`'s associated rules.
   ```javascript
-  register('registerInput', { minLength: 4 });
-  setError('registerInput', { type: 'custom', message: 'custom message' });
+  register("registerInput", { minLength: 4 })
+  setError("registerInput", { type: "custom", message: "custom message" })
   // validation will pass as long as minLength requirement pass
   ```
 - An error that is not associated with an input field will be persisted until cleared with `clearErrors`. This behaviour is only applicable for built-in validation at field level.

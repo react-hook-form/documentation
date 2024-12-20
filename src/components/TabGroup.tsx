@@ -1,7 +1,14 @@
 import { useState } from "react"
+import type { ReactNode } from "react"
 import styles from "./TabGroup.module.css"
 
-const TabGroup = ({ children, buttonLabels }) => {
+const TabGroup = ({
+  children,
+  buttonLabels,
+}: {
+  children: ReactNode[]
+  buttonLabels: string[]
+}) => {
   const [index, setIndex] = useState(0)
 
   return (
