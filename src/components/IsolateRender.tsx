@@ -1,4 +1,5 @@
 import { memo, useState } from "react"
+import type React from "react"
 import { AnimateKeyframes, Animate } from "react-simple-animate"
 import colors from "../styles/colors"
 import home from "../data/home"
@@ -39,7 +40,7 @@ const IsoLateInput = () => {
   )
 }
 
-const ControlledInputs = ({ style }) => {
+const ControlledInputs = ({ style }: { style?: React.CSSProperties }) => {
   const [play, setPlay] = useState(false)
 
   return (

@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect, memo } from "react"
+import { useForm } from "react-hook-form"
+import type { SubmitHandler } from "react-hook-form"
+import Link from "next/link"
 import Form from "./Form"
 import Header from "./Header"
 import Watcher from "./Watcher"
@@ -16,8 +19,6 @@ import styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
 import { useRouter } from "next/router"
 import { GeneralObserver } from "./general-observer"
-import Link from "next/link"
-import { useForm } from "react-hook-form"
 
 function HomePage() {
   const [submitData, updateSubmitData] = useState({})
@@ -33,7 +34,8 @@ function HomePage() {
   const [watchPlay, setWatchPlay] = useState(false)
   const { query } = useRouter()
   const methods = useForm()
-  const onSubmit = (data) => {
+
+  const onSubmit: SubmitHandler<Record<string, unknown>> = (data) => {
     updateSubmitData(data)
   }
 
@@ -273,13 +275,11 @@ function HomePage() {
       <div ref={HomeRef} />
 
       <Form
-        {...{
-          methods,
-          onSubmit,
-          submitData,
-          toggleBuilder,
-          formUpdated,
-        }}
+        methods={methods}
+        onSubmit={onSubmit}
+        submitData={submitData}
+        toggleBuilder={toggleBuilder}
+        formUpdated={formUpdated}
       />
 
       <section className={containerStyles.centerContent}>

@@ -335,6 +335,11 @@ table {
   border: 1px solid var(--color-light-grey);
 }
 
+.scrollToTop,
+.editPage {
+  display: none;
+}
+
 .editPage:hover,
 .scrollToTop:hover {
   border-color: var(--color-secondary);
@@ -387,6 +392,11 @@ a.active {
     z-index: 10;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .scrollToTop,
+  .editPage {
+    display: block;
   }
 }
 
@@ -513,11 +523,17 @@ a.skip-main:active {
   width: 1px;
   height: 1px;
   border: 1px solid transparent;
-  box-shadow: -2px 0 0 -1px currentColor, 2px 0 0 -1px currentColor,
-    0 -2px 0 -1px currentColor, 0 2px 0 -1px currentColor,
-    -6px 0 0 -1px currentColor, 6px 0 0 -1px currentColor,
-    -4px -2px 0 -1px currentColor, -4px 2px 0 -1px currentColor,
-    4px -2px 0 -1px currentColor, 4px 2px 0 -1px currentColor;
+  box-shadow:
+    -2px 0 0 -1px currentColor,
+    2px 0 0 -1px currentColor,
+    0 -2px 0 -1px currentColor,
+    0 2px 0 -1px currentColor,
+    -6px 0 0 -1px currentColor,
+    6px 0 0 -1px currentColor,
+    -4px -2px 0 -1px currentColor,
+    -4px 2px 0 -1px currentColor,
+    4px -2px 0 -1px currentColor,
+    4px 2px 0 -1px currentColor;
 }
 
 .keyboard.icon:after {
@@ -922,4 +938,12 @@ pre[class*="language-"] {
   .ds-dataset-3 {
     height: auto;
   }
+}
+
+#carbon-responsive {
+  margin: 0 auto 50px;
+}
+
+#carbon-cover {
+  margin: 0 auto 50px;
 }

@@ -2,6 +2,30 @@ export default {
   article: [
     {
       type: "article",
+      title: "How to Create and Validate Forms With React Hook Form",
+      url: "https://catalins.tech/react-forms-with-react-hook-form/",
+      authorUrl: "https://catalins.tech/",
+      author: "Catalin Pit",
+      description:
+        "The article shows how to build and validate forms using the React Hook Form library.",
+      createdDateTime:
+        "Tue Mar 28 2023 16:55:46 GMT+1000 (Australian Eastern Standard Time)",
+      version: "7",
+    },
+    {
+      type: "article",
+      title: "Powerful Form Validation With React Hook Form and Zod",
+      url: "https://catalins.tech/form-validation-with-react-hook-form-zod-typescript/",
+      authorUrl: "https://catalins.tech/",
+      author: "Catalin Pit",
+      description:
+        "This article demonstrates how to use React Hook Form, Zod, and TypeScript to build powerful form validation in a React application. It covers defining a Zod schema, inferring TypeScript types, integrating the schema with React Hook Form, and adding advanced validation rules.",
+      createdDateTime:
+        "Thu Apr 06 2023 18:40:16 GMT+0200 (Eastern European Standard Time)",
+      version: "7",
+    },
+    {
+      type: "article",
       title: "Managing forms with React Hook Form",
       url: "https://claritydev.net/blog/managing-forms-with-react-hook-form",
       authorUrl: "https://claritydev.net",

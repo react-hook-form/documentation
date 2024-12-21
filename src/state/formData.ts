@@ -1,4 +1,6 @@
-const formData = [
+import type { GlobalState } from "little-state-machine"
+
+const formData: GlobalState["formData"] = [
   {
     name: "First name",
     type: "text",

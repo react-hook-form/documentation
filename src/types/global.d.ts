@@ -1,5 +1,10 @@
 interface Window {
-  docsearch?: any
+  docsearch?: (options: {
+    appId: string
+    apiKey: string
+    indexName: string
+    inputSelector: string
+  }) => vod
 }
 
 declare module "*.mdx" {

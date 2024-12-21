@@ -3,7 +3,13 @@ import searchStyles from "./Search.module.css"
 import useWindowSize from "./utils/useWindowSize"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 
-const Search = ({ focus, setFocus }: { focus: boolean; setFocus }) => {
+const Search = ({
+  focus,
+  setFocus,
+}: {
+  focus: boolean
+  setFocus: (value: boolean) => void
+}) => {
   const { width } = useWindowSize()
   const searchRef = useRef<HTMLInputElement>(null)
 
@@ -55,4 +61,5 @@ const Search = ({ focus, setFocus }: { focus: boolean; setFocus }) => {
     </>
   )
 }
+
 export default Search

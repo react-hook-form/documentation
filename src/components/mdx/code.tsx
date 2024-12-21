@@ -1,7 +1,8 @@
-import { Highlight } from "prism-react-renderer"
-import { theme, lightTheme } from "./theme"
-import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import type { ReactNode } from "react"
+import { Highlight } from "prism-react-renderer"
+import { useTheme } from "next-themes"
+import { theme, lightTheme } from "./theme"
 
 const prism = {
   dark: theme,
@@ -23,22 +24,46 @@ function usePrismTheme() {
   return finalTheme
 }
 
-export const PrismSyntaxHighlight = ({ children, className }) => {
+export const PrismSyntaxHighlight = ({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className: string
+}) => {
   const language = className.replace(/language-/gm, "")
 
   const currentTheme = usePrismTheme()
 
   return (
-    <Highlight code={children.trim()} language={language} theme={currentTheme}>
+    <Highlight
+      code={(children as string).trim()}
+      language={language}
+      theme={currentTheme}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
+          {tokens.map((line, lineIndex) => {
+            const { key: lineKey, ...lineProps } = getLineProps({
+              line,
+              key: lineIndex,
+            })
+
+            return (
+              <div key={lineKey as number} {...lineProps}>
+                {line.map((lineToken, linenTokenIndex) => {
+                  const { key: lineTokenKey, ...lineTokenProps } =
+                    getTokenProps({
+                      token: lineToken,
+                      key: linenTokenIndex,
+                    })
+                  return (
+                    <span key={lineTokenKey as number} {...lineTokenProps} />
+                  )
+                })}
+              </div>
+            )
+          })}
         </pre>
       )}
     </Highlight>

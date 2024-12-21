@@ -5,14 +5,14 @@ const dataPreFix = "data/"
 const pagesPreFix = "pages/"
 const content = "content/"
 
-const filterApiPageURL = (pathname) => {
+const filterApiPageURL = (pathname: string): string => {
   if (pathname.charAt(pathname.length - 1) === "/")
     return pathname.substring(0, pathname.length - 1).substring(1)
 
   return pathname.substring(1)
 }
 
-export const getEditLink = (pathname: string) => {
+export const getEditLink = (pathname: string): string => {
   if (!pathname) return ""
 
   if (pathname === "/" || pathname === "") {
@@ -38,4 +38,6 @@ export const getEditLink = (pathname: string) => {
   } else if (pathname.includes("resources")) {
     return `${preFix}${dataPreFix}resources.tsx`
   }
+
+  return ""
 }

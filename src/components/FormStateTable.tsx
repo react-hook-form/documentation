@@ -1,9 +1,10 @@
 import generic from "../data/generic"
+import API from "../data/api"
 import typographyStyles from "../styles/typography.module.css"
 import tableStyles from "../styles/table.module.css"
 import { FormStateApi } from "./FormStateApi"
 
-export default function FormStateTable({ api }) {
+export default function FormStateTable({ api }: { api: typeof API }) {
   return (
     <>
       <h2 className={typographyStyles.subTitle} id="return">

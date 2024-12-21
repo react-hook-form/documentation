@@ -35,12 +35,20 @@ export default function App() {
   const methods = useForm()
 
   const onSubmit = (data) => console.log(data)
+  const { register, reset } = methods
+
+  useEffect(() => {
+    reset({
+      name: "data",
+    })
+  }, [reset]) // ❌ never put `methods` as the deps
 
   return (
     <FormProvider {...methods}>
       // pass all methods into the context
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInput />
+        <input {...register("name")} />
         <input type="submit" />
       </form>
     </FormProvider>

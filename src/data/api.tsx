@@ -787,9 +787,18 @@ setValue('test', '')
         Set to <code>true</code> during validation.
       </>
     ),
-    validatingFields: (
+    validatingFields: <>Capture fields which are getting async validation.</>,
+    disabled: (
       <>
-        Capture fields which are getting async validation.
+        Set to <code>true</code> if the form is disabled via the{" "}
+        <code>disabled</code> prop in{" "}
+        <Link
+          href="/docs/useform#disabled"
+          aria-label="read more about disabled api"
+        >
+          useForm
+        </Link>
+        .
       </>
     ),
   },
@@ -2192,8 +2201,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td>
             <p>
               Update input/inputs at a particular position, updated fields will
-              get unmounted and remounted. If this is not desired behavior, please
-              use{" "}
+              get unmounted and remounted. If this is not desired behavior,
+              please use{" "}
               <Link href="/docs/useform/setvalue">
                 <code>setValue</code>
               </Link>{" "}

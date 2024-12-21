@@ -129,7 +129,8 @@ export default function App() {
 ```typescript copy
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TContext = any
+  TContext = any,
+  TTransformedValues extends FieldValues | undefined = undefined,
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
@@ -238,16 +239,24 @@ export default function App() {
 ```typescript copy
 export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object
+  TContext extends object = object,
+  TTransformedValues extends FieldValues | undefined = undefined,
 > = Partial<{
   mode: Mode
-  reValidateMode: Mode
-  defaultValues: DeepPartial<TFieldValues>
+  disabled: boolean
+  reValidateMode: Exclude<Mode, "onTouched" | "all">
+  defaultValues: DefaultValues<TFieldValues> | AsyncDefaultValues<TFieldValues>
+  values: TFieldValues
+  errors: FieldErrors<TFieldValues>
+  resetOptions: Parameters<UseFormReset<TFieldValues>>[1]
   resolver: Resolver<TFieldValues, TContext>
   context: TContext
   shouldFocusError: boolean
   shouldUnregister: boolean
-  criteriaMode: "firstError" | "all"
+  shouldUseNativeValidation: boolean
+  progressive: boolean
+  criteriaMode: CriteriaMode
+  delayError: number
 }>
 ```
 
@@ -258,40 +267,18 @@ export type UseFormProps<
 ```typescript copy
 export type UseFieldArrayReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id"
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
 > = {
-  swap: (indexA: number, indexB: number) => void
-  move: (indexA: number, indexB: number) => void
-  prepend: (
-    value:
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-    options?: FieldArrayMethodProps
-  ) => void
-  append: (
-    value:
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-    options?: FieldArrayMethodProps
-  ) => void
-  remove: (index?: number | number[]) => void
-  insert: (
-    index: number,
-    value:
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[],
-    options?: FieldArrayMethodProps
-  ) => void
-  update: (
-    index: number,
-    value: Partial<FieldArray<TFieldValues, TFieldArrayName>>
-  ) => void
-  replace: (
-    value:
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>
-      | Partial<FieldArray<TFieldValues, TFieldArrayName>>[]
-  ) => void
+  swap: UseFieldArraySwap
+  move: UseFieldArrayMove
+  prepend: UseFieldArrayPrepend<TFieldValues, TFieldArrayName>
+  append: UseFieldArrayAppend<TFieldValues, TFieldArrayName>
+  remove: UseFieldArrayRemove
+  insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>
+  update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>
+  replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>
   fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[]
 }
 ```
@@ -302,16 +289,25 @@ export type UseFieldArrayReturn<
 
 ```typescript copy
 export type UseFieldArrayProps<
-  TKeyName extends string = "id",
-  TControl extends Control = Control
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = 'id',
 > = {
-  name: string
+  name: TFieldArrayName
   keyName?: TKeyName
-  control?: TControl
-  rules?: Pick<
+  control?: Control<TFieldValues>
+  rules?: {
+    validate?
+      | Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>
+      | Record<
+          string,
+          Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>
+        >
+  } & Pick<
     RegisterOptions<TFieldValues>,
-    "maxLength" | "minLength" | "validate" | "required"
+    'maxLength' | 'minLength' | 'required'
   >
+  shouldUnregister?: boolean
 }
 ```
 
@@ -322,7 +318,7 @@ export type UseFieldArrayProps<
 ```typescript copy
 export type UseControllerReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
   field: ControllerRenderProps<TFieldValues, TName>
   formState: UseFormStateReturn<TFieldValues>
@@ -337,7 +333,7 @@ export type UseControllerReturn<
 ```typescript copy
 export type UseControllerProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
   name: TName
   rules?: Omit<
@@ -347,6 +343,7 @@ export type UseControllerProps<
   shouldUnregister?: boolean
   defaultValue?: FieldPathValue<TFieldValues, TName>
   control?: Control<TFieldValues>
+  disabled?: boolean
 }
 ```
 
@@ -356,7 +353,8 @@ export type UseControllerProps<
 
 ```typescript copy
 export type FieldError = {
-  type: string
+  type: LiteralUnion<keyof RegisterOptions, string>
+  root?: FieldError
   ref?: Ref
   types?: MultipleFieldErrors
   message?: Message
@@ -383,10 +381,13 @@ export type FieldErrors<T extends FieldValues = FieldValues> = Partial<
 
 ```typescript copy
 export type Field = {
-  ref: Ref
-  mutationWatcher?: MutationWatcher
-  options?: RadioOrCheckboxOption[]
-} & RegisterOptions
+  _f: {
+    ref: Ref
+    name: InternalFieldName
+    refs?: HTMLInputElement[]
+    mount?: boolean
+  } & RegisterOptions
+}
 ```
 
 ---
@@ -406,15 +407,14 @@ export type FieldPath<TFieldValues extends FieldValues> = Path<TFieldValues>
 This type will return union with all available paths that match the passed value
 
 ```typescript copy
-function Field<
-  TFieldValues extends FieldValues,
-  TPath extends FieldPathByValue<TFieldValues, Date>
->({ control, name }: { control: Control<TFieldValues>; name: TPath }) {
-  const { field } = useController({
-    control,
-    name,
-  })
-}
+export type FieldPathByValue<TFieldValues extends FieldValues, TValue> = {
+  [Key in FieldPath<TFieldValues>]: FieldPathValue<
+    TFieldValues,
+    Key
+  > extends TValue
+    ? Key
+    : never
+}[FieldPath<TFieldValues>]
 ```
 
 ---
@@ -432,8 +432,9 @@ export type FieldValues = Record<string, any>
 ```typescript copy
 export type FieldArrayWithId<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id"
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
 > = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
 ```
 
@@ -442,13 +443,9 @@ export type FieldArrayWithId<
 ## \</> Mode {#Mode}
 
 ```typescript copy
-export type Mode = {
-  onBlur: "onBlur"
-  onChange: "onChange"
-  onSubmit: "onSubmit"
-  onTouched: "onTouched"
-  all: "all"
-}
+export type ValidationMode = typeof VALIDATION_MODE
+
+export type Mode = keyof ValidationMode
 ```
 
 ---
@@ -456,15 +453,46 @@ export type Mode = {
 ## \</> RegisterOptions {#RegisterOptions}
 
 ```typescript copy
-export type RegisterOptions = Partial<{
+export type RegisterOptions<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = Partial<{
   required: Message | ValidationRule<boolean>
   min: ValidationRule<number | string>
   max: ValidationRule<number | string>
-  maxLength: ValidationRule<number | string>
-  minLength: ValidationRule<number | string>
-  pattern: ValidationRule<RegExp>
-  validate: Validate | Record<string, Validate>
-}>
+  maxLength: ValidationRule<number>
+  minLength: ValidationRule<number>
+  validate:
+    | Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues>
+    | Record<
+        string,
+        Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues>
+      >
+  value: FieldPathValue<TFieldValues, TFieldName>
+  setValueAs: (value: any) => any
+  shouldUnregister?: boolean
+  onChange?: (event: any) => void
+  onBlur?: (event: any) => void
+  disabled: boolean
+  deps: FieldPath<TFieldValues> | FieldPath<TFieldValues>[]
+}> &
+  (
+    | {
+        pattern?: ValidationRule<RegExp>
+        valueAsNumber?: false
+        valueAsDate?: false
+      }
+    | {
+        pattern?: undefined
+        valueAsNumber?: false
+        valueAsDate?: true
+      }
+    | {
+        pattern?: undefined
+        valueAsNumber?: true
+        valueAsDate?: false
+      }
+  )
 ```
 
 ---
@@ -474,13 +502,12 @@ export type RegisterOptions = Partial<{
 ```typescript copy
 export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
   isDirty: boolean
-  dirtyFields: Dirtied<TFieldValues>
-  isSubmitted: boolean
-  submitCount: number
-  touched: FieldNames<TFieldValues>
-  isSubmitting: boolean
+  isValidating: boolean
+  dirtyFields: FieldNamesMarkedBoolean<TFieldValues>
+  touchedFields: FieldNamesMarkedBoolean<TFieldValues>
+  validatingFields: FieldNamesMarkedBoolean<TFieldValues>
+  errors: boolean
   isValid: boolean
-  errors: FieldErrors<TFieldValues>
 }
 ```
 
