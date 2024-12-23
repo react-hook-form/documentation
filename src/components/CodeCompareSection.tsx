@@ -47,10 +47,8 @@ function CodeCompareSection({
                 borderRadius: 4,
                 overflow: "hidden",
                 transition: "0.3s all 0.5s",
-                opacity: isPlayCodeCompare ? 1 : 0,
-                transform: isPlayCodeCompare
-                  ? "translateY(0)"
-                  : "translateY(100px)",
+                opacity: 1,
+                transform: "translateY(0)",
               }}
               title="React Hook Form codesandbox demo"
               allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

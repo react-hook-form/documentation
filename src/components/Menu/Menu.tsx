@@ -33,7 +33,7 @@ function Menu({ pages = [] }: { pages: Pages }) {
                 key={page.pathname}
                 className={styles.menuItem}
                 style={{
-                  display: page?.pages ? "block" : "flex",
+                  display: page.pages ? "block" : "flex",
                 }}
               >
                 <code aria-hidden className={styles.code}>{`</>`}</code>
@@ -44,7 +44,7 @@ function Menu({ pages = [] }: { pages: Pages }) {
                   {page.name}
                 </Link>
 
-                {page?.pages && (
+                {page.pages && (
                   <ul>
                     {page.pages.map((page) => {
                       const isActive = pathname === page.pathname

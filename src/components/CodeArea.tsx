@@ -30,11 +30,12 @@ export default function CodeArea({
 }) {
   const [currentType, setType] = useState<
     (typeof ToggleTypes)[keyof typeof ToggleTypes]
-  >(
-    (rawData && ToggleTypes.js) ||
-      (tsRawData && ToggleTypes.ts) ||
-      ToggleTypes.types
-  )
+  >(() => {
+    if (rawData) return ToggleTypes.js
+    if (tsRawData) return ToggleTypes.ts
+    return ToggleTypes.types
+  })
+
   const codeAreaRef = useRef<HTMLDivElement | null>(null)
 
   return (
@@ -46,7 +47,9 @@ export default function CodeArea({
       <div className={styles.buttonWrapper}>
         {((rawData && tsRawData) || (rawData && rawTypes)) && (
           <button
-            onClick={() => setType(ToggleTypes.js)}
+            onClick={() => {
+              setType(ToggleTypes.js)
+            }}
             className={`${styles.button} ${styles.codeLink} ${
               currentType === ToggleTypes.js ? styles.active : ""
             }`}
@@ -56,7 +59,9 @@ export default function CodeArea({
         )}
         {((tsRawData && rawData) || (tsRawData && rawTypes)) && (
           <button
-            onClick={() => setType(ToggleTypes.ts)}
+            onClick={() => {
+              setType(ToggleTypes.ts)
+            }}
             className={`${styles.button} ${styles.codeLink} ${
               currentType === ToggleTypes.ts ? styles.active : ""
             }`}
@@ -66,7 +71,9 @@ export default function CodeArea({
         )}
         {((rawTypes && rawData) || (rawTypes && tsRawData)) && (
           <button
-            onClick={() => setType(ToggleTypes.types)}
+            onClick={() => {
+              setType(ToggleTypes.types)
+            }}
             className={`${styles.button} ${styles.codeLink} ${
               currentType === ToggleTypes.types ? styles.active : ""
             }`}
@@ -77,7 +84,9 @@ export default function CodeArea({
         {!withOutCopy && (
           <ClipBoard
             className={`${styles.button} ${styles.copyButton}`}
-            onClick={() => copyClipBoard(codeAreaRef.current?.innerText || "")}
+            onClick={() => {
+              copyClipBoard(codeAreaRef.current?.innerText || "")
+            }}
           />
         )}
 

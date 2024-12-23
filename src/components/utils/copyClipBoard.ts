@@ -12,13 +12,14 @@ export default function copyToClipboard(text: string) {
 
         textarea.value = text
         textarea.select()
+
         document.execCommand("copy")
 
         body?.removeChild(textarea)
 
         resolve(0)
       } catch (e) {
-        reject(e)
+        reject(e as Error)
       }
     }
   })
