@@ -57,7 +57,7 @@ function BuilderPage({
     state: { formData = [] },
     actions: { updateFormData },
   } = useStateMachine({
-    updateFormData: (state, payload) => {
+    updateFormData: (state, payload: GlobalState["formData"]) => {
       return {
         ...state,
         formData: [...payload],
@@ -81,7 +81,7 @@ function BuilderPage({
       setEditFormData(defaultValue)
       setEditIndex(-1)
     } else {
-      updateFormData([...formData, ...[data]])
+      updateFormData([...formData, data as FormDataItem])
     }
     reset()
   }
@@ -153,7 +153,7 @@ function BuilderPage({
             reset={reset}
           />
         </section>
-
+        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={typographyStyles.title} ref={form}>
             {builder.inputCreator.title}
@@ -255,7 +255,9 @@ function BuilderPage({
             <input
               type="checkbox"
               {...register("toggle", { required: false })}
-              onClick={() => toggleValidation(!showValidation)}
+              onClick={() => {
+                toggleValidation(!showValidation)
+              }}
             />
             {builder.inputCreator.validation}
           </label>
@@ -325,7 +327,7 @@ function BuilderPage({
           <button
             className={buttonStyles.pinkButton}
             onClick={() => {
-              form?.current?.scrollIntoView({ behavior: "smooth" })
+              form.current?.scrollIntoView({ behavior: "smooth" })
             }}
           >
             {editIndex >= 0 ? generic.update : generic.create}
@@ -345,7 +347,7 @@ function BuilderPage({
           )}
 
           <Animate
-            play={(formData || []).length > 0}
+            play={formData.length > 0}
             start={{
               opacity: 0,
               pointerEvents: "none",
@@ -374,7 +376,6 @@ function BuilderPage({
             )}
           />
         </form>
-
         <section
           style={{
             paddingRight: "20px",
@@ -395,7 +396,9 @@ function BuilderPage({
           >
             <div className={styles.buttonWrapper}>
               <ClipBoard
-                onClick={() => copyClipBoard(generateCode(formData))}
+                onClick={() => {
+                  copyClipBoard(generateCode(formData))
+                }}
                 className={`${styles.button} ${styles.copyButton}`}
               />
             </div>

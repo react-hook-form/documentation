@@ -24,7 +24,9 @@ const TabGroup = ({
               ...(currentIndex === index ? { cursor: "default" } : {}),
             }}
             disabled={currentIndex === index}
-            onClick={() => setIndex(currentIndex)}
+            onClick={() => {
+              setIndex(currentIndex)
+            }}
           >
             {label}
           </button>

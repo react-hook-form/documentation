@@ -78,9 +78,13 @@
     "plugins": [{ "name": "next" }]
   },
   "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
     "./src/**/*",
+
+    "next-env.d.ts",
+    "next.config.ts",
+    ".next/types/**/*.ts",
+
+    "contentlayer.config.ts",
     ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]

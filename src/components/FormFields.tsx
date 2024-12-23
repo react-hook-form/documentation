@@ -28,12 +28,12 @@ const FormFields = ({
   errors: FieldErrors
   register: UseFormRegister<Record<string, unknown>>
 }) => {
-  return (formData || []).map((field, i) => {
+  return formData.map((field, i) => {
     switch (field.type) {
       case "select":
         return (
           <select
-            key={field.name + i}
+            key={`${field.name}${i}`}
             aria-label={field.name}
             {...register(field.name, { required: field.required })}
             style={{
@@ -58,7 +58,7 @@ const FormFields = ({
       case "textarea":
         return (
           <textarea
-            key={field.name + i}
+            key={`${field.name}${i}`}
             aria-label={field.name}
             placeholder={field.name}
             {...register(field.name, {
@@ -75,7 +75,7 @@ const FormFields = ({
       case "radio":
         return (
           <div
-            key={field.name + i}
+            key={`${field.name}${i}`}
             className={styles.radioGroup}
             style={{ marginBottom: 20 }}
             aria-label={field.name}
@@ -109,7 +109,7 @@ const FormFields = ({
       default:
         return (
           <input
-            key={field.name + i}
+            key={`${field.name}${i}`}
             style={{
               marginBottom: 20,
               ...(errors[field.name] ? errorStyle : null),

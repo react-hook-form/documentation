@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        script: ["format", "lint", "typecheck:ci"]
+        script: ["format", "lint:ci", "typecheck:ci"]
 
     steps:
       - name: Checkout repo

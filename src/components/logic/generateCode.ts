@@ -36,12 +36,7 @@ ${
             minLength,
             pattern,
           ].some((value) => {
-            const isBooleanValue = typeof value === "boolean"
-
-            if (isBooleanValue) {
-              return value !== undefined
-            }
-
+            if (typeof value === "boolean") return value
             return Boolean(value)
           })
           const ref = `{...register${
@@ -68,9 +63,7 @@ ${
               .reduce((temp, option) => {
                 return (
                   temp +
-                  `      <input ${ref} type="${
-                    type || "text"
-                  }" value="${option}" />\n`
+                  `      <input ${ref} type="${type}" value="${option}" />\n`
                 )
               }, "")}`
 

@@ -1,27 +1,16 @@
-import { useEffect, useState } from "react"
+import { useMemo } from "react"
 import type { ReactNode } from "react"
 import { Highlight } from "prism-react-renderer"
 import { useTheme } from "next-themes"
-import { theme, lightTheme } from "./theme"
-
-const prism = {
-  dark: theme,
-  light: lightTheme,
-}
+import { darkTheme, lightTheme } from "./theme"
 
 function usePrismTheme() {
   const { theme } = useTheme()
-  const lightModeTheme = prism.light
-  const darkModeTheme = prism.dark || lightModeTheme
-  const prismTheme = theme === "light" ? lightModeTheme : darkModeTheme
 
-  const [finalTheme, setFinalTheme] = useState(prismTheme)
-
-  useEffect(() => {
-    setFinalTheme(prismTheme)
-  }, [prismTheme])
-
-  return finalTheme
+  return useMemo(() => {
+    if (theme === "light") return lightTheme
+    return darkTheme
+  }, [theme])
 }
 
 export const PrismSyntaxHighlight = ({

@@ -7,14 +7,16 @@ import typographyStyles from "../styles/typography.module.css"
 import styles from "./Watcher.module.css"
 import home from "../data/home"
 
+type WatchFormData = { test: string }
+
 const WatchText = ({
   control,
   checked,
 }: {
-  control: Control
+  control: Control<WatchFormData>
   checked?: boolean
 }) => {
-  const test = useWatch({
+  const test = useWatch<WatchFormData>({
     control,
     name: "test",
     defaultValue: "",
@@ -40,7 +42,7 @@ const WatchGroup = ({
   control,
 }: {
   checked?: boolean
-  control: Control
+  control: Control<WatchFormData>
 }) => {
   const [check, setChecked] = useState(checked)
   return (
@@ -48,7 +50,9 @@ const WatchGroup = ({
       <input
         type="checkbox"
         checked={check}
-        onChange={() => setChecked(!check)}
+        onChange={() => {
+          setChecked(!check)
+        }}
       />
       <WatchText control={control} checked={check} />
     </div>
@@ -56,7 +60,7 @@ const WatchGroup = ({
 }
 
 const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
-  const { register, control, setValue } = useForm()
+  const { register, setValue, control } = useForm<WatchFormData>()
 
   useEffect(() => {
     if (!isPlayWatch) {
@@ -93,7 +97,9 @@ const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
       i++
     }, 200)
 
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+    }
   }, [setValue, isPlayWatch])
 
   return (

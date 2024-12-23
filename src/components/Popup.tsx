@@ -13,11 +13,18 @@ function Popup({
 }) {
   const [tipShow, setTipShow] = useState(false)
 
-  return iconOnly ? (
-    <span className={styles.icon}>!</span>
-  ) : (
+  if (iconOnly) {
+    return <span className={styles.icon}>!</span>
+  }
+
+  return (
     <span className={styles.root}>
-      <button className={styles.button} onClick={() => setTipShow(!tipShow)}>
+      <button
+        className={styles.button}
+        onClick={() => {
+          setTipShow(!tipShow)
+        }}
+      >
         !
       </button>
       <span>

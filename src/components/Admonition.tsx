@@ -109,7 +109,7 @@ export const Admonition = ({
   children,
 }: {
   type: AdmonitionType
-  title: string
+  title?: string
   children: ReactNode
 }) => {
   return (

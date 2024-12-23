@@ -16,12 +16,14 @@ const Layout = ({ children }: { children: ReactNode }) => {
       setShow(false)
     }
   }
-  const editLink = getEditLink(location?.pathname)
+  const editLink = getEditLink(location.pathname)
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
 
-    return () => window.removeEventListener("scroll", scrollHandler)
+    return () => {
+      window.removeEventListener("scroll", scrollHandler)
+    }
   }, [])
 
   return (
@@ -63,13 +65,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <button
           className="scrollToTop"
           aria-label="Scroll back to top"
-          onClick={() =>
+          onClick={() => {
             window.scrollTo({
               top: 0,
               left: 0,
               behavior: "smooth",
             })
-          }
+          }}
         >
           ▲
         </button>

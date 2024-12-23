@@ -1,4 +1,5 @@
 import { useState } from "react"
+import type React from "react"
 import { useForm } from "react-hook-form"
 import { Animate } from "react-simple-animate"
 import Form from "./Form"
@@ -22,7 +23,7 @@ const DevTool = dynamic<DevtoolUIProps>(
   () =>
     // @ts-expect-error no types are available
     import("@hookform/devtools/dist/index.cjs.development").then(
-      (mod) => mod.DevTool
+      (mod) => (mod as { DevTool: React.ElementType<DevtoolUIProps> }).DevTool
     ),
   {
     ssr: false,
@@ -38,7 +39,9 @@ export default function DevTools() {
 
   const { control } = methods
 
-  const onSubmit = (data: unknown) => console.log(data)
+  const onSubmit = (data: unknown) => {
+    console.log(data)
+  }
 
   return (
     <div className={containerStyles.container}>
@@ -81,7 +84,9 @@ export default function DevTools() {
             npm install -D @hookform/devtools
             <ClipBoard
               className={getStartedStyle.copyButton}
-              onClick={() => copyClipBoard("npm install -D @hookform/devtools")}
+              onClick={() => {
+                copyClipBoard("npm install -D @hookform/devtools")
+              }}
             />
           </pre>
 

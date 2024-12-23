@@ -4,13 +4,17 @@ import headerStyles from "./Header.module.css"
 import styles from "./ResourcePage.module.css"
 import typographyStyles from "../styles/typography.module.css"
 
-type Resource = {
+interface Resource {
   title: string
   description?: string
   version?: string
   author?: string
   url: string
   authorUrl?: string
+}
+
+interface ResourceListFormData {
+  filterResources: string
 }
 
 export default function ResourceList({
@@ -20,7 +24,9 @@ export default function ResourceList({
   title: string
   resources: Resource[]
 }) {
-  const { register, watch } = useForm({ mode: "onChange" })
+  const { register, watch } = useForm<ResourceListFormData>({
+    mode: "onChange",
+  })
   const [layout, setLayout] = useState("grid")
 
   const isGridLayout = layout === "grid"
@@ -29,7 +35,7 @@ export default function ResourceList({
     const { title, author, description, version } = cur
     // case insensitive filter
     if (
-      `${title} ${author} ${description} v${version}`.match(
+      `${title} ${author ?? ""} ${description ?? ""} ${version ? `v${version}` : ""}`.match(
         new RegExp(watch("filterResources"), "i")
       )
     ) {

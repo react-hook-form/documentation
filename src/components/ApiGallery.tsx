@@ -12,7 +12,9 @@ export default function ApiGallery() {
   const router = useRouter()
 
   const onChange: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const version = parseInt((e.target as HTMLElement).getAttribute("value")!)
+    const version = parseInt(
+      (e.target as HTMLElement).getAttribute("value") as string
+    )
 
     if (version !== 7) {
       router.push(`https://legacy.react-hook-form.com/v${version}/api`)

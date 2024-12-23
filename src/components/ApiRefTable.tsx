@@ -86,7 +86,9 @@ export default function ApiRefTable({ api }: { api: typeof apiData }) {
         <legend>{api.register.options.title}</legend>
         <label>
           <input
-            onChange={() => toggleOption(true)}
+            onChange={() => {
+              toggleOption(true)
+            }}
             type="radio"
             name="errorMessage"
             defaultChecked
@@ -95,7 +97,9 @@ export default function ApiRefTable({ api }: { api: typeof apiData }) {
         </label>
         <label>
           <input
-            onChange={() => toggleOption(false)}
+            onChange={() => {
+              toggleOption(false)
+            }}
             type="radio"
             name="errorMessage"
           />

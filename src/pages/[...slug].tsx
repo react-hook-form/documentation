@@ -9,8 +9,9 @@ import StarRepo from "@/components/StarRepo"
 import containerStyles from "@/styles/container.module.css"
 import typographyStyles from "@/styles/typography.module.css"
 import Menu from "@/components/Menu/Menu"
+import { Pages } from "@/types/types"
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   // Get a list of valid doc paths.
   const paths = allDocs.map((doc) => ({
     params: { slug: doc.segment },
@@ -55,7 +56,7 @@ export default function Page({
         <p className={typographyStyles.subHeading}>{doc.description}</p>
 
         <div className={containerStyles.wrapper}>
-          <Menu pages={doc.pages} />
+          <Menu pages={doc.pages as Pages} />
 
           <main>
             <MDXContent components={MDXComponents} />

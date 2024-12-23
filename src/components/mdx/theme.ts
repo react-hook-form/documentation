@@ -1,6 +1,6 @@
 import type { PrismTheme } from "prism-react-renderer"
 
-export const theme: PrismTheme = {
+export const darkTheme: PrismTheme = {
   plain: {
     backgroundColor: "var(--color-purple)",
     color: "#f8f8f2",

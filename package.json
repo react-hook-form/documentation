@@ -63,6 +63,7 @@
     "format:fix": "prettier . --write",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "lint:ci": "next build --no-lint && next lint",
     "now-build": "pnpm run build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
