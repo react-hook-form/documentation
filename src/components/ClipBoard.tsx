@@ -19,7 +19,9 @@ const ClipBoard = ({
       setCopiedCode(false)
     }, 3000)
 
-    return () => clearTimeout(timerId)
+    return () => {
+      clearTimeout(timerId)
+    }
   }, [copiedCode])
 
   return (

@@ -19,16 +19,14 @@ createStore(
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     try {
-      if (window.navigator && navigator.serviceWorker) {
-        navigator.serviceWorker
-          .getRegistrations()
-          .then(function (registrations) {
-            if (Array.isArray(registrations)) {
-              for (const registration of registrations) {
-                registration.unregister()
-              }
+      if ("serviceWorker" in window.navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          if (Array.isArray(registrations)) {
+            for (const registration of registrations) {
+              ;(registration as ServiceWorkerRegistration).unregister()
             }
-          })
+          }
+        })
       }
     } catch {}
   }, [])

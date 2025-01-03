@@ -33,12 +33,12 @@ function Form({
   submitData: Record<string, unknown>
   toggleBuilder: (state: boolean) => void
   formUpdated: boolean
-  methods: UseFormReturn<FieldValues, Record<string, unknown>, undefined>
+  methods: UseFormReturn<FieldValues, Record<string, unknown>>
   devTool?: boolean
 }) {
   const { register, handleSubmit, watch, formState, reset } = methods
 
-  const touched = Object.keys(formState.touchedFields || {})
+  const touched = Object.keys(formState.touchedFields)
   const {
     state: { formData },
   } = useStateMachine()
@@ -71,6 +71,7 @@ function Form({
       )}
 
       <div className={styles.wrapper}>
+        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
           <h2 className={typographyStyles.title} style={{ marginTop: 40 }}>
             Example

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import GitHubButton from "react-github-btn"
-import nav from "../data/nav"
-import Toggle from "./Toggle"
 import { Animate } from "react-simple-animate"
+import clsx from "clsx"
+import nav from "../data/nav"
+import colors from "../styles/colors"
+import { LARGE_SCREEN } from "../styles/breakpoints"
+import Toggle from "./Toggle"
 import Search from "./Search"
 import styles from "./Nav.module.css"
-import colors from "../styles/colors"
 import useWindowSize from "./utils/useWindowSize"
-import { LARGE_SCREEN } from "../styles/breakpoints"
-import { useRouter } from "next/router"
-import clsx from "clsx"
 
 export default function Nav() {
   const [isFocusOnSearch, setIsFocusOnSearch] = useState(false)
@@ -26,13 +26,15 @@ export default function Nav() {
   useEffect(() => {
     if (LARGE_SCREEN <= width) {
       setLang(true)
-    } else {
-      if (isFocusOnSearch) {
-        setLang(false)
-      } else if (!isFocusOnSearch) {
-        setLang(true)
-      }
+      return
     }
+
+    if (isFocusOnSearch) {
+      setLang(false)
+      return
+    }
+
+    setLang(true)
   }, [isFocusOnSearch, width])
 
   useEffect(() => {
