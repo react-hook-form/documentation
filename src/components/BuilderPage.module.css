@@ -9,6 +9,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.builder {
+  overflow: auto;
+  height: 100vh;
+  background: var(--color-background);
+}
+
 .pageWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

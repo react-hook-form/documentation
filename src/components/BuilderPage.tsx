@@ -433,14 +433,7 @@ function BuilderPage({
       }}
       render={({ style }) => (
         <main className={styles.root} style={style}>
-          <div
-            id="builder"
-            style={{
-              overflow: "auto",
-              height: "100vh",
-              background: colors.primary,
-            }}
-          >
+          <div id="builder" className={styles.builder}>
             <button
               className={styles.closeButton}
               aria-label="close builder"
