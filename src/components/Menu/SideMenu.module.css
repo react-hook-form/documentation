@@ -107,6 +107,7 @@
   font-size: 12px;
   top: 2px;
   display: inline-table;
+  flex-shrink: 0;
 }
 
 @media (min-width: 1024px) {
