@@ -11,7 +11,6 @@ React Hook Form has support for native form validation, which lets you validate 
 The following code example works as intended for validation; however, it can be improved for accessibility.
 
 ```javascript copy
-import React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
@@ -190,7 +189,7 @@ Let's have a look what's in each of these components.
 The `Form` component's responsibility is to inject all `react-hook-form` methods into the child component.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
-import React from "react"
+import { Children, createElement } from "react"
 import { useForm } from "react-hook-form"
 
 export default function Form({ defaultValues, children, onSubmit }) {
@@ -199,9 +198,9 @@ export default function Form({ defaultValues, children, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {React.Children.map(children, (child) => {
+      {Children.map(children, (child) => {
         return child.props.name
-          ? React.createElement(child.type, {
+          ? createElement(child.type, {
               ...{
                 ...child.props,
                 register: methods.register,
@@ -220,8 +219,6 @@ export default function Form({ defaultValues, children, onSubmit }) {
 Those input components' responsibility is to register them into `react-hook-form`.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
-import React from "react"
-
 export function Input({ register, name, ...rest }) {
   return <input {...register(name)} {...rest} />
 }
@@ -277,7 +274,7 @@ import { FormProvider, useForm, useFormContext } from "react-hook-form"
 export const ConnectForm = ({ children }) => {
   const methods = useFormContext()
 
-  return children({ ...methods })
+  return children(methods)
 }
 
 export const DeepNest = () => (
@@ -308,7 +305,7 @@ React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Cont
 **Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/formprovider) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
 
 ```javascript copy sandbox="https://codesandbox.io/s/provider-perf-forked-r24ho"
-import React, { memo } from "react"
+import { memo } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
 // we can use React.memo to prevent re-render except isDirty state changed
@@ -354,7 +351,6 @@ React Hook Form embraces uncontrolled components but is also compatible with con
 <TabGroup buttonLabels={["Controller", "Custom Register"]}>
 
 ```javascript copy
-import React, { useEffect } from "react"
 import { Input, Select, MenuItem } from "@material-ui/core"
 import { useForm, Controller } from "react-hook-form"
 
@@ -364,7 +360,7 @@ const defaultValues = {
 }
 
 function App() {
-  const { handleSubmit, reset, watch, control, register } = useForm({
+  const { handleSubmit, reset, control, register } = useForm({
     defaultValues,
   })
   const onSubmit = (data) => console.log(data)
@@ -395,7 +391,7 @@ function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { Input, Select, MenuItem } from "@material-ui/core"
 import { useForm } from "react-hook-form"
 
@@ -447,7 +443,7 @@ You can build a custom hook as a resolver. A custom hook can easily integrate wi
 - Pass the validation resolver to the useForm hook
 
 ```javascript copy sandbox="https://codesandbox.io/s/custom-hook-with-resolver-v7-cwczk"
-import React, { useCallback, useMemo } from "react"
+import { useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 
@@ -512,19 +508,17 @@ An example is shown below using [react-window](https://github.com/bvaughn/react-
 <TabGroup buttonLabels={["Form", "Field Array"]}>
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-with-react-window-forked-3j3mq"
-import React from "react"
+import { memo } from "react"
 import { FormProvider, useForm, useFormContext } from "react-hook-form"
 import { VariableSizeList as List } from "react-window"
 import AutoSizer from "react-virtualized-auto-sizer"
-import ReactDOM from "react-dom"
-import "./styles.css"
 
 const items = Array.from(Array(1000).keys()).map((i) => ({
   title: `List ${i}`,
   quantity: Math.floor(Math.random() * 10),
 }))
 
-const WindowedRow = React.memo(({ index, style, data }) => {
+const WindowedRow = memo(({ index, style, data }) => {
   const { register } = useFormContext()
 
   return <input {...register(`${index}.quantity`)} />
@@ -532,11 +526,11 @@ const WindowedRow = React.memo(({ index, style, data }) => {
 
 export const App = () => {
   const onSubmit = (data) => console.log(data)
-  const formMethods = useForm({ defaultValues: items })
+  const methods = useForm({ defaultValues: items })
 
   return (
-    <form className="form" onSubmit={formMethods.handleSubmit(onSubmit)}>
-      <FormProvider {...formMethods}>
+    <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <FormProvider {...methods}>
         <AutoSizer>
           {({ height, width }) => (
             <List
@@ -572,7 +566,7 @@ function App() {
       test: items,
     },
   })
-  const { fields, remove } = useFieldArray({ control, name: "test" })
+  const { fields } = useFieldArray({ control, name: "test" })
 
   return (
     <FixedSizeList
@@ -652,7 +646,6 @@ Additionally, you can set up [eslint-plugin-testing-library](https://github.com/
 We have set the role attribute accordingly. These attributes are helpful for when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
-import React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App({ login }) {
@@ -716,7 +709,6 @@ The following criteria are what we try to cover with the tests:
 - Test successful submission.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.test.js"
-import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import App from "./App"
 
@@ -812,11 +804,10 @@ If you test a component that uses react-hook-form, you might run into a warning 
 > Warning: An update to MyComponent inside a test was not wrapped in act(...)
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
-import React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: "onChange",
   })
   const onSubmit = (data) => {}
@@ -835,7 +826,6 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
-import React from "react"
 import { render, screen } from "@testing-library/react"
 import App from "./App"
 
@@ -853,7 +843,6 @@ This is because react-hook-form internally uses asynchronous validation handlers
 To solve this, wait until some element from your UI appears with `find*` queries. Note that you **must not** wrap your `render()` calls in `act()`. [You can read more about wrapping things in `act` unnecessarily here](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily).
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
-import React from "react"
 import { render, screen } from "@testing-library/react"
 import App from "./App"
 
@@ -875,13 +864,9 @@ it("should have a submit button", async () => {
 The native input returns the value in `string` format unless invoked with `valueAsNumber` or `valueAsDate`, you can read more under [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect. We still have to deal with `isNaN` or `null` values. So it's better to leave the transform at the custom hook level. In the following example, we are using the `Controller` to include the functionality of the transform value's input and output. You can also achieve a similar result with a custom `register`.
 
 ```javascript copy sandbox="https://codesandbox.io/s/transform-vt3tm"
+import { Controller } from "react-hook-form"
 
-const ControllerPlus = ({
-  control,
-  transform,
-  name,
-  defaultValue
-}) => (
+const ControllerPlus = ({ control, transform, name, defaultValue }) => (
   <Controller
     defaultValue={defaultValue}
     control={control}
@@ -893,17 +878,16 @@ const ControllerPlus = ({
       />
     )}
   />
-);
+)
 
 // usage below:
-<ControllerPlus<string, number>
+<ControllerPlus
   transform={{
-    input: (value) =>
-      isNaN(value) || value === 0 ? "" : value.toString(),
+    input: (value) => (isNaN(value) || value === 0 ? "" : value.toString()),
     output: (e) => {
-      const output = parseInt(e.target.value, 10);
-      return isNaN(output) ? 0 : output;
-    }
+      const output = parseInt(e.target.value, 10)
+      return isNaN(output) ? 0 : output
+    },
   }}
   control={control}
   name="number"
