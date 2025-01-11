@@ -1,6 +1,5 @@
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { useRouter } from "next/router"
-// import Bday from "./Bday"
 import home from "../data/home"
 import typographyStyles from "../styles/typography.module.css"
 import buttonStyles from "../styles/button.module.css"
@@ -136,7 +135,7 @@ export default function Header({
                     router.push("get-started")
                   }}
                 >
-                  {home.getStarted} &nbsp;<span>▶</span>
+                  {home.getStarted}
                 </button>
               </div>
             )}

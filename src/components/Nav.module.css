@@ -9,7 +9,7 @@
 .icon {
   z-index: 10;
   max-width: 50px;
-  min-width: 35px;
+  min-width: 30px;
   flex: 1;
 }
 
@@ -34,12 +34,15 @@
   left: 0;
   width: 100%;
   position: fixed;
-  height: 43px;
+  height: 48px;
 }
 
 :global(.dark) .actionButtonGroup {
   background: var(--color-button-blue);
   box-shadow: 0 2px 2px 0 #000;
+  background: rgba(3, 9, 22, .8);
+  -webkit-backdrop-filter: blur(.3rem);
+  backdrop-filter: blur(.3rem);
   width: 100%;
   z-index: 20;
 }
@@ -57,15 +60,7 @@
   color: white;
   text-decoration: none;
   position: relative;
-  min-width: 40px;
-}
-
-.actionButtonGroup a:nth-child(6),
-.actionButtonGroup a:nth-child(7),
-.actionButtonGroup a:nth-child(8),
-.actionButtonGroup a:nth-child(9),
-.actionButtonGroup a:nth-child(10) {
-  display: none;
+  min-width: 48px;
 }
 
 .actionButtonGroup a:first-child {
@@ -115,6 +110,10 @@ a.legacyLink {
   padding: 0 0.5rem;
 }
 
+.mobileNav {
+  display: none;
+}
+
 :global(.light) .actionButtonWrapper {
   background: var(--color-primary);
   border-bottom: 3px solid var(--color-light-pink);
@@ -137,21 +136,33 @@ a.legacyLink {
   margin-left: 0.1rem;
 }
 
+.donate a {
+  color: #bf1650;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 10px;
   }
 
-  .actionButtonGroup a:nth-child(6),
-  .actionButtonGroup a:nth-child(7),
-  .actionButtonGroup a:nth-child(8),
-  .actionButtonGroup a:nth-child(9),
-  .actionButtonGroup a:nth-child(10) {
+  .actionButtonGroup a:nth-child(12) {
+    display: none;
+  }
+
+  .mobileNav {
     display: block;
   }
 
-  .actionButtonGroup a:nth-child(12) {
+  .donate,
+  .donate a {
     display: none;
+  }
+
+  :global(.dark) .actionButtonGroup {
+    background: var(--color-button-blue);
   }
 }
 
