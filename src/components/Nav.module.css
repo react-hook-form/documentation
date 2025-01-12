@@ -40,9 +40,9 @@
 :global(.dark) .actionButtonGroup {
   background: var(--color-button-blue);
   box-shadow: 0 2px 2px 0 #000;
-  background: rgba(3, 9, 22, .8);
-  -webkit-backdrop-filter: blur(.3rem);
-  backdrop-filter: blur(.3rem);
+  background: rgba(3, 9, 22, 0.8);
+  -webkit-backdrop-filter: blur(0.3rem);
+  backdrop-filter: blur(0.3rem);
   width: 100%;
   z-index: 20;
 }
