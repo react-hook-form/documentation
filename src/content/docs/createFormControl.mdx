@@ -16,6 +16,11 @@ This following table applied to `FormProvider`, `useFormContext` accepts no argu
 | ---------- | --------------------------- | ---------------------------------------------- |
 | `...props` | <TypeText>Object</TypeText> | `UseFormProps` |
 
+<Admonition type="important" title="Notes">
+- This function is completely optional, you can consider to use this instead of `useFormContext` API.
+- You may find it useful if you would like to subscribe formsState by skipping react re-render.
+</Admonition>
+
 **Examples:**
 
 ---
@@ -31,12 +36,13 @@ const { formControl, control } = createFormControl({
 }})
 
 function App() {
-  const { register } = useForm({
+  const { register, handleSubmit } = useForm({
     formControl,
   })
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(data => console.log)}>
+      <input {...register('name')} />
       <FormState />
       <Controller />
     </form>
