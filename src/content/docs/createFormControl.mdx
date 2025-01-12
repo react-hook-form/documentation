@@ -1,0 +1,79 @@
+---
+title: createFormControl
+description: Create form state and ready to be subscribed
+sidebar: apiLinks
+---
+
+This function create the entire form state subscription and allow you to subscribe update with or without react component.
+
+### Props
+
+---
+
+This following table applied to `FormProvider`, `useFormContext` accepts no argument.
+
+| Name       | Type                        | Description                                    |
+| ---------- | --------------------------- | ---------------------------------------------- |
+| `...props` | <TypeText>Object</TypeText> | `UseFormProps` |
+
+**Examples:**
+
+---
+
+<TabGroup buttonLabels={["Setup", "Subscribe"]}>
+
+```javascript
+const { formControl, control } = createFormControl({
+  mode: 'onChange',
+  defaultValues: {
+    firstName: 'Bill'
+  }
+}})
+
+function App() {
+  const { register } = useForm({
+    formControl,
+  })
+
+  return (
+    <form>
+      <FormState />
+      <Controller />
+    </form>
+  );
+}
+
+function FormState() {
+  useFormState({
+    control // no longer need context api
+  })
+}
+
+function Controller() {
+  useFormState({
+    control // no longer need context api
+  })
+}
+```
+
+```javascript
+const { formControl } = createFormControl(props)
+
+formControl.subscribe({
+  formState: { isDirty: true },
+  callback: (formState) => {
+    if (formState.isDirty) {
+      // do something here
+    }
+  }
+})
+
+function App() {
+  const { register } = useForm({
+    formControl,
+  })
+
+  return <form />
+}
+```
+</TabGroup>
