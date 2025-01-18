@@ -270,6 +270,11 @@ a.legacyLink {
     width: 100%;
     margin-bottom: 7px;
   }
+
+  .actionButtonGroup,
+  :global(.dark) .actionButtonGroup {
+    position: relative;
+  }
 }
 
 @media (min-width: 1280px) {
