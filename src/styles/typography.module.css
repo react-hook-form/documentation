@@ -131,6 +131,11 @@ h3.subTitle:before {
   color: var(--color-light-pink) !important;
 }
 
+pre.typeText {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
 .note {
   color: var(--color-light-pink);
 }

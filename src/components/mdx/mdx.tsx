@@ -55,4 +55,7 @@ export const MDXComponents: Components = {
     )
   },
   TabGroup,
+  PrettyObject({ value }: { value: Record<string, unknown> }) {
+    return JSON.stringify(value, null, 2).replace(/"/g, "")
+  },
 }
