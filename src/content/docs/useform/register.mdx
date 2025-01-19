@@ -245,3 +245,52 @@ export default function App() {
 ---
 
 <YouTube youTubeId="JFIpCoajYkA" />
+
+### Tips
+
+---
+
+#### Destructuring assignment
+
+```javascript
+const { onChange, onBlur, name, ref } = register('firstName');
+// include type check against field path with the name you have supplied.
+
+<input
+  onChange={onChange} // assign onChange event
+  onBlur={onBlur} // assign onBlur event
+  name={name} // assign name prop
+  ref={ref} // assign ref prop
+/>
+// same as above
+<input {...register('firstName')} />
+```
+
+#### Custom Register
+
+You can also register inputs with `useEffect` and treat them as virtual inputs. For controlled components, we provide a custom hook [useController](/docs/usecontroller) and [Controller](/docs/usecontroller/controller) component to take care this process for you.
+
+If you choose to manually register fields, you will need to update the input value with [setValue](/docs/useform/setvalue).
+
+```javascript
+register('firstName', { required: true, min: 8 });
+
+<TextInput onTextChange={(value) => setValue('lastChange', value))} />
+```
+
+#### How to work with `innerRef`, `inputRef`?
+
+When the custom input component didn't expose ref correctly, you can get it working via the following.
+
+```javascript
+// not working, because ref is not assigned
+<TextInput {...register('test')} />
+
+const firstName = register('firstName', { required: true })
+<TextInput
+  name={firstName.name}
+  onChange={firstName.onChange}
+  onBlur={firstName.onBlur}
+  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+/>
+```
