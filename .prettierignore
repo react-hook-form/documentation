@@ -1,1 +1,4 @@
 pnpm-lock.yaml
+.cache/
+.contentlayer/
+.next/

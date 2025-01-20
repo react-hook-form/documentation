@@ -121,33 +121,32 @@ const App = () => {
 **Dependant Fields**
 
 ```typescript sandbox="https://codesandbox.io/s/dependant-field-dwin1"
-import * as React from "react";
-import { useForm } from "react-hook-form";
+import * as React from "react"
+import { useForm } from "react-hook-form"
 
 type FormValues = {
-  a: string;
-  b: string;
-  c: string;
-};
+  a: string
+  b: string
+  c: string
+}
 
 export default function App() {
-  const { watch, register, handleSubmit, setValue, formState } = useForm<
-    FormValues
-  >({
-    defaultValues: {
-      a: "",
-      b: "",
-      c: ""
-    }
-  });
-  const onSubmit = (data: FormValues) => console.log(data);
-  const [a, b] = watch(["a", "b"]);
+  const { watch, register, handleSubmit, setValue, formState } =
+    useForm<FormValues>({
+      defaultValues: {
+        a: "",
+        b: "",
+        c: "",
+      },
+    })
+  const onSubmit = (data: FormValues) => console.log(data)
+  const [a, b] = watch(["a", "b"])
 
   React.useEffect(() => {
     if (formState.touchedFields.a && formState.touchedFields.b && a && b) {
-      setValue("c", `${a} ${b}`);
+      setValue("c", `${a} ${b}`)
     }
-  }, [setValue, a, b, formState]);
+  }, [setValue, a, b, formState])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -159,14 +158,14 @@ export default function App() {
       <button
         type="button"
         onClick={() => {
-          setValue("a", "what", { shouldTouch: true });
-          setValue("b", "ever", { shouldTouch: true });
+          setValue("a", "what", { shouldTouch: true })
+          setValue("b", "ever", { shouldTouch: true })
         }}
       >
         trigger value
       </button>
     </form>
-  );
+  )
 }
 ```
 
