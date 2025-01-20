@@ -12,14 +12,15 @@ This function create the entire form state subscription and allow you to subscri
 
 This following table applied to `FormProvider`, `useFormContext` accepts no argument.
 
-| Name       | Type                        | Description                                    |
-| ---------- | --------------------------- | ---------------------------------------------- |
+| Name       | Type                        | Description    |
+| ---------- | --------------------------- | -------------- |
 | `...props` | <TypeText>Object</TypeText> | `UseFormProps` |
 
 <Admonition type="important" title="Notes">
-- This function is published at **v7.55.0-next.1**
-- This function is completely optional, you can consider to use this instead of `useFormContext` API.
-- You may find it useful if you would like to subscribe formsState by skipping react re-render.
+  - This function is published at **v7.55.0-next.1** - This function is
+  completely optional, you can consider to use this instead of `useFormContext`
+  API. - You may find it useful if you would like to subscribe formsState by
+  skipping react re-render.
 </Admonition>
 
 **Examples:**
@@ -72,7 +73,7 @@ formControl.subscribe({
     if (formState.isDirty) {
       // do something here
     }
-  }
+  },
 })
 
 function App() {
@@ -83,4 +84,5 @@ function App() {
   return <form />
 }
 ```
+
 </TabGroup>

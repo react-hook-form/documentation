@@ -236,7 +236,9 @@ export default function Nav() {
             <span>{nav.advanced}</span>
           </Link>
           <Link
-            className={`desktopOnly ${router.asPath == "/faqs" ? "active" : ""}`}
+            className={`desktopOnly ${
+              router.asPath == "/faqs" ? "active" : ""
+            }`}
             href="/faqs"
           >
             <div className={styles.iconWrapper}>

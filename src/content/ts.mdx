@@ -130,7 +130,7 @@ export default function App() {
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TTransformedValues extends FieldValues | undefined = undefined,
+  TTransformedValues extends FieldValues | undefined = undefined
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
@@ -240,7 +240,7 @@ export default function App() {
 export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
   TContext extends object = object,
-  TTransformedValues extends FieldValues | undefined = undefined,
+  TTransformedValues extends FieldValues | undefined = undefined
 > = Partial<{
   mode: Mode
   disabled: boolean
@@ -267,9 +267,8 @@ export type UseFormProps<
 ```typescript copy
 export type UseFieldArrayReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id",
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id"
 > = {
   swap: UseFieldArraySwap
   move: UseFieldArrayMove
@@ -318,7 +317,7 @@ export type UseFieldArrayProps<
 ```typescript copy
 export type UseControllerReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
   field: ControllerRenderProps<TFieldValues, TName>
   formState: UseFormStateReturn<TFieldValues>
@@ -333,7 +332,7 @@ export type UseControllerReturn<
 ```typescript copy
 export type UseControllerProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
   name: TName
   rules?: Omit<
@@ -432,9 +431,8 @@ export type FieldValues = Record<string, any>
 ```typescript copy
 export type FieldArrayWithId<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = "id",
+  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id"
 > = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
 ```
 
@@ -455,7 +453,7 @@ export type Mode = keyof ValidationMode
 ```typescript copy
 export type RegisterOptions<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = Partial<{
   required: Message | ValidationRule<boolean>
   min: ValidationRule<number | string>
