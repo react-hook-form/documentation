@@ -1,0 +1,296 @@
+---
+title: register
+description: Register uncontrolled/controlled inputs
+sidebar: apiLinks
+---
+
+## \</> `register:` <TypeText>`(name: string, options?: RegisterOptions) => ({ ref, name, onChange, onBlur })`</TypeText>
+
+This method allows you to register an input or select element and apply validation rules to React Hook Form. Validation rules are all based on the HTML standard and also allow for custom validation methods.
+
+### Props
+
+---
+
+| Name      | Type                                 | Description       |
+| --------- | ------------------------------------ | ----------------- |
+| `name`    | <TypeText>string</TypeText>          | Input's name.     |
+| `options` | <TypeText>RegisterOptions</TypeText> | Input's behavior. |
+
+### Return
+
+---
+
+| Name       | Type                               | Description                                               |
+| ---------- | ---------------------------------- | --------------------------------------------------------- |
+| `ref`      | <TypeText>React.ref</TypeText>     | React element ref used to connect hook form to the input. |
+| `name`     | <TypeText>string</TypeText>        | Input's name being registered.                            |
+| `onChange` | <TypeText>ChangeHandler</TypeText> | `onChange` prop to subscribe the input change event.      |
+| `onBlur`   | <TypeText>ChangeHandler</TypeText> | `onBlur` prop to subscribe the input blur event.          |
+
+<Admonition type="note">
+
+This is how submitted values will look like:
+
+| Input Name                                        | Submit Result                                             |
+| ------------------------------------------------- | --------------------------------------------------------- |
+| <TypeText>register("firstName")</TypeText>        | <TypeText>`{ firstName: value }`</TypeText>               |
+| <TypeText>register("name.firstName")</TypeText>   | <TypeText>`{ name: { firstName: value } }`</TypeText>     |
+| <TypeText>register("name.firstName.0")</TypeText> | <TypeText>`{ name: { firstName: [ value ] } }`</TypeText> |
+
+</Admonition>
+
+### Options
+
+---
+
+By selecting the register option, the API table below will get updated.
+
+<TabGroup buttonLabels={["validation", "validation and error message"]}>
+
+<div style={{ background: 'var(--color-primary)', padding: 20 }}>
+
+| Name                                                                          | Description                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ref`<TypeText pre>React.Ref</TypeText>                                       | React element `ref`                                                                                                                                                                                                                                                                                                            |
+| `required`<TypeText pre>boolean</TypeText>                                    | Indicates that the input must have a value before the form can be submitted.<br/><br/>**Note:** This config aligns with web constrained API for required input validation, for object or array type of input use validate function instead.                                                                                    |
+| `maxLength`<TypeText pre>number</TypeText>                                    | The maximum length of the value to accept for this input.                                                                                                                                                                                                                                                                      |
+| `minLength`<TypeText pre>number</TypeText>                                    | The minimum length of the value to accept for this input.                                                                                                                                                                                                                                                                      |
+| `max`<TypeText pre>number</TypeText>                                          | The maximum value to accept for this input.                                                                                                                                                                                                                                                                                    |
+| `min`<TypeText pre>number</TypeText>                                          | The minimum value to accept for this input.                                                                                                                                                                                                                                                                                    |
+| `pattern`<TypeText pre>RegExp</TypeText>                                      | The regex pattern for the input.<br/><br/>**Note:** `RegExp` with the `/g` flag keeps track of the last index where a match occurred.                                                                                                                                                                                          |
+| `validate`<TypeText pre>Function \|<br/>`Record<string, Function>`</TypeText> | Validate function will be executed on its own without depending on other validation rules included in the required attribute.<br/><br/>**Note:** for object or array input data, it's recommended to use the validate function for validation as the other rules mostly apply to string, array of strings, number and boolean. |
+| `valueAsNumber`<TypeText pre>boolean</TypeText>                               | Returns `Number` normally. If something goes wrong `NaN` will be returned.<br/><ul><li>`valueAs` process is happening **before** validation.</li><li>Only applies to number input, but without any data manipulation.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>                                  |
+| `valueAsDate`<TypeText pre>boolean</TypeText>                                 | Returns `Date` normally. If something goes wrong `Invalid Date` will be returned.<br/><ul><li>`valueAs` process is happening **before** validation.</li><li>Only applies to input.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>                                                                     |
+| `setValueAs`<TypeText pre>\<T\>(value: any) => T</TypeText>                   | Return input value by running through the function.<br/><ul><li>`valueAs` process is happening **before** validation. Also, `setValueAs` is ignored if either `valueAsNumber` or `valueAsDate` are true.</li><li>Only applies to text input.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>           |
+| `disabled`<TypeText pre>boolean = false</TypeText>                            | Set `disabled` to `true` will lead input value to be `undefined` and input control to be disabled.<br/><ul><li>`disabled` prop will also omit built-in validation rules.</li><li>For schema validation, you can leverage the `undefined` value returned from input or context object.</li></ul>                                |
+| `onChange`<TypeText pre>(e: SyntheticEvent) => void</TypeText>                | `onChange` function event to be invoked in the change event.                                                                                                                                                                                                                                                                   |
+| `onBlur`<TypeText pre>(e: SyntheticEvent) => void</TypeText>                  | `onBlur` function event to be invoked in the blur event.                                                                                                                                                                                                                                                                       |
+| `value`<TypeText pre>unknown</TypeText>                                       | Set up `value` for the registered input. This prop should be utilised inside `useEffect` or invoke once, each re-run will update or overwrite the input value which you have supplied.                                                                                                                                         |
+| `shouldUnregister`<TypeText pre>boolean</TypeText>                            | Input will be unregistered after unmount and `defaultValues` will be removed as well.<br/><br/>**Note:** this prop should be avoided when using with `useFieldArray` as unregister function gets called after input unmount/remount and reorder.                                                                               |
+| `deps`<TypeText pre>string \| string[]</TypeText>                             | Validation will be triggered for the dependent inputs, it only limited to register api not trigger.                                                                                                                                                                                                                            |
+
+</div>
+
+<div style={{ background: 'var(--color-primary)', padding: 20 }}>
+
+| Name                                                                                                           | Description                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ref`<TypeText pre>React.Ref</TypeText>                                                                        | React element `ref`                                                                                                                                                                                                                                                                                                            |
+| `required`<TypeText pre>string \|<br/><PrettyObject value={{value: 'boolean', message: 'string'}}/></TypeText> | Indicates that the input must have a value before the form can be submitted. <br/><br/>**Note:** This config aligns with web constrained API for required input validation, for object or array type of input use validate function instead.                                                                                   |
+| `maxLength`<TypeText pre><PrettyObject value={{value: 'number', message: 'string'}}/></TypeText>               | The maximum length of the value to accept for this input.                                                                                                                                                                                                                                                                      |
+| `minLength`<TypeText pre><PrettyObject value={{value: 'number', message: 'string'}}/></TypeText>               | The minimum length of the value to accept for this input.                                                                                                                                                                                                                                                                      |
+| `max`<TypeText pre><PrettyObject value={{value: 'number', message: 'string'}}/></TypeText>                     | The maximum value to accept for this input.                                                                                                                                                                                                                                                                                    |
+| `min`<TypeText pre><PrettyObject value={{value: 'number', message: 'string'}}/></TypeText>                     | The minimum value to accept for this input.                                                                                                                                                                                                                                                                                    |
+| `pattern`<TypeText pre><PrettyObject value={{value: 'RegExp', message: 'string'}}/></TypeText>                 | The regex pattern for the input.<br/><br/>**Note:** `RegExp` with the `/g` flag keeps track of the last index where a match occurred.                                                                                                                                                                                          |
+| `validate`<TypeText pre>Function \|<br/>`Record<string, Function>`</TypeText>                                  | Validate function will be executed on its own without depending on other validation rules included in the required attribute.<br/><br/>**Note:** for object or array input data, it's recommended to use the validate function for validation as the other rules mostly apply to string, array of strings, number and boolean. |
+| `valueAsNumber`<TypeText pre>boolean</TypeText>                                                                | Returns `Number` normally. If something goes wrong `NaN` will be returned.<br/><ul><li>`valueAs` process is happening **before** validation.</li><li>Only applies to number input, but without any data manipulation.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>                                  |
+| `valueAsDate`<TypeText pre>boolean</TypeText>                                                                  | Returns `Date` normally. If something goes wrong `Invalid Date` will be returned.<br/><ul><li>`valueAs` process is happening **before** validation.</li><li>Only applies to input.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>                                                                     |
+| `setValueAs`<TypeText pre>\<T\>(value: any) => T</TypeText>                                                    | Return input value by running through the function.<br/><ul><li>`valueAs` process is happening **before** validation. Also, `setValueAs` is ignored if either `valueAsNumber` or `valueAsDate` are true.</li><li>Only applies to text input.</li><li>Does not transform `defaultValue` or `defaultValues`.</li></ul>           |
+| `disabled`<TypeText pre>boolean = false</TypeText>                                                             | Set `disabled` to `true` will lead input value to be `undefined` and input control to be disabled.<br/><ul><li>`disabled` prop will also omit built-in validation rules.</li><li>For schema validation, you can leverage the `undefined` value returned from input or context object.</li></ul>                                |
+| `onChange`<TypeText pre>(e: SyntheticEvent) => void</TypeText>                                                 | `onChange` function event to be invoked in the change event.                                                                                                                                                                                                                                                                   |
+| `onBlur`<TypeText pre>(e: SyntheticEvent) => void</TypeText>                                                   | `onBlur` function event to be invoked in the blur event.                                                                                                                                                                                                                                                                       |
+| `value`<TypeText pre>unknown</TypeText>                                                                        | Set up `value` for the registered input. This prop should be utilised inside `useEffect` or invoke once, each re-run will update or overwrite the input value which you have supplied.                                                                                                                                         |
+| `shouldUnregister`<TypeText pre>boolean</TypeText>                                                             | Input will be unregistered after unmount and `defaultValues` will be removed as well.<br/><br/>**Note:** this prop should be avoided when using with `useFieldArray` as unregister function gets called after input unmount/remount and reorder.                                                                               |
+| `deps`<TypeText pre>string \| string[]</TypeText>                                                              | Validation will be triggered for the dependent inputs, it only limited to register api not trigger.                                                                                                                                                                                                                            |
+
+</div>
+
+</TabGroup>
+ 
+<Admonition type="important" title="Rules">
+
+<ul>
+  <li>
+    Name is **required** and **unique** (except native radio and checkbox).
+    Input name supports both dot and bracket syntax, which allows you to easily
+    create nested form fields.
+  </li>
+  <li>
+    Name can neither start with a number nor use number as key name. Please
+    avoid special characters as well.
+  </li>
+  <li>
+    We are using dot syntax only for typescript usage consistency, so bracket `[]`
+    will not work for array form value.
+    
+```javascript
+register('test.0.firstName'); // ✅
+register('test[0]firstName'); // ❌
+```
+
+  </li>
+  
+  <li>Disabled input will result in an undefined form value. If you want to prevent users from updating the input, you can use `readOnly` or `disable` the entire `fieldset`. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).</li>
+  
+  <li>To produce an array of fields, input names should be followed by a dot and number. For example: `test.0.data`</li>
+  
+  <li>Changing the name on each render will result in new inputs being registered. It's recommended to keep static names for each registered input.</li>
+  
+  <li>Input value and reference will no longer gets removed based on unmount. You can invoke unregister to remove that value and reference.</li>
+  
+  <li>
+  Individual register option can't be removed by `undefined` or `{}`. You can update individual attribute instead.
+  
+```javascript
+register('test', { required: true });
+register('test', {}); // ❌
+register('test', undefined); // ❌
+register('test', { required: false });  // ✅
+```
+  
+  </li>
+
+    <li>There are certain keyword which need to avoid before conflicting with type check. They are `ref`, `_f`.</li>
+
+</ul>
+
+</Admonition>
+
+**Examples**
+
+---
+
+**Register input or select**
+
+```javascript sandbox="https://codesandbox.io/s/register-is0sfo"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      category: "",
+      checkbox: [],
+      radio: "",
+    },
+  })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input
+        {...register("firstName", { required: true })}
+        placeholder="First name"
+      />
+
+      <input
+        {...register("lastName", { minLength: 2 })}
+        placeholder="Last name"
+      />
+
+      <select {...register("category")}>
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+
+      <input {...register("checkbox")} type="checkbox" value="A" />
+      <input {...register("checkbox")} type="checkbox" value="B" />
+      <input {...register("checkbox")} type="checkbox" value="C" />
+
+      <input {...register("radio")} type="radio" value="A" />
+      <input {...register("radio")} type="radio" value="B" />
+      <input {...register("radio")} type="radio" value="C" />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+**Custom async validation**
+
+```javascript
+import { useForm } from "react-hook-form"
+import { checkProduct } from "./service"
+
+export default function App() {
+  const { register, handleSubmit } = useForm()
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <select
+        {...register("category", {
+          required: true,
+        })}
+      >
+        <option value="">Select...</option>
+        <option value="A">Category A</option>
+        <option value="B">Category B</option>
+      </select>
+
+      <input
+        type="text"
+        {...register("product", {
+          validate: {
+            checkAvailability: async (product, { category }) => {
+              if (!category) return "Choose a category"
+              if (!product) return "Specify your product"
+              const isInStock = await checkProduct(category, product)
+              return isInStock || "There is no such product"
+            },
+          },
+        })}
+      />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+### Video
+
+---
+
+<YouTube youTubeId="JFIpCoajYkA" />
+
+### Tips
+
+---
+
+#### Destructuring assignment
+
+```javascript
+const { onChange, onBlur, name, ref } = register('firstName');
+// include type check against field path with the name you have supplied.
+
+<input
+  onChange={onChange} // assign onChange event
+  onBlur={onBlur} // assign onBlur event
+  name={name} // assign name prop
+  ref={ref} // assign ref prop
+/>
+// same as above
+<input {...register('firstName')} />
+```
+
+#### Custom Register
+
+You can also register inputs with `useEffect` and treat them as virtual inputs. For controlled components, we provide a custom hook [useController](/docs/usecontroller) and [Controller](/docs/usecontroller/controller) component to take care this process for you.
+
+If you choose to manually register fields, you will need to update the input value with [setValue](/docs/useform/setvalue).
+
+```javascript
+register('firstName', { required: true, min: 8 });
+
+<TextInput onTextChange={(value) => setValue('lastChange', value))} />
+```
+
+#### How to work with `innerRef`, `inputRef`?
+
+When the custom input component didn't expose ref correctly, you can get it working via the following.
+
+```javascript
+// not working, because ref is not assigned
+<TextInput {...register('test')} />
+
+const firstName = register('firstName', { required: true })
+<TextInput
+  name={firstName.name}
+  onChange={firstName.onChange}
+  onBlur={firstName.onBlur}
+  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+/>
+```

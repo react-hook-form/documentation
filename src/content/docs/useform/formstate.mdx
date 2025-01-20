@@ -1,0 +1,104 @@
+---
+title: formState
+description: State of the form
+sidebar: apiLinks
+---
+
+import formStateUseEffect from "@/components/codeExamples/formStateUseEffect"
+import formStateUseEffectTs from "@/components/codeExamples/formStateUseEffectTs"
+import formState from "@/components/codeExamples/formState"
+import formStateTs from "@/components/codeExamples/formStateTs"
+
+## \</> `formState:` <TypeText>`Object`</TypeText>
+
+This object contains information about the entire form state. It helps you to keep on track with the user's interaction with your form application.
+
+### Return
+
+---
+
+| Name                 | Type                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `isDirty`            | <TypeText>boolean</TypeText> | Set to `true` after the user modifies any of the inputs.<ul><li>**Important:** make sure to provide all inputs' `defaultValues` at the `useForm`, so hook form can have a single source of truth to compare whether the form is dirty.<CodeArea withOutCopy rawData={`const {\n  formState: { isDirty, dirtyFields },\n  setValue\n} = useForm({ defaultValues: { test: "" } })\n\n// isDirty: true ✅\nsetValue('test', 'change')\n\n// isDirty: false because there getValues() === defaultValues ❌\nsetValue('test', '')`}/></li><li>File typed input will need to be managed at the app level due to the ability to cancel file selection and [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) object.</li><li>Do not support custom object, Class or File object.</li></ul> |
+| `dirtyFields`        | <TypeText>object</TypeText>  | An object with the user-modified fields. Make sure to provide all inputs' `defaultValues` via `useForm`, so the library can compare against the `defaultValues.`<ul><li>**Important:** make sure to provide `defaultValues` at the `useForm`, so hook form can have a single source of truth to compare each field's dirtiness.</li><li>Dirty fields will **not** represent as `isDirty` `formState`, because dirty fields are marked field dirty at field level rather the entire form. If you want to determine the entire form state use `isDirty` instead.</li></ul>                                                                                                                                                                                                                               |
+| `touchedFields`      | <TypeText>object</TypeText>  | An object containing all the inputs the user has interacted with.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `defaultValues`      | <TypeText>object</TypeText>  | The value which has been set at [useForm](/docs/useform)'s `defaultValues` or updated `defaultValues` via [reset](/docs/useform/reset) API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `isSubmitted`        | <TypeText>boolean</TypeText> | Set to `true` after the form is submitted. Will remain `true` until the `reset` method is invoked.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `isSubmitSuccessful` | <TypeText>boolean</TypeText> | Indicate the form was successfully submitted without any runtime error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `isSubmitting`       | <TypeText>boolean</TypeText> | `true` if the form is currently being submitted. `false` otherwise.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `isLoading`          | <TypeText>boolean</TypeText> | `true` if the form is currently loading async default values.<ul><li>**Important:** this prop is only applicable to async `defaultValues`<CodeArea withOutCopy rawData={`const {\n  formState: { isLoading }\n} = useForm({\n  defaultValues: async () => await fetch('/api')\n})`}/></li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `submitCount`        | <TypeText>number</TypeText>  | Number of times the form was submitted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `isValid`            | <TypeText>boolean</TypeText> | Set to `true` if the form doesn't have any errors.<ul><li>`setError` has no effect on `isValid` `formState`, `isValid` will always derived via the entire form validation result.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `isValidating`       | <TypeText>boolean</TypeText> | Set to `true` during validation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `validatingFields`   | <TypeText>boolean</TypeText> | Capture fields which are getting async validation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `errors`             | <TypeText>object</TypeText>  | An object with field errors. There is also an [ErrorMessage](/docs/useformstate/errormessage) component to retrieve error message easily.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `disabled`           | <TypeText>boolean</TypeText> | Set to true if the form is disabled via the disabled prop in [useForm](/docs/useform).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+<Admonition type="important" title="Rules">
+
+<ul>
+  <li>
+    Returned `formState` is wrapped with a
+    [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+    to improve render performance and skip extra logic if specific state is not
+    subscribed to. Therefore make sure you invoke or read it before a render in
+    order to enable the state update.
+  </li>
+
+  <li>
+    `formState` is updated in batch. If you want to subscribe to `formState` via
+    `useEffect`, make sure that you place the entire `formState` in the optional
+    array.
+    
+    <TabGroup buttonLabels={["snippet", "example"]}>
+
+    ```javascript
+    useEffect(() => {
+      if (formState.errors.firstName) {
+        // do the your logic here
+      }
+    }, [formState]) // ✅
+    // ❌ [formState.errors] will not trigger the useEffect
+    ```
+
+    <CodeArea rawData={formStateUseEffect} tsRawData={formStateUseEffectTs}/>
+
+  </TabGroup>
+  </li>
+
+  <li>
+    Pay attention to the logical operator when subscription to `formState`.
+
+    <CodeArea
+            rawData={`// ❌ formState.isValid is accessed conditionally,
+
+// so the Proxy does not subscribe to changes of that state
+return <button disabled={!formState.isDirty || !formState.isValid} />;
+
+// ✅ read all formState values to subscribe to changes
+const { isDirty, isValid } = formState;
+return <button disabled={!isDirty || !isValid} />;
+`}
+/>
+
+  </li>
+</ul>
+
+</Admonition>
+
+**Examples**
+
+---
+
+<CodeArea
+  rawData={formState}
+  tsRawData={formStateTs}
+  url="https://codesandbox.io/s/react-hook-form-v6-formstate-forked-tyqlp"
+  tsUrl="https://codesandbox.io/s/react-hook-form-v6-ts-formstate-forked-5sxs3"
+/>
+
+### Video
+
+---
+
+<YouTube youTubeId="4kzd572NbkM" />
