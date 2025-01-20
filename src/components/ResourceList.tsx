@@ -35,9 +35,9 @@ export default function ResourceList({
     const { title, author, description, version } = cur
     // case insensitive filter
     if (
-      `${title} ${author ?? ""} ${description ?? ""} ${version ? `v${version}` : ""}`.match(
-        new RegExp(watch("filterResources"), "i")
-      )
+      `${title} ${author ?? ""} ${description ?? ""} ${
+        version ? `v${version}` : ""
+      }`.match(new RegExp(watch("filterResources"), "i"))
     ) {
       acc.push(cur)
     }
