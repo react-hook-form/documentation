@@ -103,8 +103,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input {...register("firstName")} />
-      <input {...register("lastName")} />
+      <input {...register("firstName"), { required: true }} />
+      <input {...register("lastName"), { minLength: 2 }} />
       <input type="email" {...register("email")} />
 
       <input type="submit" />
