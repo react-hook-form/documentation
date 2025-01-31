@@ -4,23 +4,43 @@ description: Create form state and ready to be subscribed (BETA)
 sidebar: apiLinks
 ---
 
-This function create the entire form state subscription and allow you to subscribe update with or without react component.
+This function create the entire form state subscription and allow you to subscribe update with or without react component. You can use this function without the need of React Context api.
 
 ### Props
 
 ---
 
-This following table applied to `FormProvider`, `useFormContext` accepts no argument.
-
 | Name       | Type                        | Description    |
 | ---------- | --------------------------- | -------------- |
 | `...props` | <TypeText>Object</TypeText> | `UseFormProps` |
 
+
+### Returns
+
+---
+
+| Name       | Type                        | Description    |
+| ---------- | --------------------------- | -------------- |
+| `formControl` | <TypeText>Object</TypeText> | control object for `useForm` hook |
+| `control` | <TypeText>Object</TypeText> | control object for `useController`, `useFormState`, `useWatch` |
+| `...returns` | <TypeText>Functions</TypeText> | `useForm` return methods |
+
 <Admonition type="important" title="Notes">
-  - This function is published at **v7.55.0-next.1** - This function is
+  - This function is published at **v7.55.0-next.3** - This function is
   completely optional, you can consider to use this instead of `useFormContext`
   API. - You may find it useful if you would like to subscribe formsState by
   skipping react re-render.
+</Admonition>
+
+<Admonition type="important" title="Rules">
+ - You should either use this API or context API
+ ```tsx
+ const props = createFormControl()
+
+ <FormProvider {...props} /> // ❌ You don't need provider
+
+ <input {...props.register('name')} /> // ✅ Direct use method from createFormControl
+ ```
 </Admonition>
 
 **Examples:**

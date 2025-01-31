@@ -96,3 +96,9 @@
   display: inline-block;
   margin-right: 20px;
 }
+
+p.beta {
+  margin-bottom: -1rem;
+  font-size: 0.7rem;
+  color: var(--color-light-grey)
+}

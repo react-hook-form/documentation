@@ -160,6 +160,23 @@ export default function ApiGallery() {
               </Link>
             </div>
           </li>
+          <li>
+            <div>
+              <h3>
+                <code>{`</>`}</code>createFormControl
+              </h3>
+              <p className={styles.beta}>BETA @v7.55.0-next.3</p>
+              <p>
+                Create form control object and subscribe form state outside of React component, access methods without context.
+              </p>
+              <Link
+                href="/docs/createFormControl"
+                aria-label="read more about usefieldarray"
+              >
+                Read More ▸
+              </Link>
+            </div>
+          </li>
         </ul>
 
         <div className={styles.versionControl}>
