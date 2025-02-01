@@ -37,6 +37,7 @@ This function create the entire form state subscription and allow you to subscri
  const props = createFormControl()
 
 {" "}
+
 <FormProvider {...props} /> // ❌ You don't need provider
 
  <input {...props.register('name')} /> // ✅ Direct use method from createFormControl
