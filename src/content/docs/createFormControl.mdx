@@ -14,16 +14,15 @@ This function create the entire form state subscription and allow you to subscri
 | ---------- | --------------------------- | -------------- |
 | `...props` | <TypeText>Object</TypeText> | `UseFormProps` |
 
-
 ### Returns
 
 ---
 
-| Name       | Type                        | Description    |
-| ---------- | --------------------------- | -------------- |
-| `formControl` | <TypeText>Object</TypeText> | control object for `useForm` hook |
-| `control` | <TypeText>Object</TypeText> | control object for `useController`, `useFormState`, `useWatch` |
-| `...returns` | <TypeText>Functions</TypeText> | `useForm` return methods |
+| Name          | Type                           | Description                                                    |
+| ------------- | ------------------------------ | -------------------------------------------------------------- |
+| `formControl` | <TypeText>Object</TypeText>    | control object for `useForm` hook                              |
+| `control`     | <TypeText>Object</TypeText>    | control object for `useController`, `useFormState`, `useWatch` |
+| `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                       |
 
 <Admonition type="important" title="Notes">
   - This function is published at **v7.55.0-next.3** - This function is
@@ -37,7 +36,8 @@ This function create the entire form state subscription and allow you to subscri
  ```tsx
  const props = createFormControl()
 
- <FormProvider {...props} /> // ❌ You don't need provider
+{" "}
+<FormProvider {...props} /> // ❌ You don't need provider
 
  <input {...props.register('name')} /> // ✅ Direct use method from createFormControl
  ```
@@ -90,7 +90,7 @@ const { formControl, register } = createFormControl(props)
 formControl.subscribe({
   formState: {
     isDirty: true,
-    values: true
+    values: true,
   },
   callback: (formState) => {
     if (formState.isDirty) {
@@ -98,7 +98,7 @@ formControl.subscribe({
     }
 
     if (formState.values.test.length > 3) {
-     // do something here
+      // do something here
     }
   },
 })
@@ -110,7 +110,7 @@ function App() {
 
   return (
     <form>
-      <input {...register('test')} />
+      <input {...register("test")} />
     </form>
   )
 }

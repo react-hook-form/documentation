@@ -167,7 +167,8 @@ export default function ApiGallery() {
               </h3>
               <p className={styles.beta}>BETA @v7.55.0-next.3</p>
               <p>
-                Create form control object and subscribe form state outside of React component, access methods without context.
+                Create form control object and subscribe form state outside of
+                React component, access methods without context.
               </p>
               <Link
                 href="/docs/createFormControl"
