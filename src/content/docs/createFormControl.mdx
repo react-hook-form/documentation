@@ -50,7 +50,7 @@ This function create the entire form state subscription and allow you to subscri
 <TabGroup buttonLabels={["Setup", "Subscribe"]}>
 
 ```javascript
-const { formControl, control } = createFormControl({
+const { formControl, control, handleSubmit, register } = createFormControl({
   mode: 'onChange',
   defaultValues: {
     firstName: 'Bill'
@@ -58,7 +58,7 @@ const { formControl, control } = createFormControl({
 }})
 
 function App() {
-  const { register, handleSubmit } = useForm({
+  useForm({
     formControl,
   })
 
@@ -85,13 +85,20 @@ function Controller() {
 ```
 
 ```javascript
-const { formControl } = createFormControl(props)
+const { formControl, register } = createFormControl(props)
 
 formControl.subscribe({
-  formState: { isDirty: true },
+  formState: {
+    isDirty: true,
+    values: true
+  },
   callback: (formState) => {
     if (formState.isDirty) {
       // do something here
+    }
+
+    if (formState.values.test.length > 3) {
+     // do something here
     }
   },
 })
@@ -101,7 +108,11 @@ function App() {
     formControl,
   })
 
-  return <form />
+  return (
+    <form>
+      <input {...register('test')} />
+    </form>
+  )
 }
 ```
 
