@@ -84,6 +84,37 @@ export default function App() {
 
 ---
 
+## \</> SubmitErrorHandler {#SubmitErrorHandler}
+
+```typescript copy
+import React from "react"
+import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form"
+
+type FormValues = {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+export default function App() {
+  const { register, handleSubmit } = useForm<FormValues>()
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+  const onError: SubmitErrorHandler<FormValues> = (errors) => console.log(errors);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <input {...register("firstName"), { required: true }} />
+      <input {...register("lastName"), { minLength: 2 }} />
+      <input type="email" {...register("email")} />
+
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
 ## \</> Control {#Control}
 
 ```typescript copy sandbox="https://codesandbox.io/s/control-2mg07"
