@@ -6,6 +6,7 @@
 .table td {
   padding: 6px 15px 6px 0;
   line-height: 1.4;
+  font-size: 0.875rem;
 }
 
 .table td > h5:first-child,
