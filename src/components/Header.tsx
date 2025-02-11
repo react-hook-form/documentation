@@ -163,8 +163,6 @@ export default function Header({
                   src="https://www.youtube.com/embed/7ytK2qU9ac8?si=itv-Hocfih4pnRE4"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
                 />
               )}
             />
@@ -182,7 +180,6 @@ export default function Header({
             src="https://www.youtube.com/embed/rIKMY5azC3A?si=fYwKNYewKAlv6hoW"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
 
