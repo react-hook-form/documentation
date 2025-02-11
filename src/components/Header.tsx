@@ -156,6 +156,7 @@ export default function Header({
               easeType="ease-in"
               render={({ style }) => (
                 <video
+                  preload="none"
                   className={styles.video}
                   id="tabPanel-1"
                   aria-labelledby="tabPanel-1"
@@ -179,6 +180,7 @@ export default function Header({
         >
           <h4 className={styles.videoHeading}>React Native</h4>
           <video
+            preload="none"
             className={styles.video}
             id="tabPanel-2"
             aria-labelledby="tabPanel-2"
