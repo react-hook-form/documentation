@@ -426,11 +426,11 @@ const App = () => {
 
 ## Integrating Controlled Inputs {#IntegratingControlledInputs}
 
-This library embraces uncontrolled components and native HTML inputs. However, it's hard to avoid working with external controlled components such as [React-Select](https://github.com/JedWatson/react-select), [AntD](https://github.com/ant-design/ant-design) and [MUI](https://mui.com/). To make this simple, we provide a wrapper component, [Controller](/docs#Controller), to streamline the integration process while still giving you the freedom to use a custom register.
+This library embraces uncontrolled components and native HTML inputs. However, it's hard to avoid working with external controlled components such as [shadcn/ui](https://ui.shadcn.com/docs/components/form), [React-Select](https://github.com/JedWatson/react-select), [AntD](https://github.com/ant-design/ant-design) and [MUI](https://mui.com/). To make this simple, we provide a wrapper component, [Controller](/docs#Controller), to streamline the integration process while still giving you the freedom to use a custom register.
 
 #### Using Component API
 
-<TabGroup buttonLabels={["TS", "JS"]} >
+<TabGroup buttonLabels={["TS", "JS", 'shadcn/ui']} >
 
 ```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
@@ -486,6 +486,48 @@ function Input({ control, name }) {
       name={field.name} // send down the input name
       inputRef={field.ref} // send input ref, so we can focus on input when error appear
     />
+  )
+}
+```
+
+```javascript copy
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Form, FormControl, FormField } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const FormSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
+
+export function InputForm() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: "",
+    },
+  })
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data);
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormControl><Input {...field} /></FormControl>
+          )}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </Form>
   )
 }
 ```
