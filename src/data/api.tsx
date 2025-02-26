@@ -2069,8 +2069,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
                     </Link>
                     <p>
                       <b className={typographyStyles.note}>Important: </b>This
-                      is only applicable to <strong>built-in</strong> validation
-                      only.
+                      is only applicable to <strong>built-in</strong> validation.
                     </p>
                   </p>
                 </td>
