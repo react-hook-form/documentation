@@ -29,7 +29,7 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
 <Admonition type="important" title="Rules">
 
-- For controlled components you will need to pass `defaultValues` to `useForm` in order to `reset` the `Controller` components' value.
+- For controlled components you will need to pass `defaultValues` to `useForm` in order to `reset` the `Controller` components' value & and default value.
 - When `defaultValues` is not supplied to `reset` API, then HTML native [reset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset) API will be invoked to restore the form.
 - Avoid calling `reset` before `useForm`'s `useEffect` is invoked, this is because `useForm`'s subscription needs to be ready before `reset` can send a signal to flush form state update.
 - It's recommended to `reset` inside `useEffect` after submission.
@@ -49,6 +49,7 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
   reset(undefined, { keepDirtyValues: true }) // reset other form state but keep defaultValues and form values
   ```
+- Calling `reset` with `values` updates the form's `defaultValues` unless `options.keepDefaultValues` is set. If `reset` is later called without `values` or with `{}`, the form resets to the last `values` provided instead of the initial `defaultValues`
 
 </Admonition>
 
