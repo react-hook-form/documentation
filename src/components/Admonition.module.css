@@ -19,6 +19,11 @@
 }
 
 .admonitionIcon svg {
+  stroke: var(--color-black);
+  fill: var(--color-black);
+}
+
+:global(.dark) .admonitionIcon svg {
   stroke: rgb(253, 253, 254);
   fill: rgb(253, 253, 254);
 }
