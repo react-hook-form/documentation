@@ -18,7 +18,12 @@
   --color-orange: #e67e22;
 }
 
+.dark {
+  --color-options: #0e101c;
+}
+
 .light {
+  --color-options: #ffff;
   --color-text: black;
   --color-background: #ffff;
   --color-footer: #081229;
