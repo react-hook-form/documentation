@@ -38,6 +38,10 @@ This function will receive the form data if form validation is successful.
       // await fetch()
     } catch (e) {
       // handle your error
+      setError("service", {
+        type: "custom",
+        message: "something went wrong",
+      })
     }
   }
 
