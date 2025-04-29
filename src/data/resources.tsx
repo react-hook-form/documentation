@@ -17,6 +17,13 @@ export default {
       description: "",
     },
     {
+      title: "Top 10 React Hook Form Mistakes Developers Must Avoid",
+      url: "https://codehazel.com/blog/common-mistakes-using-react-hook-form/",
+      authorUrl: "https://codehazel.com/author/david",
+      author: "David",
+      description: "Avoid these 10 common mistakes with React Hook Form that can break your forms, hurt performance....",
+    },
+    {
       url: "https://blog.bitsrc.io/react-hook-form-an-elegant-solution-to-forms-in-react-4db64505b0cd",
       title: "React Hook Form — An Elegant Solution to Forms in React",
       author: "Mahesh Haldar",
