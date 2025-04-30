@@ -70,7 +70,7 @@ export default function App() {
   const onError: SubmitErrorHandler<FormValues> = (errors) => console.log(errors)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit, onError)}>
       <input {...register("firstName")} />
       <input {...register("lastName")} />
       <input type="email" {...register("email")} />
