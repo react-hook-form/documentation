@@ -49,6 +49,7 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
   reset(undefined, { keepDirtyValues: true }) // reset other form state but keep defaultValues and form values
   ```
+- Calling `reset` with `values` updates the form's `defaultValues` unless `options.keepDefaultValues` is set. If `reset` is later called without `values` or with `{}`, the form resets to the last `values` provided instead of the initial `defaultValues`
 
 </Admonition>
 
