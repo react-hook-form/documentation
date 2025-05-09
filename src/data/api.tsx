@@ -967,6 +967,10 @@ handleSubmit(async (data) => await fetchAPI(data))`}
     // await fetch()
   } catch (e) {
     // handle your error
+    setError("service", {
+      type: "custom",
+      message: "something went wrong",
+    })
   }
 };
 
