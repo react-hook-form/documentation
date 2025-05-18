@@ -55,7 +55,6 @@ This function will receive the form data if form validation is successful.
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-lcrtu"
-import React from "react"
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form"
 
 type FormValues = {
@@ -104,7 +103,6 @@ export default function App() {
 **Async**
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-async-submit-validation-kpx0o"
-import React from "react";
 import { useForm } from "react-hook-form";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
