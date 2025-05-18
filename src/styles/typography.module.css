@@ -97,8 +97,9 @@ h3.subTitle:before {
   text-transform: uppercase;
   border: 1px solid var(--color-secondary);
   padding: 5px 10px;
-  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .h1 {
