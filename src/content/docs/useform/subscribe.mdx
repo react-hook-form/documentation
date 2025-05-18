@@ -59,11 +59,17 @@ export default function App() {
   const { register, subscribe } = useForm<FormInputs>()
 
   useEffect(() => {
-    subscribe({
+    // make sure to unsubscribe;
+    const callback = subscribe({
       callback: ({ values }) => {
         console.log(values);
       }
     })
+
+    return () => callback();
+
+    // You can also just return the subscribe
+    // return subscribe();
   }, [subscribe])
 
   return (
