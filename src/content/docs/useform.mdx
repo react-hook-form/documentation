@@ -83,20 +83,20 @@ sidebar: apiLinks
 
 **Generic props:**
 
-| Option                                                  | Description                                                       |
-| ------------------------------------------------------- | ----------------------------------------------------------------- |
-| [mode](#mode)                                           | Validation strategy **before** submitting behaviour.              |
-| [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.               |
-| [defaultValues](#defaultValues)                         | Default values for the form.                                      |
-| [values](#values)                                       | Reactive values to update the form values.                        |
-| [errors](#errors)                                       | Reactive errors to update the form errors.                        |
-| [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values. |
-| [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                   |
-| [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                      |
-| [delayError](#delayError)                               | Delay error from appearing instantly.                             |
-| [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                         |
-| [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                |
-| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.               |
+| Option                                                  | Description                                                                                                                   |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [mode](#mode)                                           | Validation strategy **before** submitting behaviour.                                                                          |
+| [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.                                                                           |
+| [defaultValues](#defaultValues)                         | Default values for the form, this value will be cached.                                                                       |
+| [values](#values)                                       | Reactive values to update the form values.                                                                                    |
+| [errors](#errors)                                       | Server returns errors to update form. **⚠ Important:** Keep the errors object reference-stable to avoid infinite re-renders. |
+| [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values.                                                             |
+| [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                               |
+| [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                  |
+| [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                         |
+| [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                     |
+| [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                            |
+| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                           |
 
 **Schema validation props:**
 
