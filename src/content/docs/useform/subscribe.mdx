@@ -4,7 +4,7 @@ description: Subscribe to form state update without render
 sidebar: apiLinks
 ---
 
-## `subscribe:` <TypeText>`UseFromSubscribe<TFieldValues extends FieldValues>`</TypeText>
+## `subscribe:` <TypeText>`UseFormSubscribe<TFieldValues extends FieldValues>`</TypeText>
 
 Subscribe to [`formState`](/docs/useform/formState) changes and value updates. You can subscribe to individual fields or the entire form, while avoiding unnecessary re-renders caused by form changes.
 
@@ -15,8 +15,7 @@ Subscribe to [`formState`](/docs/useform/formState) changes and value updates. Y
 | Name      | Type                                          | Description                                                         | Example                                                                                                                                                                                                                                                               |
 | --------- | --------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | <TypeText>undefined</TypeText>                | Subscribe to the entire form                                        | `subscribe()`                                                                                                                                                                                                                                                         |
-|           | <TypeText>string</TypeText>                   | Subscribe on a specific field value by **name**                     | `subscribe({ name: 'test' })`                                                                                                                                                                                                                                         |
-|           | <TypeText>string[]</TypeText>                 | Subscribe on multiple fields by **name**.                           | `subscribe(['firstName', 'lastName'])`                                                                                                                                                                                                                                |
+|           | <TypeText>string[]</TypeText>                 | Subscribe on multiple fields by **name**.                           | `subscribe({ name: ['firstName', 'lastName'] })`                                                                                                                                                                                                                                |
 | formState | <TypeText>`Partial<ReadFormState>`</TypeText> | Pick which [`formState`](/docs/useform/formState) to be subscribed. | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true, \n    isDirty: true, \n    dirtyFields: true, \n    touchedFields: true, \n    isValid: true, \n    errors: true, \n    defaultValues: true, \n    isSubmitted: true  \n  } \n})`}/> |
 | callback  | <TypeText>`Function`</TypeText>               | The callback function for the subscription.                         | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true \n  }, \n  callback: ({ values }) => { \n    console.log(values) \n  } \n})`}/>                                                                                                       |
 | exact     | <TypeText>boolean</TypeText>                  | This prop will enable an exact match for input name subscriptions.  | `subscribe({ name: 'target', exact: true })`                                                                                                                                                                                                                          |
@@ -61,6 +60,9 @@ export default function App() {
   useEffect(() => {
     // make sure to unsubscribe;
     const callback = subscribe({
+      formState: {
+        values: true
+      },
       callback: ({ values }) => {
         console.log(values);
       }
