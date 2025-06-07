@@ -37,13 +37,76 @@ npm install @hookform/lenses
 
 ---
 
+
+## Basic Usage
+
+```tsx copy sandbox="https://codesandbox.io/p/sandbox/keen-herschel-y5h2ft"
+import { useForm } from 'react-hook-form';
+import { Lens, useLens } from '@hookform/lenses';
+import { useFieldArray } from '@hookform/lenses/rhf';
+
+function FormComponent() {
+  const { handleSubmit, control } = useForm<{
+    firstName: string;
+    lastName: string;
+    children: {
+      name: string;
+      surname: string;
+    }[];
+  }>({});
+
+  const lens = useLens({ control });
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <PersonForm
+        lens={lens.reflect(({ firstName, lastName }) => ({
+          name: firstName,
+          surname: lastName,
+        }))}
+      />
+      <ChildForm lens={lens.focus('children')} />
+      <input type="submit" />
+    </form>
+  );
+}
+
+function ChildForm({ lens }: { lens: Lens<{ name: string; surname: string }[]> }) {
+  const { fields, append } = useFieldArray(lens.interop());
+
+  return (
+    <>
+      <button type="button" onClick={() => append({ name: '', surname: '' })}>
+        Add child
+      </button>
+      {lens.map(fields, (value, l) => (
+        <PersonForm key={value.id} lens={l} />
+      ))}
+    </>
+  );
+}
+
+function PersonForm({ lens }: { lens: Lens<{ name: string; surname: string }> }) {
+  return (
+    <div>
+      <StringInput lens={lens.focus('name')} />
+      <StringInput lens={lens.focus('surname')} />
+    </div>
+  );
+}
+
+function StringInput({ lens }: { lens: Lens<string> }) {
+  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />;
+}
+```
+
 ### Motivation
 
 Working with complex, deeply nested forms in React can quickly become challenging. Traditional approaches often lead to:
 
 #### Problems with String-Based Field Names
 
-```tsx copy
+```tsx
 // ❌ Fragile string-based approach
 const { register } = useForm<ComplexFormData>();
 
@@ -58,7 +121,7 @@ const { register } = useForm<ComplexFormData>();
 
 #### Component Reusability Challenges
 
-```tsx copy
+```tsx
 // ❌ Hard to create reusable components
 function PersonForm({ basePath }: { basePath: string }) {
   const { register } = useForm();
@@ -78,9 +141,9 @@ function PersonForm({ basePath }: { basePath: string }) {
 <PersonForm basePath="user.profile.emergency_contact" />
 ```
 
-#### Prop Drilling and Performance Issues
+#### Prop Drilling and Type Safety difficulties
 
-```tsx copy
+```tsx
 // ❌ Prop drilling control and register through component tree
 function ComplexForm() {
   const { control, register } = useForm<FormData>();
@@ -102,114 +165,6 @@ function ProfileSection({ control, register }: Props) {
 }
 ```
 
-#### How Lenses Solve These Problems
-
-**✅ Type-Safe Field Access**
-```tsx copy
-const lens = useLens({ control });
-
-// Full TypeScript support with autocompletion
-const firstNameLens = lens.focus('user.profile.personalInfo.firstName');
-const lastNameLens = lens.focus('user.profile.personalInfo.lastName');
-
-// Compile-time errors for invalid paths
-const invalidLens = lens.focus('user.invalid.path'); // ❌ TypeScript error
-```
-
-**✅ Truly Reusable Components**
-```tsx copy
-function PersonForm({ lens }: { lens: Lens<PersonData> }) {
-  return (
-    <div>
-      <input {...lens.focus('firstName').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('lastName').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('email').interop((ctrl, name) => ctrl.register(name))} />
-    </div>
-  );
-}
-
-// Clean, type-safe usage
-<PersonForm lens={lens.focus('user.profile.owner')} />
-<PersonForm lens={lens.focus('user.profile.emergencyContact')} />
-```
-
-**✅ No Prop Drilling**
-```tsx copy
-function ComplexForm() {
-  const { control } = useForm<FormData>();
-  const lens = useLens({ control });
-
-  return <UserSection lens={lens.focus('user')} />;
-}
-
-function UserSection({ lens }: { lens: Lens<UserData> }) {
-  return <ProfileSection lens={lens.focus('profile')} />;
-}
-
-function ProfileSection({ lens }: { lens: Lens<ProfileData> }) {
-  // Clean, focused component with no prop drilling
-  return <input {...lens.focus('name').interop((ctrl, name) => ctrl.register(name))} />;
-}
-```
-
-**✅ Structural Flexibility**
-```tsx copy
-// Transform data structure for different components
-const contactForm = lens.reflect(({ user }) => ({
-  fullName: user.focus('profile.firstName'),
-  phoneNumber: user.focus('profile.phone'),
-  emailAddress: user.focus('profile.email'),
-}));
-
-// Reuse existing ContactForm component with different data shape
-<ContactForm lens={contactForm} />
-```
-
-**✅ Performance Optimized**
-```tsx copy
-// Lenses are cached and prevent unnecessary re-renders
-const nameLens = lens.focus('user.name'); // Cached
-const sameLens = lens.focus('user.name'); // Returns same instance
-
-assert(nameLens === sameLens); // true
-```
-
-This approach leads to:
-- **Better Developer Experience**: IntelliSense, autocompletion, and compile-time error checking
-- **Improved Maintainability**: Refactoring is safer and easier with type-safe paths
-- **Enhanced Reusability**: Components become truly composable and data-structure agnostic
-- **Cleaner Architecture**: Clear separation of concerns and reduced coupling
-- **Better Performance**: Built-in caching and optimized re-rendering
-
-### Basic Usage
-
-```tsx copy
-import { useForm } from 'react-hook-form';
-import { useLens } from '@hookform/lenses';
-
-function FormComponent() {
-  const { handleSubmit, control } = useForm<{
-    firstName: string;
-    lastName: string;
-    profile: {
-      email: string;
-      age: number;
-    };
-  }>();
-
-  const lens = useLens({ control });
-
-  return (
-    <form onSubmit={handleSubmit(console.log)}>
-      <input {...lens.focus('firstName').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('lastName').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('profile.email').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('profile.age').interop((ctrl, name) => ctrl.register(name, { valueAsNumber: true }))} />
-      <input type="submit" />
-    </form>
-  );
-}
-```
 
 ### Props
 
