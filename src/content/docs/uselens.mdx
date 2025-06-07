@@ -6,7 +6,7 @@ sidebar: apiLinks
 
 ## \</> `useLens`
 
-React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to React Hook Form. By providing type-safe manipulation of nested form state, it enables developers to precisely control and transform complex form data with ease.
+React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to React Hook Form. It provides type-safe manipulation of nested form state, enabling developers to precisely control and transform complex form data with ease.
 
 ### Installation
 
@@ -28,71 +28,74 @@ npm install @hookform/lenses
 
 ## API Reference
 
+Here's a quick overview of the main types and operations available in React Hook Form Lenses.
+
 ### Core Types
 
 #### `Lens<T>`
 
-The main lens type that provides operations based on the field type:
+The main lens type that provides different operations based on the field type you're working with:
 
 ```ts
-type LensWithArray = Lens<string[]>;
-type LensWithObject = Lens<{ name: string; age: number }>;
-type LensWithPrimitive = Lens<string>;
+type LensWithArray = Lens<string[]>
+type LensWithObject = Lens<{ name: string; age: number }>
+type LensWithPrimitive = Lens<string>
 ```
 
 ### Hooks
 
 #### `useLens`
 
-Creates a new lens instance:
+The main hook that creates a lens instance connected to your React Hook Form control:
 
 ```tsx
 const lens = useLens({
-  control: form.control, // React Hook Form control
-});
+  control: form.control, // React Hook Form control from useForm()
+})
 ```
 
-You can also pass dependencies to clear lenses cache and re-create all of them:
+You can also pass a dependency array to clear the lens cache and re-create all lenses when dependencies change:
 
 ```tsx
 const lens = useLens(
   {
     control: form.control, // React Hook Form control
   },
-  [dependencies], // optional dependency array if you need to clear caches
-);
+  [dependencies] // optional dependency array if you need to clear caches
+)
 ```
 
-### Lens Operations
+### Main Operations
 
-| Method | Description | Returns |
-|--------|-------------|---------|
-| [`focus`](#focus) | Focuses on a specific field path | `Lens<PathValue>` |
-| [`reflect`](#reflect) | Transforms lens structure | `Lens<NewStructure>` |
-| [`map`](#map) | Maps over array with useFieldArray fields | `R[]` |
-| [`interop`](#interop) | Provides React Hook Form integration | `{ control, name }` |
+These are the core methods available on every lens instance:
+
+| Method                | Description                                    | Returns              |
+| --------------------- | ---------------------------------------------- | -------------------- |
+| [`focus`](#focus)     | Focuses on a specific field path               | `Lens<PathValue>`    |
+| [`reflect`](#reflect) | Transform and reshape lens structure           | `Lens<NewStructure>` |
+| [`map`](#map)         | Iterate over array fields (with useFieldArray) | `R[]`                |
+| [`interop`](#interop) | Connect to React Hook Form's control system    | `{ control, name }`  |
 
 ---
-
 
 ## Basic Usage
 
 ```tsx copy sandbox="https://codesandbox.io/p/sandbox/keen-herschel-y5h2ft"
-import { useForm } from 'react-hook-form';
-import { Lens, useLens } from '@hookform/lenses';
-import { useFieldArray } from '@hookform/lenses/rhf';
+import { useForm } from "react-hook-form"
+import { Lens, useLens } from "@hookform/lenses"
+import { useFieldArray } from "@hookform/lenses/rhf"
 
 function FormComponent() {
   const { handleSubmit, control } = useForm<{
-    firstName: string;
-    lastName: string;
+    firstName: string
+    lastName: string
     children: {
-      name: string;
-      surname: string;
-    }[];
-  }>({});
+      name: string
+      surname: string
+    }[]
+  }>({})
 
-  const lens = useLens({ control });
+  const lens = useLens({ control })
 
   return (
     <form onSubmit={handleSubmit(console.log)}>
@@ -102,47 +105,55 @@ function FormComponent() {
           surname: lastName,
         }))}
       />
-      <ChildForm lens={lens.focus('children')} />
+      <ChildForm lens={lens.focus("children")} />
       <input type="submit" />
     </form>
-  );
+  )
 }
 
-function ChildForm({ lens }: { lens: Lens<{ name: string; surname: string }[]> }) {
-  const { fields, append } = useFieldArray(lens.interop());
+function ChildForm({
+  lens,
+}: {
+  lens: Lens<{ name: string; surname: string }[]>
+}) {
+  const { fields, append } = useFieldArray(lens.interop())
 
   return (
     <>
-      <button type="button" onClick={() => append({ name: '', surname: '' })}>
+      <button type="button" onClick={() => append({ name: "", surname: "" })}>
         Add child
       </button>
       {lens.map(fields, (value, l) => (
         <PersonForm key={value.id} lens={l} />
       ))}
     </>
-  );
+  )
 }
 
 // PersonForm is used twice with different sources
-function PersonForm({ lens }: { lens: Lens<{ name: string; surname: string }> }) {
+function PersonForm({
+  lens,
+}: {
+  lens: Lens<{ name: string; surname: string }>
+}) {
   return (
     <div>
-      <StringInput lens={lens.focus('name')} />
-      <StringInput lens={lens.focus('surname')} />
+      <StringInput lens={lens.focus("name")} />
+      <StringInput lens={lens.focus("surname")} />
     </div>
-  );
+  )
 }
 
 function StringInput({ lens }: { lens: Lens<string> }) {
-  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />;
+  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
 }
 ```
 
 # Motivation
 
-Working with complex, deeply nested forms in React can quickly become challenging. Traditional approaches often lead to:
+Working with complex, deeply nested forms in React can quickly become challenging. Traditional approaches often lead to common problems:
 
-#### Problems with String-Based Field Names
+#### 1. String-Based Field Names Are Fragile
 
 ```tsx
 // ❌ Fragile string-based approach
@@ -157,7 +168,7 @@ const { register } = useForm<ComplexFormData>();
 // Hard to catch errors at compile time
 ```
 
-#### Component Reusability Challenges
+#### 2. Component Reusability Is Difficult
 
 ```tsx
 // ❌ Hard to create reusable components
@@ -179,47 +190,48 @@ function PersonForm({ basePath }: { basePath: string }) {
 <PersonForm basePath="user.profile.emergency_contact" />
 ```
 
-#### Prop Drilling and Type Safety difficulties
+#### 3. Prop Drilling and Type Safety Issues
 
 ```tsx
 // ❌ Prop drilling control and register through component tree
 function ComplexForm() {
-  const { control, register } = useForm<FormData>();
+  const { control, register } = useForm<FormData>()
 
-  return (
-    <UserSection control={control} register={register} />
-  );
+  return <UserSection control={control} register={register} />
 }
 
 function UserSection({ control, register }: Props) {
-  return (
-    <ProfileSection control={control} register={register} />
-  );
+  return <ProfileSection control={control} register={register} />
 }
 
 function ProfileSection({ control, register }: Props) {
   // Finally use the props deep in the tree
-  return <input {...register('user.profile.name')} />;
+  return <input {...register("user.profile.name")} />
 }
 ```
 
-
 # Props
+
+The `useLens` hook accepts the following configuration:
 
 #### `control`: <TypeText>Control\<TFieldValues></TypeText>
 
-The control object from React Hook Form's `useForm` hook.
+**Required.** The control object from React Hook Form's `useForm` hook. This connects your lens to the form state management system.
 
 ```tsx copy
-const { control } = useForm<MyFormData>();
-const lens = useLens({ control });
+const { control } = useForm<MyFormData>()
+const lens = useLens({ control })
 ```
 
-You can also pass dependencies to clear lenses cache and re-create all of them:
+#### Dependencies Array (Optional)
+
+You can optionally pass a dependency array as the second parameter to clear the lens cache and re-create all lenses when dependencies change:
 
 ```tsx copy
-const lens = useLens({ control }, [dependencies]);
+const lens = useLens({ control }, [dependencies])
 ```
+
+This is useful when you need to reset the entire lens cache based on external state changes.
 
 ---
 
@@ -231,9 +243,9 @@ Creates a new lens focused on a specific path. This is the primary method for dr
 
 ```tsx copy
 // Type-safe path focusing
-const profileLens = lens.focus('profile');
-const emailLens = lens.focus('profile.email');
-const arrayItemLens = lens.focus('users.0.name');
+const profileLens = lens.focus("profile")
+const emailLens = lens.focus("profile.email")
+const arrayItemLens = lens.focus("users.0.name")
 ```
 
 **Array focusing:**
@@ -241,15 +253,17 @@ const arrayItemLens = lens.focus('users.0.name');
 ```tsx copy
 function ContactsList({ lens }: { lens: Lens<Contact[]> }) {
   // Focus on specific array index
-  const firstContact = lens.focus('0');
-  const secondContactName = lens.focus('1.name');
+  const firstContact = lens.focus("0")
+  const secondContactName = lens.focus("1.name")
 
   return (
     <div>
       <ContactForm lens={firstContact} />
-      <input {...secondContactName.interop((ctrl, name) => ctrl.register(name))} />
+      <input
+        {...secondContactName.interop((ctrl, name) => ctrl.register(name))}
+      />
     </div>
-  );
+  )
 }
 ```
 
@@ -269,25 +283,35 @@ The `focus` method provides full TypeScript support with autocompletion and type
 
 Transforms the lens structure with type inference. It is useful when you want to create a new lens from an existing one with a different shape to pass it to a shared component.
 
-The first argument is a Proxy with dictionary of lenses. Pay attention that Lens instantiation happens only on property access. The second argument is the original lens.
+The first argument is a Proxy with a dictionary of lenses. Pay attention that lens instantiation happens only on property access. The second argument is the original lens.
 
 #### Object Reflection
 
 ```tsx copy
 const contactLens = lens.reflect(({ profile }) => ({
-  name: profile.focus('contact.firstName'),
-  phoneNumber: profile.focus('contact.phone'),
-}));
+  name: profile.focus("contact.firstName"),
+  phoneNumber: profile.focus("contact.phone"),
+}))
 
-<SharedComponent lens={contactLens} />;
+;<SharedComponent lens={contactLens} />
 
-function SharedComponent({ lens }: { lens: Lens<{ name: string; phoneNumber: string }> }) {
+function SharedComponent({
+  lens,
+}: {
+  lens: Lens<{ name: string; phoneNumber: string }>
+}) {
   return (
     <div>
-      <input {...lens.focus('name').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('phoneNumber').interop((ctrl, name) => ctrl.register(name))} />
+      <input
+        {...lens.focus("name").interop((ctrl, name) => ctrl.register(name))}
+      />
+      <input
+        {...lens
+          .focus("phoneNumber")
+          .interop((ctrl, name) => ctrl.register(name))}
+      />
     </div>
-  );
+  )
 }
 ```
 
@@ -297,13 +321,17 @@ You can also use the second parameter (the original lens) directly:
 
 ```tsx
 const contactLens = lens.reflect((_, l) => ({
-  name: l.focus('profile.contact.firstName'),
-  phoneNumber: l.focus('profile.contact.phone'),
-}));
+  name: l.focus("profile.contact.firstName"),
+  phoneNumber: l.focus("profile.contact.phone"),
+}))
 
-<SharedComponent lens={contactLens} />;
+;<SharedComponent lens={contactLens} />
 
-function SharedComponent({ lens }: { lens: Lens<{ name: string; phoneNumber: string }> }) {
+function SharedComponent({
+  lens,
+}: {
+  lens: Lens<{ name: string; phoneNumber: string }>
+}) {
   // ...
 }
 ```
@@ -314,7 +342,11 @@ You can restructure array lenses:
 
 ```tsx
 function ArrayComponent({ lens }: { lens: Lens<{ value: string }[]> }) {
-  return <AnotherComponent lens={lens.reflect((_, l) => [{ data: l.focus('value') }])} />;
+  return (
+    <AnotherComponent
+      lens={lens.reflect((_, l) => [{ data: l.focus("value") }])}
+    />
+  )
 }
 
 function AnotherComponent({ lens }: { lens: Lens<{ data: string }[]> }) {
@@ -324,7 +356,7 @@ function AnotherComponent({ lens }: { lens: Lens<{ data: string }[]> }) {
 
 <Admonition type="important">
 
-Pay attention that in case of array reflecting you have to pass an array with single item.
+Note that for array reflection, you must pass an array with a single item as the template.
 
 </Admonition>
 
@@ -335,28 +367,32 @@ You can use `reflect` to merge two lenses into one:
 ```tsx
 function Component({
   lensA,
-  lensB
+  lensB,
 }: {
-  lensA: Lens<{ firstName: string }>;
+  lensA: Lens<{ firstName: string }>
   lensB: Lens<{ lastName: string }>
 }) {
   const combined = lensA.reflect((_, l) => ({
-    firstName: l.focus('firstName'),
-    lastName: lensB.focus('lastName'),
-  }));
+    firstName: l.focus("firstName"),
+    lastName: lensB.focus("lastName"),
+  }))
 
-  return <PersonForm lens={combined} />;
+  return <PersonForm lens={combined} />
 }
 ```
 
-Keep in mind that in such case the passed to `reflect` function is no longer pure.
+Keep in mind that in such cases, the function passed to `reflect` is no longer pure.
 
 #### Spread Operator Support
 
-You can use spread in reflect if you want to leave other properties as is. In runtime the first argument is just a proxy that calls `focus` on the original lens. The is useful for proper typing if you need to change the prop names only for several fields, and leave the rest as is:
+You can use spread in reflect if you want to leave other properties as is. At runtime, the first argument is just a proxy that calls `focus` on the original lens. This is useful for proper typing when you need to change the property names for only a few fields and leave the rest unchanged:
 
 ```tsx
-function Component({ lens }: { lens: Lens<{ firstName: string; lastName: string; age: number }> }) {
+function Component({
+  lens,
+}: {
+  lens: Lens<{ firstName: string; lastName: string; age: number }>
+}) {
   return (
     <PersonForm
       lens={lens.reflect(({ firstName, lastName, ...rest }) => ({
@@ -365,7 +401,7 @@ function Component({ lens }: { lens: Lens<{ firstName: string; lastName: string;
         surname: lastName,
       }))}
     />
-  );
+  )
 }
 ```
 
@@ -376,14 +412,14 @@ function Component({ lens }: { lens: Lens<{ firstName: string; lastName: string;
 Maps over array fields with `useFieldArray` integration. This method requires the `fields` property from `useFieldArray`.
 
 ```tsx copy
-import { useFieldArray } from '@hookform/lenses/rhf';
+import { useFieldArray } from "@hookform/lenses/rhf"
 
 function ContactsList({ lens }: { lens: Lens<Contact[]> }) {
-  const { fields, append, remove } = useFieldArray(lens.interop());
+  const { fields, append, remove } = useFieldArray(lens.interop())
 
   return (
     <div>
-      <button onClick={() => append({ name: '', email: '' })}>
+      <button onClick={() => append({ name: "", email: "" })}>
         Add Contact
       </button>
 
@@ -394,28 +430,36 @@ function ContactsList({ lens }: { lens: Lens<Contact[]> }) {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
-function ContactForm({ lens }: { lens: Lens<{ name: string; email: string }> }) {
+function ContactForm({
+  lens,
+}: {
+  lens: Lens<{ name: string; email: string }>
+}) {
   return (
     <div>
-      <input {...lens.focus('name').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('email').interop((ctrl, name) => ctrl.register(name))} />
+      <input
+        {...lens.focus("name").interop((ctrl, name) => ctrl.register(name))}
+      />
+      <input
+        {...lens.focus("email").interop((ctrl, name) => ctrl.register(name))}
+      />
     </div>
-  );
+  )
 }
 ```
 
 **Map callback parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `value` | `T` | The current field value with `id` |
-| `lens` | `Lens<T>` | Lens focused on the current array item |
-| `index` | `number` | Current array index |
-| `array` | `T[]` | The complete array |
-| `originLens` | `Lens<T[]>` | The original array lens |
+| Parameter    | Type        | Description                            |
+| ------------ | ----------- | -------------------------------------- |
+| `value`      | `T`         | The current field value with `id`      |
+| `lens`       | `Lens<T>`   | Lens focused on the current array item |
+| `index`      | `number`    | Current array index                    |
+| `array`      | `T[]`       | The complete array                     |
+| `originLens` | `Lens<T[]>` | The original array lens                |
 
 ---
 
@@ -428,9 +472,9 @@ The `interop` method provides integration with react-hook-form by exposing the u
 The first variant involves calling `interop()` without arguments, which returns an object containing the `control` and `name` properties for react-hook-form:
 
 ```tsx
-const { control, name } = lens.interop();
+const { control, name } = lens.interop()
 
-return <input {...control.register(name)} />;
+return <input {...control.register(name)} />
 ```
 
 #### Second Variant: Callback Function
@@ -443,7 +487,7 @@ return (
     <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
     <input type="submit" />
   </form>
-);
+)
 ```
 
 #### Integration with useController
@@ -451,47 +495,55 @@ return (
 The `interop` method's return value can be passed directly to the `useController` hook from react-hook-form, providing seamless integration:
 
 ```tsx
-import { useController } from 'react-hook-form';
+import { useController } from "react-hook-form"
 
 function ControlledInput({ lens }: { lens: Lens<string> }) {
-  const { field, fieldState } = useController(lens.interop());
+  const { field, fieldState } = useController(lens.interop())
 
   return (
     <div>
       <input {...field} />
       {fieldState.error && <p>{fieldState.error.message}</p>}
     </div>
-  );
+  )
 }
 ```
 
 ---
 
-### useFieldArray {#usefieldarray}
+### useFieldArray
 
 Import the enhanced `useFieldArray` from `@hookform/lenses/rhf` for seamless array handling with lenses.
 
 ```tsx copy
-import { useFieldArray } from '@hookform/lenses/rhf';
+import { useFieldArray } from "@hookform/lenses/rhf"
 
-function DynamicForm({ lens }: { lens: Lens<{ items: { name: string; value: number }[] }> }) {
-  const itemsLens = lens.focus('items');
-  const { fields, append, remove, move } = useFieldArray(itemsLens.interop());
+function DynamicForm({
+  lens,
+}: {
+  lens: Lens<{ items: { name: string; value: number }[] }>
+}) {
+  const itemsLens = lens.focus("items")
+  const { fields, append, remove, move } = useFieldArray(itemsLens.interop())
 
   return (
     <div>
-      <button onClick={() => append({ name: '', value: 0 })}>
-        Add Item
-      </button>
+      <button onClick={() => append({ name: "", value: 0 })}>Add Item</button>
 
       {itemsLens.map(fields, (field, itemLens, index) => (
         <div key={field.id}>
-          <input {...itemLens.focus('name').interop((ctrl, name) => ctrl.register(name))} />
+          <input
+            {...itemLens
+              .focus("name")
+              .interop((ctrl, name) => ctrl.register(name))}
+          />
           <input
             type="number"
-            {...itemLens.focus('value').interop((ctrl, name) =>
-              ctrl.register(name, { valueAsNumber: true })
-            )}
+            {...itemLens
+              .focus("value")
+              .interop((ctrl, name) =>
+                ctrl.register(name, { valueAsNumber: true })
+              )}
           />
           <button onClick={() => remove(index)}>Remove</button>
           {index > 0 && (
@@ -500,34 +552,39 @@ function DynamicForm({ lens }: { lens: Lens<{ items: { name: string; value: numb
         </div>
       ))}
     </div>
-  );
+  )
 }
 ```
 
 # Performance Optimization
 
-## Caching System
+## Built-in Caching System
 
-All the lenses are cached to prevent component re-renders when utilizing `React.memo`. It means that focusing the same path multiple times will not create new lens instance:
-
-```tsx
-assert(lens.focus('firstName') === lens.focus('firstName'));
-```
-
-However, there are some difficulties when you use functions, i.e. in `reflect`:
+Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times will return the same lens instance:
 
 ```tsx
-lens.reflect((l) => l.focus('firstName'))
+assert(lens.focus("firstName") === lens.focus("firstName"))
 ```
 
-To make the caching work, you need to memoize the function you pass:
+## Function Memoization
+
+When using functions with methods like `reflect`, you need to be careful about function identity to maintain caching benefits:
 
 ```tsx
-lens.reflect(useCallback((l) => l.focus('firstName'), []));
+// ❌ Creates a new function on every render, breaking cache
+lens.reflect((l) => l.focus("firstName"))
 ```
-<Admonition type="tip" title="React Compiler">
 
-Here is the case where [React Compiler](https://react.dev/learn/react-compiler) can be extremely helpful. Because the function you pass to `reflect` has no side effects, react compiler will hoist it to module scope and thus lens cache will work as expected.
+To maintain caching, memoize the function you pass:
+
+```tsx
+// ✅ Memoized function preserves cache
+lens.reflect(useCallback((l) => l.focus("firstName"), []))
+```
+
+<Admonition type="tip" title="React Compiler Optimization">
+
+[React Compiler](https://react.dev/learn/react-compiler) can automatically optimize these functions for you! Since functions passed to `reflect` have no side effects, React Compiler will automatically hoist them to module scope, ensuring lens caching works perfectly without manual memoization.
 
 </Admonition>
 
@@ -537,22 +594,40 @@ Here is the case where [React Compiler](https://react.dev/learn/react-compiler) 
 
 ### Manual Lens Creation
 
-You can create lenses manually without `useLens` hook by utilizing the `LensCore` class:
+For advanced use cases or when you need more control, you can create lenses manually without the `useLens` hook using the `LensCore` class:
 
 ```tsx
-import { useMemo } from 'react';
-import { useForm } from 'react-hook-form';
-import { LensCore, LensesStorage } from '@hookform/lenses';
+import { useMemo } from "react"
+import { useForm } from "react-hook-form"
+import { LensCore, LensesStorage } from "@hookform/lenses"
 
 function App() {
-  const { control } = useForm<{ firstName: string; lastName: string }>();
+  const { control } = useForm<{ firstName: string; lastName: string }>()
 
   const lens = useMemo(() => {
-    const cache = new LensesStorage(control);
-    return LensCore.create(control, cache);
-  }, [control]);
+    const cache = new LensesStorage(control)
+    return LensCore.create(control, cache)
+  }, [control])
 
-  lens.focus('firstName');
-  lens.focus('lastName');
+  return (
+    <div>
+      <input
+        {...lens
+          .focus("firstName")
+          .interop((ctrl, name) => ctrl.register(name))}
+      />
+      <input
+        {...lens.focus("lastName").interop((ctrl, name) => ctrl.register(name))}
+      />
+    </div>
+  )
 }
 ```
+
+---
+
+<Admonition type="tip" title="Questions or Feedback?">
+
+Found a bug or have a feature request? Check out the [GitHub repository](https://github.com/react-hook-form/lenses) to report issues or contribute to the project.
+
+</Admonition>
