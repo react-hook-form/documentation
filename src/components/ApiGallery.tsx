@@ -168,9 +168,8 @@ export default function ApiGallery() {
                 <code>{`</>`}</code>useLens
               </h3>
               <p>
-                Type-safe lenses for building reusable and shareable
-                form components. Create composable components with precise focus
-                on specific form fields.
+                Type-safe lenses for building reusable and shareable form
+                components with precise focus on form fields.
               </p>
               <Link href="/docs/uselens" aria-label="read more about useLens">
                 Read More ▸

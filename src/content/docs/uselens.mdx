@@ -10,7 +10,7 @@ sidebar: apiLinks
 [![NPM Downloads](https://img.shields.io/npm/dt/@hookform/lenses)](https://www.npmjs.com/package/@hookform/lenses)
 [![GitHub Repo stars](https://img.shields.io/github/stars/react-hook-form/lenses)](https://github.com/react-hook-form/lenses)
 
-React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to React Hook Form. It provides type-safe manipulation of nested form state, enabling developers to precisely control and transform complex form data with ease.
+React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to form development. It provides type-safe manipulation of nested structures, enabling developers to precisely control and transform complex data with ease.
 
 ### Installation
 
@@ -20,13 +20,13 @@ npm install @hookform/lenses
 
 ### Features
 
-- **Type-Safe Form State**: Focus on specific parts of your form state with full TypeScript support and precise type inference
-- **Functional Lenses**: Build complex form state transformations through composable lens operations
-- **Deep Structure Support**: Handle deeply nested structures and arrays elegantly with specialized array operations
+- **Type-Safe Form State**: Focus on specific parts of your data with full TypeScript support and precise type inference
+- **Functional Lenses**: Build complex transformations through composable lens operations
+- **Deep Structure Support**: Handle deeply nested structures and arrays elegantly with specialized operations
 - **Seamless Integration**: Work smoothly with React Hook Form's Control API and existing functionality
-- **Optimized Performance**: Each lens is cached and reused for optimal performance
-- **Array Handling**: Specialized support for array fields with type-safe mapping
-- **Composable API**: Build complex form state transformations through lens composition
+- **Optimized Performance**: Each lens is cached and reused for optimal efficiency
+- **Array Handling**: Specialized support for dynamic fields with type-safe mapping
+- **Composable API**: Build complex transformations through elegant lens composition
 
 ---
 
@@ -58,7 +58,7 @@ const lens = useLens({
 })
 ```
 
-You can also pass a dependency array to clear the lens cache and re-create all lenses when dependencies change:
+You can also pass a dependency array to clear the cache and re-create all lenses when values change:
 
 ```tsx
 const lens = useLens(
@@ -159,38 +159,39 @@ Working with complex, deeply nested forms in React Hook Form can quickly become 
 
 #### 1. Type-Safe Name Props Are Nearly Impossible
 
-Creating reusable form components requires accepting a `name` prop to specify which field the component controls. However, making this type-safe in TypeScript is extremely challenging:
+Creating reusable form components requires accepting a `name` prop to specify which field to control. However, making this type-safe in TypeScript is extremely challenging:
 
 ```tsx
 // ❌ Loses type safety - no way to ensure name matches the form schema
 interface InputProps<T> {
-  name: string; // Could be any string, even invalid field paths
-  control: Control<T>;
+  name: string // Could be any string, even invalid field paths
+  control: Control<T>
 }
 
 // ❌ Attempting proper typing leads to complex, unmaintainable generics
 interface InputProps<T, TName extends Path<T>> {
-  name: TName;
-  control: Control<T>;
+  name: TName
+  control: Control<T>
 }
 // This becomes unwieldy and breaks down with nested objects
 ```
 
 #### 2. `useFormContext()` Creates Tight Coupling
 
-Using `useFormContext()` in reusable components tightly couples them to specific form schemas, making them less portable and harder to reuse:
+Using `useFormContext()` in reusable components tightly couples them to specific form schemas, making them less portable and harder to share:
 
 ```tsx
 // ❌ Tightly coupled to parent form structure
 function AddressForm() {
-  const { control } = useFormContext<UserForm>(); // Locked to UserForm type
+  const { control } = useFormContext<UserForm>() // Locked to UserForm type
 
   return (
     <div>
-      <input {...control.register('address.street')} /> {/* Fixed field paths */}
-      <input {...control.register('address.city')} />
+      <input {...control.register("address.street")} />{" "}
+      {/* Fixed field paths */}
+      <input {...control.register("address.city")} />
     </div>
-  );
+  )
 }
 // Can't reuse this component with different form schemas
 ```
@@ -225,7 +226,7 @@ The `useLens` hook accepts the following configuration:
 
 #### `control`: <TypeText>Control\<TFieldValues></TypeText>
 
-**Required.** The control object from React Hook Form's `useForm` hook. This connects your lens to the form state management system.
+**Required.** The control object from React Hook Form's `useForm` hook. This connects your lens to the form management system.
 
 ```tsx copy
 const { control } = useForm<MyFormData>()
@@ -248,7 +249,7 @@ This is useful when you need to reset the entire lens cache based on external st
 
 ### focus {#focus}
 
-Creates a new lens focused on a specific path. This is the primary method for drilling down into your form data structure.
+Creates a new lens focused on a specific path. This is the primary method for drilling down into your data structure.
 
 ```tsx copy
 // Type-safe path focusing
@@ -569,7 +570,7 @@ function DynamicForm({
 
 ## Built-in Caching System
 
-Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times will return the same lens instance:
+Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times will return the identical lens instance:
 
 ```tsx
 assert(lens.focus("firstName") === lens.focus("firstName"))
