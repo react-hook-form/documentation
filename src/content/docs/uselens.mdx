@@ -4,36 +4,7 @@ description: Type-safe functional lenses for React Hook Form
 sidebar: apiLinks
 ---
 
-<SelectNav
-    options={[
-    {
-      label: "motivation",
-      value: "#motivation",
-    },
-    {
-      label: "focus",
-      value: "#focus",
-    },
-    {
-      label: "reflect",
-      value: "#reflect",
-    },
-    {
-      label: "map",
-      value: "#map",
-    },
-    {
-      label: "interop",
-      value: "#interop",
-    },
-    {
-      label: "useFieldArray",
-      value: "#usefieldarray",
-    },
-  ]}
-/>
-
-## \</> `useLens:` [`UseLensProps`](/ts#UseLensProps)
+## \</> `useLens`
 
 React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to React Hook Form. By providing type-safe manipulation of nested form state, it enables developers to precisely control and transform complex form data with ease.
 
@@ -52,6 +23,19 @@ npm install @hookform/lenses
 - **Optimized Performance**: Each lens is cached and reused for optimal performance
 - **Array Handling**: Specialized support for array fields with type-safe mapping
 - **Composable API**: Build complex form state transformations through lens composition
+
+---
+
+## API Reference
+
+| Method | Description | Returns |
+|--------|-------------|---------|
+| [`focus`](#focus) | Focuses on a specific field path | `Lens<PathValue>` |
+| [`reflect`](#reflect) | Transforms lens structure | `Lens<NewStructure>` |
+| [`map`](#map) | Maps over array with useFieldArray fields | `R[]` |
+| [`interop`](#interop) | Provides React Hook Form integration | `{ control, name }` |
+
+---
 
 ### Motivation
 
@@ -748,104 +732,4 @@ function ValidatedForm() {
 }
 ```
 
----
 
-## Migration Guide
-
-### From Manual Field Management
-
-**Before (manual):**
-```tsx copy
-function Form() {
-  const { register, control } = useForm<{ user: { name: string; email: string } }>();
-
-  return (
-    <form>
-      <input {...register('user.name')} />
-      <input {...register('user.email')} />
-    </form>
-  );
-}
-```
-
-**After (with lenses):**
-```tsx copy
-function Form() {
-  const { control } = useForm<{ user: { name: string; email: string } }>();
-  const lens = useLens({ control });
-
-  return (
-    <form>
-      <input {...lens.focus('user.name').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('user.email').interop((ctrl, name) => ctrl.register(name))} />
-    </form>
-  );
-}
-```
-
-### Benefits of Migration
-
-- **Type Safety**: Compile-time checking of field paths
-- **Composability**: Reusable form components with different data shapes
-- **Maintainability**: Clear lens-based architecture for complex forms
-- **Performance**: Built-in caching and optimization
-
----
-
-## API Reference
-
-| Method | Description | Returns |
-|--------|-------------|---------|
-| [`useLens`](#uselens) | Creates a lens from React Hook Form control | `Lens<T>` |
-| [`focus`](#focus) | Focuses on a specific field path | `Lens<PathValue>` |
-| [`reflect`](#reflect) | Transforms lens structure | `Lens<NewStructure>` |
-| [`map`](#map) | Maps over array with useFieldArray fields | `R[]` |
-| [`interop`](#interop) | Provides React Hook Form integration | `{ control, name }` |
-
----
-
-## Best Practices
-
-1. **Use TypeScript**: Leverage full type safety for better development experience
-2. **Memoize functions**: Use `useCallback` for functions passed to `reflect`
-3. **Component composition**: Create reusable components that accept lens props
-4. **Error handling**: Integrate with React Hook Form's built-in validation
-5. **Performance**: Utilize the caching system by avoiding inline functions
-
----
-
-## Troubleshooting
-
-### Common Issues
-
-**Lens cache not working with reflect:**
-```tsx copy
-// ❌ Creates new function each render
-lens.reflect((l) => ({ name: l.focus('firstName') }))
-
-// ✅ Memoized function
-lens.reflect(useCallback((l) => ({ name: l.focus('firstName') }), []))
-```
-
-**Type errors with complex paths:**
-```tsx copy
-// Ensure your form type matches your lens usage
-type FormData = {
-  user: {
-    profile: {
-      name: string;
-    };
-  };
-};
-
-// This path must exist in FormData
-lens.focus('user.profile.name') // ✅
-lens.focus('user.invalid') // ❌ TypeScript error
-```
-
-**Array operations not working:**
-```tsx copy
-// Make sure to use the enhanced useFieldArray
-import { useFieldArray } from '@hookform/lenses/rhf'; // ✅
-import { useFieldArray } from 'react-hook-form'; // ❌ Won't work with lenses
-```

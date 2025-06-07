@@ -165,6 +165,20 @@ export default function ApiGallery() {
           <li>
             <div>
               <h3>
+                <code>{`</>`}</code>useLens
+              </h3>
+              <p>Reusable form components</p>
+              <Link
+                href="/docs/uselens"
+                aria-label="read more about usefieldarray"
+              >
+                Read More ▸
+              </Link>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>
                 <code>{`</>`}</code>createFormControl
               </h3>
               <p>
