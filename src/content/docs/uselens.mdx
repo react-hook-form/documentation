@@ -28,6 +28,43 @@ npm install @hookform/lenses
 
 ## API Reference
 
+### Core Types
+
+#### `Lens<T>`
+
+The main lens type that provides operations based on the field type:
+
+```ts
+type LensWithArray = Lens<string[]>;
+type LensWithObject = Lens<{ name: string; age: number }>;
+type LensWithPrimitive = Lens<string>;
+```
+
+### Hooks
+
+#### `useLens`
+
+Creates a new lens instance:
+
+```tsx
+const lens = useLens({
+  control: form.control, // React Hook Form control
+});
+```
+
+You can also pass dependencies to clear lenses cache and re-create all of them:
+
+```tsx
+const lens = useLens(
+  {
+    control: form.control, // React Hook Form control
+  },
+  [dependencies], // optional dependency array if you need to clear caches
+);
+```
+
+### Lens Operations
+
 | Method | Description | Returns |
 |--------|-------------|---------|
 | [`focus`](#focus) | Focuses on a specific field path | `Lens<PathValue>` |
@@ -230,14 +267,16 @@ The `focus` method provides full TypeScript support with autocompletion and type
 
 ### reflect {#reflect}
 
-Transforms the lens structure with type inference. This is useful when you want to create a new lens from an existing one with a different shape to pass to shared components.
+Transforms the lens structure with type inference. It is useful when you want to create a new lens from an existing one with a different shape to pass it to a shared component.
+
+The first argument is a Proxy with dictionary of lenses. Pay attention that Lens instantiation happens only on property access. The second argument is the original lens.
 
 #### Object Reflection
 
 ```tsx copy
 const contactLens = lens.reflect(({ profile }) => ({
-  name: profile.focus('firstName'),
-  phoneNumber: profile.focus('phone'),
+  name: profile.focus('contact.firstName'),
+  phoneNumber: profile.focus('contact.phone'),
 }));
 
 <SharedComponent lens={contactLens} />;
@@ -254,34 +293,46 @@ function SharedComponent({ lens }: { lens: Lens<{ name: string; phoneNumber: str
 
 **Alternative syntax using the lens parameter:**
 
-```tsx copy
+You can also use the second parameter (the original lens) directly:
+
+```tsx
 const contactLens = lens.reflect((_, l) => ({
-  name: l.focus('profile.firstName'),
-  phoneNumber: l.focus('profile.phone'),
+  name: l.focus('profile.contact.firstName'),
+  phoneNumber: l.focus('profile.contact.phone'),
 }));
+
+<SharedComponent lens={contactLens} />;
+
+function SharedComponent({ lens }: { lens: Lens<{ name: string; phoneNumber: string }> }) {
+  // ...
+}
 ```
 
 #### Array Reflection
 
-```tsx copy
+You can restructure array lenses:
+
+```tsx
 function ArrayComponent({ lens }: { lens: Lens<{ value: string }[]> }) {
   return <AnotherComponent lens={lens.reflect((_, l) => [{ data: l.focus('value') }])} />;
 }
 
 function AnotherComponent({ lens }: { lens: Lens<{ data: string }[]> }) {
-  // Handle restructured array
+  // ...
 }
 ```
 
-<Admonition type="note">
+<Admonition type="important">
 
-For array reflection, you must pass an array with a single item representing the template structure.
+Pay attention that in case of array reflecting you have to pass an array with single item.
 
 </Admonition>
 
 #### Merging Lenses
 
-```tsx copy
+You can use `reflect` to merge two lenses into one:
+
+```tsx
 function Component({
   lensA,
   lensB
@@ -298,9 +349,13 @@ function Component({
 }
 ```
 
+Keep in mind that in such case the passed to `reflect` function is no longer pure.
+
 #### Spread Operator Support
 
-```tsx copy
+You can use spread in reflect if you want to leave other properties as is. In runtime the first argument is just a proxy that calls `focus` on the original lens. The is useful for proper typing if you need to change the prop names only for several fields, and leave the rest as is:
+
+```tsx
 function Component({ lens }: { lens: Lens<{ firstName: string; lastName: string; age: number }> }) {
   return (
     <PersonForm
@@ -366,26 +421,36 @@ function ContactForm({ lens }: { lens: Lens<{ name: string; email: string }> }) 
 
 ### interop {#interop}
 
-The `interop` method provides integration with React Hook Form by exposing the underlying `control` and `name` properties.
+The `interop` method provides integration with react-hook-form by exposing the underlying `control` and `name` properties. This allows you to connect your lens to react-hook-form's control API.
 
-#### Basic Usage
+#### First Variant: Object Return
 
-```tsx copy
+The first variant involves calling `interop()` without arguments, which returns an object containing the `control` and `name` properties for react-hook-form:
+
+```tsx
 const { control, name } = lens.interop();
+
 return <input {...control.register(name)} />;
 ```
 
-#### Callback Style
+#### Second Variant: Callback Function
 
-```tsx copy
+The second variant is passing a callback function to `interop` which receives the `control` and `name` properties as arguments. This allows you to work with these properties directly within the callback scope:
+
+```tsx
 return (
-  <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
+  <form onSubmit={handleSubmit(console.log)}>
+    <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
+    <input type="submit" />
+  </form>
 );
 ```
 
-#### With useController
+#### Integration with useController
 
-```tsx copy
+The `interop` method's return value can be passed directly to the `useController` hook from react-hook-form, providing seamless integration:
+
+```tsx
 import { useController } from 'react-hook-form';
 
 function ControlledInput({ lens }: { lens: Lens<string> }) {
@@ -443,40 +508,38 @@ function DynamicForm({ lens }: { lens: Lens<{ items: { name: string; value: numb
 
 ## Caching System
 
-All lenses are cached to prevent component re-renders when using `React.memo`:
+All the lenses are cached to prevent component re-renders when utilizing `React.memo`. It means that focusing the same path multiple times will not create new lens instance:
 
-```tsx copy
-// These will return the same lens instance
+```tsx
 assert(lens.focus('firstName') === lens.focus('firstName'));
 ```
 
-### Memoizing Reflect Functions
+However, there are some difficulties when you use functions, i.e. in `reflect`:
 
-When using functions in `reflect`, memoize them for optimal performance:
-
-```tsx copy
-// ❌ Creates new function on every render
-const reflected = lens.reflect((l) => ({ name: l.focus('firstName') }));
-
-// ✅ Memoized function
-const reflected = lens.reflect(useCallback((l) => ({
-  name: l.focus('firstName')
-}), []));
+```tsx
+lens.reflect((l) => l.focus('firstName'))
 ```
 
+To make the caching work, you need to memoize the function you pass:
+
+```tsx
+lens.reflect(useCallback((l) => l.focus('firstName'), []));
+```
 <Admonition type="tip" title="React Compiler">
 
-[React Compiler](https://react.dev/learn/react-compiler) can automatically optimize these functions since they have no side effects.
+Here is the case where [React Compiler](https://react.dev/learn/react-compiler) can be extremely helpful. Because the function you pass to `reflect` has no side effects, react compiler will hoist it to module scope and thus lens cache will work as expected.
 
 </Admonition>
 
 ---
 
-## Manual Lens Creation
+## Advanced Usage
 
-For advanced use cases, you can create lenses manually:
+### Manual Lens Creation
 
-```tsx copy
+You can create lenses manually without `useLens` hook by utilizing the `LensCore` class:
+
+```tsx
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { LensCore, LensesStorage } from '@hookform/lenses';
@@ -489,44 +552,7 @@ function App() {
     return LensCore.create(control, cache);
   }, [control]);
 
-  return (
-    <form>
-      <input {...lens.focus('firstName').interop((ctrl, name) => ctrl.register(name))} />
-      <input {...lens.focus('lastName').interop((ctrl, name) => ctrl.register(name))} />
-    </form>
-  );
+  lens.focus('firstName');
+  lens.focus('lastName');
 }
-```
-
----
-
-## TypeScript Support
-
-The library provides excellent TypeScript support with:
-
-- **Path autocompletion**: IntelliSense for available form paths
-- **Type inference**: Automatic type inference for focused fields
-- **Compile-time safety**: Errors for invalid paths or operations
-- **Generic support**: Full support for generic form types
-
-```tsx copy
-type FormData = {
-  user: {
-    profile: {
-      name: string;
-      contacts: string[];
-    };
-  };
-};
-
-const lens = useLens<FormData>({ control });
-
-// ✅ Type-safe - returns Lens<string>
-const nameLens = lens.focus('user.profile.name');
-
-// ✅ Type-safe - returns Lens<string[]>
-const contactsLens = lens.focus('user.profile.contacts');
-
-// ❌ TypeScript error - path doesn't exist
-const invalidLens = lens.focus('user.invalid.path');
 ```
