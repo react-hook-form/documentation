@@ -155,33 +155,58 @@ function StringInput({ lens }: { lens: Lens<string> }) {
 
 # Motivation
 
-Working with complex, deeply nested forms in React can quickly become challenging. Traditional approaches often lead to common problems:
+Working with complex, deeply nested forms in React Hook Form can quickly become challenging. Traditional approaches often lead to common problems that make development more difficult and error-prone:
 
-#### 1. String-Based Field Names Are Fragile
+#### 1. Type-Safe Name Props Are Nearly Impossible
+
+Creating reusable form components requires accepting a `name` prop to specify which field the component controls. However, making this type-safe in TypeScript is extremely challenging:
 
 ```tsx
-// ❌ Fragile string-based approach
-const { register } = useForm<ComplexFormData>();
+// ❌ Loses type safety - no way to ensure name matches the form schema
+interface InputProps<T> {
+  name: string; // Could be any string, even invalid field paths
+  control: Control<T>;
+}
 
-// No type safety, prone to typos
-<input {...register('user.profile.personalInfo.firstName')} />
-<input {...register('user.profile.personalInfo.lastName')} />
-<input {...register('user.profile.contactInfo.email')} />
-
-// Refactoring nightmare when data structure changes
-// Hard to catch errors at compile time
+// ❌ Attempting proper typing leads to complex, unmaintainable generics
+interface InputProps<T, TName extends Path<T>> {
+  name: TName;
+  control: Control<T>;
+}
+// This becomes unwieldy and breaks down with nested objects
 ```
 
-#### 2. Component Reusability Is Difficult
+#### 2. `useFormContext()` Creates Tight Coupling
+
+Using `useFormContext()` in reusable components tightly couples them to specific form schemas, making them less portable and harder to reuse:
 
 ```tsx
-// ❌ Hard to create reusable components
+// ❌ Tightly coupled to parent form structure
+function AddressForm() {
+  const { control } = useFormContext<UserForm>(); // Locked to UserForm type
+
+  return (
+    <div>
+      <input {...control.register('address.street')} /> {/* Fixed field paths */}
+      <input {...control.register('address.city')} />
+    </div>
+  );
+}
+// Can't reuse this component with different form schemas
+```
+
+#### 3. String-Based Field Paths Are Error-Prone
+
+Building reusable components with string concatenation for field paths is fragile and difficult to maintain:
+
+```tsx
+// ❌ String concatenation is error-prone and hard to refactor
 function PersonForm({ basePath }: { basePath: string }) {
   const { register } = useForm();
 
   return (
     <div>
-      {/* String concatenation prone to errors */}
+      {/* No type safety, prone to typos */}
       <input {...register(`${basePath}.firstName`)} />
       <input {...register(`${basePath}.lastName`)} />
       <input {...register(`${basePath}.email`)} />
@@ -189,29 +214,9 @@ function PersonForm({ basePath }: { basePath: string }) {
   );
 }
 
-// Usage becomes unwieldy
+// Usage becomes unwieldy and error-prone
 <PersonForm basePath="user.profile.owner" />
 <PersonForm basePath="user.profile.emergency_contact" />
-```
-
-#### 3. Prop Drilling and Type Safety Issues
-
-```tsx
-// ❌ Prop drilling control and register through component tree
-function ComplexForm() {
-  const { control, register } = useForm<FormData>()
-
-  return <UserSection control={control} register={register} />
-}
-
-function UserSection({ control, register }: Props) {
-  return <ProfileSection control={control} register={register} />
-}
-
-function ProfileSection({ control, register }: Props) {
-  // Finally use the props deep in the tree
-  return <input {...register("user.profile.name")} />
-}
 ```
 
 # Props
@@ -285,9 +290,9 @@ The `focus` method provides full TypeScript support with autocompletion and type
 
 ### reflect {#reflect}
 
-Transforms the lens structure with type inference. It is useful when you want to create a new lens from an existing one with a different shape to pass it to a shared component.
+Transforms the lens structure with complete type inference. This is useful when you want to create a new lens from an existing one with a different shape to pass to a shared component.
 
-The first argument is a Proxy with a dictionary of lenses. Pay attention that lens instantiation happens only on property access. The second argument is the original lens.
+The first argument is a proxy with a dictionary of lenses. Note that lens instantiation happens only on property access. The second argument is the original lens.
 
 #### Object Reflection
 
@@ -469,11 +474,11 @@ function ContactForm({
 
 ### interop {#interop}
 
-The `interop` method provides integration with react-hook-form by exposing the underlying `control` and `name` properties. This allows you to connect your lens to react-hook-form's control API.
+The `interop` method provides seamless integration with React Hook Form by exposing the underlying `control` and `name` properties. This allows you to connect your lens to React Hook Form's control API.
 
 #### First Variant: Object Return
 
-The first variant involves calling `interop()` without arguments, which returns an object containing the `control` and `name` properties for react-hook-form:
+The first variant involves calling `interop()` without arguments, which returns an object containing the `control` and `name` properties for React Hook Form:
 
 ```tsx
 const { control, name } = lens.interop()
@@ -483,7 +488,7 @@ return <input {...control.register(name)} />
 
 #### Second Variant: Callback Function
 
-The second variant is passing a callback function to `interop` which receives the `control` and `name` properties as arguments. This allows you to work with these properties directly within the callback scope:
+The second variant passes a callback function to `interop` which receives the `control` and `name` properties as arguments. This allows you to work with these properties directly within the callback scope:
 
 ```tsx
 return (
@@ -496,7 +501,7 @@ return (
 
 #### Integration with useController
 
-The `interop` method's return value can be passed directly to the `useController` hook from react-hook-form, providing seamless integration:
+The `interop` method's return value can be passed directly to the `useController` hook from React Hook Form, providing seamless integration:
 
 ```tsx
 import { useController } from "react-hook-form"
@@ -575,14 +580,14 @@ assert(lens.focus("firstName") === lens.focus("firstName"))
 When using functions with methods like `reflect`, you need to be careful about function identity to maintain caching benefits:
 
 ```tsx
-// ❌ Creates a new function on every render, breaking cache
+// ❌ Creates a new function on every render, breaking the cache
 lens.reflect((l) => l.focus("firstName"))
 ```
 
 To maintain caching, memoize the function you pass:
 
 ```tsx
-// ✅ Memoized function preserves cache
+// ✅ Memoized function preserves the cache
 lens.reflect(useCallback((l) => l.focus("firstName"), []))
 ```
 
