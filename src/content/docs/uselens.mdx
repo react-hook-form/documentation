@@ -303,7 +303,7 @@ const contactLens = lens.reflect(({ profile }) => ({
   phoneNumber: profile.focus("contact.phone"),
 }))
 
-;<SharedComponent lens={contactLens} />
+<SharedComponent lens={contactLens} />
 
 function SharedComponent({
   lens,
@@ -353,9 +353,7 @@ You can restructure array lenses:
 ```tsx
 function ArrayComponent({ lens }: { lens: Lens<{ value: string }[]> }) {
   return (
-    <AnotherComponent
-      lens={lens.reflect((_, l) => [{ data: l.focus("value") }])}
-    />
+    <AnotherComponent lens={lens.reflect(({ value }) => [{ data: value }])} />
   )
 }
 
