@@ -165,6 +165,20 @@ export default function ApiGallery() {
           <li>
             <div>
               <h3>
+                <code>{`</>`}</code>useLens
+              </h3>
+              <p>
+                Type-safe lenses for building reusable and shareable form
+                components with precise focus on form fields.
+              </p>
+              <Link href="/docs/uselens" aria-label="read more about useLens">
+                Read More ▸
+              </Link>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>
                 <code>{`</>`}</code>createFormControl
               </h3>
               <p>
