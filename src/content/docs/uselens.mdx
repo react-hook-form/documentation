@@ -86,6 +86,7 @@ function ChildForm({ lens }: { lens: Lens<{ name: string; surname: string }[]> }
   );
 }
 
+// PersonForm is used twice with different sources
 function PersonForm({ lens }: { lens: Lens<{ name: string; surname: string }> }) {
   return (
     <div>
@@ -100,7 +101,7 @@ function StringInput({ lens }: { lens: Lens<string> }) {
 }
 ```
 
-### Motivation
+# Motivation
 
 Working with complex, deeply nested forms in React can quickly become challenging. Traditional approaches often lead to:
 
@@ -166,7 +167,7 @@ function ProfileSection({ control, register }: Props) {
 ```
 
 
-### Props
+# Props
 
 #### `control`: <TypeText>Control\<TFieldValues></TypeText>
 
@@ -185,7 +186,7 @@ const lens = useLens({ control }, [dependencies]);
 
 ---
 
-## Core Operations
+# Core Operations
 
 ### focus {#focus}
 
@@ -399,23 +400,6 @@ function ControlledInput({ lens }: { lens: Lens<string> }) {
 }
 ```
 
-#### With Validation Rules
-
-```tsx copy
-function ValidatedInput({ lens }: { lens: Lens<string> }) {
-  return (
-    <input
-      {...lens.interop((ctrl, name) =>
-        ctrl.register(name, {
-          required: 'This field is required',
-          minLength: { value: 3, message: 'Min length is 3' }
-        })
-      )}
-    />
-  );
-}
-```
-
 ---
 
 ### useFieldArray {#usefieldarray}
@@ -455,95 +439,9 @@ function DynamicForm({ lens }: { lens: Lens<{ items: { name: string; value: numb
 }
 ```
 
----
+# Performance Optimization
 
-## Advanced Examples
-
-### Complex Nested Forms
-
-```tsx copy
-interface MovieCollection {
-  studio: {
-    name: string;
-    location: string;
-    owner: {
-      personName: string;
-      yearOfBirth: number;
-    };
-  };
-  movies: {
-    title: string;
-    summary: string;
-    actors: {
-      name: string;
-      birthYear: number;
-    }[];
-  }[];
-}
-
-function ComplexForm() {
-  const { handleSubmit, control } = useForm<MovieCollection>();
-  const lens = useLens({ control });
-
-  return (
-    <form onSubmit={handleSubmit(console.log)}>
-      <StringInput lens={lens.focus('studio.name')} label="Studio Name" />
-      <StringInput lens={lens.focus('studio.location')} label="Studio Location" />
-
-      <PersonForm
-        lens={lens.focus('studio.owner').reflect(({ personName, yearOfBirth }) => ({
-          name: personName,
-          birthYear: yearOfBirth
-        }))}
-      />
-
-      <MoviesForm lens={lens.focus('movies')} />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
-### Reusable Components with Lenses
-
-```tsx copy
-// Reusable input component
-function StringInput({ lens, label, ...rules }: {
-  lens: Lens<string>;
-  label: string;
-} & RegisterOptions) {
-  return (
-    <label>
-      {label}
-      <input {...lens.interop((ctrl, name) => ctrl.register(name, rules))} />
-    </label>
-  );
-}
-
-// Reusable person form
-function PersonForm({ lens }: { lens: Lens<{ name: string; birthYear: number }> }) {
-  return (
-    <div>
-      <StringInput
-        lens={lens.focus('name')}
-        label="Name"
-        required="Name is required"
-      />
-      <NumberInput
-        lens={lens.focus('birthYear')}
-        label="Birth Year"
-        min={{ value: 1900, message: "Must be after 1900" }}
-      />
-    </div>
-  );
-}
-```
-
----
-
-## Performance Optimization
-
-### Caching System
+## Caching System
 
 All lenses are cached to prevent component re-renders when using `React.memo`:
 
@@ -632,59 +530,3 @@ const contactsLens = lens.focus('user.profile.contacts');
 // ❌ TypeScript error - path doesn't exist
 const invalidLens = lens.focus('user.invalid.path');
 ```
-
----
-
-## Error Handling
-
-Lenses work seamlessly with React Hook Form's error handling:
-
-```tsx copy
-function ValidatedForm() {
-  const { handleSubmit, control, formState: { errors } } = useForm<{
-    email: string;
-    password: string;
-  }>();
-
-  const lens = useLens({ control });
-
-  return (
-    <form onSubmit={handleSubmit(console.log)}>
-      <div>
-        <input
-          {...lens.focus('email').interop((ctrl, name) =>
-            ctrl.register(name, {
-              required: 'Email is required',
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: 'Invalid email format'
-              }
-            })
-          )}
-        />
-        {errors.email && <span>{errors.email.message}</span>}
-      </div>
-
-      <div>
-        <input
-          type="password"
-          {...lens.focus('password').interop((ctrl, name) =>
-            ctrl.register(name, {
-              required: 'Password is required',
-              minLength: {
-                value: 8,
-                message: 'Password must be at least 8 characters'
-              }
-            })
-          )}
-        />
-        {errors.password && <span>{errors.password.message}</span>}
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
-
