@@ -504,14 +504,14 @@ const FormSchema = z.object({
 })
 
 export function InputForm() {
-  const form = useForm<z.infer<typeof FormSchema>>({
+  const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.output<typeof FormSchema>) {
     console.log(data);
   }
 

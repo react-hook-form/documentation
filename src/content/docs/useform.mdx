@@ -445,15 +445,10 @@ npm install @hookform/resolvers
 
 <TabGroup buttonLabels={["Yup","Zod","Joi","Ajv","Vest", "Custom"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-
-type Inputs = {
-  name: string
-  age: string
-}
 
 const schema = yup
   .object()
@@ -464,7 +459,7 @@ const schema = yup
   .required()
 
 const App = () => {
-  const { register, handleSubmit } = useForm<Inputs>({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema), // yup, joi and even your own.
   })
 
@@ -478,7 +473,7 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-w72vp"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-w72vp"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -491,16 +486,15 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>
 
 const App = () => {
-  const { register, handleSubmit } = useForm<Schema>({
+  const { register, handleSubmit } = useForm({
     resolver: zodResolver(schema),
   })
 
-  const onSubmit = (data: Schema) => {
-    console.log(data)
-  }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit((data) => {
+      // handle inputs
+      console.log(data);
+    })}>
       <input {...register("name")} />
       <input {...register("age", { valueAsNumber: true })} type="number" />
       <input type="submit" />
@@ -509,7 +503,7 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
@@ -534,15 +528,15 @@ const App = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("name"} />
-      <input type="number" {...register("age"} />
+      <input {...register("name")} />
+      <input type="number" {...register("age")} />
       <input type="submit" />
     </form>
   );
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-ajvresolver-vr3imc"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-ajvresolver-vr3imc"
 import { useForm } from "react-hook-form"
 import { ajvResolver } from "@hookform/resolvers/ajv"
 
@@ -586,7 +580,7 @@ const App = () => {
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/vest-8q874"
+```tsx copy sandbox="https://codesandbox.io/s/vest-8q874"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import { vestResolver } from "@hookform/resolvers/vest"
@@ -633,7 +627,7 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import * as Joi from "joi"

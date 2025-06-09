@@ -8,7 +8,7 @@ sidebar: tsLinks
 
 ## \</> Resolver {#Resolver}
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
 import { useForm, Resolver } from "react-hook-form"
 
 type FormValues = {
@@ -55,7 +55,7 @@ export default function App() {
 
 ## \</> SubmitHandler {#SubmitHandler}
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-z9z0g"
 import { useForm, SubmitHandler } from "react-hook-form"
 
 type FormValues = {
@@ -84,7 +84,7 @@ export default function App() {
 
 ## \</> SubmitErrorHandler {#SubmitErrorHandler}
 
-```typescript copy
+```tsx copy
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form"
 
 type FormValues = {
@@ -114,7 +114,7 @@ export default function App() {
 
 ## \</> Control {#Control}
 
-```typescript copy sandbox="https://codesandbox.io/s/control-2mg07"
+```tsx copy sandbox="https://codesandbox.io/s/control-2mg07"
 import { useForm, useWatch, Control } from "react-hook-form"
 
 type FormValues = {
@@ -154,7 +154,7 @@ export default function App() {
 
 <TabGroup buttonLabels={["Type", "Code Example"]}>
 
-```typescript copy
+```tsx copy
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
@@ -178,7 +178,7 @@ export type UseFormReturn<
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
 import type { FieldValues, UseFormReturn, SubmitHandler } from "react-hook-form"
 import { useForm } from "react-hook-form"
 
@@ -544,7 +544,7 @@ export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
 
 <TabGroup buttonLabels={["Code Example", "Type"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
 import { useForm, NestedValue } from "react-hook-form"
 import { Autocomplete, TextField, Select } from "@material-ui/core"
 import { Autocomplete } from "@material-ui/lab"
@@ -613,7 +613,7 @@ export default function App() {
 }
 ```
 
-```typescript copy
+```tsx copy
 import { useForm, NestedValue } from "react-hook-form"
 
 type FormValues = {
