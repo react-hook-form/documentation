@@ -18,7 +18,7 @@ The following code excerpt demonstrates a basic usage example:
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
 import { useForm, SubmitHandler } from "react-hook-form"
 
 type Inputs = {
@@ -104,7 +104,7 @@ One of the key concepts in React Hook Form is to **`register`** your component i
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
 import ReactDOM from "react-dom"
 import { useForm, SubmitHandler } from "react-hook-form"
 
@@ -180,7 +180,7 @@ You can read more detail on each rule in the [register section](/docs#register).
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
 import { useForm, SubmitHandler } from "react-hook-form"
 
 interface IFormInput {
@@ -230,7 +230,7 @@ Integrating an existing form should be simple. The important step is to `registe
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-uzfxm"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-uzfxm"
 import { Path, useForm, UseFormRegister, SubmitHandler } from "react-hook-form"
 
 interface IFormValues {
@@ -330,7 +330,7 @@ React Hook Form has made it easy to integrate with external UI component librari
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
 import Select from "react-select"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { Input } from "@material-ui/core"
@@ -432,7 +432,7 @@ This library embraces uncontrolled components and native HTML inputs. However, i
 
 <TabGroup buttonLabels={["TS", "JS", 'shadcn/ui']} >
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { TextField, Checkbox } from "@material-ui/core"
 
@@ -504,14 +504,14 @@ const FormSchema = z.object({
 })
 
 export function InputForm() {
-  const form = useForm<z.infer<typeof FormSchema>>({
+  const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.output<typeof FormSchema>) {
     console.log(data);
   }
 
@@ -538,7 +538,7 @@ export function InputForm() {
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```typescript copy sandbox="https://codesandbox.io/s/usecontroller-forked-4t8cx"
+```tsx copy sandbox="https://codesandbox.io/s/usecontroller-forked-4t8cx"
 import * as React from "react"
 import { useForm, useController, UseControllerProps } from "react-hook-form"
 
@@ -822,7 +822,7 @@ export default function App() {
 
 React Hook Form is built with `TypeScript`, and you can define a `FormData` type to support form values.
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 
