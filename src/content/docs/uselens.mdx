@@ -8,6 +8,8 @@ sidebar: apiLinks
 
 React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to form development. It provides type-safe manipulation of nested structures, enabling developers to precisely control and transform complex data with ease.
 
+`useLens` is a custom hook that creates a lens instance connected to your React Hook Form control, enabling type-safe focusing, transformation, and manipulation of deeply nested form data structures through functional programming concepts.
+
 ### Installation
 
 ```bash copy
@@ -24,199 +26,9 @@ npm install @hookform/lenses
 - **Array Handling**: Specialized support for dynamic fields with type-safe mapping
 - **Composable API**: Build complex transformations through elegant lens composition
 
----
-
-## API Reference
-
-Here's a quick overview of the main types and operations available in React Hook Form Lenses.
-
-### Core Types
-
-#### `Lens<T>`
-
-The main lens type that provides different operations based on the field type you're working with:
-
-```ts
-type LensWithArray = Lens<string[]>
-type LensWithObject = Lens<{ name: string; age: number }>
-type LensWithPrimitive = Lens<string>
-```
-
-### Hooks
-
-#### `useLens`
-
-The main hook that creates a lens instance connected to your React Hook Form control:
-
-```tsx
-const lens = useLens({
-  control: form.control, // React Hook Form control from useForm()
-})
-```
-
-You can also pass a dependency array to clear the cache and re-create all lenses when values change:
-
-```tsx
-const lens = useLens(
-  {
-    control: form.control, // React Hook Form control
-  },
-  [dependencies] // optional dependency array if you need to clear caches
-)
-```
-
-### Main Operations
-
-These are the core methods available on every lens instance:
-
-| Method                | Description                                    | Returns              |
-| --------------------- | ---------------------------------------------- | -------------------- |
-| [`focus`](#focus)     | Focuses on a specific field path               | `Lens<PathValue>`    |
-| [`reflect`](#reflect) | Transform and reshape lens structure           | `Lens<NewStructure>` |
-| [`map`](#map)         | Iterate over array fields (with useFieldArray) | `R[]`                |
-| [`interop`](#interop) | Connect to React Hook Form's control system    | `{ control, name }`  |
+### Props
 
 ---
-
-## Basic Usage
-
-```tsx copy sandbox="https://codesandbox.io/p/sandbox/keen-herschel-y5h2ft"
-import { useForm } from "react-hook-form"
-import { Lens, useLens } from "@hookform/lenses"
-import { useFieldArray } from "@hookform/lenses/rhf"
-
-function FormComponent() {
-  const { handleSubmit, control } = useForm<{
-    firstName: string
-    lastName: string
-    children: {
-      name: string
-      surname: string
-    }[]
-  }>({})
-
-  const lens = useLens({ control })
-
-  return (
-    <form onSubmit={handleSubmit(console.log)}>
-      <PersonForm
-        lens={lens.reflect(({ firstName, lastName }) => ({
-          name: firstName,
-          surname: lastName,
-        }))}
-      />
-      <ChildForm lens={lens.focus("children")} />
-      <input type="submit" />
-    </form>
-  )
-}
-
-function ChildForm({
-  lens,
-}: {
-  lens: Lens<{ name: string; surname: string }[]>
-}) {
-  const { fields, append } = useFieldArray(lens.interop())
-
-  return (
-    <>
-      <button type="button" onClick={() => append({ name: "", surname: "" })}>
-        Add child
-      </button>
-      {lens.map(fields, (value, l) => (
-        <PersonForm key={value.id} lens={l} />
-      ))}
-    </>
-  )
-}
-
-// PersonForm is used twice with different sources
-function PersonForm({
-  lens,
-}: {
-  lens: Lens<{ name: string; surname: string }>
-}) {
-  return (
-    <div>
-      <StringInput lens={lens.focus("name")} />
-      <StringInput lens={lens.focus("surname")} />
-    </div>
-  )
-}
-
-function StringInput({ lens }: { lens: Lens<string> }) {
-  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
-}
-```
-
-# Motivation
-
-Working with complex, deeply nested forms in React Hook Form can quickly become challenging. Traditional approaches often lead to common problems that make development more difficult and error-prone:
-
-#### 1. Type-Safe Name Props Are Nearly Impossible
-
-Creating reusable form components requires accepting a `name` prop to specify which field to control. However, making this type-safe in TypeScript is extremely challenging:
-
-```tsx
-// ❌ Loses type safety - no way to ensure name matches the form schema
-interface InputProps<T> {
-  name: string // Could be any string, even invalid field paths
-  control: Control<T>
-}
-
-// ❌ Attempting proper typing leads to complex, unmaintainable generics
-interface InputProps<T, TName extends Path<T>> {
-  name: TName
-  control: Control<T>
-}
-// This becomes unwieldy and breaks down with nested objects
-```
-
-#### 2. `useFormContext()` Creates Tight Coupling
-
-Using `useFormContext()` in reusable components tightly couples them to specific form schemas, making them less portable and harder to share:
-
-```tsx
-// ❌ Tightly coupled to parent form structure
-function AddressForm() {
-  const { control } = useFormContext<UserForm>() // Locked to UserForm type
-
-  return (
-    <div>
-      <input {...control.register("address.street")} />{" "}
-      {/* Fixed field paths */}
-      <input {...control.register("address.city")} />
-    </div>
-  )
-}
-// Can't reuse this component with different form schemas
-```
-
-#### 3. String-Based Field Paths Are Error-Prone
-
-Building reusable components with string concatenation for field paths is fragile and difficult to maintain:
-
-```tsx
-// ❌ String concatenation is error-prone and hard to refactor
-function PersonForm({ basePath }: { basePath: string }) {
-  const { register } = useForm();
-
-  return (
-    <div>
-      {/* No type safety, prone to typos */}
-      <input {...register(`${basePath}.firstName`)} />
-      <input {...register(`${basePath}.lastName`)} />
-      <input {...register(`${basePath}.email`)} />
-    </div>
-  );
-}
-
-// Usage becomes unwieldy and error-prone
-<PersonForm basePath="user.profile.owner" />
-<PersonForm basePath="user.profile.emergency_contact" />
-```
-
-# Props
 
 The `useLens` hook accepts the following configuration:
 
@@ -239,9 +51,34 @@ const lens = useLens({ control }, [dependencies])
 
 This is useful when you need to reset the entire lens cache based on external state changes.
 
+### Return
+
 ---
 
-# Core Operations
+The following table contains information about the main types and operations available on lens instances:
+
+**Core Types:**
+
+`Lens<T>` - The main lens type that provides different operations based on the field type you're working with:
+
+```ts
+type LensWithArray = Lens<string[]>
+type LensWithObject = Lens<{ name: string; age: number }>
+type LensWithPrimitive = Lens<string>
+```
+
+**Main Operations:**
+
+These are the core methods available on every lens instance:
+
+| Method                | Description                                    | Returns              |
+| --------------------- | ---------------------------------------------- | -------------------- |
+| [`focus`](#focus)     | Focuses on a specific field path               | `Lens<PathValue>`    |
+| [`reflect`](#reflect) | Transform and reshape lens structure           | `Lens<NewStructure>` |
+| [`map`](#map)         | Iterate over array fields (with useFieldArray) | `R[]`                |
+| [`interop`](#interop) | Connect to React Hook Form's control system    | `{ control, name }`  |
+
+---
 
 ### focus {#focus}
 
@@ -282,8 +119,6 @@ The `focus` method provides full TypeScript support with autocompletion and type
 - Inferred return types based on focused field
 
 </Admonition>
-
----
 
 ### reflect {#reflect}
 
@@ -409,8 +244,6 @@ function Component({
 }
 ```
 
----
-
 ### map {#map}
 
 Maps over array fields with `useFieldArray` integration. This method requires the `fields` property from `useFieldArray`.
@@ -465,8 +298,6 @@ function ContactForm({
 | `array`      | `T[]`       | The complete array                     |
 | `originLens` | `Lens<T[]>` | The original array lens                |
 
----
-
 ### interop {#interop}
 
 The `interop` method provides seamless integration with React Hook Form by exposing the underlying `control` and `name` properties. This allows you to connect your lens to React Hook Form's control API.
@@ -513,8 +344,6 @@ function ControlledInput({ lens }: { lens: Lens<string> }) {
 }
 ```
 
----
-
 ### useFieldArray
 
 Import the enhanced `useFieldArray` from `@hookform/lenses/rhf` for seamless array handling with lenses.
@@ -560,9 +389,159 @@ function DynamicForm({
 }
 ```
 
-# Performance Optimization
+<Admonition type="important" title="Rules">
 
-## Built-in Caching System
+- The `control` parameter is required and must be from React Hook Form's `useForm` hook
+- Each lens is cached and reused for optimal performance - focusing on the same path multiple times returns the identical lens instance
+- When using functions with methods like `reflect`, memoize the function to maintain caching benefits
+- Dependencies array is optional but useful for clearing lens cache based on external state changes
+- All lens operations maintain full TypeScript type safety and inference
+
+</Admonition>
+
+### Examples
+
+#### Basic Usage
+
+```tsx copy sandbox="https://codesandbox.io/p/sandbox/keen-herschel-y5h2ft"
+import { useForm } from "react-hook-form"
+import { Lens, useLens } from "@hookform/lenses"
+import { useFieldArray } from "@hookform/lenses/rhf"
+
+function FormComponent() {
+  const { handleSubmit, control } = useForm<{
+    firstName: string
+    lastName: string
+    children: {
+      name: string
+      surname: string
+    }[]
+  }>({})
+
+  const lens = useLens({ control })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <PersonForm
+        lens={lens.reflect(({ firstName, lastName }) => ({
+          name: firstName,
+          surname: lastName,
+        }))}
+      />
+      <ChildForm lens={lens.focus("children")} />
+      <input type="submit" />
+    </form>
+  )
+}
+
+function ChildForm({
+  lens,
+}: {
+  lens: Lens<{ name: string; surname: string }[]>
+}) {
+  const { fields, append } = useFieldArray(lens.interop())
+
+  return (
+    <>
+      <button type="button" onClick={() => append({ name: "", surname: "" })}>
+        Add child
+      </button>
+      {lens.map(fields, (value, l) => (
+        <PersonForm key={value.id} lens={l} />
+      ))}
+    </>
+  )
+}
+
+// PersonForm is used twice with different sources
+function PersonForm({
+  lens,
+}: {
+  lens: Lens<{ name: string; surname: string }>
+}) {
+  return (
+    <div>
+      <StringInput lens={lens.focus("name")} />
+      <StringInput lens={lens.focus("surname")} />
+    </div>
+  )
+}
+
+function StringInput({ lens }: { lens: Lens<string> }) {
+  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
+}
+```
+
+### Motivation
+
+Working with complex, deeply nested forms in React Hook Form can quickly become challenging. Traditional approaches often lead to common problems that make development more difficult and error-prone:
+
+#### 1. Type-Safe Name Props Are Nearly Impossible
+
+Creating reusable form components requires accepting a `name` prop to specify which field to control. However, making this type-safe in TypeScript is extremely challenging:
+
+```tsx
+// ❌ Loses type safety - no way to ensure name matches the form schema
+interface InputProps<T> {
+  name: string // Could be any string, even invalid field paths
+  control: Control<T>
+}
+
+// ❌ Attempting proper typing leads to complex, unmaintainable generics
+interface InputProps<T, TName extends Path<T>> {
+  name: TName
+  control: Control<T>
+}
+// This becomes unwieldy and breaks down with nested objects
+```
+
+#### 2. `useFormContext()` Creates Tight Coupling
+
+Using `useFormContext()` in reusable components tightly couples them to specific form schemas, making them less portable and harder to share:
+
+```tsx
+// ❌ Tightly coupled to parent form structure
+function AddressForm() {
+  const { control } = useFormContext<UserForm>() // Locked to UserForm type
+
+  return (
+    <div>
+      <input {...control.register("address.street")} />{" "}
+      {/* Fixed field paths */}
+      <input {...control.register("address.city")} />
+    </div>
+  )
+}
+// Can't reuse this component with different form schemas
+```
+
+#### 3. String-Based Field Paths Are Error-Prone
+
+Building reusable components with string concatenation for field paths is fragile and difficult to maintain:
+
+```tsx
+// ❌ String concatenation is error-prone and hard to refactor
+function PersonForm({ basePath }: { basePath: string }) {
+  const { register } = useForm();
+
+  return (
+    <div>
+      {/* No type safety, prone to typos */}
+      <input {...register(`${basePath}.firstName`)} />
+      <input {...register(`${basePath}.lastName`)} />
+      <input {...register(`${basePath}.email`)} />
+    </div>
+  );
+}
+
+// Usage becomes unwieldy and error-prone
+<PersonForm basePath="user.profile.owner" />
+<PersonForm basePath="user.profile.emergency_contact" />
+```
+
+### Performance Optimization
+
+#### Built-in Caching System
 
 Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times will return the identical lens instance:
 
@@ -570,7 +549,7 @@ Lenses are automatically cached to prevent unnecessary component re-renders when
 assert(lens.focus("firstName") === lens.focus("firstName"))
 ```
 
-## Function Memoization
+#### Function Memoization
 
 When using functions with methods like `reflect`, you need to be careful about function identity to maintain caching benefits:
 
@@ -592,11 +571,9 @@ lens.reflect(useCallback((l) => l.focus("firstName"), []))
 
 </Admonition>
 
----
+### Advanced Usage
 
-## Advanced Usage
-
-### Manual Lens Creation
+#### Manual Lens Creation
 
 For advanced use cases or when you need more control, you can create lenses manually without the `useLens` hook using the `LensCore` class:
 
@@ -627,8 +604,6 @@ function App() {
   )
 }
 ```
-
----
 
 <Admonition type="tip" title="Questions or Feedback?">
 
