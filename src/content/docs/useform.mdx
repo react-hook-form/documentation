@@ -435,7 +435,10 @@ npm install @hookform/resolvers
 - A resolver can not be used with the built-in validators (e.g.: required, min, etc.)
 - When building a custom resolver:
   - Make sure that you return an object with both `values` and `errors` properties. Their default values should be an empty object. For example: `{}`.
-  - The keys of the `error` object should match the `name` values of your fields.
+  - The keys of the `errors` object should match the `name` values of your fields, but they _must_ be hierarchical rather than a single key for deep errors:
+    `❌ { "participants.1.name": someErr }` will not set or clear properly - instead, use `✅ { "participants": [null, someErr] }` as this is reachable
+    as `errors.participants[1]` - you can still prepare your errors using flat keys, and then use a function like this one from the zod resolver:
+    [toNestErrors(flatErrs, resolverOptions)](https://github.com/react-hook-form/resolvers/blob/master/src/toNestErrors.ts)
 
 </Admonition>
 
