@@ -96,12 +96,13 @@ type FormValues = {
 export default function App() {
   const { register, handleSubmit } = useForm<FormValues>()
   const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
-  const onError: SubmitErrorHandler<FormValues> = (errors) => console.log(errors);
+  const onError: SubmitErrorHandler<FormValues> = (errors) =>
+    console.log(errors)
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input {...register("firstName"), { required: true }} />
-      <input {...register("lastName"), { minLength: 2 }} />
+      <input {...(register("firstName"), { required: true })} />
+      <input {...(register("lastName"), { minLength: 2 })} />
       <input type="email" {...register("email")} />
 
       <input type="submit" />
