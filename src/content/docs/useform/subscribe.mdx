@@ -12,19 +12,23 @@ Subscribe to [`formState`](/docs/useform/formState) changes and value updates. Y
 
 ---
 
-| Name      | Type                                          | Description                                                         | Example                                                                                                                                                                                                                                                               |
-| --------- | --------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name      | <TypeText>undefined</TypeText>                | Subscribe to the entire form                                        | `subscribe()`                                                                                                                                                                                                                                                         |
-|           | <TypeText>string[]</TypeText>                 | Subscribe on multiple fields by **name**.                           | `subscribe({ name: ['firstName', 'lastName'] })`                                                                                                                                                                                                                      |
-| formState | <TypeText>`Partial<ReadFormState>`</TypeText> | Pick which [`formState`](/docs/useform/formState) to be subscribed. | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true, \n    isDirty: true, \n    dirtyFields: true, \n    touchedFields: true, \n    isValid: true, \n    errors: true, \n    defaultValues: true, \n    isSubmitted: true  \n  } \n})`}/> |
-| callback  | <TypeText>`Function`</TypeText>               | The callback function for the subscription.                         | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true \n  }, \n  callback: ({ values }) => { \n    console.log(values) \n  } \n})`}/>                                                                                                       |
-| exact     | <TypeText>boolean</TypeText>                  | This prop will enable an exact match for input name subscriptions.  | `subscribe({ name: 'target', exact: true })`                                                                                                                                                                                                                          |
+| Name      | Type                                          | Description                                                         | Example                                                                                                                                                                                                                                                                  |
+| --------- | --------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name      | <TypeText>undefined</TypeText>                | Subscribe to the entire form                                        | `subscribe()`                                                                                                                                                                                                                                                            |
+|           | <TypeText>string[]</TypeText>                 | Subscribe on multiple fields by **name**.                           | `subscribe({ name: ['firstName', 'lastName'] })`                                                                                                                                                                                                                         |
+| formState | <TypeText>`Partial<ReadFormState>`</TypeText> | Pick which [`formState`](/docs/useform/formstate) to be subscribed. | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true, \n    isDirty: true, \n    dirtyFields: true, \n    touchedFields: true, \n    isValid: true, \n    errors: true, \n    validatingFields: true, \n    isValidating: true \n  } \n})`}/> |
+| callback  | <TypeText>`Function`</TypeText>               | The callback function for the subscription.                         | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true \n  }, \n  callback: ({ values }) => { \n    console.log(values) \n  } \n})`}/>                                                                                                          |
+| exact     | <TypeText>boolean</TypeText>                  | This prop will enable an exact match for input name subscriptions.  | `subscribe({ name: 'target', exact: true })`                                                                                                                                                                                                                             |
 
 <Admonition type="important" title="Notes">
 
 <ul>
   <li>
-    <p>This function is intended for subscribing to changes only; dispatching state updates or triggering re-renders is not allowed. eg `setValue` or `reset`</p>
+    <p>
+      This function is intended for subscribing to changes only; dispatching
+      state updates or triggering re-renders is not allowed. eg `setValue` or
+      `reset`
+    </p>
   </li>
   <li>
     <p>
@@ -64,14 +68,14 @@ export default function App() {
     // make sure to unsubscribe;
     const callback = subscribe({
       formState: {
-        values: true
+        values: true,
       },
       callback: ({ values }) => {
-        console.log(values);
-      }
+        console.log(values)
+      },
     })
 
-    return () => callback();
+    return () => callback()
 
     // You can also just return the subscribe
     // return subscribe();
