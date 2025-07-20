@@ -21,7 +21,7 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/images/route4me.png" alt="route4me" />
+          <img src="/images/route4me.png" alt="route4me"/>
         </a>
         <a
           href="https://www.follower24.de/"
@@ -33,6 +33,14 @@ export function SponsorsList() {
             src="/images/follower24.png"
             alt="follower24"
           />
+        </a>
+        <a
+          href="https://opencollective.com/react-hook-form"
+          target="_blank"
+          className={styles.add}
+          rel="noopener noreferrer"
+        >
+          + Sponsor
         </a>
       </div>
     </div>
