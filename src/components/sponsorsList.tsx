@@ -34,17 +34,6 @@ export function SponsorsList() {
             alt="follower24"
           />
         </a>
-        <a
-          href="https://www.sanity.io//"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            className={styles.twicsy}
-            src="/images/sanity.png"
-            alt="sanity io"
-          />
-        </a>
       </div>
     </div>
   )
