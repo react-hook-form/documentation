@@ -4,7 +4,7 @@ description: Subscribe to input changes
 sidebar: apiLinks
 ---
 
-## \</> `watch:` _<TypeText>some overloads</TypeText>_
+## \</> `watch:` <TypeText>UseFormWatch</TypeText>
 
 This method will watch specified inputs and return their values. It is useful to render input value and for determining what to render by condition.
 
@@ -12,12 +12,9 @@ This method will watch specified inputs and return their values. It is useful to
 
 This function mainly serves **two purposes**:
 
-1. Returns and keep sync with fields' values
-   a. <TypeText>`watch(name: string, defaultValue?): unknown`</TypeText>
-   b. <TypeText>`watch(names: string[], defaultValue?): {[key:string]: unknown}`</TypeText>
-   c. <TypeText>`watch(): {[key:string]: unknown}`</TypeText>
-2. Start subscribing with given callback function (can be stopped by calling `unsubscribe` function)
-   a. <TypeText>`watch(callback: (data, { name, type }) => void, defaultValues?): { unsubscribe: () => void }`</TypeText>
+- <TypeText>`watch(name: string, defaultValue?: unknown): unknown`</TypeText>
+- <TypeText>`watch(names: string[], defaultValue?: {[key:string]: unknown}): unknown[]`</TypeText>
+- <TypeText>`watch(): {[key:string]: unknown}`</TypeText>
 
 The explanation of each of these four overloads follows below.
 
@@ -73,7 +70,7 @@ Watch and subscribe to the entire form update/change based on onChange and re-re
 const formValues = watch()
 ```
 
-#### 2. Start watching with callback fn <TypeText>`watch(callback: (data, { name, type }) => void, defaultValues?: {[key:string]: unknown}): { unsubscribe: () => void }`</TypeText>
+#### 2. <b>Deprecated:</b> consider use or migrate to [subscribe](/docs/useform/subscribe). Watching with callback fn <TypeText>`watch(callback: (data, { name, type }) => void, defaultValues?: {[key:string]: unknown}): { unsubscribe: () => void }`</TypeText>
 
 ---
 
@@ -87,15 +84,6 @@ Subscribe to field update/change without trigger re-render.
 | `defaultValues` | <TypeText>`{[key:string]: unknown}`</TypeText>        | _optional_. defaultValues for the entire form        |
 
 **Returns** object with `unsubscribe` function.
-
-```tsx
-useEffect(() => {
-  const { unsubscribe } = watch((value) => {
-    console.log(value)
-  })
-  return () => unsubscribe()
-}, [watch])
-```
 
 ### Rules
 
@@ -114,8 +102,7 @@ useEffect(() => {
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-watch-v7-ts-8et1d"
-import React from "react"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-watch-v7-ts-8et1d"
 import { useForm } from "react-hook-form"
 
 interface IFormInputs {
@@ -134,14 +121,6 @@ function App() {
   const watchShowAge = watch("showAge", false) // you can supply default value as second argument
   const watchAllFields = watch() // when pass nothing as argument, you are watching everything
   const watchFields = watch(["showAge", "age"]) // you can also target specific fields by their names
-
-  // Callback version of watch.  It's your responsibility to unsubscribe when done.
-  React.useEffect(() => {
-    const subscription = watch((value, { name, type }) =>
-      console.log(value, name, type)
-    )
-    return () => subscription.unsubscribe()
-  }, [watch])
 
   const onSubmit = (data: IFormInputs) => console.log(data)
 
@@ -162,7 +141,6 @@ function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-watch-v7-qbxd7"
-import React from "react"
 import { useForm } from "react-hook-form"
 
 function App() {
@@ -175,14 +153,6 @@ function App() {
   const watchShowAge = watch("showAge", false) // you can supply default value as second argument
   const watchAllFields = watch() // when pass nothing as argument, you are watching everything
   const watchFields = watch(["showAge", "number"]) // you can also target specific fields by their names
-
-  // Callback version of watch.  It's your responsibility to unsubscribe when done.
-  React.useEffect(() => {
-    const subscription = watch((value, { name, type }) =>
-      console.log(value, name, type)
-    )
-    return () => subscription.unsubscribe()
-  }, [watch])
 
   const onSubmit = (data) => console.log(data)
 
@@ -209,7 +179,7 @@ function App() {
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-z54xwd"
+```tsx copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-z54xwd"
 import * as React from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 

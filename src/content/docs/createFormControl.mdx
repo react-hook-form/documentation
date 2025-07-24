@@ -18,11 +18,12 @@ This function create the entire form state subscription and allow you to subscri
 
 ---
 
-| Name          | Type                           | Description                                                    |
-| ------------- | ------------------------------ | -------------------------------------------------------------- |
-| `formControl` | <TypeText>Object</TypeText>    | control object for `useForm` hook                              |
-| `control`     | <TypeText>Object</TypeText>    | control object for `useController`, `useFormState`, `useWatch` |
-| `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                       |
+| Name          | Type                           | Description                                                                           |
+| ------------- | ------------------------------ | ------------------------------------------------------------------------------------- |
+| `formControl` | <TypeText>Object</TypeText>    | control object for `useForm` hook                                                     |
+| `control`     | <TypeText>Object</TypeText>    | control object for `useController`, `useFormState`, `useWatch`                        |
+| `subscribe`   | <TypeText>Function</TypeText>  | function to [subscribe](/docs/useform/subscribe) for form state update without render |
+| `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                                              |
 
 <Admonition type="important" title="Notes">
   - This function is published at **v7.55.0** - This function is completely

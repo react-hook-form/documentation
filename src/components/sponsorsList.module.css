@@ -48,6 +48,12 @@
   border-radius: 50px;
 }
 
+.add {
+  border: 1px dashed #ccc;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
 @media (min-width: 768px) {
   .logoGroup {
     display: grid;
