@@ -268,7 +268,8 @@ const onSubmit = (data) => {
         <p>
           <b className={typographyStyles.note}>Note:</b> only registered fields
           with a <code>ref</code> will work. Custom registered inputs do not
-          apply. For example: <code>{`register('test') // doesn't work`}</code>{" "}
+          apply. For example:{" "}
+          <code>{`register('test') // doesn't work`}</code>{" "}
         </p>
 
         <p>
@@ -2753,39 +2754,6 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
         </tr>
         <tr>
           <td>
-            <code>defaultValue</code>
-          </td>
-          <td>
-            <code className={typographyStyles.typeText}>unknown</code>
-          </td>
-          <td></td>
-          <td>
-            <p>
-              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
-              <code>undefined</code> to <code>defaultValue</code> or{" "}
-              <code>defaultValues</code> at <code>useForm</code>.
-            </p>
-            <ul>
-              <li>
-                <p>
-                  You need to either set <code>defaultValue</code> at the
-                  field-level or <code>useForm</code>'s{" "}
-                  <code>defaultValues</code>. <code>undefined</code> is not a
-                  valid value.
-                </p>
-              </li>
-              <li>
-                <p>
-                  If your form will invoke <code>reset</code> with default
-                  values, you will need to provide <code>useForm</code> with{" "}
-                  <code>defaultValues</code>.
-                </p>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
             <code>rules</code>
           </td>
           <td>
@@ -2839,6 +2807,40 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               Controlled input will be disabled and its value will be omitted
               from the submission data.
             </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>defaultValue</code>
+          </td>
+          <td>
+            <code className={typographyStyles.typeText}>unknown</code>
+          </td>
+          <td></td>
+          <td>
+            <p>
+              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
+              <code>undefined</code> to <code>defaultValue</code> or{" "}
+              <code>defaultValues</code> at <code>useForm</code>.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  You need to either set <code>defaultValue</code> at the
+                  field-level or <code>useForm</code>'s{" "}
+                  <code>defaultValues</code>. <code>undefined</code> is not a
+                  valid value. If you used <code>defaultValues</code> at{" "}
+                  <code>useForm</code>, skip using this prop.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If your form will invoke <code>reset</code> with default
+                  values, you will need to provide <code>useForm</code> with{" "}
+                  <code>defaultValues</code>.
+                </p>
+              </li>
+            </ul>
           </td>
         </tr>
       </tbody>

@@ -16,7 +16,6 @@ React Hook Form is based on Uncontrolled Components, which gives you the ability
 _(For more information about Uncontrolled Components, read [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components))_
 
 ```javascript copy
-import React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
@@ -127,7 +126,7 @@ React Hook Form needs a `ref` to collect the input value. However, you may want 
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```typescript copy
+```tsx copy
 import { useRef, useImperativeHandle } from "react"
 import { useForm } from "react-hook-form"
 
@@ -278,7 +277,6 @@ First of all, all libs try to solve the same problem: make the form building exp
 React Hook Form doesn't control your entire form and inputs, which is why React wouldn't recognize that the actual input has been exchanged or swapped. As a solution, you can resolve this problem by giving a unique `key` prop to your input. You can also read more about the key props from [this article written by Kent C. Dodds](https://kentcdodds.com/blog/understanding-reacts-key-prop).
 
 ```javascript sandbox="https://codesandbox.io/s/react-hook-form-faq-toggle-fields-3htr6" copy
-import React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
