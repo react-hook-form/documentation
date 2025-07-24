@@ -21,7 +21,7 @@ export function SponsorsList() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/images/route4me.png" alt="route4me"/>
+          <img src="/images/route4me.png" alt="route4me" />
         </a>
         <a
           href="https://www.follower24.de/"
