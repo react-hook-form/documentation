@@ -54,7 +54,7 @@ This function will receive the form data if form validation is successful.
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-lcrtu"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-handlesubmit-ts-v7-lcrtu"
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form"
 
 type FormValues = {
@@ -66,10 +66,11 @@ type FormValues = {
 export default function App() {
   const { register, handleSubmit } = useForm<FormValues>()
   const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
-  const onError: SubmitErrorHandler<FormValues> = (errors) => console.log(errors)
+  const onError: SubmitErrorHandler<FormValues> = (errors) =>
+    console.log(errors)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit, onError)}>
       <input {...register("firstName")} />
       <input {...register("lastName")} />
       <input type="email" {...register("email")} />

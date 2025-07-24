@@ -435,7 +435,10 @@ npm install @hookform/resolvers
 - A resolver can not be used with the built-in validators (e.g.: required, min, etc.)
 - When building a custom resolver:
   - Make sure that you return an object with both `values` and `errors` properties. Their default values should be an empty object. For example: `{}`.
-  - The keys of the `error` object should match the `name` values of your fields.
+  - The keys of the `errors` object should match the `name` values of your fields, but they _must_ be hierarchical rather than a single key for deep errors:
+    `❌ { "participants.1.name": someErr }` will not set or clear properly - instead, use `✅ { participants: [null, { name: someErr } ] }` as this is reachable
+    as `errors.participants[1].name` - you can still prepare your errors using flat keys, and then use a function like this one from the zod resolver:
+    [toNestErrors(flatErrs, resolverOptions)](https://github.com/react-hook-form/resolvers/blob/master/src/toNestErrors.ts)
 
 </Admonition>
 
@@ -445,15 +448,10 @@ npm install @hookform/resolvers
 
 <TabGroup buttonLabels={["Yup","Zod","Joi","Ajv","Vest", "Custom"]}>
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-apply-validation-ts-forked-nmbyh"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-
-type Inputs = {
-  name: string
-  age: string
-}
 
 const schema = yup
   .object()
@@ -464,7 +462,7 @@ const schema = yup
   .required()
 
 const App = () => {
-  const { register, handleSubmit } = useForm<Inputs>({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema), // yup, joi and even your own.
   })
 
@@ -478,7 +476,7 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-w72vp"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-zod-resolver-ts-example-forked-w72vp"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -491,16 +489,17 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>
 
 const App = () => {
-  const { register, handleSubmit } = useForm<Schema>({
+  const { register, handleSubmit } = useForm({
     resolver: zodResolver(schema),
   })
 
-  const onSubmit = (data: Schema) => {
-    console.log(data)
-  }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit((data) => {
+        // handle inputs
+        console.log(data)
+      })}
+    >
       <input {...register("name")} />
       <input {...register("age", { valueAsNumber: true })} type="number" />
       <input type="submit" />
@@ -509,40 +508,44 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
-import { useForm } from "react-hook-form";
-import { joiResolver } from "@hookform/resolvers/joi";
-import Joi from "joi";
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-joiresolver-v6-ts-forked-5pseh"
+import { useForm } from "react-hook-form"
+import { joiResolver } from "@hookform/resolvers/joi"
+import Joi from "joi"
 
 interface IFormInput {
-  name: string;
-  age: number;
+  name: string
+  age: number
 }
 
 const schema = Joi.object({
   name: Joi.string().required(),
-  age: Joi.number().required()
-});
+  age: Joi.number().required(),
+})
 
 const App = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
-    resolver: joiResolver(schema)
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>({
+    resolver: joiResolver(schema),
+  })
   const onSubmit = (data: IFormInput) => {
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("name"} />
-      <input type="number" {...register("age"} />
+      <input {...register("name")} />
+      <input type="number" {...register("age")} />
       <input type="submit" />
     </form>
-  );
+  )
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-ajvresolver-vr3imc"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-ajvresolver-vr3imc"
 import { useForm } from "react-hook-form"
 import { ajvResolver } from "@hookform/resolvers/ajv"
 
@@ -586,7 +589,7 @@ const App = () => {
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/vest-8q874"
+```tsx copy sandbox="https://codesandbox.io/s/vest-8q874"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import { vestResolver } from "@hookform/resolvers/vest"
@@ -633,7 +636,7 @@ const App = () => {
 }
 ```
 
-```typescript copy sandbox="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
+```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import * as Joi from "joi"
