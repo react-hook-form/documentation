@@ -107,6 +107,7 @@ export const apiLinks: Pages = [
       { pathname: "/docs/useform/unregister", name: "unregister" },
       { pathname: "/docs/useform/formstate", name: "formState" },
       { pathname: "/docs/useform/watch", name: "watch" },
+      { pathname: "/docs/useform/subscribe", name: "subscribe" },
       { pathname: "/docs/useform/handlesubmit", name: "handleSubmit" },
       { pathname: "/docs/useform/reset", name: "reset" },
       { pathname: "/docs/useform/resetfield", name: "resetField" },
@@ -158,6 +159,10 @@ export const apiLinks: Pages = [
   {
     pathname: "/docs/usefieldarray",
     name: "useFieldArray",
+  },
+  {
+    pathname: "/docs/uselens",
+    name: "useLens",
   },
   {
     pathname: "/docs/createFormControl",

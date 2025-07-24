@@ -17,7 +17,9 @@ export default function ApiGallery() {
     )
 
     if (version !== 7) {
-      router.push(`https://legacy.react-hook-form.com/v${version}/api`)
+      router.push(
+        `https://react-hook-form-website-git-leagcy-hook-form.vercel.app/${version}/api`
+      )
     } else {
       router.push(`/v${version}/docs/`)
     }
@@ -156,6 +158,20 @@ export default function ApiGallery() {
                 href="/docs/usefieldarray"
                 aria-label="read more about usefieldarray"
               >
+                Read More ▸
+              </Link>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>
+                <code>{`</>`}</code>useLens
+              </h3>
+              <p>
+                Type-safe lenses for building reusable and shareable form
+                components with precise focus on form fields.
+              </p>
+              <Link href="/docs/uselens" aria-label="read more about useLens">
                 Read More ▸
               </Link>
             </div>
