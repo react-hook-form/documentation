@@ -35,7 +35,7 @@ function App() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        as={TextField}
+        render={({ field }) => <input {...field} />}
         name="firstName"
         control={control}
         defaultValue=""
