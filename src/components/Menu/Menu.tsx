@@ -14,6 +14,7 @@ function Menu({ pages = [] }: { pages: Pages }) {
     <aside className={styles.menu}>
       <div>
         <div className={styles.titleList}>
+          <CarbonAds />
           <h4
             className={typographyStyles.title}
             style={{
@@ -70,7 +71,6 @@ function Menu({ pages = [] }: { pages: Pages }) {
               </li>
             )
           })}
-          <CarbonAds />
         </ul>
       </div>
     </aside>

@@ -17,7 +17,6 @@ export default function CarbonAds() {
       script.async = true
       script.src = CARBON_SCRIPT_SRC
       script.type = "text/javascript"
-      script.crossOrigin = "anonymous"
 
       if (containerRef.current) {
         containerRef.current.appendChild(script)

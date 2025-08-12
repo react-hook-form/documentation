@@ -945,3 +945,7 @@ pre[class*="language-"] {
     height: auto;
   }
 }
+
+.carbonAdsContainer {
+  margin-block-end: 2em;
+}
