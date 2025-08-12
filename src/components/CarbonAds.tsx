@@ -6,28 +6,32 @@ const CARBON_SCRIPT_ID = "_carbonads_js"
 const CARBON_SCRIPT_SRC =
   "https://cdn.carbonads.com/carbon.js?serve=CW7DTKQ7&placement=react-hook-formcom&format=cover"
 
-// Persist mount state across unmounts (for SPA navigation)
+// Persist mount state across SPA navigation (module-level, not per instance)
 let hasMounted = false
 
 export default function CarbonAds() {
+  // --- Refs and State ---
   const containerRef = useRef<HTMLDivElement>(null)
   const debounceRef = useRef<NodeJS.Timeout | null>(null)
   const [fade, setFade] = useState(1)
   const [height, setHeight] = useState<number | null>(null)
   const pathname = usePathname()
 
-  // Function to inject/reload the Carbon Ads script
-  // Debounced reload to prevent rapid double reloads
+  /**
+   * Debounced reload of Carbon Ads script.
+   * Removes existing ad/script, injects new script, and sets height after load.
+   * Debounce prevents rapid reloads on fast route changes.
+   */
   const reloadCarbonAds = useCallback(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(() => {
-      // Remove existing ad/script
+      // Remove existing ad and script if present
       const carbon = containerRef.current?.querySelector("#carbonads")
       if (carbon) carbon.remove()
       const script = document.getElementById(CARBON_SCRIPT_ID)
       if (script) script.remove()
 
-      // Inject new script
+      // Inject new Carbon Ads script
       const newScript = document.createElement("script")
       newScript.id = CARBON_SCRIPT_ID
       newScript.async = true
@@ -37,7 +41,7 @@ export default function CarbonAds() {
         containerRef.current.appendChild(newScript)
       }
 
-      // Listen for ad load event or fallback to timeout
+      // Try to set height after ad loads (poll for up to 2s)
       let heightSet = false
       const trySetHeight = () => {
         const carbon = containerRef.current?.querySelector(
@@ -48,18 +52,18 @@ export default function CarbonAds() {
           heightSet = true
         }
       }
-      // Try for up to 2s
       let tries = 0
       const interval = setInterval(() => {
         trySetHeight()
         tries++
         if (heightSet || tries > 10) clearInterval(interval)
       }, 200)
-    }, 100) // debounce delay
+    }, 100)
   }, [])
 
-  // Initial load only once
+  // --- Initial Mount: Only load ad once ---
   useEffect(() => {
+    // Only run on very first mount (SPA safe)
     if (!hasMounted) {
       reloadCarbonAds()
       hasMounted = true
@@ -67,15 +71,19 @@ export default function CarbonAds() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Reload on path change, but skip first render
+  // --- Path Change: Reload ad, skip first render ---
   useEffect(() => {
+    // Only reload on subsequent path changes
     if (hasMounted) {
       reloadCarbonAds()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
-  // Handle scroll to fade out and reduce height
+  /**
+   * On scroll, fade and shrink the ad container
+   * Uses the actual #carbonads height as basis for smoothness.
+   */
   useEffect(() => {
     function handleScroll() {
       const maxScroll = 200 // px after which it's fully hidden
@@ -92,6 +100,7 @@ export default function CarbonAds() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [height])
 
+  // --- Render ---
   return (
     <div
       id="carbonAdsContainer"
