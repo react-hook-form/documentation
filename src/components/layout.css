@@ -949,3 +949,7 @@ pre[class*="language-"] {
 .carbonAdsContainer {
   margin-block-end: 2em;
 }
+
+#carbon-responsive .carbon-poweredby {
+  color: initial;
+}
