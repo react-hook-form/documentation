@@ -4,6 +4,7 @@ import styles from "./SideMenu.module.css"
 import typographyStyles from "../../styles/typography.module.css"
 import { useRouter } from "next/router"
 import { Pages } from "../../types/types"
+import CarbonAds from "../CarbonAds"
 
 function Menu({ pages = [] }: { pages: Pages }) {
   const router = useRouter()
@@ -69,9 +70,8 @@ function Menu({ pages = [] }: { pages: Pages }) {
               </li>
             )
           })}
+          <CarbonAds />
         </ul>
-
-        <div id="carbon-cover" />
       </div>
     </aside>
   )
