@@ -77,6 +77,10 @@ These are the core methods available on every lens instance:
 | [`reflect`](#reflect) | Transform and reshape lens structure           | `Lens<NewStructure>` |
 | [`map`](#map)         | Iterate over array fields (with useFieldArray) | `R[]`                |
 | [`interop`](#interop) | Connect to React Hook Form's control system    | `{ control, name }`  |
+| [`narrow`](#narrow)   | Type-safe narrowing of union types             | `Lens<SubType>`      |
+| [`assert`](#assert)   | Runtime type assertion for type narrowing      | `void`               |
+| [`defined`](#defined) | Exclude null and undefined from lens type      | `Lens<NonNullable>`  |
+| [`cast`](#cast)       | Force type change (unsafe)                     | `Lens<NewType>`      |
 
 ---
 
@@ -344,6 +348,193 @@ function ControlledInput({ lens }: { lens: Lens<string> }) {
 }
 ```
 
+<Admonition type="info" title="Type System Escape Hatches">
+
+The `narrow`, `assert`, `defined`, and `cast` methods serve as escape hatches for current TypeScript limitations with lens type compatibility. These methods address scenarios where you need to pass lenses with wider types to components expecting narrower types.
+
+These workarounds will become less necessary once [issue #38](https://github.com/react-hook-form/lenses/issues/38) is resolved, which aims to improve lens type variance to allow more natural type narrowing and component composition.
+
+</Admonition>
+
+### narrow {#narrow}
+
+The `narrow` method provides type-safe narrowing of union types, allowing you to tell the type system which branch of a union you want to work with. This is particularly useful when working with discriminated unions or optional values.
+
+#### Manual Type Narrowing
+
+Use the single generic parameter to manually narrow the type when you know (by external logic) what the value should be:
+
+```tsx copy
+// Lens<string | number>
+const unionLens = lens.focus("optionalField")
+
+// Narrow to string when you know it's a string
+const stringLens = unionLens.narrow<string>()
+// Now: Lens<string>
+```
+
+#### Discriminated Union Narrowing
+
+Use the discriminant overload to narrow based on a specific property value:
+
+```tsx copy
+type Animal = { type: "dog"; breed: string } | { type: "cat"; indoor: boolean }
+
+const animalLens: Lens<Animal> = lens.focus("pet")
+
+// Narrow to Dog type using discriminant
+const dogLens = animalLens.narrow("type", "dog")
+// Now: Lens<{ type: 'dog'; breed: string }>
+
+const breedLens = dogLens.focus("breed")
+// Type-safe access to dog-specific properties
+```
+
+<Admonition type="important" title="Type Safety">
+
+The `narrow` method performs type-level operations only. It doesn't validate the runtime value - use it when you have external guarantees about the value's type (e.g., from validation, conditional rendering, or runtime checks).
+
+</Admonition>
+
+### assert {#assert}
+
+The `assert` method provides runtime type assertions that convince TypeScript the current lens is already the desired subtype. Unlike `narrow`, this is a type assertion that modifies the current lens instance.
+
+#### Manual Type Assertion
+
+Use the generic parameter to assert the lens is already the desired type:
+
+```tsx copy
+function processString(lens: Lens<string>) {
+  // Work with string lens
+}
+
+const maybeLens: Lens<string | undefined> = lens.focus("optional")
+
+// After your runtime check
+if (value !== undefined) {
+  maybeLens.assert<string>()
+  processString(maybeLens) // Now TypeScript knows it's Lens<string>
+}
+```
+
+#### Discriminant-Based Assertion
+
+Use the discriminant overload when you're in a conditional branch:
+
+```tsx copy
+type Status =
+  | { type: "loading" }
+  | { type: "success"; data: string }
+  | { type: "error"; message: string }
+
+const statusLens: Lens<Status> = lens.focus("status")
+
+// In a conditional branch
+if (selected.type === "success") {
+  statusLens.assert("type", "success")
+  // Within this block, statusLens is Lens<{ type: 'success'; data: string }>
+  const dataLens = statusLens.focus("data") // Type-safe access
+}
+```
+
+<Admonition type="warning" title="Runtime Safety">
+
+`assert` is a type-only operation that doesn't perform runtime validation. Ensure your assertions are backed by proper runtime checks to avoid type safety violations.
+
+</Admonition>
+
+### defined {#defined}
+
+The `defined` method is a convenience function that narrows the lens type to exclude `null` and `undefined` values. This is equivalent to using `narrow<NonNullable<T>>()` but provides a more expressive API.
+
+```tsx copy
+const optionalLens: Lens<string | null | undefined> = lens.focus("optional")
+
+// Remove null and undefined from the type
+const definedLens = optionalLens.defined()
+// Now: Lens<string>
+
+// Use after validation
+if (value != null) {
+  const safeLens = optionalLens.defined()
+  // Work with guaranteed non-null value
+}
+```
+
+**Common use cases:**
+
+```tsx copy
+// Form validation
+const emailLens = lens.focus("email") // Lens<string | undefined>
+
+function validateEmail(email: string) {
+  // validation logic
+}
+
+// After confirming value exists
+if (formState.isValid) {
+  const validEmailLens = emailLens.defined()
+  // Pass to functions expecting non-null values
+  validateEmail(validEmailLens.interop().control.getValues())
+}
+```
+
+### cast {#cast}
+
+The `cast` method forcefully changes the lens type to a new type, regardless of compatibility with the original type. This is a powerful but potentially **unsafe** operation that should be used with extreme caution.
+
+```tsx copy
+// Cast from unknown/any to specific type
+const unknownLens: Lens<unknown> = lens.focus("dynamicData")
+const stringLens = unknownLens.cast<string>()
+// Now: Lens<string>
+
+// Cast between incompatible types (dangerous!)
+const numberLens: Lens<number> = lens.focus("count")
+const stringLens = numberLens.cast<string>()
+// Type system now thinks it's Lens<string>, but runtime value is still number
+```
+
+**Safe usage patterns:**
+
+```tsx copy
+// Working with external APIs returning 'any'
+function processApiData(data: any) {
+  const apiLens = LensCore.create(data)
+
+  // Cast after runtime validation
+  if (typeof data.user === "object" && data.user !== null) {
+    const userLens = apiLens.focus("user").cast<User>()
+    return <UserProfile lens={userLens} />
+  }
+}
+
+// Type narrowing when you have more information
+interface BaseConfig {
+  type: string
+}
+
+interface DatabaseConfig extends BaseConfig {
+  type: "database"
+  connectionString: string
+}
+
+const configLens: Lens<BaseConfig> = lens.focus("config")
+
+// After checking the type at runtime
+if (config.type === "database") {
+  const dbConfigLens = configLens.cast<DatabaseConfig>()
+  // Now can access database-specific properties
+}
+```
+
+<Admonition type="danger" title="Use with Extreme Caution">
+
+`cast` bypasses TypeScript's type system entirely. It can lead to runtime errors if the underlying data doesn't match the asserted type. Always validate data at runtime before using `cast`, or prefer safer alternatives like `narrow` when possible.
+
+</Admonition>
+
 ### useFieldArray
 
 Import the enhanced `useFieldArray` from `@hookform/lenses/rhf` for seamless array handling with lenses.
@@ -604,6 +795,80 @@ function App() {
   )
 }
 ```
+
+#### Extending lenses
+
+You can extend the basic lens functionality by adding custom methods to the `LensBase` interface. This is useful when you need additional methods that aren't available in the default lens API.
+
+For example, let's add a `getValue` method to the lens that allows you to easily retrieve the current form values.
+
+**Step 1: Create the type declarations file**
+
+Create a `lenses.d.ts` file to extend the basic interface with the methods you want:
+
+```typescript
+declare module "@hookform/lenses" {
+  interface LensBase<T> {
+    getValue(): T
+  }
+}
+
+export {}
+```
+
+**Step 2: Create the custom lens core implementation**
+
+Create a `MyLensCore.ts` file with the actual runtime implementation:
+
+```typescript
+import type { FieldValues } from "react-hook-form"
+import { LensCore } from "@hookform/lenses"
+
+export class MyLensCore<T extends FieldValues> extends LensCore<T> {
+  public getValue() {
+    return this.control._formValues
+  }
+}
+```
+
+**Step 3: Create the custom hook**
+
+Create a `useMyLens.ts` file that accepts control and returns the lens as usual:
+
+```typescript
+import { type DependencyList, useMemo } from "react"
+import type { FieldValues } from "react-hook-form"
+
+import { LensesStorage, type Lens, type UseLensProps } from "@hookform/lenses"
+import { MyLensCore } from "./MyLensCore"
+
+export function useMyLens<TFieldValues extends FieldValues = FieldValues>(
+  props: UseLensProps<TFieldValues>,
+  deps: DependencyList = []
+): Lens<TFieldValues> {
+  return useMemo(() => {
+    const cache = new LensesStorage(props.control)
+    const lens = new MyLensCore<TFieldValues>(
+      props.control,
+      "",
+      cache
+    ) as unknown as Lens<TFieldValues>
+
+    return lens
+  }, [props.control, ...deps])
+}
+```
+
+**Step 4: Use your extended lens**
+
+Now you can use this hook as usual and you have the new method with correct TypeScript support:
+
+```typescript
+const lens = useMyLens(form)
+lens.getValue() // Your custom method is now available with full type support
+```
+
+This pattern allows you to add any custom functionality to lenses while maintaining full type safety and compatibility with the existing lens API.
 
 <Admonition type="tip" title="Questions or Feedback?">
 
