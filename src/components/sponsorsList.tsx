@@ -35,15 +35,12 @@ export function SponsorsList() {
           />
         </a>
         <a
-          href="https://www.sanity.io//"
+          href="https://opencollective.com/react-hook-form"
           target="_blank"
+          className={styles.add}
           rel="noopener noreferrer"
         >
-          <img
-            className={styles.twicsy}
-            src="/images/sanity.png"
-            alt="sanity io"
-          />
+          + Sponsor
         </a>
       </div>
     </div>
