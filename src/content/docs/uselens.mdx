@@ -378,14 +378,12 @@ const stringLens = unionLens.narrow<string>()
 Use the discriminant overload to narrow based on a specific property value:
 
 ```tsx copy
-type Animal =
-  | { type: 'dog'; breed: string }
-  | { type: 'cat'; indoor: boolean }
+type Animal = { type: "dog"; breed: string } | { type: "cat"; indoor: boolean }
 
 const animalLens: Lens<Animal> = lens.focus("pet")
 
 // Narrow to Dog type using discriminant
-const dogLens = animalLens.narrow('type', 'dog')
+const dogLens = animalLens.narrow("type", "dog")
 // Now: Lens<{ type: 'dog'; breed: string }>
 
 const breedLens = dogLens.focus("breed")
@@ -426,15 +424,15 @@ Use the discriminant overload when you're in a conditional branch:
 
 ```tsx copy
 type Status =
-  | { type: 'loading' }
-  | { type: 'success'; data: string }
-  | { type: 'error'; message: string }
+  | { type: "loading" }
+  | { type: "success"; data: string }
+  | { type: "error"; message: string }
 
 const statusLens: Lens<Status> = lens.focus("status")
 
 // In a conditional branch
-if (selected.type === 'success') {
-  statusLens.assert('type', 'success')
+if (selected.type === "success") {
+  statusLens.assert("type", "success")
   // Within this block, statusLens is Lens<{ type: 'success'; data: string }>
   const dataLens = statusLens.focus("data") // Type-safe access
 }
@@ -506,7 +504,7 @@ function processApiData(data: any) {
   const apiLens = LensCore.create(data)
 
   // Cast after runtime validation
-  if (typeof data.user === 'object' && data.user !== null) {
+  if (typeof data.user === "object" && data.user !== null) {
     const userLens = apiLens.focus("user").cast<User>()
     return <UserProfile lens={userLens} />
   }
@@ -518,14 +516,14 @@ interface BaseConfig {
 }
 
 interface DatabaseConfig extends BaseConfig {
-  type: 'database'
+  type: "database"
   connectionString: string
 }
 
 const configLens: Lens<BaseConfig> = lens.focus("config")
 
 // After checking the type at runtime
-if (config.type === 'database') {
+if (config.type === "database") {
   const dbConfigLens = configLens.cast<DatabaseConfig>()
   // Now can access database-specific properties
 }
@@ -797,6 +795,80 @@ function App() {
   )
 }
 ```
+
+#### Extending lenses
+
+You can extend the basic lens functionality by adding custom methods to the `LensBase` interface. This is useful when you need additional methods that aren't available in the default lens API.
+
+For example, let's add a `getValue` method to the lens that allows you to easily retrieve the current form values.
+
+**Step 1: Create the type declarations file**
+
+Create a `lenses.d.ts` file to extend the basic interface with the methods you want:
+
+```typescript
+declare module "@hookform/lenses" {
+  interface LensBase<T> {
+    getValue(): T
+  }
+}
+
+export {}
+```
+
+**Step 2: Create the custom lens core implementation**
+
+Create a `MyLensCore.ts` file with the actual runtime implementation:
+
+```typescript
+import type { FieldValues } from "react-hook-form"
+import { LensCore } from "@hookform/lenses"
+
+export class MyLensCore<T extends FieldValues> extends LensCore<T> {
+  public getValue() {
+    return this.control._formValues
+  }
+}
+```
+
+**Step 3: Create the custom hook**
+
+Create a `useMyLens.ts` file that accepts control and returns the lens as usual:
+
+```typescript
+import { type DependencyList, useMemo } from "react"
+import type { FieldValues } from "react-hook-form"
+
+import { LensesStorage, type Lens, type UseLensProps } from "@hookform/lenses"
+import { MyLensCore } from "./MyLensCore"
+
+export function useMyLens<TFieldValues extends FieldValues = FieldValues>(
+  props: UseLensProps<TFieldValues>,
+  deps: DependencyList = []
+): Lens<TFieldValues> {
+  return useMemo(() => {
+    const cache = new LensesStorage(props.control)
+    const lens = new MyLensCore<TFieldValues>(
+      props.control,
+      "",
+      cache
+    ) as unknown as Lens<TFieldValues>
+
+    return lens
+  }, [props.control, ...deps])
+}
+```
+
+**Step 4: Use your extended lens**
+
+Now you can use this hook as usual and you have the new method with correct TypeScript support:
+
+```typescript
+const lens = useMyLens(form)
+lens.getValue() // Your custom method is now available with full type support
+```
+
+This pattern allows you to add any custom functionality to lenses while maintaining full type safety and compatibility with the existing lens API.
 
 <Admonition type="tip" title="Questions or Feedback?">
 
