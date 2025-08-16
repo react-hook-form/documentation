@@ -38,7 +38,7 @@
     max-width: 230px;
     padding: 0;
     overflow-y: auto;
-    height: calc(100vh - 190px);
+    height: calc(100vh - 600px);
     overflow-y: auto;
   }
 
@@ -47,6 +47,10 @@
     padding-bottom: 8px;
     font-size: 15px;
     display: flex;
+  }
+
+  .menu > div > ul > li:last-child {
+    padding-bottom: 0;
   }
 
   .menu > div > ul > li > a {
@@ -118,6 +122,7 @@
   .menu > div > ul {
     margin-top: 0;
     max-width: 260px;
+    height: calc(100vh - 450px);
   }
 
   .menu > ul {
@@ -203,4 +208,9 @@
 
 .menu ul li a.isActive {
   border-bottom: 1px solid var(--color-secondary);
+}
+
+.ads {
+  position: absolute;
+  height: 500px;
 }
