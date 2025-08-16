@@ -49,6 +49,10 @@
     display: flex;
   }
 
+  .menu > div > ul > li:last-child {
+    padding-bottom: 0;
+  }
+
   .menu > div > ul > li > a {
     text-decoration: none;
     padding-left: 6px;
