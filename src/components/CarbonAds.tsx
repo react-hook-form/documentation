@@ -5,7 +5,7 @@ export const CARBON_SCRIPT_ID = "_carbonads_js"
 const CARBON_SCRIPT_SRC =
   "https://cdn.carbonads.com/carbon.js?serve=CW7DTKQ7&placement=react-hook-formcom&format=cover"
 
-export function CarbonAds({ id }: {id: string} ) {
+export function CarbonAds({ id }: { id: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function CarbonAds({ id }: {id: string} ) {
       return () => window.removeEventListener("load", injectScript)
     }
 
-    return;
+    return
   }, [id])
 
   return <div className="carbonAdsContainer" ref={containerRef} />

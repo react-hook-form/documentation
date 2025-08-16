@@ -4,7 +4,7 @@ import styles from "./SideMenu.module.css"
 import typographyStyles from "../../styles/typography.module.css"
 import { useRouter } from "next/router"
 import { Pages } from "../../types/types"
-import {CARBON_SCRIPT_ID, CarbonAds} from "@/components/CarbonAds";
+import { CARBON_SCRIPT_ID, CarbonAds } from "@/components/CarbonAds"
 
 function Menu({ pages = [] }: { pages: Pages }) {
   const router = useRouter()
