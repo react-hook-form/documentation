@@ -37,7 +37,6 @@ This method is introduced in react-hook-form ([v7.25.0](https://github.com/react
   getFieldState("non-existent-name") // ❌ will return state as false and error as undefined
   ```
 - `getFieldState` works by subscribing to the form state update, and you can subscribe to the formState in the following ways:
-
   - You can subscribe at the `useForm`, `useFormContext` or `useFormState`. This is will establish the form state subscription and `getFieldState` second argument will no longer be required.
 
     ```javascript
