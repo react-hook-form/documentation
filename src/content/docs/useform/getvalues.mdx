@@ -12,11 +12,13 @@ An optimized helper for reading form values. The difference between `watch` and 
 
 ---
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| `undefined` | Returns the entire form values.                           |
-| `string`    | Gets the value at path of the form values.                |
-| `array`     | Returns an array of the value at path of the form values. |
+| Name         | Type            | Description                                               |
+| ------------ | --------------- | --------------------------------------------------------- |
+| `fieldNames` | `undefined`     | Returns the entire form values.                           |
+|              | `string`        | Gets the value at path of the form values.                |
+|              | `array`         | Returns an array of the value at path of the form values. |
+| `config`     | `dirtyFields`   | Returns only dirty fields                                 |
+|              | `touchedFields` | Return only touchedFields                                 |
 
 **Examples:**
 
@@ -30,12 +32,14 @@ The example below shows what to expect when you invoke `getValues` method.
 <input {...register("root.test2")} />
 ```
 
-| Name                                  | Output                              |
-| ------------------------------------- | ----------------------------------- |
-| `getValues()`                         | `{ root: { test1: '', test2: ''} }` |
-| `getValues("root")`                   | `{ test1: '', test2: ''}`           |
-| `getValues("root.firstName")`         | `''`                                |
-| `getValues(["yourDetails.lastName"])` | `['']`                              |
+| Name                                            | Output                              |
+| ----------------------------------------------- | ----------------------------------- |
+| `getValues()`                                   | `{ root: { test1: '', test2: ''} }` |
+| `getValues("root")`                             | `{ test1: '', test2: ''}`           |
+| `getValues("root.firstName")`                   | `''`                                |
+| `getValues(["yourDetails.lastName"])`           | `['']`                              |
+| `getValues(undefined, { dirtyFields: true })`   | `{ root: { test1: '', test2: ''} }` |
+| `getValues(undefined, { touchedFields: true })` | `{ root: { test1: '', test2: ''} }` |
 
 <Admonition type="important" title="Rules">
 
