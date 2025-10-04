@@ -303,19 +303,6 @@ export default function Nav() {
                     {nav.tools.formBuilder}
                   </Link>
 
-                  <a
-                    href="https://www.beekai.com/features/form-builder"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.linkExternal}
-                  >
-                    <b>BEEKAI</b> Form Builder{" "}
-                    <img
-                      src="/images/open-link.svg"
-                      alt="BEEKAI Form Builder"
-                    />
-                  </a>
-
                   <Link
                     className={router.pathname == "/dev-tools" ? "active" : ""}
                     href="/dev-tools"
