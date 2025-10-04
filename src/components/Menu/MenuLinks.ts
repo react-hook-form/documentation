@@ -145,6 +145,12 @@ export const apiLinks: Pages = [
   {
     pathname: "/docs/usewatch",
     name: "useWatch",
+    pages: [
+      {
+        pathname: "/docs/usewatch/watch",
+        name: "Watch",
+      },
+    ],
   },
   {
     pathname: "/docs/useformstate",
