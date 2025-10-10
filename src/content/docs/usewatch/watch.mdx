@@ -1,0 +1,50 @@
+---
+title: Watch
+description: Watch component for subscribing to input changes
+sidebar: apiLinks
+---
+
+## \</> `Watch:` <TypeText>Component</TypeText>
+
+A React Hook Form component that provides the same functionality as `useWatch`, but in component form. Instead of using the hook inside another component, you can use `<Watch />` directly in your JSX to subscribe to and render form values.
+
+### Props
+
+---
+
+| Name           | Type                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`         | <TypeText>string \| string[] \| undefined</TypeText> | Name of the field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `control`      | <TypeText>Object</TypeText>                          | [`control`](/docs/useform/control) object provided by `useForm`. It's optional if you are using `FormProvider`.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `compute`      | <TypeText>function</TypeText>                        | <p>Subscribe to selective and computed form values.</p><ul><li>Subscribe to the entire form but only return updated value with certain condition<CodeArea withOutCopy rawData={`const watchedValue = useWatch({\n  compute: (data: FormValue) => { \n    if (data.test?.length) return data.test; \n\n    return ''; \n  }, \n});`}/></li><li>Subscribe to a specific form value state<CodeArea withOutCopy rawData={`const watchedValue = useWatch({\n  name: 'test', \n  compute: (data: string) => { \n    return data.length ? data : ''; \n  }, \n});`}/></li></ul> |
+| `defaultValue` | <TypeText>unknown</TypeText>                         | default value for `useWatch` to return before the initial render.<br/><br/>**Note:** the first render will always return `defaultValue` when it's supplied.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `disabled`     | <TypeText>boolean = false</TypeText>                 | Option to disable the subscription.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `exact`        | <TypeText>boolean = false</TypeText>                 | This prop will enable an exact match for input name subscriptions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `render`        | <TypeText>Function</TypeText>                 | Subscribes to specified form field(s) and re-renders its child function whenever the values change. This allows you to declaratively consume form values in JSX without manually wiring up state.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+**Examples:**
+
+---
+
+```tsx copy sandbox=""
+import { useForm, Watch } from 'react-hook-form';
+
+const App = () => {
+  const { register, control } = useForm();
+
+  return (
+    <div>
+      <form>
+        <input {...register('foo')} />
+        <input {...register('bar')} />
+      </form>
+      {/* re-render only when value of `foo` changes */}
+      <Watch
+        control={control}
+        names={['foo']}
+        render={([foo]) => <span>{foo}</span>}
+      />
+    </div>
+  );
+};
+```
