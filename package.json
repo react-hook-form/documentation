@@ -59,7 +59,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "build": "next build",
     "dev": "next dev",
-    "format": "prettier . --check",
+    "format": "prettier . --write",
     "format:fix": "prettier . --write",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
