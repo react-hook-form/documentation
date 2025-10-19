@@ -155,15 +155,18 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-lnvkt"
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from '@hookform/error-message';
-
+import { useForm } from "react-hook-form"
+import { ErrorMessage } from "@hookform/error-message"
 
 export default function App() {
-  const { register, formState: { errors }, handleSubmit } = useForm({
-    criteriaMode: "all"
-  });
-  const onSubmit = data => console.log(data);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    criteriaMode: "all",
+  })
+  const onSubmit = (data) => console.log(data)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -172,12 +175,12 @@ export default function App() {
           required: "This is required.",
           pattern: {
             value: /d+/,
-            message: "This input is number only."
+            message: "This input is number only.",
           },
           maxLength: {
             value: 10,
-            message: "This input exceed maxLength."
-          }
+            message: "This input exceed maxLength.",
+          },
         })}
       />
       <ErrorMessage
@@ -191,12 +194,10 @@ export default function App() {
         }
       />
 
-
       <input type="submit" />
     </form>
-  );
+  )
 }
-
 ```
 
 </TabGroup>
