@@ -18,7 +18,7 @@ export default function ApiGallery() {
 
     if (version !== 7) {
       router.push(
-        `https://react-hook-form-website-git-leagcy-hook-form.vercel.app/${version}/api`
+        `https://react-hook-form-website-git-leagcy-hook-form.vercel.app/v${version}/api`
       )
     } else {
       router.push(`/v${version}/docs/`)
