@@ -42,6 +42,10 @@
   background: none;
   border: 1px solid transparent;
   color: currentColor;
+  /* Keeps copy button visible on small screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .active,
