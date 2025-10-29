@@ -101,8 +101,8 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input {...(register("firstName"), { required: true })} />
-      <input {...(register("lastName"), { minLength: 2 })} />
+      <input {...register("firstName", { required: true })} />
+      <input {...register("lastName", { minLength: 2 })} />
       <input type="email" {...register("email")} />
 
       <input type="submit" />
@@ -547,7 +547,7 @@ export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
 import { useForm, NestedValue } from "react-hook-form"
-import { Autocomplete, TextField, Select } from "@material-ui/core"
+import { TextField, Select } from "@material-ui/core"
 import { Autocomplete } from "@material-ui/lab"
 
 type Option = {
@@ -602,7 +602,7 @@ export default function App() {
 
       <Select
         value=""
-        onChange={(e) => setValue("muiSelect", e.target.value as number[])}
+        onChange={(e) => setValue("select", e.target.value as number[])}
       >
         <MenuItem value={10}>Ten</MenuItem>
         <MenuItem value={20}>Twenty</MenuItem>

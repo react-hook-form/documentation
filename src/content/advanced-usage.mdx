@@ -381,7 +381,7 @@ function App() {
 
       <Input {...register("input")} />
 
-      <button type="button" onClick={() => reset({ defaultValues })}>
+      <button type="button" onClick={() => reset({ ...defaultValues })}>
         Reset
       </button>
       <input type="submit" />
@@ -408,7 +408,7 @@ function App() {
   const onSubmit = (data) => console.log(data)
 
   useEffect(() => {
-    register({ name: "select" })
+    register("select")
   }, [register])
 
   const handleChange = (e) => setValue("select", e.target.value)
@@ -521,7 +521,12 @@ const items = Array.from(Array(1000).keys()).map((i) => ({
 const WindowedRow = memo(({ index, style, data }) => {
   const { register } = useFormContext()
 
-  return <input {...register(`${index}.quantity`)} />
+  return (
+    <div style={style}>
+      <label>{data[index].title}</label>
+      <input {...register(`${index}.quantity`)} />
+    </div>
+  )
 })
 
 export const App = () => {

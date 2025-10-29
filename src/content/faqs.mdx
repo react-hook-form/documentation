@@ -168,11 +168,10 @@ export default function App() {
   const onSubmit = (data) => console.log(data)
   const { ref, ...rest } = register("firstName")
   const onClick = () => {
-    firstNameRef.current!.value = ""
+    firstNameRef.current.value = ""
   }
 
   useImperativeHandle(ref, () => firstNameRef.current)
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -207,7 +206,7 @@ export default function App() {
   useEffect(() => {
     register("firstName", { required: true })
     register("lastName")
-  }, [])
+  }, [register])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -240,18 +239,11 @@ Make sure you are not using `value`. The correct property is `defaultValue`.
 
 React Hook Form is focusing on uncontrolled inputs, which means you don't need to change the input `value` via `state` via `onChange`. In fact, you don't need `value` at all. You only need to set `defaultValue` for the initial input value.
 
-```javascript
-import { useForm } from "react-hook-form/dist/index.ie11" // V6
-import { useForm } from "react-hook-form/dist/react-hook-form.ie11" // V5'
-// Resolvers
-import { yupResolver } from "@hookform/resolvers/dist/ie11/yup"
-```
-
 ---
 
 ## React Hook Form, Formik or Redux Form? {#ReactHookFormFormikorReduxForm}
 
-First of all, all libs try to solve the same problem: make the form building experience as easy as possible. However, there are some fundamental differences between these three. `react-hook-form` is built with uncontrolled inputs in mind and tries to provide your form with the best performance and least amount of re-renders possible. Additionallly, `react-hook-form` is built with React Hooks and used as a hook, which means there is no Component for you to import. Here are some of the detailed differences:
+First of all, all libs try to solve the same problem: make the form building experience as easy as possible. However, there are some fundamental differences between these three. `react-hook-form` is built with uncontrolled inputs in mind and tries to provide your form with the best performance and least amount of re-renders possible. Additionally, `react-hook-form` is built with React Hooks and used as a hook, which means there is no Component for you to import. Here are some of the detailed differences:
 
 |                    | React Hook Form                                                                                                                                                                                              | Formik                                                                 | Redux Form                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -303,7 +295,7 @@ It's important to understand that React Hook Form embraces native form behavior 
 - [Modal form and toggle inputs example](https://codesandbox.io/s/react-hook-form-modal-form-conditional-inputs-c7n0r)
 - [Tab form example](https://codesandbox.io/s/tabs-760h9)
 
-Alternatively you can use the deprecated option `shouldUnregister: false` when calling \`useForm\`.
+Alternatively you can use the deprecated option `shouldUnregister: false` when calling `useForm`.
 
 <TabGroup buttonLabels={["Controller", "Custom Register"]}>
 
