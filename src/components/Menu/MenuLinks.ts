@@ -160,6 +160,10 @@ export const apiLinks: Pages = [
         pathname: "/docs/useformstate/errormessage",
         name: "ErrorMessage",
       },
+      {
+        pathname: "/docs/useformstate/formstatesubscribe",
+        name: "FormStateSubscribe",
+      },
     ],
   },
   {
