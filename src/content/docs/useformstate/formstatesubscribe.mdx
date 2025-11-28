@@ -1,0 +1,52 @@
+---
+title: FormStateSubscribe
+description: Component to subscribe to form state update
+sidebar: apiLinks
+---
+
+## \</> `FormStateSubscribe:` <TypeText>Component</TypeText>
+
+A React Hook Form component that provides the same functionality as `uesFormState`, but in component form. Instead of using the hook inside another component, you can use `<FormStateSubscribe />` directly in your JSX to subscribe to and render form state.
+
+### Props
+
+---
+
+| Name       | Type                                     | Description                                                                                                                                                                                                         |
+| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `control`  | <TypeText>Object</TypeText>              | [`control`](/docs/useform/control) object provided by `useForm`. It's optional if you are using `FormProvider`.                                                                                                     |
+| `name`     | <TypeText>string \| string[] </TypeText> | Provide a single input name, an array of them, or subscribe to all inputs' formState update.                                                                                                                        |
+| `disabled` | <TypeText>boolean = false</TypeText>     | Option to disable the subscription.                                                                                                                                                                                 |
+| `exact`    | <TypeText>boolean = false</TypeText>     | This prop will enable an exact match for input name subscriptions.                                                                                                                                                  |
+| `render`   | <TypeText>Function</TypeText>            | Subscribes to form state of specified form field(s) and re-renders its child function whenever the form state changes. This allows you to declaratively consume form state in JSX without manually wiring up state. |
+
+**Examples:**
+
+---
+
+```tsx copy sandbox=""
+import { useForm, FormStateSubscribe } from "react-hook-form"
+
+const App = () => {
+  const { register, control } = useForm()
+
+  return (
+    <div>
+      <form>
+        <input {...register("foo", { min: 3 })} />
+        <input {...register("bar")} />
+        {/* re-render only when form state of `foo` changes */}
+        <FormStateSubscribe
+          control={control}
+          name="foo"
+          render={({ errors }) => <span>{errors.foo?.message}</span>}
+        />
+      </form>
+    </div>
+  )
+}
+```
+
+```
+
+```
