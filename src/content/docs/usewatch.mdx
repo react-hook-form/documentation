@@ -4,6 +4,15 @@ description: React Hook for subscribing to input changes
 sidebar: apiLinks
 ---
 
+<SelectNav
+  options={[
+    {
+      label: "Watch",
+      value: "/docs/usewatch/watch",
+    }
+  ]}
+/>
+
 ## \</> `useWatch:` <TypeText>`({ control?: Control, name?: string, defaultValue?: unknown, disabled?: boolean }) => object`</TypeText>
 
 Behaves similarly to the `watch` API, however, this will isolate re-rendering at the custom hook level and potentially result in better performance for your application.
