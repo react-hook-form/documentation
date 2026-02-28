@@ -536,6 +536,17 @@ export default {
     {
       type: "video",
       title:
+        "React Hook Form - The Complete Course",
+      url: "https://www.udemy.com/course/react-hook-form-the-complete-guide-with-react-js/?referralCode=3E2C92D62151E1659637",
+      authorUrl: "https://www.youtube.com/@codaffection",
+      author: "CodAffection",
+      description:
+        "Learn A - Z about React Hook Form library with a practical project build, An in-depth course covering the entire features of the library",
+      version: "7",
+    },
+    {
+      type: "video",
+      title:
         "Working with Forms in React (React Hook Form, Zod & Component Libraries)",
       url: "https://www.youtube.com/playlist?list=PLeO8M-2wYaaV5vh2lRWV7qt_-Io8agaf-",
       authorUrl: "https://www.youtube.com/@vlad.nicula",
