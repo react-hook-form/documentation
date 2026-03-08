@@ -1,10 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type {
-  ComparisonResult,
-  FileStatus,
-  StructureInfo,
-} from "./types.js";
+import type { StructureInfo } from "./types.js";
 
 const ROOT = process.cwd();
 const ORIGIN_DIR = path.join(ROOT, "origin-src", "content");
@@ -45,7 +41,6 @@ export function extractStructure(content: string): StructureInfo {
     headingCount,
     codeBlockCount,
     tableRowCount,
-    lineCount: lines.length,
   };
 }
 
@@ -70,60 +65,14 @@ export function compareStructures(
       `코드 블록 수 차이 (원본: ${origin.codeBlockCount}, 번역: ${translated.codeBlockCount})`
     );
   }
-  if (Math.abs(origin.lineCount - translated.lineCount) >= 10) {
-    reasons.push(
-      `줄 수 차이 ±${Math.abs(origin.lineCount - translated.lineCount)}줄`
-    );
-  }
-
   return reasons;
 }
 
-export async function detectFiles(): Promise<ComparisonResult[]> {
-  const results: ComparisonResult[] = [];
-
-  // Dynamic import: glob from node:fs/promises requires Node 22+
-  const { glob } = await import("node:fs/promises");
-
-  const originFiles: string[] = [];
-  for await (const entry of glob("**/*.mdx", { cwd: ORIGIN_DIR })) {
-    originFiles.push(entry);
-  }
-  originFiles.sort();
-
-  for (const relPath of originFiles) {
-    const originPath = path.join(ORIGIN_DIR, relPath);
-    const translatedPath = path.join(TRANSLATED_DIR, relPath);
-
-    const originContent = fs.readFileSync(originPath, "utf-8");
-
-    if (!fs.existsSync(translatedPath)) {
-      results.push({
-        filePath: relPath,
-        status: "new",
-        reasons: ["대응하는 번역 파일 없음"],
-      });
-      continue;
-    }
-
-    const translatedContent = fs.readFileSync(translatedPath, "utf-8");
-    const originStructure = extractStructure(originContent);
-    const translatedStructure = extractStructure(translatedContent);
-    const reasons = compareStructures(originStructure, translatedStructure);
-
-    const status: FileStatus = reasons.length > 0 ? "sync" : "done";
-    results.push({ filePath: relPath, status, reasons });
-  }
-
-  return results;
-}
-
-export function parseFilesFromIssueTitle(title: string): string[] {
+export function parseFileFromIssueTitle(title: string): string | null {
   // Issue title format: "[Docs] content/path/to/file.mdx — Add"
   const match = title.match(/^\[Docs\]\s+(.+?)\s+—\s+(Add|Sync|Migrate|Remove)$/);
-  if (!match) return [];
-  const filePath = match[1];
-  return [filePath];
+  if (!match) return null;
+  return match[1];
 }
 
 export function resolveFilePath(input: string): string | null {
@@ -140,7 +89,6 @@ export function resolveFilePath(input: string): string | null {
 
   // Try glob match for short names (e.g. "register")
   const baseName = path.basename(candidate);
-  const searchDir = ORIGIN_DIR;
 
   function findRecursive(dir: string): string | null {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -156,7 +104,7 @@ export function resolveFilePath(input: string): string | null {
     return null;
   }
 
-  return findRecursive(searchDir);
+  return findRecursive(ORIGIN_DIR);
 }
 
 export function getOriginContent(filePath: string): string {

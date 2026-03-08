@@ -5,7 +5,7 @@ import {
   getOriginContent,
   getTranslatedContent,
   getReferenceFiles,
-  parseFilesFromIssueTitle,
+  parseFileFromIssueTitle,
   saveTranslation,
   extractStructure,
   compareStructures,
@@ -42,19 +42,19 @@ function parseArgs(argv: string[]) {
   return args;
 }
 
-function getFilesFromIssue(issueNumber: number): string[] {
+function getFileFromIssue(issueNumber: number): string {
   const title = execSync(`gh issue view ${issueNumber} --json title --jq '.title'`, {
     encoding: "utf-8",
   }).trim();
 
   console.log(`📋 이슈 제목: ${title}`);
-  const files = parseFilesFromIssueTitle(title);
-  if (files.length === 0) {
+  const file = parseFileFromIssueTitle(title);
+  if (!file) {
     throw new Error(
       `이슈 #${issueNumber}의 제목에서 파일 경로를 추출할 수 없습니다: "${title}"`
     );
   }
-  return files;
+  return file;
 }
 
 function determineMode(filePath: string): TranslationMode {
@@ -82,7 +82,7 @@ async function main() {
   if (args.files) {
     inputFiles = args.files;
   } else if (args.issueNumber) {
-    inputFiles = getFilesFromIssue(args.issueNumber);
+    inputFiles = [getFileFromIssue(args.issueNumber)];
   } else {
     console.error("❌ --files 또는 --issue 인자가 필요합니다.");
     process.exit(1);

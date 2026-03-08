@@ -1,17 +1,7 @@
-export type FileStatus = "new" | "sync" | "done";
-
-export interface ComparisonResult {
-  /** Relative path from content root, e.g. "docs/useform/register.mdx" */
-  filePath: string;
-  status: FileStatus;
-  reasons: string[];
-}
-
 export interface StructureInfo {
   headingCount: number;
   codeBlockCount: number;
   tableRowCount: number;
-  lineCount: number;
 }
 
 export type TranslationMode = "new" | "sync";

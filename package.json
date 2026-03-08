@@ -35,6 +35,7 @@
     "sortablejs": "1.15.0"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@next/bundle-analyzer": "^13.4.5",
     "@types/react-helmet": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^5.59.11",

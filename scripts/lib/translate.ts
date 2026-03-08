@@ -6,6 +6,7 @@ import type {
   TranslationResult,
   ValidationReport,
 } from "./types.js";
+import { extractStructure, compareStructures } from "./detect.js";
 
 const ROOT = process.cwd();
 
@@ -75,25 +76,10 @@ export function validateTranslation(
   originContent: string,
   translatedContent: string
 ): ValidationReport {
-  const warnings: string[] = [];
-
-  // Check heading count
-  const originHeadings = (originContent.match(/^#{1,6}\s/gm) || []).length;
-  const translatedHeadings = (translatedContent.match(/^#{1,6}\s/gm) || []).length;
-  if (originHeadings !== translatedHeadings) {
-    warnings.push(
-      `헤딩 수 불일치: 원본 ${originHeadings}개, 번역 ${translatedHeadings}개`
-    );
-  }
-
-  // Check code block count
-  const originCodeBlocks = (originContent.match(/^```/gm) || []).length;
-  const translatedCodeBlocks = (translatedContent.match(/^```/gm) || []).length;
-  if (originCodeBlocks !== translatedCodeBlocks) {
-    warnings.push(
-      `코드 블록 수 불일치: 원본 ${originCodeBlocks}개, 번역 ${translatedCodeBlocks}개`
-    );
-  }
+  const warnings = compareStructures(
+    extractStructure(originContent),
+    extractStructure(translatedContent)
+  );
 
   // Check frontmatter title exists
   const frontmatterMatch = translatedContent.match(/^---\n([\s\S]*?)\n---/);
@@ -101,11 +87,8 @@ export function validateTranslation(
     if (!/^title:/m.test(frontmatterMatch[1])) {
       warnings.push("프론트매터에 title 필드가 없습니다");
     }
-  } else {
-    // Check if origin has frontmatter
-    if (/^---\n/.test(originContent)) {
-      warnings.push("번역 결과에 프론트매터가 없습니다");
-    }
+  } else if (/^---\n/.test(originContent)) {
+    warnings.push("번역 결과에 프론트매터가 없습니다");
   }
 
   return {
