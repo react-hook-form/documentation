@@ -535,8 +535,7 @@ export default {
   video: [
     {
       type: "video",
-      title:
-        "React Hook Form - The Free Course",
+      title: "React Hook Form - The Free Course",
       url: "https://youtu.be/lp8xXoG0xQY",
       authorUrl: "https://www.youtube.com/@codaffection",
       author: "CodAffection",
