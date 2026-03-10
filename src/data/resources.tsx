@@ -536,12 +536,12 @@ export default {
     {
       type: "video",
       title:
-        "React Hook Form - The Complete Course",
-      url: "https://www.udemy.com/course/react-hook-form-the-complete-guide-with-react-js/?referralCode=3E2C92D62151E1659637",
+        "React Hook Form - The Free Course",
+      url: "https://youtu.be/lp8xXoG0xQY",
       authorUrl: "https://www.youtube.com/@codaffection",
       author: "CodAffection",
       description:
-        "Learn A - Z about React Hook Form library with a practical project build, An in-depth course covering the entire features of the library",
+        "Learn A - Z about React Hook Form library with a practical project build, An in-depth course covering the fundamentals of the library",
       version: "7",
     },
     {
