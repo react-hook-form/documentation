@@ -1,0 +1,82 @@
+name: Auto Translate Docs
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "번역할 파일 경로 (예: docs/useform/register.mdx)"
+        required: false
+        type: string
+      issue_number:
+        description: "이슈 번호 (이슈에서 파일 경로 추출)"
+        required: false
+        type: string
+      dry_run:
+        description: "Dry run (번역 API 호출 없이 테스트)"
+        required: false
+        type: boolean
+        default: false
+
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    # workflow_dispatch이거나 docs:add/docs:sync 라벨이 추가된 경우에만 실행
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' &&
+       (github.event.label.name == 'docs:add' || github.event.label.name == 'docs:sync'))
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master-ko
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install script dependencies
+        working-directory: scripts
+        run: npm install
+
+      - name: Build CLI arguments
+        id: args
+        run: |
+          ARGS=""
+
+          # workflow_dispatch 입력 처리
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -n "${{ inputs.file }}" ]; then
+              ARGS="$ARGS --files ${{ inputs.file }}"
+            fi
+            if [ -n "${{ inputs.issue_number }}" ]; then
+              ARGS="$ARGS --issue ${{ inputs.issue_number }}"
+            fi
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              ARGS="$ARGS --dry-run"
+            fi
+          fi
+
+          # issues labeled 이벤트 처리
+          if [ "${{ github.event_name }}" = "issues" ]; then
+            ARGS="--issue ${{ github.event.issue.number }}"
+          fi
+
+          echo "cli_args=$ARGS" >> "$GITHUB_OUTPUT"
+
+      - name: Run translation CLI
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx scripts/cli.ts ${{ steps.args.outputs.cli_args }}
