@@ -10,20 +10,90 @@ const site = {
   },
 }
 
+const ORIGINAL_SITE_URL = "https://react-hook-form.com"
+
+const SEGMENT_LABELS: Record<string, string> = {
+  docs: "API",
+  "get-started": "시작하기",
+  "advanced-usage": "고급 사용법",
+  ts: "TypeScript",
+  faqs: "FAQ",
+  resources: "리소스",
+  "dev-tools": "DevTools",
+  "form-builder": "Form Builder",
+}
+
+function buildBreadcrumbList(
+  pathname: string,
+  siteUrl: string,
+  pageTitle: string
+) {
+  if (pathname === "/") return null
+
+  const segments = pathname.split("/").filter(Boolean)
+  const items = [
+    { name: "홈", url: siteUrl },
+    ...segments.map((segment, index) => {
+      const url = `${siteUrl}/${segments.slice(0, index + 1).join("/")}`
+      const isLast = index === segments.length - 1
+      const name = isLast ? pageTitle : SEGMENT_LABELS[segment] || segment
+      return { name, url }
+    }),
+  ]
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+}
+
 function SEO({ title, description }: { title: string; description?: string }) {
   const router = useRouter()
   const metaDescription = description || site.siteMetadata.description
   const metaTitle = title || site.siteMetadata.title
+  const pathname = router.asPath.split("?")[0].split("#")[0]
   const canonicalUrl = `${site.siteMetadata.siteUrl}${
-    router.asPath === "/" ? "" : router.asPath
+    pathname === "/" ? "" : pathname
   }`
+  const originalUrl = `${ORIGINAL_SITE_URL}${pathname === "/" ? "" : pathname}`
   const ogImageUrl = `${site.siteMetadata.siteUrl}/images/react-hook-form-og.png`
+  const breadcrumb = buildBreadcrumbList(
+    pathname,
+    site.siteMetadata.siteUrl,
+    metaTitle
+  )
 
   return (
     <Head>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} key="description" />
       <link rel="canonical" href={canonicalUrl} key="canonical" />
+
+      {/* hreflang */}
+      <link
+        rel="alternate"
+        hrefLang="ko"
+        href={canonicalUrl}
+        key="hreflang-ko"
+      />
+      <link
+        rel="alternate"
+        hrefLang="en"
+        href={originalUrl}
+        key="hreflang-en"
+      />
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={originalUrl}
+        key="hreflang-default"
+      />
 
       {/* Open Graph */}
       <meta property="og:title" content={metaTitle} key="og:title" />
@@ -38,7 +108,7 @@ function SEO({ title, description }: { title: string; description?: string }) {
       <meta property="og:locale" content="ko_KR" key="og:locale" />
       <meta
         property="og:site_name"
-        content="React Hook Form 한국어 문서"
+        content="React Ko Form"
         key="og:site_name"
       />
 
@@ -52,6 +122,14 @@ function SEO({ title, description }: { title: string; description?: string }) {
       />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
       <meta name="twitter:image" content={ogImageUrl} key="twitter:image" />
+
+      {breadcrumb && (
+        <script
+          type="application/ld+json"
+          key="breadcrumb"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+      )}
     </Head>
   )
 }
