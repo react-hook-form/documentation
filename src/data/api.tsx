@@ -2853,7 +2853,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td></td>
           <td>
             <p>
-              This prop will enable an exact match for input name subscriptions, default to true.
+              This prop will enable an exact match for input name subscriptions,
+              default to true.
             </p>
           </td>
         </tr>
