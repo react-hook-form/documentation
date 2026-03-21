@@ -535,6 +535,16 @@ export default {
   video: [
     {
       type: "video",
+      title: "React Hook Form - The Free Course",
+      url: "https://youtu.be/lp8xXoG0xQY",
+      authorUrl: "https://www.youtube.com/@codaffection",
+      author: "CodAffection",
+      description:
+        "Learn A - Z about React Hook Form library with a practical project build, An in-depth course covering the fundamentals of the library",
+      version: "7",
+    },
+    {
+      type: "video",
       title:
         "Working with Forms in React (React Hook Form, Zod & Component Libraries)",
       url: "https://www.youtube.com/playlist?list=PLeO8M-2wYaaV5vh2lRWV7qt_-Io8agaf-",
