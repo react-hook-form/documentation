@@ -29,26 +29,8 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
 <Admonition type="important" title="Rules">
 
-- For controlled components you will need to pass `defaultValues` to `useForm` in order to `reset` the `Controller` components' value.
-- When `defaultValues` is not supplied to `reset` API, then HTML native [reset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset) API will be invoked to restore the form.
-- Avoid calling `reset` before `useForm`'s `useEffect` is invoked, this is because `useForm`'s subscription needs to be ready before `reset` can send a signal to flush form state update.
-- It's recommended to `reset` inside `useEffect` after submission.
-  ```javascript
-  useEffect(() => {
-    reset({
-      data: "test",
-    })
-  }, [isSubmitSuccessful])
-  ```
-- It's fine to run `reset` without argument as long as you have provided a `defaultValues` at useForm.
-
-  ```javascript
-  reset() // update form back to default values
-
-  reset({ test: "test" }) // update your defaultValues && form values
-
-  reset(undefined, { keepDirtyValues: true }) // reset other form state but keep defaultValues and form values
-  ```
+- It is recommended to always provide <code>defaultValues</code> when resetting a form
+    to ensure all inputs, especially controlled components, are restored correctly.
 
 </Admonition>
 
