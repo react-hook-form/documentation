@@ -94,6 +94,7 @@ sidebar: apiLinks
 | [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                               |
 | [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                  |
 | [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                         |
+| [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                                                         |
 | [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                     |
 | [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                            |
 | [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                           |
@@ -276,6 +277,37 @@ When set to `true` (default), and the user submits a form that fails validation,
 |                                                                                                                                                                                                                  |                                                                        |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | This configuration delays the display of error states to the end-user by a specified number of milliseconds. If the user corrects the error input, the error is removed instantly, and the delay is not applied. | <CodeSandbox url="https://codesandbox.io/s/useform-delayerror-q6c2d"/> |
+
+#### validate: <TypeText>Function</TypeText> {#validate}
+
+---
+
+This example demonstrates how to use the **new `validate` API** in combination with `useForm` to perform **form-level validation** in a React application.
+
+The `validate` function receives the entire form object and allows you to return a **structured error** that integrates with `formState.errors`.
+
+**Examples:**
+
+---
+
+```javascript copy
+const { register, formState: { errors } } = useForm({
+  validate: async (formValue) => {
+    if (formValue.test1.length > formValue.test.length) {
+      return {
+        type: 'formError',
+        message: 'something is wrong here',
+      };
+    }
+
+    if (formValue.test === 'test') {
+      return 'direct error message';
+    }
+
+    return true;
+  },
+});
+```
 
 #### shouldUnregister: <TypeText>boolean = false</TypeText> {#shouldUnregister}
 
