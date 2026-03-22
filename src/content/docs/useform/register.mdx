@@ -102,32 +102,28 @@ By selecting the register option, the API table below will get updated.
 
 <ul>
   <li>
-    Name is **required** and **unique** (except native radio and checkbox).
-    Input name supports both dot and bracket syntax, which allows you to easily
-    create nested form fields.
+    <strong>Name</strong> is <strong>required</strong> and must be <strong>unique</strong>
+        (except for native radio and checkbox inputs).
   </li>
   <li>
-    Name can neither start with a number nor use number as key name. Please
-    avoid special characters as well.
-  </li>
-  <li>
-    We are using dot syntax only for typescript usage consistency, so bracket `[]`
-    will not work for array form value.
-    
-```javascript
-register('test.0.firstName'); // ✅
-register('test[0]firstName'); // ❌
-```
+    Name must not start with a number or use numbers as standalone keys, and should avoid special characters.
+    For TypeScript consistency, only dot syntax is supported—bracket syntax (<code>[]</code>) will not work for array form values.
 
+```javascript
+  register('test.0.firstName'); // ✅
+  register('test[0].firstName'); // ❌
+```
   </li>
   
-  <li>Disabled input will result in an undefined form value. If you want to prevent users from updating the input, you can use `readOnly` or `disable` the entire `fieldset`. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).</li>
+  <li> Disabled inputs return <code>undefined</code> as their form value.
+        If you need to prevent user edits while preserving the value, use
+        <code>readOnly</code> or disable the entire <code>fieldset</code>. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).</li>
   
-  <li>To produce an array of fields, input names should be followed by a dot and number. For example: `test.0.data`</li>
+  <li>Changing an input’s <code>name</code> on each render causes it to be re-registered as a new field.
+        To ensure consistent behavior, keep input names stable across renders.</li>
   
-  <li>Changing the name on each render will result in new inputs being registered. It's recommended to keep static names for each registered input.</li>
-  
-  <li>Input value and reference will no longer gets removed based on unmount. You can invoke unregister to remove that value and reference.</li>
+  <li>Input values and references are not automatically removed on unmount.
+        Use <a href="/docs/useform/unregister"><code>unregister</code></a> to explicitly remove them when needed.</li>
   
   <li>
   Individual register option can't be removed by `undefined` or `{}`. You can update individual attribute instead.
