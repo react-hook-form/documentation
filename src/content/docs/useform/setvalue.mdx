@@ -35,22 +35,6 @@ This function allows you to dynamically set the value of a <strong>registered</s
   setValue("array.0.test2", "2")
   ```
 
-- The method will not create a new field when targeting a non-existing field.
-
-  ```javascript
-  const { replace } = useFieldArray({ name: "test" })
-
-  // ❌ doesn't create new input
-  setValue("test.101.data")
-
-  // ✅ work on refresh entire field array
-  replace([{ data: "test" }])
-  ```
-
-- Only the following conditions will trigger a re-render:
-  - When an error is triggered or corrected by a value update.
-  - When `setValue` cause state update, such as dirty and touched.
-
 - It's recommended to target the field's name rather than make the second argument a nested object.
 
   ```javascript
