@@ -110,9 +110,10 @@ By selecting the register option, the API table below will get updated.
     For TypeScript consistency, only dot syntax is supported—bracket syntax (<code>[]</code>) will not work for array form values.
 
 ```javascript
-  register('test.0.firstName'); // ✅
-  register('test[0].firstName'); // ❌
+register("test.0.firstName") // ✅
+register("test[0].firstName") // ❌
 ```
+
   </li>
   
   <li> Disabled inputs return <code>undefined</code> as their form value.

@@ -94,7 +94,7 @@ sidebar: apiLinks
 | [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                               |
 | [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                  |
 | [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                         |
-| [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                                                         |
+| [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                              |
 | [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                     |
 | [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                            |
 | [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                           |
@@ -291,22 +291,25 @@ The `validate` function receives the entire form object and allows you to return
 ---
 
 ```javascript copy
-const { register, formState: { errors } } = useForm({
+const {
+  register,
+  formState: { errors },
+} = useForm({
   validate: async (formValue) => {
     if (formValue.test1.length > formValue.test.length) {
       return {
-        type: 'formError',
-        message: 'something is wrong here',
-      };
+        type: "formError",
+        message: "something is wrong here",
+      }
     }
 
-    if (formValue.test === 'test') {
-      return 'direct error message';
+    if (formValue.test === "test") {
+      return "direct error message"
     }
 
-    return true;
+    return true
   },
-});
+})
 ```
 
 #### shouldUnregister: <TypeText>boolean = false</TypeText> {#shouldUnregister}
