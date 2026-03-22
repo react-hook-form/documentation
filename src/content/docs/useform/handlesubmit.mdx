@@ -19,15 +19,6 @@ This function will receive the form data if form validation is successful.
 
 <Admonition type="important" title="Rules">
 
-- You can easily submit form asynchronously with handleSubmit.
-
-  ```javascript copy
-  handleSubmit(onSubmit)()
-
-  // You can pass an async function for asynchronous validation.
-  handleSubmit(async (data) => await fetchAPI(data))
-  ```
-
 - `disabled` inputs will appear as `undefined` values in form values. If you want to prevent users from updating an input and wish to retain the form value, you can use `readOnly` or disable the entire &lt;fieldset /&gt;. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).
 - `handleSubmit` function will not swallow errors that occurred inside your onSubmit callback, so we recommend you to try and catch inside async request and handle those errors gracefully for your customers.
 
