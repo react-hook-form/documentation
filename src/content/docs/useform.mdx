@@ -295,8 +295,8 @@ const {
   register,
   formState: { errors },
 } = useForm({
-  validate: async (formValue) => {
-    if (formValue.test1.length > formValue.test.length) {
+  validate: async ({ formValues }: FormValidateResult) => {
+    if (formValues.test1.length > formValues.test.length) {
       return {
         type: "formError",
         message: "something is wrong here",
