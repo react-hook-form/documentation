@@ -34,6 +34,12 @@ const methods = useFormContext() // retrieve those props
 <Admonition type="important" title="Rules">
   You need to wrap your form with the [`FormProvider`](/docs/formprovider)
   component for `useFormContext` to work properly.
+
+  If you need to subscribe to form state values like `errors`, `isDirty`, or
+  `dirtyFields` inside a `FormProvider` tree, use
+  [`useFormState`](/docs/useformstate) instead of destructuring `formState`
+  from `useFormContext()`. `formState` is wrapped with a Proxy, so you should
+  read the specific state you want to subscribe to before render.
 </Admonition>
 
 **Example:**
