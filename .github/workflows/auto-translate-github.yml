@@ -1,0 +1,260 @@
+name: Auto Translate (GitHub Models)
+
+on:
+  workflow_run:
+    workflows: ["Update origin-src for Translation"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+  models: read
+
+jobs:
+  auto-translate:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master-ko
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Detect changed files
+        id: detect
+        run: |
+          set -Eeuo pipefail
+
+          # origin/master의 최신 src/ 추출
+          WORK=$(mktemp -d)
+          echo "WORK=$WORK" >> "$GITHUB_ENV"
+          git archive origin/master src | tar -x -C "$WORK"
+
+          # .mdx 파일만 체크섬 비교
+          (cd "$WORK/src" && find . -name '*.mdx' -type f -print0 \
+            | xargs -0 sha1sum | awk '{print $1" "$2}' | sort -k2) > master.sum || true
+          (cd origin-src && find . -name '*.mdx' -type f -print0 \
+            | xargs -0 sha1sum | awk '{print $1" "$2}' | sort -k2) > origin.sum || true
+
+          # 추가된 파일 (A): master에만 존재
+          comm -23 <(awk '{print $2}' master.sum | sort) <(awk '{print $2}' origin.sum | sort) \
+            | while read -r f; do echo "A $f"; done > changes.list || true
+
+          # 수정된 파일 (M): 양쪽에 존재하나 체크섬 다름
+          join -j2 <(sort -k2 master.sum) <(sort -k2 origin.sum) \
+            | awk '$2 != $3 {print "M "$1}' >> changes.list || true
+
+          if [ -s changes.list ]; then
+            echo "has_changes=true" >> "$GITHUB_ENV"
+          else
+            echo "has_changes=false" >> "$GITHUB_ENV"
+          fi
+
+          echo "=== Changed files ==="
+          cat changes.list || echo "(none)"
+
+      - name: Translate changed files
+        if: env.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -Eeuo pipefail
+
+          # 번역 규칙 로드
+          RULES=$(cat AGENTS.md)
+          SKILL_RULES=$(cat .claude/skills/translate.md 2>/dev/null || echo "")
+
+          # 톤앤매너 레퍼런스 파일 로드
+          REF1=$(cat src/content/docs/useform.mdx 2>/dev/null || echo "")
+          REF2=$(cat src/content/docs/useformcontext.mdx 2>/dev/null || echo "")
+
+          read -r -d '' SYSTEM_PROMPT << 'SYSPROMPT' || true
+          당신은 React Hook Form 문서 한국어 번역 전문가입니다. 아래 번역 규칙을 반드시 따르세요.
+
+          <translation-rules>
+          PLACEHOLDER_RULES
+          </translation-rules>
+
+          <additional-translation-guidelines>
+          PLACEHOLDER_SKILL_RULES
+          </additional-translation-guidelines>
+
+          <reference-translations>
+          PLACEHOLDER_REF1
+          ---
+          PLACEHOLDER_REF2
+          </reference-translations>
+
+          중요:
+          - 번역된 MDX 콘텐츠만 출력하세요. 코드 펜스로 감싸지 마세요.
+          - 프론트매터의 title, description은 한국어로 번역하세요.
+          - 코드 블록, JSX, import는 변경하지 마세요.
+          - 마크다운 구조(헤딩, 리스트, 테이블)를 유지하세요.
+          SYSPROMPT
+
+          # 플레이스홀더를 실제 값으로 치환
+          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_RULES/$RULES}"
+          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_SKILL_RULES/$SKILL_RULES}"
+          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_REF1/$REF1}"
+          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_REF2/$REF2}"
+
+          TRANSLATED_COUNT=0
+
+          while IFS=' ' read -r kind file; do
+            echo "📝 Processing: [$kind] $file"
+
+            NEW_ORIGIN="$WORK/src/$file"
+            if [ ! -f "$NEW_ORIGIN" ]; then
+              echo "⚠️ 파일 없음: $NEW_ORIGIN"
+              continue
+            fi
+
+            NEW_CONTENT=$(cat "$NEW_ORIGIN")
+
+            if [ "$kind" = "A" ]; then
+              USER_MSG=$(cat <<USERMSG
+          다음 React Hook Form 문서를 한국어로 번역하세요.
+
+          <source>
+          $NEW_CONTENT
+          </source>
+          USERMSG
+              )
+
+            elif [ "$kind" = "M" ]; then
+              OLD_ORIGIN=$(cat "origin-src/$file" 2>/dev/null || echo "")
+              EXISTING_KO=$(cat "src/content/$file" 2>/dev/null || echo "")
+              DIFF=$(diff <(echo "$OLD_ORIGIN") <(echo "$NEW_CONTENT") || true)
+
+              if [ -z "$DIFF" ]; then
+                echo "⏭️ diff 없음, 스킵: $file"
+                continue
+              fi
+              if [ -z "$EXISTING_KO" ]; then
+                echo "⏭️ 기존 번역 없음, 스킵: $file"
+                continue
+              fi
+
+              USER_MSG=$(cat <<USERMSG
+          원본 영문 문서가 아래와 같이 변경되었습니다. 기존 한국어 번역에서 변경된 부분만 업데이트하세요.
+
+          <diff>
+          $DIFF
+          </diff>
+
+          <existing-korean-translation>
+          $EXISTING_KO
+          </existing-korean-translation>
+
+          <updated-english-original>
+          $NEW_CONTENT
+          </updated-english-original>
+          USERMSG
+              )
+            else
+              echo "⏭️ 알 수 없는 종류: $kind, 스킵"
+              continue
+            fi
+
+            # GitHub Models API 호출
+            RESPONSE=$(curl -s --max-time 120 \
+              "https://models.github.ai/inference/chat/completions" \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -d "$(jq -n \
+                --arg model "openai/gpt-4o" \
+                --arg system "$SYSTEM_PROMPT" \
+                --arg user "$USER_MSG" \
+                '{model: $model, messages: [
+                  {role: "system", content: $system},
+                  {role: "user", content: $user}
+                ], max_tokens: 4096}')" || true)
+
+            # 응답에서 번역 결과 추출
+            TRANSLATED=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
+
+            if [ -z "$TRANSLATED" ]; then
+              echo "⚠️ 번역 실패: $file"
+              echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
+              continue
+            fi
+
+            # 코드 펜스 래퍼 제거
+            TRANSLATED=$(echo "$TRANSLATED" | sed '/^```\(mdx\|markdown\|md\)\?$/d; /^```$/d')
+
+            # 번역 결과 저장
+            TARGET="src/content/$file"
+            mkdir -p "$(dirname "$TARGET")"
+            printf '%s\n' "$TRANSLATED" > "$TARGET"
+            TRANSLATED_COUNT=$((TRANSLATED_COUNT + 1))
+            echo "✅ 번역 완료: $file"
+
+          done < changes.list
+
+          echo "translated_count=$TRANSLATED_COUNT" >> "$GITHUB_ENV"
+          echo "=== 번역 완료: ${TRANSLATED_COUNT}개 파일 ==="
+
+      - name: Create translation PR
+        if: env.has_changes == 'true' && env.translated_count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -Eeuo pipefail
+
+          # 변경사항 확인
+          git add src/content/
+          if git diff --cached --quiet; then
+            echo "번역된 변경사항 없음, PR 생성 스킵"
+            exit 0
+          fi
+
+          # 기존 자동 번역 PR이 있으면 닫기
+          EXISTING_PR=$(gh pr list --search "head:auto-translate-github-" \
+            --json number --jq '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr close "$EXISTING_PR" --comment "새로운 자동 번역 PR로 대체합니다." || true
+          fi
+
+          # 브랜치 생성 & 커밋
+          BRANCH="auto-translate-github-$(date +%Y%m%d%H%M%S)"
+          git checkout -b "$BRANCH"
+          git commit -m "docs: GitHub Models API 자동 번역 ($(date +%Y-%m-%d))"
+
+          # 푸시
+          git push origin "$BRANCH"
+
+          # PR 본문 생성
+          FILE_LIST=$(awk '{
+            if ($1 == "A") printf "- 🆕 `%s` (신규)\n", $2
+            else if ($1 == "M") printf "- 🔄 `%s` (변경점 반영)\n", $2
+          }' changes.list)
+
+          gh pr create \
+            --title "docs: 자동 번역 업데이트 ($(date +%Y-%m-%d))" \
+            --body "$(cat <<EOF
+          ## 자동 번역 (GitHub Models API)
+
+          ### 번역된 파일
+          $FILE_LIST
+
+          ### 사용 모델
+          - \`openai/gpt-4o\` via GitHub Models API
+
+          ### 참고
+          - 번역 규칙: \`AGENTS.md\`, \`.claude/skills/translate.md\`
+          - 이 PR은 자동 생성되었습니다. 리뷰 후 머지해주세요.
+          EOF
+          )" \
+            --base master-ko \
+            --head "$BRANCH"
