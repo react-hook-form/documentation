@@ -75,10 +75,6 @@ jobs:
           RULES=$(cat AGENTS.md)
           SKILL_RULES=$(cat .claude/skills/translate.md 2>/dev/null || echo "")
 
-          # 톤앤매너 레퍼런스 파일 로드
-          REF1=$(cat src/content/docs/useform.mdx 2>/dev/null || echo "")
-          REF2=$(cat src/content/docs/useformcontext.mdx 2>/dev/null || echo "")
-
           read -r -d '' SYSTEM_PROMPT << 'SYSPROMPT' || true
           당신은 React Hook Form 문서 한국어 번역 전문가입니다. 아래 번역 규칙을 반드시 따르세요.
 
@@ -90,26 +86,167 @@ jobs:
           PLACEHOLDER_SKILL_RULES
           </additional-translation-guidelines>
 
-          <reference-translations>
-          PLACEHOLDER_REF1
-          ---
-          PLACEHOLDER_REF2
-          </reference-translations>
+          <tone-and-style-examples>
+          아래는 기존 번역의 톤앤매너 예시입니다. 이 스타일을 따르세요.
+
+          예시 1 (설명문):
+          EN: This custom hook allows you to access the form context.
+          KO: 이 커스텀 훅은 폼 컨텍스트에 접근할 수 있게 해줍니다.
+
+          예시 2 (기술 용어 이중 표기):
+          EN: The name of the registered input field.
+          KO: 등록(register)된 인풋 필드의 이름입니다.
+
+          예시 3 (Admonition 컴포넌트):
+          EN: <Admonition type="important" title="Rules">You must wrap your form with FormProvider.</Admonition>
+          KO: <Admonition type="important" title="Rules">`useFormContext`가 제대로 작동하려면, 먼저 폼을 [`FormProvider`](/docs/formprovider) 컴포넌트로 감싸야 합니다.</Admonition>
+
+          예시 4 (Props 테이블):
+          EN: | name | string | Required. The name of the input field. |
+          KO: | name | string | 필수. 인풋 필드의 이름입니다. |
+
+          예시 5 (코드 블록 주석만 번역):
+          EN: // all useForm return props
+          KO: // useForm이 반환하는 모든 props
+          </tone-and-style-examples>
 
           중요:
           - 번역된 MDX 콘텐츠만 출력하세요. 코드 펜스로 감싸지 마세요.
           - 프론트매터의 title, description은 한국어로 번역하세요.
           - 코드 블록, JSX, import는 변경하지 마세요.
           - 마크다운 구조(헤딩, 리스트, 테이블)를 유지하세요.
+          - 볼드 처리된 부제목(**Examples:**, **Return**, **Type** 등)은 번역하지 마세요. 영문 그대로 유지합니다.
+          - 테이블 헤더(첫 번째 행)는 번역하지 마세요. 예: | Name | Type | Description | 은 영문 그대로 유지합니다.
           SYSPROMPT
 
           # 플레이스홀더를 실제 값으로 치환
           SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_RULES/$RULES}"
           SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_SKILL_RULES/$SKILL_RULES}"
-          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_REF1/$REF1}"
-          SYSTEM_PROMPT="${SYSTEM_PROMPT//PLACEHOLDER_REF2/$REF2}"
+
+          # API 호출 함수
+          call_api() {
+            local user_msg="$1"
+            curl -s --max-time 120 \
+              "https://models.github.ai/inference/chat/completions" \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -d "$(jq -n \
+                --arg model "openai/gpt-4o" \
+                --arg system "$SYSTEM_PROMPT" \
+                --arg user "$user_msg" \
+                '{model: $model, messages: [
+                  {role: "system", content: $system},
+                  {role: "user", content: $user}
+                ], max_tokens: 4096}')" || true
+          }
+
+          # 코드 펜스 제거 함수
+          strip_fences() {
+            sed '/^```\(mdx\|markdown\|md\)\?$/d; /^```$/d'
+          }
+
+          # 토큰 초과 에러 확인 함수
+          is_token_error() {
+            echo "$1" | jq -r '.error.code // empty' 2>/dev/null | grep -q "tokens_limit_reached"
+          }
+
+          # 헤딩 기준 청크 분할 함수
+          split_by_heading() {
+            local content="$1"
+            local chunk_dir="$2"
+            local pattern="$3"  # "h2" 또는 "h3"
+            mkdir -p "$chunk_dir"
+
+            local regex='^## '
+            if [ "$pattern" = "h3" ]; then
+              regex='^### '
+            fi
+
+            echo "$content" | awk -v re="$regex" '
+              BEGIN { n=0; file="'"$chunk_dir"'/chunk_000.txt" }
+              $0 ~ re { n++; file="'"$chunk_dir"'/chunk_" sprintf("%03d",n) ".txt" }
+              { print >> file }
+            '
+          }
+
+          # 단일 청크 번역 함수 (### 2차 분할 포함)
+          # 사용법: translate_chunk "user_msg" "chunk_content" "fallback_text" "prompt_type"
+          # prompt_type: "new" = 신규 번역, "modify" = 수정 번역
+          # stdout: 번역 결과, 실패 시 fallback_text
+          translate_chunk() {
+            local user_msg="$1"
+            local chunk_content="$2"
+            local fallback_text="$3"
+            local prompt_type="$4"
+            local diff_text="$5"
+
+            local response
+            response=$(call_api "$user_msg")
+
+            # 성공
+            if ! is_token_error "$response"; then
+              local result
+              result=$(echo "$response" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
+              if [ -n "$result" ]; then
+                echo "$result" | strip_fences
+                return 0
+              fi
+              # API 에러 (토큰 초과 외)
+              printf '%s' "$fallback_text"
+              return 1
+            fi
+
+            # 토큰 초과 → ### 기준 2차 분할
+            echo "  🔄 ### 기준 2차 분할 시도" >&2
+            local sub_dir
+            sub_dir=$(mktemp -d)
+            split_by_heading "$chunk_content" "$sub_dir" "h3"
+
+            local combined=""
+            for sub_file in "$sub_dir"/chunk_*.txt; do
+              local sub_chunk
+              sub_chunk=$(cat "$sub_file")
+              local sub_msg=""
+
+              if [ "$prompt_type" = "new" ]; then
+                sub_msg="다음 React Hook Form 문서 섹션을 한국어로 번역하세요. 이 섹션만 번역하여 출력하세요.
+
+          <source>
+          $sub_chunk
+          </source>"
+              else
+                sub_msg="원본 영문 문서가 변경되었습니다. 아래 기존 한국어 번역 섹션에서 diff에 해당하는 부분만 업데이트하세요.
+          변경이 없으면 기존 번역을 그대로 출력하세요. 이 섹션의 번역만 출력하세요.
+
+          <diff>
+          $diff_text
+          </diff>
+
+          <existing-korean-section>
+          $sub_chunk
+          </existing-korean-section>"
+              fi
+
+              local sub_resp
+              sub_resp=$(call_api "$sub_msg")
+              local sub_result
+              sub_result=$(echo "$sub_resp" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
+
+              if [ -n "$sub_result" ]; then
+                combined="${combined}$(echo "$sub_result" | strip_fences)
+          "
+              else
+                echo "  ⚠️ 서브청크 번역 실패, 기존 유지: $(head -1 "$sub_file")" >&2
+                combined="${combined}${sub_chunk}
+          "
+              fi
+            done
+            rm -rf "$sub_dir"
+            printf '%s' "$combined"
+          }
 
           TRANSLATED_COUNT=0
+          : > translation_log.txt
 
           while IFS=' ' read -r kind file; do
             echo "📝 Processing: [$kind] $file"
@@ -121,20 +258,46 @@ jobs:
             fi
 
             NEW_CONTENT=$(cat "$NEW_ORIGIN")
+            TRANSLATED=""
 
             if [ "$kind" = "A" ]; then
-              USER_MSG=$(cat <<USERMSG
-          다음 React Hook Form 문서를 한국어로 번역하세요.
+              # --- 신규 번역 ---
+              USER_MSG="다음 React Hook Form 문서를 한국어로 번역하세요.
 
           <source>
           $NEW_CONTENT
-          </source>
-          USERMSG
-              )
+          </source>"
+
+              RESPONSE=$(call_api "$USER_MSG")
+
+              if is_token_error "$RESPONSE"; then
+                echo "🔄 토큰 초과, ## 기준 청크 분할: $file"
+                CHUNK_DIR=$(mktemp -d)
+                split_by_heading "$NEW_CONTENT" "$CHUNK_DIR" "h2"
+
+                TRANSLATED=""
+                for chunk_file in "$CHUNK_DIR"/chunk_*.txt; do
+                  CHUNK=$(cat "$chunk_file")
+                  CHUNK_MSG="다음 React Hook Form 문서 섹션을 한국어로 번역하세요. 이 섹션만 번역하여 출력하세요.
+
+          <source>
+          $CHUNK
+          </source>"
+                  CHUNK_RESULT=$(translate_chunk "$CHUNK_MSG" "$CHUNK" "$CHUNK" "new" "")
+                  TRANSLATED="${TRANSLATED}${CHUNK_RESULT}
+          "
+                done
+                rm -rf "$CHUNK_DIR"
+                echo "🆕 \`$file\` — 신규 번역 (청크 분할)" >> translation_log.txt
+              else
+                TRANSLATED=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
+                echo "🆕 \`$file\` — 신규 번역" >> translation_log.txt
+              fi
 
             elif [ "$kind" = "M" ]; then
+              # --- 수정 번역 ---
               OLD_ORIGIN=$(cat "origin-src/$file" 2>/dev/null || echo "")
-              EXISTING_KO=$(cat "src/content/$file" 2>/dev/null || echo "")
+              EXISTING_KO=$(cat "src/$file" 2>/dev/null || echo "")
               DIFF=$(diff <(echo "$OLD_ORIGIN") <(echo "$NEW_CONTENT") || true)
 
               if [ -z "$DIFF" ]; then
@@ -146,8 +309,9 @@ jobs:
                 continue
               fi
 
-              USER_MSG=$(cat <<USERMSG
-          원본 영문 문서가 아래와 같이 변경되었습니다. 기존 한국어 번역에서 변경된 부분만 업데이트하세요.
+              USER_MSG="원본 영문 문서가 아래와 같이 변경되었습니다. 기존 한국어 번역에서 변경된 부분만 업데이트하세요.
+          변경되지 않은 부분은 그대로 유지하고, diff에 해당하는 부분만 한국어로 번역하여 반영하세요.
+          전체 문서를 출력하세요.
 
           <diff>
           $DIFF
@@ -155,46 +319,108 @@ jobs:
 
           <existing-korean-translation>
           $EXISTING_KO
-          </existing-korean-translation>
+          </existing-korean-translation>"
 
-          <updated-english-original>
-          $NEW_CONTENT
-          </updated-english-original>
-          USERMSG
-              )
+              RESPONSE=$(call_api "$USER_MSG")
+
+              if is_token_error "$RESPONSE"; then
+                echo "🔄 토큰 초과, ## 기준 청크 분할: $file"
+
+                # 영문 원본(old/new)과 한국어를 ## 기준으로 분할
+                OLD_CHUNK_DIR=$(mktemp -d)
+                NEW_CHUNK_DIR=$(mktemp -d)
+                KO_CHUNK_DIR=$(mktemp -d)
+                split_by_heading "$OLD_ORIGIN" "$OLD_CHUNK_DIR" "h2"
+                split_by_heading "$NEW_CONTENT" "$NEW_CHUNK_DIR" "h2"
+                split_by_heading "$EXISTING_KO" "$KO_CHUNK_DIR" "h2"
+
+                TRANSLATED=""
+                CHANGED_SECTIONS=0
+                SKIPPED_SECTIONS=0
+
+                for ko_chunk_file in "$KO_CHUNK_DIR"/chunk_*.txt; do
+                  idx=$(basename "$ko_chunk_file" .txt)
+                  old_chunk_file="$OLD_CHUNK_DIR/$idx.txt"
+                  new_chunk_file="$NEW_CHUNK_DIR/$idx.txt"
+                  KO_CHUNK=$(cat "$ko_chunk_file")
+
+                  # old와 new 영문 섹션이 동일하면 → 변경 없음, 기존 번역 유지
+                  if [ -f "$old_chunk_file" ] && [ -f "$new_chunk_file" ] && \
+                     diff -q "$old_chunk_file" "$new_chunk_file" > /dev/null 2>&1; then
+                    echo "⏭️ 변경 없음, 기존 번역 유지: $(head -1 "$ko_chunk_file")"
+                    TRANSLATED="${TRANSLATED}${KO_CHUNK}
+          "
+                    SKIPPED_SECTIONS=$((SKIPPED_SECTIONS + 1))
+                    continue
+                  fi
+
+                  # 변경된 섹션 → 해당 섹션의 diff 생성 후 번역
+                  echo "🔄 변경 감지, 번역 중: $(head -1 "$ko_chunk_file")"
+                  SECTION_DIFF=""
+                  if [ -f "$old_chunk_file" ] && [ -f "$new_chunk_file" ]; then
+                    SECTION_DIFF=$(diff "$old_chunk_file" "$new_chunk_file" || true)
+                  elif [ -f "$new_chunk_file" ]; then
+                    SECTION_DIFF="(새로운 섹션 추가)"
+                  fi
+
+                  CHUNK_MSG="원본 영문 문서의 이 섹션이 변경되었습니다. 기존 한국어 번역을 업데이트하세요.
+          변경된 부분만 반영하고, 나머지는 그대로 유지하세요. 이 섹션의 번역만 출력하세요.
+
+          <section-diff>
+          $SECTION_DIFF
+          </section-diff>
+
+          <existing-korean-section>
+          $KO_CHUNK
+          </existing-korean-section>"
+
+                  CHUNK_RESULT=$(translate_chunk "$CHUNK_MSG" "$KO_CHUNK" "$KO_CHUNK" "modify" "$SECTION_DIFF")
+                  TRANSLATED="${TRANSLATED}${CHUNK_RESULT}
+          "
+                  CHANGED_SECTIONS=$((CHANGED_SECTIONS + 1))
+                done
+
+                # new에만 있는 추가 섹션 처리
+                for new_chunk_file in "$NEW_CHUNK_DIR"/chunk_*.txt; do
+                  idx=$(basename "$new_chunk_file" .txt)
+                  ko_chunk_file="$KO_CHUNK_DIR/$idx.txt"
+                  if [ ! -f "$ko_chunk_file" ]; then
+                    echo "🆕 새 섹션 번역: $(head -1 "$new_chunk_file")"
+                    NEW_SECTION=$(cat "$new_chunk_file")
+                    CHUNK_MSG="다음 React Hook Form 문서 섹션을 한국어로 번역하세요. 이 섹션만 번역하여 출력하세요.
+
+          <source>
+          $NEW_SECTION
+          </source>"
+                    CHUNK_RESULT=$(translate_chunk "$CHUNK_MSG" "$NEW_SECTION" "$NEW_SECTION" "new" "")
+                    TRANSLATED="${TRANSLATED}${CHUNK_RESULT}
+          "
+                    CHANGED_SECTIONS=$((CHANGED_SECTIONS + 1))
+                  fi
+                done
+
+                rm -rf "$OLD_CHUNK_DIR" "$NEW_CHUNK_DIR" "$KO_CHUNK_DIR"
+                echo "🔄 \`$file\` — 변경점 반영 (${CHANGED_SECTIONS}개 섹션 번역, ${SKIPPED_SECTIONS}개 섹션 유지)" >> translation_log.txt
+              else
+                TRANSLATED=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
+                echo "🔄 \`$file\` — 변경점 반영" >> translation_log.txt
+              fi
+
             else
               echo "⏭️ 알 수 없는 종류: $kind, 스킵"
               continue
             fi
 
-            # GitHub Models API 호출
-            RESPONSE=$(curl -s --max-time 120 \
-              "https://models.github.ai/inference/chat/completions" \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $GITHUB_TOKEN" \
-              -d "$(jq -n \
-                --arg model "openai/gpt-4o" \
-                --arg system "$SYSTEM_PROMPT" \
-                --arg user "$USER_MSG" \
-                '{model: $model, messages: [
-                  {role: "system", content: $system},
-                  {role: "user", content: $user}
-                ], max_tokens: 4096}')" || true)
-
-            # 응답에서 번역 결과 추출
-            TRANSLATED=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null)
-
             if [ -z "$TRANSLATED" ]; then
               echo "⚠️ 번역 실패: $file"
-              echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
               continue
             fi
 
             # 코드 펜스 래퍼 제거
-            TRANSLATED=$(echo "$TRANSLATED" | sed '/^```\(mdx\|markdown\|md\)\?$/d; /^```$/d')
+            TRANSLATED=$(echo "$TRANSLATED" | strip_fences)
 
             # 번역 결과 저장
-            TARGET="src/content/$file"
+            TARGET="src/$file"
             mkdir -p "$(dirname "$TARGET")"
             printf '%s\n' "$TRANSLATED" > "$TARGET"
             TRANSLATED_COUNT=$((TRANSLATED_COUNT + 1))
@@ -226,27 +452,26 @@ jobs:
             gh pr close "$EXISTING_PR" --comment "새로운 자동 번역 PR로 대체합니다." || true
           fi
 
+          DATE_STR=$(date +%Y-%m-%d)
+
           # 브랜치 생성 & 커밋
           BRANCH="auto-translate-github-$(date +%Y%m%d%H%M%S)"
           git checkout -b "$BRANCH"
-          git commit -m "docs: GitHub Models API 자동 번역 ($(date +%Y-%m-%d))"
+          git commit -m "docs: GitHub Models API 자동 번역 (${DATE_STR})"
 
           # 푸시
           git push origin "$BRANCH"
 
-          # PR 본문 생성
-          FILE_LIST=$(awk '{
-            if ($1 == "A") printf "- 🆕 `%s` (신규)\n", $2
-            else if ($1 == "M") printf "- 🔄 `%s` (변경점 반영)\n", $2
-          }' changes.list)
+          # PR 본문 생성 - translation_log.txt에서 상세 내역 읽기
+          TRANSLATION_DETAILS=$(cat translation_log.txt 2>/dev/null || echo "(상세 내역 없음)")
 
           gh pr create \
-            --title "docs: 자동 번역 업데이트 ($(date +%Y-%m-%d))" \
+            --title "docs: 자동 번역 업데이트 (${DATE_STR})" \
             --body "$(cat <<EOF
           ## 자동 번역 (GitHub Models API)
 
-          ### 번역된 파일
-          $FILE_LIST
+          ### 번역 상세 내역
+          $TRANSLATION_DETAILS
 
           ### 사용 모델
           - \`openai/gpt-4o\` via GitHub Models API
