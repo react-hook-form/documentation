@@ -50,6 +50,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
+    "tsx": "^4.21.0",
     "typescript": "^5.1.3"
   },
   "keywords": [
@@ -61,13 +62,14 @@
     "analyze": "cross-env ANALYZE=true next build",
     "build": "next build",
     "dev": "next dev",
+    "generate-llms": "npx tsx scripts/generate-llms-txt.ts",
     "format": "prettier --write",
     "lint": "next lint --fix",
     "now-build": "npm run build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap && npx tsx scripts/generate-llms-txt.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,mdx,css,json}": [
