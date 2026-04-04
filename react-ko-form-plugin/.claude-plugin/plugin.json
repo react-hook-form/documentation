@@ -1,0 +1,12 @@
+{
+  "name": "react-ko-form",
+  "version": "0.1.0",
+  "description": "React Hook Form best practices: setup guide, API recommendation, and form code scaffolding",
+  "author": {
+    "name": "hamsurang"
+  },
+  "homepage": "https://react-ko-form.netlify.app",
+  "repository": "https://github.com/hamsurang/react-ko-form",
+  "license": "MIT",
+  "keywords": ["react-hook-form", "form", "validation", "react", "hook"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "react-ko-form-plugin",
+  "owner": {
+    "name": "hamsurang"
+  },
+  "metadata": {
+    "description": "React Hook Form skills for Claude Code — guide, recommend, and form builder",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "react-ko-form",
+      "source": "./react-ko-form-plugin"
+    }
+  ]
+}
