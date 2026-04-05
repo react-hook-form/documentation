@@ -283,6 +283,38 @@ function generateLlmsFullTxt(docs: DocMeta[]): string {
   return sections.join("\n\n---\n\n");
 }
 
+// ── Per-Page Markdown Generation ────────────────────────────────────────────
+
+const MD_OUTPUT_DIR = path.join(OUTPUT_DIR, "md");
+
+function generatePerPageMd(docs: DocMeta[]): void {
+  let count = 0;
+  let totalBytes = 0;
+
+  for (const doc of docs) {
+    // TSX 전용 페이지 제외
+    if (TSX_ONLY_PAGES.has(doc.slug)) continue;
+
+    const body = processBody(doc.body);
+    const content = `# ${doc.title}\n\n> ${doc.description}\n\n${body}`;
+
+    // slug: "/docs/useform/register" → "docs/useform/register"
+    const relativePath = doc.slug.replace(/^\//, "");
+    const outPath = path.join(MD_OUTPUT_DIR, `${relativePath}.md`);
+
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, content, "utf-8");
+
+    // 개별 파일 잔여 JSX 검증
+    validateNoResidualJsx(content);
+
+    count++;
+    totalBytes += Buffer.byteLength(content);
+  }
+
+  console.log(`  ✅ public/md/ (${count} files, ${(totalBytes / 1024).toFixed(1)} KB total)`);
+}
+
 // ── Validation ──────────────────────────────────────────────────────────────
 
 function validateNoResidualJsx(content: string): void {
@@ -300,7 +332,7 @@ function validateNoResidualJsx(content: string): void {
 // ── Main ────────────────────────────────────────────────────────────────────
 
 function main() {
-  console.log("📄 Generating llms.txt and llms-full.txt...\n");
+  console.log("📄 Generating llms.txt, llms-full.txt, and per-page md...\n");
 
   // 1. MDX 파일 탐색 및 파싱
   const mdxFiles = findMdxFiles(CONTENT_DIR);
@@ -322,6 +354,9 @@ function main() {
   // 4. 잔여 JSX 검증
   validateNoResidualJsx(llmsFullTxt);
   console.log("  ✅ No residual JSX tags found");
+
+  // 5. 페이지별 .md 파일 생성
+  generatePerPageMd(docs);
 
   console.log("\n✨ Done!");
 }

@@ -3,6 +3,9 @@ import Link from "next/link"
 export default {
   copy: "Copy",
   codeCopied: "Copied",
+  copyMarkdown: "Copy MD",
+  markdownCopied: "Copied!",
+  copyFailed: "Failed",
   required: "Required",
   learnMore: {
     title: "Want to learn more?",

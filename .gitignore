@@ -42,3 +42,4 @@ tsconfig.tsbuildinfo
 # llms.txt (build artifacts)
 public/llms.txt
 public/llms-full.txt
+public/md/

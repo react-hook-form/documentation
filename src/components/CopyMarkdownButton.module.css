@@ -1,0 +1,30 @@
+.button {
+  background: none;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.button:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.copied {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.error {
+  border-color: #ef4444;
+  color: #ef4444;
+}
