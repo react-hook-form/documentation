@@ -56,12 +56,11 @@ export default function Page({
         </h1>
         <p className={typographyStyles.subHeading}>{doc.description}</p>
 
-        <CopyMarkdownButton slug={doc._raw.flattenedPath} />
-
         <div className={containerStyles.wrapper}>
           <Menu pages={doc.pages as Pages} />
 
-          <main>
+          <main style={{ position: "relative" }}>
+            <CopyMarkdownButton slug={doc._raw.flattenedPath} />
             <MDXContent components={MDXComponents} />
 
             <StarRepo />

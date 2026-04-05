@@ -1,4 +1,7 @@
 .button {
+  position: absolute;
+  top: 0;
+  right: 0;
   background: none;
   border: 1px solid var(--color-secondary);
   color: var(--color-secondary);
@@ -7,6 +10,7 @@
   padding: 4px 12px;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
+  z-index: 1;
 }
 
 .button:hover {
