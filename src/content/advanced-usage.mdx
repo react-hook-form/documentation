@@ -89,8 +89,8 @@ It's pretty common to collect user information through different pages and secti
 **Step 1:** Set up your routes and store.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import { StateMachineProvider, createStore } from "little-state-machine"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { createStore } from "little-state-machine"
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Result from "./Result"
@@ -104,13 +104,13 @@ createStore({
 
 export default function App() {
   return (
-    <StateMachineProvider>
-      <Router>
-        <Route exact path="/" component={Step1} />
-        <Route path="/step2" component={Step2} />
-        <Route path="/result" component={Result} />
-      </Router>
-    </StateMachineProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Step1 />} />
+        <Route path="/step2" element={<Step2 />} />
+        <Route path="/result" element={<Result />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 ```
@@ -119,16 +119,17 @@ export default function App() {
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
 import { useForm } from "react-hook-form"
-import { withRouter } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useStateMachine } from "little-state-machine"
 import updateAction from "./updateAction"
 
-const Step1 = (props) => {
+export default function Step1() {
   const { register, handleSubmit } = useForm()
-  const { actions } = useStateMachine({ updateAction })
+  const { actions } = useStateMachine({ actions: { updateAction } })
+  const navigate = useNavigate()
   const onSubmit = (data) => {
     actions.updateAction(data)
-    props.history.push("./step2")
+    navigate("/step2")
   }
 
   return (
@@ -139,18 +140,15 @@ const Step1 = (props) => {
     </form>
   )
 }
-
-export default withRouter(Step1)
 ```
 
 **Step 3:** Make your final submission with all the data in the store or display the resulting data.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
 import { useStateMachine } from "little-state-machine"
-import updateAction from "./updateAction"
 
-const Result = (props) => {
-  const { state } = useStateMachine(updateAction)
+export default function Result() {
+  const { state } = useStateMachine()
 
   return <pre>{JSON.stringify(state, null, 2)}</pre>
 }
