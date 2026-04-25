@@ -114,6 +114,7 @@ export const apiLinks: Pages = [
       { pathname: "/docs/useform/seterror", name: "setError" },
       { pathname: "/docs/useform/clearerrors", name: "clearErrors" },
       { pathname: "/docs/useform/setvalue", name: "setValue" },
+      { pathname: "/docs/useform/setvalues", name: "setValues" },
       { pathname: "/docs/useform/setfocus", name: "setFocus" },
       { pathname: "/docs/useform/getvalues", name: "getValues" },
       { pathname: "/docs/useform/getfieldstate", name: "getFieldState" },

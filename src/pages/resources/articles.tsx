@@ -5,7 +5,10 @@ import ResourcePageArticles from "../../components/ResourcePageArticles"
 const ResourcesArticles = () => {
   return (
     <Layout>
-      <Seo title="Articles" />
+      <Seo
+        title="Articles"
+        description="Community articles and tutorials about React Hook Form."
+      />
       <ResourcePageArticles />
     </Layout>
   )

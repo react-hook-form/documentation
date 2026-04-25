@@ -5,7 +5,10 @@ import ResourcePageVideos from "../../components/ResourcePageVideos"
 const ResourcesVideos = () => {
   return (
     <Layout>
-      <Seo title="Resources" />
+      <Seo
+        title="Videos"
+        description="Video tutorials and conference talks about React Hook Form."
+      />
       <ResourcePageVideos />
     </Layout>
   )

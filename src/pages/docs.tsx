@@ -5,7 +5,10 @@ import ApiGallery from "../components/ApiGallery"
 
 const Api = () => (
   <Layout>
-    <Seo title={api.title} />
+    <Seo
+      title={api.title}
+      description="Complete API reference for React Hook Form — hooks, methods, and TypeScript types."
+    />
     <ApiGallery />
   </Layout>
 )
