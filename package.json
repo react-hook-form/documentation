@@ -57,7 +57,7 @@
   "license": "MIT",
   "scripts": {
     "analyze": "cross-env ANALYZE=true next build",
-    "build": "next build",
+    "build": "next build && node scripts/generate-sitemap.mjs",
     "dev": "next dev",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",

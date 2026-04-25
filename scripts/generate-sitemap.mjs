@@ -1,5 +1,11 @@
-import { GetServerSideProps } from "next"
-import { allDocs } from "contentlayer/generated"
+import { writeFileSync } from "node:fs"
+import { join, dirname } from "node:path"
+import { fileURLToPath } from "node:url"
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const rootDir = join(__dirname, "..")
+
+const { allDocs } = await import("../.contentlayer/generated/index.mjs")
 
 const SITE_URL = "https://react-hook-form.com"
 
@@ -21,20 +27,15 @@ const staticPages = [
   },
 ]
 
-function SitemapXml() {
-  return null
-}
+const docPages = allDocs.map((doc) => ({
+  path: doc.slug,
+  priority: "0.8",
+  changefreq: "weekly",
+}))
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const docUrls = allDocs.map((doc) => ({
-    path: doc.slug,
-    priority: "0.8",
-    changefreq: "weekly",
-  }))
+const allPages = [...staticPages, ...docPages]
 
-  const allPages = [...staticPages, ...docUrls]
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
   .map(
@@ -47,11 +48,6 @@ ${allPages
   .join("\n")}
 </urlset>`
 
-  res.setHeader("Content-Type", "text/xml; charset=utf-8")
-  res.write(xml)
-  res.end()
-
-  return { props: {} }
-}
-
-export default SitemapXml
+const outputPath = join(rootDir, "public", "sitemap.xml")
+writeFileSync(outputPath, xml, "utf-8")
+console.log(`sitemap generated → ${outputPath}`)
