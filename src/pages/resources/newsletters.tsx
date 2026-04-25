@@ -5,7 +5,7 @@ import ResourcePageNewsletter from "../../components/ResourcePageNewsletter"
 const ResourcesNewsletter = () => {
   return (
     <Layout>
-      <Seo title="Newsletter" />
+      <Seo title="Newsletter" description="Stay up to date with React Hook Form news and releases." />
       <ResourcePageNewsletter />
     </Layout>
   )

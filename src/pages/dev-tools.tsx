@@ -5,7 +5,7 @@ import api from "../data/api"
 
 const Api = () => (
   <Layout>
-    <Seo title={api.title} />
+    <Seo title="React Hook Form DevTools" description="Debug and inspect your React Hook Form state in real time with the official DevTools." />
     <DevTools />
   </Layout>
 )
