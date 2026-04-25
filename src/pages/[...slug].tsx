@@ -47,7 +47,7 @@ export default function Page({
 
   return (
     <Layout>
-      <Seo title={doc.title} description={doc.description} />
+      <Seo title={doc.title} description={doc.metaDescription ?? doc.description} />
 
       <div className={containerStyles.container}>
         <h1 className={typographyStyles.headingWithTopMargin} id="main">
