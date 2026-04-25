@@ -12,7 +12,7 @@ function SEO({ title, description }: { title: string; description?: string }) {
   const router = useRouter()
   const metaTitle = title || DEFAULT_TITLE
   const metaDescription = description || DEFAULT_DESCRIPTION
-  const canonical = `${SITE_URL}${router.asPath.split("?")[0]}`
+  const canonical = `${SITE_URL}${router.asPath.split(/[?#]/)[0]}`
 
   return (
     <Head>
