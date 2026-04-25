@@ -156,7 +156,10 @@ const Twitter = ({ twitterName }: Pick<AboutUsData, "twitterName">) => (
 const AboutUs = () => {
   return (
     <Layout>
-      <Seo title="About us" description="Meet the team behind React Hook Form." />
+      <Seo
+        title="About us"
+        description="Meet the team behind React Hook Form."
+      />
       <div className={containerStyle.container}>
         <main className={styles.root}>
           <h1 className={typographyStyles.headingWithTopMargin} id="main">

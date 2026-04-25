@@ -5,7 +5,10 @@ import ResourcePageBindings from "../../components/ResourcePageBindings"
 const ResourcesBindings = () => {
   return (
     <Layout>
-      <Seo title="3rd Party Bindings" description="Third-party bindings and integrations for React Hook Form." />
+      <Seo
+        title="3rd Party Bindings"
+        description="Third-party bindings and integrations for React Hook Form."
+      />
       <ResourcePageBindings />
     </Layout>
   )

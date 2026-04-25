@@ -9,7 +9,10 @@ import Footer from "../components/Footer"
 const Media = () => {
   return (
     <Layout>
-      <Seo title="Media" description="Logos, images, and brand assets for React Hook Form." />
+      <Seo
+        title="Media"
+        description="Logos, images, and brand assets for React Hook Form."
+      />
       <div className={containerStyle.container}>
         <main className={styles.root}>
           <h1 className={typographyStyles.headingWithTopMargin} id="main">

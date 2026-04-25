@@ -14,7 +14,11 @@ const staticPages = [
   { path: "/resources/articles", priority: "0.6", changefreq: "weekly" },
   { path: "/resources/videos", priority: "0.6", changefreq: "weekly" },
   { path: "/resources/newsletters", priority: "0.5", changefreq: "monthly" },
-  { path: "/resources/3rd-party-bindings", priority: "0.6", changefreq: "monthly" },
+  {
+    path: "/resources/3rd-party-bindings",
+    priority: "0.6",
+    changefreq: "monthly",
+  },
 ]
 
 function SitemapXml() {
