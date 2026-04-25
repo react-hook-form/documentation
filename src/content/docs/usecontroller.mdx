@@ -1,0 +1,261 @@
+---
+title: useController
+description: React hooks for controlled component
+sidebar: apiLinks
+---
+
+<SelectNav
+  options={[
+    {
+      label: "controller",
+      value: "/docs/usecontroller/controller",
+    },
+  ]}
+/>
+
+## \</> `useController:` <TypeText>`(props?: UseControllerProps) => { field: object, fieldState: object, formState: object }`</TypeText>
+
+This custom hook powers [`Controller`](/docs/usecontroller/controller). Additionally, it shares the same props and methods as `Controller`. It's useful for creating reusable Controlled input.
+
+### Props
+
+---
+
+The following table contains information about the arguments for `useController`.
+
+| Name              | Type                                        | Required | Description                                                                                                                                                                                                                                                                                                          |
+| ----------------- | ------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`            | <TypeText>[FieldPath](/ts#FieldPath)</TypeText> | ✓        | Unique name of your input.                                                                                                                                                                                                                                                                                           |
+| `control`         | <TypeText>[Control](/ts#Control)</TypeText> |          | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.                                                                                                                                                                                                        |
+| `rules`           | <TypeText>Object</TypeText>                 |          | Validation rules in the same format for `register`, which includes: `required`, `min`, `max`, `minLength`, `maxLength`, `pattern`, `validate`.<br/><br/>`rules={{ required: true }}`                                                                                                                                 |
+| `shouldUnregister`| <TypeText>boolean = false</TypeText>        |          | Input will be unregistered after unmount and defaultValues will be removed as well. **Note:** this prop should be avoided when using with `useFieldArray` as `unregister` function gets called after input unmount/remount and reorder.                                                                               |
+| `disabled`        | <TypeText>boolean = false</TypeText>        |          | `disabled` prop will be returned from `field` prop. Controlled input will be disabled and its value will be omitted from the submission data.                                                                                                                                                                        |
+| `defaultValue`    | <TypeText>unknown</TypeText>                |          | **Important:** Can not apply `undefined` to `defaultValue` or `defaultValues` at `useForm`.<ul><li>You need to either set `defaultValue` at the field-level or `useForm`'s `defaultValues`. `undefined` is not a valid value. If you used `defaultValues` at `useForm`, skip using this prop.</li><li>If your form will invoke `reset` with default values, you will need to provide `useForm` with `defaultValues`.</li></ul> |
+| `exact`           | <TypeText>boolean = false</TypeText>        |          | This prop will enable an exact match for input name subscriptions, default to true.                                                                                                                                                                                                                                  |
+
+### Return
+
+---
+
+The following table contains information about properties which `useController` produces.
+
+| Object Name   | Name                 | Type                                         | Description                                                                                                                                                                                                                                        |
+| ------------- | -------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `field`       | `onChange`           | <TypeText>(value: any) => void</TypeText>    | A function which sends the input's value to the library. It should be assigned to the `onChange` prop of the input and value should **not be `undefined`**. This prop updates [formState](/docs/useform/formstate) and you should avoid manually invoking [`setValue`](/docs/useform/setvalue) or other API related to field update. |
+| `field`       | `onBlur`             | <TypeText>() => void</TypeText>              | A function which sends the input's onBlur event to the library. It should be assigned to the input's `onBlur` prop.                                                                                                                                |
+| `field`       | `value`              | <TypeText>unknown</TypeText>                 | The current value of the controlled component.                                                                                                                                                                                                     |
+| `field`       | `disabled`           | <TypeText>boolean</TypeText>                 | The disabled state of the input.                                                                                                                                                                                                                   |
+| `field`       | `name`               | <TypeText>string</TypeText>                  | Input's name being registered.                                                                                                                                                                                                                     |
+| `field`       | `ref`                | <TypeText>React.Ref</TypeText>               | A ref used to connect hook form to the input. Assign `ref` to component's input ref to allow hook form to focus the error input.                                                                                                                   |
+| `fieldState`  | `invalid`            | <TypeText>boolean</TypeText>                 | Invalid state for current input.                                                                                                                                                                                                                   |
+| `fieldState`  | `isTouched`          | <TypeText>boolean</TypeText>                 | Touched state for current controlled input.                                                                                                                                                                                                        |
+| `fieldState`  | `isDirty`            | <TypeText>boolean</TypeText>                 | Dirty state for current controlled input.                                                                                                                                                                                                          |
+| `fieldState`  | `error`              | <TypeText>object</TypeText>                  | error for this specific input.                                                                                                                                                                                                                     |
+| `formState`   | `isDirty`            | <TypeText>boolean</TypeText>                 | Set to `true` after the user modifies any of the inputs. **Important:** Make sure to provide all inputs' `defaultValues` at `useForm`, so hook form can have a single source of truth to compare whether the form is dirty.                        |
+| `formState`   | `dirtyFields`        | <TypeText>object</TypeText>                  | An object with the user-modified fields. Make sure to provide all inputs' `defaultValues` via `useForm`, so the library can compare against the `defaultValues`.                                                                                   |
+| `formState`   | `touchedFields`      | <TypeText>object</TypeText>                  | An object containing all the inputs the user has interacted with.                                                                                                                                                                                  |
+| `formState`   | `defaultValues`      | <TypeText>object</TypeText>                  | The value which has been set at [`useForm`](/docs/useform)'s `defaultValues` or updated `defaultValues` via [`reset`](/docs/useform/reset) API.                                                                                                    |
+| `formState`   | `isSubmitted`        | <TypeText>boolean</TypeText>                 | Set to `true` after the form is submitted. Will remain `true` until the `reset` method is invoked.                                                                                                                                                 |
+| `formState`   | `isSubmitSuccessful` | <TypeText>boolean</TypeText>                 | Indicate the form was successfully submitted without any runtime error.                                                                                                                                                                            |
+| `formState`   | `isSubmitting`       | <TypeText>boolean</TypeText>                 | `true` if the form is currently being submitted. `false` otherwise.                                                                                                                                                                                |
+| `formState`   | `isLoading`          | <TypeText>boolean</TypeText>                 | `true` if the form is currently loading async default values. **Important:** this prop is only applicable to async `defaultValues`.                                                                                                                |
+| `formState`   | `submitCount`        | <TypeText>number</TypeText>                  | Number of times the form was submitted.                                                                                                                                                                                                            |
+| `formState`   | `isValid`            | <TypeText>boolean</TypeText>                 | Set to `true` if the form doesn't have any errors. `setError` has no effect on `isValid` formState, `isValid` will always derived via the entire form validation result.                                                                           |
+| `formState`   | `isValidating`       | <TypeText>boolean</TypeText>                 | Set to `true` during validation.                                                                                                                                                                                                                   |
+| `formState`   | `validatingFields`   | <TypeText>object</TypeText>                  | Capture fields which are getting async validation.                                                                                                                                                                                                 |
+| `formState`   | `errors`             | <TypeText>object</TypeText>                  | An object with field errors. There is also an [ErrorMessage](/docs/useformstate/errormessage) component to retrieve error message easily.                                                                                                          |
+| `formState`   | `disabled`           | <TypeText>boolean</TypeText>                 | Set to `true` if the form is disabled via the `disabled` prop in [`useForm`](/docs/useform#disabled).                                                                                                                                             |
+
+### Examples {#example}
+
+---
+
+<TabGroup buttonLabels={["TextField", "Checkboxes"]}>
+
+<div>
+
+<TabGroup buttonLabels={["JS", "TS"]}>
+
+```javascript sandbox="https://codesandbox.io/s/usecontroller-i0ywh"
+import { TextField } from "@material-ui/core";
+import { useController, useForm } from "react-hook-form";
+
+function Input({ control, name }) {
+  const {
+    field,
+    fieldState: { invalid, isTouched, isDirty },
+    formState: { touchedFields, dirtyFields }
+  } = useController({
+    name,
+    control,
+    rules: { required: true },
+  });
+
+  return (
+    <TextField
+      onChange={field.onChange} // send value to hook form
+      onBlur={field.onBlur} // notify when input is touched/blur
+      value={field.value} // input value
+      name={field.name} // send down the input name
+      inputRef={field.ref} // send input ref, so we can focus on input when error appear
+    />
+  );
+}
+```
+
+```tsx sandbox="https://codesandbox.io/s/usecontroller-0o8px"
+import * as React from "react";
+import { useForm, useController, UseControllerProps } from "react-hook-form";
+
+type FormValues = {
+  FirstName: string;
+};
+
+function Input(props: UseControllerProps<FormValues>) {
+  const { field, fieldState } = useController(props);
+
+  return (
+    <div>
+      <input {...field} placeholder={props.name} />
+      <p>{fieldState.isTouched && "Touched"}</p>
+      <p>{fieldState.isDirty && "Dirty"}</p>
+      <p>{fieldState.invalid ? "invalid" : "valid"}</p>
+    </div>
+  );
+}
+
+export default function App() {
+  const { handleSubmit, control } = useForm<FormValues>({
+    defaultValues: {
+      FirstName: ""
+    },
+    mode: "onChange"
+  });
+  const onSubmit = (data: FormValues) => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input control={control} name="FirstName" rules={{ required: true }} />
+      <input type="submit" />
+    </form>
+  );
+}
+```
+
+</TabGroup>
+
+</div>
+
+```javascript sandbox="https://codesandbox.io/s/usecontroller-checkboxes-99ld4"
+import * as React from "react";
+import { useController, useForm } from "react-hook-form";
+
+const Checkboxes = ({ options, control, name }) => {
+  const { field } = useController({
+    control,
+    name
+  });
+  const [value, setValue] = React.useState(field.value || []);
+
+  return (
+    <>
+      {options.map((option, index) => (
+        <input
+          onChange={(e) => {
+            const valueCopy = [...value];
+
+            // update checkbox value
+            valueCopy[index] = e.target.checked ? e.target.value : null;
+
+            // send data to react hook form
+            field.onChange(valueCopy);
+
+            // update local state
+            setValue(valueCopy);
+          }}
+          key={option}
+          checked={value.includes(option)}
+          type="checkbox"
+          value={option}
+        />
+      ))}
+    </>
+  );
+};
+
+export default function App() {
+  const { register, handleSubmit, control } = useForm({
+    defaultValues: {
+      controlled: [],
+      uncontrolled: []
+    }
+  });
+  const onSubmit = (data) => console.log(data);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <section>
+        <h2>uncontrolled</h2>
+        <input {...register("uncontrolled")} type="checkbox" value="A" />
+        <input {...register("uncontrolled")} type="checkbox" value="B" />
+        <input {...register("uncontrolled")} type="checkbox" value="C" />
+      </section>
+
+      <section>
+        <h2>controlled</h2>
+        <Checkboxes
+          options={["a", "b", "c"]}
+          control={control}
+          name="controlled"
+        />
+      </section>
+      <input type="submit" />
+    </form>
+  );
+}
+```
+
+</TabGroup>
+
+### Tips
+
+---
+
+- It's important to be aware of each prop's responsibility when working with external controlled components, such as MUI, AntD, Chakra UI. Its job is to spy on the input, report, and set its value.
+
+  - **onChange**: send data back to hook form
+  - **onBlur**: report input has been interacted (focus and blur)
+  - **value**: set up input initial and updated value
+  - **ref**: allow input to be focused with error
+  - **name**: give input an unique name
+
+  It's fine to host your state and combined with `useController`.
+
+  ```javascript sandbox="https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
+  const { field } = useController();
+  const [value, setValue] = useState(field.value);
+
+  onChange={(event) => {
+    field.onChange(parseInt(event.target.value)) // data send back to hook form
+    setValue(event.target.value) // UI state
+  }}
+  ```
+
+- Do not `register` input again. This custom hook is designed to take care of the registration process.
+
+  ```javascript
+  const { field } = useController({ name: 'test' })
+
+  <input {...field} /> // ✅
+  <input {...field} {...register('test')} /> // ❌ double up the registration
+  ```
+
+- It's ideal to use a single `useController` per component. If you need to use more than one, make sure you rename the prop. May want to consider using `Controller` instead.
+
+  ```javascript
+  const { field: input } = useController({ name: 'test' })
+  const { field: checkbox } = useController({ name: 'test1' })
+
+  <input {...input} />
+  <input {...checkbox} />
+  ```
