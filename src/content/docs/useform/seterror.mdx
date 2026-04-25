@@ -4,7 +4,7 @@ description: Manually set a validation error on one or multiple fields, with sup
 sidebar: apiLinks
 ---
 
-## \</> `setError:` <TypeText>`(name: string, error: FieldError, { shouldFocus?: boolean }) => void`</TypeText>
+## \</> `setError:` <TypeText>`(name: string, error: ErrorOption, { shouldFocus?: boolean }) => void`</TypeText>
 
 The function allows you to manually set one or more errors.
 
@@ -12,11 +12,11 @@ The function allows you to manually set one or more errors.
 
 ---
 
-| Name    | Type                                                                                  | Description                                                                                                                                             |
-| ------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`  | <TypeText>string</TypeText>                                                           | input's name.                                                                                                                                           |
-| `error` | <TypeText>`{ type: string, message?: string, types: MultipleFieldErrors }`</TypeText> | Set an error with its type and message.                                                                                                                 |
-| config  | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                      | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. |
+| Name    | Type                                                                                    | Description                                                                                                                                             |
+| ------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`  | <TypeText>string</TypeText>                                                             | input's name.                                                                                                                                           |
+| `error` | <TypeText>`{ type?: string, message?: string, types?: MultipleFieldErrors }`</TypeText> | Set an error with its type and message.                                                                                                                 |
+| config  | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                        | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. |
 
 <Admonition type="important" title="Rules">
 

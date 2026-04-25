@@ -85,6 +85,10 @@ Subscribe to field update/change without trigger re-render.
 
 **Returns** object with `unsubscribe` function.
 
+**Callback arguments**
+
+The `type` argument indicates the originating DOM event (typed as `EventType`). For standard web inputs, this is `'change'` when a user updates a field. `type` is `undefined` when the change was triggered programmatically (e.g., via `setValue`, `reset`, or after `unregister`). See [`EventType`](https://github.com/react-hook-form/react-hook-form/blob/master/src/types/events.ts) for the full union (which includes React Native event types).
+
 ### Rules
 
 ---
