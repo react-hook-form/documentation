@@ -40,13 +40,11 @@ export default function Footer() {
           <Link href="/media">Media</Link>
         </li>
         <li>
-          <Link href="https://react-hook-form-website-git-leagcy-hook-form.vercel.app/v6/api">
-            V6
-          </Link>
+          <Link href="/migrate-v7-to-v8">V8(Beta)</Link>
         </li>
         <li>
-          <Link href="https://react-hook-form-website-git-leagcy-hook-form.vercel.app/v5/api">
-            V5
+          <Link href="https://react-hook-form-website-git-leagcy-hook-form.vercel.app/v6/api">
+            V6
           </Link>
         </li>
       </ul>

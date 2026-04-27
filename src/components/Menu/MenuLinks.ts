@@ -264,6 +264,45 @@ export const tsLinks: Pages = [
   },
 ]
 
+export const migrateV7ToV8Links: Pages = [
+  {
+    name: "Installation",
+    pathname: "#Installation",
+  },
+  {
+    name: "React Compiler",
+    pathname: "#ReactCompiler",
+  },
+  {
+    name: "Flat Field Array",
+    pathname: "#FlatFieldArray",
+  },
+  {
+    name: "Breaking Changes",
+    pathname: "#BreakingChanges",
+  },
+  {
+    name: "Input Ref",
+    pathname: "#InputRef",
+  },
+  {
+    name: "useFieldArray",
+    pathname: "#useFieldArray",
+  },
+  {
+    name: "Watch Component",
+    pathname: "#WatchComponent",
+  },
+  {
+    name: "watch Callback",
+    pathname: "#watchCallback",
+  },
+  {
+    name: "setValue",
+    pathname: "#setValue",
+  },
+]
+
 export const getStartedLinks: Pages = [
   {
     name: "Quick start",
