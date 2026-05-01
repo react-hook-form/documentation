@@ -285,6 +285,11 @@ export type UseFormProps<
   progressive: boolean
   criteriaMode: CriteriaMode
   delayError: number
+  formControl?: Omit<
+    UseFormReturn<TFieldValues, TContext, TTransformedValues>,
+    "formState"
+  >
+  validate: ValidateForm<TFieldValues>
 }>
 ```
 
