@@ -47,6 +47,12 @@ This is how submitted values will look like:
 
 By selecting the register option, the API table below will get updated.
 
+<Admonition type="note">
+
+These are validation rules, not native HTML attributes. They run based on the form's [`mode`](/docs/useform#mode) and don't block typing. To also forward `required`, `min`, `max`, `minLength`, `maxLength`, and `pattern` as native attributes on the input, set [`progressive`](/docs/useform/form) to `true` on `useForm`.
+
+</Admonition>
+
 <TabGroup buttonLabels={["validation", "validation and error message"]}>
 
 <div style={{ background: 'var(--color-options)', padding: 20 }}>
