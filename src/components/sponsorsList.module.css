@@ -42,8 +42,10 @@
 .add {
   border: 1px solid #ccc;
   border-radius: 10%;
-  font-size: 13px;
+  font-size: 12px;
   white-space: nowrap;
+  width: 72px;
+  height: 72px;
 }
 
 @media (min-width: 768px) {
@@ -62,5 +64,6 @@
     height: 100px;
     width: 100px;
     padding: 0 1.5rem;
+    font-size: 13px;
   }
 }
