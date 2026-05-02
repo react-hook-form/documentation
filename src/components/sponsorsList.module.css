@@ -1,13 +1,13 @@
 .root {
   text-align: center;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
   font-size: 0.8rem;
   border-top: 1px solid var(--color-black);
   padding-top: 1.5rem;
 }
 
 .heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0.7;
   font-weight: 500;
 }
@@ -16,50 +16,51 @@
   color: white;
   text-decoration: none;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
 .root a img {
-  width: 120px;
-  height: auto;
-  margin: auto 0;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
 }
 
 .logoGroup {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin: 0 1rem;
 }
 
-.logoGroup > div {
-  border-radius: 4px;
-  padding: 0.5rem;
-}
-
-.placeholder {
-  border: 1px dashed #ccc;
-  border-radius: 4px;
-  padding: 0.5rem;
-}
-
 .twicsy {
-  border-radius: 50px;
+  border-radius: 10%;
 }
 
 .add {
-  border: 1px dashed #ccc;
-  border-radius: 50px;
-  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10%;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
   .logoGroup {
-    display: grid;
     max-width: 600px;
     margin: 0 auto;
-    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+  }
+
+  .root a img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .add {
+    height: 100px;
+    width: 100px;
+    padding: 0 1.5rem;
   }
 }
