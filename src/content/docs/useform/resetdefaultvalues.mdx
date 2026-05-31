@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `resetDefaultValues:` <TypeText>`<T>(values: T, options?: Record<string, boolean>) => void`</TypeText>
 
-Update `_defaultValues` and recompute `dirtyFields`/`isDirty` against the new baseline without modifying the current form values. This is useful when a form disables submission while `!isDirty` — after a successful async submission you can advance the baseline to the submitted values so that only post-submit edits are considered dirty.
+Update `defaultValues` and recompute `dirtyFields`/`isDirty` against the new baseline without modifying the current form values. This is useful when a form disables submission while `!isDirty` — after a successful async submission you can advance the baseline to the submitted values so that only post-submit edits are considered dirty.
 
 ### Props
 
