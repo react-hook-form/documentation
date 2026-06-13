@@ -103,7 +103,7 @@
 
 a.legacyLink {
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: white;
   border: 1px solid var(--color-border);
@@ -178,7 +178,7 @@ a.legacyLink {
   }
 
   .menuExpandLink {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     position: relative;
     top: -2px;
     cursor: default;
@@ -225,7 +225,7 @@ a.legacyLink {
   }
 
   .actionButtonGroup a {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     flex: none;
     border: none;
     padding: var(--space-1) 0;
@@ -236,6 +236,7 @@ a.legacyLink {
   .tools {
     color: white;
     height: 29px;
+    font-size: 1rem;
     display: inline-block;
   }
 
@@ -281,7 +282,7 @@ a.legacyLink {
 
 @media (min-width: 1280px) {
   .menuExpandLink {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     top: -1px;
   }
 
@@ -298,6 +299,6 @@ a.legacyLink {
   }
 
   .actionButtonGroup a {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
   }
 }
