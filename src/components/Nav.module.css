@@ -82,6 +82,7 @@
 .actionButtonGroup a > span {
   display: block;
   height: 20px;
+  line-height: 20px;
 }
 
 .gitHubButtonWrap {
