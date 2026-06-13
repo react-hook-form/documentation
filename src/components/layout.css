@@ -835,6 +835,12 @@ pre[class*="language-"] {
   animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .pageTransition {
+    animation: none;
+  }
+}
+
 @keyframes heart {
   0% {
     transform: scale(1.25);
