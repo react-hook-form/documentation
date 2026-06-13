@@ -1,33 +1,33 @@
 .root {
-  padding: 0 20px 50px;
+  padding: 0 var(--space-5) var(--space-10);
   position: relative;
 }
 
 .feedback {
-  margin-top: 40px;
+  margin-top: var(--space-9);
 }
 
 .feedback > div {
-  border-radius: 15px;
-  margin-bottom: 20px;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-5);
 }
 
 .feedback svg {
-  margin: 0 auto 10px;
+  margin: 0 auto var(--space-2);
   width: 45px;
 }
 
 .feedback > div > p {
-  font-size: 15px;
+  font-size: var(--text-base);
   text-align: left;
-  padding: 20px 0;
+  padding: var(--space-5) 0;
 }
 
 @media (min-width: 768px) {
   .feedback {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+    grid-gap: var(--space-10);
   }
 
   .feedback > div {
@@ -37,6 +37,6 @@
 
 @media (min-width: 1024px) {
   .root {
-    padding: 0 50px;
+    padding: 0 var(--space-10);
   }
 }

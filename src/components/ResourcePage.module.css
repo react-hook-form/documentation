@@ -43,19 +43,19 @@
 
 .searchFilter {
   box-sizing: border-box;
-  margin: 10px auto;
+  margin: var(--space-2) auto;
   display: flex;
   width: 100%;
-  padding: 3px 20px;
+  padding: var(--space-1) var(--space-5);
   border-radius: 25px;
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 24px;
   max-width: 500px;
 }
 
 @media (min-width: 768px) {
   .searchFilter {
-    padding: 8px 20px;
+    padding: var(--space-2) var(--space-5);
   }
 }
 
@@ -87,7 +87,7 @@
 }
 
 .article h3 {
-  margin: 5px 0;
+  margin: var(--space-1) 0;
   font-size: 18px;
   font-weight: 500;
   overflow: hidden;
@@ -98,7 +98,7 @@
 }
 
 .article p {
-  margin: 5px 0;
+  margin: var(--space-1) 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -159,7 +159,7 @@ p.author {
 
 .interests > ul {
   margin: 0;
-  padding: 8px 0;
+  padding: var(--space-2) 0;
   font-size: 14px;
   display: flex;
   border: 1px solid var(--color-light-blue);
@@ -203,7 +203,7 @@ p.author {
   .interests > ul {
     flex-direction: column;
     text-align: left;
-    padding: 8px 20px;
+    padding: var(--space-2) var(--space-5);
   }
 
   .interests > ul > li {

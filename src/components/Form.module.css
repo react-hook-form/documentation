@@ -1,7 +1,7 @@
 .code {
-  padding: 0 20px;
+  padding: 0 var(--space-5);
   white-space: pre-wrap;
-  font-size: 0.7rem;
+  font-size: var(--text-sm);
   line-height: 1.6;
 }
 
@@ -10,9 +10,9 @@
   min-height: 700px;
   transition: 1s all;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  grid-column-gap: 40px;
+  grid-column-gap: var(--space-9);
   max-width: 1440px;
-  margin: 20px auto 0;
+  margin: var(--space-5) auto 0;
 }
 
 .demoForm {
@@ -25,10 +25,10 @@
   display: block;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 4px;
-  padding: 6px 10px;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-base);
 }
 
 .demoForm > select:not([multiple]) {

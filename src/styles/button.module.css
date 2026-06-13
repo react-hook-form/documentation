@@ -108,11 +108,11 @@ a.primaryButton:hover {
   .primaryButton {
     font-size: var(--text-lg);
     font-weight: 400;
-    margin: var(--space-10) 0;
-    padding: var(--space-4) var(--space-8);
+    margin: var(--space-9) 0;
+    padding: var(--space-4) var(--space-7);
   }
 
   .buttonsGroup {
-    grid-column-gap: var(--space-8);
+    grid-column-gap: var(--space-7);
   }
 }

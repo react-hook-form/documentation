@@ -2,7 +2,7 @@
   background: #0f111b;
   border-top: 1px solid #1e2a4a;
   border-bottom: 1px solid #1e2a4a;
-  padding: 20px;
+  padding: var(--space-5);
 }
 
 .logo {
@@ -12,7 +12,7 @@
 
 .container {
   max-width: 910px;
-  margin: 40px auto 20px;
+  margin: var(--space-9) auto var(--space-5);
   display: flex;
   padding: 0 20px;
   flex-direction: column;

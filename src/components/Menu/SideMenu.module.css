@@ -44,8 +44,8 @@
 
   .menu > div > ul > li {
     line-height: 22px;
-    padding-bottom: 8px;
-    font-size: 15px;
+    padding-bottom: var(--space-2);
+    font-size: var(--text-sm);
     display: flex;
   }
 
@@ -132,7 +132,7 @@
 
   .titleList {
     width: 250px;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-5);
   }
 
   .titleList > h2 {

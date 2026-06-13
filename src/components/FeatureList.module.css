@@ -51,7 +51,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
     max-width: 1024px;
-    margin: 40px auto 30px;
+    margin: var(--space-9) auto var(--space-7);
   }
 }
 

@@ -1,6 +1,6 @@
 .root {
   max-width: 768px;
-  margin: 60px auto 0;
+  margin: var(--space-12) auto 0;
 }
 
 @media (min-width: 768px) {
@@ -12,7 +12,7 @@
 .gallery {
   display: grid;
   list-style: none;
-  margin: 20px;
+  margin: var(--space-5);
   grid-gap: 25px;
   grid-template-columns: 1fr;
   padding: 0;
@@ -20,8 +20,8 @@
 
 @media (min-width: 768px) {
   .gallery {
-    margin: 60px auto 60px;
-    padding: 0 20px;
+    margin: var(--space-12) auto;
+    padding: 0 var(--space-5);
     grid-gap: 25px;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -34,10 +34,12 @@
 }
 
 .gallery li {
-  border: 1px solid var(--color-light-blue);
+  border: 1px solid var(--color-border);
   position: relative;
-  padding-bottom: 30px;
-  transition: transform 0.3s ease;
+  padding-bottom: var(--space-7);
+  transition: transform var(--transition);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .gallery li:hover {
@@ -56,34 +58,35 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 12px 20px 12px 80px;
-  font-size: 14px;
+  padding: var(--space-3) var(--space-5) var(--space-3) var(--space-16);
+  font-size: var(--text-sm);
 }
 
 .gallery h3 {
   color: white;
   margin: 0;
   font-weight: normal;
-  padding: 13px 20px;
+  padding: var(--space-3) var(--space-5);
   font-size: 18px;
-  background: var(--color-button-blue);
-  border-bottom: 1px solid var(--color-light-blue);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   letter-spacing: 1px;
 }
 
 .gallery h3 code {
-  margin-right: 5px;
+  margin-right: var(--space-1);
   letter-spacing: -1px;
+  color: var(--color-light-pink);
 }
 
 .gallery p {
-  margin: 20px;
-  font-size: 14px;
+  margin: var(--space-5);
+  font-size: var(--text-sm);
 }
 
 .versionControl {
   text-align: right;
-  padding-right: 20px;
+  padding-right: var(--space-5);
 }
 
 .versionControl > div {
@@ -91,14 +94,14 @@
 }
 
 .versionControl > p {
-  font-size: 14px;
+  font-size: var(--text-sm);
   color: var(--color-light-grey);
   display: inline-block;
-  margin-right: 20px;
+  margin-right: var(--space-5);
 }
 
 p.beta {
   margin-bottom: -1rem;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   color: var(--color-light-grey);
 }

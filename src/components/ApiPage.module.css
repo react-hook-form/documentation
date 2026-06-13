@@ -1,10 +1,10 @@
 .mobileTypeText {
   font-weight: 400;
-  font-size: 15px;
+  font-size: var(--text-base);
   font-family: var(--font-mono);
   font-variant-ligatures: none;
   color: var(--color-light-pink);
-  margin-top: 10px;
+  margin-top: var(--space-2);
   display: block;
 }
 
@@ -16,7 +16,7 @@
 
 .quickSelect:after {
   content: "▼";
-  font-size: 15px;
+  font-size: var(--text-base);
   right: 17%;
   top: 12px;
   position: absolute;
@@ -24,25 +24,25 @@
 }
 
 .quickSelect > select {
-  border-radius: 4px;
-  border: 1px solid var(--color-light-blue);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
   appearance: none;
   background: none;
   color: white;
-  margin: 0.67em auto 20px;
+  margin: 0.67em auto var(--space-5);
   display: block;
   text-align: center;
   text-align-last: center;
   font-size: 2rem;
   font-weight: lighter;
   position: relative;
-  padding: 10px 30px;
+  padding: var(--space-2) var(--space-7);
   max-width: 240px;
 }
 
 .versionToggle {
   position: absolute;
-  right: 20px;
+  right: var(--space-5);
 }
 
 @media (min-width: 768px) {

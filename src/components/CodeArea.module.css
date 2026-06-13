@@ -9,17 +9,17 @@
   border: none;
   color: white;
   border-radius: 0;
-  font-size: 13px;
-  padding: 0 10px;
-  right: 20px;
+  font-size: var(--text-xs);
+  padding: 0 var(--space-2);
+  right: var(--space-5);
   z-index: 1;
-  top: 10px;
+  top: var(--space-2);
   display: none;
   cursor: pointer;
   text-transform: uppercase;
   height: 34px;
   align-items: center;
-  margin: 0 3px;
+  margin: 0 var(--space-1);
 }
 
 .codeLink {

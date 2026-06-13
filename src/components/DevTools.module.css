@@ -4,7 +4,7 @@
 
 .devToolImg {
   height: 230px;
-  margin: 30px auto 80px;
+  margin: var(--space-7) auto var(--space-16);
   display: block;
   cursor: not-allowed;
   border-radius: 5px;
@@ -39,7 +39,7 @@
 @media (min-width: 768px) {
   .devToolImg {
     max-width: 600px;
-    margin: 50px auto 0;
+    margin: var(--space-10) auto 0;
     display: block;
     height: auto;
     border-radius: 8px;

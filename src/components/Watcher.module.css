@@ -65,7 +65,7 @@
 
   .root {
     display: grid;
-    margin: 40px auto;
+    margin: var(--space-9) auto;
     max-width: 800px;
     grid-template-columns: 1fr 1fr 200px;
   }

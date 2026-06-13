@@ -24,9 +24,9 @@
 .externalComponent {
   font-size: 14px;
   border: 1px solid var(--color-secondary);
-  padding: 10px 0;
+  padding: var(--space-2) 0;
   border-radius: 4px;
-  margin: 20px 0;
+  margin: var(--space-5) 0;
 }
 
 .line {
