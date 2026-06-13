@@ -62,6 +62,9 @@
   text-decoration: none;
   position: relative;
   min-width: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .actionButtonGroup a:first-child {
