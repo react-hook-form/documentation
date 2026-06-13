@@ -112,7 +112,6 @@ function App() {
           alert("error")
         }}
       >
-        {" "}
         <input {...register("name")} />
         {isSubmitSuccessful && <p>Form submit successful.</p>}
         {errors?.root?.server && <p>Form submit failed.</p>}
@@ -128,7 +127,6 @@ function App() {
           })
         }}
       >
-        {" "}
         <input {...register("test")} /> <button>submit</button>
       </Form>
     </div>
