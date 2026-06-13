@@ -379,7 +379,7 @@ export default function Nav() {
             <div className={styles.iconWrapper}>
               <div className="icon more"></div>
             </div>
-            More
+            <span>More</span>
           </a>
 
           <a

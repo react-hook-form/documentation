@@ -54,7 +54,7 @@
 
 .actionButtonGroup a {
   flex: 1;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   border-left: 1px solid var(--color-button-blue);
   padding: var(--space-1) 0;
   text-align: center;
@@ -98,10 +98,10 @@
 }
 
 .iconWrapper {
-  height: 15px;
   width: 100%;
   display: flex;
   justify-content: center;
+  max-height: 20px;
 }
 
 .iconWrapper > * {
