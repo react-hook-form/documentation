@@ -91,9 +91,7 @@ import { useForm, Form } from "react-hook-form"
 function App() {
   const {
     control,
-
     register,
-
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     // progressive: true, optional prop for progressive enhancement
@@ -122,7 +120,6 @@ function App() {
         onSubmit={async ({ formData, data, formDataJson, event }) => {
           await fetch("api", {
             method: "post",
-
             body: formData,
           })
         }}

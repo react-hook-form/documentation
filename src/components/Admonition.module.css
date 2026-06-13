@@ -1,8 +1,8 @@
 .admonition {
-  margin-top: 1rem;
-  margin-bottom: 1em;
-  padding: 15px 30px 15px 15px;
-  border-radius: 0.4rem;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+  padding: var(--space-4) var(--space-8) var(--space-4) var(--space-4);
+  border-radius: var(--radius-md);
 }
 
 .admonitionIcon {

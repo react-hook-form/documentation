@@ -1,16 +1,21 @@
 .heading,
 .headingWithTopMargin {
   text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   margin-bottom: 10px;
 }
 
 .subHeading {
-  font-size: 15px;
+  font-size: 1rem;
   padding: 0 20px;
   text-align: center;
   color: var(--color-light-pink);
-  max-width: 330px;
+  max-width: min(90%, 400px);
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .title {
@@ -97,9 +102,9 @@ h3.subTitle:before {
   text-transform: uppercase;
   border: 1px solid var(--color-secondary);
   padding: 5px 10px;
-  font-family:
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
 }
 
 .h1 {
@@ -126,8 +131,8 @@ h3.subTitle:before {
 
 .typeText {
   font-weight: 400;
-  font-size: 14px;
-  font-family: monospace;
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
   font-variant-ligatures: none;
   color: var(--color-light-pink) !important;
 }
@@ -159,12 +164,12 @@ pre.typeText {
 
   .heading,
   .headingWithTopMargin {
-    font-size: 55px !important;
+    font-size: 3.4375rem;
     margin: 80px auto 10px;
   }
 
   .subHeading {
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-top: 5px;
     margin-bottom: 20px;
     max-width: 575px;

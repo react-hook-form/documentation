@@ -16,7 +16,7 @@
 .buttonsGroup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: var(--space-5);
   margin: 0 auto;
 }
 
@@ -24,23 +24,23 @@
 .primaryButton,
 .pinkButton,
 .darkButton {
-  border-radius: 4px;
-  transition: 0.3s all;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
   cursor: pointer;
   color: white;
-  font-size: 16px;
+  font-size: var(--text-base);
   font-weight: 400;
-  margin: 20px 0;
+  margin: var(--space-5) 0;
   -webkit-appearance: none;
   line-height: 1;
   display: inline-block;
-  padding: 16px 10px;
+  padding: var(--space-4) var(--space-3);
 }
 
 .primaryButton {
   box-sizing: border-box;
   background: var(--color-primary);
-  border: 1px solid var(--color-light-blue);
+  border: 1px solid var(--color-border);
 }
 
 a.primaryButton {
@@ -54,7 +54,7 @@ a.primaryButton:hover {
 .pinkButton,
 .darkButton {
   background: var(--color-light-pink);
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   border: 1px solid var(--color-light-pink);
   width: 100%;
@@ -65,18 +65,18 @@ a.primaryButton:hover {
 }
 
 .darkButton {
-  background: black;
+  background: var(--color-primary);
   color: white;
-  border: 1px solid var(--color-light-pink);
+  border: 1px solid var(--color-border);
 }
 
 .darkButton:hover {
-  background: var(--color-primary);
+  background: var(--color-blue);
   border: 1px solid var(--color-secondary);
 }
 
 .darkButton:active {
-  background: black;
+  background: var(--color-primary);
 }
 
 @keyframes moving {
@@ -106,13 +106,13 @@ a.primaryButton:hover {
 
 @media (min-width: 768px) {
   .primaryButton {
-    font-size: 18px;
+    font-size: var(--text-lg);
     font-weight: 400;
-    margin: 40px 0;
-    padding: 15px 30px;
+    margin: var(--space-10) 0;
+    padding: var(--space-4) var(--space-8);
   }
 
   .buttonsGroup {
-    grid-column-gap: 30px;
+    grid-column-gap: var(--space-8);
   }
 }

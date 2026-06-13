@@ -15,7 +15,7 @@
 
 .icon svg {
   height: 16px;
-  transition: 0.3s all;
+  transition: var(--transition);
   margin-top: 6px;
 }
 
@@ -105,9 +105,10 @@ a.legacyLink {
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
-  border: 1px solid #234081;
-  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   padding: 0 0.5rem;
+  transition: var(--transition);
 }
 
 .mobileNav {

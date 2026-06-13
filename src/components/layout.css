@@ -1,4 +1,5 @@
 :root {
+  /* Brand colors */
   --color-background: #081229;
   --color-footer: white;
   --color-text: white;
@@ -16,6 +17,56 @@
   --color-light-grey: #ccc;
   --color-green: #2ecc71;
   --color-orange: #e67e22;
+
+  /* Semantic color tokens */
+  --color-border: var(--color-light-blue);
+  --color-border-muted: rgba(81, 99, 145, 0.35);
+  --color-surface: var(--color-button-blue);
+  --color-surface-elevated: var(--color-blue);
+  --color-text-muted: var(--color-light-blue);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.4375rem; /* 55px */
+
+  /* Font families */
+  --font-sans: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  /* Border radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 15px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: 0.3s ease;
+  --transition-fast: 0.15s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .dark {
@@ -23,10 +74,15 @@
 }
 
 .light {
-  --color-options: #ffff;
-  --color-text: black;
-  --color-background: #ffff;
+  --color-options: #fff;
+  --color-text: #1a1a2e;
+  --color-background: #fff;
   --color-footer: #081229;
+  --color-border: #c5cfe0;
+  --color-border-muted: rgba(0, 0, 0, 0.1);
+  --color-surface: #f0f4f8;
+  --color-surface-elevated: #e2eaf2;
+  --color-text-muted: #4a5568;
 }
 
 html {
@@ -49,6 +105,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-weight: normal;
+  line-height: 1.6;
   word-wrap: break-word;
   font-kerning: normal;
   overflow-x: hidden;
@@ -56,12 +113,10 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  font-family:
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
 }
 
 ::-webkit-scrollbar {
@@ -90,12 +145,12 @@ progress {
 a {
   background-color: transparent;
   color: var(--color-link);
-  transition: 0.3s all;
+  transition: var(--transition);
   -webkit-text-decoration-skip: objects;
 }
 a:hover {
-  color: var(--color-secondary);
-  transition: 0.3s all;
+  color: var(--color-light-pink);
+  transition: var(--transition);
   outline-width: 0;
 }
 a:active {
@@ -139,7 +194,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 1em;
   font-variant-ligatures: none;
 }
@@ -150,8 +205,8 @@ hr {
   box-sizing: content-box;
   overflow: visible;
   border: none;
-  border-top: 1px solid #516391;
-  margin: 10px 0 10px;
+  border-top: 1px solid var(--color-border);
+  margin: 10px 0;
   display: block;
 }
 button,
@@ -243,7 +298,7 @@ textarea {
 input,
 select,
 button {
-  transition: 0.3s all;
+  transition: var(--transition);
 }
 
 input {
@@ -256,7 +311,7 @@ select {
 }
 
 code {
-  font-family: Consolas, monospace;
+  font-family: var(--font-mono);
   font-variant-ligatures: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -285,14 +340,14 @@ input[type="submit"]:hover {
 
 input[type="button"]:active,
 input[type="submit"]:active {
-  transition: 0.3s all;
+  transition: var(--transition);
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
 }
 
 input[type="button"]:hover {
-  transition: 0.3s all;
+  transition: var(--transition);
 }
 
 input[type="button"],
@@ -310,10 +365,11 @@ code {
 }
 
 blockquote {
-  border-left: 10px solid #516391;
-  padding-left: 20px;
-  margin-left: 20px;
-  font-size: 16px;
+  border-left: 4px solid var(--color-border);
+  padding-left: var(--space-5);
+  margin-left: var(--space-5);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
 }
 
 th {
@@ -742,15 +798,15 @@ pre[class*="language-"] {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: normal;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
   font-variant-ligatures: none;
   text-shadow: none;
 }
 
 pre[class*="language-"] {
-  padding: 15px;
-  border-radius: 4px;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
   overflow: auto;
   position: relative;
 }
@@ -787,7 +843,8 @@ pre[class*="language-"] {
 }
 
 .light button:hover {
-  background: var(--color-grey);
+  background: var(--color-secondary);
+  color: white;
 }
 
 .light select,
@@ -812,7 +869,7 @@ pre[class*="language-"] {
 }
 
 .light a.active {
-  border-bottom: 2px solid white !important;
+  border-bottom: 2px solid var(--color-secondary) !important;
 }
 
 .light img {
@@ -851,8 +908,8 @@ pre[class*="language-"] {
   color: white !important;
   padding: 5px 10px !important;
   font-weight: 500 !important;
-  border-radius: 4px;
-  transition: 0.3s all;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
 }
 
 .algolia-docsearch-suggestion--category-header:hover {
@@ -872,16 +929,16 @@ pre[class*="language-"] {
   border-top: 1px solid #171717;
   text-align: center;
   margin: 0;
-  padding: 0.5rem 0;
-  font-size: 0.6rem;
+  padding: 0.5rem var(--space-4);
+  font-size: var(--text-xs);
   font-weight: 400;
 }
 
 .banner a {
-  border-radius: 1.5rem;
-  margin-left: 0.5rem;
-  font-size: 0.5rem;
-  padding: 0.1rem 0.5rem 0.15rem;
+  border-radius: var(--radius-full);
+  margin-left: var(--space-2);
+  font-size: var(--text-xs);
+  padding: 0.15rem 0.6rem 0.2rem;
   text-decoration: none;
   background: white;
   color: var(--color-primary);

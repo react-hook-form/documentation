@@ -1,6 +1,6 @@
 .footer {
-  padding: 40px 0;
-  font-size: 0.8rem;
+  padding: var(--space-10) var(--space-5);
+  font-size: var(--text-sm);
   font-weight: 400;
   text-align: center;
 }
@@ -8,6 +8,7 @@
 .footer a {
   color: var(--color-footer);
   text-decoration: none;
+  transition: var(--transition);
 }
 
 .footer a:hover {
@@ -16,14 +17,14 @@
 }
 
 .footer > p {
-  font-size: 13px;
+  font-size: var(--text-sm);
 }
 
 .links {
-  border-bottom: 1px solid var(--color-light-pink);
+  border-bottom: 1px solid var(--color-border);
   max-width: 900px;
-  margin: 0 auto 20px;
-  padding: 0 0 10px 0;
+  margin: 0 auto var(--space-5);
+  padding: 0 0 var(--space-3) 0;
   display: block;
 }
 
@@ -34,7 +35,7 @@
 .links > li > a {
   text-decoration: none;
   color: var(--color-text);
-  padding: 10px 8px;
+  padding: var(--space-3) var(--space-2);
   min-width: 48px;
   min-height: 48px;
 }
@@ -47,7 +48,7 @@ a.link {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .logoGroup img {
@@ -55,7 +56,10 @@ a.link {
 }
 
 .heading {
-  font-size: 0.6rem;
+  font-size: var(--text-xs);
   font-weight: 600;
-  margin-bottom: -0.2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+  color: var(--color-text-muted);
 }

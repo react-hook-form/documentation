@@ -63,7 +63,7 @@
   .menu > div > ul > li > button {
     color: var(--color-text);
 
-    transition: 0.3s all;
+    transition: var(--transition);
     background: none;
     border: none;
     cursor: pointer;
@@ -80,7 +80,7 @@
 
   :global(.light) > .menu > div > ul > li > a,
   :global(.light) > .menu > div > ul > li > button {
-    transition: 0.3s all;
+    transition: var(--transition);
     background: none;
     border: none;
     cursor: pointer;

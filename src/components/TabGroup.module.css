@@ -6,11 +6,12 @@
 .buttonTabGroup > button {
   color: var(--color-text);
   background: var(--color-background);
-  padding: 5px 8px 5px;
-  font-size: 12px;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
   border: none;
-  transition: 0.3s all;
+  transition: var(--transition);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .buttonTabGroup > button:nth-child(n + 2) {
@@ -30,6 +31,6 @@
 
 @media (min-width: 768px) {
   .buttonTabGroup > button {
-    padding: 5px 20px 5px;
+    padding: var(--space-1) var(--space-5);
   }
 }

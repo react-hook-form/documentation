@@ -37,7 +37,7 @@
 .root > span > span {
   display: inline-block;
   position: relative;
-  font-family: sans-serif;
+  font-family: var(--font-sans);
 }
 
 .button {

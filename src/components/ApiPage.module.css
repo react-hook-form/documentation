@@ -1,7 +1,7 @@
 .mobileTypeText {
   font-weight: 400;
   font-size: 15px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-variant-ligatures: none;
   color: var(--color-light-pink);
   margin-top: 10px;

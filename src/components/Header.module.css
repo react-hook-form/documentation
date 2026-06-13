@@ -97,7 +97,7 @@
   box-shadow: 0px 0 9px 0px #010817;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: 0.3s all;
+  transition: var(--transition);
 }
 
 .video:hover {
