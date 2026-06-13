@@ -9,6 +9,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const location = router
 
   const [show, setShow] = useState(false)
+
   const scrollHandler = () => {
     if (window.scrollY > 75) {
       setShow(true)
@@ -20,7 +21,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
-
     return () => {
       window.removeEventListener("scroll", scrollHandler)
     }
@@ -32,7 +32,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         Skip to content
       </a>
       <Nav />
-      {children}
+      <div key={router.asPath} className="pageTransition">
+        {children}
+      </div>
       <Animate
         play={show}
         start={{ opacity: 0, visibility: "hidden" }}

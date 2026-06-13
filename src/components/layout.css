@@ -111,7 +111,7 @@ body {
   line-height: 1.6;
   word-wrap: break-word;
   font-kerning: normal;
-  overflow-x: hidden;
+  overflow: clip;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -818,6 +818,21 @@ pre[class*="language-"] {
 
 .light pre[class*="language-"] {
   border: 1px solid var(--color-light-grey);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pageTransition {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes heart {
