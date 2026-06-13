@@ -48,17 +48,7 @@ export default function Footer() {
           </Link>
         </li>
       </ul>
-      <p>
-        A project by{" "}
-        <a
-          href="https://www.beekai.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="BEEKAI Form builder"
-        >
-          <b>BEEKAI</b>
-        </a>{" "}
-        | Please support us by leaving a ★{" "}
+      <p>Please support us by leaving a ★{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
           target="_blank"
