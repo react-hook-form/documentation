@@ -133,7 +133,53 @@ a.legacyLink {
   width: 66.99%;
   right: 0;
   left: auto;
+  bottom: 43px;
   z-index: 2;
+}
+
+.activeSection {
+  border-bottom: 1px solid #bf1650;
+}
+
+.tsIcon {
+  border: 1px solid white;
+  display: inline-block;
+  line-height: 1.8;
+  width: 16px;
+  height: 16px;
+  font-size: 8px;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.menuOffsetWrapper {
+  position: relative;
+  top: 2px;
+}
+
+.dropdownArrow {
+  font-size: 10px;
+  display: inline;
+  margin-left: 2px;
+  top: -1px;
+  position: relative;
+}
+
+.dropdownContainer {
+  position: absolute;
+  overflow: hidden;
+  margin-left: -10px;
+  z-index: 4;
+}
+
+.dropdownInner {
+  overflow: hidden;
+}
+
+.donationLink {
+  color: #bf1650;
+  min-width: 20px;
+  margin-left: -10px;
 }
 
 .linkExternal {
@@ -182,7 +228,7 @@ a.legacyLink {
   }
 
   .mobileOnly {
-    display: none;
+    display: none!important;
   }
 
   .menuExpandLink {
@@ -233,14 +279,15 @@ a.legacyLink {
   }
 
   .actionButtonGroup a {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     flex: none;
     border: none;
-    padding: var(--space-1) 0;
   }
+
   :global(.dark) .actionButtonGroup a {
     color: white;
   }
+
   .tools {
     color: white;
     height: 29px;

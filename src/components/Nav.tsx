@@ -5,7 +5,6 @@ import GitHubButton from "react-github-btn"
 import { Animate } from "react-simple-animate"
 import clsx from "clsx"
 import nav from "../data/nav"
-import colors from "../styles/colors"
 import { LARGE_SCREEN } from "../styles/breakpoints"
 import Toggle from "./Toggle"
 import Search from "./Search"
@@ -47,9 +46,6 @@ export default function Nav() {
         <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
           <nav
             className={clsx(styles.actionButtonGroup, styles.mobileMenu)}
-            style={{
-              bottom: 43,
-            }}
           >
             <Link
               className={router.pathname == "/faqs" ? "active" : ""}
@@ -137,14 +133,10 @@ export default function Nav() {
             <span>{nav.getStarted}</span>
           </Link>
           <Link
-            className={router.pathname == "/docs" ? "active" : ""}
-            style={
-              pathname.includes("/docs")
-                ? {
-                    borderBottom: "1px solid #bf1650",
-                  }
-                : {}
-            }
+            className={clsx(
+              router.pathname == "/docs" ? "active" : "",
+              pathname.includes("/docs") && styles.activeSection
+            )}
             href="/docs"
           >
             <div className={styles.iconWrapper}>
@@ -154,21 +146,7 @@ export default function Nav() {
           </Link>
           <Link className={router.asPath == "/ts" ? "active" : ""} href="/ts">
             <div className={styles.iconWrapper}>
-              <span
-                style={{
-                  border: "1px solid white",
-                  display: "inline-block",
-                  lineHeight: 1.8,
-                  width: 16,
-                  height: 16,
-                  fontSize: 8,
-                  marginTop: 2,
-
-                  fontWeight: 600,
-                }}
-              >
-                TS
-              </span>
+              <span className={styles.tsIcon}>TS</span>
             </div>
             <span>TS</span>
           </Link>
@@ -193,52 +171,23 @@ export default function Nav() {
             <span>{nav.faqs}</span>
           </Link>
           <span
-            className="desktopOnly"
-            style={
-              pathname.includes("dev-tools") ||
-              pathname.includes("form-builder")
-                ? {
-                    borderBottom: "1px solid #bf1650",
-                  }
-                : {}
-            }
+            className={clsx(
+              "desktopOnly",
+              (pathname.includes("dev-tools") ||
+                pathname.includes("form-builder")) &&
+                styles.activeSection
+            )}
           >
             <span className={styles.tools}>
-              <span
-                style={{
-                  position: "relative",
-                  top: 2,
-                }}
-              >
+              <span className={styles.menuOffsetWrapper}>
                 <span className={styles.menuExpandLink}>
                   {nav.tools.nav}{" "}
-                  <span
-                    style={{
-                      fontSize: 10,
-                      display: "inline",
-                      marginLeft: 2,
-                      top: -1,
-                      position: "relative",
-                    }}
-                  >
-                    ▼
-                  </span>
+                  <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </span>
             </span>
-            <div
-              style={{
-                position: "absolute",
-                overflow: "hidden",
-                marginLeft: -10,
-                zIndex: 4,
-              }}
-            >
-              <div
-                style={{
-                  overflow: "hidden",
-                }}
-              >
+            <div className={styles.dropdownContainer}>
+              <div className={styles.dropdownInner}>
                 <div className={styles.menuExpand}>
                   <Link
                     className={
@@ -261,51 +210,21 @@ export default function Nav() {
           </span>
 
           <span
-            className="desktopOnly"
-            style={
-              pathname.includes("resources")
-                ? {
-                    borderBottom: "1px solid #bf1650",
-                  }
-                : {}
-            }
+            className={clsx(
+              "desktopOnly",
+              pathname.includes("resources") && styles.activeSection
+            )}
           >
             <span className={styles.tools}>
-              <span
-                style={{
-                  position: "relative",
-                  top: 2,
-                }}
-              >
+              <span className={styles.menuOffsetWrapper}>
                 <span className={styles.menuExpandLink}>
                   {nav.resources}{" "}
-                  <span
-                    style={{
-                      fontSize: 10,
-                      display: "inline",
-                      marginLeft: 2,
-                      top: -1,
-                      position: "relative",
-                    }}
-                  >
-                    ▼
-                  </span>
+                  <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </span>
             </span>
-            <div
-              style={{
-                position: "absolute",
-                overflow: "hidden",
-                marginLeft: -10,
-                zIndex: 4,
-              }}
-            >
-              <div
-                style={{
-                  overflow: "hidden",
-                }}
-              >
+            <div className={styles.dropdownContainer}>
+              <div className={styles.dropdownInner}>
                 <div className={styles.menuExpand}>
                   <Link
                     className={
@@ -365,7 +284,7 @@ export default function Nav() {
             className="desktopOnly"
             rel="noreferrer noopener"
           >
-            {nav.releases}
+            <span>{nav.releases}</span>
           </a>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
@@ -385,14 +304,9 @@ export default function Nav() {
           <a
             href="https://opencollective.com/react-hook-form"
             target="_blank"
-            className="desktopOnly donation"
+            className={clsx("desktopOnly donation", styles.donationLink)}
             rel="noreferrer noopener"
             title="Donate to the project"
-            style={{
-              color: colors.secondary,
-              minWidth: 20,
-              marginLeft: -10,
-            }}
           >
             ♥
           </a>
