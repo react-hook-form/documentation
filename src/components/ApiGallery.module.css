@@ -63,7 +63,7 @@
 }
 
 .gallery h3 {
-  color: white;
+  color: var(--color-text);
   margin: 0;
   font-weight: normal;
   padding: var(--space-3) var(--space-5);
