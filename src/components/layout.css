@@ -124,7 +124,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-button-blue);
@@ -133,6 +133,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--color-medium-blue);
   border-radius: 10px;
+  transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-light-pink);
@@ -430,7 +431,7 @@ a.active {
   }
 
   ::-webkit-scrollbar {
-    height: 8px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -441,6 +442,7 @@ a.active {
   ::-webkit-scrollbar-thumb {
     background: #4f6294;
     border-radius: 10px;
+    transition: background 0.2s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -890,6 +892,7 @@ pre[class*="language-"] {
 }
 .light::-webkit-scrollbar-thumb {
   background: grey;
+  transition: background 0.2s ease;
 }
 .light::-webkit-scrollbar-thumb:hover {
   background: black;
@@ -913,6 +916,7 @@ pre[class*="language-"] {
 
   .light ::-webkit-scrollbar-thumb {
     background: grey;
+    transition: background 0.2s ease;
   }
 
   .light ::-webkit-scrollbar-thumb:hover {
