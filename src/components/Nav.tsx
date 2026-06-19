@@ -133,7 +133,7 @@ export default function Nav() {
           <Link
             className={clsx(
               router.pathname == "/docs" ? "active" : "",
-              pathname.includes("/docs") && styles.activeSection
+              router.asPath.includes("/docs") ? "active" : ""
             )}
             href="/docs"
           >
