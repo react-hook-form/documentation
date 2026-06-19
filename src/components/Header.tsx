@@ -143,45 +143,45 @@ export default function Header({
         </header>
 
         <h4 className={styles.videoHeading}>React Web</h4>
-        <div
-          className={isWeb ? styles.videoWrapperShow : styles.videoWrapperHide}
-        >
-          <div style={{ position: "relative" }}>
-            <Animate
-              sequenceIndex={4}
-              delay={0.1}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-              duration={0.4}
-              easeType="ease-in"
-              render={({ style }) => (
-                <iframe
-                  className={styles.video}
-                  style={style}
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/7ytK2qU9ac8?si=itv-Hocfih4pnRE4"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                />
-              )}
+        {isWeb ? (
+          <div className={styles.videoWrapperShow}>
+            <div style={{ position: "relative" }}>
+              <Animate
+                sequenceIndex={4}
+                delay={0.1}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+                duration={0.4}
+                easeType="ease-in"
+                render={({ style }) => (
+                  <iframe
+                    className={styles.video}
+                    style={style}
+                    width="560"
+                    height="315"
+                    loading="lazy"
+                    src="https://www.youtube.com/embed/7ytK2qU9ac8?si=itv-Hocfih4pnRE4"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  />
+                )}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className={styles.videoWrapperShow}>
+            <h4 className={styles.videoHeading}>React Native</h4>
+            <iframe
+              className={styles.video}
+              width="560"
+              height="315"
+              loading="lazy"
+              src="https://www.youtube.com/embed/rIKMY5azC3A?si=fYwKNYewKAlv6hoW"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             />
           </div>
-        </div>
-
-        <div
-          className={isWeb ? styles.videoWrapperHide : styles.videoWrapperShow}
-        >
-          <h4 className={styles.videoHeading}>React Native</h4>
-          <iframe
-            className={styles.video}
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/rIKMY5azC3A?si=fYwKNYewKAlv6hoW"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          />
-        </div>
+        )}
 
         <div
           style={{

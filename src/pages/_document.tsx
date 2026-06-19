@@ -5,6 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"

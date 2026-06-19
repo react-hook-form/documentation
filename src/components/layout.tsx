@@ -20,7 +20,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const editLink = getEditLink(location.pathname)
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler)
+    window.addEventListener("scroll", scrollHandler, { passive: true })
     return () => {
       window.removeEventListener("scroll", scrollHandler)
     }
