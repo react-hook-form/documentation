@@ -44,9 +44,7 @@ export default function Nav() {
     <>
       {showMenu && (
         <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
-          <nav
-            className={clsx(styles.actionButtonGroup, styles.mobileMenu)}
-          >
+          <nav className={clsx(styles.actionButtonGroup, styles.mobileMenu)}>
             <Link
               className={router.pathname == "/faqs" ? "active" : ""}
               href="/faqs"

@@ -111,7 +111,10 @@ export const apiLinks: Pages = [
       { pathname: "/docs/useform/handlesubmit", name: "handleSubmit" },
       { pathname: "/docs/useform/reset", name: "reset" },
       { pathname: "/docs/useform/resetfield", name: "resetField" },
-      { pathname: "/docs/useform/resetdefaultvalues", name: "resetDefaultValues" },
+      {
+        pathname: "/docs/useform/resetdefaultvalues",
+        name: "resetDefaultValues",
+      },
       { pathname: "/docs/useform/seterror", name: "setError" },
       { pathname: "/docs/useform/clearerrors", name: "clearErrors" },
       { pathname: "/docs/useform/setvalue", name: "setValue" },

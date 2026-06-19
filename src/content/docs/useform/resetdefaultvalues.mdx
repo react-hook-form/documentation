@@ -13,11 +13,11 @@ Update `defaultValues` and recompute `dirtyFields`/`isDirty` against the new bas
 
 ---
 
-| Name      |               | Type                                                        | Description                                                                                |
-| --------- | ------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `values`  |               | <TypeText>object</TypeText>                                 | The new default values to establish as the baseline. Recommended to provide the full object. |
-| `options` | `keepDirty`   | <TypeText>boolean</TypeText>                                | When set to `true`, existing `dirtyFields` state is preserved as-is rather than recomputed against the new baseline. |
-|           | `keepIsValid` | <TypeText>boolean</TypeText>                                | When set to `true`, validation is not re-run after the baseline update and `isValid` remains unchanged. |
+| Name      |               | Type                         | Description                                                                                                          |
+| --------- | ------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `values`  |               | <TypeText>object</TypeText>  | The new default values to establish as the baseline. Recommended to provide the full object.                         |
+| `options` | `keepDirty`   | <TypeText>boolean</TypeText> | When set to `true`, existing `dirtyFields` state is preserved as-is rather than recomputed against the new baseline. |
+|           | `keepIsValid` | <TypeText>boolean</TypeText> | When set to `true`, validation is not re-run after the baseline update and `isValid` remains unchanged.              |
 
 <Admonition type="important" title="Rules">
 
@@ -117,7 +117,7 @@ export default function App() {
 
   const handleServerUpdate = (serverValues) => {
     resetDefaultValues(serverValues, {
-      keepDirty: true,   // preserve existing dirty tracking
+      keepDirty: true, // preserve existing dirty tracking
       keepIsValid: true, // skip re-validation
     })
   }
@@ -126,7 +126,12 @@ export default function App() {
     <form>
       <input {...register("firstName")} />
       <input {...register("lastName")} />
-      <button type="button" onClick={() => handleServerUpdate({ firstName: "Jane", lastName: "Doe" })}>
+      <button
+        type="button"
+        onClick={() =>
+          handleServerUpdate({ firstName: "Jane", lastName: "Doe" })
+        }
+      >
         Load server values
       </button>
     </form>

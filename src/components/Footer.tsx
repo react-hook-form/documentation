@@ -42,13 +42,9 @@ export default function Footer() {
         <li>
           <Link href="/migrate-v7-to-v8">V8(Beta)</Link>
         </li>
-        <li>
-          <Link href="https://react-hook-form-website-git-leagcy-hook-form.vercel.app/v6/api">
-            V6
-          </Link>
-        </li>
       </ul>
-      <p>Please support us by leaving a ★{" "}
+      <p>
+        Please support us by leaving a ★{" "}
         <a
           href="https://github.com/react-hook-form/react-hook-form"
           target="_blank"

@@ -51,8 +51,9 @@
   --text-5xl: 3.4375rem; /* 55px */
 
   /* Font families */
-  --font-sans: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-sans:
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
 
   /* Border radii */
