@@ -32,7 +32,18 @@ const Layout = ({ children }: { children: ReactNode }) => {
         Skip to content
       </a>
       <Nav />
-      <div key={router.asPath.split("#")[0]} className="pageTransition">
+      <div
+        key={
+          router.asPath.split("#")[0].startsWith("/docs/")
+            ? "docs"
+            : router.asPath.split("#")[0]
+        }
+        className={
+          router.asPath.split("#")[0].startsWith("/docs/")
+            ? ""
+            : "pageTransition"
+        }
+      >
         {children}
       </div>
       <Animate
