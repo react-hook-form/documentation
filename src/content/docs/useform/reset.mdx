@@ -250,7 +250,7 @@ function App() {
     if (formState.isSubmitSuccessful) {
       reset({ something: "" })
     }
-  }, [formState, submittedData, reset])
+  }, [formState.isSubmitSuccessful, reset])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

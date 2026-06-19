@@ -129,7 +129,7 @@ export default function App() {
         {...register("multipleErrorInput", {
           required: "This is required.",
           pattern: {
-            value: /d+/,
+            value: /\d+/,
             message: "This input is number only.",
           },
           maxLength: {
@@ -175,7 +175,7 @@ export default function App() {
         {...register("multipleErrorInput", {
           required: "This is required.",
           pattern: {
-            value: /d+/,
+            value: /\d+/,
             message: "This input is number only.",
           },
           maxLength: {
