@@ -2,15 +2,7 @@ const preFix =
   "https://github.com/react-hook-form/documentation/edit/master/src/"
 
 const dataPreFix = "data/"
-const pagesPreFix = "pages/"
 const content = "content/"
-
-const filterApiPageURL = (pathname: string): string => {
-  if (pathname.charAt(pathname.length - 1) === "/")
-    return pathname.substring(0, pathname.length - 1).substring(1)
-
-  return pathname.substring(1)
-}
 
 export const getEditLink = (pathname: string): string => {
   if (!pathname) return ""
@@ -19,18 +11,19 @@ export const getEditLink = (pathname: string): string => {
     return `${preFix}${dataPreFix}/home.tsx`
   } else if (pathname.includes("get-started")) {
     return `${preFix}${content}get-started.mdx`
-  } else if (pathname.includes("api")) {
-    const splitPath = pathname.split("/")
-    if (splitPath.length === 2 || splitPath[2] === "") {
-      return `${preFix}${dataPreFix}api.tsx`
-    }
-    return `${preFix}${pagesPreFix}${filterApiPageURL(pathname)}.tsx`
+  } else if (pathname.includes("advanced-usage")) {
+    return `${preFix}${content}advanced-usage.mdx`
+  } else if (pathname.includes("migrate-v7-to-v8")) {
+    return `${preFix}${content}migrate-v7-to-v8.mdx`
+  } else if (pathname.startsWith("/docs/") && pathname !== "/docs/") {
+    // e.g. /docs/useform → content/docs/useform.mdx
+    // e.g. /docs/useform/register → content/docs/useform/register.mdx
+    const docPath = pathname.substring(1)
+    return `${preFix}${content}${docPath}.mdx`
   } else if (pathname.includes("ts")) {
     return `${preFix}${content}ts.mdx`
-  } else if (pathname.includes("advanced-usage")) {
-    return `${preFix}${content}advanced.mdx`
   } else if (pathname.includes("faqs")) {
-    return `${preFix}${content}faq.mdx`
+    return `${preFix}${content}faqs.mdx`
   } else if (pathname.includes("dev-tools")) {
     return `${preFix}${dataPreFix}devtools.tsx`
   } else if (pathname.includes("form-builder")) {

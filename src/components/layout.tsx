@@ -6,7 +6,6 @@ import { useRouter } from "next/router"
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const router = useRouter()
-  const location = router
 
   const [show, setShow] = useState(false)
 
@@ -17,7 +16,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       setShow(false)
     }
   }
-  const editLink = getEditLink(location.pathname)
+  const editLink = getEditLink(router.asPath.split("#")[0])
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler, { passive: true })

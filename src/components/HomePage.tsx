@@ -116,42 +116,42 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
           }}
         >
           <div className={containerStyles.centerContent}>
-          <section className={styles.downloadStats}>
-            <h1 className={typographyStyles.h1}>Strong Adoption</h1>
-            <p className={typographyStyles.homeParagraph}>
-              One of the most downloaded React form libraries, trusted by
-              developers and enterprises worldwide.
-            </p>
-            <div className={styles.downloadCount}>
-              <FlipNumbers
-                play={renderCounter}
-                numbers={formatDownloads(monthlyDownloads)}
-                height={100}
-                width={63}
-                color="#ec5990"
-                perspective={1500}
-                duration={4}
-                numberStyle={{ fontWeight: 800 }}
-                nonNumberStyle={{
-                  fontSize: 100,
-                  fontWeight: 900,
-                  color: "#ec5990",
-                  lineHeight: "100px",
-                  verticalAlign: "bottom",
-                }}
-              />
-            </div>
-            <p className={styles.downloadSub}>
-              Monthly{" "}
-              <a
-                href="https://www.npmjs.com/package/react-hook-form"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                npm downloads
-              </a>
-            </p>
-          </section>
+            <section className={styles.downloadStats}>
+              <h1 className={typographyStyles.h1}>Strong Adoption</h1>
+              <p className={typographyStyles.homeParagraph}>
+                One of the most downloaded React form libraries, trusted by
+                developers and enterprises worldwide.
+              </p>
+              <div className={styles.downloadCount}>
+                <FlipNumbers
+                  play={renderCounter}
+                  numbers={formatDownloads(monthlyDownloads)}
+                  height={100}
+                  width={63}
+                  color="#ec5990"
+                  perspective={1500}
+                  duration={4}
+                  numberStyle={{ fontWeight: 800 }}
+                  nonNumberStyle={{
+                    fontSize: 100,
+                    fontWeight: 900,
+                    color: "#ec5990",
+                    lineHeight: "100px",
+                    verticalAlign: "bottom",
+                  }}
+                />
+              </div>
+              <p className={styles.downloadSub}>
+                Monthly{" "}
+                <a
+                  href="https://www.npmjs.com/package/react-hook-form"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  npm downloads
+                </a>
+              </p>
+            </section>
           </div>
         </GeneralObserver>
       )}

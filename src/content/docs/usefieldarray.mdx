@@ -108,9 +108,11 @@ function FieldArray() {
   append({ value: "readonly", disabled: true })
 
   // the registered input will receive disabled automatically
-  {fields.map((field, index) => (
-    <input key={field.id} {...register(`test.${index}.value`)} />
-  ))}
+  {
+    fields.map((field, index) => (
+      <input key={field.id} {...register(`test.${index}.value`)} />
+    ))
+  }
   ```
 
 - When you append, prepend, insert and update the field array, the obj can't be empty object `{}` rather need to supply all your input's defaultValues.

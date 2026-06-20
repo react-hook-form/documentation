@@ -96,20 +96,24 @@ export default function App() {
 **Async**
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-async-submit-validation-kpx0o"
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = async data => {
-    await sleep(2000);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = async (data) => {
+    await sleep(2000)
     if (data.username === "bill") {
-      alert(JSON.stringify(data));
+      alert(JSON.stringify(data))
     } else {
-      alert("There is an error");
+      alert("There is an error")
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -118,7 +122,7 @@ function App() {
 
       <input type="submit" />
     </form>
-  );
+  )
 }
 ```
 
