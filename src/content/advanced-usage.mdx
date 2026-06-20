@@ -344,7 +344,7 @@ export default function App() {
 
 ## Controlled mixed with Uncontrolled Components {#ControlledmixedwithUncontrolledComponents}
 
-React Hook Form embraces uncontrolled components but is also compatible with controlled components. Most UI libraries are built to support only controlled components, such as [MUI](https://github.com/mui/material-ui) and [Antd](https://github.com/ant-design/ant-design). But with React Hook Form, the re-rendering of controlled components are also optimized. Here is an example that combines them both with validation.
+React Hook Form embraces uncontrolled components but is also compatible with controlled components. Some components in UI libraries like [MUI](https://github.com/mui/material-ui) and [Antd](https://github.com/ant-design/ant-design) (e.g. `Select`, `Checkbox`) do not expose a native input ref and must be wrapped with `Controller`. Simpler components like `Input` forward the ref and can be used directly with `{...register}`. React Hook Form also optimizes re-rendering for controlled components. Here is an example that combines both patterns with validation.
 
 <TabGroup buttonLabels={["Controller", "Custom Register"]}>
 
