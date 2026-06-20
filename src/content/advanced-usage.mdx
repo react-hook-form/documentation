@@ -793,10 +793,15 @@ it("should not display error when value is valid", async () => {
 
   fireEvent.submit(screen.getByRole("button"))
 
-  await waitFor(() => expect(screen.queryAllByRole("alert")).toHaveLength(0))
+  await waitFor(() => {
+    expect(screen.queryAllByRole("alert")).toHaveLength(0)
+    // reset() fires after the async login resolves and triggers a re-render;
+    // all post-reset assertions must be inside waitFor so they retry until
+    // the DOM reflects the new state.
+    expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("")
+    expect(screen.getByLabelText("password")).toHaveValue("")
+  })
   expect(mockLogin).toBeCalledWith("test@mail.com", "password")
-  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("")
-  expect(screen.getByLabelText("password")).toHaveValue("")
 })
 ```
 
