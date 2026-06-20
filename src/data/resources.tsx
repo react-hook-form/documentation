@@ -535,6 +535,16 @@ export default {
   video: [
     {
       type: "video",
+      title: "React Hook Form - Build a Modern Form (with Zod & Server Errors)",
+      url: "https://www.youtube.com/watch?v=u6PQ5xZAv7Q",
+      authorUrl: "",
+      author: "",
+      description:
+        "A highly-rated walkthrough of building a production-ready form with React Hook Form, covering schema validation with Zod, TypeScript integration, and realistic server-side error handling.",
+      version: "7",
+    },
+    {
+      type: "video",
       title: "React Hook Form - The Free Course",
       url: "https://youtu.be/lp8xXoG0xQY",
       authorUrl: "https://www.youtube.com/@codaffection",
