@@ -92,23 +92,23 @@ sidebar: apiLinks
 
 **Generic props:**
 
-| Option                                                  | Description                                                                                                                   |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| [mode](#mode)                                           | Validation strategy **before** submitting behaviour.                                                                          |
-| [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.                                                                           |
-| [defaultValues](#defaultValues)                         | Default values for the form, this value will be cached.                                                                       |
-| [values](#values)                                       | Reactive values to update the form values.                                                                                    |
-| [errors](#errors)                                       | Server returns errors to update form. **⚠ Important:** Keep the errors object reference-stable to avoid infinite re-renders. |
-| [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values.                                                             |
-| [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                               |
-| [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                  |
-| [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                         |
-| [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                              |
-| [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                     |
-| [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                            |
-| [progressive](/docs/useform/form)                       | Enable progressive enhancement for native form submission when using the `Form` component.                                    |
-| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                           |
-| [formControl](/docs/createformcontrol)                  | Supply a pre-created form control object (from `createFormControl`) instead of letting `useForm` create one internally.       |
+| Option                                                  | Description                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [mode](#mode)                                           | Validation strategy **before** submitting behaviour.                                                                                                                                                                                                                  |
+| [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.                                                                                                                                                                                                                   |
+| [defaultValues](#defaultValues)                         | Default values for the form, this value will be cached.                                                                                                                                                                                                               |
+| [values](#values)                                       | Reactive values to update the form values.                                                                                                                                                                                                                            |
+| [errors](#errors)                                       | Server returns errors to update form. **⚠ Important:** Keep the errors object reference-stable to avoid infinite re-renders.                                                                                                                                         |
+| [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values.                                                                                                                                                                                                     |
+| [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                                                                                                                                                                       |
+| [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                                                                                                                                                          |
+| [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                                                                                                                                                                 |
+| [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                                                                                                                                                                      |
+| [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                                                                                                                                                             |
+| [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                                                                                                                                                                    |
+| [progressive](/docs/useform/form)                       | Forward validation attributes (`required`, `min`, `max`, etc.) as native HTML attributes on inputs. Required when using `shouldUseNativeValidation` so the browser can display built-in validation UI. Also enables progressive enhancement for the `Form` component. |
+| [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                                                                                                                                                                   |
+| [formControl](/docs/createformcontrol)                  | Supply a pre-created form control object (from `createFormControl`) instead of letting `useForm` create one internally.                                                                                                                                               |
 
 **Schema validation props:**
 
@@ -377,6 +377,14 @@ This config will enable [browser native validation](https://developer.mozilla.or
 - Only works with `onSubmit` and `onChange` modes, as the `reportValidity` execution will focus the error input.
 - Each registered field's validation message is required to be string to display them natively.
 - This feature only works with the `register` API and&nbsp; `useController/Controller` that are connected with actual DOM references.
+- **`progressive: true` is required alongside this option.** Without it, React Hook Form does not forward validation attributes (e.g. `required`, `minLength`) as native HTML attributes on the input, so the browser has nothing to validate against and no native UI is shown.
+
+  ```javascript
+  useForm({
+    shouldUseNativeValidation: true,
+    progressive: true, // required — forwards validation rules as native HTML attributes
+  })
+  ```
 
 **Examples:**
 
@@ -388,6 +396,7 @@ import { useForm } from "react-hook-form"
 export default function App() {
   const { register, handleSubmit } = useForm({
     shouldUseNativeValidation: true,
+    progressive: true,
   })
   const onSubmit = async (data) => {
     console.log(data)
