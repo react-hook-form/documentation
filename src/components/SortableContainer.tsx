@@ -20,7 +20,7 @@ export default function SortableContainer({
   editIndex: number
   setEditIndex: (payload: number) => void
   setFormData: (payload: FormDataItem) => void
-  reset: () => void
+  reset: (values?: FormDataItem) => void
 }) {
   return (
     <div className={styles.sortableWrapper}>
@@ -82,6 +82,7 @@ export default function SortableContainer({
                           const index = formData.findIndex(
                             (data) => field.name === data.name
                           )
+                          reset(formData[index])
                           setFormData(formData[index])
                           setEditIndex(index)
                         }
