@@ -9,7 +9,7 @@ export const getStaticProps = async () => {
     const res = await fetch(
       "https://api.npmjs.org/downloads/point/last-month/react-hook-form"
     )
-    const data = await res.json()
+    const data = (await res.json()) as { downloads: number }
     monthlyDownloads = data.downloads || 0
   } catch {}
 
