@@ -13,19 +13,41 @@ const Search = ({
 }) => {
   const { width } = useWindowSize()
   const searchRef = useRef<HTMLInputElement | null>(null)
+  const setFocusRef = useRef(setFocus)
+  setFocusRef.current = setFocus
 
   useEffect(() => {
-    window.docsearch?.({
-      appId: "Z2CKVVT2QA",
-      apiKey: "c56a3f265ffbf85c2c654f865cb09164",
-      indexName: "react-hook-form",
-      inputSelector: "#algolia-doc-search",
-    })
+    const initDocSearch = () => {
+      // Tear down any existing instance before init so navigation remounts
+      // and StrictMode double-invokes both start with a clean slate.
+      document
+        .querySelectorAll('[id^="algolia-autocomplete"]')
+        .forEach((el) => el.remove())
+      const wrapper = document.querySelector(".algolia-autocomplete")
+      const wrapped = wrapper?.querySelector<HTMLElement>("#algolia-doc-search")
+      if (wrapper && wrapped) wrapper.replaceWith(wrapped)
 
-    return () => {
-      setFocus(false)
+      window.docsearch?.({
+        appId: "Z2CKVVT2QA",
+        apiKey: "c56a3f265ffbf85c2c654f865cb09164",
+        indexName: "react-hook-form",
+        inputSelector: "#algolia-doc-search",
+      })
     }
-  }, [setFocus])
+
+    if (window.docsearch) {
+      initDocSearch()
+    } else {
+      // afterInteractive script hasn't loaded yet — wait for it
+      const script = document.querySelector<HTMLScriptElement>(
+        'script[src*="docsearch"]'
+      )
+      script?.addEventListener("load", initDocSearch)
+      return () => script?.removeEventListener("load", initDocSearch)
+    }
+
+    return () => setFocusRef.current(false)
+  }, [])
 
   useEffect(() => {
     if (LARGE_SCREEN <= width) {
