@@ -120,7 +120,7 @@ export const darkTheme: PrismTheme = {
 export const lightTheme: PrismTheme = {
   plain: {
     backgroundColor: "white",
-    color: "black",
+    color: "#1a1a2e",
   },
   styles: [
     {
@@ -133,102 +133,101 @@ export const lightTheme: PrismTheme = {
     {
       types: ["deleted"],
       style: {
-        color: "#f92672",
+        color: "#c0153e",
         fontStyle: "italic",
       },
     },
     {
       types: ["inserted"],
       style: {
-        color: "rgb(173, 219, 103)",
+        color: "#166534",
         fontStyle: "italic",
       },
     },
     {
       types: ["comment"],
       style: {
-        color: "#8292a2",
+        color: "#5c6773",
         fontStyle: "italic",
       },
     },
     {
       types: ["string", "url"],
       style: {
-        color: "#e68600",
+        color: "#b45309",
       },
     },
     {
       types: ["variable"],
       style: {
-        color: "#f8f8f2",
+        color: "#1a1a2e",
       },
     },
     {
       types: ["number"],
       style: {
-        color: "#ae81ff",
+        color: "#7c3aed",
       },
     },
     {
       types: ["builtin", "char", "constant", "function", "class-name"],
       style: {
-        color: "#e6db74",
+        color: "#7c3aed",
       },
     },
     {
       types: ["punctuation"],
       style: {
-        color: "#bebec5",
+        color: "#555569",
       },
     },
     {
       types: ["selector", "doctype"],
       style: {
-        color: "#a6e22e",
+        color: "#166534",
         fontStyle: "italic",
       },
     },
     {
       types: ["tag", "operator", "keyword"],
       style: {
-        color: "#ef3b7d",
+        color: "#bf1650",
       },
     },
     {
       types: ["boolean"],
       style: {
-        color: "#a77afe",
+        color: "#7c3aed",
       },
     },
     {
       types: ["namespace"],
       style: {
-        color: "rgb(178, 204, 214)",
-        opacity: 0.7,
+        color: "#4b5563",
       },
     },
     {
       types: ["tag", "property"],
       style: {
-        color: "#f92672",
+        color: "#bf1650",
       },
     },
     {
       types: ["attr-name"],
       style: {
-        color: "#a6e22e !important",
+        color: "#166534",
       },
     },
     {
       types: ["doctype"],
       style: {
-        color: "#8292a2",
+        color: "#5c6773",
       },
     },
     {
       types: ["rule"],
       style: {
-        color: "#e6db74",
+        color: "#7c3aed",
       },
     },
   ],
