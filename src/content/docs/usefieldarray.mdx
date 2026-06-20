@@ -99,6 +99,8 @@ function FieldArray() {
 
 - Does not support flat field array.
 
+- `shouldUnregister: true` is not supported. Field array relies on inputs being mounted and unmounted to manage its internal state — enabling `shouldUnregister` causes newly added fields to be unregistered on re-render, so their values are lost. Avoid combining `useFieldArray` with `shouldUnregister: true`.
+
 - A `disabled` property on a field entry is propagated to the registered input as the `disabled` HTML attribute. This allows you to disable individual rows without manual prop threading.
 
   ```javascript
