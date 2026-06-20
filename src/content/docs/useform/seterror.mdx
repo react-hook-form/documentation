@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `setError:` <TypeText>`(name: string, error: ErrorOption, { shouldFocus?: boolean }) => void`</TypeText>
 
-The function allows you to manually set one or more errors.
+The function allows you to manually set an error on a field. Call it multiple times to set errors on multiple fields.
 
 ### Props
 
@@ -16,11 +16,21 @@ The function allows you to manually set one or more errors.
 | Name    | Type                                                                                    | Description                                                                                                                                             |
 | ------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`  | <TypeText>string</TypeText>                                                             | input's name.                                                                                                                                           |
-| `error` | <TypeText>`{ type?: string, message?: string, types?: MultipleFieldErrors }`</TypeText> | Set an error with its type and message.                                                                                                                 |
+| `error` | <TypeText>`{ type?: string, message?: string, types?: MultipleFieldErrors }`</TypeText> | **`type`** *(optional)* — An identifier for the error source (e.g. `"required"`, `"custom"`, `"serverError"`). Exposed as `errors[name].type`. When setting errors on nested fields (e.g. `users.0.firstName`), always include `type` — omitting it causes a subsequent `setError` on a parent path (e.g. `users.0`) to overwrite any child-field errors.<br/><br/>**`message`** *(optional)* — The human-readable error message. Exposed as `errors[name].message`.<br/><br/>**`types`** *(optional)* — A `Record<string, string \| boolean>` that assigns multiple messages to a single field, keyed by error type (e.g. `{ required: "This is required", minLength: "Too short" }`). Requires `criteriaMode: "all"` on the form. Exposed as `errors[name].types`. Use this instead of `message` when you need to display more than one validation message for the same field simultaneously. |
 | config  | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                        | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. |
 
 <Admonition type="important" title="Rules">
 
+- When setting errors on nested fields, always include `type` in the error object. Without it, a later `setError` call on a parent path will replace any child-field errors rather than merging alongside them.
+  ```javascript
+  // ✅ both errors are preserved
+  setError("users.0.firstName", { type: "custom", message: "MSG1" })
+  setError("users.0", { type: "custom", message: "MSG2" })
+
+  // ❌ MSG1 is lost — the parent call overwrites the child error
+  setError("users.0.firstName", { message: "MSG1" })
+  setError("users.0", { message: "MSG2" })
+  ```
 - This method will not persist the associated input error if the input passes `register`'s associated rules.
   ```javascript
   register("registerInput", { minLength: 4 })
@@ -123,6 +133,8 @@ const App = () => {
 </TabGroup>
 
 **Multiple Errors**
+
+`setError` sets exactly one error per call. To set errors on multiple fields, call it once per field — typically in a loop over the server's error response.
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
@@ -240,6 +252,8 @@ const App = () => {
 </TabGroup>
 
 **Single Field Errors**
+
+Use `types` (with `criteriaMode: "all"`) to attach multiple validation messages to a single field at the same time. Each key in the object is an error-type identifier; each value is the message to display for that rule.
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
