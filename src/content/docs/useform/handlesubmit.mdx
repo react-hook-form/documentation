@@ -21,15 +21,18 @@ This function will receive the form data if form validation is successful.
 <Admonition type="important" title="Rules">
 
 - `disabled` inputs will appear as `undefined` values in form values. If you want to prevent users from updating an input and wish to retain the form value, you can use `readOnly` or disable the entire &lt;fieldset /&gt;. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).
-- `handleSubmit` function will not swallow errors that occurred inside your onSubmit callback, so we recommend you to try and catch inside async request and handle those errors gracefully for your customers.
+- `handleSubmit` function will not swallow errors that occurred inside your onSubmit callback, so we recommend you to try and catch inside async request and handle those errors gracefully for your customers. Use `setError` inside the catch block to register a server-side error — this also ensures `formState.isSubmitSuccessful` is set to `false`.
 
   ```javascript
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     // async request which may result error
     try {
       // await fetch()
     } catch (e) {
-      // handle your error
+      setError("root.serverError", {
+        type: e.status,
+        message: e.message,
+      })
     }
   }
 
