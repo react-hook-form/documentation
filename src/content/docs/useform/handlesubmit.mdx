@@ -129,6 +129,52 @@ function App() {
 }
 ```
 
+**Resolver with transformed values**
+
+When a resolver (Zod, Yup, Joi, or custom) transforms the submitted data — so the output type differs from the field input type — use `useForm`'s third generic, `TTransformedValues`, to tell TypeScript what `handleSubmit` will receive. Without it, the callback is typed as the input (field) type and you'll get errors accessing transformed properties.
+
+```tsx copy
+import { useForm, SubmitHandler } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+
+// Example using Zod — the same pattern applies to any resolver whose
+// output type differs from its input type (Yup, Joi, custom, etc.)
+const schema = z
+  .object({
+    emailOrPhone: z.string().trim(),
+  })
+  .transform(({ emailOrPhone }) => ({
+    isEmail: emailOrPhone.includes("@"),
+    isPhone: /^\d+$/.test(emailOrPhone),
+    value: emailOrPhone,
+  }))
+
+type FormInput = z.input<typeof schema> // { emailOrPhone: string }
+type FormOutput = z.output<typeof schema> // { isEmail: boolean; isPhone: boolean; value: string }
+
+export default function App() {
+  // 1st generic = field/input type (drives register, watch, etc.)
+  // 3rd generic = transformed output type (drives handleSubmit callback)
+  const { register, handleSubmit } = useForm<FormInput, unknown, FormOutput>({
+    resolver: zodResolver(schema),
+  })
+
+  const onSubmit: SubmitHandler<FormOutput> = (data) => {
+    console.log(data.isEmail, data.isPhone, data.value)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("emailOrPhone")} />
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
+---
+
 ### Video
 
 ---
