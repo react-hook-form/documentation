@@ -258,7 +258,7 @@ First of all, all libs try to solve the same problem: make the form building exp
 
 ## watch vs getValues vs state {#watchvsgetValuesvsstate}
 
-- **watch:** subscribe to either all inputs or a specified input's changes via an event listener and re-render based on which fields are subscribed to. Check out [this codesandbox](https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus) for actual behaviour.
+- **watch:** subscribe to either all inputs or a specified input's changes via an event listener and re-render based on which fields are subscribed to. Check out [this codesandbox](https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus) for actual behaviour. See the [watch API docs](/docs/useform/watch) for full details.
 - **getValues**: get values that are stored inside the custom hook as reference, fast and cheap. This method doesn’t trigger a re-render.
 - **local state**: React local state represents more than just an input’s state and also decides what to render. This will trigger on each input’s change.
 
