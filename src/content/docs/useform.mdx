@@ -140,6 +140,8 @@ This option allows you to configure the validation strategy before a user submit
 
 This option allows you to configure validation strategy when inputs with errors get re-validated **after** a user submits the form (`onSubmit` event and [`handleSubmit`](/docs/useform/handlesubmit) function executed). By default, re-validation occurs during the input change event.
 
+**Note:** Both `mode` and `reValidateMode` are reactive — you can update them after form initialization and the new strategy will take effect on subsequent validations.
+
 #### defaultValues: <TypeText>`FieldValues | () => Promise<FieldValues>`</TypeText> {#defaultValues}
 
 ---
