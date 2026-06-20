@@ -49,7 +49,7 @@ function FieldArray() {
 
 | Name      | Type                                                                                  | Description                                                                                                                                                                                                                                          |
 | --------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fields`  | <TypeText>object & \{ id: string \}</TypeText>                                        | This `object` contains the `defaultValue` and `key` for your component.                                                                                                                                                                              |
+| `fields`  | <TypeText>object & \{ id: string \}</TypeText>                                        | This `object` contains the `defaultValue` and `key` for your component. When a field entry includes `disabled: true`, the `disabled` attribute is automatically propagated to the registered input.                                                  |
 | `append`  | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Append input/inputs to the end of your fields and focus. The input value will be registered during this action. **Important:** append data is required and not partial.                                                                              |
 | `prepend` | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Prepend input/inputs to the start of your fields and focus. The input value will be registered during this action. **Important:** prepend data is required and not partial.                                                                          |
 | `insert`  | <TypeText>(index: number, value: object \| object[], focusOptions) => void</TypeText> | Insert input/inputs at particular position and focus. **Important:** insert data is required and not partial.                                                                                                                                        |
@@ -98,6 +98,20 @@ function FieldArray() {
 - Each input name needs to be unique, if you need to build checkbox or radio with the same name then use it with `useController` or `Controller`.
 
 - Does not support flat field array.
+
+- A `disabled` property on a field entry is propagated to the registered input as the `disabled` HTML attribute. This allows you to disable individual rows without manual prop threading.
+
+  ```javascript
+  const { fields, append } = useFieldArray({ control, name: "test" })
+
+  // append a disabled field
+  append({ value: "readonly", disabled: true })
+
+  // the registered input will receive disabled automatically
+  {fields.map((field, index) => (
+    <input key={field.id} {...register(`test.${index}.value`)} />
+  ))}
+  ```
 
 - When you append, prepend, insert and update the field array, the obj can't be empty object `{}` rather need to supply all your input's defaultValues.
 
