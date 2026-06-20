@@ -57,6 +57,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      react-flip-numbers:
+        specifier: ^3.0.9
+        version: 3.0.9(react-dom@18.3.1(react@18.3.1))(react-simple-animate@3.5.3(react-dom@18.3.1(react@18.3.1)))(react@18.3.1)
       react-github-btn:
         specifier: 1.4.0
         version: 1.4.0(react@18.3.1)
@@ -3000,6 +3003,13 @@ packages:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
       react: ^18.3.1
+
+  react-flip-numbers@3.0.9:
+    resolution: {integrity: sha512-ZFpFIz5wxT00rPuMfmCfPOsnC09u9oxYV3zPlfG1X79N58a5bwFvZcfl6BIosowa2tI9t9KyJIYcJICFyr5Y5g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+      react-dom: ^16.8.0 || ^17 || ^18 || ^19
+      react-simple-animate: ^3.0.1
 
   react-github-btn@1.4.0:
     resolution: {integrity: sha512-lV4FYClAfjWnBfv0iNlJUGhamDgIq6TayD0kPZED6VzHWdpcHmPfsYOZ/CFwLfPv4Zp+F4m8QKTj0oy2HjiGXg==}
@@ -7075,6 +7085,12 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-flip-numbers@3.0.9(react-dom@18.3.1(react@18.3.1))(react-simple-animate@3.5.3(react-dom@18.3.1(react@18.3.1)))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-simple-animate: 3.5.3(react-dom@18.3.1(react@18.3.1))
 
   react-github-btn@1.4.0(react@18.3.1):
     dependencies:

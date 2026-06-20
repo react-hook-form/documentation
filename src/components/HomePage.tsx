@@ -19,8 +19,15 @@ import styles from "./HomePage.module.css"
 import { SponsorsList } from "./sponsorsList"
 import { useRouter } from "next/router"
 import { GeneralObserver } from "./general-observer"
+import FlipNumbers from "react-flip-numbers"
 
-function HomePage() {
+function formatDownloads(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(0)}M+`
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K+`
+  return n.toLocaleString()
+}
+
+function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
   const [submitData, updateSubmitData] = useState({})
   const [showBuilder, toggleBuilder] = useState(false)
   const HomeRef = useRef<HTMLDivElement>(null)
@@ -30,6 +37,7 @@ function HomePage() {
   const [isolatePlay, setIsolatePlay] = useState(false)
   // const [isCardPlay, setCardPlay] = useState(false)
   const [renderPlay, setRenderPlay] = useState(false)
+  const [renderCounter, setCounterPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
   const [watchPlay, setWatchPlay] = useState(false)
   const { query } = useRouter()
@@ -100,6 +108,44 @@ function HomePage() {
       >
         <CodePerfCompareSection isPlayRender={renderPlay} />
       </GeneralObserver>
+
+      {monthlyDownloads > 0 && (
+        <GeneralObserver
+          onEnter={() => {
+            setCounterPlay(true)
+          }}
+        >
+          <div className={containerStyles.centerContent}>
+          <section className={styles.downloadStats}>
+            <h1 className={typographyStyles.h1}>Strong Adoption</h1>
+            <p className={typographyStyles.homeParagraph}>
+              One of the most downloaded React form libraries, trusted by
+              developers and enterprises worldwide.
+            </p>
+            <div className={styles.downloadCount}>
+              <FlipNumbers
+                play={renderCounter}
+                numbers={formatDownloads(monthlyDownloads)}
+                height={100}
+                width={63}
+                color="#ec5990"
+                perspective={1500}
+                duration={4}
+                numberStyle={{ fontWeight: 800 }}
+                nonNumberStyle={{
+                  fontSize: 100,
+                  fontWeight: 900,
+                  color: "#ec5990",
+                  lineHeight: "100px",
+                  verticalAlign: "bottom",
+                }}
+              />
+            </div>
+            <p className={styles.downloadSub}>Monthly npm downloads</p>
+          </section>
+          </div>
+        </GeneralObserver>
+      )}
 
       <div className={containerStyles.centerContent}>
         <h1 className={typographyStyles.h1}>Highlights</h1>

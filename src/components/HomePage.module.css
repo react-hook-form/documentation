@@ -1,3 +1,28 @@
+.downloadStats {
+  text-align: center;
+}
+
+.downloadLabel {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+}
+
+.downloadCount {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-6) 0 var(--space-3);
+  overflow: hidden;
+}
+
+.downloadSub {
+  font-size: var(--text-base);
+  color: var(--color-light-blue);
+  margin: 0;
+}
+
 .root {
   padding: 0 var(--space-5) var(--space-10);
   position: relative;

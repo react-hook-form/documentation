@@ -111,7 +111,7 @@ h3.subTitle:before {
   font-size: 24px;
   display: inline-block;
   margin: var(--space-9) auto;
-  font-weight: 400;
+  font-weight: 500;
   padding-bottom: var(--space-1);
   border-bottom: 2px solid var(--color-secondary);
 }
