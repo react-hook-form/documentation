@@ -170,8 +170,15 @@ function HomePage() {
             <h3>Technology Radar</h3>
 
             <p>
-              The project is fortunate enough to be under the radar for the
-              Languages & Frameworks section.
+              Featured in the{" "}
+              <a
+                href="https://www.thoughtworks.com/en-au/radar/languages-and-frameworks/react-hook-form"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Thoughtworks Technology Radar
+              </a>{" "}
+              under Languages & Frameworks, adopted since 2025.
             </p>
           </div>
         </section>
