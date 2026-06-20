@@ -23,6 +23,11 @@
   margin: 0;
 }
 
+.downloadSub a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .root {
   padding: 0 var(--space-5) var(--space-10);
   position: relative;

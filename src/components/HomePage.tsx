@@ -141,7 +141,16 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
                 }}
               />
             </div>
-            <p className={styles.downloadSub}>Monthly npm downloads</p>
+            <p className={styles.downloadSub}>
+              Monthly{" "}
+              <a
+                href="https://www.npmjs.com/package/react-hook-form"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                npm downloads
+              </a>
+            </p>
           </section>
           </div>
         </GeneralObserver>
