@@ -391,6 +391,15 @@ td {
 h2 {
   font-weight: 500;
   font-size: 1.2rem;
+  margin: var(--space-9) 0 0;
+}
+
+h3 {
+  margin: var(--space-8) 0 0;
+}
+
+h4 {
+  margin: var(--space-6) 0 0;
 }
 
 label,
