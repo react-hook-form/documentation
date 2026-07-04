@@ -402,6 +402,11 @@ h4 {
   margin: var(--space-6) 0 0;
 }
 
+h5 {
+  font-size: 1em;
+  margin: var(--space-4) 0 0;
+}
+
 label,
 table {
   font-size: 0.9rem;
