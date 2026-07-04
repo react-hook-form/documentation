@@ -131,11 +131,11 @@ This option allows you to configure the validation strategy before a user submit
 | --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | onSubmit  | <TypeText>string</TypeText> | Validation is triggered on the `submit` event, and inputs attach `onChange` event listeners to re-validate themselves.                                                                                                   |
 | onBlur    | <TypeText>string</TypeText> | Validation is triggered on the `blur` event.                                                                                                                                                                             |
-| onChange  | <TypeText>string</TypeText> | Validation is triggered on the `change`event for each input, leading to multiple re-renders. Warning: this often comes with a significant impact on performance.                                                         |
+| onChange  | <TypeText>string</TypeText> | Validation is triggered on the `change` event for each input, leading to multiple re-renders. Warning: this often comes with a significant impact on performance.                                                        |
 | onTouched | <TypeText>string</TypeText> | Validation is initially triggered on the first `blur` event. After that, it is triggered on every `change` event.<br/><br/>**Note:** when using with `Controller`, make sure to wire up `onBlur` with the `render` prop. |
 | all       | <TypeText>string</TypeText> | Validation is triggered on both `blur` and `change` events.                                                                                                                                                              |
 
-#### reValidateMode: <TypeText>onChange | onBlur | onSubmit = 'onChange' </TypeText> <Popup top={3} message="React Native: Custom register or using Controller" /> {#reValidateMode}
+#### reValidateMode: <TypeText>onChange | onBlur | onSubmit = 'onChange'</TypeText> <Popup top={3} message="React Native: Custom register or using Controller" /> {#reValidateMode}
 
 ---
 
@@ -316,7 +316,7 @@ const {
       }
     }
 
-    if (formValue.test === "test") {
+    if (formValues.test === "test") {
       return "direct error message"
     }
 
@@ -824,12 +824,15 @@ The following list contains reference to `useForm` return props.
 - [unregister](/docs/useform/unregister)
 - [formState](/docs/useform/formstate)
 - [watch](/docs/useform/watch)
+- [subscribe](/docs/useform/subscribe)
 - [handleSubmit](/docs/useform/handlesubmit)
 - [reset](/docs/useform/reset)
 - [resetField](/docs/useform/resetfield)
+- [resetDefaultValues](/docs/useform/resetdefaultvalues)
 - [setError](/docs/useform/seterror)
 - [clearErrors](/docs/useform/clearerrors)
 - [setValue](/docs/useform/setvalue)
+- [setValues](/docs/useform/setvalues)
 - [setFocus](/docs/useform/setfocus)
 - [getValues](/docs/useform/getvalues)
 - [getFieldState](/docs/useform/getfieldstate)
