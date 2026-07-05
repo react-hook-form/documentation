@@ -113,6 +113,22 @@ export default function App() {
 
 ---
 
+## \</> FormSubmitHandler {#FormSubmitHandler}
+
+The type for the [`Form`](/docs/useform/form) component's `onSubmit` prop — unlike `SubmitHandler`, the payload includes the raw `FormData` and `formDataJson` from the submission.
+
+```tsx copy
+export type FormSubmitHandler<TTransformedValues> = (payload: {
+  data: TTransformedValues
+  event?: React.BaseSyntheticEvent
+  formData: FormData
+  formDataJson: string
+  method?: "post" | "put" | "delete"
+}) => unknown | Promise<unknown>
+```
+
+---
+
 ## \</> Control {#Control}
 
 ```tsx copy sandbox="https://codesandbox.io/s/control-2mg07"
@@ -298,6 +314,30 @@ export type UseFormProps<
 
 ---
 
+## \</> UseFormRegisterReturn {#UseFormRegisterReturn}
+
+The shape returned by invoking [`register`](/docs/useform/register). Useful for typing a custom `Input` component that spreads `{...register(name)}`.
+
+```tsx copy
+export type UseFormRegisterReturn<
+  TFieldName extends InternalFieldName = InternalFieldName,
+> = {
+  onChange: ChangeHandler
+  onBlur: ChangeHandler
+  ref: RefCallBack
+  name: TFieldName
+  min?: string | number
+  max?: string | number
+  maxLength?: number
+  minLength?: number
+  pattern?: string
+  required?: boolean
+  disabled?: boolean
+}
+```
+
+---
+
 ## \</> FormProviderProps {#FormProviderProps}
 
 ```tsx copy
@@ -370,6 +410,20 @@ export type UseFieldArrayReturn<
 
 ---
 
+## \</> FieldArrayMethodProps {#FieldArrayMethodProps}
+
+Focus options accepted as the second argument to `append`, `prepend`, and `insert`.
+
+```tsx copy
+export type FieldArrayMethodProps = {
+  shouldFocus?: boolean
+  focusIndex?: number
+  focusName?: string
+}
+```
+
+---
+
 ## \</> UseFieldArrayProps {#UseFieldArrayProps}
 
 ```tsx copy
@@ -413,6 +467,42 @@ export type FieldArrayProps<
     fieldArray: UseFieldArrayReturn<TFieldValues, TFieldArrayName, TKeyName>
   ) => React.ReactElement
 } & UseFieldArrayProps<TFieldValues, TFieldArrayName, TKeyName>
+```
+
+---
+
+## \</> ControllerRenderProps {#ControllerRenderProps}
+
+The shape of the `field` object passed to `Controller`'s `render` prop. Useful for typing a custom controlled input component.
+
+```tsx copy
+export type ControllerRenderProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = {
+  onChange: (...event: any[]) => void
+  onBlur: Noop
+  value: FieldPathValue<TFieldValues, TName>
+  disabled?: boolean
+  name: TName
+  ref: RefCallBack
+}
+```
+
+---
+
+## \</> ControllerFieldState {#ControllerFieldState}
+
+The shape of the `fieldState` object passed to `Controller`'s `render` prop.
+
+```tsx copy
+export type ControllerFieldState = {
+  invalid: boolean
+  isTouched: boolean
+  isDirty: boolean
+  isValidating: boolean
+  error?: FieldError
+}
 ```
 
 ---
@@ -622,6 +712,55 @@ export type RegisterOptions<
         valueAsDate?: false
       }
   )
+```
+
+---
+
+## \</> FormState {#FormState}
+
+The type of [`formState`](/docs/useform/formstate), returned by `useForm` and `useFormState`.
+
+```tsx copy
+export type FormState<TFieldValues extends FieldValues> = {
+  isDirty: boolean
+  isLoading: boolean
+  isSubmitted: boolean
+  isSubmitSuccessful: boolean
+  isSubmitting: boolean
+  isValidating: boolean
+  isValid: boolean
+  disabled: boolean
+  submitCount: number
+  defaultValues?: undefined | Readonly<DeepPartial<TFieldValues>>
+  dirtyFields: Partial<Readonly<FieldNamesMarkedBoolean<TFieldValues>>>
+  touchedFields: Partial<Readonly<FieldNamesMarkedBoolean<TFieldValues>>>
+  validatingFields: Partial<Readonly<FieldNamesMarkedBoolean<TFieldValues>>>
+  errors: FieldErrors<TFieldValues>
+  isReady: boolean
+}
+```
+
+---
+
+## \</> KeepStateOptions {#KeepStateOptions}
+
+Options accepted by [`reset`](/docs/useform/reset) and `useForm`'s [`resetOptions`](/docs/useform#resetOptions), controlling which parts of form state survive the reset.
+
+```tsx copy
+export type KeepStateOptions = Partial<{
+  keepDirtyValues: boolean
+  keepErrors: boolean
+  keepDirty: boolean
+  keepValues: boolean
+  keepDefaultValues: boolean
+  keepIsSubmitted: boolean
+  keepIsSubmitSuccessful: boolean
+  keepTouched: boolean
+  keepIsValidating: boolean
+  keepIsValid: boolean
+  keepSubmitCount: boolean
+  keepFieldsRef: boolean
+}>
 ```
 
 ---
