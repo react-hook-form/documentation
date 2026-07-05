@@ -817,7 +817,6 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  white-space: pre;
   white-space: pre-wrap;
   word-wrap: normal;
   font-family: var(--font-mono);

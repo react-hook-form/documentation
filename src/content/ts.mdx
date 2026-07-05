@@ -159,7 +159,7 @@ export default function App() {
 export type UseFormReturn<
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
-  TTransformedValues extends FieldValues | undefined = undefined,
+  TTransformedValues = TFieldValues,
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
@@ -167,15 +167,18 @@ export type UseFormReturn<
   setError: UseFormSetError<TFieldValues>
   clearErrors: UseFormClearErrors<TFieldValues>
   setValue: UseFormSetValue<TFieldValues>
+  setValues: UseFormSetValues<TFieldValues>
   trigger: UseFormTrigger<TFieldValues>
   formState: FormState<TFieldValues>
   resetField: UseFormResetField<TFieldValues>
   reset: UseFormReset<TFieldValues>
-  handleSubmit: UseFormHandleSubmit<TFieldValues>
+  resetDefaultValues: UseFormResetDefaultValues<TFieldValues>
+  handleSubmit: UseFormHandleSubmit<TFieldValues, TTransformedValues>
   unregister: UseFormUnregister<TFieldValues>
-  control: Control<TFieldValues, TContext>
+  control: Control<TFieldValues, TContext, TTransformedValues>
   register: UseFormRegister<TFieldValues>
   setFocus: UseFormSetFocus<TFieldValues>
+  subscribe: UseFormSubscribe<TFieldValues>
 }
 ```
 
@@ -267,8 +270,8 @@ export default function App() {
 ```tsx copy
 export type UseFormProps<
   TFieldValues extends FieldValues = FieldValues,
-  TContext extends object = object,
-  TTransformedValues extends FieldValues | undefined = undefined,
+  TContext = any,
+  TTransformedValues = TFieldValues,
 > = Partial<{
   mode: Mode
   disabled: boolean
@@ -277,7 +280,7 @@ export type UseFormProps<
   values: TFieldValues
   errors: FieldErrors<TFieldValues>
   resetOptions: Parameters<UseFormReset<TFieldValues>>[1]
-  resolver: Resolver<TFieldValues, TContext>
+  resolver: Resolver<TFieldValues, TContext, TTransformedValues>
   context: TContext
   shouldFocusError: boolean
   shouldUnregister: boolean
@@ -497,6 +500,7 @@ export type FieldErrors<T extends FieldValues = FieldValues> = Partial<
     : FieldErrorsImpl<DeepRequired<T>>
 > & {
   root?: Record<string, GlobalError> & GlobalError
+  form?: GlobalError
 }
 ```
 
