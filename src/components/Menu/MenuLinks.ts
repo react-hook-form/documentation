@@ -201,6 +201,10 @@ export const tsLinks: Pages = [
     pathname: "#SubmitHandler",
   },
   {
+    name: "SubmitErrorHandler",
+    pathname: "#SubmitErrorHandler",
+  },
+  {
     name: "Control",
     pathname: "#Control",
   },
@@ -211,6 +215,14 @@ export const tsLinks: Pages = [
   {
     name: "UseFormProps",
     pathname: "#UseFormProps",
+  },
+  {
+    name: "FormProviderProps",
+    pathname: "#FormProviderProps",
+  },
+  {
+    name: "FormProps",
+    pathname: "#FormProps",
   },
   {
     name: "UseFieldArrayReturn",
@@ -231,6 +243,10 @@ export const tsLinks: Pages = [
   {
     name: "UseControllerProps",
     pathname: "#UseControllerProps",
+  },
+  {
+    name: "ControllerProps",
+    pathname: "#ControllerProps",
   },
   {
     name: "FieldError",

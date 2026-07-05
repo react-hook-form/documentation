@@ -295,6 +295,53 @@ export type UseFormProps<
 
 ---
 
+## \</> FormProviderProps {#FormProviderProps}
+
+```tsx copy
+export type FormProviderProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> = {
+  children: React.ReactNode | React.ReactNode[]
+} & UseFormReturn<TFieldValues, TContext, TTransformedValues>
+```
+
+---
+
+## \</> FormProps {#FormProps}
+
+```tsx copy
+export type FormProps<
+  TFieldValues extends FieldValues,
+  TTransformedValues = TFieldValues,
+> = Omit<React.FormHTMLAttributes<HTMLFormElement>, "onError" | "onSubmit"> &
+  Partial<{
+    control: Control<TFieldValues, any, TTransformedValues>
+    headers: Record<string, string>
+    validateStatus: (status: number) => boolean
+    onError: (
+      payload:
+        | { response: Response; error?: undefined }
+        | { response?: undefined; error: unknown }
+    ) => void
+    onSuccess: ({ response }: { response: Response }) => void
+    onSubmit: FormSubmitHandler<TTransformedValues>
+    method: "post" | "put" | "delete"
+    children: React.ReactNode | React.ReactNode[]
+    render: (props: {
+      submit: (e?: React.FormEvent) => void
+    }) => React.ReactNode | React.ReactNode[]
+    encType:
+      | "application/x-www-form-urlencoded"
+      | "multipart/form-data"
+      | "text/plain"
+      | "application/json"
+  }>
+```
+
+---
+
 ## \</> UseFieldArrayReturn {#UseFieldArrayReturn}
 
 ```tsx copy
@@ -388,6 +435,7 @@ export type UseControllerReturn<
 export type UseControllerProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TTransformedValues = TFieldValues,
 > = {
   name: TName
   rules?: Omit<
@@ -396,9 +444,32 @@ export type UseControllerProps<
   >
   shouldUnregister?: boolean
   defaultValue?: FieldPathValue<TFieldValues, TName>
-  control?: Control<TFieldValues>
+  control?: Control<TFieldValues, any, TTransformedValues>
   disabled?: boolean
+  exact?: boolean
 }
+```
+
+---
+
+## \</> ControllerProps {#ControllerProps}
+
+```tsx copy
+export type ControllerProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TTransformedValues = TFieldValues,
+> = {
+  render: ({
+    field,
+    fieldState,
+    formState,
+  }: {
+    field: ControllerRenderProps<TFieldValues, TName>
+    fieldState: ControllerFieldState
+    formState: UseFormStateReturn<TFieldValues>
+  }) => React.ReactElement
+} & UseControllerProps<TFieldValues, TName, TTransformedValues>
 ```
 
 ---
