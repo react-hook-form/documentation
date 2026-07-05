@@ -46,7 +46,7 @@ const ControlledInputs = ({ style }: { style?: React.CSSProperties }) => {
   return (
     <section style={{ ...style, marginBottom: 20 }}>
       <form className={formStyles.demoForm}>
-        <h2>Controlled Form</h2>
+        <h3 className={typographyStyles.title}>Controlled Form</h3>
         <AnimateKeyframes
           keyframes={[`background: ${colors.lightBlue};`, "background: white;"]}
           play={play}
@@ -98,7 +98,7 @@ const ControlledInputs = ({ style }: { style?: React.CSSProperties }) => {
 function IsolateRender({ isIsolatePlay }: { isIsolatePlay: boolean }) {
   return (
     <div className={containerStyles.centerContent}>
-      <h1 className={typographyStyles.h1}>{home.isolateRender.title}</h1>
+      <h2 className={typographyStyles.h1}>{home.isolateRender.title}</h2>
 
       {home.isolateRender.description}
 
@@ -117,7 +117,7 @@ function IsolateRender({ isIsolatePlay }: { isIsolatePlay: boolean }) {
             return (
               <section style={style} id="isolate">
                 <form className={formStyles.demoForm}>
-                  <h2> React Hook Form</h2>
+                  <h3 className={typographyStyles.title}> React Hook Form</h3>
                   <IsoLateInput />
                   <div className={styles.externalComponent}>
                     Child Component A

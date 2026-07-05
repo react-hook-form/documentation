@@ -1,6 +1,7 @@
 import generic from "../data/generic"
 import buttonStyles from "../styles/button.module.css"
 import containerStyles from "../styles/container.module.css"
+import typographyStyles from "../styles/typography.module.css"
 
 export default function StarRepo() {
   return (
@@ -8,7 +9,9 @@ export default function StarRepo() {
       className={containerStyles.centerContent}
       style={{ marginTop: 100, maxWidth: 600 }}
     >
-      <h1>{generic.needYourSupport.title}</h1>
+      <h2 className={typographyStyles.ctaHeading}>
+        {generic.needYourSupport.title}
+      </h2>
       <p>{generic.needYourSupport.description}</p>
       <button
         className={buttonStyles.primaryButton}

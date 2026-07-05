@@ -116,6 +116,12 @@ h3.subTitle:before {
   border-bottom: 2px solid var(--color-secondary);
 }
 
+.ctaHeading {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+}
+
 .h5 {
   font-size: 18px;
   text-align: left;

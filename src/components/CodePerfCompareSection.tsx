@@ -10,19 +10,19 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
   return (
     <AnimateGroup play={isPlayRender}>
       <div className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>{home.mount.title}</h1>
+        <h2 className={typographyStyles.h1}>{home.mount.title}</h2>
 
         {home.mount.description}
       </div>
 
-      <h2
+      <h3
         className={typographyStyles.title}
         style={{
           marginTop: 40,
         }}
       >
         React Hook Form
-      </h2>
+      </h3>
       <div className={styles.imgSection}>
         <ul>
           <li>{home.mount.totalMount}: 1</li>
@@ -40,7 +40,7 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
         />
       </div>
 
-      <h2 className={typographyStyles.title}>Others</h2>
+      <h3 className={typographyStyles.title}>Others</h3>
       <div className={styles.imgSection}>
         <ul>
           <li>{home.mount.totalMount}: 6</li>

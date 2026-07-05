@@ -106,7 +106,7 @@ const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
     <AnimateGroup play={isPlayWatch}>
       <div className={styles.watcher} id="watch">
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{home.watcher.title}</h1>
+          <h2 className={typographyStyles.h1}>{home.watcher.title}</h2>
           {home.watcher.description}
         </div>
 

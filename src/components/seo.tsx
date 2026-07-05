@@ -63,7 +63,6 @@ function SEO({
       <meta name="twitter:image" content={OG_IMAGE} />
 
       {schemas.map((schema, i) => (
-        // eslint-disable-next-line react/no-danger
         <script
           key={i}
           type="application/ld+json"

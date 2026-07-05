@@ -26,7 +26,7 @@ function CodeCompareSection({
         }}
       >
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{home.codeComparison.title}</h1>
+          <h2 className={typographyStyles.h1}>{home.codeComparison.title}</h2>
 
           {home.codeComparison.description}
         </div>
@@ -66,7 +66,7 @@ function CodeCompareSection({
                   ...style,
                 }}
               >
-                <h2 className={typographyStyles.title}>React Hook Form</h2>
+                <h3 className={typographyStyles.title}>React Hook Form</h3>
                 <CodeArea rawData={reactHookFormCode} withOutCopy />
               </div>
             )}

@@ -49,7 +49,7 @@ function Form({
     <>
       {!devTool && (
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{generic.liveDemo}</h1>
+          <h2 className={typographyStyles.h1}>{generic.liveDemo}</h2>
           {formUpdated && (
             <Animate
               play={formUpdated}
@@ -73,9 +73,9 @@ function Form({
       <div className={styles.wrapper}>
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={typographyStyles.title} style={{ marginTop: 40 }}>
+          <h3 className={typographyStyles.title} style={{ marginTop: 40 }}>
             Example
-          </h2>
+          </h3>
 
           <FormFields formData={formData} errors={errors} register={register} />
 
@@ -85,7 +85,7 @@ function Form({
 
           {!devTool && (
             <>
-              <h2
+              <h3
                 className={typographyStyles.title}
                 style={{
                   fontSize: 14,
@@ -94,7 +94,7 @@ function Form({
                 }}
               >
                 or
-              </h2>
+              </h3>
 
               <button
                 className={buttonStyles.darkButton}
@@ -114,9 +114,9 @@ function Form({
         {!devTool && (
           <>
             <section>
-              <h2 className={typographyStyles.title}>
+              <h3 className={typographyStyles.title}>
                 {home.liveDemo.watchTitle}
-              </h2>
+              </h3>
               <p>ⓘ {home.liveDemo.watch}</p>
               <Animate
                 play={Object.keys(watch()).length > 0}
@@ -129,9 +129,9 @@ function Form({
               />
             </section>
             <section>
-              <h2 className={typographyStyles.title}>
+              <h3 className={typographyStyles.title}>
                 {home.liveDemo.errorTitle}
-              </h2>
+              </h3>
               <p>ⓘ {home.liveDemo.error}</p>
               <Animate {...animationProps} play={!!Object.keys(errors).length}>
                 <pre className={styles.code}>
@@ -154,9 +154,9 @@ function Form({
             </section>
 
             <section>
-              <h2 className={typographyStyles.title}>
+              <h3 className={typographyStyles.title}>
                 {home.liveDemo.touchedTitle}
-              </h2>
+              </h3>
               <p>ⓘ {home.liveDemo.touched}</p>
               <Animate
                 play={!!touched.length}
@@ -171,9 +171,9 @@ function Form({
 
             {!!Object.keys(submitData).length && (
               <section>
-                <h2 className={typographyStyles.title}>
+                <h3 className={typographyStyles.title}>
                   {home.liveDemo.submit}
-                </h2>
+                </h3>
                 <Animate
                   play={!!Object.keys(submitData).length}
                   {...animationProps}

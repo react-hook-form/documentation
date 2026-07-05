@@ -117,7 +117,7 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         >
           <div className={containerStyles.centerContent}>
             <section className={styles.downloadStats}>
-              <h1 className={typographyStyles.h1}>Strong Adoption</h1>
+              <h2 className={typographyStyles.h1}>Strong Adoption</h2>
               <p className={typographyStyles.homeParagraph}>
                 One of the most downloaded React form libraries, trusted by
                 developers and enterprises worldwide.
@@ -157,7 +157,7 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
       )}
 
       <div className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>Highlights</h1>
+        <h2 className={typographyStyles.h1}>Highlights</h2>
 
         <p className={typographyStyles.homeParagraph}>
           This project is getting recognized by the community and industry. It's
@@ -240,7 +240,7 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
       </div>
 
       <div className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>The Community</h1>
+        <h2 className={typographyStyles.h1}>The Community</h2>
 
         <p className={typographyStyles.homeParagraph}>
           Build and drive by the community. On a mission to make every React
@@ -345,7 +345,7 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
       />
 
       <section className={containerStyles.centerContent}>
-        <h1 className={typographyStyles.h1}>{home.findInteresting.heading}</h1>
+        <h2 className={typographyStyles.h1}>{home.findInteresting.heading}</h2>
         {home.findInteresting.description}
         <div
           className={buttonStyles.buttonsGroup}

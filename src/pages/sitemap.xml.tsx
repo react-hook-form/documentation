@@ -38,7 +38,7 @@ ${urls}
 </urlset>`
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = ({ res }) => {
   res.setHeader("Content-Type", "text/xml")
   res.write(generateSitemap())
   res.end()

@@ -72,9 +72,9 @@ export default function DevTools() {
         <DevToolFeaturesList content={content} />
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>
+          <h2 className={typographyStyles.h1}>
             {`</>`} {content.install}
-          </h1>
+          </h2>
         </div>
 
         <div className={containerStyles.subContainer}>
@@ -96,7 +96,7 @@ export default function DevTools() {
         </div>
 
         <div className={containerStyles.centerContent}>
-          <h1 className={typographyStyles.h1}>{generic.liveDemo}</h1>
+          <h2 className={typographyStyles.h1}>{generic.liveDemo}</h2>
           <p>{content.demoDescription}</p>
 
           <div
