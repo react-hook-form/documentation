@@ -221,8 +221,88 @@ export const tsLinks: Pages = [
     pathname: "#UseFormProps",
   },
   {
+    name: "UseFormRegister",
+    pathname: "#UseFormRegister",
+  },
+  {
     name: "UseFormRegisterReturn",
     pathname: "#UseFormRegisterReturn",
+  },
+  {
+    name: "UseFormUnregister",
+    pathname: "#UseFormUnregister",
+  },
+  {
+    name: "UseFormWatch",
+    pathname: "#UseFormWatch",
+  },
+  {
+    name: "UseFormSubscribe",
+    pathname: "#UseFormSubscribe",
+  },
+  {
+    name: "UseFormHandleSubmit",
+    pathname: "#UseFormHandleSubmit",
+  },
+  {
+    name: "UseFormReset",
+    pathname: "#UseFormReset",
+  },
+  {
+    name: "UseFormResetField",
+    pathname: "#UseFormResetField",
+  },
+  {
+    name: "UseFormResetDefaultValues",
+    pathname: "#UseFormResetDefaultValues",
+  },
+  {
+    name: "UseFormSetError",
+    pathname: "#UseFormSetError",
+  },
+  {
+    name: "UseFormClearErrors",
+    pathname: "#UseFormClearErrors",
+  },
+  {
+    name: "UseFormSetValue",
+    pathname: "#UseFormSetValue",
+  },
+  {
+    name: "UseFormSetValues",
+    pathname: "#UseFormSetValues",
+  },
+  {
+    name: "UseFormSetFocus",
+    pathname: "#UseFormSetFocus",
+  },
+  {
+    name: "UseFormGetValues",
+    pathname: "#UseFormGetValues",
+  },
+  {
+    name: "UseFormGetFieldState",
+    pathname: "#UseFormGetFieldState",
+  },
+  {
+    name: "UseFormTrigger",
+    pathname: "#UseFormTrigger",
+  },
+  {
+    name: "UseWatchProps",
+    pathname: "#UseWatchProps",
+  },
+  {
+    name: "WatchProps",
+    pathname: "#WatchProps",
+  },
+  {
+    name: "UseFormStateProps",
+    pathname: "#UseFormStateProps",
+  },
+  {
+    name: "FormStateSubscribeProps",
+    pathname: "#FormStateSubscribeProps",
   },
   {
     name: "FormProviderProps",
@@ -275,6 +355,10 @@ export const tsLinks: Pages = [
   {
     name: "FieldErrors",
     pathname: "#FieldErrors",
+  },
+  {
+    name: "ErrorOption",
+    pathname: "#ErrorOption",
   },
   {
     name: "Field",

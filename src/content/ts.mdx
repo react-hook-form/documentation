@@ -314,6 +314,21 @@ export type UseFormProps<
 
 ---
 
+## \</> UseFormRegister {#UseFormRegister}
+
+The type of [`register`](/docs/useform/register).
+
+```tsx copy
+export type UseFormRegister<TFieldValues extends FieldValues> = <
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(
+  name: TFieldName,
+  options?: RegisterOptions<TFieldValues, TFieldName>
+) => UseFormRegisterReturn<TFieldName>
+```
+
+---
+
 ## \</> UseFormRegisterReturn {#UseFormRegisterReturn}
 
 The shape returned by invoking [`register`](/docs/useform/register). Useful for typing a custom `Input` component that spreads `{...register(name)}`.
@@ -333,6 +348,372 @@ export type UseFormRegisterReturn<
   pattern?: string
   required?: boolean
   disabled?: boolean
+}
+```
+
+---
+
+## \</> UseFormUnregister {#UseFormUnregister}
+
+The type of [`unregister`](/docs/useform/unregister).
+
+```tsx copy
+export type UseFormUnregister<TFieldValues extends FieldValues> = (
+  name?:
+    | FieldPath<TFieldValues>
+    | FieldPath<TFieldValues>[]
+    | readonly FieldPath<TFieldValues>[],
+  options?: Omit<
+    KeepStateOptions,
+    | "keepIsSubmitted"
+    | "keepSubmitCount"
+    | "keepValues"
+    | "keepDefaultValues"
+    | "keepErrors"
+  > & { keepValue?: boolean; keepDefaultValue?: boolean; keepError?: boolean }
+) => void
+```
+
+---
+
+## \</> UseFormWatch {#UseFormWatch}
+
+The type of [`watch`](/docs/useform/watch). Overloaded — called with no argument, a single field name, an array of field names, or a callback for subscribing without triggering a re-render.
+
+```tsx copy
+export type UseFormWatch<TFieldValues extends FieldValues> = {
+  (): TFieldValues
+  <TFieldNames extends readonly FieldPath<TFieldValues>[]>(
+    names: readonly [...TFieldNames],
+    defaultValue?: DeepPartial<TFieldValues>
+  ): FieldPathValues<TFieldValues, TFieldNames>
+  <TFieldName extends FieldPath<TFieldValues>>(
+    name: TFieldName,
+    defaultValue?: FieldPathValue<TFieldValues, TFieldName>
+  ): FieldPathValue<TFieldValues, TFieldName>
+  (
+    callback: WatchObserver<TFieldValues>,
+    defaultValues?: DeepPartial<TFieldValues>
+  ): Subscription
+}
+```
+
+---
+
+## \</> UseFormSubscribe {#UseFormSubscribe}
+
+The type of [`subscribe`](/docs/useform/subscribe) — subscribe to formState changes without triggering a component re-render.
+
+```tsx copy
+export type UseFormSubscribe<TFieldValues extends FieldValues> = <
+  TFieldNames extends readonly FieldPath<TFieldValues>[],
+>(payload: {
+  name?: readonly [...TFieldNames] | TFieldNames[number]
+  formState?: Partial<ReadFormState>
+  callback: (
+    data: Partial<FormState<TFieldValues>> & {
+      values: TFieldValues
+      name?: InternalFieldName
+      type?: EventType
+    }
+  ) => void
+  exact?: boolean
+}) => () => void
+```
+
+---
+
+## \</> UseFormHandleSubmit {#UseFormHandleSubmit}
+
+The type of [`handleSubmit`](/docs/useform/handlesubmit).
+
+```tsx copy
+export type UseFormHandleSubmit<
+  TFieldValues extends FieldValues,
+  TTransformedValues = TFieldValues,
+> = (
+  onValid: SubmitHandler<TTransformedValues>,
+  onInvalid?: SubmitErrorHandler<TFieldValues>
+) => (e?: React.BaseSyntheticEvent) => Promise<void>
+```
+
+---
+
+## \</> UseFormReset {#UseFormReset}
+
+The type of [`reset`](/docs/useform/reset).
+
+```tsx copy
+export type UseFormReset<TFieldValues extends FieldValues> = (
+  values?:
+    | DefaultValues<TFieldValues>
+    | TFieldValues
+    | ResetAction<TFieldValues>,
+  keepStateOptions?: KeepStateOptions
+) => void
+```
+
+---
+
+## \</> UseFormResetField {#UseFormResetField}
+
+The type of [`resetField`](/docs/useform/resetfield).
+
+```tsx copy
+export type UseFormResetField<TFieldValues extends FieldValues> = <
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(
+  name: TFieldName,
+  options?: ResetFieldConfig<TFieldValues, TFieldName>
+) => void
+```
+
+---
+
+## \</> UseFormResetDefaultValues {#UseFormResetDefaultValues}
+
+The type of [`resetDefaultValues`](/docs/useform/resetdefaultvalues).
+
+```tsx copy
+export type UseFormResetDefaultValues<TFieldValues extends FieldValues> = (
+  values: DefaultValues<TFieldValues> | TFieldValues,
+  options?: Partial<Pick<KeepStateOptions, "keepDirty" | "keepIsValid">>
+) => void
+```
+
+---
+
+## \</> UseFormSetError {#UseFormSetError}
+
+The type of [`setError`](/docs/useform/seterror).
+
+```tsx copy
+export type UseFormSetError<TFieldValues extends FieldValues> = (
+  name:
+    | FieldPath<TFieldValues>
+    | `root.${string}`
+    | "root"
+    | "form"
+    | `form.${string}`,
+  error: ErrorOption,
+  options?: {
+    shouldFocus: boolean
+  }
+) => void
+```
+
+---
+
+## \</> UseFormClearErrors {#UseFormClearErrors}
+
+The type of [`clearErrors`](/docs/useform/clearerrors).
+
+```tsx copy
+export type UseFormClearErrors<TFieldValues extends FieldValues> = (
+  name?:
+    | FieldPath<TFieldValues>
+    | FieldPath<TFieldValues>[]
+    | readonly FieldPath<TFieldValues>[]
+    | `root.${string}`
+    | "root"
+    | "form"
+    | `form.${string}`
+) => void
+```
+
+---
+
+## \</> UseFormSetValue {#UseFormSetValue}
+
+The type of [`setValue`](/docs/useform/setvalue).
+
+```tsx copy
+export type UseFormSetValue<TFieldValues extends FieldValues> = <
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(
+  name: TFieldName,
+  value: FieldPathValue<TFieldValues, TFieldName>,
+  options?: SetValueConfig
+) => void
+```
+
+---
+
+## \</> UseFormSetValues {#UseFormSetValues}
+
+The type of [`setValues`](/docs/useform/setvalues).
+
+```tsx copy
+export type UseFormSetValues<TFieldValues extends FieldValues> = (
+  value: Partial<TFieldValues> | ((formValues: TFieldValues) => TFieldValues),
+  options?: SetValueConfig
+) => void
+```
+
+---
+
+## \</> UseFormSetFocus {#UseFormSetFocus}
+
+The type of [`setFocus`](/docs/useform/setfocus).
+
+```tsx copy
+export type SetFocusOptions = Partial<{
+  shouldSelect: boolean
+}>
+
+export type UseFormSetFocus<TFieldValues extends FieldValues> = <
+  TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>(
+  name: TFieldName,
+  options?: SetFocusOptions
+) => void
+```
+
+---
+
+## \</> UseFormGetValues {#UseFormGetValues}
+
+The type of [`getValues`](/docs/useform/getvalues). Overloaded — called with no argument, a single field name, or an array of field names.
+
+```tsx copy
+export type GetValuesConfig = {
+  dirtyFields?: boolean
+  touchedFields?: boolean
+}
+
+export type UseFormGetValues<TFieldValues extends FieldValues> = {
+  (name?: undefined, config?: GetValuesConfig): TFieldValues
+  <TFieldName extends FieldPath<TFieldValues>>(
+    name: TFieldName,
+    config?: GetValuesConfig
+  ): FieldPathValue<TFieldValues, TFieldName>
+  <TFieldNames extends FieldPath<TFieldValues>[]>(
+    names: readonly [...TFieldNames],
+    config?: GetValuesConfig
+  ): [...FieldPathValues<TFieldValues, TFieldNames>]
+}
+```
+
+---
+
+## \</> UseFormGetFieldState {#UseFormGetFieldState}
+
+The type of [`getFieldState`](/docs/useform/getfieldstate).
+
+```tsx copy
+export type UseFormGetFieldState<TFieldValues extends FieldValues> = <
+  TFieldName extends FieldPath<TFieldValues>,
+>(
+  name: TFieldName,
+  formState?: FormState<TFieldValues>
+) => {
+  invalid: boolean
+  isDirty: boolean
+  isTouched: boolean
+  isValidating: boolean
+  error?: FieldError
+}
+```
+
+---
+
+## \</> UseFormTrigger {#UseFormTrigger}
+
+The type of [`trigger`](/docs/useform/trigger).
+
+```tsx copy
+export type TriggerConfig = Partial<{
+  shouldFocus: boolean
+}>
+
+export type UseFormTrigger<TFieldValues extends FieldValues> = (
+  name?:
+    | FieldPath<TFieldValues>
+    | FieldPath<TFieldValues>[]
+    | readonly FieldPath<TFieldValues>[],
+  options?: TriggerConfig
+) => Promise<boolean>
+```
+
+---
+
+## \</> UseWatchProps {#UseWatchProps}
+
+The props accepted by [`useWatch`](/docs/usewatch).
+
+```tsx copy
+export type UseWatchProps<TFieldValues extends FieldValues = FieldValues> = {
+  defaultValue?: unknown
+  disabled?: boolean
+  name?:
+    | FieldPath<TFieldValues>
+    | FieldPath<TFieldValues>[]
+    | readonly FieldPath<TFieldValues>[]
+  control?: Control<TFieldValues>
+  exact?: boolean
+  compute?: (formValues: TFieldValues) => TFieldValues
+}
+```
+
+---
+
+## \</> WatchProps {#WatchProps}
+
+The props for the [`Watch`](/docs/usewatch/watch) render-prop component.
+
+```tsx copy
+export type WatchProps<
+  TFieldName extends WatchName<TFieldValues>,
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+  TComputeValue = undefined,
+> = {
+  control?: Control<TFieldValues, TContext, TTransformedValues>
+  name?: TFieldName
+  disabled?: boolean
+  exact?: boolean
+  defaultValue?: WatchDefaultValue<TFieldName, TFieldValues>
+  compute?: (value: WatchValue<TFieldName, TFieldValues>) => TComputeValue
+  render: (
+    value: WatchRenderValue<TFieldName, TFieldValues, TComputeValue>
+  ) => React.ReactNode | React.ReactNode[]
+}
+```
+
+---
+
+## \</> UseFormStateProps {#UseFormStateProps}
+
+The props accepted by [`useFormState`](/docs/useformstate).
+
+```tsx copy
+export type UseFormStateProps<
+  TFieldValues extends FieldValues,
+  TTransformedValues = TFieldValues,
+> = Partial<{
+  control?: Control<TFieldValues, any, TTransformedValues>
+  disabled?: boolean
+  name?:
+    | FieldPath<TFieldValues>
+    | FieldPath<TFieldValues>[]
+    | readonly FieldPath<TFieldValues>[]
+  exact?: boolean
+}>
+```
+
+---
+
+## \</> FormStateSubscribeProps {#FormStateSubscribeProps}
+
+The props for the [`FormStateSubscribe`](/docs/useformstate/formstatesubscribe) render-prop component.
+
+```tsx copy
+export type FormStateSubscribeProps<
+  TFieldValues extends FieldValues,
+  TTransformedValues = TFieldValues,
+> = UseFormStateProps<TFieldValues, TTransformedValues> & {
+  render: (values: UseFormStateReturn<TFieldValues>) => React.ReactNode
 }
 ```
 
@@ -591,6 +972,20 @@ export type FieldErrors<T extends FieldValues = FieldValues> = Partial<
 > & {
   root?: Record<string, GlobalError> & GlobalError
   form?: GlobalError
+}
+```
+
+---
+
+## \</> ErrorOption {#ErrorOption}
+
+The error object accepted by [`setError`](/docs/useform/seterror).
+
+```tsx copy
+export type ErrorOption = {
+  message?: Message
+  type?: LiteralUnion<keyof RegisterOptions, string>
+  types?: MultipleFieldErrors
 }
 ```
 
