@@ -174,6 +174,12 @@ export const apiLinks: Pages = [
   {
     pathname: "/docs/usefieldarray",
     name: "useFieldArray",
+    pages: [
+      {
+        pathname: "/docs/usefieldarray/fieldarray",
+        name: "FieldArray",
+      },
+    ],
   },
   {
     pathname: "/docs/uselens",
