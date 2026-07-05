@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
 
-const SITE_URL = "https://react-hook-form.com"
+export const SITE_URL = "https://react-hook-form.com"
 const DEFAULT_TITLE = "React Hook Form - Simple React forms validation"
 const DEFAULT_DESCRIPTION =
   "Performant, flexible and extensible forms with easy-to-use validation."

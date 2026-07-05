@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  async redirects() {
+    return [
+      {
+        source: "/migrate-v6-to-v7",
+        destination:
+          "https://react-hook-form-website-git-leagcy-hook-form.vercel.app/migrate-v6-to-v7",
+        permanent: true,
+      },
+    ]
+  },
 }
 
 const bundleAnalyzer = withBundleAnalyzer({
