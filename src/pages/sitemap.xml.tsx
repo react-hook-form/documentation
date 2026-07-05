@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = ({ res }) => {
   res.write(generateSitemap())
   res.end()
 
-  return { props: {} }
+  return Promise.resolve({ props: {} })
 }
 
 export default function Sitemap() {
