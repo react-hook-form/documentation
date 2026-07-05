@@ -312,7 +312,9 @@ export type UseFieldArrayReturn<
   insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>
   update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>
   replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>
-  fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[]
+  fields: (FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName> & {
+    disabled?: boolean
+  })[]
 }
 ```
 
@@ -325,10 +327,11 @@ export type UseFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
   TKeyName extends string = 'id',
+  TTransformedValues = TFieldValues,
 > = {
   name: TFieldArrayName
   keyName?: TKeyName
-  control?: Control<TFieldValues>
+  control?: Control<TFieldValues, any, TTransformedValues>
   rules?: {
     validate?
       | Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>
@@ -341,7 +344,25 @@ export type UseFieldArrayProps<
     'maxLength' | 'minLength' | 'required'
   >
   shouldUnregister?: boolean
+  disabled?: boolean
 }
+```
+
+---
+
+## \</> FieldArrayProps {#FieldArrayProps}
+
+```tsx copy
+export type FieldArrayProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
+> = {
+  render: (
+    fieldArray: UseFieldArrayReturn<TFieldValues, TFieldArrayName, TKeyName>
+  ) => React.ReactElement
+} & UseFieldArrayProps<TFieldValues, TFieldArrayName, TKeyName>
 ```
 
 ---

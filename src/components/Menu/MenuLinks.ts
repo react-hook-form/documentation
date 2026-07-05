@@ -221,6 +221,10 @@ export const tsLinks: Pages = [
     pathname: "#UseFieldArrayProps",
   },
   {
+    name: "FieldArrayProps",
+    pathname: "#FieldArrayProps",
+  },
+  {
     name: "UseControllerReturn",
     pathname: "#UseControllerReturn",
   },
