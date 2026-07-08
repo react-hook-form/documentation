@@ -17,13 +17,6 @@ export function SponsorsList() {
             alt="follower24"
           />
         </a>
-        <a href="https://buy.fans/" target="_blank" rel="noopener noreferrer">
-          <img
-            className={styles.twicsy}
-            src="https://images.opencollective.com/buy-instagram-followers-buyfans/2b97c05/logo/256.png?height=256"
-            alt="BuyFans"
-          />
-        </a>
         <a
           href="https://opencollective.com/react-hook-form"
           target="_blank"
