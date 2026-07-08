@@ -176,12 +176,6 @@ a.legacyLink {
   overflow: hidden;
 }
 
-.donationLink {
-  color: #bf1650;
-  min-width: 20px;
-  margin-left: -10px;
-}
-
 .linkExternal {
   display: flex;
 }
@@ -192,29 +186,13 @@ a.legacyLink {
   margin-left: 0.1rem;
 }
 
-.donate a {
-  color: #bf1650;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  text-decoration: none;
-}
-
 @media (min-width: 768px) {
   .gitHubButtonWrap {
     right: 10px;
   }
 
-  .actionButtonGroup a:nth-child(12) {
-    display: none;
-  }
-
   .mobileNav {
     display: block;
-  }
-
-  .donate,
-  .donate a {
-    display: none;
   }
 
   :global(.dark) .actionButtonGroup {

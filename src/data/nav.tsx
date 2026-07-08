@@ -15,6 +15,7 @@ const Nav = {
   faqs: "FAQs",
   releases: "Releases",
   resources: "Resources",
+  sponsors: "Sponsors",
 }
 
 export default Nav
