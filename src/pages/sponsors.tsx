@@ -240,6 +240,10 @@ const Sponsors = ({
             </a>
           </div>
 
+          <span className={clsx(styles.tierLabel, styles.tierLabelMuted)}>
+            Major Sponsors
+          </span>
+
           <MajorSponsorList sponsors={majorSponsors} />
 
           <span className={clsx(styles.tierLabel, styles.tierLabelMuted)}>

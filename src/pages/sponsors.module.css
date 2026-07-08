@@ -61,12 +61,12 @@
 }
 
 .majorLogo {
-  width: 56px;
-  height: 56px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.08);
-  padding: var(--space-2);
+  padding: var(--space-1);
   flex-shrink: 0;
 }
 

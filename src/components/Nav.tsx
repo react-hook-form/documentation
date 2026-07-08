@@ -192,46 +192,10 @@ export default function Nav() {
           <span
             className={clsx(
               "desktopOnly",
-              (pathname.includes("dev-tools") ||
+              (pathname.includes("resources") ||
+                pathname.includes("dev-tools") ||
                 pathname.includes("form-builder")) &&
                 styles.activeSection
-            )}
-          >
-            <span className={styles.tools}>
-              <span className={styles.menuOffsetWrapper}>
-                <span className={styles.menuExpandLink}>
-                  {nav.tools.nav}{" "}
-                  <span className={styles.dropdownArrow}>▼</span>
-                </span>
-              </span>
-            </span>
-            <div className={styles.dropdownContainer}>
-              <div className={styles.dropdownInner}>
-                <div className={styles.menuExpand}>
-                  <Link
-                    className={
-                      router.pathname == "/form-builder" ? "active" : ""
-                    }
-                    href="/form-builder"
-                  >
-                    {nav.tools.formBuilder}
-                  </Link>
-
-                  <Link
-                    className={router.pathname == "/dev-tools" ? "active" : ""}
-                    href="/dev-tools"
-                  >
-                    {nav.tools.devTools}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </span>
-
-          <span
-            className={clsx(
-              "desktopOnly",
-              pathname.includes("resources") && styles.activeSection
             )}
           >
             <span className={styles.tools}>
@@ -280,6 +244,20 @@ export default function Nav() {
                     href="/resources/3rd-party-bindings"
                   >
                     3rd Party Bindings
+                  </Link>
+                  <Link
+                    className={
+                      router.pathname == "/form-builder" ? "active" : ""
+                    }
+                    href="/form-builder"
+                  >
+                    {nav.tools.formBuilder}
+                  </Link>
+                  <Link
+                    className={router.pathname == "/dev-tools" ? "active" : ""}
+                    href="/dev-tools"
+                  >
+                    {nav.tools.devTools}
                   </Link>
                 </div>
               </div>

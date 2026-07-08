@@ -3,7 +3,6 @@ const Nav = {
   getStarted: "Get Started",
   advanced: "Advanced",
   tools: {
-    nav: "Tools",
     devTools: "DevTools",
     formBuilder: "Form Builder",
   },
