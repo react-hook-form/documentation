@@ -1035,5 +1035,12 @@ export default {
       description:
         "Small project based on react-hook-form that exposes an API for easily creating customizable forms based on a JSON Schema with built-in validation.",
     },
+    {
+      type: "binding",
+      url: "https://git.gay/singingwolfboy/react-hook-form-file-upload",
+      title: "File Uploads for React Hook Form",
+      description:
+        "Simplify file uploads by allowing the client to upload files directly to your object store. Let React Hook Form manage file references, instead of the files themselves.",
+    },
   ],
 }
