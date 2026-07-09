@@ -86,37 +86,69 @@ export default function ResourceList({
       </div>
 
       <ul
-        className={isGridLayout ? styles.contentList : styles.contentListLayout}
+        className={isGridLayout ? styles.galleryGrid : styles.contentListLayout}
       >
         {filtered.map(
-          ({ url, title, author, authorUrl, version, description }) => (
-            <li key={url + title}>
-              {version && (
-                <div className={styles.tagWrapper}>
-                  <p className={styles.tag}>v{version || "6"}</p>
-                </div>
-              )}
-              <article className={styles.article}>
-                <a href={url} target="_blank" rel="noopener noreferrer">
+          ({ url, title, author, authorUrl, version, description }) =>
+            isGridLayout ? (
+              <li key={url + title} className={styles.galleryCard}>
+                {version && (
+                  <div className={styles.tagWrapper}>
+                    <p className={styles.tag}>v{version || "6"}</p>
+                  </div>
+                )}
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardHeader}
+                >
                   <h3>{title}</h3>
                 </a>
 
-                {author && (
-                  <p className={styles.author}>
-                    <a
-                      href={authorUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {author}
-                    </a>
-                  </p>
+                <div className={styles.cardBody}>
+                  {description && <p>{description}</p>}
+                  {author && (
+                    <p className={styles.author}>
+                      <a
+                        href={authorUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {author}
+                      </a>
+                    </p>
+                  )}
+                </div>
+              </li>
+            ) : (
+              <li key={url + title}>
+                {version && (
+                  <div className={styles.tagWrapper}>
+                    <p className={styles.tag}>v{version || "6"}</p>
+                  </div>
                 )}
+                <article className={styles.article}>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    <h3>{title}</h3>
+                  </a>
 
-                {description && <p>{description}</p>}
-              </article>
-            </li>
-          )
+                  {author && (
+                    <p className={styles.author}>
+                      <a
+                        href={authorUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {author}
+                      </a>
+                    </p>
+                  )}
+
+                  {description && <p>{description}</p>}
+                </article>
+              </li>
+            )
         )}
       </ul>
     </div>
