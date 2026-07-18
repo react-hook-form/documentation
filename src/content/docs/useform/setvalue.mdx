@@ -20,6 +20,7 @@ This function allows you to dynamically set the value of a <strong>registered</s
 | `options`                                | `shouldValidate`<br/><TypeText>boolean</TypeText> | <ul><li>Whether to compute if your input is valid or not (subscribed to <TypeText>errors</TypeText>).</li><li>Whether to compute if your entire form is valid or not (subscribed to <TypeText>isValid</TypeText>).</li>This option will update `touchedFields` at the specified field level not the entire form touched fields.</ul>                                                                     |
 |                                          | `shouldDirty`<br/><TypeText>boolean</TypeText>    | <ul><li>Whether to compute if your input is dirty or not against your `defaultValues` (subscribed to <TypeText>dirtyFields</TypeText>).</li><li>Whether to compute if your entire form is dirty or not against your `defaultValues` (subscribed to <TypeText>isDirty</TypeText>).</li><li>This option will update `dirtyFields` at the specified field level not the entire form dirty fields.</li></ul> |
 |                                          | `shouldTouch`<br/><TypeText>boolean</TypeText>    | Whether to set the input itself to be touched.                                                                                                                                                                                                                                                                                                                                                           |
+|                                          | `delayError`<br/><TypeText>number</TypeText>      | Opt-in option that delays the display of the resulting validation error by the specified number of milliseconds. Only takes effect when `shouldValidate` is set to `true`.                                                                                                                                                                                                                               |
 
 <Admonition type="important" title="Rules">
 
@@ -100,6 +101,15 @@ const App = () => {
     </form>
   )
 }
+```
+
+**Delay Error**
+
+```javascript
+setValue("firstName", "Bill", {
+  delayError: 500, // delay validation error updates by 500ms
+  shouldValidate: true,
+})
 ```
 
 **Dependant Fields**
