@@ -344,13 +344,13 @@ By default, an input value will be retained when an input is removed. However, y
     ```javascript
     const NotWork = () => {
       const [show, setShow] = React.useState(false)
-      // ❌ won't get notified, need to invoke unregister
+      // ❌ won't get notified; you need to invoke unregister
       return show && <input {...register("test")} />
     }
 
     const Work = ({ control }) => {
       const { show } = useWatch({ control })
-      // ✅ get notified at useEffect
+      // ✅ gets notified in useEffect
       return show && <input {...register("test1")} />
     }
 
@@ -359,7 +359,7 @@ By default, an input value will be retained when an input is removed. However, y
       const { control } = useForm({ shouldUnregister: true })
       return (
         <div>
-          // ✅ get notified at useForm's useEffect
+          // ✅ gets notified in useForm's useEffect
           {show && <input {...register("test2")} />}
           <NotWork />
           <Work control={control} />
@@ -375,7 +375,7 @@ By default, an input value will be retained when an input is removed. However, y
 This config will enable [browser native validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation). It will also enable CSS selectors `:valid` and `:invalid`, making input styling easier. You can still use these selectors even when client-side validation is disabled.
 
 - Only works with `onSubmit` and `onChange` modes, as the `reportValidity` execution will focus the error input.
-- Each registered field's validation message is required to be string to display them natively.
+- Each registered field's validation message must be a string to be displayed natively.
 - This feature only works with the `register` API and&nbsp; `useController/Controller` that are connected with actual DOM references.
 - **`progressive: true` is required alongside this option.** Without it, React Hook Form does not forward validation attributes (e.g. `required`, `minLength`) as native HTML attributes on the input, so the browser has nothing to validate against and no native UI is shown.
 
@@ -481,7 +481,7 @@ npm install @hookform/resolvers
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `values`  | <TypeText>object</TypeText>                                                                                               | This object contains the entire form values.                                                                                                |
 | `context` | <TypeText>object</TypeText>                                                                                               | This is the `context` object which you can provide to the `useForm` config. It is a mutable `object` that can be changed on each re-render. |
-| `options` | <TypeText><pre>{JSON.stringify({ criteriaMode: "string", fields: "object", names: "string[]" }, null,2)}</pre></TypeText> | This is the option object containing information about the validated fields, names and `criteriaMode` from `useForm`.                       |
+| `options` | <TypeText><pre>{JSON.stringify({ criteriaMode: "string", fields: "object", names: "string[]" }, null,2)}</pre></TypeText> | This is the options object containing information about the validated fields, names and `criteriaMode` from `useForm`.                      |
 
 <Admonition type="important" title="Rules">
 
@@ -818,7 +818,7 @@ useEffect(() => {
 
 ---
 
-The following list contains reference to `useForm` return props.
+The following list contains references to `useForm` return props.
 
 - [register](/docs/useform/register)
 - [unregister](/docs/useform/unregister)

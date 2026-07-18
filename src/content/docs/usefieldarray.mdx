@@ -56,17 +56,17 @@ function FieldArray() {
 
 ---
 
-| Name      | Type                                                                                  | Description                                                                                                                                                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fields`  | <TypeText>object & \{ id: string \}</TypeText>                                        | This `object` contains the `defaultValue` and `key` for your component. When a field entry includes `disabled: true`, the `disabled` attribute is automatically propagated to the registered input.                                                               |
-| `append`  | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Append an input or inputs to the end of your fields and focus them. The input value will be registered during this action. **Important:** append data is required and not partial.                                                                                |
-| `prepend` | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Prepend an input or inputs to the start of your fields and focus them. The input value will be registered during this action. **Important:** prepend data is required and not partial.                                                                            |
-| `insert`  | <TypeText>(index: number, value: object \| object[], focusOptions) => void</TypeText> | Insert an input or inputs at a particular position and focus them. **Important:** insert data is required and not partial.                                                                                                                                        |
-| `swap`    | <TypeText>(from: number, to: number) => void</TypeText>                               | Swap the positions of inputs.                                                                                                                                                                                                                                     |
-| `move`    | <TypeText>(from: number, to: number) => void</TypeText>                               | Move an input or inputs to another position.                                                                                                                                                                                                                      |
-| `update`  | <TypeText>(index: number, obj: object) => void</TypeText>                             | Update an input or inputs at a particular position; updated fields will be unmounted and remounted. If this is not the desired behavior, please use the [`setValue`](/docs/useform/setvalue) API instead. **Important:** update data is required and not partial. |
-| `replace` | <TypeText>(obj: object[]) => void</TypeText>                                          | Replace the entire field array's values.                                                                                                                                                                                                                          |
-| `remove`  | <TypeText>(index?: number \| number[]) => void</TypeText>                             | Remove an input or inputs at a particular position, or remove all if no index is provided.                                                                                                                                                                        |
+| Name      | Type                                                                                  | Description                                                                                                                                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fields`  | <TypeText>object & \{ id: string \}</TypeText>                                        | This `object` contains the `defaultValue` and `key` for your component. When a field entry includes `disabled: true`, the `disabled` attribute is automatically propagated to the registered input.                                                                     |
+| `append`  | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Append an input or inputs to the end of your fields and focus them. The input value will be registered during this action. **Important:** append data is required and cannot be partial.                                                                                |
+| `prepend` | <TypeText>(obj: object \| object[], focusOptions) => void</TypeText>                  | Prepend an input or inputs to the start of your fields and focus them. The input value will be registered during this action. **Important:** prepend data is required and cannot be partial.                                                                            |
+| `insert`  | <TypeText>(index: number, value: object \| object[], focusOptions) => void</TypeText> | Insert an input or inputs at a particular position and focus them. **Important:** insert data is required and cannot be partial.                                                                                                                                        |
+| `swap`    | <TypeText>(from: number, to: number) => void</TypeText>                               | Swap the positions of inputs.                                                                                                                                                                                                                                           |
+| `move`    | <TypeText>(from: number, to: number) => void</TypeText>                               | Move an input or inputs to another position.                                                                                                                                                                                                                            |
+| `update`  | <TypeText>(index: number, obj: object) => void</TypeText>                             | Update an input or inputs at a particular position; updated fields will be unmounted and remounted. If this is not the desired behavior, please use the [`setValue`](/docs/useform/setvalue) API instead. **Important:** update data is required and cannot be partial. |
+| `replace` | <TypeText>(obj: object[]) => void</TypeText>                                          | Replace the entire field array's values.                                                                                                                                                                                                                                |
+| `remove`  | <TypeText>(index?: number \| number[]) => void</TypeText>                             | Remove an input or inputs at a particular position, or remove all if no index is provided.                                                                                                                                                                              |
 
 ### Rules {#rules}
 
@@ -106,7 +106,7 @@ function FieldArray() {
 
 - Each input name needs to be unique. If you need to build a checkbox or radio button with the same name, use it with `useController` or `Controller`.
 
-- Does not support flat field array.
+- Does not support flat field arrays.
 
 - `shouldUnregister: true` is not supported. Field array relies on inputs being mounted and unmounted to manage its internal state — enabling `shouldUnregister` causes newly added fields to be unregistered on re-render, so their values are lost. Avoid combining `useFieldArray` with `shouldUnregister: true`.
 
@@ -484,7 +484,7 @@ const App = () => {
 
 **Custom Register**
 
-You can also `register` inputs at `Controller` without the actual input. This makes `useFieldArray` quick and flexible to use with complex data structure or the actual data is not stored inside an input.
+You can also `register` inputs at `Controller` without the actual input. This makes `useFieldArray` quick and flexible to use with complex data structures or the the actual data is not stored inside an input.
 
 ```javascript sandbox="https://codesandbox.io/s/usefieldarray-virtual-input-v9wyw"
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form"

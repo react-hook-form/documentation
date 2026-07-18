@@ -264,7 +264,7 @@ Error messages are visual feedback to our users when there are issues with their
 
 ## Connect Form {#ConnectForm}
 
-When we are building forms, there are times when our input lives inside of deeply nested component trees; that's when [FormContext](/docs/useformcontext) comes in handy. However, we can further improve the developer experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is that you can connect your inputs to React Hook Form much more easily.
+When we are building forms, there are times when our input lives inside deeply nested component trees; that's when [FormContext](/docs/useformcontext) comes in handy. However, we can further improve the developer experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is that you can connect your inputs to React Hook Form much more easily.
 
 ```javascript copy
 import { FormProvider, useForm, useFormContext } from "react-hook-form"
@@ -306,7 +306,7 @@ React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Cont
 import { memo } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
-// we can use React.memo to prevent re-render except isDirty state changed
+// we can use React.memo to prevent re-renders except when the isDirty state changes
 const NestedInput = memo(
   ({ register, formState: { isDirty } }) => (
     <div>
@@ -436,7 +436,7 @@ function App() {
 
 You can build a custom hook as a resolver. A custom hook can easily integrate with Yup/Joi/Superstruct as a validation method to be used inside a validation resolver.
 
-- Define a memorized validation schema (or define it outside your component if you don't have any dependencies)
+- Define a memoized validation schema (or define it outside your component if you don't have any dependencies)
 - Use the custom hook, by passing the validation schema
 - Pass the validation resolver to the useForm hook
 
@@ -499,7 +499,7 @@ export default function App() {
 
 ## Working with virtualized lists {#Workingwithvirtualizedlists}
 
-Imagine a scenario where you have a table of data. This table might contain hundreds or thousands of rows, and each row will have inputs. A common practice is to only render the items that are in the viewport; however, this will cause issues as the items are removed from the DOM when they are out of view and re-added. This will cause items to reset to their default values when they re-enter the viewport.
+Imagine a scenario where you have a table of data. This table might contain hundreds or thousands of rows, and each row will have inputs. A common practice is to only render the items in the viewport; however, this causes issues as items are removed from the DOM when they are out of view and then re-added. This will cause items to reset to their default values when they re-enter the viewport.
 
 An example is shown below using [react-window](https://github.com/bvaughn/react-window).
 
@@ -606,7 +606,7 @@ function App() {
 
 ## Testing Form {#TestingForm}
 
-Testing is very important because it prevents bugs and mistakes in your code. It also guarantees code safety when refactoring the codebase.
+Testing is important because it prevents bugs and mistakes. It also ensures code safety when refactoring.
 
 We recommend using [testing-library](https://testing-library.com/), because it is simple and tests are more focused on user behavior.
 
@@ -646,7 +646,7 @@ Additionally, you can set up [eslint-plugin-testing-library](https://github.com/
 
 **Step 2:** Create login form.
 
-We have set the role attribute accordingly. These attributes are helpful when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
+We have set the role attribute accordingly. These attributes are helpful when writing tests and improving accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
 import { useForm } from "react-hook-form"

@@ -7,18 +7,18 @@ sidebar: apiLinks
 
 ## `trigger:` <TypeText>[UseFormTrigger](/ts#UseFormTrigger)</TypeText>
 
-Manually triggers form or input validation. This method is also useful when you have dependant validation (input validation depends on another input's value).
+Manually triggers form or input validation. This method is also useful when you have dependent validation (input validation depends on another input's value).
 
 ### Props
 
 ---
 
-| Name        | Type                           | Description                                                                                                                                             | Example                                  |
-| ----------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| name        | <TypeText>undefined</TypeText> | Triggers validation on all fields.                                                                                                                      | `trigger()`                              |
-|             | <TypeText>string</TypeText>    | Triggers validation on a specific field value by **name**                                                                                               | `trigger("yourDetails.firstName")`       |
-|             | <TypeText>string[]</TypeText>  | Triggers validation on multiple fields by **name**.                                                                                                     | `trigger(["yourDetails.lastName"])`      |
-| shouldFocus | <TypeText>boolean</TypeText>   | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well. | `trigger('name', { shouldFocus: true })` |
+| Name        | Type                           | Description                                                                                                                                     | Example                                  |
+| ----------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| name        | <TypeText>undefined</TypeText> | Triggers validation on all fields.                                                                                                              | `trigger()`                              |
+|             | <TypeText>string</TypeText>    | Triggers validation on a specific field value by **name**                                                                                       | `trigger("yourDetails.firstName")`       |
+|             | <TypeText>string[]</TypeText>  | Triggers validation on multiple fields by **name**.                                                                                             | `trigger(["yourDetails.lastName"])`      |
+| shouldFocus | <TypeText>boolean</TypeText>   | Focuses the input when an error is set. This only works when the input's reference is registered, it will not work for custom register as well. | `trigger('name', { shouldFocus: true })` |
 
 <Admonition type="important" title="Rules">
 
@@ -130,6 +130,6 @@ export default function App() {
 
 ---
 
-The following video explain `trigger` API in detail.
+The following video explains `trigger` API in detail.
 
 <YouTube youTubeId="-bcyJCDjksE" />
