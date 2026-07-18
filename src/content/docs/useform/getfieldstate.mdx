@@ -7,16 +7,16 @@ sidebar: apiLinks
 
 ## \</> `getFieldState:` <TypeText>[UseFormGetFieldState](/ts#UseFormGetFieldState)</TypeText>
 
-This method is introduced in react-hook-form ([v7.25.0](https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0)) to return individual field state. It's useful in case you are trying to retrieve nested field state in a typesafe way.
+This method is introduced in react-hook-form ([v7.25.0](https://github.com/react-hook-form/react-hook-form/releases/tag/v7.25.0)) to return individual field state. It is useful for retrieving nested field state in a type-safe way.
 
 ### Props
 
 ---
 
-| Name      | Type                          | Description                                                                                                                                                                         |
-| --------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`    | <TypeText>`string`</TypeText> | registered field name.                                                                                                                                                              |
-| formState | <TypeText>`object`</TypeText> | This is an optional prop, which is only required if `formState` is not been read/subscribed from the `useForm`, `useFormContext` or `useFormState`. Read rules for more information |
+| Name      | Type                          | Description                                                                                                                                                                                          |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`    | <TypeText>`string`</TypeText> | registered field name.                                                                                                                                                                               |
+| formState | <TypeText>`object`</TypeText> | This is an optional prop, which is only required if `formState` has not been read from or subscribed to via `useForm`, `useFormContext` or `useFormState`. See the rules below for more information. |
 
 ### Return
 
@@ -31,13 +31,13 @@ This method is introduced in react-hook-form ([v7.25.0](https://github.com/react
 
 <Admonition type="important" title="Rules">
 
-- name needs to match a registered field name.
+- The prop must match a registered field name.
   ```javascript
   getFieldState("test")
-  getFieldState("test") // ✅ register input and return field state
+  getFieldState("test") // ✅ registers the input and returns the field state
   getFieldState("non-existent-name") // ❌ will return state as false and error as undefined
   ```
-- `getFieldState` works by subscribing to the form state update, and you can subscribe to the formState in the following ways:
+- `getFieldState` works by subscribing to form state updates, and you can subscribe to the formState in the following ways:
   - You can subscribe at the `useForm`, `useFormContext` or `useFormState`. This is will establish the form state subscription and `getFieldState` second argument will no longer be required.
 
     ```javascript
@@ -64,7 +64,7 @@ This method is introduced in react-hook-form ([v7.25.0](https://github.com/react
     getFieldState("test") // ✅
     ```
 
-  - When form state subscription is not setup, you can pass the entire `formState` as the second optional argument by following the example below:
+  - When form state subscription is not set up, you can pass the entire `formState` as the second optional argument by following the example below:
     ```javascript
     const { register } = useForm()
     register("test")

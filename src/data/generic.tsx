@@ -17,7 +17,7 @@ export default {
   },
   needYourSupport: {
     title: "Thank you for your support",
-    description: `If you find React Hook Form to be useful in your project, please consider to star and support it.`,
+    description: `If you find React Hook Form to be useful in your project, please consider starring and supporting it.`,
     buttonText: `Star us on GitHub`,
   },
   codeExample: "Code Examples",

@@ -23,7 +23,7 @@ export default {
     description: (
       <p>
         <code>useForm</code> is a custom hook for managing forms with ease. It
-        takes one object as <b>optional</b> argument. The following example
+        takes one object as an <b>optional</b> argument. The following example
         demonstrates all of its properties along with their default values.
       </p>
     ),
@@ -31,8 +31,8 @@ export default {
       <ul style={{ marginLeft: 0, paddingLeft: 15 }}>
         <li>
           <p>
-            When set to <code>firstError</code> (default), only the first error
-            from each field will be gathered.
+            When set to <code>firstError</code> (the default), only the first
+            error from each field will be gathered.
           </p>
         </li>
         <li>
@@ -99,16 +99,16 @@ export default {
     values: (
       <>
         <p>
-          The <code>values</code> props will react to changes and update the
-          form values, which is useful when your form needs to be updated by
-          external state or server data.
+          The <code>values</code> prop will react to changes and update the form
+          values, which is useful when your form needs to be updated by external
+          state or server data.
         </p>
 
         <CodeArea
           rawData={`// set default value sync
 function App({ values }) {
   useForm({
-    values  // will get updated when values props updates       
+    values  // will be updated when the values prop updates       
   })
 }
 
@@ -120,7 +120,7 @@ function App() {
       firstName: '',
       lastName: '',
     },
-    values, // will get updated once values returns
+    values, // will be updated once the values prop returns
   })
 }
 `}
@@ -130,7 +130,7 @@ function App() {
     resetOptions: (
       <>
         <p>
-          This property is related to value update behaviors. When{" "}
+          This property relates to value update behaviors. When{" "}
           <code>values</code> or <code>defaultValues</code> are updated, the{" "}
           <code>reset</code> API is invoked internally. It's important to
           specify the desired behavior after <code>values</code> or{" "}
@@ -242,8 +242,8 @@ const onSubmit = (data) => {
     reValidateMode: (
       <p>
         This option allows you to configure the validation strategy when inputs
-        with errors get re-validated <strong>after</strong> a user submits the
-        form (<code>onSubmit</code> event and{" "}
+        with errors are re-validated <strong>after</strong> a user submits the
+        form (<code>onSubmit</code> event and the{" "}
         <Link href="/docs/useform/handlesubmit">
           <code>handleSubmit</code>
         </Link>{" "}
@@ -253,16 +253,16 @@ const onSubmit = (data) => {
     ),
     validationFields: (
       <p>
-        Providing an array of fields means only included fields will be
+        Providing an array of fields means only the included fields will be
         validated. This option is useful when you want to toggle which fields
-        are required to validate.
+        are required for validation.
       </p>
     ),
     submitFocusError: (
       <>
         <p>
           When set to <code>true</code> (default), and the user submits a form
-          that fails validation, focus is set on the first field with an error.
+          that fails validation, focus is set to the first field with an error.
         </p>
 
         <p>
@@ -281,17 +281,18 @@ const onSubmit = (data) => {
     shouldUnregister: (
       <>
         <p>
-          By default, an input value will be retained when input is removed.
+          By default, an input value will be retained when an input is removed.
           However, you can set <code>shouldUnregister</code> to{" "}
-          <code>true</code> to <code>unregister</code> input during unmount.
+          <code>true</code> to <code>unregister</code> the input during unmount.
         </p>
 
         <ul>
           <li>
             <p>
               This is a global configuration that overrides child-level
-              configurations. To have individual behavior, set the configuration
-              at the component or hook level, not at <code>useForm</code>.
+              configurations. To achieve individual behavior, set the
+              configuration at the component or hook level, not at the{" "}
+              <code>useForm</code> level.
             </p>
           </li>
           <li>
@@ -302,9 +303,9 @@ const onSubmit = (data) => {
           </li>
           <li>
             <p>
-              By setting <code>shouldUnregister</code> to true at{" "}
+              By setting <code>shouldUnregister</code> to true at the{" "}
               <code>useForm</code> level, <code>defaultValues</code> will{" "}
-              <b>not</b> be merged against submission result.
+              <b>not</b> be merged with the submission result.
             </p>
           </li>
           <li>
@@ -330,22 +331,22 @@ const onSubmit = (data) => {
               </li>
               <li>
                 <p>
-                  Unmounted inputs must be notified at either{" "}
+                  Unmounted inputs must be reported to either{" "}
                   <code>useForm</code> or <code>useWatch</code>'s{" "}
-                  <code>useEffect</code> for the hook form to verify that the
-                  input is unmounted from the DOM.
+                  <code>useEffect</code> for the library to verify that the
+                  input has unmounted from the DOM.
                 </p>
 
                 <CodeArea
                   rawData={`const NotWork = () => {
   const [show, setShow] = React.useState(false);
-  // ❌ won't get notified, need to invoke unregister
+  // ❌ won't get notified; you need to invoke unregister
   return {show && <input {...register('test')} />}
 }
 
 const Work = ({ control }) => {
   const { show } = useWatch({ control })
-  // ✅ get notified at useEffect
+  // ✅ gets notified in useEffect
   return {show && <input {...register('test1')} />}
 }
 
@@ -354,7 +355,7 @@ const App = () => {
   const { control } = useForm({ shouldUnregister: true });
   return (
     <div>
-      // ✅ get notified at useForm's useEffect
+      // ✅ gets notified in useForm's useEffect
       {show && <input {...register('test2')} />}
       <NotWork />
       <Work control={control} />
@@ -486,7 +487,7 @@ const App = () => {
                 </td>
                 <td>
                   <p>
-                    <code>onChange</code> prop to subscribe the input change
+                    <code>onChange</code> prop to subscribe to the input change
                     event.
                   </p>
                 </td>
@@ -502,7 +503,8 @@ const App = () => {
                 </td>
                 <td>
                   <p>
-                    <code>onBlur</code> prop to subscribe the input blur event.
+                    <code>onBlur</code> prop to subscribe to the input blur
+                    event.
                   </p>
                 </td>
               </tr>
@@ -542,7 +544,7 @@ const App = () => {
             controlled components, we provide a custom hook{" "}
             <Link href="/docs/usecontroller">useController</Link> and{" "}
             <Link href="/docs/usecontroller/controller">Controller</Link>{" "}
-            component to take care this process for you.
+            component to take care of this process for you.
           </p>
 
           <p>
@@ -563,8 +565,8 @@ const App = () => {
           </h4>
 
           <p>
-            When the custom input component didn't expose ref correctly, you can
-            get it working via the following.
+            If the custom input component does not expose the ref correctly, you
+            can get it working as follows.
           </p>
 
           <CodeArea
@@ -576,7 +578,7 @@ const firstName = register('firstName', { required: true })
   name={firstName.name}
   onChange={firstName.onChange}
   onBlur={firstName.onBlur}
-  inputRef={firstName.ref} // you can achieve the same for different ref name such as innerRef
+  inputRef={firstName.ref} // you can achieve the same for different ref names such as innerRef
 />
 
 // correct way to forward input's ref
@@ -603,7 +605,7 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           <p>
             <b className={typographyStyles.note}>Note:</b> This config aligns
             with web constrained API for required input validation, for{" "}
-            <code>object</code> or <code>array</code> type of input use{" "}
+            <code>object</code> or <code>array</code> input types use{" "}
             <code>validate</code> function instead.
           </p>
         </>
@@ -631,10 +633,10 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           </p>
           <p>
             <b className={typographyStyles.note}>Note:</b> for{" "}
-            <code>object</code> or <code>array</code> input data, it's
-            recommended to use the <code>validate</code> function for validation
-            as the other rules mostly apply to <code>string</code>,{" "}
-            <code>string[]</code>, <code>number</code> and <code>boolean</code>{" "}
+            <code>object</code> or <code>array</code> input data, it is
+            recommended to use the <code>validate</code> function for
+            validation, as the other rules mostly apply to <code>string</code>,{" "}
+            <code>string[]</code>, <code>number</code>, and <code>boolean</code>{" "}
             data types.
           </p>
         </>
@@ -654,7 +656,8 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
     ),
     isSubmitSuccessful: (
       <p>
-        Indicate the form was successfully submitted without any runtime error.
+        Indicates that the form was successfully submitted without any runtime
+        error.
       </p>
     ),
     isDirty: (
@@ -666,8 +669,8 @@ const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
           <li>
             <p>
               <b>Important:</b> Make sure to provide all inputs' defaultValues
-              at the useForm, so hook form can have a single source of truth to
-              compare whether the form is dirty.
+              at the useForm level, so the library can have a single source of
+              truth to compare whether the form is dirty.
             </p>
             <CodeArea
               rawData={`const {
@@ -685,7 +688,7 @@ setValue('test', '')
           </li>
           <li>
             <p>
-              File typed input will need to be managed at the app level due to
+              File-type inputs will need to be managed at the app level due to
               the ability to cancel file selection and{" "}
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/FileList"
@@ -698,7 +701,7 @@ setValue('test', '')
             </p>
           </li>
           <li>
-            <p>Do not support custom object, Class or File object.</p>
+            <p>Does not support custom objects, classes, or File objects.</p>
           </li>
         </ul>
       </>
@@ -719,18 +722,18 @@ setValue('test', '')
         <ul>
           <li>
             <p>
-              <b>Important:</b> Make sure to provide defaultValues at the
-              useForm, so hook form can have a single source of truth to compare
-              each field's dirtiness.
+              <b>Important:</b> Make sure to provide `defaultValues` at the
+              `useForm` level, so the library can have a single source of truth
+              to compare each field's dirtiness.
             </p>
           </li>
 
           <li>
             <p>
-              Dirty fields will <strong>not</strong> represent as{" "}
-              <code>isDirty</code> formState, because dirty fields are marked
-              field dirty at field level rather the entire form. If you want to
-              determine the entire form state use <code>isDirty</code> instead.
+              Dirty fields do not necessarily represent the <code>isDirty</code>{" "}
+              form state, because fields are marked as dirty at the field level
+              rather than the entire form. If you want to determine the entire
+              form state, use <code>isDirty</code> instead.
             </p>
           </li>
         </ul>
@@ -740,7 +743,7 @@ setValue('test', '')
       "An object containing all the inputs the user has interacted with.",
     defaultValues: (
       <p>
-        The value which has been set at{" "}
+        The value that was set in{" "}
         <Link href="/docs/useform" aria-label="read more about reset api">
           useForm
         </Link>
@@ -777,7 +780,7 @@ setValue('test', '')
         />
       </>
     ),
-    submitCount: "Number of times the form was submitted.",
+    submitCount: "The number of times the form was submitted.",
     isValid: (
       <>
         Set to <code>true</code> if the form doesn't have any errors.
@@ -788,7 +791,9 @@ setValue('test', '')
         Set to <code>true</code> during validation.
       </>
     ),
-    validatingFields: <>Capture fields which are getting async validation.</>,
+    validatingFields: (
+      <>Captures fields that are undergoing asynchronous validation.</>
+    ),
     disabled: (
       <>
         Set to <code>true</code> if the form is disabled via the{" "}
@@ -1327,7 +1332,7 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
           <li>
             <p>
               You can set a server or global error with <code>root</code> as the
-              key. This type of error will not persist with each submission.
+              key. This type of error does not persist across submissions.
             </p>
 
             <CodeArea
@@ -1375,7 +1380,7 @@ setError('root.random', {
     title: "clearErrors",
     description: (
       <>
-        <p>This function can manually clear errors in the form.</p>
+        <p>This function allows you to manually clear errors in the form.</p>
 
         <h2 className={typographyStyles.subTitle}>Props</h2>
 
@@ -1432,7 +1437,7 @@ setError('root.random', {
               rawData={`register('test.firstName', { required: true });
 register('test.lastName', { required: true });
 clearErrors('test'); // will clear both errors from test.firstName and test.lastName
-clearErrors('test.firstName'); // for clear single input error
+clearErrors('test.firstName'); // to clear a single input error
 `}
               withOutCopy
             />
@@ -1886,7 +1891,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
       <>
         <p>
           Manually triggers form or input validation. This method is also useful
-          when you have dependant validation (input validation depends on
+          when you have dependent validation (input validation depends on
           another input's value).
         </p>
         <h2 className={typographyStyles.subTitle}>Props</h2>
@@ -1941,9 +1946,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
               </td>
               <td>
                 <p>
-                  Should focus the input during setting an error. This only
-                  works when the input's reference is registered, it will not
-                  work for custom register as well.
+                  Focuses the input when an error is set. This only works when
+                  the input's reference is registered; it will not work for
+                  custom registration.
                 </p>
               </td>
               <td>
@@ -1960,8 +1965,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
     description: (
       <>
         <p>
-          Custom hook for working with Field Arrays (dynamic form). The
-          motivation is to provide better user experience and performance. You
+          Custom hook for working with field arrays (dynamic forms). The
+          motivation is to provide a better user experience and performance. You
           can watch{" "}
           <a
             href="https://www.youtube.com/watch?v=Q7lrHuUfgIs"
@@ -2265,28 +2270,29 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <ul>
               <li>
                 <p>
-                  <b>onChange</b>: sent data back to Hook Form
+                  <b>onChange</b>: sends data back to React Hook Form
                 </p>
               </li>
               <li>
                 <p>
-                  <b>onBlur</b>: report that the input has been interacted with
+                  <b>onBlur</b>: reports that the input has been interacted with
                   (focus and blur)
                 </p>
               </li>
               <li>
                 <p>
-                  <b>value</b>: set up input initial and updated value
+                  <b>value</b>: sets the initial and updated input value
                 </p>
               </li>
               <li>
                 <p>
-                  <b>ref</b>: allow input to be focused with error
+                  <b>ref</b>: allows the input to be focused when there is an
+                  error
                 </p>
               </li>
               <li>
                 <p>
-                  <b>name</b>: give input an unique name
+                  <b>name</b>: gives the input a unique name
                 </p>
               </li>
             </ul>
@@ -2421,8 +2427,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
     formState,
   }) => (
     <Checkbox
-      onBlur={onBlur} // notify when input is touched
-      onChange={onChange} // send value to hook form
+      onBlur={onBlur} // notify when the input is touched
+      onChange={onChange} // send the value to hook form
       checked={value}
       inputRef={ref}
     />
@@ -2439,9 +2445,9 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
   }) => (
     <TextField
       value={value}
-      onChange={onChange} // send value to hook form
-      onBlur={onBlur} // notify when input is touched
-      inputRef={ref} // wire up the input ref
+      onChange={onChange} // send the value to hook form
+      onBlur={onBlur} // notify when the input is touched
+      inputRef={ref} // wire up the input reference
     />
   )}
   name="TextField"
@@ -2877,28 +2883,29 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <ul>
               <li>
                 <p>
-                  <b>onChange</b>: sent data back to Hook Form
+                  <b>onChange</b>: sends data back to React Hook Form
                 </p>
               </li>
               <li>
                 <p>
-                  <b>onBlur</b>: report that the input has been interacted with
+                  <b>onBlur</b>: reports that the input has been interacted with
                   (focus and blur)
                 </p>
               </li>
               <li>
                 <p>
-                  <b>value</b>: set up input initial and updated value
+                  <b>value</b>: sets the initial and updated input value
                 </p>
               </li>
               <li>
                 <p>
-                  <b>ref</b>: allow input to be focused with error
+                  <b>ref</b>: allows the input to be focused when there is an
+                  error
                 </p>
               </li>
               <li>
                 <p>
-                  <b>name</b>: give input an unique name
+                  <b>name</b>: gives the input a unique name
                 </p>
               </li>
             </ul>
@@ -2914,7 +2921,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
 const [value, setValue] = useState(field.value);
 
 onChange={(event) => {
-  field.onChange(parseInt(event.target.value)) // data send back to hook form
+  field.onChange(parseInt(event.target.value)) // data sent back to hook form
   setValue(event.target.value) // UI state
 }}
 `}
@@ -2996,7 +3003,7 @@ const { field: checkbox } = useController({ name: 'test1' })
                   <code className={typographyStyles.typeText}>string</code>
                 </td>
                 <td>
-                  <p>A input field name to focus</p>
+                  <p>An input field name to focus.</p>
                 </td>
               </tr>
               <tr>
@@ -3029,8 +3036,8 @@ setFocus("name", { shouldSelect: true })
         <ul>
           <li>
             <p>
-              This API will invoke focus method from the ref, so it's important
-              to provide <code>ref</code> during <code>register</code>.
+              This API invokes the focus method from the , so it's important to
+              provide <code>ref</code> during <code>register</code>.
             </p>
           </li>
           <li>

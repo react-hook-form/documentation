@@ -14,10 +14,10 @@ function Input({ control, name }) {
 
   return (
     <TextField 
-      onChange={field.onChange} // send value to hook form 
-      onBlur={field.onBlur} // notify when input is touched/blur
+      onChange={field.onChange} // send the value to hook form 
+      onBlur={field.onBlur} // notify when the input is touched or blurred
       value={field.value} // input value
-      name={field.name} // send down the input name
+      name={field.name} // send the input name
       inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
     />
   );

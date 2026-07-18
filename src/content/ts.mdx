@@ -6,7 +6,7 @@ sidebar: tsLinks
 
 <TsSelectNav />
 
-**Important:** Typescript ^4.3 above is the recommended version to work with react hook form.
+**Important:** TypeScript 4.3 or above is the recommended version to work with React Hook Form.
 
 ## \</> Resolver {#Resolver}
 
@@ -427,7 +427,7 @@ export type UseFormSubscribe<TFieldValues extends FieldValues> = <
 
 ## \</> UseFormHandleSubmit {#UseFormHandleSubmit}
 
-The type of [`handleSubmit`](/docs/useform/handlesubmit).
+The type of the `handleSubmit` function.
 
 ```tsx copy
 export type UseFormHandleSubmit<
@@ -443,7 +443,7 @@ export type UseFormHandleSubmit<
 
 ## \</> UseFormReset {#UseFormReset}
 
-The type of [`reset`](/docs/useform/reset).
+The type of the `reset` function.
 
 ```tsx copy
 export type UseFormReset<TFieldValues extends FieldValues> = (
@@ -459,7 +459,7 @@ export type UseFormReset<TFieldValues extends FieldValues> = (
 
 ## \</> UseFormResetField {#UseFormResetField}
 
-The type of [`resetField`](/docs/useform/resetfield).
+The type of the `resetField` function.
 
 ```tsx copy
 export type UseFormResetField<TFieldValues extends FieldValues> = <
@@ -474,7 +474,7 @@ export type UseFormResetField<TFieldValues extends FieldValues> = <
 
 ## \</> UseFormResetDefaultValues {#UseFormResetDefaultValues}
 
-The type of [`resetDefaultValues`](/docs/useform/resetdefaultvalues).
+The type of the `resetDefaultValues` function.
 
 ```tsx copy
 export type UseFormResetDefaultValues<TFieldValues extends FieldValues> = (
@@ -487,7 +487,7 @@ export type UseFormResetDefaultValues<TFieldValues extends FieldValues> = (
 
 ## \</> UseFormSetError {#UseFormSetError}
 
-The type of [`setError`](/docs/useform/seterror).
+The type of the `setError` function.
 
 ```tsx copy
 export type UseFormSetError<TFieldValues extends FieldValues> = (
@@ -508,7 +508,7 @@ export type UseFormSetError<TFieldValues extends FieldValues> = (
 
 ## \</> UseFormClearErrors {#UseFormClearErrors}
 
-The type of [`clearErrors`](/docs/useform/clearerrors).
+The type of the `clearErrors` function.
 
 ```tsx copy
 export type UseFormClearErrors<TFieldValues extends FieldValues> = (
@@ -527,7 +527,7 @@ export type UseFormClearErrors<TFieldValues extends FieldValues> = (
 
 ## \</> UseFormSetValue {#UseFormSetValue}
 
-The type of [`setValue`](/docs/useform/setvalue).
+The type of the `setValue` function.
 
 ```tsx copy
 export type UseFormSetValue<TFieldValues extends FieldValues> = <
@@ -543,7 +543,7 @@ export type UseFormSetValue<TFieldValues extends FieldValues> = <
 
 ## \</> UseFormSetValues {#UseFormSetValues}
 
-The type of [`setValues`](/docs/useform/setvalues).
+The type of the `setValues` function.
 
 ```tsx copy
 export type UseFormSetValues<TFieldValues extends FieldValues> = (
@@ -556,7 +556,7 @@ export type UseFormSetValues<TFieldValues extends FieldValues> = (
 
 ## \</> UseFormSetFocus {#UseFormSetFocus}
 
-The type of [`setFocus`](/docs/useform/setfocus).
+The type of the `setFocus` function.
 
 ```tsx copy
 export type SetFocusOptions = Partial<{
@@ -575,7 +575,7 @@ export type UseFormSetFocus<TFieldValues extends FieldValues> = <
 
 ## \</> UseFormGetValues {#UseFormGetValues}
 
-The type of [`getValues`](/docs/useform/getvalues). Overloaded — called with no argument, a single field name, or an array of field names.
+The type of the `getValues` function. This type is overloaded; it can be called with no arguments, a single field name, or an array of field names.
 
 ```tsx copy
 export type GetValuesConfig = {
@@ -600,7 +600,7 @@ export type UseFormGetValues<TFieldValues extends FieldValues> = {
 
 ## \</> UseFormGetFieldState {#UseFormGetFieldState}
 
-The type of [`getFieldState`](/docs/useform/getfieldstate).
+The type of the `getFieldState` function.
 
 ```tsx copy
 export type UseFormGetFieldState<TFieldValues extends FieldValues> = <
@@ -621,7 +621,7 @@ export type UseFormGetFieldState<TFieldValues extends FieldValues> = <
 
 ## \</> UseFormTrigger {#UseFormTrigger}
 
-The type of [`trigger`](/docs/useform/trigger).
+The type of the `trigger` function.
 
 ```tsx copy
 export type TriggerConfig = Partial<{
@@ -641,7 +641,7 @@ export type UseFormTrigger<TFieldValues extends FieldValues> = (
 
 ## \</> UseWatchProps {#UseWatchProps}
 
-The props accepted by [`useWatch`](/docs/usewatch).
+The props accepted by the `useWatch` hook.
 
 ```tsx copy
 export type UseWatchProps<TFieldValues extends FieldValues = FieldValues> = {
@@ -661,7 +661,7 @@ export type UseWatchProps<TFieldValues extends FieldValues = FieldValues> = {
 
 ## \</> WatchProps {#WatchProps}
 
-The props for the [`Watch`](/docs/usewatch/watch) render-prop component.
+The props for the `Watch` render-prop component.
 
 ```tsx copy
 export type WatchProps<
@@ -687,7 +687,7 @@ export type WatchProps<
 
 ## \</> UseFormStateProps {#UseFormStateProps}
 
-The props accepted by [`useFormState`](/docs/useformstate).
+The props accepted by the `useFormState` hook.
 
 ```tsx copy
 export type UseFormStateProps<
@@ -708,7 +708,7 @@ export type UseFormStateProps<
 
 ## \</> FormStateSubscribeProps {#FormStateSubscribeProps}
 
-The props for the [`FormStateSubscribe`](/docs/useformstate/formstatesubscribe) render-prop component.
+The props for the `FormStateSubscribe` render-prop component.
 
 ```tsx copy
 export type FormStateSubscribeProps<
@@ -795,7 +795,7 @@ export type UseFieldArrayReturn<
 
 ## \</> FieldArrayMethodProps {#FieldArrayMethodProps}
 
-Focus options accepted as the second argument to `append`, `prepend`, and `insert`.
+Focus options accepted as the second argument to the `append`, `prepend`, and `insert` functions.
 
 ```tsx copy
 export type FieldArrayMethodProps = {

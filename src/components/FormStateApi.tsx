@@ -202,7 +202,7 @@ export const FormStateApi = ({
       <td>
         An object with field errors. There is also an{" "}
         <Link href="/docs/useformstate/errormessage">ErrorMessage</Link>{" "}
-        component to retrieve error message easily.
+        component to retrieve error messages easily.
       </td>
     </tr>
     <tr>
