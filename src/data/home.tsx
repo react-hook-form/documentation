@@ -32,7 +32,7 @@ export default {
     },
     {
       title: "Performance",
-      description: `Minimizes the number of re-renders, minimizes validate computation, and faster mounting.`,
+      description: `Minimizes the number of re-renders, minimizes validation computation, and provides faster mounting.`,
     },
     {
       title: "Adoptable",
@@ -40,7 +40,7 @@ export default {
     },
     {
       title: "UX",
-      description: `Striving to provide the best user experience and bringing consistent validation strategies.
+      description: `Strives to provide the best user experience and bring consistent validation strategies.
 `,
     },
   ],
@@ -71,8 +71,8 @@ export default {
     description: (
       <p className={typographyStyles.homeParagraph}>
         Performance is an important aspect of user experience in terms of
-        building forms. You will have the ability to subscribe to individual
-        input and form State update without re-rendering the entire form.
+        building forms. You have the ability to subscribe to individual input
+        and form state updates without re-rendering the entire form.
       </p>
     ),
   },
@@ -100,7 +100,7 @@ export default {
     watchTitle: "Watch",
     errorTitle: "Errors",
     touchedTitle: "Touched",
-    watch: "Change inputs value to update watched values",
+    watch: "Change input values to update watched values",
     error: "Validation errors will appear here",
     touched: "Touched fields will display here",
   },
@@ -109,7 +109,7 @@ export default {
     description: (
       <>
         <p>
-          This function allow you to run any external validation methods, such
+          This function allows you to run any external validation methods, such
           as{" "}
           <a
             href="https://github.com/hapijs/joi"
@@ -126,7 +126,7 @@ export default {
           >
             Superstruct
           </a>{" "}
-          and etc. In fact, the goal is not only limited Yup as our external
+          and so on. In fact, the goal is not limited to Yup as our external
           (schema) validation library. We would like to support many other
           validation libraries to work with React Hook Form. You can even write
           your custom validation logic to validate.
@@ -134,14 +134,14 @@ export default {
 
         <p>
           <b className={typographyStyles.note}>Note:</b> make sure you are
-          returning object which contains <code>values</code> and{" "}
-          <code>errors</code>, and their default value should be empty object{" "}
+          returning an object which contains <code>values</code> and{" "}
+          <code>errors</code>, and their default value should be an empty object{" "}
           <code>{`{}`}</code>.
         </p>
 
         <p>
-          <b className={typographyStyles.note}>Note:</b> returning errors
-          object's key should be relevant to your inputs.
+          <b className={typographyStyles.note}>Note:</b> The keys of the
+          returned errors object should match your inputs.
         </p>
       </>
     ),

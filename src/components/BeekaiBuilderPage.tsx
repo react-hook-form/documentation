@@ -38,7 +38,7 @@ export function BeekaiBuilderPage() {
               <p>End-to-end integration with submission</p>
             </li>
             <li>
-              <p>User behaviour analytic</p>
+              <p>User behavior analytics</p>
             </li>
             <li>
               <p>and many more features</p>

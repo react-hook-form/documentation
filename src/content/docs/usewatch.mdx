@@ -16,7 +16,7 @@ sidebar: apiLinks
 
 ## \</> `useWatch:` <TypeText>([UseWatchProps](/ts#UseWatchProps)) => object</TypeText>
 
-Behaves similarly to the `watch` API, however, this will isolate re-rendering at the custom hook level and potentially result in better performance for your application.
+Behaves similarly to the `watch` API; however, it isolates re-rendering at the custom hook level, which can result in better performance for your application.
 
 ### Props
 
@@ -43,13 +43,13 @@ Behaves similarly to the `watch` API, however, this will isolate re-rendering at
 
 <Admonition type="important" title="Rules">
 
-- On initial render, `useWatch` returns the current form value if available. The `defaultValue` prop (or `defaultValues` from `useForm`) is used only as a fallback before the form has mounted — i.e. before any values are registered.
-- The only difference between `useWatch` and `watch` is at the root ([`useForm`](/docs/useform)) level or the custom hook level update.
-- `useWatch`'s execution order matters, which means if you update a form value before the subscription is in place, then the value updated will be ignored.
+- On initial render, `useWatch` returns the current form value if available. The `defaultValue` prop (or `defaultValues` from `useForm`) is used only as a fallback before the form has mounted — i.e., before any values are registered.
+- The only difference between `useWatch` and `watch` is at the root ([`useForm`](/docs/useform)) level or the custom hook level.
+- `useWatch`'s execution order matters, which means if you update a form value before the subscription is in place, then the updated value will be ignored.
 
   ```javascript copy
   setValue("test", "data")
-  useWatch({ name: "test" }) // ❌ subscription is happened after value update, no update received
+  useWatch({ name: "test" }) // ❌ subscription happened after value update, no update received
   useWatch({ name: "example" }) // ✅ input value update will be received and trigger re-render
   setValue("example", "data")
   ```
@@ -68,7 +68,7 @@ Behaves similarly to the `watch` API, however, this will isolate re-rendering at
   }
   ```
 
-- `useWatch`'s result is optimised for render phase instead of `useEffect`'s deps, to detect value updates you may want to use an external custom hook for value comparison.
+- `useWatch`'s result is optimized for the render phase instead of `useEffect` dependencies. To detect value updates, you may want to use an external custom hook for value comparison.
 
 </Admonition>
 

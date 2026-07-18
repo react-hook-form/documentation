@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `watch:` <TypeText>[UseFormWatch](/ts#UseFormWatch)</TypeText>
 
-This method will watch specified inputs and return their values. It is useful to render input value and for determining what to render by condition.
+This method watches specified inputs and returns their values. It is useful for rendering input values and determining what to render based on conditions.
 
 ### Overloads
 
@@ -61,7 +61,7 @@ const [name, name1] = watch(["name", "name1"])
 
 ---
 
-Watch and subscribe to the entire form update/change based on onChange and re-render at the useForm.
+Watch and subscribe to the entire form's changes based on `onChange`, triggering re-renders at the `useForm` level.
 
 **Params** None
 
@@ -75,7 +75,7 @@ const formValues = watch()
 
 ---
 
-Subscribe to field update/change without trigger re-render.
+Subscribe to field updates or changes without triggering a re-render.
 
 **Params**
 
@@ -94,10 +94,10 @@ The `type` argument indicates the originating DOM event (typed as `EventType`). 
 
 ---
 
-- When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommended** to provide `defaultValues` at `useForm` to avoid this behaviour, but you can set the inline `defaultValue` as the second argument.
+- When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommended** to provide `defaultValues` to `useForm` to avoid this behavior, but you can also set an inline `defaultValue` as the second argument.
 - When both `defaultValue` and `defaultValues` are supplied, `defaultValue` will be returned.
-- This API will trigger re-render at the root of your app or form, consider using a callback or the [useWatch](/docs/usewatch) api if you are experiencing performance issues.
-- `watch` result is optimised for render phase instead of `useEffect`'s deps, to detect value update you may want to use an external custom hook for value comparison.
+- This API will trigger a re-render at the root of your application or form. Consider using a callback or the [useWatch](/docs/usewatch) API if you experience performance issues.
+- The `watch` result is optimized for the render phase rather than `useEffect` dependencies. To detect value updates, you may want to use an external custom hook for value comparison.
 
 ### Examples:
 

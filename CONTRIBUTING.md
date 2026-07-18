@@ -16,7 +16,7 @@ Here is a quick guide to doing code contributions to the library.
    pnpm install
    ```
 
-4. Startup a local version of the docs
+4. Start a local version of the docs
 
    ```shellscript
    pnpm run dev

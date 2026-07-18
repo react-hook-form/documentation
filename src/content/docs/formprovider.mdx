@@ -7,13 +7,13 @@ sidebar: apiLinks
 
 ## \</> `FormProvider`: <TypeText>[FormProviderProps](/ts#FormProviderProps)</TypeText>
 
-This component will host context object and allow consuming component to subscribe to context and use [useForm](/docs/useform) props and methods.
+This component hosts the context object and allows consuming components to subscribe to context and use [useForm](/docs/useform) props and methods.
 
 ### Props
 
 ---
 
-This following table applied to `FormProvider`, `useFormContext` accepts no argument.
+The following table applies to `FormProvider`; `useFormContext` accepts no arguments.
 
 | Name       | Type                        | Description                                    |
 | ---------- | --------------------------- | ---------------------------------------------- |
@@ -42,11 +42,10 @@ export default function App() {
     reset({
       name: "data",
     })
-  }, [reset]) // ❌ never put `methods` as the deps
+  }, [reset]) // ❌ never put `methods` as a dependency
 
   return (
     <FormProvider {...methods}>
-      // pass all methods into the context
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <NestedInput />
         <input {...register("name")} />

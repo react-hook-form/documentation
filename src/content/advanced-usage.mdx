@@ -6,7 +6,7 @@ sidebar: advancedLinks
 
 ## Accessibility (A11y) {#AccessibilityA11y}
 
-React Hook Form has support for native form validation, which lets you validate inputs with your own rules. Since most of us have to build forms with custom designs and layouts, it is our responsibility to make sure those are accessible (A11y).
+React Hook Form has support for native form validation, which allows you to validate inputs with your own rules. Since most of us have to build forms with custom designs and layouts, it is our responsibility to make sure those are accessible (A11y).
 
 The following code example works as intended for validation; however, it can be improved for accessibility.
 
@@ -57,7 +57,7 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Name</label>
 
-      {/* use aria-invalid to indicate field contain error */}
+      {/* use aria-invalid to indicate that the field contains an error */}
       <input
         id="name"
         aria-invalid={errors.name ? "true" : "false"}
@@ -160,7 +160,7 @@ Following the above pattern, you should be able to build a wizard form/funnel to
 
 ## Smart Form Component {#SmartFormComponent}
 
-This idea here is that you can easily compose your form with inputs. We are going to create a `Form` component to automatically collect form data.
+The idea here is that you can easily compose your form using input components. We are going to create a `Form` component to automatically collect form data.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
 import { Form, Input, Select } from "./Components"
@@ -180,7 +180,7 @@ export default function App() {
 }
 ```
 
-Let's have a look what's in each of these components.
+Let's have a look at what is inside each of these components.
 
 `</> Form`
 
@@ -214,7 +214,7 @@ export default function Form({ defaultValues, children, onSubmit }) {
 
 `</> Input / Select`
 
-Those input components' responsibility is to register them into `react-hook-form`.
+The responsibility of these input components is to register themselves with `react-hook-form`.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-smart-form-component-forked-iq89z"
 export function Input({ register, name, ...rest }) {
@@ -264,7 +264,7 @@ Error messages are visual feedback to our users when there are issues with their
 
 ## Connect Form {#ConnectForm}
 
-When we are building forms, there are times when our input lives inside of deeply nested component trees, and that's when [FormContext](/docs/useformcontext) comes in handy. However, we can further improve the Developer Experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is you can connect your input with React Hook Form much easier.
+When we are building forms, there are times when our input lives inside of deeply nested component trees; that's when [FormContext](/docs/useformcontext) comes in handy. However, we can further improve the developer experience by creating a `ConnectForm` component and leveraging React's [renderProps](https://reactjs.org/docs/render-props.html). The benefit is that you can connect your inputs to React Hook Form much more easily.
 
 ```javascript copy
 import { FormProvider, useForm, useFormContext } from "react-hook-form"
@@ -298,7 +298,7 @@ export const App = () => {
 
 ## FormProvider Performance {#FormProviderPerformance}
 
-React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Context](https://react.dev/learn/passing-data-deeply-with-context) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update, but we can still optimise our App if required via the example below.
+React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Context](https://react.dev/learn/passing-data-deeply-with-context) API. It solves the problem where data is passed through the component tree without having to pass props down manually at every level. This also causes the component tree to trigger a re-render when React Hook Form triggers a state update; however, you can still optimize your application if required, as shown in the example below.
 
 **Note:** Using React Hook Form's [Devtools](/dev-tools) alongside [FormProvider](/docs/formprovider) can cause performance issues in some situations. Before diving deep in performance optimizations, consider this bottleneck first.
 
@@ -327,7 +327,7 @@ export const NestedInputContainer = ({ children }) => {
 export default function App() {
   const methods = useForm()
   const onSubmit = (data) => console.log(data)
-  console.log(methods.formState.isDirty) // make sure formState is read before render to enable the Proxy
+  console.log(methods.formState.isDirty) // make sure `formState` is read before rendering to enable the Proxy
 
   return (
     <FormProvider {...methods}>
@@ -434,7 +434,7 @@ function App() {
 
 ## Custom Hook with Resolver {#CustomHookwithResolver}
 
-You can build a custom hook as a resolver. A custom hook can easily integrate with yup/Joi/Superstruct as a validation method, and to be used inside validation resolver.
+You can build a custom hook as a resolver. A custom hook can easily integrate with Yup/Joi/Superstruct as a validation method to be used inside a validation resolver.
 
 - Define a memorized validation schema (or define it outside your component if you don't have any dependencies)
 - Use the custom hook, by passing the validation schema
@@ -499,7 +499,7 @@ export default function App() {
 
 ## Working with virtualized lists {#Workingwithvirtualizedlists}
 
-Imagine a scenario where you have a table of data. This table might contain hundreds or thousands of rows, and each row will have inputs. A common practice is to only render the items that are in the viewport, however this will cause issues as the items are removed from the DOM when they are out of view and re-added. This will cause items to reset to their default values when they re-enter the viewport.
+Imagine a scenario where you have a table of data. This table might contain hundreds or thousands of rows, and each row will have inputs. A common practice is to only render the items that are in the viewport; however, this will cause issues as the items are removed from the DOM when they are out of view and re-added. This will cause items to reset to their default values when they re-enter the viewport.
 
 An example is shown below using [react-window](https://github.com/bvaughn/react-window).
 
@@ -606,7 +606,7 @@ function App() {
 
 ## Testing Form {#TestingForm}
 
-Testing is very important because it prevents your code from having bugs or mistakes. It also guarantees code safety when refactoring the codebase.
+Testing is very important because it prevents bugs and mistakes in your code. It also guarantees code safety when refactoring the codebase.
 
 We recommend using [testing-library](https://testing-library.com/), because it is simple and tests are more focused on user behavior.
 
@@ -646,7 +646,7 @@ Additionally, you can set up [eslint-plugin-testing-library](https://github.com/
 
 **Step 2:** Create login form.
 
-We have set the role attribute accordingly. These attributes are helpful for when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
+We have set the role attribute accordingly. These attributes are helpful when you write tests, and they improve accessibility. For more information, you can refer to the [testing-library](https://testing-library.com/) documentation.
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-docs-066zk?file=/src/App.js"
 import { useForm } from "react-hook-form"
@@ -699,13 +699,13 @@ export default function App({ login }) {
 
 **Step 3:** Write tests.
 
-The following criteria are what we try to cover with the tests:
+The following criteria are what we aim to cover with the tests:
 
 - Test submission failure.
 
   We are using `waitFor` util and `find*` queries to detect submission feedback, because the `handleSubmit` method is executed asynchronously.
 
-- Test validation associated with each inputs.
+- Test validation associated with each input.
 
   We are using the `*ByRole` method when querying different elements because that's how users recognize your UI component.
 
@@ -844,9 +844,9 @@ it("should have a submit button", () => {
 })
 ```
 
-In this example, there is a simple form without any apparent async code, and the test merely renders the component and tests for the presence of a button. However, it still logs the warning about updates not being wrapped in `act()`.
+In this example, there is a simple form without any apparent async code, and the test merely renders the component and checks for the presence of a button. However, it still logs the warning about updates not being wrapped in `act()`.
 
-This is because react-hook-form internally uses asynchronous validation handlers. In order to compute the formState, it has to initially validate the form, which is done asynchronously, resulting in another render. That update happens after the test function returns, which triggers the warning.
+This is because react-hook-form internally uses asynchronous validation handlers. In order to compute the formState, it has to initially validate the form, which is done asynchronously and results in another render. That update happens after the test function returns, which triggers the warning.
 
 To solve this, wait until some element from your UI appears with `find*` queries. Note that you **must not** wrap your `render()` calls in `act()`. [You can read more about wrapping things in `act` unnecessarily here](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily).
 
@@ -859,7 +859,7 @@ it("should have a submit button", async () => {
 
   expect(await screen.findByText("SUBMIT")).toBeInTheDocument()
 
-  // Now that the UI was awaited until the async behavior was completed,
+  // Now that the UI was awaited until the async behavior was complete,
   // you can keep asserting with `get*` queries.
   expect(screen.getByRole("textbox")).toBeInTheDocument()
 })
@@ -869,7 +869,7 @@ it("should have a submit button", async () => {
 
 ## Transform and Parse {#TransformandParse}
 
-The native input returns the value in `string` format unless invoked with `valueAsNumber` or `valueAsDate`, you can read more under [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect. We still have to deal with `isNaN` or `null` values. So it's better to leave the transform at the custom hook level. In the following example, we are using the `Controller` to include the functionality of the transform value's input and output. You can also achieve a similar result with a custom `register`.
+Native inputs return values in `string` format unless `valueAsNumber` or `valueAsDate` is used; you can read more in [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect, as we still have to deal with `NaN` or `null` values. Therefore, it's better to handle transformations at the custom hook level. In the following example, we use the `Controller` to handle input and output transformations. You can also achieve a similar result with a custom `register`.
 
 ```javascript copy sandbox="https://codesandbox.io/s/transform-vt3tm"
 import { Controller } from "react-hook-form"

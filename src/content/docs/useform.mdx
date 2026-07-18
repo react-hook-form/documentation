@@ -88,18 +88,18 @@ sidebar: apiLinks
 
 ## \</> `useForm:` <TypeText>[`UseFormProps`](/ts#UseFormProps)</TypeText>
 
-`useForm` is a custom hook for managing forms with ease. It takes one object as **optional** argument. The following example demonstrates all of its properties along with their default values.
+`useForm` is a custom hook for managing forms with ease. It takes one object as an **optional** argument. The following example demonstrates all of its properties along with their default values.
 
 **Generic props:**
 
 | Option                                                  | Description                                                                                                                                                                                                                                                           |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [mode](#mode)                                           | Validation strategy **before** submitting behaviour.                                                                                                                                                                                                                  |
-| [reValidateMode](#reValidateMode)                       | Validation strategy **after** submitting behaviour.                                                                                                                                                                                                                   |
-| [defaultValues](#defaultValues)                         | Default values for the form, this value will be cached.                                                                                                                                                                                                               |
+| [mode](#mode)                                           | Validation strategy for **before** submission behavior.                                                                                                                                                                                                               |
+| [reValidateMode](#reValidateMode)                       | Validation strategy for **after** submission behavior.                                                                                                                                                                                                                |
+| [defaultValues](#defaultValues)                         | Default values for the form; this value will be cached.                                                                                                                                                                                                               |
 | [values](#values)                                       | Reactive values to update the form values.                                                                                                                                                                                                                            |
 | [errors](#errors)                                       | Server returns errors to update form. **⚠ Important:** Keep the errors object reference-stable to avoid infinite re-renders.                                                                                                                                         |
-| [resetOptions](#resetOptions)                           | Option to reset form state update while updating new form values.                                                                                                                                                                                                     |
+| [resetOptions](#resetOptions)                           | Option to reset form state when updating with new form values.                                                                                                                                                                                                        |
 | [criteriaMode](#criteriaMode)                           | Display all validation errors or one at a time.                                                                                                                                                                                                                       |
 | [shouldFocusError](#shouldFocusError)                   | Enable or disable built-in focus management.                                                                                                                                                                                                                          |
 | [delayError](#delayError)                               | Delay error from appearing instantly.                                                                                                                                                                                                                                 |
@@ -125,7 +125,7 @@ sidebar: apiLinks
 
 ---
 
-This option allows you to configure the validation strategy before a user submits the form. The validation occurs during the `onSubmit` event, which is triggered by invoking the [`handleSubmit`](/docs/useform/handlesubmit) function.
+This option allows you to configure the validation strategy for before a user submits the form. Validation occurs during the `onSubmit` event, which is triggered by invoking the [`handleSubmit`](/docs/useform/handlesubmit) function.
 
 | Name      | Type                        | Description                                                                                                                                                                                                              |
 | --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -139,7 +139,7 @@ This option allows you to configure the validation strategy before a user submit
 
 ---
 
-This option allows you to configure validation strategy when inputs with errors get re-validated **after** a user submits the form (`onSubmit` event and [`handleSubmit`](/docs/useform/handlesubmit) function executed). By default, re-validation occurs during the input change event.
+This option allows you to configure the validation strategy for when inputs with errors get re-validated **after** a user submits the form (the `onSubmit` event occurs and the [`handleSubmit`](/docs/useform/handlesubmit) function is executed). By default, re-validation occurs during the input change event.
 
 **Note:** Both `mode` and `reValidateMode` are reactive — you can update them after form initialization and the new strategy will take effect on subsequent validations.
 
@@ -219,7 +219,7 @@ function App() {
 
 ---
 
-The `errors` props will react to changes and update the server errors state, which is useful when your form needs to be updated by external server returned errors.
+The `errors` prop will react to changes and update the server errors state, which is useful when your form needs to be updated with errors returned from the server.
 
 ```javascript copy
 function App() {
@@ -238,12 +238,12 @@ function App() {
 This property is related to value update behaviors. When `values` or `defaultValues` are updated, the `reset` API is invoked internally. It's important to specify the desired behavior after `values` or `defaultValues` are asynchronously updated. The configuration option itself is a reference to the [reset](/docs/useform/reset) method's options.
 
 ```javascript copy
-// by default asynchronously value or defaultValues update will reset the form values
+// by default, an asynchronous update to values or defaultValues will reset the form values
 useForm({ values })
 useForm({ defaultValues: async () => await fetch() })
 
-// options to config the behaviour
-// eg: I want to keep user interacted/dirty value and not remove any user errors
+// options to configure the behavior
+// eg: I want to keep user-interacted/dirty values and not remove any user errors
 useForm({
   values,
   resetOptions: {
@@ -287,9 +287,9 @@ When set to `true` (default), and the user submits a form that fails validation,
 
 ---
 
-|                                                                                                                                                                                                                  |                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| This configuration delays the display of error states to the end-user by a specified number of milliseconds. If the user corrects the error input, the error is removed instantly, and the delay is not applied. | <CodeSandbox url="https://codesandbox.io/s/useform-delayerror-q6c2d"/> |
+|                                                                                                                                                                                                                        |                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| This configuration delays the display of error states to the end user by a specified number of milliseconds. If the user corrects the input with errors, the error is removed instantly, and the delay is not applied. | <CodeSandbox url="https://codesandbox.io/s/useform-delayerror-q6c2d"/> |
 
 #### validate: <TypeText>Function</TypeText> {#validate}
 
@@ -329,7 +329,7 @@ const {
 
 ---
 
-By default, an input value will be retained when input is removed. However, you can set `shouldUnregister` to `true` to `unregister` input during unmount.
+By default, an input value will be retained when an input is removed. However, you can set `shouldUnregister` to `true` to `unregister` the input during unmount.
 
 - This is a global configuration that overrides child-level configurations. To have individual behavior, set the configuration at the component or hook level, not at `useForm`.
 - By default, `shouldUnregister: false` means unmounted fields are **not validated** by built-in validation.
@@ -372,7 +372,7 @@ By default, an input value will be retained when input is removed. However, you 
 
 ---
 
-This config will enable [browser native validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation). It will also enable CSS selectors `:valid` and`:invalid` making styling inputs easier. You can still use these selectors even when client-side validation is disabled.
+This config will enable [browser native validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation). It will also enable CSS selectors `:valid` and `:invalid`, making input styling easier. You can still use these selectors even when client-side validation is disabled.
 
 - Only works with `onSubmit` and `onChange` modes, as the `reportValidity` execution will focus the error input.
 - Each registered field's validation message is required to be string to display them natively.
@@ -487,8 +487,8 @@ npm install @hookform/resolvers
 
 - Schema validation focuses on field-level error reporting. Parent-level error checking is limited to the direct parent level, which is applicable for components such as group checkboxes.
 - This function will be cached.
-- Re-validation of an input will only occur one field at time during a user’s interaction. The lib itself will evaluate the `error` object to trigger a re-render accordingly.
-- A resolver can not be used with the built-in validators (e.g.: required, min, etc.)
+- Re-validation of an input will only occur one field at a time during a user’s interaction. The library itself will evaluate the `error` object to trigger re-renders accordingly.
+- A resolver cannot be used with the built-in validators (e.g.: required, min, etc.)
 - When building a custom resolver:
   - Make sure that you return an object with both `values` and `errors` properties. Their default values should be an empty object. For example: `{}`.
   - The keys of the `errors` object should match the `name` values of your fields, but they _must_ be hierarchical rather than a single key for deep errors:
@@ -771,7 +771,7 @@ resolver: async (data, context, options) => {
 
 #### `useForm` return and `useEffect` dependencies
 
-In a future major release, `useForm` return will be memoized to optimize performance and reflect changes in `formState`.
+In a future major release, the `useForm` return value will be memoized to optimize performance and reflect changes in the `formState`.
 As a result, adding the entire return value of `useForm` to a `useEffect` dependency list may lead to infinite loops.
 
 <Admonition type="warning" >
@@ -788,7 +788,7 @@ useEffect(() => {
 
 </Admonition>
 
-Passing only the relevant methods, as showed below, should avoid this kind of issue:
+Passing only the relevant methods, as shown below, should avoid this kind of issue:
 
 ```javascript
 const methods = useForm()
@@ -800,7 +800,7 @@ useEffect(() => {
 
 <Admonition type="tip" >
 
-The recommended way is to pass destructured methods to the dependencies of an `useEffect`
+The recommended way is to pass destructured methods to the dependencies of a `useEffect`
 
 ```javascript
 const { reset } = useForm()

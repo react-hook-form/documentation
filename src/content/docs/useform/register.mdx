@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `register:` <TypeText>[UseFormRegister](/ts#UseFormRegister)</TypeText>
 
-This method allows you to register an input or select element and apply validation rules to React Hook Form. Validation rules are all based on the HTML standard and also allow for custom validation methods.
+This method allows you to register an input or select element and apply validation rules in React Hook Form. Validation rules are all based on the HTML standard and also allow for custom validation methods.
 
 ### Props
 
@@ -134,7 +134,7 @@ register("test[0].firstName") // ❌
         Use <a href="/docs/useform/unregister"><code>unregister</code></a> to explicitly remove them when needed.</li>
   
   <li>
-  Individual register option can't be removed by `undefined` or `{}`. You can update individual attribute instead.
+  Individual register options cannot be removed using `undefined` or `{}`. You can update individual attributes instead.
   
 ```javascript
 register('test', { required: true });
@@ -145,7 +145,7 @@ register('test', { required: false });  // ✅
   
   </li>
 
-    <li>There are certain keyword which need to avoid before conflicting with type check. They are `ref`, `_f`.</li>
+    <li>There are certain keywords that need to be avoided to prevent conflicting with type checks. They are `ref` and `_f`.</li>
 
 </ul>
 
@@ -272,7 +272,7 @@ const { onChange, onBlur, name, ref } = register('firstName');
 
 #### Custom Register
 
-You can also register inputs with `useEffect` and treat them as virtual inputs. For controlled components, we provide a custom hook [useController](/docs/usecontroller) and [Controller](/docs/usecontroller/controller) component to take care this process for you.
+You can also register inputs with `useEffect` and treat them as virtual inputs. For controlled components, we provide a custom hook [useController](/docs/usecontroller) and [Controller](/docs/usecontroller/controller) component to take care of this process for you.
 
 If you choose to manually register fields, you will need to update the input value with [setValue](/docs/useform/setvalue).
 
@@ -284,7 +284,7 @@ register('firstName', { required: true, min: 8 });
 
 #### How to work with `innerRef`, `inputRef`?
 
-When the custom input component didn't expose ref correctly, you can get it working via the following.
+When the custom input component doesn't expose the ref correctly, you can get it working via the following method.
 
 ```javascript
 // not working, because ref is not assigned

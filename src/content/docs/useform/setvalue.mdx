@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `setValue:` <TypeText>[UseFormSetValue](/ts#UseFormSetValue)</TypeText>
 
-This function allows you to dynamically set the value of a <strong>registered</strong> field and have the options to validate and update the form state. At the same time, it tries to avoid unnecessary rerender.
+This function allows you to dynamically set the value of a <strong>registered</strong> field and provides options to validate and update the form state. At the same time, it tries to avoid unnecessary re-renders.
 
 ### Props
 
@@ -16,7 +16,7 @@ This function allows you to dynamically set the value of a <strong>registered</s
 | Name                                     |                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`<br/><TypeText>string</TypeText>   |                                                   | Target a single field or field array by name.                                                                                                                                                                                                                                                                                                                                                            |
-| `value`<br/><TypeText>unknown</TypeText> |                                                   | The value for the field. This argument is required and can not be `undefined`.                                                                                                                                                                                                                                                                                                                           |
+| `value`<br/><TypeText>unknown</TypeText> |                                                   | The value for the field. This argument is required and cannot be `undefined`.                                                                                                                                                                                                                                                                                                                            |
 | `options`                                | `shouldValidate`<br/><TypeText>boolean</TypeText> | <ul><li>Whether to compute if your input is valid or not (subscribed to <TypeText>errors</TypeText>).</li><li>Whether to compute if your entire form is valid or not (subscribed to <TypeText>isValid</TypeText>).</li>This option will update `touchedFields` at the specified field level not the entire form touched fields.</ul>                                                                     |
 |                                          | `shouldDirty`<br/><TypeText>boolean</TypeText>    | <ul><li>Whether to compute if your input is dirty or not against your `defaultValues` (subscribed to <TypeText>dirtyFields</TypeText>).</li><li>Whether to compute if your entire form is dirty or not against your `defaultValues` (subscribed to <TypeText>isDirty</TypeText>).</li><li>This option will update `dirtyFields` at the specified field level not the entire form dirty fields.</li></ul> |
 |                                          | `shouldTouch`<br/><TypeText>boolean</TypeText>    | Whether to set the input itself to be touched.                                                                                                                                                                                                                                                                                                                                                           |
@@ -24,7 +24,7 @@ This function allows you to dynamically set the value of a <strong>registered</s
 
 <Admonition type="important" title="Rules">
 
-- You can use methods such as [replace](/docs/usefieldarray#replace) or [update](/docs/usefieldarray#update) for field array, however, they will cause the component to unmount and remount for the targeted field array.
+- You can use methods such as [replace](/docs/usefieldarray#replace) or [update](/docs/usefieldarray#update) for a field array; however, they will cause the component to unmount and remount for the targeted field array.
 
   ```javascript
   const { update } = useFieldArray({ name: "array" })
@@ -45,24 +45,24 @@ This function allows you to dynamically set the value of a <strong>registered</s
 
   register("nestedValue", { value: { test: "data" } }) // register a nested value input
   setValue("nestedValue.test", "updatedData") // ❌ failed to find the relevant field
-  setValue("nestedValue", { test: "updatedData" }) // ✅ setValue find input and update
+  setValue("nestedValue", { test: "updatedData" }) // ✅ setValue finds the input and updates it
   ```
 
 - It's recommended to register the input's name before invoking `setValue`. To update the entire `FieldArray`, make sure the `useFieldArray` hook is being executed first.
 
-  **Important:** use `replace` from `useFieldArray` instead, update entire field array with `setValue` will be removed in the next major version.
+  **Important:** Use `replace` from `useFieldArray` instead; updating the entire field array with `setValue` will be removed in the next major version.
 
   ```javascript
   // you can update an entire Field Array,
   setValue("fieldArray", [{ test: "1" }, { test: "2" }]) // ✅
 
-  // you can setValue to a unregistered input
-  setValue("notRegisteredInput", "value") // ✅ prefer to be registered
+  // you can use `setValue` on an unregistered input
+  setValue("notRegisteredInput", "value") // ✅ prefer it to be registered
 
-  // the following will register a single input (without register invoked)
+  // the following will register a single input (without register being invoked)
   setValue("resultSingleNestedField", { test: "1", test2: "2" }) // 🤔
 
-  // with registered inputs, the setValue will update both inputs correctly.
+  // With registered inputs, `setValue` will update both inputs correctly.
   register("notRegisteredInput.test", "1")
   register("notRegisteredInput.test2", "2")
   setValue("notRegisteredInput", { test: "1", test2: "2" }) // ✅ sugar syntax to setValue twice

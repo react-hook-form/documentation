@@ -141,12 +141,12 @@ function App() {
 
         <CodeArea
           tsUrl="https://codesandbox.io/s/useform-resetoptions-7bsuud"
-          rawData={`// by default asynchronously value or defaultValues update will reset the form values
+          rawData={`// by default, an asynchronous update to values or defaultValues will reset the form values
 useForm({ values })
 useForm({ defaultValues: async () => await fetch() })
 
-// options to config the behaviour
-// eg: I want to keep user interacted/dirty value and not remove any user errors
+// options to configure the behavior
+// e.g., I want to keep user-interacted/dirty values and not remove any user errors
 useForm({
   values,
   resetOptions: {
@@ -241,13 +241,13 @@ const onSubmit = (data) => {
     ),
     reValidateMode: (
       <p>
-        This option allows you to configure validation strategy when inputs with
-        errors get re-validated <strong>after</strong> a user submits the form (
-        <code>onSubmit</code> event and{" "}
+        This option allows you to configure the validation strategy when inputs
+        with errors get re-validated <strong>after</strong> a user submits the
+        form (<code>onSubmit</code> event and{" "}
         <Link href="/docs/useform/handlesubmit">
           <code>handleSubmit</code>
         </Link>{" "}
-        function executed). By default, re-validation occurs during the input
+        function is executed). By default, re-validation occurs during the input
         change event.
       </p>
     ),
@@ -1307,7 +1307,7 @@ handleSubmit(async (data) => await fetchAPI(data))`}
             <CodeArea
               rawData={`register('registerInput', { minLength: 4 });
 setError('registerInput', { type: 'custom', message: 'custom message' });
-// validation will pass as long as minLength requirement pass
+// validation will pass as long as the minLength requirement is met
 `}
             />
           </li>
@@ -1315,12 +1315,12 @@ setError('registerInput', { type: 'custom', message: 'custom message' });
             <p>
               An error that is not associated with an input field will be
               persisted until cleared with <code>clearErrors</code>. This
-              behaviour is only applicable for built-in validation at field
+              behavior is only applicable for built-in validation at the field
               level.
             </p>
             <CodeArea
               rawData={`setError('notRegisteredInput', { type: 'custom', message: 'custom message' });
-// clearErrors() need to invoked manually to remove that custom error 
+// clearErrors() needs to be invoked manually to remove that custom error 
 `}
             />
           </li>
@@ -1354,16 +1354,17 @@ setError('root.random', {
           </li>
           <li>
             <p>
-              This method will force set <code>isValid</code> formState to{" "}
-              <code>false</code>, however, it's important to aware{" "}
-              <code>isValid</code> will always be derived by the validation
-              result from your input registration rules or schema result.
+              This method will force the <code>isValid</code> formState to{" "}
+              <code>false</code>; however, it's important to be aware that{" "}
+              <code>isValid</code> will always be derived from the validation
+              results of your input registration rules or schema results.
             </p>
           </li>
           <li>
             <p>
-              There are certain keyword which need to avoid before conflicting
-              with type check. They are <code>type</code>, <code>types</code>
+              There are certain keywords that need to be avoided to prevent
+              conflicts with type checking. They are <code>type</code> and{" "}
+              <code>types</code>.
             </p>
           </li>
         </ul>
@@ -2264,13 +2265,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <ul>
               <li>
                 <p>
-                  <b>onChange</b>: send data back to hook form
+                  <b>onChange</b>: sent data back to Hook Form
                 </p>
               </li>
               <li>
                 <p>
-                  <b>onBlur</b>: report input has been interacted (focus and
-                  blur)
+                  <b>onBlur</b>: report that the input has been interacted with
+                  (focus and blur)
                 </p>
               </li>
               <li>
@@ -2461,7 +2462,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td></td>
           <td>
             <p>
-              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
+              <b className={typographyStyles.note}>Important:</b> Cannot apply{" "}
               <code>undefined</code> to <code>defaultValue</code> or{" "}
               <code>defaultValues</code> at <code>useForm</code>.
             </p>
@@ -2541,8 +2542,8 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
       <>
         <p>
           React Hook Form embraces uncontrolled components and native inputs,
-          however it's hard to avoid working with external controlled component
-          such as{" "}
+          however, it's hard to avoid working with external controlled
+          components such as{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -2819,7 +2820,7 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
           <td></td>
           <td>
             <p>
-              <b className={typographyStyles.note}>Important:</b> Can not apply{" "}
+              <b className={typographyStyles.note}>Important:</b> Cannot apply{" "}
               <code>undefined</code> to <code>defaultValue</code> or{" "}
               <code>defaultValues</code> at <code>useForm</code>.
             </p>
@@ -2876,13 +2877,13 @@ setValue('notRegisteredInput', { test: '1', test2: '2' }); // ✅ sugar syntax t
             <ul>
               <li>
                 <p>
-                  <b>onChange</b>: send data back to hook form
+                  <b>onChange</b>: sent data back to Hook Form
                 </p>
               </li>
               <li>
                 <p>
-                  <b>onBlur</b>: report input has been interacted (focus and
-                  blur)
+                  <b>onBlur</b>: report that the input has been interacted with
+                  (focus and blur)
                 </p>
               </li>
               <li>

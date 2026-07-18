@@ -35,7 +35,7 @@ export default function App() {
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
-  console.log(watch("example")) // watch input value by passing the name of it
+  console.log(watch("example")) // watch input value by passing its name
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -67,7 +67,7 @@ export default function App() {
 
   const onSubmit = (data) => console.log(data)
 
-  console.log(watch("example")) // watch input value by passing the name of it
+  console.log(watch("example")) // watch input value by passing its name
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -176,7 +176,7 @@ List of validation rules supported:
 - pattern
 - validate
 
-You can read more detail on each rule in the [register section](/docs#register).
+You can read more details on each rule in the [register section](/docs#register).
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
@@ -226,7 +226,7 @@ export default function App() {
 
 ## Integrating an existing form {#Integratinganexistingform}
 
-Integrating an existing form should be simple. The important step is to `register` the component's `ref` and assign relevant props to your input.
+Integrating an existing form is simple. The important step is to register the component's ref and assign the relevant props to your input.
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
@@ -326,7 +326,7 @@ const App = () => {
 
 ## Integrating with UI libraries {#IntegratingwithUIlibraries}
 
-React Hook Form has made it easy to integrate with external UI component libraries. If the component doesn't expose input's `ref`, then you should use the [Controller](/docs#Controller) component, which will take care of the registration process.
+React Hook Form has made it easy to integrate with external UI component libraries. If the component doesn't expose the input's `ref`, then you should use the [Controller](/docs#Controller) component, which will take care of the registration process.
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
@@ -484,7 +484,7 @@ function Input({ control, name }) {
       onBlur={field.onBlur} // notify when input is touched/blur
       value={field.value} // input value
       name={field.name} // send down the input name
-      inputRef={field.ref} // send input ref, so we can focus on input when error appear
+      inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
     />
   )
 }
@@ -598,7 +598,7 @@ function Input({ control, name }) {
       onBlur={field.onBlur} // notify when input is touched/blur
       value={field.value} // input value
       name={field.name} // send down the input name
-      inputRef={field.ref} // send input ref, so we can focus on input when error appear
+      inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
     />
   )
 }
@@ -680,7 +680,7 @@ export default function App() {
 
 ## Integrating with services {#Integratingwithservices}
 
-To integrate React Hook Form with a service, you can use the library's built-in submission handling. `<Form />` component allow you to easily send form data to an API endpoint or other service. [Find out more about Form component](/docs/useform/form).
+To integrate React Hook Form with a service, you can use the library's built-in submission handling. The `<Form />` component allows you to easily send form data to an API endpoint or other service. [Find out more about the Form component](/docs/useform/form).
 
 ```javascript
 import { Form } from "react-hook-form"
@@ -870,7 +870,7 @@ React Hook Form's design and philosophy focus on user and developer experience. 
 - Avoiding unnecessary computation
 - Isolating component re-rendering when required
 
-Overall, it improves the user experience while users interact with the application. As for the developers, we introduce built-in validation and are closely aligned with HTML standards allowing further extension with powerful validation methods and integration with schema validation natively. In addition, having a strongly type-checked form with the help of typescript provides early build-time feedback to help and guide the developer to build a robust form solution.
+Overall, it improves the user experience as users interact with the application. For developers, we introduced built-in validation and are closely aligned with HTML standards, allowing further extension with powerful validation methods and native integration with schema validation. In addition, having a strongly type-checked form with the help of TypeScript provides early build-time feedback to help and guide developers in building a robust form solution.
 
 The following talk given by [Bill](https://twitter.com/bluebill1049) showcased some of the ideas and design patterns:
 

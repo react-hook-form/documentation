@@ -18,7 +18,7 @@ function Input({ control, name }) {
       onBlur={field.onBlur} // notify when input is touched/blur
       value={field.value} // input value
       name={field.name} // send down the input name
-      inputRef={field.ref} // send input ref, so we can focus on input when error appear
+      inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
     />
   );
 }

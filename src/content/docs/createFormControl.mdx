@@ -5,7 +5,7 @@ metaDescription: Create standalone React Hook Form state outside of a React comp
 sidebar: apiLinks
 ---
 
-This function creates the entire form state subscription and allows you to subscribe to updates with or without a React component. You can use this function without the need of the React Context API.
+This function creates the entire form state subscription and allows you to subscribe to updates with or without a React component. You can use this function without needing the React Context API.
 
 ### Props
 
@@ -19,28 +19,28 @@ This function creates the entire form state subscription and allows you to subsc
 
 ---
 
-| Name          | Type                           | Description                                                                           |
-| ------------- | ------------------------------ | ------------------------------------------------------------------------------------- |
-| `formControl` | <TypeText>Object</TypeText>    | control object for `useForm` hook                                                     |
-| `control`     | <TypeText>Object</TypeText>    | control object for `useController`, `useFormState`, `useWatch`                        |
-| `subscribe`   | <TypeText>Function</TypeText>  | function to [subscribe](/docs/useform/subscribe) for form state update without render |
-| `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                                              |
+| Name          | Type                           | Description                                                                               |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `formControl` | <TypeText>Object</TypeText>    | control object for `useForm` hook                                                         |
+| `control`     | <TypeText>Object</TypeText>    | control object for `useController`, `useFormState`, `useWatch`                            |
+| `subscribe`   | <TypeText>Function</TypeText>  | function to [subscribe](/docs/useform/subscribe) for form state updates without rendering |
+| `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                                                  |
 
 <Admonition type="important" title="Notes">
-  - This function is published at **v7.55.0** - This function is completely
-  optional, you can consider to use this instead of `useFormContext` API. - You
-  may find it useful if you would like to subscribe formsState by skipping react
-  re-render.
+  - This function was published in **v7.55.0**. - This function is completely
+  optional; you can consider using this instead of the `useFormContext` API. -
+  You may find it useful if you would like to subscribe to `formState` while
+  skipping React re-renders.
 </Admonition>
 
 <Admonition type="important" title="Rules">
- - You should either use this API or context API
+ - You should either use this API or the Context API
  ```tsx
  const props = createFormControl()
 
-<FormProvider {...props} /> // ❌ You don't need provider
+<FormProvider {...props} /> // ❌ You don't need a provider
 
- <input {...props.register('name')} /> // ✅ Direct use method from createFormControl
+ <input {...props.register('name')} /> // ✅ Use method directly from createFormControl
  ```
 </Admonition>
 

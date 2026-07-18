@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `setError:` <TypeText>[UseFormSetError](/ts#UseFormSetError)</TypeText>
 
-The function allows you to manually set an error on a field. Call it multiple times to set errors on multiple fields.
+This function allows you to manually set an error on a field. You can call it multiple times to set errors on multiple fields.
 
 ### Props
 
@@ -39,10 +39,10 @@ The function allows you to manually set an error on a field. Call it multiple ti
   setError("registerInput", { type: "custom", message: "custom message" })
   // validation will pass as long as minLength requirement pass
   ```
-- An error that is not associated with an input field will be persisted until cleared with `clearErrors`. This behaviour is only applicable for built-in validation at field level.
+- An error that is not associated with an input field will be persisted until cleared with `clearErrors`. This behavior is only applicable for built-in validation at the field level.
   ```javascript
   setError("notRegisteredInput", { type: "custom", message: "custom message" })
-  // clearErrors() need to invoked manually to remove that custom error
+  // clearErrors() needs to be invoked manually to remove that custom error
   ```
 - You can set a server or global error with `root` as the key. This type of error will not persist with each submission.
   ```javascript
@@ -384,6 +384,6 @@ const App = () => {
 
 ---
 
-The following video explain `setError` API in detail.
+The following video explains the `setError` API in detail.
 
 <YouTube youTubeId="raMqvE0YyIY" />

@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `useLens`
 
-React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to form development. It provides type-safe manipulation of nested structures, enabling developers to precisely control and transform complex data with ease.
+React Hook Form Lenses is a powerful TypeScript-first library that brings the elegance of functional lenses to form development. It provides type-safe manipulation of nested structures, enabling developers to control and transform complex data precisely and with ease.
 
 `useLens` is a custom hook that creates a lens instance connected to your React Hook Form control, enabling type-safe focusing, transformation, and manipulation of deeply nested form data structures through functional programming concepts.
 
@@ -129,7 +129,7 @@ The `focus` method provides full TypeScript support with autocompletion and type
 
 Transforms the lens structure with complete type inference. This is useful when you want to create a new lens from an existing one with a different shape to pass to a shared component.
 
-The first argument is a proxy with a dictionary of lenses. Note that lens instantiation happens only on property access. The second argument is the original lens.
+The first argument is a proxy with a dictionary of lenses. Note that lens instantiation happens only upon property access. The second argument is the original lens.
 
 #### Object Reflection
 
@@ -735,7 +735,7 @@ function PersonForm({ basePath }: { basePath: string }) {
 
 #### Built-in Caching System
 
-Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times will return the identical lens instance:
+Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times returns the identical lens instance:
 
 ```tsx
 assert(lens.focus("firstName") === lens.focus("firstName"))
@@ -801,7 +801,7 @@ function App() {
 
 You can extend the basic lens functionality by adding custom methods to the `LensBase` interface. This is useful when you need additional methods that aren't available in the default lens API.
 
-For example, let's add a `getValue` method to the lens that allows you to easily retrieve the current form values.
+For example, let's add a `getValue` method to the lens that allows you to retrieve the current form values easily.
 
 **Step 1: Create the type declarations file**
 
