@@ -24,6 +24,8 @@ This function allows you to dynamically set the value of a <strong>registered</s
 
 <Admonition type="important" title="Rules">
 
+- `shouldDirty` only guarantees that the target field is marked in `dirtyFields` immediately. Because `isDirty` always compares current values against `defaultValues`, a later update to _any_ field can trigger a `dirtyFields` recompute that also surfaces other fields whose value already differs from their default — including ones last written with `shouldDirty: false`.
+
 - You can use methods such as [replace](/docs/usefieldarray#replace) or [update](/docs/usefieldarray#update) for a field array; however, they will cause the component to unmount and remount for the targeted field array.
 
   ```javascript
