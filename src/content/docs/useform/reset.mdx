@@ -34,6 +34,7 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
 - It is recommended to always provide <code>defaultValues</code> when resetting a form
   to ensure all inputs, especially controlled components, are restored correctly.
+- Calling `reset` with `values` updates the form's `defaultValues` unless `options.keepDefaultValues` is set. If `reset` is later called without `values` or with `{}`, the form resets to the last `values` provided instead of the initial `defaultValues`.
 
 </Admonition>
 
