@@ -534,6 +534,14 @@ export function InputForm() {
 
 </TabGroup>
 
+**Note:** The `shadcn/ui` example above requires installing `@hookform/resolvers` and `zod`:
+
+```bash copy
+npm install @hookform/resolvers zod
+```
+
+If you hit `Cannot find module '@hookform/resolvers/zod'` (or `zod/v4/core`), it's almost always a version mismatch: Zod v4 support requires `@hookform/resolvers` ^3.10 or newer paired with `zod` ^3.25 or `zod` v4, and your `tsconfig.json` needs `"moduleResolution": "bundler"` (or `"node16"`/`"nodenext"`) so the package's subpath exports resolve correctly. See [react-hook-form/resolvers#839](https://github.com/react-hook-form/resolvers/issues/839) for details.
+
 #### Using Hooks API
 
 <TabGroup buttonLabels={["TS", "JS"]} >
