@@ -13,7 +13,7 @@
 }
 
 .root a {
-  color: white;
+  color: var(--color-text);
   text-decoration: none;
   display: flex;
   align-items: center;
