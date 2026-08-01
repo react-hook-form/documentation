@@ -3,6 +3,7 @@ import { Pre } from "./pre"
 import TabGroup from "../TabGroup"
 import { YouTube } from "./youtube"
 import TypeText from "../TypeText"
+import Since from "../Since"
 import Popup from "../Popup"
 import { Components } from "@mdx-js/react/lib"
 import { Admonition } from "../Admonition"
@@ -40,6 +41,7 @@ export const MDXComponents: Components = {
   Admonition,
   Popup,
   TypeText,
+  Since,
   YouTube(props) {
     return <YouTube {...props} />
   },
