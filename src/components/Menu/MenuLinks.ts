@@ -166,8 +166,8 @@ export const apiLinks: Pages = [
         name: "ErrorMessage",
       },
       {
-        pathname: "/docs/useformstate/formstatesubscribe",
-        name: "FormStateSubscribe",
+        pathname: "/docs/useformstate/formstate",
+        name: "FormState",
       },
     ],
   },
@@ -301,8 +301,8 @@ export const tsLinks: Pages = [
     pathname: "#UseFormStateProps",
   },
   {
-    name: "FormStateSubscribeProps",
-    pathname: "#FormStateSubscribeProps",
+    name: "FormStateProps",
+    pathname: "#FormStateProps",
   },
   {
     name: "FormProviderProps",
