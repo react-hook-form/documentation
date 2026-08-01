@@ -5,6 +5,8 @@ metaDescription: Create standalone React Hook Form state outside of a React comp
 sidebar: apiLinks
 ---
 
+<Since version="7.55.0" />
+
 This function creates the entire form state subscription and allows you to subscribe to updates with or without a React component. You can use this function without needing the React Context API.
 
 ### Props
@@ -27,10 +29,9 @@ This function creates the entire form state subscription and allows you to subsc
 | `...returns`  | <TypeText>Functions</TypeText> | `useForm` return methods                                                                  |
 
 <Admonition type="important" title="Notes">
-  - This function was published in **v7.55.0**. - This function is completely
-  optional; you can consider using this instead of the `useFormContext` API. -
-  You may find it useful if you would like to subscribe to `formState` while
-  skipping React re-renders.
+  - This function is completely optional; you can consider using this instead of
+  the `useFormContext` API. - You may find it useful if you would like to
+  subscribe to `formState` while skipping React re-renders.
 </Admonition>
 
 <Admonition type="important" title="Rules">
