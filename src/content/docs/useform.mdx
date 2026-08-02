@@ -141,7 +141,7 @@ This option allows you to configure the validation strategy for before a user su
 
 This option allows you to configure the validation strategy for when inputs with errors get re-validated **after** a user submits the form (the `onSubmit` event occurs and the [`handleSubmit`](/docs/useform/handlesubmit) function is executed). By default, re-validation occurs during the input change event.
 
-**Note:** Both `mode` and `reValidateMode` are reactive — you can update them after form initialization and the new strategy will take effect on subsequent validations.
+**Note:** <Since version="7.56.0" /> Both `mode` and `reValidateMode` are reactive — you can update them after form initialization and the new strategy will take effect on subsequent validations.
 
 #### defaultValues: <TypeText>`FieldValues | () => Promise<FieldValues>`</TypeText> {#defaultValues}
 
@@ -188,7 +188,7 @@ useForm({
 
 </Admonition>
 
-#### values: <TypeText>FieldValues</TypeText> {#values}
+#### values: <TypeText>FieldValues</TypeText> <Since version="7.41.0" /> {#values}
 
 ---
 
@@ -215,7 +215,7 @@ function App() {
 }
 ```
 
-#### errors: <TypeText>FieldErrors</TypeText> {#errors}
+#### errors: <TypeText>FieldErrors</TypeText> <Since version="7.49.0" /> {#errors}
 
 ---
 
@@ -283,7 +283,7 @@ When set to `true` (default), and the user submits a form that fails validation,
 
 </Admonition>
 
-#### delayError: <TypeText>number</TypeText> {#delayError}
+#### delayError: <TypeText>number</TypeText> <Since version="7.12.0" /> {#delayError}
 
 ---
 
@@ -291,7 +291,7 @@ When set to `true` (default), and the user submits a form that fails validation,
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | This configuration delays the display of error states to the end user by a specified number of milliseconds. If the user corrects the input with errors, the error is removed instantly, and the delay is not applied. | <CodeSandbox url="https://codesandbox.io/s/useform-delayerror-q6c2d"/> |
 
-#### validate: <TypeText>Function</TypeText> {#validate}
+#### validate: <TypeText>Function</TypeText> <Since version="7.72.0" /> {#validate}
 
 ---
 
@@ -368,7 +368,7 @@ By default, an input value will be retained when an input is removed. However, y
     }
     ```
 
-#### shouldUseNativeValidation: <TypeText>boolean = false</TypeText> {#shouldUseNativeValidation}
+#### shouldUseNativeValidation: <TypeText>boolean = false</TypeText> <Since version="7.9.0" /> {#shouldUseNativeValidation}
 
 ---
 
@@ -415,7 +415,7 @@ export default function App() {
 }
 ```
 
-#### disabled: <TypeText>boolean = false</TypeText> {#disabled}
+#### disabled: <TypeText>boolean = false</TypeText> <Since version="7.48.0" /> {#disabled}
 
 ---
 

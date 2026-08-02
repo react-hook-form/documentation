@@ -44,12 +44,12 @@ This function allows you to manually set an error on a field. You can call it mu
   setError("notRegisteredInput", { type: "custom", message: "custom message" })
   // clearErrors() needs to be invoked manually to remove that custom error
   ```
-- You can set a server or global error with `root` as the key. This type of error will not persist with each submission.
-  ```javascript
-  setError("root.serverError", {
-    type: "400",
-  })
-  ```
+- <Since version="7.43.0" /> You can set a server or global error with `root` as the key. This type of error will not persist with each submission.
+```javascript
+setError("root.serverError", {
+  type: "400",
+})
+```
 - `shouldFocus` doesn't work when an input has been disabled.
 - This method will force <code>formState.isValid</code> to <code>false</code>.
   However, <code>isValid</code> is always derived from the validation results of your

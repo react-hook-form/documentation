@@ -36,6 +36,8 @@ const methods = useFormContext() // retrieve those props
   You need to wrap your form with the [`FormProvider`](/docs/formprovider)
   component for `useFormContext` to work properly.
 
+<Since version="7.44.0" /> Supports a second generic, `useFormContext<FormValues, TransformedValues>()`, to type the resolver's transformed output separately from the raw form values.
+
 If you need to subscribe to form state values like `errors`, `isDirty`, or
 `dirtyFields` inside a `FormProvider` tree, use
 [`useFormState`](/docs/useformstate) instead of destructuring `formState`

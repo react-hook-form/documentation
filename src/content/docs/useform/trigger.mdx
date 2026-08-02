@@ -13,12 +13,12 @@ Manually triggers form or input validation. This method is also useful when you 
 
 ---
 
-| Name        | Type                           | Description                                                                                                                                     | Example                                  |
-| ----------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| name        | <TypeText>undefined</TypeText> | Triggers validation on all fields.                                                                                                              | `trigger()`                              |
-|             | <TypeText>string</TypeText>    | Triggers validation on a specific field value by **name**                                                                                       | `trigger("yourDetails.firstName")`       |
-|             | <TypeText>string[]</TypeText>  | Triggers validation on multiple fields by **name**.                                                                                             | `trigger(["yourDetails.lastName"])`      |
-| shouldFocus | <TypeText>boolean</TypeText>   | Focuses the input when an error is set. This only works when the input's reference is registered, it will not work for custom register as well. | `trigger('name', { shouldFocus: true })` |
+| Name        | Type                           | Description                                                                                                                                                               | Example                                  |
+| ----------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| name        | <TypeText>undefined</TypeText> | Triggers validation on all fields.                                                                                                                                        | `trigger()`                              |
+|             | <TypeText>string</TypeText>    | Triggers validation on a specific field value by **name**                                                                                                                 | `trigger("yourDetails.firstName")`       |
+|             | <TypeText>string[]</TypeText>  | Triggers validation on multiple fields by **name**.                                                                                                                       | `trigger(["yourDetails.lastName"])`      |
+| shouldFocus | <TypeText>boolean</TypeText>   | <Since version="7.7.0" /> Focuses the input when an error is set. This only works when the input's reference is registered, it will not work for custom register as well. | `trigger('name', { shouldFocus: true })` |
 
 <Admonition type="important" title="Rules">
 
