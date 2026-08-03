@@ -45,6 +45,10 @@ export const advancedLinks: Pages = [
     name: "Transform and Parse",
     pathname: "#TransformandParse",
   },
+  {
+    name: "Server Actions / useActionState",
+    pathname: "#ServerActionsuseActionState",
+  },
 ]
 
 export const faqLinks: Pages = [
