@@ -105,7 +105,6 @@ One of the key concepts in React Hook Form is to **`register`** your component i
 <TabGroup buttonLabels={["TS", "JS"]} >
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm"
-import ReactDOM from "react-dom"
 import { useForm, SubmitHandler } from "react-hook-form"
 
 enum GenderEnum {
@@ -160,7 +159,7 @@ export default function App() {
 }
 ```
 
-</ TabGroup>
+</TabGroup>
 
 ## Apply validation {#Applyvalidation}
 
@@ -231,6 +230,7 @@ Integrating an existing form is simple. The important step is to register the co
 <TabGroup buttonLabels={["TS", "JS"]} >
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-adapting-existing-form-ts-uzfxm"
+import { forwardRef } from "react"
 import { Path, useForm, UseFormRegister, SubmitHandler } from "react-hook-form"
 
 interface IFormValues {
@@ -252,8 +252,8 @@ const Input = ({ label, register, required }: InputProps) => (
   </>
 )
 
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef<
+// you can use forwardRef to pass the ref too
+const Select = forwardRef<
   HTMLSelectElement,
   { label: string } & ReturnType<UseFormRegister<IFormValues>>
 >(({ onChange, onBlur, name, label }, ref) => (
@@ -284,6 +284,7 @@ const App = () => {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-adapting-existing-form-llbnn"
+import { forwardRef } from "react"
 import { useForm } from "react-hook-form"
 
 // The following component is an example of your existing Input Component
@@ -294,8 +295,8 @@ const Input = ({ label, register, required }) => (
   </>
 )
 
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+// you can use forwardRef to pass the ref too
+const Select = forwardRef(({ onChange, onBlur, name, label }, ref) => (
   <>
     <label>{label}</label>
     <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
@@ -333,7 +334,7 @@ React Hook Form has made it easy to integrate with external UI component librari
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-ts-forked-qjgkx"
 import Select from "react-select"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import { Input } from "@material-ui/core"
+import { Input } from "@mui/material"
 
 interface IFormInput {
   firstName: string
@@ -384,7 +385,7 @@ const App = () => {
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-with-ui-library-forked-fp5r3"
 import Select from "react-select"
 import { useForm, Controller } from "react-hook-form"
-import { Input } from "@material-ui/core"
+import { Input } from "@mui/material"
 
 const App = () => {
   const { control, handleSubmit } = useForm({
@@ -434,7 +435,7 @@ This library embraces uncontrolled components and native HTML inputs. However, i
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import { TextField, Checkbox } from "@material-ui/core"
+import { TextField, Checkbox } from "@mui/material"
 
 interface IFormInputs {
   TextField: string
@@ -464,28 +465,27 @@ function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
-import { TextField } from "@material-ui/core"
-import { useController, useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
+import { Checkbox } from "@mui/material"
 
-function Input({ control, name }) {
-  const {
-    field,
-    fieldState: { invalid, isTouched, isDirty },
-    formState: { touchedFields, dirtyFields },
-  } = useController({
-    name,
-    control,
-    rules: { required: true },
+function App() {
+  const { handleSubmit, control, reset } = useForm({
+    defaultValues: {
+      MyCheckbox: false,
+    },
   })
+  const onSubmit = (data) => console.log(data)
 
   return (
-    <TextField
-      onChange={field.onChange} // send the value to hook form
-      onBlur={field.onBlur} // notify when the input is touched or blurred
-      value={field.value} // input value
-      name={field.name} // send the input name
-      inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
-    />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="MyCheckbox"
+        control={control}
+        rules={{ required: true }}
+        render={({ field }) => <Checkbox {...field} />}
+      />
+      <input type="submit" />
+    </form>
   )
 }
 ```
@@ -547,7 +547,6 @@ If you hit `Cannot find module '@hookform/resolvers/zod'` (or `zod/v4/core`), it
 <TabGroup buttonLabels={["TS", "JS"]} >
 
 ```tsx copy sandbox="https://codesandbox.io/s/usecontroller-forked-4t8cx"
-import * as React from "react"
 import { useForm, useController, UseControllerProps } from "react-hook-form"
 
 type FormValues = {
@@ -586,7 +585,7 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/usecontroller-tefsc"
-import { TextField } from "@material-ui/core"
+import { TextField } from "@mui/material"
 import { useController, useForm } from "react-hook-form"
 
 function Input({ control, name }) {
@@ -831,7 +830,6 @@ export default function App() {
 React Hook Form is built with `TypeScript`, and you can define a `FormData` type to support form values.
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-typescript-qwk7b"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 
 type FormData = {

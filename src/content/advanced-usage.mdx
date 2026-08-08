@@ -174,7 +174,8 @@ export default function App() {
       <Input name="lastName" />
       <Select name="gender" options={["female", "male", "other"]} />
 
-      <Input type="submit" value="Submit" />
+      {/* not routed through the custom Input — it has no `name`, so `Form` won't inject `register` for it */}
+      <input type="submit" value="Submit" />
     </Form>
   )
 }
@@ -306,7 +307,7 @@ React Hook Form's [FormProvider](/docs/formprovider) is built upon [React's Cont
 import { memo } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
-// we can use React.memo to prevent re-renders except when the isDirty state changes
+// we can use memo to prevent re-renders except when the isDirty state changes
 const NestedInput = memo(
   ({ register, formState: { isDirty } }) => (
     <div>
@@ -349,7 +350,7 @@ React Hook Form embraces uncontrolled components but is also compatible with con
 <TabGroup buttonLabels={["Controller", "Custom Register"]}>
 
 ```javascript copy
-import { Input, Select, MenuItem } from "@material-ui/core"
+import { Input, Select, MenuItem } from "@mui/material"
 import { useForm, Controller } from "react-hook-form"
 
 const defaultValues = {
@@ -390,7 +391,7 @@ function App() {
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-controlled-mixed-with-uncontrolled-forked-c323j"
 import { useEffect } from "react"
-import { Input, Select, MenuItem } from "@material-ui/core"
+import { Input, Select, MenuItem } from "@mui/material"
 import { useForm } from "react-hook-form"
 
 const defaultValues = {
@@ -564,38 +565,42 @@ const items = Array.from(Array(1000).keys()).map((i) => ({
 }))
 
 function App() {
-  const { control, getValues } = useForm({
+  const { control, getValues, handleSubmit } = useForm({
     defaultValues: {
       test: items,
     },
   })
   const { fields } = useFieldArray({ control, name: "test" })
+  const onSubmit = (data) => console.log(data)
 
   return (
-    <FixedSizeList
-      width={400}
-      height={500}
-      itemSize={40}
-      itemCount={fields.length}
-      itemData={fields}
-      itemKey={(i) => fields[i].id}
-    >
-      {({ style, index, data }) => {
-        const defaultValue =
-          getValues()["test"][index].quantity ?? data[index].quantity
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FixedSizeList
+        width={400}
+        height={500}
+        itemSize={40}
+        itemCount={fields.length}
+        itemData={fields}
+        itemKey={(i) => fields[i].id}
+      >
+        {({ style, index, data }) => {
+          const defaultValue =
+            getValues()["test"][index].quantity ?? data[index].quantity
 
-        return (
-          <form style={style}>
-            <Controller
-              render={({ field }) => <input {...field} />}
-              name={`test[${index}].quantity`}
-              defaultValue={defaultValue}
-              control={control}
-            />
-          </form>
-        )
-      }}
-    </FixedSizeList>
+          return (
+            <div style={style}>
+              <Controller
+                render={({ field }) => <input {...field} />}
+                name={`test[${index}].quantity`}
+                defaultValue={defaultValue}
+                control={control}
+              />
+            </div>
+          )
+        }}
+      </FixedSizeList>
+      <button type="submit">Submit</button>
+    </form>
   )
 }
 ```
@@ -871,6 +876,8 @@ it("should have a submit button", async () => {
 
 Native inputs return values in `string` format unless `valueAsNumber` or `valueAsDate` is used; you can read more in [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement). However, it's not perfect, as we still have to deal with `NaN` or `null` values. Therefore, it's better to handle transformations at the custom hook level. In the following example, we use the `Controller` to handle input and output transformations. You can also achieve a similar result with a custom `register`.
 
+**Important:** spread `field` onto the input before overriding `onChange`/`value`, so `onBlur`, `name`, and `ref` are still forwarded — without `ref`, RHF can't focus the input on a validation error, and without `onBlur`, `isTouched` never updates.
+
 ```javascript copy sandbox="https://codesandbox.io/s/transform-vt3tm"
 import { Controller } from "react-hook-form"
 
@@ -881,6 +888,7 @@ const ControllerPlus = ({ control, transform, name, defaultValue }) => (
     name={name}
     render={({ field }) => (
       <input
+        {...field}
         onChange={(e) => field.onChange(transform.output(e))}
         value={transform.input(field.value)}
       />

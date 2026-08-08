@@ -18,6 +18,14 @@ V8 adds first-class support for the [React Compiler](https://react.dev/learn/rea
 
 V8 supports flat field arrays, allowing simpler data structures when working with `useFieldArray`.
 
+```tsx copy
+// Before (V7) — each row had to be an object
+useFieldArray({ name: "items" }) // items: { value: string }[]
+
+// After (V8) — primitive values are supported directly
+useFieldArray({ name: "items" }) // items: string[]
+```
+
 ## Breaking Changes {#BreakingChanges}
 
 The following changes require updates to your existing code when upgrading from V7.
@@ -26,8 +34,17 @@ The following changes require updates to your existing code when upgrading from 
 
 `register` now passes the input `ref` directly instead of a partial ref object.
 
-- **Before (V7):** register passed a partial object
-- **After (V8):** register passes the actual input ref
+```tsx copy
+const { ref } = register("firstName")
+
+// Before (V7) — ref was a partial ref-like object
+ref.current // not the actual DOM node
+
+// After (V8) — ref is the actual input element
+ref.current // the real <input> DOM node
+```
+
+If you were reading properties off `register(...).ref` directly (rather than spreading `{...register("firstName")}` onto an `<input>`), update your code to expect the real DOM element.
 
 See [#12773](https://github.com/react-hook-form/react-hook-form/issues/12773) for details.
 
@@ -81,7 +98,10 @@ The `watch` subscription callback API has been removed. Use [`subscribe`](/docs/
 watch((value, { name, type }) => console.log(value))
 
 // After (V8) — use subscribe
-subscribe({ formValues: true }, ({ values }) => console.log(values))
+subscribe({
+  formState: { values: true },
+  callback: ({ values }) => console.log(values),
+})
 ```
 
 ### setValue {#setValue}

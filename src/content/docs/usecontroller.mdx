@@ -24,15 +24,15 @@ This custom hook powers [`Controller`](/docs/usecontroller/controller). Addition
 
 The following table contains information about the arguments for `useController`.
 
-| Name               | Type                                            | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------ | ----------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`             | <TypeText>[FieldPath](/ts#FieldPath)</TypeText> | ✓        | Unique name of your input. Reactive — the controller re-subscribes when this prop changes, allowing dynamic field name switching.                                                                                                                                                                                                                                                                                             |
-| `control`          | <TypeText>[Control](/ts#Control)</TypeText>     |          | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.                                                                                                                                                                                                                                                                                                                 |
-| `rules`            | <TypeText>Object</TypeText>                     |          | Validation rules in the same format for `register`, which includes: `required`, `min`, `max`, `minLength`, `maxLength`, `pattern`, `validate`.<br/><br/>`rules={{ required: true }}`                                                                                                                                                                                                                                          |
-| `shouldUnregister` | <TypeText>boolean = false</TypeText>            |          | Input will be unregistered after unmount and defaultValues will be removed as well. **Note:** this prop should be avoided when using with `useFieldArray` as `unregister` function gets called after input unmount/remount and reorder.                                                                                                                                                                                       |
-| `disabled`         | <TypeText>boolean = false</TypeText>            |          | <Since version="7.46.0" /> `disabled` prop will be returned from `field` prop. Controlled input will be disabled and its value will be omitted from the submission data.                                                                                                                                                                                                                                                      |
-| `defaultValue`     | <TypeText>unknown</TypeText>                    |          | **Important:** Cannot apply `undefined` to `defaultValue` or `defaultValues` at `useForm`.<ul><li>You need to either set `defaultValue` at the field-level or `useForm`'s `defaultValues`. `undefined` is not a valid value. If you used `defaultValues` at `useForm`, skip using this prop.</li><li>If your form will invoke `reset` with default values, you will need to provide `useForm` with `defaultValues`.</li></ul> |
-| `exact`            | <TypeText>boolean = true</TypeText>             |          | <Since version="7.67.0" /> This prop will enable an exact match for input name subscriptions, default to true.                                                                                                                                                                                                                                                                                                                |
+| Name               | Type                                            | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------ | ----------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`             | <TypeText>[FieldPath](/ts#FieldPath)</TypeText> | ✓        | Unique name of your input. Reactive — the controller re-subscribes when this prop changes, allowing dynamic field name switching.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `control`          | <TypeText>[Control](/ts#Control)</TypeText>     |          | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `rules`            | <TypeText>Object</TypeText>                     |          | Validation rules in the same format for `register`, which includes: `required`, `min`, `max`, `minLength`, `maxLength`, `pattern`, `validate`.<br/><br/>`rules={{ required: true }}`                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `shouldUnregister` | <TypeText>boolean = false</TypeText>            |          | Input will be unregistered after unmount and defaultValues will be removed as well. **Note:** this prop should be avoided when using with `useFieldArray` as `unregister` function gets called after input unmount/remount and reorder.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `disabled`         | <TypeText>boolean = false</TypeText>            |          | <Since version="7.46.0" /> `disabled` prop will be returned from `field` prop. Controlled input will be disabled and its value will be omitted from the submission data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `defaultValue`     | <TypeText>unknown</TypeText>                    |          | **Important:** Cannot apply `undefined` to `defaultValue` or `defaultValues` at `useForm`.<ul><li>You need to either set `defaultValue` at the field-level or `useForm`'s `defaultValues`. `undefined` is not a valid value. If you used `defaultValues` at `useForm`, skip using this prop.</li><li>If your form will invoke `reset` with default values, you will need to provide `useForm` with `defaultValues`.</li><li>If `field.value` is `undefined` on first render, the input starts out uncontrolled and React will warn when it later becomes controlled — always set `defaultValue`/`defaultValues` to avoid this.</li></ul> |
+| `exact`            | <TypeText>boolean = true</TypeText>             |          | <Since version="7.67.0" /> This prop will enable an exact match for input name subscriptions, default to true. **Note:** this differs from [`useWatch`](/docs/usewatch) and [`useFormState`](/docs/useformstate), which both default `exact` to `false`.                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Return
 
@@ -78,7 +78,7 @@ The following table contains information about properties which `useController` 
 <TabGroup buttonLabels={["JS", "TS"]}>
 
 ```javascript sandbox="https://codesandbox.io/s/usecontroller-i0ywh"
-import { TextField } from "@material-ui/core"
+import { TextField } from "@mui/material"
 import { useController, useForm } from "react-hook-form"
 
 function Input({ control, name }) {
@@ -105,7 +105,6 @@ function Input({ control, name }) {
 ```
 
 ```tsx sandbox="https://codesandbox.io/s/usecontroller-0o8px"
-import * as React from "react"
 import { useForm, useController, UseControllerProps } from "react-hook-form"
 
 type FormValues = {
@@ -148,7 +147,7 @@ export default function App() {
 </div>
 
 ```javascript sandbox="https://codesandbox.io/s/usecontroller-checkboxes-99ld4"
-import * as React from "react"
+import { useState } from "react"
 import { useController, useForm } from "react-hook-form"
 
 const Checkboxes = ({ options, control, name }) => {
@@ -156,7 +155,7 @@ const Checkboxes = ({ options, control, name }) => {
     control,
     name,
   })
-  const [value, setValue] = React.useState(field.value || [])
+  const [value, setValue] = useState(field.value || [])
 
   return (
     <>
@@ -226,13 +225,13 @@ export default function App() {
   - **onChange**: send data back to hook form
   - **onBlur**: report that the input has been interacted with (focus and blur)
   - **value**: set up input initial and updated value
-  - **ref**: allow input to be focused with error
+  - **ref**: allow input to be focused with error — this only works if the target component forwards refs (`React.forwardRef`) or exposes an equivalent, like MUI's `inputRef`. If it doesn't accept a ref at all, omit `ref` from what you spread and handle focus manually.
   - **name**: give input an unique name
 
   It's fine to host your state and combined with `useController`.
 
   ```javascript sandbox="https://codesandbox.io/s/usecontroller-own-state-wncet2?file=/src/App.tsx"
-  const { field } = useController();
+  const { field } = useController({ name: 'test' });
   const [value, setValue] = useState(field.value);
 
   onChange={(event) => {
@@ -250,7 +249,7 @@ export default function App() {
   <input {...field} {...register('test')} /> // ❌ double up the registration
   ```
 
-- It's ideal to use a single `useController` per component. If you need to use more than one, make sure you rename the prop. May want to consider using `Controller` instead.
+- It's best to use a single `useController` call per component — each call creates its own subscription, so multiple calls in one component can cause extra re-renders. If you need more than one controlled field in the same component, rename the destructured `field` for each call to avoid naming collisions, or consider using `Controller` instead.
 
   ```javascript
   const { field: input } = useController({ name: 'test' })

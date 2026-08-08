@@ -32,7 +32,7 @@ This method will allow users to programmatically focus on input. Make sure input
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/setfocus-rolus"
-import * as React from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 type FormValues = {
@@ -42,9 +42,8 @@ type FormValues = {
 export default function App() {
   const { register, handleSubmit, setFocus } = useForm<FormValues>()
   const onSubmit = (data: FormValues) => console.log(data)
-  renderCount++
 
-  React.useEffect(() => {
+  useEffect(() => {
     setFocus("firstName")
   }, [setFocus])
 
@@ -58,15 +57,14 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/setfocus-rolus"
-import * as React from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
   const { register, handleSubmit, setFocus } = useForm()
   const onSubmit = (data) => console.log(data)
-  renderCount++
 
-  React.useEffect(() => {
+  useEffect(() => {
     setFocus("firstName")
   }, [setFocus])
 

@@ -33,14 +33,14 @@ The example below shows what to expect when you invoke `getValues` method.
 <input {...register("root.test2")} />
 ```
 
-| Name                                            | Output                              |
-| ----------------------------------------------- | ----------------------------------- |
-| `getValues()`                                   | `{ root: { test1: '', test2: ''} }` |
-| `getValues("root")`                             | `{ test1: '', test2: ''}`           |
-| `getValues("root.firstName")`                   | `''`                                |
-| `getValues(["yourDetails.lastName"])`           | `['']`                              |
-| `getValues(undefined, { dirtyFields: true })`   | `{ root: { test1: '', test2: ''} }` |
-| `getValues(undefined, { touchedFields: true })` | `{ root: { test1: '', test2: ''} }` |
+| Name                                            | Output                                                                                                                  |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `getValues()`                                   | `{ root: { test1: '', test2: ''} }`                                                                                     |
+| `getValues("root")`                             | `{ test1: '', test2: ''}`                                                                                               |
+| `getValues("root.test1")`                       | `''`                                                                                                                    |
+| `getValues(["root.test1", "root.test2"])`       | `['', '']`                                                                                                              |
+| `getValues(undefined, { dirtyFields: true })`   | `{ root: { test1: '' } }` — only fields present in `formState.dirtyFields` (e.g. after editing `test1`) are included    |
+| `getValues(undefined, { touchedFields: true })` | `{ root: { test1: '' } }` — only fields present in `formState.touchedFields` (e.g. after blurring `test1`) are included |
 
 <Admonition type="important" title="Rules">
 
@@ -113,7 +113,6 @@ export default function App() {
 ```
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-getvalues-txsfg"
-import React from "react"
 import { useForm } from "react-hook-form"
 
 // Flat input values

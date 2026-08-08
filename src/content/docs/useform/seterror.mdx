@@ -17,7 +17,7 @@ This function allows you to manually set an error on a field. You can call it mu
 | ------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`  | <TypeText>string</TypeText>                                                             | input's name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `error` | <TypeText>`{ type?: string, message?: string, types?: MultipleFieldErrors }`</TypeText> | **`type`** _(optional)_ — An identifier for the error source (e.g. `"required"`, `"custom"`, `"serverError"`). Exposed as `errors[name].type`. When setting errors on nested fields (e.g. `users.0.firstName`), always include `type` — omitting it causes a subsequent `setError` on a parent path (e.g. `users.0`) to overwrite any child-field errors.<br/><br/>**`message`** _(optional)_ — The human-readable error message. Exposed as `errors[name].message`.<br/><br/>**`types`** _(optional)_ — A `Record<string, string \| boolean>` that assigns multiple messages to a single field, keyed by error type (e.g. `{ required: "This is required", minLength: "Too short" }`). Requires `criteriaMode: "all"` on the form. Exposed as `errors[name].types`. Use this instead of `message` when you need to display more than one validation message for the same field simultaneously. |
-| config  | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                        | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| options | <TypeText>`{ shouldFocus?: boolean }`</TypeText>                                        | Should focus the input during setting an error. This only works when the input's reference is registered, it will not work for custom register as well.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 <Admonition type="important" title="Rules">
 
@@ -57,7 +57,7 @@ setError("root.serverError", {
 - This method will force <code>formState.isValid</code> to <code>false</code>.
   However, <code>isValid</code> is always derived from the validation results of your
   registered inputs or schema.
-- There are certain keywords that need to be avoided to prevent conflicts with type checking.
+- Avoid using `type`, `root`, `ref`, `types`, `message`, or `form` as field names — these collide with the internal shape of `FieldError`/`GlobalError`.
 
 </Admonition>
 
@@ -70,7 +70,7 @@ setError("root.serverError", {
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-nfxxu"
-import * as React from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 type FormInputs = {
@@ -88,7 +88,7 @@ const App = () => {
     console.log(data)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setError("username", {
       type: "manual",
       message: "Dont Forget Your Username Should Be Cool!",
@@ -144,7 +144,6 @@ const App = () => {
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-seterror-8h440"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 
 type FormInputs = {
@@ -202,7 +201,6 @@ const App = () => {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-seterror-3y1op"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 
 const App = () => {
@@ -263,7 +261,7 @@ Use `types` (with `criteriaMode: "all"`) to attach multiple validation messages 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy
-import * as React from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 type FormInputs = {
@@ -282,7 +280,7 @@ const App = () => {
 
   const onSubmit = (data: FormInputs) => console.log(data)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setError("lastName", {
       types: {
         required: "This is required",
@@ -308,7 +306,7 @@ const App = () => {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/seterror-single-field-errors-79wcr9"
-import * as React from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 const App = () => {
@@ -324,7 +322,7 @@ const App = () => {
     console.log(data)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setError("lastName", {
       types: {
         required: "This is required",
@@ -354,7 +352,6 @@ const App = () => {
 **Server Error**
 
 ```javascript copy
-import * as React from "react";
 import { useForm } from "react-hook-form";
 
 const App = () => {

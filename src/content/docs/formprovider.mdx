@@ -21,7 +21,7 @@ The following table applies to `FormProvider`; `useFormContext` accepts no argum
 
 <Admonition type="important" title="Rules">
 
-- Avoid using nested FormProvider
+- Avoid nesting `FormProvider` components. Because React context does not merge, any `useFormContext()` call inside the inner `FormProvider`'s subtree will only see the _innermost_ form's methods and state — not the outer form — which can silently break field registration or validation for consumers that expect the outer form.
 - <Since version="7.44.0" /> `FormProviderProps` accepts a `TTransformedValues` generic (`FormProviderProps<TFieldValues, TContext, TTransformedValues>`) to type a resolver's transformed output.
 
 </Admonition>
@@ -31,6 +31,7 @@ The following table applies to `FormProvider`; `useFormContext` accepts no argum
 ---
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
+import { useEffect } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
 export default function App() {

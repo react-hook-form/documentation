@@ -36,19 +36,23 @@ const methods = useFormContext() // retrieve those props
   You need to wrap your form with the [`FormProvider`](/docs/formprovider)
   component for `useFormContext` to work properly.
 
-<Since version="7.44.0" /> Supports a second generic, `useFormContext<FormValues, TransformedValues>()`, to type the resolver's transformed output separately from the raw form values.
+<Since version="7.44.0" /> Supports a third generic, `useFormContext<TFieldValues, TContext, TTransformedValues>()`, to type the resolver's transformed output separately from the raw form values and context type.
 
 If you need to subscribe to form state values like `errors`, `isDirty`, or
 `dirtyFields` inside a `FormProvider` tree, use
 [`useFormState`](/docs/useformstate) instead of destructuring `formState`
-from `useFormContext()`. `formState` is wrapped with a Proxy, so you should
-read the specific state you want to subscribe to before rendering.
+from `useFormContext()`. `formState` is wrapped in a Proxy that only tracks
+the fields you actually read during render — destructuring `formState` and
+reading a property later (e.g. in a callback), or reading it conditionally,
+won't register a subscription, so the component won't re-render when that
+value changes.
 
 </Admonition>
 
 ##### Example:
 
 ```javascript copy codesandbox="https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi"
+import { useEffect } from "react"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
 export default function App() {

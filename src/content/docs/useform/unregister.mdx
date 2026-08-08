@@ -20,11 +20,11 @@ The example below shows what to expect when you invoke the `unregister` method.
 <input {...register('yourDetails.lastName')} />
 ```
 
-| Type                          | Input Name                             | Value              |
-| ----------------------------- | -------------------------------------- | ------------------ |
-| <TypeText>string</TypeText>   | `unregister("yourDetails")`            | `{}`               |
-| <TypeText>string</TypeText>   | `unregister("yourDetails.firstName")`  | `{ lastName: '' }` |
-| <TypeText>string[]</TypeText> | `unregister(["yourDetails.lastName"])` | `''`               |
+| Type                          | Input Name                             | Value               |
+| ----------------------------- | -------------------------------------- | ------------------- |
+| <TypeText>string</TypeText>   | `unregister("yourDetails")`            | `{}`                |
+| <TypeText>string</TypeText>   | `unregister("yourDetails.firstName")`  | `{ lastName: '' }`  |
+| <TypeText>string[]</TypeText> | `unregister(["yourDetails.lastName"])` | `{ firstName: '' }` |
 
 ### Options
 
@@ -37,7 +37,8 @@ The example below shows what to expect when you invoke the `unregister` method.
 | `keepIsValid`      | <TypeText>boolean</TypeText> | `isValid` will be remained during this action. However, this is not going to guarantee the next user input will not update `isValid` for schema validation, you will have to adjust the schema according with the unregister. |
 | `keepError`        | <TypeText>boolean</TypeText> | `errors` will not be updated.                                                                                                                                                                                                 |
 | `keepValue`        | <TypeText>boolean</TypeText> | input's current `value` will not be updated.                                                                                                                                                                                  |
-| `keepDefaultValue` | <TypeText>boolean</TypeText> | input's `defaultValue` which defined in `useForm` will be remained.                                                                                                                                                           |
+| `keepDefaultValue` | <TypeText>boolean</TypeText> | input's `defaultValue` which defined in `useForm` will be remained. **Note:** only has an effect when the form's top-level `shouldUnregister` option is `false` (the default); it is a no-op when `shouldUnregister: true`.   |
+| `keepIsValidating` | <TypeText>boolean</TypeText> | `validatingFields`/`isValidating` state for the unregistered field will be retained rather than cleared.                                                                                                                      |
 
 <Admonition type="important" title="Rules">
 
@@ -79,7 +80,7 @@ The example below shows what to expect when you invoke the `unregister` method.
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 interface IFormInputs {
@@ -91,7 +92,7 @@ export default function App() {
   const { register, handleSubmit, unregister } = useForm<IFormInputs>()
   const onSubmit = (data: IFormInputs) => console.log(data)
 
-  React.useEffect(() => {
+  useEffect(() => {
     register("lastName")
   }, [register])
 
@@ -107,13 +108,13 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
   const { register, handleSubmit, unregister } = useForm()
 
-  React.useEffect(() => {
+  useEffect(() => {
     register("lastName")
   }, [register])
 

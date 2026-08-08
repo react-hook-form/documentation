@@ -13,10 +13,10 @@ This function will receive the form data if form validation is successful.
 
 ---
 
-| Name               | Type                                                                | Description            |
-| ------------------ | ------------------------------------------------------------------- | ---------------------- |
-| SubmitHandler      | <TypeText>`(data: Object, e?: Event) => Promise<void>`</TypeText>   | A successful callback. |
-| SubmitErrorHandler | <TypeText>`(errors: Object, e?: Event) => Promise<void>`</TypeText> | An error callback.     |
+| Name               | Type                                                                                                | Description            |
+| ------------------ | --------------------------------------------------------------------------------------------------- | ---------------------- |
+| SubmitHandler      | <TypeText>`(data: TFieldValues, e?: BaseSyntheticEvent) => TResult \| Promise<TResult>`</TypeText>  | A successful callback. |
+| SubmitErrorHandler | <TypeText>`(errors: FieldErrors, e?: BaseSyntheticEvent) => unknown \| Promise<unknown>`</TypeText> | An error callback.     |
 
 <Admonition type="important" title="Rules">
 

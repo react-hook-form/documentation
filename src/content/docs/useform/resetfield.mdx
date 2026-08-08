@@ -13,10 +13,10 @@ Reset an individual field state.
 
 ---
 
-After invoke this function.
+After invoking this function, with default options:
 
-- `isValid` form state will be reevaluated.
-- `isDirty` form state will be reevaluated.
+- `isValid` will be reevaluated, unless `keepError: true` is passed.
+- `isDirty` will be reevaluated, unless `keepDirty: true` is passed.
 
 `ResetField` has the ability to retain field state. Here are the options you may want to use:
 
@@ -47,7 +47,6 @@ After invoke this function.
 **Reset Field State**
 
 ```javascript copy sandbox="https://codesandbox.io/s/priceless-firefly-d0kuv"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
@@ -81,7 +80,6 @@ export default function App() {
 **Reset With Options**
 
 ```javascript copy sandbox="https://codesandbox.io/s/resetfield-with-options-iw4wd"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {

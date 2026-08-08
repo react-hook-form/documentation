@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## \</> `control:` <TypeText>[Control](/ts#Control)</TypeText>
 
-This object contains methods for registering components into React Hook Form.
+This object contains methods for registering components into React Hook Form. Pass it to [`Controller`](/docs/usecontroller/controller), [`useController`](/docs/usecontroller), [`useWatch`](/docs/usewatch), [`useFieldArray`](/docs/usefieldarray), [`useFormState`](/docs/useformstate), or [`FormProvider`](/docs/formprovider) so those APIs can connect to the same form instance — it's optional wherever the component is already inside a `FormProvider`.
 
 <Admonition type="important" title="Rules">
 
@@ -23,7 +23,7 @@ This object contains methods for registering components into React Hook Form.
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
 import { useForm, Controller } from "react-hook-form"
-import { TextField } from "@material-ui/core"
+import { TextField } from "@mui/material"
 
 type FormInputs = {
   firstName: string

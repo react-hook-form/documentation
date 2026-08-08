@@ -747,14 +747,14 @@ When using functions with methods like `reflect`, you need to be careful about f
 
 ```tsx
 // ❌ Creates a new function on every render, breaking the cache
-lens.reflect((l) => l.focus("firstName"))
+lens.reflect((proxy) => proxy.focus("firstName"))
 ```
 
 To maintain caching, memoize the function you pass:
 
 ```tsx
 // ✅ Memoized function preserves the cache
-lens.reflect(useCallback((l) => l.focus("firstName"), []))
+lens.reflect(useCallback((proxy) => proxy.focus("firstName"), []))
 ```
 
 <Admonition type="tip" title="React Compiler Optimization">
@@ -865,7 +865,8 @@ export function useMyLens<TFieldValues extends FieldValues = FieldValues>(
 Now you can use this hook as usual and you have the new method with correct TypeScript support:
 
 ```typescript
-const lens = useMyLens(form)
+const { control } = useForm()
+const lens = useMyLens({ control })
 lens.getValue() // Your custom method is now available with full type support
 ```
 

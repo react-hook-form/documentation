@@ -106,7 +106,7 @@ sidebar: apiLinks
 | [validate](#validate)                                   | Form-level validation is limited to built-in validation methods.                                                                                                                                                                                                      |
 | [shouldUseNativeValidation](#shouldUseNativeValidation) | Use browser built-in form constraint API.                                                                                                                                                                                                                             |
 | [shouldUnregister](#shouldUnregister)                   | Enable and disable input unregister after unmount.                                                                                                                                                                                                                    |
-| [progressive](/docs/useform/form)                       | Forward validation attributes (`required`, `min`, `max`, etc.) as native HTML attributes on inputs. Required when using `shouldUseNativeValidation` so the browser can display built-in validation UI. Also enables progressive enhancement for the `Form` component. |
+| [progressive](#progressive)                             | Forward validation attributes (`required`, `min`, `max`, etc.) as native HTML attributes on inputs. Required when using `shouldUseNativeValidation` so the browser can display built-in validation UI. Also enables progressive enhancement for the `Form` component. |
 | [disabled](#disabled)                                   | Disable the entire form with all associated inputs.                                                                                                                                                                                                                   |
 | [formControl](/docs/createformcontrol)                  | Supply a pre-created form control object (from `createFormControl`) instead of letting `useForm` create one internally.                                                                                                                                               |
 
@@ -152,14 +152,14 @@ The `defaultValues` prop populates the entire form with default values. It suppo
 ```javascript copy
 useForm({
   defaultValues: {
-    firstName: '',
-    lastName: ''
-  }
+    firstName: "",
+    lastName: "",
+  },
 })
 
 // set default value async
 useForm({
-  defaultValues: async () => fetch('/api-endpoint');
+  defaultValues: async () => fetch("/api-endpoint").then((res) => res.json()),
 })
 ```
 
@@ -277,8 +277,7 @@ When set to `true` (default), and the user submits a form that fails validation,
 
 <Admonition type="note">
 
-- Only registered fields with a `ref` will work. Custom registered inputs do not
-  apply. For example: `register('test') // doesn't work`
+- Only works when the field's `ref` is actually attached to a DOM element — e.g. `<input {...register('test')} />`. A custom-registered input whose returned props are never spread onto a real element (so no `ref` is attached) won't receive focus, since there's nothing to focus.
 - The focus order is based on the `register` order.
 
 </Admonition>
@@ -297,7 +296,7 @@ When set to `true` (default), and the user submits a form that fails validation,
 
 This example demonstrates how to use the **new `validate` API** in combination with `useForm` to perform **form-level validation** in a React application.
 
-The `validate` function receives the entire form object and allows you to return a **structured error** that integrates with `formState.errors`.
+The `validate` function receives `{ formValues, formState, eventType, name }` and must return one of: `true` (valid), a `string` (surfaced at `formState.errors.form`), or an object of `{ [fieldName]: { type, message } }` (each entry surfaced at `formState.errors.form.<fieldName>`). It can run alongside a `resolver`.
 
 ##### Examples:
 
@@ -308,11 +307,13 @@ const {
   register,
   formState: { errors },
 } = useForm({
-  validate: async ({ formValues }: FormValidateResult) => {
+  validate: async ({ formValues }) => {
     if (formValues.test1.length > formValues.test.length) {
       return {
-        type: "formError",
-        message: "something is wrong here",
+        test: {
+          type: "formError",
+          message: "something is wrong here",
+        },
       }
     }
 
@@ -342,27 +343,28 @@ By default, an input value will be retained when an input is removed. However, y
   - Unmounted inputs must be notified at either `useForm` or `useWatch`'s `useEffect` for the hook form to verify that the input is unmounted from the DOM.
 
     ```javascript
-    const NotWork = () => {
-      const [show, setShow] = React.useState(false)
+    const NotWork = ({ register, show }) => {
       // ❌ won't get notified; you need to invoke unregister
       return show && <input {...register("test")} />
     }
 
-    const Work = ({ control }) => {
+    const Work = ({ control, register }) => {
+      // "show" is itself a registered checkbox field in the same form
       const { show } = useWatch({ control })
       // ✅ gets notified in useEffect
       return show && <input {...register("test1")} />
     }
 
     const App = () => {
-      const [show, setShow] = React.useState(false)
-      const { control } = useForm({ shouldUnregister: true })
+      const [showNotWork, setShowNotWork] = React.useState(false)
+      const { register, control } = useForm({ shouldUnregister: true })
       return (
         <div>
-          // ✅ gets notified in useForm's useEffect
-          {show && <input {...register("test2")} />}
-          <NotWork />
-          <Work control={control} />
+          <input type="checkbox" {...register("show")} />
+          {/* ✅ gets notified in useForm's useEffect */}
+          {showNotWork && <input {...register("test2")} />}
+          <NotWork register={register} show={showNotWork} />
+          <Work control={control} register={register} />
         </div>
       )
     }
@@ -413,6 +415,18 @@ export default function App() {
     </form>
   )
 }
+```
+
+#### progressive: <TypeText>boolean = false</TypeText> {#progressive}
+
+---
+
+Forwards validation rules (`required`, `min`, `max`, `minLength`, `maxLength`, `pattern`) from [`register`](/docs/useform/register) as native HTML attributes on the input. Required alongside [`shouldUseNativeValidation`](#shouldUseNativeValidation) so the browser has something to validate against. Also enables progressive enhancement for the [`Form`](/docs/useform/form) component (rendering usable HTML before hydration).
+
+```javascript copy
+useForm({
+  progressive: true,
+})
 ```
 
 #### disabled: <TypeText>boolean = false</TypeText> <Since version="7.48.0" /> {#disabled}
@@ -646,7 +660,6 @@ const App = () => {
 ```
 
 ```tsx copy sandbox="https://codesandbox.io/s/vest-8q874"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 import { vestResolver } from "@hookform/resolvers/vest"
 import vest, { test, enforce } from "vest"
@@ -693,7 +706,6 @@ const App = () => {
 ```
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-customresoliver-ts-v7-juc63"
-import * as React from "react"
 import { useForm } from "react-hook-form"
 import * as Joi from "joi"
 
@@ -739,7 +751,7 @@ const App = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
         <input {...register("username")} />
-        {errors.username && <p>errors.username.message</p>}
+        {errors.username && <p>{errors.username.message}</p>}
         <input type="submit" />
       </form>
     </div>
@@ -771,12 +783,11 @@ resolver: async (data, context, options) => {
 
 #### `useForm` return and `useEffect` dependencies
 
-In a future major release, the `useForm` return value will be memoized to optimize performance and reflect changes in the `formState`.
-As a result, adding the entire return value of `useForm` to a `useEffect` dependency list may lead to infinite loops.
+In a future major release, the `useForm` return value will be memoized to optimize performance and reflect changes in the `formState`. Once that ships, the returned object will get a new reference whenever `formState` updates — so depending on it directly in a `useEffect` dependency array will re-run that effect on every `formState` change, which can create an infinite loop if the effect itself updates the form (e.g. calling `reset`).
 
 <Admonition type="warning" >
 
-The following code is likely to create this situation:
+Avoid depending on the entire `useForm` return value going forward — the following pattern will break once memoization ships:
 
 ```javascript
 const methods = useForm()

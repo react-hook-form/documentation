@@ -19,12 +19,15 @@ This function allows you to dynamically set multiple field values at once and ha
 | `options`                                                                                              | `shouldValidate`<br/><TypeText>boolean</TypeText> | <ul><li>Whether to compute if your input is valid or not (subscribed to <TypeText>errors</TypeText>).</li><li>Whether to compute if your entire form is valid or not (subscribed to <TypeText>isValid</TypeText>).</li></ul>                                                                |
 |                                                                                                        | `shouldDirty`<br/><TypeText>boolean</TypeText>    | <ul><li>Whether to compute if your input is dirty or not against your `defaultValues` (subscribed to <TypeText>dirtyFields</TypeText>).</li><li>Whether to compute if your entire form is dirty or not against your `defaultValues` (subscribed to <TypeText>isDirty</TypeText>).</li></ul> |
 |                                                                                                        | `shouldTouch`<br/><TypeText>boolean</TypeText>    | Whether to set the updated inputs to be touched.                                                                                                                                                                                                                                            |
+|                                                                                                        | `delayError`<br/><TypeText>boolean</TypeText>     | <Since version="7.82.0" /> Opt-in flag that delays the display of the resulting validation error, using the delay (in milliseconds) configured via [`useForm({ delayError })`](/docs/useform#delayError). Only takes effect when `shouldValidate` is also set to `true`.                    |
 
 <Admonition type="important" title="Rules">
 
 - When using the callback form, the function receives a snapshot of the current form values and should return the next form values.
 
 - This method does not reset the form. Use [`reset`](/docs/useform/reset) if you need to reinitialize `defaultValues`.
+
+- Unlike calling [`setValue`](/docs/useform/setvalue) multiple times in sequence, `setValues` batches all updates into a single re-render.
 
 </Admonition>
 

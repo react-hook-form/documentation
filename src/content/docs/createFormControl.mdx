@@ -53,11 +53,11 @@ This function creates the entire form state subscription and allows you to subsc
 
 ```javascript
 const { formControl, control, handleSubmit, register } = createFormControl({
-  mode: 'onChange',
+  mode: "onChange",
   defaultValues: {
-    firstName: 'Bill'
-  }
-}})
+    firstName: "Bill",
+  },
+})
 
 function App() {
   useForm({
@@ -65,24 +65,29 @@ function App() {
   })
 
   return (
-    <form onSubmit={handleSubmit(data => console.log)}>
-      <input {...register('name')} />
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <input {...register("name")} />
       <FormState />
-      <Controller />
+      <ControlledInput />
     </form>
-  );
+  )
 }
 
 function FormState() {
-  useFormState({
-    control // no longer need context api
+  const { isDirty } = useFormState({
+    control, // no longer need context api
   })
+
+  return isDirty ? <p>Form is dirty.</p> : null
 }
 
-function Controller() {
-  useFormState({
-    control // no longer need context api
+function ControlledInput() {
+  const { field } = useController({
+    control, // no longer need context api
+    name: "firstName",
   })
+
+  return <input {...field} />
 }
 ```
 

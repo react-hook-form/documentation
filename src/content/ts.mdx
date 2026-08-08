@@ -6,9 +6,16 @@ sidebar: tsLinks
 
 <TsSelectNav />
 
-**Important:** TypeScript 4.3 or above is the recommended version to work with React Hook Form.
+**Important:** TypeScript 5.1 or above is the recommended version to work with React Hook Form. Several exported types (recursive `Path<T>` field-name inference, template-literal field paths) rely on generics features from TypeScript 4.1+, so older versions may not type-check correctly.
+
+Many of the types below share two generic parameters beyond the form values type (`TFieldValues`):
+
+- **`TContext`** — the type of the second argument passed to `useForm`'s `context` option. It's forwarded, unchanged, to your `resolver` so validation logic can read values that live outside the form (e.g. a logged-in user, feature flags).
+- **`TTransformedValues`** — the shape of the data your `resolver` produces after transforming it (e.g. a Zod schema with `.transform()` that turns a string into a `Date`). It defaults to `TFieldValues` and only differs when a resolver reshapes data before it reaches `handleSubmit`'s `onValid` callback.
 
 ## \</> Resolver {#Resolver}
+
+A `Resolver` lets you plug in an external validation library (such as [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), or [Joi](https://github.com/hapijs/joi)) in place of React Hook Form's built-in validation. It receives the current form values and must return `{ values, errors }`.
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-resolver-forked-mjsx7"
 import { useForm, Resolver } from "react-hook-form"
@@ -201,33 +208,42 @@ export type UseFormReturn<
 ```
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-UseFormReturn-forked-yl40u"
+import {
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  ReactNode,
+  SelectHTMLAttributes,
+  forwardRef,
+} from "react"
 import type { FieldValues, UseFormReturn, SubmitHandler } from "react-hook-form"
 import { useForm } from "react-hook-form"
 
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
+type InputProps = DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => (
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => (
   <input ref={ref} {...props} />
 ))
 
 type Option = {
-  label: React.ReactNode
+  label: ReactNode
   value: string | number | string[]
 }
 
-type SelectProps = React.DetailedHTMLProps<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
+type SelectProps = DetailedHTMLProps<
+  SelectHTMLAttributes<HTMLSelectElement>,
   HTMLSelectElement
 > & { options: Option[] }
 
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ options, ...props }, ref) => (
     <select ref={ref} {...props}>
       {options.map(({ label, value }) => (
-        <option value={value}>{label}</option>
+        <option key={value} value={value}>
+          {label}
+        </option>
       ))}
     </select>
   )
@@ -235,7 +251,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
 type FormProps<TFormValues extends FieldValues> = {
   onSubmit: SubmitHandler<TFormValues>
-  children: (methods: UseFormReturn<TFormValues>) => React.ReactNode
+  children: (methods: UseFormReturn<TFormValues>) => ReactNode
 }
 
 const Form = <TFormValues extends FieldValues>({
@@ -313,6 +329,33 @@ export type UseFormProps<
   validate: ValidateForm<TFieldValues>
 }>
 ```
+
+---
+
+## \</> ValidateForm {#ValidateForm}
+
+The type of [`useForm`](/docs/useform#validate)'s `validate` option — form-level validation that runs alongside (or instead of) a `resolver`.
+
+```tsx copy
+export type ValidateForm<TFormValues extends FieldValues> = (props: {
+  formValues: TFormValues
+  formState: FormState<TFormValues>
+  eventType?: string
+  name?: FieldPath<TFormValues> | FieldPath<TFormValues>[]
+}) => FormValidateResult<TFormValues> | Promise<FormValidateResult<TFormValues>>
+
+export type FormValidateResult<TFormValues> =
+  | Partial<
+      Record<
+        keyof TFormValues,
+        { message: string | string[] | boolean; type: string }
+      >
+    >
+  | string
+  | boolean
+```
+
+Return `true` for a valid form. Returning a `string` sets `formState.errors.form`; returning an object keyed by field name sets `formState.errors.form.<fieldName>` for each entry.
 
 ---
 
@@ -812,15 +855,16 @@ export type FieldArrayMethodProps = {
 ```tsx copy
 export type UseFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
-  TKeyName extends string = 'id',
+  TFieldArrayName extends
+    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TKeyName extends string = "id",
   TTransformedValues = TFieldValues,
 > = {
   name: TFieldArrayName
   keyName?: TKeyName
   control?: Control<TFieldValues, any, TTransformedValues>
   rules?: {
-    validate?
+    validate?:
       | Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>
       | Record<
           string,
@@ -828,7 +872,7 @@ export type UseFieldArrayProps<
         >
   } & Pick<
     RegisterOptions<TFieldValues>,
-    'maxLength' | 'minLength' | 'required'
+    "maxLength" | "minLength" | "required"
   >
   shouldUnregister?: boolean
   disabled?: boolean
@@ -1180,12 +1224,19 @@ export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
 
 ## \</> NestedValue (**Deprecated** at 7.33.0) {#NestedValue}
 
+`NestedValue` is deprecated and will be removed in a future major version. For
+a non-primitive value that needs to stay controlled (such as the array values
+below), type the field normally in your form values and wire it up with
+[`Controller`](/docs/usecontroller/controller) instead of wrapping the type in
+`NestedValue`.
+
 <TabGroup buttonLabels={["Code Example", "Type"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-nestedvalue-lskdv"
+import { useEffect } from "react"
 import { useForm, NestedValue } from "react-hook-form"
-import { TextField, Select } from "@material-ui/core"
-import { Autocomplete } from "@material-ui/lab"
+import { TextField, Select, MenuItem } from "@mui/material"
+import { Autocomplete } from "@mui/material"
 
 type Option = {
   label: string
@@ -1213,7 +1264,7 @@ export default function App() {
   })
   const onSubmit = handleSubmit((data) => console.log(data))
 
-  React.useEffect(() => {
+  useEffect(() => {
     register("autocomplete", {
       validate: (value) => value.length || "This is required.",
     })
@@ -1239,6 +1290,8 @@ export default function App() {
 
       <Select
         value=""
+        multiple
+        // cast required because NestedValue<number[]> bypasses field-level type inference
         onChange={(e) => setValue("select", e.target.value as number[])}
       >
         <MenuItem value={10}>Ten</MenuItem>

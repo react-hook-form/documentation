@@ -229,6 +229,10 @@ export const tsLinks: Pages = [
     pathname: "#UseFormProps",
   },
   {
+    name: "ValidateForm",
+    pathname: "#ValidateForm",
+  },
+  {
     name: "UseFormRegister",
     pathname: "#UseFormRegister",
   },

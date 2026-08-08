@@ -7,7 +7,7 @@ sidebar: apiLinks
 
 ## `trigger:` <TypeText>[UseFormTrigger](/ts#UseFormTrigger)</TypeText>
 
-Manually triggers form or input validation. This method is also useful when you have dependent validation (input validation depends on another input's value).
+Manually triggers form or input validation. This method is also useful when you have dependent validation (input validation depends on another input's value). `trigger` returns `Promise<boolean>`, resolving `true` when the targeted field(s) pass validation and `false` otherwise.
 
 ### Props
 
@@ -22,7 +22,7 @@ Manually triggers form or input validation. This method is also useful when you 
 
 <Admonition type="important" title="Rules">
 
-Isolate render optimisation only applicable for targeting a single field name with `string` as payload, when supplied with `array` and `undefined` to trigger will re-render the entire formState.
+Render-optimization isolation only applies when you target a single field by passing a `string` name. Passing an `array` of names, or calling `trigger()` with no arguments, re-renders the entire form state.
 
 </Admonition>
 

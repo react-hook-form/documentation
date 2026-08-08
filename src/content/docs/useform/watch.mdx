@@ -11,11 +11,12 @@ This method watches specified inputs and returns their values. It is useful for 
 
 ### Overloads
 
-This function mainly serves **two purposes**:
+This function has four overloads:
 
 - <TypeText>`watch(name: string, defaultValue?: unknown): unknown`</TypeText>
 - <TypeText>`watch(names: string[], defaultValue?: {[key:string]: unknown}): unknown[]`</TypeText>
 - <TypeText>`watch(): {[key:string]: unknown}`</TypeText>
+- <TypeText>`watch(callback, defaultValues?): { unsubscribe: () => void }`</TypeText> _(deprecated, see below)_
 
 The explanation of each of these four overloads follows below.
 
@@ -23,7 +24,7 @@ The explanation of each of these four overloads follows below.
 
 ---
 
-Watch and subscribe to a single field used outside of render.
+Call `watch` inside your component to subscribe to a field's value and re-render when it changes.
 
 **Params**
 
@@ -42,7 +43,7 @@ const name = watch("name")
 
 ---
 
-Watch and subscribe to an array of fields used outside of render.
+Call `watch` inside your component to subscribe to an array of fields and re-render when any of them change.
 
 **Params**
 
@@ -185,7 +186,6 @@ function App() {
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-z54xwd"
-import * as React from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 
 type FormValues = {
@@ -228,8 +228,8 @@ function App() {
         type="button"
         onClick={() =>
           append({
-            firstName: "bill" + renderCount,
-            lastName: "luo" + renderCount,
+            firstName: "bill",
+            lastName: "luo",
           })
         }
       >
@@ -241,7 +241,6 @@ function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/watch-with-usefieldarray-52yy3z"
-import * as React from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 
 function App() {
@@ -277,8 +276,8 @@ function App() {
         type="button"
         onClick={() =>
           append({
-            firstName: "bill" + renderCount,
-            lastName: "luo" + renderCount,
+            firstName: "bill",
+            lastName: "luo",
           })
         }
       >
