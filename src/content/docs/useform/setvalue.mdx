@@ -52,11 +52,11 @@ This function allows you to dynamically set the value of a <strong>registered</s
 
 - It's recommended to register the input's name before invoking `setValue`. To update the entire `FieldArray`, make sure the `useFieldArray` hook is being executed first.
 
-  **Important:** Use `replace` from `useFieldArray` instead; updating the entire field array with `setValue` will be removed in the next major version.
+  **Important:** Prefer `replace` from `useFieldArray` for updating an entire field array — it's the more explicit, purpose-built API, and this `setValue` usage may become discouraged in a future version.
 
   ```javascript
   // you can update an entire Field Array,
-  setValue("fieldArray", [{ test: "1" }, { test: "2" }]) // ⚠️ works today, but will be removed — use replace() instead
+  setValue("fieldArray", [{ test: "1" }, { test: "2" }]) // ⚠️ works, but prefer replace() from useFieldArray
 
   // you can use `setValue` on an unregistered input
   setValue("notRegisteredInput", "value") // ✅ prefer it to be registered
