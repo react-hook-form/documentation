@@ -188,6 +188,7 @@ export type UseFormReturn<
 > = {
   watch: UseFormWatch<TFieldValues>
   getValues: UseFormGetValues<TFieldValues>
+  getErrors: UseFormGetErrors<TFieldValues>
   getFieldState: UseFormGetFieldState<TFieldValues>
   setError: UseFormSetError<TFieldValues>
   clearErrors: UseFormClearErrors<TFieldValues>
@@ -542,12 +543,7 @@ The type of the `setError` function.
 
 ```tsx copy
 export type UseFormSetError<TFieldValues extends FieldValues> = (
-  name:
-    | FieldPath<TFieldValues>
-    | `root.${string}`
-    | "root"
-    | "form"
-    | `form.${string}`,
+  name: FieldPath<TFieldValues> | ErrorNamespacePath,
   error: ErrorOption,
   options?: {
     shouldFocus: boolean
@@ -567,10 +563,7 @@ export type UseFormClearErrors<TFieldValues extends FieldValues> = (
     | FieldPath<TFieldValues>
     | FieldPath<TFieldValues>[]
     | readonly FieldPath<TFieldValues>[]
-    | `root.${string}`
-    | "root"
-    | "form"
-    | `form.${string}`
+    | ErrorNamespacePath
 ) => void
 ```
 
@@ -644,6 +637,43 @@ export type UseFormGetValues<TFieldValues extends FieldValues> = {
     names: readonly [...TFieldNames],
     config?: GetValuesConfig
   ): [...FieldPathValues<TFieldValues, TFieldNames>]
+}
+```
+
+---
+
+## \</> UseFormGetErrors {#UseFormGetErrors}
+
+The type of the `getErrors` function. This type is overloaded; it can be called with no arguments, a single error path, or an array of error paths.
+
+```tsx copy
+export type ErrorNamespacePath =
+  | "root"
+  | `root.${string}`
+  | "form"
+  | `form.${string}`
+
+export type GetErrorsResult<
+  TFieldValues extends FieldValues,
+  TName extends FieldPath<TFieldValues> | ErrorNamespacePath,
+> = TName extends "root"
+  ? (Record<string, GlobalError> & GlobalError) | undefined
+  : TName extends ErrorNamespacePath
+    ? GlobalError | undefined
+    : TName extends FieldPath<TFieldValues>
+      ? FieldPathError<TFieldValues, TName> | undefined
+      : never
+
+export type UseFormGetErrors<TFieldValues extends FieldValues> = {
+  (name?: undefined): FieldErrors<TFieldValues>
+  <TName extends FieldPath<TFieldValues> | ErrorNamespacePath>(
+    name: TName
+  ): GetErrorsResult<TFieldValues, TName>
+  <TNames extends (FieldPath<TFieldValues> | ErrorNamespacePath)[]>(
+    names: readonly [...TNames]
+  ): {
+    [K in keyof TNames]: GetErrorsResult<TFieldValues, TNames[K]>
+  }
 }
 ```
 
