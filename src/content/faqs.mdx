@@ -52,6 +52,17 @@ No, not out of the box. If you want to do this, you can build a wrapper around i
 
 ---
 
+## Does it work with React's `<Activity />` component? {#DoesitworkwithReactsActivitycomponent}
+
+<Since version="7.85.0" /> Yes. Hiding a form with `<Activity mode="hidden">`
+unmounts its effects and subscriptions, then remounts them when it becomes
+visible again, which used to leave `useWatch` values and
+`formState.isSubmitting` stale after restoration. React Hook Form now
+resyncs its internal subscriptions on remount, so state stays correct across
+`<Activity />` visibility changes without any extra configuration.
+
+---
+
 ## How to reset the form? {#Howtoresettheform}
 
 There are two methods to clear the form:
