@@ -16,15 +16,17 @@ V8 adds first-class support for the [React Compiler](https://react.dev/learn/rea
 
 ## Flat Field Array {#FlatFieldArray}
 
-V8 supports flat field arrays, allowing simpler data structures when working with `useFieldArray`.
+V8's types support flat field arrays, allowing simpler data structures when working with `useFieldArray`.
 
 ```tsx copy
 // Before (V7) — each row had to be an object
 useFieldArray({ name: "items" }) // items: { value: string }[]
 
-// After (V8) — primitive values are supported directly
+// After (V8) — primitive values type-check
 useFieldArray({ name: "items" }) // items: string[]
 ```
+
+**Note:** as of the current beta, this is a types-only improvement — `fields` still spreads each entry with `{ ...field, key }` internally, which does not behave as expected for primitive array items. Verify rendering behavior for a primitive `items: string[]` array before relying on this in production.
 
 ## Breaking Changes {#BreakingChanges}
 
@@ -32,19 +34,17 @@ The following changes require updates to your existing code when upgrading from 
 
 ### Input Ref {#InputRef}
 
-`register` now passes the input `ref` directly instead of a partial ref object.
+`register`'s returned `ref` is unchanged — it's still a callback ref that receives the real DOM element. This change is about [`Controller`](/docs/usecontroller/controller) and [`useController`](/docs/usecontroller)'s `field.ref` instead: in V7, `field.ref` was a partial proxy object exposing only `focus`, `select`, `setCustomValidity`, and `reportValidity`. In V8, `field.ref` is the actual DOM element, so any method or property on the real node is available.
 
 ```tsx copy
-const { ref } = register("firstName")
+const { field } = useController({ name: "firstName", control })
 
-// Before (V7) — ref was a partial ref-like object
-ref.current // not the actual DOM node
+// Before (V7) — field.ref only exposed a fixed set of methods
+field.ref.appendChild // ❌ not available
 
-// After (V8) — ref is the actual input element
-ref.current // the real <input> DOM node
+// After (V8) — field.ref is the actual input element
+field.ref.appendChild // ✅ available, like any other DOM node
 ```
-
-If you were reading properties off `register(...).ref` directly (rather than spreading `{...register("firstName")}` onto an `<input>`), update your code to expect the real DOM element.
 
 See [#12773](https://github.com/react-hook-form/react-hook-form/issues/12773) for details.
 
@@ -91,7 +91,7 @@ The `<Watch />` component prop `names` has been renamed to `name` for consistenc
 
 ### watch Callback API {#watchCallback}
 
-The `watch` subscription callback API has been removed. Use [`subscribe`](/docs/useform/subscribe) instead for reactive form value changes.
+The `watch` subscription callback overload's exported type (`WatchObserver`) has been removed from the public API — as of the current beta, the callback still works at runtime, but you lose the named type if you relied on importing it. Use [`subscribe`](/docs/useform/subscribe) instead going forward, since it's the supported, fully-typed API for this pattern.
 
 ```tsx copy
 // Before (V7)
@@ -106,13 +106,9 @@ subscribe({
 
 ### setValue {#setValue}
 
-`setValue` no longer directly updates `useFieldArray` fields. Use the `replace` method from `useFieldArray` instead when you need to overwrite an entire field array.
+As of the current beta, `setValue` still directly updates `useFieldArray` fields, unchanged from V7 — this section describes a planned change that has not yet shipped. If you need to overwrite an entire field array, the `replace` method from `useFieldArray` remains the recommended approach in both V7 and V8:
 
 ```tsx copy
-// Before (V7)
-setValue("items", newItems)
-
-// After (V8)
 const { replace } = useFieldArray({ name: "items" })
 replace(newItems)
 ```

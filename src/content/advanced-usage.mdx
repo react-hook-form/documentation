@@ -354,7 +354,7 @@ import { Input, Select, MenuItem } from "@mui/material"
 import { useForm, Controller } from "react-hook-form"
 
 const defaultValues = {
-  select: "",
+  select: 10,
   input: "",
 }
 
@@ -366,6 +366,7 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {/* Controller's own defaultValue is ignored here — useForm's defaultValues takes precedence for the same field */}
       <Controller
         render={({ field }) => (
           <Select {...field}>
@@ -375,7 +376,6 @@ function App() {
         )}
         control={control}
         name="select"
-        defaultValue={10}
       />
 
       <Input {...register("input")} />

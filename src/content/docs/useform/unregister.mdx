@@ -59,7 +59,7 @@ The example below shows what to expect when you invoke the `unregister` method.
 - Make sure you unmount that input which has `register` callback or else the input will get registered again.
 
   ```javascript
-  const [show, setShow] = React.useState(true)
+  const [show, setShow] = useState(true)
 
   const onClick = () => {
     unregister("test")
