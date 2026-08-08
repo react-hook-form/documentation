@@ -1,0 +1,72 @@
+---
+title: getErrors
+description: Read current form errors without subscribing to re-renders.
+metaDescription: Read all, individual, or multiple currently stored form errors without running validation.
+sidebar: apiLinks
+---
+
+## \</> `getErrors:` <TypeText>[UseFormGetErrors](/ts#UseFormGetErrors)</TypeText>
+
+**Note**: This API is planned for an upcoming React Hook Form release and has not yet shipped.
+
+`getErrors` reads the errors currently stored in the form without running validation, subscribing to error changes, or triggering re-renders. Use [`formState.errors`](/docs/useform/formstate) or [`useFormState`](/docs/useformstate) for reactive error UI.
+
+### Props
+
+---
+
+| Name   | Type                           | Description                                                                                                                                                         |
+| ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name` | <TypeText>undefined</TypeText> | Returns all currently stored errors.                                                                                                                                |
+|        | <TypeText>string</TypeText>    | Returns the error at a field, parent, or global error path (`root`, `root.*`, `form`, or `form.*`), or `undefined`. Parent paths may return a nested error subtree. |
+|        | <TypeText>string[]</TypeText>  | Returns one result for each path in the same order. Missing errors remain `undefined`.                                                                              |
+
+<Admonition type="important" title="Rules">
+
+- Treat returned errors as read-only. Use [`setError`](/docs/useform/seterror) and [`clearErrors`](/docs/useform/clearerrors) to update the form's stored errors.
+
+</Admonition>
+
+##### Example
+
+---
+
+```tsx copy
+import { useForm } from "react-hook-form"
+
+type FormInputs = {
+  email: string
+  user: {
+    firstName: string
+  }
+}
+
+export default function App() {
+  const { register, getErrors } = useForm<FormInputs>({
+    mode: "onChange",
+  })
+
+  const readErrors = () => {
+    const allErrors = getErrors()
+    const userErrors = getErrors("user")
+    const [emailError, firstNameError] = getErrors(["email", "user.firstName"])
+
+    console.log({
+      allErrors,
+      userErrors,
+      emailError,
+      firstNameError,
+    })
+  }
+
+  return (
+    <form>
+      <input {...register("email", { required: true })} />
+      <input {...register("user.firstName", { required: true })} />
+      <button type="button" onClick={readErrors}>
+        Read errors
+      </button>
+    </form>
+  )
+}
+```

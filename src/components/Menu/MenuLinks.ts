@@ -129,6 +129,7 @@ export const apiLinks: Pages = [
       { pathname: "/docs/useform/setvalues", name: "setValues" },
       { pathname: "/docs/useform/setfocus", name: "setFocus" },
       { pathname: "/docs/useform/getvalues", name: "getValues" },
+      { pathname: "/docs/useform/geterrors", name: "getErrors" },
       { pathname: "/docs/useform/getfieldstate", name: "getFieldState" },
       { pathname: "/docs/useform/trigger", name: "trigger" },
       { pathname: "/docs/useform/control", name: "control" },
@@ -291,6 +292,10 @@ export const tsLinks: Pages = [
   {
     name: "UseFormGetValues",
     pathname: "#UseFormGetValues",
+  },
+  {
+    name: "UseFormGetErrors",
+    pathname: "#UseFormGetErrors",
   },
   {
     name: "UseFormGetFieldState",
