@@ -65,6 +65,10 @@ export const faqLinks: Pages = [
     pathname: "#DoesitworkwithClassComponents",
   },
   {
+    name: "Does it work with React's <Activity /> component?",
+    pathname: "#DoesitworkwithReactsActivitycomponent",
+  },
+  {
     name: "How to reset the form?",
     pathname: "#Howtoresettheform",
   },
