@@ -38,7 +38,7 @@ The example below shows what to expect when you invoke the `unregister` method.
 | `keepError`        | <TypeText>boolean</TypeText> | `errors` will not be updated.                                                                                                                                                                                                 |
 | `keepValue`        | <TypeText>boolean</TypeText> | input's current `value` will not be updated.                                                                                                                                                                                  |
 | `keepDefaultValue` | <TypeText>boolean</TypeText> | input's `defaultValue` which defined in `useForm` will be remained. **Note:** only has an effect when the form's top-level `shouldUnregister` option is `false` (the default); it is a no-op when `shouldUnregister: true`.   |
-| `keepIsValidating` | <TypeText>boolean</TypeText> | `validatingFields`/`isValidating` state for the unregistered field will be retained rather than cleared.                                                                                                                      |
+| `keepIsValidating` | <TypeText>boolean</TypeText> | <Since version="7.51.0" /> `validatingFields`/`isValidating` state for the unregistered field will be retained rather than cleared.                                                                                           |
 
 <Admonition type="important" title="Rules">
 

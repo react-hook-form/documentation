@@ -22,13 +22,13 @@ This method returns individual field state. It is useful for retrieving nested f
 
 ---
 
-| Name         | Type                                           | Description                                                                                 |
-| ------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `isDirty`    | <TypeText>`boolean`</TypeText>                 | field is modified.<br/>**Condition:** subscribe to `dirtyFields`.                           |
-| isTouched    | <TypeText>`boolean`</TypeText>                 | field has received a focus and blur event.<br/>**Condition:** subscribe to `touchedFields`. |
-| invalid      | <TypeText>`boolean`</TypeText>                 | field is not valid.<br/>**Condition:** subscribe to `errors`.                               |
-| isValidating | <TypeText>`boolean`</TypeText>                 | field is currently being validated.<br/>**Condition:** subscribe to `isValidating`.         |
-| error        | <TypeText>`undefined \| FieldError`</TypeText> | field error object.<br/>**Condition:** subscribe to `errors`.                               |
+| Name         | Type                                           | Description                                                                                                    |
+| ------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `isDirty`    | <TypeText>`boolean`</TypeText>                 | field is modified.<br/>**Condition:** subscribe to `dirtyFields`.                                              |
+| isTouched    | <TypeText>`boolean`</TypeText>                 | field has received a focus and blur event.<br/>**Condition:** subscribe to `touchedFields`.                    |
+| invalid      | <TypeText>`boolean`</TypeText>                 | field is not valid.<br/>**Condition:** subscribe to `errors`.                                                  |
+| isValidating | <TypeText>`boolean`</TypeText>                 | <Since version="7.51.0" /> field is currently being validated.<br/>**Condition:** subscribe to `isValidating`. |
+| error        | <TypeText>`undefined \| FieldError`</TypeText> | field error object.<br/>**Condition:** subscribe to `errors`.                                                  |
 
 <Admonition type="important" title="Rules">
 

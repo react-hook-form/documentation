@@ -22,19 +22,19 @@ This method allows you to register an input or select element and apply validati
 
 ---
 
-| Name        | Type                                  | Description                                                                                                                             |
-| ----------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`       | <TypeText>React.Ref</TypeText>        | React element ref used to connect hook form to the input.                                                                               |
-| `name`      | <TypeText>string</TypeText>           | Input's name being registered.                                                                                                          |
-| `onChange`  | <TypeText>ChangeHandler</TypeText>    | `onChange` prop to subscribe to the input change event.                                                                                 |
-| `onBlur`    | <TypeText>ChangeHandler</TypeText>    | `onBlur` prop to subscribe to the input blur event.                                                                                     |
-| `min`       | <TypeText>string \| number</TypeText> | _optional_. Present when the `min` rule is set, and forwarded as a native attribute when [`progressive`](/docs/useform/form) is `true`. |
-| `max`       | <TypeText>string \| number</TypeText> | _optional_. Present when the `max` rule is set, and forwarded as a native attribute when `progressive` is `true`.                       |
-| `maxLength` | <TypeText>number</TypeText>           | _optional_. Present when the `maxLength` rule is set, and forwarded as a native attribute when `progressive` is `true`.                 |
-| `minLength` | <TypeText>number</TypeText>           | _optional_. Present when the `minLength` rule is set, and forwarded as a native attribute when `progressive` is `true`.                 |
-| `pattern`   | <TypeText>string</TypeText>           | _optional_. Present when the `pattern` rule is set, and forwarded as a native attribute when `progressive` is `true`.                   |
-| `required`  | <TypeText>boolean</TypeText>          | _optional_. Present when the `required` rule is set, and forwarded as a native attribute when `progressive` is `true`.                  |
-| `disabled`  | <TypeText>boolean</TypeText>          | _optional_. Present when the `disabled` option is set.                                                                                  |
+| Name        | Type                                  | Description                                                                                                                                                        |
+| ----------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ref`       | <TypeText>React.Ref</TypeText>        | React element ref used to connect hook form to the input.                                                                                                          |
+| `name`      | <TypeText>string</TypeText>           | Input's name being registered.                                                                                                                                     |
+| `onChange`  | <TypeText>ChangeHandler</TypeText>    | `onChange` prop to subscribe to the input change event.                                                                                                            |
+| `onBlur`    | <TypeText>ChangeHandler</TypeText>    | `onBlur` prop to subscribe to the input blur event.                                                                                                                |
+| `min`       | <TypeText>string \| number</TypeText> | <Since version="7.21.0" /> _optional_. Present when the `min` rule is set, and forwarded as a native attribute when [`progressive`](/docs/useform/form) is `true`. |
+| `max`       | <TypeText>string \| number</TypeText> | <Since version="7.21.0" /> _optional_. Present when the `max` rule is set, and forwarded as a native attribute when `progressive` is `true`.                       |
+| `maxLength` | <TypeText>number</TypeText>           | <Since version="7.21.0" /> _optional_. Present when the `maxLength` rule is set, and forwarded as a native attribute when `progressive` is `true`.                 |
+| `minLength` | <TypeText>number</TypeText>           | <Since version="7.21.0" /> _optional_. Present when the `minLength` rule is set, and forwarded as a native attribute when `progressive` is `true`.                 |
+| `pattern`   | <TypeText>string</TypeText>           | <Since version="7.21.0" /> _optional_. Present when the `pattern` rule is set, and forwarded as a native attribute when `progressive` is `true`.                   |
+| `required`  | <TypeText>boolean</TypeText>          | <Since version="7.21.0" /> _optional_. Present when the `required` rule is set, and forwarded as a native attribute when `progressive` is `true`.                  |
+| `disabled`  | <TypeText>boolean</TypeText>          | <Since version="7.21.0" /> _optional_. Present when the `disabled` option is set.                                                                                  |
 
 <Admonition type="note">
 
@@ -283,7 +283,6 @@ If you choose to manually register fields, you will need to update the input val
 
 ```javascript
 register("firstName", { required: true, minLength: 8 })
-
 ;<TextInput onTextChange={(value) => setValue("firstName", value)} />
 ```
 
