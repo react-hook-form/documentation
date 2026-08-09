@@ -720,7 +720,75 @@ function App() {
 
 ## Schema Validation {#SchemaValidation}
 
-We also support schema-based form validation with [Yup](https://github.com/jquense/yup), [Zod](https://github.com/colinhacks/zod), [Valibot](https://valibot.dev/), [Superstruct](https://github.com/ianstormtaylor/superstruct) & [Joi](https://github.com/hapijs/joi), as well as any library that implements [Standard Schema](https://standardschema.dev/), where you can pass your `schema` to [useForm](/docs/useform) as an optional config. It will validate your input data against the schema and return with either [errors](/docs/useform/formstate) or a valid result.
+We also support schema-based form validation, where you can pass your `schema` to [useForm](/docs/useform) as an optional config. It will validate your input data against the schema and return with either [errors](/docs/useform/formstate) or a valid result. Supported libraries include:
+
+<ul style={{ columns: "200px 2", columnGap: "2rem" }}>
+  <li>
+    <a href="https://github.com/jquense/yup">Yup</a>
+  </li>
+  <li>
+    <a href="https://github.com/colinhacks/zod">Zod</a>
+  </li>
+  <li>
+    <a href="https://github.com/ianstormtaylor/superstruct">Superstruct</a>
+  </li>
+  <li>
+    <a href="https://github.com/sideway/joi">Joi</a>
+  </li>
+  <li>
+    <a href="https://github.com/ealush/vest">Vest</a>
+  </li>
+  <li>
+    <a href="https://github.com/typestack/class-validator">Class Validator</a>
+  </li>
+  <li>
+    <a href="https://github.com/gcanti/io-ts">io-ts</a>
+  </li>
+  <li>
+    <a href="https://github.com/bvego/nope-validator">Nope</a>
+  </li>
+  <li>
+    <a href="https://github.com/neuledge/computed-types">computed-types</a>
+  </li>
+  <li>
+    <a href="https://github.com/arcanis/typanion">typanion</a>
+  </li>
+  <li>
+    <a href="https://github.com/ajv-validator/ajv">Ajv</a>
+  </li>
+  <li>
+    <a href="https://github.com/sinclairzx81/typebox">TypeBox</a>
+  </li>
+  <li>
+    <a href="https://github.com/arktypeio/arktype">ArkType</a>
+  </li>
+  <li>
+    <a href="https://valibot.dev/">Valibot</a>
+  </li>
+  <li>
+    <a href="https://typeschema.com">TypeSchema</a>
+  </li>
+  <li>
+    <a href="https://github.com/Effect-TS/effect">effect-ts</a>
+  </li>
+  <li>
+    <a href="https://github.com/vinejs/vine">VineJS</a>
+  </li>
+  <li>
+    <a href="https://github.com/AlexJPotter/fluentvalidation-ts">
+      fluentvalidation-ts
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/nicholasgasior/ata-validator">ata-validator</a>
+  </li>
+  <li>
+    any library that implements{" "}
+    <a href="https://standardschema.dev/">Standard Schema</a>
+  </li>
+</ul>
+
+See the full, up-to-date list in the [`@hookform/resolvers`](https://github.com/react-hook-form/resolvers) repo.
 
 **Step 1:** Install `Yup` into your project.
 
