@@ -707,6 +707,7 @@ The type of the `trigger` function.
 ```tsx copy
 export type TriggerConfig = Partial<{
   shouldFocus: boolean
+  shouldTouch: boolean
 }>
 
 export type UseFormTrigger<TFieldValues extends FieldValues> = (
@@ -1255,6 +1256,38 @@ export type FormStateProxy<TFieldValues extends FieldValues = FieldValues> = {
   isValid: boolean
 }
 ```
+
+---
+
+## \</> OpaqueTypes {#OpaqueTypes}
+
+A registry of types which the recursive type helpers (`Path`, `DeepPartial`, `FieldErrors`, ...) treat as opaque leaf values instead of recursing into their properties. It's empty by default and has no effect until you register a type into it via [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html).
+
+```tsx copy
+export interface OpaqueTypes {}
+
+export type OpaqueType = OpaqueTypes[keyof OpaqueTypes]
+```
+
+Register a rich third-party value type — such as [Day.js](https://day.js.org/)'s `Dayjs`, [Decimal.js](https://mikemcl.github.io/decimal.js/)'s `Decimal`, or Luxon's `DateTime` — by augmenting `OpaqueTypes` in a `.d.ts` file (or anywhere the module is visible to the compiler):
+
+```tsx copy
+import type { Dayjs } from "dayjs"
+
+declare module "react-hook-form" {
+  interface OpaqueTypes {
+    dayjs: Dayjs
+  }
+}
+```
+
+Once registered, any field typed as `Dayjs` (or a type that structurally contains one) is treated as a leaf by React Hook Form's internal type helpers, no matter how deeply nested it is in your form values.
+
+### Advantage {#OpaqueTypesAdvantage}
+
+Without registering a type, helpers such as `Path<T>` and `DeepPartial<T>` recurse into every property of every object in `TFieldValues`, including the internals of third-party classes such as `Dayjs` or `Decimal`. On a large or deeply nested form this recursion can be expensive enough for TypeScript to emit an "excessively deep" complexity diagnostic, or simply slow down editor type-checking.
+
+Registering a type in `OpaqueTypes` tells those helpers to stop at that type and treat it as a single leaf value rather than an object to traverse — the same way `Date` and `FileList` are already handled internally. This keeps field-path inference and other generic type computations fast and accurate for forms that store rich objects instead of plain primitives.
 
 ---
 

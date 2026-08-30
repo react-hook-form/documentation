@@ -49,6 +49,10 @@ export const advancedLinks: Pages = [
     name: "Server Actions / useActionState",
     pathname: "#ServerActionsuseActionState",
   },
+  {
+    name: "Registering Opaque Types",
+    pathname: "#RegisteringOpaqueTypes",
+  },
 ]
 
 export const faqLinks: Pages = [
@@ -416,6 +420,10 @@ export const tsLinks: Pages = [
   {
     name: "FormStateProxy",
     pathname: "#FormStateProxy",
+  },
+  {
+    name: "OpaqueTypes",
+    pathname: "#OpaqueTypes",
   },
   {
     name: "NestedValue",
