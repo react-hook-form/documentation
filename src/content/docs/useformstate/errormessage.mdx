@@ -5,25 +5,20 @@ metaDescription: Render validation error messages for a registered field. Suppor
 sidebar: apiLinks
 ---
 
-## \</> `ErrorMessage:` <TypeText>Component</TypeText>
+## \</> `ErrorMessage:` <TypeText>Component</TypeText> <Since version="7.88.0" />
 
-A simple component to render associated input's error message.
-
-```bash
-npm install @hookform/error-message
-```
+A simple component to render associated input's error message. Reads from the `control` prop when supplied, otherwise from the nearest [`FormProvider`](/docs/formprovider).
 
 ### Props
 
 ---
 
-| Name      | Type                                                                                        | Required | Description                                                                                                                                                                                          |
-| --------- | ------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`    | <TypeText>string</TypeText>                                                                 | ✓        | Name of the field.                                                                                                                                                                                   |
-| `errors`  | <TypeText>object</TypeText>                                                                 |          | `errors` object from React Hook Form. Optional if you are using `FormProvider`.                                                                                                                      |
-| `message` | <TypeText>string \| React.ReactElement</TypeText>                                           |          | Inline error message.                                                                                                                                                                                |
-| `as`      | <TypeText>React.ElementType \| React.ReactElement \| string</TypeText>                      |          | Wrapper component, element instance, or HTML tag. For example: `as="span"` or `as={<Text />}`                                                                                                        |
-| `render`  | <TypeText>`({ message: string \| React.ReactElement, messages?: Object}) => any`</TypeText> |          | This is a [render prop](https://legacy.reactjs.org/docs/render-props.html) for rendering error message or messages.<br/><br/>**Note:** you need to set `criteriaMode` to 'all' for using `messages`. |
+| Name      | Type                                                                              | Required | Description                                                                                                                                                                                          |
+| --------- | --------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`    | <TypeText>string</TypeText>                                                       | ✓        | Name of the field, or a global error path (`root` or `root.*`).                                                                                                                                      |
+| `control` | <TypeText>[Control](/ts#Control)</TypeText>                                       |          | `control` object provided by `useForm`. Optional if you are using `FormProvider`.                                                                                                                    |
+| `as`      | <TypeText>React.ElementType</TypeText>                                            |          | Wrapper component or HTML tag. For example: `as="span"` or `as={Text}`                                                                                                                               |
+| `render`  | <TypeText>`({ message: string, messages?: Object}) => React.ReactNode`</TypeText> |          | This is a [render prop](https://legacy.reactjs.org/docs/render-props.html) for rendering error message or messages.<br/><br/>**Note:** you need to set `criteriaMode` to 'all' for using `messages`. |
 
 ##### Examples:
 
@@ -34,19 +29,14 @@ npm install @hookform/error-message
 <TabGroup buttonLabels={["TS", "JS"]} >
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v7-ts-errormessage-d1ues"
-import { useForm } from "react-hook-form"
-import { ErrorMessage } from "@hookform/error-message"
+import { useForm, ErrorMessage } from "react-hook-form"
 
 interface FormInputs {
   singleErrorInput: string
 }
 
 export default function App() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<FormInputs>()
+  const { register, control, handleSubmit } = useForm<FormInputs>()
   const onSubmit = (data: FormInputs) => console.log(data)
 
   return (
@@ -54,10 +44,10 @@ export default function App() {
       <input
         {...register("singleErrorInput", { required: "This is required." })}
       />
-      <ErrorMessage errors={errors} name="singleErrorInput" />
+      <ErrorMessage control={control} name="singleErrorInput" />
 
       <ErrorMessage
-        errors={errors}
+        control={control}
         name="singleErrorInput"
         render={({ message }) => <p>{message}</p>}
       />
@@ -69,15 +59,10 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-errormessage-jufsl"
-import { useForm } from "react-hook-form"
-import { ErrorMessage } from "@hookform/error-message"
+import { useForm, ErrorMessage } from "react-hook-form"
 
 export default function App() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm()
+  const { register, control, handleSubmit } = useForm()
   const onSubmit = (data) => console.log(data)
 
   return (
@@ -85,10 +70,10 @@ export default function App() {
       <input
         {...register("singleErrorInput", { required: "This is required." })}
       />
-      <ErrorMessage errors={errors} name="singleErrorInput" />
+      <ErrorMessage control={control} name="singleErrorInput" />
 
       <ErrorMessage
-        errors={errors}
+        control={control}
         name="singleErrorInput"
         render={({ message }) => <p>{message}</p>}
       />
@@ -106,19 +91,14 @@ export default function App() {
 <TabGroup buttonLabels={["TS", "JS"]}>
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-ts-errormessage-multiple-error-messages-forked-sy5f0"
-import { useForm } from "react-hook-form"
-import { ErrorMessage } from "@hookform/error-message"
+import { useForm, ErrorMessage } from "react-hook-form"
 
 interface FormInputs {
   multipleErrorInput: string
 }
 
 export default function App() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<FormInputs>({
+  const { register, control, handleSubmit } = useForm<FormInputs>({
     criteriaMode: "all",
   })
   const onSubmit = (data: FormInputs) => console.log(data)
@@ -139,7 +119,7 @@ export default function App() {
         })}
       />
       <ErrorMessage
-        errors={errors}
+        control={control}
         name="multipleErrorInput"
         render={({ messages }) =>
           messages &&
@@ -156,15 +136,10 @@ export default function App() {
 ```
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-errormessage-multiple-error-messages-lnvkt"
-import { useForm } from "react-hook-form"
-import { ErrorMessage } from "@hookform/error-message"
+import { useForm, ErrorMessage } from "react-hook-form"
 
 export default function App() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({
+  const { register, control, handleSubmit } = useForm({
     criteriaMode: "all",
   })
   const onSubmit = (data) => console.log(data)
@@ -185,7 +160,7 @@ export default function App() {
         })}
       />
       <ErrorMessage
-        errors={errors}
+        control={control}
         name="multipleErrorInput"
         render={({ messages }) =>
           messages &&
@@ -202,3 +177,32 @@ export default function App() {
 ```
 
 </TabGroup>
+
+**With `FormProvider`**
+
+```tsx copy
+import { useForm, FormProvider, ErrorMessage } from "react-hook-form"
+
+function Field() {
+  return <ErrorMessage name="singleErrorInput" />
+}
+
+export default function App() {
+  const methods = useForm()
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit((data) => console.log(data))}>
+        <input
+          {...methods.register("singleErrorInput", {
+            required: "This is required.",
+          })}
+        />
+        <Field />
+
+        <input type="submit" />
+      </form>
+    </FormProvider>
+  )
+}
+```
