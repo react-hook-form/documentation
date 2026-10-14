@@ -12,7 +12,24 @@ npm install react-hook-form@beta
 
 ## React Compiler {#ReactCompiler}
 
-V8 adds first-class support for the [React Compiler](https://react.dev/learn/react-compiler). No additional configuration is required — React Hook Form is now compatible out of the box.
+V8 supports the [React Compiler](https://react.dev/learn/react-compiler). `useForm` returns the same object on every render, so the compiler can't tell when something read through that object changes. Two patterns keep compiled components up to date:
+
+- In nested components, subscribe with [`useFormState`](/docs/useformstate) instead of reading `formState` from `useFormContext()`. The compiler memoizes `<FormProvider {...methods}>` in the parent, so the context keeps the `formState` from the first render.
+- Destructure methods such as `getFieldState` from `useForm()` instead of calling them on the returned object. The compiler memoizes `methods.getFieldState("name")` on `methods`, which never changes.
+
+```tsx copy
+function NestedInput() {
+  const { register, control } = useFormContext()
+  const { errors } = useFormState({ control }) // ✅ updates under the compiler
+
+  return (
+    <>
+      <input {...register("name", { required: "Name is required" })} />
+      <p>{errors.name?.message}</p>
+    </>
+  )
+}
+```
 
 ## Flat Field Array {#FlatFieldArray}
 
