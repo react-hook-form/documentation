@@ -53,7 +53,7 @@
     rgba(25, 29, 58, 0.55),
     rgba(25, 29, 58, 0.15)
   );
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.light) .asset {
@@ -152,7 +152,7 @@
   font-size: var(--text-xs);
   font-weight: 600;
   text-decoration: none !important;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .download:hover {

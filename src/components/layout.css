@@ -73,6 +73,11 @@
   /* Transitions */
   --transition: 0.3s ease;
   --transition-fast: 0.15s ease;
+  /* Hover, focus and press feedback for anything clickable. */
+  --transition-interactive:
+    color var(--transition-fast), background-color var(--transition-fast),
+    border-color var(--transition-fast), box-shadow var(--transition-fast),
+    opacity var(--transition-fast), transform var(--transition-fast);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -161,12 +166,10 @@ progress {
 a {
   background-color: transparent;
   color: var(--color-link);
-  transition: var(--transition);
   -webkit-text-decoration-skip: objects;
 }
 a:hover {
   color: var(--color-light-pink);
-  transition: var(--transition);
   outline-width: 0;
 }
 a:active {
@@ -311,10 +314,14 @@ textarea {
   font: inherit;
 }
 
+a,
+button,
 input,
 select,
-button {
-  transition: var(--transition);
+textarea,
+summary,
+[role="button"] {
+  transition: var(--transition-interactive);
 }
 
 input {
@@ -356,14 +363,9 @@ input[type="submit"]:hover {
 
 input[type="button"]:active,
 input[type="submit"]:active {
-  transition: var(--transition);
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
-}
-
-input[type="button"]:hover {
-  transition: var(--transition);
 }
 
 input[type="button"],
@@ -423,23 +425,6 @@ table {
   font-size: 0.9rem;
 }
 
-.editPage,
-.scrollToTop,
-.scrollToTop:focus {
-  border: 1px solid var(--color-light-grey);
-}
-
-.scrollToTop,
-.editPage {
-  display: none;
-}
-
-.editPage:hover,
-.scrollToTop:hover {
-  border-color: var(--color-secondary);
-  cursor: pointer;
-}
-
 .desktopOnly {
   display: none !important;
 }
@@ -473,42 +458,6 @@ a.active {
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-light-pink);
   }
-
-  .editPage,
-  .scrollToTop {
-    display: block;
-    background: var(--color-primary);
-    position: fixed;
-    right: 30px;
-    color: white;
-    bottom: 60px;
-    height: 35px;
-    width: 35px;
-    z-index: 10;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .scrollToTop,
-  .editPage {
-    display: block;
-  }
-}
-
-.editPage {
-  text-align: center;
-  font-weight: 500;
-  bottom: 105px;
-  font-size: 10px;
-  text-decoration: none;
-  min-height: 35px;
-  height: auto;
-  align-content: center;
-  line-height: 1.4;
-}
-
-.editPage:hover {
-  color: white;
 }
 
 @media (min-width: 1040px) {
@@ -518,14 +467,6 @@ a.active {
 
   a.active {
     background: none;
-  }
-
-  .editPage {
-    bottom: 75px;
-  }
-
-  .scrollToTop {
-    bottom: 30px;
   }
 }
 
@@ -865,6 +806,13 @@ pre[class*="language-"] {
 @media (prefers-reduced-motion: reduce) {
   .pageTransition {
     animation: none;
+  }
+
+  a:active,
+  button:active,
+  input[type="button"]:active,
+  input[type="submit"]:active {
+    transform: none;
   }
 }
 

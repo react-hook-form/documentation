@@ -76,9 +76,7 @@
   font-size: var(--text-sm);
   line-height: 1.45;
   text-decoration: none !important;
-  transition:
-    color var(--transition-fast),
-    background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .link:hover {

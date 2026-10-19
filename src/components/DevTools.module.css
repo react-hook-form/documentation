@@ -36,6 +36,7 @@
   border: 1px solid var(--color-border-muted);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
+  transition: var(--transition-interactive);
 }
 
 .install:hover .copyHint {
@@ -330,7 +331,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .toggle:hover {
@@ -348,7 +349,7 @@
   height: 18px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.35);
-  transition: background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .switch::after {

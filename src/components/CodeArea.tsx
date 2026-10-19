@@ -83,7 +83,7 @@ export default function CodeArea({
         )}
         {!withOutCopy && (
           <ClipBoard
-            className={`${styles.button} ${styles.copyButton}`}
+            className={styles.button}
             onClick={() => {
               copyClipBoard(codeAreaRef.current?.innerText || "")
             }}

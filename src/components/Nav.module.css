@@ -7,7 +7,7 @@
   background: rgba(8, 18, 41, 0.82);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   backdrop-filter: saturate(140%) blur(10px);
-  transition: box-shadow var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.light) .header {
@@ -53,13 +53,10 @@
 }
 
 .logo {
+  display: block;
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
-  padding: 4px;
-  border-radius: 8px;
-  border: 2px solid white;
-  background: var(--color-light-pink);
-  fill: white;
 }
 
 /* Primary navigation */
@@ -93,9 +90,7 @@
   font-weight: 500;
   text-decoration: none !important;
   cursor: pointer;
-  transition:
-    color var(--transition-fast),
-    background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.dark) .navLink {

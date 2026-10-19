@@ -181,9 +181,7 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   text-decoration: none !important;
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .ctaPrimary {

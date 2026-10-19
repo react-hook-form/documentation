@@ -19,7 +19,7 @@
 .footer a {
   color: var(--color-text-muted) !important;
   text-decoration: none !important;
-  transition: color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .footer a:hover {
@@ -53,14 +53,11 @@
   font-weight: 700;
 }
 
-.logo svg {
+.logo img {
+  display: block;
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
-  padding: 4px;
-  border-radius: 8px;
-  border: 2px solid white;
-  background: var(--color-light-pink);
-  fill: white;
 }
 
 .socials {

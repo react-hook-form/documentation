@@ -40,7 +40,7 @@
   color: var(--color-text-muted);
   text-decoration: none;
   line-height: 1.4;
-  transition: color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .inner li a:hover {

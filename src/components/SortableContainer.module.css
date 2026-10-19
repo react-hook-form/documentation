@@ -19,7 +19,7 @@
   font-size: var(--text-sm);
   list-style: none;
   cursor: grab;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .list:hover {
@@ -95,10 +95,7 @@
   font-size: var(--text-xs);
   font-weight: 600;
   cursor: pointer;
-  transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .editPanel > button:hover,

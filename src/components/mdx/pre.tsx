@@ -29,7 +29,7 @@ export const Pre = (
       <div className={styles.buttonWrapper}>
         {props.copy && (
           <ClipBoard
-            className={`${styles.button} ${styles.copyButton}`}
+            className={styles.button}
             onClick={() => {
               if (preRef.current?.innerText) {
                 copyClipBoard(preRef.current.innerText)

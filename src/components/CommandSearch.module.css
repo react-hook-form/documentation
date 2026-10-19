@@ -10,7 +10,7 @@
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .trigger:hover,

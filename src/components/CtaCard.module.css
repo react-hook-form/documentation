@@ -74,7 +74,7 @@
   font-weight: 600;
   text-decoration: none !important;
   white-space: nowrap;
-  transition: background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .button:hover {

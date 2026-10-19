@@ -16,7 +16,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none !important;
-  transition: background var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .primary:hover {
@@ -161,7 +161,7 @@
   font-weight: 600;
   text-decoration: none !important;
   white-space: nowrap;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.light) .visit {
@@ -218,7 +218,7 @@
   color: var(--color-text) !important;
   text-align: center;
   text-decoration: none !important;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.light) .card {
@@ -250,6 +250,7 @@
 .domain {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
+  transition: var(--transition-interactive);
 }
 
 .card:hover .domain {

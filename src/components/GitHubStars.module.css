@@ -15,7 +15,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none !important;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .button:hover,

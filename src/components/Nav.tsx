@@ -8,7 +8,6 @@ import CommandSearch, { openCommandSearch } from "./CommandSearch"
 import VersionSwitcher from "./VersionSwitcher"
 import GitHubStars from "./GitHubStars"
 import { useTheme } from "next-themes"
-import { LogoSvg } from "./IntroVideo"
 import styles from "./Nav.module.css"
 
 const PRIMARY = [
@@ -175,9 +174,13 @@ export default function Nav() {
             className={styles.brand}
             aria-label="React Hook Form home"
           >
-            <svg className={styles.logo} viewBox="0 0 100 100" aria-hidden>
-              {LogoSvg}
-            </svg>
+            <img
+              className={styles.logo}
+              src="/images/Logo.svg"
+              alt=""
+              width={30}
+              height={30}
+            />
             <span>React Hook Form</span>
           </Link>
 

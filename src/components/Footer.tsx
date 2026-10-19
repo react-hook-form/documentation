@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import Link from "next/link"
 import home from "../data/home"
-import { LogoSvg } from "./IntroVideo"
 import styles from "./Footer.module.css"
 
 const COLUMNS = [
@@ -126,9 +125,7 @@ export default function Footer() {
       <div className={styles.top}>
         <div className={styles.brand}>
           <Link href="/" className={styles.logo}>
-            <svg viewBox="0 0 100 100" aria-hidden>
-              {LogoSvg}
-            </svg>
+            <img src="/images/Logo.svg" alt="" width={28} height={28} />
             <span>React Hook Form</span>
           </Link>
           <p>{home.slogan}</p>

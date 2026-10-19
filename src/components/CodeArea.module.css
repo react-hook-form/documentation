@@ -1,71 +1,91 @@
 .buttonWrapper {
   display: flex;
+  gap: 6px;
   position: absolute;
-  top: 10px;
-  right: 5px;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
 }
 
 .button {
-  border: none;
-  color: white;
-  border-radius: 0;
-  font-size: var(--text-xs);
-  padding: 0 var(--space-2);
-  right: var(--space-5);
-  z-index: 1;
-  top: var(--space-2);
   display: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 34px;
   align-items: center;
-  margin: 0 var(--space-1);
-}
-
-.codeLink {
-  background: var(--color-light-blue);
-  border: 1px solid transparent;
-}
-
-.button:hover {
-  background: var(--color-secondary);
-  color: white;
+  gap: 6px;
+  height: 26px;
+  margin: 0;
+  padding: 0 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: none;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: var(--transition-interactive);
 }
 
 @media (min-width: 768px) {
   .button {
-    display: flex;
+    display: inline-flex;
   }
 }
 
-.copyButton {
+/* Code blocks stay dark in both themes, so these colors are fixed. */
+.button:hover,
+.button:focus-visible {
+  border-color: #ec5990;
   background: none;
-  border: 1px solid transparent;
-  color: currentColor;
+  color: #fff !important;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.codeLink {
+  min-width: 36px;
+  justify-content: center;
 }
 
 .active,
-.copyButton:hover {
-  background: none;
-  border: 1px solid var(--color-secondary);
-  color: white;
-}
-
-.active,
-.copyButton:hover span {
-  background: var(--color-primary);
-}
-
-.linkToSandBox {
-  text-decoration: none;
-  line-height: 2;
-  right: 115px;
-  color: inherit;
+.active:hover {
+  border-color: rgba(236, 89, 144, 0.45);
+  background: rgba(236, 89, 144, 0.14);
+  color: #f17aa6 !important;
 }
 
 .linkToSandBox > svg {
-  display: inline-block;
-  height: 18px;
-  position: relative;
-  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+}
+
+.linkToSandBox sup {
+  margin-left: 2px !important;
+  font-size: 9px !important;
+  line-height: 0;
+}
+
+:global(.light) .button {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+:global(.light) .button:hover,
+:global(.light) .button:focus-visible {
+  border-color: #ec5990 !important;
+  background: none;
+  color: #fff !important;
+}
+
+:global(.light) .active,
+:global(.light) .active:hover {
+  border-color: rgba(236, 89, 144, 0.45) !important;
+  background: rgba(236, 89, 144, 0.14);
 }

@@ -229,9 +229,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .primary {

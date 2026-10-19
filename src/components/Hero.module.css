@@ -79,9 +79,7 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   text-decoration: none !important;
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .primary {
@@ -138,6 +136,7 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   border: 1px solid var(--color-border-muted);
+  transition: var(--transition-interactive);
 }
 
 .install:hover .copyHint {

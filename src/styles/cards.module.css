@@ -39,7 +39,7 @@
     rgba(25, 29, 58, 0.55),
     rgba(25, 29, 58, 0.15)
   );
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 :global(.light) .card {
@@ -150,7 +150,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-decoration: none !important;
-  transition: border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 a.chip:hover {

@@ -10,9 +10,7 @@
   background: none;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: var(--transition-interactive);
 }
 
 .toggle:hover,
