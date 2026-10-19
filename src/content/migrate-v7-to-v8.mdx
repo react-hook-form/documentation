@@ -31,9 +31,19 @@ function NestedInput() {
 }
 ```
 
+For updates from a local `useFormState` subscription, pass its result to `getFieldState` so the compiler sees that dependency:
+
+```tsx copy
+const { control, getFieldState } = useForm()
+const formState = useFormState({ control })
+const { isDirty } = getFieldState("name", formState)
+```
+
+Use [`useWatch`](/docs/usewatch) to render values. Under the compiler, a destructured `getValues` from `useFormContext()` can stay stale during render. It still reads current values in event handlers.
+
 ## Flat Field Array {#FlatFieldArray}
 
-V8's types support flat field arrays, allowing simpler data structures when working with `useFieldArray`.
+V8's types accept flat field arrays, but primitive rows are not safe to use with `useFieldArray` yet.
 
 ```tsx copy
 // Before (V7) — each row had to be an object
@@ -43,7 +53,7 @@ useFieldArray({ name: "items" }) // items: { value: string }[]
 useFieldArray({ name: "items" }) // items: string[]
 ```
 
-**Note:** as of the current beta, this is a types-only improvement — `fields` still spreads each entry with `{ ...field, key }` internally, which does not behave as expected for primitive array items. Verify rendering behavior for a primitive `items: string[]` array before relying on this in production.
+**Note:** as of the current beta, this is a types-only improvement — `fields` still spreads each entry with `{ ...field, key }` internally, which does not behave as expected for primitive array items. `useFieldArray` also drops `''`, `0`, and `false` entries from `fields`, and `append` then rewrites the stored values without them. Keep each row as an object.
 
 ## Breaking Changes {#BreakingChanges}
 
@@ -87,17 +97,7 @@ Public types now use `unknown` instead of `any`. Code that relied on `any` to sk
 
 ### Input Ref {#InputRef}
 
-`register`'s returned `ref` is unchanged — it's still a callback ref that receives the real DOM element. This change is about [`Controller`](/docs/usecontroller/controller) and [`useController`](/docs/usecontroller)'s `field.ref` instead: in V7, `field.ref` was a partial proxy object exposing only `focus`, `select`, `setCustomValidity`, and `reportValidity`. In V8, `field.ref` is the actual DOM element, so any method or property on the real node is available.
-
-```tsx copy
-const { field } = useController({ name: "firstName", control })
-
-// Before (V7) — field.ref only exposed a fixed set of methods
-field.ref.appendChild // ❌ not available
-
-// After (V8) — field.ref is the actual input element
-field.ref.appendChild // ✅ available, like any other DOM node
-```
+`register`'s returned `ref` and [`Controller`](/docs/usecontroller/controller) / [`useController`](/docs/usecontroller)'s `field.ref` are still callback refs. In V8, RHF stores the supplied element for Controller fields instead of a proxy. This changes `FieldError.ref` and the ref used for error focus, `setFocus`, and native validation. To use the node yourself, call `field.ref(element)` from your own callback ref.
 
 See [#12773](https://github.com/react-hook-form/react-hook-form/issues/12773) for details.
 
