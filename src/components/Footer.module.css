@@ -8,6 +8,14 @@
   text-align: left;
 }
 
+/* Below 1024px the floating tab bar overlays the page; let the last line
+   scroll clear of it. */
+@media (max-width: 1023px) {
+  .footer {
+    padding-bottom: calc(var(--space-8) + 72px + env(safe-area-inset-bottom));
+  }
+}
+
 .footer a {
   color: var(--color-text-muted) !important;
   text-decoration: none !important;

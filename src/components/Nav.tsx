@@ -292,7 +292,6 @@ export default function Nav() {
         </nav>
       )}
 
-      <div className={styles.edge} aria-hidden />
       <nav
         className={styles.tabBar}
         aria-label="Quick navigation"

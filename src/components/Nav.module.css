@@ -335,7 +335,7 @@
 .tabBar {
   position: fixed;
   left: 50%;
-  bottom: calc(12px + env(safe-area-inset-bottom));
+  bottom: calc(10px + env(safe-area-inset-bottom));
   /* Below the header (40) so the search overlay inside it covers the bar,
      above the mobile menu panel (38). */
   z-index: 39;
@@ -352,7 +352,7 @@
   backdrop-filter: saturate(180%) blur(24px);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 14px 36px -8px rgba(0, 0, 0, 0.7);
+    0 6px 16px -8px rgba(0, 0, 0, 0.45);
 }
 
 :global(.light) .tabBar {
@@ -360,7 +360,7 @@
   background: rgba(255, 255, 255, 0.9);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 12px 32px -12px rgba(8, 18, 41, 0.35);
+    0 6px 16px -10px rgba(8, 18, 41, 0.3);
 }
 
 /* Slides between tabs; each tab is an equal fifth of the bar. */
@@ -468,33 +468,8 @@
   color: var(--color-accent-text) !important;
 }
 
-/* Mobile Safari tints its bottom toolbar from a fixed element at the very
-   bottom (it needs ~5px visible); a short gradient softens that edge. See https://joshpuckett.me/seamless-mobile-safari */
-.edge {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 38;
-  height: max(6px, env(safe-area-inset-bottom));
-  background: var(--color-background);
-  pointer-events: none;
-}
-
-.edge::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  /* Short, so content still passes behind the frosted bar. */
-  height: 16px;
-  background: linear-gradient(to top, var(--color-background), transparent);
-}
-
 @media (min-width: 1024px) {
-  .tabBar,
-  .edge {
+  .tabBar {
     display: none;
   }
 }
