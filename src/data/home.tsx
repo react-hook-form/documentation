@@ -10,12 +10,8 @@ export default {
   demo: "Demo",
   findInteresting: {
     heading: "Ready to get started?",
-    description: (
-      <p className={typographyStyles.homeParagraph}>
-        Form handling doesn't have to be painful. React Hook Form will help you
-        write less code while achieving better performance.
-      </p>
-    ),
+    description:
+      "Form handling doesn't have to be painful. React Hook Form will help you write less code while achieving better performance.",
   },
   features: [
     {
@@ -46,44 +42,23 @@ export default {
   ],
   codeComparison: {
     title: "Less code. More performant",
-    description: (
-      <p id="codeComparison" className={typographyStyles.homeParagraph}>
-        React Hook Form reduces the amount of code you need to write while
-        removing unnecessary re-renders. Now dive in and explore with the
-        following example:
-      </p>
-    ),
+    description:
+      "React Hook Form reduces the amount of code you need to write while removing unnecessary re-renders. Dive in and explore the example below.",
   },
   isolateRender: {
     title: "Isolate Re-renders",
-    description: (
-      <>
-        <p className={typographyStyles.homeParagraph}>
-          You have the ability to isolate component re-renders which leads to
-          better performance on your page or app. The following example
-          demonstrates this:
-        </p>
-      </>
-    ),
+    description:
+      "Isolate component re-renders for better performance on your page or app. Type in both forms to compare.",
   },
   watcher: {
     title: "Subscriptions",
-    description: (
-      <p className={typographyStyles.homeParagraph}>
-        Performance is an important aspect of user experience in terms of
-        building forms. You have the ability to subscribe to individual input
-        and form state updates without re-rendering the entire form.
-      </p>
-    ),
+    description:
+      "Performance is an important aspect of user experience in terms of building forms. Subscribe to individual input and form state updates without re-rendering the entire form.",
   },
   mount: {
     title: "Faster Mounting",
-    description: (
-      <p className={typographyStyles.homeParagraph}>
-        The following screenshots demonstrate how much faster component mounting
-        is with React Hook Form compared to others:
-      </p>
-    ),
+    description:
+      "The following screenshots demonstrate how much faster component mounting is with React Hook Form compared to others.",
     totalMount: "No. of mount(s)",
     totalChange: "No. of committing change(s)",
     totalTime: "Total time",

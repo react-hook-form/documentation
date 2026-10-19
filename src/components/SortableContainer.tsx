@@ -2,7 +2,7 @@
 import Sortable from "react-sortablejs"
 import { Animate } from "react-simple-animate"
 import type { FormDataItem } from "little-state-machine"
-import colors from "../styles/colors"
+import clsx from "clsx"
 import generic from "../data/generic"
 import originalFormData from "../state/formData"
 import styles from "./SortableContainer.module.css"
@@ -49,30 +49,37 @@ export default function SortableContainer({
               }}
               key={field.name}
               render={({ style }) => (
-                <li className={styles.list} style={style} data-id={field.name}>
-                  <svg viewBox="0 0 1024 1280">
-                    <circle cx="319.5" cy="155.5" r="104.1" />
-                    <path d="M413.6,155.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7     c-25.4-30.3-28.1-75.2-7.6-108.7c20.1-33.1,60.2-51.1,98.3-43.4C381.4,72,413.3,110.8,413.6,155.5c0.1,12.9,20.1,12.9,20,0     c-0.3-47.8-30.4-90.6-75.2-107.3c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6     c52.5-10.6,90.4-58.6,90.8-111.7C433.7,142.6,413.7,142.6,413.6,155.5z" />
-                    <circle cx="319.5" cy="512" r="104.1" />
-                    <path d="M413.6,512c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7c-25.4-30.3-28.1-75.2-7.6-108.7     c20.1-33.1,60.2-51.1,98.3-43.4C381.4,428.5,413.3,467.3,413.6,512c0.1,12.9,20.1,12.9,20,0c-0.3-47.8-30.4-90.6-75.2-107.3     c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6c52.5-10.6,90.4-58.6,90.8-111.7     C433.7,499.1,413.7,499.1,413.6,512z" />
-                    <circle cx="319.5" cy="868.5" r="104.1" />
-                    <path d="M413.6,868.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7     c-25.4-30.3-28.1-75.2-7.6-108.7c20.1-33.1,60.2-51.1,98.3-43.4C381.4,785,413.3,823.8,413.6,868.5c0.1,12.9,20.1,12.9,20,0     c-0.3-47.8-30.4-90.6-75.2-107.3c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6     c52.5-10.6,90.4-58.6,90.8-111.7C433.7,855.6,413.7,855.6,413.6,868.5z" />
-                    <circle cx="704.5" cy="155.5" r="104.1" />
-                    <path d="M798.6,155.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7     c-25.4-30.3-28.1-75.2-7.6-108.7c20.1-33.1,60.2-51.1,98.3-43.4C766.4,72,798.3,110.8,798.6,155.5c0.1,12.9,20.1,12.9,20,0     c-0.3-47.8-30.4-90.6-75.2-107.3c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6     c52.5-10.6,90.4-58.6,90.8-111.7C818.7,142.6,798.7,142.6,798.6,155.5z" />
-                    <circle cx="704.5" cy="512" r="104.1" />
-                    <path d="M798.6,512c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7c-25.4-30.3-28.1-75.2-7.6-108.7     c20.1-33.1,60.2-51.1,98.3-43.4C766.4,428.5,798.3,467.3,798.6,512c0.1,12.9,20.1,12.9,20,0c-0.3-47.8-30.4-90.6-75.2-107.3     c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6c52.5-10.6,90.4-58.6,90.8-111.7     C818.7,499.1,798.7,499.1,798.6,512z" />
-                    <circle cx="704.5" cy="868.5" r="104.1" />
-                    <path d="M798.6,868.5c-0.3,38.9-24.8,75.2-61.8,88.4c-37.5,13.4-79.4,1.8-105-28.7c-25.4-30.3-28.1-75.2-7.6-108.7     c20.1-33.1,60.2-51.1,98.3-43.4C766.4,785,798.3,823.8,798.6,868.5c0.1,12.9,20.1,12.9,20,0c-0.3-47.8-30.4-90.6-75.2-107.3     c-44.3-16.4-96.6-2.2-126.5,34.4c-30.4,37.2-35.1,90.6-9.9,132c25,41.1,73.9,62,120.9,52.6c52.5-10.6,90.4-58.6,90.8-111.7     C818.7,855.6,798.7,855.6,798.6,868.5z" />
+                <li
+                  className={clsx(
+                    styles.list,
+                    editIndex === index && styles.listEditing
+                  )}
+                  style={style}
+                  data-id={field.name}
+                >
+                  <svg className={styles.grip} viewBox="0 0 16 16" aria-hidden>
+                    <circle cx="5.5" cy="3.5" r="1.25" />
+                    <circle cx="10.5" cy="3.5" r="1.25" />
+                    <circle cx="5.5" cy="8" r="1.25" />
+                    <circle cx="10.5" cy="8" r="1.25" />
+                    <circle cx="5.5" cy="12.5" r="1.25" />
+                    <circle cx="10.5" cy="12.5" r="1.25" />
                   </svg>
-                  {field.name}
+                  <span className={styles.name}>{field.name}</span>
+                  {field.type && (
+                    <span className={styles.type}>{field.type}</span>
+                  )}
 
                   <div className={styles.editPanel}>
                     <button
-                      style={{
-                        ...(editIndex === index
-                          ? { background: colors.lightPink }
-                          : null),
-                      }}
+                      type="button"
+                      className={editIndex === index ? styles.editing : ""}
+                      aria-label={`${
+                        editIndex === index ? generic.cancelEdit : generic.edit
+                      } ${field.name}`}
+                      title={
+                        editIndex === index ? generic.cancelEdit : generic.edit
+                      }
                       onClick={() => {
                         if (editIndex === index) {
                           setEditIndex(-1)
@@ -88,9 +95,20 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      {editIndex === index ? generic.cancelEdit : generic.edit}
+                      {editIndex === index ? (
+                        <svg viewBox="0 0 16 16" aria-hidden>
+                          <path d="M4 4l8 8M12 4l-8 8" />
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 16 16" aria-hidden>
+                          <path d="M11.5 2.5l2 2L6 12H4v-2z" />
+                        </svg>
+                      )}
                     </button>
                     <button
+                      type="button"
+                      aria-label={`${generic.delete} ${field.name}`}
+                      title={generic.delete}
                       onClick={() => {
                         if (
                           window.confirm(
@@ -115,7 +133,9 @@ export default function SortableContainer({
                         }
                       }}
                     >
-                      {generic.delete}
+                      <svg viewBox="0 0 16 16" aria-hidden>
+                        <path d="M3 4.5h10M6.5 4.5V3h3v1.5M4.5 4.5l.6 8.5h5.8l.6-8.5" />
+                      </svg>
                     </button>
                   </div>
                 </li>
@@ -125,8 +145,15 @@ export default function SortableContainer({
         })}
       </Sortable>
 
-      <div className={styles.editPanel}>
+      {formData.length === 0 && (
+        <p className={styles.empty}>
+          No fields yet. Create one with the Input Creator.
+        </p>
+      )}
+
+      <div className={styles.footer}>
         <button
+          type="button"
           onClick={() => {
             updateFormData(originalFormData)
           }}
@@ -134,13 +161,11 @@ export default function SortableContainer({
           {generic.reset}
         </button>
         <button
+          type="button"
           onClick={() => {
             if (window.confirm("Are you sure you want to delete all fields?")) {
               updateFormData([])
             }
-          }}
-          style={{
-            marginRight: 15,
           }}
         >
           {generic.deleteAll}

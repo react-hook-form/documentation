@@ -1,0 +1,350 @@
+.playground {
+  text-align: left;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  box-shadow:
+    0 0 0 1px rgba(236, 89, 144, 0.06),
+    0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+:global(.light) .playground {
+  background: #fff;
+  box-shadow: 0 30px 80px -30px rgba(8, 18, 41, 0.35);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  background: var(--color-surface);
+}
+
+.toolbarGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.toolbarLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 2px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-background);
+}
+
+.segmented button,
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.segmented button {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+}
+
+.segmented button:hover {
+  color: var(--color-text);
+}
+
+.segmented button.segmentActive {
+  background: var(--color-accent-solid);
+  color: #fff;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px dashed var(--color-border-muted);
+  background: none;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(127, 127, 127, 0.5);
+}
+
+.chip:hover {
+  border-color: var(--color-accent-text);
+}
+
+.chipOn {
+  border-style: solid;
+  border-color: rgba(236, 89, 144, 0.5);
+  background: rgba(236, 89, 144, 0.12);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.chipField {
+  color: var(--color-link);
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 960px) {
+  .panes {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+
+  .codePane {
+    border-right: 1px solid var(--color-border-muted);
+  }
+}
+
+.codePane,
+.previewPane {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.paneHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.dots {
+  display: inline-flex;
+  gap: 6px;
+  margin-right: var(--space-2);
+}
+
+.dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border-muted);
+}
+
+.dots i:first-child {
+  background: var(--color-light-pink);
+}
+
+.copy {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-muted);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.copy:hover {
+  border-color: var(--color-accent-text);
+  color: var(--color-text);
+}
+
+.live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+}
+
+.codePane pre[class*="language-"] {
+  flex: 1;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: var(--space-4) var(--space-5);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  background: transparent !important;
+  max-height: 620px;
+}
+
+.previewBody {
+  padding: var(--space-5);
+}
+
+.previewBody pre[class*="language-"] {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  font-size: 12px;
+  line-height: 1.55;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  max-height: 260px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form label > span {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.form input {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-input);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--color-accent-text);
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.form input[aria-invalid="true"] {
+  border-color: var(--color-secondary);
+}
+
+.form small {
+  min-height: 18px;
+  font-size: var(--text-xs);
+  color: var(--color-accent-text);
+}
+
+.form small:not(:empty)::before {
+  content: "⚠ ";
+}
+
+.formActions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.submit,
+.reset {
+  height: 40px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.submit {
+  flex: 1;
+  border: 1px solid var(--color-accent-solid);
+  background: var(--color-accent-solid);
+  color: #fff;
+}
+
+.submit:hover {
+  background: var(--color-secondary);
+}
+
+.reset {
+  border: 1px solid var(--color-border-muted);
+  background: none;
+  color: var(--color-text-muted);
+}
+
+.reset:hover {
+  color: var(--color-text);
+}
+
+.stateLabel {
+  margin: var(--space-5) 0 var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .segmented button:hover {
+  background: none;
+  color: var(--color-text);
+}
+
+:global(.light) .segmented button.segmentActive {
+  background: var(--color-accent-solid);
+  color: #fff;
+}
+
+:global(.light) .chip {
+  border: 1px dashed var(--color-border-muted) !important;
+}
+
+:global(.light) .chip:hover {
+  background: none;
+  color: var(--color-text);
+}
+
+:global(.light) .chipOn {
+  border: 1px solid rgba(236, 89, 144, 0.5) !important;
+}
+
+:global(.light) .chipOn:hover {
+  background: rgba(236, 89, 144, 0.12);
+}
+
+:global(.light) .copy,
+:global(.light) .reset {
+  border: 1px solid var(--color-border-muted) !important;
+}
+
+:global(.light) .copy:hover,
+:global(.light) .reset:hover {
+  background: none;
+  color: var(--color-text);
+}
+
+:global(.light) .submit {
+  font-weight: 600;
+  border: 1px solid var(--color-accent-solid) !important;
+}

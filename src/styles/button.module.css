@@ -53,10 +53,10 @@ a.primaryButton:hover {
 
 .pinkButton,
 .darkButton {
-  background: var(--color-light-pink);
+  background: var(--color-accent-solid);
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-  border: 1px solid var(--color-light-pink);
+  border: 1px solid var(--color-accent-solid);
   width: 100%;
 }
 

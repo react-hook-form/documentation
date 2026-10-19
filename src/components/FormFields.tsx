@@ -1,13 +1,6 @@
 import type { GlobalState } from "little-state-machine"
 import type { FieldErrors, UseFormRegister } from "react-hook-form"
-import colors from "../styles/colors"
 import styles from "./FormFields.module.css"
-
-const errorStyle = {
-  border: `1px solid ${colors.secondary}`,
-  background: colors.errorPink,
-  borderLeft: `10px solid ${colors.lightPink}`,
-}
 
 function getNumericValidationFor<
   TKey extends "maxLength" | "minLength" | "min" | "max",
@@ -36,10 +29,9 @@ const FormFields = ({
             key={`${field.name}${i}`}
             aria-label={field.name}
             {...register(field.name, { required: field.required })}
-            style={{
-              marginBottom: 20,
-              ...(errors[field.name] ? errorStyle : null),
-            }}
+            style={{ marginBottom: 20 }}
+            className={errors[field.name] ? styles.invalid : undefined}
+            aria-invalid={errors[field.name] ? "true" : "false"}
           >
             <option value="" key="select-default-option">
               Select...
@@ -66,10 +58,9 @@ const FormFields = ({
               ...getNumericValidationFor("maxLength", field.maxLength),
               ...getNumericValidationFor("minLength", field.minLength),
             })}
-            style={{
-              marginBottom: 20,
-              ...(errors[field.name] ? errorStyle : null),
-            }}
+            style={{ marginBottom: 20 }}
+            className={errors[field.name] ? styles.invalid : undefined}
+            aria-invalid={errors[field.name] ? "true" : "false"}
           />
         )
       case "radio":
@@ -87,11 +78,9 @@ const FormFields = ({
                 .map((name) => (
                   <label
                     key={name}
-                    style={{
-                      ...(errors[field.name]
-                        ? { color: colors.lightPink }
-                        : null),
-                    }}
+                    className={
+                      errors[field.name] ? styles.invalidLabel : undefined
+                    }
                   >
                     {name}
                     &nbsp;
@@ -110,10 +99,9 @@ const FormFields = ({
         return (
           <input
             key={`${field.name}${i}`}
-            style={{
-              marginBottom: 20,
-              ...(errors[field.name] ? errorStyle : null),
-            }}
+            style={{ marginBottom: 20 }}
+            className={errors[field.name] ? styles.invalid : undefined}
+            aria-invalid={errors[field.name] ? "true" : "false"}
             aria-label={field.name}
             autoComplete="off"
             type={field.type}
