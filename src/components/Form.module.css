@@ -85,6 +85,14 @@
   color: var(--color-text);
 }
 
+.homeDemo .demoForm > select {
+  appearance: none;
+  padding-right: 36px;
+  background: var(--color-background)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16' fill='none' stroke='%238a94a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E")
+    no-repeat right 12px center;
+}
+
 .homeDemo .demoForm > input:focus,
 .homeDemo .demoForm > select:focus {
   outline: none;
