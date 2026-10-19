@@ -1,347 +1,351 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, type CSSProperties } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import GitHubButton from "react-github-btn"
-import { Animate } from "react-simple-animate"
 import clsx from "clsx"
 import nav from "../data/nav"
-import { LARGE_SCREEN } from "../styles/breakpoints"
 import Toggle from "./Toggle"
-import Search from "./Search"
+import CommandSearch, { openCommandSearch } from "./CommandSearch"
+import VersionSwitcher from "./VersionSwitcher"
+import GitHubStars from "./GitHubStars"
+import { useTheme } from "next-themes"
+import { LogoSvg } from "./IntroVideo"
 import styles from "./Nav.module.css"
-import useWindowSize from "./utils/useWindowSize"
+
+const PRIMARY = [
+  { href: "/get-started", label: nav.getStarted },
+  { href: "/docs", label: "API", match: ["/docs"] },
+  { href: "/advanced-usage", label: nav.advanced },
+]
+
+const RESOURCES = [
+  {
+    heading: "Learn",
+    links: [
+      { href: "/resources", label: "All resources" },
+      { href: "/ts", label: "TypeScript" },
+      { href: "/faqs", label: nav.faqs },
+      { href: "/migrate-v7-to-v8", label: "Migrate to v8" },
+      { href: "/resources/articles", label: "Articles" },
+      { href: "/resources/videos", label: "Videos" },
+      { href: "/resources/newsletters", label: "Newsletters" },
+    ],
+  },
+  {
+    heading: "Tools & community",
+    links: [
+      { href: "/form-builder", label: nav.tools.formBuilder },
+      { href: "/dev-tools", label: nav.tools.devTools },
+      { href: "/resources/3rd-party-bindings", label: "3rd-Party Bindings" },
+      { href: "/sponsors", label: nav.sponsors },
+      { href: "https://discord.gg/yYv7GZ8", label: "Discord ↗" },
+      { href: "https://twitter.com/HookForm", label: "X / Twitter ↗" },
+    ],
+  },
+]
+
+const RELEASES_URL =
+  "https://github.com/react-hook-form/react-hook-form/releases"
+
+const isExternal = (href: string) => href.startsWith("http")
+
+// Matches the page background so mobile Safari tints its chrome to blend in.
+const THEME_COLORS = { dark: "#081229", light: "#ffffff" }
+
+const TAB_ICONS = {
+  home: (
+    <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />
+  ),
+  start: <path d="M5 4l14 8-14 8z" />,
+  api: <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />,
+  search: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </>
+  ),
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  close: <path d="M6 6l12 12M18 6 6 18" />,
+}
+
+const TABS = [
+  { href: "/", label: nav.home, icon: TAB_ICONS.home },
+  { href: "/get-started", label: "Start", icon: TAB_ICONS.start },
+  { href: "/docs", label: "API", icon: TAB_ICONS.api, match: ["/docs"] },
+] as const
 
 export default function Nav() {
-  const [isFocusOnSearch, setIsFocusOnSearch] = useState(false)
-  const [showLang, setLang] = useState(false)
-  const [show, setShow] = useState(false)
-  const [showMenu, setShowMenu] = useState(false)
-
-  const router = useRouter()
-  const { pathname } = router
-
-  const { width } = useWindowSize()
+  const { asPath } = useRouter()
+  const pathname = asPath.split(/[?#]/)[0]
+  const [resourcesOpen, setResourcesOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const resourcesRef = useRef<HTMLDivElement>(null)
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
-    if (LARGE_SCREEN <= width) {
-      setLang(true)
-      return
-    }
+    const color = THEME_COLORS[resolvedTheme === "light" ? "light" : "dark"]
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", color)
+  }, [resolvedTheme])
 
-    if (isFocusOnSearch) {
-      setLang(false)
-      return
-    }
-
-    setLang(true)
-  }, [isFocusOnSearch, width])
+  const isActive = (href: string, match?: string[]) =>
+    pathname === href || !!match?.some((m) => pathname.startsWith(m))
+  const resourcesActive = RESOURCES.some((group) =>
+    group.links.some((link) => pathname === link.href)
+  )
 
   useEffect(() => {
-    setShow(true)
-  }, [setShow])
+    const onScroll = () => setScrolled(window.scrollY > 4)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    setResourcesOpen(false)
+    setMobileOpen(false)
+  }, [asPath])
+
+  useEffect(() => {
+    if (!resourcesOpen) return
+    const onClick = (e: MouseEvent) => {
+      if (!resourcesRef.current?.contains(e.target as Node))
+        setResourcesOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) =>
+      e.key === "Escape" && setResourcesOpen(false)
+    document.addEventListener("mousedown", onClick)
+    document.addEventListener("keydown", onKey)
+    return () => {
+      document.removeEventListener("mousedown", onClick)
+      document.removeEventListener("keydown", onKey)
+    }
+  }, [resourcesOpen])
+
+  // Lock the root, not <body>: `overflow: hidden` on body makes it a scroll
+  // container, which detaches the sticky header from the viewport.
+  useEffect(() => {
+    const root = document.documentElement
+    root.style.overflow = mobileOpen ? "hidden" : ""
+    return () => {
+      root.style.overflow = ""
+    }
+  }, [mobileOpen])
+
+  const routeTab = TABS.findIndex((tab) =>
+    "match" in tab
+      ? tab.match.some((m) => pathname.startsWith(m))
+      : pathname === tab.href
+  )
+  // Search (3) never holds the indicator; Menu (4) does while open.
+  const activeTab = mobileOpen ? 4 : routeTab
+
+  const renderLink = (
+    link: { href: string; label: string },
+    className?: string
+  ) =>
+    isExternal(link.href) ? (
+      <a
+        key={link.href}
+        href={link.href}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {link.label}
+      </a>
+    ) : (
+      <Link
+        key={link.href}
+        href={link.href}
+        className={clsx(className, isActive(link.href) && styles.current)}
+        aria-current={isActive(link.href) ? "page" : undefined}
+      >
+        {link.label}
+      </Link>
+    )
 
   return (
     <>
-      {showMenu && (
-        <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
-          <nav className={clsx(styles.actionButtonGroup, styles.mobileMenu)}>
-            <Link
-              className={router.pathname == "/faqs" ? "active" : ""}
-              href="/faqs"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="eye icon" />
-              </div>
-              <span>{nav.faqs}</span>
-            </Link>
+      <header className={clsx(styles.header, scrolled && styles.scrolled)}>
+        <div className={styles.inner}>
+          <Link
+            href="/"
+            className={styles.brand}
+            aria-label="React Hook Form home"
+          >
+            <svg className={styles.logo} viewBox="0 0 100 100" aria-hidden>
+              {LogoSvg}
+            </svg>
+            <span>React Hook Form</span>
+          </Link>
 
-            <Link
-              className={router.pathname == "/sponsors" ? "active" : ""}
-              href="/sponsors"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="icon tag" />
-              </div>
-              <span>{nav.sponsors}</span>
-            </Link>
+          <nav className={styles.primary} aria-label="Main">
+            {PRIMARY.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={clsx(
+                  styles.navLink,
+                  isActive(link.href, link.match) && styles.navLinkActive
+                )}
+                aria-current={
+                  isActive(link.href, link.match) ? "page" : undefined
+                }
+              >
+                {link.label}
+              </Link>
+            ))}
 
-            <Link
-              className={
-                router.pathname == "/resources/articles" ? "active" : ""
-              }
-              href="/resources/articles"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="icon tag" />
-              </div>
-              <span>Articles</span>
-            </Link>
-            <Link
-              className={router.pathname == "/resources/videos" ? "active" : ""}
-              href="/resources/videos"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="icon tag" />
-              </div>
-              <span>Videos</span>
-            </Link>
-            <Link
-              className={
-                router.pathname == "/resources/newsletters" ? "active" : ""
-              }
-              href="/resources/newsletters"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="icon tag" />
-              </div>
-              <span>Newsletters</span>
-            </Link>
-            <Link
-              className={
-                router.pathname == "/resources/3rd-party-bindings"
-                  ? "active"
-                  : ""
-              }
-              href="/resources/3rd-party-bindings"
-            >
-              <div className={styles.iconWrapper}>
-                <div className="icon tag" />
-              </div>
-              <span>3rd-Party-Bindings</span>
-            </Link>
+            <div className={styles.dropdown} ref={resourcesRef}>
+              <button
+                type="button"
+                className={clsx(
+                  styles.navLink,
+                  resourcesActive && styles.navLinkActive
+                )}
+                aria-expanded={resourcesOpen}
+                aria-haspopup="true"
+                onClick={() => setResourcesOpen((v) => !v)}
+              >
+                {nav.resources}
+                <svg viewBox="0 0 12 12" aria-hidden>
+                  <path d="M3 4.5 6 7.5 9 4.5" />
+                </svg>
+              </button>
+              {resourcesOpen && (
+                <div className={styles.panel}>
+                  {RESOURCES.map((group) => (
+                    <div key={group.heading} className={styles.panelGroup}>
+                      <p>{group.heading}</p>
+                      {group.links.map((link) =>
+                        renderLink(link, styles.panelLink)
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
-            <Link
-              className={router.asPath == "/dev-tools" ? "active" : ""}
-              href="/dev-tools"
+            <a
+              href={RELEASES_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navLink}
             >
-              <div className={styles.iconWrapper}>
-                <div className="laptop icon" />
-              </div>
-              <span>DevTools</span>
-            </Link>
+              {nav.releases}
+            </a>
           </nav>
-        </Animate>
+
+          <div className={styles.controls}>
+            <CommandSearch />
+            <span className={styles.desktopControl}>
+              <VersionSwitcher />
+            </span>
+            <Toggle />
+            <span className={clsx(styles.desktopControl, styles.github)}>
+              <GitHubStars />
+            </span>
+          </div>
+        </div>
+      </header>
+      {mobileOpen && (
+        <nav className={styles.mobilePanel} aria-label="Mobile">
+          <div className={styles.mobileGroup}>
+            <Link
+              href="/"
+              className={clsx(
+                styles.panelLink,
+                pathname === "/" && styles.current
+              )}
+            >
+              {nav.home}
+            </Link>
+            {PRIMARY.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={clsx(
+                  styles.panelLink,
+                  isActive(link.href, link.match) && styles.current
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            {renderLink(
+              { href: RELEASES_URL, label: `${nav.releases} ↗` },
+              styles.panelLink
+            )}
+          </div>
+          {RESOURCES.map((group) => (
+            <div key={group.heading} className={styles.mobileGroup}>
+              <p>{group.heading}</p>
+              {group.links.map((link) => renderLink(link, styles.panelLink))}
+            </div>
+          ))}
+          <div className={styles.mobileFooter}>
+            <VersionSwitcher />
+            <GitHubStars />
+          </div>
+        </nav>
       )}
 
-      <div className={clsx(styles.actionButtonWrapper)}>
-        <nav className={clsx(styles.actionButtonGroup)}>
-          <Link className={router.pathname == "/" ? "active" : ""} href="/">
-            <div className={styles.iconWrapper}>
-              <div className="flag icon" />
-            </div>
-            <span>{nav.home}</span>
-          </Link>
-          <Link
-            className={router.asPath == "/get-started" ? "active" : ""}
-            href="/get-started"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="icon shutdown" />
-            </div>
-            <span>{nav.getStarted}</span>
-          </Link>
-          <Link
-            className={clsx(
-              router.pathname == "/docs" ? "active" : "",
-              router.asPath.includes("/docs") ? "active" : ""
-            )}
-            href="/docs"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="icon keyboard" />
-            </div>
-            <span>API</span>
-          </Link>
-          <Link className={router.asPath == "/ts" ? "active" : ""} href="/ts">
-            <div className={styles.iconWrapper}>
-              <span className={styles.tsIcon}>TS</span>
-            </div>
-            <span>TS</span>
-          </Link>
-          <Link
-            className={router.asPath == "/advanced-usage" ? "active" : ""}
-            href="/advanced-usage"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="icon search" />
-            </div>
-            <span>{nav.advanced}</span>
-          </Link>
-          <Link
-            className={`desktopOnly ${
-              router.asPath == "/faqs" ? "active" : ""
-            }`}
-            href="/faqs"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="eye icon" />
-            </div>
-            <span>{nav.faqs}</span>
-          </Link>
-          <Link
-            className={`desktopOnly ${
-              router.asPath == "/sponsors" ? "active" : ""
-            }`}
-            href="/sponsors"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="icon tag" />
-            </div>
-            <span>{nav.sponsors}</span>
-          </Link>
-          <span
-            className={clsx(
-              "desktopOnly",
-              (pathname.includes("resources") ||
-                pathname.includes("dev-tools") ||
-                pathname.includes("form-builder")) &&
-                styles.activeSection
-            )}
-          >
-            <span className={styles.tools}>
-              <span className={styles.menuOffsetWrapper}>
-                <span className={styles.menuExpandLink}>
-                  {nav.resources}{" "}
-                  <span className={styles.dropdownArrow}>▼</span>
-                </span>
-              </span>
-            </span>
-            <div className={styles.dropdownContainer}>
-              <div className={styles.dropdownInner}>
-                <div className={styles.menuExpand}>
-                  <Link
-                    className={
-                      router.pathname == "/resources/articles" ? "active" : ""
-                    }
-                    href="/resources/articles"
-                  >
-                    Articles
-                  </Link>{" "}
-                  <Link
-                    className={
-                      router.pathname == "/resources/videos" ? "active" : ""
-                    }
-                    href="/resources/videos"
-                  >
-                    Videos
-                  </Link>
-                  <Link
-                    className={
-                      router.pathname == "/resources/newsletters"
-                        ? "active"
-                        : ""
-                    }
-                    href="/resources/newsletters"
-                  >
-                    Newsletters
-                  </Link>
-                  <Link
-                    className={
-                      router.pathname == "/resources/3rd-party-bindings"
-                        ? "active"
-                        : ""
-                    }
-                    href="/resources/3rd-party-bindings"
-                  >
-                    3rd Party Bindings
-                  </Link>
-                  <Link
-                    className={
-                      router.pathname == "/form-builder" ? "active" : ""
-                    }
-                    href="/form-builder"
-                  >
-                    {nav.tools.formBuilder}
-                  </Link>
-                  <Link
-                    className={router.pathname == "/dev-tools" ? "active" : ""}
-                    href="/dev-tools"
-                  >
-                    {nav.tools.devTools}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </span>
-          <Link
-            className={clsx(
-              styles.mobileNav,
-              router.pathname == "/form-builder" ? "active" : ""
-            )}
-            href="/form-builder"
-          >
-            <div className={styles.iconWrapper}>
-              <div className="edit icon" />
-            </div>
-            <span>{nav.builder}</span>
-          </Link>
-          <a
-            href="https://github.com/react-hook-form/react-hook-form/releases"
-            target="_blank"
-            className="desktopOnly"
-            rel="noreferrer noopener"
-          >
-            <span>{nav.releases}</span>
-          </a>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a
-            className={styles.mobileOnly}
-            href="#"
-            onClick={(e) => {
-              e.preventDefault()
-              setShowMenu(!showMenu)
-            }}
-          >
-            <div className={styles.iconWrapper}>
-              <div className="icon more"></div>
-            </div>
-            <span>More</span>
-          </a>
-        </nav>
-      </div>
-
-      <div className={styles.iconGroup}>
-        {show && (
-          <Search focus={isFocusOnSearch} setFocus={setIsFocusOnSearch} />
-        )}
-
-        {showLang && <Toggle />}
-      </div>
-
-      <div className={styles.gitHubButtonWrap}>
-        <span className={`${styles.icon} desktopOnly`}>
-          <a
-            href="https://discord.gg/yYv7GZ8"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="React Hook Form Discord"
-          >
-            <svg viewBox="0 0 127.14 96.36">
-              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
-            </svg>
-          </a>
-        </span>
-
-        <span className={styles.icon}>
-          <a
-            href="https://twitter.com/HookForm"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="React Hook Form Twitter"
-          >
-            <svg viewBox="0 0 1200 1227">
-              <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
-            </svg>
-          </a>
-        </span>
-
-        <GitHubButton
-          href="https://github.com/react-hook-form/react-hook-form"
-          data-size="large"
-          data-show-count
-          aria-label="Star react-hook-form on GitHub"
+      <nav
+        className={styles.tabBar}
+        aria-label="Quick navigation"
+        style={{ "--tab-index": activeTab } as CSSProperties}
+      >
+        <span
+          className={clsx(
+            styles.tabIndicator,
+            activeTab < 0 && styles.tabIndicatorHidden
+          )}
+          aria-hidden
         />
-      </div>
+        {TABS.map((tab, i) => {
+          const active = i === activeTab
+          return (
+            <Link
+              key={tab.href}
+              href={tab.href}
+              className={clsx(styles.tab, active && styles.tabActive)}
+              aria-current={active ? "page" : undefined}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden>
+                {tab.icon}
+              </svg>
+              <span>{tab.label}</span>
+            </Link>
+          )
+        })}
+        <button
+          type="button"
+          className={styles.tab}
+          onClick={() => {
+            setMobileOpen(false)
+            openCommandSearch()
+          }}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden>
+            {TAB_ICONS.search}
+          </svg>
+          <span>Search</span>
+        </button>
+        <button
+          type="button"
+          className={clsx(styles.tab, mobileOpen && styles.tabActive)}
+          aria-expanded={mobileOpen}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden>
+            {mobileOpen ? TAB_ICONS.close : TAB_ICONS.menu}
+          </svg>
+          <span>{mobileOpen ? "Close" : "Menu"}</span>
+        </button>
+      </nav>
     </>
   )
 }

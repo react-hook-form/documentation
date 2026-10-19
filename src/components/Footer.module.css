@@ -1,65 +1,200 @@
 .footer {
-  padding: var(--space-9) var(--space-5);
+  container-type: inline-size;
+  max-width: 1080px;
+  margin: 64px auto 0;
+  padding: var(--space-10) 0 var(--space-8);
+  border-top: 1px solid var(--color-border-muted);
   font-size: var(--text-sm);
-  font-weight: 400;
-  text-align: center;
+  text-align: left;
+}
+
+/* Below 1024px the floating tab bar overlays the page; let the last line
+   scroll clear of it. */
+@media (max-width: 1023px) {
+  .footer {
+    padding-bottom: calc(var(--space-8) + 72px + env(safe-area-inset-bottom));
+  }
 }
 
 .footer a {
-  color: var(--color-footer);
-  text-decoration: none;
-  transition: var(--transition);
+  color: var(--color-text-muted) !important;
+  text-decoration: none !important;
+  transition: color var(--transition-fast);
 }
 
 .footer a:hover {
-  color: var(--color-light-pink);
-  text-decoration: none;
+  color: var(--color-accent-text) !important;
 }
 
-.footer > p {
-  font-size: var(--text-sm);
-}
-
-.links {
-  border-bottom: 1px solid var(--color-border);
-  max-width: 900px;
-  margin: 0 auto var(--space-5);
-  padding: 0 0 var(--space-3) 0;
-  display: block;
-}
-
-.links > li {
-  display: inline-flex;
-}
-
-.links > li > a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: var(--space-3) var(--space-2);
-  min-width: 48px;
-  min-height: 48px;
-}
-
-a.link {
-  color: var(--color-primary);
-}
-
-.logoGroup {
+/* Wraps on its own, so it fits both full-width pages and the docs column. */
+.top {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-10);
+}
+
+.brand {
+  flex: 1 1 220px;
+  max-width: 300px;
+}
+
+.brand p {
+  margin: var(--space-3) 0 var(--space-4);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.footer a.logo {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: 10px;
+  color: var(--color-text) !important;
+  font-size: var(--text-base);
+  font-weight: 700;
 }
 
-.logoGroup img {
-  width: 100px;
+.logo svg {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: var(--color-light-pink);
+  fill: white;
 }
 
-.heading {
+.socials {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+}
+
+.socials a:hover {
+  border-color: var(--color-accent-text);
+}
+
+.socials svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.columns {
+  flex: 3 1 440px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--space-8) var(--space-6);
+}
+
+.columns h2 {
+  margin: 0 0 var(--space-3);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.columns ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border-muted);
   color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.bottom p {
+  margin: 0;
+}
+
+/* Easter egg: a faint joystick that reveals a link to the old design */
+.footer a.oldDesign {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  opacity: 0.25;
+  filter: grayscale(1);
+  transition:
+    opacity var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.footer a.oldDesign:hover,
+.footer a.oldDesign:focus-visible {
+  opacity: 1;
+  filter: none;
+}
+
+.oldDesignLabel {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.3s ease;
+}
+
+.oldDesign:hover .oldDesignLabel,
+.oldDesign:focus-visible .oldDesignLabel {
+  max-width: 160px;
+}
+
+.footer a.vercel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  color: var(--color-text) !important;
+}
+
+.footer a.vercel:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text) !important;
+}
+
+/* In narrow spots (the docs content column) stack the brand above a full
+   row of link columns instead of wrapping one column onto its own row. */
+@container (max-width: 900px) {
+  .brand {
+    flex-basis: 100%;
+    max-width: 520px;
+  }
+
+  .columns {
+    flex-basis: 100%;
+  }
+}
+
+/* Some pages render the footer without side padding; keep a gutter. */
+@media (max-width: 1119px) {
+  .footer {
+    padding-inline: 20px;
+  }
 }

@@ -1,24 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document"
-import Script from "next/script"
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="preconnect"
-          href="https://cdn.jsdelivr.net"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-        />
-        <Script
-          strategy="afterInteractive"
-          src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
-        />
+        <meta name="theme-color" content="#081229" />
+        <meta name="format-detection" content="telephone=no" />
         <link
           rel="shortcut icon"
           href="/images/logo/react-hook-form-logo-only.png"

@@ -1,69 +1,178 @@
 .root {
+  position: relative;
+  max-width: 880px;
+  margin: 96px auto 0;
+  padding: var(--space-10) var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: radial-gradient(
+    ellipse 60% 70% at 50% 0%,
+    rgba(236, 89, 144, 0.12),
+    transparent 70%
+  );
   text-align: center;
-  margin: 1rem 0;
-  font-size: 0.8rem;
-  border-top: 1px solid var(--color-black);
-  padding-top: 1.5rem;
+  overflow: hidden;
 }
 
-.heading {
-  margin-bottom: 1.5rem;
-  opacity: 0.7;
-  font-weight: 500;
+/* Hairline highlight along the top edge */
+.root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-text),
+    transparent
+  );
+  opacity: 0.6;
 }
 
-.root a {
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--color-text);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.root a img {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
+.lead {
+  max-width: 460px;
+  margin: var(--space-3) auto 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
-.logoGroup {
+.grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin: 0 1rem;
+  gap: var(--space-4);
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.twicsy {
-  border-radius: 10%;
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 136px;
+  height: 136px;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-muted);
+  background: linear-gradient(
+    180deg,
+    rgba(25, 29, 58, 0.55),
+    rgba(25, 29, 58, 0.15)
+  );
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+:global(.light) .card {
+  background: #fff;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-text);
+  box-shadow: 0 8px 24px rgba(236, 89, 144, 0.15);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 2px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+}
+
+.name {
+  font-size: var(--text-sm);
+  font-weight: 500;
 }
 
 .add {
-  border: 1px solid #ccc;
-  border-radius: 10%;
-  font-size: 12px;
-  white-space: nowrap;
-  width: 72px;
-  height: 72px;
+  border-style: dashed;
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+:global(.light) .add {
+  background: transparent;
+}
+
+.add:hover,
+.add:focus-visible {
+  color: var(--color-accent-text);
+}
+
+.plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: rgba(236, 89, 144, 0.1);
+  color: var(--color-accent-text);
+  transition: transform var(--transition-fast);
+}
+
+.add:hover .plus {
+  transform: scale(1.08);
 }
 
 @media (min-width: 768px) {
-  .logoGroup {
-    max-width: 600px;
-    margin: 0 auto;
-    gap: 1.5rem;
+  .root {
+    padding: var(--space-12) var(--space-10);
   }
 
-  .root a img {
-    width: 100px;
-    height: 100px;
+  .card {
+    width: 160px;
+    height: 140px;
   }
 
-  .add {
-    height: 100px;
-    width: 100px;
-    padding: 0 1.5rem;
-    font-size: 13px;
+  .title {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .plus {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-visible,
+  .add:hover .plus {
+    transform: none;
   }
 }

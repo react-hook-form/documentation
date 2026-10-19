@@ -5,7 +5,8 @@ import type { FieldValues, UseFormReturn } from "react-hook-form"
 import home from "../data/home"
 import generic from "../data/generic"
 import buttonStyles from "../styles/button.module.css"
-import containerStyles from "../styles/container.module.css"
+import clsx from "clsx"
+import HomeSection from "./HomeSection"
 import typographyStyles from "../styles/typography.module.css"
 import FormFields from "./FormFields"
 import goToBuilder from "./utils/goToBuilder"
@@ -45,32 +46,23 @@ function Form({
 
   const errors = formState.errors
 
-  return (
+  const content = (
     <>
-      {!devTool && (
-        <div className={containerStyles.centerContent}>
-          <h2 className={typographyStyles.h1}>{generic.liveDemo}</h2>
-          {formUpdated && (
-            <Animate
-              play={formUpdated}
-              start={{ opacity: 0, transform: "translateY(20px)" }}
-              end={{ opacity: 1 }}
-              delay={1.5}
-              render={({ style }) => (
-                <p style={{ marginBottom: 20, ...style }}>
-                  <b className={typographyStyles.note}>Note:</b> your form has
-                  been updated.
-                </p>
-              )}
-            />
+      {!devTool && formUpdated && (
+        <Animate
+          play={formUpdated}
+          start={{ opacity: 0, transform: "translateY(20px)" }}
+          end={{ opacity: 1 }}
+          delay={1.5}
+          render={({ style }) => (
+            <p style={{ marginBottom: 20, ...style }}>
+              <b className={typographyStyles.note}>Note:</b> your form has been
+              updated.
+            </p>
           )}
-          <p className={typographyStyles.homeParagraph}>
-            {home.liveDemo.description}
-          </p>
-        </div>
+        />
       )}
-
-      <div className={styles.wrapper}>
+      <div className={clsx(styles.wrapper, !devTool && styles.homeDemo)}>
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form className={styles.demoForm} onSubmit={handleSubmit(onSubmit)}>
           <h3 className={typographyStyles.title} style={{ marginTop: 40 }}>
@@ -190,6 +182,19 @@ function Form({
         )}
       </div>
     </>
+  )
+
+  if (devTool) return content
+
+  return (
+    <HomeSection
+      eyebrow="Try it"
+      title={generic.liveDemo}
+      lead={home.liveDemo.description}
+      wide
+    >
+      {content}
+    </HomeSection>
   )
 }
 

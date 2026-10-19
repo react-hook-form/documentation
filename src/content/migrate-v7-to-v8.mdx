@@ -12,10 +12,10 @@ npm install react-hook-form@beta
 
 ## React Compiler {#ReactCompiler}
 
-V8 supports the [React Compiler](https://react.dev/learn/react-compiler). `useForm` returns the same object on every render, so the compiler can't tell when something read through that object changes. Two patterns keep compiled components up to date:
+V8 supports the [React Compiler](https://react.dev/learn/react-compiler). `useForm` returns the same object on every render, so the compiler can't tell when something read through that object changes. To work around this, the read methods `register`, `watch`, `getValues`, `getErrors` and `getFieldState` get a new reference whenever form state changes (see [Method References](#MethodReferences)). Two patterns keep compiled components up to date:
 
 - In nested components, subscribe with [`useFormState`](/docs/useformstate) instead of reading `formState` from `useFormContext()`. The compiler memoizes `<FormProvider {...methods}>` in the parent, so the context keeps the `formState` from the first render.
-- Destructure methods such as `getFieldState` from `useForm()` instead of calling them on the returned object. The compiler memoizes `methods.getFieldState("name")` on `methods`, which never changes.
+- Destructure methods such as `getFieldState` from `useForm()` instead of calling them on the returned object. The compiler memoizes `methods.getFieldState("name")` on `methods`, which never changes, but a destructured `getFieldState` changes with form state, so its result is recomputed.
 
 ```tsx copy
 function NestedInput() {
@@ -58,6 +58,42 @@ useFieldArray({ name: "items" }) // items: string[]
 ## Breaking Changes {#BreakingChanges}
 
 The following changes require updates to your existing code when upgrading from V7.
+
+### Method References {#MethodReferences}
+
+`register`, `watch`, `getValues`, `getErrors` and `getFieldState` no longer keep a stable reference. They get a new reference whenever form state changes, so the React Compiler sees fresh values. The object returned by `useForm` and the other methods (`setValue`, `handleSubmit`, `reset`, …) stay stable.
+
+Any `useEffect`, `useCallback` or `useMemo` that lists one of these methods as a dependency now runs again on every form state update. For example, `useEffect(() => register("x", rules), [register])` registers the field again after `unregister("x")`.
+
+```tsx copy
+// Before (V7)
+useEffect(() => {
+  register("x", { required: true })
+}, [register])
+
+// After (V8) — register during render
+register("x", { required: true })
+```
+
+To react to value changes in an effect, use [`subscribe`](/docs/useform/subscribe) instead of `watch` (see [watch Callback API](#watchCallback)).
+
+### unknown Instead of any {#UnknownTypes}
+
+Public types now use `unknown` instead of `any`. Code that relied on `any` to skip type checking needs explicit types:
+
+- Callbacks without a parameter type now receive `unknown`. This applies to `setValueAs`, `onChange` and `onBlur` in `register` options. Annotate the parameter:
+
+  ```tsx copy
+  // Before (V7) — v was any
+  register("name", { setValueAs: (v) => v.trim() })
+
+  // After (V8) — annotate the parameter
+  register("name", { setValueAs: (v: string) => v.trim() })
+  ```
+
+- [`Controller`](/docs/usecontroller/controller)'s `field.onChange` arguments, `ChangeHandler` event `target` and `type`, `RefCallBack` instances and `CustomElement.value` are typed as `unknown`.
+- `TContext` defaults to `unknown`. In a resolver that uses the default context, narrow `context` before reading from it, or pass a context type: `Resolver<FormValues, MyContext>`.
+- On untyped forms, nested `dirtyFields` and `touchedFields` are `unknown`. Pass a form type with `useForm<FormValues>()`, or narrow the value before you access nested fields.
 
 ### Input Ref {#InputRef}
 
@@ -108,18 +144,37 @@ The `<Watch />` component prop `names` has been renamed to `name` for consistenc
 
 ### watch Callback API {#watchCallback}
 
-The `watch` subscription callback overload's exported type (`WatchObserver`) has been removed from the public API — as of the current beta, the callback still works at runtime, but you lose the named type if you relied on importing it. Use [`subscribe`](/docs/useform/subscribe) instead going forward, since it's the supported, fully-typed API for this pattern.
+The `watch(callback)` overload has been removed, along with its `WatchObserver` type. `watch` now only reads values. Use [`subscribe`](/docs/useform/subscribe) to run a callback when values change:
 
 ```tsx copy
 // Before (V7)
-watch((value, { name, type }) => console.log(value))
+useEffect(() => {
+  const { unsubscribe } = watch((value, { name, type }) => console.log(value))
+  return () => unsubscribe()
+}, [watch])
 
 // After (V8) — use subscribe
-subscribe({
-  formState: { values: true },
-  callback: ({ values }) => console.log(values),
-})
+useEffect(() => {
+  return subscribe({
+    formState: { values: true },
+    callback: ({ values }) => console.log(values),
+  })
+}, [subscribe])
 ```
+
+### valueAsDate {#valueAsDate}
+
+With `valueAsDate: true`, an empty input (`""`) now returns `null` instead of `Invalid Date`. This matches the native [`HTMLInputElement.valueAsDate`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate) behavior.
+
+```tsx copy
+register("birthday", { valueAsDate: true })
+
+// Empty input
+// Before (V7): Invalid Date
+// After (V8):  null
+```
+
+If you checked for an empty date with `isNaN(value.getTime())`, check for `null` instead.
 
 ### setValue {#setValue}
 

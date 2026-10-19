@@ -449,6 +449,14 @@ export const migrateV7ToV8Links: Pages = [
     pathname: "#BreakingChanges",
   },
   {
+    name: "Method References",
+    pathname: "#MethodReferences",
+  },
+  {
+    name: "unknown Types",
+    pathname: "#UnknownTypes",
+  },
+  {
     name: "Input Ref",
     pathname: "#InputRef",
   },
@@ -463,6 +471,10 @@ export const migrateV7ToV8Links: Pages = [
   {
     name: "watch Callback",
     pathname: "#watchCallback",
+  },
+  {
+    name: "valueAsDate",
+    pathname: "#valueAsDate",
   },
   {
     name: "setValue",

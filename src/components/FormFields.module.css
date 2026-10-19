@@ -6,3 +6,15 @@
 .radioGroup > label:not(:last-child) {
   margin-right: 20px;
 }
+
+/* Theme-aware error state: a pink tint keeps the text readable in both
+   themes, unlike the old pale-pink fill under white text. */
+.invalid {
+  border: 1px solid var(--color-secondary) !important;
+  border-left: 6px solid var(--color-light-pink) !important;
+  background-color: rgba(236, 89, 144, 0.1) !important;
+}
+
+.invalidLabel {
+  color: var(--color-accent-text);
+}

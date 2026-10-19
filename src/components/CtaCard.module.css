@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  max-width: 1080px;
+  margin: 96px auto 0;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(236, 89, 144, 0.35);
+  background:
+    radial-gradient(
+      ellipse 50% 120% at 0% 50%,
+      rgba(236, 89, 144, 0.14),
+      transparent 70%
+    ),
+    var(--color-primary);
+}
+
+:global(.light) .card {
+  background:
+    radial-gradient(
+      ellipse 50% 120% at 0% 50%,
+      rgba(236, 89, 144, 0.1),
+      transparent 70%
+    ),
+    #fff;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(236, 89, 144, 0.14);
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-accent-text);
+}
+
+.text {
+  flex: 1 1 260px;
+}
+
+.text h2 {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.text p {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-accent-solid);
+  background: var(--color-accent-solid);
+  color: #fff !important;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background var(--transition-fast);
+}
+
+.button:hover {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+}
+
+@media (max-width: 1119px) {
+  .card {
+    margin-inline: 20px;
+  }
+}

@@ -1,57 +1,144 @@
-.wrapper {
+.compare {
   display: grid;
-  grid-gap: 20px;
-  margin-top: 20px;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
-.wrapper > div {
-  display: none;
-}
-
-.wrapper p {
-  font-size: 45px;
-  font-weight: 800;
-  margin-top: 160px;
-  line-height: 1.4;
-}
-
-.wrapper h2 {
-  font-size: 14px;
-}
-
-.externalComponent {
-  font-size: 14px;
-  border: 1px solid var(--color-secondary);
-  padding: var(--space-2) 0;
-  border-radius: 4px;
-  margin: var(--space-5) 0;
-}
-
-.line {
-  position: absolute;
-  width: 1px;
-  background: var(--color-blue);
-  height: 44%;
-  left: 50%;
-  top: 30%;
-  z-index: -1;
+.visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (min-width: 768px) {
-  .wrapper {
-    grid-gap: 40px;
-    grid-template-columns: 1fr 65px 1fr;
+  .compare {
+    grid-template-columns: 1fr 56px 1fr;
   }
+}
 
-  .wrapper > div {
-    display: block;
-  }
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  text-align: left;
+}
 
-  .wrapper h2 {
-    font-size: 24px;
-    font-weight: 400;
-    padding-bottom: 10px;
+:global(.light) .panel {
+  background: #fff;
+}
+
+.panelHighlight {
+  border-color: rgba(236, 89, 144, 0.45);
+  box-shadow: 0 20px 60px -30px rgba(236, 89, 144, 0.45);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  margin: 0 0 var(--space-2);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-input);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent-text);
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  font-size: var(--text-sm);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-green);
+}
+
+:global(.light) .count {
+  color: #15803d;
+}
+
+.countHot {
+  color: var(--color-accent-text);
+}
+
+/* Two identical animations so toggling between them restarts the flash. */
+.flashA {
+  animation: flashA 0.45s ease-out;
+}
+
+.flashB {
+  animation: flashB 0.45s ease-out;
+}
+
+@keyframes flashA {
+  from {
+    background: rgba(236, 89, 144, 0.28);
+    border-color: var(--color-accent-text);
   }
+}
+
+@keyframes flashB {
+  from {
+    background: rgba(236, 89, 144, 0.28);
+    border-color: var(--color-accent-text);
+  }
+}
+
+.vs {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-background);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--color-text-muted);
 }

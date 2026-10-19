@@ -1,216 +1,139 @@
 .menu {
   display: none;
-  position: relative;
-}
-
-.arrow {
-  position: relative;
-  color: var(--color-light-pink);
-}
-
-.arrowLast:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 43%;
-  border-left: 1px solid #ec5990;
-}
-
-.size {
-  font-size: 10px;
-  margin-left: 5px;
-  color: currentColor;
 }
 
 @media (min-width: 768px) {
   .menu {
     display: block;
   }
+}
 
-  .menu > div {
-    position: fixed;
-    margin-top: -10px;
-  }
+.inner {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--space-3) var(--space-6) 0;
+}
 
-  .menu > div > ul {
-    margin-top: 0;
-    max-width: 230px;
-    padding: 0;
-    overflow-y: auto;
-    height: calc(100vh - 600px);
-    overflow-y: auto;
-  }
+.inner::-webkit-scrollbar {
+  width: 6px;
+}
 
-  .menu > div > ul > li {
-    line-height: 22px;
-    padding-bottom: var(--space-2);
-    font-size: var(--text-sm);
-    display: flex;
-  }
+.inner::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  .menu > div > ul > li:last-child {
-    padding-bottom: 0;
-  }
+.inner::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-full);
+  background: var(--color-border-muted);
+}
 
-  .menu > div > ul > li > a {
-    text-decoration: none;
-    padding-left: 6px;
-    line-height: 20px;
-  }
+.inner:hover::-webkit-scrollbar-thumb {
+  background: var(--color-light-blue);
+}
 
-  .menu > div > ul > li > a,
-  .menu > div > ul > li > button {
-    color: var(--color-text);
+.inner::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light-pink);
+}
 
-    transition: var(--transition);
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-    text-align: left;
-    padding: 0;
-    margin: 0 7px;
-  }
-
-  .menu > div > ul > li > a:hover,
-  .menu > div > ul > li > button:hover {
-    border-bottom: 1px solid var(--color-light-pink);
-  }
-
-  :global(.light) > .menu > div > ul > li > a,
-  :global(.light) > .menu > div > ul > li > button {
-    transition: var(--transition);
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-    text-align: left;
-  }
-
-  :global(.light) > .menu > div > ul > li > a:hover,
-  :global(.light) > .menu > div > ul > li > button:hover {
-    background: none;
-    border-bottom: 1px solid var(--color-light-pink) !important;
+/* Firefox has no ::-webkit-scrollbar, so style it with the standard props. */
+@supports not selector(::-webkit-scrollbar) {
+  .inner {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-muted) transparent;
   }
 }
 
-@media (min-height: 920px) {
-  .menu > div > ul > li {
-    padding-bottom: 12px;
-  }
+.title {
+  margin: 0 0 var(--space-3) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
-.titleList {
-  width: 200px;
+.list,
+.subList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list > li + li {
+  margin-top: 2px;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: 5px var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted) !important;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  text-decoration: none !important;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text) !important;
+  background: var(--color-surface);
+}
+
+.groupLink,
+.parentActive {
+  color: var(--color-text) !important;
+  font-weight: 600;
 }
 
 .code {
-  color: var(--color-light-pink);
-  position: relative;
-  font-size: 12px;
-  top: 2px;
-  display: inline-table;
+  color: var(--color-accent-text);
+  font-size: 10px;
+  opacity: 0.7;
   flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
-  .menu {
-    margin-top: -130px;
-  }
-
-  .menu > div > ul {
-    margin-top: 0;
-    max-width: 260px;
-    height: calc(100vh - 450px);
-  }
-
-  .menu > ul {
-    max-width: 250px;
-    height: calc(100vh - 200px);
-  }
-
-  .titleList {
-    width: 250px;
-    margin-bottom: var(--space-5);
-  }
-
-  .titleList > h2 {
-    padding: 0;
-  }
+.subList {
+  margin: 2px 0 var(--space-3) 18px;
+  padding-left: var(--space-2);
+  border-left: 1px solid var(--color-border-muted);
 }
 
-@media (min-width: 1280px) {
-  .menu > ul {
-    max-width: 270px;
-  }
-}
-
-.menu li.menuItem {
-  display: block;
-}
-
-.menuItem code {
+.subLink {
   position: relative;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
-.menuItem li {
-  padding: 3px 0;
+.active {
+  color: var(--color-accent-text) !important;
+  background: rgba(236, 89, 144, 0.1);
+  font-weight: 500;
 }
 
-.menu li.menuItem > ul {
-  padding-left: 10px;
+.active:hover {
+  color: var(--color-accent-text) !important;
+  background: rgba(236, 89, 144, 0.14);
 }
 
-.menu li.menuItem > ul > li {
-  padding-left: 20px;
-  border-left: 1px solid var(--color-light-pink);
-  position: relative;
-}
-
-.menu li.menuItem > ul > li:last-child {
-  border-left: none;
-  position: relative;
-}
-
-.menu li.menuItem > ul > li:last-child:after {
+.subLink.active::before {
   content: "";
   position: absolute;
-  bottom: 0px;
-  top: 0;
-  left: 0;
-  height: 58%;
-  border-left: 1px solid var(--color-light-pink);
-}
-
-.menu li.menuItem > ul > li:before {
-  content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 0;
-  width: 10px;
-  border-bottom: 1px solid var(--color-light-pink);
-}
-
-.menu li.menuItem > ul a {
-  color: currentColor;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-}
-
-.menu li.menuItem > ul a:hover {
-  border-bottom: 1px solid var(--color-light-pink);
-}
-
-.menu li.menuItem > ul > li {
-  list-style: none;
-}
-
-.menu ul li a.isActive {
-  border-bottom: 1px solid var(--color-secondary);
+  left: calc(-1 * var(--space-2) - 1px);
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-light-pink);
 }
 
 .ads {
-  position: absolute;
-  height: 500px;
+  margin-top: var(--space-6);
+  padding-left: var(--space-3);
 }

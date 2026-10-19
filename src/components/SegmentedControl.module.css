@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  width: fit-content;
+  padding: 3px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-surface);
+}
+
+.root button {
+  padding: 6px var(--space-4);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.root button:hover {
+  color: var(--color-text);
+}
+
+.root button.active {
+  background: var(--color-accent-solid);
+  color: #fff;
+}
+
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .root button:hover {
+  background: none;
+  color: var(--color-text);
+}
+
+:global(.light) .root button.active {
+  background: var(--color-accent-solid);
+  color: #fff;
+}

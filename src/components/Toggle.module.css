@@ -1,70 +1,41 @@
-/* The toggle - the box around the slider */
 .toggle {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 26px;
-  z-index: 1;
-  margin-right: 12px;
-}
-
-/* Hide default HTML checkbox */
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  top: 1px;
-  height: 22px;
-  width: 20px;
-  left: 2px;
-  bottom: 4px;
-  background-color: var(--color-blue);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+.toggle:hover,
+.toggle:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-border-muted);
+  outline: none;
 }
 
-input:checked + .slider {
-  background-color: var(--color-light-blue);
+.toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-input:checked + .slider:before {
-  background: white;
-}
-
-input:focus + .slider {
-  border: 1px solid var(--color-light-pink);
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(14px);
-  -ms-transform: translateX(14px);
-  transform: translateX(14px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 30px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .toggle:hover,
+:global(.light) .toggle:focus-visible {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-muted) !important;
 }

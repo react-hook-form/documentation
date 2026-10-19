@@ -6,13 +6,38 @@ import { MDXComponents } from "@/components/mdx/mdx"
 import Seo, { SITE_URL } from "@/components/seo"
 import Footer from "@/components/Footer"
 import StarRepo from "@/components/StarRepo"
-import containerStyles from "@/styles/container.module.css"
-import typographyStyles from "@/styles/typography.module.css"
 import Menu from "@/components/Menu/Menu"
+import DocsToc from "@/components/DocsToc"
+import V8Notice from "@/components/V8Notice"
+import Link from "next/link"
+import styles from "@/components/DocsPage.module.css"
 import { Pages } from "@/types/types"
 
 // Segments that are real, navigable pages but not their own contentlayer doc.
 const SEGMENT_LABEL_OVERRIDES: Record<string, string> = { docs: "API" }
+
+const SIDEBAR_TITLES: Record<Doc["sidebar"], string> = {
+  apiLinks: "API Reference",
+  advancedLinks: "Advanced Usage",
+  tsLinks: "TypeScript",
+  faqLinks: "FAQs",
+  getStartedLinks: "Get Started",
+  migrateV7ToV8Links: "Migrate to v8",
+}
+
+function getBreadcrumbs(doc: Doc) {
+  let cumulativePath = ""
+  return doc.segment.slice(0, -1).map((segment) => {
+    cumulativePath += `/${segment}`
+    return {
+      href: cumulativePath,
+      name:
+        allDocs.find((d) => d.slug === cumulativePath)?.title ??
+        SEGMENT_LABEL_OVERRIDES[segment] ??
+        segment,
+    }
+  })
+}
 
 function getBreadcrumbSchema(doc: Doc) {
   let cumulativePath = ""
@@ -96,23 +121,39 @@ export default function Page({
         jsonLd={[getBreadcrumbSchema(doc), getArticleSchema(doc)]}
       />
 
-      <div className={containerStyles.container}>
-        <h1 className={typographyStyles.headingWithTopMargin} id="main">
-          {doc.title}
-        </h1>
-        <p className={typographyStyles.subHeading}>{doc.description}</p>
+      <div className={styles.layout}>
+        <Menu pages={doc.pages as Pages} title={SIDEBAR_TITLES[doc.sidebar]} />
 
-        <div className={containerStyles.wrapper}>
-          <Menu pages={doc.pages as Pages} />
+        <main className={styles.main}>
+          <header className={styles.header}>
+            {doc.segment.length > 1 && (
+              <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+                {getBreadcrumbs(doc).map((crumb) => (
+                  <span key={crumb.href}>
+                    <Link href={crumb.href}>{crumb.name}</Link>
+                    <span aria-hidden>/</span>
+                  </span>
+                ))}
+              </nav>
+            )}
+            <h1 className={styles.title} id="main">
+              {doc.title}
+            </h1>
+            <p className={styles.description}>{doc.description}</p>
+          </header>
 
-          <main>
+          <V8Notice slug={doc.slug} />
+
+          <div id="docs-content">
             <MDXContent components={MDXComponents} />
+          </div>
 
-            <StarRepo />
+          <StarRepo />
 
-            <Footer />
-          </main>
-        </div>
+          <Footer />
+        </main>
+
+        <DocsToc />
       </div>
     </Layout>
   )

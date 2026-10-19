@@ -1,0 +1,154 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.search {
+  position: relative;
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+.search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: var(--color-text-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.search input {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0 var(--space-3) 0 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-input);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+.search input:focus {
+  outline: none;
+  border-color: var(--color-accent-text);
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.count {
+  margin: 0 auto 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  padding: var(--space-12) 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Card body: whole card is clickable through the stretched title link. */
+.body {
+  flex: 1;
+  padding: var(--space-6) var(--space-6) var(--space-4);
+}
+
+.title {
+  padding-right: 48px;
+}
+
+.stretched {
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* The global `a:active` nudge would make the link the containing block,
+   shrinking ::after mid-click so the click never lands on the link. */
+.stretched:active {
+  transform: none;
+}
+
+.stretched::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+}
+
+.stretched:focus-visible {
+  outline: none;
+}
+
+.stretched:focus-visible::after {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: -2px;
+}
+
+.meta {
+  justify-content: space-between;
+  font-size: var(--text-xs);
+}
+
+.author {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+a.author:hover {
+  color: var(--color-accent-text) !important;
+}
+
+.host {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* List layout: one column, icon beside the text. */
+.list {
+  grid-template-columns: 1fr !important;
+  gap: var(--space-3);
+}
+
+.row .body {
+  display: flex;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+}
+
+.row .body > span:first-child {
+  flex-shrink: 0;
+}
+
+.row .content {
+  min-width: 0;
+}
+
+.row .title {
+  margin-top: var(--space-1);
+}
+
+.row .meta {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}

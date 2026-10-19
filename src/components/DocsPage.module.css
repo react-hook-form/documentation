@@ -1,0 +1,113 @@
+.layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 20px 50px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    column-gap: var(--space-9);
+    padding: 40px 28px 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    column-gap: var(--space-10);
+  }
+}
+
+@media (min-width: 1280px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr) 220px;
+  }
+}
+
+.main {
+  min-width: 0;
+  max-width: 900px;
+}
+
+.header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumbs span {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.breadcrumbs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-accent-text);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-lg);
+  line-height: 1.55;
+  color: var(--color-accent-text);
+}
+
+/* Content rhythm and code blocks */
+
+.main :global(#docs-content) :is(h2, h3, h4)[id] {
+  scroll-margin-top: 90px;
+}
+
+.main :global(#docs-content) h2 {
+  margin-top: var(--space-12);
+}
+
+.main :global(#docs-content) h2:first-child {
+  margin-top: 0;
+}
+
+.main :global(#docs-content) pre[class*="language-"] {
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.main :global(#docs-content) :not(pre) > code {
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-muted);
+  font-size: 0.875em;
+}
+
+.main :global(#docs-content) :is(h1, h2, h3, h4) code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+}

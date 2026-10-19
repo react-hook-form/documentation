@@ -1,337 +1,493 @@
-.iconGroup {
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  border-bottom: 1px solid var(--color-border-muted);
+  background: rgba(8, 18, 41, 0.82);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  transition: box-shadow var(--transition-fast);
+}
+
+:global(.light) .header {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.scrolled {
+  box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.6);
+}
+
+:global(.light) .scrolled {
+  box-shadow: 0 8px 24px -18px rgba(8, 18, 41, 0.35);
+}
+
+.inner {
   display: flex;
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  z-index: 2;
-}
-
-.icon {
-  z-index: 10;
-  max-width: 50px;
-  min-width: 30px;
-  flex: 1;
-}
-
-.icon svg {
-  height: 16px;
-  transition: var(--transition);
-  margin-top: 6px;
-}
-
-:global(.dark) .icon svg {
-  fill: white;
-}
-
-.icon svg:hover {
-  opacity: 0.5;
-}
-
-.actionButtonGroup {
-  display: flex;
-  bottom: 0;
-  z-index: 5;
-  left: 0;
-  width: 100%;
-  position: fixed;
-  height: 48px;
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-}
-
-:global(.dark) .actionButtonGroup {
-  background: var(--color-button-blue);
-  box-shadow: 0 2px 2px 0 #000;
-  background: rgba(3, 9, 22, 0.8);
-  -webkit-backdrop-filter: blur(0.3rem);
-  backdrop-filter: blur(0.3rem);
-  width: 100%;
-  z-index: 20;
-}
-
-:global(.light) .actionButtonGroup {
-  background: var(--color-blue);
-}
-
-.actionButtonGroup a {
-  flex: 1;
-  font-size: 0.5rem;
-  border-left: 1px solid var(--color-button-blue);
-  padding: var(--space-1) 0;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  position: relative;
-  min-width: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  > * {
-    flex: 1;
-  }
-}
-
-.actionButtonGroup a:first-child {
-  border-left: 0;
-}
-
-.actionButtonGroup a:hover {
-  color: var(--color-light-pink);
-}
-
-.actionButtonGroup a > span {
-  display: block;
-  height: 20px;
-  line-height: 20px;
-}
-
-.gitHubButtonWrap {
-  position: absolute;
-  right: 10px;
-  top: 15px;
-  z-index: 1;
-  display: flex;
-  gap: 4px;
-}
-
-.gitHubButtonWrap > span > span {
-  display: flex;
-}
-
-.iconWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  max-height: 20px;
-}
-
-.iconWrapper > * {
-  color: white;
-}
-
-a.legacyLink {
-  text-decoration: none;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: white;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 0 0.5rem;
-  transition: var(--transition);
-}
-
-.mobileNav {
-  display: none;
-}
-
-:global(.light) .actionButtonWrapper {
-  background: var(--color-primary);
-  border-bottom: 3px solid var(--color-light-pink);
-}
-
-.mobileMenu {
-  width: 66.99%;
-  right: 0;
-  left: auto;
-  bottom: 43px;
-  z-index: 2;
-}
-
-.activeSection {
-  border-bottom: 1px solid #bf1650;
-}
-
-.tsIcon {
-  border: 1px solid white;
-  display: inline-block;
-  line-height: 1.8;
-  width: 16px;
-  height: 16px;
-  font-size: 8px;
-  margin-top: 2px;
-  font-weight: 600;
-}
-
-.menuOffsetWrapper {
-  position: relative;
-  top: 2px;
-}
-
-.dropdownArrow {
-  font-size: 10px;
-  display: inline;
-  margin-left: 2px;
-  top: -1px;
-  position: relative;
-}
-
-.dropdownContainer {
-  position: absolute;
-  overflow: hidden;
-  margin-left: -10px;
-  z-index: 4;
-}
-
-.dropdownInner {
-  overflow: hidden;
-}
-
-.linkExternal {
-  display: flex;
-}
-
-.linkExternal img {
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-left: 0.1rem;
+  align-items: center;
+  gap: var(--space-6);
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
 }
 
 @media (min-width: 768px) {
-  .gitHubButtonWrap {
-    right: 10px;
-  }
-
-  .mobileNav {
-    display: block;
-  }
-
-  :global(.dark) .actionButtonGroup {
-    background: var(--color-button-blue);
+  .inner {
+    padding: 0 28px;
   }
 }
 
-@media (min-width: 1040px) {
-  .icon svg {
-    fill: white;
-  }
+/* Brand */
 
-  .mobileOnly {
-    display: none !important;
-  }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--color-text) !important;
+  font-weight: 700;
+  font-size: var(--text-base);
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+}
 
-  .menuExpandLink {
-    font-size: var(--text-sm);
-    position: relative;
-    top: -2px;
-    cursor: default;
-  }
+.logo {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: var(--color-light-pink);
+  fill: white;
+}
 
-  .menuExpandLink span {
-    transition: 0.4s all;
-  }
+/* Primary navigation */
 
-  .menuExpandLink:hover span {
-    color: var(--color-light-pink);
-  }
+.primary {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+}
 
-  :global(.light) .actionButtonWrapper {
-    height: auto;
+@media (min-width: 1024px) {
+  .primary {
+    display: flex;
   }
+}
 
-  .iconWrapper {
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 34px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-text-muted) !important;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+:global(.dark) .navLink {
+  color: #b8c2dc !important;
+}
+
+.navLink:hover,
+.navLink[aria-expanded="true"] {
+  color: var(--color-text) !important;
+  background: var(--color-surface);
+}
+
+.navLink svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform var(--transition-fast);
+}
+
+.navLink[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.navLinkActive {
+  color: var(--color-text) !important;
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: -15px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-light-pink);
+}
+
+/* Resources dropdown */
+
+.dropdown {
+  position: relative;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  animation: drop 0.12s ease-out;
+}
+
+:global(.light) .panel {
+  background: #fff;
+}
+
+.panelGroup p,
+.mobileGroup p {
+  margin: var(--space-1) var(--space-3) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.panelLink {
+  display: block;
+  padding: 6px var(--space-3);
+  position: relative;
+  border-radius: var(--radius-md);
+  color: var(--color-text) !important;
+  font-size: var(--text-sm);
+  text-decoration: none !important;
+}
+
+.panelLink:hover {
+  background: var(--color-surface);
+}
+
+.current {
+  background: rgba(236, 89, 144, 0.1);
+  color: var(--color-accent-text) !important;
+}
+
+.current::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--color-accent-text);
+}
+
+/* Controls */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+@media (min-width: 1024px) {
+  .controls {
+    margin-left: 0;
+  }
+}
+
+.desktopControl {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopControl {
+    display: inline-flex;
+  }
+}
+
+.github {
+  margin-left: var(--space-1);
+}
+
+@media (max-width: 1199px) {
+  .controls .github {
     display: none;
   }
+}
 
-  .iconGroup {
-    left: 20px;
-  }
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
 
-  .actionButtonGroup a.mobileNav {
-    display: none !important;
-  }
+.menuButton svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
 
-  .actionButtonGroup {
-    z-index: 1;
-    justify-content: space-around;
-    position: inherit;
-    background: none;
-    border: none;
-    margin: 0 auto;
-    height: auto;
-    max-width: 610px;
-    padding: var(--space-3) var(--space-2);
-  }
-
-  :global(.light) .actionButtonGroup {
-    background: none;
-  }
-
-  .actionButtonGroup a {
-    font-size: var(--text-xs);
-    flex: none;
-    border: none;
-  }
-
-  :global(.dark) .actionButtonGroup a {
-    color: white;
-  }
-
-  .tools {
-    color: white;
-    height: 29px;
-    font-size: 1rem;
-    display: inline-block;
-  }
-
-  span.tools:focus {
-    outline: none;
-  }
-
-  .tools:focus ~ div .menuExpand,
-  .tools:hover ~ div .menuExpand {
-    transform: translateY(0px);
-    opacity: 1;
-    transition: 0.35s all ease-in;
-  }
-
-  .menuExpand {
-    transition: 0.25s all ease-in;
-    padding: var(--space-1) var(--space-2) 0;
-    background: var(--color-button-blue);
-    transform: translateY(-80px);
-    opacity: 0;
-    width: max-content;
-    overflow: hidden;
-  }
-
-  .menuExpand:hover {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-
-  .menuExpand a {
-    text-align: left;
-    padding: var(--space-1) 0;
-    display: block;
-    width: 100%;
-    margin-bottom: var(--space-2);
-  }
-
-  .actionButtonGroup,
-  :global(.dark) .actionButtonGroup {
-    position: relative;
+@media (min-width: 1024px) {
+  .menuButton {
+    display: none;
   }
 }
 
-@media (min-width: 1280px) {
-  .menuExpandLink {
-    font-size: var(--text-sm);
-    top: -1px;
-  }
+/* Mobile menu */
 
-  .gitHubButtonWrap {
-    right: 20px;
-  }
+.mobilePanel {
+  position: fixed;
+  z-index: 38;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-4) var(--space-10);
+  background: var(--color-background);
+  animation: drop 0.14s ease-out;
+}
 
-  .actionButtonGroup {
-    max-width: 800px;
-  }
+.mobileGroup {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-muted);
+}
 
-  .actionButtonGroup a:nth-child(8) {
-    display: block;
-  }
+.mobileGroup .panelLink {
+  padding: 10px var(--space-3);
+  font-size: var(--text-base);
+}
 
-  .actionButtonGroup a {
-    font-size: var(--text-sm);
+.mobileFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-3);
+}
+
+@media (min-width: 1024px) {
+  .mobilePanel {
+    display: none;
   }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    margin-top: -4px;
+  }
+}
+
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .navLink {
+  font-weight: 500;
+}
+
+:global(.light) .navLink:hover,
+:global(.light) .navLink[aria-expanded="true"] {
+  background: var(--color-surface);
+  color: var(--color-text) !important;
+}
+
+:global(.light) .menuButton {
+  border: 1px solid var(--color-border-muted) !important;
+}
+
+:global(.light) .menuButton:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Floating tab bar (phones and tablets) */
+.tabBar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  /* Below the header (40) so the search overlay inside it covers the bar,
+     above the mobile menu panel (38). */
+  z-index: 39;
+  display: flex;
+  width: min(calc(100% - 24px), 420px);
+  padding: 6px;
+  overflow: hidden;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Mostly opaque so text scrolling underneath doesn't read through. */
+  background: rgba(16, 20, 38, 0.88);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 6px 16px -8px rgba(0, 0, 0, 0.45);
+}
+
+:global(.light) .tabBar {
+  border-color: var(--color-border-muted);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 6px 16px -10px rgba(8, 18, 41, 0.3);
+}
+
+/* Slides between tabs; each tab is an equal fifth of the bar. */
+.tabIndicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc((100% - 12px) / 5);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(236, 89, 144, 0.22),
+    rgba(236, 89, 144, 0.1)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateX(calc(var(--tab-index, 0) * 100%));
+  transition:
+    transform 0.38s cubic-bezier(0.32, 1.18, 0.56, 1),
+    opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.tabIndicatorHidden {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+:global(.light) .tabIndicator {
+  background: rgba(236, 89, 144, 0.12);
+  box-shadow: none;
+}
+
+.tab {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text-muted) !important;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.25s ease,
+    transform var(--transition-fast);
+}
+
+.tab svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.38s cubic-bezier(0.32, 1.18, 0.56, 1);
+}
+
+.tab:active {
+  transform: scale(0.94);
+}
+
+.tabActive {
+  color: var(--color-accent-text) !important;
+}
+
+.tabActive svg {
+  transform: translateY(-1px) scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabIndicator,
+  .tab svg {
+    transition: none;
+  }
+}
+
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .tab {
+  border: 0 !important;
+  font-weight: 600;
+}
+
+:global(.light) .tab:hover {
+  background: none;
+  color: var(--color-text) !important;
+}
+
+:global(.light) .tabActive,
+:global(.light) .tabActive:hover {
+  background: none;
+  color: var(--color-accent-text) !important;
+}
+
+@media (min-width: 1024px) {
+  .tabBar {
+    display: none;
+  }
+}
+
+/* Keep the header clear of notches in landscape. */
+.inner {
+  padding-left: max(var(--space-4), env(safe-area-inset-left));
+  padding-right: max(var(--space-4), env(safe-area-inset-right));
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding-left: max(28px, env(safe-area-inset-left));
+    padding-right: max(28px, env(safe-area-inset-right));
+  }
+}
+
+/* The open menu scrolls clear of the floating bar. */
+.mobilePanel {
+  padding-bottom: calc(110px + env(safe-area-inset-bottom));
 }

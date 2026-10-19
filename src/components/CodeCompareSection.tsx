@@ -1,17 +1,11 @@
 import { memo } from "react"
 import reactHookFormCode from "./codeExamples/reactHookFormCode"
 import CodeArea from "./CodeArea"
-import { AnimateGroup, Animate } from "react-simple-animate"
 import home from "../data/home"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
+import HomeSection from "./HomeSection"
 import styles from "./CodeCompareSection.module.css"
 
-const props = {
-  start: { transform: "translateY(100px)" },
-  end: { transform: "translateY(0)" },
-  easeType: "ease-in",
-}
+const SANDBOX_ID = "react-hook-form-js-wbybv"
 
 function CodeCompareSection({
   isPlayCodeCompare,
@@ -19,61 +13,48 @@ function CodeCompareSection({
   isPlayCodeCompare: boolean
 }) {
   return (
-    <AnimateGroup play={isPlayCodeCompare}>
-      <div
-        style={{
-          marginBottom: 40,
-        }}
-      >
-        <div className={containerStyles.centerContent}>
-          <h2 className={typographyStyles.h1}>{home.codeComparison.title}</h2>
-
-          {home.codeComparison.description}
+    <HomeSection
+      id="codeComparison"
+      eyebrow="Less code"
+      title={home.codeComparison.title}
+      lead={home.codeComparison.description}
+      wide
+    >
+      <div className={styles.frame}>
+        <div className={styles.frameHeader}>
+          <span className={styles.dots} aria-hidden>
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>App.js</span>
+          <a
+            className={styles.open}
+            href={`https://codesandbox.io/s/${SANDBOX_ID}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in CodeSandbox ↗
+          </a>
         </div>
 
-        <section
-          className={styles.gridView}
-          style={{
-            marginTop: 40,
-          }}
-        >
+        <div className={styles.sandbox}>
           {isPlayCodeCompare && (
             <iframe
-              src="https://codesandbox.io/embed/react-hook-form-js-wbybv?fontsize=14&hidenavigation=1&theme=dark"
-              style={{
-                width: "100%",
-                height: 570,
-                border: 0,
-                borderRadius: 4,
-                overflow: "hidden",
-                transition: "0.3s all 0.5s",
-                opacity: 1,
-                transform: "translateY(0)",
-              }}
+              src={`https://codesandbox.io/embed/${SANDBOX_ID}?fontsize=14&hidenavigation=1&theme=dark`}
               title="React Hook Form codesandbox demo"
+              loading="lazy"
               allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
               sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
             />
           )}
+        </div>
 
-          <Animate
-            {...props}
-            sequenceIndex={0}
-            render={({ style }) => (
-              <div
-                className={styles.display}
-                style={{
-                  ...style,
-                }}
-              >
-                <h3 className={typographyStyles.title}>React Hook Form</h3>
-                <CodeArea rawData={reactHookFormCode} withOutCopy />
-              </div>
-            )}
-          />
-        </section>
+        <div className={styles.fallback}>
+          <CodeArea rawData={reactHookFormCode} withOutCopy />
+        </div>
       </div>
-    </AnimateGroup>
+    </HomeSection>
   )
 }
 

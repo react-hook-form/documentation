@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react"
 import { Animate, AnimateGroup } from "react-simple-animate"
 import { Control, useForm, useWatch } from "react-hook-form"
-import containerStyles from "../styles/container.module.css"
-import formStyles from "./Form.module.css"
-import typographyStyles from "../styles/typography.module.css"
 import styles from "./Watcher.module.css"
 import home from "../data/home"
+import HomeSection from "./HomeSection"
 
 type WatchFormData = { test: string }
 
@@ -104,127 +102,133 @@ const Watcher = ({ isPlayWatch }: { isPlayWatch: boolean }) => {
 
   return (
     <AnimateGroup play={isPlayWatch}>
-      <div className={styles.watcher} id="watch">
-        <div className={containerStyles.centerContent}>
-          <h2 className={typographyStyles.h1}>{home.watcher.title}</h2>
-          {home.watcher.description}
+      <HomeSection
+        id="watch"
+        eyebrow={home.watcher.title}
+        title="Subscribe to what changes"
+        lead={home.watcher.description}
+      >
+        <div className={styles.card}>
+          <div className={styles.root}>
+            <section>
+              <Animate
+                sequenceIndex={0}
+                delay={0.2}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <input
+                  placeholder="Watching..."
+                  className={styles.input}
+                  maxLength={19}
+                  {...register("test")}
+                />
+              </Animate>
+            </section>
+
+            <section className={styles.svgWrapper}>
+              <svg viewBox="0 0 300 200">
+                <Animate
+                  sequenceIndex={2}
+                  start={{ opacity: 0 }}
+                  end={{ opacity: 1 }}
+                  render={({ style }) => (
+                    <path
+                      style={style}
+                      className="path"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      d="M 0 18 H 500"
+                    />
+                  )}
+                />
+                <Animate
+                  sequenceIndex={3}
+                  start={{ opacity: 0 }}
+                  end={{ opacity: 1 }}
+                  render={({ style }) => (
+                    <path
+                      style={style}
+                      className="path"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      d="M 0 18 H 80 V 68 H 500"
+                    />
+                  )}
+                />
+                <Animate
+                  sequenceIndex={4}
+                  start={{ opacity: 0 }}
+                  end={{ opacity: 1 }}
+                  render={({ style }) => (
+                    <path
+                      style={style}
+                      className="path"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      d="M 0 18 H 80 V 118 H 500"
+                    />
+                  )}
+                />
+                <Animate
+                  sequenceIndex={5}
+                  start={{ opacity: 0 }}
+                  end={{ opacity: 1 }}
+                  render={({ style }) => (
+                    <path
+                      style={style}
+                      className="path"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      d="M 0 18 H 80 V 168 H 500"
+                    />
+                  )}
+                />
+              </svg>
+            </section>
+
+            <section>
+              <Animate
+                sequenceIndex={1}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <WatchGroup control={control} checked />
+              </Animate>
+
+              <Animate
+                sequenceIndex={1}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <WatchGroup control={control} />
+              </Animate>
+              <Animate
+                sequenceIndex={1}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <WatchGroup control={control} checked />
+              </Animate>
+              <Animate
+                sequenceIndex={1}
+                start={{ opacity: 0 }}
+                end={{ opacity: 1 }}
+              >
+                <WatchGroup control={control} />
+              </Animate>
+            </section>
+          </div>
+          <p className={styles.caption}>
+            <code>useWatch</code> re-renders only the components that read the
+            value, not the whole form.
+          </p>
         </div>
-
-        <div className={styles.root}>
-          <section>
-            <Animate
-              sequenceIndex={0}
-              delay={0.2}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <input
-                placeholder="Watching..."
-                className={formStyles.input}
-                maxLength={19}
-                {...register("test")}
-              />
-            </Animate>
-          </section>
-
-          <section className={styles.svgWrapper}>
-            <svg viewBox="0 0 300 200">
-              <Animate
-                sequenceIndex={2}
-                start={{ opacity: 0 }}
-                end={{ opacity: 1 }}
-                render={({ style }) => (
-                  <path
-                    style={style}
-                    className="path"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    d="M 0 18 H 500"
-                  />
-                )}
-              />
-              <Animate
-                sequenceIndex={3}
-                start={{ opacity: 0 }}
-                end={{ opacity: 1 }}
-                render={({ style }) => (
-                  <path
-                    style={style}
-                    className="path"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    d="M 0 18 H 80 V 68 H 500"
-                  />
-                )}
-              />
-              <Animate
-                sequenceIndex={4}
-                start={{ opacity: 0 }}
-                end={{ opacity: 1 }}
-                render={({ style }) => (
-                  <path
-                    style={style}
-                    className="path"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    d="M 0 18 H 80 V 118 H 500"
-                  />
-                )}
-              />
-              <Animate
-                sequenceIndex={5}
-                start={{ opacity: 0 }}
-                end={{ opacity: 1 }}
-                render={({ style }) => (
-                  <path
-                    style={style}
-                    className="path"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    d="M 0 18 H 80 V 168 H 500"
-                  />
-                )}
-              />
-            </svg>
-          </section>
-
-          <section>
-            <Animate
-              sequenceIndex={1}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <WatchGroup control={control} checked />
-            </Animate>
-
-            <Animate
-              sequenceIndex={1}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <WatchGroup control={control} />
-            </Animate>
-            <Animate
-              sequenceIndex={1}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <WatchGroup control={control} checked />
-            </Animate>
-            <Animate
-              sequenceIndex={1}
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-            >
-              <WatchGroup control={control} />
-            </Animate>
-          </section>
-        </div>
-      </div>
+      </HomeSection>
     </AnimateGroup>
   )
 }

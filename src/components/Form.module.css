@@ -34,3 +34,103 @@
 .demoForm > select:not([multiple]) {
   height: 43px;
 }
+
+/* Homepage live demo */
+
+.homeDemo {
+  min-height: 0;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  text-align: left;
+}
+
+:global(.light) .homeDemo {
+  background: #fff;
+}
+
+@media (min-width: 1024px) {
+  .homeDemo {
+    grid-template-columns: 320px repeat(auto-fit, minmax(10rem, 1fr));
+    grid-column-gap: var(--space-4);
+  }
+}
+
+.homeDemo h3 {
+  margin: 0 0 var(--space-4) !important;
+  max-width: none !important;
+  text-align: left;
+  font-size: var(--text-xs) !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.homeDemo h3::before,
+.homeDemo h3::after {
+  display: none !important;
+}
+
+.homeDemo .demoForm > input,
+.homeDemo .demoForm > select {
+  height: 42px;
+  margin-bottom: var(--space-3);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-input);
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.homeDemo .demoForm > select {
+  appearance: none;
+  padding-right: 36px;
+  background: var(--color-background)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16' fill='none' stroke='%238a94a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E")
+    no-repeat right 12px center;
+}
+
+.homeDemo .demoForm > input:focus,
+.homeDemo .demoForm > select:focus {
+  outline: none;
+  border-color: var(--color-accent-text);
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.homeDemo .demoForm input[type="radio"] {
+  accent-color: var(--color-accent-text);
+}
+
+.homeDemo .demoForm > button {
+  border-radius: var(--radius-md);
+}
+
+.homeDemo > section {
+  min-width: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-background);
+}
+
+.homeDemo > section > p {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.homeDemo .code {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.homeDemo .demoForm > h3:not(:first-child) {
+  margin: 0 !important;
+  text-align: center;
+  color: var(--color-text-muted);
+}

@@ -1,57 +1,80 @@
-.gridView {
+.frame {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: #151515;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(236, 89, 144, 0.06),
+    0 30px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+.frameHeader {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
 }
 
-.gridView > div:first-child {
-  order: 1;
+:global(.light) .frameHeader {
+  background: #fff;
 }
 
-.gridView iframe {
-  display: none;
-  box-shadow: 0 0 20px #010817;
+.dots {
+  display: inline-flex;
+  gap: 6px;
+  margin-right: var(--space-2);
 }
 
-.fullScreen {
-  background: none;
-  color: white;
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  font-size: 12px;
-  border-top: none;
-  border-right: none;
-  border-color: var(--color-secondary);
-  border-bottom-left-radius: 4px;
-  display: none;
+.dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border-muted);
 }
 
-.fullScreen:hover {
+.dots i:first-child {
   background: var(--color-light-pink);
 }
 
+.open {
+  margin-left: auto;
+  color: var(--color-text-muted) !important;
+  text-decoration: none !important;
+}
+
+.open:hover {
+  color: var(--color-accent-text) !important;
+}
+
+.sandbox {
+  display: none;
+  height: 600px;
+}
+
+.sandbox iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.fallback pre {
+  margin: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
 @media (min-width: 1000px) {
-  .gridView {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 40px;
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-
-  .gridView iframe {
+  .sandbox {
     display: block;
   }
 
-  .gridView > div:first-child {
-    order: 0;
-  }
-
-  .fullScreen {
-    display: block;
-  }
-
-  .display {
+  .fallback {
     display: none;
   }
 }

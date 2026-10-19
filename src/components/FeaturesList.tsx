@@ -2,6 +2,7 @@ import { memo } from "react"
 import { AnimateGroup, AnimateKeyframes } from "react-simple-animate"
 import home from "../data/home"
 import styles from "./FeatureList.module.css"
+import HomeSection from "./HomeSection"
 import { AnimateKeyframesProps } from "react-simple-animate/dist/types"
 
 const props: AnimateKeyframesProps = {
@@ -17,7 +18,11 @@ const props: AnimateKeyframesProps = {
 
 function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
   return (
-    <div className={styles.features}>
+    <HomeSection
+      eyebrow="Features"
+      title="Why React Hook Form"
+      lead="Everything you need to build forms, without the boilerplate."
+    >
       <AnimateGroup play={isPlayFeature}>
         <div className={styles.featuresContent}>
           <article id="featureLast">
@@ -26,7 +31,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -47,7 +52,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -68,7 +73,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -92,7 +97,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -115,7 +120,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -142,7 +147,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                strokeWidth="1"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
@@ -160,7 +165,7 @@ function FeaturesList({ isPlayFeature }: { isPlayFeature: boolean }) {
           </article>
         </div>
       </AnimateGroup>
-    </div>
+    </HomeSection>
   )
 }
 

@@ -6,7 +6,7 @@
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--color-light-pink);
+  color: var(--color-link);
   background: var(--color-surface-elevated);
   border-radius: var(--radius-full);
   padding: 2px 10px 2px 8px;

@@ -12,7 +12,7 @@
   font-size: 1rem;
   padding: 0 var(--space-5);
   text-align: center;
-  color: var(--color-light-pink);
+  color: var(--color-accent-text);
   max-width: min(90%, 400px);
   margin: 0 auto;
   line-height: 1.6;
@@ -140,7 +140,7 @@ h3.subTitle:before {
   font-size: var(--text-sm);
   font-family: var(--font-mono);
   font-variant-ligatures: none;
-  color: var(--color-light-pink) !important;
+  color: var(--color-accent-text) !important;
 }
 
 pre.typeText {
@@ -149,7 +149,7 @@ pre.typeText {
 }
 
 .note {
-  color: var(--color-light-pink);
+  color: var(--color-accent-text);
 }
 
 .codeBlock {
