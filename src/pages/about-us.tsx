@@ -1,9 +1,10 @@
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Footer from "../components/Footer"
-import containerStyle from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import styles from "../components/ResourcePage.module.css"
+import PageHeader from "../components/PageHeader"
+import CtaCard from "../components/CtaCard"
+import cards from "../styles/cards.module.css"
+import styles from "./about-us.module.css"
 
 interface AboutUsData {
   name: string
@@ -34,12 +35,12 @@ const data: AboutUsData[] = [
     twitterName: "kotarella1110",
     bio: "I'm a software engineer who loves beer and TypeScript. Open source software that provides the best DX excites me. I want to provide developers all over the world the same excitement as me.",
     interests: ["🍺 beer", "💻 code", "♨️ onsen"],
-    active: false,
+    active: true,
   },
   {
     name: "Joris",
     imgUrl: "https://avatars1.githubusercontent.com/u/7545547?v=4",
-    url: "https://twitter.com/_jorisre",
+    url: "https://github.com/jorisre",
     twitterName: "_jorisre",
     bio: "I'm a passionate front-end engineer who loves trying and learning new things all the time 🤓. I enjoy new challenges, contributing to open source projects and helping people.",
     interests: ["💻  Code", "⚛️  React", "🥑  Food"],
@@ -118,90 +119,141 @@ const data: AboutUsData[] = [
     twitterName: "moshyfawn",
     bio: "I'm a software engineer with quirks. Give me all the new shiny tech and I'll have all the fuel needed to create any project!",
     interests: ["👨‍💻 Tech", "🎮 Games", "🍕 Food"],
-    active: true,
+    active: false,
   },
 ]
 
-const Twitter = ({ twitterName }: Pick<AboutUsData, "twitterName">) => (
-  <a
-    href={`https://twitter.com/${twitterName}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.twitter}
-  >
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 -2 24 24"
-      fill="white"
-      style={{
-        marginRight: 8,
-        top: 2,
-      }}
+const GitHubIcon = (
+  <svg viewBox="0 0 16 16" aria-hidden>
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+  </svg>
+)
+
+const XIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+)
+
+const CodeIcon = (
+  <svg viewBox="0 0 16 16">
+    <path d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z" />
+  </svg>
+)
+
+const CONTRIBUTING_URL =
+  "https://github.com/react-hook-form/react-hook-form/blob/master/CONTRIBUTING.md"
+
+const MaintainerCard = ({
+  name,
+  imgUrl,
+  url,
+  twitterName,
+  bio,
+  interests,
+}: AboutUsData) => (
+  <li className={styles.profile}>
+    <div className={styles.identity}>
+      <img className={styles.avatar} src={imgUrl} alt="" loading="lazy" />
+      <div>
+        <h3>{name}</h3>
+        <p className={styles.handle}>@{twitterName}</p>
+      </div>
+    </div>
+
+    <p className={styles.bio}>{bio}</p>
+
+    <ul className={styles.interests} aria-label="Interests">
+      {interests.map((interest) => (
+        <li key={interest}>{interest}</li>
+      ))}
+    </ul>
+
+    <div className={styles.links}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.socialLink}
+        aria-label={`${name} on GitHub`}
+      >
+        {GitHubIcon}GitHub
+      </a>
+      <a
+        href={`https://x.com/${twitterName}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.socialLink}
+        aria-label={`${name} on X`}
+      >
+        {XIcon}X
+      </a>
+    </div>
+  </li>
+)
+
+const AlumniCard = ({ name, imgUrl, url }: AboutUsData) => (
+  <li>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.alumniCard}
     >
-      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-    </svg>
-  </a>
+      <img src={imgUrl} alt="" loading="lazy" />
+      <span className={styles.alumniName}>{name}</span>
+      <span className={styles.handle}>{url.replace(/^https?:\/\//, "")}</span>
+    </a>
+  </li>
 )
 
 const AboutUs = () => {
+  const maintainers = data.filter(({ active }) => active)
+  const alumni = data.filter(({ active }) => !active)
+
   return (
     <Layout>
       <Seo
         title="About us"
         description="Meet the team behind React Hook Form."
       />
-      <div className={containerStyle.container}>
-        <main className={styles.root}>
-          <h1 className={typographyStyles.headingWithTopMargin} id="main">
-            About Us
-          </h1>
-          <p className={typographyStyles.subHeading}>
-            Passionate engineers who want to contribute to the community and
-            help developers around the world.
-          </p>
+      <div className={cards.page}>
+        <PageHeader
+          eyebrow="About us"
+          title="The people behind the forms"
+          lead="Passionate engineers who want to contribute to the community and help developers around the world."
+        />
 
-          <ul
-            className={styles.contentList}
-            style={{
-              marginTop: 50,
-            }}
-          >
-            {data.map(({ url, imgUrl, name, bio, interests, twitterName }) => (
-              <li key={imgUrl}>
-                <section>
-                  <div>
-                    <a
-                      href={url}
-                      title="Github profile"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        position: "relative",
-                        display: "block",
-                      }}
-                    >
-                      <img src={imgUrl} alt="avatar" />
-                    </a>
-                    <p className={styles.name}>
-                      <Twitter twitterName={twitterName} />
-                      {name}
-                    </p>
+        <main>
+          <section aria-labelledby="maintainers" className={styles.section}>
+            <h2 id="maintainers" className={styles.sectionLabel}>
+              Maintainers
+            </h2>
+            <ul className={styles.maintainers}>
+              {maintainers.map((person) => (
+                <MaintainerCard key={person.name} {...person} />
+              ))}
+            </ul>
+          </section>
 
-                    <section className={styles.interests}>
-                      <ul>
-                        {interests.map((interest) => (
-                          <li key={interest}>{interest}</li>
-                        ))}
-                      </ul>
-                    </section>
+          <section aria-labelledby="alumni" className={styles.section}>
+            <h2 id="alumni" className={styles.sectionLabel}>
+              Past maintainers
+            </h2>
+            <ul className={styles.alumni}>
+              {alumni.map((person) => (
+                <AlumniCard key={person.name} {...person} />
+              ))}
+            </ul>
+          </section>
 
-                    <p>{bio}</p>
-                  </div>
-                </section>
-              </li>
-            ))}
-          </ul>
+          <CtaCard
+            icon={CodeIcon}
+            title="Become a contributor"
+            description="React Hook Form is built in the open. Bug fixes, docs, translations and ideas are all welcome."
+            href={CONTRIBUTING_URL}
+            label="Read the guide"
+          />
         </main>
 
         <Footer />
