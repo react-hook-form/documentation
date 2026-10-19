@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, type CSSProperties } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import clsx from "clsx"
@@ -67,6 +67,12 @@ const TAB_ICONS = {
   close: <path d="M6 6l12 12M18 6 6 18" />,
 }
 
+const TABS = [
+  { href: "/", label: nav.home, icon: TAB_ICONS.home },
+  { href: "/get-started", label: "Start", icon: TAB_ICONS.start },
+  { href: "/docs", label: "API", icon: TAB_ICONS.api, match: ["/docs"] },
+] as const
+
 export default function Nav() {
   const { asPath } = useRouter()
   const pathname = asPath.split(/[?#]/)[0]
@@ -117,12 +123,23 @@ export default function Nav() {
     }
   }, [resourcesOpen])
 
+  // Lock the root, not <body>: `overflow: hidden` on body makes it a scroll
+  // container, which detaches the sticky header from the viewport.
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : ""
+    const root = document.documentElement
+    root.style.overflow = mobileOpen ? "hidden" : ""
     return () => {
-      document.body.style.overflow = ""
+      root.style.overflow = ""
     }
   }, [mobileOpen])
+
+  const routeTab = TABS.findIndex((tab) =>
+    "match" in tab
+      ? tab.match.some((m) => pathname.startsWith(m))
+      : pathname === tab.href
+  )
+  // Search (3) never holds the indicator; Menu (4) does while open.
+  const activeTab = mobileOpen ? 4 : routeTab
 
   const renderLink = (
     link: { href: string; label: string },
@@ -276,24 +293,20 @@ export default function Nav() {
       )}
 
       <div className={styles.edge} aria-hidden />
-      <nav className={styles.tabBar} aria-label="Quick navigation">
-        {(
-          [
-            { href: "/", label: nav.home, icon: TAB_ICONS.home },
-            { href: "/get-started", label: "Start", icon: TAB_ICONS.start },
-            {
-              href: "/docs",
-              label: "API",
-              icon: TAB_ICONS.api,
-              match: ["/docs"],
-            },
-          ] as const
-        ).map((tab) => {
-          const active =
-            !mobileOpen &&
-            ("match" in tab
-              ? tab.match.some((m) => pathname.startsWith(m))
-              : pathname === tab.href)
+      <nav
+        className={styles.tabBar}
+        aria-label="Quick navigation"
+        style={{ "--tab-index": activeTab } as CSSProperties}
+      >
+        <span
+          className={clsx(
+            styles.tabIndicator,
+            activeTab < 0 && styles.tabIndicatorHidden
+          )}
+          aria-hidden
+        />
+        {TABS.map((tab, i) => {
+          const active = i === activeTab
           return (
             <Link
               key={tab.href}

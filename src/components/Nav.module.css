@@ -340,67 +340,115 @@
      above the mobile menu panel (38). */
   z-index: 39;
   display: flex;
-  gap: 2px;
   width: min(calc(100% - 24px), 420px);
-  padding: 4px;
+  padding: 6px;
+  overflow: hidden;
   transform: translateX(-50%);
-  border-radius: 22px;
-  border: 1px solid var(--color-border-muted);
-  /* Translucent enough for the frosted blur to show the page behind it. */
-  background: rgba(14, 16, 28, 0.55);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Mostly opaque so text scrolling underneath doesn't read through. */
+  background: rgba(16, 20, 38, 0.88);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 14px 36px -8px rgba(0, 0, 0, 0.7);
 }
 
 :global(.light) .tabBar {
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 12px 32px -12px rgba(8, 18, 41, 0.35);
+  border-color: var(--color-border-muted);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 12px 32px -12px rgba(8, 18, 41, 0.35);
+}
+
+/* Slides between tabs; each tab is an equal fifth of the bar. */
+.tabIndicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc((100% - 12px) / 5);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(236, 89, 144, 0.22),
+    rgba(236, 89, 144, 0.1)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateX(calc(var(--tab-index, 0) * 100%));
+  transition:
+    transform 0.38s cubic-bezier(0.32, 1.18, 0.56, 1),
+    opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.tabIndicatorHidden {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+:global(.light) .tabIndicator {
+  background: rgba(236, 89, 144, 0.12);
+  box-shadow: none;
 }
 
 .tab {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1px;
+  gap: 2px;
   min-width: 0;
   height: 42px;
   padding: 0;
   border: 0;
-  border-radius: 18px;
+  border-radius: 999px;
   background: none;
   color: var(--color-text-muted) !important;
   font-family: inherit;
-  font-size: 10.5px;
+  font-size: 11px;
   line-height: 1.2;
   font-weight: 600;
   text-decoration: none !important;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition:
-    background var(--transition-fast),
-    color var(--transition-fast);
+    color 0.25s ease,
+    transform var(--transition-fast);
 }
 
 .tab svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.75;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: transform 0.38s cubic-bezier(0.32, 1.18, 0.56, 1);
 }
 
 .tab:active {
-  transform: scale(0.96);
+  transform: scale(0.94);
 }
 
 .tabActive {
-  background: rgba(236, 89, 144, 0.14);
   color: var(--color-accent-text) !important;
+}
+
+.tabActive svg {
+  transform: translateY(-1px) scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabIndicator,
+  .tab svg {
+    transition: none;
+  }
 }
 
 /* Override the global `.light button` reset in layout.css */
@@ -416,7 +464,7 @@
 
 :global(.light) .tabActive,
 :global(.light) .tabActive:hover {
-  background: rgba(236, 89, 144, 0.12);
+  background: none;
   color: var(--color-accent-text) !important;
 }
 
