@@ -31,6 +31,12 @@
   overflow: hidden;
 }
 
+.downloadCount a {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none;
+}
+
 .downloadSub {
   margin: var(--space-3) 0 0;
   font-size: var(--text-sm);
