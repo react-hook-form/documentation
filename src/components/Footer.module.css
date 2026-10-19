@@ -125,6 +125,37 @@
   margin: 0;
 }
 
+/* Easter egg: a faint joystick that reveals a link to the old design */
+.footer a.oldDesign {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  opacity: 0.25;
+  filter: grayscale(1);
+  transition:
+    opacity var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.footer a.oldDesign:hover,
+.footer a.oldDesign:focus-visible {
+  opacity: 1;
+  filter: none;
+}
+
+.oldDesignLabel {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.3s ease;
+}
+
+.oldDesign:hover .oldDesignLabel,
+.oldDesign:focus-visible .oldDesignLabel {
+  max-width: 160px;
+}
+
 .footer a.vercel {
   display: inline-flex;
   align-items: center;

@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Link from "next/link"
 import home from "../data/home"
 import { LogoSvg } from "./IntroVideo"
@@ -73,7 +74,53 @@ const SOCIALS = [
 
 const isExternal = (href: string) => href.startsWith("http")
 
+const OLD_DESIGN =
+  "https://react-hook-form-website-git-old-design-hook-form.vercel.app/"
+
+const KONAMI = [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "b",
+  "a",
+]
+
+// Easter egg: the Konami code opens the old website design
+function useKonamiCode(onMatch: () => void) {
+  useEffect(() => {
+    let position = 0
+    const onKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement
+      if (
+        target.isContentEditable ||
+        /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)
+      )
+        return
+
+      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key
+      position =
+        key === KONAMI[position] ? position + 1 : key === KONAMI[0] ? 1 : 0
+      if (position === KONAMI.length) {
+        position = 0
+        onMatch()
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [onMatch])
+}
+
+const openOldDesign = () =>
+  window.open(OLD_DESIGN, "_blank", "noopener,noreferrer")
+
 export default function Footer() {
+  useKonamiCode(openOldDesign)
+
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
@@ -131,7 +178,19 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <p>Released under the MIT License.</p>
+        <p>
+          Released under the MIT License.
+          <a
+            href={OLD_DESIGN}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.oldDesign}
+            title="Miss the old look?"
+          >
+            <span aria-hidden>🕹️</span>
+            <span className={styles.oldDesignLabel}>Miss the old look?</span>
+          </a>
+        </p>
         <a
           href="https://vercel.com/"
           target="_blank"
