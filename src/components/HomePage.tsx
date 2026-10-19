@@ -19,6 +19,7 @@ import { SponsorsList } from "./sponsorsList"
 import { useRouter } from "next/router"
 import { GeneralObserver } from "./general-observer"
 import FlipNumbers from "react-flip-numbers"
+import useWindowSize from "./utils/useWindowSize"
 
 const TESTIMONIALS = [
   "This is where it's at. A React form library that is both well thought out and flexible enough to get out of your way when you need it to. After fussing around with React forms for years, switching to react-hook-form feels like a superpower. Everything runs faster and my code is cleaner.",
@@ -82,6 +83,9 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
   const [renderPlay, setRenderPlay] = useState(false)
   const [renderCounter, setCounterPlay] = useState(false)
   const [formUpdated, setFormUpdated] = useState(false)
+  const { width: windowWidth } = useWindowSize()
+  // FlipNumbers only takes pixel sizes, so shrink it on narrow screens.
+  const counterHeight = windowWidth > 0 && windowWidth < 480 ? 64 : 96
   const [watchPlay, setWatchPlay] = useState(false)
   const { query } = useRouter()
   const methods = useForm()
@@ -165,17 +169,17 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
                 <FlipNumbers
                   play={renderCounter}
                   numbers={formatDownloads(monthlyDownloads)}
-                  height={96}
-                  width={60}
+                  height={counterHeight}
+                  width={counterHeight * 0.625}
                   color="#ec5990"
                   perspective={1500}
                   duration={4}
                   numberStyle={{ fontWeight: 800 }}
                   nonNumberStyle={{
-                    fontSize: 96,
+                    fontSize: counterHeight,
                     fontWeight: 900,
                     color: "#ec5990",
-                    lineHeight: "96px",
+                    lineHeight: `${counterHeight}px`,
                     verticalAlign: "bottom",
                   }}
                 />
