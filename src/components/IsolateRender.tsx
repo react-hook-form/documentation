@@ -1,176 +1,99 @@
 import { memo, useState } from "react"
-import type React from "react"
-import { AnimateKeyframes, Animate } from "react-simple-animate"
-import colors from "../styles/colors"
+import clsx from "clsx"
 import home from "../data/home"
-import typographyStyles from "../styles/typography.module.css"
-import containerStyles from "../styles/container.module.css"
-import formStyles from "./Form.module.css"
+import HomeSection from "./HomeSection"
 import styles from "./IsolateRender.module.css"
 
-const props = {
-  keyframes: [
-    "transform: translateX(0)",
-    `transform: translateX(3px); background: black;`,
-    "transform: translateX(0px)",
-    `transform: translateX(-3px); background: black;`,
-    "transform: translateX(0px)",
-  ],
-  easeType: "ease-in",
-}
+const CHILDREN = ["Child Component A", "Child Component B", "Child Component C"]
 
-const IsoLateInput = () => {
-  const [play, setPlay] = useState(false)
-
+function ChildRow({ label, renders }: { label: string; renders: number }) {
   return (
-    <AnimateKeyframes
-      keyframes={[`background: ${colors.lightBlue};`, "background: white;"]}
-      play={play}
-      render={({ style }) => (
-        <input
-          aria-label="Uncontrolled Input re-render demo using React Hook Form"
-          placeholder="Type here to see result..."
-          style={style}
-          onChange={() => {
-            setPlay(!play)
-          }}
-        />
+    <div
+      className={clsx(
+        styles.child,
+        renders > 0 && (renders % 2 ? styles.flashA : styles.flashB)
       )}
-    />
+    >
+      <span>{label}</span>
+      <span className={clsx(styles.count, renders > 0 && styles.countHot)}>
+        {renders} re-render{renders === 1 ? "" : "s"}
+      </span>
+    </div>
   )
 }
 
-const ControlledInputs = ({ style }: { style?: React.CSSProperties }) => {
-  const [play, setPlay] = useState(false)
+function Panel({
+  title,
+  tag,
+  childRenders,
+  onType,
+  highlight,
+}: {
+  title: string
+  tag: string
+  childRenders: number
+  onType: () => void
+  highlight?: boolean
+}) {
+  const [keystrokes, setKeystrokes] = useState(0)
 
   return (
-    <section style={{ ...style, marginBottom: 20 }}>
-      <form className={formStyles.demoForm}>
-        <h3 className={typographyStyles.title}>Controlled Form</h3>
-        <AnimateKeyframes
-          keyframes={[`background: ${colors.lightBlue};`, "background: white;"]}
-          play={play}
-          render={({ style }) => (
-            <input
-              aria-label="Controlled Input re-render demo"
-              placeholder="Type here to see result..."
-              style={style}
-              onChange={() => {
-                setPlay(!play)
-              }}
-            />
-          )}
-        />
-
-        <AnimateKeyframes
-          {...props}
-          play={play}
-          render={({ style }) => (
-            <div className={styles.externalComponent} style={style}>
-              Child Component A
-            </div>
-          )}
-        />
-
-        <AnimateKeyframes
-          {...props}
-          play={play}
-          render={({ style }) => (
-            <div className={styles.externalComponent} style={style}>
-              Child Component B
-            </div>
-          )}
-        />
-        <AnimateKeyframes
-          {...props}
-          play={play}
-          render={({ style }) => (
-            <div className={styles.externalComponent} style={style}>
-              Child Component C
-            </div>
-          )}
-        />
-      </form>
-    </section>
+    <form
+      className={clsx(styles.panel, highlight && styles.panelHighlight)}
+      onSubmit={(e) => e.preventDefault()}
+    >
+      <div className={styles.panelHeader}>
+        <h3>{title}</h3>
+        <span className={styles.tag}>{tag}</span>
+      </div>
+      <input
+        className={clsx(
+          styles.input,
+          keystrokes > 0 && (keystrokes % 2 ? styles.flashA : styles.flashB)
+        )}
+        aria-label={`${title} re-render demo`}
+        placeholder="Type here to see the result…"
+        onChange={() => {
+          setKeystrokes((k) => k + 1)
+          onType()
+        }}
+      />
+      {CHILDREN.map((label) => (
+        <ChildRow key={label} label={label} renders={childRenders} />
+      ))}
+    </form>
   )
 }
 
 function IsolateRender({ isIsolatePlay }: { isIsolatePlay: boolean }) {
+  const [controlledRenders, setControlledRenders] = useState(0)
+
   return (
-    <div className={containerStyles.centerContent}>
-      <h2 className={typographyStyles.h1}>{home.isolateRender.title}</h2>
-
-      {home.isolateRender.description}
-
-      <div className={styles.wrapper}>
-        <Animate
-          play={isIsolatePlay}
-          start={{
-            opacity: 0,
-            transform: "translateX(-20px)",
-          }}
-          end={{
-            opacity: 1,
-          }}
-          easeType="ease-in"
-          render={({ style }) => {
-            return (
-              <section style={style} id="isolate">
-                <form className={formStyles.demoForm}>
-                  <h3 className={typographyStyles.title}> React Hook Form</h3>
-                  <IsoLateInput />
-                  <div className={styles.externalComponent}>
-                    Child Component A
-                  </div>
-                  <div className={styles.externalComponent}>
-                    Child Component B
-                  </div>
-                  <div className={styles.externalComponent}>
-                    Child Component C
-                  </div>
-                </form>
-              </section>
-            )
-          }}
+    <HomeSection
+      id="isolate"
+      eyebrow="Performance"
+      title={home.isolateRender.title}
+      lead={home.isolateRender.description}
+    >
+      <div className={clsx(styles.compare, isIsolatePlay && styles.visible)}>
+        <Panel
+          title="React Hook Form"
+          tag="uncontrolled"
+          childRenders={0}
+          onType={() => {}}
+          highlight
         />
-        <Animate
-          play={isIsolatePlay}
-          start={{
-            opacity: 0,
-            transform: "translateY(20px)",
-          }}
-          end={{
-            opacity: 1,
-          }}
-          delay={0.25}
-          easeType="ease-in"
-        >
-          <p
-            style={{
-              background: "#081229",
-              color: "white",
-            }}
-          >
-            VS
-          </p>
-          <div className={styles.line} />
-        </Animate>
-        <Animate
-          play={isIsolatePlay}
-          start={{
-            opacity: 0,
-            transform: "translateX(20px)",
-          }}
-          end={{
-            opacity: 1,
-          }}
-          easeType="ease-in"
-          render={({ style }) => {
-            return <ControlledInputs style={style} />
-          }}
+        <div className={styles.vs} aria-hidden>
+          VS
+        </div>
+        <Panel
+          title="Controlled Form"
+          tag="useState"
+          childRenders={controlledRenders}
+          onType={() => setControlledRenders((n) => n + 1)}
         />
       </div>
-    </div>
+    </HomeSection>
   )
 }
 

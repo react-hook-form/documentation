@@ -23,7 +23,14 @@
   --color-border-muted: rgba(81, 99, 145, 0.35);
   --color-surface: var(--color-button-blue);
   --color-surface-elevated: var(--color-blue);
-  --color-text-muted: var(--color-light-blue);
+  /* Lighter than --color-light-blue so secondary text meets WCAG AA (7.5:1) */
+  --color-text-muted: #98a4c8;
+  /* Pink for text and icons; light mode switches to a darker pink */
+  --color-accent-text: var(--color-light-pink);
+  /* Pink fill behind white text (4.6:1); hover uses --color-secondary */
+  --color-accent-solid: #d6336f;
+  /* Form-control outlines need 3:1 against the page (WCAG 1.4.11) */
+  --color-border-input: #6577a6;
 
   /* Spacing scale (px for predictable layout) */
   --space-1: 4px;
@@ -86,6 +93,10 @@
   --color-surface: #f0f4f8;
   --color-surface-elevated: #e2eaf2;
   --color-text-muted: #4a5568;
+  --color-accent-text: var(--color-secondary);
+  --color-border-input: #7d89a3;
+  /* #ff7aa8 is 2.4:1 on white; the darker brand pink is 6.1:1 */
+  --color-link: var(--color-secondary);
 }
 
 html {
@@ -937,33 +948,6 @@ pre[class*="language-"] {
   }
 }
 
-.ds-dataset-3 {
-  width: 355px !important;
-  height: 300px;
-  font-size: 16px !important;
-}
-
-.algolia-docsearch-suggestion {
-  text-decoration: none;
-}
-
-.algolia-docsearch-suggestion--category-header {
-  background: var(--color-light-blue);
-  color: white !important;
-  padding: var(--space-1) var(--space-2) !important;
-  font-weight: 500 !important;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-}
-
-.algolia-docsearch-suggestion--category-header:hover {
-  opacity: 0.8;
-}
-
-.algolia-docsearch-footer--logo {
-  filter: grayscale(1);
-}
-
 .banner {
   background: black;
   padding-top: var(--space-10);
@@ -1016,11 +1000,6 @@ pre[class*="language-"] {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  .ds-dataset-3 {
-    width: 550px !important;
-    height: 400px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1038,14 +1017,15 @@ pre[class*="language-"] {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  .ds-dataset-3 {
-    width: auto;
-  }
 }
 
-@media (min-width: 1240px) {
-  .ds-dataset-3 {
-    height: auto;
+/* Room for the floating mobile tab bar (see Nav.module.css). */
+html {
+  background-color: var(--color-background);
+}
+
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
 }

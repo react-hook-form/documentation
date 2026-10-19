@@ -1,27 +1,18 @@
 import generic from "../data/generic"
-import buttonStyles from "../styles/button.module.css"
-import containerStyles from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
+import CtaCard from "./CtaCard"
 
 export default function StarRepo() {
   return (
-    <div
-      className={containerStyles.centerContent}
-      style={{ marginTop: 100, maxWidth: 600 }}
-    >
-      <h2 className={typographyStyles.ctaHeading}>
-        {generic.needYourSupport.title}
-      </h2>
-      <p>{generic.needYourSupport.description}</p>
-      <button
-        className={buttonStyles.primaryButton}
-        onClick={() => {
-          window.open("https://github.com/react-hook-form/react-hook-form")
-        }}
-        style={{ margin: "40px auto" }}
-      >
-        {generic.needYourSupport.buttonText}
-      </button>
-    </div>
+    <CtaCard
+      icon={
+        <svg viewBox="0 0 16 16">
+          <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+        </svg>
+      }
+      title={generic.needYourSupport.title}
+      description={generic.needYourSupport.description}
+      href="https://github.com/react-hook-form/react-hook-form"
+      label={generic.needYourSupport.buttonText}
+    />
   )
 }

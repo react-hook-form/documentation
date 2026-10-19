@@ -36,7 +36,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta
           name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+          content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
         />
       </Head>
       <ThemeProvider

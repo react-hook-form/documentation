@@ -1,0 +1,154 @@
+.root {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 var(--space-2) 0 var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  border-color: var(--color-light-pink);
+}
+
+.trigger svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5;
+}
+
+.beta,
+.latest {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}
+
+.beta {
+  color: #fff;
+  background: var(--color-secondary);
+}
+
+.latest {
+  color: var(--color-green);
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 50;
+  width: 240px;
+  padding: var(--space-1);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+:global(.light) .menu {
+  background: #fff;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  position: relative;
+  border-radius: var(--radius-md);
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+.option:hover {
+  background: var(--color-surface);
+}
+
+.optionActive {
+  background: var(--color-surface);
+}
+
+.optionActive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--color-accent-text);
+}
+
+.optionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.optionDesc {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Override the global `.light button` reset in layout.css */
+:global(.light) .trigger {
+  font-weight: 600;
+  border: 1px solid var(--color-border-muted) !important;
+}
+
+:global(.light) .trigger:hover,
+:global(.light) .trigger[aria-expanded="true"] {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-light-pink) !important;
+}
+
+.legacy {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-1) 0;
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--color-border-muted);
+  border-bottom: 1px solid var(--color-border-muted);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.legacy span {
+  margin-right: auto;
+}
+
+.legacy a {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-muted);
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+.legacy a:hover {
+  border-color: var(--color-accent-text);
+}

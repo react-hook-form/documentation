@@ -1,10 +1,9 @@
-import clsx from "clsx"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Footer from "../components/Footer"
-import containerStyle from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import buttonStyles from "../styles/button.module.css"
+import PageHeader from "../components/PageHeader"
+import CtaCard from "../components/CtaCard"
+import cards from "../styles/cards.module.css"
 import styles from "./sponsors.module.css"
 
 interface Sponsor {
@@ -157,53 +156,65 @@ const getDomain = (url: string): string => {
   }
 }
 
+const OPEN_COLLECTIVE_URL = "https://opencollective.com/react-hook-form"
+
 const MajorSponsorList = ({ sponsors }: { sponsors: Sponsor[] }) => (
-  <div className={styles.majorList}>
+  <ul className={styles.majorList}>
     {sponsors.map(({ name, imgUrl, url }) => (
-      <a
-        key={name}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.majorCard}
-      >
-        <div className={styles.majorCardTop}>
-          <img
-            className={styles.majorLogo}
-            src={imgUrl}
-            alt={name}
-            loading="lazy"
-          />
-          <div>
-            <p className={styles.majorName}>{name}</p>
-            <p className={styles.majorTagline}>{getDomain(url)}</p>
+      <li key={name} className={styles.majorCard}>
+        <span className={styles.badge}>
+          <svg viewBox="0 0 16 16" aria-hidden>
+            <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+          </svg>
+          Major sponsor
+        </span>
+        <div className={styles.majorBody}>
+          <span className={styles.majorLogo}>
+            <img src={imgUrl} alt="" loading="lazy" />
+          </span>
+          <div className={styles.majorText}>
+            <h3>{name}</h3>
+            <p>{getDomain(url)}</p>
           </div>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.visit}
+          >
+            Visit {getDomain(url)} ↗
+          </a>
         </div>
-        <div className={styles.majorFooter}>
-          <span>{getDomain(url)}</span>
-          <span className={styles.arrow}>→</span>
-        </div>
-      </a>
+      </li>
     ))}
-  </div>
+  </ul>
 )
 
 const SponsorGrid = ({ sponsors }: { sponsors: Sponsor[] }) => (
-  <div className={styles.grid}>
+  <ul className={styles.grid}>
     {sponsors.map(({ name, imgUrl, url }) => (
-      <a
-        key={name}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.card}
-        title={name}
-      >
-        <img src={imgUrl} alt={name} loading="lazy" />
-        <span>{name}</span>
-      </a>
+      <li key={name}>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.card}
+        >
+          <span className={styles.logo}>
+            <img src={imgUrl} alt="" loading="lazy" />
+          </span>
+          <span className={styles.name}>{name}</span>
+          <span className={styles.domain}>{getDomain(url)}</span>
+        </a>
+      </li>
     ))}
-  </div>
+  </ul>
+)
+
+const HeartIcon = (
+  <svg viewBox="0 0 16 16">
+    <path d="M8 14.25s-5.75-3.4-5.75-7.6A3.15 3.15 0 015.4 3.5c1.1 0 2 .55 2.6 1.4.6-.85 1.5-1.4 2.6-1.4a3.15 3.15 0 013.15 3.15c0 4.2-5.75 7.6-5.75 7.6z" />
+  </svg>
 )
 
 const Sponsors = ({
@@ -219,37 +230,49 @@ const Sponsors = ({
         title="Sponsors"
         description="Meet the sponsors who support the development of React Hook Form."
       />
-      <div className={containerStyle.container}>
-        <main className={styles.root}>
-          <h1 className={typographyStyles.headingWithTopMargin} id="main">
-            Sponsors
-          </h1>
-          <p className={typographyStyles.subHeading}>
-            We’re incredibly grateful to these kind and generous sponsors for
-            their support.
-          </p>
+      <div className={cards.page}>
+        <PageHeader
+          eyebrow="Sponsors"
+          title="Backed by generous sponsors"
+          lead="We’re incredibly grateful to these kind and generous sponsors for their support."
+        />
 
-          <div className={styles.ctaWrapper}>
+        <main>
+          <div className={styles.headerActions}>
             <a
-              href="https://opencollective.com/react-hook-form"
+              href={OPEN_COLLECTIVE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={buttonStyles.primaryButton}
+              className={styles.primary}
             >
-              + Become a sponsor
+              Become a sponsor
             </a>
           </div>
 
-          <span className={clsx(styles.tierLabel, styles.tierLabelMuted)}>
-            Major Sponsors
-          </span>
+          <section aria-labelledby="major-sponsors" className={styles.tier}>
+            <h2 id="major-sponsors" className={styles.tierLabel}>
+              Major sponsors
+            </h2>
+            <MajorSponsorList sponsors={majorSponsors} />
+          </section>
 
-          <MajorSponsorList sponsors={majorSponsors} />
+          <section
+            aria-labelledby="supporting-sponsors"
+            className={styles.tier}
+          >
+            <h2 id="supporting-sponsors" className={styles.tierLabel}>
+              Supporting sponsors
+            </h2>
+            <SponsorGrid sponsors={supportingSponsors} />
+          </section>
 
-          <span className={clsx(styles.tierLabel, styles.tierLabelMuted)}>
-            Supporting Sponsors
-          </span>
-          <SponsorGrid sponsors={supportingSponsors} />
+          <CtaCard
+            icon={HeartIcon}
+            title="Support React Hook Form"
+            description="Sponsorship funds ongoing maintenance, new features and documentation for everyone who builds forms with React."
+            href={OPEN_COLLECTIVE_URL}
+            label="Become a sponsor"
+          />
         </main>
 
         <Footer />

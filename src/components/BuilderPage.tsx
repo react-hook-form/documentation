@@ -1,32 +1,23 @@
 import { useState, useRef, useEffect, memo, RefObject } from "react"
 import { useRouter } from "next/router"
 import { Animate } from "react-simple-animate"
+import clsx from "clsx"
 import { useForm } from "react-hook-form"
 import type { SubmitHandler } from "react-hook-form"
 import SortableContainer from "./SortableContainer"
 import { useStateMachine } from "little-state-machine"
 import type { GlobalState, FormDataItem } from "little-state-machine"
-import colors from "../styles/colors"
 import generateCode from "./logic/generateCode"
 import copyClipBoard from "./utils/copyClipBoard"
 import Footer from "./Footer"
-import Popup from "./Popup"
 import LearnMore from "./learnMore"
 import goToBuilder from "./utils/goToBuilder"
 import builder from "../data/builder"
 import generic from "../data/generic"
-import buttonStyles from "../styles/button.module.css"
-import containerStyles from "../styles/container.module.css"
-import typographyStyles from "../styles/typography.module.css"
-import CodeArea from "./CodeArea"
-import ClipBoard from "./ClipBoard"
 import styles from "./BuilderPage.module.css"
-import { BeekaiBuilderPage } from "./BeekaiBuilderPage"
-
-const errorStyle = {
-  border: `1px solid ${colors.secondary}`,
-  background: colors.errorPink,
-}
+import cards from "../styles/cards.module.css"
+import PageHeader from "./PageHeader"
+import { PrismSyntaxHighlight } from "./mdx/code"
 
 type FormFieldDefinitionItem = Partial<FormDataItem> & { toggle?: boolean }
 
@@ -72,6 +63,13 @@ function BuilderPage({
   const copyFormData = useRef<GlobalState["formData"]>([])
   const closeButton = useRef<HTMLButtonElement>(null)
   const [showValidation, toggleValidation] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    if (!copied) return
+    const id = setTimeout(() => setCopied(false), 2000)
+    return () => clearTimeout(id)
+  }, [copied])
 
   const onSubmit: SubmitHandler<FormFieldDefinitionItem> = (data) => {
     toggleValidation(false)
@@ -126,22 +124,26 @@ function BuilderPage({
     setValue("required", !!editFormData.required)
   }, [editFormData.required, editIndex, setValue])
 
+  const code = generateCode(formData)
+  const showValidationFields = shouldToggleOn || showValidation
+
   const child = (
-    <div className={containerStyles.container}>
-      <h1 className={typographyStyles.headingWithTopMargin} id="main">
-        {builder.builder.title}
-      </h1>
-      <p className={typographyStyles.subHeading}>
-        {builder.builder.description}
-      </p>
+    <div className={cards.page}>
+      <PageHeader
+        eyebrow="Tools"
+        title={builder.builder.title}
+        lead="Build a form visually, then copy the generated React Hook Form code."
+      />
 
       <div className={styles.pageWrapper}>
-        <section>
-          <h2 className={typographyStyles.title}>{builder.layout.title}</h2>
-
-          <p style={{ fontSize: 14 }}>
-            <Popup iconOnly />
-            {builder.layout.message}
+        <section className={styles.panel} aria-labelledby="builder-layout">
+          <header className={styles.panelHeader}>
+            <span className={styles.step}>1</span>
+            <h2 id="builder-layout">{builder.layout.title}</h2>
+            <span className={styles.count}>{formData.length} fields</span>
+          </header>
+          <p className={styles.hint}>
+            Drag fields to reorder them, or edit and delete each one.
           </p>
 
           <SortableContainer
@@ -153,268 +155,217 @@ function BuilderPage({
             reset={reset}
           />
         </section>
-        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <h2 className={typographyStyles.title} ref={form}>
-            {builder.inputCreator.title}
-          </h2>
 
-          <p style={{ fontSize: 14 }}>
-            <Popup iconOnly />
-            {builder.inputCreator.description}
+        <section className={styles.panel} aria-labelledby="builder-creator">
+          <header className={styles.panelHeader}>
+            <span className={styles.step}>2</span>
+            <h2 id="builder-creator" ref={form}>
+              {editIndex >= 0 ? "Edit field" : builder.inputCreator.title}
+            </h2>
+          </header>
+          <p className={styles.hint}>
+            Create or update a field. Generate Form loads it into the live demo
+            on the homepage.
           </p>
 
-          <label>{generic.name}: </label>
-          <input
-            autoComplete="off"
-            defaultValue={editFormData.name}
-            aria-label="name"
-            aria-invalid={errors["name"] ? "true" : "false"}
-            style={{
-              ...(errors["name"] ? errorStyle : null),
-            }}
-            {...register("name", { required: true, validate })}
-          />
-          <Animate
-            play={!!errors["name"]}
-            duration={0.6}
-            start={{
-              maxHeight: 0,
-            }}
-            end={{ maxHeight: 20 }}
-          >
-            {errors.name && errors.name["type"] === "required" && (
-              <p className={typographyStyles.error}>This is required.</p>
-            )}
-            {errors.name && errors.name["type"] === "validate" && (
-              <p className={typographyStyles.error}>
-                Name required to be unique.
-              </p>
-            )}
-          </Animate>
-
-          <label>{generic.type}: </label>
-          <select
-            aria-label="Select type"
-            {...register("type", { required: false })}
-            defaultValue={editFormData.type}
-          >
-            <option value="text">Text</option>
-            <option value="password">Password</option>
-            <option value="select">Select</option>
-            <option value="checkbox">Checkbox</option>
-            <option value="radio">Radio</option>
-            <option value="number">Number</option>
-            <option value="textarea">Textarea</option>
-            <option value="email">Email</option>
-            <option value="range">Range</option>
-            <option value="search">Search</option>
-            <option value="tel">Tel</option>
-            <option value="url">url</option>
-            <option value="time">Time</option>
-            <option value="datetime">datetime</option>
-            <option value="datetime-local">datetime-local</option>
-            <option value="week">week</option>
-            <option value="month">month</option>
-            <option value="validate" disabled>
-              validate
-            </option>
-          </select>
-
-          {(type === "select" ||
-            type === "radio" ||
-            editFormData.type === "select" ||
-            editFormData.type === "radio") && (
-            <>
-              <label>{builder.inputCreator.options}:</label>
+          {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+            <label className={styles.field}>
+              <span>{generic.name}</span>
               <input
-                key={editFormData.name}
-                defaultValue={editFormData.options}
-                type="text"
-                placeholder="Enter options separate by ;"
-                {...register("options", {
-                  required: true,
-                })}
+                autoComplete="off"
+                defaultValue={editFormData.name}
+                aria-invalid={errors["name"] ? "true" : "false"}
+                placeholder="e.g. firstName"
+                {...register("name", { required: true, validate })}
               />
-              <Animate
-                play={!!errors["options"]}
-                duration={0.6}
-                start={{
-                  maxHeight: 0,
-                }}
-                end={{ maxHeight: 20 }}
-              >
-                {errors.options && errors.options["type"] === "required" && (
-                  <p className={typographyStyles.error}>This is required.</p>
-                )}
-              </Animate>
-            </>
-          )}
+              {errors.name && (
+                <small className={styles.error}>
+                  {errors.name.type === "validate"
+                    ? "Name must be unique."
+                    : "Name is required."}
+                </small>
+              )}
+            </label>
 
-          <label>
-            <input
-              type="checkbox"
-              {...register("toggle", { required: false })}
-              onClick={() => {
-                toggleValidation(!showValidation)
-              }}
-            />
-            {builder.inputCreator.validation}
-          </label>
-
-          <Animate
-            play={shouldToggleOn || showValidation}
-            start={{
-              maxHeight: 0,
-              overflow: "hidden",
-            }}
-            end={{
-              maxHeight: 800,
-              overflow: "hidden",
-              marginBottom: 20,
-            }}
-          >
-            <fieldset>
-              <label
-                style={{
-                  marginTop: 0,
-                }}
+            <label className={styles.field}>
+              <span>{generic.type}</span>
+              <select
+                {...register("type", { required: false })}
+                defaultValue={editFormData.type}
               >
+                <option value="text">Text</option>
+                <option value="password">Password</option>
+                <option value="select">Select</option>
+                <option value="checkbox">Checkbox</option>
+                <option value="radio">Radio</option>
+                <option value="number">Number</option>
+                <option value="textarea">Textarea</option>
+                <option value="email">Email</option>
+                <option value="range">Range</option>
+                <option value="search">Search</option>
+                <option value="tel">Tel</option>
+                <option value="url">url</option>
+                <option value="time">Time</option>
+                <option value="datetime">datetime</option>
+                <option value="datetime-local">datetime-local</option>
+                <option value="week">week</option>
+                <option value="month">month</option>
+                <option value="validate" disabled>
+                  validate
+                </option>
+              </select>
+            </label>
+
+            {(type === "select" ||
+              type === "radio" ||
+              editFormData.type === "select" ||
+              editFormData.type === "radio") && (
+              <label className={styles.field}>
+                <span>{builder.inputCreator.options}</span>
                 <input
-                  type="checkbox"
-                  {...register("required", { required: false })}
+                  key={editFormData.name}
+                  defaultValue={editFormData.options}
+                  type="text"
+                  placeholder="Separate options with ;"
+                  aria-invalid={errors["options"] ? "true" : "false"}
+                  {...register("options", {
+                    required: true,
+                  })}
                 />
-                Required
+                {errors.options && (
+                  <small className={styles.error}>Options are required.</small>
+                )}
               </label>
-              <label htmlFor="max">Max</label>
+            )}
+
+            <label className={styles.check}>
               <input
-                defaultValue={editFormData.max}
-                aria-label="max"
-                autoComplete="false"
-                type="number"
-                {...register("max", { required: false })}
-              />
-              <label htmlFor="min">Min</label>
-              <input
-                defaultValue={editFormData.min}
-                autoComplete="false"
-                aria-label="min"
-                type="number"
-                {...register("min", { required: false })}
-              />
-              <label htmlFor="maxLength">MaxLength</label>
-              <input
-                defaultValue={editFormData.maxLength}
-                autoComplete="false"
-                aria-label="max length"
-                type="number"
-                {...register("maxLength", { required: false })}
-              />
-              <label htmlFor="pattern">Pattern</label>
-              <input
-                autoComplete="false"
-                defaultValue={editFormData.pattern}
-                style={{
-                  marginBottom: "20px",
+                type="checkbox"
+                {...register("toggle", { required: false })}
+                onClick={() => {
+                  toggleValidation(!showValidation)
                 }}
-                aria-label="pattern"
-                type="text"
-                {...register("pattern", { required: false })}
               />
-            </fieldset>
-          </Animate>
+              {builder.inputCreator.validation}
+            </label>
 
-          <button
-            className={buttonStyles.pinkButton}
-            onClick={() => {
-              form.current?.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            {editIndex >= 0 ? generic.update : generic.create}
-          </button>
+            {showValidationFields && (
+              <fieldset className={styles.rules}>
+                <legend>Validation</legend>
+                <label className={clsx(styles.check, styles.fullRow)}>
+                  <input
+                    type="checkbox"
+                    {...register("required", { required: false })}
+                  />
+                  Required
+                </label>
+                <label className={styles.field}>
+                  <span>Max</span>
+                  <input
+                    defaultValue={editFormData.max}
+                    autoComplete="off"
+                    type="number"
+                    {...register("max", { required: false })}
+                  />
+                </label>
+                <label className={styles.field}>
+                  <span>Min</span>
+                  <input
+                    defaultValue={editFormData.min}
+                    autoComplete="off"
+                    type="number"
+                    {...register("min", { required: false })}
+                  />
+                </label>
+                <label className={styles.field}>
+                  <span>MaxLength</span>
+                  <input
+                    defaultValue={editFormData.maxLength}
+                    autoComplete="off"
+                    type="number"
+                    {...register("maxLength", { required: false })}
+                  />
+                </label>
+                <label className={styles.field}>
+                  <span>Pattern</span>
+                  <input
+                    autoComplete="off"
+                    defaultValue={editFormData.pattern}
+                    type="text"
+                    {...register("pattern", { required: false })}
+                  />
+                </label>
+              </fieldset>
+            )}
 
-          {formData.length > 0 && (
-            <h2
-              className={typographyStyles.title}
-              style={{
-                fontSize: 14,
-                maxWidth: "80%",
-                margin: "0 auto 0",
+            <div className={styles.actions}>
+              <button
+                className={styles.primary}
+                onClick={() => {
+                  form.current?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                {editIndex >= 0 ? "Update field" : "Create field"}
+              </button>
+              {formData.length > 0 && (
+                <button
+                  className={styles.secondary}
+                  type="button"
+                  onClick={() => {
+                    if (toggleBuilder) {
+                      toggleBuilder(false)
+                      document.body.style.overflow = "auto"
+                      HomeRef?.current?.scrollIntoView({ behavior: "smooth" })
+                    } else {
+                      router.push("/?goToDemo&updated=true")
+                    }
+                  }}
+                >
+                  {builder.inputCreator.generate} →
+                </button>
+              )}
+            </div>
+          </form>
+        </section>
+
+        <section
+          className={clsx(styles.panel, styles.codePanel)}
+          aria-labelledby="builder-code"
+        >
+          <header className={styles.panelHeader}>
+            <span className={styles.step}>3</span>
+            <h2 id="builder-code">{builder.code.title}</h2>
+            <button
+              type="button"
+              className={styles.copy}
+              onClick={() => {
+                void copyClipBoard(code).then(() => setCopied(true))
               }}
             >
-              or
-            </h2>
-          )}
-
-          <Animate
-            play={formData.length > 0}
-            start={{
-              opacity: 0,
-              pointerEvents: "none",
-            }}
-            end={{
-              opacity: 1,
-              pointerEvents: "auto",
-            }}
-            render={({ style }) => (
-              <button
-                className={buttonStyles.darkButton}
-                style={style}
-                type="button"
-                onClick={() => {
-                  if (toggleBuilder) {
-                    toggleBuilder(false)
-                    document.body.style.overflow = "auto"
-                    HomeRef?.current?.scrollIntoView({ behavior: "smooth" })
-                  } else {
-                    router.push("/?goToDemo&updated=true")
-                  }
-                }}
-              >
-                {builder.inputCreator.generate}
-              </button>
-            )}
-          />
-        </form>
-        <section
-          style={{
-            paddingRight: "20px",
-            position: "relative",
-          }}
-        >
-          <h2 className={typographyStyles.title}>{builder.code.title}</h2>
-
-          <p style={{ fontSize: 14 }}>
-            <Popup iconOnly />
-            {builder.code.description}
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </header>
+          <p className={styles.hint}>
+            Updates as you change the form. Paste it into your project.
           </p>
-
-          <section
-            style={{
-              position: "relative",
-            }}
-          >
-            <div className={styles.buttonWrapper}>
-              <ClipBoard
-                onClick={() => {
-                  copyClipBoard(generateCode(formData))
-                }}
-                className={`${styles.button} ${styles.copyButton}`}
-              />
+          <div className={styles.editor}>
+            <div className={styles.editorBar} aria-hidden>
+              <i />
+              <i />
+              <i />
+              <span>App.jsx</span>
             </div>
-
-            <CodeArea rawData={generateCode(formData)} withOutCopy />
-          </section>
+            <PrismSyntaxHighlight className="language-jsx">
+              {code}
+            </PrismSyntaxHighlight>
+          </div>
         </section>
       </div>
 
-      <BeekaiBuilderPage />
+      <LearnMore />
 
-      <div style={{ margin: "0 20px" }}>
-        <LearnMore />
-
-        <Footer />
-      </div>
+      <Footer />
     </div>
   )
 
