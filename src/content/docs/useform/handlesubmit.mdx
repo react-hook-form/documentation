@@ -29,6 +29,14 @@ This function will receive the form data if form validation is successful.
   const result = await handleSubmit(onValid)() // result: { id: string } | undefined
   ```
 
+- `formState.isSubmitting` stays `true` until the promise returned by `onSubmit` settles, so `await` (or return) your async work:
+
+  ```javascript
+  const onSubmit = async (data) => {
+    await fetch("/api", { method: "POST", body: JSON.stringify(data) }) // ✅ isSubmitting stays true until this resolves
+  }
+  ```
+
 - `disabled` inputs will appear as `undefined` values in form values. If you want to prevent users from updating an input and wish to retain the form value, you can use `readOnly` or disable the entire &lt;fieldset /&gt;. Here is an [example](https://codesandbox.io/s/react-hook-form-disabled-inputs-oihxx).
 - `handleSubmit` function will not swallow errors that occurred inside your onSubmit callback, so we recommend that you use try/catch blocks inside your async requests and handle those errors gracefully for your customers. Use `setError` inside the catch block to register a server-side error — this also ensures `formState.isSubmitSuccessful` is set to `false`.
 
@@ -47,6 +55,28 @@ This function will receive the form data if form validation is successful.
 
   return <form onSubmit={handleSubmit(onSubmit)} />
   ```
+
+- To submit from a button outside the `<form>`, either link the button to the form with the native `form` attribute, or call the returned function directly:
+
+  ```javascript
+  <form id="profile-form" onSubmit={handleSubmit(onSubmit)}>...</form>
+
+  <button type="submit" form="profile-form">Save</button> // ✅ native form attribute
+  <button type="button" onClick={handleSubmit(onSubmit)}>Save</button> // ✅ call handleSubmit directly
+  ```
+
+- React's `submit` event bubbles through the component tree, including portals. If a form is rendered inside another form (for example in a modal), stop propagation so the outer form doesn't submit too:
+
+  ```javascript
+  <form
+    onSubmit={(event) => {
+      event.stopPropagation()
+      handleSubmit(onInnerSubmit)(event)
+    }}
+  />
+  ```
+
+- For submitting with React Server Actions or `useActionState`, see [Server Actions](/advanced-usage#ServerActionsuseActionState). To test your submit flow, see [Testing Form](/advanced-usage#TestingForm).
 
 </Admonition>
 

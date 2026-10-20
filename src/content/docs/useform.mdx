@@ -171,6 +171,21 @@ useForm({
 
 - You **should avoid** providing `undefined` as a default value, as it conflicts with the default state of a controlled component.
 - `defaultValues` are cached. To reset them, use the [reset](/docs/useform/reset) API.
+- An async `defaultValues` function runs once, when the form mounts. If its promise rejects, `formState.isLoading` stays `true`, so catch errors inside the function and return fallback values:
+
+  ```javascript
+  useForm({
+    defaultValues: async () => {
+      try {
+        const res = await fetch("/api/user")
+        return await res.json()
+      } catch {
+        return { firstName: "", lastName: "" }
+      }
+    },
+  })
+  ```
+
 - `defaultValues` will be included in the submission result by default.
 - It's recommended to avoid using custom objects containing prototype methods, such as `Moment` or `Luxon`, as `defaultValues`.
 - There are other options for including form data:
@@ -218,6 +233,22 @@ function App() {
   })
 }
 ```
+
+<Admonition type="important" title="Rules">
+
+- `values` is deep-compared with the previous `values` prop. When it changes, the form is reset with the new values, which **replaces anything the user has typed**. If your data source refetches in the background (for example, React Query on window focus) and returns updated data, set `resetOptions: { keepDirtyValues: true }` to keep the user's edits.
+- Passing a new object with the same content does nothing, so you don't need to memoize `values`.
+
+</Admonition>
+
+##### Loading form data from a server: which option to use?
+
+| Approach                                      | Updates when the data changes                     | Good for                                                                                                                     |
+| --------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Async [`defaultValues`](#defaultValues)       | No, it runs once on mount                         | Edit forms that load their data once. `formState.isLoading` is `true` until it resolves.                                     |
+| [`values`](#values)                           | Yes, it resets the form whenever the data changes | Forms that must stay in sync with external or server state. Combine with [`resetOptions`](#resetOptions) to keep user edits. |
+| [`reset`](/docs/useform/reset) in `useEffect` | Only when your effect runs                        | Full control over when the form is refilled and which state to keep.                                                         |
+| Render the form after the data arrives        | No                                                | The simplest option: fetch in the parent and pass the data in as `defaultValues`.                                            |
 
 #### errors: <TypeText>FieldErrors</TypeText> <Since version="7.49.0" /> {#errors}
 
