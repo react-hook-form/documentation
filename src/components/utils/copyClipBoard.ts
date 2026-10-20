@@ -19,7 +19,7 @@ export default function copyToClipboard(text: string) {
 
         resolve(0)
       } catch (e) {
-        reject(e as Error)
+        reject(e instanceof Error ? e : new Error(String(e)))
       }
     }
   })

@@ -1,6 +1,6 @@
 import { allDocs, Doc } from "contentlayer/generated"
 import { GetStaticPaths, InferGetStaticPropsType } from "next"
-import { useMDXComponent } from "next-contentlayer/hooks"
+import { useMDXComponent } from "next-contentlayer2/hooks"
 import Layout from "@/components/layout"
 import { MDXComponents } from "@/components/mdx/mdx"
 import Seo, { SITE_URL } from "@/components/seo"

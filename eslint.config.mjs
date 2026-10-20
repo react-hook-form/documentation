@@ -1,18 +1,19 @@
 // @ts-check
 import tseslint from "typescript-eslint"
-import { FlatCompat } from "@eslint/eslintrc"
+import nextConfig from "eslint-config-next"
 import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y"
 import eslintPluginReact from "eslint-plugin-react"
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-})
-
 export default tseslint.config(
+  {
+    ignores: [".next/**", ".contentlayer/**", "public/**", "next-env.d.ts"],
+  },
+
   tseslint.configs.recommendedTypeChecked,
 
-  ...compat.config({
-    extends: ["next"],
+  ...nextConfig,
+
+  {
     rules: {
       // react
       "react/prop-types": "off",
@@ -29,8 +30,13 @@ export default tseslint.config(
 
       // next
       "@next/next/no-img-element": "off",
+
+      // React Compiler rules added in eslint-plugin-react-hooks 7 (via eslint-config-next 16).
+      // Existing components predate them; revisit when refactoring those effects.
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/static-components": "off",
     },
-  }),
+  },
 
   // @ts-expect-error eslintPluginReact.configs.flat, but runtime is always defined
   eslintPluginReact.configs.flat["jsx-runtime"],
@@ -40,6 +46,8 @@ export default tseslint.config(
       reportUnusedDisableDirectives: "error",
     },
     languageOptions: {
+      // eslint-config-next sets its own parser; type-aware rules need this one
+      parser: tseslint.parser,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
