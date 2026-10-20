@@ -30,6 +30,7 @@ export const YouTube: FunctionComponent<YouTubeProps> = (
         data-testid="youtube"
         title={`youTube-${youTubeId}`}
         src={src}
+        loading="lazy"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

@@ -4,7 +4,7 @@ import styles from "./404.module.css"
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="404: Not found" />
+    <Seo title="404: Not found" noindex />
     <div className={styles.container}>
       <main className={styles.root}>
         <h1>NOT FOUND</h1>

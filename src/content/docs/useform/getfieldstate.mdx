@@ -73,7 +73,7 @@ This method returns individual field state. It is useful for retrieving nested f
     const { register, formState } = useForm()
     const { isDirty } = getFieldState("test", formState) // ✅ formState.isDirty subscribed
     const { formState } = useFormContext()
-    const { touchedFields } = getFieldState("test", formState) // ✅ formState.touchedFields subscribed
+    const { isTouched } = getFieldState("test", formState) // ✅ formState.touchedFields subscribed
     ```
 
 </Admonition>

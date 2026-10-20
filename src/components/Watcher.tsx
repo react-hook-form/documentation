@@ -47,6 +47,7 @@ const WatchGroup = ({
     <div className={styles.watchGroup}>
       <input
         type="checkbox"
+        aria-label="Watch the input value"
         checked={check}
         onChange={() => {
           setChecked(!check)

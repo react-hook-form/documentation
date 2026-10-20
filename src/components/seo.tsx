@@ -31,10 +31,12 @@ function SEO({
   title,
   description,
   jsonLd = [],
+  noindex = false,
 }: {
   title: string
   description?: string
   jsonLd?: object[]
+  noindex?: boolean
 }) {
   const router = useRouter()
   const metaTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE
@@ -46,7 +48,11 @@ function SEO({
     <Head>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} key="description" />
-      <link rel="canonical" href={canonical} />
+      {noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <link rel="canonical" href={canonical} />
+      )}
 
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:title" content={metaTitle} />

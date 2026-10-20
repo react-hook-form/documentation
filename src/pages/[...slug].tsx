@@ -103,32 +103,47 @@ export const getStaticProps = ({
     return { notFound: true }
   }
 
-  // Return the doc as page props.
-  return { props: { doc } }
+  // Pass only what the page renders. Breadcrumbs and JSON-LD are resolved
+  // here so `allDocs` (every doc's compiled MDX) stays out of the client bundle.
+  return {
+    props: {
+      doc: {
+        title: doc.title,
+        description: doc.description,
+        metaDescription: doc.metaDescription ?? doc.description,
+        slug: doc.slug,
+        code: doc.body.code,
+        pages: doc.pages as Pages,
+        sidebarTitle: SIDEBAR_TITLES[doc.sidebar],
+        breadcrumbs: doc.segment.length > 1 ? getBreadcrumbs(doc) : [],
+        jsonLd: [getBreadcrumbSchema(doc), getArticleSchema(doc)],
+      },
+    },
+  }
 }
 
 export default function Page({
   doc,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   // Parse the MDX file via the useMDXComponent hook.
-  const MDXContent = useMDXComponent(doc.body.code)
+  const MDXContent = useMDXComponent(doc.code)
 
   return (
     <Layout>
       <Seo
         title={doc.title}
-        description={doc.metaDescription ?? doc.description}
-        jsonLd={[getBreadcrumbSchema(doc), getArticleSchema(doc)]}
+        description={doc.metaDescription}
+        jsonLd={doc.jsonLd}
       />
 
       <div className={styles.layout}>
-        <Menu pages={doc.pages as Pages} title={SIDEBAR_TITLES[doc.sidebar]} />
+        <Menu pages={doc.pages} title={doc.sidebarTitle} />
 
         <main className={styles.main}>
           <header className={styles.header}>
-            {doc.segment.length > 1 && (
+            {doc.breadcrumbs.length > 0 && (
               <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-                {getBreadcrumbs(doc).map((crumb) => (
+                {doc.breadcrumbs.map((crumb) => (
                   <span key={crumb.href}>
                     <Link href={crumb.href}>{crumb.name}</Link>
                     <span aria-hidden>/</span>

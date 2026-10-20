@@ -14,6 +14,8 @@ const STATIC_PATHS = [
   "/form-builder",
   "/about-us",
   "/media",
+  "/sponsors",
+  "/resources",
   "/resources/3rd-party-bindings",
   "/resources/articles",
   "/resources/newsletters",

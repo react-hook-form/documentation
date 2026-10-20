@@ -51,11 +51,11 @@ export default function ApiGallery() {
     const name = window.location.hash.toLowerCase().slice(1)
 
     if (name === "controller") {
-      router.push(`/docs/usecontroller/${name}`)
+      router.replace(`/docs/usecontroller/${name}`)
     } else if (USEFORM_HASHES.includes(name)) {
-      router.push(`/docs/useform/${name}`)
+      router.replace(`/docs/useform/${name}`)
     } else if (["useformcontext", "usefieldarray"].includes(name)) {
-      router.push(`/docs/${name}`)
+      router.replace(`/docs/${name}`)
     }
   }, [router])
 

@@ -112,178 +112,180 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         <Builder showBuilder toggleBuilder={toggleBuilder} HomeRef={HomeRef} />
       )}
 
-      <Hero />
+      <main>
+        <Hero />
 
-      <GeneralObserver
-        onEnter={() => {
-          setFeaturePlay(true)
-        }}
-      >
-        <FeaturesList isPlayFeature={featurePlay} />
-      </GeneralObserver>
-      <SponsorsList />
-
-      <GeneralObserver
-        onEnter={() => {
-          setCodeComparePlay(true)
-        }}
-      >
-        <CodeCompareSection isPlayCodeCompare={codeComparePlay} />
-      </GeneralObserver>
-      <GeneralObserver
-        onEnter={() => {
-          setIsolatePlay(true)
-        }}
-      >
-        <IsolateRender isIsolatePlay={isolatePlay} />
-      </GeneralObserver>
-      <GeneralObserver
-        onEnter={() => {
-          setWatchPlay(true)
-        }}
-      >
-        <Watcher isPlayWatch={watchPlay} />
-      </GeneralObserver>
-
-      <GeneralObserver
-        onEnter={() => {
-          setRenderPlay(true)
-        }}
-      >
-        <CodePerfCompareSection isPlayRender={renderPlay} />
-      </GeneralObserver>
-
-      {monthlyDownloads > 0 && (
         <GeneralObserver
           onEnter={() => {
-            setCounterPlay(true)
+            setFeaturePlay(true)
           }}
         >
-          <HomeSection
-            eyebrow="Adoption"
-            title="Strong Adoption"
-            lead="One of the most downloaded React form libraries, trusted by developers and enterprises worldwide."
+          <FeaturesList isPlayFeature={featurePlay} />
+        </GeneralObserver>
+        <SponsorsList />
+
+        <GeneralObserver
+          onEnter={() => {
+            setCodeComparePlay(true)
+          }}
+        >
+          <CodeCompareSection isPlayCodeCompare={codeComparePlay} />
+        </GeneralObserver>
+        <GeneralObserver
+          onEnter={() => {
+            setIsolatePlay(true)
+          }}
+        >
+          <IsolateRender isIsolatePlay={isolatePlay} />
+        </GeneralObserver>
+        <GeneralObserver
+          onEnter={() => {
+            setWatchPlay(true)
+          }}
+        >
+          <Watcher isPlayWatch={watchPlay} />
+        </GeneralObserver>
+
+        <GeneralObserver
+          onEnter={() => {
+            setRenderPlay(true)
+          }}
+        >
+          <CodePerfCompareSection isPlayRender={renderPlay} />
+        </GeneralObserver>
+
+        {monthlyDownloads > 0 && (
+          <GeneralObserver
+            onEnter={() => {
+              setCounterPlay(true)
+            }}
           >
-            <div className={styles.downloadCard}>
-              <div className={styles.downloadCount}>
-                <FlipNumbers
-                  play={renderCounter}
-                  numbers={formatDownloads(monthlyDownloads)}
-                  height={counterHeight}
-                  width={counterHeight * 0.625}
-                  color="#ec5990"
-                  perspective={1500}
-                  duration={4}
-                  numberStyle={{ fontWeight: 800 }}
-                  nonNumberStyle={{
-                    fontSize: counterHeight,
-                    fontWeight: 900,
-                    color: "#ec5990",
-                    lineHeight: `${counterHeight}px`,
-                    verticalAlign: "bottom",
-                  }}
-                />
+            <HomeSection
+              eyebrow="Adoption"
+              title="Strong Adoption"
+              lead="One of the most downloaded React form libraries, trusted by developers and enterprises worldwide."
+            >
+              <div className={styles.downloadCard}>
+                <div className={styles.downloadCount}>
+                  <FlipNumbers
+                    play={renderCounter}
+                    numbers={formatDownloads(monthlyDownloads)}
+                    height={counterHeight}
+                    width={counterHeight * 0.625}
+                    color="#ec5990"
+                    perspective={1500}
+                    duration={4}
+                    numberStyle={{ fontWeight: 800 }}
+                    nonNumberStyle={{
+                      fontSize: counterHeight,
+                      fontWeight: 900,
+                      color: "#ec5990",
+                      lineHeight: `${counterHeight}px`,
+                      verticalAlign: "bottom",
+                    }}
+                  />
+                </div>
+                <p className={styles.downloadSub}>
+                  Monthly{" "}
+                  <a
+                    href="https://www.npmjs.com/package/react-hook-form"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    npm downloads
+                  </a>
+                </p>
               </div>
-              <p className={styles.downloadSub}>
-                Monthly{" "}
+            </HomeSection>
+          </GeneralObserver>
+        )}
+
+        <HomeSection
+          eyebrow="Recognition"
+          title="Highlights"
+          lead="This project is getting recognized by the community and industry. It's helping more developers to build forms in React than ever."
+        >
+          <div className={styles.cards}>
+            <article className={styles.card}>
+              <TrophyIcon />
+              <h3>Javascript Rising Star</h3>
+              <p>
+                React Hook Form have matured and evolved around hooks.
+                Simplifies a piece of React development.
+              </p>
+            </article>
+            <article className={styles.card}>
+              <TrophyIcon />
+              <h3>React Open Source Awards</h3>
+              <p>
+                The winner of 2020 GitNation React OS Award for the category of
+                Productivity Booster.
+              </p>
+            </article>
+            <article className={styles.card}>
+              <TrophyIcon />
+              <h3>Technology Radar</h3>
+              <p>
+                Featured in the{" "}
                 <a
-                  href="https://www.npmjs.com/package/react-hook-form"
+                  href="https://www.thoughtworks.com/en-au/radar/languages-and-frameworks/react-hook-form"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  npm downloads
-                </a>
+                  Thoughtworks Technology Radar
+                </a>{" "}
+                under Languages & Frameworks, adopted since 2025.
               </p>
-            </div>
-          </HomeSection>
-        </GeneralObserver>
-      )}
+            </article>
+          </div>
+        </HomeSection>
 
-      <HomeSection
-        eyebrow="Recognition"
-        title="Highlights"
-        lead="This project is getting recognized by the community and industry. It's helping more developers to build forms in React than ever."
-      >
-        <div className={styles.cards}>
-          <article className={styles.card}>
-            <TrophyIcon />
-            <h3>Javascript Rising Star</h3>
-            <p>
-              React Hook Form have matured and evolved around hooks. Simplifies
-              a piece of React development.
-            </p>
-          </article>
-          <article className={styles.card}>
-            <TrophyIcon />
-            <h3>React Open Source Awards</h3>
-            <p>
-              The winner of 2020 GitNation React OS Award for the category of
-              Productivity Booster.
-            </p>
-          </article>
-          <article className={styles.card}>
-            <TrophyIcon />
-            <h3>Technology Radar</h3>
-            <p>
-              Featured in the{" "}
-              <a
-                href="https://www.thoughtworks.com/en-au/radar/languages-and-frameworks/react-hook-form"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Thoughtworks Technology Radar
-              </a>{" "}
-              under Languages & Frameworks, adopted since 2025.
-            </p>
-          </article>
-        </div>
-      </HomeSection>
+        <HomeSection
+          eyebrow="Community"
+          title="The Community"
+          lead="Built and driven by the community. On a mission to make every React developer's life easier when it comes to building forms."
+        >
+          <div className={styles.cards}>
+            {TESTIMONIALS.map((quote) => (
+              <figure key={quote.slice(0, 24)} className={styles.quote}>
+                <ChatIcon />
+                <blockquote>{quote}</blockquote>
+              </figure>
+            ))}
+          </div>
+        </HomeSection>
 
-      <HomeSection
-        eyebrow="Community"
-        title="The Community"
-        lead="Built and driven by the community. On a mission to make every React developer's life easier when it comes to building forms."
-      >
-        <div className={styles.cards}>
-          {TESTIMONIALS.map((quote) => (
-            <figure key={quote.slice(0, 24)} className={styles.quote}>
-              <ChatIcon />
-              <blockquote>{quote}</blockquote>
-            </figure>
-          ))}
-        </div>
-      </HomeSection>
+        <HomeSection
+          eyebrow="Video"
+          title="Watch the tutorial"
+          lead="A quick walkthrough of React Hook Form for React Web and React Native."
+        >
+          <IntroVideo />
+        </HomeSection>
 
-      <HomeSection
-        eyebrow="Video"
-        title="Watch the tutorial"
-        lead="A quick walkthrough of React Hook Form for React Web and React Native."
-      >
-        <IntroVideo />
-      </HomeSection>
+        <div ref={HomeRef} />
 
-      <div ref={HomeRef} />
+        <Form
+          methods={methods}
+          onSubmit={onSubmit}
+          submitData={submitData}
+          toggleBuilder={toggleBuilder}
+          formUpdated={formUpdated}
+        />
 
-      <Form
-        methods={methods}
-        onSubmit={onSubmit}
-        submitData={submitData}
-        toggleBuilder={toggleBuilder}
-        formUpdated={formUpdated}
-      />
-
-      <section className={styles.cta}>
-        <h2>{home.findInteresting.heading}</h2>
-        <p>{home.findInteresting.description}</p>
-        <div className={styles.ctaActions}>
-          <Link href="/get-started" className={styles.ctaPrimary}>
-            {home.getStarted}
-          </Link>
-          <Link href="/docs" className={styles.ctaSecondary}>
-            API Documentation
-          </Link>
-        </div>
-      </section>
+        <section className={styles.cta}>
+          <h2>{home.findInteresting.heading}</h2>
+          <p>{home.findInteresting.description}</p>
+          <div className={styles.ctaActions}>
+            <Link href="/get-started" className={styles.ctaPrimary}>
+              {home.getStarted}
+            </Link>
+            <Link href="/docs" className={styles.ctaSecondary}>
+              API Documentation
+            </Link>
+          </div>
+        </section>
+      </main>
 
       <FooterContent />
     </div>
