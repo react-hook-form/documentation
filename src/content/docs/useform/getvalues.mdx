@@ -45,6 +45,8 @@ The example below shows what to expect when you invoke `getValues` method.
 <Admonition type="important" title="Rules">
 
 - It will return `defaultValues` from `useForm` before the **initial** render.
+- `getValues` returns the raw field values. The data passed to your `handleSubmit` callback can differ: with a [resolver](/docs/useform#resolver) it's the resolver's output (with any transforms or coercion applied), and disabled fields are left out.
+- `getValues` doesn't subscribe to changes, so it won't re-render your component. To render a value, use [`useWatch`](/docs/usewatch) or [`watch`](/docs/useform/watch).
 
 </Admonition>
 

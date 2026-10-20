@@ -167,7 +167,7 @@ function FieldArray() {
 
 ---
 
-<TabGroup buttonLabels={["useFieldArray", "Nested Form", "conditional Field Array", "Focus Name/index"]}>
+<TabGroup buttonLabels={["useFieldArray", "Edit with update", "conditional Field Array", "Focus Name/index", "Nested Field Array"]}>
 
 <div>
 
@@ -477,6 +477,92 @@ const App = () => {
 }
 ```
 
+```tsx copy
+import {
+  useForm,
+  useFieldArray,
+  Control,
+  UseFormRegister,
+} from "react-hook-form"
+
+type FormValues = {
+  teams: {
+    name: string
+    members: { email: string }[]
+  }[]
+}
+
+function Members({
+  teamIndex,
+  control,
+  register,
+}: {
+  teamIndex: number
+  control: Control<FormValues>
+  register: UseFormRegister<FormValues>
+}) {
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: `teams.${teamIndex}.members`,
+  })
+
+  return (
+    <ul>
+      {fields.map((field, memberIndex) => (
+        <li key={field.id}>
+          <input
+            {...register(`teams.${teamIndex}.members.${memberIndex}.email`)}
+          />
+          <button type="button" onClick={() => remove(memberIndex)}>
+            Remove member
+          </button>
+        </li>
+      ))}
+      <button type="button" onClick={() => append({ email: "" })}>
+        Add member
+      </button>
+    </ul>
+  )
+}
+
+export default function App() {
+  const { control, register, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      teams: [{ name: "", members: [{ email: "" }] }],
+    },
+  })
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "teams",
+  })
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      {fields.map((field, teamIndex) => (
+        <fieldset key={field.id}>
+          <input {...register(`teams.${teamIndex}.name`)} />
+          <Members
+            teamIndex={teamIndex}
+            control={control}
+            register={register}
+          />
+          <button type="button" onClick={() => remove(teamIndex)}>
+            Remove team
+          </button>
+        </fieldset>
+      ))}
+      <button
+        type="button"
+        onClick={() => append({ name: "", members: [{ email: "" }] })}
+      >
+        Add team
+      </button>
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
 </TabGroup>
 
 ### Video
@@ -533,6 +619,8 @@ function App() {
 **Controlled Field Array**
 
 There will be cases where you want to control the entire field array, which means each onChange reflects on the `fields` object.
+
+If you only need to display values from the array, such as a live total, read them with [`useWatch`](/docs/usewatch) (`useWatch({ control, name: "fieldArray" })`) in a child component instead, so only that component re-renders.
 
 ```tsx sandbox="https://codesandbox.io/s/infallible-bush-c92l0?file=/src/App.tsx"
 import { useForm, useFieldArray } from "react-hook-form"

@@ -1,6 +1,7 @@
 .buttonTabGroup {
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
 }
 
 .buttonTabGroup > button {
@@ -12,10 +13,7 @@
   transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.buttonTabGroup > button:nth-child(n + 2) {
-  margin-left: 3px;
+  flex: 1 1 auto;
 }
 
 .buttonTabGroup > button:hover {

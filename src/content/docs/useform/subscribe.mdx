@@ -19,28 +19,21 @@ Subscribe to [`formState`](/docs/useform/formstate) changes and value updates. Y
 |           | <TypeText>string</TypeText>                   | Subscribe to a single field by **name**.                                                                                                                                                                                                                                                                                                                                                                                                                      | `subscribe({ name: 'firstName' })`                                                                                                                                                                                                                                       |
 |           | <TypeText>string[]</TypeText>                 | Subscribe to multiple fields by **name**.                                                                                                                                                                                                                                                                                                                                                                                                                     | `subscribe({ name: ['firstName', 'lastName'] })`                                                                                                                                                                                                                         |
 | formState | <TypeText>`Partial<ReadFormState>`</TypeText> | Pick which [`formState`](/docs/useform/formstate) to subscribe to.                                                                                                                                                                                                                                                                                                                                                                                            | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true, \n    isDirty: true, \n    dirtyFields: true, \n    touchedFields: true, \n    isValid: true, \n    errors: true, \n    validatingFields: true, \n    isValidating: true \n  } \n})`}/> |
-| callback  | <TypeText>`Function`</TypeText>               | The callback function for the subscription.                                                                                                                                                                                                                                                                                                                                                                                                                   | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true \n  }, \n  callback: ({ values }) => { \n    console.log(values) \n  } \n})`}/>                                                                                                          |
+| callback  | <TypeText>`Function`</TypeText>               | Runs whenever any of the picked `formState` changes. It receives the full form state, plus `values` (the latest form values), `name` (the field that changed, if any) and `type` (the event, such as `change` or `blur`).                                                                                                                                                                                                                                     | <CodeArea withOutCopy rawData={`subscribe({ \n  formState: { \n    values: true \n  }, \n  callback: ({ values }) => { \n    console.log(values) \n  } \n})`}/>                                                                                                          |
 | exact     | <TypeText>boolean = false</TypeText>          | Enable exact name matching. When `false` (default), the subscription fires when the subscribed name is a prefix of the changed field name, or vice versa. <Since version="7.81.0" /> When `true`, it fires when the subscribed field itself or one of its ancestor paths is updated, but not when a nested child path changes (for example, `"users.0.name"` is updated when `"users"` is set, while `"users"` is not updated when `"users.0.name"` changes). | `subscribe({ name: 'target', exact: true })`                                                                                                                                                                                                                             |
+
+### Return
+
+---
+
+| Type                              | Description                                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| <TypeText>`() => void`</TypeText> | A function that ends the subscription. Call it when the component unmounts, for example by returning it from `useEffect`. |
 
 <Admonition type="important" title="Notes">
 
-<ul>
-  <li>
-    <p>
-      This function shares the same functionality as{" "}
-      <code>createFormControl.subscribe</code>, with the key difference being
-      that [createFormControl](/docs/createFormControl) can be initialized
-      outside of a React component.
-    </p>
-  </li>
-  <li>
-    <p>
-      This function is dedicated to subscribing to form state without
-      **render**, use this function for that instead of
-      [watch](/docs/useform/watch) callback function.
-    </p>
-  </li>
-</ul>
+- This function shares the same functionality as `createFormControl.subscribe`, with the key difference being that [createFormControl](/docs/createFormControl) can be initialized outside of a React component.
+- This function is dedicated to subscribing to form state without **render**, use this function for that instead of [watch](/docs/useform/watch) callback function.
 
 </Admonition>
 
@@ -81,6 +74,49 @@ export default function App() {
     <form>
       <input {...register("firstName", { required: true })} />
       <input {...register("lastName", { required: true })} />
+    </form>
+  )
+}
+```
+
+**Autosave a draft**
+
+Because `subscribe` doesn't re-render, it suits side effects like saving a draft while the user types:
+
+```tsx copy
+import { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+type FormValues = { title: string; body: string }
+
+export default function App() {
+  const { register, subscribe } = useForm<FormValues>({
+    defaultValues: { title: "", body: "" },
+  })
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+
+    const unsubscribe = subscribe({
+      formState: { values: true },
+      callback: ({ values }) => {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          localStorage.setItem("draft", JSON.stringify(values))
+        }, 500)
+      },
+    })
+
+    return () => {
+      clearTimeout(timer)
+      unsubscribe()
+    }
+  }, [subscribe])
+
+  return (
+    <form>
+      <input {...register("title")} />
+      <textarea {...register("body")} />
     </form>
   )
 }

@@ -249,6 +249,46 @@ export default function App() {
 }
 ```
 
+**File input**
+
+A file input's value is a `FileList`, not a string. `required` works as usual, use `validate` to check things like file size, and build a `FormData` from the files when you submit.
+
+```tsx copy
+import { useForm } from "react-hook-form"
+
+type FormValues = { avatar: FileList }
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>()
+
+  const onSubmit = async ({ avatar }: FormValues) => {
+    const body = new FormData()
+    body.append("avatar", avatar[0])
+    await fetch("/api/avatar", { method: "POST", body })
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        type="file"
+        accept="image/*"
+        {...register("avatar", {
+          required: "Choose a file",
+          validate: (files) =>
+            !files?.[0] || files[0].size < 2_000_000 || "Max size is 2 MB",
+        })}
+      />
+      {errors.avatar && <p>{errors.avatar.message}</p>}
+      <input type="submit" />
+    </form>
+  )
+}
+```
+
 ### Video
 
 ---
@@ -302,3 +342,5 @@ const firstName = register('firstName', { required: true })
   inputRef={firstName.ref} // you can achieve the same for different ref names such as innerRef
 />
 ```
+
+If you also need the input's ref yourself, see [How to share ref usage](/faqs#Howtosharerefusage).

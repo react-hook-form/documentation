@@ -35,14 +35,24 @@ This function creates the entire form state subscription and allows you to subsc
 </Admonition>
 
 <Admonition type="important" title="Rules">
- - You should either use this API or the Context API
- ```tsx
- const props = createFormControl()
 
-<FormProvider {...props} /> // ❌ You don't need a provider
+- You should either use this API or the Context API
 
- <input {...props.register('name')} /> // ✅ Use method directly from createFormControl
- ```
+  ```tsx
+  const props = createFormControl()
+
+  <FormProvider {...props} /> // ❌ You don't need a provider
+
+  <input {...props.register("name")} /> // ✅ Use method directly from createFormControl
+  ```
+
+- Create the control once. Passing a new instance to `useForm({ formControl })` re-initializes the form. A control created at module scope is a single form shared by every component that uses it and, during server rendering, by every request. For one form per component instance, create it lazily:
+
+  ```tsx
+  const [form] = useState(() => createFormControl({ defaultValues }))
+  const { register } = useForm({ formControl: form.formControl })
+  ```
+
 </Admonition>
 
 ##### Examples:

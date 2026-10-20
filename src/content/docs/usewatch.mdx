@@ -45,6 +45,7 @@ Behaves similarly to the `watch` API; however, it isolates re-rendering at the c
 
 - On initial render, `useWatch` returns the current form value if available. The `defaultValue` prop (or `defaultValues` from `useForm`) is used only as a fallback before the form has mounted — i.e., before any values are registered.
 - The only difference between `useWatch` and `watch` is at the root ([`useForm`](/docs/useform)) level or the custom hook level.
+- Not sure whether to use `useWatch`, `watch`, `subscribe` or `getValues`? See [which API to use for reading values](/faqs#watchvsgetValuesvsstate).
 - `useWatch`'s execution order matters, which means if you update a form value before the subscription is in place, then the updated value will be ignored.
 
   ```javascript copy
