@@ -36,6 +36,14 @@ const methods = useFormContext() // retrieve those props
   You need to wrap your form with the [`FormProvider`](/docs/formprovider)
   component for `useFormContext` to work properly.
 
+Outside a `FormProvider`, `useFormContext()` returns `null` even though its return type isn't nullable, so destructuring it throws `Cannot destructure property 'register' of ... as it is null`.
+
+To avoid repeating your form type, wrap it in a typed hook. The generic is only a type assertion; it isn't checked against the form the provider actually holds.
+
+```tsx
+export const useProfileForm = () => useFormContext<ProfileFormValues>()
+```
+
 <Since version="7.44.0" /> Supports a third generic, `useFormContext<TFieldValues, TContext, TTransformedValues>()`, to type the resolver's transformed output separately from the raw form values and context type.
 
 If you need to subscribe to form state values like `errors`, `isDirty`, or

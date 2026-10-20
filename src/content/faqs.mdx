@@ -277,9 +277,22 @@ First of all, all libs try to solve the same problem: making the form building e
 
 ## watch vs getValues vs state {#watchvsgetValuesvsstate}
 
-- **watch:** subscribe to either all inputs or a specified input's changes via an event listener and re-render based on which fields are subscribed to. Check out [this codesandbox](https://codesandbox.io/s/react-hook-form-watch-with-radio-buttons-and-select-examples-ovfus) for actual behavior. See the [watch API docs](/docs/useform/watch) for full details.
-- **getValues**: get values that are stored inside the custom hook as reference, fast and cheap. This method doesn’t trigger a re-render.
-- **local state**: React local state represents more than just an input’s state and also decides what to render. This will trigger on each input’s change.
+React Hook Form offers several ways to read form values. They differ in what re-renders when a value changes:
+
+| API                                                                           | Re-renders                         | Use it for                                                                                                                               |
+| ----------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [`watch`](/docs/useform/watch)                                                | The component that calls `useForm` | Rendering a value at the form level. Simple, but every watched change re-renders the whole form.                                         |
+| [`useWatch`](/docs/usewatch)                                                  | Only the component that calls it   | Rendering a value deep in the tree, such as a live total or a conditional field. Usually the best choice for performance.                |
+| [`subscribe`](/docs/useform/subscribe)                                        | Nothing                            | Side effects such as autosave, analytics or syncing to external state.                                                                   |
+| [`getValues`](/docs/useform/getvalues)                                        | Nothing                            | Reading the latest values on demand, for example in an event handler. It doesn't subscribe to changes, so don't use it to render values. |
+| [`useFormState`](/docs/useformstate) / [`formState`](/docs/useform/formstate) | When the state you read changes    | Form state such as `errors`, `isDirty` or `isSubmitting`, not field values.                                                              |
+| Local React state                                                             | Every change you store in it       | Values that also drive UI outside the form. Avoid mirroring every input into state.                                                      |
+
+<Admonition type="important" title="React Compiler">
+
+`watch` and `getValues` keep the same reference across renders, so the [React Compiler](https://react.dev/learn/react-compiler) may cache what they return and render stale values. In compiled components, use `useWatch` to render values and `subscribe` for side effects, or opt the component out with the `"use no memo"` directive. v8 adds React Compiler support; see the [migration guide](/migrate-v7-to-v8#ReactCompiler).
+
+</Admonition>
 
 ---
 

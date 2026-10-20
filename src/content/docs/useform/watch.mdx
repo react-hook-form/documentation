@@ -97,7 +97,8 @@ The `type` argument indicates the originating DOM event (typed as `EventType`). 
 
 - When `defaultValue` is not defined, the first render of `watch` will return `undefined` because it is called before `register`. It's **recommended** to provide `defaultValues` to `useForm` to avoid this behavior, but you can also set an inline `defaultValue` as the second argument.
 - When both `defaultValue` and `defaultValues` are supplied, the value from `defaultValues` takes precedence; the inline `defaultValue` is only used as a fallback when no value exists for that field at all.
-- This API will trigger a re-render at the root of your application or form. Consider using a callback or the [useWatch](/docs/usewatch) API if you experience performance issues.
+- This API will trigger a re-render at the root of your application or form. Consider using [subscribe](/docs/useform/subscribe) or the [useWatch](/docs/usewatch) API if you experience performance issues. See [which API to use for reading values](/faqs#watchvsgetValuesvsstate).
+- With the [React Compiler](https://react.dev/learn/react-compiler), `watch` keeps the same reference across renders, so the compiler may cache its result and render stale values. Use [useWatch](/docs/usewatch) in compiled components, or opt out with `"use no memo"`.
 - The `watch` result is optimized for the render phase rather than `useEffect` dependencies. To detect value updates, you may want to use an external custom hook for value comparison.
 
 ### Examples:

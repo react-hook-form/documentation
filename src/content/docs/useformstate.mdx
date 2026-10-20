@@ -97,3 +97,48 @@ export default function App() {
   )
 }
 ```
+
+**Submit button in a `FormProvider`**
+
+A shared submit button can read `isSubmitting` and `isValid` with `useFormState`. Only the button re-renders when they change. Reading `formState` from `useFormContext()` here instead is a common source of buttons that don't update (see the rules on [`useFormContext`](/docs/useformcontext)).
+
+```tsx copy
+import {
+  useForm,
+  FormProvider,
+  useFormState,
+  useFormContext,
+} from "react-hook-form"
+
+function SubmitButton() {
+  const { isSubmitting, isValid } = useFormState()
+
+  return (
+    <button type="submit" disabled={isSubmitting || !isValid}>
+      {isSubmitting ? "Saving…" : "Save"}
+    </button>
+  )
+}
+
+function NameInput() {
+  const { register } = useFormContext<{ name: string }>()
+  return <input {...register("name", { required: true })} />
+}
+
+export default function App() {
+  const methods = useForm<{ name: string }>({ defaultValues: { name: "" } })
+
+  return (
+    <FormProvider {...methods}>
+      <form
+        onSubmit={methods.handleSubmit(async (data) => {
+          await fetch("/api", { method: "POST", body: JSON.stringify(data) })
+        })}
+      >
+        <NameInput />
+        <SubmitButton />
+      </form>
+    </FormProvider>
+  )
+}
+```

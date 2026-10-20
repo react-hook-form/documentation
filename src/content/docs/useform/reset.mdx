@@ -35,6 +35,7 @@ Reset the entire form state, fields reference, and subscriptions. There are opti
 
 - It is recommended to always provide <code>defaultValues</code> when resetting a form
   to ensure all inputs, especially controlled components, are restored correctly.
+- Avoid calling `reset` inside `onSubmit`. `handleSubmit` updates `isSubmitted`, `isSubmitSuccessful` and `submitCount` after your handler finishes, so a `reset` there clears the values but not the submission state. Reset in a `useEffect` when `formState.isSubmitSuccessful` becomes `true` instead (see the **Submit with Reset** example below).
 - Calling `reset` with `values` updates the form's `defaultValues` unless `options.keepDefaultValues` is set. If `reset` is later called without `values` or with `{}`, the form resets to the last `values` provided instead of the initial `defaultValues`.
 
 </Admonition>
