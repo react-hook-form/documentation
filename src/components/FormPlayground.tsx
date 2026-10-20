@@ -4,10 +4,14 @@ import type { FieldErrors } from "react-hook-form"
 import clsx from "clsx"
 import { PrismSyntaxHighlight } from "./mdx/code"
 import copyClipBoard from "./utils/copyClipBoard"
+import resolvers from "../data/resolvers"
 import styles from "./FormPlayground.module.css"
 
 const MODES = ["onSubmit", "onBlur", "onChange", "onTouched", "all"] as const
 type Mode = (typeof MODES)[number]
+
+const VALIDATIONS = ["built-in", "resolver"] as const
+type Validation = (typeof VALIDATIONS)[number]
 
 type Rules = {
   firstNameRequired: boolean
@@ -98,6 +102,91 @@ export default function App() {
       <input
         type="number"
         {...register("age"${age})}
+      />
+      <p>{errors.age?.message}</p>
+
+      <button type="submit">Submit</button>
+    </form>
+  )
+}`
+}
+
+// Break long chains one call per line, the way Prettier prints them
+function printField(name: string, schema: string) {
+  const line = `  ${name}: ${schema},`
+  if (line.length <= 64) return line
+
+  const calls: string[] = []
+  let depth = 0
+  let start = 0
+  for (let i = 0; i < schema.length; i++) {
+    if (schema[i] === "(") depth++
+    if (schema[i] === ")") depth--
+    if (schema[i] === "." && depth === 0) {
+      calls.push(schema.slice(start, i))
+      start = i
+    }
+  }
+  calls.push(schema.slice(start))
+
+  return `  ${name}: ${calls[0]}\n${calls
+    .slice(1)
+    .map((call) => `    ${call}`)
+    .join("\n")},`
+}
+
+// The same rules as buildCode, written as a Zod schema. Empty optional
+// fields are allowed through so it behaves like the register rules.
+function buildResolverCode(mode: Mode, rules: Rules) {
+  const string = (required: string | false, checks: (string | false)[]) => {
+    const list = checks.filter((c): c is string => !!c)
+    const schema = `z.string()${required ? `.min(1, "${required}")` : ""}${list.join("")}`
+    return !required && list.length ? `${schema}.or(z.literal(""))` : schema
+  }
+  const firstName = string(
+    rules.firstNameRequired && "First name is required",
+    [rules.firstNameMinLength && `.min(2, "Min length is 2")`]
+  )
+  const email = string(rules.emailRequired && "Email is required", [
+    rules.emailPattern && `.regex(/^\\S+@\\S+\\.\\S+$/, "Invalid email")`,
+  ])
+  // An empty number input gives NaN with valueAsNumber
+  const age = `z.number()${rules.ageMin ? `.min(18, "Must be 18+")` : ""}.or(z.nan())`
+  const options = [
+    mode !== "onSubmit" && `mode: "${mode}"`,
+    "resolver: zodResolver(schema)",
+  ].filter((o): o is string => !!o)
+
+  return `import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+
+const schema = z.object({
+${printField("firstName", firstName)}
+${printField("email", email)}
+${printField("age", age)}
+})
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+${options.map((o) => `    ${o},`).join("\n")}
+  })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input {...register("firstName")} />
+      <p>{errors.firstName?.message}</p>
+
+      <input {...register("email")} />
+      <p>{errors.email?.message}</p>
+
+      <input
+        type="number"
+        {...register("age", { valueAsNumber: true })}
       />
       <p>{errors.age?.message}</p>
 
@@ -219,6 +308,7 @@ function LiveForm({
 
 export default function FormPlayground() {
   const [mode, setMode] = useState<Mode>("onSubmit")
+  const [validation, setValidation] = useState<Validation>("built-in")
   const [rules, setRules] = useState<Rules>({
     firstNameRequired: true,
     firstNameMinLength: true,
@@ -228,7 +318,10 @@ export default function FormPlayground() {
   })
   const [submitted, setSubmitted] = useState<FormValues>()
   const [copied, setCopied] = useState(false)
-  const code = buildCode(mode, rules)
+  const code =
+    validation === "resolver"
+      ? buildResolverCode(mode, rules)
+      : buildCode(mode, rules)
 
   useEffect(() => {
     if (!copied) return
@@ -255,6 +348,27 @@ export default function FormPlayground() {
                 }}
               >
                 {m}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.toolbarGroup}>
+          <span className={styles.toolbarLabel}>validation</span>
+          <div
+            className={styles.segmented}
+            role="radiogroup"
+            aria-label="validation"
+          >
+            {VALIDATIONS.map((v) => (
+              <button
+                key={v}
+                type="button"
+                role="radio"
+                aria-checked={validation === v}
+                className={clsx(validation === v && styles.segmentActive)}
+                onClick={() => setValidation(v)}
+              >
+                {v}
               </button>
             ))}
           </div>
@@ -324,6 +438,37 @@ export default function FormPlayground() {
           </div>
         </div>
       </div>
+
+      {validation === "resolver" && (
+        <div className={styles.resolvers}>
+          <span className={styles.toolbarLabel}>
+            Not using Zod? Swap the import for your schema library:
+          </span>
+          <ul className={styles.chips}>
+            {resolvers.map(({ name, path, url }) => (
+              <li key={path}>
+                <a
+                  className={clsx(styles.chip, styles.chipOn)}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`@hookform/resolvers/${path}`}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            className={styles.resolversMore}
+            href="https://github.com/react-hook-form/resolvers"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @hookform/resolvers →
+          </a>
+        </div>
+      )}
     </div>
   )
 }
