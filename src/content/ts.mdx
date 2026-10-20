@@ -482,13 +482,18 @@ export type UseFormSubscribe<TFieldValues extends FieldValues> = <
 The type of the `handleSubmit` function.
 
 ```tsx copy
+export type SubmitHandler<T, TResult = unknown> = (
+  data: T,
+  event?: React.BaseSyntheticEvent
+) => TResult
+
 export type UseFormHandleSubmit<
   TFieldValues extends FieldValues,
   TTransformedValues = TFieldValues,
-> = (
-  onValid: SubmitHandler<TTransformedValues>,
+> = <TResult>(
+  onValid: SubmitHandler<TTransformedValues, TResult>,
   onInvalid?: SubmitErrorHandler<TFieldValues>
-) => (e?: React.BaseSyntheticEvent) => Promise<void>
+) => (e?: React.BaseSyntheticEvent) => Promise<Awaited<TResult> | undefined>
 ```
 
 ---
@@ -622,10 +627,17 @@ export type UseFormSetFocus<TFieldValues extends FieldValues> = <
 The type of the `getValues` function. This type is overloaded; it can be called with no arguments, a single field name, or an array of field names.
 
 ```tsx copy
-export type GetValuesConfig = {
-  dirtyFields?: boolean
-  touchedFields?: boolean
-}
+// Only one of `dirtyFields` or `touchedFields` can be set at a time
+type EitherOption<T> = {
+  [K in keyof T]: {
+    [P in K]: T[P]
+  } & Partial<Record<Exclude<keyof T, K>, never>>
+}[keyof T]
+
+export type GetValuesConfig = EitherOption<{
+  dirtyFields: boolean
+  touchedFields: boolean
+}>
 
 export type UseFormGetValues<TFieldValues extends FieldValues> = {
   (name?: undefined, config?: GetValuesConfig): TFieldValues

@@ -120,6 +120,7 @@ function App() {
       </Form>
       {/* Manual form submission */}
       <Form
+        control={control}
         onSubmit={async ({ formData, data, formDataJson, event }) => {
           await fetch("api", {
             method: "post",

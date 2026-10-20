@@ -146,19 +146,19 @@ export default function Form() {
   const { register, getValues } = useForm<Inputs1>()
 
   getValues()
-  // function getValues(): Record<string, unknown>
+  // function getValues(): Inputs1
   getValues("key1")
-  // function getValues<"key1", unknown>(payload: "key1"): string
+  // function getValues<"key1">(name: "key1"): string
   getValues("key2")
-  // function getValues<"key2", unknown>(payload: "key2"): number
+  // function getValues<"key2">(name: "key2"): number
   getValues("key3.key1")
-  // function getValues<"key3.key1", unknown>(payload: "key3.key1"): unknown
-  getValues<string, number>("key3.key1")
-  // function getValues<string, number>(payload: string): number
-  getValues<string, boolean>("key3.key2")
-  // function getValues<string, boolean>(payload: string): boolean
+  // function getValues<"key3.key1">(name: "key3.key1"): number
+  getValues("key3.key2")
+  // function getValues<"key3.key2">(name: "key3.key2"): boolean
   getValues("key4")
-  // function getValues<"key4", unknown>(payload: "key4"): string[]
+  // function getValues<"key4">(name: "key4"): string[]
+  getValues(["key1", "key3.key2"])
+  // function getValues<["key1", "key3.key2"]>(names: readonly ["key1", "key3.key2"]): [string, boolean]
 
   return <form />
 }

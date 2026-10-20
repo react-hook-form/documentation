@@ -173,7 +173,7 @@ const App = () => {
               name: "firstName",
               message: "Triple Check This",
             },
-          ]
+          ] as const
 
           inputs.forEach(({ name, type, message }) => {
             setError(name, { type, message })
@@ -348,9 +348,9 @@ const App = () => {
   });
   const onSubmit = async () => {
     const response = await fetch(...)
-    if (response.statusCode > 200) {
+    if (response.status >= 400) {
         setError('root.serverError', {
-          type: response.statusCode,
+          type: String(response.status),
         })
     }
   }
@@ -360,7 +360,7 @@ const App = () => {
       <label>Last Name</label>
       <input {...register("lastName")} />
 
-      {errors.root.serverError.type === 400 && <p>server response message</p>}
+      {errors.root?.serverError?.type === "400" && <p>server response message</p>}
 
       <button>submit</button>
     </form>

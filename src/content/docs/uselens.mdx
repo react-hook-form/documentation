@@ -107,8 +107,9 @@ function ContactsList({ lens }: { lens: Lens<Contact[]> }) {
   return (
     <div>
       <ContactForm lens={firstContact} />
-      <input
-        {...secondContactName.interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...secondContactName.interop()}
+        render={({ field }) => <input {...field} />}
       />
     </div>
   )
@@ -148,13 +149,13 @@ function SharedComponent({
 }) {
   return (
     <div>
-      <input
-        {...lens.focus("name").interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("name").interop()}
+        render={({ field }) => <input {...field} />}
       />
-      <input
-        {...lens
-          .focus("phoneNumber")
-          .interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("phoneNumber").interop()}
+        render={({ field }) => <input {...field} />}
       />
     </div>
   )
@@ -254,6 +255,7 @@ function Component({
 Maps over array fields with `useFieldArray` integration. This method requires the `fields` property from `useFieldArray`.
 
 ```tsx copy
+import { Controller } from "react-hook-form"
 import { useFieldArray } from "@hookform/lenses/rhf"
 
 function ContactsList({ lens }: { lens: Lens<Contact[]> }) {
@@ -282,11 +284,13 @@ function ContactForm({
 }) {
   return (
     <div>
-      <input
-        {...lens.focus("name").interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("name").interop()}
+        render={({ field }) => <input {...field} />}
       />
-      <input
-        {...lens.focus("email").interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("email").interop()}
+        render={({ field }) => <input {...field} />}
       />
     </div>
   )
@@ -313,8 +317,9 @@ The first variant involves calling `interop()` without arguments, which returns 
 
 ```tsx
 const { control, name } = lens.interop()
+const { field } = useController({ control, name })
 
-return <input {...control.register(name)} />
+return <input {...field} />
 ```
 
 #### Second Variant: Callback Function
@@ -324,7 +329,13 @@ The second variant passes a callback function to `interop` which receives the `c
 ```tsx
 return (
   <form onSubmit={handleSubmit(console.log)}>
-    <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
+    {lens.interop((control, name) => (
+      <Controller
+        control={control}
+        name={name}
+        render={({ field }) => <input {...field} />}
+      />
+    ))}
     <input type="submit" />
   </form>
 )
@@ -476,8 +487,8 @@ function validateEmail(email: string) {
 // After confirming value exists
 if (formState.isValid) {
   const validEmailLens = emailLens.defined()
-  // Pass to functions expecting non-null values
-  validateEmail(validEmailLens.interop().control.getValues())
+  // Pass to functions expecting non-null values (getValues from useForm)
+  validateEmail(getValues(validEmailLens.interop().name))
 }
 ```
 
@@ -541,6 +552,7 @@ if (config.type === "database") {
 Import the enhanced `useFieldArray` from `@hookform/lenses/rhf` for seamless array handling with lenses.
 
 ```tsx copy
+import { Controller } from "react-hook-form"
 import { useFieldArray } from "@hookform/lenses/rhf"
 
 function DynamicForm({
@@ -557,18 +569,19 @@ function DynamicForm({
 
       {itemsLens.map(fields, (field, itemLens, index) => (
         <div key={field.id}>
-          <input
-            {...itemLens
-              .focus("name")
-              .interop((ctrl, name) => ctrl.register(name))}
+          <Controller
+            {...itemLens.focus("name").interop()}
+            render={({ field }) => <input {...field} />}
           />
-          <input
-            type="number"
-            {...itemLens
-              .focus("value")
-              .interop((ctrl, name) =>
-                ctrl.register(name, { valueAsNumber: true })
-              )}
+          <Controller
+            {...itemLens.focus("value").interop()}
+            render={({ field }) => (
+              <input
+                type="number"
+                {...field}
+                onChange={(e) => field.onChange(e.target.valueAsNumber)}
+              />
+            )}
           />
           <button onClick={() => remove(index)}>Remove</button>
           {index > 0 && (
@@ -596,7 +609,7 @@ function DynamicForm({
 #### Basic Usage
 
 ```tsx copy sandbox="https://codesandbox.io/p/sandbox/keen-herschel-y5h2ft"
-import { useForm } from "react-hook-form"
+import { useForm, useController } from "react-hook-form"
 import { Lens, useLens } from "@hookform/lenses"
 import { useFieldArray } from "@hookform/lenses/rhf"
 
@@ -660,7 +673,9 @@ function PersonForm({
 }
 
 function StringInput({ lens }: { lens: Lens<string> }) {
-  return <input {...lens.interop((ctrl, name) => ctrl.register(name))} />
+  const { field } = useController(lens.interop())
+
+  return <input {...field} />
 }
 ```
 
@@ -694,13 +709,12 @@ Using `useFormContext()` in reusable components tightly couples them to specific
 ```tsx
 // ❌ Tightly coupled to parent form structure
 function AddressForm() {
-  const { control } = useFormContext<UserForm>() // Locked to UserForm type
+  const { register } = useFormContext<UserForm>() // Locked to UserForm type
 
   return (
     <div>
-      <input {...control.register("address.street")} />{" "}
-      {/* Fixed field paths */}
-      <input {...control.register("address.city")} />
+      <input {...register("address.street")} /> {/* Fixed field paths */}
+      <input {...register("address.city")} />
     </div>
   )
 }
@@ -771,7 +785,7 @@ For advanced use cases or when you need more control, you can create lenses manu
 
 ```tsx
 import { useMemo } from "react"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { LensCore, LensesStorage } from "@hookform/lenses"
 
 function App() {
@@ -784,13 +798,13 @@ function App() {
 
   return (
     <div>
-      <input
-        {...lens
-          .focus("firstName")
-          .interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("firstName").interop()}
+        render={({ field }) => <input {...field} />}
       />
-      <input
-        {...lens.focus("lastName").interop((ctrl, name) => ctrl.register(name))}
+      <Controller
+        {...lens.focus("lastName").interop()}
+        render={({ field }) => <input {...field} />}
       />
     </div>
   )
@@ -801,7 +815,7 @@ function App() {
 
 You can extend the basic lens functionality by adding custom methods to the `LensBase` interface. This is useful when you need additional methods that aren't available in the default lens API.
 
-For example, let's add a `getValue` method to the lens that allows you to retrieve the current form values easily.
+For example, let's add a `useValue` method to the lens that allows you to subscribe to the current value at the lens path easily.
 
 **Step 1: Create the type declarations file**
 
@@ -810,7 +824,7 @@ Create a `lenses.d.ts` file to extend the basic interface with the methods you w
 ```typescript
 declare module "@hookform/lenses" {
   interface LensBase<T> {
-    getValue(): T
+    useValue(): T
   }
 }
 
@@ -822,12 +836,13 @@ export {}
 Create a `MyLensCore.ts` file with the actual runtime implementation:
 
 ```typescript
-import type { FieldValues } from "react-hook-form"
+import { useWatch, type FieldValues } from "react-hook-form"
 import { LensCore } from "@hookform/lenses"
 
 export class MyLensCore<T extends FieldValues> extends LensCore<T> {
-  public getValue() {
-    return this.control._formValues
+  // Calls a hook, so only call it during render
+  public useValue() {
+    return useWatch({ control: this.control, name: this.path })
   }
 }
 ```
@@ -867,7 +882,7 @@ Now you can use this hook as usual and you have the new method with correct Type
 ```typescript
 const { control } = useForm()
 const lens = useMyLens({ control })
-lens.getValue() // Your custom method is now available with full type support
+lens.useValue() // Your custom method is now available with full type support
 ```
 
 This pattern allows you to add any custom functionality to lenses while maintaining full type safety and compatibility with the existing lens API.
