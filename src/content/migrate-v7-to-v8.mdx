@@ -43,17 +43,23 @@ Use [`useWatch`](/docs/usewatch) to render values. Under the compiler, a destruc
 
 ## Flat Field Array {#FlatFieldArray}
 
-V8's types accept flat field arrays, but primitive rows are not safe to use with `useFieldArray` yet.
+V8 supports flat field arrays. Each primitive row in `fields` is an object with the row's `value` and its generated `key`, and the input is registered by index.
 
 ```tsx copy
 // Before (V7) — each row had to be an object
-useFieldArray({ name: "items" }) // items: { value: string }[]
+const { fields } = useFieldArray({ name: "items" }) // items: { value: string }[]
+fields.map((field, index) => (
+  <input key={field.id} {...register(`items.${index}.value`)} />
+))
 
-// After (V8) — primitive values type-check
-useFieldArray({ name: "items" }) // items: string[]
+// After (V8) — primitive values work directly
+const { fields } = useFieldArray({ name: "items" }) // items: string[]
+fields.map((field, index) => (
+  <input key={field.key} {...register(`items.${index}`)} />
+))
 ```
 
-**Note:** as of the current beta, this is a types-only improvement — `fields` still spreads each entry with `{ ...field, key }` internally, which does not behave as expected for primitive array items. `useFieldArray` also drops `''`, `0`, and `false` entries from `fields`, and `append` then rewrites the stored values without them. Keep each row as an object.
+Object rows are unchanged: `fields` spreads each row and adds `key`.
 
 ## Breaking Changes {#BreakingChanges}
 
