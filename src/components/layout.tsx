@@ -17,16 +17,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       setShow(false)
     }
   }
-  const path = router.asPath.split("#")[0]
-  const editLink = getEditLink(path)
-  const isDocs = path.startsWith("/docs/")
-  const pageKey = isDocs ? "docs" : path
-
-  // Only the first page load gets the delayed entrance (see
-  // .pageTransitionDelayed); later client-side navigations animate at once.
-  const [initialKey] = useState(pageKey)
-  const [hasNavigated, setHasNavigated] = useState(false)
-  if (!hasNavigated && pageKey !== initialKey) setHasNavigated(true)
+  const editLink = getEditLink(router.asPath.split("#")[0])
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler, { passive: true })
@@ -42,13 +33,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </a>
       <Nav />
       <div
-        key={pageKey}
+        key={
+          router.asPath.split("#")[0].startsWith("/docs/")
+            ? "docs"
+            : router.asPath.split("#")[0]
+        }
         className={
-          isDocs
+          router.asPath.split("#")[0].startsWith("/docs/")
             ? ""
-            : hasNavigated
-              ? "pageTransition"
-              : "pageTransition pageTransitionDelayed"
+            : "pageTransition"
         }
       >
         {children}
