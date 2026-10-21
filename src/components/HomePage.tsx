@@ -7,7 +7,6 @@ import Hero from "./Hero"
 import HomeSection from "./HomeSection"
 import IntroVideo from "./IntroVideo"
 import Watcher from "./Watcher"
-import CodeCompareSection from "./CodeCompareSection"
 import CodePerfCompareSection from "./CodePerfCompareSection"
 import IsolateRender from "./IsolateRender"
 import FooterContent from "./Footer"
@@ -77,7 +76,6 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
   const HomeRef = useRef<HTMLDivElement>(null)
 
   const [featurePlay, setFeaturePlay] = useState(false)
-  const [codeComparePlay, setCodeComparePlay] = useState(false)
   const [isolatePlay, setIsolatePlay] = useState(false)
   // const [isCardPlay, setCardPlay] = useState(false)
   const [renderPlay, setRenderPlay] = useState(false)
@@ -124,13 +122,6 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         </GeneralObserver>
         <SponsorsList />
 
-        <GeneralObserver
-          onEnter={() => {
-            setCodeComparePlay(true)
-          }}
-        >
-          <CodeCompareSection isPlayCodeCompare={codeComparePlay} />
-        </GeneralObserver>
         <GeneralObserver
           onEnter={() => {
             setIsolatePlay(true)

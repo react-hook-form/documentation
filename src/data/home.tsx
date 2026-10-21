@@ -40,11 +40,6 @@ export default {
 `,
     },
   ],
-  codeComparison: {
-    title: "Less code. More performant",
-    description:
-      "React Hook Form reduces the amount of code you need to write while removing unnecessary re-renders. Dive in and explore the example below.",
-  },
   isolateRender: {
     title: "Isolate Re-renders",
     description:
@@ -58,10 +53,10 @@ export default {
   mount: {
     title: "Faster Mounting",
     description:
-      "The following screenshots demonstrate how much faster component mounting is with React Hook Form compared to others.",
-    totalMount: "No. of mount(s)",
-    totalChange: "No. of committing change(s)",
-    totalTime: "Total time",
+      "Fewer components to mount means a faster first render. Here is how React Hook Form compares with others when mounting the same form.",
+    totalMount: "mount",
+    totalChange: "commit",
+    totalTime: "total",
   },
   liveDemo: {
     description: (

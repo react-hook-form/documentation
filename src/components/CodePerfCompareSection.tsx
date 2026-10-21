@@ -1,39 +1,18 @@
-import { memo } from "react"
-import { SimpleImg } from "react-simple-img"
+import { memo, type CSSProperties } from "react"
 import clsx from "clsx"
 import home from "../data/home"
 import HomeSection from "./HomeSection"
 import styles from "./CodePerfCompareSection.module.css"
 
 const RESULTS = [
-  {
-    label: "React Hook Form",
-    mounts: 1,
-    changes: 1,
-    time: 1800,
-    src: "/images/hookform.min.png",
-    height: 163,
-    alt: "React Hook Form performance",
-  },
-  {
-    label: "Others",
-    mounts: 6,
-    changes: 1,
-    time: 2070,
-    src: "/images/formik.min.png",
-    height: 230,
-    alt: "Formik performance",
-  },
-  {
-    label: "Others",
-    mounts: 17,
-    changes: 2,
-    time: 2380,
-    src: "/images/reduxform.min.png",
-    height: 365,
-    alt: "Redux Form performance",
-  },
+  { label: "React Hook Form", mounts: 1, changes: 1, time: 1800 },
+  { label: "Others", mounts: 6, changes: 1, time: 2070 },
 ]
+
+const SLOWEST = Math.max(...RESULTS.map((result) => result.time))
+
+const plural = (count: number, word: string) =>
+  count === 1 ? word : `${word}s`
 
 function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
   return (
@@ -46,8 +25,10 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
       <div className={clsx(styles.list, isPlayRender && styles.visible)}>
         {RESULTS.map((result, index) => (
           <article
-            key={result.src}
-            className={clsx(styles.card, index === 0 && styles.winner)}
+            key={result.mounts}
+            className={clsx(styles.row, index === 0 && styles.winner)}
+            // Timings scale with the result, so slower libraries finish later.
+            style={{ "--speed": result.time / SLOWEST } as CSSProperties}
           >
             <div className={styles.stats}>
               <h3>
@@ -56,26 +37,40 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
               </h3>
               <dl>
                 <div>
-                  <dt>{home.mount.totalMount}</dt>
+                  <dt>{plural(result.mounts, home.mount.totalMount)}</dt>
                   <dd>{result.mounts}</dd>
                 </div>
                 <div>
-                  <dt>{home.mount.totalChange}</dt>
+                  <dt>{plural(result.changes, home.mount.totalChange)}</dt>
                   <dd>{result.changes}</dd>
                 </div>
                 <div className={styles.time}>
                   <dt>{home.mount.totalTime}</dt>
-                  <dd>{result.time}ms</dd>
+                  <dd>
+                    <span
+                      className={styles.count}
+                      style={{ "--to": result.time } as CSSProperties}
+                      aria-hidden
+                    />
+                    <span className={styles.srOnly}>{result.time}ms</span>
+                  </dd>
                 </div>
               </dl>
             </div>
-            <div className={styles.shot}>
-              <SimpleImg
-                src={result.src}
-                placeholder={false}
-                height={result.height}
-                alt={result.alt}
-              />
+
+            {/* A flame chart of the mount: one bar per component mounted. */}
+            <div
+              className={styles.chart}
+              style={{ "--n": result.mounts } as CSSProperties}
+              aria-hidden
+            >
+              {Array.from({ length: result.mounts }, (_, i) => (
+                <span
+                  key={i}
+                  className={styles.bar}
+                  style={{ "--i": i } as CSSProperties}
+                />
+              ))}
             </div>
           </article>
         ))}

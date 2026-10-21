@@ -63,9 +63,6 @@ importers:
       react-simple-animate:
         specifier: ^3.5.3
         version: 3.5.3(react-dom@19.3.1(react@19.3.1))
-      react-simple-img:
-        specifier: 3.0.0
-        version: 3.0.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react-sortablejs:
         specifier: 1.5.1
         version: 1.5.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sortablejs@1.15.0)
@@ -3336,12 +3333,6 @@ packages:
     resolution: {integrity: sha512-Ob+SmB5J1tXDEZyOe2Hf950K4M8VaWBBmQ3cS2BUnTORqHjhK0iKG8fB+bo47ZL15t8d3g/Y0roiqH05UBjG7A==}
     peerDependencies:
       react-dom: ^16.8.0 || ^17 || ^18 || ^19
-
-  react-simple-img@3.0.0:
-    resolution: {integrity: sha512-I0sG/GgY9c+04BgWf1YRlipWBQxR3oG2s/bagU8EO7zals3/Vkfk1PJMeYh/wHfjxJtUmal+y7HWEBm4MzXVsQ==}
-    peerDependencies:
-      react: '>= 16.3.0'
-      react-dom: '>= 16.3.0'
 
   react-sortablejs@1.5.1:
     resolution: {integrity: sha512-bKIc1UVhjZt55Nb6WZFxZ8Jwyngg8CTt+w+iG1pA5k9LQsg1J0X6nLppHatSSDZDECtRZKp2z47tmmhPRJNj4g==}
@@ -8105,11 +8096,6 @@ snapshots:
 
   react-simple-animate@3.5.3(react-dom@19.3.1(react@19.3.1)):
     dependencies:
-      react-dom: 19.3.1(react@19.3.1)
-
-  react-simple-img@3.0.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
-    dependencies:
-      react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
   react-sortablejs@1.5.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sortablejs@1.15.0):

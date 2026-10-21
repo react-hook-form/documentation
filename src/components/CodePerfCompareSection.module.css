@@ -1,7 +1,8 @@
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-primary);
+  text-align: left;
   opacity: 0;
   transform: translateY(16px);
   transition:
@@ -9,35 +10,30 @@
     transform 0.5s ease;
 }
 
+:global(.light) .list {
+  background: #fff;
+}
+
 .visible {
   opacity: 1;
   transform: none;
 }
 
-.card {
+.row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
-  padding: var(--space-5);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-muted);
-  background: var(--color-primary);
-  text-align: left;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
 }
 
-:global(.light) .card {
-  background: #fff;
-}
-
-.winner {
-  border-color: rgba(236, 89, 144, 0.45);
-  box-shadow: 0 20px 60px -30px rgba(236, 89, 144, 0.45);
+.row + .row {
+  border-top: 1px solid var(--color-border-muted);
 }
 
 @media (min-width: 900px) {
-  .card {
-    grid-template-columns: 240px minmax(0, 1fr);
+  .row {
+    grid-template-columns: 220px minmax(0, 1fr);
     align-items: center;
+    gap: var(--space-5);
   }
 }
 
@@ -45,8 +41,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  margin: 0 0 var(--space-4);
-  font-size: var(--text-lg);
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-base);
   font-weight: 700;
 }
 
@@ -61,54 +57,102 @@
   text-transform: uppercase;
 }
 
+/* "1 mounts · 1 commits · 1800ms total", value before label. */
 .stats dl {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--space-3);
   margin: 0;
-}
-
-@media (min-width: 900px) {
-  .stats dl {
-    grid-template-columns: 1fr;
-  }
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 .stats dl > div {
   display: flex;
-  flex-direction: column-reverse;
-  gap: 2px;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-}
-
-.stats dt {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  flex-direction: row-reverse;
+  gap: 4px;
 }
 
 .stats dd {
   margin: 0;
-  font-size: var(--text-xl);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  color: var(--color-text);
 }
 
-.time dd {
+.winner .time dd {
   color: var(--color-accent-text);
 }
 
-.shot {
-  min-width: 0;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-muted);
+/* Flame chart: each bar is one mounted component, cascading like the React
+   profiler's trace. The chart's width is its total time relative to the
+   slowest result, and every timing scales with --speed. */
+.chart {
+  position: relative;
+  width: calc(var(--speed) * 100%);
+  height: calc(var(--n) * 5px);
+  min-height: 8px;
 }
 
-.shot img {
-  display: block;
-  width: 100%;
-  height: auto !important;
-  object-fit: cover;
+.bar {
+  position: absolute;
+  top: calc(var(--i) * 5px);
+  left: calc(var(--i) / var(--n) * 40%);
+  width: max(6%, calc(100% - var(--i) / var(--n) * 75%));
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #e67e22, #f1c40f);
+  opacity: 0.85;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)
+    calc(0.15s + var(--i) / var(--n) * 1.2s * var(--speed));
+}
+
+.winner .bar {
+  height: 8px;
+  background: linear-gradient(90deg, var(--color-accent-solid), #ec5990);
+  opacity: 1;
+}
+
+.visible .bar {
+  transform: none;
+}
+
+/* Counts the total time up from 0 as the chart plays. */
+@property --perf-ms {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.count {
+  --perf-ms: 0;
+  counter-reset: perf-ms var(--perf-ms);
+  transition: --perf-ms calc(0.6s + 1.2s * var(--speed)) ease-out 0.15s;
+}
+
+.count::after {
+  content: counter(perf-ms) "ms";
+}
+
+.visible .count {
+  --perf-ms: var(--to);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list,
+  .bar,
+  .count {
+    transition: none;
+  }
 }
