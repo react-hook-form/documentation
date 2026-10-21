@@ -10,6 +10,7 @@ interface AboutUsData {
   imgUrl: string
   url: string
   twitterName: string
+  website?: string
   bio: string
   interests: string[]
   active: boolean
@@ -22,6 +23,7 @@ const data: AboutUsData[] = [
       "https://avatars2.githubusercontent.com/u/10513364?s=460&u=a129aade5f9a7a92cf06172b47d67ccefc736933&v=4",
     url: "https://github.com/bluebill1049",
     twitterName: "bluebill1049",
+    website: "https://bluebill1049.dev/",
     bio: "I started my career as a Designer/Developer, but I have been passionate about building/creating since I was little. Building open source projects has become my hobby, and helping thousands of developers around the world has become my passion. React-Hook-Form is a dream come true.",
     interests: ["🎮 games", "🚗 cars", "🐟 fish"],
     active: true,
@@ -134,6 +136,21 @@ const XIcon = (
   </svg>
 )
 
+const GlobeIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden>
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+    </g>
+  </svg>
+)
+
 const CodeIcon = (
   <svg viewBox="0 0 16 16">
     <path d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z" />
@@ -148,6 +165,7 @@ const MaintainerCard = ({
   imgUrl,
   url,
   twitterName,
+  website,
   bio,
   interests,
 }: AboutUsData) => (
@@ -187,6 +205,17 @@ const MaintainerCard = ({
       >
         {XIcon}X
       </a>
+      {website && (
+        <a
+          href={website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.socialLink}
+          aria-label={`${name}'s website`}
+        >
+          {GlobeIcon}Website
+        </a>
+      )}
     </div>
   </li>
 )
