@@ -1,5 +1,4 @@
 import Seo from "../components/seo"
-import Layout from "../components/layout"
 import Footer from "../components/Footer"
 import PageHeader from "../components/PageHeader"
 import StarRepo from "../components/StarRepo"
@@ -61,7 +60,7 @@ const DownloadIcon = (
 
 const Media = () => {
   return (
-    <Layout>
+    <>
       <Seo
         title="Media"
         description="Logos, images, and brand assets for React Hook Form."
@@ -133,7 +132,7 @@ const Media = () => {
 
         <Footer />
       </div>
-    </Layout>
+    </>
   )
 }
 

@@ -1,5 +1,4 @@
 import Seo from "../components/seo"
-import Layout from "../components/layout"
 import Footer from "../components/Footer"
 import PageHeader from "../components/PageHeader"
 import CtaCard from "../components/CtaCard"
@@ -225,7 +224,7 @@ const Sponsors = ({
   supportingSponsors: Sponsor[]
 }) => {
   return (
-    <Layout>
+    <>
       <Seo
         title="Sponsors"
         description="Meet the sponsors who support the development of React Hook Form."
@@ -277,7 +276,7 @@ const Sponsors = ({
 
         <Footer />
       </div>
-    </Layout>
+    </>
   )
 }
 

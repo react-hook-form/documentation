@@ -1,5 +1,4 @@
 import Seo from "../components/seo"
-import Layout from "../components/layout"
 import Footer from "../components/Footer"
 import PageHeader from "../components/PageHeader"
 import CtaCard from "../components/CtaCard"
@@ -212,7 +211,7 @@ const AboutUs = () => {
   const alumni = data.filter(({ active }) => !active)
 
   return (
-    <Layout>
+    <>
       <Seo
         title="About us"
         description="Meet the team behind React Hook Form."
@@ -258,7 +257,7 @@ const AboutUs = () => {
 
         <Footer />
       </div>
-    </Layout>
+    </>
   )
 }
 

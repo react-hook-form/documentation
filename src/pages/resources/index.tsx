@@ -1,6 +1,5 @@
 import Link from "next/link"
 import clsx from "clsx"
-import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import Footer from "../../components/Footer"
 import PageHeader from "../../components/PageHeader"
@@ -27,7 +26,7 @@ const TOOLS = [
 
 export default function ResourcesIndex() {
   return (
-    <Layout>
+    <>
       <Seo
         title="Resources"
         description="Articles, videos, newsletters, bindings and tools for React Hook Form."
@@ -76,6 +75,6 @@ export default function ResourcesIndex() {
         </main>
         <Footer />
       </div>
-    </Layout>
+    </>
   )
 }

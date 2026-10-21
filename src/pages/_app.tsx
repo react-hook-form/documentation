@@ -4,6 +4,7 @@ import Head from "next/head"
 import formData from "../state/formData"
 import { ThemeProvider } from "next-themes"
 import { useEffect } from "react"
+import Layout from "../components/layout"
 import "../components/layout.css"
 
 createStore(
@@ -45,7 +46,9 @@ function App({ Component, pageProps }: AppProps) {
         enableColorScheme={false}
       >
         <StateMachineProvider>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </StateMachineProvider>
       </ThemeProvider>
     </>

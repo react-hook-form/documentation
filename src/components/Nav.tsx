@@ -42,6 +42,34 @@ const RESOURCES = [
   },
 ]
 
+// The mobile menu has room for a full Community group (matching the footer's
+// Community column), so it splits "Tools & community" in two.
+const MOBILE_GROUPS = [
+  RESOURCES[0],
+  {
+    heading: "Tools",
+    links: [
+      { href: "/form-builder", label: nav.tools.formBuilder },
+      { href: "/dev-tools", label: nav.tools.devTools },
+      { href: "/resources/3rd-party-bindings", label: "3rd-Party Bindings" },
+    ],
+  },
+  {
+    heading: "Community",
+    links: [
+      { href: "/about-us", label: "About us" },
+      { href: "/media", label: "Media" },
+      { href: "/sponsors", label: nav.sponsors },
+      {
+        href: "https://opencollective.com/react-hook-form",
+        label: "Open Collective ↗",
+      },
+      { href: "https://discord.gg/yYv7GZ8", label: "Discord ↗" },
+      { href: "https://twitter.com/HookForm", label: "X / Twitter ↗" },
+    ],
+  },
+]
+
 const RELEASES_URL =
   "https://github.com/react-hook-form/react-hook-form/releases"
 
@@ -282,7 +310,7 @@ export default function Nav() {
               styles.panelLink
             )}
           </div>
-          {RESOURCES.map((group) => (
+          {MOBILE_GROUPS.map((group) => (
             <div key={group.heading} className={styles.mobileGroup}>
               <p>{group.heading}</p>
               {group.links.map((link) => renderLink(link, styles.panelLink))}
