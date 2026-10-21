@@ -88,6 +88,8 @@ When values are encoded as `FormData`, nested objects and arrays use dot-notatio
 
 <Admonition type="important" title="Rules">
 
+- **Data serialization:** The `<Form>` component focuses on form submission, not custom data serialization. Type-specific transformations (e.g. `Date`, `Dayjs`, or custom objects) should be handled at the application level before submission. We aim to keep the component lightweight and avoid introducing additional serialization rules.
+
 - If you want to prepare or omit submission data, please use [`handleSubmit`](/docs/useform/handlesubmit) or `onSubmit`.
   ```javascript
   const { handleSubmit, control } = useForm();
